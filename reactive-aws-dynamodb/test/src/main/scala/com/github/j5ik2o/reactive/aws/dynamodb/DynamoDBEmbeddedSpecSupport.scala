@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.dynamodb
+package com.github.j5ik2o.reactive.aws.dynamodb
 
 import java.io.File
 import java.util.logging.{ Level, Logger }

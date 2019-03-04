@@ -7,9 +7,8 @@ import akka.actor.ActorSystem
 import akka.stream.scaladsl.{ Sink, Source }
 import akka.stream.{ ActorMaterializer, Materializer }
 import akka.testkit.TestKit
-import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBAsyncClientV2
+import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClientV2, DynamoDBContainerSpecSupport }
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
-import com.github.j5ik2o.reactive.dynamodb.DynamoDBContainerSpecSupport
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpecLike, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }

@@ -8,7 +8,6 @@ import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClientBuilder
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
-import com.github.j5ik2o.reactive.dynamodb.DynamoDBEmbeddedSpecSupport
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
 

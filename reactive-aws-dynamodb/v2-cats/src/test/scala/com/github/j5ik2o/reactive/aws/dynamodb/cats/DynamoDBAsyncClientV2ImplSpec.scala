@@ -3,11 +3,11 @@ package com.github.j5ik2o.reactive.aws.dynamodb.cats
 import java.net.URI
 import java.util.UUID
 
+import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBContainerSpecSupport
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
-import com.github.j5ik2o.reactive.dynamodb.DynamoDBContainerSpecSupport
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{AsyncFreeSpec, Matchers}
-import software.amazon.awssdk.auth.credentials.{AwsBasicCredentials, StaticCredentialsProvider}
+import org.scalatest.{ AsyncFreeSpec, Matchers }
+import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
