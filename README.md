@@ -6,6 +6,7 @@
 [![License: MIT](http://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
 
 Please see below for the details.
-[reactive-aws-dynamodb](https://github.com/j5ik2o/reactive-aws-client/tree/master/reactive-aws-dynamodb)
-[reactive-aws-kinesis](https://github.com/j5ik2o/reactive-aws-client/tree/master/reactive-aws-kinesis)
+
+- [reactive-aws-dynamodb](https://github.com/j5ik2o/reactive-aws-client/tree/master/reactive-aws-dynamodb)
+- [reactive-aws-kinesis](https://github.com/j5ik2o/reactive-aws-client/tree/master/reactive-aws-kinesis)
 
