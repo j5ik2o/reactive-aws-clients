@@ -177,6 +177,19 @@ lazy val `reactive-aws-common-akka` = (project in file("reactive-aws-common/akka
     )
   ) dependsOn (`reactive-aws-common-core`)
 
+lazy val `reactive-aws-common-root`: Project = (project in file("reactive-aws-common"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-common-project"
+  )
+  .aggregate(
+    `reactive-aws-common-core`,
+    `reactive-aws-common-test`,
+    `reactive-aws-common-monix`,
+    `reactive-aws-common-cats`,
+    `reactive-aws-common-akka`
+  )
+
 // --- dynamodb
 
 lazy val `reactive-aws-dynamodb-test` = (project in file("reactive-aws-dynamodb/test"))
@@ -427,4 +440,4 @@ lazy val `root`: Project = (project in file("."))
   .settings(
     name := "reactive-aws-client-project"
   )
-  .aggregate(`reactive-aws-dynamodb-root`, `reactive-aws-kinesis-root`)
+  .aggregate(`reactive-aws-common-root`, `reactive-aws-dynamodb-root`, `reactive-aws-kinesis-root`)
