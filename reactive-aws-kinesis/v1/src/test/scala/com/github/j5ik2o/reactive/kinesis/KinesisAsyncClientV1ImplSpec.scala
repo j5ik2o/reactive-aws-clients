@@ -29,6 +29,8 @@ class KinesisAsyncClientV1ImplSpec extends FreeSpec with Matchers with ScalaFutu
 
   val client = KinesisAsyncClientV1(underlying)
 
+  System.setProperty("com.amazonaws.sdk.disableCbor", "true")
+
   "KinesisAsyncClientV1Impl" - {
     "createStreams & listStreams" in {
       val response = client.createStream("test-1", 1).futureValue
