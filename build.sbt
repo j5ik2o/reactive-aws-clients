@@ -71,7 +71,7 @@ val coreSettings = Seq(
     Resolver.bintrayRepo("danslapman", "maven"),
     "Seasar Repository" at "http://maven.seasar.org/maven2/",
     Resolver.sonatypeRepo("releases"),
-    "DynamoDB Local Repository" at "https://s3-us-west-2.amazonaws.com/dynamodb-local/release"
+    "DynamoDB Local Repository" at "https://s3-ap-northeast-1.amazonaws.com/dynamodb-local-tokyo/release"
   ),
   addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.7"),
   libraryDependencies ++= Seq(
@@ -83,7 +83,8 @@ val coreSettings = Seq(
     "ch.qos.logback"         % "logback-classic"     % "1.2.3" % Test
   ),
   parallelExecution in Test := false,
-  wartremoverErrors ++= Warts.allBut(Wart.Any,
+  wartremoverErrors ++= Warts.allBut(Wart.ArrayEquals,
+                                     Wart.Any,
                                      Wart.Throw,
                                      Wart.Nothing,
                                      Wart.Product,
