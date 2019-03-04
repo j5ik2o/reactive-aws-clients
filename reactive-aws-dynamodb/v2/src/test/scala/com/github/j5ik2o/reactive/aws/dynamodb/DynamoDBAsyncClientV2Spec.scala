@@ -6,7 +6,6 @@ import java.util.UUID
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
-import com.github.j5ik2o.reactive.dynamodb.DynamoDBContainerSpecSupport
 import org.scalatest.{ FreeSpec, Matchers }
 import org.scalatest.concurrent.ScalaFutures
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
