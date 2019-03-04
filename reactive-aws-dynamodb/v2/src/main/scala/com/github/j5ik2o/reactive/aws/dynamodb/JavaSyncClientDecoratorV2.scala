@@ -1,6 +1,8 @@
 package com.github.j5ik2o.reactive.aws.dynamodb
 import java.util.function.Consumer
 
+import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaSyncClientMetricsInterceptorV2
+import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 import software.amazon.awssdk.services.dynamodb.model._
 

@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb
+package com.github.j5ik2o.reactive.aws.dynamodb.metrics
 import java.{ lang, util }
 
 import com.amazonaws.regions.Region
@@ -6,6 +6,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB
 import com.amazonaws.services.dynamodbv2.model._
 import com.amazonaws.services.dynamodbv2.waiters.AmazonDynamoDBWaiters
 import com.amazonaws.{ AmazonWebServiceRequest, ResponseMetadata }
+import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor
 
 trait JavaSyncClientMetricsInterceptorV1 extends AmazonDynamoDB with JavaClientMetricsInterceptor {
 

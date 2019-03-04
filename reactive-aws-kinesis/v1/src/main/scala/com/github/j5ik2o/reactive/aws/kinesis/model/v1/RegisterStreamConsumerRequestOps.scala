@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.v1
 
 import com.amazonaws.services.kinesis.model.{ RegisterStreamConsumerRequest => JavaRegisterStreamConsumerRequest }
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ RegisterStreamConsumerRequest => ScalaRegisterStreamConsumerRequest }
+import com.github.j5ik2o.reactive.aws.kinesis.model.{
+  RegisterStreamConsumerRequest => ScalaRegisterStreamConsumerRequest
+}
 
 object RegisterStreamConsumerRequestOps {
 

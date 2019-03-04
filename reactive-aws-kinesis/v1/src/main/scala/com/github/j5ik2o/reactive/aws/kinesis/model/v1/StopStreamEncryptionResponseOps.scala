@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.v1
 
 import com.amazonaws.services.kinesis.model.{ StopStreamEncryptionResult => JavaStopStreamEncryptionResponse }
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ StopStreamEncryptionResponse => ScalaStopStreamEncryptionResponse }
+import com.github.j5ik2o.reactive.aws.kinesis.model.{
+  StopStreamEncryptionResponse => ScalaStopStreamEncryptionResponse
+}
 
 import scala.collection.JavaConverters._
 

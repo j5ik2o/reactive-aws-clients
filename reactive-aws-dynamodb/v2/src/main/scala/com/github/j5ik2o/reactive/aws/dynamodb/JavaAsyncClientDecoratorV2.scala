@@ -2,6 +2,8 @@ package com.github.j5ik2o.reactive.aws.dynamodb
 import java.util.concurrent.CompletableFuture
 import java.util.function.Consumer
 
+import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaAsyncClientMetricsInterceptorV2
+import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.paginators.{

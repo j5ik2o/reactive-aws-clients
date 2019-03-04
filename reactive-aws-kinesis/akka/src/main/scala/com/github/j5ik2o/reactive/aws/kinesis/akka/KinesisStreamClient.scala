@@ -1,7 +1,7 @@
 package com.github.j5ik2o.reactive.aws.kinesis.akka
 
 import akka.NotUsed
-import akka.stream.scaladsl.{Flow, Source}
+import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.kinesis.KinesisClient
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 

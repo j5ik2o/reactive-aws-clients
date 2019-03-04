@@ -1,6 +1,8 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.v2
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DescribeStreamSummaryResponse => ScalaDescribeStreamSummaryResponse }
+import com.github.j5ik2o.reactive.aws.kinesis.model.{
+  DescribeStreamSummaryResponse => ScalaDescribeStreamSummaryResponse
+}
 import software.amazon.awssdk.services.kinesis.model.{
   DescribeStreamSummaryResponse => JavaDescribeStreamSummaryResponse
 }

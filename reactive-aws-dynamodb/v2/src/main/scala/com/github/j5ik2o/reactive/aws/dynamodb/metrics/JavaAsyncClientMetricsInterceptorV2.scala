@@ -1,7 +1,8 @@
-package com.github.j5ik2o.reactive.aws.dynamodb
+package com.github.j5ik2o.reactive.aws.dynamodb.metrics
 import java.util.concurrent.CompletableFuture
 import java.util.function.BiConsumer
 
+import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model._
 

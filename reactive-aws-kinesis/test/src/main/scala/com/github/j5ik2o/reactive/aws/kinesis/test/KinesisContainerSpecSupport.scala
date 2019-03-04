@@ -1,9 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.test
 
-import com.spotify.docker.client.{DefaultDockerClient, DockerClient}
+import com.spotify.docker.client.{ DefaultDockerClient, DockerClient }
 import com.whisk.docker.impl.spotify.SpotifyDockerFactory
 import com.whisk.docker.scalatest.DockerTestKit
-import com.whisk.docker.{DockerContainer, DockerFactory, DockerReadyChecker}
+import com.whisk.docker.{ DockerContainer, DockerFactory, DockerReadyChecker }
 import org.scalatest.Suite
 
 import scala.concurrent.duration._

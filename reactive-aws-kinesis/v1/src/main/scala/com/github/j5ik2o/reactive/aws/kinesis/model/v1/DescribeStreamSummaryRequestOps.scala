@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.v1
 
 import com.amazonaws.services.kinesis.model.{ DescribeStreamSummaryRequest => JavaDescribeStreamSummaryRequest }
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DescribeStreamSummaryRequest => ScalaDescribeStreamSummaryRequest }
+import com.github.j5ik2o.reactive.aws.kinesis.model.{
+  DescribeStreamSummaryRequest => ScalaDescribeStreamSummaryRequest
+}
 
 object DescribeStreamSummaryRequestOps {
 

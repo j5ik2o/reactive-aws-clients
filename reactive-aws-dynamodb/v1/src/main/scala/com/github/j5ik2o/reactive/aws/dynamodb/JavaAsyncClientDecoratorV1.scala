@@ -5,6 +5,8 @@ import java.{ lang, util }
 import com.amazonaws.handlers.AsyncHandler
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync
 import com.amazonaws.services.dynamodbv2.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaAsyncClientMetricsInterceptorV1
+import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 
 object JavaAsyncClientDecoratorV1 {
 

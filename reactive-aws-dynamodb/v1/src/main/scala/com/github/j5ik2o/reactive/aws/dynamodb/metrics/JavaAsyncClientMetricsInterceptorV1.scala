@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb
+package com.github.j5ik2o.reactive.aws.dynamodb.metrics
 import java.util.concurrent.{ CompletableFuture, Future }
 import java.util.function.{ BiConsumer, Supplier }
 import java.{ lang, util }

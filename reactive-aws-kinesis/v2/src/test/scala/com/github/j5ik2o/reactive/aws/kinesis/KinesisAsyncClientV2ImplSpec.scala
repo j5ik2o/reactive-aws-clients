@@ -5,8 +5,8 @@ import java.util.concurrent.Executors
 
 import com.github.j5ik2o.reactive.aws.kinesis.test.KinesisContainerSpecSupport
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{FreeSpec, Matchers}
-import software.amazon.awssdk.auth.credentials.{AwsBasicCredentials, StaticCredentialsProvider}
+import org.scalatest.{ FreeSpec, Matchers }
+import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
 import software.amazon.awssdk.services.kinesis.KinesisAsyncClient
 

@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.v1
 
 import com.amazonaws.services.kinesis.model.{ RemoveTagsFromStreamResult => JavaRemoveTagsFromStreamResponse }
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ RemoveTagsFromStreamResponse => ScalaRemoveTagsFromStreamResponse }
+import com.github.j5ik2o.reactive.aws.kinesis.model.{
+  RemoveTagsFromStreamResponse => ScalaRemoveTagsFromStreamResponse
+}
 
 import scala.collection.JavaConverters._
 

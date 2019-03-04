@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.v1
 
 import com.amazonaws.services.kinesis.model.{ StartStreamEncryptionRequest => JavaStartStreamEncryptionRequest }
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ StartStreamEncryptionRequest => ScalaStartStreamEncryptionRequest }
+import com.github.j5ik2o.reactive.aws.kinesis.model.{
+  StartStreamEncryptionRequest => ScalaStartStreamEncryptionRequest
+}
 
 object StartStreamEncryptionRequestOps {
 
