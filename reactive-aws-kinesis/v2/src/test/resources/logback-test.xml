@@ -12,7 +12,10 @@
         <appender-ref ref="STDOUT" />
     </appender>
 
-    <root level="DEBUG">
+    <!-- <logger name="slick.jdbc.JdbcBackend.statement"  level="DEBUG" /> Will log all statements -->
+    <logger name="com.chatwork.reaction" level="INFO" />
+
+    <root level="INFO">
         <appender-ref ref="ASYNCSTDOUT" />
     </root>
 
