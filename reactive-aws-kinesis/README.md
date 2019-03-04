@@ -12,10 +12,10 @@ resolvers += "Sonatype OSS Release Repository" at "https://oss.sonatype.org/cont
 val version = "..."
 
 libraryDependencies += Seq(
-  "com.github.j5ik2o" %% "reactive-kinesis-v2" % version, // or -v1
-  "com.github.j5ik2o" %% "reactive-kinesis-v2-monix" % version, // optional
-  "com.github.j5ik2o" %% "reactive-kinesis-v2-akka" % version, // optional
-  "com.github.j5ik2o" %% "reactive-kinesis-v2-cats" % version, // optional
+  "com.github.j5ik2o" %% "reactive-aws-kinesis-v2" % version, // or -v1
+  "com.github.j5ik2o" %% "reactive-aws-kinesis-v2-monix" % version, // optional
+  "com.github.j5ik2o" %% "reactive-aws-kinesis-v2-akka" % version, // optional
+  "com.github.j5ik2o" %% "reactive-aws-kinesis-v2-cats" % version, // optional
 )
 ```
 
