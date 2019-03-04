@@ -1,0 +1,14 @@
+package com.github.j5ik2o.reactive.aws.kinesis.cats
+
+import com.github.j5ik2o.reactive.aws.kinesis.KinesisAsyncClientV2Impl
+import software.amazon.awssdk.services.kinesis
+
+object KinesisAsyncClientV2 {
+
+  def apply(underlying: kinesis.KinesisAsyncClient): KinesisAsyncClientV2 = new KinesisAsyncClientV2Impl(underlying)
+
+}
+
+trait KinesisAsyncClientV2 extends KinesisAsyncClient {
+  val underlying: kinesis.KinesisAsyncClient
+}

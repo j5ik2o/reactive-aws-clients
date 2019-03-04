@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.kinesis
+package com.github.j5ik2o.reactive.aws.kinesis
 
 import java.util.concurrent.Executors
 
@@ -6,7 +6,7 @@ import com.amazonaws.auth.{ AWSStaticCredentialsProvider, BasicAWSCredentials }
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration
 import com.amazonaws.regions.Regions
 import com.amazonaws.services.kinesis.AmazonKinesisAsyncClientBuilder
-import com.github.j5ik2o.reactive.kinesis.test.KinesisContainerSpecSupport
+import com.github.j5ik2o.reactive.aws.kinesis.test.KinesisContainerSpecSupport
 import org.scalatest.{ FreeSpec, Matchers }
 import org.scalatest.concurrent.ScalaFutures
 
