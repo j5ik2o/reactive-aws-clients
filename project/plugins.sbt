@@ -1,3 +1,10 @@
+libraryDependencies ++= Seq(
+  "com.github.javaparser"    % "javaparser-core"     % "3.13.1",
+  "com.google.code.findbugs" % "jsr305"              % "3.0.2",
+  "com.beachape"             %% "enumeratum"         % "1.5.13",
+  "org.scala-lang.modules"   %% "scala-java8-compat" % "0.9.0"
+)
+
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 
 addSbtPlugin("com.lucidchart" % "sbt-scalafmt" % "1.15")
