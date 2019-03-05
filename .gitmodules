@@ -1,3 +1,6 @@
 [submodule "aws-sdk-src/aws-sdk-java-v2"]
 	path = aws-sdk-src/aws-sdk-java-v2
 	url = git@github.com:aws/aws-sdk-java-v2.git
+[submodule "aws-sdk-src/aws-sdk-java-v1"]
+	path = aws-sdk-src/aws-sdk-java-v1
+	url = git@github.com:aws/aws-sdk-java.git
