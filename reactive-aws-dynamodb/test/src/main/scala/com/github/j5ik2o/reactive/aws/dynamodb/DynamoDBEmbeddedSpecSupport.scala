@@ -85,13 +85,13 @@ trait DynamoDBEmbeddedSpecSupport extends BeforeAndAfterAll with RandomPortSuppo
     dynamoDBProxyServer.stop()
   }
 
-  override def beforeAll(): Unit = {
+  override protected def beforeAll(): Unit = {
     super.beforeAll()
     startDynamoDBLocal()
     waitDynamoDBLocal()
   }
 
-  override def afterAll(): Unit = {
+  override protected def afterAll(): Unit = {
     shutdownDynamoDBLocal()
     super.afterAll()
   }
