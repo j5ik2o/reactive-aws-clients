@@ -3,8 +3,8 @@ package com.github.j5ik2o.reactive.aws.dynamodb.monix
 import java.net.URI
 import java.util.UUID
 
-import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClientV2, DynamoDBContainerSpecSupport }
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClientV2, DynamoDBContainerSpecSupport }
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
@@ -82,7 +82,7 @@ class DynamoDBTaskClientV2ImplSpec extends FreeSpec with Matchers with ScalaFutu
           Seq(
             AttributeDefinition()
               .withAttributeName(Some("Id"))
-              .withAttributeType(Some(AttributeType.S))
+              .withAttributeType(Some(ScalarAttributeType.S))
           )
         )
       )

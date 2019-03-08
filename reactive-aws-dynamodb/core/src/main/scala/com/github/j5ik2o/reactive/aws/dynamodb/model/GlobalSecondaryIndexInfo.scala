@@ -6,10 +6,12 @@ final case class GlobalSecondaryIndexInfo(
     projection: Option[Projection] = None,
     provisionedThroughput: Option[ProvisionedThroughput] = None
 ) {
-  def withIndexName(value: Option[String]): GlobalSecondaryIndexInfo                = copy(indexName = value)
-  def withKeySchema(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexInfo = copy(keySchema = value)
-  def withProjection(value: Option[Projection]): GlobalSecondaryIndexInfo           = copy(projection = value)
+  def withIndexName(value: Option[String]): GlobalSecondaryIndexInfo =
+    copy(indexName = value)
+  def withKeySchema(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexInfo =
+    copy(keySchema = value)
+  def withProjection(value: Option[Projection]): GlobalSecondaryIndexInfo =
+    copy(projection = value)
   def withProvisionedThroughput(value: Option[ProvisionedThroughput]): GlobalSecondaryIndexInfo =
     copy(provisionedThroughput = value)
-
 }

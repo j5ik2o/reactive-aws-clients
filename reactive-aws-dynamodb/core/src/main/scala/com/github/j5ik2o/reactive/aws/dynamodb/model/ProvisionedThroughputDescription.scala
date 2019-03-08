@@ -1,17 +1,20 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
-import java.time.Instant
 
-final case class ProvisionedThroughputDescription(lastIncreaseDateTime: Option[Instant] = None,
-                                                  lastDecreaseDateTime: Option[Instant] = None,
-                                                  numberOfDecreasesToday: Option[Long] = Some(0L),
-                                                  readCapacityUnits: Option[Long] = Some(0L),
-                                                  writeCapacityUnits: Option[Long] = Some(0L)) {
-  def withLastIncreaseDateTime(value: Option[Instant]): ProvisionedThroughputDescription =
+final case class ProvisionedThroughputDescription(
+    lastIncreaseDateTime: Option[java.time.Instant] = None,
+    lastDecreaseDateTime: Option[java.time.Instant] = None,
+    numberOfDecreasesToday: Option[Long] = None,
+    readCapacityUnits: Option[Long] = None,
+    writeCapacityUnits: Option[Long] = None
+) {
+  def withLastIncreaseDateTime(value: Option[java.time.Instant]): ProvisionedThroughputDescription =
     copy(lastIncreaseDateTime = value)
-  def withLastDecreaseDateTime(value: Option[Instant]): ProvisionedThroughputDescription =
+  def withLastDecreaseDateTime(value: Option[java.time.Instant]): ProvisionedThroughputDescription =
     copy(lastDecreaseDateTime = value)
   def withNumberOfDecreasesToday(value: Option[Long]): ProvisionedThroughputDescription =
     copy(numberOfDecreasesToday = value)
-  def withReadCapacityUnits(value: Option[Long]): ProvisionedThroughputDescription  = copy(readCapacityUnits = value)
-  def withWriteCapacityUnits(value: Option[Long]): ProvisionedThroughputDescription = copy(writeCapacityUnits = value)
+  def withReadCapacityUnits(value: Option[Long]): ProvisionedThroughputDescription =
+    copy(readCapacityUnits = value)
+  def withWriteCapacityUnits(value: Option[Long]): ProvisionedThroughputDescription =
+    copy(writeCapacityUnits = value)
 }

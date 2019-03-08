@@ -8,6 +8,7 @@ sealed trait ReturnItemCollectionMetrics extends EnumEntry
 
 object ReturnItemCollectionMetrics extends Enum[ReturnItemCollectionMetrics] {
   override def values: immutable.IndexedSeq[ReturnItemCollectionMetrics] = findValues
-  case object SIZE extends ReturnItemCollectionMetrics
+
   case object NONE extends ReturnItemCollectionMetrics
+  case object SIZE extends ReturnItemCollectionMetrics
 }

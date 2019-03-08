@@ -1,7 +1,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
 import com.amazonaws.services.dynamodbv2.model.{ GetItemRequest => JavaGetItemRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GetItemRequest => ScalaGetItemRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReturnConsumedCapacity, GetItemRequest => ScalaGetItemRequest }
 
 import scala.collection.JavaConverters._
 
@@ -17,7 +17,7 @@ object GetItemRequestOps {
       self.key.map(_.mapValues(_.toJava).asJava).foreach(result.setKey)
       self.attributesToGet.map(_.asJava).foreach(result.setAttributesToGet)
       self.consistentRead.foreach(v => result.setConsistentRead(v))
-      self.returnConsumedCapacity.foreach(result.setReturnConsumedCapacity)
+      self.returnConsumedCapacity.map(_.entryName).foreach(result.setReturnConsumedCapacity)
       self.projectionExpression.foreach(result.setProjectionExpression)
       self.expressionAttributeNames.map(_.asJava).foreach(result.setExpressionAttributeNames)
       result
@@ -32,8 +32,8 @@ object GetItemRequestOps {
         .withTableName(Option(self.getTableName))
         .withKey(Option(self.getKey).map(_.asScala.toMap.mapValues(_.toScala)))
         .withAttributesToGet(Option(self.getAttributesToGet).map(_.asScala))
-        .withConsistentRead(Option(self.getConsistentRead).map(_.booleanValue()))
-        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity))
+        .withConsistentRead(Option(self.getConsistentRead))
+        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity).map(ReturnConsumedCapacity.withName))
         .withProjectionExpression(Option(self.getProjectionExpression))
         .withExpressionAttributeNames(
           Option(self.getExpressionAttributeNames).map(_.asScala.toMap)

@@ -24,7 +24,7 @@ object DeleteItemRequestOps {
       self.conditionalOperator.map(_.entryName).foreach(result.conditionalOperator)
       self.returnValues.map(_.entryName).foreach(result.returnValues)
       self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
-      self.returnItemCollectionMetrics.foreach(result.returnItemCollectionMetrics)
+      self.returnItemCollectionMetrics.map(_.entryName).foreach(result.returnItemCollectionMetrics)
       self.conditionExpression.foreach(result.conditionExpression)
       self.expressionAttributeNames.map(_.asJava).foreach(result.expressionAttributeNames)
       self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.expressionAttributeValues)

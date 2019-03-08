@@ -1,14 +1,14 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
 
-final case class DescribeLimitsResponse(override val statusCode: Option[Int] = None,
-                                        override val statusText: Option[String] = None,
-                                        override val httpHeaders: Option[Map[String, Seq[String]]] = None,
-                                        accountMaxReadCapacityUnits: Option[Long] = None,
-                                        accountMaxWriteCapacityUnits: Option[Long] = None,
-                                        tableMaxReadCapacityUnits: Option[Long] = None,
-                                        tableMaxWriteCapacityUnits: Option[Long] = None)
-    extends AbstractResponse(statusCode, statusText, httpHeaders) {
-
+final case class DescribeLimitsResponse(
+    override val statusCode: Option[Int] = None,
+    override val statusText: Option[String] = None,
+    override val httpHeaders: Option[Map[String, Seq[String]]] = None,
+    accountMaxReadCapacityUnits: Option[Long] = None,
+    accountMaxWriteCapacityUnits: Option[Long] = None,
+    tableMaxReadCapacityUnits: Option[Long] = None,
+    tableMaxWriteCapacityUnits: Option[Long] = None
+) extends AbstractResponse(statusCode, statusText, httpHeaders) {
   override type ThisType = DescribeLimitsResponse
   override def withStatusCode(value: Option[Int]): DescribeLimitsResponse    = copy(statusCode = value)
   override def withStatusText(value: Option[String]): DescribeLimitsResponse = copy(statusText = value)
@@ -22,5 +22,4 @@ final case class DescribeLimitsResponse(override val statusCode: Option[Int] = N
     copy(tableMaxReadCapacityUnits = value)
   def withTableMaxWriteCapacityUnits(value: Option[Long]): DescribeLimitsResponse =
     copy(tableMaxWriteCapacityUnits = value)
-
 }

@@ -11,7 +11,7 @@ object BatchWriteItemRequestOps {
     def toJava: JavaBatchWriteItemRequest = {
       val result = JavaBatchWriteItemRequest.builder()
       self.requestItems.foreach(v => result.requestItems(v.mapValues(_.map(_.toJava).asJava).asJava))
-      self.returnConsumedCapacity.foreach(result.returnConsumedCapacity)
+      self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
       result.build()
     }
 

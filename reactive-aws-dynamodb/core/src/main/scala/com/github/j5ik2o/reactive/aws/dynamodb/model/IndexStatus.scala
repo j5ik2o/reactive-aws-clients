@@ -9,9 +9,8 @@ sealed trait IndexStatus extends EnumEntry
 object IndexStatus extends Enum[IndexStatus] {
   override def values: immutable.IndexedSeq[IndexStatus] = findValues
 
-  case object CREATING extends IndexStatus
-  case object UPDATING extends IndexStatus
   case object DELETING extends IndexStatus
   case object ACTIVE   extends IndexStatus
-
+  case object UPDATING extends IndexStatus
+  case object CREATING extends IndexStatus
 }

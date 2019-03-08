@@ -97,7 +97,7 @@ class DynamoDBStreamClientV2ImplSpec
           Seq(
             AttributeDefinition()
               .withAttributeName(Some("Id"))
-              .withAttributeType(Some(AttributeType.S))
+              .withAttributeType(Some(ScalarAttributeType.S))
           )
         )
       )

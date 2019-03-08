@@ -31,7 +31,7 @@ object SourceTableFeatureDetailsOps {
         .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map(_.asScala.map(_.toScala)))
         .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map(_.asScala.map(_.toScala)))
         .withStreamDescription(Option(self.streamDescription).map(_.toScala))
-        .withSSEDescription(Option(self.sseDescription).map(_.toScala))
+        .withSseDescription(Option(self.sseDescription).map(_.toScala))
     }
 
   }

@@ -1,7 +1,11 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
 import com.amazonaws.services.dynamodbv2.model.{ BatchWriteItemRequest => JavaBatchWriteItemRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchWriteItemRequest => ScalaBatchWriteItemRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  ReturnConsumedCapacity,
+  ReturnItemCollectionMetrics,
+  BatchWriteItemRequest => ScalaBatchWriteItemRequest
+}
 
 import scala.collection.JavaConverters._
 
@@ -13,7 +17,7 @@ object BatchWriteItemRequestOps {
     def toJava: JavaBatchWriteItemRequest = {
       val result = new JavaBatchWriteItemRequest()
       self.requestItems.foreach(v => result.setRequestItems(v.mapValues(_.map(_.toJava).asJava).asJava))
-      self.returnConsumedCapacity.foreach(result.setReturnConsumedCapacity)
+      self.returnConsumedCapacity.map(_.entryName).foreach(result.setReturnConsumedCapacity)
       result
     }
 
@@ -26,8 +30,10 @@ object BatchWriteItemRequestOps {
         .withRequestItems(
           Option(self.getRequestItems).map(_.asScala.toMap.mapValues(_.asScala.map(_.toScala)))
         )
-        .withReturnItemCollectionMetrics(Option(self.getReturnItemCollectionMetrics))
-        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity))
+        .withReturnItemCollectionMetrics(
+          Option(self.getReturnItemCollectionMetrics).map(ReturnItemCollectionMetrics.withName)
+        )
+        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity).map(ReturnConsumedCapacity.withName))
     }
 
   }

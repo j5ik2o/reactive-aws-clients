@@ -174,7 +174,7 @@ class DynamoDBAsyncClientV2Spec extends FreeSpec with Matchers with ScalaFutures
           Seq(
             AttributeDefinition()
               .withAttributeName(Some("Id"))
-              .withAttributeType(Some(AttributeType.S))
+              .withAttributeType(Some(ScalarAttributeType.S))
           )
         )
       )
@@ -209,10 +209,10 @@ class DynamoDBAsyncClientV2Spec extends FreeSpec with Matchers with ScalaFutures
           Seq(
             AttributeDefinition()
               .withAttributeName(Some("Id"))
-              .withAttributeType(Some(AttributeType.S)),
+              .withAttributeType(Some(ScalarAttributeType.S)),
             AttributeDefinition()
               .withAttributeName(Some("CreatedAt"))
-              .withAttributeType(Some(AttributeType.N))
+              .withAttributeType(Some(ScalarAttributeType.N))
           )
         )
       )

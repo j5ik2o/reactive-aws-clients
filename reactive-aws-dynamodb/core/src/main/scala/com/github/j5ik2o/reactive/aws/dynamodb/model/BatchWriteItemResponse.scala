@@ -1,12 +1,13 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
 
-final case class BatchWriteItemResponse(override val statusCode: Option[Int] = None,
-                                        override val statusText: Option[String] = None,
-                                        override val httpHeaders: Option[Map[String, Seq[String]]] = None,
-                                        unprocessedItems: Option[Map[String, Seq[WriteRequest]]] = None,
-                                        itemCollectionMetrics: Option[Map[String, Seq[ItemCollectionMetrics]]] = None,
-                                        consumedCapacity: Option[Seq[ConsumedCapacity]] = None)
-    extends AbstractResponse(statusCode, statusText, httpHeaders) {
+final case class BatchWriteItemResponse(
+    override val statusCode: Option[Int] = None,
+    override val statusText: Option[String] = None,
+    override val httpHeaders: Option[Map[String, Seq[String]]] = None,
+    unprocessedItems: Option[Map[String, Seq[WriteRequest]]] = None,
+    itemCollectionMetrics: Option[Map[String, Seq[ItemCollectionMetrics]]] = None,
+    consumedCapacity: Option[Seq[ConsumedCapacity]] = None
+) extends AbstractResponse(statusCode, statusText, httpHeaders) {
   override type ThisType = BatchWriteItemResponse
   override def withStatusCode(value: Option[Int]): BatchWriteItemResponse    = copy(statusCode = value)
   override def withStatusText(value: Option[String]): BatchWriteItemResponse = copy(statusText = value)
@@ -18,5 +19,4 @@ final case class BatchWriteItemResponse(override val statusCode: Option[Int] = N
     copy(itemCollectionMetrics = value)
   def withConsumedCapacity(value: Option[Seq[ConsumedCapacity]]): BatchWriteItemResponse =
     copy(consumedCapacity = value)
-
 }

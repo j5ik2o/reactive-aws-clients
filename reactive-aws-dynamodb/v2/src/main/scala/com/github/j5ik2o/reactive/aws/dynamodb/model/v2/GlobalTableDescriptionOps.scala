@@ -19,7 +19,7 @@ object GlobalTableDescriptionOps {
       val result = JavaGlobalTableDescription.builder()
       self.globalTableName.foreach(result.globalTableName)
       self.globalTableStatus.foreach(v => result.globalTableStatus(v.entryName))
-      self.creationDateTime.foreach(v => result.creationDateTime(v.toInstant))
+      self.creationDateTime.foreach(result.creationDateTime)
       self.globalTableArn.foreach(result.globalTableArn)
       self.replicationGroup.foreach(v => result.replicationGroup(v.map(_.toJava).asJava))
       result.build()
@@ -33,7 +33,7 @@ object GlobalTableDescriptionOps {
       ScalaGlobalTableDescription()
         .withGlobalTableName(Option(self.globalTableName))
         .withGlobalTableStatus(Option(self.globalTableStatus.toString).map(GlobalTableStatus.withName))
-        .withCreationDateTime(Option(self.creationDateTime).map(Date.from))
+        .withCreationDateTime(Option(self.creationDateTime))
         .withGlobalTableArn(Option(self.globalTableArn))
         .withReplicationGroup(Option(self.replicationGroup.asScala.map(_.toScala)))
     }

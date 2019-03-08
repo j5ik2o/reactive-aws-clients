@@ -8,7 +8,8 @@ final case class UpdateGlobalTableSettingsRequest(
     globalTableGlobalSecondaryIndexSettingsUpdate: Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]] = None,
     replicaSettingsUpdate: Option[Seq[ReplicaSettingsUpdate]] = None
 ) {
-  def withGlobalTableName(value: Option[String]): UpdateGlobalTableSettingsRequest = copy(globalTableName = value)
+  def withGlobalTableName(value: Option[String]): UpdateGlobalTableSettingsRequest =
+    copy(globalTableName = value)
   def withGlobalTableBillingMode(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest =
     copy(globalTableBillingMode = value)
   def withGlobalTableProvisionedWriteCapacityUnits(value: Option[Long]): UpdateGlobalTableSettingsRequest =

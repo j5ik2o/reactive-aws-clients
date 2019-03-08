@@ -10,23 +10,26 @@ final case class ReplicaSettingsDescription(
     replicaProvisionedWriteCapacityAutoScalingSettings: Option[AutoScalingSettingsDescription] = None,
     replicaGlobalSecondaryIndexSettings: Option[Seq[ReplicaGlobalSecondaryIndexSettingsDescription]] = None
 ) {
-
-  def withRegionName(value: Option[String]): ReplicaSettingsDescription           = copy(regionName = value)
-  def withReplicaStatus(value: Option[ReplicaStatus]): ReplicaSettingsDescription = copy(replicaStatus = value)
+  def withRegionName(value: Option[String]): ReplicaSettingsDescription =
+    copy(regionName = value)
+  def withReplicaStatus(value: Option[ReplicaStatus]): ReplicaSettingsDescription =
+    copy(replicaStatus = value)
   def withReplicaBillingModeSummary(value: Option[BillingModeSummary]): ReplicaSettingsDescription =
     copy(replicaBillingModeSummary = value)
   def withReplicaProvisionedReadCapacityUnits(value: Option[Long]): ReplicaSettingsDescription =
     copy(replicaProvisionedReadCapacityUnits = value)
   def withReplicaProvisionedReadCapacityAutoScalingSettings(
       value: Option[AutoScalingSettingsDescription]
-  ): ReplicaSettingsDescription = copy(replicaProvisionedReadCapacityAutoScalingSettings = value)
+  ): ReplicaSettingsDescription =
+    copy(replicaProvisionedReadCapacityAutoScalingSettings = value)
   def withReplicaProvisionedWriteCapacityUnits(value: Option[Long]): ReplicaSettingsDescription =
     copy(replicaProvisionedWriteCapacityUnits = value)
   def withReplicaProvisionedWriteCapacityAutoScalingSettings(
       value: Option[AutoScalingSettingsDescription]
-  ): ReplicaSettingsDescription = copy(replicaProvisionedWriteCapacityAutoScalingSettings = value)
+  ): ReplicaSettingsDescription =
+    copy(replicaProvisionedWriteCapacityAutoScalingSettings = value)
   def withReplicaGlobalSecondaryIndexSettings(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsDescription]]
-  ): ReplicaSettingsDescription = copy(replicaGlobalSecondaryIndexSettings = value)
-
+  ): ReplicaSettingsDescription =
+    copy(replicaGlobalSecondaryIndexSettings = value)
 }

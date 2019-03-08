@@ -3,7 +3,7 @@ package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 import java.util.Date
 
 import com.amazonaws.services.dynamodbv2.model.{ ListBackupsRequest => JavaListBackupsRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupType, ListBackupsRequest => ScalaListBackupsRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupTypeFilter, ListBackupsRequest => ScalaListBackupsRequest }
 
 object ListBackupsRequestOps {
 
@@ -31,7 +31,7 @@ object ListBackupsRequestOps {
         .withTimeRangeLowerBound(Option(self.getTimeRangeLowerBound).map(_.toInstant))
         .withTimeRangeUpperBound(Option(self.getTimeRangeUpperBound).map(_.toInstant))
         .withExclusiveStartBackupArn(Option(self.getExclusiveStartBackupArn))
-        .withBackupType(Option(self.getBackupType).map(BackupType.withName))
+        .withBackupType(Option(self.getBackupType).map(BackupTypeFilter.withName))
     }
 
   }

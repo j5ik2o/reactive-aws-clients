@@ -9,9 +9,9 @@ sealed trait ReturnValue extends EnumEntry
 object ReturnValue extends Enum[ReturnValue] {
   override def values: immutable.IndexedSeq[ReturnValue] = findValues
 
-  case object NONE        extends ReturnValue
-  case object ALL_OLD     extends ReturnValue
   case object UPDATED_OLD extends ReturnValue
   case object ALL_NEW     extends ReturnValue
+  case object ALL_OLD     extends ReturnValue
+  case object NONE        extends ReturnValue
   case object UPDATED_NEW extends ReturnValue
 }

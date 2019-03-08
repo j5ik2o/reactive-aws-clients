@@ -8,6 +8,7 @@ sealed trait ConditionalOperator extends EnumEntry
 
 object ConditionalOperator extends Enum[ConditionalOperator] {
   override def values: immutable.IndexedSeq[ConditionalOperator] = findValues
-  case object AND extends ConditionalOperator
+
   case object OR  extends ConditionalOperator
+  case object AND extends ConditionalOperator
 }

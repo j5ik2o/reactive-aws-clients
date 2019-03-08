@@ -97,7 +97,7 @@ class DynamoDBAsyncClientV1Spec extends FreeSpec with DynamoDBEmbeddedSpecSuppor
           Seq(
             AttributeDefinition()
               .withAttributeName(Some("Id"))
-              .withAttributeType(Some(AttributeType.S))
+              .withAttributeType(Some(ScalarAttributeType.S))
           )
         )
       )

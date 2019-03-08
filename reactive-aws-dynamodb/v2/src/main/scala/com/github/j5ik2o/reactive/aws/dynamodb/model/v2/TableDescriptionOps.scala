@@ -51,7 +51,7 @@ object TableDescriptionOps {
         .withKeySchema(Option(self.keySchema).map(_.asScala.map(_.toScala)))
         .withTableStatus(Option(self.tableStatus).map(_.toString).map(TableStatus.withName))
         .withCreationDateTime(Option(self.creationDateTime))
-        .withProvisionedThroughputDescription(Option(self.provisionedThroughput).map(_.toScala))
+        .withProvisionedThroughput(Option(self.provisionedThroughput).map(_.toScala))
         .withTableSizeBytes(Option(self.tableSizeBytes))
         .withItemCount(Option(self.itemCount))
         .withTableArn(Option(self.tableArn))
@@ -63,7 +63,7 @@ object TableDescriptionOps {
         .withLatestStreamLabel(Option(self.latestStreamLabel))
         .withLatestStreamArn(Option(self.latestStreamArn))
         .withRestoreSummary(Option(self.restoreSummary).map(_.toScala))
-        .withSSEDescription(Option(self.sseDescription).map(_.toScala))
+        .withSseDescription(Option(self.sseDescription).map(_.toScala))
     }
 
   }

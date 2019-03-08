@@ -6,12 +6,14 @@ final case class ReplicaSettingsUpdate(
     replicaProvisionedReadCapacityAutoScalingSettingsUpdate: Option[AutoScalingSettingsUpdate] = None,
     replicaGlobalSecondaryIndexSettingsUpdate: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]] = None
 ) {
-  def withRegionName(value: Option[String]): ReplicaSettingsUpdate = copy(regionName = value)
+  def withRegionName(value: Option[String]): ReplicaSettingsUpdate =
+    copy(regionName = value)
   def withReplicaProvisionedReadCapacityUnits(value: Option[Long]): ReplicaSettingsUpdate =
     copy(replicaProvisionedReadCapacityUnits = value)
   def withReplicaProvisionedReadCapacityAutoScalingSettingsUpdate(
       value: Option[AutoScalingSettingsUpdate]
-  ): ReplicaSettingsUpdate = copy(replicaProvisionedReadCapacityAutoScalingSettingsUpdate = value)
+  ): ReplicaSettingsUpdate =
+    copy(replicaProvisionedReadCapacityAutoScalingSettingsUpdate = value)
   def withReplicaGlobalSecondaryIndexSettingsUpdate(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]]
   ): ReplicaSettingsUpdate =
