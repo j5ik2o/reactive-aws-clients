@@ -21,7 +21,8 @@ object SSESpecificationOps {
 
     def toScala: ScalaSSESpecification = {
       ScalaSSESpecification()
-        .withEnabled(Option(self.enabled)).withSSEType(
+        .withEnabled(Option(self.enabled).map(_.booleanValue()))
+        .withSSEType(
           Option(self.sseType)
             .map(_.toString)
             .map(SSEType.withName)

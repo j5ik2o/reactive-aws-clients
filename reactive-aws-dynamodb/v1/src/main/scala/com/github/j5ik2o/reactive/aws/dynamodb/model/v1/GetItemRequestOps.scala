@@ -32,7 +32,7 @@ object GetItemRequestOps {
         .withTableName(Option(self.getTableName))
         .withKey(Option(self.getKey).map(_.asScala.toMap.mapValues(_.toScala)))
         .withAttributesToGet(Option(self.getAttributesToGet).map(_.asScala))
-        .withConsistentRead(Option(self.getConsistentRead))
+        .withConsistentRead(Option(self.getConsistentRead).map(_.booleanValue()))
         .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity))
         .withProjectionExpression(Option(self.getProjectionExpression))
         .withExpressionAttributeNames(

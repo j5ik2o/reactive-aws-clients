@@ -27,7 +27,7 @@ object AutoScalingSettingsUpdateOps {
       ScalaAutoScalingSettingsUpdate()
         .withMinimumUnits(Option(self.minimumUnits))
         .withMaximumUnits(Option(self.maximumUnits))
-        .withAutoScalingDisabled(Option(self.autoScalingDisabled))
+        .withAutoScalingDisabled(Option(self.autoScalingDisabled).map(_.booleanValue()))
         .withAutoScalingRoleArn(Option(self.autoScalingRoleArn))
         .withScalingPolicyUpdate(Option(self.scalingPolicyUpdate).map(_.toScala))
     }

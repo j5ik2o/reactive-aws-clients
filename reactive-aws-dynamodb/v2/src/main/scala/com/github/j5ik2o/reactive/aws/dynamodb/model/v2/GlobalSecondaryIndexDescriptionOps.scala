@@ -42,7 +42,7 @@ object GlobalSecondaryIndexDescriptionOps {
         .withKeySchema(Option(self.keySchema).map(_.asScala.map(_.toScala)))
         .withProjection(Option(self.projection).map(_.toScala))
         .withIndexStatus(Option(self.indexStatus).map(_.toString).map(IndexStatus.withName))
-        .withBackFilling(Option(self.backfilling))
+        .withBackFilling(Option(self.backfilling).map(_.booleanValue()))
         .withProvisionedThroughput(Option(self.provisionedThroughput).map(_.toScala))
         .withIndexSizeBytes(Option(self.indexSizeBytes))
         .withItemCount(Option(self.itemCount))

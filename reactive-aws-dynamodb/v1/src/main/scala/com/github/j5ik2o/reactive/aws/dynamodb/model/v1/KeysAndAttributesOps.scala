@@ -15,7 +15,7 @@ object KeysAndAttributesOps {
       ScalaKeysAndAttributes()
         .withKeys(Option(self.getKeys).map(_.asScala.map(_.asScala.toMap.mapValues(_.toScala))))
         .withAttributesToGet(Option(self.getAttributesToGet).map(_.asScala))
-        .withConsistentRead(Option(self.getConsistentRead))
+        .withConsistentRead(Option(self.getConsistentRead).map(_.booleanValue()))
         .withProjectionExpression(Option(self.getProjectionExpression))
         .withExpressionAttributeNames(Option(self.getExpressionAttributeNames).map(_.asScala.toMap))
     }

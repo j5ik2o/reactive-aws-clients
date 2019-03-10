@@ -19,9 +19,9 @@ object SSESpecificationOps {
 
     def toScala: ScalaSSESpecification = {
       ScalaSSESpecification()
-        .withEnabled(Option(self.getEnabled)).withSSEType(Option(self.getSSEType).map(SSEType.withName)).withKMSMasterKeyId(
-          Option(self.getKMSMasterKeyId)
-        )
+        .withEnabled(Option(self.getEnabled).map(_.booleanValue()))
+        .withSSEType(Option(self.getSSEType).map(SSEType.withName))
+        .withKMSMasterKeyId(Option(self.getKMSMasterKeyId))
     }
 
   }

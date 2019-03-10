@@ -28,7 +28,7 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
 
     def toScala: ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription = {
       ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription()
-        .withDisableScaleIn(Option(self.disableScaleIn))
+        .withDisableScaleIn(Option(self.disableScaleIn).map(_.booleanValue()))
         .withScaleInCooldown(Option(self.scaleInCooldown))
         .withScaleOutCooldown(Option(self.scaleOutCooldown))
     }

@@ -31,7 +31,7 @@ object AutoScalingSettingsDescriptionOps {
       ScalaAutoScalingSettingsDescription()
         .withMinimumUnits(Option(self.getMinimumUnits))
         .withMaximumUnits(Option(self.getMaximumUnits))
-        .withAutoScalingDisabled(Option(self.getAutoScalingDisabled))
+        .withAutoScalingDisabled(Option(self.getAutoScalingDisabled).map(_.booleanValue()))
         .withAutoScalingRoleArn(Option(self.getAutoScalingRoleArn))
         .withScalingPolicies(Option(self.getScalingPolicies).map(_.asScala.map(_.toScala)))
     }
