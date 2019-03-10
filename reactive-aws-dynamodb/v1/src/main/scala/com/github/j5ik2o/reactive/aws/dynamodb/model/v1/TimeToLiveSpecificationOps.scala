@@ -20,7 +20,8 @@ object TimeToLiveSpecificationOps {
 
     def toScala: ScalaTimeToLiveSpecification = {
       ScalaTimeToLiveSpecification()
-        .withAttributeName(Option(self.getAttributeName)).withEnabled(Option(self.getEnabled).map(_.booleanValue()))
+        .withAttributeName(Option(self.getAttributeName))
+        .withEnabled(Option(self.getEnabled).map(_.booleanValue()))
     }
 
   }

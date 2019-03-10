@@ -63,7 +63,7 @@ object ScanRequestOps {
         .withExpressionAttributeValues(
           Option(self.expressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
         )
-        .withConsistentRead(Option(self.consistentRead))
+        .withConsistentRead(Option(self.consistentRead).map(_.booleanValue()))
     }
 
   }

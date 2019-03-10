@@ -32,7 +32,7 @@ object RestoreTableToPointInTimeRequestOps {
       ScalaRestoreTableToPointInTimeRequest()
         .withSourceTableName(Option(self.getSourceTableName))
         .withTargetTableName(Option(self.getTargetTableName))
-        .withUseLatestRestorableTime(Option(self.getUseLatestRestorableTime))
+        .withUseLatestRestorableTime(Option(self.getUseLatestRestorableTime).map(_.booleanValue()))
         .withRestoreDateTime(Option(self.getRestoreDateTime).map(_.toInstant))
     }
 

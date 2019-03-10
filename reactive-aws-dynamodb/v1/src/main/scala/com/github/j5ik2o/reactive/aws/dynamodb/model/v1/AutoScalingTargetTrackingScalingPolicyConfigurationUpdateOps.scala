@@ -29,7 +29,7 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps {
 
     def toScala: ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate = {
       ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate()
-        .withDisableScaleIn(Option(self.getDisableScaleIn))
+        .withDisableScaleIn(Option(self.getDisableScaleIn).map(_.booleanValue()))
         .withScaleInCooldown(Option(self.getScaleInCooldown))
         .withScaleOutCooldown(Option(self.getScaleOutCooldown))
         .withTargetValue(Option(self.getTargetValue))

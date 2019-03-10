@@ -20,9 +20,8 @@ object StreamSpecificationOps {
 
     def toScala: ScalaStreamSpecification = {
       ScalaStreamSpecification()
-        .withStreamEnabled(Option(self.getStreamEnabled)).withStreamViewType(
-          Option(self.getStreamViewType).map(StreamViewType.withName)
-        )
+        .withStreamEnabled(Option(self.getStreamEnabled).map(_.booleanValue()))
+        .withStreamViewType(Option(self.getStreamViewType).map(StreamViewType.withName))
     }
 
   }
