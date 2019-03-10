@@ -20,7 +20,8 @@ object EndpointOps {
 
     def toScala: ScalaEndpoint = {
       ScalaEndpoint()
-        .withAddress(Option(self.getAddress)).withCachePeriodInMinutes(Option(self.getCachePeriodInMinutes))
+        .withAddress(Option(self.getAddress))
+        .withCachePeriodInMinutes(Option(self.getCachePeriodInMinutes).map(_.longValue()))
     }
 
   }

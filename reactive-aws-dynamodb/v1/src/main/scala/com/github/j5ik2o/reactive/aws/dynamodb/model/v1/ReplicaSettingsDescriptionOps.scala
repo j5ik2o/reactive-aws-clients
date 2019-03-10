@@ -41,11 +41,13 @@ object ReplicaSettingsDescriptionOps {
         .withRegionName(Option(self.getRegionName))
         .withReplicaStatus(Option(self.getReplicaStatus).map(ReplicaStatus.withName))
         .withReplicaBillingModeSummary(Option(self.getReplicaBillingModeSummary).map(_.toScala))
-        .withReplicaProvisionedReadCapacityUnits(Option(self.getReplicaProvisionedReadCapacityUnits))
+        .withReplicaProvisionedReadCapacityUnits(Option(self.getReplicaProvisionedReadCapacityUnits).map(_.longValue()))
         .withReplicaProvisionedReadCapacityAutoScalingSettings(
           Option(self.getReplicaProvisionedReadCapacityAutoScalingSettings).map(_.toScala)
         )
-        .withReplicaProvisionedWriteCapacityUnits(Option(self.getReplicaProvisionedWriteCapacityUnits))
+        .withReplicaProvisionedWriteCapacityUnits(
+          Option(self.getReplicaProvisionedWriteCapacityUnits).map(_.longValue())
+        )
         .withReplicaProvisionedWriteCapacityAutoScalingSettings(
           Option(self.getReplicaProvisionedWriteCapacityAutoScalingSettings).map(_.toScala)
         )

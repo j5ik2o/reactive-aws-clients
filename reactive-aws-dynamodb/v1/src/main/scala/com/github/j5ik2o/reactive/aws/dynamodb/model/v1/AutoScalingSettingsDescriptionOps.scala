@@ -29,8 +29,8 @@ object AutoScalingSettingsDescriptionOps {
 
     def toScala: ScalaAutoScalingSettingsDescription = {
       ScalaAutoScalingSettingsDescription()
-        .withMinimumUnits(Option(self.getMinimumUnits))
-        .withMaximumUnits(Option(self.getMaximumUnits))
+        .withMinimumUnits(Option(self.getMinimumUnits).map(_.longValue()))
+        .withMaximumUnits(Option(self.getMaximumUnits).map(_.longValue()))
         .withAutoScalingDisabled(Option(self.getAutoScalingDisabled).map(_.booleanValue()))
         .withAutoScalingRoleArn(Option(self.getAutoScalingRoleArn))
         .withScalingPolicies(Option(self.getScalingPolicies).map(_.asScala.map(_.toScala)))

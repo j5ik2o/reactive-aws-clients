@@ -43,7 +43,9 @@ object UpdateGlobalTableSettingsRequestOps {
       ScalaUpdateGlobalTableSettingsRequest()
         .withGlobalTableName(Option(self.getGlobalTableName))
         .withGlobalTableBillingMode(Option(self.getGlobalTableBillingMode).map(BillingMode.withName))
-        .withGlobalTableProvisionedWriteCapacityUnits(Option(self.getGlobalTableProvisionedWriteCapacityUnits))
+        .withGlobalTableProvisionedWriteCapacityUnits(
+          Option(self.getGlobalTableProvisionedWriteCapacityUnits).map(_.longValue())
+        )
         .withGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(
           Option(self.getGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate).map(_.toScala)
         )

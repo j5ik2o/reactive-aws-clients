@@ -20,9 +20,8 @@ object ProvisionedThroughputOps {
 
     def toScala: ScalaProvisionedThroughput = {
       ScalaProvisionedThroughput()
-        .withReadCapacityUnits(Option(self.getReadCapacityUnits)).withWriteCapacityUnits(
-          Option(self.getWriteCapacityUnits)
-        )
+        .withReadCapacityUnits(Option(self.getReadCapacityUnits).map(_.longValue()))
+        .withWriteCapacityUnits(Option(self.getWriteCapacityUnits).map(_.longValue()))
     }
 
   }

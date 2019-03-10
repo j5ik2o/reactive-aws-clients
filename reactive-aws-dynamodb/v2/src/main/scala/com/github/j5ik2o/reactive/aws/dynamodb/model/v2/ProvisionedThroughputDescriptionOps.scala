@@ -29,9 +29,9 @@ object ProvisionedThroughputDescriptionOps {
       ScalaProvisionedThroughputDescription()
         .withLastIncreaseDateTime(Option(self.lastIncreaseDateTime))
         .withLastDecreaseDateTime(Option(self.lastDecreaseDateTime))
-        .withNumberOfDecreasesToday(Option(self.numberOfDecreasesToday))
-        .withReadCapacityUnits(Option(self.readCapacityUnits))
-        .withWriteCapacityUnits(Option(self.writeCapacityUnits))
+        .withNumberOfDecreasesToday(Option(self.numberOfDecreasesToday).map(_.longValue()))
+        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.longValue()))
+        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.longValue()))
     }
 
   }

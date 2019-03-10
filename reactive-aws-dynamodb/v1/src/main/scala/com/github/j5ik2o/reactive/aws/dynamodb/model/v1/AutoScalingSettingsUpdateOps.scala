@@ -25,8 +25,8 @@ object AutoScalingSettingsUpdateOps {
 
     def toScala: ScalaAutoScalingSettingsUpdate = {
       ScalaAutoScalingSettingsUpdate()
-        .withMinimumUnits(Option(self.getMinimumUnits))
-        .withMaximumUnits(Option(self.getMaximumUnits))
+        .withMinimumUnits(Option(self.getMinimumUnits).map(_.longValue()))
+        .withMaximumUnits(Option(self.getMaximumUnits).map(_.longValue()))
         .withAutoScalingDisabled(Option(self.getAutoScalingDisabled).map(_.booleanValue()))
         .withAutoScalingRoleArn(Option(self.getAutoScalingRoleArn))
         .withScalingPolicyUpdate(Option(self.getScalingPolicyUpdate).map(_.toScala))

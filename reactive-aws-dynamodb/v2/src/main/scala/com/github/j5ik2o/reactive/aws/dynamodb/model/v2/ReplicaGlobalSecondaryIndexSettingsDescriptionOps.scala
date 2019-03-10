@@ -38,11 +38,11 @@ object ReplicaGlobalSecondaryIndexSettingsDescriptionOps {
       ScalaReplicaGlobalSecondaryIndexSettingsDescription()
         .withIndexName(Option(self.indexName))
         .withIndexStatus(Option(self.indexStatus).map(_.toString).map(IndexStatus.withName))
-        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits))
+        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue()))
         .withProvisionedReadCapacityAutoScalingSettings(
           Option(self.provisionedReadCapacityAutoScalingSettings).map(_.toScala)
         )
-        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits))
+        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits).map(_.longValue()))
         .withProvisionedWriteCapacityAutoScalingSettings(
           Option(self.provisionedWriteCapacityAutoScalingSettings).map(_.toScala)
         )

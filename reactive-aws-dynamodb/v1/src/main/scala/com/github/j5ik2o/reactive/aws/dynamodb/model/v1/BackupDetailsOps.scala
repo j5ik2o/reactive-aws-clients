@@ -28,7 +28,7 @@ object BackupDetailsOps {
       ScalaBackupDetails()
         .withBackupArn(Option(self.getBackupArn))
         .withBackupName(Option(self.getBackupName))
-        .withBackupSizeBytes(Option(self.getBackupSizeBytes))
+        .withBackupSizeBytes(Option(self.getBackupSizeBytes).map(_.longValue()))
         .withBackupStatus(Option(self.getBackupStatus).map(BackupStatus.withName))
         .withBackupType(Option(self.getBackupType).map(BackupType.withName))
         .withBackupCreationDateTime(Option(self.getBackupCreationDateTime).map(_.toInstant))

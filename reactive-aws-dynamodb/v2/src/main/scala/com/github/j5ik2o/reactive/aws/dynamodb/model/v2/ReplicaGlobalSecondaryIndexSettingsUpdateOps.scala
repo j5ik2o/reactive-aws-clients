@@ -36,7 +36,7 @@ object ReplicaGlobalSecondaryIndexSettingsUpdateOps {
         .withProvisionedReadCapacityAutoScalingSettingsUpdate(
           Option(self.provisionedReadCapacityAutoScalingSettingsUpdate).map(_.toScala)
         )
-        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits))
+        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue()))
     }
 
   }

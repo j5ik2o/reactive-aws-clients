@@ -15,10 +15,10 @@ object DescribeLimitsResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withAccountMaxReadCapacityUnits(Option(self.accountMaxReadCapacityUnits))
-        .withAccountMaxWriteCapacityUnits(Option(self.accountMaxWriteCapacityUnits))
-        .withTableMaxReadCapacityUnits(Option(self.tableMaxReadCapacityUnits))
-        .withTableMaxWriteCapacityUnits(Option(self.tableMaxWriteCapacityUnits))
+        .withAccountMaxReadCapacityUnits(Option(self.accountMaxReadCapacityUnits).map(_.longValue()))
+        .withAccountMaxWriteCapacityUnits(Option(self.accountMaxWriteCapacityUnits).map(_.longValue()))
+        .withTableMaxReadCapacityUnits(Option(self.tableMaxReadCapacityUnits).map(_.longValue()))
+        .withTableMaxWriteCapacityUnits(Option(self.tableMaxWriteCapacityUnits).map(_.longValue()))
     }
   }
 

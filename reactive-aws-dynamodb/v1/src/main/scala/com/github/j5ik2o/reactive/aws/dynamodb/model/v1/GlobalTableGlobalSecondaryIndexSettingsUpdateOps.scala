@@ -33,7 +33,7 @@ object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
     def toScala: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
       ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate()
         .withIndexName(Option(self.getIndexName))
-        .withProvisionedWriteCapacityUnits(Option(self.getProvisionedWriteCapacityUnits))
+        .withProvisionedWriteCapacityUnits(Option(self.getProvisionedWriteCapacityUnits).map(_.longValue()))
         .withProvisionedWriteCapacityAutoScalingSettingsUpdate(
           Option(self.getProvisionedWriteCapacityAutoScalingSettingsUpdate).map(_.toScala)
         )

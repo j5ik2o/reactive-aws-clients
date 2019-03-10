@@ -36,7 +36,7 @@ object BackupSummaryOps {
         .withBackupCreationDateTime(Option(self.getBackupCreationDateTime).map(_.toInstant))
         .withBackupStatus(Option(self.getBackupStatus).map(BackupStatus.withName))
         .withBackupType(Option(self.getBackupType).map(BackupType.withName))
-        .withBackupSizeBytes(Option(self.getBackupSizeBytes))
+        .withBackupSizeBytes(Option(self.getBackupSizeBytes).map(_.longValue()))
     }
 
   }

@@ -30,7 +30,7 @@ object ReplicaSettingsUpdateOps {
     def toScala: ScalaReplicaSettingsUpdate = {
       ScalaReplicaSettingsUpdate()
         .withRegionName(Option(self.getRegionName))
-        .withReplicaProvisionedReadCapacityUnits(Option(self.getReplicaProvisionedReadCapacityUnits))
+        .withReplicaProvisionedReadCapacityUnits(Option(self.getReplicaProvisionedReadCapacityUnits).map(_.longValue()))
         .withReplicaProvisionedReadCapacityAutoScalingSettingsUpdate(
           Option(self.getReplicaProvisionedReadCapacityAutoScalingSettingsUpdate).map(_.toScala)
         )
