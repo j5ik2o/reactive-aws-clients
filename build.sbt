@@ -6,7 +6,7 @@ val awsSdk2Version = "2.4.0"
 
 val catsVersion  = "1.5.0"
 val monixVersion = "3.0.0-RC2"
-val akkaVersion  = "2.5.19"
+val akkaVersion  = "2.5.20"
 
 val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
 
