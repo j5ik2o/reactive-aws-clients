@@ -1,12 +1,12 @@
 val scalaVersion211 = "2.11.12"
 val scalaVersion212 = "2.12.8"
 
-val awsSdk1Version = "1.11.492"
-val awsSdk2Version = "2.4.0"
+val awsSdk1Version = "1.11.520"
+val awsSdk2Version = "2.5.11"
 
 val catsVersion  = "1.5.0"
 val monixVersion = "3.0.0-RC2"
-val akkaVersion  = "[2.5.0,)"
+val akkaVersion  = "2.5.21"
 
 val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
 
@@ -83,16 +83,18 @@ val coreSettings = Seq(
     "ch.qos.logback"         % "logback-classic"     % "1.2.3" % Test
   ),
   parallelExecution in Test := false,
-  wartremoverErrors ++= Warts.allBut(Wart.ArrayEquals,
-                                     Wart.Any,
-                                     Wart.Throw,
-                                     Wart.Nothing,
-                                     Wart.Product,
-                                     Wart.NonUnitStatements,
-                                     Wart.DefaultArguments,
-                                     Wart.ImplicitParameter,
-                                     Wart.StringPlusAny,
-                                     Wart.Overloading),
+  wartremoverErrors ++= Warts.allBut(
+    Wart.ArrayEquals,
+    Wart.Any,
+    Wart.Throw,
+    Wart.Nothing,
+    Wart.Product,
+    Wart.NonUnitStatements,
+    Wart.DefaultArguments,
+    Wart.ImplicitParameter,
+    Wart.StringPlusAny,
+    Wart.Overloading
+  ),
   wartremoverExcluded += baseDirectory.value / "src" / "test" / "scala"
 ) ++ scalaStyleSettings
 
@@ -129,12 +131,12 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
   .settings(
     name := "reactive-aws-common-test",
     libraryDependencies ++= Seq(
-      "com.google.guava"         % "guava"                        % "25.1-jre",
-      "commons-io"               % "commons-io"                   % "2.6",
-      "org.scalatest"            %% "scalatest"                   % "3.0.5" % Provided,
-      "com.whisk"                %% "docker-testkit-scalatest"    % "0.9.8",
-      "com.whisk"                %% "docker-testkit-impl-spotify" % "0.9.8",
-      "org.seasar.util"          % "s2util"                       % "0.0.1"
+      "com.google.guava" % "guava"                        % "20.0",
+      "commons-io"       % "commons-io"                   % "2.6",
+      "org.scalatest"    %% "scalatest"                   % "3.0.5" % Provided,
+      "com.whisk"        %% "docker-testkit-scalatest"    % "0.9.8",
+      "com.whisk"        %% "docker-testkit-impl-spotify" % "0.9.8",
+      "org.seasar.util"  % "s2util"                       % "0.0.1"
     )
   )
 
@@ -157,7 +159,6 @@ lazy val `reactive-aws-common-cats` = (project in file("reactive-aws-common/cats
     )
   ) dependsOn (`reactive-aws-common-core`)
 
-
 lazy val `reactive-aws-common-monix` = (project in file("reactive-aws-common/monix"))
   .settings(coreSettings)
   .settings(
@@ -172,9 +173,9 @@ lazy val `reactive-aws-common-akka` = (project in file("reactive-aws-common/akka
   .settings(
     name := "reactive-aws-common-akka",
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-actor"          % akkaVersion,
-      "com.typesafe.akka" %% "akka-stream"         % akkaVersion,
-      "com.typesafe.akka" %% "akka-slf4j"          % akkaVersion
+      "com.typesafe.akka" %% "akka-actor"  % akkaVersion,
+      "com.typesafe.akka" %% "akka-stream" % akkaVersion,
+      "com.typesafe.akka" %% "akka-slf4j"  % akkaVersion
     )
   ) dependsOn (`reactive-aws-common-core`)
 
@@ -198,17 +199,17 @@ lazy val `reactive-aws-dynamodb-test` = (project in file("reactive-aws-dynamodb/
     coreSettings ++ Seq(
       name := "reactive-aws-dynamodb-test",
       libraryDependencies ++= Seq(
-        "com.amazonaws"            % "aws-java-sdk-dynamodb"        % "1.11.492",
-        "com.amazonaws"            % "DynamoDBLocal"                % dynamoDBLocalVersion,
-        "com.almworks.sqlite4java" % "sqlite4java"                  % sqlite4javaVersion,
-        "com.almworks.sqlite4java" % "sqlite4java-win32-x86"        % sqlite4javaVersion,
-        "com.almworks.sqlite4java" % "sqlite4java-win32-x64"        % sqlite4javaVersion,
-        "com.almworks.sqlite4java" % "libsqlite4java-osx"           % sqlite4javaVersion,
-        "com.almworks.sqlite4java" % "libsqlite4java-linux-i386"    % sqlite4javaVersion,
-        "com.almworks.sqlite4java" % "libsqlite4java-linux-amd64"   % sqlite4javaVersion,
+        "com.amazonaws"            % "aws-java-sdk-dynamodb"      % "1.11.492",
+        "com.amazonaws"            % "DynamoDBLocal"              % dynamoDBLocalVersion,
+        "com.almworks.sqlite4java" % "sqlite4java"                % sqlite4javaVersion,
+        "com.almworks.sqlite4java" % "sqlite4java-win32-x86"      % sqlite4javaVersion,
+        "com.almworks.sqlite4java" % "sqlite4java-win32-x64"      % sqlite4javaVersion,
+        "com.almworks.sqlite4java" % "libsqlite4java-osx"         % sqlite4javaVersion,
+        "com.almworks.sqlite4java" % "libsqlite4java-linux-i386"  % sqlite4javaVersion,
+        "com.almworks.sqlite4java" % "libsqlite4java-linux-amd64" % sqlite4javaVersion
       )
     )
-  ) dependsOn(`reactive-aws-common-test`)
+  ) dependsOn (`reactive-aws-common-test`)
 
 lazy val `reactive-aws-dynamodb-core` = (project in file("reactive-aws-dynamodb/core")).settings(
   coreSettings ++ Seq(
@@ -231,7 +232,7 @@ lazy val `reactive-aws-dynamodb-monix` = (project in file("reactive-aws-dynamodb
   coreSettings ++ Seq(
     name := "reactive-aws-dynamodb-monix",
     libraryDependencies ++= Seq(
-    )
+      )
   )
 ) dependsOn (`reactive-aws-common-monix`, `reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 
@@ -263,7 +264,7 @@ lazy val `reactive-aws-dynamodb-v1-cats` = (project in file("reactive-aws-dynamo
   coreSettings ++ Seq(
     name := "reactive-aws-dynamodb-v1-cats",
     libraryDependencies ++= Seq(
-    )
+      )
   )
 ) dependsOn (`reactive-aws-dynamodb-v1`, `reactive-aws-dynamodb-cats`, `reactive-aws-dynamodb-test` % "test")
 
@@ -328,7 +329,7 @@ lazy val `reactive-aws-kinesis-test` = (project in file("reactive-aws-kinesis/te
     coreSettings ++ Seq(
       name := "reactive-aws-kinesis-test",
       libraryDependencies ++= Seq(
-        "com.amazonaws"    % "aws-java-sdk-kinesis"         % "1.11.492"
+        "com.amazonaws" % "aws-java-sdk-kinesis" % "1.11.492"
       )
     )
   ).dependsOn(`reactive-aws-common-test`)
@@ -345,7 +346,7 @@ lazy val `reactive-aws-kinesis-cats` = (project in file("reactive-aws-kinesis/ca
   coreSettings ++ Seq(
     name := "reactive-aws-kinesis-cats",
     libraryDependencies ++= Seq(
-    )
+      )
   )
 ) dependsOn (`reactive-aws-common-cats`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
@@ -353,7 +354,7 @@ lazy val `reactive-aws-kinesis-monix` = (project in file("reactive-aws-kinesis/m
   coreSettings ++ Seq(
     name := "reactive-aws-kinesis-monix",
     libraryDependencies ++= Seq(
-    )
+      )
   )
 ) dependsOn (`reactive-aws-common-monix`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
@@ -362,7 +363,7 @@ lazy val `reactive-aws-kinesis-akka` = (project in file("reactive-aws-kinesis/ak
     name := "reactive-aws-kinesis-akka",
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-testkit"        % akkaVersion % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
+      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
     )
   )
 ) dependsOn (`reactive-aws-common-akka`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
@@ -380,7 +381,7 @@ lazy val `reactive-aws-kinesis-v1-cats` = (project in file("reactive-aws-kinesis
   coreSettings ++ Seq(
     name := "reactive-aws-kinesis-v1-cats",
     libraryDependencies ++= Seq(
-    )
+      )
   )
 ) dependsOn (`reactive-aws-kinesis-v1`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
 
