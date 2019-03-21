@@ -1,11 +1,12 @@
 package com.github.j5ik2o.reactive.aws.dynamodb
 
-import java.util.concurrent.{ ExecutionException, Future => JavaFuture }
+import java.util.concurrent.{ CompletableFuture, Future => JavaFuture }
+import java.util.function.Supplier
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync
 
-import scala.concurrent.{ ExecutionContext, Future, Promise }
-import scala.util.{ Failure, Try }
+import scala.compat.java8.FutureConverters
+import scala.concurrent.{ ExecutionContext, Future }
 
 object DynamoDBAsyncClientV1 {
 
@@ -13,22 +14,12 @@ object DynamoDBAsyncClientV1 {
     new DynamoDBAsyncClientV1Impl(underlying)
 
   implicit class JavaFutureOps[A](val jf: JavaFuture[A]) extends AnyVal {
-    def toFuture(implicit ec: ExecutionContext): Future[A] = {
-      val promise = Promise[A]()
-      ec.execute(new Runnable {
-        override def run(): Unit = {
-          promise.complete(
-            Try(jf.get()) match {
-              case Failure(e: ExecutionException) =>
-                Failure(e.getCause)
-              case x =>
-                x
-            }
-          )
-
-        }
-      })
-      promise.future
+    def toFuture: Future[A] = {
+      FutureConverters.toScala(
+        CompletableFuture.supplyAsync(new Supplier[A] {
+          override def get(): A = jf.get()
+        })
+      )
     }
   }
 
