@@ -1,4 +1,5 @@
 package com.github.j5ik2o.reactive.aws.kinesis
+
 import com.amazonaws.services.kinesis.AmazonKinesisAsync
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 
