@@ -199,7 +199,7 @@ lazy val `reactive-aws-dynamodb-test` = (project in file("reactive-aws-dynamodb/
     coreSettings ++ Seq(
       name := "reactive-aws-dynamodb-test",
       libraryDependencies ++= Seq(
-        "com.amazonaws"            % "aws-java-sdk-dynamodb"      % "1.11.492",
+        "com.amazonaws"            % "aws-java-sdk-dynamodb"      % awsSdk1Version,
         "com.amazonaws"            % "DynamoDBLocal"              % dynamoDBLocalVersion,
         "com.almworks.sqlite4java" % "sqlite4java"                % sqlite4javaVersion,
         "com.almworks.sqlite4java" % "sqlite4java-win32-x86"      % sqlite4javaVersion,
@@ -329,7 +329,7 @@ lazy val `reactive-aws-kinesis-test` = (project in file("reactive-aws-kinesis/te
     coreSettings ++ Seq(
       name := "reactive-aws-kinesis-test",
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-kinesis" % "1.11.492"
+        "com.amazonaws" % "aws-java-sdk-kinesis" % awsSdk1Version
       )
     )
   ).dependsOn(`reactive-aws-common-test`)
