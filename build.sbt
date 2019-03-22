@@ -218,6 +218,7 @@ lazy val `reactive-aws-dynamodb-core` = (project in file("reactive-aws-dynamodb/
     name := "reactive-aws-dynamodb-core",
     libraryDependencies ++= Seq(
       ),
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
     templateNameMapper in scalaWrapperGen := {
       case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient.ftl"
       case _: EnumDesc                                      => "EnumModel.ftl"

@@ -13,11 +13,19 @@ package com.github.j5ik2o.reactive.aws.dynamodb.model
   </#list>
   <#return default?replace("Instant", "java.time.Instant")>
 </#function>
+<#function has_content list>
+  <#list fields as field>
+    <#if targetField(field)>
+      <#return true>
+      </#if>
+    </#list>
+  <#return false>
+</#function>
 
 final case class ${simpleTypeName}(
 override val statusCode: Option[Int] = None,
 override val statusText: Option[String] = None,
-override val httpHeaders: Option[Map[String, Seq[String]]] = None,
+override val httpHeaders: Option[Map[String, Seq[String]]] = None<#if has_content(fields)>,</#if>
 <#list fields as field>
 <#if targetField(field)>  ${field.name}: Option[${getGetterTypeName(field.name, field.fieldType.fullTypeName)}] = None<#if field_has_next>,</#if>
 </#if></#list>) extends AbstractResponse(statusCode, statusText, httpHeaders) {
