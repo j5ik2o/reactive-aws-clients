@@ -7,13 +7,9 @@ import scala.collection.immutable
 sealed trait ConsumerStatus extends EnumEntry
 
 object ConsumerStatus extends Enum[ConsumerStatus] {
-
   override def values: immutable.IndexedSeq[ConsumerStatus] = findValues
 
-  case object CREATING extends ConsumerStatus
-
   case object DELETING extends ConsumerStatus
-
-  case object ACTIVE extends ConsumerStatus
-
+  case object ACTIVE   extends ConsumerStatus
+  case object CREATING extends ConsumerStatus
 }

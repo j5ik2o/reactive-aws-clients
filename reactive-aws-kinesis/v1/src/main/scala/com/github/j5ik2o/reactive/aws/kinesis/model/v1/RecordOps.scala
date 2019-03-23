@@ -11,7 +11,7 @@ object RecordOps {
       ScalaRecord()
         .withSequenceNumber(Option(self.getSequenceNumber))
         .withApproximateArrivalTimestamp(Option(self.getApproximateArrivalTimestamp).map(_.toInstant))
-        .withData(Option(self.getData))
+        .withData(Option(self.getData).map(_.array()))
         .withPartitionKey(Option(self.getPartitionKey))
         .withEncryptionType(Option(self.getEncryptionType).map(EncryptionType.withName))
     }

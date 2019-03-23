@@ -161,5 +161,4 @@ private[kinesis] class KinesisAsyncClientV2Impl(override val underlying: Kinesis
   override def updateShardCount(
       request: UpdateShardCountRequest
   ): Future[UpdateShardCountResponse] = underlying.updateShardCount(request.toJava).toFuture.map(_.toScala)
-
 }

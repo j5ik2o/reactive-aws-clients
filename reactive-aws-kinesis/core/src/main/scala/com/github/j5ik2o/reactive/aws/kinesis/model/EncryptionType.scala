@@ -7,9 +7,8 @@ import scala.collection.immutable
 sealed trait EncryptionType extends EnumEntry
 
 object EncryptionType extends Enum[EncryptionType] {
-
   override def values: immutable.IndexedSeq[EncryptionType] = findValues
-  case object NONE extends EncryptionType
-  case object KMS  extends EncryptionType
 
+  case object KMS  extends EncryptionType
+  case object NONE extends EncryptionType
 }

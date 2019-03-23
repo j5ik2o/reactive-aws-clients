@@ -378,7 +378,38 @@ lazy val `reactive-aws-kinesis-core` = (project in file("reactive-aws-kinesis/co
   coreSettings ++ Seq(
     name := "reactive-aws-kinesis-core",
     libraryDependencies ++= Seq(
-      )
+      ),
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+    templateNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
+      case _: EnumDesc                                     => "EnumModel.ftl"
+      case cd: ClassDesc
+          if cd.simpleTypeName.endsWith("Response") && cd.packageName.exists(_.endsWith("model")) && !cd.isStatic =>
+        "ResponseModel.ftl"
+      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic => "Model.ftl"
+      case cd                                                                          => throw new Exception(s"error: ${cd}")
+    },
+    typeNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient"
+      case cd                                              => cd.simpleTypeName
+    },
+    packageNameMapper in scalaWrapperGen := {
+      _.replace("software.amazon.awssdk.services.kinesis", "com.github.j5ik2o.reactive.aws.kinesis")
+    },
+    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+      (scalaSource in Compile).value
+    },
+    typeDescFilter in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "KinesisAsyncClient"                                               => true
+      case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")                                      => false
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
+      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
+      case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))                                    => true
+      case cd =>
+        false
+    },
+    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/kinesis/target/generated-sources/sdk/software/amazon/awssdk/services/kinesis"
   )
 ) dependsOn (`reactive-aws-common-core`)
 

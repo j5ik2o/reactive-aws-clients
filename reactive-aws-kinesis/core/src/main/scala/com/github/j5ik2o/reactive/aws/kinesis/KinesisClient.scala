@@ -1,145 +1,83 @@
 package com.github.j5ik2o.reactive.aws.kinesis
 
-import java.nio.ByteBuffer
-
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 
-trait KinesisClient[M[_]] {
+trait KinesisClient[M[_]] extends KinesisClientSupport[M] {
 
-  def addTagsToStream(request: AddTagsToStreamRequest): M[AddTagsToStreamResponse]
+  def addTagsToStream(addTagsToStreamRequest: AddTagsToStreamRequest): M[AddTagsToStreamResponse]
 
-  def createStream(request: CreateStreamRequest): M[CreateStreamResponse]
-
-  def createStream(streamName: String, shardCount: Int): M[CreateStreamResponse] =
-    createStream(CreateStreamRequest().withStreamName(Some(streamName)).withShardCount(Some(shardCount)))
+  def createStream(createStreamRequest: CreateStreamRequest): M[CreateStreamResponse]
 
   def decreaseStreamRetentionPeriod(
-      request: DecreaseStreamRetentionPeriodRequest
+      decreaseStreamRetentionPeriodRequest: DecreaseStreamRetentionPeriodRequest
   ): M[DecreaseStreamRetentionPeriodResponse]
 
-  def deleteStream(request: DeleteStreamRequest): M[DeleteStreamResponse]
+  def deleteStream(deleteStreamRequest: DeleteStreamRequest): M[DeleteStreamResponse]
 
-  def deleteStream(streamName: String): M[DeleteStreamResponse] =
-    deleteStream(DeleteStreamRequest().withStreamName(Some(streamName)))
+  def deregisterStreamConsumer(
+      deregisterStreamConsumerRequest: DeregisterStreamConsumerRequest
+  ): M[DeregisterStreamConsumerResponse]
 
-  def deregisterStreamConsumer(request: DeregisterStreamConsumerRequest): M[DeregisterStreamConsumerResponse]
+  def describeLimits(describeLimitsRequest: DescribeLimitsRequest): M[DescribeLimitsResponse]
 
-  def describeLimits(request: DescribeLimitsRequest): M[DescribeLimitsResponse]
+  def describeLimits(): M[DescribeLimitsResponse]
 
-  def describeStream(request: DescribeStreamRequest): M[DescribeStreamResponse]
+  def describeStream(describeStreamRequest: DescribeStreamRequest): M[DescribeStreamResponse]
 
-  def describeStream(streamName: String): M[DescribeStreamResponse] =
-    describeStream(
-      DescribeStreamRequest()
-        .withStreamName(Some(streamName))
-    )
+  def describeStreamConsumer(
+      describeStreamConsumerRequest: DescribeStreamConsumerRequest
+  ): M[DescribeStreamConsumerResponse]
 
-  def describeStream(streamName: String, exclusiveStartShardId: String): M[DescribeStreamResponse] =
-    describeStream(
-      DescribeStreamRequest()
-        .withStreamName(Some(streamName))
-        .withExclusiveStartShardId(Some(exclusiveStartShardId))
-    )
+  def describeStreamSummary(
+      describeStreamSummaryRequest: DescribeStreamSummaryRequest
+  ): M[DescribeStreamSummaryResponse]
 
-  def describeStream(streamName: String, limit: Int, exclusiveStartShardId: String): M[DescribeStreamResponse] =
-    describeStream(
-      DescribeStreamRequest()
-        .withStreamName(Some(streamName))
-        .withLimit(Some(limit))
-        .withExclusiveStartShardId(Some(exclusiveStartShardId))
-    )
+  def disableEnhancedMonitoring(
+      disableEnhancedMonitoringRequest: DisableEnhancedMonitoringRequest
+  ): M[DisableEnhancedMonitoringResponse]
 
-  def describeStreamConsumer(request: DescribeStreamConsumerRequest): M[DescribeStreamConsumerResponse]
+  def enableEnhancedMonitoring(
+      enableEnhancedMonitoringRequest: EnableEnhancedMonitoringRequest
+  ): M[EnableEnhancedMonitoringResponse]
 
-  def describeStreamSummary(request: DescribeStreamSummaryRequest): M[DescribeStreamSummaryResponse]
+  def getRecords(getRecordsRequest: GetRecordsRequest): M[GetRecordsResponse]
 
-  def disableEnhancedMonitoring(request: DisableEnhancedMonitoringRequest): M[DisableEnhancedMonitoringResponse]
-
-  def enableEnhancedMonitoring(request: EnableEnhancedMonitoringRequest): M[EnableEnhancedMonitoringResponse]
-
-  def getRecords(request: GetRecordsRequest): M[GetRecordsResponse]
-
-  def getShardIterator(request: GetShardIteratorRequest): M[GetShardIteratorResponse]
-
-  def getShardIterator(streamName: String,
-                       shardId: String,
-                       shardIteratorType: ShardIteratorType): M[GetShardIteratorResponse] =
-    getShardIterator(
-      GetShardIteratorRequest()
-        .withStreamName(Some(streamName)).withShardId(Some(shardId)).withShardIteratorType(Some(shardIteratorType))
-    )
+  def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): M[GetShardIteratorResponse]
 
   def increaseStreamRetentionPeriod(
-      request: IncreaseStreamRetentionPeriodRequest
+      increaseStreamRetentionPeriodRequest: IncreaseStreamRetentionPeriodRequest
   ): M[IncreaseStreamRetentionPeriodResponse]
 
-  def listShards(request: ListShardsRequest): M[ListShardsResponse]
+  def listShards(listShardsRequest: ListShardsRequest): M[ListShardsResponse]
 
-  def listStreamConsumers(request: ListStreamConsumersRequest): M[ListStreamConsumersResponse]
+  def listStreamConsumers(listStreamConsumersRequest: ListStreamConsumersRequest): M[ListStreamConsumersResponse]
 
-  def listStreams(request: ListStreamsRequest): M[ListStreamsResponse]
+  def listStreams(listStreamsRequest: ListStreamsRequest): M[ListStreamsResponse]
 
-  def listStreams(): M[ListStreamsResponse] =
-    listStreams(ListStreamsRequest())
+  def listStreams(): M[ListStreamsResponse]
 
-  def listStreams(exclusiveStartStreamName: String): M[ListStreamsResponse] =
-    listStreams(ListStreamsRequest().withExclusiveStartStreamName(Some(exclusiveStartStreamName)))
+  def listTagsForStream(listTagsForStreamRequest: ListTagsForStreamRequest): M[ListTagsForStreamResponse]
 
-  def listStreams(limit: Int, exclusiveStartStreamName: String): M[ListStreamsResponse] =
-    listStreams(
-      ListStreamsRequest().withLimit(Some(limit)).withExclusiveStartStreamName(Some(exclusiveStartStreamName))
-    )
+  def mergeShards(mergeShardsRequest: MergeShardsRequest): M[MergeShardsResponse]
 
-  def listTagsForStream(request: ListTagsForStreamRequest): M[ListTagsForStreamResponse]
+  def putRecord(putRecordRequest: PutRecordRequest): M[PutRecordResponse]
 
-  def mergeShards(request: MergeShardsRequest): M[MergeShardsResponse]
+  def putRecords(putRecordsRequest: PutRecordsRequest): M[PutRecordsResponse]
 
-  def mergeShards(streamName: String, shardToMerge: String, adjacentShardToMerge: String): M[MergeShardsResponse] =
-    mergeShards(
-      MergeShardsRequest()
-        .withStreamName(Some(streamName)).withShardToMerge(Some(shardToMerge)).withAdjacentShardToMerge(
-          Some(adjacentShardToMerge)
-        )
-    )
+  def registerStreamConsumer(
+      registerStreamConsumerRequest: RegisterStreamConsumerRequest
+  ): M[RegisterStreamConsumerResponse]
 
-  def putRecord(request: PutRecordRequest): M[PutRecordResponse]
+  def removeTagsFromStream(removeTagsFromStreamRequest: RemoveTagsFromStreamRequest): M[RemoveTagsFromStreamResponse]
 
-  def putRecord(streamName: String, data: ByteBuffer, partitionKey: String): M[PutRecordResponse] =
-    putRecord(
-      PutRecordRequest().withStreamName(Some(streamName)).withData(Some(data)).withPartitionKey(Some(partitionKey))
-    )
+  def splitShard(splitShardRequest: SplitShardRequest): M[SplitShardResponse]
 
-  def putRecord(streamName: String,
-                data: ByteBuffer,
-                partitionKey: String,
-                sequenceNumberForOrdering: String): M[PutRecordResponse] =
-    putRecord(
-      PutRecordRequest()
-        .withStreamName(Some(streamName)).withData(Some(data)).withPartitionKey(Some(partitionKey)).withSequenceNumberForOrdering(
-          Some(sequenceNumberForOrdering)
-        )
-    )
+  def startStreamEncryption(
+      startStreamEncryptionRequest: StartStreamEncryptionRequest
+  ): M[StartStreamEncryptionResponse]
 
-  def putRecords(request: PutRecordsRequest): M[PutRecordsResponse]
+  def stopStreamEncryption(stopStreamEncryptionRequest: StopStreamEncryptionRequest): M[StopStreamEncryptionResponse]
 
-  def registerStreamConsumer(request: RegisterStreamConsumerRequest): M[RegisterStreamConsumerResponse]
-
-  def removeTagsFromStream(request: RemoveTagsFromStreamRequest): M[RemoveTagsFromStreamResponse]
-
-  def splitShard(request: SplitShardRequest): M[SplitShardResponse]
-
-  def splitShard(streamName: String, shardToSplit: String, newStartingHashKey: String): M[SplitShardResponse] =
-    splitShard(
-      SplitShardRequest()
-        .withStreamName(Some(streamName)).withShardToSplit(Some(shardToSplit)).withNewStartingHashKey(
-          Some(newStartingHashKey)
-        )
-    )
-
-  def startStreamEncryption(request: StartStreamEncryptionRequest): M[StartStreamEncryptionResponse]
-
-  def stopStreamEncryption(request: StopStreamEncryptionRequest): M[StopStreamEncryptionResponse]
-
-  def updateShardCount(request: UpdateShardCountRequest): M[UpdateShardCountResponse]
+  def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): M[UpdateShardCountResponse]
 
 }
