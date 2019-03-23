@@ -11,7 +11,7 @@ object PutRecordRequestOps {
     def toJava: JavaPutRecordRequest = {
       val result = JavaPutRecordRequest.builder()
       self.streamName.foreach(result.streamName)
-      self.data.map(SdkBytes.fromByteBuffer).foreach(result.data)
+      self.data.map(SdkBytes.fromByteArray).foreach(result.data)
       self.partitionKey.foreach(result.partitionKey)
       self.explicitHashKey.foreach(result.explicitHashKey)
       self.sequenceNumberForOrdering.foreach(result.sequenceNumberForOrdering)

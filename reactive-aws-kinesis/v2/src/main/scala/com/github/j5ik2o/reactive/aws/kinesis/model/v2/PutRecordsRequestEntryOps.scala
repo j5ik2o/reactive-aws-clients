@@ -10,7 +10,7 @@ object PutRecordsRequestEntryOps {
 
     def toJava: JavaPutRecordsRequestEntry = {
       val result = JavaPutRecordsRequestEntry.builder()
-      self.data.map(SdkBytes.fromByteBuffer).foreach(result.data)
+      self.data.map(SdkBytes.fromByteArray).foreach(result.data)
       self.explicitHashKey.foreach(result.explicitHashKey)
       self.partitionKey.foreach(result.partitionKey)
       result.build()
@@ -22,7 +22,7 @@ object PutRecordsRequestEntryOps {
 
     def toScala: ScalaPutRecordsRequestEntry = {
       ScalaPutRecordsRequestEntry()
-        .withData(Option(self.data()).map(_.asByteBuffer()))
+        .withData(Option(self.data()).map(_.asByteArray()))
         .withExplicitHashKey(Option(self.explicitHashKey()))
         .withPartitionKey(Option(self.partitionKey()))
     }
