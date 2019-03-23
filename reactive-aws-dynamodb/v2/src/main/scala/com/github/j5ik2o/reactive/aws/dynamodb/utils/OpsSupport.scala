@@ -1,5 +1,6 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.utils
 
+import java.util.List
 import java.{ lang, util }
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
@@ -88,7 +89,13 @@ import com.github.j5ik2o.reactive.aws.dynamodb.model.{
 import enumeratum.EnumEntry
 import software.amazon.awssdk.core.SdkBytes
 import software.amazon.awssdk.services.dynamodb.model.{
+  ConsumedCapacity,
   DeleteRequest,
+  Endpoint,
+  GlobalTableDescription,
+  Projection,
+  ReplicaSettingsDescription,
+  StreamDescription,
   AttributeDefinition => JavaAttributeDefinition,
   AttributeValue => JavaAttributeValue,
   AttributeValueUpdate => JavaAttributeValueUpdate,
@@ -173,6 +180,7 @@ import software.amazon.awssdk.services.dynamodb.model.{
 }
 
 import scala.collection.JavaConverters._
+import scala.collection.mutable
 
 trait OpsSupport {
 
@@ -858,11 +866,159 @@ trait OpsSupport {
     j.map(_.toScala)
   }
 
-  implicit def to(
+  implicit def toScalaAttributeValueMapListMap(
       j: Option[util.Map[String, util.List[util.Map[String, JavaAttributeValue]]]]
   ): Option[Map[String, Seq[Map[String, ScalaAttributeValue]]]] = {
     import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.AttributeValueOps._
     j.map(_.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap.mapValues(_.toScala))))
+  }
+
+  implicit def toConsumedCapacityList(
+      j: Option[util.List[JavaConsumedCapacity]]
+  ): Option[Seq[ScalaConsumedCapacity]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ConsumedCapacityOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaItemCollectionMetricsListMapMap(
+      j: Option[util.Map[String, util.List[JavaItemCollectionMetrics]]]
+  ): Option[Map[String, Seq[ScalaItemCollectionMetrics]]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ItemCollectionMetricsOps._
+    j.map(_.asScala.toMap.mapValues(_.asScala.map(_.toScala)))
+  }
+
+  implicit def toScalaBackupDetails(j: Option[JavaBackupDetails]): Option[ScalaBackupDetails] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.BackupDetailsOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaGlobalTableDescription(
+      j: Option[JavaGlobalTableDescription]
+  ): Option[ScalaGlobalTableDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.GlobalTableDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaTableDescription(j: Option[JavaTableDescription]): Option[ScalaTableDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.TableDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaBackupDescription(j: Option[JavaBackupDescription]): Option[ScalaBackupDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.BackupDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaItemCollectionMetrics(
+      j: Option[JavaItemCollectionMetrics]
+  ): Option[ScalaItemCollectionMetrics] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ItemCollectionMetricsOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaContinuousBackupsDescription(
+      j: Option[JavaContinuousBackupsDescription]
+  ): Option[ScalaContinuousBackupsDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ContinuousBackupsDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaEndpointList(j: Option[util.List[JavaEndpoint]]): Option[Seq[ScalaEndpoint]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.EndpointOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaReplicaSettingsDescriptionList(
+      j: Option[util.List[JavaReplicaSettingsDescription]]
+  ): Option[Seq[ScalaReplicaSettingsDescription]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ReplicaSettingsDescriptionOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaStreamDescription(j: Option[JavaStreamDescription]): Option[ScalaStreamDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.StreamDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaTimeToLiveDescription(
+      j: Option[JavaTimeToLiveDescription]
+  ): Option[ScalaTimeToLiveDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.TimeToLiveDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaRecordList(j: Option[util.List[JavaRecord]]): Option[Seq[ScalaRecord]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.RecordOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaProjection(j: Option[JavaProjection]): Option[ScalaProjection] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ProjectionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaProvisionedThroughputDescription(
+      j: Option[JavaProvisionedThroughputDescription]
+  ): Option[ScalaProvisionedThroughputDescription] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ProvisionedThroughputDescriptionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaUpdateGlobalSecondaryIndexAction(
+      j: Option[JavaUpdateGlobalSecondaryIndexAction]
+  ): Option[ScalaUpdateGlobalSecondaryIndexAction] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.UpdateGlobalSecondaryIndexActionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaCreateGlobalSecondaryIndexAction(
+      j: Option[JavaCreateGlobalSecondaryIndexAction]
+  ): Option[ScalaCreateGlobalSecondaryIndexAction] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.CreateGlobalSecondaryIndexActionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaDeleteGlobalSecondaryIndexAction(
+      j: Option[JavaDeleteGlobalSecondaryIndexAction]
+  ): Option[ScalaDeleteGlobalSecondaryIndexAction] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.DeleteGlobalSecondaryIndexActionOps._
+    j.map(_.toScala)
+  }
+
+  implicit def toScalaBackupSummary(
+      j: Option[util.List[JavaBackupSummary]]
+  ): Option[Seq[ScalaBackupSummary]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.BackupSummaryOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaGlobalTableList(j: Option[util.List[JavaGlobalTable]]): Option[Seq[ScalaGlobalTable]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.GlobalTableOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaStreamList(j: Option[util.List[JavaStream]]): Option[Seq[ScalaStream]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.StreamOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaTagList(j: Option[util.List[JavaTag]]): Option[Seq[ScalaTag]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.TagOps._
+    j.map(_.asScala.map(_.toScala))
+  }
+
+  implicit def toScalaAttributeValueMapList(
+      j: Option[util.List[util.Map[String, JavaAttributeValue]]]
+  ): Option[Seq[Map[String, ScalaAttributeValue]]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.AttributeValueOps._
+    j.map(_.asScala.map(_.asScala.toMap.mapValues(_.toScala)))
+  }
+
+  implicit def toScalaTimeToLiveSpecification(
+      j: Option[JavaTimeToLiveSpecification]
+  ): Option[ScalaTimeToLiveSpecification] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.TimeToLiveSpecificationOps._
+    j.map(_.toScala)
   }
 
   implicit def fromSeqToJUL[A](s: Seq[A]): util.Collection[A] = s.asJava
