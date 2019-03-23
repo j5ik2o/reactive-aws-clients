@@ -8,14 +8,16 @@ final case class ReplicaGlobalSecondaryIndexSettingsDescription(
     provisionedWriteCapacityUnits: Option[Long] = None,
     provisionedWriteCapacityAutoScalingSettings: Option[AutoScalingSettingsDescription] = None
 ) {
-  def withIndexName(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsDescription = copy(indexName = value)
+  def withIndexName(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsDescription =
+    copy(indexName = value)
   def withIndexStatus(value: Option[IndexStatus]): ReplicaGlobalSecondaryIndexSettingsDescription =
     copy(indexStatus = value)
   def withProvisionedReadCapacityUnits(value: Option[Long]): ReplicaGlobalSecondaryIndexSettingsDescription =
     copy(provisionedReadCapacityUnits = value)
   def withProvisionedReadCapacityAutoScalingSettings(
       value: Option[AutoScalingSettingsDescription]
-  ): ReplicaGlobalSecondaryIndexSettingsDescription = copy(provisionedReadCapacityAutoScalingSettings = value)
+  ): ReplicaGlobalSecondaryIndexSettingsDescription =
+    copy(provisionedReadCapacityAutoScalingSettings = value)
   def withProvisionedWriteCapacityUnits(value: Option[Long]): ReplicaGlobalSecondaryIndexSettingsDescription =
     copy(provisionedWriteCapacityUnits = value)
   def withProvisionedWriteCapacityAutoScalingSettings(

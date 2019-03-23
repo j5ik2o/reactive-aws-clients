@@ -22,8 +22,8 @@ object SSEDescriptionOps {
     def toScala: ScalaSSEDescription = {
       ScalaSSEDescription()
         .withStatus(Option(self.getStatus).map(SSEStatus.withName))
-        .withSSEType(Option(self.getSSEType).map(SSEType.withName))
-        .withKMSMasterKeyArn(Option(self.getKMSMasterKeyArn))
+        .withSseType(Option(self.getSSEType).map(SSEType.withName))
+        .withKmsMasterKeyArn(Option(self.getKMSMasterKeyArn))
     }
 
   }

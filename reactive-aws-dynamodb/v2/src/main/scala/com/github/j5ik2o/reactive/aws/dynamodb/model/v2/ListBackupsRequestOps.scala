@@ -1,6 +1,6 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupType, ListBackupsRequest => ScalaListBackupsRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupTypeFilter, ListBackupsRequest => ScalaListBackupsRequest }
 import software.amazon.awssdk.services.dynamodb.model.{ ListBackupsRequest => JavaListBackupsRequest }
 
 object ListBackupsRequestOps {
@@ -29,7 +29,7 @@ object ListBackupsRequestOps {
         .withTimeRangeLowerBound(Option(self.timeRangeLowerBound))
         .withTimeRangeUpperBound(Option(self.timeRangeUpperBound))
         .withExclusiveStartBackupArn(Option(self.exclusiveStartBackupArn))
-        .withBackupType(Option(self.backupType).map(_.toString).map(BackupType.withName))
+        .withBackupType(Option(self.backupType).map(_.toString).map(BackupTypeFilter.withName))
     }
 
   }

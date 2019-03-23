@@ -11,5 +11,4 @@ object KeyType extends Enum[KeyType] {
 
   case object HASH  extends KeyType
   case object RANGE extends KeyType
-
 }

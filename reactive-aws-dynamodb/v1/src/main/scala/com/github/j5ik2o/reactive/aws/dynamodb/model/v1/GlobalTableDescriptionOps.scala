@@ -1,4 +1,6 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
+import java.util.Date
+
 import com.amazonaws.services.dynamodbv2.model.{ GlobalTableDescription => JavaGlobalTableDescription }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
   GlobalTableStatus,
@@ -17,7 +19,7 @@ object GlobalTableDescriptionOps {
       val result = new JavaGlobalTableDescription()
       self.globalTableName.foreach(result.setGlobalTableName)
       self.globalTableStatus.map(_.entryName).foreach(result.setGlobalTableStatus)
-      self.creationDateTime.foreach(result.setCreationDateTime)
+      self.creationDateTime.map(Date.from).foreach(result.setCreationDateTime)
       self.globalTableArn.foreach(result.setGlobalTableArn)
       self.replicationGroup.foreach(v => result.setReplicationGroup(v.map(_.toJava).asJava))
       result
@@ -31,7 +33,7 @@ object GlobalTableDescriptionOps {
       ScalaGlobalTableDescription()
         .withGlobalTableName(Option(self.getGlobalTableName))
         .withGlobalTableStatus(Option(self.getGlobalTableStatus).map(GlobalTableStatus.withName))
-        .withCreationDateTime(Option(self.getCreationDateTime))
+        .withCreationDateTime(Option(self.getCreationDateTime).map(_.toInstant))
         .withGlobalTableArn(Option(self.getGlobalTableArn))
         .withReplicationGroup(Option(self.getReplicationGroup.asScala.map(_.toScala)))
     }

@@ -7,7 +7,6 @@ final case class TransactWriteItemsResponse(
     consumedCapacity: Option[Seq[ConsumedCapacity]] = None,
     itemCollectionMetrics: Option[Map[String, Seq[ItemCollectionMetrics]]] = None
 ) extends AbstractResponse(statusCode, statusText, httpHeaders) {
-
   override type ThisType = TransactWriteItemsResponse
   override def withStatusCode(value: Option[Int]): TransactWriteItemsResponse    = copy(statusCode = value)
   override def withStatusText(value: Option[String]): TransactWriteItemsResponse = copy(statusText = value)
@@ -17,5 +16,4 @@ final case class TransactWriteItemsResponse(
     copy(consumedCapacity = value)
   def withItemCollectionMetrics(value: Option[Map[String, Seq[ItemCollectionMetrics]]]): TransactWriteItemsResponse =
     copy(itemCollectionMetrics = value)
-
 }

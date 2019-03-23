@@ -1,8 +1,7 @@
-libraryDependencies ++= Seq(
-  "com.github.javaparser"    % "javaparser-core"     % "3.13.1",
-  "com.google.code.findbugs" % "jsr305"              % "3.0.2",
-  "com.beachape"             %% "enumeratum"         % "1.5.13",
-  "org.scala-lang.modules"   %% "scala-java8-compat" % "0.9.0"
+resolvers ++= Seq(
+  "Seasar Repository" at "http://maven.seasar.org/maven2/",
+  Resolver.sonatypeRepo("releases"),
+  Resolver.sonatypeRepo("snapshots")
 )
 
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
@@ -18,3 +17,5 @@ addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.0")
 addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.3.1")
 
 addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.4.0")
+
+addSbtPlugin("com.github.j5ik2o" % "sbt-wrapper-gen" % "1.0.2-SNAPSHOT")

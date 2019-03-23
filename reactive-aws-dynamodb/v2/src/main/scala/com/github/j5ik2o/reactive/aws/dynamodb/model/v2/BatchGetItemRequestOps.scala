@@ -13,7 +13,7 @@ object BatchGetItemRequestOps {
     def toJava: JavaBatchGetItemRequest = {
       val result = JavaBatchGetItemRequest.builder()
       self.requestItems.foreach(v => result.requestItems(v.mapValues(_.toJava).asJava))
-      self.returnConsumedCapacity.foreach(result.returnConsumedCapacity)
+      self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
       result.build()
     }
 

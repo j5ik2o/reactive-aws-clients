@@ -1,3 +1,4 @@
+import com.github.j5ik2o.sbt.wrapper.gen.model.{ ClassDesc, EnumDesc }
 val scalaVersion211 = "2.11.12"
 val scalaVersion212 = "2.12.8"
 
@@ -10,13 +11,13 @@ val akkaVersion  = "2.5.21"
 
 val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
 
-lazy val scalaStyleSettings = Seq(
-  (scalastyleConfig in Compile) := file("scalastyle-config.xml"),
-  compileScalaStyle := scalastyle.in(Compile).toTask("").value,
-  (compile in Compile) := (compile in Compile)
-    .dependsOn(compileScalaStyle)
-    .value
-)
+//lazy val scalaStyleSettings = Seq(
+//  (scalastyleConfig in Compile) := file("scalastyle-config.xml"),
+//  compileScalaStyle := scalastyle.in(Compile).toTask("").value,
+//  (compile in Compile) := (compile in Compile)
+//    .dependsOn(compileScalaStyle)
+//    .value
+//)
 
 val coreSettings = Seq(
   sonatypeProfileName := "com.github.j5ik2o",
@@ -96,7 +97,7 @@ val coreSettings = Seq(
     Wart.Overloading
   ),
   wartremoverExcluded += baseDirectory.value / "src" / "test" / "scala"
-) ++ scalaStyleSettings
+) // ++ scalaStyleSettings
 
 val dynamoDBLocalVersion = "1.11.477"
 val sqlite4javaVersion   = "1.0.392"
@@ -105,8 +106,8 @@ lazy val copySqlite4javaJars = taskKey[Unit]("copyJars")
 
 lazy val copySqlite4javaJarsSettings = Seq(
   copySqlite4javaJars := {
-    import java.nio.file.Files
     import java.io.File
+    import java.nio.file.Files
     // For Local Dynamo DB to work, we need to copy SQLLite native libs from
     // our test dependencies into a directory that Java can find ("lib" in this case)
     // Then in our Java/Scala program, we need to set System.setProperty("sqlite4java.library.path", "lib");
@@ -131,7 +132,7 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
   .settings(
     name := "reactive-aws-common-test",
     libraryDependencies ++= Seq(
-      "com.google.guava" % "guava"                        % "20.0",
+      "com.google.guava" % "guava"                        % "25.1-jre",
       "commons-io"       % "commons-io"                   % "2.6",
       "org.scalatest"    %% "scalatest"                   % "3.0.5" % Provided,
       "com.whisk"        %% "docker-testkit-scalatest"    % "0.9.8",
@@ -213,9 +214,43 @@ lazy val `reactive-aws-dynamodb-test` = (project in file("reactive-aws-dynamodb/
 
 lazy val `reactive-aws-dynamodb-core` = (project in file("reactive-aws-dynamodb/core")).settings(
   coreSettings ++ Seq(
+    // logLevel := Level.Debug,
     name := "reactive-aws-dynamodb-core",
     libraryDependencies ++= Seq(
-      )
+      ),
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+    templateNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient.ftl"
+      case _: EnumDesc                                      => "EnumModel.ftl"
+      case cd: ClassDesc
+          if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && cd.simpleTypeName == "AttributeValue" =>
+        "ModelWithSupport.ftl"
+      case cd: ClassDesc
+          if cd.simpleTypeName.endsWith("Response") && cd.packageName.exists(_.endsWith("model")) && !cd.isStatic =>
+        "ResponseModel.ftl"
+      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic => "Model.ftl"
+      case cd                                                                          => throw new Exception(s"error: ${cd}")
+    },
+    typeNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient"
+      case cd                                               => cd.simpleTypeName
+    },
+    packageNameMapper in scalaWrapperGen := {
+      _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb")
+    },
+    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+      (scalaSource in Compile).value
+    },
+    typeDescFilter in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient"                                              => true
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
+      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
+      case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))                                    => true
+      case cd =>
+        false
+    },
+    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
   )
 ) dependsOn (`reactive-aws-common-core`)
 
@@ -274,7 +309,12 @@ lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2
       name := "reactive-aws-dynamodb-v2",
       libraryDependencies ++= Seq(
         "software.amazon.awssdk" % "dynamodb" % awsSdk2Version
-      )
+      ),
+      outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+        (scalaSource in Compile).value / "wrapper"
+      },
+      typeDescFilter in scalaWrapperGen := { _.simpleTypeName == "DynamoDbAsyncClient" },
+      inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
     )
   ) dependsOn (`reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 

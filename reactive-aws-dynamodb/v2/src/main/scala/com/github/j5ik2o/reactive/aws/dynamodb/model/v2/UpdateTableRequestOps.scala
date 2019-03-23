@@ -41,7 +41,7 @@ object UpdateTableRequestOps {
         .withProvisionedThroughput(Option(self.provisionedThroughput).map(_.toScala))
         .withGlobalSecondaryIndexUpdates(Option(self.globalSecondaryIndexUpdates).map(_.asScala.map(_.toScala)))
         .withStreamSpecification(Option(self.streamSpecification).map(_.toScala))
-        .withSSESpecification(Option(self.sseSpecification).map(_.toScala))
+        .withSseSpecification(Option(self.sseSpecification).map(_.toScala))
     }
 
   }

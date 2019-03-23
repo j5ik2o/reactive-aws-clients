@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
 import com.amazonaws.services.dynamodbv2.model.{ AttributeDefinition => JavaAttributeDefinition }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AttributeType, AttributeDefinition => ScalaAttributeDefinition }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  ScalarAttributeType,
+  AttributeDefinition => ScalaAttributeDefinition
+}
 
 object AttributeDefinitionOps {
 
@@ -21,7 +24,7 @@ object AttributeDefinitionOps {
     def toScala: ScalaAttributeDefinition = {
       ScalaAttributeDefinition()
         .withAttributeName(Option(self.getAttributeName)).withAttributeType(
-          Option(self.getAttributeType).map(AttributeType.withName)
+          Option(self.getAttributeType).map(ScalarAttributeType.withName)
         )
     }
 

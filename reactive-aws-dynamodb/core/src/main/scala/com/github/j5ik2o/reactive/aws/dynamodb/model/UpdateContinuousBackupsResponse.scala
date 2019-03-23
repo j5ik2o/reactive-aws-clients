@@ -6,7 +6,6 @@ final case class UpdateContinuousBackupsResponse(
     override val httpHeaders: Option[Map[String, Seq[String]]] = None,
     continuousBackupsDescription: Option[ContinuousBackupsDescription] = None
 ) extends AbstractResponse(statusCode, statusText, httpHeaders) {
-
   override type ThisType = UpdateContinuousBackupsResponse
   override def withStatusCode(value: Option[Int]): UpdateContinuousBackupsResponse    = copy(statusCode = value)
   override def withStatusText(value: Option[String]): UpdateContinuousBackupsResponse = copy(statusText = value)
@@ -14,5 +13,4 @@ final case class UpdateContinuousBackupsResponse(
     copy(httpHeaders = value)
   def withContinuousBackupsDescription(value: Option[ContinuousBackupsDescription]): UpdateContinuousBackupsResponse =
     copy(continuousBackupsDescription = value)
-
 }

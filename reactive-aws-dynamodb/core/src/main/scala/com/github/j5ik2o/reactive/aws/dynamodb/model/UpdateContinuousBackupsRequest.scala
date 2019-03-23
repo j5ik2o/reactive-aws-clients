@@ -4,7 +4,8 @@ final case class UpdateContinuousBackupsRequest(
     tableName: Option[String] = None,
     pointInTimeRecoverySpecification: Option[PointInTimeRecoverySpecification] = None
 ) {
-  def withTableName(value: Option[String]): UpdateContinuousBackupsRequest = copy(tableName = value)
+  def withTableName(value: Option[String]): UpdateContinuousBackupsRequest =
+    copy(tableName = value)
   def withPointInTimeRecoverySpecification(
       value: Option[PointInTimeRecoverySpecification]
   ): UpdateContinuousBackupsRequest =

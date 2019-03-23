@@ -27,7 +27,7 @@ object CreateTableRequestOps {
       self.billingMode.map(_.entryName).foreach(result.setBillingMode)
       self.provisionedThroughput.map(_.toJava).foreach(result.setProvisionedThroughput)
       self.streamSpecification.map(_.toJava).foreach(result.setStreamSpecification)
-      self.SSESpecification.map(_.toJava).foreach(result.setSSESpecification)
+      self.sseSpecification.map(_.toJava).foreach(result.setSSESpecification)
       result
     }
 
@@ -45,7 +45,7 @@ object CreateTableRequestOps {
         .withBillingMode(Option(self.getBillingMode).map(BillingMode.withName))
         .withProvisionedThroughput(Option(self.getProvisionedThroughput).map(_.toScala))
         .withStreamSpecification(Option(self.getStreamSpecification).map(_.toScala))
-        .withSSESpecification(Option(self.getSSESpecification).map(_.toScala))
+        .withSseSpecification(Option(self.getSSESpecification).map(_.toScala))
     }
 
   }

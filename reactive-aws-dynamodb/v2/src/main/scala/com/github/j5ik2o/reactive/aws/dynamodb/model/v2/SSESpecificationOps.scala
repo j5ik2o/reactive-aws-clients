@@ -21,14 +21,9 @@ object SSESpecificationOps {
 
     def toScala: ScalaSSESpecification = {
       ScalaSSESpecification()
-        .withEnabled(Option(self.enabled).map(_.booleanValue()))
-        .withSSEType(
-          Option(self.sseType)
-            .map(_.toString)
-            .map(SSEType.withName)
-        ).withKMSMasterKeyId(
-          Option(self.kmsMasterKeyId)
-        )
+        .withEnabled(Option(self.enabled))
+        .withSseType(Option(self.sseType).map(_.toString).map(SSEType.withName))
+        .withKmsMasterKeyId(Option(self.kmsMasterKeyId))
     }
 
   }

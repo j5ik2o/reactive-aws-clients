@@ -11,5 +11,4 @@ object BillingMode extends Enum[BillingMode] {
 
   case object PROVISIONED     extends BillingMode
   case object PAY_PER_REQUEST extends BillingMode
-
 }
