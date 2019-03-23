@@ -188,6 +188,7 @@ trait OpsSupport {
     s.map(SdkBytes.fromByteArray).asJava
 
   implicit def toJavaAttributeValueMap(s: ScalaAttributeValueMap): util.Map[String, JavaAttributeValue] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.AttributeValueOps._
     s.mapValues(_.toJava).asJava
   }
 
@@ -259,12 +260,14 @@ trait OpsSupport {
   implicit def toJavaAttributeValueMapListMap(
       s: Map[String, Seq[ScalaAttributeValueMap]]
   ): util.Map[String, util.List[util.Map[String, JavaAttributeValue]]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.AttributeValueOps._
     s.mapValues(_.map(_.mapValues(_.toJava).asJava).asJava).asJava
   }
 
   implicit def toJavaForKeysAndAttributesMap(
       s: Map[String, ScalaKeysAndAttributes]
   ): util.Map[String, JavaKeysAndAttributes] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.KeysAndAttributesOps._
     s.mapValues(_.toJava).asJava
   }
 
@@ -283,12 +286,14 @@ trait OpsSupport {
   implicit def toJavaWriteRequestListMap(
       s: Map[String, Seq[ScalaWriteRequest]]
   ): util.Map[String, util.List[JavaWriteRequest]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.WriteRequestOps._
     s.mapValues(_.map(_.toJava).asJava).asJava
   }
 
   implicit def toJavaItemCollectionMetricsListMap(
       s: Map[String, Seq[ScalaItemCollectionMetrics]]
   ): util.Map[String, util.List[JavaItemCollectionMetrics]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ItemCollectionMetricsOps._
     s.mapValues(_.map(_.toJava).asJava).asJava
   }
 
@@ -302,6 +307,7 @@ trait OpsSupport {
   }
 
   implicit def toJava(s: Map[String, ScalaCapacity]): util.Map[String, JavaCapacity] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.CapacityOps._
     s.mapValues(_.toJava).asJava
   }
 
@@ -377,6 +383,7 @@ trait OpsSupport {
   implicit def toJavaScalaExpectedAttributeValueMap(
       s: Map[String, ScalaExpectedAttributeValue]
   ): util.Map[String, JavaExpectedAttributeValue] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ExpectedAttributeValueOps._
     s.mapValues(_.toJava).asJava
   }
 
@@ -474,6 +481,7 @@ trait OpsSupport {
   implicit def toJavaAttributeValueMapList(
       s: Seq[Map[String, ScalaAttributeValue]]
   ): util.List[util.Map[String, JavaAttributeValue]] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.AttributeValueOps._
     s.map(_.mapValues(_.toJava).asJava).asJava
   }
 
@@ -544,6 +552,7 @@ trait OpsSupport {
   }
 
   implicit def toJavaConditionMap(s: Map[String, ScalaCondition]): util.Map[String, JavaCondition] = {
+    import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.ConditionOps._
     s.mapValues(_.toJava).asJava
   }
 
