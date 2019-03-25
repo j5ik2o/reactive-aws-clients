@@ -1,8 +1,4 @@
 version: 2
-checkout:
-  post:
-    - git submodule sync
-    - git submodule update --init
 jobs:
   build:
     environment:
@@ -30,6 +26,8 @@ jobs:
           key: key-{{ checksum "build.sbt" }}
       - run:
           command: |
+            git submodule sync
+            git submodule update --init
             cd aws-sdk-src/aws-sdk-java-v2
             mvn install
             sbt +test:compile
