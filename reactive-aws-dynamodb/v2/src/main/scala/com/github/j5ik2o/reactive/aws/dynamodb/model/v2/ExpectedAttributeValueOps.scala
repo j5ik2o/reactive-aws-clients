@@ -1,24 +1,26 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ComparisonOperator,
-  ExpectedAttributeValue => ScalaExpectedAttributeValue
-}
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ExpectedAttributeValue => ScalaExpectedAttributeValue, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ExpectedAttributeValue => JavaExpectedAttributeValue }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ExpectedAttributeValueOps {
-  import AttributeValueOps._
 
   implicit class ScalaExpectedAttributeValueOps(val self: ScalaExpectedAttributeValue) extends AnyVal {
 
     def toJava: JavaExpectedAttributeValue = {
       val result = JavaExpectedAttributeValue.builder()
-      self.value.map(_.toJava).foreach(result.value)
-      self.exists.foreach(v => result.exists(v))
-      self.comparisonOperator.map(_.entryName).foreach(result.comparisonOperator)
-      self.attributeValueList.map(_.map(_.toJava).asJava).foreach(result.attributeValueList)
+      self.value.foreach { v =>
+        import AttributeValueOps._; result.value(v.toJava)
+      } // AttributeValue
+      self.exists.map(_.booleanValue).foreach(v => result.exists(v)) // Boolean
+      self.comparisonOperator.foreach { v =>
+        import ComparisonOperatorOps._; result.comparisonOperator(v.toJava)
+      } // String
+      self.attributeValueList.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.attributeValueList(v.map(_.toJava).asJava)
+      } // Seq[AttributeValue]
+
       result.build()
     }
 
@@ -28,11 +30,18 @@ object ExpectedAttributeValueOps {
 
     def toScala: ScalaExpectedAttributeValue = {
       ScalaExpectedAttributeValue()
-        .withValue(Option(self.value).map(_.toScala))
-        .withExists(Option(self.exists))
-        .withComparisonOperator(Option(self.comparisonOperator).map(_.toString).map(ComparisonOperator.withName))
-        .withAttributeValueList(Option(self.attributeValueList).map(_.asScala.map(_.toScala)))
+        .withValue(Option(self.value).map { v =>
+          import AttributeValueOps._; v.toScala
+        }) // AttributeValue
+        .withExists(Option(self.exists).map(_.booleanValue)) // Boolean
+        .withComparisonOperator(Option(self.comparisonOperator).map { v =>
+          import ComparisonOperatorOps._; v.toScala
+        }) // String
+        .withAttributeValueList(Option(self.attributeValueList).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.map(_.toScala)
+        }) // Seq[AttributeValue]
     }
+
   }
 
 }

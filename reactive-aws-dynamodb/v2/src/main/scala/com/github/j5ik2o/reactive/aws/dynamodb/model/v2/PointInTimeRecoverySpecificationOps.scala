@@ -1,12 +1,14 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  PointInTimeRecoverySpecification => ScalaPointInTimeRecoverySpecification
+  PointInTimeRecoverySpecification => ScalaPointInTimeRecoverySpecification,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   PointInTimeRecoverySpecification => JavaPointInTimeRecoverySpecification
 }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object PointInTimeRecoverySpecificationOps {
 
   implicit class ScalaPointInTimeRecoverySpecificationOps(val self: ScalaPointInTimeRecoverySpecification)
@@ -14,7 +16,8 @@ object PointInTimeRecoverySpecificationOps {
 
     def toJava: JavaPointInTimeRecoverySpecification = {
       val result = JavaPointInTimeRecoverySpecification.builder()
-      self.pointInTimeRecoveryEnabled.foreach(v => result.pointInTimeRecoveryEnabled(v))
+      self.pointInTimeRecoveryEnabled.map(_.booleanValue).foreach(v => result.pointInTimeRecoveryEnabled(v)) // Boolean
+
       result.build()
     }
 
@@ -25,7 +28,7 @@ object PointInTimeRecoverySpecificationOps {
 
     def toScala: ScalaPointInTimeRecoverySpecification = {
       ScalaPointInTimeRecoverySpecification()
-        .withPointInTimeRecoveryEnabled(Option(self.pointInTimeRecoveryEnabled).map(_.booleanValue()))
+        .withPointInTimeRecoveryEnabled(Option(self.pointInTimeRecoveryEnabled).map(_.booleanValue)) // Boolean
     }
 
   }

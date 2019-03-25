@@ -1,29 +1,21 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateTimeToLiveRequest => ScalaUpdateTimeToLiveRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateTimeToLiveRequest => ScalaUpdateTimeToLiveRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ UpdateTimeToLiveRequest => JavaUpdateTimeToLiveRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateTimeToLiveRequestOps {
-
-  import TimeToLiveSpecificationOps._
 
   implicit class ScalaUpdateTimeToLiveRequestOps(val self: ScalaUpdateTimeToLiveRequest) extends AnyVal {
 
     def toJava: JavaUpdateTimeToLiveRequest = {
       val result = JavaUpdateTimeToLiveRequest.builder()
-      self.tableName.foreach(result.tableName)
-      self.timeToLiveSpecification.map(_.toJava).foreach(result.timeToLiveSpecification)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.timeToLiveSpecification.foreach { v =>
+        import TimeToLiveSpecificationOps._; result.timeToLiveSpecification(v.toJava)
+      } // TimeToLiveSpecification
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaUpdateTimeToLiveRequestOps(val self: JavaUpdateTimeToLiveRequest) extends AnyVal {
-
-    def toScala: ScalaUpdateTimeToLiveRequest = {
-      ScalaUpdateTimeToLiveRequest()
-        .withTableName(Option(self.tableName))
-        .withTimeToLiveSpecification(Option(self.timeToLiveSpecification).map(_.toScala))
     }
 
   }

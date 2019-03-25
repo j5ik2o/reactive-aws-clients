@@ -1,12 +1,14 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  RestoreTableToPointInTimeRequest => ScalaRestoreTableToPointInTimeRequest
+  RestoreTableToPointInTimeRequest => ScalaRestoreTableToPointInTimeRequest,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   RestoreTableToPointInTimeRequest => JavaRestoreTableToPointInTimeRequest
 }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object RestoreTableToPointInTimeRequestOps {
 
   implicit class ScalaRestoreTableToPointInTimeRequestOps(val self: ScalaRestoreTableToPointInTimeRequest)
@@ -14,24 +16,12 @@ object RestoreTableToPointInTimeRequestOps {
 
     def toJava: JavaRestoreTableToPointInTimeRequest = {
       val result = JavaRestoreTableToPointInTimeRequest.builder()
-      self.sourceTableName.foreach(result.sourceTableName)
-      self.targetTableName.foreach(result.targetTableName)
-      self.useLatestRestorableTime.foreach(v => result.useLatestRestorableTime(v))
-      self.restoreDateTime.foreach(result.restoreDateTime)
+      self.sourceTableName.filter(_.nonEmpty).foreach(v => result.sourceTableName(v))                  // String
+      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v))                  // String
+      self.useLatestRestorableTime.map(_.booleanValue).foreach(v => result.useLatestRestorableTime(v)) // Boolean
+      self.restoreDateTime.foreach(v => result.restoreDateTime(v))                                     // Instant
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaRestoreTableToPointInTimeRequestOps(val self: JavaRestoreTableToPointInTimeRequest)
-      extends AnyVal {
-
-    def toScala: ScalaRestoreTableToPointInTimeRequest = {
-      ScalaRestoreTableToPointInTimeRequest()
-        .withSourceTableName(Option(self.sourceTableName))
-        .withTargetTableName(Option(self.targetTableName))
-        .withUseLatestRestorableTime(Option(self.useLatestRestorableTime))
-        .withRestoreDateTime(Option(self.restoreDateTime))
     }
 
   }

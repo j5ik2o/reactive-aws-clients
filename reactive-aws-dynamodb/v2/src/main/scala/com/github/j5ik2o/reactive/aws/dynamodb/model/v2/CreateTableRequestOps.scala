@@ -1,51 +1,47 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BillingMode, CreateTableRequest => ScalaCreateTableRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ CreateTableRequest => ScalaCreateTableRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ CreateTableRequest => JavaCreateTableRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object CreateTableRequestOps {
-  import AttributeDefinitionOps._
-  import GlobalSecondaryIndexOps._
-  import KeySchemaElementOps._
-  import LocalSecondaryIndexOps._
-  import ProvisionedThroughputOps._
-  import SSESpecificationOps._
-  import StreamSpecificationOps._
 
   implicit class ScalaCreateTableRequestOps(val self: ScalaCreateTableRequest) extends AnyVal {
 
     def toJava: JavaCreateTableRequest = {
       val result = JavaCreateTableRequest.builder()
-      self.attributeDefinitions.map(_.map(_.toJava).asJava).foreach(result.attributeDefinitions)
-      self.tableName.foreach(result.tableName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.keySchema)
-      self.localSecondaryIndexes.map(_.map(_.toJava).asJava).foreach(result.localSecondaryIndexes)
-      self.globalSecondaryIndexes.map(_.map(_.toJava).asJava).foreach(result.globalSecondaryIndexes)
-      self.billingMode.map(_.entryName).foreach(result.billingMode)
-      self.provisionedThroughput.map(_.toJava).foreach(result.provisionedThroughput)
-      self.streamSpecification.map(_.toJava).foreach(result.streamSpecification)
-      self.sseSpecification.map(_.toJava).foreach(result.sseSpecification)
+      self.attributeDefinitions.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeDefinitionOps._;
+        result.attributeDefinitions(v.map(_.toJava).asJava)
+      } // Seq[AttributeDefinition]
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, LocalSecondaryIndexOps._;
+        result.localSecondaryIndexes(v.map(_.toJava).asJava)
+      } // Seq[LocalSecondaryIndex]
+      self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, GlobalSecondaryIndexOps._;
+        result.globalSecondaryIndexes(v.map(_.toJava).asJava)
+      } // Seq[GlobalSecondaryIndex]
+      self.billingMode.foreach { v =>
+        import BillingModeOps._; result.billingMode(v.toJava)
+      } // String
+      self.provisionedThroughput.foreach { v =>
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
+      self.streamSpecification.foreach { v =>
+        import StreamSpecificationOps._; result.streamSpecification(v.toJava)
+      } // StreamSpecification
+      self.sseSpecification.foreach { v =>
+        import SSESpecificationOps._; result.sseSpecification(v.toJava)
+      } // SSESpecification
+
       result.build()
     }
 
   }
 
-  implicit class JavaCreateTableRequestOps(val self: JavaCreateTableRequest) extends AnyVal {
-
-    def toScala: ScalaCreateTableRequest = {
-      ScalaCreateTableRequest()
-        .withTableName(Option(self.tableName))
-        .withAttributeDefinitions(Option(self.attributeDefinitions).map(_.asScala.map(_.toScala)))
-        .withKeySchema(Option(self.keySchema).map(_.asScala.map(_.toScala)))
-        .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map(_.asScala.map(_.toScala)))
-        .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map(_.asScala.map(_.toScala)))
-        .withBillingMode(Option(self.billingMode).map(_.toString).map(BillingMode.withName))
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map(_.toScala))
-        .withStreamSpecification(Option(self.streamSpecification).map(_.toScala))
-        .withSseSpecification(Option(self.sseSpecification).map(_.toScala))
-    }
-
-  }
 }

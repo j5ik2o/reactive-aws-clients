@@ -1,25 +1,27 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItemsResponse => ScalaTransactGetItemsResponse }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItemsResponse => ScalaTransactGetItemsResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ TransactGetItemsResponse => JavaTransactGetItemsResponse }
 
-import scala.collection.JavaConverters._
 import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TransactGetItemsResponseOps {
-
-  import ConsumedCapacityOps._
-  import ItemResponseOps._
 
   implicit class JavaTransactGetItemsResponseOps(val self: JavaTransactGetItemsResponse) extends AnyVal {
 
     def toScala: ScalaTransactGetItemsResponse = {
       ScalaTransactGetItemsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse()).map(_.statusCode()))
+        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse).map(_.headers()).map(_.asScala.toMap.mapValues(_.asScala)))
-        .withResponses(Option(self.responses).map(_.asScala.map(_.toScala)))
-        .withConsumedCapacity(Option(self.consumedCapacity).map(_.asScala.map(_.toScala)))
+        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
+        .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
+          import scala.collection.JavaConverters._, ConsumedCapacityOps._; v.asScala.map(_.toScala)
+        }) // Seq[ConsumedCapacity]
+        .withResponses(Option(self.responses).map { v =>
+          import scala.collection.JavaConverters._, ItemResponseOps._; v.asScala.map(_.toScala)
+        }) // Seq[ItemResponse]
     }
 
   }

@@ -1,15 +1,15 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ReplicaGlobalSecondaryIndexSettingsUpdate => ScalaReplicaGlobalSecondaryIndexSettingsUpdate
+  ReplicaGlobalSecondaryIndexSettingsUpdate => ScalaReplicaGlobalSecondaryIndexSettingsUpdate,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   ReplicaGlobalSecondaryIndexSettingsUpdate => JavaReplicaGlobalSecondaryIndexSettingsUpdate
 }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ReplicaGlobalSecondaryIndexSettingsUpdateOps {
-
-  import AutoScalingSettingsUpdateOps._
 
   implicit class ScalaReplicaGlobalSecondaryIndexSettingsUpdateOps(
       val self: ScalaReplicaGlobalSecondaryIndexSettingsUpdate
@@ -17,10 +17,12 @@ object ReplicaGlobalSecondaryIndexSettingsUpdateOps {
 
     def toJava: JavaReplicaGlobalSecondaryIndexSettingsUpdate = {
       val result = JavaReplicaGlobalSecondaryIndexSettingsUpdate.builder()
-      self.indexName.foreach(result.indexName)
-      self.provisionedReadCapacityAutoScalingSettingsUpdate
-        .map(_.toJava).foreach(result.provisionedReadCapacityAutoScalingSettingsUpdate)
-      self.provisionedReadCapacityUnits.foreach(v => result.provisionedReadCapacityUnits(v))
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v))                                     // String
+      self.provisionedReadCapacityUnits.map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long
+      self.provisionedReadCapacityAutoScalingSettingsUpdate.foreach { v =>
+        import AutoScalingSettingsUpdateOps._; result.provisionedReadCapacityAutoScalingSettingsUpdate(v.toJava)
+      } // AutoScalingSettingsUpdate
+
       result.build()
     }
 
@@ -32,11 +34,13 @@ object ReplicaGlobalSecondaryIndexSettingsUpdateOps {
 
     def toScala: ScalaReplicaGlobalSecondaryIndexSettingsUpdate = {
       ScalaReplicaGlobalSecondaryIndexSettingsUpdate()
-        .withIndexName(Option(self.indexName))
+        .withIndexName(Option(self.indexName)) // String
+        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue)) // Long
         .withProvisionedReadCapacityAutoScalingSettingsUpdate(
-          Option(self.provisionedReadCapacityAutoScalingSettingsUpdate).map(_.toScala)
-        )
-        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue()))
+          Option(self.provisionedReadCapacityAutoScalingSettingsUpdate).map { v =>
+            import AutoScalingSettingsUpdateOps._; v.toScala
+          }
+        ) // AutoScalingSettingsUpdate
     }
 
   }

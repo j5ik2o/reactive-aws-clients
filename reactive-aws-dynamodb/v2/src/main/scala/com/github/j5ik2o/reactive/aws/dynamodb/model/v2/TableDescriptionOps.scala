@@ -1,70 +1,106 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TableStatus, TableDescription => ScalaTableDescription }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TableDescription => ScalaTableDescription, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ TableDescription => JavaTableDescription }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TableDescriptionOps {
-  import AttributeDefinitionOps._
-  import BillingModeSummaryOps._
-  import GlobalSecondaryIndexDescriptionOps._
-  import KeySchemaElementOps._
-  import LocalSecondaryIndexDescriptionOps._
-  import ProvisionedThroughputDescriptionOps._
-  import RestoreSummaryOps._
-  import SSEDescriptionOps._
-  import StreamSpecificationOps._
 
   implicit class ScalaTableDescriptionOps(val self: ScalaTableDescription) extends AnyVal {
+
     def toJava: JavaTableDescription = {
       val result = JavaTableDescription.builder()
-      self.attributeDefinitions.map(_.map(_.toJava).asJava).foreach(result.attributeDefinitions)
-      self.tableName.foreach(result.tableName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.keySchema)
-      self.tableStatus.map(_.entryName).foreach(result.tableStatus)
-      self.creationDateTime.foreach(result.creationDateTime)
-      self.provisionedThroughput.map(_.toJava).foreach(result.provisionedThroughput)
-      self.tableSizeBytes.foreach(v => result.tableSizeBytes(v))
-      self.itemCount.foreach(v => result.itemCount(v))
-      self.tableArn.foreach(v => result.tableArn(v))
-      self.tableId.foreach(result.tableId)
-      self.billingModeSummary.map(_.toJava).foreach(result.billingModeSummary)
-      self.localSecondaryIndexes.map(_.map(_.toJava).asJava).foreach(result.localSecondaryIndexes)
-      self.globalSecondaryIndexes.map(_.map(_.toJava).asJava).foreach(result.globalSecondaryIndexes)
-      self.streamSpecification.map(_.toJava).foreach(result.streamSpecification)
-      self.latestStreamLabel.foreach(result.latestStreamLabel)
-      self.latestStreamArn.foreach(result.latestStreamArn)
-      self.restoreSummary.map(_.toJava).foreach(result.restoreSummary)
-      self.sseDescription.map(_.toJava).foreach(result.sseDescription)
+      self.attributeDefinitions.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeDefinitionOps._;
+        result.attributeDefinitions(v.map(_.toJava).asJava)
+      } // Seq[AttributeDefinition]
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.tableStatus.foreach { v =>
+        import TableStatusOps._; result.tableStatus(v.toJava)
+      } // String
+      self.creationDateTime.foreach(v => result.creationDateTime(v)) // Instant
+      self.provisionedThroughput.foreach { v =>
+        import ProvisionedThroughputDescriptionOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughputDescription
+      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
+      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String
+      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String
+      self.billingModeSummary.foreach { v =>
+        import BillingModeSummaryOps._; result.billingModeSummary(v.toJava)
+      } // BillingModeSummary
+      self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, LocalSecondaryIndexDescriptionOps._;
+        result.localSecondaryIndexes(v.map(_.toJava).asJava)
+      } // Seq[LocalSecondaryIndexDescription]
+      self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, GlobalSecondaryIndexDescriptionOps._;
+        result.globalSecondaryIndexes(v.map(_.toJava).asJava)
+      } // Seq[GlobalSecondaryIndexDescription]
+      self.streamSpecification.foreach { v =>
+        import StreamSpecificationOps._; result.streamSpecification(v.toJava)
+      } // StreamSpecification
+      self.latestStreamLabel.filter(_.nonEmpty).foreach(v => result.latestStreamLabel(v)) // String
+      self.latestStreamArn.filter(_.nonEmpty).foreach(v => result.latestStreamArn(v))     // String
+      self.restoreSummary.foreach { v =>
+        import RestoreSummaryOps._; result.restoreSummary(v.toJava)
+      } // RestoreSummary
+      self.sseDescription.foreach { v =>
+        import SSEDescriptionOps._; result.sseDescription(v.toJava)
+      } // SSEDescription
+
       result.build()
     }
+
   }
 
   implicit class JavaTableDescriptionOps(val self: JavaTableDescription) extends AnyVal {
 
     def toScala: ScalaTableDescription = {
       ScalaTableDescription()
-        .withAttributeDefinitions(
-          Option(self.attributeDefinitions).map(_.asScala.map(_.toScala))
-        ).withTableName(Option(self.tableName))
-        .withKeySchema(Option(self.keySchema).map(_.asScala.map(_.toScala)))
-        .withTableStatus(Option(self.tableStatus).map(_.toString).map(TableStatus.withName))
-        .withCreationDateTime(Option(self.creationDateTime))
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map(_.toScala))
-        .withTableSizeBytes(Option(self.tableSizeBytes))
-        .withItemCount(Option(self.itemCount))
-        .withTableArn(Option(self.tableArn))
-        .withTableId(Option(self.tableId))
-        .withBillingModeSummary(Option(self.billingModeSummary).map(_.toScala))
-        .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map(_.asScala.map(_.toScala)))
-        .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map(_.asScala.map(_.toScala)))
-        .withStreamSpecification(Option(self.streamSpecification).map(_.toScala))
-        .withLatestStreamLabel(Option(self.latestStreamLabel))
-        .withLatestStreamArn(Option(self.latestStreamArn))
-        .withRestoreSummary(Option(self.restoreSummary).map(_.toScala))
-        .withSseDescription(Option(self.sseDescription).map(_.toScala))
+        .withAttributeDefinitions(Option(self.attributeDefinitions).map { v =>
+          import scala.collection.JavaConverters._, AttributeDefinitionOps._; v.asScala.map(_.toScala)
+        }) // Seq[AttributeDefinition]
+        .withTableName(Option(self.tableName)) // String
+        .withKeySchema(Option(self.keySchema).map { v =>
+          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
+        }) // Seq[KeySchemaElement]
+        .withTableStatus(Option(self.tableStatus).map { v =>
+          import TableStatusOps._; v.toScala
+        }) // String
+        .withCreationDateTime(Option(self.creationDateTime)) // Instant
+        .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
+          import ProvisionedThroughputDescriptionOps._; v.toScala
+        }) // ProvisionedThroughputDescription
+        .withTableSizeBytes(Option(self.tableSizeBytes).map(_.longValue)) // Long
+        .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
+        .withTableArn(Option(self.tableArn)) // String
+        .withTableId(Option(self.tableId)) // String
+        .withBillingModeSummary(Option(self.billingModeSummary).map { v =>
+          import BillingModeSummaryOps._; v.toScala
+        }) // BillingModeSummary
+        .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map { v =>
+          import scala.collection.JavaConverters._, LocalSecondaryIndexDescriptionOps._; v.asScala.map(_.toScala)
+        }) // Seq[LocalSecondaryIndexDescription]
+        .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map { v =>
+          import scala.collection.JavaConverters._, GlobalSecondaryIndexDescriptionOps._; v.asScala.map(_.toScala)
+        }) // Seq[GlobalSecondaryIndexDescription]
+        .withStreamSpecification(Option(self.streamSpecification).map { v =>
+          import StreamSpecificationOps._; v.toScala
+        }) // StreamSpecification
+        .withLatestStreamLabel(Option(self.latestStreamLabel)) // String
+        .withLatestStreamArn(Option(self.latestStreamArn)) // String
+        .withRestoreSummary(Option(self.restoreSummary).map { v =>
+          import RestoreSummaryOps._; v.toScala
+        }) // RestoreSummary
+        .withSseDescription(Option(self.sseDescription).map { v =>
+          import SSEDescriptionOps._; v.toScala
+        }) // SSEDescription
     }
 
   }
+
 }

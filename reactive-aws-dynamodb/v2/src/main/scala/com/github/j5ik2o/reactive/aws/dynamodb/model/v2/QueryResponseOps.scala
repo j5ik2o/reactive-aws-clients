@@ -1,28 +1,33 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ QueryResponse => ScalaQueryResponse }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ QueryResponse => ScalaQueryResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ QueryResponse => JavaQueryResponse }
 
-import scala.collection.JavaConverters._
 import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object QueryResponseOps {
-
-  import AttributeValueOps._
-  import ConsumedCapacityOps._
 
   implicit class JavaQueryResponseOps(val self: JavaQueryResponse) extends AnyVal {
 
     def toScala: ScalaQueryResponse = {
       ScalaQueryResponse()
-        .withStatusCode(Option(self.sdkHttpResponse()).map(_.statusCode()))
+        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse).map(_.headers()).map(_.asScala.toMap.mapValues(_.asScala)))
-        .withItems(Option(self.items).map(_.asScala.map(_.asScala.toMap.mapValues(_.toScala))))
-        .withCount(Option(self.count))
-        .withScannedCount(Option(self.scannedCount))
-        .withLastEvaluatedKey(Option(self.lastEvaluatedKey).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConsumedCapacity(Option(self.consumedCapacity).map(_.toScala))
+        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
+        .withItems(Option(self.items).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._;
+          v.asScala.map(_.asScala.toMap.mapValues(_.toScala))
+        }) // Seq[Map[String, AttributeValue]]
+        .withCount(Option(self.count).map(_.intValue)) // Int
+        .withScannedCount(Option(self.scannedCount).map(_.intValue)) // Int
+        .withLastEvaluatedKey(Option(self.lastEvaluatedKey).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
+          import ConsumedCapacityOps._; v.toScala
+        }) // ConsumedCapacity
     }
 
   }

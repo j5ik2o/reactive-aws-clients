@@ -1,15 +1,15 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  GlobalTableGlobalSecondaryIndexSettingsUpdate => ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate
+  GlobalTableGlobalSecondaryIndexSettingsUpdate => ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   GlobalTableGlobalSecondaryIndexSettingsUpdate => JavaGlobalTableGlobalSecondaryIndexSettingsUpdate
 }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
-
-  import AutoScalingSettingsUpdateOps._
 
   implicit class ScalaGlobalTableGlobalSecondaryIndexSettingsUpdateOps(
       val self: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate
@@ -17,10 +17,12 @@ object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
 
     def toJava: JavaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
       val result = JavaGlobalTableGlobalSecondaryIndexSettingsUpdate.builder()
-      self.indexName.foreach(result.indexName)
-      self.provisionedWriteCapacityUnits.foreach(v => result.provisionedWriteCapacityUnits(v))
-      self.provisionedWriteCapacityAutoScalingSettingsUpdate
-        .map(_.toJava).foreach(result.provisionedWriteCapacityAutoScalingSettingsUpdate)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v))                                       // String
+      self.provisionedWriteCapacityUnits.map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long
+      self.provisionedWriteCapacityAutoScalingSettingsUpdate.foreach { v =>
+        import AutoScalingSettingsUpdateOps._; result.provisionedWriteCapacityAutoScalingSettingsUpdate(v.toJava)
+      } // AutoScalingSettingsUpdate
+
       result.build()
     }
 
@@ -32,11 +34,13 @@ object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
 
     def toScala: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
       ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate()
-        .withIndexName(Option(self.indexName))
-        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits).map(_.longValue()))
+        .withIndexName(Option(self.indexName)) // String
+        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits).map(_.longValue)) // Long
         .withProvisionedWriteCapacityAutoScalingSettingsUpdate(
-          Option(self.provisionedWriteCapacityAutoScalingSettingsUpdate).map(_.toScala)
-        )
+          Option(self.provisionedWriteCapacityAutoScalingSettingsUpdate).map { v =>
+            import AutoScalingSettingsUpdateOps._; v.toScala
+          }
+        ) // AutoScalingSettingsUpdate
     }
 
   }

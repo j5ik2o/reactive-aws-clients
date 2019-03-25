@@ -1,19 +1,19 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteRequest => ScalaDeleteRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteRequest => ScalaDeleteRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DeleteRequest => JavaDeleteRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DeleteRequestOps {
-
-  import AttributeValueOps._
 
   implicit class ScalaDeleteRequestOps(val self: ScalaDeleteRequest) extends AnyVal {
 
     def toJava: JavaDeleteRequest = {
       val result = JavaDeleteRequest.builder()
-      self.key.foreach(v => result.key(v.mapValues(_.toJava).asJava))
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+
       result.build()
     }
 
@@ -22,7 +22,10 @@ object DeleteRequestOps {
   implicit class JavaDeleteRequestOps(val self: JavaDeleteRequest) extends AnyVal {
 
     def toScala: ScalaDeleteRequest = {
-      ScalaDeleteRequest().withKey(Option(self.key().asScala.toMap.mapValues(_.toScala)))
+      ScalaDeleteRequest()
+        .withKey(Option(self.key).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
     }
 
   }

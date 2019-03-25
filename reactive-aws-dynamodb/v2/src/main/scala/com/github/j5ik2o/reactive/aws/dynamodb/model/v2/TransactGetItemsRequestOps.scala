@@ -1,36 +1,23 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ReturnConsumedCapacity,
-  TransactGetItemsRequest => ScalaTransactGetItemsRequest
-}
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItemsRequest => ScalaTransactGetItemsRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ TransactGetItemsRequest => JavaTransactGetItemsRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TransactGetItemsRequestOps {
-
-  import TransactGetItemOps._
 
   implicit class ScalaTransactGetItemsRequestOps(val self: ScalaTransactGetItemsRequest) extends AnyVal {
 
     def toJava: JavaTransactGetItemsRequest = {
       val result = JavaTransactGetItemsRequest.builder()
-      self.transactItems.map(_.map(_.toJava).asJava).foreach(result.transactItems)
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
+      self.transactItems.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, TransactGetItemOps._; result.transactItems(v.map(_.toJava).asJava)
+      } // Seq[TransactGetItem]
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
+      } // String
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaTransactGetItemsRequestOps(val self: JavaTransactGetItemsRequest) extends AnyVal {
-
-    def toScala: ScalaTransactGetItemsRequest = {
-      ScalaTransactGetItemsRequest()
-        .withTransactItems(Option(self.transactItems).map(_.asScala.map(_.toScala)))
-        .withReturnConsumedCapacity(
-          Option(self.returnConsumedCapacity).map(_.toString).map(ReturnConsumedCapacity.withName)
-        )
     }
 
   }

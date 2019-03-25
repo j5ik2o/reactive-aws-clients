@@ -1,11 +1,14 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  AutoScalingTargetTrackingScalingPolicyConfigurationUpdate => ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+  AutoScalingTargetTrackingScalingPolicyConfigurationUpdate => ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   AutoScalingTargetTrackingScalingPolicyConfigurationUpdate => JavaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate
 }
+
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps {
 
   implicit class ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps(
@@ -14,10 +17,11 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps {
 
     def toJava: JavaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate = {
       val result = JavaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate.builder()
-      self.disableScaleIn.foreach(v => result.disableScaleIn(v))
-      self.scaleInCooldown.foreach(v => result.scaleInCooldown(v))
-      self.scaleOutCooldown.foreach(v => result.scaleOutCooldown(v))
-      self.targetValue.foreach(v => result.targetValue(v))
+      self.disableScaleIn.map(_.booleanValue).foreach(v => result.disableScaleIn(v)) // Boolean
+      self.scaleInCooldown.map(_.intValue).foreach(v => result.scaleInCooldown(v))   // Int
+      self.scaleOutCooldown.map(_.intValue).foreach(v => result.scaleOutCooldown(v)) // Int
+      self.targetValue.map(_.doubleValue).foreach(v => result.targetValue(v))        // Double
+
       result.build()
     }
 
@@ -29,10 +33,10 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps {
 
     def toScala: ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate = {
       ScalaAutoScalingTargetTrackingScalingPolicyConfigurationUpdate()
-        .withDisableScaleIn(Option(self.disableScaleIn).map(_.booleanValue()))
-        .withScaleInCooldown(Option(self.scaleInCooldown))
-        .withScaleOutCooldown(Option(self.scaleOutCooldown))
-        .withTargetValue(Option(self.targetValue))
+        .withDisableScaleIn(Option(self.disableScaleIn).map(_.booleanValue)) // Boolean
+        .withScaleInCooldown(Option(self.scaleInCooldown).map(_.intValue)) // Int
+        .withScaleOutCooldown(Option(self.scaleOutCooldown).map(_.intValue)) // Int
+        .withTargetValue(Option(self.targetValue).map(_.doubleValue)) // Double
     }
 
   }

@@ -1,59 +1,45 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ConditionalOperator,
-  ReturnConsumedCapacity,
-  ReturnItemCollectionMetrics,
-  ReturnValue,
-  PutItemRequest => ScalaPutItemRequest
-}
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ PutItemRequest => ScalaPutItemRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ PutItemRequest => JavaPutItemRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object PutItemRequestOps {
-
-  import AttributeValueOps._
-  import ExpectedAttributeValueOps._
 
   implicit class ScalaPutItemRequestOps(val self: ScalaPutItemRequest) extends AnyVal {
 
     def toJava: JavaPutItemRequest = {
-      val builder = JavaPutItemRequest.builder()
-      self.tableName.foreach(builder.tableName)
-      self.item.map(_.mapValues(_.toJava).asJava).foreach(builder.item)
-      self.expected.map(_.mapValues(_.toJava).asJava).foreach(builder.expected)
-      self.returnValues.map(_.entryName).foreach(builder.returnValues)
-      self.returnConsumedCapacity.map(_.entryName).foreach(builder.returnConsumedCapacity)
-      self.returnItemCollectionMetrics.map(_.entryName).foreach(builder.returnItemCollectionMetrics)
-      self.conditionalOperator.map(_.entryName).foreach(builder.conditionalOperator)
-      self.conditionExpression.foreach(builder.conditionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(builder.expressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(builder.expressionAttributeValues)
-      builder.build()
-    }
+      val result = JavaPutItemRequest.builder()
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.item.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.expected.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ExpectedAttributeValueOps._;
+        result.expected(v.mapValues(_.toJava).asJava)
+      } // Map[String, ExpectedAttributeValue]
+      self.returnValues.foreach { v =>
+        import ReturnValueOps._; result.returnValues(v.toJava)
+      } // String
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
+      } // String
+      self.returnItemCollectionMetrics.foreach { v =>
+        import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
+      } // String
+      self.conditionalOperator.foreach { v =>
+        import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
+      } // String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
 
-  }
-
-  implicit class JavaPutItemRequestOps(val self: JavaPutItemRequest) extends AnyVal {
-
-    def toScala: ScalaPutItemRequest = {
-      ScalaPutItemRequest()
-        .withTableName(Option(self.tableName))
-        .withItem(Option(self.item).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withExpected(Option(self.expected).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withReturnValues(Option(self.returnValues).map(_.toString).map(ReturnValue.withName))
-        .withReturnConsumedCapacity(
-          Option(self.returnConsumedCapacity).map(_.toString).map(ReturnConsumedCapacity.withName)
-        )
-        .withReturnItemCollectionMetrics(
-          Option(self.returnItemCollectionMetrics).map(_.toString).map(ReturnItemCollectionMetrics.withName)
-        ).withConditionalOperator(Option(self.conditionalOperator).map(_.toString).map(ConditionalOperator.withName))
-        .withConditionExpression(Option(self.conditionExpression))
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.expressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
+      result.build()
     }
 
   }

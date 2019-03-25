@@ -1,21 +1,23 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ LocalSecondaryIndex => ScalaLocalSecondaryIndex }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ LocalSecondaryIndex => ScalaLocalSecondaryIndex, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ LocalSecondaryIndex => JavaLocalSecondaryIndex }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object LocalSecondaryIndexOps {
-  import KeySchemaElementOps._
-  import ProjectionOps._
 
   implicit class ScalaLocalSecondaryIndexOps(val self: ScalaLocalSecondaryIndex) extends AnyVal {
 
     def toJava: JavaLocalSecondaryIndex = {
       val result = JavaLocalSecondaryIndex.builder()
-      self.indexName.foreach(result.indexName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.keySchema)
-      self.projection.map(_.toJava).foreach(result.projection)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.projection.foreach { v =>
+        import ProjectionOps._; result.projection(v.toJava)
+      } // Projection
+
       result.build()
     }
 
@@ -25,10 +27,15 @@ object LocalSecondaryIndexOps {
 
     def toScala: ScalaLocalSecondaryIndex = {
       ScalaLocalSecondaryIndex()
-        .withIndexName(Option(self.indexName))
-        .withKeySchema(Option(self.keySchema).map(_.asScala.map(_.toScala)))
-        .withProjection(Option(self.projection).map(_.toScala))
+        .withIndexName(Option(self.indexName)) // String
+        .withKeySchema(Option(self.keySchema).map { v =>
+          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
+        }) // Seq[KeySchemaElement]
+        .withProjection(Option(self.projection).map { v =>
+          import ProjectionOps._; v.toScala
+        }) // Projection
     }
+
   }
 
 }

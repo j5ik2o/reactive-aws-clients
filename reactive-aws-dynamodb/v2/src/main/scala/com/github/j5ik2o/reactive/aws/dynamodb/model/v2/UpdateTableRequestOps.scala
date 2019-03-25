@@ -1,47 +1,38 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BillingMode, UpdateTableRequest => ScalaUpdateTableRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateTableRequest => ScalaUpdateTableRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ UpdateTableRequest => JavaUpdateTableRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateTableRequestOps {
-
-  import AttributeDefinitionOps._
-  import GlobalSecondaryIndexUpdateOps._
-  import ProvisionedThroughputOps._
-  import SSESpecificationOps._
-  import StreamSpecificationOps._
 
   implicit class ScalaUpdateTableRequestOps(val self: ScalaUpdateTableRequest) extends AnyVal {
 
     def toJava: JavaUpdateTableRequest = {
       val result = JavaUpdateTableRequest.builder()
-      self.attributeDefinitions.map(_.map(_.toJava).asJava).foreach(result.attributeDefinitions)
-      self.tableName.foreach(result.tableName)
-      self.billingMode.map(_.entryName).foreach(result.billingMode)
-      self.provisionedThroughput.map(_.toJava).foreach(result.provisionedThroughput)
-      self.globalSecondaryIndexUpdates.map(_.map(_.toJava).asJava).foreach(result.globalSecondaryIndexUpdates)
-      self.streamSpecification.map(_.toJava).foreach(result.streamSpecification)
-      self.sseSpecification.map(_.toJava).foreach(result.sseSpecification)
+      self.attributeDefinitions.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeDefinitionOps._;
+        result.attributeDefinitions(v.map(_.toJava).asJava)
+      } // Seq[AttributeDefinition]
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.billingMode.foreach { v =>
+        import BillingModeOps._; result.billingMode(v.toJava)
+      } // String
+      self.provisionedThroughput.foreach { v =>
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
+      self.globalSecondaryIndexUpdates.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, GlobalSecondaryIndexUpdateOps._;
+        result.globalSecondaryIndexUpdates(v.map(_.toJava).asJava)
+      } // Seq[GlobalSecondaryIndexUpdate]
+      self.streamSpecification.foreach { v =>
+        import StreamSpecificationOps._; result.streamSpecification(v.toJava)
+      } // StreamSpecification
+      self.sseSpecification.foreach { v =>
+        import SSESpecificationOps._; result.sseSpecification(v.toJava)
+      } // SSESpecification
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaUpdateTableRequestOps(val self: JavaUpdateTableRequest) extends AnyVal {
-
-    def toScala: ScalaUpdateTableRequest = {
-      ScalaUpdateTableRequest()
-        .withAttributeDefinitions(
-          Option(self.attributeDefinitions).map(_.asScala.map(_.toScala))
-        )
-        .withTableName(Option(self.tableName))
-        .withBillingMode(Option(self.billingMode).map(_.toString).map(BillingMode.withName))
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map(_.toScala))
-        .withGlobalSecondaryIndexUpdates(Option(self.globalSecondaryIndexUpdates).map(_.asScala.map(_.toScala)))
-        .withStreamSpecification(Option(self.streamSpecification).map(_.toScala))
-        .withSseSpecification(Option(self.sseSpecification).map(_.toScala))
     }
 
   }

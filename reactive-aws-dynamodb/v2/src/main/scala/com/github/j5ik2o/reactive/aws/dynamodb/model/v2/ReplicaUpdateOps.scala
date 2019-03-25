@@ -1,19 +1,22 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReplicaUpdate => ScalaReplicaUpdate }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReplicaUpdate => ScalaReplicaUpdate, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ReplicaUpdate => JavaReplicaUpdate }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ReplicaUpdateOps {
-
-  import CreateReplicaActionOps._
-  import DeleteReplicaActionOps._
 
   implicit class ScalaReplicaUpdateOps(val self: ScalaReplicaUpdate) extends AnyVal {
 
     def toJava: JavaReplicaUpdate = {
       val result = JavaReplicaUpdate.builder()
-      self.create.map(_.toJava).foreach(result.create)
-      self.delete.map(_.toJava).foreach(result.delete)
+      self.create.foreach { v =>
+        import CreateReplicaActionOps._; result.create(v.toJava)
+      } // CreateReplicaAction
+      self.delete.foreach { v =>
+        import DeleteReplicaActionOps._; result.delete(v.toJava)
+      } // DeleteReplicaAction
+
       result.build()
     }
 
@@ -23,8 +26,12 @@ object ReplicaUpdateOps {
 
     def toScala: ScalaReplicaUpdate = {
       ScalaReplicaUpdate()
-        .withCreate(Option(self.create).map(_.toScala))
-        .withDelete(Option(self.delete).map(_.toScala))
+        .withCreate(Option(self.create).map { v =>
+          import CreateReplicaActionOps._; v.toScala
+        }) // CreateReplicaAction
+        .withDelete(Option(self.delete).map { v =>
+          import DeleteReplicaActionOps._; v.toScala
+        }) // DeleteReplicaAction
     }
 
   }

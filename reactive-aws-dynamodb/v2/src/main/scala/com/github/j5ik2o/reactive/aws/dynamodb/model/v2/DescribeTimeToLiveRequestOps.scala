@@ -1,24 +1,18 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeTimeToLiveRequest => ScalaDescribeTimeToLiveRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeTimeToLiveRequest => ScalaDescribeTimeToLiveRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeTimeToLiveRequest => JavaDescribeTimeToLiveRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DescribeTimeToLiveRequestOps {
 
   implicit class ScalaDescribeTimeToLiveRequestOps(val self: ScalaDescribeTimeToLiveRequest) extends AnyVal {
 
     def toJava: JavaDescribeTimeToLiveRequest = {
       val result = JavaDescribeTimeToLiveRequest.builder()
-      self.tableName.foreach(result.tableName)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaDescribeTimeToLiveRequestOps(val self: JavaDescribeTimeToLiveRequest) extends AnyVal {
-
-    def toScala: ScalaDescribeTimeToLiveRequest = {
-      ScalaDescribeTimeToLiveRequest().withTableName(Option(self.tableName))
     }
 
   }

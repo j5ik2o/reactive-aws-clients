@@ -1,17 +1,23 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SSEStatus, SSEType, SSEDescription => ScalaSSEDescription }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SSEDescription => ScalaSSEDescription, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ SSEDescription => JavaSSEDescription }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object SSEDescriptionOps {
 
   implicit class ScalaSSEDescriptionOps(val self: ScalaSSEDescription) extends AnyVal {
 
     def toJava: JavaSSEDescription = {
       val result = JavaSSEDescription.builder()
-      self.status.map(_.entryName).foreach(result.status)
-      self.sseType.map(_.entryName).foreach(result.sseType)
-      self.kmsMasterKeyArn.foreach(result.kmsMasterKeyArn)
+      self.status.foreach { v =>
+        import SSEStatusOps._; result.status(v.toJava)
+      } // String
+      self.sseType.foreach { v =>
+        import SSETypeOps._; result.sseType(v.toJava)
+      } // String
+      self.kmsMasterKeyArn.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyArn(v)) // String
+
       result.build()
     }
 
@@ -21,9 +27,13 @@ object SSEDescriptionOps {
 
     def toScala: ScalaSSEDescription = {
       ScalaSSEDescription()
-        .withStatus(Option(self.status).map(_.toString).map(SSEStatus.withName))
-        .withSseType(Option(self.sseType).map(_.toString).map(SSEType.withName))
-        .withKmsMasterKeyArn(Option(self.kmsMasterKeyArn))
+        .withStatus(Option(self.status).map { v =>
+          import SSEStatusOps._; v.toScala
+        }) // String
+        .withSseType(Option(self.sseType).map { v =>
+          import SSETypeOps._; v.toScala
+        }) // String
+        .withKmsMasterKeyArn(Option(self.kmsMasterKeyArn)) // String
     }
 
   }

@@ -1,23 +1,28 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactWriteItem => ScalaTransactWriteItem }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactWriteItem => ScalaTransactWriteItem, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ TransactWriteItem => JavaTransactWriteItem }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TransactWriteItemOps {
-
-  import ConditionCheckOps._
-  import DeleteOps._
-  import PutOps._
-  import UpdateOps._
 
   implicit class ScalaTransactWriteItemOps(val self: ScalaTransactWriteItem) extends AnyVal {
 
     def toJava: JavaTransactWriteItem = {
       val result = JavaTransactWriteItem.builder()
-      self.conditionCheck.map(_.toJava).foreach(result.conditionCheck)
-      self.put.map(_.toJava).foreach(result.put)
-      self.delete.map(_.toJava).foreach(result.delete)
-      self.update.map(_.toJava).foreach(result.update)
+      self.conditionCheck.foreach { v =>
+        import ConditionCheckOps._; result.conditionCheck(v.toJava)
+      } // ConditionCheck
+      self.put.foreach { v =>
+        import PutOps._; result.put(v.toJava)
+      } // Put
+      self.delete.foreach { v =>
+        import DeleteOps._; result.delete(v.toJava)
+      } // Delete
+      self.update.foreach { v =>
+        import UpdateOps._; result.update(v.toJava)
+      } // Update
+
       result.build()
     }
 
@@ -27,10 +32,18 @@ object TransactWriteItemOps {
 
     def toScala: ScalaTransactWriteItem = {
       ScalaTransactWriteItem()
-        .withConditionCheck(Option(self.conditionCheck).map(_.toScala))
-        .withPut(Option(self.put).map(_.toScala))
-        .withDelete(Option(self.delete).map(_.toScala))
-        .withUpdate(Option(self.update).map(_.toScala))
+        .withConditionCheck(Option(self.conditionCheck).map { v =>
+          import ConditionCheckOps._; v.toScala
+        }) // ConditionCheck
+        .withPut(Option(self.put).map { v =>
+          import PutOps._; v.toScala
+        }) // Put
+        .withDelete(Option(self.delete).map { v =>
+          import DeleteOps._; v.toScala
+        }) // Delete
+        .withUpdate(Option(self.update).map { v =>
+          import UpdateOps._; v.toScala
+        }) // Update
     }
 
   }

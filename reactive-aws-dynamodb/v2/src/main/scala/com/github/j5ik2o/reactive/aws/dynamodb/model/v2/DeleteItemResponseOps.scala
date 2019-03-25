@@ -1,16 +1,13 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteItemResponse => ScalaDeleteItemResponse }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteItemResponse => ScalaDeleteItemResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DeleteItemResponse => JavaDeleteItemResponse }
 
-import scala.collection.JavaConverters._
 import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DeleteItemResponseOps {
-
-  import AttributeValueOps._
-  import ConsumedCapacityOps._
-  import ItemCollectionMetricsOps._
 
   implicit class JavaDeleteItemResponseOps(val self: JavaDeleteItemResponse) extends AnyVal {
 
@@ -19,9 +16,15 @@ object DeleteItemResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withAttributes(Option(self.attributes).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConsumedCapacity(Option(self.consumedCapacity).map(_.toScala))
-        .withItemCollectionMetrics(Option(self.itemCollectionMetrics).map(_.toScala))
+        .withAttributes(Option(self.attributes).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
+          import ConsumedCapacityOps._; v.toScala
+        }) // ConsumedCapacity
+        .withItemCollectionMetrics(Option(self.itemCollectionMetrics).map { v =>
+          import ItemCollectionMetricsOps._; v.toScala
+        }) // ItemCollectionMetrics
     }
 
   }

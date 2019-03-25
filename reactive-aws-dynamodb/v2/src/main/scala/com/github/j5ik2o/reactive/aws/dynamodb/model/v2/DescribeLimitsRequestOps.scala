@@ -1,23 +1,17 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeLimitsRequest => ScalaDescribeLimitsRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeLimitsRequest => ScalaDescribeLimitsRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeLimitsRequest => JavaDescribeLimitsRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DescribeLimitsRequestOps {
 
   implicit class ScalaDescribeLimitsRequestOps(val self: ScalaDescribeLimitsRequest) extends AnyVal {
 
     def toJava: JavaDescribeLimitsRequest = {
       val result = JavaDescribeLimitsRequest.builder()
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaDescribeLimitsRequestOps(val self: JavaDescribeLimitsRequest) extends AnyVal {
-
-    def toScala: ScalaDescribeLimitsRequest = {
-      ScalaDescribeLimitsRequest()
     }
 
   }

@@ -1,22 +1,25 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTablesResponse => ScalaListTablesResponse }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTablesResponse => ScalaListTablesResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ListTablesResponse => JavaListTablesResponse }
 
-import scala.collection.JavaConverters._
 import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ListTablesResponseOps {
 
   implicit class JavaListTablesResponseOps(val self: JavaListTablesResponse) extends AnyVal {
 
     def toScala: ScalaListTablesResponse = {
       ScalaListTablesResponse()
-        .withStatusCode(Option(self.sdkHttpResponse()).map(_.statusCode()))
+        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse).map(_.headers()).map(_.asScala.toMap.mapValues(_.asScala)))
-        .withTableNames(Option(self.tableNames).map(_.asScala))
-        .withLastEvaluatedTableName(Option(self.lastEvaluatedTableName))
+        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
+        .withTableNames(Option(self.tableNames).map { v =>
+          import scala.collection.JavaConverters._; v.asScala
+        }) // Seq[String]
+        .withLastEvaluatedTableName(Option(self.lastEvaluatedTableName)) // String
     }
 
   }

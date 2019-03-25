@@ -1,12 +1,14 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DeleteGlobalSecondaryIndexAction => ScalaDeleteGlobalSecondaryIndexAction
+  DeleteGlobalSecondaryIndexAction => ScalaDeleteGlobalSecondaryIndexAction,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   DeleteGlobalSecondaryIndexAction => JavaDeleteGlobalSecondaryIndexAction
 }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DeleteGlobalSecondaryIndexActionOps {
 
   implicit class ScalaDeleteGlobalSecondaryIndexActionOps(val self: ScalaDeleteGlobalSecondaryIndexAction)
@@ -14,7 +16,8 @@ object DeleteGlobalSecondaryIndexActionOps {
 
     def toJava: JavaDeleteGlobalSecondaryIndexAction = {
       val result = JavaDeleteGlobalSecondaryIndexAction.builder()
-      self.indexName.foreach(result.indexName)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
+
       result.build()
     }
 
@@ -24,7 +27,8 @@ object DeleteGlobalSecondaryIndexActionOps {
       extends AnyVal {
 
     def toScala: ScalaDeleteGlobalSecondaryIndexAction = {
-      ScalaDeleteGlobalSecondaryIndexAction().withIndexName(Option(self.indexName))
+      ScalaDeleteGlobalSecondaryIndexAction()
+        .withIndexName(Option(self.indexName)) // String
     }
 
   }

@@ -1,54 +1,45 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ConditionalOperator,
-  ReturnConsumedCapacity,
-  ReturnValue,
-  DeleteItemRequest => ScalaDeleteItemRequest
-}
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteItemRequest => ScalaDeleteItemRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DeleteItemRequest => JavaDeleteItemRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DeleteItemRequestOps {
-  import AttributeValueOps._
-  import ExpectedAttributeValueOps._
 
   implicit class ScalaDeleteItemRequestOps(val self: ScalaDeleteItemRequest) extends AnyVal {
 
     def toJava: JavaDeleteItemRequest = {
       val result = JavaDeleteItemRequest.builder()
-      self.tableName.foreach(result.tableName)
-      self.key.map(_.mapValues(_.toJava).asJava).foreach(result.key)
-      self.expected.map(_.mapValues(_.toJava).asJava).foreach(result.expected)
-      self.conditionalOperator.map(_.entryName).foreach(result.conditionalOperator)
-      self.returnValues.map(_.entryName).foreach(result.returnValues)
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
-      self.returnItemCollectionMetrics.map(_.entryName).foreach(result.returnItemCollectionMetrics)
-      self.conditionExpression.foreach(result.conditionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.expressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.expressionAttributeValues)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.expected.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ExpectedAttributeValueOps._;
+        result.expected(v.mapValues(_.toJava).asJava)
+      } // Map[String, ExpectedAttributeValue]
+      self.conditionalOperator.foreach { v =>
+        import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
+      } // String
+      self.returnValues.foreach { v =>
+        import ReturnValueOps._; result.returnValues(v.toJava)
+      } // String
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
+      } // String
+      self.returnItemCollectionMetrics.foreach { v =>
+        import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
+      } // String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+
       result.build()
-    }
-  }
-
-  implicit class JavaDeleteItemRequestOps(val self: JavaDeleteItemRequest) extends AnyVal {
-
-    def toScala: ScalaDeleteItemRequest = {
-      ScalaDeleteItemRequest()
-        .withTableName(Option(self.tableName))
-        .withKey(Option(self.key).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withExpected(Option(self.expected).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConditionalOperator(Option(self.conditionalOperator).map(_.toString).map(ConditionalOperator.withName))
-        .withReturnValues(Option(self.returnValues).map(_.toString).map(ReturnValue.withName))
-        .withReturnConsumedCapacity(
-          Option(self.returnConsumedCapacity).map(_.toString).map(ReturnConsumedCapacity.withName)
-        )
-        .withConditionExpression(Option(self.conditionExpression))
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.expressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
     }
 
   }

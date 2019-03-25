@@ -1,23 +1,24 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteBackupResponse => ScalaDeleteBackupResponse }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteBackupResponse => ScalaDeleteBackupResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DeleteBackupResponse => JavaDeleteBackupResponse }
 
-import scala.collection.JavaConverters._
 import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DeleteBackupResponseOps {
-
-  import BackupDescriptionOps._
 
   implicit class JavaDeleteBackupResponseOps(val self: JavaDeleteBackupResponse) extends AnyVal {
 
     def toScala: ScalaDeleteBackupResponse = {
       ScalaDeleteBackupResponse()
-        .withStatusCode(Option(self.sdkHttpResponse()).map(_.statusCode()))
+        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse).map(_.headers()).map(_.asScala.toMap.mapValues(_.asScala)))
-        .withBackupDescription(Option(self.backupDescription).map(_.toScala))
+        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
+        .withBackupDescription(Option(self.backupDescription).map { v =>
+          import BackupDescriptionOps._; v.toScala
+        }) // BackupDescription
     }
 
   }

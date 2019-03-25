@@ -1,59 +1,50 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ConditionalOperator,
-  ReturnConsumedCapacity,
-  ReturnValue,
-  UpdateItemRequest => ScalaUpdateItemRequest
-}
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateItemRequest => ScalaUpdateItemRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ UpdateItemRequest => JavaUpdateItemRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateItemRequestOps {
-
-  import AttributeValueOps._
-  import AttributeValueUpdateOps._
-  import ExpectedAttributeValueOps._
 
   implicit class ScalaUpdateItemRequestOps(val self: ScalaUpdateItemRequest) extends AnyVal {
 
     def toJava: JavaUpdateItemRequest = {
       val result = JavaUpdateItemRequest.builder()
-      self.tableName.foreach(result.tableName)
-      self.key.map(_.mapValues(_.toJava).asJava).foreach(result.key)
-      self.attributeUpdates.map(_.mapValues(_.toJava).asJava).foreach(result.attributeUpdates)
-      self.expected.map(_.mapValues(_.toJava).asJava).foreach(result.expected)
-      self.conditionalOperator.map(_.entryName).foreach(result.conditionalOperator)
-      self.returnValues.map(_.entryName).foreach(result.returnValues)
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
-      self.updateExpression.foreach(result.updateExpression)
-      self.conditionExpression.foreach(result.conditionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.expressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.expressionAttributeValues)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.attributeUpdates.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueUpdateOps._;
+        result.attributeUpdates(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValueUpdate]
+      self.expected.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ExpectedAttributeValueOps._;
+        result.expected(v.mapValues(_.toJava).asJava)
+      } // Map[String, ExpectedAttributeValue]
+      self.conditionalOperator.foreach { v =>
+        import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
+      } // String
+      self.returnValues.foreach { v =>
+        import ReturnValueOps._; result.returnValues(v.toJava)
+      } // String
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
+      } // String
+      self.returnItemCollectionMetrics.foreach { v =>
+        import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
+      } // String
+      self.updateExpression.filter(_.nonEmpty).foreach(v => result.updateExpression(v))       // String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaUpdateItemRequestOps(val self: JavaUpdateItemRequest) extends AnyVal {
-
-    def toScala: ScalaUpdateItemRequest = {
-      ScalaUpdateItemRequest()
-        .withTableName(Option(self.tableName))
-        .withKey(Option(self.key).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withAttributeUpdates(Option(self.attributeUpdates).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withExpected(Option(self.expected).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConditionalOperator(Option(self.conditionalOperator).map(_.toString).map(ConditionalOperator.withName))
-        .withReturnValues(Option(self.returnValues).map(_.toString).map(ReturnValue.withName))
-        .withReturnConsumedCapacity(
-          Option(self.returnConsumedCapacity).map(_.toString).map(ReturnConsumedCapacity.withName)
-        )
-        .withUpdateExpression(Option(self.updateExpression()))
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.expressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
     }
 
   }

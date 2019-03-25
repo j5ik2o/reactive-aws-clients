@@ -1,15 +1,15 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  IndexStatus,
-  ReplicaGlobalSecondaryIndexSettingsDescription => ScalaReplicaGlobalSecondaryIndexSettingsDescription
+  ReplicaGlobalSecondaryIndexSettingsDescription => ScalaReplicaGlobalSecondaryIndexSettingsDescription,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   ReplicaGlobalSecondaryIndexSettingsDescription => JavaReplicaGlobalSecondaryIndexSettingsDescription
 }
-object ReplicaGlobalSecondaryIndexSettingsDescriptionOps {
 
-  import AutoScalingSettingsDescriptionOps._
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
+object ReplicaGlobalSecondaryIndexSettingsDescriptionOps {
 
   implicit class ScalaReplicaGlobalSecondaryIndexSettingsDescriptionOps(
       val self: ScalaReplicaGlobalSecondaryIndexSettingsDescription
@@ -17,14 +17,19 @@ object ReplicaGlobalSecondaryIndexSettingsDescriptionOps {
 
     def toJava: JavaReplicaGlobalSecondaryIndexSettingsDescription = {
       val result = JavaReplicaGlobalSecondaryIndexSettingsDescription.builder()
-      self.indexName.foreach(result.indexName)
-      self.indexStatus.map(_.entryName).foreach(result.indexStatus)
-      self.provisionedReadCapacityUnits.foreach(v => result.provisionedReadCapacityUnits(v))
-      self.provisionedReadCapacityAutoScalingSettings
-        .map(_.toJava).foreach(result.provisionedReadCapacityAutoScalingSettings)
-      self.provisionedWriteCapacityUnits.foreach(v => result.provisionedWriteCapacityUnits(v))
-      self.provisionedWriteCapacityAutoScalingSettings
-        .map(_.toJava).foreach(result.provisionedWriteCapacityAutoScalingSettings)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
+      self.indexStatus.foreach { v =>
+        import IndexStatusOps._; result.indexStatus(v.toJava)
+      } // String
+      self.provisionedReadCapacityUnits.map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long
+      self.provisionedReadCapacityAutoScalingSettings.foreach { v =>
+        import AutoScalingSettingsDescriptionOps._; result.provisionedReadCapacityAutoScalingSettings(v.toJava)
+      } // AutoScalingSettingsDescription
+      self.provisionedWriteCapacityUnits.map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long
+      self.provisionedWriteCapacityAutoScalingSettings.foreach { v =>
+        import AutoScalingSettingsDescriptionOps._; result.provisionedWriteCapacityAutoScalingSettings(v.toJava)
+      } // AutoScalingSettingsDescription
+
       result.build()
     }
 
@@ -36,16 +41,20 @@ object ReplicaGlobalSecondaryIndexSettingsDescriptionOps {
 
     def toScala: ScalaReplicaGlobalSecondaryIndexSettingsDescription = {
       ScalaReplicaGlobalSecondaryIndexSettingsDescription()
-        .withIndexName(Option(self.indexName))
-        .withIndexStatus(Option(self.indexStatus).map(_.toString).map(IndexStatus.withName))
-        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue()))
-        .withProvisionedReadCapacityAutoScalingSettings(
-          Option(self.provisionedReadCapacityAutoScalingSettings).map(_.toScala)
-        )
-        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits).map(_.longValue()))
-        .withProvisionedWriteCapacityAutoScalingSettings(
-          Option(self.provisionedWriteCapacityAutoScalingSettings).map(_.toScala)
-        )
+        .withIndexName(Option(self.indexName)) // String
+        .withIndexStatus(Option(self.indexStatus).map { v =>
+          import IndexStatusOps._; v.toScala
+        }) // String
+        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue)) // Long
+        .withProvisionedReadCapacityAutoScalingSettings(Option(self.provisionedReadCapacityAutoScalingSettings).map {
+          v =>
+            import AutoScalingSettingsDescriptionOps._; v.toScala
+        }) // AutoScalingSettingsDescription
+        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits).map(_.longValue)) // Long
+        .withProvisionedWriteCapacityAutoScalingSettings(Option(self.provisionedWriteCapacityAutoScalingSettings).map {
+          v =>
+            import AutoScalingSettingsDescriptionOps._; v.toScala
+        }) // AutoScalingSettingsDescription
     }
 
   }

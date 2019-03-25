@@ -1,14 +1,13 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListGlobalTablesResponse => ScalaListGlobalTablesResponse }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListGlobalTablesResponse => ScalaListGlobalTablesResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ListGlobalTablesResponse => JavaListGlobalTablesResponse }
 
-import scala.collection.JavaConverters._
 import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ListGlobalTablesResponseOps {
-
-  import GlobalTableOps._
 
   implicit class JavaListGlobalTablesResponseOps(val self: JavaListGlobalTablesResponse) extends AnyVal {
 
@@ -17,9 +16,12 @@ object ListGlobalTablesResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withGlobalTables(Option(self.globalTables).map(_.asScala.map(_.toScala)))
-        .withLastEvaluatedGlobalTableName(Option(self.lastEvaluatedGlobalTableName))
+        .withGlobalTables(Option(self.globalTables).map { v =>
+          import scala.collection.JavaConverters._, GlobalTableOps._; v.asScala.map(_.toScala)
+        }) // Seq[GlobalTable]
+        .withLastEvaluatedGlobalTableName(Option(self.lastEvaluatedGlobalTableName)) // String
     }
 
   }
+
 }

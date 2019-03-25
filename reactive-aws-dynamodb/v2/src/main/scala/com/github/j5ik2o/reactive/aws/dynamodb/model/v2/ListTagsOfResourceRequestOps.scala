@@ -1,26 +1,19 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTagsOfResourceRequest => ScalaListTagsOfResourceRequest }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTagsOfResourceRequest => ScalaListTagsOfResourceRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ListTagsOfResourceRequest => JavaListTagsOfResourceRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ListTagsOfResourceRequestOps {
 
   implicit class ScalaListTagsOfResourceRequestOps(val self: ScalaListTagsOfResourceRequest) extends AnyVal {
 
     def toJava: JavaListTagsOfResourceRequest = {
       val result = JavaListTagsOfResourceRequest.builder()
-      self.resourceArn.foreach(result.resourceArn)
-      self.nextToken.foreach(result.nextToken)
+      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String
+      self.nextToken.filter(_.nonEmpty).foreach(v => result.nextToken(v))     // String
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaListTagsOfResourceRequestOps(val self: JavaListTagsOfResourceRequest) extends AnyVal {
-
-    def toScala: ScalaListTagsOfResourceRequest = {
-      ScalaListTagsOfResourceRequest()
-        .withResourceArn(Option(self.resourceArn)).withNextToken(Option(self.nextToken))
     }
 
   }

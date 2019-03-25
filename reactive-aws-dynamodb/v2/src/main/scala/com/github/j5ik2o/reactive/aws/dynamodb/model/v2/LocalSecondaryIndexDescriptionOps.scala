@@ -1,27 +1,31 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  LocalSecondaryIndexDescription => ScalaLocalSecondaryIndexDescription
+  LocalSecondaryIndexDescription => ScalaLocalSecondaryIndexDescription,
+  _
 }
 import software.amazon.awssdk.services.dynamodb.model.{
   LocalSecondaryIndexDescription => JavaLocalSecondaryIndexDescription
 }
 
-import scala.collection.JavaConverters._
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object LocalSecondaryIndexDescriptionOps {
-  import KeySchemaElementOps._
-  import ProjectionOps._
 
   implicit class ScalaLocalSecondaryIndexDescriptionOps(val self: ScalaLocalSecondaryIndexDescription) extends AnyVal {
 
     def toJava: JavaLocalSecondaryIndexDescription = {
       val result = JavaLocalSecondaryIndexDescription.builder()
-      self.indexName.foreach(result.indexName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.keySchema)
-      self.projection.map(_.toJava).foreach(result.projection)
-      self.indexSizeBytes.foreach(v => result.indexSizeBytes(v))
-      self.itemCount.foreach(v => result.itemCount(v))
-      self.indexArn.foreach(result.indexArn)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.projection.foreach { v =>
+        import ProjectionOps._; result.projection(v.toJava)
+      } // Projection
+      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
+      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String
+
       result.build()
     }
 
@@ -31,13 +35,18 @@ object LocalSecondaryIndexDescriptionOps {
 
     def toScala: ScalaLocalSecondaryIndexDescription = {
       ScalaLocalSecondaryIndexDescription()
-        .withIndexName(Option(self.indexName))
-        .withKeySchema(Option(self.keySchema).map(_.asScala.map(_.toScala)))
-        .withProjection(Option(self.projection).map(_.toScala))
-        .withIndexSizeBytes(Option(self.indexSizeBytes))
-        .withItemCount(Option(self.itemCount))
-        .withIndexArn(Option(self.indexArn))
+        .withIndexName(Option(self.indexName)) // String
+        .withKeySchema(Option(self.keySchema).map { v =>
+          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
+        }) // Seq[KeySchemaElement]
+        .withProjection(Option(self.projection).map { v =>
+          import ProjectionOps._; v.toScala
+        }) // Projection
+        .withIndexSizeBytes(Option(self.indexSizeBytes).map(_.longValue)) // Long
+        .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
+        .withIndexArn(Option(self.indexArn)) // String
     }
 
   }
+
 }

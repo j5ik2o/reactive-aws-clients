@@ -1,71 +1,54 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ConditionalOperator,
-  ReturnConsumedCapacity,
-  Select,
-  QueryRequest => ScalaQueryRequest
-}
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ QueryRequest => ScalaQueryRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ QueryRequest => JavaQueryRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object QueryRequestOps {
-
-  import AttributeValueOps._
-  import ConditionOps._
 
   implicit class ScalaQueryRequestOps(val self: ScalaQueryRequest) extends AnyVal {
 
     def toJava: JavaQueryRequest = {
       val result = JavaQueryRequest.builder()
-      self.tableName.foreach(result.tableName)
-      self.indexName.foreach(result.indexName)
-      self.select.map(_.entryName).foreach(result.select)
-      self.attributesToGet.map(_.asJava).foreach(result.attributesToGet)
-      self.limit.foreach(v => result.limit(v))
-      self.consistentRead.foreach(v => result.consistentRead(v))
-      self.keyConditions.map(_.mapValues(_.toJava).asJava).foreach(result.keyConditions)
-      self.queryFilter.map(_.mapValues(_.toJava).asJava).foreach(result.queryFilter)
-      self.conditionalOperator.map(_.entryName).foreach(result.conditionalOperator)
-      self.scanIndexForward.foreach(v => result.scanIndexForward(v))
-      self.exclusiveStartKey.map(_.mapValues(_.toJava).asJava).foreach(result.exclusiveStartKey)
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.returnConsumedCapacity)
-      self.projectionExpression.foreach(result.projectionExpression)
-      self.filterExpression.foreach(result.filterExpression)
-      self.keyConditionExpression.foreach(result.keyConditionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.expressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.expressionAttributeValues)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
+      self.select.foreach { v =>
+        import SelectOps._; result.select(v.toJava)
+      } // String
+      self.attributesToGet.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._; result.attributesToGet(v.asJava)
+      } // Seq[String]
+      self.limit.map(_.intValue).foreach(v => result.limit(v))                       // Int
+      self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v)) // Boolean
+      self.keyConditions.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ConditionOps._; result.keyConditions(v.mapValues(_.toJava).asJava)
+      } // Map[String, Condition]
+      self.queryFilter.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ConditionOps._; result.queryFilter(v.mapValues(_.toJava).asJava)
+      } // Map[String, Condition]
+      self.conditionalOperator.foreach { v =>
+        import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
+      } // String
+      self.scanIndexForward.map(_.booleanValue).foreach(v => result.scanIndexForward(v)) // Boolean
+      self.exclusiveStartKey.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.exclusiveStartKey(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
+      } // String
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v))     // String
+      self.filterExpression.filter(_.nonEmpty).foreach(v => result.filterExpression(v))             // String
+      self.keyConditionExpression.filter(_.nonEmpty).foreach(v => result.keyConditionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+
       result.build()
-    }
-
-  }
-
-  implicit class JavaQueryRequestOps(val self: JavaQueryRequest) extends AnyVal {
-
-    def toScala: ScalaQueryRequest = {
-      ScalaQueryRequest()
-        .withTableName(Option(self.tableName))
-        .withIndexName(Option(self.indexName))
-        .withSelect(Option(self.select).map(_.toString).map(Select.withName))
-        .withAttributesToGet(Option(self.attributesToGet).map(_.asScala))
-        .withLimit(Option(self.limit))
-        .withConsistentRead(Option(self.consistentRead))
-        .withKeyConditions(Option(self.keyConditions).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withQueryFilter(Option(self.queryFilter).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConditionalOperator(Option(self.conditionalOperator).map(_.toString).map(ConditionalOperator.withName))
-        .withScanIndexForward(Option(self.scanIndexForward))
-        .withExclusiveStartKey(Option(self.exclusiveStartKey).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withReturnConsumedCapacity(
-          Option(self.returnConsumedCapacity).map(_.toString).map(ReturnConsumedCapacity.withName)
-        )
-        .withProjectionExpression(Option(self.projectionExpression))
-        .withFilterExpression(Option(self.filterExpression))
-        .withKeyConditionExpression(Option(self.keyConditionExpression))
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.expressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
     }
 
   }

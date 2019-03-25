@@ -1,18 +1,20 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ RestoreSummary => ScalaRestoreSummary }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ RestoreSummary => ScalaRestoreSummary, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ RestoreSummary => JavaRestoreSummary }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object RestoreSummaryOps {
 
   implicit class ScalaRestoreSummaryOps(val self: ScalaRestoreSummary) extends AnyVal {
 
     def toJava: JavaRestoreSummary = {
       val result = JavaRestoreSummary.builder()
-      self.sourceBackupArn.foreach(result.sourceTableArn)
-      self.sourceTableArn.foreach(result.sourceTableArn)
-      self.restoreDateTime.foreach(result.restoreDateTime)
-      self.restoreInProgress.foreach(v => result.restoreInProgress(v))
+      self.sourceBackupArn.filter(_.nonEmpty).foreach(v => result.sourceBackupArn(v))      // String
+      self.sourceTableArn.filter(_.nonEmpty).foreach(v => result.sourceTableArn(v))        // String
+      self.restoreDateTime.foreach(v => result.restoreDateTime(v))                         // Instant
+      self.restoreInProgress.map(_.booleanValue).foreach(v => result.restoreInProgress(v)) // Boolean
+
       result.build()
     }
 
@@ -22,10 +24,10 @@ object RestoreSummaryOps {
 
     def toScala: ScalaRestoreSummary = {
       ScalaRestoreSummary()
-        .withSourceBackupArn(Option(self.sourceBackupArn))
-        .withSourceTableArn(Option(self.sourceTableArn))
-        .withRestoreDateTime(Option(self.restoreDateTime))
-        .withRestoreInProgress(Option(self.restoreInProgress))
+        .withSourceBackupArn(Option(self.sourceBackupArn)) // String
+        .withSourceTableArn(Option(self.sourceTableArn)) // String
+        .withRestoreDateTime(Option(self.restoreDateTime)) // Instant
+        .withRestoreInProgress(Option(self.restoreInProgress).map(_.booleanValue)) // Boolean
     }
 
   }
