@@ -16,6 +16,7 @@ jobs:
             echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
             sudo apt-get install -y oracle-java8-installer
             sudo apt-get install -y sbt maven git
+          no_output_timeout: 30m
       - checkout
       - restore_cache:
           key: scala-library-dependencies-{{ checksum "build.sbt" }}
@@ -25,9 +26,11 @@ jobs:
             cd aws-sdk-src/aws-sdk-java-v2
             mvn install
             sbt ++2.11.12 test:compile && sbt ++2.12.8 test:compile
+          no_output_timeout: 30m
       - save_cache:
           paths: [ "~/.sbt/boot", "~/.ivy2", "~/.wixMySQL", "aws-sdk-src" ]
           key: scala-library-dependencies-{{ checksum "build.sbt" }}
       - run:
           command: |
             sbt ++2.11.12 test && sbt ++2.12.8 test
+          no_output_timeout: 30m
