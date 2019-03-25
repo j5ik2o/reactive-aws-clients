@@ -1,64 +1,276 @@
+<#function filterMethodName name>
+    <#return name?replace("Instant", "java.time.Instant")>
+</#function>
+
 <#function getGetterSimpleTypeName methods name default>
     <#list methods as method>
         <#if method.name == name>
-            <#return method.returnType.simpleTypeName?replace("Instant", "java.time.Instant")>
+            <#return filterMethodName(method.returnTypeDesc.simpleTypeName)>
         </#if>
     </#list>
-    <#return default?replace("Instant", "java.time.Instant")>
+    <#return filterMethodName(default)>
 </#function>
 
-<#macro mapToJava methods field>
-    <#assign fieldName=field.name?replace("type", "`type`")>
-    <#switch getGetterSimpleTypeName(methods, field.name, field.fieldType.simpleTypeName)>
-        <#case "Int">
-        <#case "Long">
+<#function getGetterValueTypeName methods name default>
+    <#list methods as method>
+        <#if method.name == name>
+            <#return filterMethodName(method.returnTypeDesc.valueTypeDesc.simpleTypeName)>
+        </#if>
+    </#list>
+    <#return filterMethodName(default)>
+</#function>
+
+<#function getGetterValueTypeLevelCount methods name>
+    <#list methods as method>
+        <#if method.name == name>
+            <#return method.returnTypeDesc.valueTypeDesc.typeLevelCount>
+        </#if>
+    </#list>
+    <#return 0>
+</#function>
+
+<#function isCollection typeName>
+    <#switch typeName>
+        <#case "Map">
+        <#case "Seq">
+        <#case "Array">
+            <#return true>
+    </#switch>
+    <#return false>
+</#function>
+<#function isDefined typeName>
+    <#switch typeName>
+        <#case "Unit">
+            <#return true>
+        <#case "Char">
+            <#return true>
         <#case "Short">
+            <#return true>
+        <#case "Int">
+            <#return true>
+        <#case "Long">
+            <#return true>
         <#case "Double">
+            <#return true>
         <#case "Float">
-.foreach(v => result.${fieldName}(v)) // ${field.fieldType.fullTypeName}<#break >
-<#case "Boolean">
-.map(_.booleanValue).foreach(v => result.${fieldName}(v)) // ${field.fieldType.fullTypeName}<#break >
-<#case "String">
-<#case "Array">
-.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldType.fullTypeName}<#break >
-<#case "Seq">
- <#case "Map">
-.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldType.fullTypeName}<#break >
-<#case "SdkBytes">
-.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldType.fullTypeName}<#break >
-<#default>
-.foreach(v => result.${fieldName}(v)) // ${field.fieldType.fullTypeName}</#switch>
+            <#return true>
+        <#case "Boolean">
+            <#return true>
+        <#case "String">
+            <#return true>
+        <#default >
+            <#return false>
+    </#switch>
+</#function>
+
+
+<#macro mapToJava simpleTypeName methods prefix field>
+    <#assign fieldName=field.name?replace("type", "`type`")>
+    <#assign typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)>
+    <#switch typeName>
+        <#case "Char">
+            ${prefix}.map(_.charValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Char
+            <#break >
+        <#case "Short">
+            ${prefix}.map(_.shortValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Short
+            <#break >
+        <#case "Int">
+            ${prefix}.map(_.intValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Int
+            <#break >
+        <#case "Long">
+            ${prefix}.map(_.longValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Long
+            <#break >
+        <#case "Float">
+            ${prefix}.map(_.floatValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Float
+            <#break >
+        <#case "Double">
+            ${prefix}.map(_.doubleValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Double
+            <#break >
+        <#case "Boolean">
+            ${prefix}.map(_.booleanValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Boolean
+            <#break >
+        <#case "String">
+            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case String
+            <#break >
+        <#case "Array">
+            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Array
+            <#break >
+        <#case "Seq">
+            <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
+            <#if valueTypeName == "SdkBytes">
+                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(software.amazon.awssdk.core.SdkBytes.fromByteArray).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[SdkBytes]
+                <#break >
+            <#elseif valueTypeName == "Map">
+                <#assign mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                <#if isDefined(mapValueTypeName)>
+                    <#if simpleTypeName != valueTypeName>
+                        ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName}Ops._; result.${fieldName}(v.map(_.mapValues(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[Map[_]], Defined
+                        <#break >
+                    <#else>
+                        ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(_.mapValues(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[Map[_]], Defined
+                        <#break >
+                    </#if>
+                <#elseif valueTypeName == "Seq">
+                    <#if simpleTypeName != valueTypeName>
+                        ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName}Ops._; result.${fieldName}(v.map(_.mapValues(_.map(_.toJava).asJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[Map[_, Seq[_]]]
+                        <#break >
+                    <#else>
+                        ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(_.mapValues(_.map(_.toJava).asJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[Map[_, Seq[_]]]
+                        <#break >
+                    </#if>
+                </#if>
+            <#elseif valueTypeName == "Seq">
+                <#assign seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                <#if simpleTypeName != seqValueTypeName>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${seqValueTypeName}Ops._; result.${fieldName}(v.map(_.map(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[Seq[_]]
+                    <#break >
+                <#else>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(_.map(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[Seq[_]]
+                    <#break >
+                </#if>
+            <#elseif isDefined(valueTypeName) && valueTypeName != "String">
+                ${prefix}.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[_], Defined
+                <#break >
+            <#elseif isDefined(valueTypeName)>
+                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[_], Defined
+                <#break >
+            <#else>
+                <#if simpleTypeName != valueTypeName>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${valueTypeName}Ops._; result.${fieldName}(v.map(_.toJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[_], UserDefined
+                <#else>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(_.toJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Seq[_], UserDefined
+                </#if>
+                <#break >
+            </#if>
+        <#case "Map">
+            <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
+            <#if isDefined(valueTypeName)>
+                ${prefix}.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_]
+                <#break >
+            <#elseif valueTypeName == "Map">
+                <#assign mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                <#if simpleTypeName != mapValueTypeName>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${mapValueTypeName}Ops._; result.${fieldName}(v.map(_.mapValues(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_,Map[_, _]], Collection
+                    <#break >
+                <#else>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(_.mapValues(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_,Map[_, _], Collection
+                    <#break >
+                </#if>
+            <#elseif valueTypeName == "Seq">
+                <#assign seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                <#if simpleTypeName != seqValueTypeName>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${seqValueTypeName}Ops._; result.${fieldName}(v.mapValues(_.map(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_, Seq[_]], Collection
+                <#else>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.mapValues(_.map(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_, Seq[_]], Collection
+                </#if>
+                <#break >
+            <#else>
+                <#if simpleTypeName != valueTypeName>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ${valueTypeName}Ops._; result.${fieldName}(v.mapValues(_.toJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_], UserDefined
+                <#else>
+                    ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.mapValues(_.toJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}, case Map[_], UserDefined
+                </#if>
+                <#break >
+            </#if>
+        <#case "SdkBytes">
+            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(software.amazon.awssdk.core.SdkBytes.fromByteArray(v))) // ${field.fieldTypeDesc.fullTypeName}, case SdkBytes
+            <#break >
+        <#case "java.time.Instant">
+            ${prefix}.foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case java.time.Instant
+            <#break >
+        <#default>
+            ${prefix}.foreach{ v => import ${typeName}Ops._; result.${fieldName}(v.toJava) } // ${field.fieldTypeDesc.fullTypeName}, case Other
+    </#switch>
 </#macro>
 
-<#macro mapToScala methods field>
+<#macro mapToScala simpleTypeName methods field>
     <#assign fieldName=field.name?replace("type", "`type`")>
-        <#switch getGetterSimpleTypeName(methods, field.name, field.fieldType.simpleTypeName)>
-            <#case "Int">
-                .with${fieldName?cap_first}(Option(self.${fieldName}).map(_.intValue))
-                <#break >
-            <#case "Long">
-                .with${fieldName?cap_first}(Option(self.${fieldName}).map(_.longValue))
-                <#break >
-            <#case "Double">
-                .with${fieldName?cap_first}(Option(self.${fieldName}).map(_.doubleValue))
-                <#break >
-            <#case "Double">
-                .with${fieldName?cap_first}(Option(self.${fieldName}).map(_.floatValue))
-                <#break >
-            <#case "Boolean">
-                .with${fieldName?cap_first}(Option(self.${fieldName}).map(_.booleanValue))
-                <#break >
-            <#case "String">
-            <#case "Array">
-            <#case "Seq">
-            <#case "Map">
-                .with${fieldName?cap_first}(Option(self.${fieldName}))
-                <#break >
-            <#default >
-            <#if field.fieldType.enum>
-                .with${fieldName?cap_first}(Option(self.${fieldName}).map(_.toString).map(${fieldName?cap_first}.withName))
+    <#assign typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)>
+    <#switch typeName>
+        <#case "Char">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.charValue)) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "Int">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.intValue)) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "Long">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.longValue)) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "Float">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.floatValue)) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "Double">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.doubleValue)) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "Boolean">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.booleanValue)) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "String">
+        <#case "Array">
+            .with${field.name?cap_first}(Option(self.${fieldName})) // ${field.fieldTypeDesc.fullTypeName}
+            <#break >
+        <#case "Seq">
+            <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
+            <#if valueTypeName == "SdkBytes">
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asByteArray())}) // ${field.fieldTypeDesc.fullTypeName}, Seq-1
+            <#elseif valueTypeName == "Map">
+                <#assign mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                <#if simpleTypeName != mapValueTypeName>
+                    .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._, ${mapValueTypeName}Ops._; v.asScala.map(_.asScala.toMap.mapValues(_.toScala))}) // ${field.fieldTypeDesc.fullTypeName}, Seq-2
+                <#else>
+                    .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap.mapValues(_.toScala))}) // ${field.fieldTypeDesc.fullTypeName}, Seq-3
+                </#if>
+            <#elseif isDefined(valueTypeName) && valueTypeName != "String">
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value())}) // ${field.fieldTypeDesc.fullTypeName}, Seq-4
+            <#elseif valueTypeName == "String">
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala}) // ${field.fieldTypeDesc.fullTypeName}, Seq-5
             <#else>
-                .with${fieldName?cap_first}(Option(self.${fieldName}))
+                <#if simpleTypeName != valueTypeName>
+                    .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._, ${valueTypeName}Ops._; v.asScala.map(_.toScala)}) // ${field.fieldTypeDesc.fullTypeName}, Seq-6
+                <#else>
+                    .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.toScala)}) // ${field.fieldTypeDesc.fullTypeName}, Seq-7
+                </#if>
             </#if>
-        </#switch>
+            <#break >
+        <#case "Map">
+            <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
+            <#if valueTypeName == "SdkBytes">
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.mapValues(_.asByteArray())}) // ${field.fieldTypeDesc.fullTypeName}, Map-1
+            <#elseif valueTypeName == "Seq">
+                <#assign seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                <#if seqValueTypeName=="Map">
+                    <#assign mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
+                    <#if simpleTypeName != mapValueTypeName>
+                        .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._, ${mapValueTypeName}Ops._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap.mapValues(_.toScala))) }) // ${field.fieldTypeDesc.fullTypeName}, Map-2
+                    <#else>
+                        .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap.mapValues(_.toScala))) }) // ${field.fieldTypeDesc.fullTypeName}, Map-3
+                    </#if>
+                <#else>
+                    <#if simpleTypeName != seqValueTypeName>
+                        .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._, ${seqValueTypeName}Ops._; v.asScala.toMap.mapValues(_.asScala.map(_.toScala)) }) // ${field.fieldTypeDesc.fullTypeName}, Map-4
+                    <#else>
+                        .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.toScala)) }) // ${field.fieldTypeDesc.fullTypeName}, Map-5
+                    </#if>
+                </#if>
+            <#elseif isDefined(valueTypeName) && valueTypeName != "String">
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())}) // ${field.fieldTypeDesc.fullTypeName}, Seq-6
+            <#elseif valueTypeName == "String">
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap}) // ${field.fieldTypeDesc.fullTypeName}, Seq-7
+            <#else>
+                <#if simpleTypeName != valueTypeName>
+                    .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._, ${valueTypeName}Ops._; v.asScala.toMap.mapValues(_.toScala) }) // ${field.fieldTypeDesc.fullTypeName}, Map-8
+                <#else>
+                    .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.toScala) }) // ${field.fieldTypeDesc.fullTypeName}, Map-9
+                </#if>
+            </#if>
+            <#break >
+        <#case "SdkBytes">
+            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.asByteArray())) // ${field.fieldTypeDesc.fullTypeName}, Map-10
+            <#break >
+        <#case "java.time.Instant">
+            .with${field.name?cap_first}(Option(self.${fieldName})) // ${field.fieldTypeDesc.fullTypeName}, Map-11
+            <#break >
+        <#default >
+            .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import ${typeName}Ops._; v.toScala}) // ${field.fieldTypeDesc.fullTypeName}, Map-12
+    </#switch>
 </#macro>

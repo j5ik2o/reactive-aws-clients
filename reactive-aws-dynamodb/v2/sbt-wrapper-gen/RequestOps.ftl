@@ -10,15 +10,17 @@ package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ${simpleTypeName} => Scala${simpleTypeName}, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ${simpleTypeName} => Java${simpleTypeName} }
-import com.github.j5ik2o.reactive.aws.dynamodb.utils._
 
-object ${simpleTypeName}Ops extends OpsSupport {
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
+object ${simpleTypeName}Ops {
 
   implicit class Scala${simpleTypeName}Ops(val self: Scala${simpleTypeName}) extends AnyVal {
 
     def toJava: Java${simpleTypeName} = {
       val result = Java${simpleTypeName}.builder()
-<#list fields as field><#if targetField(field)>    self.${field.name?replace("type", "`type`")}<@mapToJava fields field/></#if></#list>
+<#list fields as field>
+    <#assign prefix="self." + field.name?replace("type", "`type`")>
+    <#if targetField(field)>    <@mapToJava simpleTypeName methods prefix field/></#if></#list>
       result.build()
     }
 

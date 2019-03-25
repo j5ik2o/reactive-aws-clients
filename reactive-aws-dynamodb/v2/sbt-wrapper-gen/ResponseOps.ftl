@@ -10,12 +10,12 @@ package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ${simpleTypeName} => Scala${simpleTypeName}, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ${simpleTypeName} => Java${simpleTypeName} }
-import com.github.j5ik2o.reactive.aws.dynamodb.utils._
 
 import scala.compat.java8.OptionConverters._
 import scala.collection.JavaConverters._
 
-object ${simpleTypeName}Ops extends OpsSupport {
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
+object ${simpleTypeName}Ops {
 
   implicit class Java${simpleTypeName}Ops(val self: Java${simpleTypeName}) extends AnyVal {
 
@@ -25,7 +25,7 @@ object ${simpleTypeName}Ops extends OpsSupport {
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
 <#list fields as field>
-    <#if targetField(field)><@mapToScala methods field/>
+    <#if targetField(field)><@mapToScala simpleTypeName methods field/>
     </#if>
 </#list>
     }

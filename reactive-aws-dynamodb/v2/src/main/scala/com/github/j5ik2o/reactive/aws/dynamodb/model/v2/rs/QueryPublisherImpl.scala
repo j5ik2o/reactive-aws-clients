@@ -16,12 +16,15 @@ class QueryPublisherImpl(self: software.amazon.awssdk.services.dynamodb.paginato
     override def onSubscribe(s: Subscription): Unit = {
       subscribers.foreach(subscriber => subscriber.onSubscribe(s))
     }
+
     override def onNext(t: JavaQueryResponse): Unit = {
       subscribers.foreach(subscriber => subscriber.onNext(t.toScala))
     }
+
     override def onError(t: Throwable): Unit = {
       subscribers.foreach(subscriber => subscriber.onError(t))
     }
+
     override def onComplete(): Unit = {
       subscribers.foreach(subscriber => subscriber.onComplete())
     }

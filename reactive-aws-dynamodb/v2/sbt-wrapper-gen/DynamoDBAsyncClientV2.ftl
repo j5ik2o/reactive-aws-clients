@@ -16,8 +16,8 @@ import scala.concurrent.{ ExecutionContext, Future }
         <#return false>
     </#if>
     <#local target=true>
-    <#list methodDesc.parameters as parameter>
-        <#if parameter.typeName.fullTypeName == "Consumer[Builder]">
+    <#list methodDesc.parameterTypeDescs as p>
+        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
             <#local target = false>
             <#break >
         </#if>
@@ -38,7 +38,7 @@ object DynamoDBAsyncClientV2 {
 trait DynamoDBAsyncClientV2 extends DynamoDBClient[Future] {
   val underlying: DynamoDbAsyncClient
 
-<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameters as parameter>${parameter.name}: ${parameter.typeName.fullTypeName}<#if parameter_has_next>,</#if></#list>): rs.${method.returnType.simpleTypeName}
+<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): rs.${method.returnTypeDesc.simpleTypeName}
 
 </#if></#list>
 }

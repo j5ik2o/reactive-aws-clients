@@ -1,4 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.metrics
+
 import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 import software.amazon.awssdk.services.dynamodb.model._

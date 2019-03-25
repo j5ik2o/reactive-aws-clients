@@ -22,14 +22,15 @@ object DynamoDBAsyncClientV2 {
 trait DynamoDBAsyncClientV2 extends DynamoDBClient[Future] {
   val underlying: DynamoDbAsyncClient
 
-  def batchGetItemPaginator(request: BatchGetItemRequest): rs.BatchGetItemPublisher
+    def batchGetItemPaginator(batchGetItemRequest: BatchGetItemRequest): rs.BatchGetItemPublisher
 
-  def listTablesPaginator: rs.ListTablesPublisher
+    def listTablesPaginator(): rs.ListTablesPublisher
 
-  def listTablesPaginator(request: ListTablesRequest): rs.ListTablesPublisher
+    def listTablesPaginator(listTablesRequest: ListTablesRequest): rs.ListTablesPublisher
 
-  def queryPaginator(request: QueryRequest): rs.QueryPublisher
+    def queryPaginator(queryRequest: QueryRequest): rs.QueryPublisher
 
-  def scanPaginator(request: ScanRequest): rs.ScanPublisher
+    def scanPaginator(scanRequest: ScanRequest): rs.ScanPublisher
 
 }
+
