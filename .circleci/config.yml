@@ -1,4 +1,8 @@
 version: 2
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
 jobs:
   build:
     environment:
@@ -26,7 +30,6 @@ jobs:
           key: scala-library-dependencies-{{ checksum "build.sbt" }}
       - run:
           command: |
-            git submodule update --init
             cd aws-sdk-src/aws-sdk-java-v2
             mvn install
             sbt +test:compile
