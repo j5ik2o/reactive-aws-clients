@@ -8,7 +8,7 @@ package com.github.j5ik2o.reactive.aws.dynamodb.model
 <#function getGetterTypeName name default>
   <#list methods as method>
     <#if method.name == name>
-        <#return method.returnType.fullTypeName?replace("Instant", "java.time.Instant")>
+        <#return method.returnTypeDesc.fullTypeName?replace("Instant", "java.time.Instant")>
     </#if>
   </#list>
   <#return default?replace("Instant", "java.time.Instant")>
@@ -27,7 +27,7 @@ override val statusCode: Option[Int] = None,
 override val statusText: Option[String] = None,
 override val httpHeaders: Option[Map[String, Seq[String]]] = None<#if has_content(fields)>,</#if>
 <#list fields as field>
-<#if targetField(field)>  ${field.name}: Option[${getGetterTypeName(field.name, field.fieldType.fullTypeName)}] = None<#if field_has_next>,</#if>
+<#if targetField(field)>  ${field.name}: Option[${getGetterTypeName(field.name, field.fieldTypeDesc.fullTypeName)}] = None<#if field_has_next>,</#if>
 </#if></#list>) extends AbstractResponse(statusCode, statusText, httpHeaders) {
 override type ThisType = ${simpleTypeName}
 override def withStatusCode(value: Option[Int]): ${simpleTypeName}     = copy(statusCode = value)
@@ -35,7 +35,7 @@ override def withStatusText(value: Option[String]): ${simpleTypeName}  = copy(st
 override def withHttpHeaders(value: Option[Map[String, Seq[String]]]): ${simpleTypeName}  =
 copy(httpHeaders = value)
 <#list fields as field>
-<#if targetField(field)>  def with${field.name?cap_first}(value: Option[${getGetterTypeName(field.name, field.fieldType.fullTypeName)}]): ${simpleTypeName} =
+<#if targetField(field)>  def with${field.name?cap_first}(value: Option[${getGetterTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName} =
   copy(${field.name} = value)
 </#if></#list>
 }

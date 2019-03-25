@@ -10,8 +10,8 @@ import com.github.j5ik2o.reactive.aws.dynamodb.model._
         <#return false>
     </#if>
     <#local target=true>
-    <#list methodDesc.parameters as parameter>
-        <#if parameter.typeName.fullTypeName == "Consumer[Builder]">
+    <#list methodDesc.parameterTypeDescs as p>
+        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
             <#local target = false>
             <#break >
         </#if>
@@ -20,7 +20,7 @@ import com.github.j5ik2o.reactive.aws.dynamodb.model._
 </#function>
 trait DynamoDBClient[M[_]] extends DynamoDBClientSupport[M] {
 
-<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameters as parameter>${parameter.name}: ${parameter.typeName.fullTypeName}<#if parameter_has_next>,</#if></#list>): M[${method.returnType.valueTypeName}]
+<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
 
 </#if></#list>
 }
