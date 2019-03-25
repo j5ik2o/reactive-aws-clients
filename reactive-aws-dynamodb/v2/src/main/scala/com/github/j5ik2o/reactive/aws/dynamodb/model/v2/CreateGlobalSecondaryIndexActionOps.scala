@@ -19,13 +19,13 @@ object CreateGlobalSecondaryIndexActionOps {
       self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement], case Seq[_], UserDefined
+      } // Seq[KeySchemaElement]
       self.projection.foreach { v =>
         import ProjectionOps._; result.projection(v.toJava)
-      } // Projection, case Other
+      } // Projection
       self.provisionedThroughput.foreach { v =>
-        result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput, case Other
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
 
       result.build()
     }
@@ -40,13 +40,13 @@ object CreateGlobalSecondaryIndexActionOps {
         .withIndexName(Option(self.indexName)) // String
         .withKeySchema(Option(self.keySchema).map { v =>
           import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement], Seq-6
+        }) // Seq[KeySchemaElement]
         .withProjection(Option(self.projection).map { v =>
           import ProjectionOps._; v.toScala
-        }) // Projection, Map-12
+        }) // Projection
         .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          v.toScala
-        }) // ProvisionedThroughput, Map-12
+          import ProvisionedThroughputOps._; v.toScala
+        }) // ProvisionedThroughput
     }
 
   }

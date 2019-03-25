@@ -10,8 +10,12 @@ object AttributeValueUpdateOps {
 
     def toJava: JavaAttributeValueUpdate = {
       val result = JavaAttributeValueUpdate.builder()
-                                      self.value.foreach{ v => import AttributeValueOps._; result.value(v.toJava) } // AttributeValue, case Other
-                      self.action.foreach{ v => import AttributeActionOps._; result.action(v.toJava) } // String, case Other
+      self.value.foreach { v =>
+        import AttributeValueOps._; result.value(v.toJava)
+      } // AttributeValue
+      self.action.foreach { v =>
+        import AttributeActionOps._; result.action(v.toJava)
+      } // String
 
       result.build()
     }
@@ -20,12 +24,16 @@ object AttributeValueUpdateOps {
 
   implicit class JavaAttributeValueUpdateOps(val self: JavaAttributeValueUpdate) extends AnyVal {
 
-     def toScala: ScalaAttributeValueUpdate = {
-       ScalaAttributeValueUpdate()
-            .withValue(Option(self.value).map{ v => import AttributeValueOps._; v.toScala}) // AttributeValue, Map-12
-            .withAction(Option(self.action).map{ v => import AttributeActionOps._; v.toScala}) // String, Map-12
-     }
+    def toScala: ScalaAttributeValueUpdate = {
+      ScalaAttributeValueUpdate()
+        .withValue(Option(self.value).map { v =>
+          import AttributeValueOps._; v.toScala
+        }) // AttributeValue
+        .withAction(Option(self.action).map { v =>
+          import AttributeActionOps._; v.toScala
+        }) // String
+    }
 
-   }
+  }
 
 }

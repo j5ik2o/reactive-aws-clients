@@ -10,8 +10,8 @@ object TagOps {
 
     def toJava: JavaTag = {
       val result = JavaTag.builder()
-                                      self.key.filter(_.nonEmpty).foreach(v => result.key(v)) // String, case String
-                      self.value.filter(_.nonEmpty).foreach(v => result.value(v)) // String, case String
+      self.key.filter(_.nonEmpty).foreach(v => result.key(v))     // String, case String
+      self.value.filter(_.nonEmpty).foreach(v => result.value(v)) // String, case String
 
       result.build()
     }
@@ -20,12 +20,12 @@ object TagOps {
 
   implicit class JavaTagOps(val self: JavaTag) extends AnyVal {
 
-     def toScala: ScalaTag = {
-       ScalaTag()
-            .withKey(Option(self.key)) // String
-            .withValue(Option(self.value)) // String
-     }
+    def toScala: ScalaTag = {
+      ScalaTag()
+        .withKey(Option(self.key)) // String
+        .withValue(Option(self.value)) // String
+    }
 
-   }
+  }
 
 }

@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeEndpointsResponse => ScalaDescribeEndpointsResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeEndpointsResponse => JavaDescribeEndpointsResponse }
 
@@ -17,7 +16,9 @@ object DescribeEndpointsResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-                    .withEndpoints(Option(self.endpoints).map{ v => import scala.collection.JavaConverters._, EndpointOps._; v.asScala.map(_.toScala)}) // Seq[Endpoint], Seq-6
+        .withEndpoints(Option(self.endpoints).map { v =>
+          import scala.collection.JavaConverters._, EndpointOps._; v.asScala.map(_.toScala)
+        }) // Seq[Endpoint]
     }
 
   }

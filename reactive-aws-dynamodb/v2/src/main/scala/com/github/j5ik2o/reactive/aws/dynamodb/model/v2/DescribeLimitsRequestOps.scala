@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeLimitsRequest => ScalaDescribeLimitsRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeLimitsRequest => JavaDescribeLimitsRequest }
 
@@ -11,7 +10,7 @@ object DescribeLimitsRequestOps {
 
     def toJava: JavaDescribeLimitsRequest = {
       val result = JavaDescribeLimitsRequest.builder()
-    
+
       result.build()
     }
 

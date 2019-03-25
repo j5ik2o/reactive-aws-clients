@@ -8,17 +8,17 @@ object ReturnConsumedCapacityOps {
   implicit class ScalaReturnConsumedCapacityOps(val self: ScalaReturnConsumedCapacity) extends AnyVal {
 
     def toJava: JavaReturnConsumedCapacity = {
-        JavaReturnConsumedCapacity.valueOf(self.entryName)
+      JavaReturnConsumedCapacity.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaReturnConsumedCapacityOps(val self: JavaReturnConsumedCapacity) extends AnyVal {
 
-     def toScala: ScalaReturnConsumedCapacity = {
-        ScalaReturnConsumedCapacity.withName(self.toString)
-     }
+    def toScala: ScalaReturnConsumedCapacity = {
+      ScalaReturnConsumedCapacity.withName(self.toString)
+    }
 
-   }
+  }
 
 }

@@ -14,14 +14,14 @@ object GlobalSecondaryIndexUpdateOps {
     def toJava: JavaGlobalSecondaryIndexUpdate = {
       val result = JavaGlobalSecondaryIndexUpdate.builder()
       self.update.foreach { v =>
-        result.update(v.toJava)
-      } // UpdateGlobalSecondaryIndexAction, case Other
+        import UpdateGlobalSecondaryIndexActionOps._; result.update(v.toJava)
+      } // UpdateGlobalSecondaryIndexAction
       self.create.foreach { v =>
         import CreateGlobalSecondaryIndexActionOps._; result.create(v.toJava)
-      } // CreateGlobalSecondaryIndexAction, case Other
+      } // CreateGlobalSecondaryIndexAction
       self.delete.foreach { v =>
         import DeleteGlobalSecondaryIndexActionOps._; result.delete(v.toJava)
-      } // DeleteGlobalSecondaryIndexAction, case Other
+      } // DeleteGlobalSecondaryIndexAction
 
       result.build()
     }
@@ -33,14 +33,14 @@ object GlobalSecondaryIndexUpdateOps {
     def toScala: ScalaGlobalSecondaryIndexUpdate = {
       ScalaGlobalSecondaryIndexUpdate()
         .withUpdate(Option(self.update).map { v =>
-          v.toScala
-        }) // UpdateGlobalSecondaryIndexAction, Map-12
+          import UpdateGlobalSecondaryIndexActionOps._; v.toScala
+        }) // UpdateGlobalSecondaryIndexAction
         .withCreate(Option(self.create).map { v =>
           import CreateGlobalSecondaryIndexActionOps._; v.toScala
-        }) // CreateGlobalSecondaryIndexAction, Map-12
+        }) // CreateGlobalSecondaryIndexAction
         .withDelete(Option(self.delete).map { v =>
           import DeleteGlobalSecondaryIndexActionOps._; v.toScala
-        }) // DeleteGlobalSecondaryIndexAction, Map-12
+        }) // DeleteGlobalSecondaryIndexAction
     }
 
   }

@@ -8,17 +8,17 @@ object SelectOps {
   implicit class ScalaSelectOps(val self: ScalaSelect) extends AnyVal {
 
     def toJava: JavaSelect = {
-        JavaSelect.valueOf(self.entryName)
+      JavaSelect.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaSelectOps(val self: JavaSelect) extends AnyVal {
 
-     def toScala: ScalaSelect = {
-        ScalaSelect.withName(self.toString)
-     }
+    def toScala: ScalaSelect = {
+      ScalaSelect.withName(self.toString)
+    }
 
-   }
+  }
 
 }

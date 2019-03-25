@@ -8,17 +8,17 @@ object ComparisonOperatorOps {
   implicit class ScalaComparisonOperatorOps(val self: ScalaComparisonOperator) extends AnyVal {
 
     def toJava: JavaComparisonOperator = {
-        JavaComparisonOperator.valueOf(self.entryName)
+      JavaComparisonOperator.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaComparisonOperatorOps(val self: JavaComparisonOperator) extends AnyVal {
 
-     def toScala: ScalaComparisonOperator = {
-        ScalaComparisonOperator.withName(self.toString)
-     }
+    def toScala: ScalaComparisonOperator = {
+      ScalaComparisonOperator.withName(self.toString)
+    }
 
-   }
+  }
 
 }

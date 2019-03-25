@@ -10,8 +10,8 @@ object TimeToLiveSpecificationOps {
 
     def toJava: JavaTimeToLiveSpecification = {
       val result = JavaTimeToLiveSpecification.builder()
-                                      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v)) // Boolean, case Boolean
-                      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v))            // Boolean, case Boolean
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
 
       result.build()
     }
@@ -20,12 +20,12 @@ object TimeToLiveSpecificationOps {
 
   implicit class JavaTimeToLiveSpecificationOps(val self: JavaTimeToLiveSpecification) extends AnyVal {
 
-     def toScala: ScalaTimeToLiveSpecification = {
-       ScalaTimeToLiveSpecification()
-            .withEnabled(Option(self.enabled).map(_.booleanValue)) // Boolean
-            .withAttributeName(Option(self.attributeName)) // String
-     }
+    def toScala: ScalaTimeToLiveSpecification = {
+      ScalaTimeToLiveSpecification()
+        .withEnabled(Option(self.enabled).map(_.booleanValue)) // Boolean
+        .withAttributeName(Option(self.attributeName)) // String
+    }
 
-   }
+  }
 
 }

@@ -8,17 +8,17 @@ object SSETypeOps {
   implicit class ScalaSSETypeOps(val self: ScalaSSEType) extends AnyVal {
 
     def toJava: JavaSSEType = {
-        JavaSSEType.valueOf(self.entryName)
+      JavaSSEType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaSSETypeOps(val self: JavaSSEType) extends AnyVal {
 
-     def toScala: ScalaSSEType = {
-        ScalaSSEType.withName(self.toString)
-     }
+    def toScala: ScalaSSEType = {
+      ScalaSSEType.withName(self.toString)
+    }
 
-   }
+  }
 
 }

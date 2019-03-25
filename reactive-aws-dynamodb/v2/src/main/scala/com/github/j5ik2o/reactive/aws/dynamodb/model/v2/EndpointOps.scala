@@ -10,8 +10,8 @@ object EndpointOps {
 
     def toJava: JavaEndpoint = {
       val result = JavaEndpoint.builder()
-                                      self.address.filter(_.nonEmpty).foreach(v => result.address(v)) // String, case String
-                      self.cachePeriodInMinutes.map(_.longValue).foreach(v => result.cachePeriodInMinutes(v)) // Long, case Long
+      self.address.filter(_.nonEmpty).foreach(v => result.address(v))                         // String, case String
+      self.cachePeriodInMinutes.map(_.longValue).foreach(v => result.cachePeriodInMinutes(v)) // Long, case Long
 
       result.build()
     }
@@ -20,12 +20,12 @@ object EndpointOps {
 
   implicit class JavaEndpointOps(val self: JavaEndpoint) extends AnyVal {
 
-     def toScala: ScalaEndpoint = {
-       ScalaEndpoint()
-            .withAddress(Option(self.address)) // String
-            .withCachePeriodInMinutes(Option(self.cachePeriodInMinutes).map(_.longValue)) // Long
-     }
+    def toScala: ScalaEndpoint = {
+      ScalaEndpoint()
+        .withAddress(Option(self.address)) // String
+        .withCachePeriodInMinutes(Option(self.cachePeriodInMinutes).map(_.longValue)) // Long
+    }
 
-   }
+  }
 
 }

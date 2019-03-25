@@ -8,17 +8,17 @@ object PointInTimeRecoveryStatusOps {
   implicit class ScalaPointInTimeRecoveryStatusOps(val self: ScalaPointInTimeRecoveryStatus) extends AnyVal {
 
     def toJava: JavaPointInTimeRecoveryStatus = {
-        JavaPointInTimeRecoveryStatus.valueOf(self.entryName)
+      JavaPointInTimeRecoveryStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaPointInTimeRecoveryStatusOps(val self: JavaPointInTimeRecoveryStatus) extends AnyVal {
 
-     def toScala: ScalaPointInTimeRecoveryStatus = {
-        ScalaPointInTimeRecoveryStatus.withName(self.toString)
-     }
+    def toScala: ScalaPointInTimeRecoveryStatus = {
+      ScalaPointInTimeRecoveryStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

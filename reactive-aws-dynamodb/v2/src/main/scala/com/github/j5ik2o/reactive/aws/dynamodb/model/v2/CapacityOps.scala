@@ -10,9 +10,9 @@ object CapacityOps {
 
     def toJava: JavaCapacity = {
       val result = JavaCapacity.builder()
-                                          self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v)) // Double, case Double
-                      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double, case Double
-                      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v)) // Double, case Double
+      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double, case Double
+      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double, case Double
+      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double, case Double
 
       result.build()
     }
@@ -21,13 +21,13 @@ object CapacityOps {
 
   implicit class JavaCapacityOps(val self: JavaCapacity) extends AnyVal {
 
-     def toScala: ScalaCapacity = {
-       ScalaCapacity()
-            .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.doubleValue)) // Double
-            .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.doubleValue)) // Double
-            .withCapacityUnits(Option(self.capacityUnits).map(_.doubleValue)) // Double
-     }
+    def toScala: ScalaCapacity = {
+      ScalaCapacity()
+        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.doubleValue)) // Double
+        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.doubleValue)) // Double
+        .withCapacityUnits(Option(self.capacityUnits).map(_.doubleValue)) // Double
+    }
 
-   }
+  }
 
 }

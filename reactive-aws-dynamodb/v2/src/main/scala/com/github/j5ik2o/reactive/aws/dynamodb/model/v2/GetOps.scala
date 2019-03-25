@@ -10,10 +10,14 @@ object GetOps {
 
     def toJava: JavaGet = {
       val result = JavaGet.builder()
-                                                      self.key.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava) } // Map[String, AttributeValue], case Map[_], UserDefined
-                      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
-                      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String, case String
-                          self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach{ v => import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava) } // Map[String, String], case Map[_]
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                       // String, case String
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String, case String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
+      } // Map[String, String]
 
       result.build()
     }
@@ -22,14 +26,18 @@ object GetOps {
 
   implicit class JavaGetOps(val self: JavaGet) extends AnyVal {
 
-     def toScala: ScalaGet = {
-       ScalaGet()
-                    .withKey(Option(self.key).map{ v => import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala) }) // Map[String, AttributeValue], Map-8
-            .withTableName(Option(self.tableName)) // String
-            .withProjectionExpression(Option(self.projectionExpression)) // String
-                .withExpressionAttributeNames(Option(self.expressionAttributeNames).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap}) // Map[String, String], Seq-7
-     }
+    def toScala: ScalaGet = {
+      ScalaGet()
+        .withKey(Option(self.key).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withTableName(Option(self.tableName)) // String
+        .withProjectionExpression(Option(self.projectionExpression)) // String
+        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map { v =>
+          import scala.collection.JavaConverters._; v.asScala.toMap
+        }) // Map[String, String]
+    }
 
-   }
+  }
 
 }

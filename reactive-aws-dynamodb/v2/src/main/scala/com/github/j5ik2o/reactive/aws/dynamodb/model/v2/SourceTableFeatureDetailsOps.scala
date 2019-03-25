@@ -13,19 +13,20 @@ object SourceTableFeatureDetailsOps {
       self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, LocalSecondaryIndexInfoOps._;
         result.localSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[LocalSecondaryIndexInfo], case Seq[_], UserDefined
+      } // Seq[LocalSecondaryIndexInfo]
       self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.globalSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[GlobalSecondaryIndexInfo], case Seq[_], UserDefined
+        import scala.collection.JavaConverters._, GlobalSecondaryIndexInfoOps._;
+        result.globalSecondaryIndexes(v.map(_.toJava).asJava)
+      } // Seq[GlobalSecondaryIndexInfo]
       self.streamDescription.foreach { v =>
         import StreamSpecificationOps._; result.streamDescription(v.toJava)
-      } // StreamSpecification, case Other
+      } // StreamSpecification
       self.timeToLiveDescription.foreach { v =>
         import TimeToLiveDescriptionOps._; result.timeToLiveDescription(v.toJava)
-      } // TimeToLiveDescription, case Other
+      } // TimeToLiveDescription
       self.sseDescription.foreach { v =>
         import SSEDescriptionOps._; result.sseDescription(v.toJava)
-      } // SSEDescription, case Other
+      } // SSEDescription
 
       result.build()
     }
@@ -38,19 +39,19 @@ object SourceTableFeatureDetailsOps {
       ScalaSourceTableFeatureDetails()
         .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map { v =>
           import scala.collection.JavaConverters._, LocalSecondaryIndexInfoOps._; v.asScala.map(_.toScala)
-        }) // Seq[LocalSecondaryIndexInfo], Seq-6
+        }) // Seq[LocalSecondaryIndexInfo]
         .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[GlobalSecondaryIndexInfo], Seq-6
+          import scala.collection.JavaConverters._, GlobalSecondaryIndexInfoOps._; v.asScala.map(_.toScala)
+        }) // Seq[GlobalSecondaryIndexInfo]
         .withStreamDescription(Option(self.streamDescription).map { v =>
           import StreamSpecificationOps._; v.toScala
-        }) // StreamSpecification, Map-12
+        }) // StreamSpecification
         .withTimeToLiveDescription(Option(self.timeToLiveDescription).map { v =>
           import TimeToLiveDescriptionOps._; v.toScala
-        }) // TimeToLiveDescription, Map-12
+        }) // TimeToLiveDescription
         .withSseDescription(Option(self.sseDescription).map { v =>
           import SSEDescriptionOps._; v.toScala
-        }) // SSEDescription, Map-12
+        }) // SSEDescription
     }
 
   }

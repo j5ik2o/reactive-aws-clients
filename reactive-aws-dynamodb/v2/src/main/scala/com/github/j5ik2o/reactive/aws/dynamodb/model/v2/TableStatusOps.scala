@@ -8,17 +8,17 @@ object TableStatusOps {
   implicit class ScalaTableStatusOps(val self: ScalaTableStatus) extends AnyVal {
 
     def toJava: JavaTableStatus = {
-        JavaTableStatus.valueOf(self.entryName)
+      JavaTableStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaTableStatusOps(val self: JavaTableStatus) extends AnyVal {
 
-     def toScala: ScalaTableStatus = {
-        ScalaTableStatus.withName(self.toString)
-     }
+    def toScala: ScalaTableStatus = {
+      ScalaTableStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

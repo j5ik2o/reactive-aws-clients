@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeTimeToLiveResponse => ScalaDescribeTimeToLiveResponse, _ }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  DescribeTimeToLiveResponse => ScalaDescribeTimeToLiveResponse,
+  _
+}
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeTimeToLiveResponse => JavaDescribeTimeToLiveResponse }
 
 import scala.compat.java8.OptionConverters._
@@ -17,7 +19,9 @@ object DescribeTimeToLiveResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-            .withTimeToLiveDescription(Option(self.timeToLiveDescription).map{ v => import TimeToLiveDescriptionOps._; v.toScala}) // TimeToLiveDescription, Map-12
+        .withTimeToLiveDescription(Option(self.timeToLiveDescription).map { v =>
+          import TimeToLiveDescriptionOps._; v.toScala
+        }) // TimeToLiveDescription
     }
 
   }

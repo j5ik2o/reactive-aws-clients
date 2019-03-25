@@ -10,8 +10,10 @@ object StreamSpecificationOps {
 
     def toJava: JavaStreamSpecification = {
       val result = JavaStreamSpecification.builder()
-                                      self.streamEnabled.map(_.booleanValue).foreach(v => result.streamEnabled(v)) // Boolean, case Boolean
-                      self.streamViewType.foreach{ v => import StreamViewTypeOps._; result.streamViewType(v.toJava) } // String, case Other
+      self.streamEnabled.map(_.booleanValue).foreach(v => result.streamEnabled(v)) // Boolean, case Boolean
+      self.streamViewType.foreach { v =>
+        import StreamViewTypeOps._; result.streamViewType(v.toJava)
+      } // String
 
       result.build()
     }
@@ -20,12 +22,14 @@ object StreamSpecificationOps {
 
   implicit class JavaStreamSpecificationOps(val self: JavaStreamSpecification) extends AnyVal {
 
-     def toScala: ScalaStreamSpecification = {
-       ScalaStreamSpecification()
-            .withStreamEnabled(Option(self.streamEnabled).map(_.booleanValue)) // Boolean
-            .withStreamViewType(Option(self.streamViewType).map{ v => import StreamViewTypeOps._; v.toScala}) // String, Map-12
-     }
+    def toScala: ScalaStreamSpecification = {
+      ScalaStreamSpecification()
+        .withStreamEnabled(Option(self.streamEnabled).map(_.booleanValue)) // Boolean
+        .withStreamViewType(Option(self.streamViewType).map { v =>
+          import StreamViewTypeOps._; v.toScala
+        }) // String
+    }
 
-   }
+  }
 
 }

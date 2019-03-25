@@ -10,10 +10,10 @@ object RestoreSummaryOps {
 
     def toJava: JavaRestoreSummary = {
       val result = JavaRestoreSummary.builder()
-                                              self.sourceBackupArn.filter(_.nonEmpty).foreach(v => result.sourceBackupArn(v)) // String, case String
-                      self.sourceTableArn.filter(_.nonEmpty).foreach(v => result.sourceTableArn(v)) // String, case String
-                      self.restoreDateTime.foreach(v => result.restoreDateTime(v)) // Instant, case java.time.Instant
-                      self.restoreInProgress.map(_.booleanValue).foreach(v => result.restoreInProgress(v)) // Boolean, case Boolean
+      self.sourceBackupArn.filter(_.nonEmpty).foreach(v => result.sourceBackupArn(v))      // String, case String
+      self.sourceTableArn.filter(_.nonEmpty).foreach(v => result.sourceTableArn(v))        // String, case String
+      self.restoreDateTime.foreach(v => result.restoreDateTime(v))                         // Instant
+      self.restoreInProgress.map(_.booleanValue).foreach(v => result.restoreInProgress(v)) // Boolean, case Boolean
 
       result.build()
     }
@@ -22,14 +22,14 @@ object RestoreSummaryOps {
 
   implicit class JavaRestoreSummaryOps(val self: JavaRestoreSummary) extends AnyVal {
 
-     def toScala: ScalaRestoreSummary = {
-       ScalaRestoreSummary()
-            .withSourceBackupArn(Option(self.sourceBackupArn)) // String
-            .withSourceTableArn(Option(self.sourceTableArn)) // String
-            .withRestoreDateTime(Option(self.restoreDateTime)) // Instant, Map-11
-            .withRestoreInProgress(Option(self.restoreInProgress).map(_.booleanValue)) // Boolean
-     }
+    def toScala: ScalaRestoreSummary = {
+      ScalaRestoreSummary()
+        .withSourceBackupArn(Option(self.sourceBackupArn)) // String
+        .withSourceTableArn(Option(self.sourceTableArn)) // String
+        .withRestoreDateTime(Option(self.restoreDateTime)) // Instant
+        .withRestoreInProgress(Option(self.restoreInProgress).map(_.booleanValue)) // Boolean
+    }
 
-   }
+  }
 
 }

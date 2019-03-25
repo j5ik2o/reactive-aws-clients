@@ -10,9 +10,9 @@ object StreamOps {
 
     def toJava: JavaStream = {
       val result = JavaStream.builder()
-                                          self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v)) // String, case String
-                      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
-                      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String, case String
+      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))     // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))     // String, case String
+      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String, case String
 
       result.build()
     }
@@ -21,13 +21,13 @@ object StreamOps {
 
   implicit class JavaStreamOps(val self: JavaStream) extends AnyVal {
 
-     def toScala: ScalaStream = {
-       ScalaStream()
-            .withStreamArn(Option(self.streamArn)) // String
-            .withTableName(Option(self.tableName)) // String
-            .withStreamLabel(Option(self.streamLabel)) // String
-     }
+    def toScala: ScalaStream = {
+      ScalaStream()
+        .withStreamArn(Option(self.streamArn)) // String
+        .withTableName(Option(self.tableName)) // String
+        .withStreamLabel(Option(self.streamLabel)) // String
+    }
 
-   }
+  }
 
 }

@@ -13,30 +13,31 @@ object CreateTableRequestOps {
       self.attributeDefinitions.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeDefinitionOps._;
         result.attributeDefinitions(v.map(_.toJava).asJava)
-      } // Seq[AttributeDefinition], case Seq[_], UserDefined
+      } // Seq[AttributeDefinition]
       self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement], case Seq[_], UserDefined
+      } // Seq[KeySchemaElement]
       self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.localSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[LocalSecondaryIndex], case Seq[_], UserDefined
+        import scala.collection.JavaConverters._, LocalSecondaryIndexOps._;
+        result.localSecondaryIndexes(v.map(_.toJava).asJava)
+      } // Seq[LocalSecondaryIndex]
       self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, GlobalSecondaryIndexOps._;
         result.globalSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[GlobalSecondaryIndex], case Seq[_], UserDefined
+      } // Seq[GlobalSecondaryIndex]
       self.billingMode.foreach { v =>
         import BillingModeOps._; result.billingMode(v.toJava)
-      } // String, case Other
+      } // String
       self.provisionedThroughput.foreach { v =>
-        result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput, case Other
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
       self.streamSpecification.foreach { v =>
         import StreamSpecificationOps._; result.streamSpecification(v.toJava)
-      } // StreamSpecification, case Other
+      } // StreamSpecification
       self.sseSpecification.foreach { v =>
         import SSESpecificationOps._; result.sseSpecification(v.toJava)
-      } // SSESpecification, case Other
+      } // SSESpecification
 
       result.build()
     }

@@ -11,17 +11,17 @@ object TransactWriteItemOps {
     def toJava: JavaTransactWriteItem = {
       val result = JavaTransactWriteItem.builder()
       self.conditionCheck.foreach { v =>
-        result.conditionCheck(v.toJava)
-      } // ConditionCheck, case Other
+        import ConditionCheckOps._; result.conditionCheck(v.toJava)
+      } // ConditionCheck
       self.put.foreach { v =>
         import PutOps._; result.put(v.toJava)
-      } // Put, case Other
+      } // Put
       self.delete.foreach { v =>
         import DeleteOps._; result.delete(v.toJava)
-      } // Delete, case Other
+      } // Delete
       self.update.foreach { v =>
         import UpdateOps._; result.update(v.toJava)
-      } // Update, case Other
+      } // Update
 
       result.build()
     }
@@ -33,17 +33,17 @@ object TransactWriteItemOps {
     def toScala: ScalaTransactWriteItem = {
       ScalaTransactWriteItem()
         .withConditionCheck(Option(self.conditionCheck).map { v =>
-          v.toScala
-        }) // ConditionCheck, Map-12
+          import ConditionCheckOps._; v.toScala
+        }) // ConditionCheck
         .withPut(Option(self.put).map { v =>
           import PutOps._; v.toScala
-        }) // Put, Map-12
+        }) // Put
         .withDelete(Option(self.delete).map { v =>
           import DeleteOps._; v.toScala
-        }) // Delete, Map-12
+        }) // Delete
         .withUpdate(Option(self.update).map { v =>
           import UpdateOps._; v.toScala
-        }) // Update, Map-12
+        }) // Update
     }
 
   }

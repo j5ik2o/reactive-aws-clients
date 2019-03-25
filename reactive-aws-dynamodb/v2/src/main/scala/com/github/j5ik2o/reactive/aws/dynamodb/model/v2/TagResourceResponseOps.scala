@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TagResourceResponse => ScalaTagResourceResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ TagResourceResponse => JavaTagResourceResponse }
 

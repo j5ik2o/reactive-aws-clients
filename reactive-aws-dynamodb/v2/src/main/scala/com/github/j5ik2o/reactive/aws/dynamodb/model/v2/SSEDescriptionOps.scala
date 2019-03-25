@@ -10,9 +10,13 @@ object SSEDescriptionOps {
 
     def toJava: JavaSSEDescription = {
       val result = JavaSSEDescription.builder()
-                                          self.status.foreach{ v => import SSEStatusOps._; result.status(v.toJava) } // String, case Other
-                      self.sseType.foreach{ v => import SSETypeOps._; result.sseType(v.toJava) } // String, case Other
-                      self.kmsMasterKeyArn.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyArn(v)) // String, case String
+      self.status.foreach { v =>
+        import SSEStatusOps._; result.status(v.toJava)
+      } // String
+      self.sseType.foreach { v =>
+        import SSETypeOps._; result.sseType(v.toJava)
+      } // String
+      self.kmsMasterKeyArn.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyArn(v)) // String, case String
 
       result.build()
     }
@@ -21,13 +25,17 @@ object SSEDescriptionOps {
 
   implicit class JavaSSEDescriptionOps(val self: JavaSSEDescription) extends AnyVal {
 
-     def toScala: ScalaSSEDescription = {
-       ScalaSSEDescription()
-            .withStatus(Option(self.status).map{ v => import SSEStatusOps._; v.toScala}) // String, Map-12
-            .withSseType(Option(self.sseType).map{ v => import SSETypeOps._; v.toScala}) // String, Map-12
-            .withKmsMasterKeyArn(Option(self.kmsMasterKeyArn)) // String
-     }
+    def toScala: ScalaSSEDescription = {
+      ScalaSSEDescription()
+        .withStatus(Option(self.status).map { v =>
+          import SSEStatusOps._; v.toScala
+        }) // String
+        .withSseType(Option(self.sseType).map { v =>
+          import SSETypeOps._; v.toScala
+        }) // String
+        .withKmsMasterKeyArn(Option(self.kmsMasterKeyArn)) // String
+    }
 
-   }
+  }
 
 }

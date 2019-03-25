@@ -17,8 +17,8 @@ object ListGlobalTablesResponseOps {
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
         .withGlobalTables(Option(self.globalTables).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[GlobalTable], Seq-6
+          import scala.collection.JavaConverters._, GlobalTableOps._; v.asScala.map(_.toScala)
+        }) // Seq[GlobalTable]
         .withLastEvaluatedGlobalTableName(Option(self.lastEvaluatedGlobalTableName)) // String
     }
 

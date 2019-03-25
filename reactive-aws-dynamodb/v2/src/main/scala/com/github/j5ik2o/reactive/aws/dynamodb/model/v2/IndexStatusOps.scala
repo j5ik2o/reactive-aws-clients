@@ -8,17 +8,17 @@ object IndexStatusOps {
   implicit class ScalaIndexStatusOps(val self: ScalaIndexStatus) extends AnyVal {
 
     def toJava: JavaIndexStatus = {
-        JavaIndexStatus.valueOf(self.entryName)
+      JavaIndexStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaIndexStatusOps(val self: JavaIndexStatus) extends AnyVal {
 
-     def toScala: ScalaIndexStatus = {
-        ScalaIndexStatus.withName(self.toString)
-     }
+    def toScala: ScalaIndexStatus = {
+      ScalaIndexStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

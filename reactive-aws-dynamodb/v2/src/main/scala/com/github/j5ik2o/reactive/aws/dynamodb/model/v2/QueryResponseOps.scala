@@ -19,15 +19,15 @@ object QueryResponseOps {
         .withItems(Option(self.items).map { v =>
           import scala.collection.JavaConverters._, AttributeValueOps._;
           v.asScala.map(_.asScala.toMap.mapValues(_.toScala))
-        }) // Seq[Map[String, AttributeValue]], Seq-2
+        }) // Seq[Map[String, AttributeValue]]
         .withCount(Option(self.count).map(_.intValue)) // Int
         .withScannedCount(Option(self.scannedCount).map(_.intValue)) // Int
         .withLastEvaluatedKey(Option(self.lastEvaluatedKey).map { v =>
           import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue], Map-8
+        }) // Map[String, AttributeValue]
         .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          v.toScala
-        }) // ConsumedCapacity, Map-12
+          import ConsumedCapacityOps._; v.toScala
+        }) // ConsumedCapacity
     }
 
   }

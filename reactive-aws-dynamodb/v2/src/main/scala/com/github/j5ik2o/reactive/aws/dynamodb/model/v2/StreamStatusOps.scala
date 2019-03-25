@@ -8,17 +8,17 @@ object StreamStatusOps {
   implicit class ScalaStreamStatusOps(val self: ScalaStreamStatus) extends AnyVal {
 
     def toJava: JavaStreamStatus = {
-        JavaStreamStatus.valueOf(self.entryName)
+      JavaStreamStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaStreamStatusOps(val self: JavaStreamStatus) extends AnyVal {
 
-     def toScala: ScalaStreamStatus = {
-        ScalaStreamStatus.withName(self.toString)
-     }
+    def toScala: ScalaStreamStatus = {
+      ScalaStreamStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

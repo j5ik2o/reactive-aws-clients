@@ -8,17 +8,17 @@ object SSEStatusOps {
   implicit class ScalaSSEStatusOps(val self: ScalaSSEStatus) extends AnyVal {
 
     def toJava: JavaSSEStatus = {
-        JavaSSEStatus.valueOf(self.entryName)
+      JavaSSEStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaSSEStatusOps(val self: JavaSSEStatus) extends AnyVal {
 
-     def toScala: ScalaSSEStatus = {
-        ScalaSSEStatus.withName(self.toString)
-     }
+    def toScala: ScalaSSEStatus = {
+      ScalaSSEStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

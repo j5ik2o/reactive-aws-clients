@@ -8,17 +8,17 @@ object ContinuousBackupsStatusOps {
   implicit class ScalaContinuousBackupsStatusOps(val self: ScalaContinuousBackupsStatus) extends AnyVal {
 
     def toJava: JavaContinuousBackupsStatus = {
-        JavaContinuousBackupsStatus.valueOf(self.entryName)
+      JavaContinuousBackupsStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaContinuousBackupsStatusOps(val self: JavaContinuousBackupsStatus) extends AnyVal {
 
-     def toScala: ScalaContinuousBackupsStatus = {
-        ScalaContinuousBackupsStatus.withName(self.toString)
-     }
+    def toScala: ScalaContinuousBackupsStatus = {
+      ScalaContinuousBackupsStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

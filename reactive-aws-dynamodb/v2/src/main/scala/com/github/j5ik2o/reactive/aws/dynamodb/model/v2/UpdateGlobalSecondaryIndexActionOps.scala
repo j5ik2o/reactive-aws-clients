@@ -18,8 +18,8 @@ object UpdateGlobalSecondaryIndexActionOps {
       val result = JavaUpdateGlobalSecondaryIndexAction.builder()
       self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
       self.provisionedThroughput.foreach { v =>
-        result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput, case Other
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
 
       result.build()
     }
@@ -33,8 +33,8 @@ object UpdateGlobalSecondaryIndexActionOps {
       ScalaUpdateGlobalSecondaryIndexAction()
         .withIndexName(Option(self.indexName)) // String
         .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          v.toScala
-        }) // ProvisionedThroughput, Map-12
+          import ProvisionedThroughputOps._; v.toScala
+        }) // ProvisionedThroughput
     }
 
   }

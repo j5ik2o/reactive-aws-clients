@@ -10,9 +10,15 @@ object BackupDescriptionOps {
 
     def toJava: JavaBackupDescription = {
       val result = JavaBackupDescription.builder()
-                                          self.backupDetails.foreach{ v => import BackupDetailsOps._; result.backupDetails(v.toJava) } // BackupDetails, case Other
-                      self.sourceTableDetails.foreach{ v => import SourceTableDetailsOps._; result.sourceTableDetails(v.toJava) } // SourceTableDetails, case Other
-                      self.sourceTableFeatureDetails.foreach{ v => import SourceTableFeatureDetailsOps._; result.sourceTableFeatureDetails(v.toJava) } // SourceTableFeatureDetails, case Other
+      self.backupDetails.foreach { v =>
+        import BackupDetailsOps._; result.backupDetails(v.toJava)
+      } // BackupDetails
+      self.sourceTableDetails.foreach { v =>
+        import SourceTableDetailsOps._; result.sourceTableDetails(v.toJava)
+      } // SourceTableDetails
+      self.sourceTableFeatureDetails.foreach { v =>
+        import SourceTableFeatureDetailsOps._; result.sourceTableFeatureDetails(v.toJava)
+      } // SourceTableFeatureDetails
 
       result.build()
     }
@@ -21,13 +27,19 @@ object BackupDescriptionOps {
 
   implicit class JavaBackupDescriptionOps(val self: JavaBackupDescription) extends AnyVal {
 
-     def toScala: ScalaBackupDescription = {
-       ScalaBackupDescription()
-            .withBackupDetails(Option(self.backupDetails).map{ v => import BackupDetailsOps._; v.toScala}) // BackupDetails, Map-12
-            .withSourceTableDetails(Option(self.sourceTableDetails).map{ v => import SourceTableDetailsOps._; v.toScala}) // SourceTableDetails, Map-12
-            .withSourceTableFeatureDetails(Option(self.sourceTableFeatureDetails).map{ v => import SourceTableFeatureDetailsOps._; v.toScala}) // SourceTableFeatureDetails, Map-12
-     }
+    def toScala: ScalaBackupDescription = {
+      ScalaBackupDescription()
+        .withBackupDetails(Option(self.backupDetails).map { v =>
+          import BackupDetailsOps._; v.toScala
+        }) // BackupDetails
+        .withSourceTableDetails(Option(self.sourceTableDetails).map { v =>
+          import SourceTableDetailsOps._; v.toScala
+        }) // SourceTableDetails
+        .withSourceTableFeatureDetails(Option(self.sourceTableFeatureDetails).map { v =>
+          import SourceTableFeatureDetailsOps._; v.toScala
+        }) // SourceTableFeatureDetails
+    }
 
-   }
+  }
 
 }

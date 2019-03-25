@@ -10,7 +10,7 @@ object ReplicaOps {
 
     def toJava: JavaReplica = {
       val result = JavaReplica.builder()
-                                  self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
 
       result.build()
     }
@@ -19,11 +19,11 @@ object ReplicaOps {
 
   implicit class JavaReplicaOps(val self: JavaReplica) extends AnyVal {
 
-     def toScala: ScalaReplica = {
-       ScalaReplica()
-            .withRegionName(Option(self.regionName)) // String
-     }
+    def toScala: ScalaReplica = {
+      ScalaReplica()
+        .withRegionName(Option(self.regionName)) // String
+    }
 
-   }
+  }
 
 }

@@ -8,17 +8,17 @@ object TimeToLiveStatusOps {
   implicit class ScalaTimeToLiveStatusOps(val self: ScalaTimeToLiveStatus) extends AnyVal {
 
     def toJava: JavaTimeToLiveStatus = {
-        JavaTimeToLiveStatus.valueOf(self.entryName)
+      JavaTimeToLiveStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaTimeToLiveStatusOps(val self: JavaTimeToLiveStatus) extends AnyVal {
 
-     def toScala: ScalaTimeToLiveStatus = {
-        ScalaTimeToLiveStatus.withName(self.toString)
-     }
+    def toScala: ScalaTimeToLiveStatus = {
+      ScalaTimeToLiveStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

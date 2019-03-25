@@ -8,17 +8,17 @@ object AttributeActionOps {
   implicit class ScalaAttributeActionOps(val self: ScalaAttributeAction) extends AnyVal {
 
     def toJava: JavaAttributeAction = {
-        JavaAttributeAction.valueOf(self.entryName)
+      JavaAttributeAction.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaAttributeActionOps(val self: JavaAttributeAction) extends AnyVal {
 
-     def toScala: ScalaAttributeAction = {
-        ScalaAttributeAction.withName(self.toString)
-     }
+    def toScala: ScalaAttributeAction = {
+      ScalaAttributeAction.withName(self.toString)
+    }
 
-   }
+  }
 
 }

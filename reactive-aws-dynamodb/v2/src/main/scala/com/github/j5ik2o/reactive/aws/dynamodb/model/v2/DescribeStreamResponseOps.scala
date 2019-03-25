@@ -17,8 +17,8 @@ object DescribeStreamResponseOps {
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
         .withStreamDescription(Option(self.streamDescription).map { v =>
-          v.toScala
-        }) // StreamDescription, Map-12
+          import StreamDescriptionOps._; v.toScala
+        }) // StreamDescription
     }
 
   }

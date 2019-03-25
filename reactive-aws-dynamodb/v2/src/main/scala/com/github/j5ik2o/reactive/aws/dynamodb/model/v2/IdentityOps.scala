@@ -10,8 +10,8 @@ object IdentityOps {
 
     def toJava: JavaIdentity = {
       val result = JavaIdentity.builder()
-                                      self.principalId.filter(_.nonEmpty).foreach(v => result.principalId(v)) // String, case String
-                      self.`type`.filter(_.nonEmpty).foreach(v => result.`type`(v)) // String, case String
+      self.principalId.filter(_.nonEmpty).foreach(v => result.principalId(v)) // String, case String
+      self.`type`.filter(_.nonEmpty).foreach(v => result.`type`(v))           // String, case String
 
       result.build()
     }
@@ -20,12 +20,12 @@ object IdentityOps {
 
   implicit class JavaIdentityOps(val self: JavaIdentity) extends AnyVal {
 
-     def toScala: ScalaIdentity = {
-       ScalaIdentity()
-            .withPrincipalId(Option(self.principalId)) // String
-            .withType(Option(self.`type`)) // String
-     }
+    def toScala: ScalaIdentity = {
+      ScalaIdentity()
+        .withPrincipalId(Option(self.principalId)) // String
+        .withType(Option(self.`type`)) // String
+    }
 
-   }
+  }
 
 }

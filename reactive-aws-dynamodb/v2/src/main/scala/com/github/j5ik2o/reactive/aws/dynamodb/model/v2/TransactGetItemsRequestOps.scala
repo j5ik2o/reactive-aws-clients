@@ -11,11 +11,11 @@ object TransactGetItemsRequestOps {
     def toJava: JavaTransactGetItemsRequest = {
       val result = JavaTransactGetItemsRequest.builder()
       self.transactItems.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.transactItems(v.map(_.toJava).asJava)
-      } // Seq[TransactGetItem], case Seq[_], UserDefined
+        import scala.collection.JavaConverters._, TransactGetItemOps._; result.transactItems(v.map(_.toJava).asJava)
+      } // Seq[TransactGetItem]
       self.returnConsumedCapacity.foreach { v =>
         import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String, case Other
+      } // String
 
       result.build()
     }

@@ -8,17 +8,17 @@ object ReplicaStatusOps {
   implicit class ScalaReplicaStatusOps(val self: ScalaReplicaStatus) extends AnyVal {
 
     def toJava: JavaReplicaStatus = {
-        JavaReplicaStatus.valueOf(self.entryName)
+      JavaReplicaStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaReplicaStatusOps(val self: JavaReplicaStatus) extends AnyVal {
 
-     def toScala: ScalaReplicaStatus = {
-        ScalaReplicaStatus.withName(self.toString)
-     }
+    def toScala: ScalaReplicaStatus = {
+      ScalaReplicaStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

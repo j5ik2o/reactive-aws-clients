@@ -17,8 +17,8 @@ object CreateTableResponseOps {
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
         .withTableDescription(Option(self.tableDescription).map { v =>
-          v.toScala
-        }) // TableDescription, Map-12
+          import TableDescriptionOps._; v.toScala
+        }) // TableDescription
     }
 
   }

@@ -12,10 +12,10 @@ object ReplicaUpdateOps {
       val result = JavaReplicaUpdate.builder()
       self.create.foreach { v =>
         import CreateReplicaActionOps._; result.create(v.toJava)
-      } // CreateReplicaAction, case Other
+      } // CreateReplicaAction
       self.delete.foreach { v =>
-        result.delete(v.toJava)
-      } // DeleteReplicaAction, case Other
+        import DeleteReplicaActionOps._; result.delete(v.toJava)
+      } // DeleteReplicaAction
 
       result.build()
     }
@@ -28,10 +28,10 @@ object ReplicaUpdateOps {
       ScalaReplicaUpdate()
         .withCreate(Option(self.create).map { v =>
           import CreateReplicaActionOps._; v.toScala
-        }) // CreateReplicaAction, Map-12
+        }) // CreateReplicaAction
         .withDelete(Option(self.delete).map { v =>
-          v.toScala
-        }) // DeleteReplicaAction, Map-12
+          import DeleteReplicaActionOps._; v.toScala
+        }) // DeleteReplicaAction
     }
 
   }

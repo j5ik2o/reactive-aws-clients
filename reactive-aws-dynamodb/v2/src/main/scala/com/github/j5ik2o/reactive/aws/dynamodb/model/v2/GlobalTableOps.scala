@@ -10,8 +10,10 @@ object GlobalTableOps {
 
     def toJava: JavaGlobalTable = {
       val result = JavaGlobalTable.builder()
-                                      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
-                              self.replicationGroup.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ReplicaOps._; result.replicationGroup(v.map(_.toJava).asJava) } // Seq[Replica], case Seq[_], UserDefined
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.replicationGroup.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ReplicaOps._; result.replicationGroup(v.map(_.toJava).asJava)
+      } // Seq[Replica]
 
       result.build()
     }
@@ -20,12 +22,14 @@ object GlobalTableOps {
 
   implicit class JavaGlobalTableOps(val self: JavaGlobalTable) extends AnyVal {
 
-     def toScala: ScalaGlobalTable = {
-       ScalaGlobalTable()
-            .withGlobalTableName(Option(self.globalTableName)) // String
-                    .withReplicationGroup(Option(self.replicationGroup).map{ v => import scala.collection.JavaConverters._, ReplicaOps._; v.asScala.map(_.toScala)}) // Seq[Replica], Seq-6
-     }
+    def toScala: ScalaGlobalTable = {
+      ScalaGlobalTable()
+        .withGlobalTableName(Option(self.globalTableName)) // String
+        .withReplicationGroup(Option(self.replicationGroup).map { v =>
+          import scala.collection.JavaConverters._, ReplicaOps._; v.asScala.map(_.toScala)
+        }) // Seq[Replica]
+    }
 
-   }
+  }
 
 }

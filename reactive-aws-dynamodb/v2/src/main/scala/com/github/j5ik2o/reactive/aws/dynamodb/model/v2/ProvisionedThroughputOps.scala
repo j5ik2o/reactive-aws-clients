@@ -10,8 +10,8 @@ object ProvisionedThroughputOps {
 
     def toJava: JavaProvisionedThroughput = {
       val result = JavaProvisionedThroughput.builder()
-                                      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v)) // Long, case Long
-                      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v)) // Long, case Long
+      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))   // Long, case Long
+      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v)) // Long, case Long
 
       result.build()
     }
@@ -20,12 +20,12 @@ object ProvisionedThroughputOps {
 
   implicit class JavaProvisionedThroughputOps(val self: JavaProvisionedThroughput) extends AnyVal {
 
-     def toScala: ScalaProvisionedThroughput = {
-       ScalaProvisionedThroughput()
-            .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.longValue)) // Long
-            .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.longValue)) // Long
-     }
+    def toScala: ScalaProvisionedThroughput = {
+      ScalaProvisionedThroughput()
+        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.longValue)) // Long
+        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.longValue)) // Long
+    }
 
-   }
+  }
 
 }

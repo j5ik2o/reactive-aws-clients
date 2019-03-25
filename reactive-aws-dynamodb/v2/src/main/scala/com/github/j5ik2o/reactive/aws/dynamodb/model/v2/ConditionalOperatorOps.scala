@@ -8,17 +8,17 @@ object ConditionalOperatorOps {
   implicit class ScalaConditionalOperatorOps(val self: ScalaConditionalOperator) extends AnyVal {
 
     def toJava: JavaConditionalOperator = {
-        JavaConditionalOperator.valueOf(self.entryName)
+      JavaConditionalOperator.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaConditionalOperatorOps(val self: JavaConditionalOperator) extends AnyVal {
 
-     def toScala: ScalaConditionalOperator = {
-        ScalaConditionalOperator.withName(self.toString)
-     }
+    def toScala: ScalaConditionalOperator = {
+      ScalaConditionalOperator.withName(self.toString)
+    }
 
-   }
+  }
 
 }

@@ -12,8 +12,8 @@ object ShardOps {
       val result = JavaShard.builder()
       self.shardId.filter(_.nonEmpty).foreach(v => result.shardId(v)) // String, case String
       self.sequenceNumberRange.foreach { v =>
-        result.sequenceNumberRange(v.toJava)
-      } // SequenceNumberRange, case Other
+        import SequenceNumberRangeOps._; result.sequenceNumberRange(v.toJava)
+      } // SequenceNumberRange
       self.parentShardId.filter(_.nonEmpty).foreach(v => result.parentShardId(v)) // String, case String
 
       result.build()
@@ -27,8 +27,8 @@ object ShardOps {
       ScalaShard()
         .withShardId(Option(self.shardId)) // String
         .withSequenceNumberRange(Option(self.sequenceNumberRange).map { v =>
-          v.toScala
-        }) // SequenceNumberRange, Map-12
+          import SequenceNumberRangeOps._; v.toScala
+        }) // SequenceNumberRange
         .withParentShardId(Option(self.parentShardId)) // String
     }
 

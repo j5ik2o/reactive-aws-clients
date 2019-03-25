@@ -8,17 +8,17 @@ object StreamViewTypeOps {
   implicit class ScalaStreamViewTypeOps(val self: ScalaStreamViewType) extends AnyVal {
 
     def toJava: JavaStreamViewType = {
-        JavaStreamViewType.valueOf(self.entryName)
+      JavaStreamViewType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaStreamViewTypeOps(val self: JavaStreamViewType) extends AnyVal {
 
-     def toScala: ScalaStreamViewType = {
-        ScalaStreamViewType.withName(self.toString)
-     }
+    def toScala: ScalaStreamViewType = {
+      ScalaStreamViewType.withName(self.toString)
+    }
 
-   }
+  }
 
 }

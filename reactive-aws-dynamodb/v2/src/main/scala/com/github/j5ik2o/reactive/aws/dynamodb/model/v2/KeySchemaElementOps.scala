@@ -10,8 +10,10 @@ object KeySchemaElementOps {
 
     def toJava: JavaKeySchemaElement = {
       val result = JavaKeySchemaElement.builder()
-                                      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
-                      self.keyType.foreach{ v => import KeyTypeOps._; result.keyType(v.toJava) } // String, case Other
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.keyType.foreach { v =>
+        import KeyTypeOps._; result.keyType(v.toJava)
+      } // String
 
       result.build()
     }
@@ -20,12 +22,14 @@ object KeySchemaElementOps {
 
   implicit class JavaKeySchemaElementOps(val self: JavaKeySchemaElement) extends AnyVal {
 
-     def toScala: ScalaKeySchemaElement = {
-       ScalaKeySchemaElement()
-            .withAttributeName(Option(self.attributeName)) // String
-            .withKeyType(Option(self.keyType).map{ v => import KeyTypeOps._; v.toScala}) // String, Map-12
-     }
+    def toScala: ScalaKeySchemaElement = {
+      ScalaKeySchemaElement()
+        .withAttributeName(Option(self.attributeName)) // String
+        .withKeyType(Option(self.keyType).map { v =>
+          import KeyTypeOps._; v.toScala
+        }) // String
+    }
 
-   }
+  }
 
 }

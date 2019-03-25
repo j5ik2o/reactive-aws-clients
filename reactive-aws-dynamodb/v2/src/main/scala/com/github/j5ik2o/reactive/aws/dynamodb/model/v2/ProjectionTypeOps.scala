@@ -8,17 +8,17 @@ object ProjectionTypeOps {
   implicit class ScalaProjectionTypeOps(val self: ScalaProjectionType) extends AnyVal {
 
     def toJava: JavaProjectionType = {
-        JavaProjectionType.valueOf(self.entryName)
+      JavaProjectionType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaProjectionTypeOps(val self: JavaProjectionType) extends AnyVal {
 
-     def toScala: ScalaProjectionType = {
-        ScalaProjectionType.withName(self.toString)
-     }
+    def toScala: ScalaProjectionType = {
+      ScalaProjectionType.withName(self.toString)
+    }
 
-   }
+  }
 
 }

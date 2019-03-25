@@ -15,8 +15,8 @@ object AutoScalingSettingsUpdateOps {
       self.autoScalingDisabled.map(_.booleanValue).foreach(v => result.autoScalingDisabled(v)) // Boolean, case Boolean
       self.autoScalingRoleArn.filter(_.nonEmpty).foreach(v => result.autoScalingRoleArn(v))    // String, case String
       self.scalingPolicyUpdate.foreach { v =>
-        result.scalingPolicyUpdate(v.toJava)
-      } // AutoScalingPolicyUpdate, case Other
+        import AutoScalingPolicyUpdateOps._; result.scalingPolicyUpdate(v.toJava)
+      } // AutoScalingPolicyUpdate
 
       result.build()
     }
@@ -32,8 +32,8 @@ object AutoScalingSettingsUpdateOps {
         .withAutoScalingDisabled(Option(self.autoScalingDisabled).map(_.booleanValue)) // Boolean
         .withAutoScalingRoleArn(Option(self.autoScalingRoleArn)) // String
         .withScalingPolicyUpdate(Option(self.scalingPolicyUpdate).map { v =>
-          v.toScala
-        }) // AutoScalingPolicyUpdate, Map-12
+          import AutoScalingPolicyUpdateOps._; v.toScala
+        }) // AutoScalingPolicyUpdate
     }
 
   }

@@ -15,11 +15,11 @@ object ReplicaSettingsUpdateOps {
         .map(_.longValue).foreach(v => result.replicaProvisionedReadCapacityUnits(v)) // Long, case Long
       self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate.foreach { v =>
         import AutoScalingSettingsUpdateOps._; result.replicaProvisionedReadCapacityAutoScalingSettingsUpdate(v.toJava)
-      } // AutoScalingSettingsUpdate, case Other
+      } // AutoScalingSettingsUpdate
       self.replicaGlobalSecondaryIndexSettingsUpdate.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._;
+        import scala.collection.JavaConverters._, ReplicaGlobalSecondaryIndexSettingsUpdateOps._;
         result.replicaGlobalSecondaryIndexSettingsUpdate(v.map(_.toJava).asJava)
-      } // Seq[ReplicaGlobalSecondaryIndexSettingsUpdate], case Seq[_], UserDefined
+      } // Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]
 
       result.build()
     }
@@ -36,10 +36,11 @@ object ReplicaSettingsUpdateOps {
           Option(self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate).map { v =>
             import AutoScalingSettingsUpdateOps._; v.toScala
           }
-        ) // AutoScalingSettingsUpdate, Map-12
+        ) // AutoScalingSettingsUpdate
         .withReplicaGlobalSecondaryIndexSettingsUpdate(Option(self.replicaGlobalSecondaryIndexSettingsUpdate).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[ReplicaGlobalSecondaryIndexSettingsUpdate], Seq-6
+          import scala.collection.JavaConverters._, ReplicaGlobalSecondaryIndexSettingsUpdateOps._;
+          v.asScala.map(_.toScala)
+        }) // Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]
     }
 
   }

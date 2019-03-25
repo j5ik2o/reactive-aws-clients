@@ -10,8 +10,12 @@ object ConditionOps {
 
     def toJava: JavaCondition = {
       val result = JavaCondition.builder()
-                                              self.attributeValueList.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, AttributeValueOps._; result.attributeValueList(v.map(_.toJava).asJava) } // Seq[AttributeValue], case Seq[_], UserDefined
-                      self.comparisonOperator.foreach{ v => import ComparisonOperatorOps._; result.comparisonOperator(v.toJava) } // String, case Other
+      self.attributeValueList.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.attributeValueList(v.map(_.toJava).asJava)
+      } // Seq[AttributeValue]
+      self.comparisonOperator.foreach { v =>
+        import ComparisonOperatorOps._; result.comparisonOperator(v.toJava)
+      } // String
 
       result.build()
     }
@@ -20,12 +24,16 @@ object ConditionOps {
 
   implicit class JavaConditionOps(val self: JavaCondition) extends AnyVal {
 
-     def toScala: ScalaCondition = {
-       ScalaCondition()
-                    .withAttributeValueList(Option(self.attributeValueList).map{ v => import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.map(_.toScala)}) // Seq[AttributeValue], Seq-6
-            .withComparisonOperator(Option(self.comparisonOperator).map{ v => import ComparisonOperatorOps._; v.toScala}) // String, Map-12
-     }
+    def toScala: ScalaCondition = {
+      ScalaCondition()
+        .withAttributeValueList(Option(self.attributeValueList).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.map(_.toScala)
+        }) // Seq[AttributeValue]
+        .withComparisonOperator(Option(self.comparisonOperator).map { v =>
+          import ComparisonOperatorOps._; v.toScala
+        }) // String
+    }
 
-   }
+  }
 
 }

@@ -1,7 +1,9 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeGlobalTableRequest => ScalaDescribeGlobalTableRequest, _ }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  DescribeGlobalTableRequest => ScalaDescribeGlobalTableRequest,
+  _
+}
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeGlobalTableRequest => JavaDescribeGlobalTableRequest }
 
 @SuppressWarnings(Array("org.wartremover.warts.Recursion"))
@@ -11,7 +13,7 @@ object DescribeGlobalTableRequestOps {
 
     def toJava: JavaDescribeGlobalTableRequest = {
       val result = JavaDescribeGlobalTableRequest.builder()
-                            self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
 
       result.build()
     }

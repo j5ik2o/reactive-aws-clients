@@ -14,40 +14,40 @@ object QueryRequestOps {
       self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
       self.select.foreach { v =>
         import SelectOps._; result.select(v.toJava)
-      } // String, case Other
+      } // String
       self.attributesToGet.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.attributesToGet(v.asJava)
-      } // Seq[String], case Seq[_], Defined
+      } // Seq[String]
       self.limit.map(_.intValue).foreach(v => result.limit(v))                       // Int, case Int
       self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v)) // Boolean, case Boolean
       self.keyConditions.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.keyConditions(v.mapValues(_.toJava).asJava)
-      } // Map[String, Condition], case Map[_], UserDefined
+        import scala.collection.JavaConverters._, ConditionOps._; result.keyConditions(v.mapValues(_.toJava).asJava)
+      } // Map[String, Condition]
       self.queryFilter.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.queryFilter(v.mapValues(_.toJava).asJava)
-      } // Map[String, Condition], case Map[_], UserDefined
+        import scala.collection.JavaConverters._, ConditionOps._; result.queryFilter(v.mapValues(_.toJava).asJava)
+      } // Map[String, Condition]
       self.conditionalOperator.foreach { v =>
         import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
-      } // String, case Other
+      } // String
       self.scanIndexForward.map(_.booleanValue).foreach(v => result.scanIndexForward(v)) // Boolean, case Boolean
       self.exclusiveStartKey.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._;
         result.exclusiveStartKey(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue], case Map[_], UserDefined
+      } // Map[String, AttributeValue]
       self.returnConsumedCapacity.foreach { v =>
         import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String, case Other
+      } // String
       self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String, case String
       self.filterExpression.filter(_.nonEmpty).foreach(v => result.filterExpression(v))         // String, case String
       self.keyConditionExpression
         .filter(_.nonEmpty).foreach(v => result.keyConditionExpression(v)) // String, case String
       self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
         import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
-      } // Map[String, String], case Map[_]
+      } // Map[String, String]
       self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._;
         result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue], case Map[_], UserDefined
+      } // Map[String, AttributeValue]
 
       result.build()
     }

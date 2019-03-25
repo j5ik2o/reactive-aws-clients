@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GetRecordsResponse => ScalaGetRecordsResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ GetRecordsResponse => JavaGetRecordsResponse }
 
@@ -17,8 +16,10 @@ object GetRecordsResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-                    .withRecords(Option(self.records).map{ v => import scala.collection.JavaConverters._, RecordOps._; v.asScala.map(_.toScala)}) // Seq[Record], Seq-6
-            .withNextShardIterator(Option(self.nextShardIterator)) // String
+        .withRecords(Option(self.records).map { v =>
+          import scala.collection.JavaConverters._, RecordOps._; v.asScala.map(_.toScala)
+        }) // Seq[Record]
+        .withNextShardIterator(Option(self.nextShardIterator)) // String
     }
 
   }

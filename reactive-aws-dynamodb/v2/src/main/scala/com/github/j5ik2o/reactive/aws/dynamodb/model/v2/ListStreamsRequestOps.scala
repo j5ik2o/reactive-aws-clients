@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListStreamsRequest => ScalaListStreamsRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ListStreamsRequest => JavaListStreamsRequest }
 
@@ -11,9 +10,10 @@ object ListStreamsRequestOps {
 
     def toJava: JavaListStreamsRequest = {
       val result = JavaListStreamsRequest.builder()
-                                    self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
-                    self.limit.map(_.intValue).foreach(v => result.limit(v)) // Int, case Int
-                    self.exclusiveStartStreamArn.filter(_.nonEmpty).foreach(v => result.exclusiveStartStreamArn(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.limit.map(_.intValue).foreach(v => result.limit(v))            // Int, case Int
+      self.exclusiveStartStreamArn
+        .filter(_.nonEmpty).foreach(v => result.exclusiveStartStreamArn(v)) // String, case String
 
       result.build()
     }

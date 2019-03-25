@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteBackupRequest => ScalaDeleteBackupRequest, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DeleteBackupRequest => JavaDeleteBackupRequest }
 
@@ -11,7 +10,7 @@ object DeleteBackupRequestOps {
 
     def toJava: JavaDeleteBackupRequest = {
       val result = JavaDeleteBackupRequest.builder()
-                            self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String, case String
+      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String, case String
 
       result.build()
     }

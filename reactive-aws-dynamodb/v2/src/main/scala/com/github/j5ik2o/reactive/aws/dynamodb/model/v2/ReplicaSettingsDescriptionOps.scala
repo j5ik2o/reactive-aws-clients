@@ -16,23 +16,24 @@ object ReplicaSettingsDescriptionOps {
       self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
       self.replicaStatus.foreach { v =>
         import ReplicaStatusOps._; result.replicaStatus(v.toJava)
-      } // String, case Other
+      } // String
       self.replicaBillingModeSummary.foreach { v =>
         import BillingModeSummaryOps._; result.replicaBillingModeSummary(v.toJava)
-      } // BillingModeSummary, case Other
+      } // BillingModeSummary
       self.replicaProvisionedReadCapacityUnits
         .map(_.longValue).foreach(v => result.replicaProvisionedReadCapacityUnits(v)) // Long, case Long
       self.replicaProvisionedReadCapacityAutoScalingSettings.foreach { v =>
         import AutoScalingSettingsDescriptionOps._; result.replicaProvisionedReadCapacityAutoScalingSettings(v.toJava)
-      } // AutoScalingSettingsDescription, case Other
+      } // AutoScalingSettingsDescription
       self.replicaProvisionedWriteCapacityUnits
         .map(_.longValue).foreach(v => result.replicaProvisionedWriteCapacityUnits(v)) // Long, case Long
       self.replicaProvisionedWriteCapacityAutoScalingSettings.foreach { v =>
         import AutoScalingSettingsDescriptionOps._; result.replicaProvisionedWriteCapacityAutoScalingSettings(v.toJava)
-      } // AutoScalingSettingsDescription, case Other
+      } // AutoScalingSettingsDescription
       self.replicaGlobalSecondaryIndexSettings.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.replicaGlobalSecondaryIndexSettings(v.map(_.toJava).asJava)
-      } // Seq[ReplicaGlobalSecondaryIndexSettingsDescription], case Seq[_], UserDefined
+        import scala.collection.JavaConverters._, ReplicaGlobalSecondaryIndexSettingsDescriptionOps._;
+        result.replicaGlobalSecondaryIndexSettings(v.map(_.toJava).asJava)
+      } // Seq[ReplicaGlobalSecondaryIndexSettingsDescription]
 
       result.build()
     }
@@ -46,25 +47,26 @@ object ReplicaSettingsDescriptionOps {
         .withRegionName(Option(self.regionName)) // String
         .withReplicaStatus(Option(self.replicaStatus).map { v =>
           import ReplicaStatusOps._; v.toScala
-        }) // String, Map-12
+        }) // String
         .withReplicaBillingModeSummary(Option(self.replicaBillingModeSummary).map { v =>
           import BillingModeSummaryOps._; v.toScala
-        }) // BillingModeSummary, Map-12
+        }) // BillingModeSummary
         .withReplicaProvisionedReadCapacityUnits(Option(self.replicaProvisionedReadCapacityUnits).map(_.longValue)) // Long
         .withReplicaProvisionedReadCapacityAutoScalingSettings(
           Option(self.replicaProvisionedReadCapacityAutoScalingSettings).map { v =>
             import AutoScalingSettingsDescriptionOps._; v.toScala
           }
-        ) // AutoScalingSettingsDescription, Map-12
+        ) // AutoScalingSettingsDescription
         .withReplicaProvisionedWriteCapacityUnits(Option(self.replicaProvisionedWriteCapacityUnits).map(_.longValue)) // Long
         .withReplicaProvisionedWriteCapacityAutoScalingSettings(
           Option(self.replicaProvisionedWriteCapacityAutoScalingSettings).map { v =>
             import AutoScalingSettingsDescriptionOps._; v.toScala
           }
-        ) // AutoScalingSettingsDescription, Map-12
+        ) // AutoScalingSettingsDescription
         .withReplicaGlobalSecondaryIndexSettings(Option(self.replicaGlobalSecondaryIndexSettings).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[ReplicaGlobalSecondaryIndexSettingsDescription], Seq-6
+          import scala.collection.JavaConverters._, ReplicaGlobalSecondaryIndexSettingsDescriptionOps._;
+          v.asScala.map(_.toScala)
+        }) // Seq[ReplicaGlobalSecondaryIndexSettingsDescription]
     }
 
   }

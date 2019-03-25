@@ -10,8 +10,13 @@ object ItemCollectionMetricsOps {
 
     def toJava: JavaItemCollectionMetrics = {
       val result = JavaItemCollectionMetrics.builder()
-                                              self.itemCollectionKey.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, AttributeValueOps._; result.itemCollectionKey(v.mapValues(_.toJava).asJava) } // Map[String, AttributeValue], case Map[_], UserDefined
-                          self.sizeEstimateRangeGB.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Double])).foreach{ v => import scala.collection.JavaConverters._; result.sizeEstimateRangeGB(v.asJava) } // Seq[Double], case Seq[_], Defined
+      self.itemCollectionKey.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.itemCollectionKey(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.sizeEstimateRangeGB.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Double])).foreach { v =>
+        import scala.collection.JavaConverters._; result.sizeEstimateRangeGB(v.asJava)
+      } // Seq[Double]
 
       result.build()
     }
@@ -20,12 +25,16 @@ object ItemCollectionMetricsOps {
 
   implicit class JavaItemCollectionMetricsOps(val self: JavaItemCollectionMetrics) extends AnyVal {
 
-     def toScala: ScalaItemCollectionMetrics = {
-       ScalaItemCollectionMetrics()
-                    .withItemCollectionKey(Option(self.itemCollectionKey).map{ v => import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala) }) // Map[String, AttributeValue], Map-8
-                .withSizeEstimateRangeGB(Option(self.sizeEstimateRangeGB).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.doubleValue())}) // Seq[Double], Seq-4
-     }
+    def toScala: ScalaItemCollectionMetrics = {
+      ScalaItemCollectionMetrics()
+        .withItemCollectionKey(Option(self.itemCollectionKey).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withSizeEstimateRangeGB(Option(self.sizeEstimateRangeGB).map { v =>
+          import scala.collection.JavaConverters._; v.asScala.map(_.doubleValue())
+        }) // Seq[Double]
+    }
 
-   }
+  }
 
 }

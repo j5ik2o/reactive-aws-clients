@@ -10,8 +10,12 @@ object ProjectionOps {
 
     def toJava: JavaProjection = {
       val result = JavaProjection.builder()
-                                      self.projectionType.foreach{ v => import ProjectionTypeOps._; result.projectionType(v.toJava) } // String, case Other
-                          self.nonKeyAttributes.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.nonKeyAttributes(v.asJava) } // Seq[String], case Seq[_], Defined
+      self.projectionType.foreach { v =>
+        import ProjectionTypeOps._; result.projectionType(v.toJava)
+      } // String
+      self.nonKeyAttributes.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._; result.nonKeyAttributes(v.asJava)
+      } // Seq[String]
 
       result.build()
     }
@@ -20,12 +24,16 @@ object ProjectionOps {
 
   implicit class JavaProjectionOps(val self: JavaProjection) extends AnyVal {
 
-     def toScala: ScalaProjection = {
-       ScalaProjection()
-            .withProjectionType(Option(self.projectionType).map{ v => import ProjectionTypeOps._; v.toScala}) // String, Map-12
-                .withNonKeyAttributes(Option(self.nonKeyAttributes).map{ v => import scala.collection.JavaConverters._; v.asScala}) // Seq[String], Seq-5
-     }
+    def toScala: ScalaProjection = {
+      ScalaProjection()
+        .withProjectionType(Option(self.projectionType).map { v =>
+          import ProjectionTypeOps._; v.toScala
+        }) // String
+        .withNonKeyAttributes(Option(self.nonKeyAttributes).map { v =>
+          import scala.collection.JavaConverters._; v.asScala
+        }) // Seq[String]
+    }
 
-   }
+  }
 
 }

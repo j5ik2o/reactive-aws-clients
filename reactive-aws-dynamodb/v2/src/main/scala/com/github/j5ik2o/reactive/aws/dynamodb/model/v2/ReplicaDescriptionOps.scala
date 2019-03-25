@@ -10,7 +10,7 @@ object ReplicaDescriptionOps {
 
     def toJava: JavaReplicaDescription = {
       val result = JavaReplicaDescription.builder()
-                                  self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
 
       result.build()
     }
@@ -19,11 +19,11 @@ object ReplicaDescriptionOps {
 
   implicit class JavaReplicaDescriptionOps(val self: JavaReplicaDescription) extends AnyVal {
 
-     def toScala: ScalaReplicaDescription = {
-       ScalaReplicaDescription()
-            .withRegionName(Option(self.regionName)) // String
-     }
+    def toScala: ScalaReplicaDescription = {
+      ScalaReplicaDescription()
+        .withRegionName(Option(self.regionName)) // String
+    }
 
-   }
+  }
 
 }

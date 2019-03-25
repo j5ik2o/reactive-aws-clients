@@ -10,7 +10,7 @@ object DeleteReplicaActionOps {
 
     def toJava: JavaDeleteReplicaAction = {
       val result = JavaDeleteReplicaAction.builder()
-                                  self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
 
       result.build()
     }
@@ -19,11 +19,11 @@ object DeleteReplicaActionOps {
 
   implicit class JavaDeleteReplicaActionOps(val self: JavaDeleteReplicaAction) extends AnyVal {
 
-     def toScala: ScalaDeleteReplicaAction = {
-       ScalaDeleteReplicaAction()
-            .withRegionName(Option(self.regionName)) // String
-     }
+    def toScala: ScalaDeleteReplicaAction = {
+      ScalaDeleteReplicaAction()
+        .withRegionName(Option(self.regionName)) // String
+    }
 
-   }
+  }
 
 }

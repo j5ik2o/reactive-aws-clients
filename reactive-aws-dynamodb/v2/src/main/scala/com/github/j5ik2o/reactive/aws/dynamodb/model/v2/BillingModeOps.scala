@@ -8,17 +8,17 @@ object BillingModeOps {
   implicit class ScalaBillingModeOps(val self: ScalaBillingMode) extends AnyVal {
 
     def toJava: JavaBillingMode = {
-        JavaBillingMode.valueOf(self.entryName)
+      JavaBillingMode.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaBillingModeOps(val self: JavaBillingMode) extends AnyVal {
 
-     def toScala: ScalaBillingMode = {
-        ScalaBillingMode.withName(self.toString)
-     }
+    def toScala: ScalaBillingMode = {
+      ScalaBillingMode.withName(self.toString)
+    }
 
-   }
+  }
 
 }

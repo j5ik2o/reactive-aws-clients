@@ -11,11 +11,11 @@ object WriteRequestOps {
     def toJava: JavaWriteRequest = {
       val result = JavaWriteRequest.builder()
       self.putRequest.foreach { v =>
-        result.putRequest(v.toJava)
-      } // PutRequest, case Other
+        import PutRequestOps._; result.putRequest(v.toJava)
+      } // PutRequest
       self.deleteRequest.foreach { v =>
         import DeleteRequestOps._; result.deleteRequest(v.toJava)
-      } // DeleteRequest, case Other
+      } // DeleteRequest
 
       result.build()
     }
@@ -27,11 +27,11 @@ object WriteRequestOps {
     def toScala: ScalaWriteRequest = {
       ScalaWriteRequest()
         .withPutRequest(Option(self.putRequest).map { v =>
-          v.toScala
-        }) // PutRequest, Map-12
+          import PutRequestOps._; v.toScala
+        }) // PutRequest
         .withDeleteRequest(Option(self.deleteRequest).map { v =>
           import DeleteRequestOps._; v.toScala
-        }) // DeleteRequest, Map-12
+        }) // DeleteRequest
     }
 
   }

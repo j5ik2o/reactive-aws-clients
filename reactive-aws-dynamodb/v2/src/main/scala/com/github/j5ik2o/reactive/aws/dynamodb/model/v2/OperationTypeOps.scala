@@ -8,17 +8,17 @@ object OperationTypeOps {
   implicit class ScalaOperationTypeOps(val self: ScalaOperationType) extends AnyVal {
 
     def toJava: JavaOperationType = {
-        JavaOperationType.valueOf(self.entryName)
+      JavaOperationType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaOperationTypeOps(val self: JavaOperationType) extends AnyVal {
 
-     def toScala: ScalaOperationType = {
-        ScalaOperationType.withName(self.toString)
-     }
+    def toScala: ScalaOperationType = {
+      ScalaOperationType.withName(self.toString)
+    }
 
-   }
+  }
 
 }

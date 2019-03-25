@@ -10,8 +10,10 @@ object BillingModeSummaryOps {
 
     def toJava: JavaBillingModeSummary = {
       val result = JavaBillingModeSummary.builder()
-                                      self.billingMode.foreach{ v => import BillingModeOps._; result.billingMode(v.toJava) } // String, case Other
-                      self.lastUpdateToPayPerRequestDateTime.foreach(v => result.lastUpdateToPayPerRequestDateTime(v)) // Instant, case java.time.Instant
+      self.billingMode.foreach { v =>
+        import BillingModeOps._; result.billingMode(v.toJava)
+      } // String
+      self.lastUpdateToPayPerRequestDateTime.foreach(v => result.lastUpdateToPayPerRequestDateTime(v)) // Instant
 
       result.build()
     }
@@ -20,12 +22,14 @@ object BillingModeSummaryOps {
 
   implicit class JavaBillingModeSummaryOps(val self: JavaBillingModeSummary) extends AnyVal {
 
-     def toScala: ScalaBillingModeSummary = {
-       ScalaBillingModeSummary()
-            .withBillingMode(Option(self.billingMode).map{ v => import BillingModeOps._; v.toScala}) // String, Map-12
-            .withLastUpdateToPayPerRequestDateTime(Option(self.lastUpdateToPayPerRequestDateTime)) // Instant, Map-11
-     }
+    def toScala: ScalaBillingModeSummary = {
+      ScalaBillingModeSummary()
+        .withBillingMode(Option(self.billingMode).map { v =>
+          import BillingModeOps._; v.toScala
+        }) // String
+        .withLastUpdateToPayPerRequestDateTime(Option(self.lastUpdateToPayPerRequestDateTime)) // Instant
+    }
 
-   }
+  }
 
 }

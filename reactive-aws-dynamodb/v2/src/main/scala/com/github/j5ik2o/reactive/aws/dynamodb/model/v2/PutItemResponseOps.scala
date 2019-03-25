@@ -18,13 +18,13 @@ object PutItemResponseOps {
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
         .withAttributes(Option(self.attributes).map { v =>
           import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue], Map-8
+        }) // Map[String, AttributeValue]
         .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          v.toScala
-        }) // ConsumedCapacity, Map-12
+          import ConsumedCapacityOps._; v.toScala
+        }) // ConsumedCapacity
         .withItemCollectionMetrics(Option(self.itemCollectionMetrics).map { v =>
-          v.toScala
-        }) // ItemCollectionMetrics, Map-12
+          import ItemCollectionMetricsOps._; v.toScala
+        }) // ItemCollectionMetrics
     }
 
   }

@@ -10,8 +10,10 @@ object TimeToLiveDescriptionOps {
 
     def toJava: JavaTimeToLiveDescription = {
       val result = JavaTimeToLiveDescription.builder()
-                                      self.timeToLiveStatus.foreach{ v => import TimeToLiveStatusOps._; result.timeToLiveStatus(v.toJava) } // String, case Other
-                      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.timeToLiveStatus.foreach { v =>
+        import TimeToLiveStatusOps._; result.timeToLiveStatus(v.toJava)
+      } // String
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
 
       result.build()
     }
@@ -20,12 +22,14 @@ object TimeToLiveDescriptionOps {
 
   implicit class JavaTimeToLiveDescriptionOps(val self: JavaTimeToLiveDescription) extends AnyVal {
 
-     def toScala: ScalaTimeToLiveDescription = {
-       ScalaTimeToLiveDescription()
-            .withTimeToLiveStatus(Option(self.timeToLiveStatus).map{ v => import TimeToLiveStatusOps._; v.toScala}) // String, Map-12
-            .withAttributeName(Option(self.attributeName)) // String
-     }
+    def toScala: ScalaTimeToLiveDescription = {
+      ScalaTimeToLiveDescription()
+        .withTimeToLiveStatus(Option(self.timeToLiveStatus).map { v =>
+          import TimeToLiveStatusOps._; v.toScala
+        }) // String
+        .withAttributeName(Option(self.attributeName)) // String
+    }
 
-   }
+  }
 
 }

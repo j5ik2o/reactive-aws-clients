@@ -10,9 +10,11 @@ object SSESpecificationOps {
 
     def toJava: JavaSSESpecification = {
       val result = JavaSSESpecification.builder()
-                                          self.enabled.map(_.booleanValue).foreach(v => result.enabled(v)) // Boolean, case Boolean
-                      self.sseType.foreach{ v => import SSETypeOps._; result.sseType(v.toJava) } // String, case Other
-                      self.kmsMasterKeyId.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyId(v)) // String, case String
+      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v)) // Boolean, case Boolean
+      self.sseType.foreach { v =>
+        import SSETypeOps._; result.sseType(v.toJava)
+      } // String
+      self.kmsMasterKeyId.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyId(v)) // String, case String
 
       result.build()
     }
@@ -21,13 +23,15 @@ object SSESpecificationOps {
 
   implicit class JavaSSESpecificationOps(val self: JavaSSESpecification) extends AnyVal {
 
-     def toScala: ScalaSSESpecification = {
-       ScalaSSESpecification()
-            .withEnabled(Option(self.enabled).map(_.booleanValue)) // Boolean
-            .withSseType(Option(self.sseType).map{ v => import SSETypeOps._; v.toScala}) // String, Map-12
-            .withKmsMasterKeyId(Option(self.kmsMasterKeyId)) // String
-     }
+    def toScala: ScalaSSESpecification = {
+      ScalaSSESpecification()
+        .withEnabled(Option(self.enabled).map(_.booleanValue)) // Boolean
+        .withSseType(Option(self.sseType).map { v =>
+          import SSETypeOps._; v.toScala
+        }) // String
+        .withKmsMasterKeyId(Option(self.kmsMasterKeyId)) // String
+    }
 
-   }
+  }
 
 }

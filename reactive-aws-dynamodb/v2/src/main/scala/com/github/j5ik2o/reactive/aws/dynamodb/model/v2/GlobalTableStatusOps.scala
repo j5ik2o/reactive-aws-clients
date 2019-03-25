@@ -8,17 +8,17 @@ object GlobalTableStatusOps {
   implicit class ScalaGlobalTableStatusOps(val self: ScalaGlobalTableStatus) extends AnyVal {
 
     def toJava: JavaGlobalTableStatus = {
-        JavaGlobalTableStatus.valueOf(self.entryName)
+      JavaGlobalTableStatus.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaGlobalTableStatusOps(val self: JavaGlobalTableStatus) extends AnyVal {
 
-     def toScala: ScalaGlobalTableStatus = {
-        ScalaGlobalTableStatus.withName(self.toString)
-     }
+    def toScala: ScalaGlobalTableStatus = {
+      ScalaGlobalTableStatus.withName(self.toString)
+    }
 
-   }
+  }
 
 }

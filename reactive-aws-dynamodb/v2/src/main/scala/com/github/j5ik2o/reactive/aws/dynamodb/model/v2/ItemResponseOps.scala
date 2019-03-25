@@ -10,7 +10,9 @@ object ItemResponseOps {
 
     def toJava: JavaItemResponse = {
       val result = JavaItemResponse.builder()
-                                          self.item.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava) } // Map[String, AttributeValue], case Map[_], UserDefined
+      self.item.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
 
       result.build()
     }
@@ -19,11 +21,13 @@ object ItemResponseOps {
 
   implicit class JavaItemResponseOps(val self: JavaItemResponse) extends AnyVal {
 
-     def toScala: ScalaItemResponse = {
-       ScalaItemResponse()
-                    .withItem(Option(self.item).map{ v => import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala) }) // Map[String, AttributeValue], Map-8
-     }
+    def toScala: ScalaItemResponse = {
+      ScalaItemResponse()
+        .withItem(Option(self.item).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+    }
 
-   }
+  }
 
 }

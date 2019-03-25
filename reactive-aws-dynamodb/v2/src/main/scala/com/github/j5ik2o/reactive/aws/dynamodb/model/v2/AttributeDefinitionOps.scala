@@ -10,8 +10,10 @@ object AttributeDefinitionOps {
 
     def toJava: JavaAttributeDefinition = {
       val result = JavaAttributeDefinition.builder()
-                                      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
-                      self.attributeType.foreach{ v => import ScalarAttributeTypeOps._; result.attributeType(v.toJava) } // String, case Other
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.attributeType.foreach { v =>
+        import ScalarAttributeTypeOps._; result.attributeType(v.toJava)
+      } // String
 
       result.build()
     }
@@ -20,12 +22,14 @@ object AttributeDefinitionOps {
 
   implicit class JavaAttributeDefinitionOps(val self: JavaAttributeDefinition) extends AnyVal {
 
-     def toScala: ScalaAttributeDefinition = {
-       ScalaAttributeDefinition()
-            .withAttributeName(Option(self.attributeName)) // String
-            .withAttributeType(Option(self.attributeType).map{ v => import ScalarAttributeTypeOps._; v.toScala}) // String, Map-12
-     }
+    def toScala: ScalaAttributeDefinition = {
+      ScalaAttributeDefinition()
+        .withAttributeName(Option(self.attributeName)) // String
+        .withAttributeType(Option(self.attributeType).map { v =>
+          import ScalarAttributeTypeOps._; v.toScala
+        }) // String
+    }
 
-   }
+  }
 
 }

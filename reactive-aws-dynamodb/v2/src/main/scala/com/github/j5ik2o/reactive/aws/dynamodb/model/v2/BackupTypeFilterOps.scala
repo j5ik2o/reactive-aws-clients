@@ -8,17 +8,17 @@ object BackupTypeFilterOps {
   implicit class ScalaBackupTypeFilterOps(val self: ScalaBackupTypeFilter) extends AnyVal {
 
     def toJava: JavaBackupTypeFilter = {
-        JavaBackupTypeFilter.valueOf(self.entryName)
+      JavaBackupTypeFilter.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaBackupTypeFilterOps(val self: JavaBackupTypeFilter) extends AnyVal {
 
-     def toScala: ScalaBackupTypeFilter = {
-        ScalaBackupTypeFilter.withName(self.toString)
-     }
+    def toScala: ScalaBackupTypeFilter = {
+      ScalaBackupTypeFilter.withName(self.toString)
+    }
 
-   }
+  }
 
 }

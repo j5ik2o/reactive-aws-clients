@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTablesResponse => ScalaListTablesResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ ListTablesResponse => JavaListTablesResponse }
 
@@ -17,8 +16,10 @@ object ListTablesResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-                .withTableNames(Option(self.tableNames).map{ v => import scala.collection.JavaConverters._; v.asScala}) // Seq[String], Seq-5
-            .withLastEvaluatedTableName(Option(self.lastEvaluatedTableName)) // String
+        .withTableNames(Option(self.tableNames).map { v =>
+          import scala.collection.JavaConverters._; v.asScala
+        }) // Seq[String]
+        .withLastEvaluatedTableName(Option(self.lastEvaluatedTableName)) // String
     }
 
   }

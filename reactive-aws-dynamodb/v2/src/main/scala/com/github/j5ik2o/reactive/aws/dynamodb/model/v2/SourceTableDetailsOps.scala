@@ -16,15 +16,15 @@ object SourceTableDetailsOps {
       self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long, case Long
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement], case Seq[_], UserDefined
-      self.tableCreationDateTime.foreach(v => result.tableCreationDateTime(v)) // Instant, case java.time.Instant
+      } // Seq[KeySchemaElement]
+      self.tableCreationDateTime.foreach(v => result.tableCreationDateTime(v)) // Instant
       self.provisionedThroughput.foreach { v =>
-        result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput, case Other
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
       self.itemCount.map(_.longValue).foreach(v => result.itemCount(v)) // Long, case Long
       self.billingMode.foreach { v =>
         import BillingModeOps._; result.billingMode(v.toJava)
-      } // String, case Other
+      } // String
 
       result.build()
     }
@@ -41,15 +41,15 @@ object SourceTableDetailsOps {
         .withTableSizeBytes(Option(self.tableSizeBytes).map(_.longValue)) // Long
         .withKeySchema(Option(self.keySchema).map { v =>
           import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement], Seq-6
-        .withTableCreationDateTime(Option(self.tableCreationDateTime)) // Instant, Map-11
+        }) // Seq[KeySchemaElement]
+        .withTableCreationDateTime(Option(self.tableCreationDateTime)) // Instant
         .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          v.toScala
-        }) // ProvisionedThroughput, Map-12
+          import ProvisionedThroughputOps._; v.toScala
+        }) // ProvisionedThroughput
         .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
         .withBillingMode(Option(self.billingMode).map { v =>
           import BillingModeOps._; v.toScala
-        }) // String, Map-12
+        }) // String
     }
 
   }

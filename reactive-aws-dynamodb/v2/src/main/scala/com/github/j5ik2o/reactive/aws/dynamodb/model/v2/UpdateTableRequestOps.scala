@@ -13,24 +13,24 @@ object UpdateTableRequestOps {
       self.attributeDefinitions.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeDefinitionOps._;
         result.attributeDefinitions(v.map(_.toJava).asJava)
-      } // Seq[AttributeDefinition], case Seq[_], UserDefined
+      } // Seq[AttributeDefinition]
       self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
       self.billingMode.foreach { v =>
         import BillingModeOps._; result.billingMode(v.toJava)
-      } // String, case Other
+      } // String
       self.provisionedThroughput.foreach { v =>
-        result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput, case Other
+        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
       self.globalSecondaryIndexUpdates.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, GlobalSecondaryIndexUpdateOps._;
         result.globalSecondaryIndexUpdates(v.map(_.toJava).asJava)
-      } // Seq[GlobalSecondaryIndexUpdate], case Seq[_], UserDefined
+      } // Seq[GlobalSecondaryIndexUpdate]
       self.streamSpecification.foreach { v =>
         import StreamSpecificationOps._; result.streamSpecification(v.toJava)
-      } // StreamSpecification, case Other
+      } // StreamSpecification
       self.sseSpecification.foreach { v =>
         import SSESpecificationOps._; result.sseSpecification(v.toJava)
-      } // SSESpecification, case Other
+      } // SSESpecification
 
       result.build()
     }

@@ -20,11 +20,12 @@ object TransactWriteItemsResponseOps {
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
         .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[ConsumedCapacity], Seq-6
+          import scala.collection.JavaConverters._, ConsumedCapacityOps._; v.asScala.map(_.toScala)
+        }) // Seq[ConsumedCapacity]
         .withItemCollectionMetrics(Option(self.itemCollectionMetrics).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.toScala))
-        }) // Map[String, Seq[ItemCollectionMetrics]], Map-4
+          import scala.collection.JavaConverters._, ItemCollectionMetricsOps._;
+          v.asScala.toMap.mapValues(_.asScala.map(_.toScala))
+        }) // Map[String, Seq[ItemCollectionMetrics]]
     }
 
   }

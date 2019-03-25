@@ -8,17 +8,17 @@ object ShardIteratorTypeOps {
   implicit class ScalaShardIteratorTypeOps(val self: ScalaShardIteratorType) extends AnyVal {
 
     def toJava: JavaShardIteratorType = {
-        JavaShardIteratorType.valueOf(self.entryName)
+      JavaShardIteratorType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaShardIteratorTypeOps(val self: JavaShardIteratorType) extends AnyVal {
 
-     def toScala: ScalaShardIteratorType = {
-        ScalaShardIteratorType.withName(self.toString)
-     }
+    def toScala: ScalaShardIteratorType = {
+      ScalaShardIteratorType.withName(self.toString)
+    }
 
-   }
+  }
 
 }

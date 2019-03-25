@@ -8,17 +8,17 @@ object BackupTypeOps {
   implicit class ScalaBackupTypeOps(val self: ScalaBackupType) extends AnyVal {
 
     def toJava: JavaBackupType = {
-        JavaBackupType.valueOf(self.entryName)
+      JavaBackupType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaBackupTypeOps(val self: JavaBackupType) extends AnyVal {
 
-     def toScala: ScalaBackupType = {
-        ScalaBackupType.withName(self.toString)
-     }
+    def toScala: ScalaBackupType = {
+      ScalaBackupType.withName(self.toString)
+    }
 
-   }
+  }
 
 }

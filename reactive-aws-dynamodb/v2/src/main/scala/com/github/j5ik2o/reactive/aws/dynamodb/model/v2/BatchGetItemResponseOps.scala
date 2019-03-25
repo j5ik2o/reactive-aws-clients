@@ -19,13 +19,13 @@ object BatchGetItemResponseOps {
         .withResponses(Option(self.responses).map { v =>
           import scala.collection.JavaConverters._, AttributeValueOps._;
           v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap.mapValues(_.toScala)))
-        }) // Map[String, Seq[Map[String, AttributeValue]]], Map-2
+        }) // Map[String, Seq[Map[String, AttributeValue]]]
         .withUnprocessedKeys(Option(self.unprocessedKeys).map { v =>
           import scala.collection.JavaConverters._, KeysAndAttributesOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, KeysAndAttributes], Map-8
+        }) // Map[String, KeysAndAttributes]
         .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[ConsumedCapacity], Seq-6
+          import scala.collection.JavaConverters._, ConsumedCapacityOps._; v.asScala.map(_.toScala)
+        }) // Seq[ConsumedCapacity]
     }
 
   }

@@ -17,11 +17,11 @@ object TransactGetItemsResponseOps {
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
         .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[ConsumedCapacity], Seq-6
+          import scala.collection.JavaConverters._, ConsumedCapacityOps._; v.asScala.map(_.toScala)
+        }) // Seq[ConsumedCapacity]
         .withResponses(Option(self.responses).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[ItemResponse], Seq-6
+          import scala.collection.JavaConverters._, ItemResponseOps._; v.asScala.map(_.toScala)
+        }) // Seq[ItemResponse]
     }
 
   }

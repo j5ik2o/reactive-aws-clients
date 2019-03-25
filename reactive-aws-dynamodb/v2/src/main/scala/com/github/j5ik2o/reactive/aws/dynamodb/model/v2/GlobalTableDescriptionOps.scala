@@ -10,11 +10,16 @@ object GlobalTableDescriptionOps {
 
     def toJava: JavaGlobalTableDescription = {
       val result = JavaGlobalTableDescription.builder()
-                                                          self.replicationGroup.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, ReplicaDescriptionOps._; result.replicationGroup(v.map(_.toJava).asJava) } // Seq[ReplicaDescription], case Seq[_], UserDefined
-                      self.globalTableArn.filter(_.nonEmpty).foreach(v => result.globalTableArn(v)) // String, case String
-                      self.creationDateTime.foreach(v => result.creationDateTime(v)) // Instant, case java.time.Instant
-                      self.globalTableStatus.foreach{ v => import GlobalTableStatusOps._; result.globalTableStatus(v.toJava) } // String, case Other
-                      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.replicationGroup.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ReplicaDescriptionOps._;
+        result.replicationGroup(v.map(_.toJava).asJava)
+      } // Seq[ReplicaDescription]
+      self.globalTableArn.filter(_.nonEmpty).foreach(v => result.globalTableArn(v)) // String, case String
+      self.creationDateTime.foreach(v => result.creationDateTime(v))                // Instant
+      self.globalTableStatus.foreach { v =>
+        import GlobalTableStatusOps._; result.globalTableStatus(v.toJava)
+      } // String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
 
       result.build()
     }
@@ -23,15 +28,19 @@ object GlobalTableDescriptionOps {
 
   implicit class JavaGlobalTableDescriptionOps(val self: JavaGlobalTableDescription) extends AnyVal {
 
-     def toScala: ScalaGlobalTableDescription = {
-       ScalaGlobalTableDescription()
-                    .withReplicationGroup(Option(self.replicationGroup).map{ v => import scala.collection.JavaConverters._, ReplicaDescriptionOps._; v.asScala.map(_.toScala)}) // Seq[ReplicaDescription], Seq-6
-            .withGlobalTableArn(Option(self.globalTableArn)) // String
-            .withCreationDateTime(Option(self.creationDateTime)) // Instant, Map-11
-            .withGlobalTableStatus(Option(self.globalTableStatus).map{ v => import GlobalTableStatusOps._; v.toScala}) // String, Map-12
-            .withGlobalTableName(Option(self.globalTableName)) // String
-     }
+    def toScala: ScalaGlobalTableDescription = {
+      ScalaGlobalTableDescription()
+        .withReplicationGroup(Option(self.replicationGroup).map { v =>
+          import scala.collection.JavaConverters._, ReplicaDescriptionOps._; v.asScala.map(_.toScala)
+        }) // Seq[ReplicaDescription]
+        .withGlobalTableArn(Option(self.globalTableArn)) // String
+        .withCreationDateTime(Option(self.creationDateTime)) // Instant
+        .withGlobalTableStatus(Option(self.globalTableStatus).map { v =>
+          import GlobalTableStatusOps._; v.toScala
+        }) // String
+        .withGlobalTableName(Option(self.globalTableName)) // String
+    }
 
-   }
+  }
 
 }

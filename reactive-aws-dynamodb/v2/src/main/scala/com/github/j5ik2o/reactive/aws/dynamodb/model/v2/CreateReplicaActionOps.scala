@@ -10,7 +10,7 @@ object CreateReplicaActionOps {
 
     def toJava: JavaCreateReplicaAction = {
       val result = JavaCreateReplicaAction.builder()
-                                  self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
 
       result.build()
     }
@@ -19,11 +19,11 @@ object CreateReplicaActionOps {
 
   implicit class JavaCreateReplicaActionOps(val self: JavaCreateReplicaAction) extends AnyVal {
 
-     def toScala: ScalaCreateReplicaAction = {
-       ScalaCreateReplicaAction()
-            .withRegionName(Option(self.regionName)) // String
-     }
+    def toScala: ScalaCreateReplicaAction = {
+      ScalaCreateReplicaAction()
+        .withRegionName(Option(self.regionName)) // String
+    }
 
-   }
+  }
 
 }

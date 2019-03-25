@@ -10,7 +10,9 @@ object DeleteRequestOps {
 
     def toJava: JavaDeleteRequest = {
       val result = JavaDeleteRequest.builder()
-                                          self.key.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava) } // Map[String, AttributeValue], case Map[_], UserDefined
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
 
       result.build()
     }
@@ -19,11 +21,13 @@ object DeleteRequestOps {
 
   implicit class JavaDeleteRequestOps(val self: JavaDeleteRequest) extends AnyVal {
 
-     def toScala: ScalaDeleteRequest = {
-       ScalaDeleteRequest()
-                    .withKey(Option(self.key).map{ v => import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala) }) // Map[String, AttributeValue], Map-8
-     }
+    def toScala: ScalaDeleteRequest = {
+      ScalaDeleteRequest()
+        .withKey(Option(self.key).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+    }
 
-   }
+  }
 
 }

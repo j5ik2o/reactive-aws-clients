@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeLimitsResponse => ScalaDescribeLimitsResponse, _ }
 import software.amazon.awssdk.services.dynamodb.model.{ DescribeLimitsResponse => JavaDescribeLimitsResponse }
 
@@ -17,10 +16,10 @@ object DescribeLimitsResponseOps {
         .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
         .withStatusText(self.sdkHttpResponse().statusText().asScala)
         .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-            .withAccountMaxReadCapacityUnits(Option(self.accountMaxReadCapacityUnits).map(_.longValue)) // Long
-            .withAccountMaxWriteCapacityUnits(Option(self.accountMaxWriteCapacityUnits).map(_.longValue)) // Long
-            .withTableMaxReadCapacityUnits(Option(self.tableMaxReadCapacityUnits).map(_.longValue)) // Long
-            .withTableMaxWriteCapacityUnits(Option(self.tableMaxWriteCapacityUnits).map(_.longValue)) // Long
+        .withAccountMaxReadCapacityUnits(Option(self.accountMaxReadCapacityUnits).map(_.longValue)) // Long
+        .withAccountMaxWriteCapacityUnits(Option(self.accountMaxWriteCapacityUnits).map(_.longValue)) // Long
+        .withTableMaxReadCapacityUnits(Option(self.tableMaxReadCapacityUnits).map(_.longValue)) // Long
+        .withTableMaxWriteCapacityUnits(Option(self.tableMaxWriteCapacityUnits).map(_.longValue)) // Long
     }
 
   }

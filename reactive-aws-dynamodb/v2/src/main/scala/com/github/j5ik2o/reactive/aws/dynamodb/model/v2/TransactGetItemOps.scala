@@ -10,7 +10,9 @@ object TransactGetItemOps {
 
     def toJava: JavaTransactGetItem = {
       val result = JavaTransactGetItem.builder()
-                                  self.get.foreach{ v => import GetOps._; result.get(v.toJava) } // Get, case Other
+      self.get.foreach { v =>
+        import GetOps._; result.get(v.toJava)
+      } // Get
 
       result.build()
     }
@@ -19,11 +21,13 @@ object TransactGetItemOps {
 
   implicit class JavaTransactGetItemOps(val self: JavaTransactGetItem) extends AnyVal {
 
-     def toScala: ScalaTransactGetItem = {
-       ScalaTransactGetItem()
-            .withGet(Option(self.get).map{ v => import GetOps._; v.toScala}) // Get, Map-12
-     }
+    def toScala: ScalaTransactGetItem = {
+      ScalaTransactGetItem()
+        .withGet(Option(self.get).map { v =>
+          import GetOps._; v.toScala
+        }) // Get
+    }
 
-   }
+  }
 
 }

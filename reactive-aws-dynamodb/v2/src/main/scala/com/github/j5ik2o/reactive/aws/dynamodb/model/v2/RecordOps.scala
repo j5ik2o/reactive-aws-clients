@@ -13,16 +13,16 @@ object RecordOps {
       self.eventID.filter(_.nonEmpty).foreach(v => result.eventID(v)) // String, case String
       self.eventName.foreach { v =>
         import OperationTypeOps._; result.eventName(v.toJava)
-      } // String, case Other
+      } // String
       self.eventVersion.filter(_.nonEmpty).foreach(v => result.eventVersion(v)) // String, case String
       self.eventSource.filter(_.nonEmpty).foreach(v => result.eventSource(v))   // String, case String
       self.awsRegion.filter(_.nonEmpty).foreach(v => result.awsRegion(v))       // String, case String
       self.dynamodb.foreach { v =>
-        result.dynamodb(v.toJava)
-      } // StreamRecord, case Other
+        import StreamRecordOps._; result.dynamodb(v.toJava)
+      } // StreamRecord
       self.userIdentity.foreach { v =>
         import IdentityOps._; result.userIdentity(v.toJava)
-      } // Identity, case Other
+      } // Identity
 
       result.build()
     }
@@ -36,16 +36,16 @@ object RecordOps {
         .withEventID(Option(self.eventID)) // String
         .withEventName(Option(self.eventName).map { v =>
           import OperationTypeOps._; v.toScala
-        }) // String, Map-12
+        }) // String
         .withEventVersion(Option(self.eventVersion)) // String
         .withEventSource(Option(self.eventSource)) // String
         .withAwsRegion(Option(self.awsRegion)) // String
         .withDynamodb(Option(self.dynamodb).map { v =>
-          v.toScala
-        }) // StreamRecord, Map-12
+          import StreamRecordOps._; v.toScala
+        }) // StreamRecord
         .withUserIdentity(Option(self.userIdentity).map { v =>
           import IdentityOps._; v.toScala
-        }) // Identity, Map-12
+        }) // Identity
     }
 
   }

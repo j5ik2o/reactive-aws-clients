@@ -17,8 +17,9 @@ object AutoScalingPolicyDescriptionOps {
       val result = JavaAutoScalingPolicyDescription.builder()
       self.policyName.filter(_.nonEmpty).foreach(v => result.policyName(v)) // String, case String
       self.targetTrackingScalingPolicyConfiguration.foreach { v =>
+        import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._;
         result.targetTrackingScalingPolicyConfiguration(v.toJava)
-      } // AutoScalingTargetTrackingScalingPolicyConfigurationDescription, case Other
+      } // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
 
       result.build()
     }
@@ -31,8 +32,8 @@ object AutoScalingPolicyDescriptionOps {
       ScalaAutoScalingPolicyDescription()
         .withPolicyName(Option(self.policyName)) // String
         .withTargetTrackingScalingPolicyConfiguration(Option(self.targetTrackingScalingPolicyConfiguration).map { v =>
-          v.toScala
-        }) // AutoScalingTargetTrackingScalingPolicyConfigurationDescription, Map-12
+          import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._; v.toScala
+        }) // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
     }
 
   }

@@ -8,17 +8,17 @@ object ScalarAttributeTypeOps {
   implicit class ScalaScalarAttributeTypeOps(val self: ScalaScalarAttributeType) extends AnyVal {
 
     def toJava: JavaScalarAttributeType = {
-        JavaScalarAttributeType.valueOf(self.entryName)
+      JavaScalarAttributeType.valueOf(self.entryName)
     }
 
   }
 
   implicit class JavaScalarAttributeTypeOps(val self: JavaScalarAttributeType) extends AnyVal {
 
-     def toScala: ScalaScalarAttributeType = {
-        ScalaScalarAttributeType.withName(self.toString)
-     }
+    def toScala: ScalaScalarAttributeType = {
+      ScalaScalarAttributeType.withName(self.toString)
+    }
 
-   }
+  }
 
 }
