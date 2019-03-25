@@ -36,5 +36,5 @@ jobs:
           key: scala-library-dependencies-{{ checksum "build.sbt" }}
       - run:
           command: |
-            sbt ++2.11.12 test && sbt ++2.12.8 test
+            sbt +test
           no_output_timeout: 30m
