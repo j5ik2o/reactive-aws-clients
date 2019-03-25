@@ -69,31 +69,31 @@
     <#assign typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)>
     <#switch typeName>
         <#case "Char">
-            ${prefix}.map(_.charValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Char
+            ${prefix}.map(_.charValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Short">
-            ${prefix}.map(_.shortValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Short
+            ${prefix}.map(_.shortValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Int">
-            ${prefix}.map(_.intValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Int
+            ${prefix}.map(_.intValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Long">
-            ${prefix}.map(_.longValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Long
+            ${prefix}.map(_.longValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Float">
-            ${prefix}.map(_.floatValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Float
+            ${prefix}.map(_.floatValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Double">
-            ${prefix}.map(_.doubleValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Double
+            ${prefix}.map(_.doubleValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Boolean">
-            ${prefix}.map(_.booleanValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Boolean
+            ${prefix}.map(_.booleanValue).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "String">
-            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case String
+            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Array">
-            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}, case Array
+            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "Seq">
             <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
