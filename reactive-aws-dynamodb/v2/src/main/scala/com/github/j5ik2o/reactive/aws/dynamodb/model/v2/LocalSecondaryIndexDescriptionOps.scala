@@ -15,16 +15,16 @@ object LocalSecondaryIndexDescriptionOps {
 
     def toJava: JavaLocalSecondaryIndexDescription = {
       val result = JavaLocalSecondaryIndexDescription.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]
       self.projection.foreach { v =>
         import ProjectionOps._; result.projection(v.toJava)
       } // Projection
-      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long, case Long
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long, case Long
-      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String, case String
+      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
+      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String
 
       result.build()
     }

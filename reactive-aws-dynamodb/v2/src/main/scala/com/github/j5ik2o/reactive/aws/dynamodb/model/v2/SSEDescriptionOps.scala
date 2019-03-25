@@ -16,7 +16,7 @@ object SSEDescriptionOps {
       self.sseType.foreach { v =>
         import SSETypeOps._; result.sseType(v.toJava)
       } // String
-      self.kmsMasterKeyArn.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyArn(v)) // String, case String
+      self.kmsMasterKeyArn.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyArn(v)) // String
 
       result.build()
     }

@@ -16,7 +16,7 @@ object DeleteGlobalSecondaryIndexActionOps {
 
     def toJava: JavaDeleteGlobalSecondaryIndexAction = {
       val result = JavaDeleteGlobalSecondaryIndexAction.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
 
       result.build()
     }

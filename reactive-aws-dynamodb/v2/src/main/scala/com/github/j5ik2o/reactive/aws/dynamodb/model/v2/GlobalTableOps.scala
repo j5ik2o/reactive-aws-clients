@@ -10,7 +10,7 @@ object GlobalTableOps {
 
     def toJava: JavaGlobalTable = {
       val result = JavaGlobalTable.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
       self.replicationGroup.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, ReplicaOps._; result.replicationGroup(v.map(_.toJava).asJava)
       } // Seq[Replica]

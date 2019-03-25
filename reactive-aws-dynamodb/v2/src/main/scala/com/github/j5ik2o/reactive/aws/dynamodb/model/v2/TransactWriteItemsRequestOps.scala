@@ -19,7 +19,7 @@ object TransactWriteItemsRequestOps {
       self.returnItemCollectionMetrics.foreach { v =>
         import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
       } // String
-      self.clientRequestToken.filter(_.nonEmpty).foreach(v => result.clientRequestToken(v)) // String, case String
+      self.clientRequestToken.filter(_.nonEmpty).foreach(v => result.clientRequestToken(v)) // String
 
       result.build()
     }

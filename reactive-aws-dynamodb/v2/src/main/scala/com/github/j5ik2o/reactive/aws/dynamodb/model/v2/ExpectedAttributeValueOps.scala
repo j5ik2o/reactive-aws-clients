@@ -13,7 +13,7 @@ object ExpectedAttributeValueOps {
       self.value.foreach { v =>
         import AttributeValueOps._; result.value(v.toJava)
       } // AttributeValue
-      self.exists.map(_.booleanValue).foreach(v => result.exists(v)) // Boolean, case Boolean
+      self.exists.map(_.booleanValue).foreach(v => result.exists(v)) // Boolean
       self.comparisonOperator.foreach { v =>
         import ComparisonOperatorOps._; result.comparisonOperator(v.toJava)
       } // String

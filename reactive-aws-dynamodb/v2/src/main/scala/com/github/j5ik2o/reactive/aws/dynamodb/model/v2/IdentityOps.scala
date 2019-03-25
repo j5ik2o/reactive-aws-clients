@@ -10,8 +10,8 @@ object IdentityOps {
 
     def toJava: JavaIdentity = {
       val result = JavaIdentity.builder()
-      self.principalId.filter(_.nonEmpty).foreach(v => result.principalId(v)) // String, case String
-      self.`type`.filter(_.nonEmpty).foreach(v => result.`type`(v))           // String, case String
+      self.principalId.filter(_.nonEmpty).foreach(v => result.principalId(v)) // String
+      self.`type`.filter(_.nonEmpty).foreach(v => result.`type`(v))           // String
 
       result.build()
     }

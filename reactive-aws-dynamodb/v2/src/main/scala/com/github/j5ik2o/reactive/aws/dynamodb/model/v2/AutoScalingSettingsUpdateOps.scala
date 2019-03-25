@@ -10,10 +10,10 @@ object AutoScalingSettingsUpdateOps {
 
     def toJava: JavaAutoScalingSettingsUpdate = {
       val result = JavaAutoScalingSettingsUpdate.builder()
-      self.minimumUnits.map(_.longValue).foreach(v => result.minimumUnits(v))                  // Long, case Long
-      self.maximumUnits.map(_.longValue).foreach(v => result.maximumUnits(v))                  // Long, case Long
-      self.autoScalingDisabled.map(_.booleanValue).foreach(v => result.autoScalingDisabled(v)) // Boolean, case Boolean
-      self.autoScalingRoleArn.filter(_.nonEmpty).foreach(v => result.autoScalingRoleArn(v))    // String, case String
+      self.minimumUnits.map(_.longValue).foreach(v => result.minimumUnits(v))                  // Long
+      self.maximumUnits.map(_.longValue).foreach(v => result.maximumUnits(v))                  // Long
+      self.autoScalingDisabled.map(_.booleanValue).foreach(v => result.autoScalingDisabled(v)) // Boolean
+      self.autoScalingRoleArn.filter(_.nonEmpty).foreach(v => result.autoScalingRoleArn(v))    // String
       self.scalingPolicyUpdate.foreach { v =>
         import AutoScalingPolicyUpdateOps._; result.scalingPolicyUpdate(v.toJava)
       } // AutoScalingPolicyUpdate

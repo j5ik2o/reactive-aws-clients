@@ -17,17 +17,15 @@ object ReplicaGlobalSecondaryIndexSettingsDescriptionOps {
 
     def toJava: JavaReplicaGlobalSecondaryIndexSettingsDescription = {
       val result = JavaReplicaGlobalSecondaryIndexSettingsDescription.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
       self.indexStatus.foreach { v =>
         import IndexStatusOps._; result.indexStatus(v.toJava)
       } // String
-      self.provisionedReadCapacityUnits
-        .map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long, case Long
+      self.provisionedReadCapacityUnits.map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long
       self.provisionedReadCapacityAutoScalingSettings.foreach { v =>
         import AutoScalingSettingsDescriptionOps._; result.provisionedReadCapacityAutoScalingSettings(v.toJava)
       } // AutoScalingSettingsDescription
-      self.provisionedWriteCapacityUnits
-        .map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long, case Long
+      self.provisionedWriteCapacityUnits.map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long
       self.provisionedWriteCapacityAutoScalingSettings.foreach { v =>
         import AutoScalingSettingsDescriptionOps._; result.provisionedWriteCapacityAutoScalingSettings(v.toJava)
       } // AutoScalingSettingsDescription

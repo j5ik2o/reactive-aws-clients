@@ -10,9 +10,9 @@ object DescribeStreamRequestOps {
 
     def toJava: JavaDescribeStreamRequest = {
       val result = JavaDescribeStreamRequest.builder()
-      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))                         // String, case String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))                                    // Int, case Int
-      self.exclusiveStartShardId.filter(_.nonEmpty).foreach(v => result.exclusiveStartShardId(v)) // String, case String
+      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))                         // String
+      self.limit.map(_.intValue).foreach(v => result.limit(v))                                    // Int
+      self.exclusiveStartShardId.filter(_.nonEmpty).foreach(v => result.exclusiveStartShardId(v)) // String
 
       result.build()
     }

@@ -10,7 +10,7 @@ object GlobalSecondaryIndexOps {
 
     def toJava: JavaGlobalSecondaryIndex = {
       val result = JavaGlobalSecondaryIndex.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]

@@ -10,7 +10,7 @@ object UpdateGlobalTableRequestOps {
 
     def toJava: JavaUpdateGlobalTableRequest = {
       val result = JavaUpdateGlobalTableRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
       self.replicaUpdates.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, ReplicaUpdateOps._; result.replicaUpdates(v.map(_.toJava).asJava)
       } // Seq[ReplicaUpdate]

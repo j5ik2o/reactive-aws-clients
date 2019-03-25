@@ -10,11 +10,11 @@ object BackupSummaryOps {
 
     def toJava: JavaBackupSummary = {
       val result = JavaBackupSummary.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))        // String, case String
-      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))            // String, case String
-      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))          // String, case String
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))        // String, case String
-      self.backupName.filter(_.nonEmpty).foreach(v => result.backupName(v))      // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))        // String
+      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))            // String
+      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))          // String
+      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))        // String
+      self.backupName.filter(_.nonEmpty).foreach(v => result.backupName(v))      // String
       self.backupCreationDateTime.foreach(v => result.backupCreationDateTime(v)) // Instant
       self.backupExpiryDateTime.foreach(v => result.backupExpiryDateTime(v))     // Instant
       self.backupStatus.foreach { v =>
@@ -23,7 +23,7 @@ object BackupSummaryOps {
       self.backupType.foreach { v =>
         import BackupTypeOps._; result.backupType(v.toJava)
       } // String
-      self.backupSizeBytes.map(_.longValue).foreach(v => result.backupSizeBytes(v)) // Long, case Long
+      self.backupSizeBytes.map(_.longValue).foreach(v => result.backupSizeBytes(v)) // Long
 
       result.build()
     }

@@ -13,7 +13,7 @@ object DescribeGlobalTableRequestOps {
 
     def toJava: JavaDescribeGlobalTableRequest = {
       val result = JavaDescribeGlobalTableRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
 
       result.build()
     }

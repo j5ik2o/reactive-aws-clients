@@ -14,7 +14,7 @@ object UpdateTableRequestOps {
         import scala.collection.JavaConverters._, AttributeDefinitionOps._;
         result.attributeDefinitions(v.map(_.toJava).asJava)
       } // Seq[AttributeDefinition]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.billingMode.foreach { v =>
         import BillingModeOps._; result.billingMode(v.toJava)
       } // String

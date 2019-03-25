@@ -10,10 +10,10 @@ object SourceTableDetailsOps {
 
     def toJava: JavaSourceTableDetails = {
       val result = JavaSourceTableDetails.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))         // String, case String
-      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String, case String
-      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String, case String
-      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long, case Long
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))         // String
+      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String
+      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String
+      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]
@@ -21,7 +21,7 @@ object SourceTableDetailsOps {
       self.provisionedThroughput.foreach { v =>
         import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
       } // ProvisionedThroughput
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v)) // Long, case Long
+      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v)) // Long
       self.billingMode.foreach { v =>
         import BillingModeOps._; result.billingMode(v.toJava)
       } // String

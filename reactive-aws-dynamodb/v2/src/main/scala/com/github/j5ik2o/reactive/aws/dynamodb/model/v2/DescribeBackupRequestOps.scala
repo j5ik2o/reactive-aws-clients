@@ -10,7 +10,7 @@ object DescribeBackupRequestOps {
 
     def toJava: JavaDescribeBackupRequest = {
       val result = JavaDescribeBackupRequest.builder()
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String, case String
+      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String
 
       result.build()
     }

@@ -15,8 +15,8 @@ object RestoreTableFromBackupRequestOps {
 
     def toJava: JavaRestoreTableFromBackupRequest = {
       val result = JavaRestoreTableFromBackupRequest.builder()
-      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v)) // String, case String
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))             // String, case String
+      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v)) // String
+      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))             // String
 
       result.build()
     }

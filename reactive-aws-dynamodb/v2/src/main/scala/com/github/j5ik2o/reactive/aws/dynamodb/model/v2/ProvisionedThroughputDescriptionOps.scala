@@ -18,9 +18,9 @@ object ProvisionedThroughputDescriptionOps {
       val result = JavaProvisionedThroughputDescription.builder()
       self.lastIncreaseDateTime.foreach(v => result.lastIncreaseDateTime(v))                      // Instant
       self.lastDecreaseDateTime.foreach(v => result.lastDecreaseDateTime(v))                      // Instant
-      self.numberOfDecreasesToday.map(_.longValue).foreach(v => result.numberOfDecreasesToday(v)) // Long, case Long
-      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))           // Long, case Long
-      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v))         // Long, case Long
+      self.numberOfDecreasesToday.map(_.longValue).foreach(v => result.numberOfDecreasesToday(v)) // Long
+      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))           // Long
+      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v))         // Long
 
       result.build()
     }

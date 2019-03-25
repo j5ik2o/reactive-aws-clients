@@ -10,10 +10,10 @@ object ConsumedCapacityOps {
 
     def toJava: JavaConsumedCapacity = {
       val result = JavaConsumedCapacity.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                   // String, case String
-      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double, case Double
-      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double, case Double
-      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double, case Double
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                   // String
+      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double
+      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double
+      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double
       self.table.foreach { v =>
         import CapacityOps._; result.table(v.toJava)
       } // Capacity

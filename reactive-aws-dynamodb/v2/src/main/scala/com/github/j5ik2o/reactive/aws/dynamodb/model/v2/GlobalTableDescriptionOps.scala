@@ -14,12 +14,12 @@ object GlobalTableDescriptionOps {
         import scala.collection.JavaConverters._, ReplicaDescriptionOps._;
         result.replicationGroup(v.map(_.toJava).asJava)
       } // Seq[ReplicaDescription]
-      self.globalTableArn.filter(_.nonEmpty).foreach(v => result.globalTableArn(v)) // String, case String
+      self.globalTableArn.filter(_.nonEmpty).foreach(v => result.globalTableArn(v)) // String
       self.creationDateTime.foreach(v => result.creationDateTime(v))                // Instant
       self.globalTableStatus.foreach { v =>
         import GlobalTableStatusOps._; result.globalTableStatus(v.toJava)
       } // String
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
 
       result.build()
     }

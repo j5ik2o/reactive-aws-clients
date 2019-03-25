@@ -16,7 +16,7 @@ object UpdateGlobalSecondaryIndexActionOps {
 
     def toJava: JavaUpdateGlobalSecondaryIndexAction = {
       val result = JavaUpdateGlobalSecondaryIndexAction.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
       self.provisionedThroughput.foreach { v =>
         import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
       } // ProvisionedThroughput

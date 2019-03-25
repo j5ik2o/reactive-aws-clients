@@ -10,8 +10,8 @@ object ListTagsOfResourceRequestOps {
 
     def toJava: JavaListTagsOfResourceRequest = {
       val result = JavaListTagsOfResourceRequest.builder()
-      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String, case String
-      self.nextToken.filter(_.nonEmpty).foreach(v => result.nextToken(v))     // String, case String
+      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String
+      self.nextToken.filter(_.nonEmpty).foreach(v => result.nextToken(v))     // String
 
       result.build()
     }

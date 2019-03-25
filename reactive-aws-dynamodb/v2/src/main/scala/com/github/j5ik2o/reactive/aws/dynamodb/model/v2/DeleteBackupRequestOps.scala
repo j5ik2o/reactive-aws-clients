@@ -10,7 +10,7 @@ object DeleteBackupRequestOps {
 
     def toJava: JavaDeleteBackupRequest = {
       val result = JavaDeleteBackupRequest.builder()
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String, case String
+      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String
 
       result.build()
     }

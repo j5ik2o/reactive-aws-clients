@@ -17,10 +17,10 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
 
     def toJava: JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription = {
       val result = JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription.builder()
-      self.disableScaleIn.map(_.booleanValue).foreach(v => result.disableScaleIn(v)) // Boolean, case Boolean
-      self.scaleInCooldown.map(_.intValue).foreach(v => result.scaleInCooldown(v))   // Int, case Int
-      self.scaleOutCooldown.map(_.intValue).foreach(v => result.scaleOutCooldown(v)) // Int, case Int
-      self.targetValue.map(_.doubleValue).foreach(v => result.targetValue(v))        // Double, case Double
+      self.disableScaleIn.map(_.booleanValue).foreach(v => result.disableScaleIn(v)) // Boolean
+      self.scaleInCooldown.map(_.intValue).foreach(v => result.scaleInCooldown(v))   // Int
+      self.scaleOutCooldown.map(_.intValue).foreach(v => result.scaleOutCooldown(v)) // Int
+      self.targetValue.map(_.doubleValue).foreach(v => result.targetValue(v))        // Double
 
       result.build()
     }

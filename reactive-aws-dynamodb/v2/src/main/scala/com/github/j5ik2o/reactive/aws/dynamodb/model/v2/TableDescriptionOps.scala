@@ -14,7 +14,7 @@ object TableDescriptionOps {
         import scala.collection.JavaConverters._, AttributeDefinitionOps._;
         result.attributeDefinitions(v.map(_.toJava).asJava)
       } // Seq[AttributeDefinition]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]
@@ -25,10 +25,10 @@ object TableDescriptionOps {
       self.provisionedThroughput.foreach { v =>
         import ProvisionedThroughputDescriptionOps._; result.provisionedThroughput(v.toJava)
       } // ProvisionedThroughputDescription
-      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long, case Long
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long, case Long
-      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String, case String
-      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String, case String
+      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
+      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String
+      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String
       self.billingModeSummary.foreach { v =>
         import BillingModeSummaryOps._; result.billingModeSummary(v.toJava)
       } // BillingModeSummary
@@ -43,8 +43,8 @@ object TableDescriptionOps {
       self.streamSpecification.foreach { v =>
         import StreamSpecificationOps._; result.streamSpecification(v.toJava)
       } // StreamSpecification
-      self.latestStreamLabel.filter(_.nonEmpty).foreach(v => result.latestStreamLabel(v)) // String, case String
-      self.latestStreamArn.filter(_.nonEmpty).foreach(v => result.latestStreamArn(v))     // String, case String
+      self.latestStreamLabel.filter(_.nonEmpty).foreach(v => result.latestStreamLabel(v)) // String
+      self.latestStreamArn.filter(_.nonEmpty).foreach(v => result.latestStreamArn(v))     // String
       self.restoreSummary.foreach { v =>
         import RestoreSummaryOps._; result.restoreSummary(v.toJava)
       } // RestoreSummary

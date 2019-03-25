@@ -10,12 +10,12 @@ object ScanRequestOps {
 
     def toJava: JavaScanRequest = {
       val result = JavaScanRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
       self.attributesToGet.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.attributesToGet(v.asJava)
       } // Seq[String]
-      self.limit.map(_.intValue).foreach(v => result.limit(v)) // Int, case Int
+      self.limit.map(_.intValue).foreach(v => result.limit(v)) // Int
       self.select.foreach { v =>
         import SelectOps._; result.select(v.toJava)
       } // String
@@ -32,10 +32,10 @@ object ScanRequestOps {
       self.returnConsumedCapacity.foreach { v =>
         import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
       } // String
-      self.totalSegments.map(_.intValue).foreach(v => result.totalSegments(v))                  // Int, case Int
-      self.segment.map(_.intValue).foreach(v => result.segment(v))                              // Int, case Int
-      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String, case String
-      self.filterExpression.filter(_.nonEmpty).foreach(v => result.filterExpression(v))         // String, case String
+      self.totalSegments.map(_.intValue).foreach(v => result.totalSegments(v))                  // Int
+      self.segment.map(_.intValue).foreach(v => result.segment(v))                              // Int
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String
+      self.filterExpression.filter(_.nonEmpty).foreach(v => result.filterExpression(v))         // String
       self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
         import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
       } // Map[String, String]
@@ -43,7 +43,7 @@ object ScanRequestOps {
         import scala.collection.JavaConverters._, AttributeValueOps._;
         result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
       } // Map[String, AttributeValue]
-      self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v)) // Boolean, case Boolean
+      self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v)) // Boolean
 
       result.build()
     }

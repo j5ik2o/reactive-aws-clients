@@ -10,11 +10,11 @@ object ShardOps {
 
     def toJava: JavaShard = {
       val result = JavaShard.builder()
-      self.shardId.filter(_.nonEmpty).foreach(v => result.shardId(v)) // String, case String
+      self.shardId.filter(_.nonEmpty).foreach(v => result.shardId(v)) // String
       self.sequenceNumberRange.foreach { v =>
         import SequenceNumberRangeOps._; result.sequenceNumberRange(v.toJava)
       } // SequenceNumberRange
-      self.parentShardId.filter(_.nonEmpty).foreach(v => result.parentShardId(v)) // String, case String
+      self.parentShardId.filter(_.nonEmpty).foreach(v => result.parentShardId(v)) // String
 
       result.build()
     }

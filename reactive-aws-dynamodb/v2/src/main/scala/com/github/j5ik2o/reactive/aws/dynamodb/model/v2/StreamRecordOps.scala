@@ -20,8 +20,8 @@ object StreamRecordOps {
       self.oldImage.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._; result.oldImage(v.mapValues(_.toJava).asJava)
       } // Map[String, AttributeValue]
-      self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v)) // String, case String
-      self.sizeBytes.map(_.longValue).foreach(v => result.sizeBytes(v))             // Long, case Long
+      self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v)) // String
+      self.sizeBytes.map(_.longValue).foreach(v => result.sizeBytes(v))             // Long
       self.streamViewType.foreach { v =>
         import StreamViewTypeOps._; result.streamViewType(v.toJava)
       } // String

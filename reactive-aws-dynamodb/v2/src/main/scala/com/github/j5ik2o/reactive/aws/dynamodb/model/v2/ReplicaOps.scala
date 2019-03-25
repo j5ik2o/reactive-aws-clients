@@ -10,7 +10,7 @@ object ReplicaOps {
 
     def toJava: JavaReplica = {
       val result = JavaReplica.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
 
       result.build()
     }

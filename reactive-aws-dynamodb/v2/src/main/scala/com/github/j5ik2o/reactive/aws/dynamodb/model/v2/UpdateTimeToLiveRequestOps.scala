@@ -10,7 +10,7 @@ object UpdateTimeToLiveRequestOps {
 
     def toJava: JavaUpdateTimeToLiveRequest = {
       val result = JavaUpdateTimeToLiveRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.timeToLiveSpecification.foreach { v =>
         import TimeToLiveSpecificationOps._; result.timeToLiveSpecification(v.toJava)
       } // TimeToLiveSpecification

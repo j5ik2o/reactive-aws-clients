@@ -10,8 +10,8 @@ object AttributeValueOps {
 
     def toJava: JavaAttributeValue = {
       val result = JavaAttributeValue.builder()
-      self.s.filter(_.nonEmpty).foreach(v => result.s(v)) // String, case String
-      self.n.filter(_.nonEmpty).foreach(v => result.n(v)) // String, case String
+      self.s.filter(_.nonEmpty).foreach(v => result.s(v)) // String
+      self.n.filter(_.nonEmpty).foreach(v => result.n(v)) // String
       self.b
         .filter(_.nonEmpty).foreach(v => result.b(software.amazon.awssdk.core.SdkBytes.fromByteArray(v))) // SdkBytes
       self.ss.filter(_.nonEmpty).foreach { v =>
@@ -30,8 +30,8 @@ object AttributeValueOps {
       self.l.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.l(v.map(_.toJava).asJava)
       } // Seq[AttributeValue]
-      self.bool.map(_.booleanValue).foreach(v => result.bool(v)) // Boolean, case Boolean
-      self.nul.map(_.booleanValue).foreach(v => result.nul(v))   // Boolean, case Boolean
+      self.bool.map(_.booleanValue).foreach(v => result.bool(v)) // Boolean
+      self.nul.map(_.booleanValue).foreach(v => result.nul(v))   // Boolean
 
       result.build()
     }

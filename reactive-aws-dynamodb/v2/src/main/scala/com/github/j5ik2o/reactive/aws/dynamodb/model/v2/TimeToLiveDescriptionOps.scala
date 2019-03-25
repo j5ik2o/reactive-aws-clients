@@ -13,7 +13,7 @@ object TimeToLiveDescriptionOps {
       self.timeToLiveStatus.foreach { v =>
         import TimeToLiveStatusOps._; result.timeToLiveStatus(v.toJava)
       } // String
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
 
       result.build()
     }

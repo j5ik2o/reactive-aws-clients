@@ -16,7 +16,7 @@ object DescribeContinuousBackupsRequestOps {
 
     def toJava: JavaDescribeContinuousBackupsRequest = {
       val result = JavaDescribeContinuousBackupsRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
 
       result.build()
     }

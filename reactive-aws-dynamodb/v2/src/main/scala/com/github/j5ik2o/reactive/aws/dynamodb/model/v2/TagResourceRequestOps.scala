@@ -10,7 +10,7 @@ object TagResourceRequestOps {
 
     def toJava: JavaTagResourceRequest = {
       val result = JavaTagResourceRequest.builder()
-      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String, case String
+      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String
       self.tags.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, TagOps._; result.tags(v.map(_.toJava).asJava)
       } // Seq[Tag]

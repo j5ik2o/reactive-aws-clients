@@ -10,7 +10,7 @@ object AutoScalingPolicyUpdateOps {
 
     def toJava: JavaAutoScalingPolicyUpdate = {
       val result = JavaAutoScalingPolicyUpdate.builder()
-      self.policyName.filter(_.nonEmpty).foreach(v => result.policyName(v)) // String, case String
+      self.policyName.filter(_.nonEmpty).foreach(v => result.policyName(v)) // String
       self.targetTrackingScalingPolicyConfiguration.foreach { v =>
         import AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps._;
         result.targetTrackingScalingPolicyConfiguration(v.toJava)

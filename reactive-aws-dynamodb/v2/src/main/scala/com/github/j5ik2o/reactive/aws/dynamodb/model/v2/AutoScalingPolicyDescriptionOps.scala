@@ -15,7 +15,7 @@ object AutoScalingPolicyDescriptionOps {
 
     def toJava: JavaAutoScalingPolicyDescription = {
       val result = JavaAutoScalingPolicyDescription.builder()
-      self.policyName.filter(_.nonEmpty).foreach(v => result.policyName(v)) // String, case String
+      self.policyName.filter(_.nonEmpty).foreach(v => result.policyName(v)) // String
       self.targetTrackingScalingPolicyConfiguration.foreach { v =>
         import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._;
         result.targetTrackingScalingPolicyConfiguration(v.toJava)

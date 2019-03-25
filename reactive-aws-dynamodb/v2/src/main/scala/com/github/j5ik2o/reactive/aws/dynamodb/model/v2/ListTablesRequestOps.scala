@@ -10,9 +10,8 @@ object ListTablesRequestOps {
 
     def toJava: JavaListTablesRequest = {
       val result = JavaListTablesRequest.builder()
-      self.exclusiveStartTableName
-        .filter(_.nonEmpty).foreach(v => result.exclusiveStartTableName(v)) // String, case String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))              // Int, case Int
+      self.exclusiveStartTableName.filter(_.nonEmpty).foreach(v => result.exclusiveStartTableName(v)) // String
+      self.limit.map(_.intValue).foreach(v => result.limit(v))                                        // Int
 
       result.build()
     }

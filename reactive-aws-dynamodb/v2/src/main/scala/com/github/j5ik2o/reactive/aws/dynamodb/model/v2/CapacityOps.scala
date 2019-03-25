@@ -10,9 +10,9 @@ object CapacityOps {
 
     def toJava: JavaCapacity = {
       val result = JavaCapacity.builder()
-      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double, case Double
-      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double, case Double
-      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double, case Double
+      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double
+      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double
+      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double
 
       result.build()
     }

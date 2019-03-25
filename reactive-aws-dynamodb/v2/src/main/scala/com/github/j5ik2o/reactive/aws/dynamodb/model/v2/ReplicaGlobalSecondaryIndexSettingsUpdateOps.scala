@@ -17,9 +17,8 @@ object ReplicaGlobalSecondaryIndexSettingsUpdateOps {
 
     def toJava: JavaReplicaGlobalSecondaryIndexSettingsUpdate = {
       val result = JavaReplicaGlobalSecondaryIndexSettingsUpdate.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
-      self.provisionedReadCapacityUnits
-        .map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long, case Long
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v))                                     // String
+      self.provisionedReadCapacityUnits.map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long
       self.provisionedReadCapacityAutoScalingSettingsUpdate.foreach { v =>
         import AutoScalingSettingsUpdateOps._; result.provisionedReadCapacityAutoScalingSettingsUpdate(v.toJava)
       } // AutoScalingSettingsUpdate

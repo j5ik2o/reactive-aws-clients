@@ -17,9 +17,8 @@ object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
 
     def toJava: JavaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
       val result = JavaGlobalTableGlobalSecondaryIndexSettingsUpdate.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
-      self.provisionedWriteCapacityUnits
-        .map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long, case Long
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v))                                       // String
+      self.provisionedWriteCapacityUnits.map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long
       self.provisionedWriteCapacityAutoScalingSettingsUpdate.foreach { v =>
         import AutoScalingSettingsUpdateOps._; result.provisionedWriteCapacityAutoScalingSettingsUpdate(v.toJava)
       } // AutoScalingSettingsUpdate

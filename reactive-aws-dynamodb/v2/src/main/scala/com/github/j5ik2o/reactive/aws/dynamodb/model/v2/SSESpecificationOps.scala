@@ -10,11 +10,11 @@ object SSESpecificationOps {
 
     def toJava: JavaSSESpecification = {
       val result = JavaSSESpecification.builder()
-      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v)) // Boolean, case Boolean
+      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v)) // Boolean
       self.sseType.foreach { v =>
         import SSETypeOps._; result.sseType(v.toJava)
       } // String
-      self.kmsMasterKeyId.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyId(v)) // String, case String
+      self.kmsMasterKeyId.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyId(v)) // String
 
       result.build()
     }

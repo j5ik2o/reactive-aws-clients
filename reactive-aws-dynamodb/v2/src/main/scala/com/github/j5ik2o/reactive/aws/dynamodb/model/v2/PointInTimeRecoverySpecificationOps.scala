@@ -16,8 +16,7 @@ object PointInTimeRecoverySpecificationOps {
 
     def toJava: JavaPointInTimeRecoverySpecification = {
       val result = JavaPointInTimeRecoverySpecification.builder()
-      self.pointInTimeRecoveryEnabled
-        .map(_.booleanValue).foreach(v => result.pointInTimeRecoveryEnabled(v)) // Boolean, case Boolean
+      self.pointInTimeRecoveryEnabled.map(_.booleanValue).foreach(v => result.pointInTimeRecoveryEnabled(v)) // Boolean
 
       result.build()
     }

@@ -10,8 +10,8 @@ object EndpointOps {
 
     def toJava: JavaEndpoint = {
       val result = JavaEndpoint.builder()
-      self.address.filter(_.nonEmpty).foreach(v => result.address(v))                         // String, case String
-      self.cachePeriodInMinutes.map(_.longValue).foreach(v => result.cachePeriodInMinutes(v)) // Long, case Long
+      self.address.filter(_.nonEmpty).foreach(v => result.address(v))                         // String
+      self.cachePeriodInMinutes.map(_.longValue).foreach(v => result.cachePeriodInMinutes(v)) // Long
 
       result.build()
     }

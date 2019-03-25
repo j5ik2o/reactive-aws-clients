@@ -10,13 +10,13 @@ object RecordOps {
 
     def toJava: JavaRecord = {
       val result = JavaRecord.builder()
-      self.eventID.filter(_.nonEmpty).foreach(v => result.eventID(v)) // String, case String
+      self.eventID.filter(_.nonEmpty).foreach(v => result.eventID(v)) // String
       self.eventName.foreach { v =>
         import OperationTypeOps._; result.eventName(v.toJava)
       } // String
-      self.eventVersion.filter(_.nonEmpty).foreach(v => result.eventVersion(v)) // String, case String
-      self.eventSource.filter(_.nonEmpty).foreach(v => result.eventSource(v))   // String, case String
-      self.awsRegion.filter(_.nonEmpty).foreach(v => result.awsRegion(v))       // String, case String
+      self.eventVersion.filter(_.nonEmpty).foreach(v => result.eventVersion(v)) // String
+      self.eventSource.filter(_.nonEmpty).foreach(v => result.eventSource(v))   // String
+      self.awsRegion.filter(_.nonEmpty).foreach(v => result.awsRegion(v))       // String
       self.dynamodb.foreach { v =>
         import StreamRecordOps._; result.dynamodb(v.toJava)
       } // StreamRecord

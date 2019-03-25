@@ -10,9 +10,9 @@ object ReplicaSettingsUpdateOps {
 
     def toJava: JavaReplicaSettingsUpdate = {
       val result = JavaReplicaSettingsUpdate.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
       self.replicaProvisionedReadCapacityUnits
-        .map(_.longValue).foreach(v => result.replicaProvisionedReadCapacityUnits(v)) // Long, case Long
+        .map(_.longValue).foreach(v => result.replicaProvisionedReadCapacityUnits(v)) // Long
       self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate.foreach { v =>
         import AutoScalingSettingsUpdateOps._; result.replicaProvisionedReadCapacityAutoScalingSettingsUpdate(v.toJava)
       } // AutoScalingSettingsUpdate

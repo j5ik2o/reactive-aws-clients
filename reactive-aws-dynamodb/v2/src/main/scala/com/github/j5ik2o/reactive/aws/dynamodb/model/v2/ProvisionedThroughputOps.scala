@@ -10,8 +10,8 @@ object ProvisionedThroughputOps {
 
     def toJava: JavaProvisionedThroughput = {
       val result = JavaProvisionedThroughput.builder()
-      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))   // Long, case Long
-      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v)) // Long, case Long
+      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))   // Long
+      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v)) // Long
 
       result.build()
     }

@@ -10,8 +10,8 @@ object StreamDescriptionOps {
 
     def toJava: JavaStreamDescription = {
       val result = JavaStreamDescription.builder()
-      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))     // String, case String
-      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String, case String
+      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))     // String
+      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String
       self.streamStatus.foreach { v =>
         import StreamStatusOps._; result.streamStatus(v.toJava)
       } // String
@@ -19,14 +19,14 @@ object StreamDescriptionOps {
         import StreamViewTypeOps._; result.streamViewType(v.toJava)
       } // String
       self.creationRequestDateTime.foreach(v => result.creationRequestDateTime(v)) // Instant
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))          // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))          // String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]
       self.shards.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, ShardOps._; result.shards(v.map(_.toJava).asJava)
       } // Seq[Shard]
-      self.lastEvaluatedShardId.filter(_.nonEmpty).foreach(v => result.lastEvaluatedShardId(v)) // String, case String
+      self.lastEvaluatedShardId.filter(_.nonEmpty).foreach(v => result.lastEvaluatedShardId(v)) // String
 
       result.build()
     }

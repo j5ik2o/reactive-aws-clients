@@ -17,8 +17,8 @@ object KeysAndAttributesOps {
       self.attributesToGet.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.attributesToGet(v.asJava)
       } // Seq[String]
-      self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v))            // Boolean, case Boolean
-      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String, case String
+      self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v))            // Boolean
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String
       self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
         import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
       } // Map[String, String]

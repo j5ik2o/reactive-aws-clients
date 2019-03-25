@@ -10,7 +10,7 @@ object KeySchemaElementOps {
 
     def toJava: JavaKeySchemaElement = {
       val result = JavaKeySchemaElement.builder()
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
       self.keyType.foreach { v =>
         import KeyTypeOps._; result.keyType(v.toJava)
       } // String

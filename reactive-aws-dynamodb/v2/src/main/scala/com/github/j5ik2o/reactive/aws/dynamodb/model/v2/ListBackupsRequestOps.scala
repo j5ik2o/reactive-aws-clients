@@ -10,12 +10,11 @@ object ListBackupsRequestOps {
 
     def toJava: JavaListBackupsRequest = {
       val result = JavaListBackupsRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))  // String, case String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))             // Int, case Int
-      self.timeRangeLowerBound.foreach(v => result.timeRangeLowerBound(v)) // Instant
-      self.timeRangeUpperBound.foreach(v => result.timeRangeUpperBound(v)) // Instant
-      self.exclusiveStartBackupArn
-        .filter(_.nonEmpty).foreach(v => result.exclusiveStartBackupArn(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                             // String
+      self.limit.map(_.intValue).foreach(v => result.limit(v))                                        // Int
+      self.timeRangeLowerBound.foreach(v => result.timeRangeLowerBound(v))                            // Instant
+      self.timeRangeUpperBound.foreach(v => result.timeRangeUpperBound(v))                            // Instant
+      self.exclusiveStartBackupArn.filter(_.nonEmpty).foreach(v => result.exclusiveStartBackupArn(v)) // String
       self.backupType.foreach { v =>
         import BackupTypeFilterOps._; result.backupType(v.toJava)
       } // String

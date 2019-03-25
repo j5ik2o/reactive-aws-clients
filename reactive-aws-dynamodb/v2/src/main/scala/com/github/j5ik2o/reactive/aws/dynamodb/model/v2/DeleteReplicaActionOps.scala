@@ -10,7 +10,7 @@ object DeleteReplicaActionOps {
 
     def toJava: JavaDeleteReplicaAction = {
       val result = JavaDeleteReplicaAction.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
 
       result.build()
     }

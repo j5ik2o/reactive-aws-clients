@@ -10,8 +10,8 @@ object TimeToLiveSpecificationOps {
 
     def toJava: JavaTimeToLiveSpecification = {
       val result = JavaTimeToLiveSpecification.builder()
-      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v))            // Boolean, case Boolean
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v))            // Boolean
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
 
       result.build()
     }

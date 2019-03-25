@@ -10,7 +10,7 @@ object StreamSpecificationOps {
 
     def toJava: JavaStreamSpecification = {
       val result = JavaStreamSpecification.builder()
-      self.streamEnabled.map(_.booleanValue).foreach(v => result.streamEnabled(v)) // Boolean, case Boolean
+      self.streamEnabled.map(_.booleanValue).foreach(v => result.streamEnabled(v)) // Boolean
       self.streamViewType.foreach { v =>
         import StreamViewTypeOps._; result.streamViewType(v.toJava)
       } // String

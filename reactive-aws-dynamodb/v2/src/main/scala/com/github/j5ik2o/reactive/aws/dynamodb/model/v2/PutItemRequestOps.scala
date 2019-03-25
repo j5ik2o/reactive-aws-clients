@@ -10,7 +10,7 @@ object PutItemRequestOps {
 
     def toJava: JavaPutItemRequest = {
       val result = JavaPutItemRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.item.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava)
       } // Map[String, AttributeValue]
@@ -30,7 +30,7 @@ object PutItemRequestOps {
       self.conditionalOperator.foreach { v =>
         import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
       } // String
-      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String, case String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
       self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
         import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
       } // Map[String, String]

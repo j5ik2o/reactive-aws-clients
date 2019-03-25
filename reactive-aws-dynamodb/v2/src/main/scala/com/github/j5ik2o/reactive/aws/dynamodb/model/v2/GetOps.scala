@@ -13,8 +13,8 @@ object GetOps {
       self.key.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
       } // Map[String, AttributeValue]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                       // String, case String
-      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                       // String
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String
       self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
         import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
       } // Map[String, String]

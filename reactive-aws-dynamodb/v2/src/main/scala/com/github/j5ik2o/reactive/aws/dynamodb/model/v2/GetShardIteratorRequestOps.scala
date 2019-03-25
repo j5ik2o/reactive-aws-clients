@@ -10,12 +10,12 @@ object GetShardIteratorRequestOps {
 
     def toJava: JavaGetShardIteratorRequest = {
       val result = JavaGetShardIteratorRequest.builder()
-      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v)) // String, case String
-      self.shardId.filter(_.nonEmpty).foreach(v => result.shardId(v))     // String, case String
+      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v)) // String
+      self.shardId.filter(_.nonEmpty).foreach(v => result.shardId(v))     // String
       self.shardIteratorType.foreach { v =>
         import ShardIteratorTypeOps._; result.shardIteratorType(v.toJava)
       } // String
-      self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v)) // String, case String
+      self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v)) // String
 
       result.build()
     }

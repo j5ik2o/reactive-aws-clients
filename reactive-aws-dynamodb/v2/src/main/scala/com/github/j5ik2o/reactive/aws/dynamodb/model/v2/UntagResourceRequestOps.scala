@@ -10,7 +10,7 @@ object UntagResourceRequestOps {
 
     def toJava: JavaUntagResourceRequest = {
       val result = JavaUntagResourceRequest.builder()
-      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String, case String
+      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String
       self.tagKeys.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.tagKeys(v.asJava)
       } // Seq[String]

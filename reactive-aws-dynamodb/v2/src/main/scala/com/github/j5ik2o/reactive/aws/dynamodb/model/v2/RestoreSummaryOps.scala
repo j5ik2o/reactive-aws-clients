@@ -10,10 +10,10 @@ object RestoreSummaryOps {
 
     def toJava: JavaRestoreSummary = {
       val result = JavaRestoreSummary.builder()
-      self.sourceBackupArn.filter(_.nonEmpty).foreach(v => result.sourceBackupArn(v))      // String, case String
-      self.sourceTableArn.filter(_.nonEmpty).foreach(v => result.sourceTableArn(v))        // String, case String
+      self.sourceBackupArn.filter(_.nonEmpty).foreach(v => result.sourceBackupArn(v))      // String
+      self.sourceTableArn.filter(_.nonEmpty).foreach(v => result.sourceTableArn(v))        // String
       self.restoreDateTime.foreach(v => result.restoreDateTime(v))                         // Instant
-      self.restoreInProgress.map(_.booleanValue).foreach(v => result.restoreInProgress(v)) // Boolean, case Boolean
+      self.restoreInProgress.map(_.booleanValue).foreach(v => result.restoreInProgress(v)) // Boolean
 
       result.build()
     }

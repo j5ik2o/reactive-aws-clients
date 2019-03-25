@@ -13,7 +13,7 @@ object ReplicaSettingsDescriptionOps {
 
     def toJava: JavaReplicaSettingsDescription = {
       val result = JavaReplicaSettingsDescription.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
       self.replicaStatus.foreach { v =>
         import ReplicaStatusOps._; result.replicaStatus(v.toJava)
       } // String
@@ -21,12 +21,12 @@ object ReplicaSettingsDescriptionOps {
         import BillingModeSummaryOps._; result.replicaBillingModeSummary(v.toJava)
       } // BillingModeSummary
       self.replicaProvisionedReadCapacityUnits
-        .map(_.longValue).foreach(v => result.replicaProvisionedReadCapacityUnits(v)) // Long, case Long
+        .map(_.longValue).foreach(v => result.replicaProvisionedReadCapacityUnits(v)) // Long
       self.replicaProvisionedReadCapacityAutoScalingSettings.foreach { v =>
         import AutoScalingSettingsDescriptionOps._; result.replicaProvisionedReadCapacityAutoScalingSettings(v.toJava)
       } // AutoScalingSettingsDescription
       self.replicaProvisionedWriteCapacityUnits
-        .map(_.longValue).foreach(v => result.replicaProvisionedWriteCapacityUnits(v)) // Long, case Long
+        .map(_.longValue).foreach(v => result.replicaProvisionedWriteCapacityUnits(v)) // Long
       self.replicaProvisionedWriteCapacityAutoScalingSettings.foreach { v =>
         import AutoScalingSettingsDescriptionOps._; result.replicaProvisionedWriteCapacityAutoScalingSettings(v.toJava)
       } // AutoScalingSettingsDescription

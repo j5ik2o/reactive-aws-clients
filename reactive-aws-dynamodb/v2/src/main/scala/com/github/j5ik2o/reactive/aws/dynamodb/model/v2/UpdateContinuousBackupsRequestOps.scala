@@ -15,7 +15,7 @@ object UpdateContinuousBackupsRequestOps {
 
     def toJava: JavaUpdateContinuousBackupsRequest = {
       val result = JavaUpdateContinuousBackupsRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.pointInTimeRecoverySpecification.foreach { v =>
         import PointInTimeRecoverySpecificationOps._; result.pointInTimeRecoverySpecification(v.toJava)
       } // PointInTimeRecoverySpecification

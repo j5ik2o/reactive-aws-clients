@@ -10,7 +10,7 @@ object CreateReplicaActionOps {
 
     def toJava: JavaCreateReplicaAction = {
       val result = JavaCreateReplicaAction.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String, case String
+      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
 
       result.build()
     }

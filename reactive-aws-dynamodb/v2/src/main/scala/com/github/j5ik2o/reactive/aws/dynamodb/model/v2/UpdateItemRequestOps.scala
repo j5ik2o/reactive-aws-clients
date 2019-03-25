@@ -10,7 +10,7 @@ object UpdateItemRequestOps {
 
     def toJava: JavaUpdateItemRequest = {
       val result = JavaUpdateItemRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.key.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
       } // Map[String, AttributeValue]
@@ -34,8 +34,8 @@ object UpdateItemRequestOps {
       self.returnItemCollectionMetrics.foreach { v =>
         import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
       } // String
-      self.updateExpression.filter(_.nonEmpty).foreach(v => result.updateExpression(v))       // String, case String
-      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String, case String
+      self.updateExpression.filter(_.nonEmpty).foreach(v => result.updateExpression(v))       // String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
       self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
         import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
       } // Map[String, String]

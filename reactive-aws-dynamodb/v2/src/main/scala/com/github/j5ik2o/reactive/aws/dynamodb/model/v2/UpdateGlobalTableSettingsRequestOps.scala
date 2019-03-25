@@ -16,12 +16,12 @@ object UpdateGlobalTableSettingsRequestOps {
 
     def toJava: JavaUpdateGlobalTableSettingsRequest = {
       val result = JavaUpdateGlobalTableSettingsRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
       self.globalTableBillingMode.foreach { v =>
         import BillingModeOps._; result.globalTableBillingMode(v.toJava)
       } // String
       self.globalTableProvisionedWriteCapacityUnits
-        .map(_.longValue).foreach(v => result.globalTableProvisionedWriteCapacityUnits(v)) // Long, case Long
+        .map(_.longValue).foreach(v => result.globalTableProvisionedWriteCapacityUnits(v)) // Long
       self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.foreach { v =>
         import AutoScalingSettingsUpdateOps._;
         result.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(v.toJava)

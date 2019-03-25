@@ -14,7 +14,7 @@ object CreateTableRequestOps {
         import scala.collection.JavaConverters._, AttributeDefinitionOps._;
         result.attributeDefinitions(v.map(_.toJava).asJava)
       } // Seq[AttributeDefinition]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String, case String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]

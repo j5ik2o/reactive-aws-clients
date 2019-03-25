@@ -16,11 +16,10 @@ object RestoreTableToPointInTimeRequestOps {
 
     def toJava: JavaRestoreTableToPointInTimeRequest = {
       val result = JavaRestoreTableToPointInTimeRequest.builder()
-      self.sourceTableName.filter(_.nonEmpty).foreach(v => result.sourceTableName(v)) // String, case String
-      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v)) // String, case String
-      self.useLatestRestorableTime
-        .map(_.booleanValue).foreach(v => result.useLatestRestorableTime(v)) // Boolean, case Boolean
-      self.restoreDateTime.foreach(v => result.restoreDateTime(v))           // Instant
+      self.sourceTableName.filter(_.nonEmpty).foreach(v => result.sourceTableName(v))                  // String
+      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v))                  // String
+      self.useLatestRestorableTime.map(_.booleanValue).foreach(v => result.useLatestRestorableTime(v)) // Boolean
+      self.restoreDateTime.foreach(v => result.restoreDateTime(v))                                     // Instant
 
       result.build()
     }

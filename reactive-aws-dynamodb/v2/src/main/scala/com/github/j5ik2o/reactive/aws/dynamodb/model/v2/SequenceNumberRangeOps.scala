@@ -10,9 +10,8 @@ object SequenceNumberRangeOps {
 
     def toJava: JavaSequenceNumberRange = {
       val result = JavaSequenceNumberRange.builder()
-      self.startingSequenceNumber
-        .filter(_.nonEmpty).foreach(v => result.startingSequenceNumber(v))                      // String, case String
-      self.endingSequenceNumber.filter(_.nonEmpty).foreach(v => result.endingSequenceNumber(v)) // String, case String
+      self.startingSequenceNumber.filter(_.nonEmpty).foreach(v => result.startingSequenceNumber(v)) // String
+      self.endingSequenceNumber.filter(_.nonEmpty).foreach(v => result.endingSequenceNumber(v))     // String
 
       result.build()
     }

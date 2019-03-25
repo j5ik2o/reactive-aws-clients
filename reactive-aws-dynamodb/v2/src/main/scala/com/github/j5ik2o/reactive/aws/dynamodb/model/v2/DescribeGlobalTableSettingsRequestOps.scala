@@ -16,7 +16,7 @@ object DescribeGlobalTableSettingsRequestOps {
 
     def toJava: JavaDescribeGlobalTableSettingsRequest = {
       val result = JavaDescribeGlobalTableSettingsRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String, case String
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
 
       result.build()
     }

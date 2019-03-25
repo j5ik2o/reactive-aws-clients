@@ -10,8 +10,8 @@ object TagOps {
 
     def toJava: JavaTag = {
       val result = JavaTag.builder()
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))     // String, case String
-      self.value.filter(_.nonEmpty).foreach(v => result.value(v)) // String, case String
+      self.key.filter(_.nonEmpty).foreach(v => result.key(v))     // String
+      self.value.filter(_.nonEmpty).foreach(v => result.value(v)) // String
 
       result.build()
     }

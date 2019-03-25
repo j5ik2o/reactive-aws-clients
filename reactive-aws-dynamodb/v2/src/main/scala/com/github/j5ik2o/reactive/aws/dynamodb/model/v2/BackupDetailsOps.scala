@@ -10,9 +10,9 @@ object BackupDetailsOps {
 
     def toJava: JavaBackupDetails = {
       val result = JavaBackupDetails.builder()
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))           // String, case String
-      self.backupName.filter(_.nonEmpty).foreach(v => result.backupName(v))         // String, case String
-      self.backupSizeBytes.map(_.longValue).foreach(v => result.backupSizeBytes(v)) // Long, case Long
+      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))           // String
+      self.backupName.filter(_.nonEmpty).foreach(v => result.backupName(v))         // String
+      self.backupSizeBytes.map(_.longValue).foreach(v => result.backupSizeBytes(v)) // Long
       self.backupStatus.foreach { v =>
         import BackupStatusOps._; result.backupStatus(v.toJava)
       } // String

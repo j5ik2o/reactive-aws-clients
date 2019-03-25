@@ -10,9 +10,9 @@ object StreamOps {
 
     def toJava: JavaStream = {
       val result = JavaStream.builder()
-      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))     // String, case String
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))     // String, case String
-      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String, case String
+      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))     // String
+      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))     // String
+      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String
 
       result.build()
     }

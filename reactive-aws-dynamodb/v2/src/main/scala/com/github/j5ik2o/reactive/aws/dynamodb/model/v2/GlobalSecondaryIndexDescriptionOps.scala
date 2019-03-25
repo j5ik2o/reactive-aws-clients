@@ -16,7 +16,7 @@ object GlobalSecondaryIndexDescriptionOps {
 
     def toJava: JavaGlobalSecondaryIndexDescription = {
       val result = JavaGlobalSecondaryIndexDescription.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String, case String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
       self.keySchema.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
       } // Seq[KeySchemaElement]
@@ -26,13 +26,13 @@ object GlobalSecondaryIndexDescriptionOps {
       self.indexStatus.foreach { v =>
         import IndexStatusOps._; result.indexStatus(v.toJava)
       } // String
-      self.backfilling.map(_.booleanValue).foreach(v => result.backfilling(v)) // Boolean, case Boolean
+      self.backfilling.map(_.booleanValue).foreach(v => result.backfilling(v)) // Boolean
       self.provisionedThroughput.foreach { v =>
         import ProvisionedThroughputDescriptionOps._; result.provisionedThroughput(v.toJava)
       } // ProvisionedThroughputDescription
-      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long, case Long
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long, case Long
-      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String, case String
+      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
+      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String
 
       result.build()
     }

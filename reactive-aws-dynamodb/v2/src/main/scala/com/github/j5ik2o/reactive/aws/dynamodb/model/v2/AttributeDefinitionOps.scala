@@ -10,7 +10,7 @@ object AttributeDefinitionOps {
 
     def toJava: JavaAttributeDefinition = {
       val result = JavaAttributeDefinition.builder()
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String, case String
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
       self.attributeType.foreach { v =>
         import ScalarAttributeTypeOps._; result.attributeType(v.toJava)
       } // String

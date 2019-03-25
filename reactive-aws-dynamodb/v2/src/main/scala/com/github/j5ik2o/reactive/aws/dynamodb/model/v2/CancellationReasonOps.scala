@@ -13,8 +13,8 @@ object CancellationReasonOps {
       self.item.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava)
       } // Map[String, AttributeValue]
-      self.code.filter(_.nonEmpty).foreach(v => result.code(v))       // String, case String
-      self.message.filter(_.nonEmpty).foreach(v => result.message(v)) // String, case String
+      self.code.filter(_.nonEmpty).foreach(v => result.code(v))       // String
+      self.message.filter(_.nonEmpty).foreach(v => result.message(v)) // String
 
       result.build()
     }
