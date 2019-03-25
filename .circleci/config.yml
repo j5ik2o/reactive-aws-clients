@@ -23,7 +23,7 @@ jobs:
           no_output_timeout: 30m
       - checkout
       - restore_cache:
-          key: key-{{ checksum "build.sbt" }}
+          key: cache-key-{{ checksum "build.sbt" }}
       - run:
           command: |
             git submodule sync
@@ -34,4 +34,4 @@ jobs:
           no_output_timeout: 1h
       - save_cache:
           paths: [ "~/.sbt/boot", "~/.ivy2", "~/.m2", "~/.wixMySQL" ]
-          key: key-{{ checksum "build.sbt" }}
+          key: cache-key-{{ checksum "build.sbt" }}
