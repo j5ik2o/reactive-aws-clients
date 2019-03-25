@@ -27,7 +27,7 @@ jobs:
           no_output_timeout: 30m
       - checkout
       - restore_cache:
-          key: scala-library-dependencies-{{ checksum "build.sbt" }}
+          key: key-{{ checksum "build.sbt" }}
       - run:
           command: |
             cd aws-sdk-src/aws-sdk-java-v2
@@ -36,7 +36,7 @@ jobs:
           no_output_timeout: 1h
       - save_cache:
           paths: [ "~/.sbt/boot", "~/.ivy2", "~/.wixMySQL", "aws-sdk-src" ]
-          key: scala-library-dependencies-{{ checksum "build.sbt" }}
+          key: key-{{ checksum "build.sbt" }}
       - run:
           command: |
             sbt +test
