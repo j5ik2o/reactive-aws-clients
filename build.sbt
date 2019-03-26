@@ -220,20 +220,20 @@ lazy val `reactive-aws-dynamodb-core` = (project in file("reactive-aws-dynamodb/
       ),
     compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
     templateNameMapper in scalaWrapperGen := {
-      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient.ftl"
-      case _: EnumDesc                                      => "EnumModel.ftl"
-      case cd: ClassDesc
+      case ("DynamoDBClient", cd) if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient.ftl"
+      case (_, _: EnumDesc)                                                     => "EnumModel.ftl"
+      case (_, cd: ClassDesc)
           if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && cd.simpleTypeName == "AttributeValue" =>
         "ModelWithSupport.ftl"
-      case cd: ClassDesc
+      case (_, cd: ClassDesc)
           if cd.simpleTypeName.endsWith("Response") && cd.packageName.exists(_.endsWith("model")) && !cd.isStatic =>
         "ResponseModel.ftl"
-      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic => "Model.ftl"
-      case cd                                                                          => throw new Exception(s"error: ${cd}")
+      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic => "Model.ftl"
+      case (_, cd)                                                                          => throw new Exception(s"error: ${cd}")
     },
     typeNameMapper in scalaWrapperGen := {
-      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient"
-      case cd                                               => cd.simpleTypeName
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => Seq("DynamoDBClient")
+      case cd                                               => Seq(cd.simpleTypeName)
     },
     packageNameMapper in scalaWrapperGen := {
       _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb")
@@ -312,23 +312,33 @@ lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2
       ),
       compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
       templateNameMapper in scalaWrapperGen := {
-        case cd: ClassDesc if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBAsyncClientV2.ftl"
-        case cd: ClassDesc
+        case ("DynamoDBAsyncClientV2", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBAsyncClientV2.ftl"
+        case ("DynamoDBAsyncClientV2Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBAsyncClientV2Impl.ftl"
+        case ("DynamoDBSyncClientV2", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
+          "DynamoDBSyncClientV2.ftl"
+        case ("DynamoDBSyncClientV2Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
+          "DynamoDBSyncClientV2Impl.ftl"
+        case (_, cd: ClassDesc)
             if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName
               .endsWith("Request") && !Seq("WriteRequest", "PutRequest", "DeleteRequest").contains(cd.simpleTypeName) =>
           "RequestOps.ftl"
-        case cd: ClassDesc
+        case (_, cd: ClassDesc)
             if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName
               .endsWith("Response") && cd.simpleTypeName != "ItemResponse" =>
           "ResponseOps.ftl"
-        case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
-        case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))  => "EnumOps.ftl"
-        case cd                                                          => throw new Exception(s"error: ${cd}")
+        case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
+        case (_, cd: EnumDesc) if cd.packageName.exists(_.endsWith("model"))  => "EnumOps.ftl"
+        case (name, cd)                                                       => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
       },
       typeNameMapper in scalaWrapperGen := {
-        case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBAsyncClientV2"
-        case cd if cd.packageName.exists(_.endsWith("model")) => cd.simpleTypeName + "Ops"
-        case cd                                               => cd.simpleTypeName
+        case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          Seq("DynamoDBAsyncClientV2", "DynamoDBAsyncClientV2Impl")
+        case cd if cd.simpleTypeName == "DynamoDbClient" =>
+          Seq("DynamoDBSyncClientV2", "DynamoDBSyncClientV2Impl")
+        case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
+        case cd                                               => Seq(cd.simpleTypeName)
       },
       packageNameMapper in scalaWrapperGen := {
         case s if s == "software.amazon.awssdk.services.dynamodb.model" =>
@@ -341,6 +351,7 @@ lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2
       },
       typeDescFilter in scalaWrapperGen := {
         case cd if cd.simpleTypeName == "DynamoDbAsyncClient"         => true
+        case cd if cd.simpleTypeName == "DynamoDbClient"              => true
         case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception") => false
         case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")    => false
         case cd: ClassDesc
@@ -419,17 +430,17 @@ lazy val `reactive-aws-kinesis-core` = (project in file("reactive-aws-kinesis/co
       ),
     // compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
     templateNameMapper in scalaWrapperGen := {
-      case cd if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
-      case _: EnumDesc                                     => "EnumModel.ftl"
-      case cd: ClassDesc
+      case (_, cd) if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
+      case (_, _: EnumDesc)                                     => "EnumModel.ftl"
+      case (_, cd: ClassDesc)
           if cd.simpleTypeName.endsWith("Response") && cd.packageName.exists(_.endsWith("model")) && !cd.isStatic =>
         "ResponseModel.ftl"
-      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic => "Model.ftl"
-      case cd                                                                          => throw new Exception(s"error: ${cd}")
+      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic => "Model.ftl"
+      case (_, cd)                                                                          => throw new Exception(s"error: ${cd}")
     },
     typeNameMapper in scalaWrapperGen := {
-      case cd if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient"
-      case cd                                              => cd.simpleTypeName
+      case cd if cd.simpleTypeName == "KinesisAsyncClient" => Seq("KinesisClient")
+      case cd                                              => Seq(cd.simpleTypeName)
     },
     packageNameMapper in scalaWrapperGen := {
       _.replace("software.amazon.awssdk.services.kinesis", "com.github.j5ik2o.reactive.aws.kinesis")
