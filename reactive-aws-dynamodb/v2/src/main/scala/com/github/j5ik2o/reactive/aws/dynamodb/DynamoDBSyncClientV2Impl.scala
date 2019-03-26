@@ -1,6 +1,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.rs._
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 
 class DynamoDBSyncClientV2Impl(override val underlying: DynamoDbClient) extends DynamoDBSyncClientV2 {
@@ -86,164 +87,174 @@ class DynamoDBSyncClientV2Impl(override val underlying: DynamoDbClient) extends 
     }
   }
 
-  override def batchGetItem(
-      request: BatchGetItemRequest
-  ): Either[Throwable, BatchGetItemResponse] = {
-    toEither(underlying.batchGetItem(request.toJava)).right.map(_.toScala)
-  }
+  override def batchGetItem(batchGetItemRequest: BatchGetItemRequest): Either[Throwable, BatchGetItemResponse] =
+    toEither(underlying.batchGetItem(batchGetItemRequest.toJava)).right.map(_.toScala)
 
-  override def batchWriteItem(request: BatchWriteItemRequest): Either[Throwable, BatchWriteItemResponse] = {
-    toEither(underlying.batchWriteItem(request.toJava)).right.map(_.toScala)
-  }
+  override def batchGetItemPaginator(batchGetItemRequest: BatchGetItemRequest): rs.BatchGetItemIterable =
+    new BatchGetItemIterableImpl(underlying.batchGetItemPaginator(batchGetItemRequest.toJava))
 
-  override def createBackup(request: CreateBackupRequest): Either[Throwable, CreateBackupResponse] = {
-    toEither(underlying.createBackup(request.toJava)).right.map(_.toScala)
-  }
+  override def batchWriteItem(batchWriteItemRequest: BatchWriteItemRequest): Either[Throwable, BatchWriteItemResponse] =
+    toEither(underlying.batchWriteItem(batchWriteItemRequest.toJava)).right.map(_.toScala)
 
-  override def createGlobalTable(request: CreateGlobalTableRequest): Either[Throwable, CreateGlobalTableResponse] = {
-    toEither(underlying.createGlobalTable(request.toJava)).right.map(_.toScala)
-  }
+  override def createBackup(createBackupRequest: CreateBackupRequest): Either[Throwable, CreateBackupResponse] =
+    toEither(underlying.createBackup(createBackupRequest.toJava)).right.map(_.toScala)
 
-  override def createTable(request: CreateTableRequest): Either[Throwable, CreateTableResponse] = {
-    toEither(underlying.createTable(request.toJava)).right.map(_.toScala)
-  }
+  override def createGlobalTable(
+      createGlobalTableRequest: CreateGlobalTableRequest
+  ): Either[Throwable, CreateGlobalTableResponse] =
+    toEither(underlying.createGlobalTable(createGlobalTableRequest.toJava)).right.map(_.toScala)
+
+  override def createTable(createTableRequest: CreateTableRequest): Either[Throwable, CreateTableResponse] =
+    toEither(underlying.createTable(createTableRequest.toJava)).right.map(_.toScala)
+
+  override def deleteBackup(deleteBackupRequest: DeleteBackupRequest): Either[Throwable, DeleteBackupResponse] =
+    toEither(underlying.deleteBackup(deleteBackupRequest.toJava)).right.map(_.toScala)
+
+  override def deleteItem(deleteItemRequest: DeleteItemRequest): Either[Throwable, DeleteItemResponse] =
+    toEither(underlying.deleteItem(deleteItemRequest.toJava)).right.map(_.toScala)
+
+  override def deleteTable(deleteTableRequest: DeleteTableRequest): Either[Throwable, DeleteTableResponse] =
+    toEither(underlying.deleteTable(deleteTableRequest.toJava)).right.map(_.toScala)
+
+  override def describeBackup(describeBackupRequest: DescribeBackupRequest): Either[Throwable, DescribeBackupResponse] =
+    toEither(underlying.describeBackup(describeBackupRequest.toJava)).right.map(_.toScala)
 
   override def describeContinuousBackups(
-      request: DescribeContinuousBackupsRequest
-  ): Either[Throwable, DescribeContinuousBackupsResponse] = {
-    toEither(underlying.describeContinuousBackups(request.toJava)).right.map(_.toScala)
-  }
+      describeContinuousBackupsRequest: DescribeContinuousBackupsRequest
+  ): Either[Throwable, DescribeContinuousBackupsResponse] =
+    toEither(underlying.describeContinuousBackups(describeContinuousBackupsRequest.toJava)).right.map(_.toScala)
 
-  override def describeEndpoints(request: DescribeEndpointsRequest): Either[Throwable, DescribeEndpointsResponse] = {
-    toEither(underlying.describeEndpoints(request.toJava)).right.map(_.toScala)
-  }
+  override def describeEndpoints(): Either[Throwable, DescribeEndpointsResponse] =
+    toEither(underlying.describeEndpoints()).right.map(_.toScala)
 
-  override def describeBackup(request: DescribeBackupRequest): Either[Throwable, DescribeBackupResponse] = {
-    toEither(underlying.describeBackup(request.toJava)).right.map(_.toScala)
-  }
+  override def describeEndpoints(
+      describeEndpointsRequest: DescribeEndpointsRequest
+  ): Either[Throwable, DescribeEndpointsResponse] =
+    toEither(underlying.describeEndpoints(describeEndpointsRequest.toJava)).right.map(_.toScala)
 
   override def describeGlobalTable(
-      request: DescribeGlobalTableRequest
-  ): Either[Throwable, DescribeGlobalTableResponse] = {
-    toEither(underlying.describeGlobalTable(request.toJava)).right.map(_.toScala)
-  }
+      describeGlobalTableRequest: DescribeGlobalTableRequest
+  ): Either[Throwable, DescribeGlobalTableResponse] =
+    toEither(underlying.describeGlobalTable(describeGlobalTableRequest.toJava)).right.map(_.toScala)
 
   override def describeGlobalTableSettings(
-      request: DescribeGlobalTableSettingsRequest
-  ): Either[Throwable, DescribeGlobalTableSettingsResponse] = {
-    toEither(underlying.describeGlobalTableSettings(request.toJava)).right.map(_.toScala)
-  }
+      describeGlobalTableSettingsRequest: DescribeGlobalTableSettingsRequest
+  ): Either[Throwable, DescribeGlobalTableSettingsResponse] =
+    toEither(underlying.describeGlobalTableSettings(describeGlobalTableSettingsRequest.toJava)).right.map(_.toScala)
 
-  override def describeLimits(request: DescribeLimitsRequest): Either[Throwable, DescribeLimitsResponse] = {
-    toEither(underlying.describeLimits(request.toJava)).right.map(_.toScala)
-  }
+  override def describeLimits(): Either[Throwable, DescribeLimitsResponse] =
+    toEither(underlying.describeLimits()).right.map(_.toScala)
 
-  override def describeTimeToLive(request: DescribeTimeToLiveRequest): Either[Throwable, DescribeTimeToLiveResponse] = {
-    toEither(underlying.describeTimeToLive(request.toJava)).right.map(_.toScala)
-  }
+  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Either[Throwable, DescribeLimitsResponse] =
+    toEither(underlying.describeLimits(describeLimitsRequest.toJava)).right.map(_.toScala)
 
-  override def listGlobalTables(request: ListGlobalTablesRequest): Either[Throwable, ListGlobalTablesResponse] = {
-    toEither(underlying.listGlobalTables(request.toJava)).right.map(_.toScala)
-  }
+  override def describeTable(describeTableRequest: DescribeTableRequest): Either[Throwable, DescribeTableResponse] =
+    toEither(underlying.describeTable(describeTableRequest.toJava)).right.map(_.toScala)
 
-  override def describeTable(request: DescribeTableRequest): Either[Throwable, DescribeTableResponse] = {
-    toEither(underlying.describeTable(request.toJava)).right.map(_.toScala)
-  }
+  override def describeTimeToLive(
+      describeTimeToLiveRequest: DescribeTimeToLiveRequest
+  ): Either[Throwable, DescribeTimeToLiveResponse] =
+    toEither(underlying.describeTimeToLive(describeTimeToLiveRequest.toJava)).right.map(_.toScala)
 
-  override def deleteBackup(request: DeleteBackupRequest): Either[Throwable, DeleteBackupResponse] = {
-    toEither(underlying.deleteBackup(request.toJava)).right.map(_.toScala)
-  }
+  override def getItem(getItemRequest: GetItemRequest): Either[Throwable, GetItemResponse] =
+    toEither(underlying.getItem(getItemRequest.toJava)).right.map(_.toScala)
 
-  override def deleteItem(request: DeleteItemRequest): Either[Throwable, DeleteItemResponse] = {
-    toEither(underlying.deleteItem(request.toJava)).right.map(_.toScala)
-  }
+  override def listBackups(): Either[Throwable, ListBackupsResponse] =
+    toEither(underlying.listBackups()).right.map(_.toScala)
 
-  override def deleteTable(request: DeleteTableRequest): Either[Throwable, DeleteTableResponse] = {
-    toEither(underlying.deleteTable(request.toJava)).right.map(_.toScala)
-  }
+  override def listBackups(listBackupsRequest: ListBackupsRequest): Either[Throwable, ListBackupsResponse] =
+    toEither(underlying.listBackups(listBackupsRequest.toJava)).right.map(_.toScala)
 
-  override def listBackups(request: ListBackupsRequest): Either[Throwable, ListBackupsResponse] = {
-    toEither(underlying.listBackups(request.toJava)).right.map(_.toScala)
-  }
+  override def listGlobalTables(): Either[Throwable, ListGlobalTablesResponse] =
+    toEither(underlying.listGlobalTables()).right.map(_.toScala)
 
-  override def listTables(request: ListTablesRequest): Either[Throwable, ListTablesResponse] = {
-    toEither(underlying.listTables(request.toJava)).right.map(_.toScala)
-  }
+  override def listGlobalTables(
+      listGlobalTablesRequest: ListGlobalTablesRequest
+  ): Either[Throwable, ListGlobalTablesResponse] =
+    toEither(underlying.listGlobalTables(listGlobalTablesRequest.toJava)).right.map(_.toScala)
 
-  override def listTagsOfResource(request: ListTagsOfResourceRequest): Either[Throwable, ListTagsOfResourceResponse] = {
-    toEither(underlying.listTagsOfResource(request.toJava)).right.map(_.toScala)
-  }
+  override def listTables(): Either[Throwable, ListTablesResponse] =
+    toEither(underlying.listTables()).right.map(_.toScala)
 
-  override def putItem(request: PutItemRequest): Either[Throwable, PutItemResponse] = {
-    toEither(underlying.putItem(request.toJava)).right.map(_.toScala)
-  }
+  override def listTables(listTablesRequest: ListTablesRequest): Either[Throwable, ListTablesResponse] =
+    toEither(underlying.listTables(listTablesRequest.toJava)).right.map(_.toScala)
 
-  override def query(request: QueryRequest): Either[Throwable, QueryResponse] = {
-    toEither(underlying.query(request.toJava)).right.map(_.toScala)
-  }
+  override def listTablesPaginator(): rs.ListTablesIterable =
+    new ListTablesIterableImpl(underlying.listTablesPaginator())
+
+  override def listTablesPaginator(listTablesRequest: ListTablesRequest): rs.ListTablesIterable =
+    new ListTablesIterableImpl(underlying.listTablesPaginator(listTablesRequest.toJava))
+
+  override def listTagsOfResource(
+      listTagsOfResourceRequest: ListTagsOfResourceRequest
+  ): Either[Throwable, ListTagsOfResourceResponse] =
+    toEither(underlying.listTagsOfResource(listTagsOfResourceRequest.toJava)).right.map(_.toScala)
+
+  override def putItem(putItemRequest: PutItemRequest): Either[Throwable, PutItemResponse] =
+    toEither(underlying.putItem(putItemRequest.toJava)).right.map(_.toScala)
+
+  override def query(queryRequest: QueryRequest): Either[Throwable, QueryResponse] =
+    toEither(underlying.query(queryRequest.toJava)).right.map(_.toScala)
+
+  override def queryPaginator(queryRequest: QueryRequest): rs.QueryIterable =
+    new QueryIterableImpl(underlying.queryPaginator(queryRequest.toJava))
 
   override def restoreTableFromBackup(
-      request: RestoreTableFromBackupRequest
-  ): Either[Throwable, RestoreTableFromBackupResponse] = {
-    toEither(underlying.restoreTableFromBackup(request.toJava)).right.map(_.toScala)
-  }
+      restoreTableFromBackupRequest: RestoreTableFromBackupRequest
+  ): Either[Throwable, RestoreTableFromBackupResponse] =
+    toEither(underlying.restoreTableFromBackup(restoreTableFromBackupRequest.toJava)).right.map(_.toScala)
 
   override def restoreTableToPointInTime(
-      request: RestoreTableToPointInTimeRequest
-  ): Either[Throwable, RestoreTableToPointInTimeResponse] = {
-    toEither(underlying.restoreTableToPointInTime(request.toJava)).right.map(_.toScala)
-  }
+      restoreTableToPointInTimeRequest: RestoreTableToPointInTimeRequest
+  ): Either[Throwable, RestoreTableToPointInTimeResponse] =
+    toEither(underlying.restoreTableToPointInTime(restoreTableToPointInTimeRequest.toJava)).right.map(_.toScala)
 
-  override def scan(request: ScanRequest): Either[Throwable, ScanResponse] = {
-    toEither(underlying.scan(request.toJava)).right.map(_.toScala)
-  }
+  override def scan(scanRequest: ScanRequest): Either[Throwable, ScanResponse] =
+    toEither(underlying.scan(scanRequest.toJava)).right.map(_.toScala)
 
-  override def getItem(request: GetItemRequest): Either[Throwable, GetItemResponse] = {
-    toEither(underlying.getItem(request.toJava)).right.map(_.toScala)
-  }
+  override def scanPaginator(scanRequest: ScanRequest): rs.ScanIterable =
+    new ScanIterableImpl(underlying.scanPaginator(scanRequest.toJava))
 
-  override def updateGlobalTableSettings(
-      request: UpdateGlobalTableSettingsRequest
-  ): Either[Throwable, UpdateGlobalTableSettingsResponse] = {
-    toEither(underlying.updateGlobalTableSettings(request.toJava)).right.map(_.toScala)
-  }
+  override def tagResource(tagResourceRequest: TagResourceRequest): Either[Throwable, TagResourceResponse] =
+    toEither(underlying.tagResource(tagResourceRequest.toJava)).right.map(_.toScala)
 
-  override def updateItem(request: UpdateItemRequest): Either[Throwable, UpdateItemResponse] = {
-    toEither(underlying.updateItem(request.toJava)).right.map(_.toScala)
-  }
+  override def transactGetItems(
+      transactGetItemsRequest: TransactGetItemsRequest
+  ): Either[Throwable, TransactGetItemsResponse] =
+    toEither(underlying.transactGetItems(transactGetItemsRequest.toJava)).right.map(_.toScala)
 
-  override def updateTable(request: UpdateTableRequest): Either[Throwable, UpdateTableResponse] = {
-    toEither(underlying.updateTable(request.toJava)).right.map(_.toScala)
-  }
+  override def transactWriteItems(
+      transactWriteItemsRequest: TransactWriteItemsRequest
+  ): Either[Throwable, TransactWriteItemsResponse] =
+    toEither(underlying.transactWriteItems(transactWriteItemsRequest.toJava)).right.map(_.toScala)
 
-  override def updateTimeToLive(request: UpdateTimeToLiveRequest): Either[Throwable, UpdateTimeToLiveResponse] = {
-    toEither(underlying.updateTimeToLive(request.toJava)).right.map(_.toScala)
-  }
-
-  override def tagResource(request: TagResourceRequest): Either[Throwable, TagResourceResponse] = {
-    toEither(underlying.tagResource(request.toJava)).right.map(_.toScala)
-  }
-
-  override def transactGetItems(request: TransactGetItemsRequest): Either[Throwable, TransactGetItemsResponse] = {
-    toEither(underlying.transactGetItems(request.toJava)).right.map(_.toScala)
-  }
-
-  override def transactWriteItems(request: TransactWriteItemsRequest): Either[Throwable, TransactWriteItemsResponse] = {
-    toEither(underlying.transactWriteItems(request.toJava)).right.map(_.toScala)
-  }
-
-  override def untagResource(request: UntagResourceRequest): Either[Throwable, UntagResourceResponse] = {
-    toEither(underlying.untagResource(request.toJava)).right.map(_.toScala)
-  }
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Either[Throwable, UntagResourceResponse] =
+    toEither(underlying.untagResource(untagResourceRequest.toJava)).right.map(_.toScala)
 
   override def updateContinuousBackups(
-      request: UpdateContinuousBackupsRequest
-  ): Either[Throwable, UpdateContinuousBackupsResponse] = {
-    toEither(underlying.updateContinuousBackups(request.toJava)).right.map(_.toScala)
-  }
+      updateContinuousBackupsRequest: UpdateContinuousBackupsRequest
+  ): Either[Throwable, UpdateContinuousBackupsResponse] =
+    toEither(underlying.updateContinuousBackups(updateContinuousBackupsRequest.toJava)).right.map(_.toScala)
 
-  override def updateGlobalTable(request: UpdateGlobalTableRequest): Either[Throwable, UpdateGlobalTableResponse] = {
-    toEither(underlying.updateGlobalTable(request.toJava)).right.map(_.toScala)
-  }
+  override def updateGlobalTable(
+      updateGlobalTableRequest: UpdateGlobalTableRequest
+  ): Either[Throwable, UpdateGlobalTableResponse] =
+    toEither(underlying.updateGlobalTable(updateGlobalTableRequest.toJava)).right.map(_.toScala)
+
+  override def updateGlobalTableSettings(
+      updateGlobalTableSettingsRequest: UpdateGlobalTableSettingsRequest
+  ): Either[Throwable, UpdateGlobalTableSettingsResponse] =
+    toEither(underlying.updateGlobalTableSettings(updateGlobalTableSettingsRequest.toJava)).right.map(_.toScala)
+
+  override def updateItem(updateItemRequest: UpdateItemRequest): Either[Throwable, UpdateItemResponse] =
+    toEither(underlying.updateItem(updateItemRequest.toJava)).right.map(_.toScala)
+
+  override def updateTable(updateTableRequest: UpdateTableRequest): Either[Throwable, UpdateTableResponse] =
+    toEither(underlying.updateTable(updateTableRequest.toJava)).right.map(_.toScala)
+
+  override def updateTimeToLive(
+      updateTimeToLiveRequest: UpdateTimeToLiveRequest
+  ): Either[Throwable, UpdateTimeToLiveResponse] =
+    toEither(underlying.updateTimeToLive(updateTimeToLiveRequest.toJava)).right.map(_.toScala)
 
 }
