@@ -28,8 +28,7 @@ jobs:
           command: |
             git submodule sync
             git submodule update --init
-            cd aws-sdk-src/aws-sdk-java-v2
-            mvn install
+            cd aws-sdk-src/aws-sdk-java-v2 && mvn install && cd ..
             sbt +test
           no_output_timeout: 1h
       - save_cache:
