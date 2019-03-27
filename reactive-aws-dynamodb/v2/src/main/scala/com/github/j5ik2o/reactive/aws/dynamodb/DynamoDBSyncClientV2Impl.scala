@@ -1,3 +1,4 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.dynamodb.model.rs._
