@@ -278,7 +278,29 @@ lazy val `reactive-aws-dynamodb-akka` = (project in file("reactive-aws-dynamodb/
       libraryDependencies ++= Seq(
         "com.typesafe.akka" %% "akka-testkit"        % akkaVersion % Test,
         "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
-      )
+      ),
+      compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+      templateNameMapper in scalaWrapperGen := {
+        case ("DynamoDBStreamClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBStreamClient.ftl"
+        case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
+      },
+      typeNameMapper in scalaWrapperGen := {
+        case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          Seq("DynamoDBStreamClient")
+      },
+      packageNameMapper in scalaWrapperGen := {
+        _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.akka")
+      },
+      outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+        (scalaSource in Compile).value
+      },
+      typeDescFilter in scalaWrapperGen := {
+        case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => true
+        case _ =>
+          false
+      },
+      inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
     )
   ) dependsOn (`reactive-aws-common-akka`, `reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 

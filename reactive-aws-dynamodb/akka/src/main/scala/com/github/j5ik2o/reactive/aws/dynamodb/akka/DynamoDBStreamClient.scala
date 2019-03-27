@@ -1,3 +1,4 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.akka
 
 import akka.NotUsed
@@ -12,69 +13,52 @@ object DynamoDBStreamClient {
   def apply(underlying: DynamoDBClient[Future]): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
 
 }
+
 trait DynamoDBStreamClient {
 
   val underlying: DynamoDBClient[Future]
 
-  def batchGetItemFlow(
-      parallelism: Int = 1
-  ): Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
+  def batchGetItemFlow(parallelism: Int = 1): Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
     Flow[BatchGetItemRequest].mapAsync(parallelism) { request =>
       underlying.batchGetItem(request)
     }
 
-  def batchWriteItemFlow(
-      parallelism: Int = 1
-  ): Flow[BatchWriteItemRequest, BatchWriteItemResponse, NotUsed] =
+  def batchWriteItemFlow(parallelism: Int = 1): Flow[BatchWriteItemRequest, BatchWriteItemResponse, NotUsed] =
     Flow[BatchWriteItemRequest].mapAsync(parallelism) { request =>
       underlying.batchWriteItem(request)
     }
 
-  def createBackupFlow(
-      parallelism: Int = 1
-  ): Flow[CreateBackupRequest, CreateBackupResponse, NotUsed] =
+  def createBackupFlow(parallelism: Int = 1): Flow[CreateBackupRequest, CreateBackupResponse, NotUsed] =
     Flow[CreateBackupRequest].mapAsync(parallelism) { request =>
       underlying.createBackup(request)
     }
 
-  def createGlobalTableFlow(
-      parallelism: Int = 1
-  ): Flow[CreateGlobalTableRequest, CreateGlobalTableResponse, NotUsed] =
+  def createGlobalTableFlow(parallelism: Int = 1): Flow[CreateGlobalTableRequest, CreateGlobalTableResponse, NotUsed] =
     Flow[CreateGlobalTableRequest].mapAsync(parallelism) { request =>
       underlying.createGlobalTable(request)
     }
 
-  def createTableFlow(
-      parallelism: Int = 1
-  ): Flow[CreateTableRequest, CreateTableResponse, NotUsed] =
+  def createTableFlow(parallelism: Int = 1): Flow[CreateTableRequest, CreateTableResponse, NotUsed] =
     Flow[CreateTableRequest].mapAsync(parallelism) { request =>
       underlying.createTable(request)
     }
 
-  def deleteBackupFlow(
-      parallelism: Int = 1
-  ): Flow[DeleteBackupRequest, DeleteBackupResponse, NotUsed] =
+  def deleteBackupFlow(parallelism: Int = 1): Flow[DeleteBackupRequest, DeleteBackupResponse, NotUsed] =
     Flow[DeleteBackupRequest].mapAsync(parallelism) { request =>
       underlying.deleteBackup(request)
     }
 
-  def deleteItemFlow(
-      parallelism: Int = 1
-  ): Flow[DeleteItemRequest, DeleteItemResponse, NotUsed] =
+  def deleteItemFlow(parallelism: Int = 1): Flow[DeleteItemRequest, DeleteItemResponse, NotUsed] =
     Flow[DeleteItemRequest].mapAsync(parallelism) { request =>
       underlying.deleteItem(request)
     }
 
-  def deleteTableFlow(
-      parallelism: Int = 1
-  ): Flow[DeleteTableRequest, DeleteTableResponse, NotUsed] =
+  def deleteTableFlow(parallelism: Int = 1): Flow[DeleteTableRequest, DeleteTableResponse, NotUsed] =
     Flow[DeleteTableRequest].mapAsync(parallelism) { request =>
       underlying.deleteTable(request)
     }
 
-  def describeBackupFlow(
-      parallelism: Int = 1
-  ): Flow[DescribeBackupRequest, DescribeBackupResponse, NotUsed] =
+  def describeBackupFlow(parallelism: Int = 1): Flow[DescribeBackupRequest, DescribeBackupResponse, NotUsed] =
     Flow[DescribeBackupRequest].mapAsync(parallelism) { request =>
       underlying.describeBackup(request)
     }
@@ -86,9 +70,7 @@ trait DynamoDBStreamClient {
       underlying.describeContinuousBackups(request)
     }
 
-  def describeEndpointsFlow(
-      parallelism: Int = 1
-  ): Flow[DescribeEndpointsRequest, DescribeEndpointsResponse, NotUsed] =
+  def describeEndpointsFlow(parallelism: Int = 1): Flow[DescribeEndpointsRequest, DescribeEndpointsResponse, NotUsed] =
     Flow[DescribeEndpointsRequest].mapAsync(parallelism) { request =>
       underlying.describeEndpoints(request)
     }
@@ -226,7 +208,12 @@ trait DynamoDBStreamClient {
       underlying.updateItem(request)
     }
 
-  def updateTimeToLive(parallelism: Int = 1): Flow[UpdateTimeToLiveRequest, UpdateTimeToLiveResponse, NotUsed] =
+  def updateTableFlow(parallelism: Int = 1): Flow[UpdateTableRequest, UpdateTableResponse, NotUsed] =
+    Flow[UpdateTableRequest].mapAsync(parallelism) { request =>
+      underlying.updateTable(request)
+    }
+
+  def updateTimeToLiveFlow(parallelism: Int = 1): Flow[UpdateTimeToLiveRequest, UpdateTimeToLiveResponse, NotUsed] =
     Flow[UpdateTimeToLiveRequest].mapAsync(parallelism) { request =>
       underlying.updateTimeToLive(request)
     }
