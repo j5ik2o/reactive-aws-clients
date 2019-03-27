@@ -1,30 +1,25 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  DescribeGlobalTableSettingsRequest => ScalaDescribeGlobalTableSettingsRequest,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   DescribeGlobalTableSettingsRequest => JavaDescribeGlobalTableSettingsRequest
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DescribeGlobalTableSettingsRequest => ScalaDescribeGlobalTableSettingsRequest
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object DescribeGlobalTableSettingsRequestOps {
 
   implicit class ScalaDescribeGlobalTableSettingsRequestOps(val self: ScalaDescribeGlobalTableSettingsRequest)
       extends AnyVal {
 
     def toJava: JavaDescribeGlobalTableSettingsRequest = {
-      val result = new JavaDescribeGlobalTableSettingsRequest
-      self.globalTableName.foreach(result.setGlobalTableName)
+      val result = new JavaDescribeGlobalTableSettingsRequest()
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.withGlobalTableName(v)) // String
+
       result
-    }
-
-  }
-
-  implicit class JavaDescribeGlobalTableSettingsRequestOps(val self: JavaDescribeGlobalTableSettingsRequest)
-      extends AnyVal {
-
-    def toScala: ScalaDescribeGlobalTableSettingsRequest = {
-      ScalaDescribeGlobalTableSettingsRequest().withGlobalTableName(Option(self.getGlobalTableName))
     }
 
   }

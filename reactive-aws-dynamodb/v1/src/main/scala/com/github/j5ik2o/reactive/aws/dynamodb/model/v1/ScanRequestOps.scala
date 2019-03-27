@@ -1,66 +1,52 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
+
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ScanRequest => ScalaScanRequest, _ }
 import com.amazonaws.services.dynamodbv2.model.{ ScanRequest => JavaScanRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ConditionalOperator,
-  ReturnConsumedCapacity,
-  Select,
-  ScanRequest => ScalaScanRequest
-}
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ScanRequestOps {
-
-  import AttributeValueOps._
-  import ConditionOps._
 
   implicit class ScalaScanRequestOps(val self: ScalaScanRequest) extends AnyVal {
 
     def toJava: JavaScanRequest = {
-      val result = new JavaScanRequest
-      self.tableName.foreach(result.setTableName)
-      self.indexName.foreach(result.setIndexName)
-      self.attributesToGet.map(_.asJava).foreach(result.setAttributesToGet)
-      self.limit.foreach(v => result.setLimit(v))
-      self.select.map(_.entryName).foreach(result.setSelect)
-      self.scanFilter.map(_.mapValues(_.toJava).asJava).foreach(result.setScanFilter)
-      self.conditionalOperator.map(_.entryName).foreach(result.setConditionalOperator)
-      self.exclusiveStartKey.map(_.mapValues(_.toJava).asJava).foreach(result.setExclusiveStartKey)
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.setReturnConsumedCapacity)
-      self.totalSegments.foreach(v => result.setTotalSegments(v))
-      self.segment.foreach(v => result.setSegment(v))
-      self.projectionExpression.foreach(result.setProjectionExpression)
-      self.filterExpression.foreach(result.setFilterExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.setExpressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.setExpressionAttributeValues)
-      self.consistentRead.foreach(v => result.setConsistentRead(v))
+      val result = new JavaScanRequest()
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v)) // String
+      self.indexName.filter(_.nonEmpty).foreach(v => result.withIndexName(v)) // String
+      self.attributesToGet.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._; result.withAttributesToGet(v.asJava)
+      } // Seq[String]
+      self.limit.map(_.intValue).foreach(v => result.withLimit(v)) // Int
+      self.select.foreach { v =>
+        import SelectOps._; result.withSelect(v.toJava)
+      } // String
+      self.scanFilter.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ConditionOps._; result.withScanFilter(v.mapValues(_.toJava).asJava)
+      } // Map[String, Condition]
+      self.conditionalOperator.foreach { v =>
+        import ConditionalOperatorOps._; result.withConditionalOperator(v.toJava)
+      } // String
+      self.exclusiveStartKey.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.withExclusiveStartKey(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.withReturnConsumedCapacity(v.toJava)
+      } // String
+      self.totalSegments.map(_.intValue).foreach(v => result.withTotalSegments(v))                  // Int
+      self.segment.map(_.intValue).foreach(v => result.withSegment(v))                              // Int
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.withProjectionExpression(v)) // String
+      self.filterExpression.filter(_.nonEmpty).foreach(v => result.withFilterExpression(v))         // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.withExpressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.withExpressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.consistentRead.map(_.booleanValue).foreach(v => result.withConsistentRead(v)) // Boolean
+
       result
-    }
-
-  }
-
-  implicit class JavaScanRequestOps(val self: JavaScanRequest) extends AnyVal {
-
-    def toScala: ScalaScanRequest = {
-      ScalaScanRequest()
-        .withTableName(Option(self.getTableName))
-        .withIndexName(Option(self.getIndexName))
-        .withAttributesToGet(Option(self.getAttributesToGet).map(_.asScala))
-        .withLimit(Option(self.getLimit))
-        .withSelect(Option(self.getSelect).map(Select.withName))
-        .withScanFilter(Option(self.getScanFilter).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConditionalOperator(Option(self.getConditionalOperator).map(ConditionalOperator.withName))
-        .withExclusiveStartKey(Option(self.getExclusiveStartKey).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity).map(ReturnConsumedCapacity.withName))
-        .withTotalSegments(Option(self.getTotalSegments))
-        .withSegment(Option(self.getSegment))
-        .withProjectionExpression(Option(self.getProjectionExpression))
-        .withFilterExpression(Option(self.getFilterExpression))
-        .withExpressionAttributeNames(Option(self.getExpressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.getExpressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
-        .withConsistentRead(Option(self.getConsistentRead).map(_.booleanValue()))
     }
 
   }

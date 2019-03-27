@@ -1,21 +1,23 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AttributeValueUpdate => ScalaAttributeValueUpdate, _ }
 import com.amazonaws.services.dynamodbv2.model.{ AttributeValueUpdate => JavaAttributeValueUpdate }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  AttributeAction,
-  AttributeValueUpdate => ScalaAttributeValueUpdate
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AttributeValueUpdateOps {
-
-  import AttributeValueOps._
 
   implicit class ScalaAttributeValueUpdateOps(val self: ScalaAttributeValueUpdate) extends AnyVal {
 
     def toJava: JavaAttributeValueUpdate = {
       val result = new JavaAttributeValueUpdate()
-      self.value.map(_.toJava).foreach(result.setValue)
-      self.action.map(_.entryName).foreach(result.setAction)
+      self.value.foreach { v =>
+        import AttributeValueOps._; result.withValue(v.toJava)
+      } // AttributeValue
+      self.action.foreach { v =>
+        import AttributeActionOps._; result.withAction(v.toJava)
+      } // String
+
       result
     }
 
@@ -25,8 +27,12 @@ object AttributeValueUpdateOps {
 
     def toScala: ScalaAttributeValueUpdate = {
       ScalaAttributeValueUpdate()
-        .withValue(Option(self.getValue).map(_.toScala))
-        .withAction(Option(self.getAction).map(AttributeAction.withName))
+        .withValue(Option(self.getValue).map { v =>
+          import AttributeValueOps._; v.toScala
+        }) // AttributeValue
+        .withAction(Option(self.getAction).map { v =>
+          import AttributeActionOps._; v.toScala
+        }) // String
     }
 
   }

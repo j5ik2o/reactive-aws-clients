@@ -1,21 +1,29 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  GlobalSecondaryIndexUpdate => ScalaGlobalSecondaryIndexUpdate,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{ GlobalSecondaryIndexUpdate => JavaGlobalSecondaryIndexUpdate }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GlobalSecondaryIndexUpdate => ScalaGlobalSecondaryIndexUpdate }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object GlobalSecondaryIndexUpdateOps {
-
-  import CreateGlobalSecondaryIndexActionOps._
-  import DeleteGlobalSecondaryIndexActionOps._
-  import UpdateGlobalSecondaryIndexActionOps._
 
   implicit class ScalaGlobalSecondaryIndexUpdateOps(val self: ScalaGlobalSecondaryIndexUpdate) extends AnyVal {
 
     def toJava: JavaGlobalSecondaryIndexUpdate = {
       val result = new JavaGlobalSecondaryIndexUpdate()
-      self.update.map(_.toJava).foreach(result.setUpdate)
-      self.create.map(_.toJava).foreach(result.setCreate)
-      self.delete.map(_.toJava).foreach(result.setDelete)
+      self.update.foreach { v =>
+        import UpdateGlobalSecondaryIndexActionOps._; result.withUpdate(v.toJava)
+      } // UpdateGlobalSecondaryIndexAction
+      self.create.foreach { v =>
+        import CreateGlobalSecondaryIndexActionOps._; result.withCreate(v.toJava)
+      } // CreateGlobalSecondaryIndexAction
+      self.delete.foreach { v =>
+        import DeleteGlobalSecondaryIndexActionOps._; result.withDelete(v.toJava)
+      } // DeleteGlobalSecondaryIndexAction
+
       result
     }
 
@@ -25,9 +33,15 @@ object GlobalSecondaryIndexUpdateOps {
 
     def toScala: ScalaGlobalSecondaryIndexUpdate = {
       ScalaGlobalSecondaryIndexUpdate()
-        .withUpdate(Option(self.getUpdate).map(_.toScala))
-        .withCreate(Option(self.getCreate).map(_.toScala))
-        .withDelete(Option(self.getDelete).map(_.toScala))
+        .withUpdate(Option(self.getUpdate).map { v =>
+          import UpdateGlobalSecondaryIndexActionOps._; v.toScala
+        }) // UpdateGlobalSecondaryIndexAction
+        .withCreate(Option(self.getCreate).map { v =>
+          import CreateGlobalSecondaryIndexActionOps._; v.toScala
+        }) // CreateGlobalSecondaryIndexAction
+        .withDelete(Option(self.getDelete).map { v =>
+          import DeleteGlobalSecondaryIndexActionOps._; v.toScala
+        }) // DeleteGlobalSecondaryIndexAction
     }
 
   }

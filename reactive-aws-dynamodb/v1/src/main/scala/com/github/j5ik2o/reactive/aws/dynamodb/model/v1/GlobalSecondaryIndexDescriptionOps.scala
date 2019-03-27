@@ -1,35 +1,40 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  GlobalSecondaryIndexDescription => ScalaGlobalSecondaryIndexDescription,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   GlobalSecondaryIndexDescription => JavaGlobalSecondaryIndexDescription
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  IndexStatus,
-  GlobalSecondaryIndexDescription => ScalaGlobalSecondaryIndexDescription
-}
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object GlobalSecondaryIndexDescriptionOps {
-
-  import KeySchemaElementOps._
-  import ProjectionOps._
-  import ProvisionedThroughputDescriptionOps._
 
   implicit class ScalaGlobalSecondaryIndexDescriptionOps(val self: ScalaGlobalSecondaryIndexDescription)
       extends AnyVal {
 
     def toJava: JavaGlobalSecondaryIndexDescription = {
       val result = new JavaGlobalSecondaryIndexDescription()
-      self.indexName.foreach(result.setIndexName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.setKeySchema)
-      self.projection.map(_.toJava).foreach(result.setProjection)
-      self.indexStatus.map(_.entryName).foreach(result.setIndexStatus)
-      self.backfilling.foreach(v => result.setBackfilling(v))
-      self.provisionedThroughput.map(_.toJava).foreach(result.setProvisionedThroughput)
-      self.indexSizeBytes.foreach(v => result.setIndexSizeBytes(v))
-      self.itemCount.foreach(v => result.setItemCount(v))
-      self.indexArn.foreach(result.setIndexArn)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.withIndexName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.withKeySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.projection.foreach { v =>
+        import ProjectionOps._; result.withProjection(v.toJava)
+      } // Projection
+      self.indexStatus.foreach { v =>
+        import IndexStatusOps._; result.withIndexStatus(v.toJava)
+      } // String
+      self.backfilling.map(_.booleanValue).foreach(v => result.withBackfilling(v)) // Boolean
+      self.provisionedThroughput.foreach { v =>
+        import ProvisionedThroughputDescriptionOps._; result.withProvisionedThroughput(v.toJava)
+      } // ProvisionedThroughputDescription
+      self.indexSizeBytes.map(_.longValue).foreach(v => result.withIndexSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.withItemCount(v))           // Long
+      self.indexArn.filter(_.nonEmpty).foreach(v => result.withIndexArn(v))           // String
+
       result
     }
 
@@ -39,15 +44,23 @@ object GlobalSecondaryIndexDescriptionOps {
 
     def toScala: ScalaGlobalSecondaryIndexDescription = {
       ScalaGlobalSecondaryIndexDescription()
-        .withIndexName(Option(self.getIndexName))
-        .withKeySchema(Option(self.getKeySchema).map(_.asScala.map(_.toScala)))
-        .withProjection(Option(self.getProjection).map(_.toScala))
-        .withIndexStatus(Option(self.getIndexStatus).map(IndexStatus.withName))
-        .withBackfilling(Option(self.getBackfilling))
-        .withProvisionedThroughput(Option(self.getProvisionedThroughput).map(_.toScala))
-        .withIndexSizeBytes(Option(self.getIndexSizeBytes))
-        .withItemCount(Option(self.getItemCount))
-        .withIndexArn(Option(self.getIndexArn))
+        .withIndexName(Option(self.getIndexName)) // String
+        .withKeySchema(Option(self.getKeySchema).map { v =>
+          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
+        }) // Seq[KeySchemaElement]
+        .withProjection(Option(self.getProjection).map { v =>
+          import ProjectionOps._; v.toScala
+        }) // Projection
+        .withIndexStatus(Option(self.getIndexStatus).map { v =>
+          import IndexStatusOps._; v.toScala
+        }) // String
+        .withBackfilling(Option(self.getBackfilling).map(_.booleanValue)) // Boolean
+        .withProvisionedThroughput(Option(self.getProvisionedThroughput).map { v =>
+          import ProvisionedThroughputDescriptionOps._; v.toScala
+        }) // ProvisionedThroughputDescription
+        .withIndexSizeBytes(Option(self.getIndexSizeBytes).map(_.longValue)) // Long
+        .withItemCount(Option(self.getItemCount).map(_.longValue)) // Long
+        .withIndexArn(Option(self.getIndexArn)) // String
     }
 
   }

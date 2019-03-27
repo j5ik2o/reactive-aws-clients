@@ -1,18 +1,21 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TimeToLiveDescription => ScalaTimeToLiveDescription, _ }
 import com.amazonaws.services.dynamodbv2.model.{ TimeToLiveDescription => JavaTimeToLiveDescription }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  TimeToLiveStatus,
-  TimeToLiveDescription => ScalaTimeToLiveDescription
-}
+
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TimeToLiveDescriptionOps {
 
   implicit class ScalaTimeToLiveDescriptionOps(val self: ScalaTimeToLiveDescription) extends AnyVal {
 
     def toJava: JavaTimeToLiveDescription = {
       val result = new JavaTimeToLiveDescription()
-      self.attributeName.foreach(result.setAttributeName)
-      self.timeToLiveStatus.map(_.entryName).foreach(result.setTimeToLiveStatus)
+      self.timeToLiveStatus.foreach { v =>
+        import TimeToLiveStatusOps._; result.withTimeToLiveStatus(v.toJava)
+      } // String
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.withAttributeName(v)) // String
+
       result
     }
 
@@ -22,9 +25,10 @@ object TimeToLiveDescriptionOps {
 
     def toScala: ScalaTimeToLiveDescription = {
       ScalaTimeToLiveDescription()
-        .withAttributeName(Option(self.getAttributeName)).withTimeToLiveStatus(
-          Option(self.getTimeToLiveStatus).map(TimeToLiveStatus.withName)
-        )
+        .withTimeToLiveStatus(Option(self.getTimeToLiveStatus).map { v =>
+          import TimeToLiveStatusOps._; v.toScala
+        }) // String
+        .withAttributeName(Option(self.getAttributeName)) // String
     }
 
   }

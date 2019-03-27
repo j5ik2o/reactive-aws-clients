@@ -1,12 +1,15 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  AutoScalingTargetTrackingScalingPolicyConfigurationDescription => ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   AutoScalingTargetTrackingScalingPolicyConfigurationDescription => JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  AutoScalingTargetTrackingScalingPolicyConfigurationDescription => ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
 
   implicit class ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(
@@ -15,9 +18,11 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
 
     def toJava: JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription = {
       val result = new JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription()
-      self.disableScaleIn.foreach(v => result.setDisableScaleIn(v))
-      self.scaleInCooldown.foreach(v => result.setScaleInCooldown(v))
-      self.scaleOutCooldown.foreach(v => result.setScaleOutCooldown(v))
+      self.disableScaleIn.map(_.booleanValue).foreach(v => result.withDisableScaleIn(v)) // Boolean
+      self.scaleInCooldown.map(_.intValue).foreach(v => result.withScaleInCooldown(v))   // Int
+      self.scaleOutCooldown.map(_.intValue).foreach(v => result.withScaleOutCooldown(v)) // Int
+      self.targetValue.map(_.doubleValue).foreach(v => result.withTargetValue(v))        // Double
+
       result
     }
 
@@ -29,9 +34,10 @@ object AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
 
     def toScala: ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription = {
       ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription()
-        .withDisableScaleIn(Option(self.getDisableScaleIn).map(_.booleanValue()))
-        .withScaleInCooldown(Option(self.getScaleInCooldown))
-        .withScaleOutCooldown(Option(self.getScaleOutCooldown))
+        .withDisableScaleIn(Option(self.getDisableScaleIn).map(_.booleanValue)) // Boolean
+        .withScaleInCooldown(Option(self.getScaleInCooldown).map(_.intValue)) // Int
+        .withScaleOutCooldown(Option(self.getScaleOutCooldown).map(_.intValue)) // Int
+        .withTargetValue(Option(self.getTargetValue).map(_.doubleValue)) // Double
     }
 
   }

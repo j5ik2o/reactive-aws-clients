@@ -1,19 +1,22 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AutoScalingPolicyUpdate => ScalaAutoScalingPolicyUpdate, _ }
 import com.amazonaws.services.dynamodbv2.model.{ AutoScalingPolicyUpdate => JavaAutoScalingPolicyUpdate }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AutoScalingPolicyUpdate => ScalaAutoScalingPolicyUpdate }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AutoScalingPolicyUpdateOps {
-
-  import AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps._
 
   implicit class ScalaAutoScalingPolicyUpdateOps(val self: ScalaAutoScalingPolicyUpdate) extends AnyVal {
 
     def toJava: JavaAutoScalingPolicyUpdate = {
       val result = new JavaAutoScalingPolicyUpdate()
-      self.policyName.foreach(result.setPolicyName)
-      self.targetTrackingScalingPolicyConfiguration
-        .map(_.toJava).foreach(result.setTargetTrackingScalingPolicyConfiguration)
+      self.policyName.filter(_.nonEmpty).foreach(v => result.withPolicyName(v)) // String
+      self.targetTrackingScalingPolicyConfiguration.foreach { v =>
+        import AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps._;
+        result.withTargetTrackingScalingPolicyConfiguration(v.toJava)
+      } // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+
       result
     }
 
@@ -23,11 +26,13 @@ object AutoScalingPolicyUpdateOps {
 
     def toScala: ScalaAutoScalingPolicyUpdate = {
       ScalaAutoScalingPolicyUpdate()
-        .withPolicyName(Option(self.getPolicyName))
-        .withTargetTrackingScalingPolicyConfiguration(
-          Option(self.getTargetTrackingScalingPolicyConfiguration).map(_.toScala)
-        )
+        .withPolicyName(Option(self.getPolicyName)) // String
+        .withTargetTrackingScalingPolicyConfiguration(Option(self.getTargetTrackingScalingPolicyConfiguration).map {
+          v =>
+            import AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps._; v.toScala
+        }) // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
     }
 
   }
+
 }

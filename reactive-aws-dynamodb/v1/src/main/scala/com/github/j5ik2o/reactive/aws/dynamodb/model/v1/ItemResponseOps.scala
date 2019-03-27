@@ -1,19 +1,20 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ItemResponse => ScalaItemResponse, _ }
 import com.amazonaws.services.dynamodbv2.model.{ ItemResponse => JavaItemResponse }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ItemResponse => ScalaItemResponse }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ItemResponseOps {
-
-  import AttributeValueOps._
 
   implicit class ScalaItemResponseOps(val self: ScalaItemResponse) extends AnyVal {
 
     def toJava: JavaItemResponse = {
       val result = new JavaItemResponse()
-      self.item.map(_.mapValues(_.toJava).asJava).foreach(result.setItem)
+      self.item.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.withItem(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+
       result
     }
 
@@ -23,7 +24,9 @@ object ItemResponseOps {
 
     def toScala: ScalaItemResponse = {
       ScalaItemResponse()
-        .withItem(Option(self.getItem).map(_.asScala.toMap.mapValues(_.toScala)))
+        .withItem(Option(self.getItem).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
     }
 
   }

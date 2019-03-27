@@ -1,26 +1,32 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItem => ScalaTransactGetItem, _ }
 import com.amazonaws.services.dynamodbv2.model.{ TransactGetItem => JavaTransactGetItem }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItem => ScalaTransactGetItem }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TransactGetItemOps {
 
-  import GetOps._
-
-  implicit class ScalaTransactGetItemOps(val self: ScalaTransactGetItem) {
+  implicit class ScalaTransactGetItemOps(val self: ScalaTransactGetItem) extends AnyVal {
 
     def toJava: JavaTransactGetItem = {
       val result = new JavaTransactGetItem()
-      self.get.map(_.toJava).foreach(result.setGet)
+      self.get.foreach { v =>
+        import GetOps._; result.withGet(v.toJava)
+      } // Get
+
       result
     }
+
   }
 
-  implicit class JavaTransactGetItemOps(val self: JavaTransactGetItem) {
+  implicit class JavaTransactGetItemOps(val self: JavaTransactGetItem) extends AnyVal {
 
     def toScala: ScalaTransactGetItem = {
       ScalaTransactGetItem()
-        .withGet(Option(self.getGet).map(_.toScala))
+        .withGet(Option(self.getGet).map { v =>
+          import GetOps._; v.toScala
+        }) // Get
     }
 
   }

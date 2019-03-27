@@ -1,15 +1,16 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  GlobalTableGlobalSecondaryIndexSettingsUpdate => ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   GlobalTableGlobalSecondaryIndexSettingsUpdate => JavaGlobalTableGlobalSecondaryIndexSettingsUpdate
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  GlobalTableGlobalSecondaryIndexSettingsUpdate => ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
-
-  import AutoScalingSettingsUpdateOps._
 
   implicit class ScalaGlobalTableGlobalSecondaryIndexSettingsUpdateOps(
       val self: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate
@@ -17,10 +18,13 @@ object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
 
     def toJava: JavaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
       val result = new JavaGlobalTableGlobalSecondaryIndexSettingsUpdate()
-      self.indexName.foreach(result.setIndexName)
-      self.provisionedWriteCapacityUnits.foreach(v => result.setProvisionedWriteCapacityUnits(v))
-      self.provisionedWriteCapacityAutoScalingSettingsUpdate
-        .map(_.toJava).foreach(result.setProvisionedWriteCapacityAutoScalingSettingsUpdate)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.withIndexName(v)) // String
+      self.provisionedWriteCapacityUnits
+        .map(_.longValue).foreach(v => result.withProvisionedWriteCapacityUnits(v)) // Long
+      self.provisionedWriteCapacityAutoScalingSettingsUpdate.foreach { v =>
+        import AutoScalingSettingsUpdateOps._; result.withProvisionedWriteCapacityAutoScalingSettingsUpdate(v.toJava)
+      } // AutoScalingSettingsUpdate
+
       result
     }
 
@@ -32,11 +36,13 @@ object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
 
     def toScala: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
       ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate()
-        .withIndexName(Option(self.getIndexName))
-        .withProvisionedWriteCapacityUnits(Option(self.getProvisionedWriteCapacityUnits).map(_.longValue()))
+        .withIndexName(Option(self.getIndexName)) // String
+        .withProvisionedWriteCapacityUnits(Option(self.getProvisionedWriteCapacityUnits).map(_.longValue)) // Long
         .withProvisionedWriteCapacityAutoScalingSettingsUpdate(
-          Option(self.getProvisionedWriteCapacityAutoScalingSettingsUpdate).map(_.toScala)
-        )
+          Option(self.getProvisionedWriteCapacityAutoScalingSettingsUpdate).map { v =>
+            import AutoScalingSettingsUpdateOps._; v.toScala
+          }
+        ) // AutoScalingSettingsUpdate
     }
 
   }

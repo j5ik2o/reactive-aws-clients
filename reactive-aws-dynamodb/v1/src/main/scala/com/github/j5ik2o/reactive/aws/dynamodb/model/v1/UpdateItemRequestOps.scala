@@ -1,57 +1,51 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateItemRequest => ScalaUpdateItemRequest, _ }
 import com.amazonaws.services.dynamodbv2.model.{ UpdateItemRequest => JavaUpdateItemRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ConditionalOperator,
-  ReturnConsumedCapacity,
-  ReturnValue,
-  UpdateItemRequest => ScalaUpdateItemRequest
-}
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateItemRequestOps {
-
-  import AttributeValueOps._
-  import AttributeValueUpdateOps._
-  import ExpectedAttributeValueOps._
 
   implicit class ScalaUpdateItemRequestOps(val self: ScalaUpdateItemRequest) extends AnyVal {
 
     def toJava: JavaUpdateItemRequest = {
       val result = new JavaUpdateItemRequest()
-      self.tableName.foreach(result.setTableName)
-      self.key.map(_.mapValues(_.toJava).asJava).foreach(result.setKey)
-      self.attributeUpdates.map(_.mapValues(_.toJava).asJava).foreach(result.setAttributeUpdates)
-      self.expected.map(_.mapValues(_.toJava).asJava).foreach(result.setExpected)
-      self.conditionalOperator.map(_.entryName).foreach(result.setConditionalOperator)
-      self.returnValues.map(_.entryName).foreach(result.setReturnValues)
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.setReturnConsumedCapacity)
-      self.updateExpression.foreach(result.setUpdateExpression)
-      self.conditionExpression.foreach(result.setConditionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.setExpressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.setExpressionAttributeValues)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v)) // String
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.withKey(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.attributeUpdates.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueUpdateOps._;
+        result.withAttributeUpdates(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValueUpdate]
+      self.expected.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ExpectedAttributeValueOps._;
+        result.withExpected(v.mapValues(_.toJava).asJava)
+      } // Map[String, ExpectedAttributeValue]
+      self.conditionalOperator.foreach { v =>
+        import ConditionalOperatorOps._; result.withConditionalOperator(v.toJava)
+      } // String
+      self.returnValues.foreach { v =>
+        import ReturnValueOps._; result.withReturnValues(v.toJava)
+      } // String
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.withReturnConsumedCapacity(v.toJava)
+      } // String
+      self.returnItemCollectionMetrics.foreach { v =>
+        import ReturnItemCollectionMetricsOps._; result.withReturnItemCollectionMetrics(v.toJava)
+      } // String
+      self.updateExpression.filter(_.nonEmpty).foreach(v => result.withUpdateExpression(v))       // String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.withConditionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.withExpressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.withExpressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+
       result
-    }
-
-  }
-
-  implicit class JavaUpdateItemRequestOps(val self: JavaUpdateItemRequest) extends AnyVal {
-
-    def toScala: ScalaUpdateItemRequest = {
-      ScalaUpdateItemRequest()
-        .withTableName(Option(self.getTableName))
-        .withKey(Option(self.getKey).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withAttributeUpdates(Option(self.getAttributeUpdates).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withExpected(Option(self.getExpected).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConditionalOperator(Option(self.getConditionalOperator).map(ConditionalOperator.withName))
-        .withReturnValues(Option(self.getReturnValues).map(ReturnValue.withName))
-        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity).map(ReturnConsumedCapacity.withName))
-        .withUpdateExpression(Option(self.getUpdateExpression))
-        .withExpressionAttributeNames(Option(self.getExpressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.getExpressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
     }
 
   }

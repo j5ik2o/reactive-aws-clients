@@ -1,23 +1,27 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  UpdateGlobalSecondaryIndexAction => ScalaUpdateGlobalSecondaryIndexAction,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   UpdateGlobalSecondaryIndexAction => JavaUpdateGlobalSecondaryIndexAction
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  UpdateGlobalSecondaryIndexAction => ScalaUpdateGlobalSecondaryIndexAction
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateGlobalSecondaryIndexActionOps {
-
-  import ProvisionedThroughputOps._
 
   implicit class ScalaUpdateGlobalSecondaryIndexActionOps(val self: ScalaUpdateGlobalSecondaryIndexAction)
       extends AnyVal {
 
     def toJava: JavaUpdateGlobalSecondaryIndexAction = {
       val result = new JavaUpdateGlobalSecondaryIndexAction()
-      self.indexName.foreach(result.setIndexName)
-      self.provisionedThroughput.map(_.toJava).foreach(result.setProvisionedThroughput)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.withIndexName(v)) // String
+      self.provisionedThroughput.foreach { v =>
+        import ProvisionedThroughputOps._; result.withProvisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
+
       result
     }
 
@@ -28,9 +32,10 @@ object UpdateGlobalSecondaryIndexActionOps {
 
     def toScala: ScalaUpdateGlobalSecondaryIndexAction = {
       ScalaUpdateGlobalSecondaryIndexAction()
-        .withIndexName(Option(self.getIndexName)).withProvisionedThroughput(
-          Option(self.getProvisionedThroughput).map(_.toScala)
-        )
+        .withIndexName(Option(self.getIndexName)) // String
+        .withProvisionedThroughput(Option(self.getProvisionedThroughput).map { v =>
+          import ProvisionedThroughputOps._; v.toScala
+        }) // ProvisionedThroughput
     }
 
   }
