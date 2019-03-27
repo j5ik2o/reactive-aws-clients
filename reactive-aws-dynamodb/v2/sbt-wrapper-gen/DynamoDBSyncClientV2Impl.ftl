@@ -13,13 +13,13 @@ package com.github.j5ik2o.reactive.aws.dynamodb
     </#list>
     <#return target>
 </#function>
-
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.rs._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.v2._
 import com.github.j5ik2o.reactive.aws.dynamodb.model.v2.rs._
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 
 class DynamoDBSyncClientV2Impl(override val underlying: DynamoDbClient) extends DynamoDBSyncClientV2 {
-<@opsImports />
 
 private def toEither[A](f: => A): Either[Throwable, A] = {
   try {
@@ -30,13 +30,17 @@ private def toEither[A](f: => A): Either[Throwable, A] = {
   }
 }
 
-<#list methods as method><#if targetMethod(method)>    override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>rs.${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> =
+<#list methods as method><#if targetMethod(method)>    override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> = {
     <#if method.name?ends_with("Paginator")>
+        <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
         new ${method.returnTypeDesc.simpleTypeName}Impl(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>))
     <#else>
+        <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
+        import ${method.returnTypeDesc.simpleTypeName}Ops._
         toEither(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>)).right.map(_.toScala)
     </#if>
-    
+   }
+
 </#if></#list>
 
 }
