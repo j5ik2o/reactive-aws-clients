@@ -18,9 +18,6 @@ private[dynamodb] class DynamoDBStreamClientV2Impl(override val underlying: Dyna
       Source.fromPublisher(underlying.listTablesPaginator(request))
     }
 
-  override def listTablesSource: Source[ListTablesResponse, NotUsed] =
-    Source.fromPublisher(underlying.listTablesPaginator)
-
   override def queryFlow: Flow[QueryRequest, QueryResponse, NotUsed] =
     Flow[QueryRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.queryPaginator(request))
