@@ -11,7 +11,7 @@ private[dynamodb] class DynamoDBTaskClientV2Impl(override val underlying: Dynamo
     Observable.fromReactivePublisher(underlying.batchGetItemPaginator(request))
 
   override def listTablesPaginator: Observable[ListTablesResponse] =
-    Observable.fromReactivePublisher(underlying.listTablesPaginator)
+    Observable.fromReactivePublisher(underlying.listTablesPaginator())
 
   override def listTablesPaginator(request: ListTablesRequest): Observable[ListTablesResponse] =
     Observable.fromReactivePublisher(underlying.listTablesPaginator(request))
