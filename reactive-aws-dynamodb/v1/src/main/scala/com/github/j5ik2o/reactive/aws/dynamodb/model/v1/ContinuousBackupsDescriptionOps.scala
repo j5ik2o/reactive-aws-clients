@@ -1,21 +1,26 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import com.amazonaws.services.dynamodbv2.model.{ ContinuousBackupsDescription => JavaContinuousBackupsDescription }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ContinuousBackupsStatus,
-  ContinuousBackupsDescription => ScalaContinuousBackupsDescription
+  ContinuousBackupsDescription => ScalaContinuousBackupsDescription,
+  _
 }
+import com.amazonaws.services.dynamodbv2.model.{ ContinuousBackupsDescription => JavaContinuousBackupsDescription }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ContinuousBackupsDescriptionOps {
-
-  import PointInTimeRecoveryDescriptionOps._
 
   implicit class ScalaContinuousBackupsDescriptionOps(val self: ScalaContinuousBackupsDescription) extends AnyVal {
 
     def toJava: JavaContinuousBackupsDescription = {
       val result = new JavaContinuousBackupsDescription()
-      self.continuousBackupsStatus.map(_.entryName).foreach(result.setContinuousBackupsStatus)
-      self.pointInTimeRecoveryDescription.map(_.toJava).foreach(result.setPointInTimeRecoveryDescription)
+      self.continuousBackupsStatus.foreach { v =>
+        import ContinuousBackupsStatusOps._; result.withContinuousBackupsStatus(v.toJava)
+      } // String
+      self.pointInTimeRecoveryDescription.foreach { v =>
+        import PointInTimeRecoveryDescriptionOps._; result.withPointInTimeRecoveryDescription(v.toJava)
+      } // PointInTimeRecoveryDescription
+
       result
     }
 
@@ -25,8 +30,12 @@ object ContinuousBackupsDescriptionOps {
 
     def toScala: ScalaContinuousBackupsDescription = {
       ScalaContinuousBackupsDescription()
-        .withContinuousBackupsStatus(Option(self.getContinuousBackupsStatus).map(ContinuousBackupsStatus.withName))
-        .withPointInTimeRecoveryDescription(Option(self.getPointInTimeRecoveryDescription).map(_.toScala))
+        .withContinuousBackupsStatus(Option(self.getContinuousBackupsStatus).map { v =>
+          import ContinuousBackupsStatusOps._; v.toScala
+        }) // String
+        .withPointInTimeRecoveryDescription(Option(self.getPointInTimeRecoveryDescription).map { v =>
+          import PointInTimeRecoveryDescriptionOps._; v.toScala
+        }) // PointInTimeRecoveryDescription
     }
 
   }

@@ -1,16 +1,19 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Endpoint => ScalaEndpoint, _ }
 import com.amazonaws.services.dynamodbv2.model.{ Endpoint => JavaEndpoint }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Endpoint => ScalaEndpoint }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object EndpointOps {
 
   implicit class ScalaEndpointOps(val self: ScalaEndpoint) extends AnyVal {
 
     def toJava: JavaEndpoint = {
       val result = new JavaEndpoint()
-      self.address.foreach(result.setAddress)
-      self.cachePeriodInMinutes.foreach(v => result.setCachePeriodInMinutes(v))
+      self.address.filter(_.nonEmpty).foreach(v => result.withAddress(v))                         // String
+      self.cachePeriodInMinutes.map(_.longValue).foreach(v => result.withCachePeriodInMinutes(v)) // Long
+
       result
     }
 
@@ -20,8 +23,8 @@ object EndpointOps {
 
     def toScala: ScalaEndpoint = {
       ScalaEndpoint()
-        .withAddress(Option(self.getAddress))
-        .withCachePeriodInMinutes(Option(self.getCachePeriodInMinutes).map(_.longValue()))
+        .withAddress(Option(self.getAddress)) // String
+        .withCachePeriodInMinutes(Option(self.getCachePeriodInMinutes).map(_.longValue)) // Long
     }
 
   }

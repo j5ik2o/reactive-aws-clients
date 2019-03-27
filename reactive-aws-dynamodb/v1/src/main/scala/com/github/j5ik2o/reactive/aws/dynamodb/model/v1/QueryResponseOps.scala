@@ -1,14 +1,13 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ QueryResponse => ScalaQueryResponse, _ }
 import com.amazonaws.services.dynamodbv2.model.{ QueryResult => JavaQueryResponse }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ QueryResponse => ScalaQueryResponse }
 
 import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object QueryResponseOps {
-
-  import AttributeValueOps._
-  import ConsumedCapacityOps._
 
   implicit class JavaQueryResponseOps(val self: JavaQueryResponse) extends AnyVal {
 
@@ -16,11 +15,18 @@ object QueryResponseOps {
       ScalaQueryResponse()
         .withStatusCode(Option(self.getSdkHttpMetadata).map(_.getHttpStatusCode))
         .withHttpHeaders(Option(self.getSdkHttpMetadata).map(_.getHttpHeaders).map(_.asScala.toMap.mapValues(Seq(_))))
-        .withItems(Option(self.getItems).map(_.asScala.map(_.asScala.toMap.mapValues(_.toScala))))
-        .withCount(Option(self.getCount))
-        .withScannedCount(Option(self.getScannedCount))
-        .withLastEvaluatedKey(Option(self.getLastEvaluatedKey).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConsumedCapacity(Option(self.getConsumedCapacity).map(_.toScala))
+        .withItems(Option(self.getItems).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._;
+          v.asScala.map(_.asScala.toMap.mapValues(_.toScala))
+        }) // Seq[Map[String, AttributeValue]]
+        .withCount(Option(self.getCount).map(_.intValue)) // Int
+        .withScannedCount(Option(self.getScannedCount).map(_.intValue)) // Int
+        .withLastEvaluatedKey(Option(self.getLastEvaluatedKey).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withConsumedCapacity(Option(self.getConsumedCapacity).map { v =>
+          import ConsumedCapacityOps._; v.toScala
+        }) // ConsumedCapacity
     }
 
   }

@@ -1,15 +1,22 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
+
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SSESpecification => ScalaSSESpecification, _ }
 import com.amazonaws.services.dynamodbv2.model.{ SSESpecification => JavaSSESpecification }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SSEType, SSESpecification => ScalaSSESpecification }
+
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object SSESpecificationOps {
 
   implicit class ScalaSSESpecificationOps(val self: ScalaSSESpecification) extends AnyVal {
 
     def toJava: JavaSSESpecification = {
       val result = new JavaSSESpecification()
-      self.enabled.foreach(v => result.setEnabled(v))
-      self.sseType.map(_.entryName).foreach(result.setSSEType)
-      self.kmsMasterKeyId.foreach(result.setKMSMasterKeyId)
+      self.enabled.map(_.booleanValue).foreach(v => result.withEnabled(v)) // Boolean
+      self.sseType.foreach { v =>
+        import SSETypeOps._; result.withSSEType(v.toJava)
+      } // String
+      self.kmsMasterKeyId.filter(_.nonEmpty).foreach(v => result.withKMSMasterKeyId(v)) // String
+
       result
     }
 
@@ -19,11 +26,11 @@ object SSESpecificationOps {
 
     def toScala: ScalaSSESpecification = {
       ScalaSSESpecification()
-        .withEnabled(Option(self.getEnabled))
-        .withSseType(Option(self.getSSEType).map(SSEType.withName))
-        .withKmsMasterKeyId(
-          Option(self.getKMSMasterKeyId)
-        )
+        .withEnabled(Option(self.getEnabled).map(_.booleanValue)) // Boolean
+        .withSseType(Option(self.getSSEType).map { v =>
+          import SSETypeOps._; v.toScala
+        }) // String
+        .withKmsMasterKeyId(Option(self.getKMSMasterKeyId)) // String
     }
 
   }

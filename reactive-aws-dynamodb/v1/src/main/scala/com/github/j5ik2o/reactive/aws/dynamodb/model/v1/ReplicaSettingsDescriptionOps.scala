@@ -1,34 +1,43 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import com.amazonaws.services.dynamodbv2.model.{ ReplicaSettingsDescription => JavaReplicaSettingsDescription }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ReplicaStatus,
-  ReplicaSettingsDescription => ScalaReplicaSettingsDescription
+  ReplicaSettingsDescription => ScalaReplicaSettingsDescription,
+  _
 }
+import com.amazonaws.services.dynamodbv2.model.{ ReplicaSettingsDescription => JavaReplicaSettingsDescription }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ReplicaSettingsDescriptionOps {
-
-  import AutoScalingSettingsDescriptionOps._
-  import BillingModeSummaryOps._
-  import ReplicaGlobalSecondaryIndexSettingsDescriptionOps._
 
   implicit class ScalaReplicaSettingsDescriptionOps(val self: ScalaReplicaSettingsDescription) extends AnyVal {
 
     def toJava: JavaReplicaSettingsDescription = {
       val result = new JavaReplicaSettingsDescription()
-      self.regionName.foreach(result.setRegionName)
-      self.replicaStatus.map(_.entryName).foreach(result.setReplicaStatus)
-      self.replicaBillingModeSummary.map(_.toJava).foreach(result.setReplicaBillingModeSummary)
-      self.replicaProvisionedReadCapacityUnits.foreach(v => result.setReplicaProvisionedReadCapacityUnits(v))
-      self.replicaProvisionedReadCapacityAutoScalingSettings
-        .map(_.toJava).foreach(result.setReplicaProvisionedReadCapacityAutoScalingSettings)
-      self.replicaProvisionedWriteCapacityUnits.foreach(v => result.setReplicaProvisionedWriteCapacityUnits(v))
-      self.replicaProvisionedWriteCapacityAutoScalingSettings
-        .map(_.toJava).foreach(result.setReplicaProvisionedWriteCapacityAutoScalingSettings)
-      self.replicaGlobalSecondaryIndexSettings
-        .map(_.map(_.toJava).asJava).foreach(result.setReplicaGlobalSecondaryIndexSettings)
+      self.regionName.filter(_.nonEmpty).foreach(v => result.withRegionName(v)) // String
+      self.replicaStatus.foreach { v =>
+        import ReplicaStatusOps._; result.withReplicaStatus(v.toJava)
+      } // String
+      self.replicaBillingModeSummary.foreach { v =>
+        import BillingModeSummaryOps._; result.withReplicaBillingModeSummary(v.toJava)
+      } // BillingModeSummary
+      self.replicaProvisionedReadCapacityUnits
+        .map(_.longValue).foreach(v => result.withReplicaProvisionedReadCapacityUnits(v)) // Long
+      self.replicaProvisionedReadCapacityAutoScalingSettings.foreach { v =>
+        import AutoScalingSettingsDescriptionOps._;
+        result.withReplicaProvisionedReadCapacityAutoScalingSettings(v.toJava)
+      } // AutoScalingSettingsDescription
+      self.replicaProvisionedWriteCapacityUnits
+        .map(_.longValue).foreach(v => result.withReplicaProvisionedWriteCapacityUnits(v)) // Long
+      self.replicaProvisionedWriteCapacityAutoScalingSettings.foreach { v =>
+        import AutoScalingSettingsDescriptionOps._;
+        result.withReplicaProvisionedWriteCapacityAutoScalingSettings(v.toJava)
+      } // AutoScalingSettingsDescription
+      self.replicaGlobalSecondaryIndexSettings.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ReplicaGlobalSecondaryIndexSettingsDescriptionOps._;
+        result.withReplicaGlobalSecondaryIndexSettings(v.map(_.toJava).asJava)
+      } // Seq[ReplicaGlobalSecondaryIndexSettingsDescription]
+
       result
     }
 
@@ -38,22 +47,29 @@ object ReplicaSettingsDescriptionOps {
 
     def toScala: ScalaReplicaSettingsDescription = {
       ScalaReplicaSettingsDescription()
-        .withRegionName(Option(self.getRegionName))
-        .withReplicaStatus(Option(self.getReplicaStatus).map(ReplicaStatus.withName))
-        .withReplicaBillingModeSummary(Option(self.getReplicaBillingModeSummary).map(_.toScala))
-        .withReplicaProvisionedReadCapacityUnits(Option(self.getReplicaProvisionedReadCapacityUnits).map(_.longValue()))
+        .withRegionName(Option(self.getRegionName)) // String
+        .withReplicaStatus(Option(self.getReplicaStatus).map { v =>
+          import ReplicaStatusOps._; v.toScala
+        }) // String
+        .withReplicaBillingModeSummary(Option(self.getReplicaBillingModeSummary).map { v =>
+          import BillingModeSummaryOps._; v.toScala
+        }) // BillingModeSummary
+        .withReplicaProvisionedReadCapacityUnits(Option(self.getReplicaProvisionedReadCapacityUnits).map(_.longValue)) // Long
         .withReplicaProvisionedReadCapacityAutoScalingSettings(
-          Option(self.getReplicaProvisionedReadCapacityAutoScalingSettings).map(_.toScala)
-        )
-        .withReplicaProvisionedWriteCapacityUnits(
-          Option(self.getReplicaProvisionedWriteCapacityUnits).map(_.longValue())
-        )
+          Option(self.getReplicaProvisionedReadCapacityAutoScalingSettings).map { v =>
+            import AutoScalingSettingsDescriptionOps._; v.toScala
+          }
+        ) // AutoScalingSettingsDescription
+        .withReplicaProvisionedWriteCapacityUnits(Option(self.getReplicaProvisionedWriteCapacityUnits).map(_.longValue)) // Long
         .withReplicaProvisionedWriteCapacityAutoScalingSettings(
-          Option(self.getReplicaProvisionedWriteCapacityAutoScalingSettings).map(_.toScala)
-        )
-        .withReplicaGlobalSecondaryIndexSettings(
-          Option(self.getReplicaGlobalSecondaryIndexSettings).map(_.asScala.map(_.toScala))
-        )
+          Option(self.getReplicaProvisionedWriteCapacityAutoScalingSettings).map { v =>
+            import AutoScalingSettingsDescriptionOps._; v.toScala
+          }
+        ) // AutoScalingSettingsDescription
+        .withReplicaGlobalSecondaryIndexSettings(Option(self.getReplicaGlobalSecondaryIndexSettings).map { v =>
+          import scala.collection.JavaConverters._, ReplicaGlobalSecondaryIndexSettingsDescriptionOps._;
+          v.asScala.map(_.toScala)
+        }) // Seq[ReplicaGlobalSecondaryIndexSettingsDescription]
     }
 
   }

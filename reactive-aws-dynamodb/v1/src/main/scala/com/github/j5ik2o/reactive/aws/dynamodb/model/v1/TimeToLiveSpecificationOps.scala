@@ -1,16 +1,19 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TimeToLiveSpecification => ScalaTimeToLiveSpecification, _ }
 import com.amazonaws.services.dynamodbv2.model.{ TimeToLiveSpecification => JavaTimeToLiveSpecification }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TimeToLiveSpecification => ScalaTimeToLiveSpecification }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object TimeToLiveSpecificationOps {
 
   implicit class ScalaTimeToLiveSpecificationOps(val self: ScalaTimeToLiveSpecification) extends AnyVal {
 
     def toJava: JavaTimeToLiveSpecification = {
       val result = new JavaTimeToLiveSpecification()
-      self.attributeName.foreach(result.setAttributeName)
-      self.enabled.foreach(v => result.setEnabled(v))
+      self.enabled.map(_.booleanValue).foreach(v => result.withEnabled(v))            // Boolean
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.withAttributeName(v)) // String
+
       result
     }
 
@@ -20,8 +23,8 @@ object TimeToLiveSpecificationOps {
 
     def toScala: ScalaTimeToLiveSpecification = {
       ScalaTimeToLiveSpecification()
-        .withAttributeName(Option(self.getAttributeName))
-        .withEnabled(Option(self.getEnabled).map(_.booleanValue()))
+        .withEnabled(Option(self.getEnabled).map(_.booleanValue)) // Boolean
+        .withAttributeName(Option(self.getAttributeName)) // String
     }
 
   }

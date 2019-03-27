@@ -1,7 +1,9 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.v1._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
@@ -9,212 +11,253 @@ private[dynamodb] class DynamoDBAsyncClientV1Impl(override val underlying: Amazo
     implicit ec: ExecutionContext
 ) extends DynamoDBAsyncClientV1 {
   import DynamoDBAsyncClientV1._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.BatchGetItemRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.BatchGetItemResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.BatchWriteItemRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.BatchWriteItemResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.CreateBackupRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.CreateBackupResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.CreateGlobalTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.CreateGlobalTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.CreateTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.CreateTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DeleteBackupRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DeleteBackupResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DeleteItemRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DeleteItemResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DeleteTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DeleteTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeBackupRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeBackupResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeContinuousBackupsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeContinuousBackupsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeEndpointsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeEndpointsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeGlobalTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeGlobalTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeGlobalTableSettingsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeGlobalTableSettingsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeLimitsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeLimitsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeTimeToLiveRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.DescribeTimeToLiveResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.GetItemRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.GetItemResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListBackupsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListBackupsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListGlobalTablesRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListGlobalTablesResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListTablesRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListTablesResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListTagsOfResourceRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ListTagsOfResourceResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.PutItemRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.PutItemResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.QueryRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.QueryResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.RestoreTableFromBackupRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.RestoreTableFromBackupResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.RestoreTableToPointInTimeRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.RestoreTableToPointInTimeResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ScanRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.ScanResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.TagResourceRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.TagResourceResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.TransactGetItemsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.TransactGetItemsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.TransactWriteItemsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.TransactWriteItemsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateContinuousBackupsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateContinuousBackupsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateGlobalTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateGlobalTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateGlobalTableSettingsRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateGlobalTableSettingsResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateItemRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateItemResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateTableRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateTableResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateTimeToLiveRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UpdateTimeToLiveResponseOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UntagResourceRequestOps._
-  import com.github.j5ik2o.reactive.aws.dynamodb.model.v1.UntagResourceResponseOps._
 
-  override def batchGetItem(
-      request: BatchGetItemRequest
-  ): Future[BatchGetItemResponse] = underlying.batchGetItemAsync(request.toJava).toFuture.map(_.toScala)
+  override def batchGetItem(batchGetItemRequest: BatchGetItemRequest): Future[BatchGetItemResponse] = {
+    import BatchGetItemRequestOps._
+    import BatchGetItemResponseOps._
+    underlying.batchGetItemAsync(batchGetItemRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def batchWriteItem(batchWriteItemRequest: BatchWriteItemRequest): Future[BatchWriteItemResponse] =
+  override def batchWriteItem(batchWriteItemRequest: BatchWriteItemRequest): Future[BatchWriteItemResponse] = {
+    import BatchWriteItemRequestOps._
+    import BatchWriteItemResponseOps._
     underlying.batchWriteItemAsync(batchWriteItemRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def createBackup(createBackupRequest: CreateBackupRequest): Future[CreateBackupResponse] =
+  override def createBackup(createBackupRequest: CreateBackupRequest): Future[CreateBackupResponse] = {
+    import CreateBackupRequestOps._
+    import CreateBackupResponseOps._
     underlying.createBackupAsync(createBackupRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def createGlobalTable(
       createGlobalTableRequest: CreateGlobalTableRequest
-  ): Future[CreateGlobalTableResponse] =
+  ): Future[CreateGlobalTableResponse] = {
+    import CreateGlobalTableRequestOps._
+    import CreateGlobalTableResponseOps._
     underlying.createGlobalTableAsync(createGlobalTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def createTable(createTableRequest: CreateTableRequest): Future[CreateTableResponse] =
+  override def createTable(createTableRequest: CreateTableRequest): Future[CreateTableResponse] = {
+    import CreateTableRequestOps._
+    import CreateTableResponseOps._
     underlying.createTableAsync(createTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def deleteBackup(deleteBackupRequest: DeleteBackupRequest): Future[DeleteBackupResponse] =
+  override def deleteBackup(deleteBackupRequest: DeleteBackupRequest): Future[DeleteBackupResponse] = {
+    import DeleteBackupRequestOps._
+    import DeleteBackupResponseOps._
     underlying.deleteBackupAsync(deleteBackupRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def deleteItem(deleteItemRequest: DeleteItemRequest): Future[DeleteItemResponse] =
+  override def deleteItem(deleteItemRequest: DeleteItemRequest): Future[DeleteItemResponse] = {
+    import DeleteItemRequestOps._
+    import DeleteItemResponseOps._
     underlying.deleteItemAsync(deleteItemRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def deleteTable(deleteTableRequest: DeleteTableRequest): Future[DeleteTableResponse] =
+  override def deleteTable(deleteTableRequest: DeleteTableRequest): Future[DeleteTableResponse] = {
+    import DeleteTableRequestOps._
+    import DeleteTableResponseOps._
     underlying.deleteTableAsync(deleteTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def describeBackup(describeBackupRequest: DescribeBackupRequest): Future[DescribeBackupResponse] =
+  override def describeBackup(describeBackupRequest: DescribeBackupRequest): Future[DescribeBackupResponse] = {
+    import DescribeBackupRequestOps._
+    import DescribeBackupResponseOps._
     underlying.describeBackupAsync(describeBackupRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def describeContinuousBackups(
       describeContinuousBackupsRequest: DescribeContinuousBackupsRequest
-  ): Future[DescribeContinuousBackupsResponse] =
+  ): Future[DescribeContinuousBackupsResponse] = {
+    import DescribeContinuousBackupsRequestOps._
+    import DescribeContinuousBackupsResponseOps._
     underlying.describeContinuousBackupsAsync(describeContinuousBackupsRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def describeEndpoints(
       describeEndpointsRequest: DescribeEndpointsRequest
-  ): Future[DescribeEndpointsResponse] =
+  ): Future[DescribeEndpointsResponse] = {
+    import DescribeEndpointsRequestOps._
+    import DescribeEndpointsResponseOps._
     underlying.describeEndpointsAsync(describeEndpointsRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def describeGlobalTable(
       describeGlobalTableRequest: DescribeGlobalTableRequest
-  ): Future[DescribeGlobalTableResponse] =
+  ): Future[DescribeGlobalTableResponse] = {
+    import DescribeGlobalTableRequestOps._
+    import DescribeGlobalTableResponseOps._
     underlying.describeGlobalTableAsync(describeGlobalTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def describeGlobalTableSettings(
       describeGlobalTableSettingsRequest: DescribeGlobalTableSettingsRequest
-  ): Future[DescribeGlobalTableSettingsResponse] =
+  ): Future[DescribeGlobalTableSettingsResponse] = {
+    import DescribeGlobalTableSettingsRequestOps._
+    import DescribeGlobalTableSettingsResponseOps._
     underlying.describeGlobalTableSettingsAsync(describeGlobalTableSettingsRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Future[DescribeLimitsResponse] =
+  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Future[DescribeLimitsResponse] = {
+    import DescribeLimitsRequestOps._
+    import DescribeLimitsResponseOps._
     underlying.describeLimitsAsync(describeLimitsRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def describeTable(describeTableRequest: model.DescribeTableRequest): Future[model.DescribeTableResponse] =
+  override def describeTable(describeTableRequest: DescribeTableRequest): Future[DescribeTableResponse] = {
+    import DescribeTableRequestOps._
+    import DescribeTableResponseOps._
     underlying.describeTableAsync(describeTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def describeTimeToLive(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest
-  ): Future[DescribeTimeToLiveResponse] =
+  ): Future[DescribeTimeToLiveResponse] = {
+    import DescribeTimeToLiveRequestOps._
+    import DescribeTimeToLiveResponseOps._
     underlying.describeTimeToLiveAsync(describeTimeToLiveRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def getItem(getItemRequest: GetItemRequest): Future[GetItemResponse] =
+  override def getItem(getItemRequest: GetItemRequest): Future[GetItemResponse] = {
+    import GetItemRequestOps._
+    import GetItemResponseOps._
     underlying.getItemAsync(getItemRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def listBackups(listBackupsRequest: ListBackupsRequest): Future[ListBackupsResponse] =
+  override def listBackups(listBackupsRequest: ListBackupsRequest): Future[ListBackupsResponse] = {
+    import ListBackupsRequestOps._
+    import ListBackupsResponseOps._
     underlying.listBackupsAsync(listBackupsRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): Future[ListGlobalTablesResponse] =
+  override def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): Future[ListGlobalTablesResponse] = {
+    import ListGlobalTablesRequestOps._
+    import ListGlobalTablesResponseOps._
     underlying.listGlobalTablesAsync(listGlobalTablesRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def listTables(listTablesRequest: ListTablesRequest): Future[ListTablesResponse] =
+  override def listTables(listTablesRequest: ListTablesRequest): Future[ListTablesResponse] = {
+    import ListTablesRequestOps._
+    import ListTablesResponseOps._
     underlying.listTablesAsync(listTablesRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def listTables(): Future[ListTablesResponse] = {
+
+    import ListTablesResponseOps._
+    underlying.listTablesAsync().toFuture.map(_.toScala)
+  }
 
   override def listTagsOfResource(
       listTagsOfResourceRequest: ListTagsOfResourceRequest
-  ): Future[ListTagsOfResourceResponse] =
+  ): Future[ListTagsOfResourceResponse] = {
+    import ListTagsOfResourceRequestOps._
+    import ListTagsOfResourceResponseOps._
     underlying.listTagsOfResourceAsync(listTagsOfResourceRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def putItem(putItemRequest: PutItemRequest): Future[PutItemResponse] =
+  override def putItem(putItemRequest: PutItemRequest): Future[PutItemResponse] = {
+    import PutItemRequestOps._
+    import PutItemResponseOps._
     underlying.putItemAsync(putItemRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def query(queryRequest: QueryRequest): Future[QueryResponse] =
+  override def query(queryRequest: QueryRequest): Future[QueryResponse] = {
+    import QueryRequestOps._
+    import QueryResponseOps._
     underlying.queryAsync(queryRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def restoreTableFromBackup(
       restoreTableFromBackupRequest: RestoreTableFromBackupRequest
-  ): Future[RestoreTableFromBackupResponse] =
+  ): Future[RestoreTableFromBackupResponse] = {
+    import RestoreTableFromBackupRequestOps._
+    import RestoreTableFromBackupResponseOps._
     underlying.restoreTableFromBackupAsync(restoreTableFromBackupRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def restoreTableToPointInTime(
       restoreTableToPointInTimeRequest: RestoreTableToPointInTimeRequest
-  ): Future[RestoreTableToPointInTimeResponse] =
+  ): Future[RestoreTableToPointInTimeResponse] = {
+    import RestoreTableToPointInTimeRequestOps._
+    import RestoreTableToPointInTimeResponseOps._
     underlying.restoreTableToPointInTimeAsync(restoreTableToPointInTimeRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def scan(scanRequest: ScanRequest): Future[ScanResponse] =
+  override def scan(scanRequest: ScanRequest): Future[ScanResponse] = {
+    import ScanRequestOps._
+    import ScanResponseOps._
     underlying.scanAsync(scanRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] =
+  override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] = {
+    import TagResourceRequestOps._
+    import TagResourceResponseOps._
     underlying.tagResourceAsync(tagResourceRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def transactGetItems(transactGetItemsRequest: TransactGetItemsRequest): Future[TransactGetItemsResponse] =
+  override def transactGetItems(transactGetItemsRequest: TransactGetItemsRequest): Future[TransactGetItemsResponse] = {
+    import TransactGetItemsRequestOps._
+    import TransactGetItemsResponseOps._
     underlying.transactGetItemsAsync(transactGetItemsRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def transactWriteItems(
       transactWriteItemsRequest: TransactWriteItemsRequest
-  ): Future[TransactWriteItemsResponse] =
+  ): Future[TransactWriteItemsResponse] = {
+    import TransactWriteItemsRequestOps._
+    import TransactWriteItemsResponseOps._
     underlying.transactWriteItemsAsync(transactWriteItemsRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] = {
+    import UntagResourceRequestOps._
+    import UntagResourceResponseOps._
+    underlying.untagResourceAsync(untagResourceRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def updateContinuousBackups(
       updateContinuousBackupsRequest: UpdateContinuousBackupsRequest
-  ): Future[UpdateContinuousBackupsResponse] =
+  ): Future[UpdateContinuousBackupsResponse] = {
+    import UpdateContinuousBackupsRequestOps._
+    import UpdateContinuousBackupsResponseOps._
     underlying.updateContinuousBackupsAsync(updateContinuousBackupsRequest.toJava).toFuture.map(_.toScala)
-
-  override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
-    underlying.untagResourceAsync(untagResourceRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def updateGlobalTable(
       updateGlobalTableRequest: UpdateGlobalTableRequest
-  ): Future[UpdateGlobalTableResponse] =
+  ): Future[UpdateGlobalTableResponse] = {
+    import UpdateGlobalTableRequestOps._
+    import UpdateGlobalTableResponseOps._
     underlying.updateGlobalTableAsync(updateGlobalTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
   override def updateGlobalTableSettings(
       updateGlobalTableSettingsRequest: UpdateGlobalTableSettingsRequest
-  ): Future[UpdateGlobalTableSettingsResponse] =
+  ): Future[UpdateGlobalTableSettingsResponse] = {
+    import UpdateGlobalTableSettingsRequestOps._
+    import UpdateGlobalTableSettingsResponseOps._
     underlying.updateGlobalTableSettingsAsync(updateGlobalTableSettingsRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def updateItem(updateItemRequest: UpdateItemRequest): Future[UpdateItemResponse] =
+  override def updateItem(updateItemRequest: UpdateItemRequest): Future[UpdateItemResponse] = {
+    import UpdateItemRequestOps._
+    import UpdateItemResponseOps._
     underlying.updateItemAsync(updateItemRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def updateTable(updateTableRequest: UpdateTableRequest): Future[UpdateTableResponse] =
+  override def updateTable(updateTableRequest: UpdateTableRequest): Future[UpdateTableResponse] = {
+    import UpdateTableRequestOps._
+    import UpdateTableResponseOps._
     underlying.updateTableAsync(updateTableRequest.toJava).toFuture.map(_.toScala)
+  }
 
-  override def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): Future[UpdateTimeToLiveResponse] =
+  override def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): Future[UpdateTimeToLiveResponse] = {
+    import UpdateTimeToLiveRequestOps._
+    import UpdateTimeToLiveResponseOps._
     underlying.updateTimeToLiveAsync(updateTimeToLiveRequest.toJava).toFuture.map(_.toScala)
+  }
 
 }

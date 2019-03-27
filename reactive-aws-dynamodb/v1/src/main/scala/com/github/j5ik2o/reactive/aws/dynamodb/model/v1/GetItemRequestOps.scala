@@ -1,43 +1,33 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GetItemRequest => ScalaGetItemRequest, _ }
 import com.amazonaws.services.dynamodbv2.model.{ GetItemRequest => JavaGetItemRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReturnConsumedCapacity, GetItemRequest => ScalaGetItemRequest }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object GetItemRequestOps {
-
-  import AttributeValueOps._
 
   implicit class ScalaGetItemRequestOps(val self: ScalaGetItemRequest) extends AnyVal {
 
     def toJava: JavaGetItemRequest = {
       val result = new JavaGetItemRequest()
-      self.tableName.foreach(result.setTableName)
-      self.key.map(_.mapValues(_.toJava).asJava).foreach(result.setKey)
-      self.attributesToGet.map(_.asJava).foreach(result.setAttributesToGet)
-      self.consistentRead.foreach(v => result.setConsistentRead(v))
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.setReturnConsumedCapacity)
-      self.projectionExpression.foreach(result.setProjectionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.setExpressionAttributeNames)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v)) // String
+      self.key.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.withKey(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.attributesToGet.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._; result.withAttributesToGet(v.asJava)
+      } // Seq[String]
+      self.consistentRead.map(_.booleanValue).foreach(v => result.withConsistentRead(v)) // Boolean
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.withReturnConsumedCapacity(v.toJava)
+      } // String
+      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.withProjectionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.withExpressionAttributeNames(v.asJava)
+      } // Map[String, String]
+
       result
-    }
-
-  }
-
-  implicit class JavaGetItemRequestOps(val self: JavaGetItemRequest) extends AnyVal {
-
-    def toScala: ScalaGetItemRequest = {
-      ScalaGetItemRequest()
-        .withTableName(Option(self.getTableName))
-        .withKey(Option(self.getKey).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withAttributesToGet(Option(self.getAttributesToGet).map(_.asScala))
-        .withConsistentRead(Option(self.getConsistentRead))
-        .withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity).map(ReturnConsumedCapacity.withName))
-        .withProjectionExpression(Option(self.getProjectionExpression))
-        .withExpressionAttributeNames(
-          Option(self.getExpressionAttributeNames).map(_.asScala.toMap)
-        )
     }
 
   }

@@ -1,35 +1,25 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemRequest => ScalaBatchGetItemRequest, _ }
 import com.amazonaws.services.dynamodbv2.model.{ BatchGetItemRequest => JavaBatchGetItemRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ReturnConsumedCapacity,
-  BatchGetItemRequest => ScalaBatchGetItemRequest
-}
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object BatchGetItemRequestOps {
-
-  import KeysAndAttributesOps._
 
   implicit class ScalaBatchGetItemRequestOps(val self: ScalaBatchGetItemRequest) extends AnyVal {
 
     def toJava: JavaBatchGetItemRequest = {
       val result = new JavaBatchGetItemRequest()
-      self.requestItems.foreach(v => result.setRequestItems(v.mapValues(_.toJava).asJava))
-      self.returnConsumedCapacity.map(_.entryName).foreach(result.setReturnConsumedCapacity)
+      self.requestItems.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeysAndAttributesOps._;
+        result.withRequestItems(v.mapValues(_.toJava).asJava)
+      } // Map[String, KeysAndAttributes]
+      self.returnConsumedCapacity.foreach { v =>
+        import ReturnConsumedCapacityOps._; result.withReturnConsumedCapacity(v.toJava)
+      } // String
+
       result
-    }
-
-  }
-
-  implicit class JavaBatchGetItemRequestOps(val self: JavaBatchGetItemRequest) extends AnyVal {
-
-    def toScala: ScalaBatchGetItemRequest = {
-      ScalaBatchGetItemRequest()
-        .withRequestItems(
-          Option(self.getRequestItems).map(_.asScala.toMap.mapValues(_.toScala))
-        ).withReturnConsumedCapacity(Option(self.getReturnConsumedCapacity).map(ReturnConsumedCapacity.withName))
     }
 
   }

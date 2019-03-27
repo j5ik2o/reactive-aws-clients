@@ -1,17 +1,18 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  UpdateGlobalTableSettingsResponse => ScalaUpdateGlobalTableSettingsResponse,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   UpdateGlobalTableSettingsResult => JavaUpdateGlobalTableSettingsResponse
-}
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  UpdateGlobalTableSettingsResponse => ScalaUpdateGlobalTableSettingsResponse
 }
 
 import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateGlobalTableSettingsResponseOps {
-
-  import ReplicaSettingsDescriptionOps._
 
   implicit class JavaUpdateGlobalTableSettingsResponseOps(val self: JavaUpdateGlobalTableSettingsResponse)
       extends AnyVal {
@@ -20,9 +21,12 @@ object UpdateGlobalTableSettingsResponseOps {
       ScalaUpdateGlobalTableSettingsResponse()
         .withStatusCode(Option(self.getSdkHttpMetadata).map(_.getHttpStatusCode))
         .withHttpHeaders(Option(self.getSdkHttpMetadata).map(_.getHttpHeaders).map(_.asScala.toMap.mapValues(Seq(_))))
-        .withGlobalTableName(Option(self.getGlobalTableName))
-        .withReplicaSettings(Option(self.getReplicaSettings).map(_.asScala.map(_.toScala)))
+        .withGlobalTableName(Option(self.getGlobalTableName)) // String
+        .withReplicaSettings(Option(self.getReplicaSettings).map { v =>
+          import scala.collection.JavaConverters._, ReplicaSettingsDescriptionOps._; v.asScala.map(_.toScala)
+        }) // Seq[ReplicaSettingsDescription]
     }
+
   }
 
 }

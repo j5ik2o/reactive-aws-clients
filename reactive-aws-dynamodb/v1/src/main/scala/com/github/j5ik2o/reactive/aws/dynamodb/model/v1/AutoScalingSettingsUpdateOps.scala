@@ -1,21 +1,24 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AutoScalingSettingsUpdate => ScalaAutoScalingSettingsUpdate, _ }
 import com.amazonaws.services.dynamodbv2.model.{ AutoScalingSettingsUpdate => JavaAutoScalingSettingsUpdate }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AutoScalingSettingsUpdate => ScalaAutoScalingSettingsUpdate }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AutoScalingSettingsUpdateOps {
-
-  import AutoScalingPolicyUpdateOps._
 
   implicit class ScalaAutoScalingSettingsUpdateOps(val self: ScalaAutoScalingSettingsUpdate) extends AnyVal {
 
     def toJava: JavaAutoScalingSettingsUpdate = {
       val result = new JavaAutoScalingSettingsUpdate()
-      self.minimumUnits.foreach(v => result.setMinimumUnits(v))
-      self.maximumUnits.foreach(v => result.setMaximumUnits(v))
-      self.autoScalingDisabled.foreach(v => result.setAutoScalingDisabled(v))
-      self.autoScalingRoleArn.foreach(result.setAutoScalingRoleArn)
-      self.scalingPolicyUpdate.map(_.toJava).foreach(result.setScalingPolicyUpdate)
+      self.minimumUnits.map(_.longValue).foreach(v => result.withMinimumUnits(v))                  // Long
+      self.maximumUnits.map(_.longValue).foreach(v => result.withMaximumUnits(v))                  // Long
+      self.autoScalingDisabled.map(_.booleanValue).foreach(v => result.withAutoScalingDisabled(v)) // Boolean
+      self.autoScalingRoleArn.filter(_.nonEmpty).foreach(v => result.withAutoScalingRoleArn(v))    // String
+      self.scalingPolicyUpdate.foreach { v =>
+        import AutoScalingPolicyUpdateOps._; result.withScalingPolicyUpdate(v.toJava)
+      } // AutoScalingPolicyUpdate
+
       result
     }
 
@@ -25,11 +28,13 @@ object AutoScalingSettingsUpdateOps {
 
     def toScala: ScalaAutoScalingSettingsUpdate = {
       ScalaAutoScalingSettingsUpdate()
-        .withMinimumUnits(Option(self.getMinimumUnits).map(_.longValue()))
-        .withMaximumUnits(Option(self.getMaximumUnits).map(_.longValue()))
-        .withAutoScalingDisabled(Option(self.getAutoScalingDisabled).map(_.booleanValue()))
-        .withAutoScalingRoleArn(Option(self.getAutoScalingRoleArn))
-        .withScalingPolicyUpdate(Option(self.getScalingPolicyUpdate).map(_.toScala))
+        .withMinimumUnits(Option(self.getMinimumUnits).map(_.longValue)) // Long
+        .withMaximumUnits(Option(self.getMaximumUnits).map(_.longValue)) // Long
+        .withAutoScalingDisabled(Option(self.getAutoScalingDisabled).map(_.booleanValue)) // Boolean
+        .withAutoScalingRoleArn(Option(self.getAutoScalingRoleArn)) // String
+        .withScalingPolicyUpdate(Option(self.getScalingPolicyUpdate).map { v =>
+          import AutoScalingPolicyUpdateOps._; v.toScala
+        }) // AutoScalingPolicyUpdate
     }
 
   }

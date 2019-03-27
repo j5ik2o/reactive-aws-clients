@@ -1,37 +1,26 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import java.util.Date
-
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListBackupsRequest => ScalaListBackupsRequest, _ }
 import com.amazonaws.services.dynamodbv2.model.{ ListBackupsRequest => JavaListBackupsRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupTypeFilter, ListBackupsRequest => ScalaListBackupsRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ListBackupsRequestOps {
 
   implicit class ScalaListBackupsRequestOps(val self: ScalaListBackupsRequest) extends AnyVal {
 
     def toJava: JavaListBackupsRequest = {
       val result = new JavaListBackupsRequest()
-      self.tableName.foreach(result.setTableName)
-      self.limit.foreach(v => result.setLimit(v))
-      self.timeRangeLowerBound.map(Date.from).foreach(v => result.setTimeRangeLowerBound(v))
-      self.timeRangeUpperBound.map(Date.from).foreach(v => result.setTimeRangeUpperBound(v))
-      self.exclusiveStartBackupArn.foreach(result.setExclusiveStartBackupArn)
-      self.backupType.map(_.entryName).foreach(result.setBackupType)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v))                             // String
+      self.limit.map(_.intValue).foreach(v => result.withLimit(v))                                        // Int
+      self.timeRangeLowerBound.map(java.util.Date.from).foreach(v => result.withTimeRangeLowerBound(v))   // Instant
+      self.timeRangeUpperBound.map(java.util.Date.from).foreach(v => result.withTimeRangeUpperBound(v))   // Instant
+      self.exclusiveStartBackupArn.filter(_.nonEmpty).foreach(v => result.withExclusiveStartBackupArn(v)) // String
+      self.backupType.foreach { v =>
+        import BackupTypeFilterOps._; result.withBackupType(v.toJava)
+      } // String
+
       result
-    }
-
-  }
-
-  implicit class JavaListBackupsRequestOps(val self: JavaListBackupsRequest) extends AnyVal {
-
-    def toScala: ScalaListBackupsRequest = {
-      ScalaListBackupsRequest()
-        .withTableName(Option(self.getTableName))
-        .withLimit(Option(self.getLimit))
-        .withTimeRangeLowerBound(Option(self.getTimeRangeLowerBound).map(_.toInstant))
-        .withTimeRangeUpperBound(Option(self.getTimeRangeUpperBound).map(_.toInstant))
-        .withExclusiveStartBackupArn(Option(self.getExclusiveStartBackupArn))
-        .withBackupType(Option(self.getBackupType).map(BackupTypeFilter.withName))
     }
 
   }

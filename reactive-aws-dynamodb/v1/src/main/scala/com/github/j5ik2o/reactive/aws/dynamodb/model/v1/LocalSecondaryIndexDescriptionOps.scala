@@ -1,27 +1,30 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import com.amazonaws.services.dynamodbv2.model.{ LocalSecondaryIndexDescription => JavaLocalSecondaryIndexDescription }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  LocalSecondaryIndexDescription => ScalaLocalSecondaryIndexDescription
+  LocalSecondaryIndexDescription => ScalaLocalSecondaryIndexDescription,
+  _
 }
+import com.amazonaws.services.dynamodbv2.model.{ LocalSecondaryIndexDescription => JavaLocalSecondaryIndexDescription }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object LocalSecondaryIndexDescriptionOps {
-
-  import KeySchemaElementOps._
-  import ProjectionOps._
 
   implicit class ScalaLocalSecondaryIndexDescriptionOps(val self: ScalaLocalSecondaryIndexDescription) extends AnyVal {
 
     def toJava: JavaLocalSecondaryIndexDescription = {
       val result = new JavaLocalSecondaryIndexDescription()
-      self.indexName.foreach(result.setIndexName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.setKeySchema)
-      self.projection.map(_.toJava).foreach(result.setProjection)
-      self.indexSizeBytes.foreach(v => result.setIndexSizeBytes(v))
-      self.itemCount.foreach(v => result.setItemCount(v))
-      self.indexArn.foreach(result.setIndexArn)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.withIndexName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.withKeySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.projection.foreach { v =>
+        import ProjectionOps._; result.withProjection(v.toJava)
+      } // Projection
+      self.indexSizeBytes.map(_.longValue).foreach(v => result.withIndexSizeBytes(v)) // Long
+      self.itemCount.map(_.longValue).foreach(v => result.withItemCount(v))           // Long
+      self.indexArn.filter(_.nonEmpty).foreach(v => result.withIndexArn(v))           // String
+
       result
     }
 
@@ -31,12 +34,16 @@ object LocalSecondaryIndexDescriptionOps {
 
     def toScala: ScalaLocalSecondaryIndexDescription = {
       ScalaLocalSecondaryIndexDescription()
-        .withIndexName(Option(self.getIndexName))
-        .withKeySchema(Option(self.getKeySchema).map(_.asScala.map(_.toScala)))
-        .withProjection(Option(self.getProjection).map(_.toScala))
-        .withIndexSizeBytes(Option(self.getIndexSizeBytes))
-        .withItemCount(Option(self.getItemCount))
-        .withIndexArn(Option(self.getIndexArn))
+        .withIndexName(Option(self.getIndexName)) // String
+        .withKeySchema(Option(self.getKeySchema).map { v =>
+          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
+        }) // Seq[KeySchemaElement]
+        .withProjection(Option(self.getProjection).map { v =>
+          import ProjectionOps._; v.toScala
+        }) // Projection
+        .withIndexSizeBytes(Option(self.getIndexSizeBytes).map(_.longValue)) // Long
+        .withItemCount(Option(self.getItemCount).map(_.longValue)) // Long
+        .withIndexArn(Option(self.getIndexArn)) // String
     }
 
   }

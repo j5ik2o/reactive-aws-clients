@@ -1,13 +1,15 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UntagResourceResponse => ScalaUntagResourceResponse, _ }
 import com.amazonaws.services.dynamodbv2.model.{ UntagResourceResult => JavaUntagResourceResponse }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UntagResourceResponse => ScalaUntagResourceResponse }
 
 import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UntagResourceResponseOps {
 
-  implicit class JavaJavaUntagResourceResponseOps(val self: JavaUntagResourceResponse) extends AnyVal {
+  implicit class JavaUntagResourceResponseOps(val self: JavaUntagResourceResponse) extends AnyVal {
 
     def toScala: ScalaUntagResourceResponse = {
       ScalaUntagResourceResponse()

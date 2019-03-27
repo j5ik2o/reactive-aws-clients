@@ -291,7 +291,57 @@ lazy val `reactive-aws-dynamodb-v1` = (project in file("reactive-aws-dynamodb/v1
         .value,
       libraryDependencies ++= Seq(
         "com.amazonaws" % "aws-java-sdk-dynamodb" % awsSdk1Version
-      )
+      ),
+      compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+      templateNameMapper in scalaWrapperGen := {
+        case ("DynamoDBAsyncClientV1Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBAsyncClientV1Impl.ftl"
+        case ("DynamoDBSyncClientV1Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
+          "DynamoDBSyncClientV1Impl.ftl"
+        case (_, cd: ClassDesc)
+            if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName
+              .endsWith("Request") && !Seq("WriteRequest", "PutRequest", "DeleteRequest").contains(cd.simpleTypeName) =>
+          "RequestOps.ftl"
+        case (_, cd: ClassDesc)
+            if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName
+              .endsWith("Response") && cd.simpleTypeName != "ItemResponse" =>
+          "ResponseOps.ftl"
+        case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
+        case (_, cd: EnumDesc) if cd.packageName.exists(_.endsWith("model"))  => "EnumOps.ftl"
+        case (name, cd)                                                       => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
+      },
+      typeNameMapper in scalaWrapperGen := {
+        case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          Seq("DynamoDBAsyncClientV1Impl")
+        case cd if cd.simpleTypeName == "DynamoDbClient" =>
+          Seq("DynamoDBSyncClientV1Impl")
+        case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
+        case cd                                               => Seq(cd.simpleTypeName)
+      },
+      packageNameMapper in scalaWrapperGen := {
+        case s if s == "software.amazon.awssdk.services.dynamodb.model" =>
+          "com.github.j5ik2o.reactive.aws.dynamodb.model.v1"
+        case s =>
+          s.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb")
+      },
+      outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+        (scalaSource in Compile).value
+      },
+      typeDescFilter in scalaWrapperGen := {
+        case cd if cd.simpleTypeName == "DynamoDbAsyncClient"         => true
+        case cd if cd.simpleTypeName == "DynamoDbClient"              => true
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception") => false
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")    => false
+        case cd: ClassDesc
+            if cd.simpleTypeName == "DynamoDbResponseMetadata" || cd.simpleTypeName == "DynamoDbStreamsResponseMetadata" =>
+          false
+        case cd: EnumDesc if cd.packageName.exists(_.endsWith("model")) => true
+        case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract =>
+          true
+        case cd =>
+          false
+      },
+      inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
     )
   ) dependsOn (`reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 

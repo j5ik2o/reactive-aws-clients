@@ -1,22 +1,27 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import java.util.Date
-
-import com.amazonaws.services.dynamodbv2.model.{ PointInTimeRecoveryDescription => JavaPointInTimeRecoveryDescription }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  PointInTimeRecoveryStatus,
-  PointInTimeRecoveryDescription => ScalaPointInTimeRecoveryDescription
+  PointInTimeRecoveryDescription => ScalaPointInTimeRecoveryDescription,
+  _
 }
+import com.amazonaws.services.dynamodbv2.model.{ PointInTimeRecoveryDescription => JavaPointInTimeRecoveryDescription }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object PointInTimeRecoveryDescriptionOps {
 
   implicit class ScalaPointInTimeRecoveryDescriptionOps(val self: ScalaPointInTimeRecoveryDescription) extends AnyVal {
 
     def toJava: JavaPointInTimeRecoveryDescription = {
       val result = new JavaPointInTimeRecoveryDescription()
-      self.pointInTimeRecoveryStatus.map(_.entryName).foreach(result.setPointInTimeRecoveryStatus)
-      self.earliestRestorableDateTime.map(Date.from).foreach(result.setEarliestRestorableDateTime)
-      self.latestRestorableDateTime.map(Date.from).foreach(result.setLatestRestorableDateTime)
+      self.pointInTimeRecoveryStatus.foreach { v =>
+        import PointInTimeRecoveryStatusOps._; result.withPointInTimeRecoveryStatus(v.toJava)
+      } // String
+      self.earliestRestorableDateTime
+        .map(java.util.Date.from).foreach(v => result.withEarliestRestorableDateTime(v)) // Instant
+      self.latestRestorableDateTime
+        .map(java.util.Date.from).foreach(v => result.withLatestRestorableDateTime(v)) // Instant
+
       result
     }
 
@@ -26,11 +31,11 @@ object PointInTimeRecoveryDescriptionOps {
 
     def toScala: ScalaPointInTimeRecoveryDescription = {
       ScalaPointInTimeRecoveryDescription()
-        .withPointInTimeRecoveryStatus(
-          Option(self.getPointInTimeRecoveryStatus).map(PointInTimeRecoveryStatus.withName)
-        )
-        .withEarliestRestorableDateTime(Option(self.getEarliestRestorableDateTime).map(_.toInstant))
-        .withLatestRestorableDateTime(Option(self.getLatestRestorableDateTime).map(_.toInstant))
+        .withPointInTimeRecoveryStatus(Option(self.getPointInTimeRecoveryStatus).map { v =>
+          import PointInTimeRecoveryStatusOps._; v.toScala
+        }) // String
+        .withEarliestRestorableDateTime(Option(self.getEarliestRestorableDateTime).map(_.toInstant)) // Instant
+        .withLatestRestorableDateTime(Option(self.getLatestRestorableDateTime).map(_.toInstant)) // Instant
     }
 
   }

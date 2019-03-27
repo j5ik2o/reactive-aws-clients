@@ -1,24 +1,32 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Put => ScalaPut, _ }
 import com.amazonaws.services.dynamodbv2.model.{ Put => JavaPut }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReturnValuesOnConditionCheckFailure, Put => ScalaPut }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object PutOps {
-
-  import AttributeValueOps._
 
   implicit class ScalaPutOps(val self: ScalaPut) extends AnyVal {
 
     def toJava: JavaPut = {
       val result = new JavaPut()
-      self.item.map(_.mapValues(_.toJava).asJava).foreach(result.setItem)
-      self.tableName.foreach(result.setTableName)
-      self.conditionExpression.foreach(result.setConditionExpression)
-      self.expressionAttributeNames.map(_.asJava).foreach(result.setExpressionAttributeNames)
-      self.expressionAttributeValues.map(_.mapValues(_.toJava).asJava).foreach(result.setExpressionAttributeValues)
-      self.returnValuesOnConditionCheckFailure.map(_.entryName).foreach(result.setReturnValuesOnConditionCheckFailure)
+      self.item.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._; result.withItem(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v))                     // String
+      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.withConditionExpression(v)) // String
+      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
+        import scala.collection.JavaConverters._; result.withExpressionAttributeNames(v.asJava)
+      } // Map[String, String]
+      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, AttributeValueOps._;
+        result.withExpressionAttributeValues(v.mapValues(_.toJava).asJava)
+      } // Map[String, AttributeValue]
+      self.returnValuesOnConditionCheckFailure.foreach { v =>
+        import ReturnValuesOnConditionCheckFailureOps._; result.withReturnValuesOnConditionCheckFailure(v.toJava)
+      } // String
+
       result
     }
 
@@ -28,16 +36,20 @@ object PutOps {
 
     def toScala: ScalaPut = {
       ScalaPut()
-        .withItem(Option(self.getItem).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withTableName(Option(self.getTableName))
-        .withConditionExpression(Option(self.getConditionExpression))
-        .withExpressionAttributeNames(Option(self.getExpressionAttributeNames).map(_.asScala.toMap))
-        .withExpressionAttributeValues(
-          Option(self.getExpressionAttributeValues).map(_.asScala.toMap.mapValues(_.toScala))
-        )
-        .withReturnValuesOnConditionCheckFailure(
-          Option(self.getReturnValuesOnConditionCheckFailure).map(ReturnValuesOnConditionCheckFailure.withName)
-        )
+        .withItem(Option(self.getItem).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withTableName(Option(self.getTableName)) // String
+        .withConditionExpression(Option(self.getConditionExpression)) // String
+        .withExpressionAttributeNames(Option(self.getExpressionAttributeNames).map { v =>
+          import scala.collection.JavaConverters._; v.asScala.toMap
+        }) // Map[String, String]
+        .withExpressionAttributeValues(Option(self.getExpressionAttributeValues).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withReturnValuesOnConditionCheckFailure(Option(self.getReturnValuesOnConditionCheckFailure).map { v =>
+          import ReturnValuesOnConditionCheckFailureOps._; v.toScala
+        }) // String
     }
 
   }

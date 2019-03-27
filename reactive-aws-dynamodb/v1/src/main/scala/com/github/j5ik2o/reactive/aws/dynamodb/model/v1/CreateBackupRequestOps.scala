@@ -1,25 +1,20 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ CreateBackupRequest => ScalaCreateBackupRequest, _ }
 import com.amazonaws.services.dynamodbv2.model.{ CreateBackupRequest => JavaCreateBackupRequest }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ CreateBackupRequest => ScalaCreateBackupRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object CreateBackupRequestOps {
 
   implicit class ScalaCreateBackupRequestOps(val self: ScalaCreateBackupRequest) extends AnyVal {
 
     def toJava: JavaCreateBackupRequest = {
       val result = new JavaCreateBackupRequest()
-      self.tableName.foreach(result.setTableName)
-      self.backupName.foreach(result.setBackupName)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v))   // String
+      self.backupName.filter(_.nonEmpty).foreach(v => result.withBackupName(v)) // String
+
       result
-    }
-
-  }
-
-  implicit class JavaCreateBackupRequestOps(val self: JavaCreateBackupRequest) extends AnyVal {
-
-    def toScala: ScalaCreateBackupRequest = {
-      ScalaCreateBackupRequest().withTableName(Option(self.getTableName)).withBackupName(Option(self.getBackupName))
     }
 
   }

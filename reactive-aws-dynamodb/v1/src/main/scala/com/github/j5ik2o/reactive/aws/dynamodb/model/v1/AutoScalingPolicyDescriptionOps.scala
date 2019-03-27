@@ -1,21 +1,25 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import com.amazonaws.services.dynamodbv2.model.{ AutoScalingPolicyDescription => JavaAutoScalingPolicyDescription }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  AutoScalingPolicyDescription => ScalaAutoScalingPolicyDescription
+  AutoScalingPolicyDescription => ScalaAutoScalingPolicyDescription,
+  _
 }
+import com.amazonaws.services.dynamodbv2.model.{ AutoScalingPolicyDescription => JavaAutoScalingPolicyDescription }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AutoScalingPolicyDescriptionOps {
-
-  import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._
 
   implicit class ScalaAutoScalingPolicyDescriptionOps(val self: ScalaAutoScalingPolicyDescription) extends AnyVal {
 
     def toJava: JavaAutoScalingPolicyDescription = {
       val result = new JavaAutoScalingPolicyDescription()
-      self.policyName.foreach(result.setPolicyName)
-      self.targetTrackingScalingPolicyConfiguration
-        .map(_.toJava).foreach(result.setTargetTrackingScalingPolicyConfiguration)
+      self.policyName.filter(_.nonEmpty).foreach(v => result.withPolicyName(v)) // String
+      self.targetTrackingScalingPolicyConfiguration.foreach { v =>
+        import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._;
+        result.withTargetTrackingScalingPolicyConfiguration(v.toJava)
+      } // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+
       result
     }
 
@@ -25,10 +29,11 @@ object AutoScalingPolicyDescriptionOps {
 
     def toScala: ScalaAutoScalingPolicyDescription = {
       ScalaAutoScalingPolicyDescription()
-        .withPolicyName(Option(self.getPolicyName))
-        .withTargetTrackingScalingPolicyConfiguration(
-          Option(self.getTargetTrackingScalingPolicyConfiguration).map(_.toScala)
-        )
+        .withPolicyName(Option(self.getPolicyName)) // String
+        .withTargetTrackingScalingPolicyConfiguration(Option(self.getTargetTrackingScalingPolicyConfiguration).map {
+          v =>
+            import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._; v.toScala
+        }) // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
     }
 
   }

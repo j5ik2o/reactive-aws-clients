@@ -1,16 +1,21 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ KeySchemaElement => ScalaKeySchemaElement, _ }
 import com.amazonaws.services.dynamodbv2.model.{ KeySchemaElement => JavaKeySchemaElement }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ KeyType, KeySchemaElement => ScalaKeySchemaElement }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object KeySchemaElementOps {
 
   implicit class ScalaKeySchemaElementOps(val self: ScalaKeySchemaElement) extends AnyVal {
 
     def toJava: JavaKeySchemaElement = {
       val result = new JavaKeySchemaElement()
-      self.keyType.map(_.entryName).foreach(result.setKeyType)
-      self.attributeName.foreach(result.setAttributeName)
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.withAttributeName(v)) // String
+      self.keyType.foreach { v =>
+        import KeyTypeOps._; result.withKeyType(v.toJava)
+      } // String
+
       result
     }
 
@@ -20,8 +25,10 @@ object KeySchemaElementOps {
 
     def toScala: ScalaKeySchemaElement = {
       ScalaKeySchemaElement()
-        .withKeyType(Option(self.getKeyType).map(KeyType.withName))
-        .withAttributeName(Option(self.getAttributeName))
+        .withAttributeName(Option(self.getAttributeName)) // String
+        .withKeyType(Option(self.getKeyType).map { v =>
+          import KeyTypeOps._; v.toScala
+        }) // String
     }
 
   }

@@ -1,19 +1,21 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AttributeDefinition => ScalaAttributeDefinition, _ }
 import com.amazonaws.services.dynamodbv2.model.{ AttributeDefinition => JavaAttributeDefinition }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ScalarAttributeType,
-  AttributeDefinition => ScalaAttributeDefinition
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object AttributeDefinitionOps {
 
   implicit class ScalaAttributeDefinitionOps(val self: ScalaAttributeDefinition) extends AnyVal {
 
     def toJava: JavaAttributeDefinition = {
       val result = new JavaAttributeDefinition()
-      self.attributeName.foreach(result.setAttributeName)
-      self.attributeType.foreach(v => result.setAttributeType(v.entryName))
+      self.attributeName.filter(_.nonEmpty).foreach(v => result.withAttributeName(v)) // String
+      self.attributeType.foreach { v =>
+        import ScalarAttributeTypeOps._; result.withAttributeType(v.toJava)
+      } // String
+
       result
     }
 
@@ -23,9 +25,10 @@ object AttributeDefinitionOps {
 
     def toScala: ScalaAttributeDefinition = {
       ScalaAttributeDefinition()
-        .withAttributeName(Option(self.getAttributeName)).withAttributeType(
-          Option(self.getAttributeType).map(ScalarAttributeType.withName)
-        )
+        .withAttributeName(Option(self.getAttributeName)) // String
+        .withAttributeType(Option(self.getAttributeType).map { v =>
+          import ScalarAttributeTypeOps._; v.toScala
+        }) // String
     }
 
   }

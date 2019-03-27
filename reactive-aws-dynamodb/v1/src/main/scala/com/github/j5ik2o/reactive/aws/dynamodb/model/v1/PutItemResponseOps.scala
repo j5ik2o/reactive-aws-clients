@@ -1,15 +1,13 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ PutItemResponse => ScalaPutItemResponse, _ }
 import com.amazonaws.services.dynamodbv2.model.{ PutItemResult => JavaPutItemResponse }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ PutItemResponse => ScalaPutItemResponse }
 
 import scala.collection.JavaConverters._
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object PutItemResponseOps {
-
-  import AttributeValueOps._
-  import ConsumedCapacityOps._
-  import ItemCollectionMetricsOps._
 
   implicit class JavaPutItemResponseOps(val self: JavaPutItemResponse) extends AnyVal {
 
@@ -17,9 +15,15 @@ object PutItemResponseOps {
       ScalaPutItemResponse()
         .withStatusCode(Option(self.getSdkHttpMetadata).map(_.getHttpStatusCode))
         .withHttpHeaders(Option(self.getSdkHttpMetadata).map(_.getHttpHeaders).map(_.asScala.toMap.mapValues(Seq(_))))
-        .withAttributes(Option(self.getAttributes).map(_.asScala.toMap.mapValues(_.toScala)))
-        .withConsumedCapacity(Option(self.getConsumedCapacity).map(_.toScala))
-        .withItemCollectionMetrics(Option(self.getItemCollectionMetrics).map(_.toScala))
+        .withAttributes(Option(self.getAttributes).map { v =>
+          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
+        }) // Map[String, AttributeValue]
+        .withConsumedCapacity(Option(self.getConsumedCapacity).map { v =>
+          import ConsumedCapacityOps._; v.toScala
+        }) // ConsumedCapacity
+        .withItemCollectionMetrics(Option(self.getItemCollectionMetrics).map { v =>
+          import ItemCollectionMetricsOps._; v.toScala
+        }) // ItemCollectionMetrics
     }
 
   }

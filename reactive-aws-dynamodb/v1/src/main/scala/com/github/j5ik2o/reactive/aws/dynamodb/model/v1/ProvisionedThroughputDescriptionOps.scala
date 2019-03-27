@@ -1,14 +1,15 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import java.util.Date
-
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  ProvisionedThroughputDescription => ScalaProvisionedThroughputDescription,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   ProvisionedThroughputDescription => JavaProvisionedThroughputDescription
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ProvisionedThroughputDescription => ScalaProvisionedThroughputDescription
-}
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object ProvisionedThroughputDescriptionOps {
 
   implicit class ScalaProvisionedThroughputDescriptionOps(val self: ScalaProvisionedThroughputDescription)
@@ -16,11 +17,12 @@ object ProvisionedThroughputDescriptionOps {
 
     def toJava: JavaProvisionedThroughputDescription = {
       val result = new JavaProvisionedThroughputDescription()
-      self.lastIncreaseDateTime.map(Date.from).foreach(result.setLastIncreaseDateTime)
-      self.lastDecreaseDateTime.map(Date.from).foreach(result.setLastDecreaseDateTime)
-      self.numberOfDecreasesToday.foreach(v => result.setNumberOfDecreasesToday(v))
-      self.readCapacityUnits.foreach(v => result.setReadCapacityUnits(v))
-      self.writeCapacityUnits.foreach(v => result.setWriteCapacityUnits(v))
+      self.lastIncreaseDateTime.map(java.util.Date.from).foreach(v => result.withLastIncreaseDateTime(v)) // Instant
+      self.lastDecreaseDateTime.map(java.util.Date.from).foreach(v => result.withLastDecreaseDateTime(v)) // Instant
+      self.numberOfDecreasesToday.map(_.longValue).foreach(v => result.withNumberOfDecreasesToday(v))     // Long
+      self.readCapacityUnits.map(_.longValue).foreach(v => result.withReadCapacityUnits(v))               // Long
+      self.writeCapacityUnits.map(_.longValue).foreach(v => result.withWriteCapacityUnits(v))             // Long
+
       result
     }
 
@@ -31,11 +33,11 @@ object ProvisionedThroughputDescriptionOps {
 
     def toScala: ScalaProvisionedThroughputDescription = {
       ScalaProvisionedThroughputDescription()
-        .withLastIncreaseDateTime(Option(self.getLastIncreaseDateTime).map(_.toInstant))
-        .withLastDecreaseDateTime(Option(self.getLastDecreaseDateTime).map(_.toInstant))
-        .withNumberOfDecreasesToday(Option(self.getNumberOfDecreasesToday))
-        .withReadCapacityUnits(Option(self.getReadCapacityUnits))
-        .withWriteCapacityUnits(Option(self.getWriteCapacityUnits))
+        .withLastIncreaseDateTime(Option(self.getLastIncreaseDateTime).map(_.toInstant)) // Instant
+        .withLastDecreaseDateTime(Option(self.getLastDecreaseDateTime).map(_.toInstant)) // Instant
+        .withNumberOfDecreasesToday(Option(self.getNumberOfDecreasesToday).map(_.longValue)) // Long
+        .withReadCapacityUnits(Option(self.getReadCapacityUnits).map(_.longValue)) // Long
+        .withWriteCapacityUnits(Option(self.getWriteCapacityUnits).map(_.longValue)) // Long
     }
 
   }

@@ -1,20 +1,21 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GlobalTable => ScalaGlobalTable, _ }
 import com.amazonaws.services.dynamodbv2.model.{ GlobalTable => JavaGlobalTable }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GlobalTable => ScalaGlobalTable }
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object GlobalTableOps {
-
-  import ReplicaOps._
 
   implicit class ScalaGlobalTableOps(val self: ScalaGlobalTable) extends AnyVal {
 
     def toJava: JavaGlobalTable = {
       val result = new JavaGlobalTable()
-      self.globalTableName.foreach(result.setGlobalTableName)
-      self.replicationGroup.map(_.map(_.toJava).asJava).foreach(result.setReplicationGroup)
+      self.globalTableName.filter(_.nonEmpty).foreach(v => result.withGlobalTableName(v)) // String
+      self.replicationGroup.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, ReplicaOps._; result.withReplicationGroup(v.map(_.toJava).asJava)
+      } // Seq[Replica]
+
       result
     }
 
@@ -24,8 +25,10 @@ object GlobalTableOps {
 
     def toScala: ScalaGlobalTable = {
       ScalaGlobalTable()
-        .withGlobalTableName(Option(self.getGlobalTableName))
-        .withReplicationGroup(Option(self.getReplicationGroup).map(_.asScala.map(_.toScala)))
+        .withGlobalTableName(Option(self.getGlobalTableName)) // String
+        .withReplicationGroup(Option(self.getReplicationGroup).map { v =>
+          import scala.collection.JavaConverters._, ReplicaOps._; v.asScala.map(_.toScala)
+        }) // Seq[Replica]
     }
 
   }

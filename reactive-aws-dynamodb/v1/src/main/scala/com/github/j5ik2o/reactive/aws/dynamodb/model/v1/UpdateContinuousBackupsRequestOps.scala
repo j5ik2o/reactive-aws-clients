@@ -1,30 +1,25 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
-import com.amazonaws.services.dynamodbv2.model.{ UpdateContinuousBackupsRequest => JavaUpdateContinuousBackupsRequest }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  UpdateContinuousBackupsRequest => ScalaUpdateContinuousBackupsRequest
+  UpdateContinuousBackupsRequest => ScalaUpdateContinuousBackupsRequest,
+  _
 }
+import com.amazonaws.services.dynamodbv2.model.{ UpdateContinuousBackupsRequest => JavaUpdateContinuousBackupsRequest }
 
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object UpdateContinuousBackupsRequestOps {
-
-  import PointInTimeRecoverySpecificationOps._
 
   implicit class ScalaUpdateContinuousBackupsRequestOps(val self: ScalaUpdateContinuousBackupsRequest) extends AnyVal {
 
     def toJava: JavaUpdateContinuousBackupsRequest = {
       val result = new JavaUpdateContinuousBackupsRequest()
-      self.tableName.foreach(result.setTableName)
-      self.pointInTimeRecoverySpecification.map(_.toJava).foreach(result.setPointInTimeRecoverySpecification)
+      self.tableName.filter(_.nonEmpty).foreach(v => result.withTableName(v)) // String
+      self.pointInTimeRecoverySpecification.foreach { v =>
+        import PointInTimeRecoverySpecificationOps._; result.withPointInTimeRecoverySpecification(v.toJava)
+      } // PointInTimeRecoverySpecification
+
       result
-    }
-  }
-
-  implicit class JavaUpdateContinuousBackupsRequestOps(val self: JavaUpdateContinuousBackupsRequest) extends AnyVal {
-
-    def toScala: ScalaUpdateContinuousBackupsRequest = {
-      ScalaUpdateContinuousBackupsRequest()
-        .withTableName(Option(self.getTableName))
-        .withPointInTimeRecoverySpecification(Option(self.getPointInTimeRecoverySpecification).map(_.toScala))
     }
 
   }

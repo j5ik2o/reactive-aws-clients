@@ -1,29 +1,33 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
 
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{
+  CreateGlobalSecondaryIndexAction => ScalaCreateGlobalSecondaryIndexAction,
+  _
+}
 import com.amazonaws.services.dynamodbv2.model.{
   CreateGlobalSecondaryIndexAction => JavaCreateGlobalSecondaryIndexAction
 }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  CreateGlobalSecondaryIndexAction => ScalaCreateGlobalSecondaryIndexAction
-}
 
-import scala.collection.JavaConverters._
-
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
 object CreateGlobalSecondaryIndexActionOps {
-
-  import KeySchemaElementOps._
-  import ProjectionOps._
-  import ProvisionedThroughputOps._
 
   implicit class ScalaCreateGlobalSecondaryIndexActionOps(val self: ScalaCreateGlobalSecondaryIndexAction)
       extends AnyVal {
 
     def toJava: JavaCreateGlobalSecondaryIndexAction = {
       val result = new JavaCreateGlobalSecondaryIndexAction()
-      self.indexName.foreach(result.setIndexName)
-      self.keySchema.map(_.map(_.toJava).asJava).foreach(result.setKeySchema)
-      self.projection.map(_.toJava).foreach(result.setProjection)
-      self.provisionedThroughput.map(_.toJava).foreach(result.setProvisionedThroughput)
+      self.indexName.filter(_.nonEmpty).foreach(v => result.withIndexName(v)) // String
+      self.keySchema.filter(_.nonEmpty).foreach { v =>
+        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.withKeySchema(v.map(_.toJava).asJava)
+      } // Seq[KeySchemaElement]
+      self.projection.foreach { v =>
+        import ProjectionOps._; result.withProjection(v.toJava)
+      } // Projection
+      self.provisionedThroughput.foreach { v =>
+        import ProvisionedThroughputOps._; result.withProvisionedThroughput(v.toJava)
+      } // ProvisionedThroughput
+
       result
     }
 
@@ -34,10 +38,16 @@ object CreateGlobalSecondaryIndexActionOps {
 
     def toScala: ScalaCreateGlobalSecondaryIndexAction = {
       ScalaCreateGlobalSecondaryIndexAction()
-        .withIndexName(Option(self.getIndexName))
-        .withKeySchema(Option(self.getKeySchema).map(_.asScala.map(_.toScala)))
-        .withProjection(Option(self.getProjection).map(_.toScala))
-        .withProvisionedThroughput(Option(self.getProvisionedThroughput).map(_.toScala))
+        .withIndexName(Option(self.getIndexName)) // String
+        .withKeySchema(Option(self.getKeySchema).map { v =>
+          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
+        }) // Seq[KeySchemaElement]
+        .withProjection(Option(self.getProjection).map { v =>
+          import ProjectionOps._; v.toScala
+        }) // Projection
+        .withProvisionedThroughput(Option(self.getProvisionedThroughput).map { v =>
+          import ProvisionedThroughputOps._; v.toScala
+        }) // ProvisionedThroughput
     }
 
   }
