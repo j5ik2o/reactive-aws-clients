@@ -1,5 +1,5 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb
-<#include "macro-imports.ftl">
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
         <#return false>
