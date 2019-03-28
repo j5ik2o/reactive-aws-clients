@@ -3,8 +3,9 @@ package com.github.j5ik2o.reactive.aws.dynamodb.monix
 import java.net.URI
 import java.util.UUID
 
+import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBContainerSpecSupport
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
-import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClientV2, DynamoDBContainerSpecSupport }
+import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
@@ -25,7 +26,7 @@ class DynamoDBMonixClientV2ImplSpec extends FreeSpec with Matchers with ScalaFut
     .endpointOverride(URI.create(endpoint))
     .build()
 
-  val client = DynamoDBMonixClientV2(DynamoDBAsyncClientV2(underlying))
+  val client = DynamoDBMonixClientV2(DynamoDBAsyncClient(underlying))
 
   "DynamoDBTaskClientV2Impl" - {
     "createTable & listTables" in {

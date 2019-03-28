@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.dynamodb.model.v2
+package com.github.j5ik2o.reactive.aws.dynamodb.v2.model
 <#function targetField fieldDesc>
   <#if fieldDesc.static >
     <#return false>
