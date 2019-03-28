@@ -1,3 +1,4 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.v2.monix
 
 import com.github.j5ik2o.reactive.aws.dynamodb.monix.{ DynamoDBMonixClient => BaseDynamoDBMonixClient }
@@ -15,19 +16,16 @@ trait DynamoDBMonixClient extends BaseDynamoDBMonixClient {
 
   override val underlying: DynamoDBAsyncClient
 
-  def batchGetItemPaginator(request: BatchGetItemRequest): Observable[BatchGetItemResponse] =
-    Observable.fromReactivePublisher(underlying.batchGetItemPaginator(request))
+  def batchGetItemPaginator(batchGetItemRequest: BatchGetItemRequest): Observable[BatchGetItemResponse] =
+    Observable.fromReactivePublisher(underlying.batchGetItemPaginator(batchGetItemRequest))
 
-  def listTablesPaginator: Observable[ListTablesResponse] =
-    Observable.fromReactivePublisher(underlying.listTablesPaginator())
+  def listTablesPaginator(listTablesRequest: ListTablesRequest): Observable[ListTablesResponse] =
+    Observable.fromReactivePublisher(underlying.listTablesPaginator(listTablesRequest))
 
-  def listTablesPaginator(request: ListTablesRequest): Observable[ListTablesResponse] =
-    Observable.fromReactivePublisher(underlying.listTablesPaginator(request))
+  def queryPaginator(queryRequest: QueryRequest): Observable[QueryResponse] =
+    Observable.fromReactivePublisher(underlying.queryPaginator(queryRequest))
 
-  def queryPaginator(request: QueryRequest): Observable[QueryResponse] =
-    Observable.fromReactivePublisher(underlying.queryPaginator(request))
-
-  def scanPaginator(request: ScanRequest): Observable[ScanResponse] =
-    Observable.fromReactivePublisher(underlying.scanPaginator(request))
+  def scanPaginator(scanRequest: ScanRequest): Observable[ScanResponse] =
+    Observable.fromReactivePublisher(underlying.scanPaginator(scanRequest))
 
 }

@@ -2,7 +2,7 @@ package com.github.j5ik2o.reactive.aws.dynamodb
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 
-trait DynamoDBClientSupport[M[_]] { this: DynamoDBClient[M] =>
+private[dynamodb] trait DynamoDBClientSupport[M[_]] { this: DynamoDBClient[M] =>
 
   def batchGetItem(requestItems: Map[String, KeysAndAttributes],
                    returnConsumedCapacity: ReturnConsumedCapacity): M[BatchGetItemResponse] = {
