@@ -6,13 +6,13 @@ import java.{ lang, util }
 import com.amazonaws.handlers.AsyncHandler
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync
 import com.amazonaws.services.dynamodbv2.model._
-import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaAsyncClientMetricsInterceptorV1
+import com.github.j5ik2o.reactive.aws.dynamodb.v1.metrics.JavaAsyncClientMetricsInterceptor
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 
 object JavaAsyncClientDecorator {
 
   def ofMetricsCollector(underlying: AmazonDynamoDBAsync, _reporter: MetricsReporter): JavaAsyncClientDecorator =
-    new JavaAsyncClientDecoratorImpl(underlying) with JavaAsyncClientMetricsInterceptorV1 {
+    new JavaAsyncClientDecoratorImpl(underlying) with JavaAsyncClientMetricsInterceptor {
       override protected val reporter: MetricsReporter = _reporter
     }
 

@@ -1,4 +1,5 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.metrics
+package com.github.j5ik2o.reactive.aws.dynamodb.v1.metrics
+
 import java.util.concurrent.{ CompletableFuture, Future }
 import java.util.function.{ BiConsumer, Supplier }
 import java.{ lang, util }
@@ -7,7 +8,7 @@ import com.amazonaws.handlers.AsyncHandler
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync
 import com.amazonaws.services.dynamodbv2.model._
 
-trait JavaAsyncClientMetricsInterceptorV1 extends AmazonDynamoDBAsync with JavaSyncClientMetricsInterceptorV1 {
+trait JavaAsyncClientMetricsInterceptor extends AmazonDynamoDBAsync with JavaSyncClientMetricsInterceptor {
 
   abstract override def batchGetItemAsync(
       batchGetItemRequest: BatchGetItemRequest
