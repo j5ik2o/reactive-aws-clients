@@ -1,13 +1,12 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.cats
+package com.github.j5ik2o.reactive.aws.dynamodb.v1.cats
 
 import cats.data.ReaderT
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 
-private[cats] class DynamoDBAsyncClientV1Impl(override val underlying: AmazonDynamoDBAsync)
-    extends DynamoDBAsyncClientV1 {
+private[cats] class DynamoDBAsyncClientImpl(override val underlying: AmazonDynamoDBAsync) extends DynamoDBAsyncClient {
   import com.github.j5ik2o.reactive.aws.dynamodb.v1.DynamoDBAsyncClient._
   import com.github.j5ik2o.reactive.aws.dynamodb.v1.model.BatchGetItemRequestOps._
   import com.github.j5ik2o.reactive.aws.dynamodb.v1.model.BatchGetItemResponseOps._

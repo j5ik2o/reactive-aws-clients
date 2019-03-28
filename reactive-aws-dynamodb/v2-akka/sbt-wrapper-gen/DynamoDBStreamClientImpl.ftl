@@ -1,26 +1,23 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.dynamodb.akka
+package com.github.j5ik2o.reactive.aws.dynamodb.v2.akka
 
 import akka.NotUsed
-import akka.stream.scaladsl.Flow
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import akka.stream.scaladsl.{ Flow, Source }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemRequest, BatchGetItemResponse, _ }
 import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 
-object DynamoDBStreamClientV2 {
-
-  def apply(underlying: DynamoDBAsyncClient): DynamoDBStreamClientV2 = new DynamoDBStreamClientV2Impl(underlying)
-
-}
-
-trait DynamoDBStreamClientV2 extends DynamoDBStreamClient with DynamoDBStreamClientV2Support {
+private[dynamodb] class DynamoDBStreamClientImpl(override val underlying: DynamoDBAsyncClient)
+  extends DynamoDBStreamClient {
 
 <#list methods as method>
     <#if targetMethod(method)>
         <#assign requestName=method.parameterTypeDescs[0].simpleTypeName>
         <#assign responseName=requestName?replace("Request", "Response")>
-        def ${method.name?replace("Paginator", "")}Flow: Flow[${requestName},${responseName}, NotUsed]
+        override def ${method.name?replace("Paginator", "")}Flow: Flow[${requestName},${responseName}, NotUsed] = Flow[${requestName}].flatMapConcat { request =>
+            Source.fromPublisher(underlying.${method.name}(request))
+        }
 
-</#if></#list>
+    </#if></#list>
 }
 
 <#function targetMethod methodDesc>
