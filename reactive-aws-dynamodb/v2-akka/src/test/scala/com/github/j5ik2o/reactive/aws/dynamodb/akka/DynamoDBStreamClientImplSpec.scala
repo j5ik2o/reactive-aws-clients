@@ -1,23 +1,32 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.cats
+package com.github.j5ik2o.reactive.aws.dynamodb.akka
 
 import java.net.URI
 import java.util.UUID
 
+import akka.actor.ActorSystem
+import akka.stream.scaladsl.{ Sink, Source }
+import akka.stream.{ ActorMaterializer, Materializer }
+import akka.testkit.TestKit
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBContainerSpecSupport
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{ AsyncFreeSpec, Matchers }
+import org.scalatest.{ FreeSpecLike, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
 import scala.concurrent.duration._
 
-class DynamoDBAsyncClientV2ImplSpec
-    extends AsyncFreeSpec
+class DynamoDBStreamClientImplSpec
+    extends TestKit(ActorSystem("DynamoDBStreamClientImplSpec"))
+    with FreeSpecLike
     with Matchers
     with ScalaFutures
     with DynamoDBContainerSpecSupport {
+
+  implicit val mat: Materializer = ActorMaterializer()
+
   implicit val pc: PatienceConfig = PatienceConfig(20 seconds, 1 seconds)
 
   val underlying = DynamoDbAsyncClient
@@ -28,15 +37,15 @@ class DynamoDBAsyncClientV2ImplSpec
     )
     .endpointOverride(URI.create(endpoint))
     .build()
+  val client = DynamoDBStreamClient(DynamoDBAsyncClient(underlying))
 
-  val client = DynamoDBAsyncClientV2(underlying)
-
-  "DynamoDBAsyncClientV2ImplSpec" - {
+  "DynamoDBStreamClientImpl" - {
     "createTable & listTables" in {
       val (tableName: String, createResponse: CreateTableResponse) = createTable()
       createResponse.isSuccessful shouldBe true
-      val listTablesRequest  = ListTablesRequest().withLimit(Some(1))
-      val listTablesResponse = client.listTables(listTablesRequest).run(executionContext).futureValue
+      val listTablesRequest = ListTablesRequest().withLimit(Some(1))
+      val listTablesResponse =
+        Source.single(listTablesRequest).via(client.listTablesFlow()).runWith(Sink.head).futureValue
       listTablesResponse.isSuccessful shouldBe true
       listTablesResponse.tableNames.get should contain(tableName)
     }
@@ -52,12 +61,14 @@ class DynamoDBAsyncClientV2ImplSpec
             )
           )
         )
-      val putItemResponse = client.putItem(putItemRequest).run(executionContext).futureValue
+      val putItemResponse =
+        Source.single(putItemRequest).via(client.putItemFlow()).runWith(Sink.head).futureValue
       putItemResponse.isSuccessful shouldBe true
       val getItemRequest = GetItemRequest()
         .withTableName(Some(tableName))
         .withKey(Some(Map("Id" -> AttributeValue().withString(Some("abc")))))
-      val getItemResponse = client.getItem(getItemRequest).run(executionContext).futureValue
+      val getItemResponse =
+        Source.single(getItemRequest).via(client.getItemFlow()).runWith(Sink.head).futureValue
       getItemResponse.isSuccessful shouldBe true
       getItemResponse.item.get.mapValues(_.string.get) shouldBe Map("Id" -> "abc", "Name" -> "xyz")
 
@@ -72,10 +83,12 @@ class DynamoDBAsyncClientV2ImplSpec
             )
           )
         )
-      val updateItemResponse = client.updateItem(updateItemRequest).run(executionContext).futureValue
+      val updateItemResponse =
+        Source.single(updateItemRequest).via(client.updateItemFlow()).runWith(Sink.head).futureValue
       updateItemResponse.isSuccessful shouldBe true
     }
   }
+
   private def createTable(
       tableName: String = "example_" + UUID.randomUUID().toString
   ): (String, CreateTableResponse) = {
@@ -106,8 +119,7 @@ class DynamoDBAsyncClientV2ImplSpec
         )
       )
       .withTableName(Some(tableName))
-    val createResponse = client
-      .createTable(createRequest).run(executionContext).futureValue
+    val createResponse = Source.single(createRequest).via(client.createTableFlow()).runWith(Sink.head).futureValue
     (tableName, createResponse)
   }
 

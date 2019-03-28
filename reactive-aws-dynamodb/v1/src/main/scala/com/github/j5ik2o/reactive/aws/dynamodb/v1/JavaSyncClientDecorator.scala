@@ -7,13 +7,13 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB
 import com.amazonaws.services.dynamodbv2.model._
 import com.amazonaws.services.dynamodbv2.waiters.AmazonDynamoDBWaiters
 import com.amazonaws.{ AmazonWebServiceRequest, ResponseMetadata }
-import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaSyncClientMetricsInterceptorV1
+import com.github.j5ik2o.reactive.aws.dynamodb.v1.metrics.JavaSyncClientMetricsInterceptor
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 
 object JavaSyncClientDecorator {
 
   def ofMetricsCollector(underlying: AmazonDynamoDB, _reporter: MetricsReporter): JavaSyncClientDecorator =
-    new JavaSyncClientDecoratorImpl(underlying) with JavaSyncClientMetricsInterceptorV1 {
+    new JavaSyncClientDecoratorImpl(underlying) with JavaSyncClientMetricsInterceptor {
       override protected val reporter: MetricsReporter = _reporter
     }
 

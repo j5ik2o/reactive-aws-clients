@@ -1,16 +1,17 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.monix
+package com.github.j5ik2o.reactive.aws.dynamodb.v2.monix
 
+import com.github.j5ik2o.reactive.aws.dynamodb.monix.{ DynamoDBMonixClient => BaseDynamoDBMonixClient }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemRequest, BatchGetItemResponse, _ }
 import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 import monix.reactive.Observable
 
-object DynamoDBMonixClientV2 {
+object DynamoDBMonixClient {
 
-  def apply(underlying: DynamoDBAsyncClient): DynamoDBMonixClientV2 = new DynamoDBMonixClientV2Impl(underlying)
+  def apply(underlying: DynamoDBAsyncClient): DynamoDBMonixClient = new DynamoDBMonixClientImpl(underlying)
 
 }
 
-trait DynamoDBMonixClientV2 extends DynamoDBMonixClient {
+trait DynamoDBMonixClient extends BaseDynamoDBMonixClient {
 
   def batchGetItemPaginator(request: BatchGetItemRequest): Observable[BatchGetItemResponse]
 
