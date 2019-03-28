@@ -316,10 +316,10 @@ lazy val `reactive-aws-dynamodb-v1` = (project in file("reactive-aws-dynamodb/v1
       ),
       compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
       templateNameMapper in scalaWrapperGen := {
-        case ("DynamoDBAsyncClientV1Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-          "DynamoDBAsyncClientV1Impl.ftl"
-        case ("DynamoDBSyncClientV1Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
-          "DynamoDBSyncClientV1Impl.ftl"
+        case ("DynamoDBAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBAsyncClientImpl.ftl"
+        case ("DynamoDBSyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
+          "DynamoDBSyncClientImpl.ftl"
         case (_, cd: ClassDesc)
             if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName
               .endsWith("Request") && !Seq("WriteRequest", "PutRequest", "DeleteRequest").contains(cd.simpleTypeName) =>
@@ -334,17 +334,14 @@ lazy val `reactive-aws-dynamodb-v1` = (project in file("reactive-aws-dynamodb/v1
       },
       typeNameMapper in scalaWrapperGen := {
         case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-          Seq("DynamoDBAsyncClientV1Impl")
+          Seq("DynamoDBAsyncClientImpl")
         case cd if cd.simpleTypeName == "DynamoDbClient" =>
-          Seq("DynamoDBSyncClientV1Impl")
+          Seq("DynamoDBSyncClientImpl")
         case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
         case cd                                               => Seq(cd.simpleTypeName)
       },
       packageNameMapper in scalaWrapperGen := {
-        case s if s == "software.amazon.awssdk.services.dynamodb.model" =>
-          "com.github.j5ik2o.reactive.aws.dynamodb.model.v1"
-        case s =>
-          s.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb")
+        _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.v1")
       },
       outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
         (scalaSource in Compile).value
