@@ -13,14 +13,21 @@ object DynamoDBMonixClient {
 
 trait DynamoDBMonixClient extends BaseDynamoDBMonixClient {
 
-  def batchGetItemPaginator(request: BatchGetItemRequest): Observable[BatchGetItemResponse]
+  override val underlying: DynamoDBAsyncClient
 
-  def listTablesPaginator: Observable[ListTablesResponse]
+  def batchGetItemPaginator(request: BatchGetItemRequest): Observable[BatchGetItemResponse] =
+    Observable.fromReactivePublisher(underlying.batchGetItemPaginator(request))
 
-  def listTablesPaginator(request: ListTablesRequest): Observable[ListTablesResponse]
+  def listTablesPaginator: Observable[ListTablesResponse] =
+    Observable.fromReactivePublisher(underlying.listTablesPaginator())
 
-  def queryPaginator(request: QueryRequest): Observable[QueryResponse]
+  def listTablesPaginator(request: ListTablesRequest): Observable[ListTablesResponse] =
+    Observable.fromReactivePublisher(underlying.listTablesPaginator(request))
 
-  def scanPaginator(request: ScanRequest): Observable[ScanResponse]
+  def queryPaginator(request: QueryRequest): Observable[QueryResponse] =
+    Observable.fromReactivePublisher(underlying.queryPaginator(request))
+
+  def scanPaginator(request: ScanRequest): Observable[ScanResponse] =
+    Observable.fromReactivePublisher(underlying.scanPaginator(request))
 
 }

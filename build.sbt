@@ -444,13 +444,11 @@ lazy val `reactive-aws-dynamodb-v2-akka` = (project in file("reactive-aws-dynamo
     templateNameMapper in scalaWrapperGen := {
       case ("DynamoDBStreamClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
         "DynamoDBStreamClient.ftl"
-      case ("DynamoDBStreamClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-        "DynamoDBStreamClientImpl.ftl"
       case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
     },
     typeNameMapper in scalaWrapperGen := {
       case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-        Seq("DynamoDBStreamClient", "DynamoDBStreamClientImpl")
+        Seq("DynamoDBStreamClient")
     },
     packageNameMapper in scalaWrapperGen := {
       _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.v2.akka")
@@ -479,7 +477,29 @@ lazy val `reactive-aws-dynamodb-v2-cats` = (project in file("reactive-aws-dynamo
   coreSettings ++ Seq(
     name := "reactive-aws-dynamodb-v2-cats",
     libraryDependencies ++= Seq(
-      )
+      ),
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+    templateNameMapper in scalaWrapperGen := {
+      case ("DynamoDBAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+        "DynamoDBAsyncClient.ftl"
+      case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
+    },
+    typeNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+        Seq("DynamoDBAsyncClient")
+    },
+    packageNameMapper in scalaWrapperGen := {
+      _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.v2.cats")
+    },
+    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+      (scalaSource in Compile).value
+    },
+    typeDescFilter in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => true
+      case _ =>
+        false
+    },
+    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
   )
 ) dependsOn (`reactive-aws-dynamodb-v2`, `reactive-aws-dynamodb-cats`, `reactive-aws-dynamodb-test` % "test")
 
