@@ -1,10 +1,10 @@
 package com.github.j5ik2o.reactive.aws.kinesis.akka
 
-import com.github.j5ik2o.reactive.aws.kinesis.KinesisAsyncClientV2
+import com.github.j5ik2o.reactive.aws.kinesis.KinesisAsyncClient
 
 object KinesisStreamClientV2 {
 
-  def apply(underlying: KinesisAsyncClientV2): KinesisStreamClientV2 = new KinesisStreamClientV2Impl(underlying)
+  def apply(underlying: KinesisAsyncClient): KinesisStreamClientV2 = new KinesisStreamClientV2Impl(underlying)
 
 }
 

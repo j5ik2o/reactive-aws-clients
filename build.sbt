@@ -560,10 +560,10 @@ lazy val `reactive-aws-kinesis-core` = (project in file("reactive-aws-kinesis/co
     name := "reactive-aws-kinesis-core",
     libraryDependencies ++= Seq(
       ),
-    // compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
     templateNameMapper in scalaWrapperGen := {
-      case (_, cd) if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
-      case (_, _: EnumDesc)                                     => "EnumModel.ftl"
+      case ("KinesisClient", cd) if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
+      case (_, _: EnumDesc)                                                   => "EnumModel.ftl"
       case (_, cd: ClassDesc)
           if cd.simpleTypeName.endsWith("Response") && cd.packageName.exists(_.endsWith("model")) && !cd.isStatic =>
         "ResponseModel.ftl"
@@ -642,7 +642,55 @@ lazy val `reactive-aws-kinesis-v2` = (project in file("reactive-aws-kinesis/v2")
     name := "reactive-aws-kinesis-v2",
     libraryDependencies ++= Seq(
       "software.amazon.awssdk" % "kinesis" % awsSdk2Version
-    )
+    ),
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+    templateNameMapper in scalaWrapperGen := {
+      case ("KinesisAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
+        "KinesisAsyncClient.ftl"
+      case ("KinesisAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
+        "KinesisAsyncClientImpl.ftl"
+      case ("KinesisSyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
+        "KinesisSyncClient.ftl"
+      case ("KinesisSyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
+        "KinesisSyncClientImpl.ftl"
+      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName.endsWith("Request") =>
+        "RequestOps.ftl"
+      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName.endsWith("Response") =>
+        "ResponseOps.ftl"
+      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
+      case (_, cd: EnumDesc) if cd.packageName.exists(_.endsWith("model"))  => "EnumOps.ftl"
+      case (name, cd)                                                       => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
+    },
+    typeNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "KinesisAsyncClient" =>
+        Seq("KinesisAsyncClient", "KinesisAsyncClientImpl")
+      case cd if cd.simpleTypeName == "KinesisClient" =>
+        Seq("KinesisSyncClient", "KinesisSyncClientImpl")
+      case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
+      case cd                                               => Seq(cd.simpleTypeName)
+    },
+    packageNameMapper in scalaWrapperGen := {
+      _.replace("software.amazon.awssdk.services.kinesis", "com.github.j5ik2o.reactive.aws.kinesis.v2")
+    },
+    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+      (scalaSource in Compile).value
+    },
+    typeDescFilter in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "KinesisAsyncClient"                     => true
+      case cd if cd.simpleTypeName == "KinesisClient"                          => false
+      case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")            => false
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")            => false
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")              => false
+      case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")               => false
+      case cd: ClassDesc if cd.simpleTypeName == "KinesisResponseMetadata"     => false
+      case cd: ClassDesc if cd.simpleTypeName == "SubscribeToShardEventStream" => false
+      case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))          => true
+      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract =>
+        true
+      case cd =>
+        false
+    },
+    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/kinesis/target/generated-sources/sdk/software/amazon/awssdk/services/kinesis"
   )
 ) dependsOn (`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 

@@ -10,22 +10,6 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import scala.compat.java8.FutureConverters
 import scala.concurrent.{ ExecutionContext, Future }
 
-<#function targetMethod methodDesc>
-    <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if !methodDesc.name?ends_with("Paginator")>
-        <#return false>
-    </#if>
-    <#local target=true>
-    <#list methodDesc.parameterTypeDescs as p>
-        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
-            <#local target = false>
-            <#break >
-        </#if>
-    </#list>
-    <#return target>
-</#function>
 object DynamoDBAsyncClient {
 
   def apply(underlying: DynamoDbAsyncClient)(implicit ec: ExecutionContext): DynamoDBAsyncClient =
@@ -45,3 +29,19 @@ trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
 </#if></#list>
 }
 
+<#function targetMethod methodDesc>
+    <#if methodDesc.static >
+        <#return false>
+    </#if>
+    <#if !methodDesc.name?ends_with("Paginator")>
+        <#return false>
+    </#if>
+    <#local target=true>
+    <#list methodDesc.parameterTypeDescs as p>
+        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
+            <#local target = false>
+            <#break >
+        </#if>
+    </#list>
+    <#return target>
+</#function>

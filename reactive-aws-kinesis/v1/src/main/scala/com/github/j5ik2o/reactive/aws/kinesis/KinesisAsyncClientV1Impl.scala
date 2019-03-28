@@ -155,4 +155,7 @@ class KinesisAsyncClientV1Impl(override val underlying: AmazonKinesisAsync)(
 
   override def updateShardCount(request: UpdateShardCountRequest): Future[UpdateShardCountResponse] =
     underlying.updateShardCountAsync(request.toJava).toFuture.map(_.toScala)
+
+  override def subscribeToShard(subscribeToShardRequest: SubscribeToShardRequest,
+                                asyncResponseHandler: SubscribeToShardResponseHandler): Future[Unit] = ???
 }

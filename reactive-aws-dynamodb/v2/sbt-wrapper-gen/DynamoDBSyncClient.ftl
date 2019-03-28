@@ -1,22 +1,6 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.v2
 
-<#function targetMethod methodDesc>
-    <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if !methodDesc.name?ends_with("Paginator")>
-        <#return false>
-    </#if>
-    <#local target=true>
-    <#list methodDesc.parameterTypeDescs as p>
-        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
-            <#local target = false>
-            <#break >
-        </#if>
-    </#list>
-    <#return target>
-</#function>
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
@@ -35,3 +19,19 @@ trait DynamoDBSyncClient extends DynamoDBClient[Either[Throwable, ?]] {
 </#if></#list>
 }
 
+<#function targetMethod methodDesc>
+    <#if methodDesc.static >
+        <#return false>
+    </#if>
+    <#if !methodDesc.name?ends_with("Paginator")>
+        <#return false>
+    </#if>
+    <#local target=true>
+    <#list methodDesc.parameterTypeDescs as p>
+        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
+            <#local target = false>
+            <#break >
+        </#if>
+    </#list>
+    <#return target>
+</#function>

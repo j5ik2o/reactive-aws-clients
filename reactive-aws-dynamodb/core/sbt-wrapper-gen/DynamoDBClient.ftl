@@ -2,6 +2,12 @@ package com.github.j5ik2o.reactive.aws.dynamodb
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 
+trait DynamoDBClient[M[_]] extends DynamoDBClientSupport[M] {
+
+<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
+
+</#if></#list>
+}
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
         <#return false>
@@ -18,10 +24,3 @@ import com.github.j5ik2o.reactive.aws.dynamodb.model._
     </#list>
     <#return target>
 </#function>
-trait DynamoDBClient[M[_]] extends DynamoDBClientSupport[M] {
-
-<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
-
-</#if></#list>
-}
-

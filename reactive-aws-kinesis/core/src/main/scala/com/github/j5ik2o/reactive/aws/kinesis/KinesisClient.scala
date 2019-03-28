@@ -78,6 +78,9 @@ trait KinesisClient[M[_]] extends KinesisClientSupport[M] {
 
   def stopStreamEncryption(stopStreamEncryptionRequest: StopStreamEncryptionRequest): M[StopStreamEncryptionResponse]
 
+  def subscribeToShard(subscribeToShardRequest: SubscribeToShardRequest,
+                       asyncResponseHandler: SubscribeToShardResponseHandler): M[Unit]
+
   def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): M[UpdateShardCountResponse]
 
 }

@@ -1,18 +1,5 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
-<#function targetField fieldDesc>
-  <#if fieldDesc.static >
-    <#return false>
-  </#if>
-  <#return true>
-</#function>
-<#function getGetterTypeName name default>
-  <#list methods as method>
-    <#if method.name == name>
-        <#return method.returnTypeDesc.fullTypeName?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
-    </#if>
-  </#list>
-  <#return default?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
-</#function>
+
 import java.time._
 
 final case class ${simpleTypeName}(
@@ -24,3 +11,17 @@ final case class ${simpleTypeName}(
   copy(${field.name?replace("type", "`type`")} = value)
 </#if></#list>
 }
+<#function targetField fieldDesc>
+  <#if fieldDesc.static >
+    <#return false>
+  </#if>
+  <#return true>
+</#function>
+<#function getGetterTypeName name default>
+  <#list methods as method>
+    <#if method.name == name>
+      <#return method.returnTypeDesc.fullTypeName?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
+    </#if>
+  </#list>
+  <#return default?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
+</#function>
