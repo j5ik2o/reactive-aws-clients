@@ -2,10 +2,10 @@ package com.github.j5ik2o.reactive.aws.dynamodb.akka
 
 import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
-import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBAsyncClientV2
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemRequest, BatchGetItemResponse, _ }
+import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 
-private[dynamodb] class DynamoDBStreamClientV2Impl(override val underlying: DynamoDBAsyncClientV2)
+private[dynamodb] class DynamoDBStreamClientV2Impl(override val underlying: DynamoDBAsyncClient)
     extends DynamoDBStreamClientV2 {
 
   override def batchGetItemFlow: Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =

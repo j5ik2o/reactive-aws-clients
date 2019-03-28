@@ -381,14 +381,14 @@ lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2
       ),
       compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
       templateNameMapper in scalaWrapperGen := {
-        case ("DynamoDBAsyncClientV2", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-          "DynamoDBAsyncClientV2.ftl"
-        case ("DynamoDBAsyncClientV2Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-          "DynamoDBAsyncClientV2Impl.ftl"
-        case ("DynamoDBSyncClientV2", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
-          "DynamoDBSyncClientV2.ftl"
-        case ("DynamoDBSyncClientV2Impl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
-          "DynamoDBSyncClientV2Impl.ftl"
+        case ("DynamoDBAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBAsyncClient.ftl"
+        case ("DynamoDBAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+          "DynamoDBAsyncClientImpl.ftl"
+        case ("DynamoDBSyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
+          "DynamoDBSyncClient.ftl"
+        case ("DynamoDBSyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
+          "DynamoDBSyncClientImpl.ftl"
         case (_, cd: ClassDesc)
             if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName
               .endsWith("Request") && !Seq("WriteRequest", "PutRequest", "DeleteRequest").contains(cd.simpleTypeName) =>
@@ -403,17 +403,14 @@ lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2
       },
       typeNameMapper in scalaWrapperGen := {
         case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-          Seq("DynamoDBAsyncClientV2", "DynamoDBAsyncClientV2Impl")
+          Seq("DynamoDBAsyncClient", "DynamoDBAsyncClientImpl")
         case cd if cd.simpleTypeName == "DynamoDbClient" =>
-          Seq("DynamoDBSyncClientV2", "DynamoDBSyncClientV2Impl")
+          Seq("DynamoDBSyncClient", "DynamoDBSyncClientImpl")
         case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
         case cd                                               => Seq(cd.simpleTypeName)
       },
       packageNameMapper in scalaWrapperGen := {
-        case s if s == "software.amazon.awssdk.services.dynamodb.model" =>
-          "com.github.j5ik2o.reactive.aws.dynamodb.model.v2"
-        case s =>
-          s.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb")
+        _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.v2")
       },
       outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
         (scalaSource in Compile).value

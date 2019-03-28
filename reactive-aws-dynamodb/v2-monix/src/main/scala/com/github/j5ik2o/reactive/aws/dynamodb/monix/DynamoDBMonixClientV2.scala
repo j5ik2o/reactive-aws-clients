@@ -1,12 +1,12 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.monix
 
-import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBAsyncClientV2
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemRequest, BatchGetItemResponse, _ }
+import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 import monix.reactive.Observable
 
 object DynamoDBMonixClientV2 {
 
-  def apply(underlying: DynamoDBAsyncClientV2): DynamoDBMonixClientV2 = new DynamoDBMonixClientV2Impl(underlying)
+  def apply(underlying: DynamoDBAsyncClient): DynamoDBMonixClientV2 = new DynamoDBMonixClientV2Impl(underlying)
 
 }
 
