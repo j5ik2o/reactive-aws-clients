@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.dynamodb.model.v1
+package com.github.j5ik2o.reactive.aws.dynamodb.v1.model
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ${simpleTypeName} => Scala${simpleTypeName}, _ }
 import com.amazonaws.services.dynamodbv2.model.{ ${simpleTypeName} => Java${simpleTypeName} }
