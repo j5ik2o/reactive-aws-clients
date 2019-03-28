@@ -15,6 +15,7 @@ object DynamoDBStreamClient {
 
 trait DynamoDBStreamClient extends BaseDynamoDBStreamClient with DynamoDBStreamClientSupport {
   override val underlying: DynamoDBAsyncClient
+
   def batchGetItemFlow: Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
     Flow[BatchGetItemRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.batchGetItemPaginator(request))

@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.monix
+package com.github.j5ik2o.reactive.aws.dynamodb.v2.monix
 
 import java.net.URI
 import java.util.UUID
@@ -7,14 +7,14 @@ import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBContainerSpecSupport
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.dynamodb.v2.DynamoDBAsyncClient
 import monix.execution.Scheduler.Implicits.global
-import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
+import org.scalatest.concurrent.ScalaFutures
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
 import scala.concurrent.duration._
 
-class DynamoDBMonixClientV2ImplSpec extends FreeSpec with Matchers with ScalaFutures with DynamoDBContainerSpecSupport {
+class DynamoDBMonixClientImplSpec extends FreeSpec with Matchers with ScalaFutures with DynamoDBContainerSpecSupport {
 
   implicit val pc: PatienceConfig = PatienceConfig(20 seconds, 1 seconds)
 
@@ -26,7 +26,7 @@ class DynamoDBMonixClientV2ImplSpec extends FreeSpec with Matchers with ScalaFut
     .endpointOverride(URI.create(endpoint))
     .build()
 
-  val client = DynamoDBMonixClientV2(DynamoDBAsyncClient(underlying))
+  val client = DynamoDBMonixClient(DynamoDBAsyncClient(underlying))
 
   "DynamoDBTaskClientV2Impl" - {
     "createTable & listTables" in {

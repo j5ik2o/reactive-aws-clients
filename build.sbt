@@ -469,7 +469,29 @@ lazy val `reactive-aws-dynamodb-v2-monix` = (project in file("reactive-aws-dynam
   coreSettings ++ Seq(
     name := "reactive-aws-dynamodb-v2-monix",
     libraryDependencies ++= Seq(
-      )
+      ),
+    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
+    templateNameMapper in scalaWrapperGen := {
+      case ("DynamoDBMonixClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+        "DynamoDBMonixClient.ftl"
+      case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
+    },
+    typeNameMapper in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+        Seq("DynamoDBMonixClient")
+    },
+    packageNameMapper in scalaWrapperGen := {
+      _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.v2.monix")
+    },
+    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+      (scalaSource in Compile).value
+    },
+    typeDescFilter in scalaWrapperGen := {
+      case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => true
+      case _ =>
+        false
+    },
+    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
   )
 ) dependsOn (`reactive-aws-dynamodb-v2`, `reactive-aws-dynamodb-monix`, `reactive-aws-dynamodb-test` % "test")
 

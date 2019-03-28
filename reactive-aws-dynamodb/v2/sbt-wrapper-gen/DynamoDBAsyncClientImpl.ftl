@@ -1,18 +1,5 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.v2
-<#function targetMethod methodDesc>
-    <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#local target=true>
-    <#list methodDesc.parameterTypeDescs as p>
-        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
-            <#local target = false>
-            <#break >
-        </#if>
-    </#list>
-    <#return target>
-</#function>
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.dynamodb.model.rs._
@@ -23,7 +10,7 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import scala.concurrent.{ ExecutionContext, Future }
 
 private[dynamodb] class DynamoDBAsyncClientImpl(override val underlying: DynamoDbAsyncClient)(
-implicit execution: ExecutionContext
+  implicit execution: ExecutionContext
 ) extends DynamoDBAsyncClient {
 import DynamoDBAsyncClient._
 
@@ -41,3 +28,16 @@ import DynamoDBAsyncClient._
 </#if></#list>
 
 }
+<#function targetMethod methodDesc>
+    <#if methodDesc.static >
+        <#return false>
+    </#if>
+    <#local target=true>
+    <#list methodDesc.parameterTypeDescs as p>
+        <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
+            <#local target = false>
+            <#break >
+        </#if>
+    </#list>
+    <#return target>
+</#function>
