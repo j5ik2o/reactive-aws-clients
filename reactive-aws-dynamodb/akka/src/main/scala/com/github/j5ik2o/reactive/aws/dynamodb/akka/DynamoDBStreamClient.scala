@@ -2,7 +2,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.akka
 
 import akka.NotUsed
-import akka.stream.scaladsl.Flow
+import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 
@@ -12,210 +12,324 @@ object DynamoDBStreamClient {
 
   def apply(underlying: DynamoDBClient[Future]): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
 
+  val DefaultParallelism: Int = 1
+
 }
 
 trait DynamoDBStreamClient {
 
+  import DynamoDBStreamClient._
+
   val underlying: DynamoDBClient[Future]
 
-  def batchGetItemFlow(parallelism: Int = 1): Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
-    Flow[BatchGetItemRequest].mapAsync(parallelism) { request =>
-      underlying.batchGetItem(request)
-    }
+  def batchGetItemSource(batchGetItemRequest: BatchGetItemRequest,
+                         parallelism: Int = DefaultParallelism): Source[BatchGetItemResponse, NotUsed] =
+    Source.single(batchGetItemRequest).via(batchGetItemFlow(parallelism))
 
-  def batchWriteItemFlow(parallelism: Int = 1): Flow[BatchWriteItemRequest, BatchWriteItemResponse, NotUsed] =
-    Flow[BatchWriteItemRequest].mapAsync(parallelism) { request =>
-      underlying.batchWriteItem(request)
-    }
+  def batchGetItemFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
+    Flow[BatchGetItemRequest].mapAsync(parallelism)(underlying.batchGetItem)
 
-  def createBackupFlow(parallelism: Int = 1): Flow[CreateBackupRequest, CreateBackupResponse, NotUsed] =
-    Flow[CreateBackupRequest].mapAsync(parallelism) { request =>
-      underlying.createBackup(request)
-    }
+  def batchWriteItemSource(batchWriteItemRequest: BatchWriteItemRequest,
+                           parallelism: Int = DefaultParallelism): Source[BatchWriteItemResponse, NotUsed] =
+    Source.single(batchWriteItemRequest).via(batchWriteItemFlow(parallelism))
 
-  def createGlobalTableFlow(parallelism: Int = 1): Flow[CreateGlobalTableRequest, CreateGlobalTableResponse, NotUsed] =
-    Flow[CreateGlobalTableRequest].mapAsync(parallelism) { request =>
-      underlying.createGlobalTable(request)
-    }
+  def batchWriteItemFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[BatchWriteItemRequest, BatchWriteItemResponse, NotUsed] =
+    Flow[BatchWriteItemRequest].mapAsync(parallelism)(underlying.batchWriteItem)
 
-  def createTableFlow(parallelism: Int = 1): Flow[CreateTableRequest, CreateTableResponse, NotUsed] =
-    Flow[CreateTableRequest].mapAsync(parallelism) { request =>
-      underlying.createTable(request)
-    }
+  def createBackupSource(createBackupRequest: CreateBackupRequest,
+                         parallelism: Int = DefaultParallelism): Source[CreateBackupResponse, NotUsed] =
+    Source.single(createBackupRequest).via(createBackupFlow(parallelism))
 
-  def deleteBackupFlow(parallelism: Int = 1): Flow[DeleteBackupRequest, DeleteBackupResponse, NotUsed] =
-    Flow[DeleteBackupRequest].mapAsync(parallelism) { request =>
-      underlying.deleteBackup(request)
-    }
+  def createBackupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateBackupRequest, CreateBackupResponse, NotUsed] =
+    Flow[CreateBackupRequest].mapAsync(parallelism)(underlying.createBackup)
 
-  def deleteItemFlow(parallelism: Int = 1): Flow[DeleteItemRequest, DeleteItemResponse, NotUsed] =
-    Flow[DeleteItemRequest].mapAsync(parallelism) { request =>
-      underlying.deleteItem(request)
-    }
+  def createGlobalTableSource(createGlobalTableRequest: CreateGlobalTableRequest,
+                              parallelism: Int = DefaultParallelism): Source[CreateGlobalTableResponse, NotUsed] =
+    Source.single(createGlobalTableRequest).via(createGlobalTableFlow(parallelism))
 
-  def deleteTableFlow(parallelism: Int = 1): Flow[DeleteTableRequest, DeleteTableResponse, NotUsed] =
-    Flow[DeleteTableRequest].mapAsync(parallelism) { request =>
-      underlying.deleteTable(request)
-    }
+  def createGlobalTableFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateGlobalTableRequest, CreateGlobalTableResponse, NotUsed] =
+    Flow[CreateGlobalTableRequest].mapAsync(parallelism)(underlying.createGlobalTable)
 
-  def describeBackupFlow(parallelism: Int = 1): Flow[DescribeBackupRequest, DescribeBackupResponse, NotUsed] =
-    Flow[DescribeBackupRequest].mapAsync(parallelism) { request =>
-      underlying.describeBackup(request)
-    }
+  def createTableSource(createTableRequest: CreateTableRequest,
+                        parallelism: Int = DefaultParallelism): Source[CreateTableResponse, NotUsed] =
+    Source.single(createTableRequest).via(createTableFlow(parallelism))
+
+  def createTableFlow(parallelism: Int = DefaultParallelism): Flow[CreateTableRequest, CreateTableResponse, NotUsed] =
+    Flow[CreateTableRequest].mapAsync(parallelism)(underlying.createTable)
+
+  def deleteBackupSource(deleteBackupRequest: DeleteBackupRequest,
+                         parallelism: Int = DefaultParallelism): Source[DeleteBackupResponse, NotUsed] =
+    Source.single(deleteBackupRequest).via(deleteBackupFlow(parallelism))
+
+  def deleteBackupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteBackupRequest, DeleteBackupResponse, NotUsed] =
+    Flow[DeleteBackupRequest].mapAsync(parallelism)(underlying.deleteBackup)
+
+  def deleteItemSource(deleteItemRequest: DeleteItemRequest,
+                       parallelism: Int = DefaultParallelism): Source[DeleteItemResponse, NotUsed] =
+    Source.single(deleteItemRequest).via(deleteItemFlow(parallelism))
+
+  def deleteItemFlow(parallelism: Int = DefaultParallelism): Flow[DeleteItemRequest, DeleteItemResponse, NotUsed] =
+    Flow[DeleteItemRequest].mapAsync(parallelism)(underlying.deleteItem)
+
+  def deleteTableSource(deleteTableRequest: DeleteTableRequest,
+                        parallelism: Int = DefaultParallelism): Source[DeleteTableResponse, NotUsed] =
+    Source.single(deleteTableRequest).via(deleteTableFlow(parallelism))
+
+  def deleteTableFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTableRequest, DeleteTableResponse, NotUsed] =
+    Flow[DeleteTableRequest].mapAsync(parallelism)(underlying.deleteTable)
+
+  def describeBackupSource(describeBackupRequest: DescribeBackupRequest,
+                           parallelism: Int = DefaultParallelism): Source[DescribeBackupResponse, NotUsed] =
+    Source.single(describeBackupRequest).via(describeBackupFlow(parallelism))
+
+  def describeBackupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeBackupRequest, DescribeBackupResponse, NotUsed] =
+    Flow[DescribeBackupRequest].mapAsync(parallelism)(underlying.describeBackup)
+
+  def describeContinuousBackupsSource(
+      describeContinuousBackupsRequest: DescribeContinuousBackupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeContinuousBackupsResponse, NotUsed] =
+    Source.single(describeContinuousBackupsRequest).via(describeContinuousBackupsFlow(parallelism))
 
   def describeContinuousBackupsFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[DescribeContinuousBackupsRequest, DescribeContinuousBackupsResponse, NotUsed] =
-    Flow[DescribeContinuousBackupsRequest].mapAsync(parallelism) { request =>
-      underlying.describeContinuousBackups(request)
-    }
+    Flow[DescribeContinuousBackupsRequest].mapAsync(parallelism)(underlying.describeContinuousBackups)
 
-  def describeEndpointsFlow(parallelism: Int = 1): Flow[DescribeEndpointsRequest, DescribeEndpointsResponse, NotUsed] =
-    Flow[DescribeEndpointsRequest].mapAsync(parallelism) { request =>
-      underlying.describeEndpoints(request)
-    }
+  def describeEndpointsSource(describeEndpointsRequest: DescribeEndpointsRequest,
+                              parallelism: Int = DefaultParallelism): Source[DescribeEndpointsResponse, NotUsed] =
+    Source.single(describeEndpointsRequest).via(describeEndpointsFlow(parallelism))
+
+  def describeEndpointsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeEndpointsRequest, DescribeEndpointsResponse, NotUsed] =
+    Flow[DescribeEndpointsRequest].mapAsync(parallelism)(underlying.describeEndpoints)
+
+  def describeGlobalTableSource(describeGlobalTableRequest: DescribeGlobalTableRequest,
+                                parallelism: Int = DefaultParallelism): Source[DescribeGlobalTableResponse, NotUsed] =
+    Source.single(describeGlobalTableRequest).via(describeGlobalTableFlow(parallelism))
 
   def describeGlobalTableFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[DescribeGlobalTableRequest, DescribeGlobalTableResponse, NotUsed] =
-    Flow[DescribeGlobalTableRequest].mapAsync(parallelism) { request =>
-      underlying.describeGlobalTable(request)
-    }
+    Flow[DescribeGlobalTableRequest].mapAsync(parallelism)(underlying.describeGlobalTable)
+
+  def describeGlobalTableSettingsSource(
+      describeGlobalTableSettingsRequest: DescribeGlobalTableSettingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeGlobalTableSettingsResponse, NotUsed] =
+    Source.single(describeGlobalTableSettingsRequest).via(describeGlobalTableSettingsFlow(parallelism))
 
   def describeGlobalTableSettingsFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[DescribeGlobalTableSettingsRequest, DescribeGlobalTableSettingsResponse, NotUsed] =
-    Flow[DescribeGlobalTableSettingsRequest].mapAsync(parallelism) { request =>
-      underlying.describeGlobalTableSettings(request)
-    }
+    Flow[DescribeGlobalTableSettingsRequest].mapAsync(parallelism)(underlying.describeGlobalTableSettings)
 
-  def describeLimitsFlow(parallelism: Int = 1): Flow[DescribeLimitsRequest, DescribeLimitsResponse, NotUsed] =
-    Flow[DescribeLimitsRequest].mapAsync(parallelism) { request =>
-      underlying.describeLimits(request)
-    }
+  def describeLimitsSource(describeLimitsRequest: DescribeLimitsRequest,
+                           parallelism: Int = DefaultParallelism): Source[DescribeLimitsResponse, NotUsed] =
+    Source.single(describeLimitsRequest).via(describeLimitsFlow(parallelism))
 
-  def describeTableFlow(parallelism: Int = 1): Flow[DescribeTableRequest, DescribeTableResponse, NotUsed] =
-    Flow[DescribeTableRequest].mapAsync(parallelism) { request =>
-      underlying.describeTable(request)
-    }
+  def describeLimitsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeLimitsRequest, DescribeLimitsResponse, NotUsed] =
+    Flow[DescribeLimitsRequest].mapAsync(parallelism)(underlying.describeLimits)
+
+  def describeTableSource(describeTableRequest: DescribeTableRequest,
+                          parallelism: Int = DefaultParallelism): Source[DescribeTableResponse, NotUsed] =
+    Source.single(describeTableRequest).via(describeTableFlow(parallelism))
+
+  def describeTableFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTableRequest, DescribeTableResponse, NotUsed] =
+    Flow[DescribeTableRequest].mapAsync(parallelism)(underlying.describeTable)
+
+  def describeTimeToLiveSource(describeTimeToLiveRequest: DescribeTimeToLiveRequest,
+                               parallelism: Int = DefaultParallelism): Source[DescribeTimeToLiveResponse, NotUsed] =
+    Source.single(describeTimeToLiveRequest).via(describeTimeToLiveFlow(parallelism))
 
   def describeTimeToLiveFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[DescribeTimeToLiveRequest, DescribeTimeToLiveResponse, NotUsed] =
-    Flow[DescribeTimeToLiveRequest].mapAsync(parallelism) { request =>
-      underlying.describeTimeToLive(request)
-    }
+    Flow[DescribeTimeToLiveRequest].mapAsync(parallelism)(underlying.describeTimeToLive)
 
-  def getItemFlow(parallelism: Int = 1): Flow[GetItemRequest, GetItemResponse, NotUsed] =
-    Flow[GetItemRequest].mapAsync(parallelism) { request =>
-      underlying.getItem(request)
-    }
+  def getItemSource(getItemRequest: GetItemRequest,
+                    parallelism: Int = DefaultParallelism): Source[GetItemResponse, NotUsed] =
+    Source.single(getItemRequest).via(getItemFlow(parallelism))
 
-  def listBackupsFlow(parallelism: Int = 1): Flow[ListBackupsRequest, ListBackupsResponse, NotUsed] =
-    Flow[ListBackupsRequest].mapAsync(parallelism) { request =>
-      underlying.listBackups(request)
-    }
+  def getItemFlow(parallelism: Int = DefaultParallelism): Flow[GetItemRequest, GetItemResponse, NotUsed] =
+    Flow[GetItemRequest].mapAsync(parallelism)(underlying.getItem)
 
-  def listGlobalTablesFlow(parallelism: Int = 1): Flow[ListGlobalTablesRequest, ListGlobalTablesResponse, NotUsed] =
-    Flow[ListGlobalTablesRequest].mapAsync(parallelism) { request =>
-      underlying.listGlobalTables(request)
-    }
+  def listBackupsSource(listBackupsRequest: ListBackupsRequest,
+                        parallelism: Int = DefaultParallelism): Source[ListBackupsResponse, NotUsed] =
+    Source.single(listBackupsRequest).via(listBackupsFlow(parallelism))
 
-  def listTablesFlow(parallelism: Int = 1): Flow[ListTablesRequest, ListTablesResponse, NotUsed] =
-    Flow[ListTablesRequest].mapAsync(parallelism) { request =>
-      underlying.listTables(request)
-    }
+  def listBackupsFlow(parallelism: Int = DefaultParallelism): Flow[ListBackupsRequest, ListBackupsResponse, NotUsed] =
+    Flow[ListBackupsRequest].mapAsync(parallelism)(underlying.listBackups)
+
+  def listGlobalTablesSource(listGlobalTablesRequest: ListGlobalTablesRequest,
+                             parallelism: Int = DefaultParallelism): Source[ListGlobalTablesResponse, NotUsed] =
+    Source.single(listGlobalTablesRequest).via(listGlobalTablesFlow(parallelism))
+
+  def listGlobalTablesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListGlobalTablesRequest, ListGlobalTablesResponse, NotUsed] =
+    Flow[ListGlobalTablesRequest].mapAsync(parallelism)(underlying.listGlobalTables)
+
+  def listTablesSource(listTablesRequest: ListTablesRequest,
+                       parallelism: Int = DefaultParallelism): Source[ListTablesResponse, NotUsed] =
+    Source.single(listTablesRequest).via(listTablesFlow(parallelism))
+
+  def listTablesFlow(parallelism: Int = DefaultParallelism): Flow[ListTablesRequest, ListTablesResponse, NotUsed] =
+    Flow[ListTablesRequest].mapAsync(parallelism)(underlying.listTables)
+
+  def listTagsOfResourceSource(listTagsOfResourceRequest: ListTagsOfResourceRequest,
+                               parallelism: Int = DefaultParallelism): Source[ListTagsOfResourceResponse, NotUsed] =
+    Source.single(listTagsOfResourceRequest).via(listTagsOfResourceFlow(parallelism))
 
   def listTagsOfResourceFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[ListTagsOfResourceRequest, ListTagsOfResourceResponse, NotUsed] =
-    Flow[ListTagsOfResourceRequest].mapAsync(parallelism) { request =>
-      underlying.listTagsOfResource(request)
-    }
+    Flow[ListTagsOfResourceRequest].mapAsync(parallelism)(underlying.listTagsOfResource)
 
-  def putItemFlow(parallelism: Int = 1): Flow[PutItemRequest, PutItemResponse, NotUsed] =
-    Flow[PutItemRequest].mapAsync(parallelism) { request =>
-      underlying.putItem(request)
-    }
+  def putItemSource(putItemRequest: PutItemRequest,
+                    parallelism: Int = DefaultParallelism): Source[PutItemResponse, NotUsed] =
+    Source.single(putItemRequest).via(putItemFlow(parallelism))
 
-  def queryFlow(parallelism: Int = 1): Flow[QueryRequest, QueryResponse, NotUsed] =
-    Flow[QueryRequest].mapAsync(parallelism) { request =>
-      underlying.query(request)
-    }
+  def putItemFlow(parallelism: Int = DefaultParallelism): Flow[PutItemRequest, PutItemResponse, NotUsed] =
+    Flow[PutItemRequest].mapAsync(parallelism)(underlying.putItem)
+
+  def querySource(queryRequest: QueryRequest, parallelism: Int = DefaultParallelism): Source[QueryResponse, NotUsed] =
+    Source.single(queryRequest).via(queryFlow(parallelism))
+
+  def queryFlow(parallelism: Int = DefaultParallelism): Flow[QueryRequest, QueryResponse, NotUsed] =
+    Flow[QueryRequest].mapAsync(parallelism)(underlying.query)
+
+  def restoreTableFromBackupSource(
+      restoreTableFromBackupRequest: RestoreTableFromBackupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RestoreTableFromBackupResponse, NotUsed] =
+    Source.single(restoreTableFromBackupRequest).via(restoreTableFromBackupFlow(parallelism))
 
   def restoreTableFromBackupFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[RestoreTableFromBackupRequest, RestoreTableFromBackupResponse, NotUsed] =
-    Flow[RestoreTableFromBackupRequest].mapAsync(parallelism) { request =>
-      underlying.restoreTableFromBackup(request)
-    }
+    Flow[RestoreTableFromBackupRequest].mapAsync(parallelism)(underlying.restoreTableFromBackup)
+
+  def restoreTableToPointInTimeSource(
+      restoreTableToPointInTimeRequest: RestoreTableToPointInTimeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RestoreTableToPointInTimeResponse, NotUsed] =
+    Source.single(restoreTableToPointInTimeRequest).via(restoreTableToPointInTimeFlow(parallelism))
 
   def restoreTableToPointInTimeFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[RestoreTableToPointInTimeRequest, RestoreTableToPointInTimeResponse, NotUsed] =
-    Flow[RestoreTableToPointInTimeRequest].mapAsync(parallelism) { request =>
-      underlying.restoreTableToPointInTime(request)
-    }
+    Flow[RestoreTableToPointInTimeRequest].mapAsync(parallelism)(underlying.restoreTableToPointInTime)
 
-  def scanFlow(parallelism: Int = 1): Flow[ScanRequest, ScanResponse, NotUsed] =
-    Flow[ScanRequest].mapAsync(parallelism) { request =>
-      underlying.scan(request)
-    }
+  def scanSource(scanRequest: ScanRequest, parallelism: Int = DefaultParallelism): Source[ScanResponse, NotUsed] =
+    Source.single(scanRequest).via(scanFlow(parallelism))
 
-  def tagResourceFlow(parallelism: Int = 1): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
-    Flow[TagResourceRequest].mapAsync(parallelism) { request =>
-      underlying.tagResource(request)
-    }
+  def scanFlow(parallelism: Int = DefaultParallelism): Flow[ScanRequest, ScanResponse, NotUsed] =
+    Flow[ScanRequest].mapAsync(parallelism)(underlying.scan)
 
-  def transactGetItemsFlow(parallelism: Int = 1): Flow[TransactGetItemsRequest, TransactGetItemsResponse, NotUsed] =
-    Flow[TransactGetItemsRequest].mapAsync(parallelism) { request =>
-      underlying.transactGetItems(request)
-    }
+  def tagResourceSource(tagResourceRequest: TagResourceRequest,
+                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+    Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
+
+  def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
+    Flow[TagResourceRequest].mapAsync(parallelism)(underlying.tagResource)
+
+  def transactGetItemsSource(transactGetItemsRequest: TransactGetItemsRequest,
+                             parallelism: Int = DefaultParallelism): Source[TransactGetItemsResponse, NotUsed] =
+    Source.single(transactGetItemsRequest).via(transactGetItemsFlow(parallelism))
+
+  def transactGetItemsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[TransactGetItemsRequest, TransactGetItemsResponse, NotUsed] =
+    Flow[TransactGetItemsRequest].mapAsync(parallelism)(underlying.transactGetItems)
+
+  def transactWriteItemsSource(transactWriteItemsRequest: TransactWriteItemsRequest,
+                               parallelism: Int = DefaultParallelism): Source[TransactWriteItemsResponse, NotUsed] =
+    Source.single(transactWriteItemsRequest).via(transactWriteItemsFlow(parallelism))
 
   def transactWriteItemsFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[TransactWriteItemsRequest, TransactWriteItemsResponse, NotUsed] =
-    Flow[TransactWriteItemsRequest].mapAsync(parallelism) { request =>
-      underlying.transactWriteItems(request)
-    }
+    Flow[TransactWriteItemsRequest].mapAsync(parallelism)(underlying.transactWriteItems)
 
-  def untagResourceFlow(parallelism: Int = 1): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
-    Flow[UntagResourceRequest].mapAsync(parallelism) { request =>
-      underlying.untagResource(request)
-    }
+  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
+                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+    Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
+
+  def untagResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
+    Flow[UntagResourceRequest].mapAsync(parallelism)(underlying.untagResource)
+
+  def updateContinuousBackupsSource(
+      updateContinuousBackupsRequest: UpdateContinuousBackupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateContinuousBackupsResponse, NotUsed] =
+    Source.single(updateContinuousBackupsRequest).via(updateContinuousBackupsFlow(parallelism))
 
   def updateContinuousBackupsFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[UpdateContinuousBackupsRequest, UpdateContinuousBackupsResponse, NotUsed] =
-    Flow[UpdateContinuousBackupsRequest].mapAsync(parallelism) { request =>
-      underlying.updateContinuousBackups(request)
-    }
+    Flow[UpdateContinuousBackupsRequest].mapAsync(parallelism)(underlying.updateContinuousBackups)
 
-  def updateGlobalTableFlow(parallelism: Int = 1): Flow[UpdateGlobalTableRequest, UpdateGlobalTableResponse, NotUsed] =
-    Flow[UpdateGlobalTableRequest].mapAsync(parallelism) { request =>
-      underlying.updateGlobalTable(request)
-    }
+  def updateGlobalTableSource(updateGlobalTableRequest: UpdateGlobalTableRequest,
+                              parallelism: Int = DefaultParallelism): Source[UpdateGlobalTableResponse, NotUsed] =
+    Source.single(updateGlobalTableRequest).via(updateGlobalTableFlow(parallelism))
+
+  def updateGlobalTableFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateGlobalTableRequest, UpdateGlobalTableResponse, NotUsed] =
+    Flow[UpdateGlobalTableRequest].mapAsync(parallelism)(underlying.updateGlobalTable)
+
+  def updateGlobalTableSettingsSource(
+      updateGlobalTableSettingsRequest: UpdateGlobalTableSettingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateGlobalTableSettingsResponse, NotUsed] =
+    Source.single(updateGlobalTableSettingsRequest).via(updateGlobalTableSettingsFlow(parallelism))
 
   def updateGlobalTableSettingsFlow(
-      parallelism: Int = 1
+      parallelism: Int = DefaultParallelism
   ): Flow[UpdateGlobalTableSettingsRequest, UpdateGlobalTableSettingsResponse, NotUsed] =
-    Flow[UpdateGlobalTableSettingsRequest].mapAsync(parallelism) { request =>
-      underlying.updateGlobalTableSettings(request)
-    }
+    Flow[UpdateGlobalTableSettingsRequest].mapAsync(parallelism)(underlying.updateGlobalTableSettings)
 
-  def updateItemFlow(parallelism: Int = 1): Flow[UpdateItemRequest, UpdateItemResponse, NotUsed] =
-    Flow[UpdateItemRequest].mapAsync(parallelism) { request =>
-      underlying.updateItem(request)
-    }
+  def updateItemSource(updateItemRequest: UpdateItemRequest,
+                       parallelism: Int = DefaultParallelism): Source[UpdateItemResponse, NotUsed] =
+    Source.single(updateItemRequest).via(updateItemFlow(parallelism))
 
-  def updateTableFlow(parallelism: Int = 1): Flow[UpdateTableRequest, UpdateTableResponse, NotUsed] =
-    Flow[UpdateTableRequest].mapAsync(parallelism) { request =>
-      underlying.updateTable(request)
-    }
+  def updateItemFlow(parallelism: Int = DefaultParallelism): Flow[UpdateItemRequest, UpdateItemResponse, NotUsed] =
+    Flow[UpdateItemRequest].mapAsync(parallelism)(underlying.updateItem)
 
-  def updateTimeToLiveFlow(parallelism: Int = 1): Flow[UpdateTimeToLiveRequest, UpdateTimeToLiveResponse, NotUsed] =
-    Flow[UpdateTimeToLiveRequest].mapAsync(parallelism) { request =>
-      underlying.updateTimeToLive(request)
-    }
+  def updateTableSource(updateTableRequest: UpdateTableRequest,
+                        parallelism: Int = DefaultParallelism): Source[UpdateTableResponse, NotUsed] =
+    Source.single(updateTableRequest).via(updateTableFlow(parallelism))
+
+  def updateTableFlow(parallelism: Int = DefaultParallelism): Flow[UpdateTableRequest, UpdateTableResponse, NotUsed] =
+    Flow[UpdateTableRequest].mapAsync(parallelism)(underlying.updateTable)
+
+  def updateTimeToLiveSource(updateTimeToLiveRequest: UpdateTimeToLiveRequest,
+                             parallelism: Int = DefaultParallelism): Source[UpdateTimeToLiveResponse, NotUsed] =
+    Source.single(updateTimeToLiveRequest).via(updateTimeToLiveFlow(parallelism))
+
+  def updateTimeToLiveFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateTimeToLiveRequest, UpdateTimeToLiveResponse, NotUsed] =
+    Flow[UpdateTimeToLiveRequest].mapAsync(parallelism)(underlying.updateTimeToLive)
 
 }

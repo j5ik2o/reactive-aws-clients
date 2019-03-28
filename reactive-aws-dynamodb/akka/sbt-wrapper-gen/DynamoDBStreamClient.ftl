@@ -2,7 +2,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.akka
 
 import akka.NotUsed
-import akka.stream.scaladsl.Flow
+import akka.stream.scaladsl.{Flow, Source}
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 
@@ -10,22 +10,28 @@ import scala.concurrent.Future
 
 object DynamoDBStreamClient {
 
-def apply(underlying: DynamoDBClient[Future]): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
+  def apply(underlying: DynamoDBClient[Future]): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
+
+  val DefaultParallelism: Int = 1
 
 }
 
 trait DynamoDBStreamClient {
 
-val underlying: DynamoDBClient[Future]
+  import DynamoDBStreamClient._
+
+  val underlying: DynamoDBClient[Future]
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#assign requestName=method.parameterTypeDescs[0].simpleTypeName>
-        <#assign responseName=requestName?replace("Request", "Response")>
-        def ${method.name}Flow(parallelism: Int = 1): Flow[${requestName},${responseName}, NotUsed] =
-        Flow[${requestName}].mapAsync(parallelism) { request =>
-        underlying.${method.name}(request)
-        }
+        <#assign requestParameterName=method.parameterTypeDescs[0].name>
+        <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
+        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
+        def ${method.name}Source(${requestParameterName}: ${requestTypeName}, parallelism: Int = DefaultParallelism): Source[${responseTypeName}, NotUsed] =
+          Source.single(${requestParameterName}).via(${method.name}Flow(parallelism))
+
+        def ${method.name}Flow(parallelism: Int = DefaultParallelism): Flow[${requestTypeName},${responseTypeName}, NotUsed] =
+          Flow[${requestTypeName}].mapAsync(parallelism)(underlying.${method.name})
 
 </#if></#list>
 }
