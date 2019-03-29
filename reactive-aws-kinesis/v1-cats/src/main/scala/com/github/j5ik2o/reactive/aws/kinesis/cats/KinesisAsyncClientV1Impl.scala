@@ -4,7 +4,7 @@ import cats.data.ReaderT
 import com.amazonaws.services.kinesis.AmazonKinesisAsync
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 
 private[kinesis] class KinesisAsyncClientV1Impl(override val underlying: AmazonKinesisAsync)
     extends KinesisAsyncClientV1 {
@@ -218,4 +218,9 @@ private[kinesis] class KinesisAsyncClientV1Impl(override val underlying: AmazonK
   ): ReaderT[Future, ExecutionContext, UpdateShardCountResponse] = ReaderT { implicit ec =>
     underlying.updateShardCountAsync(request.toJava).toFuture.map(_.toScala)
   }
+
+  override def subscribeToShard(
+      subscribeToShardRequest: SubscribeToShardRequest,
+      asyncResponseHandler: SubscribeToShardResponseHandler
+  ): ReaderT[Future, ExecutionContext, Unit] = ???
 }

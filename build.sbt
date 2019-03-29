@@ -1,4 +1,3 @@
-import com.github.j5ik2o.sbt.wrapper.gen.model.{ ClassDesc, EnumDesc }
 import Settings._
 
 // --- common
@@ -90,131 +89,32 @@ lazy val `reactive-aws-kinesis-test` = (project in file("reactive-aws-kinesis/te
 lazy val `reactive-aws-kinesis-core` =
   (project in file("reactive-aws-kinesis/core")).dependsOn(`reactive-aws-common-core`)
 
-lazy val `reactive-aws-kinesis-cats` = (project in file("reactive-aws-kinesis/cats")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-cats",
-    libraryDependencies ++= Seq(
-      )
-  )
-) dependsOn (`reactive-aws-common-cats`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-cats` = (project in file("reactive-aws-kinesis/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-monix` = (project in file("reactive-aws-kinesis/monix")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-monix",
-    libraryDependencies ++= Seq(
-      )
-  )
-) dependsOn (`reactive-aws-common-monix`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-monix` = (project in file("reactive-aws-kinesis/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-akka` = (project in file("reactive-aws-kinesis/akka")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-akka",
-    libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-testkit"        % akkaVersion % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
-    )
-  )
-) dependsOn (`reactive-aws-common-akka`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-akka` = (project in file("reactive-aws-kinesis/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v1` = (project in file("reactive-aws-kinesis/v1")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-v1",
-    libraryDependencies ++= Seq(
-      "com.amazonaws" % "aws-java-sdk-kinesis" % awsSdk1Version
-    )
-  )
-) dependsOn (`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-v1` = (project in file("reactive-aws-kinesis/v1"))
+  .dependsOn(`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v1-cats` = (project in file("reactive-aws-kinesis/v1-cats")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-v1-cats",
-    libraryDependencies ++= Seq(
-      )
-  )
-) dependsOn (`reactive-aws-kinesis-v1`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-v1-cats` = (project in file("reactive-aws-kinesis/v1-cats"))
+  .dependsOn(`reactive-aws-kinesis-v1`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v2` = (project in file("reactive-aws-kinesis/v2")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-v2",
-    libraryDependencies ++= Seq(
-      "software.amazon.awssdk" % "kinesis" % awsSdk2Version
-    ),
-    compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value,
-    templateNameMapper in scalaWrapperGen := {
-      case ("KinesisAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
-        "KinesisAsyncClient.ftl"
-      case ("KinesisAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
-        "KinesisAsyncClientImpl.ftl"
-      case ("KinesisSyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
-        "KinesisSyncClient.ftl"
-      case ("KinesisSyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
-        "KinesisSyncClientImpl.ftl"
-      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName.endsWith("Request") =>
-        "RequestOps.ftl"
-      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName.endsWith("Response") =>
-        "ResponseOps.ftl"
-      case (_, cd: ClassDesc) if cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
-      case (_, cd: EnumDesc) if cd.packageName.exists(_.endsWith("model"))  => "EnumOps.ftl"
-      case (name, cd)                                                       => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
-    },
-    typeNameMapper in scalaWrapperGen := {
-      case cd if cd.simpleTypeName == "KinesisAsyncClient" =>
-        Seq("KinesisAsyncClient", "KinesisAsyncClientImpl")
-      case cd if cd.simpleTypeName == "KinesisClient" =>
-        Seq("KinesisSyncClient", "KinesisSyncClientImpl")
-      case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
-      case cd                                               => Seq(cd.simpleTypeName)
-    },
-    packageNameMapper in scalaWrapperGen := {
-      _.replace("software.amazon.awssdk.services.kinesis", "com.github.j5ik2o.reactive.aws.kinesis.v2")
-    },
-    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
-      (scalaSource in Compile).value
-    },
-    typeDescFilter in scalaWrapperGen := {
-      case cd if cd.simpleTypeName == "KinesisAsyncClient"                     => true
-      case cd if cd.simpleTypeName == "KinesisClient"                          => false
-      case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")            => false
-      case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")            => false
-      case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")              => false
-      case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")               => false
-      case cd: ClassDesc if cd.simpleTypeName == "KinesisResponseMetadata"     => false
-      case cd: ClassDesc if cd.simpleTypeName == "SubscribeToShardEventStream" => false
-      case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))          => true
-      case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract =>
-        true
-      case cd =>
-        false
-    },
-    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/kinesis/target/generated-sources/sdk/software/amazon/awssdk/services/kinesis"
-  )
-) dependsOn (`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-v2` = (project in file("reactive-aws-kinesis/v2"))
+  .dependsOn(`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v2-akka` = (project in file("reactive-aws-kinesis/v2-akka")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-v2-akka",
-    libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-testkit"        % akkaVersion % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
-    )
-  )
-) dependsOn (`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-akka`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-v2-akka` = (project in file("reactive-aws-kinesis/v2-akka"))
+  .dependsOn(`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-akka`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v2-monix` = (project in file("reactive-aws-kinesis/v2-monix")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-v2-monix",
-    libraryDependencies ++= Seq(
-      )
-  )
-) dependsOn (`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-monix`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-v2-monix` = (project in file("reactive-aws-kinesis/v2-monix"))
+  .dependsOn(`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-monix`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v2-cats` = (project in file("reactive-aws-kinesis/v2-cats")).settings(
-  coreSettings ++ Seq(
-    name := "reactive-aws-kinesis-v2-cats",
-    libraryDependencies ++= Seq(
-      )
-  )
-) dependsOn (`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
+lazy val `reactive-aws-kinesis-v2-cats` = (project in file("reactive-aws-kinesis/v2-cats"))
+  .dependsOn(`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
 
 lazy val `reactive-aws-kinesis-root`: Project = (project in file("reactive-aws-kinesis"))
   .settings(coreSettings)

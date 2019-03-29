@@ -142,4 +142,7 @@ trait KinesisTaskClient extends KinesisClient[Task] {
   override def updateShardCount(request: UpdateShardCountRequest): Task[UpdateShardCountResponse] = Task.deferFuture {
     underlying.updateShardCount(request)
   }
+
+  override def subscribeToShard(subscribeToShardRequest: SubscribeToShardRequest,
+                                asyncResponseHandler: SubscribeToShardResponseHandler): Task[Unit] = ???
 }
