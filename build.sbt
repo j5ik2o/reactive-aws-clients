@@ -48,9 +48,6 @@ lazy val `reactive-aws-dynamodb-akka` = (project in file("reactive-aws-dynamodb/
 lazy val `reactive-aws-dynamodb-v1` = (project in file("reactive-aws-dynamodb/v1"))
   .dependsOn(`reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 
-lazy val `reactive-aws-dynamodb-v1-cats` = (project in file("reactive-aws-dynamodb/v1-cats"))
-  .dependsOn(`reactive-aws-dynamodb-v1`, `reactive-aws-dynamodb-cats`, `reactive-aws-dynamodb-test` % "test")
-
 lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2"))
   .dependsOn(`reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 
@@ -78,7 +75,8 @@ lazy val `reactive-aws-dynamodb-root`: Project =
       `reactive-aws-dynamodb-cats`,
       `reactive-aws-dynamodb-akka`,
       `reactive-aws-dynamodb-v2-akka`,
-      `reactive-aws-dynamodb-v2-monix`
+      `reactive-aws-dynamodb-v2-monix`,
+      `reactive-aws-dynamodb-v2-cats`
     )
 
 // --- reactive-kinesis
@@ -100,9 +98,6 @@ lazy val `reactive-aws-kinesis-akka` = (project in file("reactive-aws-kinesis/ak
 
 lazy val `reactive-aws-kinesis-v1` = (project in file("reactive-aws-kinesis/v1"))
   .dependsOn(`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
-
-lazy val `reactive-aws-kinesis-v1-cats` = (project in file("reactive-aws-kinesis/v1-cats"))
-  .dependsOn(`reactive-aws-kinesis-v1`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
 
 lazy val `reactive-aws-kinesis-v2` = (project in file("reactive-aws-kinesis/v2"))
   .dependsOn(`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
@@ -126,10 +121,11 @@ lazy val `reactive-aws-kinesis-root`: Project = (project in file("reactive-aws-k
     `reactive-aws-kinesis-test`,
     `reactive-aws-kinesis-v1`,
     `reactive-aws-kinesis-v2`,
-    `reactive-aws-kinesis-monix`,
-    `reactive-aws-kinesis-cats`,
     `reactive-aws-kinesis-akka`,
+    `reactive-aws-kinesis-cats`,
+    `reactive-aws-kinesis-monix`,
     `reactive-aws-kinesis-v2-akka`,
+    `reactive-aws-kinesis-v2-cats`,
     `reactive-aws-kinesis-v2-monix`
   )
 

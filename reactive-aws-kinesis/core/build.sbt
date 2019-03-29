@@ -20,6 +20,7 @@ typeDescFilter in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "KinesisAsyncClient"                                               => true
   case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")                                      => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")                                        => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
   case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
   case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))                                    => true

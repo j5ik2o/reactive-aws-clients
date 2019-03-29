@@ -19,10 +19,11 @@ packageNameMapper in scalaWrapperGen := {
 
 typeDescFilter in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "KinesisAsyncClient"                     => true
-  case cd if cd.simpleTypeName == "KinesisClient"                          => false
+  case cd if cd.simpleTypeName == "KinesisClient"                          => true
   case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")            => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")            => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")              => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")              => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")               => false
   case cd: ClassDesc if cd.simpleTypeName == "KinesisResponseMetadata"     => false
   case cd: ClassDesc if cd.simpleTypeName == "SubscribeToShardEventStream" => false

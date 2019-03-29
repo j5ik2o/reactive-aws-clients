@@ -8,7 +8,7 @@ import software.amazon.awssdk.services.kinesis.model.{ ListStreamConsumersRespon
 import scala.collection.mutable.ListBuffer
 
 @SuppressWarnings(Array("org.wartremover.warts.MutableDataStructures"))
-class ListStreamConsumersPublisherImpl(
+private[kinesis] class ListStreamConsumersPublisherImpl(
     self: software.amazon.awssdk.services.kinesis.paginators.ListStreamConsumersPublisher
 ) extends ListStreamConsumersPublisher {
   import com.github.j5ik2o.reactive.aws.kinesis.v2.model.ListStreamConsumersResponseOps._

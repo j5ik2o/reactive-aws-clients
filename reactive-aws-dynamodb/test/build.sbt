@@ -5,6 +5,7 @@ coreSettings
 name := "reactive-aws-dynamodb-test"
 
 libraryDependencies ++= Seq(
+  "software.amazon.awssdk"   % "dynamodb"                   % awsSdk2Version,
   "com.amazonaws"            % "aws-java-sdk-dynamodb"      % awsSdk1Version,
   "com.amazonaws"            % "DynamoDBLocal"              % dynamoDBLocalVersion,
   "com.almworks.sqlite4java" % "sqlite4java"                % sqlite4javaVersion,

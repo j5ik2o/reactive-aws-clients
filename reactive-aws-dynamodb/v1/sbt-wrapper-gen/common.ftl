@@ -126,28 +126,28 @@
         <#case "Map">
             <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if isDefined(valueTypeName)>
-                ${prefix}.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).foreach{ v => import scala.collection.JavaConverters._; result.with${toJavaMethodName(fieldName?cap_first)}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                ${prefix}.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).foreach{ v => import scala.collection.JavaConverters._; result.with${toJavaMethodName(field.name?cap_first)}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#break >
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._<#if simpleTypeName != mapValueTypeName>, ${mapValueTypeName}Ops._</#if>; result.with${toJavaMethodName(fieldName?cap_first)}(v.map(_.mapValues(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._<#if simpleTypeName != mapValueTypeName>, ${mapValueTypeName}Ops._</#if>; result.with${toJavaMethodName(field.name?cap_first)}(v.map(_.mapValues(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#break >
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._<#if simpleTypeName != seqValueTypeName>, ${seqValueTypeName}Ops._</#if>; result.with${toJavaMethodName(fieldName?cap_first)}(v.mapValues(_.map(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._<#if simpleTypeName != seqValueTypeName>, ${seqValueTypeName}Ops._</#if>; result.with${toJavaMethodName(field.name?cap_first)}(v.mapValues(_.map(_.toJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#break >
             <#else>
-                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._<#if simpleTypeName != valueTypeName>, ${valueTypeName}Ops._</#if>; result.with${toJavaMethodName(fieldName?cap_first)}(v.mapValues(_.toJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._<#if simpleTypeName != valueTypeName>, ${valueTypeName}Ops._</#if>; result.with${toJavaMethodName(field.name?cap_first)}(v.mapValues(_.toJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#break >
             </#if>
         <#case "SdkBytes">
-            ${prefix}.filter(_.nonEmpty).foreach(v => result.with${toJavaMethodName(fieldName?cap_first)}(java.nio.ByteBuffer.wrap(v))) // ${field.fieldTypeDesc.fullTypeName}
+            ${prefix}.filter(_.nonEmpty).foreach(v => result.with${toJavaMethodName(field.name?cap_first)}(java.nio.ByteBuffer.wrap(v))) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "java.time.Instant">
-            ${prefix}.map(java.util.Date.from).foreach(v => result.with${toJavaMethodName(fieldName?cap_first)}(v)) // ${field.fieldTypeDesc.fullTypeName}
+            ${prefix}.map(java.util.Date.from).foreach(v => result.with${toJavaMethodName(field.name?cap_first)}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#default>
-            ${prefix}.foreach{ v => import ${typeName}Ops._; result.with${toJavaMethodName(fieldName?cap_first)}(v.toJava) } // ${field.fieldTypeDesc.fullTypeName}
+            ${prefix}.foreach{ v => import ${typeName}Ops._; result.with${toJavaMethodName(field.name?cap_first)}(v.toJava) } // ${field.fieldTypeDesc.fullTypeName}
     </#switch>
 </#macro>
 

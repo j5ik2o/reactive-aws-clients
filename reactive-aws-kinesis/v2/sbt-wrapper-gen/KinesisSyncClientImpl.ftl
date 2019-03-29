@@ -4,10 +4,10 @@ package com.github.j5ik2o.reactive.aws.kinesis.v2
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 import com.github.j5ik2o.reactive.aws.kinesis.model.rs._
 import com.github.j5ik2o.reactive.aws.kinesis.v2.model._
+import software.amazon.awssdk.services.kinesis.KinesisClient
 import com.github.j5ik2o.reactive.aws.kinesis.v2.model.rs._
-import software.amazon.awssdk.services.kinesis.DynamoDbClient
 
-private[dynamodb] class KinesisSyncClientImpl(override val underlying: KinesisClient) extends KinesisSyncClient {
+private[kinesis] class KinesisSyncClientImpl(override val underlying: KinesisClient) extends KinesisSyncClient {
 
 private def toEither[A](f: => A): Either[Throwable, A] = {
   try {
@@ -38,6 +38,10 @@ private def toEither[A](f: => A): Either[Throwable, A] = {
     </#if>
     <#local target=true>
     <#list methodDesc.parameterTypeDescs as p>
+        <#if p.name?ends_with("Handler")>
+            <#local target = false>
+            <#break >
+        </#if>
         <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
             <#local target = false>
             <#break >

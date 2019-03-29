@@ -24,11 +24,11 @@ typeDescFilter in scalaWrapperGen := {
 
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-    Seq("DynamoDBAsyncClient")
+    Seq("DynamoDBReaderTFutureClient")
 }
 
 templateNameMapper in scalaWrapperGen := {
-  case ("DynamoDBAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-    "DynamoDBAsyncClient.ftl"
+  case ("DynamoDBReaderTFutureClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+    "DynamoDBReaderTFutureClient.ftl"
   case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
 }

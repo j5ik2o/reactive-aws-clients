@@ -8,13 +8,17 @@ copySqlite4javaJarsSettings
 scalaWrapperGenDynamoDBBaseSettings
 
 name := "reactive-aws-dynamodb-v1"
-(compile in Compile) := (compile in Compile)
-  .dependsOn(copySqlite4javaJars)
-  .value
+
 libraryDependencies ++= Seq(
   "com.amazonaws" % "aws-java-sdk-dynamodb" % awsSdk1Version
 )
+
+(compile in Compile) := (compile in Compile)
+  .dependsOn(copySqlite4javaJars)
+  .value
+
 compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value
+
 typeDescFilter in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient"         => true
   case cd if cd.simpleTypeName == "DynamoDbClient"              => true
@@ -29,9 +33,11 @@ typeDescFilter in scalaWrapperGen := {
   case cd =>
     false
 }
+
 packageNameMapper in scalaWrapperGen := {
   _.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.v1")
 }
+
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
     Seq("DynamoDBAsyncClientImpl")
@@ -40,6 +46,7 @@ typeNameMapper in scalaWrapperGen := {
   case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
   case cd                                               => Seq(cd.simpleTypeName)
 }
+
 templateNameMapper in scalaWrapperGen := {
   case ("DynamoDBAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
     "DynamoDBAsyncClientImpl.ftl"

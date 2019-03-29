@@ -216,12 +216,6 @@ private[kinesis] class KinesisAsyncClientImpl(override val underlying: JavaKines
     underlying.stopStreamEncryption(stopStreamEncryptionRequest.toJava).toFuture.map(_.toScala)
   }
 
-  override def subscribeToShard(subscribeToShardRequest: SubscribeToShardRequest,
-                                asyncResponseHandler: SubscribeToShardResponseHandler): Future[Unit] = {
-    import SubscribeToShardRequestOps._, SubscribeToShardResponseHandlerOps._
-    underlying.subscribeToShard(subscribeToShardRequest.toJava, asyncResponseHandler.toJava).toFuture.map(_ => ())
-  }
-
   override def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): Future[UpdateShardCountResponse] = {
     import UpdateShardCountRequestOps._
     import UpdateShardCountResponseOps._
