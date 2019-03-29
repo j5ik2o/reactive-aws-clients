@@ -1,5 +1,4 @@
 package com.github.j5ik2o.reactive.aws.kinesis
-import java.nio.ByteBuffer
 
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 

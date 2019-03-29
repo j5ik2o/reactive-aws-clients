@@ -1,24 +1,19 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.dynamodb.akka
+package com.github.j5ik2o.reactive.aws.dynamodb.monix
 
-import akka.NotUsed
-import akka.stream.scaladsl.{Flow, Source}
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import monix.eval.Task
 
 import scala.concurrent.Future
 
-object DynamoDBStreamClient {
+object DynamoDBMonixClient {
 
-  def apply(underlying: DynamoDBClient[Future]): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
-
-  val DefaultParallelism: Int = 1
+  def apply(underlying: DynamoDBClient[Future]): DynamoDBMonixClient = new DynamoDBMonixClientImpl(underlying)
 
 }
 
-trait DynamoDBStreamClient {
-
-  import DynamoDBStreamClient._
+trait DynamoDBMonixClient extends DynamoDBClient[Task] {
 
   val underlying: DynamoDBClient[Future]
 
@@ -27,11 +22,11 @@ trait DynamoDBStreamClient {
         <#assign requestParameterName=method.parameterTypeDescs[0].name>
         <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
         <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-        def ${method.name}Source(${requestParameterName}: ${requestTypeName}, parallelism: Int = DefaultParallelism): Source[${responseTypeName}, NotUsed] =
-          Source.single(${requestParameterName}).via(${method.name}Flow(parallelism))
-
-        def ${method.name}Flow(parallelism: Int = DefaultParallelism): Flow[${requestTypeName},${responseTypeName}, NotUsed] =
-          Flow[${requestTypeName}].mapAsync(parallelism)(underlying.${method.name})
+        override def  ${method.name}(
+        ${requestParameterName}: ${requestTypeName},
+        ): Task[${responseTypeName}] = Task.deferFuture {
+        underlying.${method.name}(${requestParameterName})
+        }
 
 </#if></#list>
 }

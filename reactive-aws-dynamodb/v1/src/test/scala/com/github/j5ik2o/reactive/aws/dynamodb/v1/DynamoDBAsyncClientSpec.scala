@@ -3,14 +3,14 @@ package com.github.j5ik2o.reactive.aws.dynamodb.v1
 import java.util.UUID
 import java.util.concurrent.Executors
 
-import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials}
+import com.amazonaws.auth.{ AWSStaticCredentialsProvider, BasicAWSCredentials }
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClientBuilder
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBEmbeddedSpecSupport
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{FreeSpec, Matchers}
+import org.scalatest.{ FreeSpec, Matchers }
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -67,7 +67,7 @@ class DynamoDBAsyncClientSpec extends FreeSpec with DynamoDBEmbeddedSpecSupport 
       putItemResponse.isSuccessful shouldBe true
       val getItemRequest =
         GetItemRequest()
-        .withKey(Some(Map("Id" -> AttributeValue().withString(Some("abc"))))).withTableName(Some(tableName))
+          .withKey(Some(Map("Id" -> AttributeValue().withString(Some("abc"))))).withTableName(Some(tableName))
       val getItemResponse = client.getItem(getItemRequest).futureValue
       getItemResponse.isSuccessful shouldBe true
       getItemResponse.item.get.get("Id").flatMap(_.string) shouldBe Some("abc")

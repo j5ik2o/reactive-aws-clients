@@ -27,7 +27,7 @@ class KinesisAsyncClientV1ImplSpec extends FreeSpec with Matchers with ScalaFutu
       new EndpointConfiguration(endpoint, Regions.AP_NORTHEAST_1.getName)
     ).build()
 
-  val client = KinesisAsyncClientV1(underlying)
+  val client = KinesisAsyncClient(underlying)
 
   System.setProperty("com.amazonaws.sdk.disableCbor", "true")
 

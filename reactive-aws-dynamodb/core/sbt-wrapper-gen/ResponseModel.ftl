@@ -1,26 +1,4 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
-<#function targetField fieldDesc>
-  <#if fieldDesc.static >
-    <#return false>
-  </#if>
-  <#return true>
-</#function>
-<#function getGetterTypeName name default>
-  <#list methods as method>
-    <#if method.name == name>
-        <#return method.returnTypeDesc.fullTypeName?replace("Instant", "java.time.Instant")>
-    </#if>
-  </#list>
-  <#return default?replace("Instant", "java.time.Instant")>
-</#function>
-<#function has_content list>
-  <#list fields as field>
-    <#if targetField(field)>
-      <#return true>
-      </#if>
-    </#list>
-  <#return false>
-</#function>
 
 final case class ${simpleTypeName}(
 override val statusCode: Option[Int] = None,
@@ -39,3 +17,25 @@ copy(httpHeaders = value)
   copy(${field.name} = value)
 </#if></#list>
 }
+<#function targetField fieldDesc>
+  <#if fieldDesc.static >
+    <#return false>
+  </#if>
+  <#return true>
+</#function>
+<#function getGetterTypeName name default>
+  <#list methods as method>
+    <#if method.name == name>
+      <#return method.returnTypeDesc.fullTypeName?replace("Instant", "java.time.Instant")>
+    </#if>
+  </#list>
+  <#return default?replace("Instant", "java.time.Instant")>
+</#function>
+<#function has_content list>
+  <#list fields as field>
+    <#if targetField(field)>
+      <#return true>
+    </#if>
+  </#list>
+  <#return false>
+</#function>
