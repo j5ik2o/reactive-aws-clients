@@ -1,7 +1,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.v2.model.rs
 
 import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTablesResponse => ScalaListTablesResponse }
-import org.reactivestreams.{ Subscriber, Subscription }
+import org.reactivestreams.{ Publisher, Subscriber, Subscription }
 import software.amazon.awssdk.services.dynamodb.model.{ ListTablesResponse => JavaListTablesResponse }
 
 import scala.collection.mutable.ListBuffer
@@ -15,19 +15,19 @@ private[dynamodb] class ListTablesPublisherImpl(
 
   self.subscribe(new Subscriber[JavaListTablesResponse] {
     override def onSubscribe(s: Subscription): Unit = {
-      subscribers.foreach(subscriber => subscriber.onSubscribe(s))
+      subscribers.foreach(_.onSubscribe(s))
     }
 
     override def onNext(t: JavaListTablesResponse): Unit = {
-      subscribers.foreach(subscriber => subscriber.onNext(t.toScala))
+      subscribers.foreach(_.onNext(t.toScala))
     }
 
     override def onError(t: Throwable): Unit = {
-      subscribers.foreach(subscriber => subscriber.onError(t))
+      subscribers.foreach(_.onError(t))
     }
 
     override def onComplete(): Unit = {
-      subscribers.foreach(subscriber => subscriber.onComplete())
+      subscribers.foreach(_.onComplete())
     }
   })
 
@@ -35,4 +35,5 @@ private[dynamodb] class ListTablesPublisherImpl(
 
   override def subscribe(s: Subscriber[_ >: ScalaListTablesResponse]): Unit = subscribers.append(s)
 
+  override def tableNames: Publisher[String] = self.tableNames()
 }

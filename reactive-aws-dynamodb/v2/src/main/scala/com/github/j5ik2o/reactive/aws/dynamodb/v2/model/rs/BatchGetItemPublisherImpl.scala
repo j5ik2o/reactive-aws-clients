@@ -15,19 +15,19 @@ private[dynamodb] class BatchGetItemPublisherImpl(
 
   self.subscribe(new Subscriber[JavaBatchGetItemResponse] {
     override def onSubscribe(s: Subscription): Unit = {
-      subscribers.foreach(subscriber => subscriber.onSubscribe(s))
+      subscribers.foreach(_.onSubscribe(s))
     }
 
     override def onNext(t: JavaBatchGetItemResponse): Unit = {
-      subscribers.foreach(subscriber => subscriber.onNext(t.toScala))
+      subscribers.foreach(_.onNext(t.toScala))
     }
 
     override def onError(t: Throwable): Unit = {
-      subscribers.foreach(subscriber => subscriber.onError(t))
+      subscribers.foreach(_.onError(t))
     }
 
     override def onComplete(): Unit = {
-      subscribers.foreach(subscriber => subscriber.onComplete())
+      subscribers.foreach(_.onComplete())
     }
   })
 
