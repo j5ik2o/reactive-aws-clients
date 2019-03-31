@@ -1,8 +1,8 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.kinesis.v1.model
+package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
 import com.github.j5ik2o.reactive.aws.kinesis.model.{ ${simpleTypeName} => Scala${simpleTypeName}, _ }
-import com.amazonaws.services.kinesis.model.{ ${simpleTypeName} => Java${simpleTypeName} }
+import software.amazon.awssdk.services.kinesis.model.{ ${simpleTypeName} => Java${simpleTypeName} }
 
 object ${simpleTypeName}Ops {
 
@@ -14,10 +14,10 @@ object ${simpleTypeName}Ops {
 
   }
 
-  implicit class Java${simpleTypeName}Ops(val self: String) extends AnyVal {
+  implicit class Java${simpleTypeName}Ops(val self: Java${simpleTypeName}) extends AnyVal {
 
      def toScala: Scala${simpleTypeName} = {
-        Scala${simpleTypeName}.withName(self)
+        Scala${simpleTypeName}.withName(self.toString)
      }
 
    }

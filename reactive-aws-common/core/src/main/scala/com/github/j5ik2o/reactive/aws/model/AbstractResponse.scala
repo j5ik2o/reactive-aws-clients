@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.kinesis.model
+package com.github.j5ik2o.reactive.aws.model
 
 abstract class AbstractResponse(val statusCode: Option[Int] = None,
                                 val statusText: Option[String] = None,
@@ -9,5 +9,4 @@ abstract class AbstractResponse(val statusCode: Option[Int] = None,
   def withStatusCode(value: Option[Int]): ThisType
   def withStatusText(value: Option[String]): ThisType
   def withHttpHeaders(value: Option[Map[String, Seq[String]]]): ThisType
-
 }

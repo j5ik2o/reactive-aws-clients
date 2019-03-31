@@ -1,17 +1,11 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.kinesis.v1.model
-<#function targetField fieldDesc>
-  <#if fieldDesc.static >
-    <#return false>
-  </#if>
-  <#return true>
-</#function>
-
+package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 <#include "common.ftl">
 
 import com.github.j5ik2o.reactive.aws.kinesis.model.{ ${simpleTypeName} => Scala${simpleTypeName}, _ }
-import com.amazonaws.services.kinesis.model.{ ${simpleTypeName?replace("Response", "Result")} => Java${simpleTypeName} }
+import software.amazon.awssdk.services.kinesis.model.{ ${simpleTypeName} => Java${simpleTypeName} }
 
+import scala.compat.java8.OptionConverters._
 import scala.collection.JavaConverters._
 
 @SuppressWarnings(Array("org.wartremover.warts.Recursion"))
@@ -21,8 +15,9 @@ object ${simpleTypeName}Ops {
 
     def toScala: Scala${simpleTypeName} = {
       Scala${simpleTypeName}()
-        .withStatusCode(Option(self.getSdkHttpMetadata).map(_.getHttpStatusCode))
-        .withHttpHeaders(Option(self.getSdkHttpMetadata).map(_.getHttpHeaders).map(_.asScala.toMap.mapValues(Seq(_))))
+        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
+        .withStatusText(self.sdkHttpResponse().statusText().asScala)
+        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
 <#list fields as field>
     <#if targetField(field)><@mapToScala simpleTypeName methods field/>
     </#if>
@@ -32,3 +27,9 @@ object ${simpleTypeName}Ops {
   }
 
 }
+<#function targetField fieldDesc>
+    <#if fieldDesc.static >
+        <#return false>
+    </#if>
+    <#return true>
+</#function>

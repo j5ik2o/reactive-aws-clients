@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.kinesis.model
+package com.github.j5ik2o.reactive.aws.model
 
 import java.io.{ ByteArrayOutputStream, InputStream, UncheckedIOException }
 import java.nio.ByteBuffer
@@ -50,26 +50,8 @@ object BinaryUtils {
 
 }
 
-object BytesWrapper {
-
-  def fromByteBuffer(byteBuffer: ByteBuffer): BytesWrapper = {
-    new BytesWrapper(BinaryUtils.copyBytesFrom(byteBuffer))
-  }
-
-  def fromByteArray(bytes: Array[Byte]): BytesWrapper = {
-    new BytesWrapper(util.Arrays.copyOf(bytes, bytes.length))
-  }
-
-  def fromString(string: String, charset: Charset): BytesWrapper = {
-    new BytesWrapper(string.getBytes(charset))
-  }
-
-  def fromUtf8String(string: String): BytesWrapper = fromString(string, StandardCharsets.UTF_8)
-
-}
-
 @SuppressWarnings(Array("org.wartremover.warts.ArrayEquals"))
-final case class BytesWrapper(bytes: Array[Byte]) {
+abstract class BytesWrapper(bytes: Array[Byte]) {
 
   def wrappedBytes: Array[Byte] = bytes
 
