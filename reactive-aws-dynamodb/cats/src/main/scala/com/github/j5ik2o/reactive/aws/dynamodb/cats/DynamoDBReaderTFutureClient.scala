@@ -2,21 +2,22 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.cats
 
 import cats.data.ReaderT
-import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
+import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClient, DynamoDBClient }
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.rs._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
 object DynamoDBReaderTFutureClient {
 
-  def apply(underlying: DynamoDBClient[Future]): DynamoDBReaderTFutureClient =
+  def apply(underlying: DynamoDBAsyncClient): DynamoDBReaderTFutureClient =
     new DynamoDBReaderTFutureClientImpl(underlying)
 
 }
 
 trait DynamoDBReaderTFutureClient extends DynamoDBClient[ReaderT[Future, ExecutionContext, ?]] {
 
-  val underlying: DynamoDBClient[Future]
+  val underlying: DynamoDBAsyncClient
 
   override def batchGetItem(
       batchGetItemRequest: BatchGetItemRequest
@@ -24,6 +25,9 @@ trait DynamoDBReaderTFutureClient extends DynamoDBClient[ReaderT[Future, Executi
     ReaderT { implicit ec =>
       underlying.batchGetItem(batchGetItemRequest)
     }
+
+  def batchGetItemPaginator(batchGetItemRequest: BatchGetItemRequest): BatchGetItemPublisher =
+    underlying.batchGetItemPaginator(batchGetItemRequest)
 
   override def batchWriteItem(
       batchWriteItemRequest: BatchWriteItemRequest
@@ -158,6 +162,9 @@ trait DynamoDBReaderTFutureClient extends DynamoDBClient[ReaderT[Future, Executi
       underlying.listTables(listTablesRequest)
     }
 
+  def listTablesPaginator(listTablesRequest: ListTablesRequest): ListTablesPublisher =
+    underlying.listTablesPaginator(listTablesRequest)
+
   override def listTagsOfResource(
       listTagsOfResourceRequest: ListTagsOfResourceRequest
   ): ReaderT[Future, ExecutionContext, ListTagsOfResourceResponse] =
@@ -179,6 +186,9 @@ trait DynamoDBReaderTFutureClient extends DynamoDBClient[ReaderT[Future, Executi
       underlying.query(queryRequest)
     }
 
+  def queryPaginator(queryRequest: QueryRequest): QueryPublisher =
+    underlying.queryPaginator(queryRequest)
+
   override def restoreTableFromBackup(
       restoreTableFromBackupRequest: RestoreTableFromBackupRequest
   ): ReaderT[Future, ExecutionContext, RestoreTableFromBackupResponse] =
@@ -199,6 +209,9 @@ trait DynamoDBReaderTFutureClient extends DynamoDBClient[ReaderT[Future, Executi
     ReaderT { implicit ec =>
       underlying.scan(scanRequest)
     }
+
+  def scanPaginator(scanRequest: ScanRequest): ScanPublisher =
+    underlying.scanPaginator(scanRequest)
 
   override def tagResource(
       tagResourceRequest: TagResourceRequest

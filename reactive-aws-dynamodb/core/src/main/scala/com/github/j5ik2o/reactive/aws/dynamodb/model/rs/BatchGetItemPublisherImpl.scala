@@ -4,35 +4,30 @@ import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemResponse => S
 import org.reactivestreams.{ Subscriber, Subscription }
 import software.amazon.awssdk.services.dynamodb.model.{ BatchGetItemResponse => JavaBatchGetItemResponse }
 
-import scala.collection.mutable.ListBuffer
-
 @SuppressWarnings(Array("org.wartremover.warts.MutableDataStructures"))
 private[dynamodb] class BatchGetItemPublisherImpl(
     self: software.amazon.awssdk.services.dynamodb.paginators.BatchGetItemPublisher
 ) extends com.github.j5ik2o.reactive.aws.dynamodb.model.rs.BatchGetItemPublisher {
   import com.github.j5ik2o.reactive.aws.dynamodb.model.ops.BatchGetItemResponseOps._
 
-  self.subscribe(new Subscriber[JavaBatchGetItemResponse] {
-    override def onSubscribe(s: Subscription): Unit = {
-      subscribers.foreach(_.onSubscribe(s))
-    }
+  override def subscribe(org: Subscriber[_ >: ScalaBatchGetItemResponse]): Unit = {
+    self.subscribe(new Subscriber[JavaBatchGetItemResponse] {
+      override def onSubscribe(s: Subscription): Unit = {
+        org.onSubscribe(s)
+      }
 
-    override def onNext(t: JavaBatchGetItemResponse): Unit = {
-      subscribers.foreach(_.onNext(t.toScala))
-    }
+      override def onNext(t: JavaBatchGetItemResponse): Unit = {
+        org.onNext(t.toScala)
+      }
 
-    override def onError(t: Throwable): Unit = {
-      subscribers.foreach(_.onError(t))
-    }
+      override def onError(t: Throwable): Unit = {
+        org.onError(t)
+      }
 
-    override def onComplete(): Unit = {
-      subscribers.foreach(_.onComplete())
-    }
-  })
-
-  private val subscribers = ListBuffer.empty[Subscriber[_ >: ScalaBatchGetItemResponse]]
-
-  override def subscribe(s: Subscriber[_ >: ScalaBatchGetItemResponse]): Unit =
-    subscribers.append(s)
+      override def onComplete(): Unit = {
+        org.onComplete()
+      }
+    })
+  }
 
 }

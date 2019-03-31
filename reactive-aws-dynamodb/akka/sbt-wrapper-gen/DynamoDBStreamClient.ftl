@@ -16,7 +16,7 @@ val DefaultParallelism: Int = 1
 
 }
 
-trait DynamoDBStreamClient {
+trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
 
 import DynamoDBStreamClient._
 

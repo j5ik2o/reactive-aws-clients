@@ -16,7 +16,7 @@ object DynamoDBStreamClient {
 
 }
 
-trait DynamoDBStreamClient {
+trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
 
   import DynamoDBStreamClient._
 

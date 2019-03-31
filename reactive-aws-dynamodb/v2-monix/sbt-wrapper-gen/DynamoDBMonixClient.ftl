@@ -17,11 +17,7 @@ trait DynamoDBMonixClient extends BaseDynamoDBMonixClient {
 override val underlying: DynamoDBAsyncClient
 
 <#list methods as method><#if targetMethod(method)>
-    <#assign requestParameterName=method.parameterTypeDescs[0].name>
-    <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
-    <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-    def ${method.name}(<#list method.parameterTypeDescs as p>${requestParameterName}: ${requestTypeName}<#if p_has_next>,</#if></#list>): Observable[${responseTypeName}] =
-      Observable.fromReactivePublisher(underlying.${method.name}(${requestParameterName}))
+
 
 </#if></#list>
 
