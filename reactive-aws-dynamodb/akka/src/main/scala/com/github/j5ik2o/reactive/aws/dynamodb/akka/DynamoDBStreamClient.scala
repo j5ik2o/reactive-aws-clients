@@ -3,24 +3,24 @@ package com.github.j5ik2o.reactive.aws.dynamodb.akka
 
 import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
-import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
+import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBAsyncClient
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
 
 import scala.concurrent.Future
 
 object DynamoDBStreamClient {
 
-  def apply(underlying: DynamoDBClient[Future]): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
+  def apply(underlying: DynamoDBAsyncClient): DynamoDBStreamClient = new DynamoDBStreamClientImpl(underlying)
 
   val DefaultParallelism: Int = 1
 
 }
 
-trait DynamoDBStreamClient {
+trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
 
   import DynamoDBStreamClient._
 
-  val underlying: DynamoDBClient[Future]
+  val underlying: DynamoDBAsyncClient
 
   def batchGetItemSource(batchGetItemRequest: BatchGetItemRequest,
                          parallelism: Int = DefaultParallelism): Source[BatchGetItemResponse, NotUsed] =
@@ -30,6 +30,11 @@ trait DynamoDBStreamClient {
       parallelism: Int = DefaultParallelism
   ): Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
     Flow[BatchGetItemRequest].mapAsync(parallelism)(underlying.batchGetItem)
+
+  def batchGetItemFlow: Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
+    Flow[BatchGetItemRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.batchGetItemPaginator(request))
+    }
 
   def batchWriteItemSource(batchWriteItemRequest: BatchWriteItemRequest,
                            parallelism: Int = DefaultParallelism): Source[BatchWriteItemResponse, NotUsed] =
@@ -194,6 +199,11 @@ trait DynamoDBStreamClient {
   def listTablesFlow(parallelism: Int = DefaultParallelism): Flow[ListTablesRequest, ListTablesResponse, NotUsed] =
     Flow[ListTablesRequest].mapAsync(parallelism)(underlying.listTables)
 
+  def listTablesFlow: Flow[ListTablesRequest, ListTablesResponse, NotUsed] = Flow[ListTablesRequest].flatMapConcat {
+    request =>
+      Source.fromPublisher(underlying.listTablesPaginator(request))
+  }
+
   def listTagsOfResourceSource(listTagsOfResourceRequest: ListTagsOfResourceRequest,
                                parallelism: Int = DefaultParallelism): Source[ListTagsOfResourceResponse, NotUsed] =
     Source.single(listTagsOfResourceRequest).via(listTagsOfResourceFlow(parallelism))
@@ -215,6 +225,10 @@ trait DynamoDBStreamClient {
 
   def queryFlow(parallelism: Int = DefaultParallelism): Flow[QueryRequest, QueryResponse, NotUsed] =
     Flow[QueryRequest].mapAsync(parallelism)(underlying.query)
+
+  def queryFlow: Flow[QueryRequest, QueryResponse, NotUsed] = Flow[QueryRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.queryPaginator(request))
+  }
 
   def restoreTableFromBackupSource(
       restoreTableFromBackupRequest: RestoreTableFromBackupRequest,
@@ -243,6 +257,10 @@ trait DynamoDBStreamClient {
 
   def scanFlow(parallelism: Int = DefaultParallelism): Flow[ScanRequest, ScanResponse, NotUsed] =
     Flow[ScanRequest].mapAsync(parallelism)(underlying.scan)
+
+  def scanFlow: Flow[ScanRequest, ScanResponse, NotUsed] = Flow[ScanRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.scanPaginator(request))
+  }
 
   def tagResourceSource(tagResourceRequest: TagResourceRequest,
                         parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =

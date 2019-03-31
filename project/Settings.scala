@@ -147,4 +147,11 @@ object Settings {
     inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
   )
 
+  val scalaWrapperGenS3BaseSettings = Seq(
+    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+      (scalaSource in Compile).value
+    },
+    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/s3/target/generated-sources/sdk/software/amazon/awssdk/services/s3"
+  )
+
 }

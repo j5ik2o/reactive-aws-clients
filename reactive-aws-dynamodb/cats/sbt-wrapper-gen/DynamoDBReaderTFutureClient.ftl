@@ -2,42 +2,45 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.cats
 
 import cats.data.ReaderT
-import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBClient
+import com.github.j5ik2o.reactive.aws.dynamodb.{DynamoDBAsyncClient, DynamoDBClient}
 import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.rs._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
 object DynamoDBReaderTFutureClient {
 
-  def apply(underlying: DynamoDBClient[Future]): DynamoDBReaderTFutureClient =
-    new DynamoDBReaderTFutureClientImpl(underlying)
+def apply(underlying: DynamoDBAsyncClient): DynamoDBReaderTFutureClient =
+new DynamoDBReaderTFutureClientImpl(underlying)
 
 }
 
 trait DynamoDBReaderTFutureClient extends DynamoDBClient[ReaderT[Future, ExecutionContext, ?]] {
 
-  val underlying: DynamoDBClient[Future]
+val underlying: DynamoDBAsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#assign requestParameterName=method.parameterTypeDescs[0].name>
-        <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
-        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-        override def ${method.name}(
-        ${requestParameterName}: ${requestTypeName}
-        ): ReaderT[Future, ExecutionContext, ${responseTypeName}] =
-        ReaderT { implicit ec =>
-        underlying.${method.name}(${requestParameterName})
-        }
+        <#if method.name?ends_with("Paginator")>
+            def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): ${method.returnTypeDesc.simpleTypeName} =
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        <#else>
+            <#assign requestParameterName=method.parameterTypeDescs[0].name>
+            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
+            <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
+            override def ${method.name}(
+            ${requestParameterName}: ${requestTypeName}
+            ): ReaderT[Future, ExecutionContext, ${responseTypeName}] =
+            ReaderT { implicit ec =>
+            underlying.${method.name}(${requestParameterName})
+            }
+        </#if>
 
-</#if></#list>
+    </#if></#list>
 }
 
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if methodDesc.name?ends_with("Paginator")>
         <#return false>
     </#if>
     <#if !methodDesc.parameterTypeDescs?has_content>

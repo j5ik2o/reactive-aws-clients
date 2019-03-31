@@ -3,14 +3,14 @@ package com.github.j5ik2o.reactive.aws.kinesis.akka
 
 import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
-import com.github.j5ik2o.reactive.aws.kinesis.KinesisClient
+import com.github.j5ik2o.reactive.aws.kinesis.KinesisAsyncClient
 import com.github.j5ik2o.reactive.aws.kinesis.model._
 
 import scala.concurrent.Future
 
 object KinesisStreamClient {
 
-  def apply(underlying: KinesisClient[Future]): KinesisStreamClient = new KinesisStreamClientImpl(underlying)
+  def apply(underlying: KinesisAsyncClient): KinesisStreamClient = new KinesisStreamClientImpl(underlying)
 
   val DefaultParallelism: Int = 1
 
@@ -20,7 +20,7 @@ trait KinesisStreamClient {
 
   import KinesisStreamClient._
 
-  val underlying: KinesisClient[Future]
+  val underlying: KinesisAsyncClient
 
   def addTagsToStreamSource(addTagsToStreamRequest: AddTagsToStreamRequest,
                             parallelism: Int = DefaultParallelism): Source[AddTagsToStreamResponse, NotUsed] =
@@ -175,6 +175,11 @@ trait KinesisStreamClient {
       parallelism: Int = DefaultParallelism
   ): Flow[ListStreamConsumersRequest, ListStreamConsumersResponse, NotUsed] =
     Flow[ListStreamConsumersRequest].mapAsync(parallelism)(underlying.listStreamConsumers)
+
+  def listStreamConsumersFlow: Flow[ListStreamConsumersRequest, ListStreamConsumersResponse, NotUsed] =
+    Flow[ListStreamConsumersRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listStreamConsumersPaginator(request))
+    }
 
   def listStreamsSource(listStreamsRequest: ListStreamsRequest,
                         parallelism: Int = DefaultParallelism): Source[ListStreamsResponse, NotUsed] =

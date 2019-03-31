@@ -1,6 +1,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
 
 import java.time._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.support._
 
 final case class AttributeValue(
     s: Option[String] = None,

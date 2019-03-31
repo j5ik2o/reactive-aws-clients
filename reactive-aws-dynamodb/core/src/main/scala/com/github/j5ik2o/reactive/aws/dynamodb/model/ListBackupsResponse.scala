@@ -1,5 +1,7 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
 
+import com.github.j5ik2o.reactive.aws.model.AbstractResponse
+
 final case class ListBackupsResponse(
     override val statusCode: Option[Int] = None,
     override val statusText: Option[String] = None,
