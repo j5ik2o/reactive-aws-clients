@@ -1,146 +1,159 @@
+// Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.monix
 
-import com.github.j5ik2o.reactive.aws.kinesis.KinesisClient
 import com.github.j5ik2o.reactive.aws.kinesis.model._
+import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
 import monix.eval.Task
-
-import scala.concurrent.Future
+import monix.reactive.Observable
 
 object KinesisMonixClient {
 
-  def apply(underlying: KinesisClient[Future]): KinesisClient[Task] =
-    new KinesisMonixClientImpl(underlying)
+  def apply(underlying: KinesisAsyncClient): KinesisMonixClient = new KinesisMonixClientImpl(underlying)
 
 }
 
 trait KinesisMonixClient extends KinesisClient[Task] {
 
-  val underlying: KinesisClient[Future]
+  val underlying: KinesisAsyncClient
 
-  override def addTagsToStream(request: AddTagsToStreamRequest): Task[AddTagsToStreamResponse] = Task.deferFuture {
-    underlying.addTagsToStream(request)
+  override def addTagsToStream(
+      addTagsToStreamRequest: AddTagsToStreamRequest,
+  ): Task[AddTagsToStreamResponse] = Task.deferFuture {
+    underlying.addTagsToStream(addTagsToStreamRequest)
   }
-
-  override def createStream(request: CreateStreamRequest): Task[CreateStreamResponse] = Task.deferFuture {
-    underlying.createStream(request)
+  override def createStream(
+      createStreamRequest: CreateStreamRequest,
+  ): Task[CreateStreamResponse] = Task.deferFuture {
+    underlying.createStream(createStreamRequest)
   }
-
   override def decreaseStreamRetentionPeriod(
-      request: DecreaseStreamRetentionPeriodRequest
+      decreaseStreamRetentionPeriodRequest: DecreaseStreamRetentionPeriodRequest,
   ): Task[DecreaseStreamRetentionPeriodResponse] = Task.deferFuture {
-    underlying.decreaseStreamRetentionPeriod(request)
+    underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest)
   }
-
-  override def deleteStream(request: DeleteStreamRequest): Task[DeleteStreamResponse] = Task.deferFuture {
-    underlying.deleteStream(request)
+  override def deleteStream(
+      deleteStreamRequest: DeleteStreamRequest,
+  ): Task[DeleteStreamResponse] = Task.deferFuture {
+    underlying.deleteStream(deleteStreamRequest)
   }
-
   override def deregisterStreamConsumer(
-      request: DeregisterStreamConsumerRequest
+      deregisterStreamConsumerRequest: DeregisterStreamConsumerRequest,
   ): Task[DeregisterStreamConsumerResponse] = Task.deferFuture {
-    underlying.deregisterStreamConsumer(request)
+    underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest)
   }
-
-  override def describeLimits(request: DescribeLimitsRequest): Task[DescribeLimitsResponse] = Task.deferFuture {
-    underlying.describeLimits(request)
+  override def describeLimits(
+      describeLimitsRequest: DescribeLimitsRequest,
+  ): Task[DescribeLimitsResponse] = Task.deferFuture {
+    underlying.describeLimits(describeLimitsRequest)
   }
-
-  override def describeStream(request: DescribeStreamRequest): Task[DescribeStreamResponse] = Task.deferFuture {
-    underlying.describeStream(request)
+  override def describeStream(
+      describeStreamRequest: DescribeStreamRequest,
+  ): Task[DescribeStreamResponse] = Task.deferFuture {
+    underlying.describeStream(describeStreamRequest)
   }
-
-  override def describeStreamConsumer(request: DescribeStreamConsumerRequest): Task[DescribeStreamConsumerResponse] =
-    Task.deferFuture {
-      underlying.describeStreamConsumer(request)
-    }
-
-  override def describeStreamSummary(request: DescribeStreamSummaryRequest): Task[DescribeStreamSummaryResponse] =
-    Task.deferFuture {
-      underlying.describeStreamSummary(request)
-    }
-
+  override def describeStreamConsumer(
+      describeStreamConsumerRequest: DescribeStreamConsumerRequest,
+  ): Task[DescribeStreamConsumerResponse] = Task.deferFuture {
+    underlying.describeStreamConsumer(describeStreamConsumerRequest)
+  }
+  override def describeStreamSummary(
+      describeStreamSummaryRequest: DescribeStreamSummaryRequest,
+  ): Task[DescribeStreamSummaryResponse] = Task.deferFuture {
+    underlying.describeStreamSummary(describeStreamSummaryRequest)
+  }
   override def disableEnhancedMonitoring(
-      request: DisableEnhancedMonitoringRequest
+      disableEnhancedMonitoringRequest: DisableEnhancedMonitoringRequest,
   ): Task[DisableEnhancedMonitoringResponse] = Task.deferFuture {
-    underlying.disableEnhancedMonitoring(request)
+    underlying.disableEnhancedMonitoring(disableEnhancedMonitoringRequest)
   }
-
   override def enableEnhancedMonitoring(
-      request: EnableEnhancedMonitoringRequest
+      enableEnhancedMonitoringRequest: EnableEnhancedMonitoringRequest,
   ): Task[EnableEnhancedMonitoringResponse] = Task.deferFuture {
-    underlying.enableEnhancedMonitoring(request)
+    underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest)
   }
-
-  override def getRecords(request: GetRecordsRequest): Task[GetRecordsResponse] = Task.deferFuture {
-    underlying.getRecords(request)
+  override def getRecords(
+      getRecordsRequest: GetRecordsRequest,
+  ): Task[GetRecordsResponse] = Task.deferFuture {
+    underlying.getRecords(getRecordsRequest)
   }
-
-  override def getShardIterator(request: GetShardIteratorRequest): Task[GetShardIteratorResponse] = Task.deferFuture {
-    underlying.getShardIterator(request)
+  override def getShardIterator(
+      getShardIteratorRequest: GetShardIteratorRequest,
+  ): Task[GetShardIteratorResponse] = Task.deferFuture {
+    underlying.getShardIterator(getShardIteratorRequest)
   }
-
   override def increaseStreamRetentionPeriod(
-      request: IncreaseStreamRetentionPeriodRequest
+      increaseStreamRetentionPeriodRequest: IncreaseStreamRetentionPeriodRequest,
   ): Task[IncreaseStreamRetentionPeriodResponse] = Task.deferFuture {
-    underlying.increaseStreamRetentionPeriod(request)
+    underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest)
   }
-
-  override def listShards(request: ListShardsRequest): Task[ListShardsResponse] = Task.deferFuture {
-    underlying.listShards(request)
+  override def listShards(
+      listShardsRequest: ListShardsRequest,
+  ): Task[ListShardsResponse] = Task.deferFuture {
+    underlying.listShards(listShardsRequest)
   }
-
-  override def listStreamConsumers(request: ListStreamConsumersRequest): Task[ListStreamConsumersResponse] =
-    Task.deferFuture {
-      underlying.listStreamConsumers(request)
-    }
-
-  override def listStreams(request: ListStreamsRequest): Task[ListStreamsResponse] = Task.deferFuture {
-    underlying.listStreams(request)
+  override def listStreamConsumers(
+      listStreamConsumersRequest: ListStreamConsumersRequest,
+  ): Task[ListStreamConsumersResponse] = Task.deferFuture {
+    underlying.listStreamConsumers(listStreamConsumersRequest)
   }
-
-  override def listTagsForStream(request: ListTagsForStreamRequest): Task[ListTagsForStreamResponse] =
-    Task.deferFuture {
-      underlying.listTagsForStream(request)
-    }
-
-  override def mergeShards(request: MergeShardsRequest): Task[MergeShardsResponse] = Task.deferFuture {
-    underlying.mergeShards(request)
+  def listStreamConsumersPaginator(
+      listStreamConsumersRequest: ListStreamConsumersRequest
+  ): Observable[ListStreamConsumersResponse] =
+    Observable.fromReactivePublisher(underlying.listStreamConsumersPaginator(listStreamConsumersRequest))
+  override def listStreams(
+      listStreamsRequest: ListStreamsRequest,
+  ): Task[ListStreamsResponse] = Task.deferFuture {
+    underlying.listStreams(listStreamsRequest)
   }
-
-  override def putRecord(request: PutRecordRequest): Task[PutRecordResponse] = Task.deferFuture {
-    underlying.putRecord(request)
+  override def listTagsForStream(
+      listTagsForStreamRequest: ListTagsForStreamRequest,
+  ): Task[ListTagsForStreamResponse] = Task.deferFuture {
+    underlying.listTagsForStream(listTagsForStreamRequest)
   }
-
-  override def putRecords(request: PutRecordsRequest): Task[PutRecordsResponse] = Task.deferFuture {
-    underlying.putRecords(request)
+  override def mergeShards(
+      mergeShardsRequest: MergeShardsRequest,
+  ): Task[MergeShardsResponse] = Task.deferFuture {
+    underlying.mergeShards(mergeShardsRequest)
   }
-
-  override def registerStreamConsumer(request: RegisterStreamConsumerRequest): Task[RegisterStreamConsumerResponse] =
-    Task.deferFuture {
-      underlying.registerStreamConsumer(request)
-    }
-
-  override def removeTagsFromStream(request: RemoveTagsFromStreamRequest): Task[RemoveTagsFromStreamResponse] =
-    Task.deferFuture {
-      underlying.removeTagsFromStream(request)
-    }
-
-  override def splitShard(request: SplitShardRequest): Task[SplitShardResponse] = Task.deferFuture {
-    underlying.splitShard(request)
+  override def putRecord(
+      putRecordRequest: PutRecordRequest,
+  ): Task[PutRecordResponse] = Task.deferFuture {
+    underlying.putRecord(putRecordRequest)
   }
-
-  override def startStreamEncryption(request: StartStreamEncryptionRequest): Task[StartStreamEncryptionResponse] =
-    Task.deferFuture {
-      underlying.startStreamEncryption(request)
-    }
-
-  override def stopStreamEncryption(request: StopStreamEncryptionRequest): Task[StopStreamEncryptionResponse] =
-    Task.deferFuture {
-      underlying.stopStreamEncryption(request)
-    }
-
-  override def updateShardCount(request: UpdateShardCountRequest): Task[UpdateShardCountResponse] = Task.deferFuture {
-    underlying.updateShardCount(request)
+  override def putRecords(
+      putRecordsRequest: PutRecordsRequest,
+  ): Task[PutRecordsResponse] = Task.deferFuture {
+    underlying.putRecords(putRecordsRequest)
+  }
+  override def registerStreamConsumer(
+      registerStreamConsumerRequest: RegisterStreamConsumerRequest,
+  ): Task[RegisterStreamConsumerResponse] = Task.deferFuture {
+    underlying.registerStreamConsumer(registerStreamConsumerRequest)
+  }
+  override def removeTagsFromStream(
+      removeTagsFromStreamRequest: RemoveTagsFromStreamRequest,
+  ): Task[RemoveTagsFromStreamResponse] = Task.deferFuture {
+    underlying.removeTagsFromStream(removeTagsFromStreamRequest)
+  }
+  override def splitShard(
+      splitShardRequest: SplitShardRequest,
+  ): Task[SplitShardResponse] = Task.deferFuture {
+    underlying.splitShard(splitShardRequest)
+  }
+  override def startStreamEncryption(
+      startStreamEncryptionRequest: StartStreamEncryptionRequest,
+  ): Task[StartStreamEncryptionResponse] = Task.deferFuture {
+    underlying.startStreamEncryption(startStreamEncryptionRequest)
+  }
+  override def stopStreamEncryption(
+      stopStreamEncryptionRequest: StopStreamEncryptionRequest,
+  ): Task[StopStreamEncryptionResponse] = Task.deferFuture {
+    underlying.stopStreamEncryption(stopStreamEncryptionRequest)
+  }
+  override def updateShardCount(
+      updateShardCountRequest: UpdateShardCountRequest,
+  ): Task[UpdateShardCountResponse] = Task.deferFuture {
+    underlying.updateShardCount(updateShardCountRequest)
   }
 
 }

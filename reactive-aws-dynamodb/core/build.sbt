@@ -23,13 +23,11 @@ packageNameMapper in scalaWrapperGen := {
 }
 
 typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "DynamoDbAsyncClient"         => true
-  case cd if cd.simpleTypeName == "DynamoDbClient"              => true
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception") => false
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")    => false
-  case cd: ClassDesc
-      if cd.simpleTypeName == "DynamoDbResponseMetadata" || cd.simpleTypeName == "DynamoDbStreamsResponseMetadata" =>
-    false
+  case cd if cd.simpleTypeName == "DynamoDbAsyncClient"                                              => true
+  case cd if cd.simpleTypeName == "DynamoDbClient"                                                   => true
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
   case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
   case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))                                    => true
   case cd =>
@@ -38,8 +36,8 @@ typeDescFilter in scalaWrapperGen := {
 
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-    Seq("DynamoDBClient", "DynamoDBAsyncClient", "DynamoDBAsyncClientImpl")
-  case cd if cd.simpleTypeName == "DynamoDbClient"      => Seq("DynamoDBSyncClient", "DynamoDBSyncClientImpl")
+    Seq("DynamoDBClient", "DynamoDBAsyncClient")
+  case cd if cd.simpleTypeName == "DynamoDbClient"      => Seq("DynamoDBSyncClient")
   case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName, cd.simpleTypeName + "Ops")
   case cd                                               => Seq(cd.simpleTypeName)
 }
@@ -48,12 +46,8 @@ templateNameMapper in scalaWrapperGen := {
   case ("DynamoDBClient", cd) if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient.ftl"
   case ("DynamoDBAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
     "DynamoDBAsyncClient.ftl"
-  case ("DynamoDBAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-    "DynamoDBAsyncClientImpl.ftl"
   case ("DynamoDBSyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
     "DynamoDBSyncClient.ftl"
-  case ("DynamoDBSyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
-    "DynamoDBSyncClientImpl.ftl"
 
   case (s, cd: EnumDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "EnumOps.ftl"
   case (s, cd: ClassDesc)

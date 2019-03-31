@@ -1,0 +1,27 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.s3.v2.model
+
+import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectRetentionResponse => ScalaGetObjectRetentionResponse, _ }
+import software.amazon.awssdk.services.s3.model.{ GetObjectRetentionResponse => JavaGetObjectRetentionResponse }
+
+import scala.compat.java8.OptionConverters._
+import scala.collection.JavaConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
+object GetObjectRetentionResponseOps {
+
+  implicit class JavaGetObjectRetentionResponseOps(val self: JavaGetObjectRetentionResponse) extends AnyVal {
+
+    def toScala: ScalaGetObjectRetentionResponse = {
+      ScalaGetObjectRetentionResponse()
+        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
+        .withStatusText(self.sdkHttpResponse().statusText().asScala)
+        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
+        .withRetention(Option(self.retention).map { v =>
+          import ObjectLockRetentionOps._; v.toScala
+        }) // ObjectLockRetention
+    }
+
+  }
+
+}

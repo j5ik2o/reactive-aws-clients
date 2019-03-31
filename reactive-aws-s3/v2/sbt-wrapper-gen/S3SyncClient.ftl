@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3.v2
+package com.github.j5ik2o.reactive.aws.s3
 
 import com.github.j5ik2o.reactive.aws.s3.S3Client
 import com.github.j5ik2o.reactive.aws.s3.model._

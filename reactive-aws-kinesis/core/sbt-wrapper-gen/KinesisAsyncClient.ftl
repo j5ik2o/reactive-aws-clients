@@ -17,16 +17,33 @@ def apply(underlying: JavaKinesisAsyncClient)(implicit ec: ExecutionContext): Ki
 new KinesisAsyncClientImpl(underlying)
 
 implicit class CompletableFutureOps[A](val cf: CompletableFuture[A]) extends AnyVal {
-def toFuture: Future[A] = FutureConverters.toScala(cf)
+  def toFuture: Future[A] = FutureConverters.toScala(cf)
 }
 
 }
 
 trait KinesisAsyncClient extends KinesisClient[Future] {
 
+implicit val ec: ExecutionContext
+
 val underlying: JavaKinesisAsyncClient
 
-<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): ${method.returnTypeDesc.simpleTypeName}
+import KinesisAsyncClient._
+
+<#list methods as method><#if targetMethod(method)>      <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> = {
+  <#if method.name?ends_with("Paginator")>
+    <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
+    new ${method.returnTypeDesc.simpleTypeName}Impl(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>))
+  <#else>
+    <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
+    <#if method.returnTypeDesc.valueTypeDesc.simpleTypeName == "Unit">
+      underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>).toFuture.map(_ => ())
+    <#else>
+      import ${method.returnTypeDesc.valueTypeDesc.simpleTypeName}Ops._
+      underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>).toFuture.map(_.toScala)
+    </#if>
+  </#if>
+  }
 
 </#if></#list>
 
@@ -34,9 +51,6 @@ val underlying: JavaKinesisAsyncClient
 
 <#function targetMethod methodDesc>
   <#if methodDesc.static >
-    <#return false>
-  </#if>
-  <#if !methodDesc.name?ends_with("Paginator")>
     <#return false>
   </#if>
   <#local target=true>

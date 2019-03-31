@@ -28,7 +28,7 @@ typeDescFilter in scalaWrapperGen := {
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")                                        => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")                                        => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
-  case cd: ClassDesc if cd.simpleTypeName == "KinesisResponseMetadata"                               => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
   case cd: ClassDesc if cd.simpleTypeName == "SubscribeToShardEventStream"                           => false
   case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
   case cd: EnumDesc if cd.packageName.exists(_.endsWith("model"))                                    => true
@@ -38,9 +38,9 @@ typeDescFilter in scalaWrapperGen := {
 
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "KinesisAsyncClient" =>
-    Seq("KinesisClient", "KinesisAsyncClient", "KinesisAsyncClientImpl")
+    Seq("KinesisClient", "KinesisAsyncClient")
   case cd if cd.simpleTypeName == "KinesisClient" =>
-    Seq("KinesisSyncClient", "KinesisSyncClientImpl")
+    Seq("KinesisSyncClient")
   case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
   case cd                                               => Seq(cd.simpleTypeName)
 }
@@ -49,12 +49,8 @@ templateNameMapper in scalaWrapperGen := {
   case ("KinesisClient", cd) if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
   case ("KinesisAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
     "KinesisAsyncClient.ftl"
-  case ("KinesisAsyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
-    "KinesisAsyncClientImpl.ftl"
   case ("KinesisSyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
     "KinesisSyncClient.ftl"
-  case ("KinesisSyncClientImpl", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
-    "KinesisSyncClientImpl.ftl"
 
   case (s, cd: ClassDesc)
       if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) && cd.simpleTypeName.endsWith("Request") =>

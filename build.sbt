@@ -15,6 +15,8 @@ lazy val `reactive-aws-common-monix` =
 lazy val `reactive-aws-common-akka` =
   (project in file("reactive-aws-common/akka")).dependsOn(`reactive-aws-common-core`)
 
+lazy val `reactive-aws-common-v2` = (project in file("reactive-aws-common/v2")).dependsOn(`reactive-aws-common-core`)
+
 lazy val `reactive-aws-common-root`: Project = (project in file("reactive-aws-common"))
   .settings(coreSettings)
   .settings(
@@ -25,7 +27,8 @@ lazy val `reactive-aws-common-root`: Project = (project in file("reactive-aws-co
     `reactive-aws-common-test`,
     `reactive-aws-common-monix`,
     `reactive-aws-common-cats`,
-    `reactive-aws-common-akka`
+    `reactive-aws-common-akka`,
+    `reactive-aws-common-v2`
   )
 
 // --- dynamodb
@@ -34,7 +37,8 @@ lazy val `reactive-aws-dynamodb-test` =
   (project in file("reactive-aws-dynamodb/test")).dependsOn(`reactive-aws-common-test`)
 
 lazy val `reactive-aws-dynamodb-core` =
-  (project in file("reactive-aws-dynamodb/core")).dependsOn(`reactive-aws-common-core`)
+  (project in file("reactive-aws-dynamodb/core"))
+    .dependsOn(`reactive-aws-common-core`, `reactive-aws-dynamodb-test` % "test")
 
 lazy val `reactive-aws-dynamodb-cats` = (project in file("reactive-aws-dynamodb/cats"))
   .dependsOn(`reactive-aws-common-cats`, `reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
@@ -45,21 +49,6 @@ lazy val `reactive-aws-dynamodb-monix` = (project in file("reactive-aws-dynamodb
 lazy val `reactive-aws-dynamodb-akka` = (project in file("reactive-aws-dynamodb/akka"))
   .dependsOn(`reactive-aws-common-akka`, `reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
 
-lazy val `reactive-aws-dynamodb-v1` = (project in file("reactive-aws-dynamodb/v1"))
-  .dependsOn(`reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
-
-lazy val `reactive-aws-dynamodb-v2` = (project in file("reactive-aws-dynamodb/v2"))
-  .dependsOn(`reactive-aws-dynamodb-core`, `reactive-aws-dynamodb-test` % "test")
-
-lazy val `reactive-aws-dynamodb-v2-akka` = (project in file("reactive-aws-dynamodb/v2-akka"))
-  .dependsOn(`reactive-aws-dynamodb-v2`, `reactive-aws-dynamodb-akka`, `reactive-aws-dynamodb-test` % "test")
-
-lazy val `reactive-aws-dynamodb-v2-monix` = (project in file("reactive-aws-dynamodb/v2-monix"))
-  .dependsOn(`reactive-aws-dynamodb-v2`, `reactive-aws-dynamodb-monix`, `reactive-aws-dynamodb-test` % "test")
-
-lazy val `reactive-aws-dynamodb-v2-cats` = (project in file("reactive-aws-dynamodb/v2-cats"))
-  .dependsOn(`reactive-aws-dynamodb-v2`, `reactive-aws-dynamodb-cats`, `reactive-aws-dynamodb-test` % "test")
-
 lazy val `reactive-aws-dynamodb-root`: Project =
   (project in file("reactive-aws-dynamodb"))
     .settings(coreSettings)
@@ -69,14 +58,9 @@ lazy val `reactive-aws-dynamodb-root`: Project =
     .aggregate(
       `reactive-aws-dynamodb-core`,
       `reactive-aws-dynamodb-test`,
-      `reactive-aws-dynamodb-v1`,
-      `reactive-aws-dynamodb-v2`,
       `reactive-aws-dynamodb-monix`,
       `reactive-aws-dynamodb-cats`,
-      `reactive-aws-dynamodb-akka`,
-      `reactive-aws-dynamodb-v2-akka`,
-      `reactive-aws-dynamodb-v2-monix`,
-      `reactive-aws-dynamodb-v2-cats`
+      `reactive-aws-dynamodb-akka`
     )
 
 // --- reactive-kinesis
@@ -96,21 +80,6 @@ lazy val `reactive-aws-kinesis-monix` = (project in file("reactive-aws-kinesis/m
 lazy val `reactive-aws-kinesis-akka` = (project in file("reactive-aws-kinesis/akka"))
   .dependsOn(`reactive-aws-common-akka`, `reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
 
-lazy val `reactive-aws-kinesis-v1` = (project in file("reactive-aws-kinesis/v1"))
-  .dependsOn(`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
-
-lazy val `reactive-aws-kinesis-v2` = (project in file("reactive-aws-kinesis/v2"))
-  .dependsOn(`reactive-aws-kinesis-core`, `reactive-aws-kinesis-test` % "test")
-
-lazy val `reactive-aws-kinesis-v2-akka` = (project in file("reactive-aws-kinesis/v2-akka"))
-  .dependsOn(`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-akka`, `reactive-aws-kinesis-test` % "test")
-
-lazy val `reactive-aws-kinesis-v2-monix` = (project in file("reactive-aws-kinesis/v2-monix"))
-  .dependsOn(`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-monix`, `reactive-aws-kinesis-test` % "test")
-
-lazy val `reactive-aws-kinesis-v2-cats` = (project in file("reactive-aws-kinesis/v2-cats"))
-  .dependsOn(`reactive-aws-kinesis-v2`, `reactive-aws-kinesis-cats`, `reactive-aws-kinesis-test` % "test")
-
 lazy val `reactive-aws-kinesis-root`: Project = (project in file("reactive-aws-kinesis"))
   .settings(coreSettings)
   .settings(
@@ -119,14 +88,26 @@ lazy val `reactive-aws-kinesis-root`: Project = (project in file("reactive-aws-k
   .aggregate(
     `reactive-aws-kinesis-core`,
     `reactive-aws-kinesis-test`,
-    `reactive-aws-kinesis-v1`,
-    `reactive-aws-kinesis-v2`,
     `reactive-aws-kinesis-akka`,
     `reactive-aws-kinesis-cats`,
-    `reactive-aws-kinesis-monix`,
-    `reactive-aws-kinesis-v2-akka`,
-    `reactive-aws-kinesis-v2-cats`,
-    `reactive-aws-kinesis-v2-monix`
+    `reactive-aws-kinesis-monix`
+  )
+
+// ---
+lazy val `reactive-aws-s3-test` = (project in file("reactive-aws-s3/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-s3-core` =
+  (project in file("reactive-aws-s3/core")).dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`)
+
+lazy val `reactive-aws-s3-root`: Project = (project in file("reactive-aws-s3"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-s3-project"
+  )
+  .aggregate(
+    `reactive-aws-s3-core`,
+    `reactive-aws-s3-test`
   )
 
 lazy val `root`: Project = (project in file("."))
@@ -134,4 +115,7 @@ lazy val `root`: Project = (project in file("."))
   .settings(
     name := "reactive-aws-client-project"
   )
-  .aggregate(`reactive-aws-common-root`, `reactive-aws-dynamodb-root`, `reactive-aws-kinesis-root`)
+  .aggregate(`reactive-aws-common-root`,
+             `reactive-aws-dynamodb-root`,
+             `reactive-aws-kinesis-root`,
+             `reactive-aws-s3-root`)

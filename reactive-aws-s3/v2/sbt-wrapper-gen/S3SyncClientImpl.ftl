@@ -1,11 +1,10 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3.v2
+package com.github.j5ik2o.reactive.aws.s3
 
 import com.github.j5ik2o.reactive.aws.s3.model._
 import com.github.j5ik2o.reactive.aws.s3.model.rs._
-import com.github.j5ik2o.reactive.aws.s3.v2.model._
-import com.github.j5ik2o.reactive.aws.s3.v2.model.rs._
-import software.amazon.awssdk.services.s3.{S3Client => JavaS3Client}
+import com.github.j5ik2o.reactive.aws.s3.model.ops._
+import software.amazon.awssdk.services.s3.{ S3Client => JavaS3Client }
 
 private[s3] class S3SyncClientImpl(override val underlying: JavaS3Client) extends S3SyncClient {
 

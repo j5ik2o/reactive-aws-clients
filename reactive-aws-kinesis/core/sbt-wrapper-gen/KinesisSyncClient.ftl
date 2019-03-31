@@ -15,16 +15,31 @@ object KinesisSyncClient {
 trait KinesisSyncClient extends KinesisClient[Either[Throwable, ?]] {
   val underlying: JavaKinesisSyncClient
 
-<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): ${method.returnTypeDesc.simpleTypeName}
+  private def toEither[A](f: => A): Either[Throwable, A] = {
+    try {
+      Right(f)
+    } catch {
+      case t: Throwable =>
+        Left(t)
+    }
+  }
+
+<#list methods as method><#if targetMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> = {
+    <#if method.name?ends_with("Paginator")>
+        <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
+        new ${method.returnTypeDesc.simpleTypeName}Impl(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>))
+    <#else>
+        <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
+        import ${method.returnTypeDesc.simpleTypeName}Ops._
+        toEither(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>)).right.map(_.toScala)
+    </#if>
+    }
 
 </#if></#list>
 }
 
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if !methodDesc.name?ends_with("Paginator")>
         <#return false>
     </#if>
     <#local target=true>
