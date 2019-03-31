@@ -16,6 +16,10 @@ libraryDependencies ++= Seq(
 compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value
 
 packageNameMapper in scalaWrapperGen := {
+  case (s, tn, _) if tn == "JavaAsyncClientMetricsInterceptor" =>
+    s.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.metrics")
+  case (s, tn, _) if tn == "JavaSyncClientMetricsInterceptor" =>
+    s.replace("software.amazon.awssdk.services.dynamodb", "com.github.j5ik2o.reactive.aws.dynamodb.metrics")
   case (s, tn, _) if tn.endsWith("Ops") =>
     s.replace("software.amazon.awssdk.services.dynamodb.model", "com.github.j5ik2o.reactive.aws.dynamodb.model.ops")
   case (s, _, _) =>
@@ -36,7 +40,10 @@ typeDescFilter in scalaWrapperGen := {
 
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
-    Seq("DynamoDBClient", "DynamoDBAsyncClient")
+    Seq("DynamoDBClient",
+        "DynamoDBAsyncClient",
+        "JavaAsyncClientMetricsInterceptor",
+        "JavaSyncClientMetricsInterceptor")
   case cd if cd.simpleTypeName == "DynamoDbClient"      => Seq("DynamoDBSyncClient")
   case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName, cd.simpleTypeName + "Ops")
   case cd                                               => Seq(cd.simpleTypeName)
@@ -46,6 +53,10 @@ templateNameMapper in scalaWrapperGen := {
   case ("DynamoDBClient", cd) if cd.simpleTypeName == "DynamoDbAsyncClient" => "DynamoDBClient.ftl"
   case ("DynamoDBAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
     "DynamoDBAsyncClient.ftl"
+  case ("JavaAsyncClientMetricsInterceptor", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+    "JavaAsyncClientMetricsInterceptor.ftl"
+  case ("JavaSyncClientMetricsInterceptor", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
+    "JavaSyncClientMetricsInterceptor.ftl"
   case ("DynamoDBSyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
     "DynamoDBSyncClient.ftl"
 

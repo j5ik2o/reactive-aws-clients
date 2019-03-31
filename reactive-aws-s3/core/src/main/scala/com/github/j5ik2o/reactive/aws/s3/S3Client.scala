@@ -3,7 +3,7 @@ package com.github.j5ik2o.reactive.aws.s3
 import java.nio.file.Path
 import com.github.j5ik2o.reactive.aws.s3.model._
 
-trait S3Client[M[_]] /*extends DynamoDBClientSupport[M]*/ {
+trait S3Client[M[_]] extends S3ClientSupport[M] {
 
   def abortMultipartUpload(abortMultipartUploadRequest: AbortMultipartUploadRequest): M[AbortMultipartUploadResponse]
 
@@ -114,6 +114,18 @@ trait S3Client[M[_]] /*extends DynamoDBClientSupport[M]*/ {
   def getBucketVersioning(getBucketVersioningRequest: GetBucketVersioningRequest): M[GetBucketVersioningResponse]
 
   def getBucketWebsite(getBucketWebsiteRequest: GetBucketWebsiteRequest): M[GetBucketWebsiteResponse]
+
+  def getObjectAcl(getObjectAclRequest: GetObjectAclRequest): M[GetObjectAclResponse]
+
+  def getObjectLegalHold(getObjectLegalHoldRequest: GetObjectLegalHoldRequest): M[GetObjectLegalHoldResponse]
+
+  def getObjectLockConfiguration(
+      getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
+  ): M[GetObjectLockConfigurationResponse]
+
+  def getObjectRetention(getObjectRetentionRequest: GetObjectRetentionRequest): M[GetObjectRetentionResponse]
+
+  def getObjectTagging(getObjectTaggingRequest: GetObjectTaggingRequest): M[GetObjectTaggingResponse]
 
   def getPublicAccessBlock(getPublicAccessBlockRequest: GetPublicAccessBlockRequest): M[GetPublicAccessBlockResponse]
 

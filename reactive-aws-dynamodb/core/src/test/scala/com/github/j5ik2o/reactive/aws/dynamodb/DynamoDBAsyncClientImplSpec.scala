@@ -11,6 +11,7 @@ import org.scalatest.{ FreeSpec, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
+import scala.concurrent.duration._
 
 class DynamoDBAsyncClientImplSpec extends FreeSpec with Matchers with ScalaFutures with DynamoDBContainerSpecSupport {
 
@@ -25,7 +26,7 @@ class DynamoDBAsyncClientImplSpec extends FreeSpec with Matchers with ScalaFutur
     .endpointOverride(URI.create(endpoint))
     .build()
 
-  val underlying = JavaAsyncClientDecoratorV2.ofMetricsCollector(
+  val underlying = JavaAsyncClientDecorator.ofMetricsCollector(
     _underlying,
     new MetricsReporter {
       override def increment(name: String, times: Long): Unit = {
