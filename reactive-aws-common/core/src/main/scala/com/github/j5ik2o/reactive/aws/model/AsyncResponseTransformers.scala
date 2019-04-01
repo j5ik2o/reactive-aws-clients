@@ -13,8 +13,7 @@ import software.amazon.awssdk.core.{ ResponseBytes => JavaResponseBytes }
 import scala.collection.mutable.ArrayBuffer
 import scala.compat.java8.FunctionConverters._
 import scala.compat.java8.FutureConverters._
-import scala.concurrent.{ ExecutionContext, Future, Promise }
-import scala.util.{ Failure, Success }
+import scala.concurrent.{ Future, Promise }
 
 trait AsyncResponseTransformer[A, Result] {
   self =>
@@ -91,11 +90,10 @@ object AsyncResponseTransformers {
   private class ToArrayBytes[A] extends JavaAsyncResponseTransformer[A, ResponseWithIterable[A]] {
 
     private val buffer                      = ArrayBuffer.empty[Array[Byte]]
-    private var cf: CompletableFuture[Unit] = _
+    private var cf: CompletableFuture[Unit] = new CompletableFuture[Unit]
     private var response: A                 = _
 
     override def prepare(): CompletableFuture[ResponseWithIterable[A]] = {
-      cf = new CompletableFuture[Unit]
       cf.thenApply(((_: Unit) => ResponseWithIterable(response, buffer)).asJava)
     }
 
@@ -130,11 +128,11 @@ object AsyncResponseTransformers {
       }
 
       override def onError(t: Throwable): Unit = {
-        // resultFuture.completeExceptionally(t)
+//        resultFuture.completeExceptionally(t)
       }
 
       override def onComplete(): Unit = {
-        // resultFuture.complete(())
+//        resultFuture.complete(())
       }
     }
   }
