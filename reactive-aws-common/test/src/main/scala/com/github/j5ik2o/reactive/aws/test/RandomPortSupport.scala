@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb
+package com.github.j5ik2o.reactive.aws.test
 
 import java.net.InetSocketAddress
 import java.nio.channels.ServerSocketChannel
