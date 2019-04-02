@@ -1,9 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class SubscribeToShardRequest(
-    consumerARN: Option[String] = None,
-    shardId: Option[String] = None,
-    startingPosition: Option[StartingPosition] = None
+    consumerARN: Option[String] = None, // String
+    shardId: Option[String] = None, // String
+    startingPosition: Option[StartingPosition] = None // StartingPosition
 ) {
   def withConsumerARN(value: Option[String]): SubscribeToShardRequest =
     copy(consumerARN = value)

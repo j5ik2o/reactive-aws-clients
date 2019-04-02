@@ -1,11 +1,11 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class GetShardIteratorRequest(
-    streamName: Option[String] = None,
-    shardId: Option[String] = None,
-    shardIteratorType: Option[ShardIteratorType] = None,
-    startingSequenceNumber: Option[String] = None,
-    timestamp: Option[java.time.Instant] = None
+    streamName: Option[String] = None, // String
+    shardId: Option[String] = None, // String
+    shardIteratorType: Option[ShardIteratorType] = None, // String
+    startingSequenceNumber: Option[String] = None, // String
+    timestamp: Option[java.time.Instant] = None // Instant
 ) {
   def withStreamName(value: Option[String]): GetShardIteratorRequest =
     copy(streamName = value)

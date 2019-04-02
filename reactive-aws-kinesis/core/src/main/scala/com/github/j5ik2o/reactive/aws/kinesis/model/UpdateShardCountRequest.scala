@@ -1,9 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class UpdateShardCountRequest(
-    streamName: Option[String] = None,
-    targetShardCount: Option[Int] = None,
-    scalingType: Option[ScalingType] = None
+    streamName: Option[String] = None, // String
+    targetShardCount: Option[Int] = None, // Int
+    scalingType: Option[ScalingType] = None // String
 ) {
   def withStreamName(value: Option[String]): UpdateShardCountRequest =
     copy(streamName = value)

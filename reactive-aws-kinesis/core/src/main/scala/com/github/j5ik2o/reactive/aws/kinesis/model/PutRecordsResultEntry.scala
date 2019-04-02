@@ -1,10 +1,10 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class PutRecordsResultEntry(
-    sequenceNumber: Option[String] = None,
-    shardId: Option[String] = None,
-    errorCode: Option[String] = None,
-    errorMessage: Option[String] = None
+    sequenceNumber: Option[String] = None, // String
+    shardId: Option[String] = None, // String
+    errorCode: Option[String] = None, // String
+    errorMessage: Option[String] = None // String
 ) {
   def withSequenceNumber(value: Option[String]): PutRecordsResultEntry =
     copy(sequenceNumber = value)

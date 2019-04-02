@@ -1,8 +1,8 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class GetRecordsRequest(
-    shardIterator: Option[String] = None,
-    limit: Option[Int] = None
+    shardIterator: Option[String] = None, // String
+    limit: Option[Int] = None // Int
 ) {
   def withShardIterator(value: Option[String]): GetRecordsRequest =
     copy(shardIterator = value)

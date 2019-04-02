@@ -11,10 +11,9 @@ object PutRecordsRequestEntryOps {
 
     def toJava: JavaPutRecordsRequestEntry = {
       val result = JavaPutRecordsRequestEntry.builder()
-      self.data
-        .filter(_.nonEmpty).foreach(v => result.data(software.amazon.awssdk.core.SdkBytes.fromByteArray(v))) // SdkBytes
-      self.explicitHashKey.filter(_.nonEmpty).foreach(v => result.explicitHashKey(v))                        // String
-      self.partitionKey.filter(_.nonEmpty).foreach(v => result.partitionKey(v))                              // String
+      self.data.foreach(v => result.data(v))                                          // SdkBytes
+      self.explicitHashKey.filter(_.nonEmpty).foreach(v => result.explicitHashKey(v)) // String
+      self.partitionKey.filter(_.nonEmpty).foreach(v => result.partitionKey(v))       // String
 
       result.build()
     }
@@ -25,7 +24,7 @@ object PutRecordsRequestEntryOps {
 
     def toScala: ScalaPutRecordsRequestEntry = {
       ScalaPutRecordsRequestEntry()
-        .withData(Option(self.data).map(_.asByteArray())) // SdkBytes
+        .withData(Option(self.data)) // SdkBytes
         .withExplicitHashKey(Option(self.explicitHashKey)) // String
         .withPartitionKey(Option(self.partitionKey)) // String
     }

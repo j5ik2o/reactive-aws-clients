@@ -1,8 +1,8 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class DecreaseStreamRetentionPeriodRequest(
-    streamName: Option[String] = None,
-    retentionPeriodHours: Option[Int] = None
+    streamName: Option[String] = None, // String
+    retentionPeriodHours: Option[Int] = None // Int
 ) {
   def withStreamName(value: Option[String]): DecreaseStreamRetentionPeriodRequest =
     copy(streamName = value)

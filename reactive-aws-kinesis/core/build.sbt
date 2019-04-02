@@ -41,7 +41,7 @@ typeNameMapper in scalaWrapperGen := {
     Seq("KinesisClient", "KinesisAsyncClient")
   case cd if cd.simpleTypeName == "KinesisClient" =>
     Seq("KinesisSyncClient")
-  case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
+  case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName, cd.simpleTypeName + "Ops")
   case cd                                               => Seq(cd.simpleTypeName)
 }
 

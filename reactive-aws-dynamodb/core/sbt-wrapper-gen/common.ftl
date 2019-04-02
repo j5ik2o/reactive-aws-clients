@@ -20,24 +20,6 @@
     <#return filterMethodName(default)>
 </#function>
 
-<#function getGetterValueTypeLevelCount methods name>
-    <#list methods as method>
-        <#if method.name == name>
-            <#return method.returnTypeDesc.valueTypeDesc.typeLevelCount>
-        </#if>
-    </#list>
-    <#return 0>
-</#function>
-
-<#function isCollection typeName>
-    <#switch typeName>
-        <#case "Map">
-        <#case "Seq">
-        <#case "Array">
-            <#return true>
-    </#switch>
-    <#return false>
-</#function>
 <#function isDefined typeName>
     <#switch typeName>
         <#case "Unit">
