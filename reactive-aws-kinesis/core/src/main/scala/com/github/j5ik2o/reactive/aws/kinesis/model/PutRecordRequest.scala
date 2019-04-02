@@ -1,15 +1,15 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class PutRecordRequest(
-    streamName: Option[String] = None,
-    data: Option[Array[Byte]] = None,
-    partitionKey: Option[String] = None,
-    explicitHashKey: Option[String] = None,
-    sequenceNumberForOrdering: Option[String] = None
+    streamName: Option[String] = None, // String
+    data: Option[software.amazon.awssdk.core.SdkBytes] = None, // SdkBytes
+    partitionKey: Option[String] = None, // String
+    explicitHashKey: Option[String] = None, // String
+    sequenceNumberForOrdering: Option[String] = None // String
 ) {
   def withStreamName(value: Option[String]): PutRecordRequest =
     copy(streamName = value)
-  def withData(value: Option[Array[Byte]]): PutRecordRequest =
+  def withData(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordRequest =
     copy(data = value)
   def withPartitionKey(value: Option[String]): PutRecordRequest =
     copy(partitionKey = value)

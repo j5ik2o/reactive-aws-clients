@@ -1,9 +1,9 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class DescribeStreamConsumerRequest(
-    streamARN: Option[String] = None,
-    consumerName: Option[String] = None,
-    consumerARN: Option[String] = None
+    streamARN: Option[String] = None, // String
+    consumerName: Option[String] = None, // String
+    consumerARN: Option[String] = None // String
 ) {
   def withStreamARN(value: Option[String]): DescribeStreamConsumerRequest =
     copy(streamARN = value)

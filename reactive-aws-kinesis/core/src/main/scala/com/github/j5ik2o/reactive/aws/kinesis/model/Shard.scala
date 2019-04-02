@@ -1,11 +1,11 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class Shard(
-    shardId: Option[String] = None,
-    parentShardId: Option[String] = None,
-    adjacentParentShardId: Option[String] = None,
-    hashKeyRange: Option[HashKeyRange] = None,
-    sequenceNumberRange: Option[SequenceNumberRange] = None
+    shardId: Option[String] = None, // String
+    parentShardId: Option[String] = None, // String
+    adjacentParentShardId: Option[String] = None, // String
+    hashKeyRange: Option[HashKeyRange] = None, // HashKeyRange
+    sequenceNumberRange: Option[SequenceNumberRange] = None // SequenceNumberRange
 ) {
   def withShardId(value: Option[String]): Shard =
     copy(shardId = value)

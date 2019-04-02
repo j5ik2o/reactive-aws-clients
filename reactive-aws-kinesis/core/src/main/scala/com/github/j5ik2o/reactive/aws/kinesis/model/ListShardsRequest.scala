@@ -1,11 +1,11 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model
 
 final case class ListShardsRequest(
-    streamName: Option[String] = None,
-    nextToken: Option[String] = None,
-    exclusiveStartShardId: Option[String] = None,
-    maxResults: Option[Int] = None,
-    streamCreationTimestamp: Option[java.time.Instant] = None
+    streamName: Option[String] = None, // String
+    nextToken: Option[String] = None, // String
+    exclusiveStartShardId: Option[String] = None, // String
+    maxResults: Option[Int] = None, // Int
+    streamCreationTimestamp: Option[java.time.Instant] = None // Instant
 ) {
   def withStreamName(value: Option[String]): ListShardsRequest =
     copy(streamName = value)

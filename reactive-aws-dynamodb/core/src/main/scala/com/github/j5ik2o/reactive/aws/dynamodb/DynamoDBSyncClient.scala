@@ -14,6 +14,7 @@ object DynamoDBSyncClient {
 
 trait DynamoDBSyncClient extends DynamoDBClient[Either[Throwable, ?]] {
   val underlying: DynamoDbClient
+
   private def toEither[A](f: => A): Either[Throwable, A] = {
     try {
       Right(f)

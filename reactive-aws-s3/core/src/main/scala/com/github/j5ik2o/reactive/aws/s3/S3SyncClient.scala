@@ -12,10 +12,10 @@ object S3SyncClient {
 
 }
 
-trait S3SyncClient extends S3Client[Either[Throwable, ?]] {
+trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
   val underlying: JavaS3SyncClient
 
-  private def toEither[A](f: => A): Either[Throwable, A] = {
+  protected def toEither[A](f: => A): Either[Throwable, A] = {
     try {
       Right(f)
     } catch {
@@ -320,6 +320,44 @@ trait S3SyncClient extends S3Client[Either[Throwable, ?]] {
     import GetBucketWebsiteRequestOps._
     import GetBucketWebsiteResponseOps._
     toEither(underlying.getBucketWebsite(getBucketWebsiteRequest.toJava)).right.map(_.toScala)
+  }
+
+  override def getObjectAcl(getObjectAclRequest: GetObjectAclRequest): Either[Throwable, GetObjectAclResponse] = {
+    import GetObjectAclRequestOps._
+    import GetObjectAclResponseOps._
+    toEither(underlying.getObjectAcl(getObjectAclRequest.toJava)).right.map(_.toScala)
+  }
+
+  override def getObjectLegalHold(
+      getObjectLegalHoldRequest: GetObjectLegalHoldRequest
+  ): Either[Throwable, GetObjectLegalHoldResponse] = {
+    import GetObjectLegalHoldRequestOps._
+    import GetObjectLegalHoldResponseOps._
+    toEither(underlying.getObjectLegalHold(getObjectLegalHoldRequest.toJava)).right.map(_.toScala)
+  }
+
+  override def getObjectLockConfiguration(
+      getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
+  ): Either[Throwable, GetObjectLockConfigurationResponse] = {
+    import GetObjectLockConfigurationRequestOps._
+    import GetObjectLockConfigurationResponseOps._
+    toEither(underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest.toJava)).right.map(_.toScala)
+  }
+
+  override def getObjectRetention(
+      getObjectRetentionRequest: GetObjectRetentionRequest
+  ): Either[Throwable, GetObjectRetentionResponse] = {
+    import GetObjectRetentionRequestOps._
+    import GetObjectRetentionResponseOps._
+    toEither(underlying.getObjectRetention(getObjectRetentionRequest.toJava)).right.map(_.toScala)
+  }
+
+  override def getObjectTagging(
+      getObjectTaggingRequest: GetObjectTaggingRequest
+  ): Either[Throwable, GetObjectTaggingResponse] = {
+    import GetObjectTaggingRequestOps._
+    import GetObjectTaggingResponseOps._
+    toEither(underlying.getObjectTagging(getObjectTaggingRequest.toJava)).right.map(_.toScala)
   }
 
   override def getPublicAccessBlock(

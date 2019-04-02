@@ -1,6 +1,7 @@
 package com.github.j5ik2o.reactive.aws.kinesis
 
 import com.github.j5ik2o.reactive.aws.kinesis.model._
+import software.amazon.awssdk.core.SdkBytes
 
 trait KinesisClientSupport[M[_]] { this: KinesisClient[M] =>
 
@@ -60,13 +61,13 @@ trait KinesisClientSupport[M[_]] { this: KinesisClient[M] =>
         )
     )
 
-  def putRecord(streamName: String, data: Array[Byte], partitionKey: String): M[PutRecordResponse] =
+  def putRecord(streamName: String, data: SdkBytes, partitionKey: String): M[PutRecordResponse] =
     putRecord(
       PutRecordRequest().withStreamName(Some(streamName)).withData(Some(data)).withPartitionKey(Some(partitionKey))
     )
 
   def putRecord(streamName: String,
-                data: Array[Byte],
+                data: SdkBytes,
                 partitionKey: String,
                 sequenceNumberForOrdering: String): M[PutRecordResponse] =
     putRecord(

@@ -18,8 +18,8 @@ final case class ${simpleTypeName}(
 <#function getGetterTypeName name default>
   <#list methods as method>
     <#if method.name == name>
-      <#return method.returnTypeDesc.fullTypeName?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
+      <#return method.returnTypeDesc.fullTypeName?replace("SdkBytes", "software.amazon.awssdk.core.SdkBytes")?replace("Instant", "java.time.Instant")>
     </#if>
   </#list>
-  <#return default?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
+  <#return default?replace("SdkBytes", "software.amazon.awssdk.core.SdkBytes")?replace("Instant", "java.time.Instant")>
 </#function>

@@ -13,8 +13,7 @@ object AttributeValueOps {
       val result = JavaAttributeValue.builder()
       self.s.filter(_.nonEmpty).foreach(v => result.s(v)) // String
       self.n.filter(_.nonEmpty).foreach(v => result.n(v)) // String
-      self.b
-        .filter(_.nonEmpty).foreach(v => result.b(software.amazon.awssdk.core.SdkBytes.fromByteArray(v))) // SdkBytes
+      self.b.foreach(v => result.b(v))                    // SdkBytes
       self.ss.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.ss(v.asJava)
       } // Seq[String]
@@ -22,8 +21,7 @@ object AttributeValueOps {
         import scala.collection.JavaConverters._; result.ns(v.asJava)
       } // Seq[String]
       self.bs.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._;
-        result.bs(v.map(software.amazon.awssdk.core.SdkBytes.fromByteArray).asJava)
+        import scala.collection.JavaConverters._; result.bs(v.asJava)
       } // Seq[SdkBytes]
       self.m.filter(_.nonEmpty).foreach { v =>
         import scala.collection.JavaConverters._; result.m(v.mapValues(_.toJava).asJava)
@@ -45,7 +43,7 @@ object AttributeValueOps {
       ScalaAttributeValue()
         .withS(Option(self.s)) // String
         .withN(Option(self.n)) // String
-        .withB(Option(self.b).map(_.asByteArray())) // SdkBytes
+        .withB(Option(self.b)) // SdkBytes
         .withSs(Option(self.ss).map { v =>
           import scala.collection.JavaConverters._; v.asScala
         }) // Seq[String]
@@ -53,7 +51,7 @@ object AttributeValueOps {
           import scala.collection.JavaConverters._; v.asScala
         }) // Seq[String]
         .withBs(Option(self.bs).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.asByteArray())
+          import scala.collection.JavaConverters._; v.asScala
         }) // Seq[SdkBytes]
         .withM(Option(self.m).map { v =>
           import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.toScala)

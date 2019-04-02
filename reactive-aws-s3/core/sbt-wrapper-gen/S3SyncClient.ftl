@@ -12,10 +12,10 @@ object S3SyncClient {
 
 }
 
-trait S3SyncClient extends S3Client[Either[Throwable, ?]] {
+trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
   val underlying: JavaS3SyncClient
 
-private def toEither[A](f: => A): Either[Throwable, A] = {
+protected def toEither[A](f: => A): Either[Throwable, A] = {
 try {
 Right(f)
 } catch {
@@ -42,7 +42,7 @@ Left(t)
     <#if methodDesc.static >
         <#return false>
     </#if>
-    <#if methodDesc.name?starts_with("getObject")>
+    <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes">
         <#return false>
     </#if>
     <#if methodDesc.parameterTypeDescs?size gte 2>

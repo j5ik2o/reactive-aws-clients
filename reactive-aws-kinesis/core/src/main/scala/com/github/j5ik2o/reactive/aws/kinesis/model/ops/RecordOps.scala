@@ -13,9 +13,8 @@ object RecordOps {
       val result = JavaRecord.builder()
       self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v))        // String
       self.approximateArrivalTimestamp.foreach(v => result.approximateArrivalTimestamp(v)) // Instant
-      self.data
-        .filter(_.nonEmpty).foreach(v => result.data(software.amazon.awssdk.core.SdkBytes.fromByteArray(v))) // SdkBytes
-      self.partitionKey.filter(_.nonEmpty).foreach(v => result.partitionKey(v))                              // String
+      self.data.foreach(v => result.data(v))                                               // SdkBytes
+      self.partitionKey.filter(_.nonEmpty).foreach(v => result.partitionKey(v))            // String
       self.encryptionType.foreach { v =>
         import EncryptionTypeOps._; result.encryptionType(v.toJava)
       } // String
@@ -31,7 +30,7 @@ object RecordOps {
       ScalaRecord()
         .withSequenceNumber(Option(self.sequenceNumber)) // String
         .withApproximateArrivalTimestamp(Option(self.approximateArrivalTimestamp)) // Instant
-        .withData(Option(self.data).map(_.asByteArray())) // SdkBytes
+        .withData(Option(self.data)) // SdkBytes
         .withPartitionKey(Option(self.partitionKey)) // String
         .withEncryptionType(Option(self.encryptionType).map { v =>
           import EncryptionTypeOps._; v.toScala

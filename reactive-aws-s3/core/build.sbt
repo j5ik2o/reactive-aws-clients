@@ -42,7 +42,7 @@ typeNameMapper in scalaWrapperGen := {
     Seq("S3Client", "S3AsyncClient")
   case cd if cd.simpleTypeName == "S3Client" =>
     Seq("S3SyncClient")
-  case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
+  case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName, cd.simpleTypeName + "Ops")
 
   case cd => Seq(cd.simpleTypeName)
 }
@@ -62,9 +62,6 @@ templateNameMapper in scalaWrapperGen := {
   case (s, cd: ClassDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
   case (s, cd: EnumDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model"))  => "EnumOps.ftl"
   case (_, _: EnumDesc)                                                                      => "EnumModel.ftl"
-  case (_, cd: ClassDesc)
-      if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && cd.simpleTypeName == "AttributeValue" =>
-    "ModelWithSupport.ftl"
   case (_, cd: ClassDesc)
       if cd.simpleTypeName.endsWith("Response") && cd.packageName.exists(_.endsWith("model")) && !cd.isStatic =>
     "ResponseModel.ftl"

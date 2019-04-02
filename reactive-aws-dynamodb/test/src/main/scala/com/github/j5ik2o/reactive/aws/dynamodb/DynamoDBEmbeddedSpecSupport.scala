@@ -12,6 +12,7 @@ import com.amazonaws.services.dynamodbv2.local.server.{
   LocalDynamoDBServerHandler
 }
 import com.amazonaws.services.dynamodbv2.{ AmazonDynamoDB, AmazonDynamoDBClientBuilder }
+import com.github.j5ik2o.reactive.aws.test.RandomPortSupport
 import org.scalatest.{ BeforeAndAfterAll, Suite }
 import org.seasar.util.io.ResourceUtil
 

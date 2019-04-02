@@ -22,7 +22,7 @@ object S3AsyncClient {
 
 }
 
-trait S3AsyncClient extends S3Client[Future] /*with S3AsyncClientSupport*/ {
+trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
   implicit val execution: ExecutionContext
   val underlying: JavaS3AsyncClient
 import S3AsyncClient._
@@ -45,7 +45,7 @@ import S3AsyncClient._
     <#if methodDesc.static >
         <#return false>
     </#if>
-    <#if methodDesc.name?starts_with("getObject")>
+    <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes">
         <#return false>
     </#if>
     <#if methodDesc.parameterTypeDescs?size gte 2>

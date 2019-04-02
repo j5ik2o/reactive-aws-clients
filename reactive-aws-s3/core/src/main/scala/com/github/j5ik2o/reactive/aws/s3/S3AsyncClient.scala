@@ -22,7 +22,7 @@ object S3AsyncClient {
 
 }
 
-trait S3AsyncClient extends S3Client[Future] /*with S3AsyncClientSupport*/ {
+trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
   implicit val execution: ExecutionContext
   val underlying: JavaS3AsyncClient
   import S3AsyncClient._
@@ -308,6 +308,42 @@ trait S3AsyncClient extends S3Client[Future] /*with S3AsyncClientSupport*/ {
     import GetBucketWebsiteRequestOps._
     import GetBucketWebsiteResponseOps._
     underlying.getBucketWebsite(getBucketWebsiteRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def getObjectAcl(getObjectAclRequest: GetObjectAclRequest): Future[GetObjectAclResponse] = {
+    import GetObjectAclRequestOps._
+    import GetObjectAclResponseOps._
+    underlying.getObjectAcl(getObjectAclRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def getObjectLegalHold(
+      getObjectLegalHoldRequest: GetObjectLegalHoldRequest
+  ): Future[GetObjectLegalHoldResponse] = {
+    import GetObjectLegalHoldRequestOps._
+    import GetObjectLegalHoldResponseOps._
+    underlying.getObjectLegalHold(getObjectLegalHoldRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def getObjectLockConfiguration(
+      getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
+  ): Future[GetObjectLockConfigurationResponse] = {
+    import GetObjectLockConfigurationRequestOps._
+    import GetObjectLockConfigurationResponseOps._
+    underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def getObjectRetention(
+      getObjectRetentionRequest: GetObjectRetentionRequest
+  ): Future[GetObjectRetentionResponse] = {
+    import GetObjectRetentionRequestOps._
+    import GetObjectRetentionResponseOps._
+    underlying.getObjectRetention(getObjectRetentionRequest.toJava).toFuture.map(_.toScala)
+  }
+
+  override def getObjectTagging(getObjectTaggingRequest: GetObjectTaggingRequest): Future[GetObjectTaggingResponse] = {
+    import GetObjectTaggingRequestOps._
+    import GetObjectTaggingResponseOps._
+    underlying.getObjectTagging(getObjectTaggingRequest.toJava).toFuture.map(_.toScala)
   }
 
   override def getPublicAccessBlock(
