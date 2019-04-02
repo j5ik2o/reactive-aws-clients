@@ -1,15 +1,15 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
 
-import java.time._
+import software.amazon.awssdk.core.SdkBytes
 import com.github.j5ik2o.reactive.aws.dynamodb.model.support._
 
 final case class AttributeValue(
     s: Option[String] = None,
     n: Option[String] = None,
-    b: Option[Array[Byte]] = None,
+    b: Option[SdkBytes] = None,
     ss: Option[Seq[String]] = None,
     ns: Option[Seq[String]] = None,
-    bs: Option[Seq[Array[Byte]]] = None,
+    bs: Option[Seq[SdkBytes]] = None,
     m: Option[Map[String, AttributeValue]] = None,
     l: Option[Seq[AttributeValue]] = None,
     bool: Option[Boolean] = None,
@@ -19,13 +19,13 @@ final case class AttributeValue(
     copy(s = value)
   def withN(value: Option[String]): AttributeValue =
     copy(n = value)
-  def withB(value: Option[Array[Byte]]): AttributeValue =
+  def withB(value: Option[SdkBytes]): AttributeValue =
     copy(b = value)
   def withSs(value: Option[Seq[String]]): AttributeValue =
     copy(ss = value)
   def withNs(value: Option[Seq[String]]): AttributeValue =
     copy(ns = value)
-  def withBs(value: Option[Seq[Array[Byte]]]): AttributeValue =
+  def withBs(value: Option[Seq[SdkBytes]]): AttributeValue =
     copy(bs = value)
   def withM(value: Option[Map[String, AttributeValue]]): AttributeValue =
     copy(m = value)

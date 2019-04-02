@@ -15,7 +15,7 @@ object S3SyncClient {
 trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
   val underlying: JavaS3SyncClient
 
-  private def toEither[A](f: => A): Either[Throwable, A] = {
+  protected def toEither[A](f: => A): Either[Throwable, A] = {
     try {
       Right(f)
     } catch {

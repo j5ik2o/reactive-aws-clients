@@ -11,7 +11,8 @@ import com.whisk.docker.{
   DockerContainer,
   DockerContainerState,
   DockerFactory,
-  DockerReadyChecker
+  DockerReadyChecker,
+  LogLineReceiver
 }
 import org.scalatest.Suite
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
@@ -19,10 +20,12 @@ import software.amazon.awssdk.services.s3.S3AsyncClient
 
 import scala.concurrent.duration._
 import scala.concurrent.{ ExecutionContext, Future }
+import scala.compat.java8.FutureConverters._
 
 trait S3ContainerSpecSupport extends DockerTestKit with RandomPortSupport {
   this: Suite =>
 
+  // override val StartContainersTimeout: FiniteDuration = 30 seconds
   protected val connectTimeout: FiniteDuration = 3 seconds
   protected val readTimeout: FiniteDuration    = 3 seconds
 
@@ -47,16 +50,14 @@ trait S3ContainerSpecSupport extends DockerTestKit with RandomPortSupport {
     override def apply(container: DockerContainerState)(
         implicit docker: DockerCommandExecutor,
         ec: ExecutionContext
-    ): Future[Boolean] = Future.successful {
-      try {
-        Thread.sleep(1000 * 3)
-//        s3client.listBuckets()
-        true
-      } catch {
-        case _: Exception =>
-          false
-      }
-    }
+    ): Future[Boolean] =
+      s3client
+        .listBuckets().toScala.map { _ =>
+          true
+        }(ec).recover {
+          case _ =>
+            false
+        }(ec)
   }
 
   override implicit def dockerFactory: DockerFactory =
@@ -65,10 +66,13 @@ trait S3ContainerSpecSupport extends DockerTestKit with RandomPortSupport {
   protected lazy val s3Port: Int = temporaryServerPort()
 
   protected lazy val s3Container: DockerContainer =
-    DockerContainer("minio/minio:RELEASE.2019-03-27T22-35-21Z")
+    DockerContainer("minio/minio")
       .withPorts(9000 -> Some(s3Port))
       .withEnv(s"MINIO_ACCESS_KEY=$accessKeyId", s"MINIO_SECRET_KEY=$secretAccessKey")
-      .withCommand("server /data")
+      .withCommand("server", "/data")
+      .withLogLineReceiver(LogLineReceiver(true, { message =>
+        println(message)
+      }))
       .withReadyChecker(new S3DockerReadyChecker(javaS3Client))
 
   abstract override def dockerContainers: List[DockerContainer] =

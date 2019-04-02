@@ -3,19 +3,13 @@ package com.github.j5ik2o.reactive.aws.s3
 import java.io.File
 import java.nio.file.Path
 
-import com.github.j5ik2o.reactive.aws.model.{
-  AsyncRequestBody,
-  AsyncResponseTransformer,
-  ResponseBytes,
-  ResponseWithIterable
-}
 import com.github.j5ik2o.reactive.aws.s3.model._
-
-import scala.concurrent.Future
+import software.amazon.awssdk.core.ResponseBytes
 
 trait S3ClientSupport[M[_]] { this: S3Client[M] =>
 
-  def getObjectAsIterable(getObjectRequest: GetObjectRequest): M[ResponseWithIterable[GetObjectResponse]]
+  type RT[A, B]
+  type RB
 
   def getObjectAsBytes(getObjectRequest: GetObjectRequest): M[ResponseBytes[GetObjectResponse]]
 
@@ -23,12 +17,7 @@ trait S3ClientSupport[M[_]] { this: S3Client[M] =>
 
   def getObjectToPath(getObjectRequest: GetObjectRequest, destinationPath: Path): M[GetObjectResponse]
 
-  def getObject[A](getObjectRequest: GetObjectRequest,
-                   asyncResponseTransformer: AsyncResponseTransformer[GetObjectResponse, A]): M[A]
-
-  def getObjectTorrentAsIterable(
-      getObjectRequest: GetObjectTorrentRequest
-  ): M[ResponseWithIterable[GetObjectTorrentResponse]]
+  def getObject[A](getObjectRequest: GetObjectRequest, responseTransformer: RT[GetObjectResponse, A]): M[A]
 
   def getObjectTorrentAsBytes(
       getObjectRequest: GetObjectTorrentRequest
@@ -38,17 +27,16 @@ trait S3ClientSupport[M[_]] { this: S3Client[M] =>
 
   def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
                              destinationPath: Path): M[GetObjectTorrentResponse]
-
   def getObjectTorrent[A](
       getObjectTorrentRequest: GetObjectTorrentRequest,
-      asyncResponseTransformer: AsyncResponseTransformer[GetObjectTorrentResponse, A]
+      responseTransformer: RT[GetObjectTorrentResponse, A]
   ): M[A]
 
-  def putObject(putObjectRequest: PutObjectRequest, requestBody: AsyncRequestBody): M[PutObjectResponse]
+  def putObject(putObjectRequest: PutObjectRequest, requestBody: RB): M[PutObjectResponse]
 
   def putObject(putObjectRequest: PutObjectRequest, sourcePath: Path): M[PutObjectResponse]
 
-  def uploadPart(uploadPartRequest: UploadPartRequest, requestBody: AsyncRequestBody): M[UploadPartResponse]
+  def uploadPart(uploadPartRequest: UploadPartRequest, requestBody: RB): M[UploadPartResponse]
 
   def uploadPart(uploadPartRequest: UploadPartRequest, sourcePath: Path): M[UploadPartResponse]
 

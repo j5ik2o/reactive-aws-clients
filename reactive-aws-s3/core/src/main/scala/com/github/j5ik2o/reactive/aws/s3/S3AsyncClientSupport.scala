@@ -3,43 +3,37 @@ package com.github.j5ik2o.reactive.aws.s3
 import java.io.File
 import java.nio.ByteBuffer
 import java.nio.file.Path
+import java.util.concurrent.CompletableFuture
 
-import com.github.j5ik2o.reactive.aws.s3.model.ops._
-import com.github.j5ik2o.reactive.aws.model._
 import com.github.j5ik2o.reactive.aws.s3.model._
-import org.reactivestreams.Publisher
-
-import scala.concurrent.Future
+import com.github.j5ik2o.reactive.aws.s3.model.ops._
+import software.amazon.awssdk.core.ResponseBytes
+import software.amazon.awssdk.core.async.{ AsyncRequestBody, AsyncResponseTransformer, SdkPublisher }
 import software.amazon.awssdk.services.s3.model.{
   GetObjectResponse => JavaGetObjectResponse,
   GetObjectTorrentResponse => JavaGetObjectTorrentResponse
 }
 
+import scala.concurrent.Future
+
 trait S3AsyncClientSupport extends S3ClientSupport[Future] {
   this: S3AsyncClient =>
   import S3AsyncClient._
 
-  override def getObjectAsIterable(
-      getObjectRequest: GetObjectRequest
-  ): Future[ResponseWithIterable[GetObjectResponse]] = {
-    getObject(getObjectRequest, AsyncResponseTransformers.toIterableArrayBytes[GetObjectResponse])
-  }
+  override type RT[A, B] = AsyncResponseTransformer[A, B]
+  override type RB       = AsyncRequestBody
 
   override def getObjectAsBytes(getObjectRequest: GetObjectRequest): Future[ResponseBytes[GetObjectResponse]] = {
-    getObject(getObjectRequest, AsyncResponseTransformers.toBytes[GetObjectResponse])
+    getObject(getObjectRequest, AsyncResponseTransformer.toBytes[GetObjectResponse])
   }
 
   override def getObjectToFile(getObjectRequest: GetObjectRequest, file: File): Future[GetObjectResponse] = {
-    getObject(getObjectRequest, AsyncResponseTransformers.toFile[GetObjectResponse](file))
+    getObject(getObjectRequest, AsyncResponseTransformer.toFile[GetObjectResponse](file))
   }
 
   override def getObjectToPath(getObjectRequest: GetObjectRequest, destinationPath: Path): Future[GetObjectResponse] = {
-    import GetObjectRequestOps._
-    import GetObjectResponseOps._
-    underlying
-      .getObject(getObjectRequest.toJava, destinationPath).toFuture.map(_.toScala)
+    getObject(getObjectRequest, AsyncResponseTransformer.toFile[GetObjectResponse](destinationPath))
   }
-
   override def getObject[A](getObjectRequest: GetObjectRequest,
                             asyncResponseTransformer: AsyncResponseTransformer[GetObjectResponse, A]): Future[A] = {
     import GetObjectRequestOps._
@@ -48,31 +42,26 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       .getObject(
         getObjectRequest.toJava,
         new AsyncResponseTransformer[JavaGetObjectResponse, A] {
-          override def prepare(): Future[A] = asyncResponseTransformer.prepare()
+          override def prepare(): CompletableFuture[A] = asyncResponseTransformer.prepare()
           override def onResponse(response: JavaGetObjectResponse): Unit = {
             asyncResponseTransformer.onResponse(response.toScala)
           }
-          override def onStream(publisher: Publisher[ByteBuffer]): Unit = asyncResponseTransformer.onStream(publisher)
-          override def exceptionOccurred(error: Throwable): Unit        = asyncResponseTransformer.exceptionOccurred(error)
-        }.toJava
+          override def onStream(publisher: SdkPublisher[ByteBuffer]): Unit =
+            asyncResponseTransformer.onStream(publisher)
+          override def exceptionOccurred(error: Throwable): Unit = asyncResponseTransformer.exceptionOccurred(error)
+        }
       ).toFuture
-  }
-
-  override def getObjectTorrentAsIterable(
-      getObjectRequest: GetObjectTorrentRequest
-  ): Future[ResponseWithIterable[GetObjectTorrentResponse]] = {
-    getObjectTorrent(getObjectRequest, AsyncResponseTransformers.toIterableArrayBytes[GetObjectTorrentResponse])
   }
 
   override def getObjectTorrentAsBytes(
       getObjectRequest: GetObjectTorrentRequest
   ): Future[ResponseBytes[GetObjectTorrentResponse]] = {
-    getObjectTorrent(getObjectRequest, AsyncResponseTransformers.toBytes[GetObjectTorrentResponse])
+    getObjectTorrent(getObjectRequest, AsyncResponseTransformer.toBytes[GetObjectTorrentResponse])
   }
 
   override def getObjectTorrentToFile(getObjectRequest: GetObjectTorrentRequest,
                                       file: File): Future[GetObjectTorrentResponse] = {
-    getObjectTorrent(getObjectRequest, AsyncResponseTransformers.toFile[GetObjectTorrentResponse](file))
+    getObjectTorrent(getObjectRequest, AsyncResponseTransformer.toFile[GetObjectTorrentResponse](file))
   }
 
   override def getObjectTorrent[A](
@@ -85,13 +74,14 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       .getObjectTorrent(
         getObjectTorrentRequest.toJava,
         new AsyncResponseTransformer[JavaGetObjectTorrentResponse, A] {
-          override def prepare(): Future[A] = asyncResponseTransformer.prepare()
+          override def prepare(): CompletableFuture[A] = asyncResponseTransformer.prepare()
           override def onResponse(response: JavaGetObjectTorrentResponse): Unit = {
             asyncResponseTransformer.onResponse(response.toScala)
           }
-          override def onStream(publisher: Publisher[ByteBuffer]): Unit = asyncResponseTransformer.onStream(publisher)
-          override def exceptionOccurred(error: Throwable): Unit        = asyncResponseTransformer.exceptionOccurred(error)
-        }.toJava
+          override def onStream(publisher: SdkPublisher[ByteBuffer]): Unit =
+            asyncResponseTransformer.onStream(publisher)
+          override def exceptionOccurred(error: Throwable): Unit = asyncResponseTransformer.exceptionOccurred(error)
+        }
       ).toFuture
   }
 
@@ -110,7 +100,7 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
     underlying
       .putObject(
         putObjectRequest.toJava,
-        requestBody.toJava
+        requestBody
       ).toFuture.map(_.toScala)
   }
 
@@ -127,7 +117,7 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
     underlying
       .uploadPart(
         uploadPartRequest.toJava,
-        requestBody.toJava
+        requestBody
       ).toFuture.map(_.toScala)
   }
 

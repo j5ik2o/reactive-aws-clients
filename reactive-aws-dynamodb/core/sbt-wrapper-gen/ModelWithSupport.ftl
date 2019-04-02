@@ -1,6 +1,6 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model
 
-import java.time._
+import software.amazon.awssdk.core.SdkBytes
 import com.github.j5ik2o.reactive.aws.dynamodb.model.support._
 
 final case class ${simpleTypeName}(
@@ -21,8 +21,8 @@ final case class ${simpleTypeName}(
 <#function getGetterTypeName name default>
   <#list methods as method>
     <#if method.name == name>
-      <#return method.returnTypeDesc.fullTypeName?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
+      <#return method.returnTypeDesc.fullTypeName?replace("Instant", "java.time.Instant")>
     </#if>
   </#list>
-  <#return default?replace("SdkBytes", "Array[Byte]")?replace("Instant", "java.time.Instant")>
+  <#return default?replace("Instant", "java.time.Instant")>
 </#function>

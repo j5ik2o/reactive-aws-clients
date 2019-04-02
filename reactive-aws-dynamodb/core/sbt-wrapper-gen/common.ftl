@@ -98,7 +98,7 @@
         <#case "Seq">
             <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if valueTypeName == "SdkBytes">
-                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.map(software.amazon.awssdk.core.SdkBytes.fromByteArray).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                ${prefix}.filter(_.nonEmpty).foreach{ v => import scala.collection.JavaConverters._; result.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#break >
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
@@ -141,7 +141,7 @@
                 <#break >
             </#if>
         <#case "SdkBytes">
-            ${prefix}.filter(_.nonEmpty).foreach(v => result.${fieldName}(software.amazon.awssdk.core.SdkBytes.fromByteArray(v))) // ${field.fieldTypeDesc.fullTypeName}
+            ${prefix}.foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "java.time.Instant">
             ${prefix}.foreach(v => result.${fieldName}(v)) // ${field.fieldTypeDesc.fullTypeName}
@@ -180,7 +180,7 @@
         <#case "Seq">
             <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if valueTypeName == "SdkBytes">
-                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asByteArray())}) // ${field.fieldTypeDesc.fullTypeName}
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala}) // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._<#if simpleTypeName != mapValueTypeName>, ${mapValueTypeName}Ops._</#if>; v.asScala.map(_.asScala.toMap.mapValues(_.toScala))}) // ${field.fieldTypeDesc.fullTypeName}
@@ -195,7 +195,7 @@
         <#case "Map">
             <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if valueTypeName == "SdkBytes">
-                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.mapValues(_.asByteArray())}) // ${field.fieldTypeDesc.fullTypeName}
+                .with${field.name?cap_first}(Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala }) // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName=="Map">
@@ -213,7 +213,7 @@
             </#if>
             <#break >
         <#case "SdkBytes">
-            .with${field.name?cap_first}(Option(self.${fieldName}).map(_.asByteArray())) // ${field.fieldTypeDesc.fullTypeName}
+            .with${field.name?cap_first}(Option(self.${fieldName})) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#case "java.time.Instant">
             .with${field.name?cap_first}(Option(self.${fieldName})) // ${field.fieldTypeDesc.fullTypeName}
