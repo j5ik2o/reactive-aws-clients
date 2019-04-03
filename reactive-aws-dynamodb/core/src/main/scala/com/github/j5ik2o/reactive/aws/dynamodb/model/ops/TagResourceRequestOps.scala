@@ -1,24 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TagResourceRequest => ScalaTagResourceRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TagResourceRequest => JavaTagResourceRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TagResourceRequestOps {
+final class TagResourceRequestBuilderOps(val self: TagResourceRequest.Builder) extends AnyVal {
 
-  implicit class ScalaTagResourceRequestOps(val self: ScalaTagResourceRequest) extends AnyVal {
-
-    def toJava: JavaTagResourceRequest = {
-      val result = JavaTagResourceRequest.builder()
-      self.resourceArn.filter(_.nonEmpty).foreach(v => result.resourceArn(v)) // String
-      self.tags.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TagOps._; result.tags(v.map(_.toJava).asJava)
-      } // Seq[Tag]
-
-      result.build()
+  final def withResourceArnAsScala(value: Option[String]): TagResourceRequest.Builder = {
+    value.fold(self) { v =>
+      self.resourceArn(v)
     }
+  } // String
 
+  final def withTagsAsScala(value: Option[Seq[Tag]]): TagResourceRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tags(v.asJava)
+    } // Seq[Tag]
   }
+
+}
+
+final class TagResourceRequestOps(val self: TagResourceRequest) extends AnyVal {
+
+  final def resourceArnAsScala: Option[String] = Option(self.resourceArn) // String
+
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTagResourceRequestOps {
+
+  implicit def toTagResourceRequestBuilderOps(v: TagResourceRequest.Builder): TagResourceRequestBuilderOps =
+    new TagResourceRequestBuilderOps(v)
+
+  implicit def toTagResourceRequestOps(v: TagResourceRequest): TagResourceRequestOps = new TagResourceRequestOps(v)
 
 }

@@ -1,20 +1,19 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeLimitsRequest => ScalaDescribeLimitsRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeLimitsRequest => JavaDescribeLimitsRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeLimitsRequestOps {
+final class DescribeLimitsRequestBuilderOps(val self: DescribeLimitsRequest.Builder) extends AnyVal {}
 
-  implicit class ScalaDescribeLimitsRequestOps(val self: ScalaDescribeLimitsRequest) extends AnyVal {
+final class DescribeLimitsRequestOps(val self: DescribeLimitsRequest) extends AnyVal {}
 
-    def toJava: JavaDescribeLimitsRequest = {
-      val result = JavaDescribeLimitsRequest.builder()
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeLimitsRequestOps {
 
-      result.build()
-    }
+  implicit def toDescribeLimitsRequestBuilderOps(v: DescribeLimitsRequest.Builder): DescribeLimitsRequestBuilderOps =
+    new DescribeLimitsRequestBuilderOps(v)
 
-  }
+  implicit def toDescribeLimitsRequestOps(v: DescribeLimitsRequest): DescribeLimitsRequestOps =
+    new DescribeLimitsRequestOps(v)
 
 }

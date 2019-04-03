@@ -1,40 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReplicaUpdate => ScalaReplicaUpdate, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ReplicaUpdate => JavaReplicaUpdate }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ReplicaUpdateOps {
+final class ReplicaUpdateBuilderOps(val self: ReplicaUpdate.Builder) extends AnyVal {
 
-  implicit class ScalaReplicaUpdateOps(val self: ScalaReplicaUpdate) extends AnyVal {
-
-    def toJava: JavaReplicaUpdate = {
-      val result = JavaReplicaUpdate.builder()
-      self.create.foreach { v =>
-        import CreateReplicaActionOps._; result.create(v.toJava)
-      } // CreateReplicaAction
-      self.delete.foreach { v =>
-        import DeleteReplicaActionOps._; result.delete(v.toJava)
-      } // DeleteReplicaAction
-
-      result.build()
+  final def withCreateAsScala(value: Option[CreateReplicaAction]): ReplicaUpdate.Builder = {
+    value.fold(self) { v =>
+      self.create(v)
     }
+  } // CreateReplicaAction
 
-  }
-
-  implicit class JavaReplicaUpdateOps(val self: JavaReplicaUpdate) extends AnyVal {
-
-    def toScala: ScalaReplicaUpdate = {
-      ScalaReplicaUpdate()
-        .withCreate(Option(self.create).map { v =>
-          import CreateReplicaActionOps._; v.toScala
-        }) // CreateReplicaAction
-        .withDelete(Option(self.delete).map { v =>
-          import DeleteReplicaActionOps._; v.toScala
-        }) // DeleteReplicaAction
+  final def withDeleteAsScala(value: Option[DeleteReplicaAction]): ReplicaUpdate.Builder = {
+    value.fold(self) { v =>
+      self.delete(v)
     }
+  } // DeleteReplicaAction
 
-  }
+}
+
+final class ReplicaUpdateOps(val self: ReplicaUpdate) extends AnyVal {
+
+  final def createAsScala: Option[CreateReplicaAction] = Option(self.create) // CreateReplicaAction
+
+  final def deleteAsScala: Option[DeleteReplicaAction] = Option(self.delete) // DeleteReplicaAction
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToReplicaUpdateOps {
+
+  implicit def toReplicaUpdateBuilderOps(v: ReplicaUpdate.Builder): ReplicaUpdateBuilderOps =
+    new ReplicaUpdateBuilderOps(v)
+
+  implicit def toReplicaUpdateOps(v: ReplicaUpdate): ReplicaUpdateOps = new ReplicaUpdateOps(v)
 
 }

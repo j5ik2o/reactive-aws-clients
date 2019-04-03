@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeTimeToLiveRequest => ScalaDescribeTimeToLiveRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeTimeToLiveRequest => JavaDescribeTimeToLiveRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeTimeToLiveRequestOps {
+final class DescribeTimeToLiveRequestBuilderOps(val self: DescribeTimeToLiveRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDescribeTimeToLiveRequestOps(val self: ScalaDescribeTimeToLiveRequest) extends AnyVal {
-
-    def toJava: JavaDescribeTimeToLiveRequest = {
-      val result = JavaDescribeTimeToLiveRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): DescribeTimeToLiveRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
-  }
+}
+
+final class DescribeTimeToLiveRequestOps(val self: DescribeTimeToLiveRequest) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeTimeToLiveRequestOps {
+
+  implicit def toDescribeTimeToLiveRequestBuilderOps(
+      v: DescribeTimeToLiveRequest.Builder
+  ): DescribeTimeToLiveRequestBuilderOps = new DescribeTimeToLiveRequestBuilderOps(v)
+
+  implicit def toDescribeTimeToLiveRequestOps(v: DescribeTimeToLiveRequest): DescribeTimeToLiveRequestOps =
+    new DescribeTimeToLiveRequestOps(v)
 
 }

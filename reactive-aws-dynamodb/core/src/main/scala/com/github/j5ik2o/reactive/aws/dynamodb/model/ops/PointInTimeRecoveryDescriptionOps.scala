@@ -1,43 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  PointInTimeRecoveryDescription => ScalaPointInTimeRecoveryDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  PointInTimeRecoveryDescription => JavaPointInTimeRecoveryDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PointInTimeRecoveryDescriptionOps {
+final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecoveryDescription.Builder) extends AnyVal {
 
-  implicit class ScalaPointInTimeRecoveryDescriptionOps(val self: ScalaPointInTimeRecoveryDescription) extends AnyVal {
-
-    def toJava: JavaPointInTimeRecoveryDescription = {
-      val result = JavaPointInTimeRecoveryDescription.builder()
-      self.pointInTimeRecoveryStatus.foreach { v =>
-        import PointInTimeRecoveryStatusOps._; result.pointInTimeRecoveryStatus(v.toJava)
-      } // String
-      self.earliestRestorableDateTime.foreach(v => result.earliestRestorableDateTime(v)) // Instant
-      self.latestRestorableDateTime.foreach(v => result.latestRestorableDateTime(v))     // Instant
-
-      result.build()
+  final def withPointInTimeRecoveryStatusAsScala(
+      value: Option[PointInTimeRecoveryStatus]
+  ): PointInTimeRecoveryDescription.Builder = {
+    value.fold(self) { v =>
+      self.pointInTimeRecoveryStatus(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaPointInTimeRecoveryDescriptionOps(val self: JavaPointInTimeRecoveryDescription) extends AnyVal {
-
-    def toScala: ScalaPointInTimeRecoveryDescription = {
-      ScalaPointInTimeRecoveryDescription()
-        .withPointInTimeRecoveryStatus(Option(self.pointInTimeRecoveryStatus).map { v =>
-          import PointInTimeRecoveryStatusOps._; v.toScala
-        }) // String
-        .withEarliestRestorableDateTime(Option(self.earliestRestorableDateTime)) // Instant
-        .withLatestRestorableDateTime(Option(self.latestRestorableDateTime)) // Instant
+  final def withEarliestRestorableDateTimeAsScala(
+      value: Option[java.time.Instant]
+  ): PointInTimeRecoveryDescription.Builder = {
+    value.fold(self) { v =>
+      self.earliestRestorableDateTime(v)
     }
+  } // Instant
 
-  }
+  final def withLatestRestorableDateTimeAsScala(
+      value: Option[java.time.Instant]
+  ): PointInTimeRecoveryDescription.Builder = {
+    value.fold(self) { v =>
+      self.latestRestorableDateTime(v)
+    }
+  } // Instant
+
+}
+
+final class PointInTimeRecoveryDescriptionOps(val self: PointInTimeRecoveryDescription) extends AnyVal {
+
+  final def pointInTimeRecoveryStatusAsScala: Option[PointInTimeRecoveryStatus] =
+    Option(self.pointInTimeRecoveryStatus) // String
+
+  final def earliestRestorableDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.earliestRestorableDateTime) // Instant
+
+  final def latestRestorableDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.latestRestorableDateTime) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPointInTimeRecoveryDescriptionOps {
+
+  implicit def toPointInTimeRecoveryDescriptionBuilderOps(
+      v: PointInTimeRecoveryDescription.Builder
+  ): PointInTimeRecoveryDescriptionBuilderOps = new PointInTimeRecoveryDescriptionBuilderOps(v)
+
+  implicit def toPointInTimeRecoveryDescriptionOps(
+      v: PointInTimeRecoveryDescription
+  ): PointInTimeRecoveryDescriptionOps = new PointInTimeRecoveryDescriptionOps(v)
 
 }

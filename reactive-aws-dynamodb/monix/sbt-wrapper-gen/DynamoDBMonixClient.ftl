@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.monix
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClient, DynamoDBClient }
 import monix.eval.Task
 import monix.reactive.Observable

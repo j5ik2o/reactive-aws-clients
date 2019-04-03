@@ -1,42 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SSEDescription => ScalaSSEDescription, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ SSEDescription => JavaSSEDescription }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SSEDescriptionOps {
+final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends AnyVal {
 
-  implicit class ScalaSSEDescriptionOps(val self: ScalaSSEDescription) extends AnyVal {
-
-    def toJava: JavaSSEDescription = {
-      val result = JavaSSEDescription.builder()
-      self.status.foreach { v =>
-        import SSEStatusOps._; result.status(v.toJava)
-      } // String
-      self.sseType.foreach { v =>
-        import SSETypeOps._; result.sseType(v.toJava)
-      } // String
-      self.kmsMasterKeyArn.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyArn(v)) // String
-
-      result.build()
+  final def withStatusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaSSEDescriptionOps(val self: JavaSSEDescription) extends AnyVal {
-
-    def toScala: ScalaSSEDescription = {
-      ScalaSSEDescription()
-        .withStatus(Option(self.status).map { v =>
-          import SSEStatusOps._; v.toScala
-        }) // String
-        .withSseType(Option(self.sseType).map { v =>
-          import SSETypeOps._; v.toScala
-        }) // String
-        .withKmsMasterKeyArn(Option(self.kmsMasterKeyArn)) // String
+  final def withSseTypeAsScala(value: Option[SSEType]): SSEDescription.Builder = {
+    value.fold(self) { v =>
+      self.sseType(v)
     }
+  } // String
 
-  }
+  final def withKmsMasterKeyArnAsScala(value: Option[String]): SSEDescription.Builder = {
+    value.fold(self) { v =>
+      self.kmsMasterKeyArn(v)
+    }
+  } // String
+
+}
+
+final class SSEDescriptionOps(val self: SSEDescription) extends AnyVal {
+
+  final def statusAsScala: Option[SSEStatus] = Option(self.status) // String
+
+  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType) // String
+
+  final def kmsMasterKeyArnAsScala: Option[String] = Option(self.kmsMasterKeyArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSSEDescriptionOps {
+
+  implicit def toSSEDescriptionBuilderOps(v: SSEDescription.Builder): SSEDescriptionBuilderOps =
+    new SSEDescriptionBuilderOps(v)
+
+  implicit def toSSEDescriptionOps(v: SSEDescription): SSEDescriptionOps = new SSEDescriptionOps(v)
 
 }

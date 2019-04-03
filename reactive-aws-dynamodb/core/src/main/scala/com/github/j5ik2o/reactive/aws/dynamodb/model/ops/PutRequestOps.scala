@@ -1,34 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ PutRequest => ScalaPutRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ PutRequest => JavaPutRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutRequestOps {
+final class PutRequestBuilderOps(val self: PutRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutRequestOps(val self: ScalaPutRequest) extends AnyVal {
-
-    def toJava: JavaPutRequest = {
-      val result = JavaPutRequest.builder()
-      self.item.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-
-      result.build()
-    }
-
+  final def withItemAsScala(value: Option[Map[String, AttributeValue]]): PutRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.item(v.asJava)
+    } // Map[String, AttributeValue]
   }
 
-  implicit class JavaPutRequestOps(val self: JavaPutRequest) extends AnyVal {
+}
 
-    def toScala: ScalaPutRequest = {
-      ScalaPutRequest()
-        .withItem(Option(self.item).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-    }
+final class PutRequestOps(val self: PutRequest) extends AnyVal {
 
-  }
+  final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutRequestOps {
+
+  implicit def toPutRequestBuilderOps(v: PutRequest.Builder): PutRequestBuilderOps = new PutRequestBuilderOps(v)
+
+  implicit def toPutRequestOps(v: PutRequest): PutRequestOps = new PutRequestOps(v)
 
 }

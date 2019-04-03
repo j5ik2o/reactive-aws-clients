@@ -1,32 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Tag => ScalaTag, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Tag => JavaTag }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TagOps {
+final class TagBuilderOps(val self: Tag.Builder) extends AnyVal {
 
-  implicit class ScalaTagOps(val self: ScalaTag) extends AnyVal {
-
-    def toJava: JavaTag = {
-      val result = JavaTag.builder()
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))     // String
-      self.value.filter(_.nonEmpty).foreach(v => result.value(v)) // String
-
-      result.build()
+  final def withKeyAsScala(value: Option[String]): Tag.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaTagOps(val self: JavaTag) extends AnyVal {
-
-    def toScala: ScalaTag = {
-      ScalaTag()
-        .withKey(Option(self.key)) // String
-        .withValue(Option(self.value)) // String
+  final def withValueAsScala(value: Option[String]): Tag.Builder = {
+    value.fold(self) { v =>
+      self.value(v)
     }
+  } // String
 
-  }
+}
+
+final class TagOps(val self: Tag) extends AnyVal {
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def valueAsScala: Option[String] = Option(self.value) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTagOps {
+
+  implicit def toTagBuilderOps(v: Tag.Builder): TagBuilderOps = new TagBuilderOps(v)
+
+  implicit def toTagOps(v: Tag): TagOps = new TagOps(v)
 
 }

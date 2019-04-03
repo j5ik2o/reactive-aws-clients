@@ -1,21 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteTableRequest => ScalaDeleteTableRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DeleteTableRequest => JavaDeleteTableRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteTableRequestOps {
+final class DeleteTableRequestBuilderOps(val self: DeleteTableRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteTableRequestOps(val self: ScalaDeleteTableRequest) extends AnyVal {
-
-    def toJava: JavaDeleteTableRequest = {
-      val result = JavaDeleteTableRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): DeleteTableRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteTableRequestOps(val self: DeleteTableRequest) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteTableRequestOps {
+
+  implicit def toDeleteTableRequestBuilderOps(v: DeleteTableRequest.Builder): DeleteTableRequestBuilderOps =
+    new DeleteTableRequestBuilderOps(v)
+
+  implicit def toDeleteTableRequestOps(v: DeleteTableRequest): DeleteTableRequestOps = new DeleteTableRequestOps(v)
 
 }

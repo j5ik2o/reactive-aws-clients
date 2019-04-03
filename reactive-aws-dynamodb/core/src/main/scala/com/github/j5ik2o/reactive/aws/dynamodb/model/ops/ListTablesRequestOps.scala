@@ -1,22 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListTablesRequest => ScalaListTablesRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ListTablesRequest => JavaListTablesRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListTablesRequestOps {
+final class ListTablesRequestBuilderOps(val self: ListTablesRequest.Builder) extends AnyVal {
 
-  implicit class ScalaListTablesRequestOps(val self: ScalaListTablesRequest) extends AnyVal {
-
-    def toJava: JavaListTablesRequest = {
-      val result = JavaListTablesRequest.builder()
-      self.exclusiveStartTableName.filter(_.nonEmpty).foreach(v => result.exclusiveStartTableName(v)) // String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))                                        // Int
-
-      result.build()
+  final def withExclusiveStartTableNameAsScala(value: Option[String]): ListTablesRequest.Builder = {
+    value.fold(self) { v =>
+      self.exclusiveStartTableName(v)
     }
+  } // String
 
-  }
+  final def withLimitAsScala(value: Option[Int]): ListTablesRequest.Builder = {
+    value.fold(self) { v =>
+      self.limit(v)
+    }
+  } // Int
+
+}
+
+final class ListTablesRequestOps(val self: ListTablesRequest) extends AnyVal {
+
+  final def exclusiveStartTableNameAsScala: Option[String] = Option(self.exclusiveStartTableName) // String
+
+  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListTablesRequestOps {
+
+  implicit def toListTablesRequestBuilderOps(v: ListTablesRequest.Builder): ListTablesRequestBuilderOps =
+    new ListTablesRequestBuilderOps(v)
+
+  implicit def toListTablesRequestOps(v: ListTablesRequest): ListTablesRequestOps = new ListTablesRequestOps(v)
 
 }

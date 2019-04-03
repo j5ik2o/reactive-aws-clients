@@ -1,49 +1,51 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  GlobalSecondaryIndexUpdate => ScalaGlobalSecondaryIndexUpdate,
-  _
+import software.amazon.awssdk.services.dynamodb.model._
+
+final class GlobalSecondaryIndexUpdateBuilderOps(val self: GlobalSecondaryIndexUpdate.Builder) extends AnyVal {
+
+  final def withUpdateAsScala(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
+    value.fold(self) { v =>
+      self.update(v)
+    }
+  } // UpdateGlobalSecondaryIndexAction
+
+  final def withCreateAsScala(value: Option[CreateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
+    value.fold(self) { v =>
+      self.create(v)
+    }
+  } // CreateGlobalSecondaryIndexAction
+
+  final def withDeleteAsScala(value: Option[DeleteGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
+    value.fold(self) { v =>
+      self.delete(v)
+    }
+  } // DeleteGlobalSecondaryIndexAction
+
 }
-import software.amazon.awssdk.services.dynamodb.model.{ GlobalSecondaryIndexUpdate => JavaGlobalSecondaryIndexUpdate }
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GlobalSecondaryIndexUpdateOps {
+final class GlobalSecondaryIndexUpdateOps(val self: GlobalSecondaryIndexUpdate) extends AnyVal {
 
-  implicit class ScalaGlobalSecondaryIndexUpdateOps(val self: ScalaGlobalSecondaryIndexUpdate) extends AnyVal {
+  final def updateAsScala: Option[UpdateGlobalSecondaryIndexAction] =
+    Option(self.update) // UpdateGlobalSecondaryIndexAction
 
-    def toJava: JavaGlobalSecondaryIndexUpdate = {
-      val result = JavaGlobalSecondaryIndexUpdate.builder()
-      self.update.foreach { v =>
-        import UpdateGlobalSecondaryIndexActionOps._; result.update(v.toJava)
-      } // UpdateGlobalSecondaryIndexAction
-      self.create.foreach { v =>
-        import CreateGlobalSecondaryIndexActionOps._; result.create(v.toJava)
-      } // CreateGlobalSecondaryIndexAction
-      self.delete.foreach { v =>
-        import DeleteGlobalSecondaryIndexActionOps._; result.delete(v.toJava)
-      } // DeleteGlobalSecondaryIndexAction
+  final def createAsScala: Option[CreateGlobalSecondaryIndexAction] =
+    Option(self.create) // CreateGlobalSecondaryIndexAction
 
-      result.build()
-    }
+  final def deleteAsScala: Option[DeleteGlobalSecondaryIndexAction] =
+    Option(self.delete) // DeleteGlobalSecondaryIndexAction
 
-  }
+}
 
-  implicit class JavaGlobalSecondaryIndexUpdateOps(val self: JavaGlobalSecondaryIndexUpdate) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGlobalSecondaryIndexUpdateOps {
 
-    def toScala: ScalaGlobalSecondaryIndexUpdate = {
-      ScalaGlobalSecondaryIndexUpdate()
-        .withUpdate(Option(self.update).map { v =>
-          import UpdateGlobalSecondaryIndexActionOps._; v.toScala
-        }) // UpdateGlobalSecondaryIndexAction
-        .withCreate(Option(self.create).map { v =>
-          import CreateGlobalSecondaryIndexActionOps._; v.toScala
-        }) // CreateGlobalSecondaryIndexAction
-        .withDelete(Option(self.delete).map { v =>
-          import DeleteGlobalSecondaryIndexActionOps._; v.toScala
-        }) // DeleteGlobalSecondaryIndexAction
-    }
+  implicit def toGlobalSecondaryIndexUpdateBuilderOps(
+      v: GlobalSecondaryIndexUpdate.Builder
+  ): GlobalSecondaryIndexUpdateBuilderOps = new GlobalSecondaryIndexUpdateBuilderOps(v)
 
-  }
+  implicit def toGlobalSecondaryIndexUpdateOps(v: GlobalSecondaryIndexUpdate): GlobalSecondaryIndexUpdateOps =
+    new GlobalSecondaryIndexUpdateOps(v)
 
 }

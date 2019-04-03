@@ -1,24 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TagResourceResponse => ScalaTagResourceResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TagResourceResponse => JavaTagResourceResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class TagResourceResponseBuilderOps(val self: TagResourceResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TagResourceResponseOps {
+final class TagResourceResponseOps(val self: TagResourceResponse) extends AnyVal {}
 
-  implicit class JavaTagResourceResponseOps(val self: JavaTagResourceResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTagResourceResponseOps {
 
-    def toScala: ScalaTagResourceResponse = {
-      ScalaTagResourceResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toTagResourceResponseBuilderOps(v: TagResourceResponse.Builder): TagResourceResponseBuilderOps =
+    new TagResourceResponseBuilderOps(v)
 
-  }
+  implicit def toTagResourceResponseOps(v: TagResourceResponse): TagResourceResponseOps = new TagResourceResponseOps(v)
 
 }

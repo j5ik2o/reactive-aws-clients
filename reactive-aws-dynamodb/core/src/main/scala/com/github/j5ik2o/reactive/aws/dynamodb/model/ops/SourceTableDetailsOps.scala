@@ -1,58 +1,97 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SourceTableDetails => ScalaSourceTableDetails, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ SourceTableDetails => JavaSourceTableDetails }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SourceTableDetailsOps {
+final class SourceTableDetailsBuilderOps(val self: SourceTableDetails.Builder) extends AnyVal {
 
-  implicit class ScalaSourceTableDetailsOps(val self: ScalaSourceTableDetails) extends AnyVal {
-
-    def toJava: JavaSourceTableDetails = {
-      val result = JavaSourceTableDetails.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))         // String
-      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String
-      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String
-      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long
-      self.keySchema.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement]
-      self.tableCreationDateTime.foreach(v => result.tableCreationDateTime(v)) // Instant
-      self.provisionedThroughput.foreach { v =>
-        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v)) // Long
-      self.billingMode.foreach { v =>
-        import BillingModeOps._; result.billingMode(v.toJava)
-      } // String
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withTableIdAsScala(value: Option[String]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.tableId(v)
+    }
+  } // String
+
+  final def withTableArnAsScala(value: Option[String]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.tableArn(v)
+    }
+  } // String
+
+  final def withTableSizeBytesAsScala(value: Option[Long]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.tableSizeBytes(v)
+    }
+  } // Long
+
+  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): SourceTableDetails.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+    } // Seq[KeySchemaElement]
   }
 
-  implicit class JavaSourceTableDetailsOps(val self: JavaSourceTableDetails) extends AnyVal {
-
-    def toScala: ScalaSourceTableDetails = {
-      ScalaSourceTableDetails()
-        .withTableName(Option(self.tableName)) // String
-        .withTableId(Option(self.tableId)) // String
-        .withTableArn(Option(self.tableArn)) // String
-        .withTableSizeBytes(Option(self.tableSizeBytes).map(_.longValue)) // Long
-        .withKeySchema(Option(self.keySchema).map { v =>
-          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement]
-        .withTableCreationDateTime(Option(self.tableCreationDateTime)) // Instant
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          import ProvisionedThroughputOps._; v.toScala
-        }) // ProvisionedThroughput
-        .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
-        .withBillingMode(Option(self.billingMode).map { v =>
-          import BillingModeOps._; v.toScala
-        }) // String
+  final def withTableCreationDateTimeAsScala(value: Option[java.time.Instant]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.tableCreationDateTime(v)
     }
+  } // Instant
 
-  }
+  final def withProvisionedThroughputAsScala(value: Option[ProvisionedThroughput]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughput(v)
+    }
+  } // ProvisionedThroughput
+
+  final def withItemCountAsScala(value: Option[Long]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.itemCount(v)
+    }
+  } // Long
+
+  final def withBillingModeAsScala(value: Option[BillingMode]): SourceTableDetails.Builder = {
+    value.fold(self) { v =>
+      self.billingMode(v)
+    }
+  } // String
+
+}
+
+final class SourceTableDetailsOps(val self: SourceTableDetails) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def tableIdAsScala: Option[String] = Option(self.tableId) // String
+
+  final def tableArnAsScala: Option[String] = Option(self.tableArn) // String
+
+  final def tableSizeBytesAsScala: Option[Long] = Option(self.tableSizeBytes) // Long
+
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[KeySchemaElement]
+
+  final def tableCreationDateTimeAsScala: Option[java.time.Instant] = Option(self.tableCreationDateTime) // Instant
+
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
+    Option(self.provisionedThroughput) // ProvisionedThroughput
+
+  final def itemCountAsScala: Option[Long] = Option(self.itemCount) // Long
+
+  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSourceTableDetailsOps {
+
+  implicit def toSourceTableDetailsBuilderOps(v: SourceTableDetails.Builder): SourceTableDetailsBuilderOps =
+    new SourceTableDetailsBuilderOps(v)
+
+  implicit def toSourceTableDetailsOps(v: SourceTableDetails): SourceTableDetailsOps = new SourceTableDetailsOps(v)
 
 }

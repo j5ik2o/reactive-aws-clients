@@ -1,31 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ListTagsOfResourceResponse => ScalaListTagsOfResourceResponse,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{ ListTagsOfResourceResponse => JavaListTagsOfResourceResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListTagsOfResourceResponseBuilderOps(val self: ListTagsOfResourceResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListTagsOfResourceResponseOps {
-
-  implicit class JavaListTagsOfResourceResponseOps(val self: JavaListTagsOfResourceResponse) extends AnyVal {
-
-    def toScala: ScalaListTagsOfResourceResponse = {
-      ScalaListTagsOfResourceResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTags(Option(self.tags).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
-        .withNextToken(Option(self.nextToken)) // String
-    }
-
+  final def withTagsAsScala(value: Option[Seq[Tag]]): ListTagsOfResourceResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tags(v.asJava)
+    } // Seq[Tag]
   }
+
+  final def withNextTokenAsScala(value: Option[String]): ListTagsOfResourceResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  } // String
+
+}
+
+final class ListTagsOfResourceResponseOps(val self: ListTagsOfResourceResponse) extends AnyVal {
+
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListTagsOfResourceResponseOps {
+
+  implicit def toListTagsOfResourceResponseBuilderOps(
+      v: ListTagsOfResourceResponse.Builder
+  ): ListTagsOfResourceResponseBuilderOps = new ListTagsOfResourceResponseBuilderOps(v)
+
+  implicit def toListTagsOfResourceResponseOps(v: ListTagsOfResourceResponse): ListTagsOfResourceResponseOps =
+    new ListTagsOfResourceResponseOps(v)
 
 }

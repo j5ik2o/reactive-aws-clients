@@ -1,30 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  RestoreTableToPointInTimeRequest => ScalaRestoreTableToPointInTimeRequest,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  RestoreTableToPointInTimeRequest => JavaRestoreTableToPointInTimeRequest
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RestoreTableToPointInTimeRequestOps {
+final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToPointInTimeRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaRestoreTableToPointInTimeRequestOps(val self: ScalaRestoreTableToPointInTimeRequest)
-      extends AnyVal {
-
-    def toJava: JavaRestoreTableToPointInTimeRequest = {
-      val result = JavaRestoreTableToPointInTimeRequest.builder()
-      self.sourceTableName.filter(_.nonEmpty).foreach(v => result.sourceTableName(v))                  // String
-      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v))                  // String
-      self.useLatestRestorableTime.map(_.booleanValue).foreach(v => result.useLatestRestorableTime(v)) // Boolean
-      self.restoreDateTime.foreach(v => result.restoreDateTime(v))                                     // Instant
-
-      result.build()
+  final def withSourceTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.sourceTableName(v)
     }
+  } // String
 
-  }
+  final def withTargetTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.targetTableName(v)
+    }
+  } // String
+
+  final def withUseLatestRestorableTimeAsScala(value: Option[Boolean]): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.useLatestRestorableTime(v)
+    }
+  } // Boolean
+
+  final def withRestoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.restoreDateTime(v)
+    }
+  } // Instant
+
+}
+
+final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInTimeRequest) extends AnyVal {
+
+  final def sourceTableNameAsScala: Option[String] = Option(self.sourceTableName) // String
+
+  final def targetTableNameAsScala: Option[String] = Option(self.targetTableName) // String
+
+  final def useLatestRestorableTimeAsScala: Option[Boolean] = Option(self.useLatestRestorableTime) // Boolean
+
+  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRestoreTableToPointInTimeRequestOps {
+
+  implicit def toRestoreTableToPointInTimeRequestBuilderOps(
+      v: RestoreTableToPointInTimeRequest.Builder
+  ): RestoreTableToPointInTimeRequestBuilderOps = new RestoreTableToPointInTimeRequestBuilderOps(v)
+
+  implicit def toRestoreTableToPointInTimeRequestOps(
+      v: RestoreTableToPointInTimeRequest
+  ): RestoreTableToPointInTimeRequestOps = new RestoreTableToPointInTimeRequestOps(v)
 
 }

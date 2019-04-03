@@ -1,38 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ CancellationReason => ScalaCancellationReason, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ CancellationReason => JavaCancellationReason }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CancellationReasonOps {
+final class CancellationReasonBuilderOps(val self: CancellationReason.Builder) extends AnyVal {
 
-  implicit class ScalaCancellationReasonOps(val self: ScalaCancellationReason) extends AnyVal {
-
-    def toJava: JavaCancellationReason = {
-      val result = JavaCancellationReason.builder()
-      self.item.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.item(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.code.filter(_.nonEmpty).foreach(v => result.code(v))       // String
-      self.message.filter(_.nonEmpty).foreach(v => result.message(v)) // String
-
-      result.build()
-    }
-
+  final def withItemAsScala(value: Option[Map[String, AttributeValue]]): CancellationReason.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.item(v.asJava)
+    } // Map[String, AttributeValue]
   }
 
-  implicit class JavaCancellationReasonOps(val self: JavaCancellationReason) extends AnyVal {
-
-    def toScala: ScalaCancellationReason = {
-      ScalaCancellationReason()
-        .withItem(Option(self.item).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withCode(Option(self.code)) // String
-        .withMessage(Option(self.message)) // String
+  final def withCodeAsScala(value: Option[String]): CancellationReason.Builder = {
+    value.fold(self) { v =>
+      self.code(v)
     }
+  } // String
 
-  }
+  final def withMessageAsScala(value: Option[String]): CancellationReason.Builder = {
+    value.fold(self) { v =>
+      self.message(v)
+    }
+  } // String
+
+}
+
+final class CancellationReasonOps(val self: CancellationReason) extends AnyVal {
+
+  final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def codeAsScala: Option[String] = Option(self.code) // String
+
+  final def messageAsScala: Option[String] = Option(self.message) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCancellationReasonOps {
+
+  implicit def toCancellationReasonBuilderOps(v: CancellationReason.Builder): CancellationReasonBuilderOps =
+    new CancellationReasonBuilderOps(v)
+
+  implicit def toCancellationReasonOps(v: CancellationReason): CancellationReasonOps = new CancellationReasonOps(v)
 
 }

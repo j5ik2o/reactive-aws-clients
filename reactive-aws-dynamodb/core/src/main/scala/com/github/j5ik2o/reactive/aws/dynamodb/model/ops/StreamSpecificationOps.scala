@@ -1,36 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ StreamSpecification => ScalaStreamSpecification, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ StreamSpecification => JavaStreamSpecification }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StreamSpecificationOps {
+final class StreamSpecificationBuilderOps(val self: StreamSpecification.Builder) extends AnyVal {
 
-  implicit class ScalaStreamSpecificationOps(val self: ScalaStreamSpecification) extends AnyVal {
-
-    def toJava: JavaStreamSpecification = {
-      val result = JavaStreamSpecification.builder()
-      self.streamEnabled.map(_.booleanValue).foreach(v => result.streamEnabled(v)) // Boolean
-      self.streamViewType.foreach { v =>
-        import StreamViewTypeOps._; result.streamViewType(v.toJava)
-      } // String
-
-      result.build()
+  final def withStreamEnabledAsScala(value: Option[Boolean]): StreamSpecification.Builder = {
+    value.fold(self) { v =>
+      self.streamEnabled(v)
     }
+  } // Boolean
 
-  }
-
-  implicit class JavaStreamSpecificationOps(val self: JavaStreamSpecification) extends AnyVal {
-
-    def toScala: ScalaStreamSpecification = {
-      ScalaStreamSpecification()
-        .withStreamEnabled(Option(self.streamEnabled).map(_.booleanValue)) // Boolean
-        .withStreamViewType(Option(self.streamViewType).map { v =>
-          import StreamViewTypeOps._; v.toScala
-        }) // String
+  final def withStreamViewTypeAsScala(value: Option[StreamViewType]): StreamSpecification.Builder = {
+    value.fold(self) { v =>
+      self.streamViewType(v)
     }
+  } // String
 
-  }
+}
+
+final class StreamSpecificationOps(val self: StreamSpecification) extends AnyVal {
+
+  final def streamEnabledAsScala: Option[Boolean] = Option(self.streamEnabled) // Boolean
+
+  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStreamSpecificationOps {
+
+  implicit def toStreamSpecificationBuilderOps(v: StreamSpecification.Builder): StreamSpecificationBuilderOps =
+    new StreamSpecificationBuilderOps(v)
+
+  implicit def toStreamSpecificationOps(v: StreamSpecification): StreamSpecificationOps = new StreamSpecificationOps(v)
 
 }

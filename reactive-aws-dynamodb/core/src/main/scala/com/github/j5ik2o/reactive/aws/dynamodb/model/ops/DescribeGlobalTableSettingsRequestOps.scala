@@ -1,27 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DescribeGlobalTableSettingsRequest => ScalaDescribeGlobalTableSettingsRequest,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  DescribeGlobalTableSettingsRequest => JavaDescribeGlobalTableSettingsRequest
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeGlobalTableSettingsRequestOps {
+final class DescribeGlobalTableSettingsRequestBuilderOps(val self: DescribeGlobalTableSettingsRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaDescribeGlobalTableSettingsRequestOps(val self: ScalaDescribeGlobalTableSettingsRequest)
-      extends AnyVal {
-
-    def toJava: JavaDescribeGlobalTableSettingsRequest = {
-      val result = JavaDescribeGlobalTableSettingsRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
-
-      result.build()
+  final def withGlobalTableNameAsScala(value: Option[String]): DescribeGlobalTableSettingsRequest.Builder = {
+    value.fold(self) { v =>
+      self.globalTableName(v)
     }
+  } // String
 
-  }
+}
+
+final class DescribeGlobalTableSettingsRequestOps(val self: DescribeGlobalTableSettingsRequest) extends AnyVal {
+
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeGlobalTableSettingsRequestOps {
+
+  implicit def toDescribeGlobalTableSettingsRequestBuilderOps(
+      v: DescribeGlobalTableSettingsRequest.Builder
+  ): DescribeGlobalTableSettingsRequestBuilderOps = new DescribeGlobalTableSettingsRequestBuilderOps(v)
+
+  implicit def toDescribeGlobalTableSettingsRequestOps(
+      v: DescribeGlobalTableSettingsRequest
+  ): DescribeGlobalTableSettingsRequestOps = new DescribeGlobalTableSettingsRequestOps(v)
 
 }

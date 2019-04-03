@@ -1,36 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GlobalTable => ScalaGlobalTable, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ GlobalTable => JavaGlobalTable }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GlobalTableOps {
+final class GlobalTableBuilderOps(val self: GlobalTable.Builder) extends AnyVal {
 
-  implicit class ScalaGlobalTableOps(val self: ScalaGlobalTable) extends AnyVal {
-
-    def toJava: JavaGlobalTable = {
-      val result = JavaGlobalTable.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
-      self.replicationGroup.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ReplicaOps._; result.replicationGroup(v.map(_.toJava).asJava)
-      } // Seq[Replica]
-
-      result.build()
+  final def withGlobalTableNameAsScala(value: Option[String]): GlobalTable.Builder = {
+    value.fold(self) { v =>
+      self.globalTableName(v)
     }
+  } // String
 
+  final def withReplicationGroupAsScala(value: Option[Seq[Replica]]): GlobalTable.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.replicationGroup(v.asJava)
+    } // Seq[Replica]
   }
 
-  implicit class JavaGlobalTableOps(val self: JavaGlobalTable) extends AnyVal {
+}
 
-    def toScala: ScalaGlobalTable = {
-      ScalaGlobalTable()
-        .withGlobalTableName(Option(self.globalTableName)) // String
-        .withReplicationGroup(Option(self.replicationGroup).map { v =>
-          import scala.collection.JavaConverters._, ReplicaOps._; v.asScala.map(_.toScala)
-        }) // Seq[Replica]
-    }
+final class GlobalTableOps(val self: GlobalTable) extends AnyVal {
 
-  }
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+
+  final def replicationGroupAsScala: Option[Seq[Replica]] = Option(self.replicationGroup).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Replica]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGlobalTableOps {
+
+  implicit def toGlobalTableBuilderOps(v: GlobalTable.Builder): GlobalTableBuilderOps = new GlobalTableBuilderOps(v)
+
+  implicit def toGlobalTableOps(v: GlobalTable): GlobalTableOps = new GlobalTableOps(v)
 
 }

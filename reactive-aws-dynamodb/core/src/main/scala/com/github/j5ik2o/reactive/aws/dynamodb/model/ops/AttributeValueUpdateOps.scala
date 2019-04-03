@@ -1,40 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AttributeValueUpdate => ScalaAttributeValueUpdate, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ AttributeValueUpdate => JavaAttributeValueUpdate }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AttributeValueUpdateOps {
+final class AttributeValueUpdateBuilderOps(val self: AttributeValueUpdate.Builder) extends AnyVal {
 
-  implicit class ScalaAttributeValueUpdateOps(val self: ScalaAttributeValueUpdate) extends AnyVal {
-
-    def toJava: JavaAttributeValueUpdate = {
-      val result = JavaAttributeValueUpdate.builder()
-      self.value.foreach { v =>
-        import AttributeValueOps._; result.value(v.toJava)
-      } // AttributeValue
-      self.action.foreach { v =>
-        import AttributeActionOps._; result.action(v.toJava)
-      } // String
-
-      result.build()
+  final def withValueAsScala(value: Option[AttributeValue]): AttributeValueUpdate.Builder = {
+    value.fold(self) { v =>
+      self.value(v)
     }
+  } // AttributeValue
 
-  }
-
-  implicit class JavaAttributeValueUpdateOps(val self: JavaAttributeValueUpdate) extends AnyVal {
-
-    def toScala: ScalaAttributeValueUpdate = {
-      ScalaAttributeValueUpdate()
-        .withValue(Option(self.value).map { v =>
-          import AttributeValueOps._; v.toScala
-        }) // AttributeValue
-        .withAction(Option(self.action).map { v =>
-          import AttributeActionOps._; v.toScala
-        }) // String
+  final def withActionAsScala(value: Option[AttributeAction]): AttributeValueUpdate.Builder = {
+    value.fold(self) { v =>
+      self.action(v)
     }
+  } // String
 
-  }
+}
+
+final class AttributeValueUpdateOps(val self: AttributeValueUpdate) extends AnyVal {
+
+  final def valueAsScala: Option[AttributeValue] = Option(self.value) // AttributeValue
+
+  final def actionAsScala: Option[AttributeAction] = Option(self.action) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAttributeValueUpdateOps {
+
+  implicit def toAttributeValueUpdateBuilderOps(v: AttributeValueUpdate.Builder): AttributeValueUpdateBuilderOps =
+    new AttributeValueUpdateBuilderOps(v)
+
+  implicit def toAttributeValueUpdateOps(v: AttributeValueUpdate): AttributeValueUpdateOps =
+    new AttributeValueUpdateOps(v)
 
 }

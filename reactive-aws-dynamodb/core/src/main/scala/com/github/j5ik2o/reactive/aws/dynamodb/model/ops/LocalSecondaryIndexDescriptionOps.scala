@@ -1,53 +1,75 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  LocalSecondaryIndexDescription => ScalaLocalSecondaryIndexDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  LocalSecondaryIndexDescription => JavaLocalSecondaryIndexDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object LocalSecondaryIndexDescriptionOps {
+final class LocalSecondaryIndexDescriptionBuilderOps(val self: LocalSecondaryIndexDescription.Builder) extends AnyVal {
 
-  implicit class ScalaLocalSecondaryIndexDescriptionOps(val self: ScalaLocalSecondaryIndexDescription) extends AnyVal {
-
-    def toJava: JavaLocalSecondaryIndexDescription = {
-      val result = JavaLocalSecondaryIndexDescription.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
-      self.keySchema.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement]
-      self.projection.foreach { v =>
-        import ProjectionOps._; result.projection(v.toJava)
-      } // Projection
-      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
-      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
+  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndexDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+    } // Seq[KeySchemaElement]
   }
 
-  implicit class JavaLocalSecondaryIndexDescriptionOps(val self: JavaLocalSecondaryIndexDescription) extends AnyVal {
-
-    def toScala: ScalaLocalSecondaryIndexDescription = {
-      ScalaLocalSecondaryIndexDescription()
-        .withIndexName(Option(self.indexName)) // String
-        .withKeySchema(Option(self.keySchema).map { v =>
-          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement]
-        .withProjection(Option(self.projection).map { v =>
-          import ProjectionOps._; v.toScala
-        }) // Projection
-        .withIndexSizeBytes(Option(self.indexSizeBytes).map(_.longValue)) // Long
-        .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
-        .withIndexArn(Option(self.indexArn)) // String
+  final def withProjectionAsScala(value: Option[Projection]): LocalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.projection(v)
     }
+  } // Projection
 
-  }
+  final def withIndexSizeBytesAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexSizeBytes(v)
+    }
+  } // Long
+
+  final def withItemCountAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.itemCount(v)
+    }
+  } // Long
+
+  final def withIndexArnAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexArn(v)
+    }
+  } // String
+
+}
+
+final class LocalSecondaryIndexDescriptionOps(val self: LocalSecondaryIndexDescription) extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[KeySchemaElement]
+
+  final def projectionAsScala: Option[Projection] = Option(self.projection) // Projection
+
+  final def indexSizeBytesAsScala: Option[Long] = Option(self.indexSizeBytes) // Long
+
+  final def itemCountAsScala: Option[Long] = Option(self.itemCount) // Long
+
+  final def indexArnAsScala: Option[String] = Option(self.indexArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToLocalSecondaryIndexDescriptionOps {
+
+  implicit def toLocalSecondaryIndexDescriptionBuilderOps(
+      v: LocalSecondaryIndexDescription.Builder
+  ): LocalSecondaryIndexDescriptionBuilderOps = new LocalSecondaryIndexDescriptionBuilderOps(v)
+
+  implicit def toLocalSecondaryIndexDescriptionOps(
+      v: LocalSecondaryIndexDescription
+  ): LocalSecondaryIndexDescriptionOps = new LocalSecondaryIndexDescriptionOps(v)
 
 }

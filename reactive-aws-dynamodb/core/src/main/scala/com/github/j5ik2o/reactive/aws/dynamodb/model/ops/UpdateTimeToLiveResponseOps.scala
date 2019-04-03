@@ -1,27 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateTimeToLiveResponse => ScalaUpdateTimeToLiveResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ UpdateTimeToLiveResponse => JavaUpdateTimeToLiveResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class UpdateTimeToLiveResponseBuilderOps(val self: UpdateTimeToLiveResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateTimeToLiveResponseOps {
-
-  implicit class JavaUpdateTimeToLiveResponseOps(val self: JavaUpdateTimeToLiveResponse) extends AnyVal {
-
-    def toScala: ScalaUpdateTimeToLiveResponse = {
-      ScalaUpdateTimeToLiveResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTimeToLiveSpecification(Option(self.timeToLiveSpecification).map { v =>
-          import TimeToLiveSpecificationOps._; v.toScala
-        }) // TimeToLiveSpecification
+  final def withTimeToLiveSpecificationAsScala(
+      value: Option[TimeToLiveSpecification]
+  ): UpdateTimeToLiveResponse.Builder = {
+    value.fold(self) { v =>
+      self.timeToLiveSpecification(v)
     }
+  } // TimeToLiveSpecification
 
-  }
+}
+
+final class UpdateTimeToLiveResponseOps(val self: UpdateTimeToLiveResponse) extends AnyVal {
+
+  final def timeToLiveSpecificationAsScala: Option[TimeToLiveSpecification] =
+    Option(self.timeToLiveSpecification) // TimeToLiveSpecification
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateTimeToLiveResponseOps {
+
+  implicit def toUpdateTimeToLiveResponseBuilderOps(
+      v: UpdateTimeToLiveResponse.Builder
+  ): UpdateTimeToLiveResponseBuilderOps = new UpdateTimeToLiveResponseBuilderOps(v)
+
+  implicit def toUpdateTimeToLiveResponseOps(v: UpdateTimeToLiveResponse): UpdateTimeToLiveResponseOps =
+    new UpdateTimeToLiveResponseOps(v)
 
 }

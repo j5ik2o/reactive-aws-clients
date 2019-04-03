@@ -1,30 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ CreateReplicaAction => ScalaCreateReplicaAction, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ CreateReplicaAction => JavaCreateReplicaAction }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CreateReplicaActionOps {
+final class CreateReplicaActionBuilderOps(val self: CreateReplicaAction.Builder) extends AnyVal {
 
-  implicit class ScalaCreateReplicaActionOps(val self: ScalaCreateReplicaAction) extends AnyVal {
-
-    def toJava: JavaCreateReplicaAction = {
-      val result = JavaCreateReplicaAction.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
-
-      result.build()
+  final def withRegionNameAsScala(value: Option[String]): CreateReplicaAction.Builder = {
+    value.fold(self) { v =>
+      self.regionName(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaCreateReplicaActionOps(val self: JavaCreateReplicaAction) extends AnyVal {
+final class CreateReplicaActionOps(val self: CreateReplicaAction) extends AnyVal {
 
-    def toScala: ScalaCreateReplicaAction = {
-      ScalaCreateReplicaAction()
-        .withRegionName(Option(self.regionName)) // String
-    }
+  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCreateReplicaActionOps {
+
+  implicit def toCreateReplicaActionBuilderOps(v: CreateReplicaAction.Builder): CreateReplicaActionBuilderOps =
+    new CreateReplicaActionBuilderOps(v)
+
+  implicit def toCreateReplicaActionOps(v: CreateReplicaAction): CreateReplicaActionOps = new CreateReplicaActionOps(v)
 
 }

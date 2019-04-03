@@ -1,30 +1,64 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactWriteItemsRequest => ScalaTransactWriteItemsRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TransactWriteItemsRequest => JavaTransactWriteItemsRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TransactWriteItemsRequestOps {
+final class TransactWriteItemsRequestBuilderOps(val self: TransactWriteItemsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaTransactWriteItemsRequestOps(val self: ScalaTransactWriteItemsRequest) extends AnyVal {
-
-    def toJava: JavaTransactWriteItemsRequest = {
-      val result = JavaTransactWriteItemsRequest.builder()
-      self.transactItems.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TransactWriteItemOps._; result.transactItems(v.map(_.toJava).asJava)
-      } // Seq[TransactWriteItem]
-      self.returnConsumedCapacity.foreach { v =>
-        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String
-      self.returnItemCollectionMetrics.foreach { v =>
-        import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
-      } // String
-      self.clientRequestToken.filter(_.nonEmpty).foreach(v => result.clientRequestToken(v)) // String
-
-      result.build()
-    }
-
+  final def withTransactItemsAsScala(value: Option[Seq[TransactWriteItem]]): TransactWriteItemsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.transactItems(v.asJava)
+    } // Seq[TransactWriteItem]
   }
+
+  final def withReturnConsumedCapacityAsScala(
+      value: Option[ReturnConsumedCapacity]
+  ): TransactWriteItemsRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnConsumedCapacity(v)
+    }
+  } // String
+
+  final def withReturnItemCollectionMetricsAsScala(
+      value: Option[ReturnItemCollectionMetrics]
+  ): TransactWriteItemsRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnItemCollectionMetrics(v)
+    }
+  } // String
+
+  final def withClientRequestTokenAsScala(value: Option[String]): TransactWriteItemsRequest.Builder = {
+    value.fold(self) { v =>
+      self.clientRequestToken(v)
+    }
+  } // String
+
+}
+
+final class TransactWriteItemsRequestOps(val self: TransactWriteItemsRequest) extends AnyVal {
+
+  final def transactItemsAsScala: Option[Seq[TransactWriteItem]] = Option(self.transactItems).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[TransactWriteItem]
+
+  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
+    Option(self.returnConsumedCapacity) // String
+
+  final def returnItemCollectionMetricsAsScala: Option[ReturnItemCollectionMetrics] =
+    Option(self.returnItemCollectionMetrics) // String
+
+  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTransactWriteItemsRequestOps {
+
+  implicit def toTransactWriteItemsRequestBuilderOps(
+      v: TransactWriteItemsRequest.Builder
+  ): TransactWriteItemsRequestBuilderOps = new TransactWriteItemsRequestBuilderOps(v)
+
+  implicit def toTransactWriteItemsRequestOps(v: TransactWriteItemsRequest): TransactWriteItemsRequestOps =
+    new TransactWriteItemsRequestOps(v)
 
 }

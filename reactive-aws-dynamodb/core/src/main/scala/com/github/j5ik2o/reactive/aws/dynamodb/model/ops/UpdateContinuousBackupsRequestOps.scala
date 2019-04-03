@@ -1,29 +1,44 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  UpdateContinuousBackupsRequest => ScalaUpdateContinuousBackupsRequest,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  UpdateContinuousBackupsRequest => JavaUpdateContinuousBackupsRequest
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateContinuousBackupsRequestOps {
+final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousBackupsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaUpdateContinuousBackupsRequestOps(val self: ScalaUpdateContinuousBackupsRequest) extends AnyVal {
-
-    def toJava: JavaUpdateContinuousBackupsRequest = {
-      val result = JavaUpdateContinuousBackupsRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-      self.pointInTimeRecoverySpecification.foreach { v =>
-        import PointInTimeRecoverySpecificationOps._; result.pointInTimeRecoverySpecification(v.toJava)
-      } // PointInTimeRecoverySpecification
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): UpdateContinuousBackupsRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
-  }
+  final def withPointInTimeRecoverySpecificationAsScala(
+      value: Option[PointInTimeRecoverySpecification]
+  ): UpdateContinuousBackupsRequest.Builder = {
+    value.fold(self) { v =>
+      self.pointInTimeRecoverySpecification(v)
+    }
+  } // PointInTimeRecoverySpecification
+
+}
+
+final class UpdateContinuousBackupsRequestOps(val self: UpdateContinuousBackupsRequest) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def pointInTimeRecoverySpecificationAsScala: Option[PointInTimeRecoverySpecification] =
+    Option(self.pointInTimeRecoverySpecification) // PointInTimeRecoverySpecification
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateContinuousBackupsRequestOps {
+
+  implicit def toUpdateContinuousBackupsRequestBuilderOps(
+      v: UpdateContinuousBackupsRequest.Builder
+  ): UpdateContinuousBackupsRequestBuilderOps = new UpdateContinuousBackupsRequestBuilderOps(v)
+
+  implicit def toUpdateContinuousBackupsRequestOps(
+      v: UpdateContinuousBackupsRequest
+  ): UpdateContinuousBackupsRequestOps = new UpdateContinuousBackupsRequestOps(v)
 
 }

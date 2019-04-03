@@ -1,33 +1,49 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateItemResponse => ScalaUpdateItemResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ UpdateItemResponse => JavaUpdateItemResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class UpdateItemResponseBuilderOps(val self: UpdateItemResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateItemResponseOps {
-
-  implicit class JavaUpdateItemResponseOps(val self: JavaUpdateItemResponse) extends AnyVal {
-
-    def toScala: ScalaUpdateItemResponse = {
-      ScalaUpdateItemResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withAttributes(Option(self.attributes).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          import ConsumedCapacityOps._; v.toScala
-        }) // ConsumedCapacity
-        .withItemCollectionMetrics(Option(self.itemCollectionMetrics).map { v =>
-          import ItemCollectionMetricsOps._; v.toScala
-        }) // ItemCollectionMetrics
-    }
-
+  final def withAttributesAsScala(value: Option[Map[String, AttributeValue]]): UpdateItemResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.attributes(v.asJava)
+    } // Map[String, AttributeValue]
   }
+
+  final def withConsumedCapacityAsScala(value: Option[ConsumedCapacity]): UpdateItemResponse.Builder = {
+    value.fold(self) { v =>
+      self.consumedCapacity(v)
+    }
+  } // ConsumedCapacity
+
+  final def withItemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): UpdateItemResponse.Builder = {
+    value.fold(self) { v =>
+      self.itemCollectionMetrics(v)
+    }
+  } // ItemCollectionMetrics
+
+}
+
+final class UpdateItemResponseOps(val self: UpdateItemResponse) extends AnyVal {
+
+  final def attributesAsScala: Option[Map[String, AttributeValue]] = Option(self.attributes).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity) // ConsumedCapacity
+
+  final def itemCollectionMetricsAsScala: Option[ItemCollectionMetrics] =
+    Option(self.itemCollectionMetrics) // ItemCollectionMetrics
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateItemResponseOps {
+
+  implicit def toUpdateItemResponseBuilderOps(v: UpdateItemResponse.Builder): UpdateItemResponseBuilderOps =
+    new UpdateItemResponseBuilderOps(v)
+
+  implicit def toUpdateItemResponseOps(v: UpdateItemResponse): UpdateItemResponseOps = new UpdateItemResponseOps(v)
 
 }

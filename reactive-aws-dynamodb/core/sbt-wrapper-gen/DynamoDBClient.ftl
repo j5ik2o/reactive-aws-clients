@@ -1,6 +1,6 @@
 package com.github.j5ik2o.reactive.aws.dynamodb
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.model._
 
 trait DynamoDBClient[M[_]] extends DynamoDBClientSupport[M] {
 

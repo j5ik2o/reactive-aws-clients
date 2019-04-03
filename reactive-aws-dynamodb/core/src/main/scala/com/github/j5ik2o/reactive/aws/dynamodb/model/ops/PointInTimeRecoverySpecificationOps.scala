@@ -1,37 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  PointInTimeRecoverySpecification => ScalaPointInTimeRecoverySpecification,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  PointInTimeRecoverySpecification => JavaPointInTimeRecoverySpecification
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PointInTimeRecoverySpecificationOps {
+final class PointInTimeRecoverySpecificationBuilderOps(val self: PointInTimeRecoverySpecification.Builder)
+    extends AnyVal {
 
-  implicit class ScalaPointInTimeRecoverySpecificationOps(val self: ScalaPointInTimeRecoverySpecification)
-      extends AnyVal {
-
-    def toJava: JavaPointInTimeRecoverySpecification = {
-      val result = JavaPointInTimeRecoverySpecification.builder()
-      self.pointInTimeRecoveryEnabled.map(_.booleanValue).foreach(v => result.pointInTimeRecoveryEnabled(v)) // Boolean
-
-      result.build()
+  final def withPointInTimeRecoveryEnabledAsScala(value: Option[Boolean]): PointInTimeRecoverySpecification.Builder = {
+    value.fold(self) { v =>
+      self.pointInTimeRecoveryEnabled(v)
     }
+  } // Boolean
 
-  }
+}
 
-  implicit class JavaPointInTimeRecoverySpecificationOps(val self: JavaPointInTimeRecoverySpecification)
-      extends AnyVal {
+final class PointInTimeRecoverySpecificationOps(val self: PointInTimeRecoverySpecification) extends AnyVal {
 
-    def toScala: ScalaPointInTimeRecoverySpecification = {
-      ScalaPointInTimeRecoverySpecification()
-        .withPointInTimeRecoveryEnabled(Option(self.pointInTimeRecoveryEnabled).map(_.booleanValue)) // Boolean
-    }
+  final def pointInTimeRecoveryEnabledAsScala: Option[Boolean] = Option(self.pointInTimeRecoveryEnabled) // Boolean
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPointInTimeRecoverySpecificationOps {
+
+  implicit def toPointInTimeRecoverySpecificationBuilderOps(
+      v: PointInTimeRecoverySpecification.Builder
+  ): PointInTimeRecoverySpecificationBuilderOps = new PointInTimeRecoverySpecificationBuilderOps(v)
+
+  implicit def toPointInTimeRecoverySpecificationOps(
+      v: PointInTimeRecoverySpecification
+  ): PointInTimeRecoverySpecificationOps = new PointInTimeRecoverySpecificationOps(v)
 
 }

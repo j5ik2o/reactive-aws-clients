@@ -1,45 +1,71 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  AutoScalingTargetTrackingScalingPolicyConfigurationDescription => ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  AutoScalingTargetTrackingScalingPolicyConfigurationDescription => JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
+final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilderOps(
+    val self: AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder
+) extends AnyVal {
 
-  implicit class ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(
-      val self: ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription
-  ) extends AnyVal {
-
-    def toJava: JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription = {
-      val result = JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription.builder()
-      self.disableScaleIn.map(_.booleanValue).foreach(v => result.disableScaleIn(v)) // Boolean
-      self.scaleInCooldown.map(_.intValue).foreach(v => result.scaleInCooldown(v))   // Int
-      self.scaleOutCooldown.map(_.intValue).foreach(v => result.scaleOutCooldown(v)) // Int
-      self.targetValue.map(_.doubleValue).foreach(v => result.targetValue(v))        // Double
-
-      result.build()
+  final def withDisableScaleInAsScala(
+      value: Option[Boolean]
+  ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
+    value.fold(self) { v =>
+      self.disableScaleIn(v)
     }
+  } // Boolean
 
-  }
-
-  implicit class JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(
-      val self: JavaAutoScalingTargetTrackingScalingPolicyConfigurationDescription
-  ) extends AnyVal {
-
-    def toScala: ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription = {
-      ScalaAutoScalingTargetTrackingScalingPolicyConfigurationDescription()
-        .withDisableScaleIn(Option(self.disableScaleIn).map(_.booleanValue)) // Boolean
-        .withScaleInCooldown(Option(self.scaleInCooldown).map(_.intValue)) // Int
-        .withScaleOutCooldown(Option(self.scaleOutCooldown).map(_.intValue)) // Int
-        .withTargetValue(Option(self.targetValue).map(_.doubleValue)) // Double
+  final def withScaleInCooldownAsScala(
+      value: Option[Int]
+  ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
+    value.fold(self) { v =>
+      self.scaleInCooldown(v)
     }
+  } // Int
 
-  }
+  final def withScaleOutCooldownAsScala(
+      value: Option[Int]
+  ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
+    value.fold(self) { v =>
+      self.scaleOutCooldown(v)
+    }
+  } // Int
+
+  final def withTargetValueAsScala(
+      value: Option[Double]
+  ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
+    value.fold(self) { v =>
+      self.targetValue(v)
+    }
+  } // Double
+
+}
+
+final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(
+    val self: AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+) extends AnyVal {
+
+  final def disableScaleInAsScala: Option[Boolean] = Option(self.disableScaleIn) // Boolean
+
+  final def scaleInCooldownAsScala: Option[Int] = Option(self.scaleInCooldown) // Int
+
+  final def scaleOutCooldownAsScala: Option[Int] = Option(self.scaleOutCooldown) // Int
+
+  final def targetValueAsScala: Option[Double] = Option(self.targetValue) // Double
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps {
+
+  implicit def toAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilderOps(
+      v: AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder
+  ): AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilderOps =
+    new AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilderOps(v)
+
+  implicit def toAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(
+      v: AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+  ): AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps =
+    new AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(v)
 
 }

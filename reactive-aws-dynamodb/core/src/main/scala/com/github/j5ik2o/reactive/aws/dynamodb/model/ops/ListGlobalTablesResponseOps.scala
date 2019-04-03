@@ -1,28 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListGlobalTablesResponse => ScalaListGlobalTablesResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ListGlobalTablesResponse => JavaListGlobalTablesResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListGlobalTablesResponseBuilderOps(val self: ListGlobalTablesResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListGlobalTablesResponseOps {
-
-  implicit class JavaListGlobalTablesResponseOps(val self: JavaListGlobalTablesResponse) extends AnyVal {
-
-    def toScala: ScalaListGlobalTablesResponse = {
-      ScalaListGlobalTablesResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withGlobalTables(Option(self.globalTables).map { v =>
-          import scala.collection.JavaConverters._, GlobalTableOps._; v.asScala.map(_.toScala)
-        }) // Seq[GlobalTable]
-        .withLastEvaluatedGlobalTableName(Option(self.lastEvaluatedGlobalTableName)) // String
-    }
-
+  final def withGlobalTablesAsScala(value: Option[Seq[GlobalTable]]): ListGlobalTablesResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.globalTables(v.asJava)
+    } // Seq[GlobalTable]
   }
+
+  final def withLastEvaluatedGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesResponse.Builder = {
+    value.fold(self) { v =>
+      self.lastEvaluatedGlobalTableName(v)
+    }
+  } // String
+
+}
+
+final class ListGlobalTablesResponseOps(val self: ListGlobalTablesResponse) extends AnyVal {
+
+  final def globalTablesAsScala: Option[Seq[GlobalTable]] = Option(self.globalTables).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[GlobalTable]
+
+  final def lastEvaluatedGlobalTableNameAsScala: Option[String] = Option(self.lastEvaluatedGlobalTableName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListGlobalTablesResponseOps {
+
+  implicit def toListGlobalTablesResponseBuilderOps(
+      v: ListGlobalTablesResponse.Builder
+  ): ListGlobalTablesResponseBuilderOps = new ListGlobalTablesResponseBuilderOps(v)
+
+  implicit def toListGlobalTablesResponseOps(v: ListGlobalTablesResponse): ListGlobalTablesResponseOps =
+    new ListGlobalTablesResponseOps(v)
 
 }

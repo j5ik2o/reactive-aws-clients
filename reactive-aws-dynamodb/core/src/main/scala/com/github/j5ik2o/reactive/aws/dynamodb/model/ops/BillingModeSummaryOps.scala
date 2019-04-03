@@ -1,36 +1,41 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BillingModeSummary => ScalaBillingModeSummary, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ BillingModeSummary => JavaBillingModeSummary }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object BillingModeSummaryOps {
+final class BillingModeSummaryBuilderOps(val self: BillingModeSummary.Builder) extends AnyVal {
 
-  implicit class ScalaBillingModeSummaryOps(val self: ScalaBillingModeSummary) extends AnyVal {
-
-    def toJava: JavaBillingModeSummary = {
-      val result = JavaBillingModeSummary.builder()
-      self.billingMode.foreach { v =>
-        import BillingModeOps._; result.billingMode(v.toJava)
-      } // String
-      self.lastUpdateToPayPerRequestDateTime.foreach(v => result.lastUpdateToPayPerRequestDateTime(v)) // Instant
-
-      result.build()
+  final def withBillingModeAsScala(value: Option[BillingMode]): BillingModeSummary.Builder = {
+    value.fold(self) { v =>
+      self.billingMode(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaBillingModeSummaryOps(val self: JavaBillingModeSummary) extends AnyVal {
-
-    def toScala: ScalaBillingModeSummary = {
-      ScalaBillingModeSummary()
-        .withBillingMode(Option(self.billingMode).map { v =>
-          import BillingModeOps._; v.toScala
-        }) // String
-        .withLastUpdateToPayPerRequestDateTime(Option(self.lastUpdateToPayPerRequestDateTime)) // Instant
+  final def withLastUpdateToPayPerRequestDateTimeAsScala(
+      value: Option[java.time.Instant]
+  ): BillingModeSummary.Builder = {
+    value.fold(self) { v =>
+      self.lastUpdateToPayPerRequestDateTime(v)
     }
+  } // Instant
 
-  }
+}
+
+final class BillingModeSummaryOps(val self: BillingModeSummary) extends AnyVal {
+
+  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // String
+
+  final def lastUpdateToPayPerRequestDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.lastUpdateToPayPerRequestDateTime) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToBillingModeSummaryOps {
+
+  implicit def toBillingModeSummaryBuilderOps(v: BillingModeSummary.Builder): BillingModeSummaryBuilderOps =
+    new BillingModeSummaryBuilderOps(v)
+
+  implicit def toBillingModeSummaryOps(v: BillingModeSummary): BillingModeSummaryOps = new BillingModeSummaryOps(v)
 
 }

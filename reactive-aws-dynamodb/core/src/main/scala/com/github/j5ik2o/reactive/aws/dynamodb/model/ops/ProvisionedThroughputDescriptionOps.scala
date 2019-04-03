@@ -1,45 +1,70 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ProvisionedThroughputDescription => ScalaProvisionedThroughputDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  ProvisionedThroughputDescription => JavaProvisionedThroughputDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ProvisionedThroughputDescriptionOps {
+final class ProvisionedThroughputDescriptionBuilderOps(val self: ProvisionedThroughputDescription.Builder)
+    extends AnyVal {
 
-  implicit class ScalaProvisionedThroughputDescriptionOps(val self: ScalaProvisionedThroughputDescription)
-      extends AnyVal {
-
-    def toJava: JavaProvisionedThroughputDescription = {
-      val result = JavaProvisionedThroughputDescription.builder()
-      self.lastIncreaseDateTime.foreach(v => result.lastIncreaseDateTime(v))                      // Instant
-      self.lastDecreaseDateTime.foreach(v => result.lastDecreaseDateTime(v))                      // Instant
-      self.numberOfDecreasesToday.map(_.longValue).foreach(v => result.numberOfDecreasesToday(v)) // Long
-      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))           // Long
-      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v))         // Long
-
-      result.build()
+  final def withLastIncreaseDateTimeAsScala(
+      value: Option[java.time.Instant]
+  ): ProvisionedThroughputDescription.Builder = {
+    value.fold(self) { v =>
+      self.lastIncreaseDateTime(v)
     }
+  } // Instant
 
-  }
-
-  implicit class JavaProvisionedThroughputDescriptionOps(val self: JavaProvisionedThroughputDescription)
-      extends AnyVal {
-
-    def toScala: ScalaProvisionedThroughputDescription = {
-      ScalaProvisionedThroughputDescription()
-        .withLastIncreaseDateTime(Option(self.lastIncreaseDateTime)) // Instant
-        .withLastDecreaseDateTime(Option(self.lastDecreaseDateTime)) // Instant
-        .withNumberOfDecreasesToday(Option(self.numberOfDecreasesToday).map(_.longValue)) // Long
-        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.longValue)) // Long
-        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.longValue)) // Long
+  final def withLastDecreaseDateTimeAsScala(
+      value: Option[java.time.Instant]
+  ): ProvisionedThroughputDescription.Builder = {
+    value.fold(self) { v =>
+      self.lastDecreaseDateTime(v)
     }
+  } // Instant
 
-  }
+  final def withNumberOfDecreasesTodayAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
+    value.fold(self) { v =>
+      self.numberOfDecreasesToday(v)
+    }
+  } // Long
+
+  final def withReadCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
+    value.fold(self) { v =>
+      self.readCapacityUnits(v)
+    }
+  } // Long
+
+  final def withWriteCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
+    value.fold(self) { v =>
+      self.writeCapacityUnits(v)
+    }
+  } // Long
+
+}
+
+final class ProvisionedThroughputDescriptionOps(val self: ProvisionedThroughputDescription) extends AnyVal {
+
+  final def lastIncreaseDateTimeAsScala: Option[java.time.Instant] = Option(self.lastIncreaseDateTime) // Instant
+
+  final def lastDecreaseDateTimeAsScala: Option[java.time.Instant] = Option(self.lastDecreaseDateTime) // Instant
+
+  final def numberOfDecreasesTodayAsScala: Option[Long] = Option(self.numberOfDecreasesToday) // Long
+
+  final def readCapacityUnitsAsScala: Option[Long] = Option(self.readCapacityUnits) // Long
+
+  final def writeCapacityUnitsAsScala: Option[Long] = Option(self.writeCapacityUnits) // Long
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToProvisionedThroughputDescriptionOps {
+
+  implicit def toProvisionedThroughputDescriptionBuilderOps(
+      v: ProvisionedThroughputDescription.Builder
+  ): ProvisionedThroughputDescriptionBuilderOps = new ProvisionedThroughputDescriptionBuilderOps(v)
+
+  implicit def toProvisionedThroughputDescriptionOps(
+      v: ProvisionedThroughputDescription
+  ): ProvisionedThroughputDescriptionOps = new ProvisionedThroughputDescriptionOps(v)
 
 }

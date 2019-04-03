@@ -1,32 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Endpoint => ScalaEndpoint, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Endpoint => JavaEndpoint }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object EndpointOps {
+final class EndpointBuilderOps(val self: Endpoint.Builder) extends AnyVal {
 
-  implicit class ScalaEndpointOps(val self: ScalaEndpoint) extends AnyVal {
-
-    def toJava: JavaEndpoint = {
-      val result = JavaEndpoint.builder()
-      self.address.filter(_.nonEmpty).foreach(v => result.address(v))                         // String
-      self.cachePeriodInMinutes.map(_.longValue).foreach(v => result.cachePeriodInMinutes(v)) // Long
-
-      result.build()
+  final def withAddressAsScala(value: Option[String]): Endpoint.Builder = {
+    value.fold(self) { v =>
+      self.address(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaEndpointOps(val self: JavaEndpoint) extends AnyVal {
-
-    def toScala: ScalaEndpoint = {
-      ScalaEndpoint()
-        .withAddress(Option(self.address)) // String
-        .withCachePeriodInMinutes(Option(self.cachePeriodInMinutes).map(_.longValue)) // Long
+  final def withCachePeriodInMinutesAsScala(value: Option[Long]): Endpoint.Builder = {
+    value.fold(self) { v =>
+      self.cachePeriodInMinutes(v)
     }
+  } // Long
 
-  }
+}
+
+final class EndpointOps(val self: Endpoint) extends AnyVal {
+
+  final def addressAsScala: Option[String] = Option(self.address) // String
+
+  final def cachePeriodInMinutesAsScala: Option[Long] = Option(self.cachePeriodInMinutes) // Long
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToEndpointOps {
+
+  implicit def toEndpointBuilderOps(v: Endpoint.Builder): EndpointBuilderOps = new EndpointBuilderOps(v)
+
+  implicit def toEndpointOps(v: Endpoint): EndpointOps = new EndpointOps(v)
 
 }

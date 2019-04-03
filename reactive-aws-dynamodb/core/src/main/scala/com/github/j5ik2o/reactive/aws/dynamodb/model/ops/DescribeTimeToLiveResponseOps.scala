@@ -1,30 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DescribeTimeToLiveResponse => ScalaDescribeTimeToLiveResponse,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeTimeToLiveResponse => JavaDescribeTimeToLiveResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeTimeToLiveResponseBuilderOps(val self: DescribeTimeToLiveResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeTimeToLiveResponseOps {
-
-  implicit class JavaDescribeTimeToLiveResponseOps(val self: JavaDescribeTimeToLiveResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeTimeToLiveResponse = {
-      ScalaDescribeTimeToLiveResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTimeToLiveDescription(Option(self.timeToLiveDescription).map { v =>
-          import TimeToLiveDescriptionOps._; v.toScala
-        }) // TimeToLiveDescription
+  final def withTimeToLiveDescriptionAsScala(
+      value: Option[TimeToLiveDescription]
+  ): DescribeTimeToLiveResponse.Builder = {
+    value.fold(self) { v =>
+      self.timeToLiveDescription(v)
     }
+  } // TimeToLiveDescription
 
-  }
+}
+
+final class DescribeTimeToLiveResponseOps(val self: DescribeTimeToLiveResponse) extends AnyVal {
+
+  final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] =
+    Option(self.timeToLiveDescription) // TimeToLiveDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeTimeToLiveResponseOps {
+
+  implicit def toDescribeTimeToLiveResponseBuilderOps(
+      v: DescribeTimeToLiveResponse.Builder
+  ): DescribeTimeToLiveResponseBuilderOps = new DescribeTimeToLiveResponseBuilderOps(v)
+
+  implicit def toDescribeTimeToLiveResponseOps(v: DescribeTimeToLiveResponse): DescribeTimeToLiveResponseOps =
+    new DescribeTimeToLiveResponseOps(v)
 
 }

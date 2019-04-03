@@ -1,34 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DescribeGlobalTableSettingsResponse => ScalaDescribeGlobalTableSettingsResponse,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  DescribeGlobalTableSettingsResponse => JavaDescribeGlobalTableSettingsResponse
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeGlobalTableSettingsResponseBuilderOps(val self: DescribeGlobalTableSettingsResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeGlobalTableSettingsResponseOps {
-
-  implicit class JavaDescribeGlobalTableSettingsResponseOps(val self: JavaDescribeGlobalTableSettingsResponse)
-      extends AnyVal {
-
-    def toScala: ScalaDescribeGlobalTableSettingsResponse = {
-      ScalaDescribeGlobalTableSettingsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withGlobalTableName(Option(self.globalTableName)) // String
-        .withReplicaSettings(Option(self.replicaSettings).map { v =>
-          import scala.collection.JavaConverters._, ReplicaSettingsDescriptionOps._; v.asScala.map(_.toScala)
-        }) // Seq[ReplicaSettingsDescription]
+  final def withGlobalTableNameAsScala(value: Option[String]): DescribeGlobalTableSettingsResponse.Builder = {
+    value.fold(self) { v =>
+      self.globalTableName(v)
     }
+  } // String
 
+  final def withReplicaSettingsAsScala(
+      value: Option[Seq[ReplicaSettingsDescription]]
+  ): DescribeGlobalTableSettingsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.replicaSettings(v.asJava)
+    } // Seq[ReplicaSettingsDescription]
   }
+
+}
+
+final class DescribeGlobalTableSettingsResponseOps(val self: DescribeGlobalTableSettingsResponse) extends AnyVal {
+
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+
+  final def replicaSettingsAsScala: Option[Seq[ReplicaSettingsDescription]] = Option(self.replicaSettings).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ReplicaSettingsDescription]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeGlobalTableSettingsResponseOps {
+
+  implicit def toDescribeGlobalTableSettingsResponseBuilderOps(
+      v: DescribeGlobalTableSettingsResponse.Builder
+  ): DescribeGlobalTableSettingsResponseBuilderOps = new DescribeGlobalTableSettingsResponseBuilderOps(v)
+
+  implicit def toDescribeGlobalTableSettingsResponseOps(
+      v: DescribeGlobalTableSettingsResponse
+  ): DescribeGlobalTableSettingsResponseOps = new DescribeGlobalTableSettingsResponseOps(v)
 
 }

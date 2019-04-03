@@ -4,7 +4,7 @@ package com.github.j5ik2o.reactive.aws.dynamodb.akka
 import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDBAsyncClient
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.model._
 
 import scala.concurrent.Future
 

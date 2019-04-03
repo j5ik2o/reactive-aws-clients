@@ -1,45 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ContinuousBackupsDescription => ScalaContinuousBackupsDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  ContinuousBackupsDescription => JavaContinuousBackupsDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ContinuousBackupsDescriptionOps {
+final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDescription.Builder) extends AnyVal {
 
-  implicit class ScalaContinuousBackupsDescriptionOps(val self: ScalaContinuousBackupsDescription) extends AnyVal {
-
-    def toJava: JavaContinuousBackupsDescription = {
-      val result = JavaContinuousBackupsDescription.builder()
-      self.continuousBackupsStatus.foreach { v =>
-        import ContinuousBackupsStatusOps._; result.continuousBackupsStatus(v.toJava)
-      } // String
-      self.pointInTimeRecoveryDescription.foreach { v =>
-        import PointInTimeRecoveryDescriptionOps._; result.pointInTimeRecoveryDescription(v.toJava)
-      } // PointInTimeRecoveryDescription
-
-      result.build()
+  final def withContinuousBackupsStatusAsScala(
+      value: Option[ContinuousBackupsStatus]
+  ): ContinuousBackupsDescription.Builder = {
+    value.fold(self) { v =>
+      self.continuousBackupsStatus(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaContinuousBackupsDescriptionOps(val self: JavaContinuousBackupsDescription) extends AnyVal {
-
-    def toScala: ScalaContinuousBackupsDescription = {
-      ScalaContinuousBackupsDescription()
-        .withContinuousBackupsStatus(Option(self.continuousBackupsStatus).map { v =>
-          import ContinuousBackupsStatusOps._; v.toScala
-        }) // String
-        .withPointInTimeRecoveryDescription(Option(self.pointInTimeRecoveryDescription).map { v =>
-          import PointInTimeRecoveryDescriptionOps._; v.toScala
-        }) // PointInTimeRecoveryDescription
+  final def withPointInTimeRecoveryDescriptionAsScala(
+      value: Option[PointInTimeRecoveryDescription]
+  ): ContinuousBackupsDescription.Builder = {
+    value.fold(self) { v =>
+      self.pointInTimeRecoveryDescription(v)
     }
+  } // PointInTimeRecoveryDescription
 
-  }
+}
+
+final class ContinuousBackupsDescriptionOps(val self: ContinuousBackupsDescription) extends AnyVal {
+
+  final def continuousBackupsStatusAsScala: Option[ContinuousBackupsStatus] =
+    Option(self.continuousBackupsStatus) // String
+
+  final def pointInTimeRecoveryDescriptionAsScala: Option[PointInTimeRecoveryDescription] =
+    Option(self.pointInTimeRecoveryDescription) // PointInTimeRecoveryDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToContinuousBackupsDescriptionOps {
+
+  implicit def toContinuousBackupsDescriptionBuilderOps(
+      v: ContinuousBackupsDescription.Builder
+  ): ContinuousBackupsDescriptionBuilderOps = new ContinuousBackupsDescriptionBuilderOps(v)
+
+  implicit def toContinuousBackupsDescriptionOps(v: ContinuousBackupsDescription): ContinuousBackupsDescriptionOps =
+    new ContinuousBackupsDescriptionOps(v)
 
 }

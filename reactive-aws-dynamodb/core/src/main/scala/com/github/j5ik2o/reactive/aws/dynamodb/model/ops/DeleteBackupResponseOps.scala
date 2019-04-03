@@ -1,27 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteBackupResponse => ScalaDeleteBackupResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DeleteBackupResponse => JavaDeleteBackupResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBackupResponseBuilderOps(val self: DeleteBackupResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBackupResponseOps {
-
-  implicit class JavaDeleteBackupResponseOps(val self: JavaDeleteBackupResponse) extends AnyVal {
-
-    def toScala: ScalaDeleteBackupResponse = {
-      ScalaDeleteBackupResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withBackupDescription(Option(self.backupDescription).map { v =>
-          import BackupDescriptionOps._; v.toScala
-        }) // BackupDescription
+  final def withBackupDescriptionAsScala(value: Option[BackupDescription]): DeleteBackupResponse.Builder = {
+    value.fold(self) { v =>
+      self.backupDescription(v)
     }
+  } // BackupDescription
 
-  }
+}
+
+final class DeleteBackupResponseOps(val self: DeleteBackupResponse) extends AnyVal {
+
+  final def backupDescriptionAsScala: Option[BackupDescription] = Option(self.backupDescription) // BackupDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBackupResponseOps {
+
+  implicit def toDeleteBackupResponseBuilderOps(v: DeleteBackupResponse.Builder): DeleteBackupResponseBuilderOps =
+    new DeleteBackupResponseBuilderOps(v)
+
+  implicit def toDeleteBackupResponseOps(v: DeleteBackupResponse): DeleteBackupResponseOps =
+    new DeleteBackupResponseOps(v)
 
 }

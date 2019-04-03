@@ -1,43 +1,45 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  UpdateGlobalSecondaryIndexAction => ScalaUpdateGlobalSecondaryIndexAction,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  UpdateGlobalSecondaryIndexAction => JavaUpdateGlobalSecondaryIndexAction
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateGlobalSecondaryIndexActionOps {
+final class UpdateGlobalSecondaryIndexActionBuilderOps(val self: UpdateGlobalSecondaryIndexAction.Builder)
+    extends AnyVal {
 
-  implicit class ScalaUpdateGlobalSecondaryIndexActionOps(val self: ScalaUpdateGlobalSecondaryIndexAction)
-      extends AnyVal {
-
-    def toJava: JavaUpdateGlobalSecondaryIndexAction = {
-      val result = JavaUpdateGlobalSecondaryIndexAction.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
-      self.provisionedThroughput.foreach { v =>
-        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): UpdateGlobalSecondaryIndexAction.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaUpdateGlobalSecondaryIndexActionOps(val self: JavaUpdateGlobalSecondaryIndexAction)
-      extends AnyVal {
-
-    def toScala: ScalaUpdateGlobalSecondaryIndexAction = {
-      ScalaUpdateGlobalSecondaryIndexAction()
-        .withIndexName(Option(self.indexName)) // String
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          import ProvisionedThroughputOps._; v.toScala
-        }) // ProvisionedThroughput
+  final def withProvisionedThroughputAsScala(
+      value: Option[ProvisionedThroughput]
+  ): UpdateGlobalSecondaryIndexAction.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughput(v)
     }
+  } // ProvisionedThroughput
 
-  }
+}
+
+final class UpdateGlobalSecondaryIndexActionOps(val self: UpdateGlobalSecondaryIndexAction) extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
+    Option(self.provisionedThroughput) // ProvisionedThroughput
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateGlobalSecondaryIndexActionOps {
+
+  implicit def toUpdateGlobalSecondaryIndexActionBuilderOps(
+      v: UpdateGlobalSecondaryIndexAction.Builder
+  ): UpdateGlobalSecondaryIndexActionBuilderOps = new UpdateGlobalSecondaryIndexActionBuilderOps(v)
+
+  implicit def toUpdateGlobalSecondaryIndexActionOps(
+      v: UpdateGlobalSecondaryIndexAction
+  ): UpdateGlobalSecondaryIndexActionOps = new UpdateGlobalSecondaryIndexActionOps(v)
 
 }

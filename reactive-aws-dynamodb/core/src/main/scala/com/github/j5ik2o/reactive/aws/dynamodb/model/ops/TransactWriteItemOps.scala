@@ -1,52 +1,54 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactWriteItem => ScalaTransactWriteItem, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TransactWriteItem => JavaTransactWriteItem }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TransactWriteItemOps {
+final class TransactWriteItemBuilderOps(val self: TransactWriteItem.Builder) extends AnyVal {
 
-  implicit class ScalaTransactWriteItemOps(val self: ScalaTransactWriteItem) extends AnyVal {
-
-    def toJava: JavaTransactWriteItem = {
-      val result = JavaTransactWriteItem.builder()
-      self.conditionCheck.foreach { v =>
-        import ConditionCheckOps._; result.conditionCheck(v.toJava)
-      } // ConditionCheck
-      self.put.foreach { v =>
-        import PutOps._; result.put(v.toJava)
-      } // Put
-      self.delete.foreach { v =>
-        import DeleteOps._; result.delete(v.toJava)
-      } // Delete
-      self.update.foreach { v =>
-        import UpdateOps._; result.update(v.toJava)
-      } // Update
-
-      result.build()
+  final def withConditionCheckAsScala(value: Option[ConditionCheck]): TransactWriteItem.Builder = {
+    value.fold(self) { v =>
+      self.conditionCheck(v)
     }
+  } // ConditionCheck
 
-  }
-
-  implicit class JavaTransactWriteItemOps(val self: JavaTransactWriteItem) extends AnyVal {
-
-    def toScala: ScalaTransactWriteItem = {
-      ScalaTransactWriteItem()
-        .withConditionCheck(Option(self.conditionCheck).map { v =>
-          import ConditionCheckOps._; v.toScala
-        }) // ConditionCheck
-        .withPut(Option(self.put).map { v =>
-          import PutOps._; v.toScala
-        }) // Put
-        .withDelete(Option(self.delete).map { v =>
-          import DeleteOps._; v.toScala
-        }) // Delete
-        .withUpdate(Option(self.update).map { v =>
-          import UpdateOps._; v.toScala
-        }) // Update
+  final def withPutAsScala(value: Option[Put]): TransactWriteItem.Builder = {
+    value.fold(self) { v =>
+      self.put(v)
     }
+  } // Put
 
-  }
+  final def withDeleteAsScala(value: Option[Delete]): TransactWriteItem.Builder = {
+    value.fold(self) { v =>
+      self.delete(v)
+    }
+  } // Delete
+
+  final def withUpdateAsScala(value: Option[Update]): TransactWriteItem.Builder = {
+    value.fold(self) { v =>
+      self.update(v)
+    }
+  } // Update
+
+}
+
+final class TransactWriteItemOps(val self: TransactWriteItem) extends AnyVal {
+
+  final def conditionCheckAsScala: Option[ConditionCheck] = Option(self.conditionCheck) // ConditionCheck
+
+  final def putAsScala: Option[Put] = Option(self.put) // Put
+
+  final def deleteAsScala: Option[Delete] = Option(self.delete) // Delete
+
+  final def updateAsScala: Option[Update] = Option(self.update) // Update
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTransactWriteItemOps {
+
+  implicit def toTransactWriteItemBuilderOps(v: TransactWriteItem.Builder): TransactWriteItemBuilderOps =
+    new TransactWriteItemBuilderOps(v)
+
+  implicit def toTransactWriteItemOps(v: TransactWriteItem): TransactWriteItemOps = new TransactWriteItemOps(v)
 
 }

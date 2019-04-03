@@ -1,24 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListGlobalTablesRequest => ScalaListGlobalTablesRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ListGlobalTablesRequest => JavaListGlobalTablesRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListGlobalTablesRequestOps {
+final class ListGlobalTablesRequestBuilderOps(val self: ListGlobalTablesRequest.Builder) extends AnyVal {
 
-  implicit class ScalaListGlobalTablesRequestOps(val self: ScalaListGlobalTablesRequest) extends AnyVal {
-
-    def toJava: JavaListGlobalTablesRequest = {
-      val result = JavaListGlobalTablesRequest.builder()
-      self.exclusiveStartGlobalTableName
-        .filter(_.nonEmpty).foreach(v => result.exclusiveStartGlobalTableName(v)) // String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))                    // Int
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v))       // String
-
-      result.build()
+  final def withExclusiveStartGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
+    value.fold(self) { v =>
+      self.exclusiveStartGlobalTableName(v)
     }
+  } // String
 
-  }
+  final def withLimitAsScala(value: Option[Int]): ListGlobalTablesRequest.Builder = {
+    value.fold(self) { v =>
+      self.limit(v)
+    }
+  } // Int
+
+  final def withRegionNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
+    value.fold(self) { v =>
+      self.regionName(v)
+    }
+  } // String
+
+}
+
+final class ListGlobalTablesRequestOps(val self: ListGlobalTablesRequest) extends AnyVal {
+
+  final def exclusiveStartGlobalTableNameAsScala: Option[String] = Option(self.exclusiveStartGlobalTableName) // String
+
+  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+
+  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListGlobalTablesRequestOps {
+
+  implicit def toListGlobalTablesRequestBuilderOps(
+      v: ListGlobalTablesRequest.Builder
+  ): ListGlobalTablesRequestBuilderOps = new ListGlobalTablesRequestBuilderOps(v)
+
+  implicit def toListGlobalTablesRequestOps(v: ListGlobalTablesRequest): ListGlobalTablesRequestOps =
+    new ListGlobalTablesRequestOps(v)
 
 }

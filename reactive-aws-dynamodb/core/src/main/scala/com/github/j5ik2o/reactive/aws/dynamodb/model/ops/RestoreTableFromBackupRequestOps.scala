@@ -1,27 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  RestoreTableFromBackupRequest => ScalaRestoreTableFromBackupRequest,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  RestoreTableFromBackupRequest => JavaRestoreTableFromBackupRequest
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RestoreTableFromBackupRequestOps {
+final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBackupRequest.Builder) extends AnyVal {
 
-  implicit class ScalaRestoreTableFromBackupRequestOps(val self: ScalaRestoreTableFromBackupRequest) extends AnyVal {
-
-    def toJava: JavaRestoreTableFromBackupRequest = {
-      val result = JavaRestoreTableFromBackupRequest.builder()
-      self.targetTableName.filter(_.nonEmpty).foreach(v => result.targetTableName(v)) // String
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))             // String
-
-      result.build()
+  final def withTargetTableNameAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
+    value.fold(self) { v =>
+      self.targetTableName(v)
     }
+  } // String
 
-  }
+  final def withBackupArnAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
+    value.fold(self) { v =>
+      self.backupArn(v)
+    }
+  } // String
+
+}
+
+final class RestoreTableFromBackupRequestOps(val self: RestoreTableFromBackupRequest) extends AnyVal {
+
+  final def targetTableNameAsScala: Option[String] = Option(self.targetTableName) // String
+
+  final def backupArnAsScala: Option[String] = Option(self.backupArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRestoreTableFromBackupRequestOps {
+
+  implicit def toRestoreTableFromBackupRequestBuilderOps(
+      v: RestoreTableFromBackupRequest.Builder
+  ): RestoreTableFromBackupRequestBuilderOps = new RestoreTableFromBackupRequestBuilderOps(v)
+
+  implicit def toRestoreTableFromBackupRequestOps(v: RestoreTableFromBackupRequest): RestoreTableFromBackupRequestOps =
+    new RestoreTableFromBackupRequestOps(v)
 
 }

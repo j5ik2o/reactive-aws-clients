@@ -1,28 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ListBackupsResponse => ScalaListBackupsResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ListBackupsResponse => JavaListBackupsResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListBackupsResponseBuilderOps(val self: ListBackupsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListBackupsResponseOps {
-
-  implicit class JavaListBackupsResponseOps(val self: JavaListBackupsResponse) extends AnyVal {
-
-    def toScala: ScalaListBackupsResponse = {
-      ScalaListBackupsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withBackupSummaries(Option(self.backupSummaries).map { v =>
-          import scala.collection.JavaConverters._, BackupSummaryOps._; v.asScala.map(_.toScala)
-        }) // Seq[BackupSummary]
-        .withLastEvaluatedBackupArn(Option(self.lastEvaluatedBackupArn)) // String
-    }
-
+  final def withBackupSummariesAsScala(value: Option[Seq[BackupSummary]]): ListBackupsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.backupSummaries(v.asJava)
+    } // Seq[BackupSummary]
   }
+
+  final def withLastEvaluatedBackupArnAsScala(value: Option[String]): ListBackupsResponse.Builder = {
+    value.fold(self) { v =>
+      self.lastEvaluatedBackupArn(v)
+    }
+  } // String
+
+}
+
+final class ListBackupsResponseOps(val self: ListBackupsResponse) extends AnyVal {
+
+  final def backupSummariesAsScala: Option[Seq[BackupSummary]] = Option(self.backupSummaries).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[BackupSummary]
+
+  final def lastEvaluatedBackupArnAsScala: Option[String] = Option(self.lastEvaluatedBackupArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListBackupsResponseOps {
+
+  implicit def toListBackupsResponseBuilderOps(v: ListBackupsResponse.Builder): ListBackupsResponseBuilderOps =
+    new ListBackupsResponseBuilderOps(v)
+
+  implicit def toListBackupsResponseOps(v: ListBackupsResponse): ListBackupsResponseOps = new ListBackupsResponseOps(v)
 
 }

@@ -1,24 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateGlobalTableRequest => ScalaUpdateGlobalTableRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ UpdateGlobalTableRequest => JavaUpdateGlobalTableRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateGlobalTableRequestOps {
+final class UpdateGlobalTableRequestBuilderOps(val self: UpdateGlobalTableRequest.Builder) extends AnyVal {
 
-  implicit class ScalaUpdateGlobalTableRequestOps(val self: ScalaUpdateGlobalTableRequest) extends AnyVal {
-
-    def toJava: JavaUpdateGlobalTableRequest = {
-      val result = JavaUpdateGlobalTableRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
-      self.replicaUpdates.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ReplicaUpdateOps._; result.replicaUpdates(v.map(_.toJava).asJava)
-      } // Seq[ReplicaUpdate]
-
-      result.build()
+  final def withGlobalTableNameAsScala(value: Option[String]): UpdateGlobalTableRequest.Builder = {
+    value.fold(self) { v =>
+      self.globalTableName(v)
     }
+  } // String
 
+  final def withReplicaUpdatesAsScala(value: Option[Seq[ReplicaUpdate]]): UpdateGlobalTableRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.replicaUpdates(v.asJava)
+    } // Seq[ReplicaUpdate]
   }
+
+}
+
+final class UpdateGlobalTableRequestOps(val self: UpdateGlobalTableRequest) extends AnyVal {
+
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+
+  final def replicaUpdatesAsScala: Option[Seq[ReplicaUpdate]] = Option(self.replicaUpdates).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ReplicaUpdate]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateGlobalTableRequestOps {
+
+  implicit def toUpdateGlobalTableRequestBuilderOps(
+      v: UpdateGlobalTableRequest.Builder
+  ): UpdateGlobalTableRequestBuilderOps = new UpdateGlobalTableRequestBuilderOps(v)
+
+  implicit def toUpdateGlobalTableRequestOps(v: UpdateGlobalTableRequest): UpdateGlobalTableRequestOps =
+    new UpdateGlobalTableRequestOps(v)
 
 }

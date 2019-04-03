@@ -1,46 +1,50 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupDescription => ScalaBackupDescription, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ BackupDescription => JavaBackupDescription }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object BackupDescriptionOps {
+final class BackupDescriptionBuilderOps(val self: BackupDescription.Builder) extends AnyVal {
 
-  implicit class ScalaBackupDescriptionOps(val self: ScalaBackupDescription) extends AnyVal {
-
-    def toJava: JavaBackupDescription = {
-      val result = JavaBackupDescription.builder()
-      self.backupDetails.foreach { v =>
-        import BackupDetailsOps._; result.backupDetails(v.toJava)
-      } // BackupDetails
-      self.sourceTableDetails.foreach { v =>
-        import SourceTableDetailsOps._; result.sourceTableDetails(v.toJava)
-      } // SourceTableDetails
-      self.sourceTableFeatureDetails.foreach { v =>
-        import SourceTableFeatureDetailsOps._; result.sourceTableFeatureDetails(v.toJava)
-      } // SourceTableFeatureDetails
-
-      result.build()
+  final def withBackupDetailsAsScala(value: Option[BackupDetails]): BackupDescription.Builder = {
+    value.fold(self) { v =>
+      self.backupDetails(v)
     }
+  } // BackupDetails
 
-  }
-
-  implicit class JavaBackupDescriptionOps(val self: JavaBackupDescription) extends AnyVal {
-
-    def toScala: ScalaBackupDescription = {
-      ScalaBackupDescription()
-        .withBackupDetails(Option(self.backupDetails).map { v =>
-          import BackupDetailsOps._; v.toScala
-        }) // BackupDetails
-        .withSourceTableDetails(Option(self.sourceTableDetails).map { v =>
-          import SourceTableDetailsOps._; v.toScala
-        }) // SourceTableDetails
-        .withSourceTableFeatureDetails(Option(self.sourceTableFeatureDetails).map { v =>
-          import SourceTableFeatureDetailsOps._; v.toScala
-        }) // SourceTableFeatureDetails
+  final def withSourceTableDetailsAsScala(value: Option[SourceTableDetails]): BackupDescription.Builder = {
+    value.fold(self) { v =>
+      self.sourceTableDetails(v)
     }
+  } // SourceTableDetails
 
-  }
+  final def withSourceTableFeatureDetailsAsScala(
+      value: Option[SourceTableFeatureDetails]
+  ): BackupDescription.Builder = {
+    value.fold(self) { v =>
+      self.sourceTableFeatureDetails(v)
+    }
+  } // SourceTableFeatureDetails
+
+}
+
+final class BackupDescriptionOps(val self: BackupDescription) extends AnyVal {
+
+  final def backupDetailsAsScala: Option[BackupDetails] = Option(self.backupDetails) // BackupDetails
+
+  final def sourceTableDetailsAsScala: Option[SourceTableDetails] =
+    Option(self.sourceTableDetails) // SourceTableDetails
+
+  final def sourceTableFeatureDetailsAsScala: Option[SourceTableFeatureDetails] =
+    Option(self.sourceTableFeatureDetails) // SourceTableFeatureDetails
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToBackupDescriptionOps {
+
+  implicit def toBackupDescriptionBuilderOps(v: BackupDescription.Builder): BackupDescriptionBuilderOps =
+    new BackupDescriptionBuilderOps(v)
+
+  implicit def toBackupDescriptionOps(v: BackupDescription): BackupDescriptionOps = new BackupDescriptionOps(v)
 
 }

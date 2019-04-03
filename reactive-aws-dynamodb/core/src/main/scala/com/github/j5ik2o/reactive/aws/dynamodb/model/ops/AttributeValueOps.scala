@@ -1,68 +1,112 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AttributeValue => ScalaAttributeValue, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ AttributeValue => JavaAttributeValue }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AttributeValueOps {
+final class AttributeValueBuilderOps(val self: AttributeValue.Builder) extends AnyVal {
 
-  implicit class ScalaAttributeValueOps(val self: ScalaAttributeValue) extends AnyVal {
-
-    def toJava: JavaAttributeValue = {
-      val result = JavaAttributeValue.builder()
-      self.s.filter(_.nonEmpty).foreach(v => result.s(v)) // String
-      self.n.filter(_.nonEmpty).foreach(v => result.n(v)) // String
-      self.b.foreach(v => result.b(v))                    // SdkBytes
-      self.ss.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.ss(v.asJava)
-      } // Seq[String]
-      self.ns.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.ns(v.asJava)
-      } // Seq[String]
-      self.bs.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.bs(v.asJava)
-      } // Seq[SdkBytes]
-      self.m.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.m(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.l.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.l(v.map(_.toJava).asJava)
-      } // Seq[AttributeValue]
-      self.bool.map(_.booleanValue).foreach(v => result.bool(v)) // Boolean
-      self.nul.map(_.booleanValue).foreach(v => result.nul(v))   // Boolean
-
-      result.build()
+  final def withSAsScala(value: Option[String]): AttributeValue.Builder = {
+    value.fold(self) { v =>
+      self.s(v)
     }
+  } // String
 
+  final def withNAsScala(value: Option[String]): AttributeValue.Builder = {
+    value.fold(self) { v =>
+      self.n(v)
+    }
+  } // String
+
+  final def withBAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): AttributeValue.Builder = {
+    value.fold(self) { v =>
+      self.b(v)
+    }
+  } // SdkBytes
+
+  final def withSsAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.ss(v.asJava)
+    } // Seq[String]
   }
 
-  implicit class JavaAttributeValueOps(val self: JavaAttributeValue) extends AnyVal {
-
-    def toScala: ScalaAttributeValue = {
-      ScalaAttributeValue()
-        .withS(Option(self.s)) // String
-        .withN(Option(self.n)) // String
-        .withB(Option(self.b)) // SdkBytes
-        .withSs(Option(self.ss).map { v =>
-          import scala.collection.JavaConverters._; v.asScala
-        }) // Seq[String]
-        .withNs(Option(self.ns).map { v =>
-          import scala.collection.JavaConverters._; v.asScala
-        }) // Seq[String]
-        .withBs(Option(self.bs).map { v =>
-          import scala.collection.JavaConverters._; v.asScala
-        }) // Seq[SdkBytes]
-        .withM(Option(self.m).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withL(Option(self.l).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.map(_.toScala)
-        }) // Seq[AttributeValue]
-        .withBool(Option(self.bool).map(_.booleanValue)) // Boolean
-        .withNul(Option(self.nul).map(_.booleanValue)) // Boolean
-    }
-
+  final def withNsAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.ns(v.asJava)
+    } // Seq[String]
   }
+
+  final def withBsAsScala(value: Option[Seq[software.amazon.awssdk.core.SdkBytes]]): AttributeValue.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.bs(v.asJava)
+    } // Seq[SdkBytes]
+  }
+
+  final def withMAsScala(value: Option[Map[String, AttributeValue]]): AttributeValue.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.m(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+  final def withLAsScala(value: Option[Seq[AttributeValue]]): AttributeValue.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.l(v.asJava)
+    } // Seq[AttributeValue]
+  }
+
+  final def withBoolAsScala(value: Option[Boolean]): AttributeValue.Builder = {
+    value.fold(self) { v =>
+      self.bool(v)
+    }
+  } // Boolean
+
+  final def withNulAsScala(value: Option[Boolean]): AttributeValue.Builder = {
+    value.fold(self) { v =>
+      self.nul(v)
+    }
+  } // Boolean
+
+}
+
+final class AttributeValueOps(val self: AttributeValue) extends AnyVal {
+
+  final def sAsScala: Option[String] = Option(self.s) // String
+
+  final def nAsScala: Option[String] = Option(self.n) // String
+
+  final def bAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.b) // SdkBytes
+
+  final def ssAsScala: Option[Seq[String]] = Option(self.ss).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def nsAsScala: Option[Seq[String]] = Option(self.ns).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def bsAsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.bs).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[SdkBytes]
+
+  final def mAsScala: Option[Map[String, AttributeValue]] = Option(self.m).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def lAsScala: Option[Seq[AttributeValue]] = Option(self.l).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[AttributeValue]
+
+  final def boolAsScala: Option[Boolean] = Option(self.bool) // Boolean
+
+  final def nulAsScala: Option[Boolean] = Option(self.nul) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAttributeValueOps {
+
+  implicit def toAttributeValueBuilderOps(v: AttributeValue.Builder): AttributeValueBuilderOps =
+    new AttributeValueBuilderOps(v)
+
+  implicit def toAttributeValueOps(v: AttributeValue): AttributeValueOps = new AttributeValueOps(v)
 
 }

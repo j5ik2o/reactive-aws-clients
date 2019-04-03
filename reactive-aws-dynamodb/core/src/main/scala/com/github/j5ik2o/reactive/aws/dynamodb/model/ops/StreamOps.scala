@@ -1,34 +1,45 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Stream => ScalaStream, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Stream => JavaStream }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StreamOps {
+final class StreamBuilderOps(val self: Stream.Builder) extends AnyVal {
 
-  implicit class ScalaStreamOps(val self: ScalaStream) extends AnyVal {
-
-    def toJava: JavaStream = {
-      val result = JavaStream.builder()
-      self.streamArn.filter(_.nonEmpty).foreach(v => result.streamArn(v))     // String
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))     // String
-      self.streamLabel.filter(_.nonEmpty).foreach(v => result.streamLabel(v)) // String
-
-      result.build()
+  final def withStreamArnAsScala(value: Option[String]): Stream.Builder = {
+    value.fold(self) { v =>
+      self.streamArn(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaStreamOps(val self: JavaStream) extends AnyVal {
-
-    def toScala: ScalaStream = {
-      ScalaStream()
-        .withStreamArn(Option(self.streamArn)) // String
-        .withTableName(Option(self.tableName)) // String
-        .withStreamLabel(Option(self.streamLabel)) // String
+  final def withTableNameAsScala(value: Option[String]): Stream.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
-  }
+  final def withStreamLabelAsScala(value: Option[String]): Stream.Builder = {
+    value.fold(self) { v =>
+      self.streamLabel(v)
+    }
+  } // String
+
+}
+
+final class StreamOps(val self: Stream) extends AnyVal {
+
+  final def streamArnAsScala: Option[String] = Option(self.streamArn) // String
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def streamLabelAsScala: Option[String] = Option(self.streamLabel) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStreamOps {
+
+  implicit def toStreamBuilderOps(v: Stream.Builder): StreamBuilderOps = new StreamBuilderOps(v)
+
+  implicit def toStreamOps(v: Stream): StreamOps = new StreamOps(v)
 
 }

@@ -1,27 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UpdateGlobalTableResponse => ScalaUpdateGlobalTableResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ UpdateGlobalTableResponse => JavaUpdateGlobalTableResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class UpdateGlobalTableResponseBuilderOps(val self: UpdateGlobalTableResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateGlobalTableResponseOps {
-
-  implicit class JavaUpdateGlobalTableResponseOps(val self: JavaUpdateGlobalTableResponse) extends AnyVal {
-
-    def toScala: ScalaUpdateGlobalTableResponse = {
-      ScalaUpdateGlobalTableResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withGlobalTableDescription(Option(self.globalTableDescription).map { v =>
-          import GlobalTableDescriptionOps._; v.toScala
-        }) // GlobalTableDescription
+  final def withGlobalTableDescriptionAsScala(
+      value: Option[GlobalTableDescription]
+  ): UpdateGlobalTableResponse.Builder = {
+    value.fold(self) { v =>
+      self.globalTableDescription(v)
     }
+  } // GlobalTableDescription
 
-  }
+}
+
+final class UpdateGlobalTableResponseOps(val self: UpdateGlobalTableResponse) extends AnyVal {
+
+  final def globalTableDescriptionAsScala: Option[GlobalTableDescription] =
+    Option(self.globalTableDescription) // GlobalTableDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateGlobalTableResponseOps {
+
+  implicit def toUpdateGlobalTableResponseBuilderOps(
+      v: UpdateGlobalTableResponse.Builder
+  ): UpdateGlobalTableResponseBuilderOps = new UpdateGlobalTableResponseBuilderOps(v)
+
+  implicit def toUpdateGlobalTableResponseOps(v: UpdateGlobalTableResponse): UpdateGlobalTableResponseOps =
+    new UpdateGlobalTableResponseOps(v)
 
 }

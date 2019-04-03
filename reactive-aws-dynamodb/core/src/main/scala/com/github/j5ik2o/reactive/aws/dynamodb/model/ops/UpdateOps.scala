@@ -1,59 +1,88 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Update => ScalaUpdate, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Update => JavaUpdate }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateOps {
+final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
 
-  implicit class ScalaUpdateOps(val self: ScalaUpdate) extends AnyVal {
-
-    def toJava: JavaUpdate = {
-      val result = JavaUpdate.builder()
-      self.key.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.updateExpression.filter(_.nonEmpty).foreach(v => result.updateExpression(v))       // String
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                     // String
-      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
-      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
-        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
-      } // Map[String, String]
-      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._;
-        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.returnValuesOnConditionCheckFailure.foreach { v =>
-        import ReturnValuesOnConditionCheckFailureOps._; result.returnValuesOnConditionCheckFailure(v.toJava)
-      } // String
-
-      result.build()
-    }
-
+  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): Update.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.key(v.asJava)
+    } // Map[String, AttributeValue]
   }
 
-  implicit class JavaUpdateOps(val self: JavaUpdate) extends AnyVal {
-
-    def toScala: ScalaUpdate = {
-      ScalaUpdate()
-        .withKey(Option(self.key).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withUpdateExpression(Option(self.updateExpression)) // String
-        .withTableName(Option(self.tableName)) // String
-        .withConditionExpression(Option(self.conditionExpression)) // String
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.toMap
-        }) // Map[String, String]
-        .withExpressionAttributeValues(Option(self.expressionAttributeValues).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withReturnValuesOnConditionCheckFailure(Option(self.returnValuesOnConditionCheckFailure).map { v =>
-          import ReturnValuesOnConditionCheckFailureOps._; v.toScala
-        }) // String
+  final def withUpdateExpressionAsScala(value: Option[String]): Update.Builder = {
+    value.fold(self) { v =>
+      self.updateExpression(v)
     }
+  } // String
 
+  final def withTableNameAsScala(value: Option[String]): Update.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
+    }
+  } // String
+
+  final def withConditionExpressionAsScala(value: Option[String]): Update.Builder = {
+    value.fold(self) { v =>
+      self.conditionExpression(v)
+    }
+  } // String
+
+  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): Update.Builder = {
+    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
+    } // Map[String, String]
   }
+
+  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Update.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+  final def withReturnValuesOnConditionCheckFailureAsScala(
+      value: Option[ReturnValuesOnConditionCheckFailure]
+  ): Update.Builder = {
+    value.fold(self) { v =>
+      self.returnValuesOnConditionCheckFailure(v)
+    }
+  } // String
+
+}
+
+final class UpdateOps(val self: Update) extends AnyVal {
+
+  final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def updateExpressionAsScala: Option[String] = Option(self.updateExpression) // String
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression) // String
+
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, String]
+
+  final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.expressionAttributeValues).map { v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+    } // Map[String, AttributeValue]
+
+  final def returnValuesOnConditionCheckFailureAsScala: Option[ReturnValuesOnConditionCheckFailure] =
+    Option(self.returnValuesOnConditionCheckFailure) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateOps {
+
+  implicit def toUpdateBuilderOps(v: Update.Builder): UpdateBuilderOps = new UpdateBuilderOps(v)
+
+  implicit def toUpdateOps(v: Update): UpdateOps = new UpdateOps(v)
 
 }
