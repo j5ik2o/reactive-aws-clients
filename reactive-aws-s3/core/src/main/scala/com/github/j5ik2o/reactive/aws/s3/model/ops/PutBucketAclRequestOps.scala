@@ -1,33 +1,95 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketAclRequest => ScalaPutBucketAclRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketAclRequest => JavaPutBucketAclRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketAclRequestOps {
+final class PutBucketAclRequestBuilderOps(val self: PutBucketAclRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutBucketAclRequestOps(val self: ScalaPutBucketAclRequest) extends AnyVal {
-
-    def toJava: JavaPutBucketAclRequest = {
-      val result = JavaPutBucketAclRequest.builder()
-      self.acl.foreach { v =>
-        import BucketCannedACLOps._; result.acl(v.toJava)
-      } // String
-      self.accessControlPolicy.foreach { v =>
-        import AccessControlPolicyOps._; result.accessControlPolicy(v.toJava)
-      } // AccessControlPolicy
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))                     // String
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v))             // String
-      self.grantFullControl.filter(_.nonEmpty).foreach(v => result.grantFullControl(v)) // String
-      self.grantRead.filter(_.nonEmpty).foreach(v => result.grantRead(v))               // String
-      self.grantReadACP.filter(_.nonEmpty).foreach(v => result.grantReadACP(v))         // String
-      self.grantWrite.filter(_.nonEmpty).foreach(v => result.grantWrite(v))             // String
-      self.grantWriteACP.filter(_.nonEmpty).foreach(v => result.grantWriteACP(v))       // String
-
-      result.build()
+  final def withAclAsScala(value: Option[BucketCannedACL]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.acl(v)
     }
+  } // String
 
-  }
+  final def withAccessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.accessControlPolicy(v)
+    }
+  } // AccessControlPolicy
+
+  final def withBucketAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
+    }
+  } // String
+
+  final def withContentMD5AsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withGrantFullControlAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.grantFullControl(v)
+    }
+  } // String
+
+  final def withGrantReadAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.grantRead(v)
+    }
+  } // String
+
+  final def withGrantReadACPAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.grantReadACP(v)
+    }
+  } // String
+
+  final def withGrantWriteAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.grantWrite(v)
+    }
+  } // String
+
+  final def withGrantWriteACPAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.grantWriteACP(v)
+    }
+  } // String
+
+}
+
+final class PutBucketAclRequestOps(val self: PutBucketAclRequest) extends AnyVal {
+
+  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl) // String
+
+  final def accessControlPolicyAsScala: Option[AccessControlPolicy] =
+    Option(self.accessControlPolicy) // AccessControlPolicy
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl) // String
+
+  final def grantReadAsScala: Option[String] = Option(self.grantRead) // String
+
+  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP) // String
+
+  final def grantWriteAsScala: Option[String] = Option(self.grantWrite) // String
+
+  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketAclRequestOps {
+
+  implicit def toPutBucketAclRequestBuilderOps(v: PutBucketAclRequest.Builder): PutBucketAclRequestBuilderOps =
+    new PutBucketAclRequestBuilderOps(v)
+
+  implicit def toPutBucketAclRequestOps(v: PutBucketAclRequest): PutBucketAclRequestOps = new PutBucketAclRequestOps(v)
 
 }

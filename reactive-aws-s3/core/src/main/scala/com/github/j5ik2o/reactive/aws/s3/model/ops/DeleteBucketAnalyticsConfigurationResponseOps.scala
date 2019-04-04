@@ -1,31 +1,24 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeleteBucketAnalyticsConfigurationResponse => ScalaDeleteBucketAnalyticsConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  DeleteBucketAnalyticsConfigurationResponse => JavaDeleteBucketAnalyticsConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBucketAnalyticsConfigurationResponseBuilderOps(
+    val self: DeleteBucketAnalyticsConfigurationResponse.Builder
+) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketAnalyticsConfigurationResponseOps {
+final class DeleteBucketAnalyticsConfigurationResponseOps(val self: DeleteBucketAnalyticsConfigurationResponse)
+    extends AnyVal {}
 
-  implicit class JavaDeleteBucketAnalyticsConfigurationResponseOps(
-      val self: JavaDeleteBucketAnalyticsConfigurationResponse
-  ) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketAnalyticsConfigurationResponseOps {
 
-    def toScala: ScalaDeleteBucketAnalyticsConfigurationResponse = {
-      ScalaDeleteBucketAnalyticsConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteBucketAnalyticsConfigurationResponseBuilderOps(
+      v: DeleteBucketAnalyticsConfigurationResponse.Builder
+  ): DeleteBucketAnalyticsConfigurationResponseBuilderOps = new DeleteBucketAnalyticsConfigurationResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteBucketAnalyticsConfigurationResponseOps(
+      v: DeleteBucketAnalyticsConfigurationResponse
+  ): DeleteBucketAnalyticsConfigurationResponseOps = new DeleteBucketAnalyticsConfigurationResponseOps(v)
 
 }

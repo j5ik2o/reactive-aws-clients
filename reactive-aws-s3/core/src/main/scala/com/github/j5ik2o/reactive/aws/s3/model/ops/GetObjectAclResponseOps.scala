@@ -1,33 +1,49 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectAclResponse => ScalaGetObjectAclResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectAclResponse => JavaGetObjectAclResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetObjectAclResponseBuilderOps(val self: GetObjectAclResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectAclResponseOps {
-
-  implicit class JavaGetObjectAclResponseOps(val self: JavaGetObjectAclResponse) extends AnyVal {
-
-    def toScala: ScalaGetObjectAclResponse = {
-      ScalaGetObjectAclResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withOwner(Option(self.owner).map { v =>
-          import OwnerOps._; v.toScala
-        }) // Owner
-        .withGrants(Option(self.grants).map { v =>
-          import scala.collection.JavaConverters._, GrantOps._; v.asScala.map(_.toScala)
-        }) // Seq[Grant]
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withOwnerAsScala(value: Option[Owner]): GetObjectAclResponse.Builder = {
+    value.fold(self) { v =>
+      self.owner(v)
     }
+  } // Owner
 
+  final def withGrantsAsScala(value: Option[Seq[Grant]]): GetObjectAclResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.grants(v.asJava)
+    } // Seq[Grant]
   }
+
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): GetObjectAclResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
+    }
+  } // String
+
+}
+
+final class GetObjectAclResponseOps(val self: GetObjectAclResponse) extends AnyVal {
+
+  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+
+  final def grantsAsScala: Option[Seq[Grant]] = Option(self.grants).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Grant]
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectAclResponseOps {
+
+  implicit def toGetObjectAclResponseBuilderOps(v: GetObjectAclResponse.Builder): GetObjectAclResponseBuilderOps =
+    new GetObjectAclResponseBuilderOps(v)
+
+  implicit def toGetObjectAclResponseOps(v: GetObjectAclResponse): GetObjectAclResponseOps =
+    new GetObjectAclResponseOps(v)
 
 }

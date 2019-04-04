@@ -1,34 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ServerSideEncryptionRule => ScalaServerSideEncryptionRule, _ }
-import software.amazon.awssdk.services.s3.model.{ ServerSideEncryptionRule => JavaServerSideEncryptionRule }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ServerSideEncryptionRuleOps {
+final class ServerSideEncryptionRuleBuilderOps(val self: ServerSideEncryptionRule.Builder) extends AnyVal {
 
-  implicit class ScalaServerSideEncryptionRuleOps(val self: ScalaServerSideEncryptionRule) extends AnyVal {
-
-    def toJava: JavaServerSideEncryptionRule = {
-      val result = JavaServerSideEncryptionRule.builder()
-      self.applyServerSideEncryptionByDefault.foreach { v =>
-        import ServerSideEncryptionByDefaultOps._; result.applyServerSideEncryptionByDefault(v.toJava)
-      } // ServerSideEncryptionByDefault
-
-      result.build()
+  final def withApplyServerSideEncryptionByDefaultAsScala(
+      value: Option[ServerSideEncryptionByDefault]
+  ): ServerSideEncryptionRule.Builder = {
+    value.fold(self) { v =>
+      self.applyServerSideEncryptionByDefault(v)
     }
+  } // ServerSideEncryptionByDefault
 
-  }
+}
 
-  implicit class JavaServerSideEncryptionRuleOps(val self: JavaServerSideEncryptionRule) extends AnyVal {
+final class ServerSideEncryptionRuleOps(val self: ServerSideEncryptionRule) extends AnyVal {
 
-    def toScala: ScalaServerSideEncryptionRule = {
-      ScalaServerSideEncryptionRule()
-        .withApplyServerSideEncryptionByDefault(Option(self.applyServerSideEncryptionByDefault).map { v =>
-          import ServerSideEncryptionByDefaultOps._; v.toScala
-        }) // ServerSideEncryptionByDefault
-    }
+  final def applyServerSideEncryptionByDefaultAsScala: Option[ServerSideEncryptionByDefault] =
+    Option(self.applyServerSideEncryptionByDefault) // ServerSideEncryptionByDefault
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToServerSideEncryptionRuleOps {
+
+  implicit def toServerSideEncryptionRuleBuilderOps(
+      v: ServerSideEncryptionRule.Builder
+  ): ServerSideEncryptionRuleBuilderOps = new ServerSideEncryptionRuleBuilderOps(v)
+
+  implicit def toServerSideEncryptionRuleOps(v: ServerSideEncryptionRule): ServerSideEncryptionRuleOps =
+    new ServerSideEncryptionRuleOps(v)
 
 }

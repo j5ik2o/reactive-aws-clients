@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketPolicyStatusRequest => ScalaGetBucketPolicyStatusRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketPolicyStatusRequest => JavaGetBucketPolicyStatusRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketPolicyStatusRequestOps {
+final class GetBucketPolicyStatusRequestBuilderOps(val self: GetBucketPolicyStatusRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketPolicyStatusRequestOps(val self: ScalaGetBucketPolicyStatusRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketPolicyStatusRequest = {
-      val result = JavaGetBucketPolicyStatusRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketPolicyStatusRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketPolicyStatusRequestOps(val self: GetBucketPolicyStatusRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketPolicyStatusRequestOps {
+
+  implicit def toGetBucketPolicyStatusRequestBuilderOps(
+      v: GetBucketPolicyStatusRequest.Builder
+  ): GetBucketPolicyStatusRequestBuilderOps = new GetBucketPolicyStatusRequestBuilderOps(v)
+
+  implicit def toGetBucketPolicyStatusRequestOps(v: GetBucketPolicyStatusRequest): GetBucketPolicyStatusRequestOps =
+    new GetBucketPolicyStatusRequestOps(v)
 
 }

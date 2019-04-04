@@ -1,34 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CORSConfiguration => ScalaCORSConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ CORSConfiguration => JavaCORSConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CORSConfigurationOps {
+final class CORSConfigurationBuilderOps(val self: CORSConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaCORSConfigurationOps(val self: ScalaCORSConfiguration) extends AnyVal {
-
-    def toJava: JavaCORSConfiguration = {
-      val result = JavaCORSConfiguration.builder()
-      self.corsRules.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, CORSRuleOps._; result.corsRules(v.map(_.toJava).asJava)
-      } // Seq[CORSRule]
-
-      result.build()
-    }
-
+  final def withCorsRulesAsScala(value: Option[Seq[CORSRule]]): CORSConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.corsRules(v.asJava)
+    } // Seq[CORSRule]
   }
 
-  implicit class JavaCORSConfigurationOps(val self: JavaCORSConfiguration) extends AnyVal {
+}
 
-    def toScala: ScalaCORSConfiguration = {
-      ScalaCORSConfiguration()
-        .withCorsRules(Option(self.corsRules).map { v =>
-          import scala.collection.JavaConverters._, CORSRuleOps._; v.asScala.map(_.toScala)
-        }) // Seq[CORSRule]
-    }
+final class CORSConfigurationOps(val self: CORSConfiguration) extends AnyVal {
 
-  }
+  final def corsRulesAsScala: Option[Seq[CORSRule]] = Option(self.corsRules).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[CORSRule]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCORSConfigurationOps {
+
+  implicit def toCORSConfigurationBuilderOps(v: CORSConfiguration.Builder): CORSConfigurationBuilderOps =
+    new CORSConfigurationBuilderOps(v)
+
+  implicit def toCORSConfigurationOps(v: CORSConfiguration): CORSConfigurationOps = new CORSConfigurationOps(v)
 
 }

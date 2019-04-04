@@ -1,26 +1,54 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectAclRequest => ScalaGetObjectAclRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectAclRequest => JavaGetObjectAclRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectAclRequestOps {
+final class GetObjectAclRequestBuilderOps(val self: GetObjectAclRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetObjectAclRequestOps(val self: ScalaGetObjectAclRequest) extends AnyVal {
-
-    def toJava: JavaGetObjectAclRequest = {
-      val result = JavaGetObjectAclRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))       // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))             // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v)) // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withVersionIdAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class GetObjectAclRequestOps(val self: GetObjectAclRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectAclRequestOps {
+
+  implicit def toGetObjectAclRequestBuilderOps(v: GetObjectAclRequest.Builder): GetObjectAclRequestBuilderOps =
+    new GetObjectAclRequestBuilderOps(v)
+
+  implicit def toGetObjectAclRequestOps(v: GetObjectAclRequest): GetObjectAclRequestOps = new GetObjectAclRequestOps(v)
 
 }

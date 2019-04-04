@@ -1,26 +1,59 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketVersioningRequest => ScalaPutBucketVersioningRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketVersioningRequest => JavaPutBucketVersioningRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketVersioningRequestOps {
+final class PutBucketVersioningRequestBuilderOps(val self: PutBucketVersioningRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutBucketVersioningRequestOps(val self: ScalaPutBucketVersioningRequest) extends AnyVal {
-
-    def toJava: JavaPutBucketVersioningRequest = {
-      val result = JavaPutBucketVersioningRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))         // String
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v)) // String
-      self.mfa.filter(_.nonEmpty).foreach(v => result.mfa(v))               // String
-      self.versioningConfiguration.foreach { v =>
-        import VersioningConfigurationOps._; result.versioningConfiguration(v.toJava)
-      } // VersioningConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContentMD5AsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withMfaAsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
+    value.fold(self) { v =>
+      self.mfa(v)
+    }
+  } // String
+
+  final def withVersioningConfigurationAsScala(
+      value: Option[VersioningConfiguration]
+  ): PutBucketVersioningRequest.Builder = {
+    value.fold(self) { v =>
+      self.versioningConfiguration(v)
+    }
+  } // VersioningConfiguration
+
+}
+
+final class PutBucketVersioningRequestOps(val self: PutBucketVersioningRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def mfaAsScala: Option[String] = Option(self.mfa) // String
+
+  final def versioningConfigurationAsScala: Option[VersioningConfiguration] =
+    Option(self.versioningConfiguration) // VersioningConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketVersioningRequestOps {
+
+  implicit def toPutBucketVersioningRequestBuilderOps(
+      v: PutBucketVersioningRequest.Builder
+  ): PutBucketVersioningRequestBuilderOps = new PutBucketVersioningRequestBuilderOps(v)
+
+  implicit def toPutBucketVersioningRequestOps(v: PutBucketVersioningRequest): PutBucketVersioningRequestOps =
+    new PutBucketVersioningRequestOps(v)
 
 }

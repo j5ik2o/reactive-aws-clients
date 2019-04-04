@@ -1,28 +1,70 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ListPartsRequest => ScalaListPartsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ ListPartsRequest => JavaListPartsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListPartsRequestOps {
+final class ListPartsRequestBuilderOps(val self: ListPartsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaListPartsRequestOps(val self: ScalaListPartsRequest) extends AnyVal {
-
-    def toJava: JavaListPartsRequest = {
-      val result = JavaListPartsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))                  // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))                        // String
-      self.maxParts.map(_.intValue).foreach(v => result.maxParts(v))                 // Int
-      self.partNumberMarker.map(_.intValue).foreach(v => result.partNumberMarker(v)) // Int
-      self.uploadId.filter(_.nonEmpty).foreach(v => result.uploadId(v))              // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): ListPartsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): ListPartsRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withMaxPartsAsScala(value: Option[Int]): ListPartsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxParts(v)
+    }
+  } // Int
+
+  final def withPartNumberMarkerAsScala(value: Option[Int]): ListPartsRequest.Builder = {
+    value.fold(self) { v =>
+      self.partNumberMarker(v)
+    }
+  } // Int
+
+  final def withUploadIdAsScala(value: Option[String]): ListPartsRequest.Builder = {
+    value.fold(self) { v =>
+      self.uploadId(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): ListPartsRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class ListPartsRequestOps(val self: ListPartsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def maxPartsAsScala: Option[Int] = Option(self.maxParts) // Int
+
+  final def partNumberMarkerAsScala: Option[Int] = Option(self.partNumberMarker) // Int
+
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListPartsRequestOps {
+
+  implicit def toListPartsRequestBuilderOps(v: ListPartsRequest.Builder): ListPartsRequestBuilderOps =
+    new ListPartsRequestBuilderOps(v)
+
+  implicit def toListPartsRequestOps(v: ListPartsRequest): ListPartsRequestOps = new ListPartsRequestOps(v)
 
 }

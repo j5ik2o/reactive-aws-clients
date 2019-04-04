@@ -1,28 +1,36 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketNotificationConfigurationRequest => ScalaGetBucketNotificationConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketNotificationConfigurationRequest => JavaGetBucketNotificationConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketNotificationConfigurationRequestOps {
+final class GetBucketNotificationConfigurationRequestBuilderOps(
+    val self: GetBucketNotificationConfigurationRequest.Builder
+) extends AnyVal {
 
-  implicit class ScalaGetBucketNotificationConfigurationRequestOps(
-      val self: ScalaGetBucketNotificationConfigurationRequest
-  ) extends AnyVal {
-
-    def toJava: JavaGetBucketNotificationConfigurationRequest = {
-      val result = JavaGetBucketNotificationConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketNotificationConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketNotificationConfigurationRequestOps(val self: GetBucketNotificationConfigurationRequest)
+    extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketNotificationConfigurationRequestOps {
+
+  implicit def toGetBucketNotificationConfigurationRequestBuilderOps(
+      v: GetBucketNotificationConfigurationRequest.Builder
+  ): GetBucketNotificationConfigurationRequestBuilderOps = new GetBucketNotificationConfigurationRequestBuilderOps(v)
+
+  implicit def toGetBucketNotificationConfigurationRequestOps(
+      v: GetBucketNotificationConfigurationRequest
+  ): GetBucketNotificationConfigurationRequestOps = new GetBucketNotificationConfigurationRequestOps(v)
 
 }

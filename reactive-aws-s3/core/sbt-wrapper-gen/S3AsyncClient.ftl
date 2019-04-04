@@ -3,17 +3,16 @@ package com.github.j5ik2o.reactive.aws.s3
 
 import java.util.concurrent.CompletableFuture
 
-import com.github.j5ik2o.reactive.aws.s3.model._
-import com.github.j5ik2o.reactive.aws.s3.model.rs._
-import com.github.j5ik2o.reactive.aws.s3.model.ops._
+import software.amazon.awssdk.services.s3.model._
+import software.amazon.awssdk.services.s3.paginators._
 import software.amazon.awssdk.services.s3.{ S3AsyncClient => JavaS3AsyncClient }
 
 import scala.compat.java8.FutureConverters
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.Future
 
 object S3AsyncClient {
 
-  def apply(underlying: JavaS3AsyncClient)(implicit ec: ExecutionContext): S3AsyncClient =
+  def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
     new S3AsyncClientImpl(underlying)
 
   implicit class CompletableFutureOps[A](val cf: CompletableFuture[A]) extends AnyVal {
@@ -23,18 +22,14 @@ object S3AsyncClient {
 }
 
 trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
-  implicit val execution: ExecutionContext
   val underlying: JavaS3AsyncClient
 import S3AsyncClient._
 
 <#list methods as method><#if targetAsyncMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> = {
     <#if method.name?ends_with("Paginator")>
-        <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
-        new ${method.returnTypeDesc.simpleTypeName}Impl(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>))
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
     <#else>
-        <#if method.parameterTypeDescs?has_content>import <#list method.parameterTypeDescs as p>${p.parameterTypeDesc.fullTypeName}Ops._<#if p_has_next>,</#if></#list></#if>
-        import ${method.returnTypeDesc.valueTypeDesc.simpleTypeName}Ops._
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}.toJava<#if p_has_next>,</#if></#list>).toFuture.map(_.toScala)
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toFuture
     </#if>
     }
 

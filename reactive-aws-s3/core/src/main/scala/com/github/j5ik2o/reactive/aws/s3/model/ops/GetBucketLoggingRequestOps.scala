@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketLoggingRequest => ScalaGetBucketLoggingRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketLoggingRequest => JavaGetBucketLoggingRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketLoggingRequestOps {
+final class GetBucketLoggingRequestBuilderOps(val self: GetBucketLoggingRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketLoggingRequestOps(val self: ScalaGetBucketLoggingRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketLoggingRequest = {
-      val result = JavaGetBucketLoggingRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketLoggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketLoggingRequestOps(val self: GetBucketLoggingRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketLoggingRequestOps {
+
+  implicit def toGetBucketLoggingRequestBuilderOps(
+      v: GetBucketLoggingRequest.Builder
+  ): GetBucketLoggingRequestBuilderOps = new GetBucketLoggingRequestBuilderOps(v)
+
+  implicit def toGetBucketLoggingRequestOps(v: GetBucketLoggingRequest): GetBucketLoggingRequestOps =
+    new GetBucketLoggingRequestOps(v)
 
 }

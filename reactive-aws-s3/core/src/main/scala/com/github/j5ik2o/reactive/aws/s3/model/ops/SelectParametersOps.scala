@@ -1,48 +1,56 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ SelectParameters => ScalaSelectParameters, _ }
-import software.amazon.awssdk.services.s3.model.{ SelectParameters => JavaSelectParameters }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SelectParametersOps {
+final class SelectParametersBuilderOps(val self: SelectParameters.Builder) extends AnyVal {
 
-  implicit class ScalaSelectParametersOps(val self: ScalaSelectParameters) extends AnyVal {
-
-    def toJava: JavaSelectParameters = {
-      val result = JavaSelectParameters.builder()
-      self.inputSerialization.foreach { v =>
-        import InputSerializationOps._; result.inputSerialization(v.toJava)
-      } // InputSerialization
-      self.expressionType.foreach { v =>
-        import ExpressionTypeOps._; result.expressionType(v.toJava)
-      } // String
-      self.expression.filter(_.nonEmpty).foreach(v => result.expression(v)) // String
-      self.outputSerialization.foreach { v =>
-        import OutputSerializationOps._; result.outputSerialization(v.toJava)
-      } // OutputSerialization
-
-      result.build()
+  final def withInputSerializationAsScala(value: Option[InputSerialization]): SelectParameters.Builder = {
+    value.fold(self) { v =>
+      self.inputSerialization(v)
     }
+  } // InputSerialization
 
-  }
-
-  implicit class JavaSelectParametersOps(val self: JavaSelectParameters) extends AnyVal {
-
-    def toScala: ScalaSelectParameters = {
-      ScalaSelectParameters()
-        .withInputSerialization(Option(self.inputSerialization).map { v =>
-          import InputSerializationOps._; v.toScala
-        }) // InputSerialization
-        .withExpressionType(Option(self.expressionType).map { v =>
-          import ExpressionTypeOps._; v.toScala
-        }) // String
-        .withExpression(Option(self.expression)) // String
-        .withOutputSerialization(Option(self.outputSerialization).map { v =>
-          import OutputSerializationOps._; v.toScala
-        }) // OutputSerialization
+  final def withExpressionTypeAsScala(value: Option[ExpressionType]): SelectParameters.Builder = {
+    value.fold(self) { v =>
+      self.expressionType(v)
     }
+  } // String
 
-  }
+  final def withExpressionAsScala(value: Option[String]): SelectParameters.Builder = {
+    value.fold(self) { v =>
+      self.expression(v)
+    }
+  } // String
+
+  final def withOutputSerializationAsScala(value: Option[OutputSerialization]): SelectParameters.Builder = {
+    value.fold(self) { v =>
+      self.outputSerialization(v)
+    }
+  } // OutputSerialization
+
+}
+
+final class SelectParametersOps(val self: SelectParameters) extends AnyVal {
+
+  final def inputSerializationAsScala: Option[InputSerialization] =
+    Option(self.inputSerialization) // InputSerialization
+
+  final def expressionTypeAsScala: Option[ExpressionType] = Option(self.expressionType) // String
+
+  final def expressionAsScala: Option[String] = Option(self.expression) // String
+
+  final def outputSerializationAsScala: Option[OutputSerialization] =
+    Option(self.outputSerialization) // OutputSerialization
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSelectParametersOps {
+
+  implicit def toSelectParametersBuilderOps(v: SelectParameters.Builder): SelectParametersBuilderOps =
+    new SelectParametersBuilderOps(v)
+
+  implicit def toSelectParametersOps(v: SelectParameters): SelectParametersOps = new SelectParametersOps(v)
 
 }

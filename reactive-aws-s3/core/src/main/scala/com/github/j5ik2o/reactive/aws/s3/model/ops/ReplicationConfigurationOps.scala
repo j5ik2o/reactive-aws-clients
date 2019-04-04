@@ -1,36 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ReplicationConfiguration => ScalaReplicationConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ ReplicationConfiguration => JavaReplicationConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ReplicationConfigurationOps {
+final class ReplicationConfigurationBuilderOps(val self: ReplicationConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaReplicationConfigurationOps(val self: ScalaReplicationConfiguration) extends AnyVal {
-
-    def toJava: JavaReplicationConfiguration = {
-      val result = JavaReplicationConfiguration.builder()
-      self.role.filter(_.nonEmpty).foreach(v => result.role(v)) // String
-      self.rules.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ReplicationRuleOps._; result.rules(v.map(_.toJava).asJava)
-      } // Seq[ReplicationRule]
-
-      result.build()
+  final def withRoleAsScala(value: Option[String]): ReplicationConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.role(v)
     }
+  } // String
 
+  final def withRulesAsScala(value: Option[Seq[ReplicationRule]]): ReplicationConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.rules(v.asJava)
+    } // Seq[ReplicationRule]
   }
 
-  implicit class JavaReplicationConfigurationOps(val self: JavaReplicationConfiguration) extends AnyVal {
+}
 
-    def toScala: ScalaReplicationConfiguration = {
-      ScalaReplicationConfiguration()
-        .withRole(Option(self.role)) // String
-        .withRules(Option(self.rules).map { v =>
-          import scala.collection.JavaConverters._, ReplicationRuleOps._; v.asScala.map(_.toScala)
-        }) // Seq[ReplicationRule]
-    }
+final class ReplicationConfigurationOps(val self: ReplicationConfiguration) extends AnyVal {
 
-  }
+  final def roleAsScala: Option[String] = Option(self.role) // String
+
+  final def rulesAsScala: Option[Seq[ReplicationRule]] = Option(self.rules).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ReplicationRule]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToReplicationConfigurationOps {
+
+  implicit def toReplicationConfigurationBuilderOps(
+      v: ReplicationConfiguration.Builder
+  ): ReplicationConfigurationBuilderOps = new ReplicationConfigurationBuilderOps(v)
+
+  implicit def toReplicationConfigurationOps(v: ReplicationConfiguration): ReplicationConfigurationOps =
+    new ReplicationConfigurationOps(v)
 
 }

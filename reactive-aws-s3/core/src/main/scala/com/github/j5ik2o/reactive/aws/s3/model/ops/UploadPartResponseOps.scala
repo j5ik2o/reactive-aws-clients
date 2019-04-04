@@ -1,34 +1,70 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ UploadPartResponse => ScalaUploadPartResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ UploadPartResponse => JavaUploadPartResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class UploadPartResponseBuilderOps(val self: UploadPartResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UploadPartResponseOps {
-
-  implicit class JavaUploadPartResponseOps(val self: JavaUploadPartResponse) extends AnyVal {
-
-    def toScala: ScalaUploadPartResponse = {
-      ScalaUploadPartResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withServerSideEncryption(Option(self.serverSideEncryption).map { v =>
-          import ServerSideEncryptionOps._; v.toScala
-        }) // String
-        .withETag(Option(self.eTag)) // String
-        .withSseCustomerAlgorithm(Option(self.sseCustomerAlgorithm)) // String
-        .withSseCustomerKeyMD5(Option(self.sseCustomerKeyMD5)) // String
-        .withSsekmsKeyId(Option(self.ssekmsKeyId)) // String
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartResponse.Builder = {
+    value.fold(self) { v =>
+      self.serverSideEncryption(v)
     }
+  } // String
 
-  }
+  final def withETagAsScala(value: Option[String]): UploadPartResponse.Builder = {
+    value.fold(self) { v =>
+      self.eTag(v)
+    }
+  } // String
+
+  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerAlgorithm(v)
+    }
+  } // String
+
+  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerKeyMD5(v)
+    }
+  } // String
+
+  final def withSsekmsKeyIdAsScala(value: Option[String]): UploadPartResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsKeyId(v)
+    }
+  } // String
+
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): UploadPartResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
+    }
+  } // String
+
+}
+
+final class UploadPartResponseOps(val self: UploadPartResponse) extends AnyVal {
+
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+
+  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUploadPartResponseOps {
+
+  implicit def toUploadPartResponseBuilderOps(v: UploadPartResponse.Builder): UploadPartResponseBuilderOps =
+    new UploadPartResponseBuilderOps(v)
+
+  implicit def toUploadPartResponseOps(v: UploadPartResponse): UploadPartResponseOps = new UploadPartResponseOps(v)
 
 }

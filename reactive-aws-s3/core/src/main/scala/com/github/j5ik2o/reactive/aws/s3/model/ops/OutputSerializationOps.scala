@@ -1,40 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ OutputSerialization => ScalaOutputSerialization, _ }
-import software.amazon.awssdk.services.s3.model.{ OutputSerialization => JavaOutputSerialization }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object OutputSerializationOps {
+final class OutputSerializationBuilderOps(val self: OutputSerialization.Builder) extends AnyVal {
 
-  implicit class ScalaOutputSerializationOps(val self: ScalaOutputSerialization) extends AnyVal {
-
-    def toJava: JavaOutputSerialization = {
-      val result = JavaOutputSerialization.builder()
-      self.csv.foreach { v =>
-        import CSVOutputOps._; result.csv(v.toJava)
-      } // CSVOutput
-      self.json.foreach { v =>
-        import JSONOutputOps._; result.json(v.toJava)
-      } // JSONOutput
-
-      result.build()
+  final def withCsvAsScala(value: Option[CSVOutput]): OutputSerialization.Builder = {
+    value.fold(self) { v =>
+      self.csv(v)
     }
+  } // CSVOutput
 
-  }
-
-  implicit class JavaOutputSerializationOps(val self: JavaOutputSerialization) extends AnyVal {
-
-    def toScala: ScalaOutputSerialization = {
-      ScalaOutputSerialization()
-        .withCsv(Option(self.csv).map { v =>
-          import CSVOutputOps._; v.toScala
-        }) // CSVOutput
-        .withJson(Option(self.json).map { v =>
-          import JSONOutputOps._; v.toScala
-        }) // JSONOutput
+  final def withJsonAsScala(value: Option[JSONOutput]): OutputSerialization.Builder = {
+    value.fold(self) { v =>
+      self.json(v)
     }
+  } // JSONOutput
 
-  }
+}
+
+final class OutputSerializationOps(val self: OutputSerialization) extends AnyVal {
+
+  final def csvAsScala: Option[CSVOutput] = Option(self.csv) // CSVOutput
+
+  final def jsonAsScala: Option[JSONOutput] = Option(self.json) // JSONOutput
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToOutputSerializationOps {
+
+  implicit def toOutputSerializationBuilderOps(v: OutputSerialization.Builder): OutputSerializationBuilderOps =
+    new OutputSerializationBuilderOps(v)
+
+  implicit def toOutputSerializationOps(v: OutputSerialization): OutputSerializationOps = new OutputSerializationOps(v)
 
 }

@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteBucketLifecycleRequest => ScalaDeleteBucketLifecycleRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketLifecycleRequest => JavaDeleteBucketLifecycleRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketLifecycleRequestOps {
+final class DeleteBucketLifecycleRequestBuilderOps(val self: DeleteBucketLifecycleRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteBucketLifecycleRequestOps(val self: ScalaDeleteBucketLifecycleRequest) extends AnyVal {
-
-    def toJava: JavaDeleteBucketLifecycleRequest = {
-      val result = JavaDeleteBucketLifecycleRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteBucketLifecycleRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteBucketLifecycleRequestOps(val self: DeleteBucketLifecycleRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketLifecycleRequestOps {
+
+  implicit def toDeleteBucketLifecycleRequestBuilderOps(
+      v: DeleteBucketLifecycleRequest.Builder
+  ): DeleteBucketLifecycleRequestBuilderOps = new DeleteBucketLifecycleRequestBuilderOps(v)
+
+  implicit def toDeleteBucketLifecycleRequestOps(v: DeleteBucketLifecycleRequest): DeleteBucketLifecycleRequestOps =
+    new DeleteBucketLifecycleRequestOps(v)
 
 }

@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteBucketPolicyResponse => ScalaDeleteBucketPolicyResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketPolicyResponse => JavaDeleteBucketPolicyResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBucketPolicyResponseBuilderOps(val self: DeleteBucketPolicyResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketPolicyResponseOps {
+final class DeleteBucketPolicyResponseOps(val self: DeleteBucketPolicyResponse) extends AnyVal {}
 
-  implicit class JavaDeleteBucketPolicyResponseOps(val self: JavaDeleteBucketPolicyResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketPolicyResponseOps {
 
-    def toScala: ScalaDeleteBucketPolicyResponse = {
-      ScalaDeleteBucketPolicyResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteBucketPolicyResponseBuilderOps(
+      v: DeleteBucketPolicyResponse.Builder
+  ): DeleteBucketPolicyResponseBuilderOps = new DeleteBucketPolicyResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteBucketPolicyResponseOps(v: DeleteBucketPolicyResponse): DeleteBucketPolicyResponseOps =
+    new DeleteBucketPolicyResponseOps(v)
 
 }

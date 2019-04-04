@@ -1,32 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CopyObjectResult => ScalaCopyObjectResult, _ }
-import software.amazon.awssdk.services.s3.model.{ CopyObjectResult => JavaCopyObjectResult }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CopyObjectResultOps {
+final class CopyObjectResultBuilderOps(val self: CopyObjectResult.Builder) extends AnyVal {
 
-  implicit class ScalaCopyObjectResultOps(val self: ScalaCopyObjectResult) extends AnyVal {
-
-    def toJava: JavaCopyObjectResult = {
-      val result = JavaCopyObjectResult.builder()
-      self.eTag.filter(_.nonEmpty).foreach(v => result.eTag(v)) // String
-      self.lastModified.foreach(v => result.lastModified(v))    // Instant
-
-      result.build()
+  final def withETagAsScala(value: Option[String]): CopyObjectResult.Builder = {
+    value.fold(self) { v =>
+      self.eTag(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaCopyObjectResultOps(val self: JavaCopyObjectResult) extends AnyVal {
-
-    def toScala: ScalaCopyObjectResult = {
-      ScalaCopyObjectResult()
-        .withETag(Option(self.eTag)) // String
-        .withLastModified(Option(self.lastModified)) // Instant
+  final def withLastModifiedAsScala(value: Option[java.time.Instant]): CopyObjectResult.Builder = {
+    value.fold(self) { v =>
+      self.lastModified(v)
     }
+  } // Instant
 
-  }
+}
+
+final class CopyObjectResultOps(val self: CopyObjectResult) extends AnyVal {
+
+  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCopyObjectResultOps {
+
+  implicit def toCopyObjectResultBuilderOps(v: CopyObjectResult.Builder): CopyObjectResultBuilderOps =
+    new CopyObjectResultBuilderOps(v)
+
+  implicit def toCopyObjectResultOps(v: CopyObjectResult): CopyObjectResultOps = new CopyObjectResultOps(v)
 
 }

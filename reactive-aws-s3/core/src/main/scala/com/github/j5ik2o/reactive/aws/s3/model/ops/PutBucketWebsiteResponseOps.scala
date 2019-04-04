@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketWebsiteResponse => ScalaPutBucketWebsiteResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketWebsiteResponse => JavaPutBucketWebsiteResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketWebsiteResponseBuilderOps(val self: PutBucketWebsiteResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketWebsiteResponseOps {
+final class PutBucketWebsiteResponseOps(val self: PutBucketWebsiteResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketWebsiteResponseOps(val self: JavaPutBucketWebsiteResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketWebsiteResponseOps {
 
-    def toScala: ScalaPutBucketWebsiteResponse = {
-      ScalaPutBucketWebsiteResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketWebsiteResponseBuilderOps(
+      v: PutBucketWebsiteResponse.Builder
+  ): PutBucketWebsiteResponseBuilderOps = new PutBucketWebsiteResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketWebsiteResponseOps(v: PutBucketWebsiteResponse): PutBucketWebsiteResponseOps =
+    new PutBucketWebsiteResponseOps(v)
 
 }

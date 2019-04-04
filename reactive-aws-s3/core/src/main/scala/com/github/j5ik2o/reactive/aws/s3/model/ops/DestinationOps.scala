@@ -1,50 +1,63 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Destination => ScalaDestination, _ }
-import software.amazon.awssdk.services.s3.model.{ Destination => JavaDestination }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DestinationOps {
+final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal {
 
-  implicit class ScalaDestinationOps(val self: ScalaDestination) extends AnyVal {
-
-    def toJava: JavaDestination = {
-      val result = JavaDestination.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))   // String
-      self.account.filter(_.nonEmpty).foreach(v => result.account(v)) // String
-      self.storageClass.foreach { v =>
-        import StorageClassOps._; result.storageClass(v.toJava)
-      } // String
-      self.accessControlTranslation.foreach { v =>
-        import AccessControlTranslationOps._; result.accessControlTranslation(v.toJava)
-      } // AccessControlTranslation
-      self.encryptionConfiguration.foreach { v =>
-        import EncryptionConfigurationOps._; result.encryptionConfiguration(v.toJava)
-      } // EncryptionConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaDestinationOps(val self: JavaDestination) extends AnyVal {
-
-    def toScala: ScalaDestination = {
-      ScalaDestination()
-        .withBucket(Option(self.bucket)) // String
-        .withAccount(Option(self.account)) // String
-        .withStorageClass(Option(self.storageClass).map { v =>
-          import StorageClassOps._; v.toScala
-        }) // String
-        .withAccessControlTranslation(Option(self.accessControlTranslation).map { v =>
-          import AccessControlTranslationOps._; v.toScala
-        }) // AccessControlTranslation
-        .withEncryptionConfiguration(Option(self.encryptionConfiguration).map { v =>
-          import EncryptionConfigurationOps._; v.toScala
-        }) // EncryptionConfiguration
+  final def withAccountAsScala(value: Option[String]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.account(v)
     }
+  } // String
 
-  }
+  final def withStorageClassAsScala(value: Option[StorageClass]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.storageClass(v)
+    }
+  } // String
+
+  final def withAccessControlTranslationAsScala(value: Option[AccessControlTranslation]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.accessControlTranslation(v)
+    }
+  } // AccessControlTranslation
+
+  final def withEncryptionConfigurationAsScala(value: Option[EncryptionConfiguration]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.encryptionConfiguration(v)
+    }
+  } // EncryptionConfiguration
+
+}
+
+final class DestinationOps(val self: Destination) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def accountAsScala: Option[String] = Option(self.account) // String
+
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+
+  final def accessControlTranslationAsScala: Option[AccessControlTranslation] =
+    Option(self.accessControlTranslation) // AccessControlTranslation
+
+  final def encryptionConfigurationAsScala: Option[EncryptionConfiguration] =
+    Option(self.encryptionConfiguration) // EncryptionConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDestinationOps {
+
+  implicit def toDestinationBuilderOps(v: Destination.Builder): DestinationBuilderOps = new DestinationBuilderOps(v)
+
+  implicit def toDestinationOps(v: Destination): DestinationOps = new DestinationOps(v)
 
 }

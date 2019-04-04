@@ -1,34 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ BucketLoggingStatus => ScalaBucketLoggingStatus, _ }
-import software.amazon.awssdk.services.s3.model.{ BucketLoggingStatus => JavaBucketLoggingStatus }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object BucketLoggingStatusOps {
+final class BucketLoggingStatusBuilderOps(val self: BucketLoggingStatus.Builder) extends AnyVal {
 
-  implicit class ScalaBucketLoggingStatusOps(val self: ScalaBucketLoggingStatus) extends AnyVal {
-
-    def toJava: JavaBucketLoggingStatus = {
-      val result = JavaBucketLoggingStatus.builder()
-      self.loggingEnabled.foreach { v =>
-        import LoggingEnabledOps._; result.loggingEnabled(v.toJava)
-      } // LoggingEnabled
-
-      result.build()
+  final def withLoggingEnabledAsScala(value: Option[LoggingEnabled]): BucketLoggingStatus.Builder = {
+    value.fold(self) { v =>
+      self.loggingEnabled(v)
     }
+  } // LoggingEnabled
 
-  }
+}
 
-  implicit class JavaBucketLoggingStatusOps(val self: JavaBucketLoggingStatus) extends AnyVal {
+final class BucketLoggingStatusOps(val self: BucketLoggingStatus) extends AnyVal {
 
-    def toScala: ScalaBucketLoggingStatus = {
-      ScalaBucketLoggingStatus()
-        .withLoggingEnabled(Option(self.loggingEnabled).map { v =>
-          import LoggingEnabledOps._; v.toScala
-        }) // LoggingEnabled
-    }
+  final def loggingEnabledAsScala: Option[LoggingEnabled] = Option(self.loggingEnabled) // LoggingEnabled
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToBucketLoggingStatusOps {
+
+  implicit def toBucketLoggingStatusBuilderOps(v: BucketLoggingStatus.Builder): BucketLoggingStatusBuilderOps =
+    new BucketLoggingStatusBuilderOps(v)
+
+  implicit def toBucketLoggingStatusOps(v: BucketLoggingStatus): BucketLoggingStatusOps = new BucketLoggingStatusOps(v)
 
 }

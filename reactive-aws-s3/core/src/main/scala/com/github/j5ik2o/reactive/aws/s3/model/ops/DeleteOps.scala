@@ -1,36 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Delete => ScalaDelete, _ }
-import software.amazon.awssdk.services.s3.model.{ Delete => JavaDelete }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteOps {
+final class DeleteBuilderOps(val self: Delete.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteOps(val self: ScalaDelete) extends AnyVal {
-
-    def toJava: JavaDelete = {
-      val result = JavaDelete.builder()
-      self.objects.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ObjectIdentifierOps._; result.objects(v.map(_.toJava).asJava)
-      } // Seq[ObjectIdentifier]
-      self.quiet.map(_.booleanValue).foreach(v => result.quiet(v)) // Boolean
-
-      result.build()
-    }
-
+  final def withObjectsAsScala(value: Option[Seq[ObjectIdentifier]]): Delete.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.objects(v.asJava)
+    } // Seq[ObjectIdentifier]
   }
 
-  implicit class JavaDeleteOps(val self: JavaDelete) extends AnyVal {
-
-    def toScala: ScalaDelete = {
-      ScalaDelete()
-        .withObjects(Option(self.objects).map { v =>
-          import scala.collection.JavaConverters._, ObjectIdentifierOps._; v.asScala.map(_.toScala)
-        }) // Seq[ObjectIdentifier]
-        .withQuiet(Option(self.quiet).map(_.booleanValue)) // Boolean
+  final def withQuietAsScala(value: Option[Boolean]): Delete.Builder = {
+    value.fold(self) { v =>
+      self.quiet(v)
     }
+  } // Boolean
 
-  }
+}
+
+final class DeleteOps(val self: Delete) extends AnyVal {
+
+  final def objectsAsScala: Option[Seq[ObjectIdentifier]] = Option(self.objects).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ObjectIdentifier]
+
+  final def quietAsScala: Option[Boolean] = Option(self.quiet) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteOps {
+
+  implicit def toDeleteBuilderOps(v: Delete.Builder): DeleteBuilderOps = new DeleteBuilderOps(v)
+
+  implicit def toDeleteOps(v: Delete): DeleteOps = new DeleteOps(v)
 
 }

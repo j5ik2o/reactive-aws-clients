@@ -1,42 +1,61 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CSVOutput => ScalaCSVOutput, _ }
-import software.amazon.awssdk.services.s3.model.{ CSVOutput => JavaCSVOutput }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CSVOutputOps {
+final class CSVOutputBuilderOps(val self: CSVOutput.Builder) extends AnyVal {
 
-  implicit class ScalaCSVOutputOps(val self: ScalaCSVOutput) extends AnyVal {
-
-    def toJava: JavaCSVOutput = {
-      val result = JavaCSVOutput.builder()
-      self.quoteFields.foreach { v =>
-        import QuoteFieldsOps._; result.quoteFields(v.toJava)
-      } // String
-      self.quoteEscapeCharacter.filter(_.nonEmpty).foreach(v => result.quoteEscapeCharacter(v)) // String
-      self.recordDelimiter.filter(_.nonEmpty).foreach(v => result.recordDelimiter(v))           // String
-      self.fieldDelimiter.filter(_.nonEmpty).foreach(v => result.fieldDelimiter(v))             // String
-      self.quoteCharacter.filter(_.nonEmpty).foreach(v => result.quoteCharacter(v))             // String
-
-      result.build()
+  final def withQuoteFieldsAsScala(value: Option[QuoteFields]): CSVOutput.Builder = {
+    value.fold(self) { v =>
+      self.quoteFields(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaCSVOutputOps(val self: JavaCSVOutput) extends AnyVal {
-
-    def toScala: ScalaCSVOutput = {
-      ScalaCSVOutput()
-        .withQuoteFields(Option(self.quoteFields).map { v =>
-          import QuoteFieldsOps._; v.toScala
-        }) // String
-        .withQuoteEscapeCharacter(Option(self.quoteEscapeCharacter)) // String
-        .withRecordDelimiter(Option(self.recordDelimiter)) // String
-        .withFieldDelimiter(Option(self.fieldDelimiter)) // String
-        .withQuoteCharacter(Option(self.quoteCharacter)) // String
+  final def withQuoteEscapeCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
+    value.fold(self) { v =>
+      self.quoteEscapeCharacter(v)
     }
+  } // String
 
-  }
+  final def withRecordDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
+    value.fold(self) { v =>
+      self.recordDelimiter(v)
+    }
+  } // String
+
+  final def withFieldDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
+    value.fold(self) { v =>
+      self.fieldDelimiter(v)
+    }
+  } // String
+
+  final def withQuoteCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
+    value.fold(self) { v =>
+      self.quoteCharacter(v)
+    }
+  } // String
+
+}
+
+final class CSVOutputOps(val self: CSVOutput) extends AnyVal {
+
+  final def quoteFieldsAsScala: Option[QuoteFields] = Option(self.quoteFields) // String
+
+  final def quoteEscapeCharacterAsScala: Option[String] = Option(self.quoteEscapeCharacter) // String
+
+  final def recordDelimiterAsScala: Option[String] = Option(self.recordDelimiter) // String
+
+  final def fieldDelimiterAsScala: Option[String] = Option(self.fieldDelimiter) // String
+
+  final def quoteCharacterAsScala: Option[String] = Option(self.quoteCharacter) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCSVOutputOps {
+
+  implicit def toCSVOutputBuilderOps(v: CSVOutput.Builder): CSVOutputBuilderOps = new CSVOutputBuilderOps(v)
+
+  implicit def toCSVOutputOps(v: CSVOutput): CSVOutputOps = new CSVOutputOps(v)
 
 }

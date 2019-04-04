@@ -1,42 +1,61 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Grantee => ScalaGrantee, _ }
-import software.amazon.awssdk.services.s3.model.{ Grantee => JavaGrantee }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GranteeOps {
+final class GranteeBuilderOps(val self: Grantee.Builder) extends AnyVal {
 
-  implicit class ScalaGranteeOps(val self: ScalaGrantee) extends AnyVal {
-
-    def toJava: JavaGrantee = {
-      val result = JavaGrantee.builder()
-      self.displayName.filter(_.nonEmpty).foreach(v => result.displayName(v))   // String
-      self.emailAddress.filter(_.nonEmpty).foreach(v => result.emailAddress(v)) // String
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))                     // String
-      self.`type`.foreach { v =>
-        import TypeOps._; result.`type`(v.toJava)
-      } // String
-      self.uri.filter(_.nonEmpty).foreach(v => result.uri(v)) // String
-
-      result.build()
+  final def withDisplayNameAsScala(value: Option[String]): Grantee.Builder = {
+    value.fold(self) { v =>
+      self.displayName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaGranteeOps(val self: JavaGrantee) extends AnyVal {
-
-    def toScala: ScalaGrantee = {
-      ScalaGrantee()
-        .withDisplayName(Option(self.displayName)) // String
-        .withEmailAddress(Option(self.emailAddress)) // String
-        .withId(Option(self.id)) // String
-        .withType(Option(self.`type`).map { v =>
-          import TypeOps._; v.toScala
-        }) // String
-        .withUri(Option(self.uri)) // String
+  final def withEmailAddressAsScala(value: Option[String]): Grantee.Builder = {
+    value.fold(self) { v =>
+      self.emailAddress(v)
     }
+  } // String
 
-  }
+  final def withIdAsScala(value: Option[String]): Grantee.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
+    }
+  } // String
+
+  final def withTypeAsScala(value: Option[Type]): Grantee.Builder = {
+    value.fold(self) { v =>
+      self.`type`(v)
+    }
+  } // String
+
+  final def withUriAsScala(value: Option[String]): Grantee.Builder = {
+    value.fold(self) { v =>
+      self.uri(v)
+    }
+  } // String
+
+}
+
+final class GranteeOps(val self: Grantee) extends AnyVal {
+
+  final def displayNameAsScala: Option[String] = Option(self.displayName) // String
+
+  final def emailAddressAsScala: Option[String] = Option(self.emailAddress) // String
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def typeAsScala: Option[Type] = Option(self.`type`) // String
+
+  final def uriAsScala: Option[String] = Option(self.uri) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGranteeOps {
+
+  implicit def toGranteeBuilderOps(v: Grantee.Builder): GranteeBuilderOps = new GranteeBuilderOps(v)
+
+  implicit def toGranteeOps(v: Grantee): GranteeOps = new GranteeOps(v)
 
 }

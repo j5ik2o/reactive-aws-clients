@@ -1,9 +1,8 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3
 
-import com.github.j5ik2o.reactive.aws.s3.model._
-import com.github.j5ik2o.reactive.aws.s3.model.ops._
-import com.github.j5ik2o.reactive.aws.s3.model.rs._
+import software.amazon.awssdk.services.s3.model._
+import software.amazon.awssdk.services.s3.paginators._
 import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
 
 object S3SyncClient {
@@ -27,641 +26,461 @@ trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSuppo
   override def abortMultipartUpload(
       abortMultipartUploadRequest: AbortMultipartUploadRequest
   ): Either[Throwable, AbortMultipartUploadResponse] = {
-    import AbortMultipartUploadRequestOps._
-    import AbortMultipartUploadResponseOps._
-    toEither(underlying.abortMultipartUpload(abortMultipartUploadRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.abortMultipartUpload(abortMultipartUploadRequest))
   }
 
   override def completeMultipartUpload(
       completeMultipartUploadRequest: CompleteMultipartUploadRequest
   ): Either[Throwable, CompleteMultipartUploadResponse] = {
-    import CompleteMultipartUploadRequestOps._
-    import CompleteMultipartUploadResponseOps._
-    toEither(underlying.completeMultipartUpload(completeMultipartUploadRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.completeMultipartUpload(completeMultipartUploadRequest))
   }
 
   override def copyObject(copyObjectRequest: CopyObjectRequest): Either[Throwable, CopyObjectResponse] = {
-    import CopyObjectRequestOps._
-    import CopyObjectResponseOps._
-    toEither(underlying.copyObject(copyObjectRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.copyObject(copyObjectRequest))
   }
 
   override def createBucket(createBucketRequest: CreateBucketRequest): Either[Throwable, CreateBucketResponse] = {
-    import CreateBucketRequestOps._
-    import CreateBucketResponseOps._
-    toEither(underlying.createBucket(createBucketRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.createBucket(createBucketRequest))
   }
 
   override def createMultipartUpload(
       createMultipartUploadRequest: CreateMultipartUploadRequest
   ): Either[Throwable, CreateMultipartUploadResponse] = {
-    import CreateMultipartUploadRequestOps._
-    import CreateMultipartUploadResponseOps._
-    toEither(underlying.createMultipartUpload(createMultipartUploadRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.createMultipartUpload(createMultipartUploadRequest))
   }
 
   override def deleteBucket(deleteBucketRequest: DeleteBucketRequest): Either[Throwable, DeleteBucketResponse] = {
-    import DeleteBucketRequestOps._
-    import DeleteBucketResponseOps._
-    toEither(underlying.deleteBucket(deleteBucketRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucket(deleteBucketRequest))
   }
 
   override def deleteBucketAnalyticsConfiguration(
       deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest
   ): Either[Throwable, DeleteBucketAnalyticsConfigurationResponse] = {
-    import DeleteBucketAnalyticsConfigurationRequestOps._
-    import DeleteBucketAnalyticsConfigurationResponseOps._
-    toEither(underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest))
   }
 
   override def deleteBucketCors(
       deleteBucketCorsRequest: DeleteBucketCorsRequest
   ): Either[Throwable, DeleteBucketCorsResponse] = {
-    import DeleteBucketCorsRequestOps._
-    import DeleteBucketCorsResponseOps._
-    toEither(underlying.deleteBucketCors(deleteBucketCorsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketCors(deleteBucketCorsRequest))
   }
 
   override def deleteBucketEncryption(
       deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest
   ): Either[Throwable, DeleteBucketEncryptionResponse] = {
-    import DeleteBucketEncryptionRequestOps._
-    import DeleteBucketEncryptionResponseOps._
-    toEither(underlying.deleteBucketEncryption(deleteBucketEncryptionRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketEncryption(deleteBucketEncryptionRequest))
   }
 
   override def deleteBucketInventoryConfiguration(
       deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest
   ): Either[Throwable, DeleteBucketInventoryConfigurationResponse] = {
-    import DeleteBucketInventoryConfigurationRequestOps._
-    import DeleteBucketInventoryConfigurationResponseOps._
-    toEither(underlying.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest))
   }
 
   override def deleteBucketLifecycle(
       deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest
   ): Either[Throwable, DeleteBucketLifecycleResponse] = {
-    import DeleteBucketLifecycleRequestOps._
-    import DeleteBucketLifecycleResponseOps._
-    toEither(underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest))
   }
 
   override def deleteBucketMetricsConfiguration(
       deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest
   ): Either[Throwable, DeleteBucketMetricsConfigurationResponse] = {
-    import DeleteBucketMetricsConfigurationRequestOps._
-    import DeleteBucketMetricsConfigurationResponseOps._
-    toEither(underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest))
   }
 
   override def deleteBucketPolicy(
       deleteBucketPolicyRequest: DeleteBucketPolicyRequest
   ): Either[Throwable, DeleteBucketPolicyResponse] = {
-    import DeleteBucketPolicyRequestOps._
-    import DeleteBucketPolicyResponseOps._
-    toEither(underlying.deleteBucketPolicy(deleteBucketPolicyRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketPolicy(deleteBucketPolicyRequest))
   }
 
   override def deleteBucketReplication(
       deleteBucketReplicationRequest: DeleteBucketReplicationRequest
   ): Either[Throwable, DeleteBucketReplicationResponse] = {
-    import DeleteBucketReplicationRequestOps._
-    import DeleteBucketReplicationResponseOps._
-    toEither(underlying.deleteBucketReplication(deleteBucketReplicationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketReplication(deleteBucketReplicationRequest))
   }
 
   override def deleteBucketTagging(
       deleteBucketTaggingRequest: DeleteBucketTaggingRequest
   ): Either[Throwable, DeleteBucketTaggingResponse] = {
-    import DeleteBucketTaggingRequestOps._
-    import DeleteBucketTaggingResponseOps._
-    toEither(underlying.deleteBucketTagging(deleteBucketTaggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketTagging(deleteBucketTaggingRequest))
   }
 
   override def deleteBucketWebsite(
       deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest
   ): Either[Throwable, DeleteBucketWebsiteResponse] = {
-    import DeleteBucketWebsiteRequestOps._
-    import DeleteBucketWebsiteResponseOps._
-    toEither(underlying.deleteBucketWebsite(deleteBucketWebsiteRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteBucketWebsite(deleteBucketWebsiteRequest))
   }
 
   override def deleteObject(deleteObjectRequest: DeleteObjectRequest): Either[Throwable, DeleteObjectResponse] = {
-    import DeleteObjectRequestOps._
-    import DeleteObjectResponseOps._
-    toEither(underlying.deleteObject(deleteObjectRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteObject(deleteObjectRequest))
   }
 
   override def deleteObjectTagging(
       deleteObjectTaggingRequest: DeleteObjectTaggingRequest
   ): Either[Throwable, DeleteObjectTaggingResponse] = {
-    import DeleteObjectTaggingRequestOps._
-    import DeleteObjectTaggingResponseOps._
-    toEither(underlying.deleteObjectTagging(deleteObjectTaggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteObjectTagging(deleteObjectTaggingRequest))
   }
 
   override def deleteObjects(deleteObjectsRequest: DeleteObjectsRequest): Either[Throwable, DeleteObjectsResponse] = {
-    import DeleteObjectsRequestOps._
-    import DeleteObjectsResponseOps._
-    toEither(underlying.deleteObjects(deleteObjectsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deleteObjects(deleteObjectsRequest))
   }
 
   override def deletePublicAccessBlock(
       deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest
   ): Either[Throwable, DeletePublicAccessBlockResponse] = {
-    import DeletePublicAccessBlockRequestOps._
-    import DeletePublicAccessBlockResponseOps._
-    toEither(underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest))
   }
 
   override def getBucketAccelerateConfiguration(
       getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest
   ): Either[Throwable, GetBucketAccelerateConfigurationResponse] = {
-    import GetBucketAccelerateConfigurationRequestOps._
-    import GetBucketAccelerateConfigurationResponseOps._
-    toEither(underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest))
   }
 
   override def getBucketAcl(getBucketAclRequest: GetBucketAclRequest): Either[Throwable, GetBucketAclResponse] = {
-    import GetBucketAclRequestOps._
-    import GetBucketAclResponseOps._
-    toEither(underlying.getBucketAcl(getBucketAclRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketAcl(getBucketAclRequest))
   }
 
   override def getBucketAnalyticsConfiguration(
       getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest
   ): Either[Throwable, GetBucketAnalyticsConfigurationResponse] = {
-    import GetBucketAnalyticsConfigurationRequestOps._
-    import GetBucketAnalyticsConfigurationResponseOps._
-    toEither(underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest))
   }
 
   override def getBucketCors(getBucketCorsRequest: GetBucketCorsRequest): Either[Throwable, GetBucketCorsResponse] = {
-    import GetBucketCorsRequestOps._
-    import GetBucketCorsResponseOps._
-    toEither(underlying.getBucketCors(getBucketCorsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketCors(getBucketCorsRequest))
   }
 
   override def getBucketEncryption(
       getBucketEncryptionRequest: GetBucketEncryptionRequest
   ): Either[Throwable, GetBucketEncryptionResponse] = {
-    import GetBucketEncryptionRequestOps._
-    import GetBucketEncryptionResponseOps._
-    toEither(underlying.getBucketEncryption(getBucketEncryptionRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketEncryption(getBucketEncryptionRequest))
   }
 
   override def getBucketInventoryConfiguration(
       getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest
   ): Either[Throwable, GetBucketInventoryConfigurationResponse] = {
-    import GetBucketInventoryConfigurationRequestOps._
-    import GetBucketInventoryConfigurationResponseOps._
-    toEither(underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest))
   }
 
   override def getBucketLifecycleConfiguration(
       getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest
   ): Either[Throwable, GetBucketLifecycleConfigurationResponse] = {
-    import GetBucketLifecycleConfigurationRequestOps._
-    import GetBucketLifecycleConfigurationResponseOps._
-    toEither(underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest))
   }
 
   override def getBucketLocation(
       getBucketLocationRequest: GetBucketLocationRequest
   ): Either[Throwable, GetBucketLocationResponse] = {
-    import GetBucketLocationRequestOps._
-    import GetBucketLocationResponseOps._
-    toEither(underlying.getBucketLocation(getBucketLocationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketLocation(getBucketLocationRequest))
   }
 
   override def getBucketLogging(
       getBucketLoggingRequest: GetBucketLoggingRequest
   ): Either[Throwable, GetBucketLoggingResponse] = {
-    import GetBucketLoggingRequestOps._
-    import GetBucketLoggingResponseOps._
-    toEither(underlying.getBucketLogging(getBucketLoggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketLogging(getBucketLoggingRequest))
   }
 
   override def getBucketMetricsConfiguration(
       getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest
   ): Either[Throwable, GetBucketMetricsConfigurationResponse] = {
-    import GetBucketMetricsConfigurationRequestOps._
-    import GetBucketMetricsConfigurationResponseOps._
-    toEither(underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest))
   }
 
   override def getBucketNotificationConfiguration(
       getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest
   ): Either[Throwable, GetBucketNotificationConfigurationResponse] = {
-    import GetBucketNotificationConfigurationRequestOps._
-    import GetBucketNotificationConfigurationResponseOps._
-    toEither(underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest))
   }
 
   override def getBucketPolicy(
       getBucketPolicyRequest: GetBucketPolicyRequest
   ): Either[Throwable, GetBucketPolicyResponse] = {
-    import GetBucketPolicyRequestOps._
-    import GetBucketPolicyResponseOps._
-    toEither(underlying.getBucketPolicy(getBucketPolicyRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketPolicy(getBucketPolicyRequest))
   }
 
   override def getBucketPolicyStatus(
       getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest
   ): Either[Throwable, GetBucketPolicyStatusResponse] = {
-    import GetBucketPolicyStatusRequestOps._
-    import GetBucketPolicyStatusResponseOps._
-    toEither(underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest))
   }
 
   override def getBucketReplication(
       getBucketReplicationRequest: GetBucketReplicationRequest
   ): Either[Throwable, GetBucketReplicationResponse] = {
-    import GetBucketReplicationRequestOps._
-    import GetBucketReplicationResponseOps._
-    toEither(underlying.getBucketReplication(getBucketReplicationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketReplication(getBucketReplicationRequest))
   }
 
   override def getBucketRequestPayment(
       getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest
   ): Either[Throwable, GetBucketRequestPaymentResponse] = {
-    import GetBucketRequestPaymentRequestOps._
-    import GetBucketRequestPaymentResponseOps._
-    toEither(underlying.getBucketRequestPayment(getBucketRequestPaymentRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketRequestPayment(getBucketRequestPaymentRequest))
   }
 
   override def getBucketTagging(
       getBucketTaggingRequest: GetBucketTaggingRequest
   ): Either[Throwable, GetBucketTaggingResponse] = {
-    import GetBucketTaggingRequestOps._
-    import GetBucketTaggingResponseOps._
-    toEither(underlying.getBucketTagging(getBucketTaggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketTagging(getBucketTaggingRequest))
   }
 
   override def getBucketVersioning(
       getBucketVersioningRequest: GetBucketVersioningRequest
   ): Either[Throwable, GetBucketVersioningResponse] = {
-    import GetBucketVersioningRequestOps._
-    import GetBucketVersioningResponseOps._
-    toEither(underlying.getBucketVersioning(getBucketVersioningRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketVersioning(getBucketVersioningRequest))
   }
 
   override def getBucketWebsite(
       getBucketWebsiteRequest: GetBucketWebsiteRequest
   ): Either[Throwable, GetBucketWebsiteResponse] = {
-    import GetBucketWebsiteRequestOps._
-    import GetBucketWebsiteResponseOps._
-    toEither(underlying.getBucketWebsite(getBucketWebsiteRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getBucketWebsite(getBucketWebsiteRequest))
   }
 
   override def getObjectAcl(getObjectAclRequest: GetObjectAclRequest): Either[Throwable, GetObjectAclResponse] = {
-    import GetObjectAclRequestOps._
-    import GetObjectAclResponseOps._
-    toEither(underlying.getObjectAcl(getObjectAclRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getObjectAcl(getObjectAclRequest))
   }
 
   override def getObjectLegalHold(
       getObjectLegalHoldRequest: GetObjectLegalHoldRequest
   ): Either[Throwable, GetObjectLegalHoldResponse] = {
-    import GetObjectLegalHoldRequestOps._
-    import GetObjectLegalHoldResponseOps._
-    toEither(underlying.getObjectLegalHold(getObjectLegalHoldRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getObjectLegalHold(getObjectLegalHoldRequest))
   }
 
   override def getObjectLockConfiguration(
       getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
   ): Either[Throwable, GetObjectLockConfigurationResponse] = {
-    import GetObjectLockConfigurationRequestOps._
-    import GetObjectLockConfigurationResponseOps._
-    toEither(underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest))
   }
 
   override def getObjectRetention(
       getObjectRetentionRequest: GetObjectRetentionRequest
   ): Either[Throwable, GetObjectRetentionResponse] = {
-    import GetObjectRetentionRequestOps._
-    import GetObjectRetentionResponseOps._
-    toEither(underlying.getObjectRetention(getObjectRetentionRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getObjectRetention(getObjectRetentionRequest))
   }
 
   override def getObjectTagging(
       getObjectTaggingRequest: GetObjectTaggingRequest
   ): Either[Throwable, GetObjectTaggingResponse] = {
-    import GetObjectTaggingRequestOps._
-    import GetObjectTaggingResponseOps._
-    toEither(underlying.getObjectTagging(getObjectTaggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getObjectTagging(getObjectTaggingRequest))
   }
 
   override def getPublicAccessBlock(
       getPublicAccessBlockRequest: GetPublicAccessBlockRequest
   ): Either[Throwable, GetPublicAccessBlockResponse] = {
-    import GetPublicAccessBlockRequestOps._
-    import GetPublicAccessBlockResponseOps._
-    toEither(underlying.getPublicAccessBlock(getPublicAccessBlockRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.getPublicAccessBlock(getPublicAccessBlockRequest))
   }
 
   override def headBucket(headBucketRequest: HeadBucketRequest): Either[Throwable, HeadBucketResponse] = {
-    import HeadBucketRequestOps._
-    import HeadBucketResponseOps._
-    toEither(underlying.headBucket(headBucketRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.headBucket(headBucketRequest))
   }
 
   override def headObject(headObjectRequest: HeadObjectRequest): Either[Throwable, HeadObjectResponse] = {
-    import HeadObjectRequestOps._
-    import HeadObjectResponseOps._
-    toEither(underlying.headObject(headObjectRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.headObject(headObjectRequest))
   }
 
   override def listBucketAnalyticsConfigurations(
       listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest
   ): Either[Throwable, ListBucketAnalyticsConfigurationsResponse] = {
-    import ListBucketAnalyticsConfigurationsRequestOps._
-    import ListBucketAnalyticsConfigurationsResponseOps._
-    toEither(underlying.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest))
   }
 
   override def listBucketInventoryConfigurations(
       listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest
   ): Either[Throwable, ListBucketInventoryConfigurationsResponse] = {
-    import ListBucketInventoryConfigurationsRequestOps._
-    import ListBucketInventoryConfigurationsResponseOps._
-    toEither(underlying.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest))
   }
 
   override def listBucketMetricsConfigurations(
       listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest
   ): Either[Throwable, ListBucketMetricsConfigurationsResponse] = {
-    import ListBucketMetricsConfigurationsRequestOps._
-    import ListBucketMetricsConfigurationsResponseOps._
-    toEither(underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest))
   }
 
   override def listBuckets(): Either[Throwable, ListBucketsResponse] = {
-
-    import ListBucketsResponseOps._
-    toEither(underlying.listBuckets()).right.map(_.toScala)
+    toEither(underlying.listBuckets())
   }
 
   override def listBuckets(listBucketsRequest: ListBucketsRequest): Either[Throwable, ListBucketsResponse] = {
-    import ListBucketsRequestOps._
-    import ListBucketsResponseOps._
-    toEither(underlying.listBuckets(listBucketsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.listBuckets(listBucketsRequest))
   }
 
   override def listMultipartUploads(
       listMultipartUploadsRequest: ListMultipartUploadsRequest
   ): Either[Throwable, ListMultipartUploadsResponse] = {
-    import ListMultipartUploadsRequestOps._
-    import ListMultipartUploadsResponseOps._
-    toEither(underlying.listMultipartUploads(listMultipartUploadsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.listMultipartUploads(listMultipartUploadsRequest))
   }
 
   def listMultipartUploadsPaginator(
       listMultipartUploadsRequest: ListMultipartUploadsRequest
   ): ListMultipartUploadsIterable = {
-    import ListMultipartUploadsRequestOps._
-    new ListMultipartUploadsIterableImpl(underlying.listMultipartUploadsPaginator(listMultipartUploadsRequest.toJava))
+    underlying.listMultipartUploadsPaginator(listMultipartUploadsRequest)
   }
 
   override def listObjectVersions(
       listObjectVersionsRequest: ListObjectVersionsRequest
   ): Either[Throwable, ListObjectVersionsResponse] = {
-    import ListObjectVersionsRequestOps._
-    import ListObjectVersionsResponseOps._
-    toEither(underlying.listObjectVersions(listObjectVersionsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.listObjectVersions(listObjectVersionsRequest))
   }
 
   def listObjectVersionsPaginator(listObjectVersionsRequest: ListObjectVersionsRequest): ListObjectVersionsIterable = {
-    import ListObjectVersionsRequestOps._
-    new ListObjectVersionsIterableImpl(underlying.listObjectVersionsPaginator(listObjectVersionsRequest.toJava))
+    underlying.listObjectVersionsPaginator(listObjectVersionsRequest)
   }
 
   override def listObjects(listObjectsRequest: ListObjectsRequest): Either[Throwable, ListObjectsResponse] = {
-    import ListObjectsRequestOps._
-    import ListObjectsResponseOps._
-    toEither(underlying.listObjects(listObjectsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.listObjects(listObjectsRequest))
   }
 
   override def listObjectsV2(listObjectsV2Request: ListObjectsV2Request): Either[Throwable, ListObjectsV2Response] = {
-    import ListObjectsV2RequestOps._
-    import ListObjectsV2ResponseOps._
-    toEither(underlying.listObjectsV2(listObjectsV2Request.toJava)).right.map(_.toScala)
+    toEither(underlying.listObjectsV2(listObjectsV2Request))
   }
 
   def listObjectsV2Paginator(listObjectsV2Request: ListObjectsV2Request): ListObjectsV2Iterable = {
-    import ListObjectsV2RequestOps._
-    new ListObjectsV2IterableImpl(underlying.listObjectsV2Paginator(listObjectsV2Request.toJava))
+    underlying.listObjectsV2Paginator(listObjectsV2Request)
   }
 
   override def listParts(listPartsRequest: ListPartsRequest): Either[Throwable, ListPartsResponse] = {
-    import ListPartsRequestOps._
-    import ListPartsResponseOps._
-    toEither(underlying.listParts(listPartsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.listParts(listPartsRequest))
   }
 
   def listPartsPaginator(listPartsRequest: ListPartsRequest): ListPartsIterable = {
-    import ListPartsRequestOps._
-    new ListPartsIterableImpl(underlying.listPartsPaginator(listPartsRequest.toJava))
+    underlying.listPartsPaginator(listPartsRequest)
   }
 
   override def putBucketAccelerateConfiguration(
       putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest
   ): Either[Throwable, PutBucketAccelerateConfigurationResponse] = {
-    import PutBucketAccelerateConfigurationRequestOps._
-    import PutBucketAccelerateConfigurationResponseOps._
-    toEither(underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest))
   }
 
   override def putBucketAcl(putBucketAclRequest: PutBucketAclRequest): Either[Throwable, PutBucketAclResponse] = {
-    import PutBucketAclRequestOps._
-    import PutBucketAclResponseOps._
-    toEither(underlying.putBucketAcl(putBucketAclRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketAcl(putBucketAclRequest))
   }
 
   override def putBucketAnalyticsConfiguration(
       putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest
   ): Either[Throwable, PutBucketAnalyticsConfigurationResponse] = {
-    import PutBucketAnalyticsConfigurationRequestOps._
-    import PutBucketAnalyticsConfigurationResponseOps._
-    toEither(underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest))
   }
 
   override def putBucketCors(putBucketCorsRequest: PutBucketCorsRequest): Either[Throwable, PutBucketCorsResponse] = {
-    import PutBucketCorsRequestOps._
-    import PutBucketCorsResponseOps._
-    toEither(underlying.putBucketCors(putBucketCorsRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketCors(putBucketCorsRequest))
   }
 
   override def putBucketEncryption(
       putBucketEncryptionRequest: PutBucketEncryptionRequest
   ): Either[Throwable, PutBucketEncryptionResponse] = {
-    import PutBucketEncryptionRequestOps._
-    import PutBucketEncryptionResponseOps._
-    toEither(underlying.putBucketEncryption(putBucketEncryptionRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketEncryption(putBucketEncryptionRequest))
   }
 
   override def putBucketInventoryConfiguration(
       putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest
   ): Either[Throwable, PutBucketInventoryConfigurationResponse] = {
-    import PutBucketInventoryConfigurationRequestOps._
-    import PutBucketInventoryConfigurationResponseOps._
-    toEither(underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest))
   }
 
   override def putBucketLifecycleConfiguration(
       putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest
   ): Either[Throwable, PutBucketLifecycleConfigurationResponse] = {
-    import PutBucketLifecycleConfigurationRequestOps._
-    import PutBucketLifecycleConfigurationResponseOps._
-    toEither(underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest))
   }
 
   override def putBucketLogging(
       putBucketLoggingRequest: PutBucketLoggingRequest
   ): Either[Throwable, PutBucketLoggingResponse] = {
-    import PutBucketLoggingRequestOps._
-    import PutBucketLoggingResponseOps._
-    toEither(underlying.putBucketLogging(putBucketLoggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketLogging(putBucketLoggingRequest))
   }
 
   override def putBucketMetricsConfiguration(
       putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest
   ): Either[Throwable, PutBucketMetricsConfigurationResponse] = {
-    import PutBucketMetricsConfigurationRequestOps._
-    import PutBucketMetricsConfigurationResponseOps._
-    toEither(underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest))
   }
 
   override def putBucketNotificationConfiguration(
       putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest
   ): Either[Throwable, PutBucketNotificationConfigurationResponse] = {
-    import PutBucketNotificationConfigurationRequestOps._
-    import PutBucketNotificationConfigurationResponseOps._
-    toEither(underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest.toJava)).right
-      .map(_.toScala)
+    toEither(underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest))
   }
 
   override def putBucketPolicy(
       putBucketPolicyRequest: PutBucketPolicyRequest
   ): Either[Throwable, PutBucketPolicyResponse] = {
-    import PutBucketPolicyRequestOps._
-    import PutBucketPolicyResponseOps._
-    toEither(underlying.putBucketPolicy(putBucketPolicyRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketPolicy(putBucketPolicyRequest))
   }
 
   override def putBucketReplication(
       putBucketReplicationRequest: PutBucketReplicationRequest
   ): Either[Throwable, PutBucketReplicationResponse] = {
-    import PutBucketReplicationRequestOps._
-    import PutBucketReplicationResponseOps._
-    toEither(underlying.putBucketReplication(putBucketReplicationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketReplication(putBucketReplicationRequest))
   }
 
   override def putBucketRequestPayment(
       putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest
   ): Either[Throwable, PutBucketRequestPaymentResponse] = {
-    import PutBucketRequestPaymentRequestOps._
-    import PutBucketRequestPaymentResponseOps._
-    toEither(underlying.putBucketRequestPayment(putBucketRequestPaymentRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketRequestPayment(putBucketRequestPaymentRequest))
   }
 
   override def putBucketTagging(
       putBucketTaggingRequest: PutBucketTaggingRequest
   ): Either[Throwable, PutBucketTaggingResponse] = {
-    import PutBucketTaggingRequestOps._
-    import PutBucketTaggingResponseOps._
-    toEither(underlying.putBucketTagging(putBucketTaggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketTagging(putBucketTaggingRequest))
   }
 
   override def putBucketVersioning(
       putBucketVersioningRequest: PutBucketVersioningRequest
   ): Either[Throwable, PutBucketVersioningResponse] = {
-    import PutBucketVersioningRequestOps._
-    import PutBucketVersioningResponseOps._
-    toEither(underlying.putBucketVersioning(putBucketVersioningRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketVersioning(putBucketVersioningRequest))
   }
 
   override def putBucketWebsite(
       putBucketWebsiteRequest: PutBucketWebsiteRequest
   ): Either[Throwable, PutBucketWebsiteResponse] = {
-    import PutBucketWebsiteRequestOps._
-    import PutBucketWebsiteResponseOps._
-    toEither(underlying.putBucketWebsite(putBucketWebsiteRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putBucketWebsite(putBucketWebsiteRequest))
   }
 
   override def putObjectAcl(putObjectAclRequest: PutObjectAclRequest): Either[Throwable, PutObjectAclResponse] = {
-    import PutObjectAclRequestOps._
-    import PutObjectAclResponseOps._
-    toEither(underlying.putObjectAcl(putObjectAclRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putObjectAcl(putObjectAclRequest))
   }
 
   override def putObjectLegalHold(
       putObjectLegalHoldRequest: PutObjectLegalHoldRequest
   ): Either[Throwable, PutObjectLegalHoldResponse] = {
-    import PutObjectLegalHoldRequestOps._
-    import PutObjectLegalHoldResponseOps._
-    toEither(underlying.putObjectLegalHold(putObjectLegalHoldRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putObjectLegalHold(putObjectLegalHoldRequest))
   }
 
   override def putObjectLockConfiguration(
       putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest
   ): Either[Throwable, PutObjectLockConfigurationResponse] = {
-    import PutObjectLockConfigurationRequestOps._
-    import PutObjectLockConfigurationResponseOps._
-    toEither(underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest))
   }
 
   override def putObjectRetention(
       putObjectRetentionRequest: PutObjectRetentionRequest
   ): Either[Throwable, PutObjectRetentionResponse] = {
-    import PutObjectRetentionRequestOps._
-    import PutObjectRetentionResponseOps._
-    toEither(underlying.putObjectRetention(putObjectRetentionRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putObjectRetention(putObjectRetentionRequest))
   }
 
   override def putObjectTagging(
       putObjectTaggingRequest: PutObjectTaggingRequest
   ): Either[Throwable, PutObjectTaggingResponse] = {
-    import PutObjectTaggingRequestOps._
-    import PutObjectTaggingResponseOps._
-    toEither(underlying.putObjectTagging(putObjectTaggingRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putObjectTagging(putObjectTaggingRequest))
   }
 
   override def putPublicAccessBlock(
       putPublicAccessBlockRequest: PutPublicAccessBlockRequest
   ): Either[Throwable, PutPublicAccessBlockResponse] = {
-    import PutPublicAccessBlockRequestOps._
-    import PutPublicAccessBlockResponseOps._
-    toEither(underlying.putPublicAccessBlock(putPublicAccessBlockRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.putPublicAccessBlock(putPublicAccessBlockRequest))
   }
 
   override def restoreObject(restoreObjectRequest: RestoreObjectRequest): Either[Throwable, RestoreObjectResponse] = {
-    import RestoreObjectRequestOps._
-    import RestoreObjectResponseOps._
-    toEither(underlying.restoreObject(restoreObjectRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.restoreObject(restoreObjectRequest))
   }
 
   override def uploadPartCopy(
       uploadPartCopyRequest: UploadPartCopyRequest
   ): Either[Throwable, UploadPartCopyResponse] = {
-    import UploadPartCopyRequestOps._
-    import UploadPartCopyResponseOps._
-    toEither(underlying.uploadPartCopy(uploadPartCopyRequest.toJava)).right.map(_.toScala)
+    toEither(underlying.uploadPartCopy(uploadPartCopyRequest))
   }
 
 }

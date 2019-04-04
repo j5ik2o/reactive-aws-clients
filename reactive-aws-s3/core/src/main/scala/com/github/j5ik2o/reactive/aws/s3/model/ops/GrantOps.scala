@@ -1,40 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Grant => ScalaGrant, _ }
-import software.amazon.awssdk.services.s3.model.{ Grant => JavaGrant }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GrantOps {
+final class GrantBuilderOps(val self: Grant.Builder) extends AnyVal {
 
-  implicit class ScalaGrantOps(val self: ScalaGrant) extends AnyVal {
-
-    def toJava: JavaGrant = {
-      val result = JavaGrant.builder()
-      self.grantee.foreach { v =>
-        import GranteeOps._; result.grantee(v.toJava)
-      } // Grantee
-      self.permission.foreach { v =>
-        import PermissionOps._; result.permission(v.toJava)
-      } // String
-
-      result.build()
+  final def withGranteeAsScala(value: Option[Grantee]): Grant.Builder = {
+    value.fold(self) { v =>
+      self.grantee(v)
     }
+  } // Grantee
 
-  }
-
-  implicit class JavaGrantOps(val self: JavaGrant) extends AnyVal {
-
-    def toScala: ScalaGrant = {
-      ScalaGrant()
-        .withGrantee(Option(self.grantee).map { v =>
-          import GranteeOps._; v.toScala
-        }) // Grantee
-        .withPermission(Option(self.permission).map { v =>
-          import PermissionOps._; v.toScala
-        }) // String
+  final def withPermissionAsScala(value: Option[Permission]): Grant.Builder = {
+    value.fold(self) { v =>
+      self.permission(v)
     }
+  } // String
 
-  }
+}
+
+final class GrantOps(val self: Grant) extends AnyVal {
+
+  final def granteeAsScala: Option[Grantee] = Option(self.grantee) // Grantee
+
+  final def permissionAsScala: Option[Permission] = Option(self.permission) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGrantOps {
+
+  implicit def toGrantBuilderOps(v: Grant.Builder): GrantBuilderOps = new GrantBuilderOps(v)
+
+  implicit def toGrantOps(v: Grant): GrantOps = new GrantOps(v)
 
 }

@@ -1,30 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ErrorDocument => ScalaErrorDocument, _ }
-import software.amazon.awssdk.services.s3.model.{ ErrorDocument => JavaErrorDocument }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ErrorDocumentOps {
+final class ErrorDocumentBuilderOps(val self: ErrorDocument.Builder) extends AnyVal {
 
-  implicit class ScalaErrorDocumentOps(val self: ScalaErrorDocument) extends AnyVal {
-
-    def toJava: JavaErrorDocument = {
-      val result = JavaErrorDocument.builder()
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v)) // String
-
-      result.build()
+  final def withKeyAsScala(value: Option[String]): ErrorDocument.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaErrorDocumentOps(val self: JavaErrorDocument) extends AnyVal {
+final class ErrorDocumentOps(val self: ErrorDocument) extends AnyVal {
 
-    def toScala: ScalaErrorDocument = {
-      ScalaErrorDocument()
-        .withKey(Option(self.key)) // String
-    }
+  final def keyAsScala: Option[String] = Option(self.key) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToErrorDocumentOps {
+
+  implicit def toErrorDocumentBuilderOps(v: ErrorDocument.Builder): ErrorDocumentBuilderOps =
+    new ErrorDocumentBuilderOps(v)
+
+  implicit def toErrorDocumentOps(v: ErrorDocument): ErrorDocumentOps = new ErrorDocumentOps(v)
 
 }

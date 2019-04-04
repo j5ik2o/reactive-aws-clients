@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketTaggingResponse => ScalaPutBucketTaggingResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketTaggingResponse => JavaPutBucketTaggingResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketTaggingResponseBuilderOps(val self: PutBucketTaggingResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketTaggingResponseOps {
+final class PutBucketTaggingResponseOps(val self: PutBucketTaggingResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketTaggingResponseOps(val self: JavaPutBucketTaggingResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketTaggingResponseOps {
 
-    def toScala: ScalaPutBucketTaggingResponse = {
-      ScalaPutBucketTaggingResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketTaggingResponseBuilderOps(
+      v: PutBucketTaggingResponse.Builder
+  ): PutBucketTaggingResponseBuilderOps = new PutBucketTaggingResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketTaggingResponseOps(v: PutBucketTaggingResponse): PutBucketTaggingResponseOps =
+    new PutBucketTaggingResponseOps(v)
 
 }

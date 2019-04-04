@@ -1,34 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ SourceSelectionCriteria => ScalaSourceSelectionCriteria, _ }
-import software.amazon.awssdk.services.s3.model.{ SourceSelectionCriteria => JavaSourceSelectionCriteria }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SourceSelectionCriteriaOps {
+final class SourceSelectionCriteriaBuilderOps(val self: SourceSelectionCriteria.Builder) extends AnyVal {
 
-  implicit class ScalaSourceSelectionCriteriaOps(val self: ScalaSourceSelectionCriteria) extends AnyVal {
-
-    def toJava: JavaSourceSelectionCriteria = {
-      val result = JavaSourceSelectionCriteria.builder()
-      self.sseKmsEncryptedObjects.foreach { v =>
-        import SseKmsEncryptedObjectsOps._; result.sseKmsEncryptedObjects(v.toJava)
-      } // SseKmsEncryptedObjects
-
-      result.build()
+  final def withSseKmsEncryptedObjectsAsScala(
+      value: Option[SseKmsEncryptedObjects]
+  ): SourceSelectionCriteria.Builder = {
+    value.fold(self) { v =>
+      self.sseKmsEncryptedObjects(v)
     }
+  } // SseKmsEncryptedObjects
 
-  }
+}
 
-  implicit class JavaSourceSelectionCriteriaOps(val self: JavaSourceSelectionCriteria) extends AnyVal {
+final class SourceSelectionCriteriaOps(val self: SourceSelectionCriteria) extends AnyVal {
 
-    def toScala: ScalaSourceSelectionCriteria = {
-      ScalaSourceSelectionCriteria()
-        .withSseKmsEncryptedObjects(Option(self.sseKmsEncryptedObjects).map { v =>
-          import SseKmsEncryptedObjectsOps._; v.toScala
-        }) // SseKmsEncryptedObjects
-    }
+  final def sseKmsEncryptedObjectsAsScala: Option[SseKmsEncryptedObjects] =
+    Option(self.sseKmsEncryptedObjects) // SseKmsEncryptedObjects
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSourceSelectionCriteriaOps {
+
+  implicit def toSourceSelectionCriteriaBuilderOps(
+      v: SourceSelectionCriteria.Builder
+  ): SourceSelectionCriteriaBuilderOps = new SourceSelectionCriteriaBuilderOps(v)
+
+  implicit def toSourceSelectionCriteriaOps(v: SourceSelectionCriteria): SourceSelectionCriteriaOps =
+    new SourceSelectionCriteriaOps(v)
 
 }

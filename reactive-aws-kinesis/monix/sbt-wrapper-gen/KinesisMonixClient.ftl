@@ -27,7 +27,7 @@ val underlying: KinesisAsyncClient
         <#else>
             <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
             override def  ${method.name}(
-            ${requestParameterName}: ${requestTypeName},
+            ${requestParameterName}: ${requestTypeName}
             ): Task[${responseTypeName}] = Task.deferFuture {
             underlying.${method.name}(${requestParameterName})
             }

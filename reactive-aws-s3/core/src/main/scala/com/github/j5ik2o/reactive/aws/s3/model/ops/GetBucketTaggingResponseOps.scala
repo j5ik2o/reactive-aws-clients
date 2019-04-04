@@ -1,27 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketTaggingResponse => ScalaGetBucketTaggingResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketTaggingResponse => JavaGetBucketTaggingResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketTaggingResponseBuilderOps(val self: GetBucketTaggingResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketTaggingResponseOps {
-
-  implicit class JavaGetBucketTaggingResponseOps(val self: JavaGetBucketTaggingResponse) extends AnyVal {
-
-    def toScala: ScalaGetBucketTaggingResponse = {
-      ScalaGetBucketTaggingResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTagSet(Option(self.tagSet).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
-    }
-
+  final def withTagSetAsScala(value: Option[Seq[Tag]]): GetBucketTaggingResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tagSet(v.asJava)
+    } // Seq[Tag]
   }
+
+}
+
+final class GetBucketTaggingResponseOps(val self: GetBucketTaggingResponse) extends AnyVal {
+
+  final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketTaggingResponseOps {
+
+  implicit def toGetBucketTaggingResponseBuilderOps(
+      v: GetBucketTaggingResponse.Builder
+  ): GetBucketTaggingResponseBuilderOps = new GetBucketTaggingResponseBuilderOps(v)
+
+  implicit def toGetBucketTaggingResponseOps(v: GetBucketTaggingResponse): GetBucketTaggingResponseOps =
+    new GetBucketTaggingResponseOps(v)
 
 }

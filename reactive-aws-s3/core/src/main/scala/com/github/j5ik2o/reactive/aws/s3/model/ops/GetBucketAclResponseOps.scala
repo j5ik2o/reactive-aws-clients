@@ -1,30 +1,41 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketAclResponse => ScalaGetBucketAclResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketAclResponse => JavaGetBucketAclResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketAclResponseBuilderOps(val self: GetBucketAclResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketAclResponseOps {
-
-  implicit class JavaGetBucketAclResponseOps(val self: JavaGetBucketAclResponse) extends AnyVal {
-
-    def toScala: ScalaGetBucketAclResponse = {
-      ScalaGetBucketAclResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withOwner(Option(self.owner).map { v =>
-          import OwnerOps._; v.toScala
-        }) // Owner
-        .withGrants(Option(self.grants).map { v =>
-          import scala.collection.JavaConverters._, GrantOps._; v.asScala.map(_.toScala)
-        }) // Seq[Grant]
+  final def withOwnerAsScala(value: Option[Owner]): GetBucketAclResponse.Builder = {
+    value.fold(self) { v =>
+      self.owner(v)
     }
+  } // Owner
 
+  final def withGrantsAsScala(value: Option[Seq[Grant]]): GetBucketAclResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.grants(v.asJava)
+    } // Seq[Grant]
   }
+
+}
+
+final class GetBucketAclResponseOps(val self: GetBucketAclResponse) extends AnyVal {
+
+  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+
+  final def grantsAsScala: Option[Seq[Grant]] = Option(self.grants).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Grant]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketAclResponseOps {
+
+  implicit def toGetBucketAclResponseBuilderOps(v: GetBucketAclResponse.Builder): GetBucketAclResponseBuilderOps =
+    new GetBucketAclResponseBuilderOps(v)
+
+  implicit def toGetBucketAclResponseOps(v: GetBucketAclResponse): GetBucketAclResponseOps =
+    new GetBucketAclResponseOps(v)
 
 }

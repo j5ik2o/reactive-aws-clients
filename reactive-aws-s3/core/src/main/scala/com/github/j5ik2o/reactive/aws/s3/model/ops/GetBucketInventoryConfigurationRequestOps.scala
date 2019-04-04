@@ -1,28 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketInventoryConfigurationRequest => ScalaGetBucketInventoryConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketInventoryConfigurationRequest => JavaGetBucketInventoryConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketInventoryConfigurationRequestOps {
+final class GetBucketInventoryConfigurationRequestBuilderOps(val self: GetBucketInventoryConfigurationRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaGetBucketInventoryConfigurationRequestOps(val self: ScalaGetBucketInventoryConfigurationRequest)
-      extends AnyVal {
-
-    def toJava: JavaGetBucketInventoryConfigurationRequest = {
-      val result = JavaGetBucketInventoryConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))         // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withIdAsScala(value: Option[String]): GetBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
+    }
+  } // String
+
+}
+
+final class GetBucketInventoryConfigurationRequestOps(val self: GetBucketInventoryConfigurationRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketInventoryConfigurationRequestOps {
+
+  implicit def toGetBucketInventoryConfigurationRequestBuilderOps(
+      v: GetBucketInventoryConfigurationRequest.Builder
+  ): GetBucketInventoryConfigurationRequestBuilderOps = new GetBucketInventoryConfigurationRequestBuilderOps(v)
+
+  implicit def toGetBucketInventoryConfigurationRequestOps(
+      v: GetBucketInventoryConfigurationRequest
+  ): GetBucketInventoryConfigurationRequestOps = new GetBucketInventoryConfigurationRequestOps(v)
 
 }

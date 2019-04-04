@@ -1,46 +1,64 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ InventoryS3BucketDestination => ScalaInventoryS3BucketDestination, _ }
-import software.amazon.awssdk.services.s3.model.{ InventoryS3BucketDestination => JavaInventoryS3BucketDestination }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object InventoryS3BucketDestinationOps {
+final class InventoryS3BucketDestinationBuilderOps(val self: InventoryS3BucketDestination.Builder) extends AnyVal {
 
-  implicit class ScalaInventoryS3BucketDestinationOps(val self: ScalaInventoryS3BucketDestination) extends AnyVal {
-
-    def toJava: JavaInventoryS3BucketDestination = {
-      val result = JavaInventoryS3BucketDestination.builder()
-      self.accountId.filter(_.nonEmpty).foreach(v => result.accountId(v)) // String
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))       // String
-      self.format.foreach { v =>
-        import InventoryFormatOps._; result.format(v.toJava)
-      } // String
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.encryption.foreach { v =>
-        import InventoryEncryptionOps._; result.encryption(v.toJava)
-      } // InventoryEncryption
-
-      result.build()
+  final def withAccountIdAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.accountId(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaInventoryS3BucketDestinationOps(val self: JavaInventoryS3BucketDestination) extends AnyVal {
-
-    def toScala: ScalaInventoryS3BucketDestination = {
-      ScalaInventoryS3BucketDestination()
-        .withAccountId(Option(self.accountId)) // String
-        .withBucket(Option(self.bucket)) // String
-        .withFormat(Option(self.format).map { v =>
-          import InventoryFormatOps._; v.toScala
-        }) // String
-        .withPrefix(Option(self.prefix)) // String
-        .withEncryption(Option(self.encryption).map { v =>
-          import InventoryEncryptionOps._; v.toScala
-        }) // InventoryEncryption
+  final def withBucketAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withFormatAsScala(value: Option[InventoryFormat]): InventoryS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.format(v)
+    }
+  } // String
+
+  final def withPrefixAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
+    }
+  } // String
+
+  final def withEncryptionAsScala(value: Option[InventoryEncryption]): InventoryS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.encryption(v)
+    }
+  } // InventoryEncryption
+
+}
+
+final class InventoryS3BucketDestinationOps(val self: InventoryS3BucketDestination) extends AnyVal {
+
+  final def accountIdAsScala: Option[String] = Option(self.accountId) // String
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def formatAsScala: Option[InventoryFormat] = Option(self.format) // String
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def encryptionAsScala: Option[InventoryEncryption] = Option(self.encryption) // InventoryEncryption
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToInventoryS3BucketDestinationOps {
+
+  implicit def toInventoryS3BucketDestinationBuilderOps(
+      v: InventoryS3BucketDestination.Builder
+  ): InventoryS3BucketDestinationBuilderOps = new InventoryS3BucketDestinationBuilderOps(v)
+
+  implicit def toInventoryS3BucketDestinationOps(v: InventoryS3BucketDestination): InventoryS3BucketDestinationOps =
+    new InventoryS3BucketDestinationOps(v)
 
 }

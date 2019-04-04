@@ -1,49 +1,61 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ NotificationConfiguration => ScalaNotificationConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ NotificationConfiguration => JavaNotificationConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object NotificationConfigurationOps {
+final class NotificationConfigurationBuilderOps(val self: NotificationConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaNotificationConfigurationOps(val self: ScalaNotificationConfiguration) extends AnyVal {
-
-    def toJava: JavaNotificationConfiguration = {
-      val result = JavaNotificationConfiguration.builder()
-      self.topicConfigurations.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TopicConfigurationOps._;
-        result.topicConfigurations(v.map(_.toJava).asJava)
-      } // Seq[TopicConfiguration]
-      self.queueConfigurations.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, QueueConfigurationOps._;
-        result.queueConfigurations(v.map(_.toJava).asJava)
-      } // Seq[QueueConfiguration]
-      self.lambdaFunctionConfigurations.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, LambdaFunctionConfigurationOps._;
-        result.lambdaFunctionConfigurations(v.map(_.toJava).asJava)
-      } // Seq[LambdaFunctionConfiguration]
-
-      result.build()
-    }
-
+  final def withTopicConfigurationsAsScala(
+      value: Option[Seq[TopicConfiguration]]
+  ): NotificationConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.topicConfigurations(v.asJava)
+    } // Seq[TopicConfiguration]
   }
 
-  implicit class JavaNotificationConfigurationOps(val self: JavaNotificationConfiguration) extends AnyVal {
-
-    def toScala: ScalaNotificationConfiguration = {
-      ScalaNotificationConfiguration()
-        .withTopicConfigurations(Option(self.topicConfigurations).map { v =>
-          import scala.collection.JavaConverters._, TopicConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[TopicConfiguration]
-        .withQueueConfigurations(Option(self.queueConfigurations).map { v =>
-          import scala.collection.JavaConverters._, QueueConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[QueueConfiguration]
-        .withLambdaFunctionConfigurations(Option(self.lambdaFunctionConfigurations).map { v =>
-          import scala.collection.JavaConverters._, LambdaFunctionConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[LambdaFunctionConfiguration]
-    }
-
+  final def withQueueConfigurationsAsScala(
+      value: Option[Seq[QueueConfiguration]]
+  ): NotificationConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.queueConfigurations(v.asJava)
+    } // Seq[QueueConfiguration]
   }
+
+  final def withLambdaFunctionConfigurationsAsScala(
+      value: Option[Seq[LambdaFunctionConfiguration]]
+  ): NotificationConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.lambdaFunctionConfigurations(v.asJava)
+    } // Seq[LambdaFunctionConfiguration]
+  }
+
+}
+
+final class NotificationConfigurationOps(val self: NotificationConfiguration) extends AnyVal {
+
+  final def topicConfigurationsAsScala: Option[Seq[TopicConfiguration]] = Option(self.topicConfigurations).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[TopicConfiguration]
+
+  final def queueConfigurationsAsScala: Option[Seq[QueueConfiguration]] = Option(self.queueConfigurations).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[QueueConfiguration]
+
+  final def lambdaFunctionConfigurationsAsScala: Option[Seq[LambdaFunctionConfiguration]] =
+    Option(self.lambdaFunctionConfigurations).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[LambdaFunctionConfiguration]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToNotificationConfigurationOps {
+
+  implicit def toNotificationConfigurationBuilderOps(
+      v: NotificationConfiguration.Builder
+  ): NotificationConfigurationBuilderOps = new NotificationConfigurationBuilderOps(v)
+
+  implicit def toNotificationConfigurationOps(v: NotificationConfiguration): NotificationConfigurationOps =
+    new NotificationConfigurationOps(v)
 
 }

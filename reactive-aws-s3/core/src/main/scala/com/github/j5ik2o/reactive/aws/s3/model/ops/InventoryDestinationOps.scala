@@ -1,34 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ InventoryDestination => ScalaInventoryDestination, _ }
-import software.amazon.awssdk.services.s3.model.{ InventoryDestination => JavaInventoryDestination }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object InventoryDestinationOps {
+final class InventoryDestinationBuilderOps(val self: InventoryDestination.Builder) extends AnyVal {
 
-  implicit class ScalaInventoryDestinationOps(val self: ScalaInventoryDestination) extends AnyVal {
-
-    def toJava: JavaInventoryDestination = {
-      val result = JavaInventoryDestination.builder()
-      self.s3BucketDestination.foreach { v =>
-        import InventoryS3BucketDestinationOps._; result.s3BucketDestination(v.toJava)
-      } // InventoryS3BucketDestination
-
-      result.build()
+  final def withS3BucketDestinationAsScala(
+      value: Option[InventoryS3BucketDestination]
+  ): InventoryDestination.Builder = {
+    value.fold(self) { v =>
+      self.s3BucketDestination(v)
     }
+  } // InventoryS3BucketDestination
 
-  }
+}
 
-  implicit class JavaInventoryDestinationOps(val self: JavaInventoryDestination) extends AnyVal {
+final class InventoryDestinationOps(val self: InventoryDestination) extends AnyVal {
 
-    def toScala: ScalaInventoryDestination = {
-      ScalaInventoryDestination()
-        .withS3BucketDestination(Option(self.s3BucketDestination).map { v =>
-          import InventoryS3BucketDestinationOps._; v.toScala
-        }) // InventoryS3BucketDestination
-    }
+  final def s3BucketDestinationAsScala: Option[InventoryS3BucketDestination] =
+    Option(self.s3BucketDestination) // InventoryS3BucketDestination
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToInventoryDestinationOps {
+
+  implicit def toInventoryDestinationBuilderOps(v: InventoryDestination.Builder): InventoryDestinationBuilderOps =
+    new InventoryDestinationBuilderOps(v)
+
+  implicit def toInventoryDestinationOps(v: InventoryDestination): InventoryDestinationOps =
+    new InventoryDestinationOps(v)
 
 }

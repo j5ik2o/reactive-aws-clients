@@ -1,25 +1,51 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketEncryptionRequest => ScalaPutBucketEncryptionRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketEncryptionRequest => JavaPutBucketEncryptionRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketEncryptionRequestOps {
+final class PutBucketEncryptionRequestBuilderOps(val self: PutBucketEncryptionRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutBucketEncryptionRequestOps(val self: ScalaPutBucketEncryptionRequest) extends AnyVal {
-
-    def toJava: JavaPutBucketEncryptionRequest = {
-      val result = JavaPutBucketEncryptionRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))         // String
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v)) // String
-      self.serverSideEncryptionConfiguration.foreach { v =>
-        import ServerSideEncryptionConfigurationOps._; result.serverSideEncryptionConfiguration(v.toJava)
-      } // ServerSideEncryptionConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContentMD5AsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withServerSideEncryptionConfigurationAsScala(
+      value: Option[ServerSideEncryptionConfiguration]
+  ): PutBucketEncryptionRequest.Builder = {
+    value.fold(self) { v =>
+      self.serverSideEncryptionConfiguration(v)
+    }
+  } // ServerSideEncryptionConfiguration
+
+}
+
+final class PutBucketEncryptionRequestOps(val self: PutBucketEncryptionRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def serverSideEncryptionConfigurationAsScala: Option[ServerSideEncryptionConfiguration] =
+    Option(self.serverSideEncryptionConfiguration) // ServerSideEncryptionConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketEncryptionRequestOps {
+
+  implicit def toPutBucketEncryptionRequestBuilderOps(
+      v: PutBucketEncryptionRequest.Builder
+  ): PutBucketEncryptionRequestBuilderOps = new PutBucketEncryptionRequestBuilderOps(v)
+
+  implicit def toPutBucketEncryptionRequestOps(v: PutBucketEncryptionRequest): PutBucketEncryptionRequestOps =
+    new PutBucketEncryptionRequestOps(v)
 
 }

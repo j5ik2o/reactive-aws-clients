@@ -1,27 +1,33 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketCorsResponse => ScalaGetBucketCorsResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketCorsResponse => JavaGetBucketCorsResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketCorsResponseBuilderOps(val self: GetBucketCorsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketCorsResponseOps {
-
-  implicit class JavaGetBucketCorsResponseOps(val self: JavaGetBucketCorsResponse) extends AnyVal {
-
-    def toScala: ScalaGetBucketCorsResponse = {
-      ScalaGetBucketCorsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withCorsRules(Option(self.corsRules).map { v =>
-          import scala.collection.JavaConverters._, CORSRuleOps._; v.asScala.map(_.toScala)
-        }) // Seq[CORSRule]
-    }
-
+  final def withCorsRulesAsScala(value: Option[Seq[CORSRule]]): GetBucketCorsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.corsRules(v.asJava)
+    } // Seq[CORSRule]
   }
+
+}
+
+final class GetBucketCorsResponseOps(val self: GetBucketCorsResponse) extends AnyVal {
+
+  final def corsRulesAsScala: Option[Seq[CORSRule]] = Option(self.corsRules).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[CORSRule]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketCorsResponseOps {
+
+  implicit def toGetBucketCorsResponseBuilderOps(v: GetBucketCorsResponse.Builder): GetBucketCorsResponseBuilderOps =
+    new GetBucketCorsResponseBuilderOps(v)
+
+  implicit def toGetBucketCorsResponseOps(v: GetBucketCorsResponse): GetBucketCorsResponseOps =
+    new GetBucketCorsResponseOps(v)
 
 }

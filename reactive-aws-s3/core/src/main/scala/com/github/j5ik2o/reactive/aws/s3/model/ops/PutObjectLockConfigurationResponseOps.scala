@@ -1,33 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutObjectLockConfigurationResponse => ScalaPutObjectLockConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutObjectLockConfigurationResponse => JavaPutObjectLockConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutObjectLockConfigurationResponseBuilderOps(val self: PutObjectLockConfigurationResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutObjectLockConfigurationResponseOps {
-
-  implicit class JavaPutObjectLockConfigurationResponseOps(val self: JavaPutObjectLockConfigurationResponse)
-      extends AnyVal {
-
-    def toScala: ScalaPutObjectLockConfigurationResponse = {
-      ScalaPutObjectLockConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): PutObjectLockConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
     }
+  } // String
 
-  }
+}
+
+final class PutObjectLockConfigurationResponseOps(val self: PutObjectLockConfigurationResponse) extends AnyVal {
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutObjectLockConfigurationResponseOps {
+
+  implicit def toPutObjectLockConfigurationResponseBuilderOps(
+      v: PutObjectLockConfigurationResponse.Builder
+  ): PutObjectLockConfigurationResponseBuilderOps = new PutObjectLockConfigurationResponseBuilderOps(v)
+
+  implicit def toPutObjectLockConfigurationResponseOps(
+      v: PutObjectLockConfigurationResponse
+  ): PutObjectLockConfigurationResponseOps = new PutObjectLockConfigurationResponseOps(v)
 
 }

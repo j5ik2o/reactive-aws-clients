@@ -1,52 +1,70 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ MultipartUpload => ScalaMultipartUpload, _ }
-import software.amazon.awssdk.services.s3.model.{ MultipartUpload => JavaMultipartUpload }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object MultipartUploadOps {
+final class MultipartUploadBuilderOps(val self: MultipartUpload.Builder) extends AnyVal {
 
-  implicit class ScalaMultipartUploadOps(val self: ScalaMultipartUpload) extends AnyVal {
-
-    def toJava: JavaMultipartUpload = {
-      val result = JavaMultipartUpload.builder()
-      self.uploadId.filter(_.nonEmpty).foreach(v => result.uploadId(v)) // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))           // String
-      self.initiated.foreach(v => result.initiated(v))                  // Instant
-      self.storageClass.foreach { v =>
-        import StorageClassOps._; result.storageClass(v.toJava)
-      } // String
-      self.owner.foreach { v =>
-        import OwnerOps._; result.owner(v.toJava)
-      } // Owner
-      self.initiator.foreach { v =>
-        import InitiatorOps._; result.initiator(v.toJava)
-      } // Initiator
-
-      result.build()
+  final def withUploadIdAsScala(value: Option[String]): MultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.uploadId(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaMultipartUploadOps(val self: JavaMultipartUpload) extends AnyVal {
-
-    def toScala: ScalaMultipartUpload = {
-      ScalaMultipartUpload()
-        .withUploadId(Option(self.uploadId)) // String
-        .withKey(Option(self.key)) // String
-        .withInitiated(Option(self.initiated)) // Instant
-        .withStorageClass(Option(self.storageClass).map { v =>
-          import StorageClassOps._; v.toScala
-        }) // String
-        .withOwner(Option(self.owner).map { v =>
-          import OwnerOps._; v.toScala
-        }) // Owner
-        .withInitiator(Option(self.initiator).map { v =>
-          import InitiatorOps._; v.toScala
-        }) // Initiator
+  final def withKeyAsScala(value: Option[String]): MultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
     }
+  } // String
 
-  }
+  final def withInitiatedAsScala(value: Option[java.time.Instant]): MultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.initiated(v)
+    }
+  } // Instant
+
+  final def withStorageClassAsScala(value: Option[StorageClass]): MultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.storageClass(v)
+    }
+  } // String
+
+  final def withOwnerAsScala(value: Option[Owner]): MultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.owner(v)
+    }
+  } // Owner
+
+  final def withInitiatorAsScala(value: Option[Initiator]): MultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.initiator(v)
+    }
+  } // Initiator
+
+}
+
+final class MultipartUploadOps(val self: MultipartUpload) extends AnyVal {
+
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def initiatedAsScala: Option[java.time.Instant] = Option(self.initiated) // Instant
+
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+
+  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+
+  final def initiatorAsScala: Option[Initiator] = Option(self.initiator) // Initiator
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToMultipartUploadOps {
+
+  implicit def toMultipartUploadBuilderOps(v: MultipartUpload.Builder): MultipartUploadBuilderOps =
+    new MultipartUploadBuilderOps(v)
+
+  implicit def toMultipartUploadOps(v: MultipartUpload): MultipartUploadOps = new MultipartUploadOps(v)
 
 }

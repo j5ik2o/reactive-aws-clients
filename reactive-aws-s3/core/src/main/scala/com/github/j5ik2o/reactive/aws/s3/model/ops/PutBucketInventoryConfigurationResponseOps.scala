@@ -1,30 +1,23 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketInventoryConfigurationResponse => ScalaPutBucketInventoryConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketInventoryConfigurationResponse => JavaPutBucketInventoryConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketInventoryConfigurationResponseBuilderOps(val self: PutBucketInventoryConfigurationResponse.Builder)
+    extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketInventoryConfigurationResponseOps {
+final class PutBucketInventoryConfigurationResponseOps(val self: PutBucketInventoryConfigurationResponse)
+    extends AnyVal {}
 
-  implicit class JavaPutBucketInventoryConfigurationResponseOps(val self: JavaPutBucketInventoryConfigurationResponse)
-      extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketInventoryConfigurationResponseOps {
 
-    def toScala: ScalaPutBucketInventoryConfigurationResponse = {
-      ScalaPutBucketInventoryConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketInventoryConfigurationResponseBuilderOps(
+      v: PutBucketInventoryConfigurationResponse.Builder
+  ): PutBucketInventoryConfigurationResponseBuilderOps = new PutBucketInventoryConfigurationResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketInventoryConfigurationResponseOps(
+      v: PutBucketInventoryConfigurationResponse
+  ): PutBucketInventoryConfigurationResponseOps = new PutBucketInventoryConfigurationResponseOps(v)
 
 }

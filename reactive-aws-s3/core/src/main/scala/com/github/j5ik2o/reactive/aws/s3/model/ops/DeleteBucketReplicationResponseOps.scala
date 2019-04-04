@@ -1,29 +1,22 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeleteBucketReplicationResponse => ScalaDeleteBucketReplicationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  DeleteBucketReplicationResponse => JavaDeleteBucketReplicationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBucketReplicationResponseBuilderOps(val self: DeleteBucketReplicationResponse.Builder)
+    extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketReplicationResponseOps {
+final class DeleteBucketReplicationResponseOps(val self: DeleteBucketReplicationResponse) extends AnyVal {}
 
-  implicit class JavaDeleteBucketReplicationResponseOps(val self: JavaDeleteBucketReplicationResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketReplicationResponseOps {
 
-    def toScala: ScalaDeleteBucketReplicationResponse = {
-      ScalaDeleteBucketReplicationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteBucketReplicationResponseBuilderOps(
+      v: DeleteBucketReplicationResponse.Builder
+  ): DeleteBucketReplicationResponseBuilderOps = new DeleteBucketReplicationResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteBucketReplicationResponseOps(
+      v: DeleteBucketReplicationResponse
+  ): DeleteBucketReplicationResponseOps = new DeleteBucketReplicationResponseOps(v)
 
 }

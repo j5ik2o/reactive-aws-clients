@@ -1,38 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ LoggingEnabled => ScalaLoggingEnabled, _ }
-import software.amazon.awssdk.services.s3.model.{ LoggingEnabled => JavaLoggingEnabled }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object LoggingEnabledOps {
+final class LoggingEnabledBuilderOps(val self: LoggingEnabled.Builder) extends AnyVal {
 
-  implicit class ScalaLoggingEnabledOps(val self: ScalaLoggingEnabled) extends AnyVal {
-
-    def toJava: JavaLoggingEnabled = {
-      val result = JavaLoggingEnabled.builder()
-      self.targetBucket.filter(_.nonEmpty).foreach(v => result.targetBucket(v)) // String
-      self.targetGrants.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TargetGrantOps._; result.targetGrants(v.map(_.toJava).asJava)
-      } // Seq[TargetGrant]
-      self.targetPrefix.filter(_.nonEmpty).foreach(v => result.targetPrefix(v)) // String
-
-      result.build()
+  final def withTargetBucketAsScala(value: Option[String]): LoggingEnabled.Builder = {
+    value.fold(self) { v =>
+      self.targetBucket(v)
     }
+  } // String
 
+  final def withTargetGrantsAsScala(value: Option[Seq[TargetGrant]]): LoggingEnabled.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.targetGrants(v.asJava)
+    } // Seq[TargetGrant]
   }
 
-  implicit class JavaLoggingEnabledOps(val self: JavaLoggingEnabled) extends AnyVal {
-
-    def toScala: ScalaLoggingEnabled = {
-      ScalaLoggingEnabled()
-        .withTargetBucket(Option(self.targetBucket)) // String
-        .withTargetGrants(Option(self.targetGrants).map { v =>
-          import scala.collection.JavaConverters._, TargetGrantOps._; v.asScala.map(_.toScala)
-        }) // Seq[TargetGrant]
-        .withTargetPrefix(Option(self.targetPrefix)) // String
+  final def withTargetPrefixAsScala(value: Option[String]): LoggingEnabled.Builder = {
+    value.fold(self) { v =>
+      self.targetPrefix(v)
     }
+  } // String
 
-  }
+}
+
+final class LoggingEnabledOps(val self: LoggingEnabled) extends AnyVal {
+
+  final def targetBucketAsScala: Option[String] = Option(self.targetBucket) // String
+
+  final def targetGrantsAsScala: Option[Seq[TargetGrant]] = Option(self.targetGrants).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[TargetGrant]
+
+  final def targetPrefixAsScala: Option[String] = Option(self.targetPrefix) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToLoggingEnabledOps {
+
+  implicit def toLoggingEnabledBuilderOps(v: LoggingEnabled.Builder): LoggingEnabledBuilderOps =
+    new LoggingEnabledBuilderOps(v)
+
+  implicit def toLoggingEnabledOps(v: LoggingEnabled): LoggingEnabledOps = new LoggingEnabledOps(v)
 
 }

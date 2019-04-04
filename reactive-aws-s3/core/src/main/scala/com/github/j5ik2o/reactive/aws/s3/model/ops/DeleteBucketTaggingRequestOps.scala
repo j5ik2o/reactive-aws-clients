@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteBucketTaggingRequest => ScalaDeleteBucketTaggingRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketTaggingRequest => JavaDeleteBucketTaggingRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketTaggingRequestOps {
+final class DeleteBucketTaggingRequestBuilderOps(val self: DeleteBucketTaggingRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteBucketTaggingRequestOps(val self: ScalaDeleteBucketTaggingRequest) extends AnyVal {
-
-    def toJava: JavaDeleteBucketTaggingRequest = {
-      val result = JavaDeleteBucketTaggingRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteBucketTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteBucketTaggingRequestOps(val self: DeleteBucketTaggingRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketTaggingRequestOps {
+
+  implicit def toDeleteBucketTaggingRequestBuilderOps(
+      v: DeleteBucketTaggingRequest.Builder
+  ): DeleteBucketTaggingRequestBuilderOps = new DeleteBucketTaggingRequestBuilderOps(v)
+
+  implicit def toDeleteBucketTaggingRequestOps(v: DeleteBucketTaggingRequest): DeleteBucketTaggingRequestOps =
+    new DeleteBucketTaggingRequestOps(v)
 
 }

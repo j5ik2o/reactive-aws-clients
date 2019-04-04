@@ -1,38 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DefaultRetention => ScalaDefaultRetention, _ }
-import software.amazon.awssdk.services.s3.model.{ DefaultRetention => JavaDefaultRetention }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DefaultRetentionOps {
+final class DefaultRetentionBuilderOps(val self: DefaultRetention.Builder) extends AnyVal {
 
-  implicit class ScalaDefaultRetentionOps(val self: ScalaDefaultRetention) extends AnyVal {
-
-    def toJava: JavaDefaultRetention = {
-      val result = JavaDefaultRetention.builder()
-      self.mode.foreach { v =>
-        import ObjectLockRetentionModeOps._; result.mode(v.toJava)
-      } // String
-      self.days.map(_.intValue).foreach(v => result.days(v))   // Int
-      self.years.map(_.intValue).foreach(v => result.years(v)) // Int
-
-      result.build()
+  final def withModeAsScala(value: Option[ObjectLockRetentionMode]): DefaultRetention.Builder = {
+    value.fold(self) { v =>
+      self.mode(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaDefaultRetentionOps(val self: JavaDefaultRetention) extends AnyVal {
-
-    def toScala: ScalaDefaultRetention = {
-      ScalaDefaultRetention()
-        .withMode(Option(self.mode).map { v =>
-          import ObjectLockRetentionModeOps._; v.toScala
-        }) // String
-        .withDays(Option(self.days).map(_.intValue)) // Int
-        .withYears(Option(self.years).map(_.intValue)) // Int
+  final def withDaysAsScala(value: Option[Int]): DefaultRetention.Builder = {
+    value.fold(self) { v =>
+      self.days(v)
     }
+  } // Int
 
-  }
+  final def withYearsAsScala(value: Option[Int]): DefaultRetention.Builder = {
+    value.fold(self) { v =>
+      self.years(v)
+    }
+  } // Int
+
+}
+
+final class DefaultRetentionOps(val self: DefaultRetention) extends AnyVal {
+
+  final def modeAsScala: Option[ObjectLockRetentionMode] = Option(self.mode) // String
+
+  final def daysAsScala: Option[Int] = Option(self.days) // Int
+
+  final def yearsAsScala: Option[Int] = Option(self.years) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDefaultRetentionOps {
+
+  implicit def toDefaultRetentionBuilderOps(v: DefaultRetention.Builder): DefaultRetentionBuilderOps =
+    new DefaultRetentionBuilderOps(v)
+
+  implicit def toDefaultRetentionOps(v: DefaultRetention): DefaultRetentionOps = new DefaultRetentionOps(v)
 
 }

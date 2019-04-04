@@ -1,28 +1,17 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ParquetInput => ScalaParquetInput, _ }
-import software.amazon.awssdk.services.s3.model.{ ParquetInput => JavaParquetInput }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ParquetInputOps {
+final class ParquetInputBuilderOps(val self: ParquetInput.Builder) extends AnyVal {}
 
-  implicit class ScalaParquetInputOps(val self: ScalaParquetInput) extends AnyVal {
+final class ParquetInputOps(val self: ParquetInput) extends AnyVal {}
 
-    def toJava: JavaParquetInput = {
-      val result = JavaParquetInput.builder()
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToParquetInputOps {
 
-      result.build()
-    }
+  implicit def toParquetInputBuilderOps(v: ParquetInput.Builder): ParquetInputBuilderOps = new ParquetInputBuilderOps(v)
 
-  }
-
-  implicit class JavaParquetInputOps(val self: JavaParquetInput) extends AnyVal {
-
-    def toScala: ScalaParquetInput = {
-      ScalaParquetInput()
-    }
-
-  }
+  implicit def toParquetInputOps(v: ParquetInput): ParquetInputOps = new ParquetInputOps(v)
 
 }

@@ -1,30 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ IndexDocument => ScalaIndexDocument, _ }
-import software.amazon.awssdk.services.s3.model.{ IndexDocument => JavaIndexDocument }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object IndexDocumentOps {
+final class IndexDocumentBuilderOps(val self: IndexDocument.Builder) extends AnyVal {
 
-  implicit class ScalaIndexDocumentOps(val self: ScalaIndexDocument) extends AnyVal {
-
-    def toJava: JavaIndexDocument = {
-      val result = JavaIndexDocument.builder()
-      self.suffix.filter(_.nonEmpty).foreach(v => result.suffix(v)) // String
-
-      result.build()
+  final def withSuffixAsScala(value: Option[String]): IndexDocument.Builder = {
+    value.fold(self) { v =>
+      self.suffix(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaIndexDocumentOps(val self: JavaIndexDocument) extends AnyVal {
+final class IndexDocumentOps(val self: IndexDocument) extends AnyVal {
 
-    def toScala: ScalaIndexDocument = {
-      ScalaIndexDocument()
-        .withSuffix(Option(self.suffix)) // String
-    }
+  final def suffixAsScala: Option[String] = Option(self.suffix) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToIndexDocumentOps {
+
+  implicit def toIndexDocumentBuilderOps(v: IndexDocument.Builder): IndexDocumentBuilderOps =
+    new IndexDocumentBuilderOps(v)
+
+  implicit def toIndexDocumentOps(v: IndexDocument): IndexDocumentOps = new IndexDocumentOps(v)
 
 }

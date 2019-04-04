@@ -1,27 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AbortMultipartUploadResponse => ScalaAbortMultipartUploadResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ AbortMultipartUploadResponse => JavaAbortMultipartUploadResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class AbortMultipartUploadResponseBuilderOps(val self: AbortMultipartUploadResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AbortMultipartUploadResponseOps {
-
-  implicit class JavaAbortMultipartUploadResponseOps(val self: JavaAbortMultipartUploadResponse) extends AnyVal {
-
-    def toScala: ScalaAbortMultipartUploadResponse = {
-      ScalaAbortMultipartUploadResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): AbortMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
     }
+  } // String
 
-  }
+}
+
+final class AbortMultipartUploadResponseOps(val self: AbortMultipartUploadResponse) extends AnyVal {
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAbortMultipartUploadResponseOps {
+
+  implicit def toAbortMultipartUploadResponseBuilderOps(
+      v: AbortMultipartUploadResponse.Builder
+  ): AbortMultipartUploadResponseBuilderOps = new AbortMultipartUploadResponseBuilderOps(v)
+
+  implicit def toAbortMultipartUploadResponseOps(v: AbortMultipartUploadResponse): AbortMultipartUploadResponseOps =
+    new AbortMultipartUploadResponseOps(v)
 
 }

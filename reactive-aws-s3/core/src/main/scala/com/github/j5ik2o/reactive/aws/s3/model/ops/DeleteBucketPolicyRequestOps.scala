@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteBucketPolicyRequest => ScalaDeleteBucketPolicyRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketPolicyRequest => JavaDeleteBucketPolicyRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketPolicyRequestOps {
+final class DeleteBucketPolicyRequestBuilderOps(val self: DeleteBucketPolicyRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteBucketPolicyRequestOps(val self: ScalaDeleteBucketPolicyRequest) extends AnyVal {
-
-    def toJava: JavaDeleteBucketPolicyRequest = {
-      val result = JavaDeleteBucketPolicyRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteBucketPolicyRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteBucketPolicyRequestOps(val self: DeleteBucketPolicyRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketPolicyRequestOps {
+
+  implicit def toDeleteBucketPolicyRequestBuilderOps(
+      v: DeleteBucketPolicyRequest.Builder
+  ): DeleteBucketPolicyRequestBuilderOps = new DeleteBucketPolicyRequestBuilderOps(v)
+
+  implicit def toDeleteBucketPolicyRequestOps(v: DeleteBucketPolicyRequest): DeleteBucketPolicyRequestOps =
+    new DeleteBucketPolicyRequestOps(v)
 
 }

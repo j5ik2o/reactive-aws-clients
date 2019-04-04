@@ -1,30 +1,24 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeleteBucketMetricsConfigurationResponse => ScalaDeleteBucketMetricsConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  DeleteBucketMetricsConfigurationResponse => JavaDeleteBucketMetricsConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBucketMetricsConfigurationResponseBuilderOps(
+    val self: DeleteBucketMetricsConfigurationResponse.Builder
+) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketMetricsConfigurationResponseOps {
+final class DeleteBucketMetricsConfigurationResponseOps(val self: DeleteBucketMetricsConfigurationResponse)
+    extends AnyVal {}
 
-  implicit class JavaDeleteBucketMetricsConfigurationResponseOps(val self: JavaDeleteBucketMetricsConfigurationResponse)
-      extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketMetricsConfigurationResponseOps {
 
-    def toScala: ScalaDeleteBucketMetricsConfigurationResponse = {
-      ScalaDeleteBucketMetricsConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteBucketMetricsConfigurationResponseBuilderOps(
+      v: DeleteBucketMetricsConfigurationResponse.Builder
+  ): DeleteBucketMetricsConfigurationResponseBuilderOps = new DeleteBucketMetricsConfigurationResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteBucketMetricsConfigurationResponseOps(
+      v: DeleteBucketMetricsConfigurationResponse
+  ): DeleteBucketMetricsConfigurationResponseOps = new DeleteBucketMetricsConfigurationResponseOps(v)
 
 }

@@ -1,32 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Condition => ScalaCondition, _ }
-import software.amazon.awssdk.services.s3.model.{ Condition => JavaCondition }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ConditionOps {
+final class ConditionBuilderOps(val self: Condition.Builder) extends AnyVal {
 
-  implicit class ScalaConditionOps(val self: ScalaCondition) extends AnyVal {
-
-    def toJava: JavaCondition = {
-      val result = JavaCondition.builder()
-      self.httpErrorCodeReturnedEquals.filter(_.nonEmpty).foreach(v => result.httpErrorCodeReturnedEquals(v)) // String
-      self.keyPrefixEquals.filter(_.nonEmpty).foreach(v => result.keyPrefixEquals(v))                         // String
-
-      result.build()
+  final def withHttpErrorCodeReturnedEqualsAsScala(value: Option[String]): Condition.Builder = {
+    value.fold(self) { v =>
+      self.httpErrorCodeReturnedEquals(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaConditionOps(val self: JavaCondition) extends AnyVal {
-
-    def toScala: ScalaCondition = {
-      ScalaCondition()
-        .withHttpErrorCodeReturnedEquals(Option(self.httpErrorCodeReturnedEquals)) // String
-        .withKeyPrefixEquals(Option(self.keyPrefixEquals)) // String
+  final def withKeyPrefixEqualsAsScala(value: Option[String]): Condition.Builder = {
+    value.fold(self) { v =>
+      self.keyPrefixEquals(v)
     }
+  } // String
 
-  }
+}
+
+final class ConditionOps(val self: Condition) extends AnyVal {
+
+  final def httpErrorCodeReturnedEqualsAsScala: Option[String] = Option(self.httpErrorCodeReturnedEquals) // String
+
+  final def keyPrefixEqualsAsScala: Option[String] = Option(self.keyPrefixEquals) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToConditionOps {
+
+  implicit def toConditionBuilderOps(v: Condition.Builder): ConditionBuilderOps = new ConditionBuilderOps(v)
+
+  implicit def toConditionOps(v: Condition): ConditionOps = new ConditionOps(v)
 
 }

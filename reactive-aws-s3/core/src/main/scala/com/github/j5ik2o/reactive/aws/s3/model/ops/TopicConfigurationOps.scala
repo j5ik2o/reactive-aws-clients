@@ -1,44 +1,57 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ TopicConfiguration => ScalaTopicConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ TopicConfiguration => JavaTopicConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TopicConfigurationOps {
+final class TopicConfigurationBuilderOps(val self: TopicConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaTopicConfigurationOps(val self: ScalaTopicConfiguration) extends AnyVal {
-
-    def toJava: JavaTopicConfiguration = {
-      val result = JavaTopicConfiguration.builder()
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))             // String
-      self.topicArn.filter(_.nonEmpty).foreach(v => result.topicArn(v)) // String
-      self.events.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, EventOps._; result.events(v.map(_.toJava).asJava)
-      } // Seq[String]
-      self.filter.foreach { v =>
-        import NotificationConfigurationFilterOps._; result.filter(v.toJava)
-      } // NotificationConfigurationFilter
-
-      result.build()
+  final def withIdAsScala(value: Option[String]): TopicConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
     }
+  } // String
 
+  final def withTopicArnAsScala(value: Option[String]): TopicConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.topicArn(v)
+    }
+  } // String
+
+  final def withEventsAsScala(value: Option[Seq[Event]]): TopicConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.events(v.asJava)
+    } // Seq[String]
   }
 
-  implicit class JavaTopicConfigurationOps(val self: JavaTopicConfiguration) extends AnyVal {
-
-    def toScala: ScalaTopicConfiguration = {
-      ScalaTopicConfiguration()
-        .withId(Option(self.id)) // String
-        .withTopicArn(Option(self.topicArn)) // String
-        .withEvents(Option(self.events).map { v =>
-          import scala.collection.JavaConverters._, EventOps._; v.asScala.map(_.toScala)
-        }) // Seq[String]
-        .withFilter(Option(self.filter).map { v =>
-          import NotificationConfigurationFilterOps._; v.toScala
-        }) // NotificationConfigurationFilter
+  final def withFilterAsScala(value: Option[NotificationConfigurationFilter]): TopicConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.filter(v)
     }
+  } // NotificationConfigurationFilter
 
-  }
+}
+
+final class TopicConfigurationOps(val self: TopicConfiguration) extends AnyVal {
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def topicArnAsScala: Option[String] = Option(self.topicArn) // String
+
+  final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def filterAsScala: Option[NotificationConfigurationFilter] =
+    Option(self.filter) // NotificationConfigurationFilter
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTopicConfigurationOps {
+
+  implicit def toTopicConfigurationBuilderOps(v: TopicConfiguration.Builder): TopicConfigurationBuilderOps =
+    new TopicConfigurationBuilderOps(v)
+
+  implicit def toTopicConfigurationOps(v: TopicConfiguration): TopicConfigurationOps = new TopicConfigurationOps(v)
 
 }

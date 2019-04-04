@@ -1,25 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketPolicyResponse => ScalaGetBucketPolicyResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketPolicyResponse => JavaGetBucketPolicyResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketPolicyResponseBuilderOps(val self: GetBucketPolicyResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketPolicyResponseOps {
-
-  implicit class JavaGetBucketPolicyResponseOps(val self: JavaGetBucketPolicyResponse) extends AnyVal {
-
-    def toScala: ScalaGetBucketPolicyResponse = {
-      ScalaGetBucketPolicyResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withPolicy(Option(self.policy)) // String
+  final def withPolicyAsScala(value: Option[String]): GetBucketPolicyResponse.Builder = {
+    value.fold(self) { v =>
+      self.policy(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketPolicyResponseOps(val self: GetBucketPolicyResponse) extends AnyVal {
+
+  final def policyAsScala: Option[String] = Option(self.policy) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketPolicyResponseOps {
+
+  implicit def toGetBucketPolicyResponseBuilderOps(
+      v: GetBucketPolicyResponse.Builder
+  ): GetBucketPolicyResponseBuilderOps = new GetBucketPolicyResponseBuilderOps(v)
+
+  implicit def toGetBucketPolicyResponseOps(v: GetBucketPolicyResponse): GetBucketPolicyResponseOps =
+    new GetBucketPolicyResponseOps(v)
 
 }

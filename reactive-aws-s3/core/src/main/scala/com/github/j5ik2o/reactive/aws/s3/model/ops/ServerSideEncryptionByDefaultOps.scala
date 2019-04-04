@@ -1,39 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  ServerSideEncryptionByDefault => ScalaServerSideEncryptionByDefault,
-  _
+import software.amazon.awssdk.services.s3.model._
+
+final class ServerSideEncryptionByDefaultBuilderOps(val self: ServerSideEncryptionByDefault.Builder) extends AnyVal {
+
+  final def withSseAlgorithmAsScala(value: Option[ServerSideEncryption]): ServerSideEncryptionByDefault.Builder = {
+    value.fold(self) { v =>
+      self.sseAlgorithm(v)
+    }
+  } // String
+
+  final def withKmsMasterKeyIDAsScala(value: Option[String]): ServerSideEncryptionByDefault.Builder = {
+    value.fold(self) { v =>
+      self.kmsMasterKeyID(v)
+    }
+  } // String
+
 }
-import software.amazon.awssdk.services.s3.model.{ ServerSideEncryptionByDefault => JavaServerSideEncryptionByDefault }
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ServerSideEncryptionByDefaultOps {
+final class ServerSideEncryptionByDefaultOps(val self: ServerSideEncryptionByDefault) extends AnyVal {
 
-  implicit class ScalaServerSideEncryptionByDefaultOps(val self: ScalaServerSideEncryptionByDefault) extends AnyVal {
+  final def sseAlgorithmAsScala: Option[ServerSideEncryption] = Option(self.sseAlgorithm) // String
 
-    def toJava: JavaServerSideEncryptionByDefault = {
-      val result = JavaServerSideEncryptionByDefault.builder()
-      self.sseAlgorithm.foreach { v =>
-        import ServerSideEncryptionOps._; result.sseAlgorithm(v.toJava)
-      } // String
-      self.kmsMasterKeyID.filter(_.nonEmpty).foreach(v => result.kmsMasterKeyID(v)) // String
+  final def kmsMasterKeyIDAsScala: Option[String] = Option(self.kmsMasterKeyID) // String
 
-      result.build()
-    }
+}
 
-  }
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToServerSideEncryptionByDefaultOps {
 
-  implicit class JavaServerSideEncryptionByDefaultOps(val self: JavaServerSideEncryptionByDefault) extends AnyVal {
+  implicit def toServerSideEncryptionByDefaultBuilderOps(
+      v: ServerSideEncryptionByDefault.Builder
+  ): ServerSideEncryptionByDefaultBuilderOps = new ServerSideEncryptionByDefaultBuilderOps(v)
 
-    def toScala: ScalaServerSideEncryptionByDefault = {
-      ScalaServerSideEncryptionByDefault()
-        .withSseAlgorithm(Option(self.sseAlgorithm).map { v =>
-          import ServerSideEncryptionOps._; v.toScala
-        }) // String
-        .withKmsMasterKeyID(Option(self.kmsMasterKeyID)) // String
-    }
-
-  }
+  implicit def toServerSideEncryptionByDefaultOps(v: ServerSideEncryptionByDefault): ServerSideEncryptionByDefaultOps =
+    new ServerSideEncryptionByDefaultOps(v)
 
 }

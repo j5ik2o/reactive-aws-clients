@@ -1,30 +1,45 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketLifecycleConfigurationRequest => ScalaPutBucketLifecycleConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketLifecycleConfigurationRequest => JavaPutBucketLifecycleConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketLifecycleConfigurationRequestOps {
+final class PutBucketLifecycleConfigurationRequestBuilderOps(val self: PutBucketLifecycleConfigurationRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaPutBucketLifecycleConfigurationRequestOps(val self: ScalaPutBucketLifecycleConfigurationRequest)
-      extends AnyVal {
-
-    def toJava: JavaPutBucketLifecycleConfigurationRequest = {
-      val result = JavaPutBucketLifecycleConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.lifecycleConfiguration.foreach { v =>
-        import BucketLifecycleConfigurationOps._; result.lifecycleConfiguration(v.toJava)
-      } // BucketLifecycleConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketLifecycleConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withLifecycleConfigurationAsScala(
+      value: Option[BucketLifecycleConfiguration]
+  ): PutBucketLifecycleConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.lifecycleConfiguration(v)
+    }
+  } // BucketLifecycleConfiguration
+
+}
+
+final class PutBucketLifecycleConfigurationRequestOps(val self: PutBucketLifecycleConfigurationRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def lifecycleConfigurationAsScala: Option[BucketLifecycleConfiguration] =
+    Option(self.lifecycleConfiguration) // BucketLifecycleConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketLifecycleConfigurationRequestOps {
+
+  implicit def toPutBucketLifecycleConfigurationRequestBuilderOps(
+      v: PutBucketLifecycleConfigurationRequest.Builder
+  ): PutBucketLifecycleConfigurationRequestBuilderOps = new PutBucketLifecycleConfigurationRequestBuilderOps(v)
+
+  implicit def toPutBucketLifecycleConfigurationRequestOps(
+      v: PutBucketLifecycleConfigurationRequest
+  ): PutBucketLifecycleConfigurationRequestOps = new PutBucketLifecycleConfigurationRequestOps(v)
 
 }

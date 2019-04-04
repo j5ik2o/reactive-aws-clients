@@ -1,33 +1,33 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  AbortIncompleteMultipartUpload => ScalaAbortIncompleteMultipartUpload,
-  _
+import software.amazon.awssdk.services.s3.model._
+
+final class AbortIncompleteMultipartUploadBuilderOps(val self: AbortIncompleteMultipartUpload.Builder) extends AnyVal {
+
+  final def withDaysAfterInitiationAsScala(value: Option[Int]): AbortIncompleteMultipartUpload.Builder = {
+    value.fold(self) { v =>
+      self.daysAfterInitiation(v)
+    }
+  } // Int
+
 }
-import software.amazon.awssdk.services.s3.model.{ AbortIncompleteMultipartUpload => JavaAbortIncompleteMultipartUpload }
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AbortIncompleteMultipartUploadOps {
+final class AbortIncompleteMultipartUploadOps(val self: AbortIncompleteMultipartUpload) extends AnyVal {
 
-  implicit class ScalaAbortIncompleteMultipartUploadOps(val self: ScalaAbortIncompleteMultipartUpload) extends AnyVal {
+  final def daysAfterInitiationAsScala: Option[Int] = Option(self.daysAfterInitiation) // Int
 
-    def toJava: JavaAbortIncompleteMultipartUpload = {
-      val result = JavaAbortIncompleteMultipartUpload.builder()
-      self.daysAfterInitiation.map(_.intValue).foreach(v => result.daysAfterInitiation(v)) // Int
+}
 
-      result.build()
-    }
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAbortIncompleteMultipartUploadOps {
 
-  }
+  implicit def toAbortIncompleteMultipartUploadBuilderOps(
+      v: AbortIncompleteMultipartUpload.Builder
+  ): AbortIncompleteMultipartUploadBuilderOps = new AbortIncompleteMultipartUploadBuilderOps(v)
 
-  implicit class JavaAbortIncompleteMultipartUploadOps(val self: JavaAbortIncompleteMultipartUpload) extends AnyVal {
-
-    def toScala: ScalaAbortIncompleteMultipartUpload = {
-      ScalaAbortIncompleteMultipartUpload()
-        .withDaysAfterInitiation(Option(self.daysAfterInitiation).map(_.intValue)) // Int
-    }
-
-  }
+  implicit def toAbortIncompleteMultipartUploadOps(
+      v: AbortIncompleteMultipartUpload
+  ): AbortIncompleteMultipartUploadOps = new AbortIncompleteMultipartUploadOps(v)
 
 }

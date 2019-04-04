@@ -1,37 +1,79 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ UploadPartCopyResponse => ScalaUploadPartCopyResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ UploadPartCopyResponse => JavaUploadPartCopyResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class UploadPartCopyResponseBuilderOps(val self: UploadPartCopyResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UploadPartCopyResponseOps {
-
-  implicit class JavaUploadPartCopyResponseOps(val self: JavaUploadPartCopyResponse) extends AnyVal {
-
-    def toScala: ScalaUploadPartCopyResponse = {
-      ScalaUploadPartCopyResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withCopySourceVersionId(Option(self.copySourceVersionId)) // String
-        .withCopyPartResult(Option(self.copyPartResult).map { v =>
-          import CopyPartResultOps._; v.toScala
-        }) // CopyPartResult
-        .withServerSideEncryption(Option(self.serverSideEncryption).map { v =>
-          import ServerSideEncryptionOps._; v.toScala
-        }) // String
-        .withSseCustomerAlgorithm(Option(self.sseCustomerAlgorithm)) // String
-        .withSseCustomerKeyMD5(Option(self.sseCustomerKeyMD5)) // String
-        .withSsekmsKeyId(Option(self.ssekmsKeyId)) // String
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withCopySourceVersionIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.copySourceVersionId(v)
     }
+  } // String
 
-  }
+  final def withCopyPartResultAsScala(value: Option[CopyPartResult]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.copyPartResult(v)
+    }
+  } // CopyPartResult
+
+  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.serverSideEncryption(v)
+    }
+  } // String
+
+  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerAlgorithm(v)
+    }
+  } // String
+
+  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerKeyMD5(v)
+    }
+  } // String
+
+  final def withSsekmsKeyIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsKeyId(v)
+    }
+  } // String
+
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): UploadPartCopyResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
+    }
+  } // String
+
+}
+
+final class UploadPartCopyResponseOps(val self: UploadPartCopyResponse) extends AnyVal {
+
+  final def copySourceVersionIdAsScala: Option[String] = Option(self.copySourceVersionId) // String
+
+  final def copyPartResultAsScala: Option[CopyPartResult] = Option(self.copyPartResult) // CopyPartResult
+
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUploadPartCopyResponseOps {
+
+  implicit def toUploadPartCopyResponseBuilderOps(v: UploadPartCopyResponse.Builder): UploadPartCopyResponseBuilderOps =
+    new UploadPartCopyResponseBuilderOps(v)
+
+  implicit def toUploadPartCopyResponseOps(v: UploadPartCopyResponse): UploadPartCopyResponseOps =
+    new UploadPartCopyResponseOps(v)
 
 }

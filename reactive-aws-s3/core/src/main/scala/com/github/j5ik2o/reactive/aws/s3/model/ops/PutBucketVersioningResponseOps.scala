@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketVersioningResponse => ScalaPutBucketVersioningResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketVersioningResponse => JavaPutBucketVersioningResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketVersioningResponseBuilderOps(val self: PutBucketVersioningResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketVersioningResponseOps {
+final class PutBucketVersioningResponseOps(val self: PutBucketVersioningResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketVersioningResponseOps(val self: JavaPutBucketVersioningResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketVersioningResponseOps {
 
-    def toScala: ScalaPutBucketVersioningResponse = {
-      ScalaPutBucketVersioningResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketVersioningResponseBuilderOps(
+      v: PutBucketVersioningResponse.Builder
+  ): PutBucketVersioningResponseBuilderOps = new PutBucketVersioningResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketVersioningResponseOps(v: PutBucketVersioningResponse): PutBucketVersioningResponseOps =
+    new PutBucketVersioningResponseOps(v)
 
 }

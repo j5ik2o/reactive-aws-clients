@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketWebsiteRequest => ScalaGetBucketWebsiteRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketWebsiteRequest => JavaGetBucketWebsiteRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketWebsiteRequestOps {
+final class GetBucketWebsiteRequestBuilderOps(val self: GetBucketWebsiteRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketWebsiteRequestOps(val self: ScalaGetBucketWebsiteRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketWebsiteRequest = {
-      val result = JavaGetBucketWebsiteRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketWebsiteRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketWebsiteRequestOps(val self: GetBucketWebsiteRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketWebsiteRequestOps {
+
+  implicit def toGetBucketWebsiteRequestBuilderOps(
+      v: GetBucketWebsiteRequest.Builder
+  ): GetBucketWebsiteRequestBuilderOps = new GetBucketWebsiteRequestBuilderOps(v)
+
+  implicit def toGetBucketWebsiteRequestOps(v: GetBucketWebsiteRequest): GetBucketWebsiteRequestOps =
+    new GetBucketWebsiteRequestOps(v)
 
 }

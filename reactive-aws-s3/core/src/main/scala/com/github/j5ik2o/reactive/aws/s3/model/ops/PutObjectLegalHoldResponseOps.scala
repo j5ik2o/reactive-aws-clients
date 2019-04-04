@@ -1,27 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutObjectLegalHoldResponse => ScalaPutObjectLegalHoldResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutObjectLegalHoldResponse => JavaPutObjectLegalHoldResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutObjectLegalHoldResponseBuilderOps(val self: PutObjectLegalHoldResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutObjectLegalHoldResponseOps {
-
-  implicit class JavaPutObjectLegalHoldResponseOps(val self: JavaPutObjectLegalHoldResponse) extends AnyVal {
-
-    def toScala: ScalaPutObjectLegalHoldResponse = {
-      ScalaPutObjectLegalHoldResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): PutObjectLegalHoldResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
     }
+  } // String
 
-  }
+}
+
+final class PutObjectLegalHoldResponseOps(val self: PutObjectLegalHoldResponse) extends AnyVal {
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutObjectLegalHoldResponseOps {
+
+  implicit def toPutObjectLegalHoldResponseBuilderOps(
+      v: PutObjectLegalHoldResponse.Builder
+  ): PutObjectLegalHoldResponseBuilderOps = new PutObjectLegalHoldResponseBuilderOps(v)
+
+  implicit def toPutObjectLegalHoldResponseOps(v: PutObjectLegalHoldResponse): PutObjectLegalHoldResponseOps =
+    new PutObjectLegalHoldResponseOps(v)
 
 }

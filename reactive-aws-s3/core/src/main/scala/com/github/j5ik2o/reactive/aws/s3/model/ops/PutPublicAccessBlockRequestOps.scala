@@ -1,25 +1,51 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutPublicAccessBlockRequest => ScalaPutPublicAccessBlockRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutPublicAccessBlockRequest => JavaPutPublicAccessBlockRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutPublicAccessBlockRequestOps {
+final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlockRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutPublicAccessBlockRequestOps(val self: ScalaPutPublicAccessBlockRequest) extends AnyVal {
-
-    def toJava: JavaPutPublicAccessBlockRequest = {
-      val result = JavaPutPublicAccessBlockRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))         // String
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v)) // String
-      self.publicAccessBlockConfiguration.foreach { v =>
-        import PublicAccessBlockConfigurationOps._; result.publicAccessBlockConfiguration(v.toJava)
-      } // PublicAccessBlockConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContentMD5AsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withPublicAccessBlockConfigurationAsScala(
+      value: Option[PublicAccessBlockConfiguration]
+  ): PutPublicAccessBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.publicAccessBlockConfiguration(v)
+    }
+  } // PublicAccessBlockConfiguration
+
+}
+
+final class PutPublicAccessBlockRequestOps(val self: PutPublicAccessBlockRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def publicAccessBlockConfigurationAsScala: Option[PublicAccessBlockConfiguration] =
+    Option(self.publicAccessBlockConfiguration) // PublicAccessBlockConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutPublicAccessBlockRequestOps {
+
+  implicit def toPutPublicAccessBlockRequestBuilderOps(
+      v: PutPublicAccessBlockRequest.Builder
+  ): PutPublicAccessBlockRequestBuilderOps = new PutPublicAccessBlockRequestBuilderOps(v)
+
+  implicit def toPutPublicAccessBlockRequestOps(v: PutPublicAccessBlockRequest): PutPublicAccessBlockRequestOps =
+    new PutPublicAccessBlockRequestOps(v)
 
 }

@@ -1,36 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ FilterRule => ScalaFilterRule, _ }
-import software.amazon.awssdk.services.s3.model.{ FilterRule => JavaFilterRule }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object FilterRuleOps {
+final class FilterRuleBuilderOps(val self: FilterRule.Builder) extends AnyVal {
 
-  implicit class ScalaFilterRuleOps(val self: ScalaFilterRule) extends AnyVal {
-
-    def toJava: JavaFilterRule = {
-      val result = JavaFilterRule.builder()
-      self.name.foreach { v =>
-        import FilterRuleNameOps._; result.name(v.toJava)
-      } // String
-      self.value.filter(_.nonEmpty).foreach(v => result.value(v)) // String
-
-      result.build()
+  final def withNameAsScala(value: Option[FilterRuleName]): FilterRule.Builder = {
+    value.fold(self) { v =>
+      self.name(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaFilterRuleOps(val self: JavaFilterRule) extends AnyVal {
-
-    def toScala: ScalaFilterRule = {
-      ScalaFilterRule()
-        .withName(Option(self.name).map { v =>
-          import FilterRuleNameOps._; v.toScala
-        }) // String
-        .withValue(Option(self.value)) // String
+  final def withValueAsScala(value: Option[String]): FilterRule.Builder = {
+    value.fold(self) { v =>
+      self.value(v)
     }
+  } // String
 
-  }
+}
+
+final class FilterRuleOps(val self: FilterRule) extends AnyVal {
+
+  final def nameAsScala: Option[FilterRuleName] = Option(self.name) // String
+
+  final def valueAsScala: Option[String] = Option(self.value) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToFilterRuleOps {
+
+  implicit def toFilterRuleBuilderOps(v: FilterRule.Builder): FilterRuleBuilderOps = new FilterRuleBuilderOps(v)
+
+  implicit def toFilterRuleOps(v: FilterRule): FilterRuleOps = new FilterRuleOps(v)
 
 }

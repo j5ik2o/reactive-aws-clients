@@ -1,30 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ NoncurrentVersionExpiration => ScalaNoncurrentVersionExpiration, _ }
-import software.amazon.awssdk.services.s3.model.{ NoncurrentVersionExpiration => JavaNoncurrentVersionExpiration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object NoncurrentVersionExpirationOps {
+final class NoncurrentVersionExpirationBuilderOps(val self: NoncurrentVersionExpiration.Builder) extends AnyVal {
 
-  implicit class ScalaNoncurrentVersionExpirationOps(val self: ScalaNoncurrentVersionExpiration) extends AnyVal {
-
-    def toJava: JavaNoncurrentVersionExpiration = {
-      val result = JavaNoncurrentVersionExpiration.builder()
-      self.noncurrentDays.map(_.intValue).foreach(v => result.noncurrentDays(v)) // Int
-
-      result.build()
+  final def withNoncurrentDaysAsScala(value: Option[Int]): NoncurrentVersionExpiration.Builder = {
+    value.fold(self) { v =>
+      self.noncurrentDays(v)
     }
+  } // Int
 
-  }
+}
 
-  implicit class JavaNoncurrentVersionExpirationOps(val self: JavaNoncurrentVersionExpiration) extends AnyVal {
+final class NoncurrentVersionExpirationOps(val self: NoncurrentVersionExpiration) extends AnyVal {
 
-    def toScala: ScalaNoncurrentVersionExpiration = {
-      ScalaNoncurrentVersionExpiration()
-        .withNoncurrentDays(Option(self.noncurrentDays).map(_.intValue)) // Int
-    }
+  final def noncurrentDaysAsScala: Option[Int] = Option(self.noncurrentDays) // Int
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToNoncurrentVersionExpirationOps {
+
+  implicit def toNoncurrentVersionExpirationBuilderOps(
+      v: NoncurrentVersionExpiration.Builder
+  ): NoncurrentVersionExpirationBuilderOps = new NoncurrentVersionExpirationBuilderOps(v)
+
+  implicit def toNoncurrentVersionExpirationOps(v: NoncurrentVersionExpiration): NoncurrentVersionExpirationOps =
+    new NoncurrentVersionExpirationOps(v)
 
 }

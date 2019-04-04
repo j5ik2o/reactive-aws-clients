@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetPublicAccessBlockRequest => ScalaGetPublicAccessBlockRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetPublicAccessBlockRequest => JavaGetPublicAccessBlockRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetPublicAccessBlockRequestOps {
+final class GetPublicAccessBlockRequestBuilderOps(val self: GetPublicAccessBlockRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetPublicAccessBlockRequestOps(val self: ScalaGetPublicAccessBlockRequest) extends AnyVal {
-
-    def toJava: JavaGetPublicAccessBlockRequest = {
-      val result = JavaGetPublicAccessBlockRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetPublicAccessBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetPublicAccessBlockRequestOps(val self: GetPublicAccessBlockRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetPublicAccessBlockRequestOps {
+
+  implicit def toGetPublicAccessBlockRequestBuilderOps(
+      v: GetPublicAccessBlockRequest.Builder
+  ): GetPublicAccessBlockRequestBuilderOps = new GetPublicAccessBlockRequestBuilderOps(v)
+
+  implicit def toGetPublicAccessBlockRequestOps(v: GetPublicAccessBlockRequest): GetPublicAccessBlockRequestOps =
+    new GetPublicAccessBlockRequestOps(v)
 
 }

@@ -1,25 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteObjectTaggingResponse => ScalaDeleteObjectTaggingResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteObjectTaggingResponse => JavaDeleteObjectTaggingResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteObjectTaggingResponseBuilderOps(val self: DeleteObjectTaggingResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteObjectTaggingResponseOps {
-
-  implicit class JavaDeleteObjectTaggingResponseOps(val self: JavaDeleteObjectTaggingResponse) extends AnyVal {
-
-    def toScala: ScalaDeleteObjectTaggingResponse = {
-      ScalaDeleteObjectTaggingResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withVersionId(Option(self.versionId)) // String
+  final def withVersionIdAsScala(value: Option[String]): DeleteObjectTaggingResponse.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteObjectTaggingResponseOps(val self: DeleteObjectTaggingResponse) extends AnyVal {
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteObjectTaggingResponseOps {
+
+  implicit def toDeleteObjectTaggingResponseBuilderOps(
+      v: DeleteObjectTaggingResponse.Builder
+  ): DeleteObjectTaggingResponseBuilderOps = new DeleteObjectTaggingResponseBuilderOps(v)
+
+  implicit def toDeleteObjectTaggingResponseOps(v: DeleteObjectTaggingResponse): DeleteObjectTaggingResponseOps =
+    new DeleteObjectTaggingResponseOps(v)
 
 }

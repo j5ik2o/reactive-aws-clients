@@ -1,20 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ListBucketsRequest => ScalaListBucketsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ ListBucketsRequest => JavaListBucketsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListBucketsRequestOps {
+final class ListBucketsRequestBuilderOps(val self: ListBucketsRequest.Builder) extends AnyVal {}
 
-  implicit class ScalaListBucketsRequestOps(val self: ScalaListBucketsRequest) extends AnyVal {
+final class ListBucketsRequestOps(val self: ListBucketsRequest) extends AnyVal {}
 
-    def toJava: JavaListBucketsRequest = {
-      val result = JavaListBucketsRequest.builder()
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListBucketsRequestOps {
 
-      result.build()
-    }
+  implicit def toListBucketsRequestBuilderOps(v: ListBucketsRequest.Builder): ListBucketsRequestBuilderOps =
+    new ListBucketsRequestBuilderOps(v)
 
-  }
+  implicit def toListBucketsRequestOps(v: ListBucketsRequest): ListBucketsRequestOps = new ListBucketsRequestOps(v)
 
 }

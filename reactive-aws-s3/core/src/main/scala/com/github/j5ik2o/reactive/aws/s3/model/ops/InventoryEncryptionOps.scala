@@ -1,40 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ InventoryEncryption => ScalaInventoryEncryption, _ }
-import software.amazon.awssdk.services.s3.model.{ InventoryEncryption => JavaInventoryEncryption }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object InventoryEncryptionOps {
+final class InventoryEncryptionBuilderOps(val self: InventoryEncryption.Builder) extends AnyVal {
 
-  implicit class ScalaInventoryEncryptionOps(val self: ScalaInventoryEncryption) extends AnyVal {
-
-    def toJava: JavaInventoryEncryption = {
-      val result = JavaInventoryEncryption.builder()
-      self.sses3.foreach { v =>
-        import SSES3Ops._; result.sses3(v.toJava)
-      } // SSES3
-      self.ssekms.foreach { v =>
-        import SSEKMSOps._; result.ssekms(v.toJava)
-      } // SSEKMS
-
-      result.build()
+  final def withSses3AsScala(value: Option[SSES3]): InventoryEncryption.Builder = {
+    value.fold(self) { v =>
+      self.sses3(v)
     }
+  } // SSES3
 
-  }
-
-  implicit class JavaInventoryEncryptionOps(val self: JavaInventoryEncryption) extends AnyVal {
-
-    def toScala: ScalaInventoryEncryption = {
-      ScalaInventoryEncryption()
-        .withSses3(Option(self.sses3).map { v =>
-          import SSES3Ops._; v.toScala
-        }) // SSES3
-        .withSsekms(Option(self.ssekms).map { v =>
-          import SSEKMSOps._; v.toScala
-        }) // SSEKMS
+  final def withSsekmsAsScala(value: Option[SSEKMS]): InventoryEncryption.Builder = {
+    value.fold(self) { v =>
+      self.ssekms(v)
     }
+  } // SSEKMS
 
-  }
+}
+
+final class InventoryEncryptionOps(val self: InventoryEncryption) extends AnyVal {
+
+  final def sses3AsScala: Option[SSES3] = Option(self.sses3) // SSES3
+
+  final def ssekmsAsScala: Option[SSEKMS] = Option(self.ssekms) // SSEKMS
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToInventoryEncryptionOps {
+
+  implicit def toInventoryEncryptionBuilderOps(v: InventoryEncryption.Builder): InventoryEncryptionBuilderOps =
+    new InventoryEncryptionBuilderOps(v)
+
+  implicit def toInventoryEncryptionOps(v: InventoryEncryption): InventoryEncryptionOps = new InventoryEncryptionOps(v)
 
 }

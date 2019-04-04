@@ -1,32 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CopyPartResult => ScalaCopyPartResult, _ }
-import software.amazon.awssdk.services.s3.model.{ CopyPartResult => JavaCopyPartResult }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CopyPartResultOps {
+final class CopyPartResultBuilderOps(val self: CopyPartResult.Builder) extends AnyVal {
 
-  implicit class ScalaCopyPartResultOps(val self: ScalaCopyPartResult) extends AnyVal {
-
-    def toJava: JavaCopyPartResult = {
-      val result = JavaCopyPartResult.builder()
-      self.eTag.filter(_.nonEmpty).foreach(v => result.eTag(v)) // String
-      self.lastModified.foreach(v => result.lastModified(v))    // Instant
-
-      result.build()
+  final def withETagAsScala(value: Option[String]): CopyPartResult.Builder = {
+    value.fold(self) { v =>
+      self.eTag(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaCopyPartResultOps(val self: JavaCopyPartResult) extends AnyVal {
-
-    def toScala: ScalaCopyPartResult = {
-      ScalaCopyPartResult()
-        .withETag(Option(self.eTag)) // String
-        .withLastModified(Option(self.lastModified)) // Instant
+  final def withLastModifiedAsScala(value: Option[java.time.Instant]): CopyPartResult.Builder = {
+    value.fold(self) { v =>
+      self.lastModified(v)
     }
+  } // Instant
 
-  }
+}
+
+final class CopyPartResultOps(val self: CopyPartResult) extends AnyVal {
+
+  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCopyPartResultOps {
+
+  implicit def toCopyPartResultBuilderOps(v: CopyPartResult.Builder): CopyPartResultBuilderOps =
+    new CopyPartResultBuilderOps(v)
+
+  implicit def toCopyPartResultOps(v: CopyPartResult): CopyPartResultOps = new CopyPartResultOps(v)
 
 }

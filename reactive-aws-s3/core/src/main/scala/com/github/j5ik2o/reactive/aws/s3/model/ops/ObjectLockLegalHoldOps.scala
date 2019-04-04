@@ -1,34 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ObjectLockLegalHold => ScalaObjectLockLegalHold, _ }
-import software.amazon.awssdk.services.s3.model.{ ObjectLockLegalHold => JavaObjectLockLegalHold }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ObjectLockLegalHoldOps {
+final class ObjectLockLegalHoldBuilderOps(val self: ObjectLockLegalHold.Builder) extends AnyVal {
 
-  implicit class ScalaObjectLockLegalHoldOps(val self: ScalaObjectLockLegalHold) extends AnyVal {
-
-    def toJava: JavaObjectLockLegalHold = {
-      val result = JavaObjectLockLegalHold.builder()
-      self.status.foreach { v =>
-        import ObjectLockLegalHoldStatusOps._; result.status(v.toJava)
-      } // String
-
-      result.build()
+  final def withStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): ObjectLockLegalHold.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaObjectLockLegalHoldOps(val self: JavaObjectLockLegalHold) extends AnyVal {
+final class ObjectLockLegalHoldOps(val self: ObjectLockLegalHold) extends AnyVal {
 
-    def toScala: ScalaObjectLockLegalHold = {
-      ScalaObjectLockLegalHold()
-        .withStatus(Option(self.status).map { v =>
-          import ObjectLockLegalHoldStatusOps._; v.toScala
-        }) // String
-    }
+  final def statusAsScala: Option[ObjectLockLegalHoldStatus] = Option(self.status) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToObjectLockLegalHoldOps {
+
+  implicit def toObjectLockLegalHoldBuilderOps(v: ObjectLockLegalHold.Builder): ObjectLockLegalHoldBuilderOps =
+    new ObjectLockLegalHoldBuilderOps(v)
+
+  implicit def toObjectLockLegalHoldOps(v: ObjectLockLegalHold): ObjectLockLegalHoldOps = new ObjectLockLegalHoldOps(v)
 
 }

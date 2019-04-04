@@ -1,40 +1,56 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AnalyticsS3BucketDestination => ScalaAnalyticsS3BucketDestination, _ }
-import software.amazon.awssdk.services.s3.model.{ AnalyticsS3BucketDestination => JavaAnalyticsS3BucketDestination }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AnalyticsS3BucketDestinationOps {
+final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDestination.Builder) extends AnyVal {
 
-  implicit class ScalaAnalyticsS3BucketDestinationOps(val self: ScalaAnalyticsS3BucketDestination) extends AnyVal {
-
-    def toJava: JavaAnalyticsS3BucketDestination = {
-      val result = JavaAnalyticsS3BucketDestination.builder()
-      self.format.foreach { v =>
-        import AnalyticsS3ExportFileFormatOps._; result.format(v.toJava)
-      } // String
-      self.bucketAccountId.filter(_.nonEmpty).foreach(v => result.bucketAccountId(v)) // String
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))                   // String
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v))                   // String
-
-      result.build()
+  final def withFormatAsScala(value: Option[AnalyticsS3ExportFileFormat]): AnalyticsS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.format(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaAnalyticsS3BucketDestinationOps(val self: JavaAnalyticsS3BucketDestination) extends AnyVal {
-
-    def toScala: ScalaAnalyticsS3BucketDestination = {
-      ScalaAnalyticsS3BucketDestination()
-        .withFormat(Option(self.format).map { v =>
-          import AnalyticsS3ExportFileFormatOps._; v.toScala
-        }) // String
-        .withBucketAccountId(Option(self.bucketAccountId)) // String
-        .withBucket(Option(self.bucket)) // String
-        .withPrefix(Option(self.prefix)) // String
+  final def withBucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.bucketAccountId(v)
     }
+  } // String
 
-  }
+  final def withBucketAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
+    }
+  } // String
+
+  final def withPrefixAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
+    }
+  } // String
+
+}
+
+final class AnalyticsS3BucketDestinationOps(val self: AnalyticsS3BucketDestination) extends AnyVal {
+
+  final def formatAsScala: Option[AnalyticsS3ExportFileFormat] = Option(self.format) // String
+
+  final def bucketAccountIdAsScala: Option[String] = Option(self.bucketAccountId) // String
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAnalyticsS3BucketDestinationOps {
+
+  implicit def toAnalyticsS3BucketDestinationBuilderOps(
+      v: AnalyticsS3BucketDestination.Builder
+  ): AnalyticsS3BucketDestinationBuilderOps = new AnalyticsS3BucketDestinationBuilderOps(v)
+
+  implicit def toAnalyticsS3BucketDestinationOps(v: AnalyticsS3BucketDestination): AnalyticsS3BucketDestinationOps =
+    new AnalyticsS3BucketDestinationOps(v)
 
 }

@@ -1,36 +1,86 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutObjectResponse => ScalaPutObjectResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutObjectResponse => JavaPutObjectResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutObjectResponseBuilderOps(val self: PutObjectResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutObjectResponseOps {
-
-  implicit class JavaPutObjectResponseOps(val self: JavaPutObjectResponse) extends AnyVal {
-
-    def toScala: ScalaPutObjectResponse = {
-      ScalaPutObjectResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withExpiration(Option(self.expiration)) // String
-        .withETag(Option(self.eTag)) // String
-        .withServerSideEncryption(Option(self.serverSideEncryption).map { v =>
-          import ServerSideEncryptionOps._; v.toScala
-        }) // String
-        .withVersionId(Option(self.versionId)) // String
-        .withSseCustomerAlgorithm(Option(self.sseCustomerAlgorithm)) // String
-        .withSseCustomerKeyMD5(Option(self.sseCustomerKeyMD5)) // String
-        .withSsekmsKeyId(Option(self.ssekmsKeyId)) // String
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withExpirationAsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.expiration(v)
     }
+  } // String
 
-  }
+  final def withETagAsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.eTag(v)
+    }
+  } // String
+
+  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.serverSideEncryption(v)
+    }
+  } // String
+
+  final def withVersionIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+  final def withSseCustomerAlgorithmAsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerAlgorithm(v)
+    }
+  } // String
+
+  final def withSseCustomerKeyMD5AsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerKeyMD5(v)
+    }
+  } // String
+
+  final def withSsekmsKeyIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsKeyId(v)
+    }
+  } // String
+
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
+    }
+  } // String
+
+}
+
+final class PutObjectResponseOps(val self: PutObjectResponse) extends AnyVal {
+
+  final def expirationAsScala: Option[String] = Option(self.expiration) // String
+
+  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutObjectResponseOps {
+
+  implicit def toPutObjectResponseBuilderOps(v: PutObjectResponse.Builder): PutObjectResponseBuilderOps =
+    new PutObjectResponseBuilderOps(v)
+
+  implicit def toPutObjectResponseOps(v: PutObjectResponse): PutObjectResponseOps = new PutObjectResponseOps(v)
 
 }

@@ -1,34 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ InventorySchedule => ScalaInventorySchedule, _ }
-import software.amazon.awssdk.services.s3.model.{ InventorySchedule => JavaInventorySchedule }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object InventoryScheduleOps {
+final class InventoryScheduleBuilderOps(val self: InventorySchedule.Builder) extends AnyVal {
 
-  implicit class ScalaInventoryScheduleOps(val self: ScalaInventorySchedule) extends AnyVal {
-
-    def toJava: JavaInventorySchedule = {
-      val result = JavaInventorySchedule.builder()
-      self.frequency.foreach { v =>
-        import InventoryFrequencyOps._; result.frequency(v.toJava)
-      } // String
-
-      result.build()
+  final def withFrequencyAsScala(value: Option[InventoryFrequency]): InventorySchedule.Builder = {
+    value.fold(self) { v =>
+      self.frequency(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaInventoryScheduleOps(val self: JavaInventorySchedule) extends AnyVal {
+final class InventoryScheduleOps(val self: InventorySchedule) extends AnyVal {
 
-    def toScala: ScalaInventorySchedule = {
-      ScalaInventorySchedule()
-        .withFrequency(Option(self.frequency).map { v =>
-          import InventoryFrequencyOps._; v.toScala
-        }) // String
-    }
+  final def frequencyAsScala: Option[InventoryFrequency] = Option(self.frequency) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToInventoryScheduleOps {
+
+  implicit def toInventoryScheduleBuilderOps(v: InventorySchedule.Builder): InventoryScheduleBuilderOps =
+    new InventoryScheduleBuilderOps(v)
+
+  implicit def toInventoryScheduleOps(v: InventorySchedule): InventoryScheduleOps = new InventoryScheduleOps(v)
 
 }

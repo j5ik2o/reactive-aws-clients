@@ -1,26 +1,56 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectLegalHoldRequest => ScalaGetObjectLegalHoldRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectLegalHoldRequest => JavaGetObjectLegalHoldRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectLegalHoldRequestOps {
+final class GetObjectLegalHoldRequestBuilderOps(val self: GetObjectLegalHoldRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetObjectLegalHoldRequestOps(val self: ScalaGetObjectLegalHoldRequest) extends AnyVal {
-
-    def toJava: JavaGetObjectLegalHoldRequest = {
-      val result = JavaGetObjectLegalHoldRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))       // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))             // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v)) // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withVersionIdAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectLegalHoldRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class GetObjectLegalHoldRequestOps(val self: GetObjectLegalHoldRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectLegalHoldRequestOps {
+
+  implicit def toGetObjectLegalHoldRequestBuilderOps(
+      v: GetObjectLegalHoldRequest.Builder
+  ): GetObjectLegalHoldRequestBuilderOps = new GetObjectLegalHoldRequestBuilderOps(v)
+
+  implicit def toGetObjectLegalHoldRequestOps(v: GetObjectLegalHoldRequest): GetObjectLegalHoldRequestOps =
+    new GetObjectLegalHoldRequestOps(v)
 
 }

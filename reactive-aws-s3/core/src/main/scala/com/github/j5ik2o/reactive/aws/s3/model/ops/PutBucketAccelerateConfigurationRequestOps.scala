@@ -1,30 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketAccelerateConfigurationRequest => ScalaPutBucketAccelerateConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketAccelerateConfigurationRequest => JavaPutBucketAccelerateConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketAccelerateConfigurationRequestOps {
+final class PutBucketAccelerateConfigurationRequestBuilderOps(val self: PutBucketAccelerateConfigurationRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaPutBucketAccelerateConfigurationRequestOps(val self: ScalaPutBucketAccelerateConfigurationRequest)
-      extends AnyVal {
-
-    def toJava: JavaPutBucketAccelerateConfigurationRequest = {
-      val result = JavaPutBucketAccelerateConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.accelerateConfiguration.foreach { v =>
-        import AccelerateConfigurationOps._; result.accelerateConfiguration(v.toJava)
-      } // AccelerateConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketAccelerateConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withAccelerateConfigurationAsScala(
+      value: Option[AccelerateConfiguration]
+  ): PutBucketAccelerateConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.accelerateConfiguration(v)
+    }
+  } // AccelerateConfiguration
+
+}
+
+final class PutBucketAccelerateConfigurationRequestOps(val self: PutBucketAccelerateConfigurationRequest)
+    extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def accelerateConfigurationAsScala: Option[AccelerateConfiguration] =
+    Option(self.accelerateConfiguration) // AccelerateConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketAccelerateConfigurationRequestOps {
+
+  implicit def toPutBucketAccelerateConfigurationRequestBuilderOps(
+      v: PutBucketAccelerateConfigurationRequest.Builder
+  ): PutBucketAccelerateConfigurationRequestBuilderOps = new PutBucketAccelerateConfigurationRequestBuilderOps(v)
+
+  implicit def toPutBucketAccelerateConfigurationRequestOps(
+      v: PutBucketAccelerateConfigurationRequest
+  ): PutBucketAccelerateConfigurationRequestOps = new PutBucketAccelerateConfigurationRequestOps(v)
 
 }

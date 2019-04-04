@@ -1,42 +1,62 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteMarkerEntry => ScalaDeleteMarkerEntry, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteMarkerEntry => JavaDeleteMarkerEntry }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteMarkerEntryOps {
+final class DeleteMarkerEntryBuilderOps(val self: DeleteMarkerEntry.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteMarkerEntryOps(val self: ScalaDeleteMarkerEntry) extends AnyVal {
-
-    def toJava: JavaDeleteMarkerEntry = {
-      val result = JavaDeleteMarkerEntry.builder()
-      self.owner.foreach { v =>
-        import OwnerOps._; result.owner(v.toJava)
-      } // Owner
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))             // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v)) // String
-      self.isLatest.map(_.booleanValue).foreach(v => result.isLatest(v))  // Boolean
-      self.lastModified.foreach(v => result.lastModified(v))              // Instant
-
-      result.build()
+  final def withOwnerAsScala(value: Option[Owner]): DeleteMarkerEntry.Builder = {
+    value.fold(self) { v =>
+      self.owner(v)
     }
+  } // Owner
 
-  }
-
-  implicit class JavaDeleteMarkerEntryOps(val self: JavaDeleteMarkerEntry) extends AnyVal {
-
-    def toScala: ScalaDeleteMarkerEntry = {
-      ScalaDeleteMarkerEntry()
-        .withOwner(Option(self.owner).map { v =>
-          import OwnerOps._; v.toScala
-        }) // Owner
-        .withKey(Option(self.key)) // String
-        .withVersionId(Option(self.versionId)) // String
-        .withIsLatest(Option(self.isLatest).map(_.booleanValue)) // Boolean
-        .withLastModified(Option(self.lastModified)) // Instant
+  final def withKeyAsScala(value: Option[String]): DeleteMarkerEntry.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
     }
+  } // String
 
-  }
+  final def withVersionIdAsScala(value: Option[String]): DeleteMarkerEntry.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+  final def withIsLatestAsScala(value: Option[Boolean]): DeleteMarkerEntry.Builder = {
+    value.fold(self) { v =>
+      self.isLatest(v)
+    }
+  } // Boolean
+
+  final def withLastModifiedAsScala(value: Option[java.time.Instant]): DeleteMarkerEntry.Builder = {
+    value.fold(self) { v =>
+      self.lastModified(v)
+    }
+  } // Instant
+
+}
+
+final class DeleteMarkerEntryOps(val self: DeleteMarkerEntry) extends AnyVal {
+
+  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def isLatestAsScala: Option[Boolean] = Option(self.isLatest) // Boolean
+
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteMarkerEntryOps {
+
+  implicit def toDeleteMarkerEntryBuilderOps(v: DeleteMarkerEntry.Builder): DeleteMarkerEntryBuilderOps =
+    new DeleteMarkerEntryBuilderOps(v)
+
+  implicit def toDeleteMarkerEntryOps(v: DeleteMarkerEntry): DeleteMarkerEntryOps = new DeleteMarkerEntryOps(v)
 
 }

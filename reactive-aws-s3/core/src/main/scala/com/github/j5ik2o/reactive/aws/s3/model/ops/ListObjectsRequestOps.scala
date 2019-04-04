@@ -1,31 +1,78 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ListObjectsRequest => ScalaListObjectsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ ListObjectsRequest => JavaListObjectsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListObjectsRequestOps {
+final class ListObjectsRequestBuilderOps(val self: ListObjectsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaListObjectsRequestOps(val self: ScalaListObjectsRequest) extends AnyVal {
-
-    def toJava: JavaListObjectsRequest = {
-      val result = JavaListObjectsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))       // String
-      self.delimiter.filter(_.nonEmpty).foreach(v => result.delimiter(v)) // String
-      self.encodingType.foreach { v =>
-        import EncodingTypeOps._; result.encodingType(v.toJava)
-      } // String
-      self.marker.filter(_.nonEmpty).foreach(v => result.marker(v)) // String
-      self.maxKeys.map(_.intValue).foreach(v => result.maxKeys(v))  // Int
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withDelimiterAsScala(value: Option[String]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.delimiter(v)
+    }
+  } // String
+
+  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.encodingType(v)
+    }
+  } // String
+
+  final def withMarkerAsScala(value: Option[String]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.marker(v)
+    }
+  } // String
+
+  final def withMaxKeysAsScala(value: Option[Int]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxKeys(v)
+    }
+  } // Int
+
+  final def withPrefixAsScala(value: Option[String]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): ListObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class ListObjectsRequestOps(val self: ListObjectsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def delimiterAsScala: Option[String] = Option(self.delimiter) // String
+
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+
+  final def markerAsScala: Option[String] = Option(self.marker) // String
+
+  final def maxKeysAsScala: Option[Int] = Option(self.maxKeys) // Int
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListObjectsRequestOps {
+
+  implicit def toListObjectsRequestBuilderOps(v: ListObjectsRequest.Builder): ListObjectsRequestBuilderOps =
+    new ListObjectsRequestBuilderOps(v)
+
+  implicit def toListObjectsRequestOps(v: ListObjectsRequest): ListObjectsRequestOps = new ListObjectsRequestOps(v)
 
 }

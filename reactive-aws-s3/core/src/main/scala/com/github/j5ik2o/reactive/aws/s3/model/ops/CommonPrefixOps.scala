@@ -1,30 +1,29 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CommonPrefix => ScalaCommonPrefix, _ }
-import software.amazon.awssdk.services.s3.model.{ CommonPrefix => JavaCommonPrefix }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CommonPrefixOps {
+final class CommonPrefixBuilderOps(val self: CommonPrefix.Builder) extends AnyVal {
 
-  implicit class ScalaCommonPrefixOps(val self: ScalaCommonPrefix) extends AnyVal {
-
-    def toJava: JavaCommonPrefix = {
-      val result = JavaCommonPrefix.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): CommonPrefix.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaCommonPrefixOps(val self: JavaCommonPrefix) extends AnyVal {
+final class CommonPrefixOps(val self: CommonPrefix) extends AnyVal {
 
-    def toScala: ScalaCommonPrefix = {
-      ScalaCommonPrefix()
-        .withPrefix(Option(self.prefix)) // String
-    }
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCommonPrefixOps {
+
+  implicit def toCommonPrefixBuilderOps(v: CommonPrefix.Builder): CommonPrefixBuilderOps = new CommonPrefixBuilderOps(v)
+
+  implicit def toCommonPrefixOps(v: CommonPrefix): CommonPrefixOps = new CommonPrefixOps(v)
 
 }

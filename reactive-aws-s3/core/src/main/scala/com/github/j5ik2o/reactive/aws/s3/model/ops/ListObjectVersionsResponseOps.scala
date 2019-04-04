@@ -1,45 +1,134 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ListObjectVersionsResponse => ScalaListObjectVersionsResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ ListObjectVersionsResponse => JavaListObjectVersionsResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListObjectVersionsResponseBuilderOps(val self: ListObjectVersionsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListObjectVersionsResponseOps {
-
-  implicit class JavaListObjectVersionsResponseOps(val self: JavaListObjectVersionsResponse) extends AnyVal {
-
-    def toScala: ScalaListObjectVersionsResponse = {
-      ScalaListObjectVersionsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withIsTruncated(Option(self.isTruncated).map(_.booleanValue)) // Boolean
-        .withKeyMarker(Option(self.keyMarker)) // String
-        .withVersionIdMarker(Option(self.versionIdMarker)) // String
-        .withNextKeyMarker(Option(self.nextKeyMarker)) // String
-        .withNextVersionIdMarker(Option(self.nextVersionIdMarker)) // String
-        .withVersions(Option(self.versions).map { v =>
-          import scala.collection.JavaConverters._, ObjectVersionOps._; v.asScala.map(_.toScala)
-        }) // Seq[ObjectVersion]
-        .withDeleteMarkers(Option(self.deleteMarkers).map { v =>
-          import scala.collection.JavaConverters._, DeleteMarkerEntryOps._; v.asScala.map(_.toScala)
-        }) // Seq[DeleteMarkerEntry]
-        .withName(Option(self.name)) // String
-        .withPrefix(Option(self.prefix)) // String
-        .withDelimiter(Option(self.delimiter)) // String
-        .withMaxKeys(Option(self.maxKeys).map(_.intValue)) // Int
-        .withCommonPrefixes(Option(self.commonPrefixes).map { v =>
-          import scala.collection.JavaConverters._, CommonPrefixOps._; v.asScala.map(_.toScala)
-        }) // Seq[CommonPrefix]
-        .withEncodingType(Option(self.encodingType).map { v =>
-          import EncodingTypeOps._; v.toScala
-        }) // String
+  final def withIsTruncatedAsScala(value: Option[Boolean]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.isTruncated(v)
     }
+  } // Boolean
 
+  final def withKeyMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.keyMarker(v)
+    }
+  } // String
+
+  final def withVersionIdMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.versionIdMarker(v)
+    }
+  } // String
+
+  final def withNextKeyMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextKeyMarker(v)
+    }
+  } // String
+
+  final def withNextVersionIdMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextVersionIdMarker(v)
+    }
+  } // String
+
+  final def withVersionsAsScala(value: Option[Seq[ObjectVersion]]): ListObjectVersionsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.versions(v.asJava)
+    } // Seq[ObjectVersion]
   }
+
+  final def withDeleteMarkersAsScala(value: Option[Seq[DeleteMarkerEntry]]): ListObjectVersionsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.deleteMarkers(v.asJava)
+    } // Seq[DeleteMarkerEntry]
+  }
+
+  final def withNameAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.name(v)
+    }
+  } // String
+
+  final def withPrefixAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
+    }
+  } // String
+
+  final def withDelimiterAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.delimiter(v)
+    }
+  } // String
+
+  final def withMaxKeysAsScala(value: Option[Int]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.maxKeys(v)
+    }
+  } // Int
+
+  final def withCommonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListObjectVersionsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.commonPrefixes(v.asJava)
+    } // Seq[CommonPrefix]
+  }
+
+  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListObjectVersionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.encodingType(v)
+    }
+  } // String
+
+}
+
+final class ListObjectVersionsResponseOps(val self: ListObjectVersionsResponse) extends AnyVal {
+
+  final def isTruncatedAsScala: Option[Boolean] = Option(self.isTruncated) // Boolean
+
+  final def keyMarkerAsScala: Option[String] = Option(self.keyMarker) // String
+
+  final def versionIdMarkerAsScala: Option[String] = Option(self.versionIdMarker) // String
+
+  final def nextKeyMarkerAsScala: Option[String] = Option(self.nextKeyMarker) // String
+
+  final def nextVersionIdMarkerAsScala: Option[String] = Option(self.nextVersionIdMarker) // String
+
+  final def versionsAsScala: Option[Seq[ObjectVersion]] = Option(self.versions).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ObjectVersion]
+
+  final def deleteMarkersAsScala: Option[Seq[DeleteMarkerEntry]] = Option(self.deleteMarkers).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[DeleteMarkerEntry]
+
+  final def nameAsScala: Option[String] = Option(self.name) // String
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def delimiterAsScala: Option[String] = Option(self.delimiter) // String
+
+  final def maxKeysAsScala: Option[Int] = Option(self.maxKeys) // Int
+
+  final def commonPrefixesAsScala: Option[Seq[CommonPrefix]] = Option(self.commonPrefixes).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[CommonPrefix]
+
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListObjectVersionsResponseOps {
+
+  implicit def toListObjectVersionsResponseBuilderOps(
+      v: ListObjectVersionsResponse.Builder
+  ): ListObjectVersionsResponseBuilderOps = new ListObjectVersionsResponseBuilderOps(v)
+
+  implicit def toListObjectVersionsResponseOps(v: ListObjectVersionsResponse): ListObjectVersionsResponseOps =
+    new ListObjectVersionsResponseOps(v)
 
 }

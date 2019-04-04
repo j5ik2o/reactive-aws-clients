@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutPublicAccessBlockResponse => ScalaPutPublicAccessBlockResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutPublicAccessBlockResponse => JavaPutPublicAccessBlockResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutPublicAccessBlockResponseBuilderOps(val self: PutPublicAccessBlockResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutPublicAccessBlockResponseOps {
+final class PutPublicAccessBlockResponseOps(val self: PutPublicAccessBlockResponse) extends AnyVal {}
 
-  implicit class JavaPutPublicAccessBlockResponseOps(val self: JavaPutPublicAccessBlockResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutPublicAccessBlockResponseOps {
 
-    def toScala: ScalaPutPublicAccessBlockResponse = {
-      ScalaPutPublicAccessBlockResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutPublicAccessBlockResponseBuilderOps(
+      v: PutPublicAccessBlockResponse.Builder
+  ): PutPublicAccessBlockResponseBuilderOps = new PutPublicAccessBlockResponseBuilderOps(v)
 
-  }
+  implicit def toPutPublicAccessBlockResponseOps(v: PutPublicAccessBlockResponse): PutPublicAccessBlockResponseOps =
+    new PutPublicAccessBlockResponseOps(v)
 
 }

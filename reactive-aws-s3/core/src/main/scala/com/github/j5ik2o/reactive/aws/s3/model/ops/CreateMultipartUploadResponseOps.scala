@@ -1,41 +1,106 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  CreateMultipartUploadResponse => ScalaCreateMultipartUploadResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{ CreateMultipartUploadResponse => JavaCreateMultipartUploadResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUploadResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CreateMultipartUploadResponseOps {
-
-  implicit class JavaCreateMultipartUploadResponseOps(val self: JavaCreateMultipartUploadResponse) extends AnyVal {
-
-    def toScala: ScalaCreateMultipartUploadResponse = {
-      ScalaCreateMultipartUploadResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withAbortDate(Option(self.abortDate)) // Instant
-        .withAbortRuleId(Option(self.abortRuleId)) // String
-        .withBucket(Option(self.bucket)) // String
-        .withKey(Option(self.key)) // String
-        .withUploadId(Option(self.uploadId)) // String
-        .withServerSideEncryption(Option(self.serverSideEncryption).map { v =>
-          import ServerSideEncryptionOps._; v.toScala
-        }) // String
-        .withSseCustomerAlgorithm(Option(self.sseCustomerAlgorithm)) // String
-        .withSseCustomerKeyMD5(Option(self.sseCustomerKeyMD5)) // String
-        .withSsekmsKeyId(Option(self.ssekmsKeyId)) // String
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withAbortDateAsScala(value: Option[java.time.Instant]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.abortDate(v)
     }
+  } // Instant
 
-  }
+  final def withAbortRuleIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.abortRuleId(v)
+    }
+  } // String
+
+  final def withBucketAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
+    }
+  } // String
+
+  final def withKeyAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withUploadIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.uploadId(v)
+    }
+  } // String
+
+  final def withServerSideEncryptionAsScala(
+      value: Option[ServerSideEncryption]
+  ): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.serverSideEncryption(v)
+    }
+  } // String
+
+  final def withSseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerAlgorithm(v)
+    }
+  } // String
+
+  final def withSseCustomerKeyMD5AsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerKeyMD5(v)
+    }
+  } // String
+
+  final def withSsekmsKeyIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsKeyId(v)
+    }
+  } // String
+
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
+    }
+  } // String
+
+}
+
+final class CreateMultipartUploadResponseOps(val self: CreateMultipartUploadResponse) extends AnyVal {
+
+  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate) // Instant
+
+  final def abortRuleIdAsScala: Option[String] = Option(self.abortRuleId) // String
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCreateMultipartUploadResponseOps {
+
+  implicit def toCreateMultipartUploadResponseBuilderOps(
+      v: CreateMultipartUploadResponse.Builder
+  ): CreateMultipartUploadResponseBuilderOps = new CreateMultipartUploadResponseBuilderOps(v)
+
+  implicit def toCreateMultipartUploadResponseOps(v: CreateMultipartUploadResponse): CreateMultipartUploadResponseOps =
+    new CreateMultipartUploadResponseOps(v)
 
 }

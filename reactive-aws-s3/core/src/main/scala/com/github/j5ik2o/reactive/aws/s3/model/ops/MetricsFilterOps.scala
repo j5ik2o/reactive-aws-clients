@@ -1,42 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ MetricsFilter => ScalaMetricsFilter, _ }
-import software.amazon.awssdk.services.s3.model.{ MetricsFilter => JavaMetricsFilter }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object MetricsFilterOps {
+final class MetricsFilterBuilderOps(val self: MetricsFilter.Builder) extends AnyVal {
 
-  implicit class ScalaMetricsFilterOps(val self: ScalaMetricsFilter) extends AnyVal {
-
-    def toJava: JavaMetricsFilter = {
-      val result = JavaMetricsFilter.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.tag.foreach { v =>
-        import TagOps._; result.tag(v.toJava)
-      } // Tag
-      self.and.foreach { v =>
-        import MetricsAndOperatorOps._; result.and(v.toJava)
-      } // MetricsAndOperator
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): MetricsFilter.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaMetricsFilterOps(val self: JavaMetricsFilter) extends AnyVal {
-
-    def toScala: ScalaMetricsFilter = {
-      ScalaMetricsFilter()
-        .withPrefix(Option(self.prefix)) // String
-        .withTag(Option(self.tag).map { v =>
-          import TagOps._; v.toScala
-        }) // Tag
-        .withAnd(Option(self.and).map { v =>
-          import MetricsAndOperatorOps._; v.toScala
-        }) // MetricsAndOperator
+  final def withTagAsScala(value: Option[Tag]): MetricsFilter.Builder = {
+    value.fold(self) { v =>
+      self.tag(v)
     }
+  } // Tag
 
-  }
+  final def withAndAsScala(value: Option[MetricsAndOperator]): MetricsFilter.Builder = {
+    value.fold(self) { v =>
+      self.and(v)
+    }
+  } // MetricsAndOperator
+
+}
+
+final class MetricsFilterOps(val self: MetricsFilter) extends AnyVal {
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+
+  final def andAsScala: Option[MetricsAndOperator] = Option(self.and) // MetricsAndOperator
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToMetricsFilterOps {
+
+  implicit def toMetricsFilterBuilderOps(v: MetricsFilter.Builder): MetricsFilterBuilderOps =
+    new MetricsFilterBuilderOps(v)
+
+  implicit def toMetricsFilterOps(v: MetricsFilter): MetricsFilterOps = new MetricsFilterOps(v)
 
 }

@@ -1,36 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ReplicationRuleAndOperator => ScalaReplicationRuleAndOperator, _ }
-import software.amazon.awssdk.services.s3.model.{ ReplicationRuleAndOperator => JavaReplicationRuleAndOperator }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ReplicationRuleAndOperatorOps {
+final class ReplicationRuleAndOperatorBuilderOps(val self: ReplicationRuleAndOperator.Builder) extends AnyVal {
 
-  implicit class ScalaReplicationRuleAndOperatorOps(val self: ScalaReplicationRuleAndOperator) extends AnyVal {
-
-    def toJava: JavaReplicationRuleAndOperator = {
-      val result = JavaReplicationRuleAndOperator.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.tags.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TagOps._; result.tags(v.map(_.toJava).asJava)
-      } // Seq[Tag]
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): ReplicationRuleAndOperator.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
+  final def withTagsAsScala(value: Option[Seq[Tag]]): ReplicationRuleAndOperator.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tags(v.asJava)
+    } // Seq[Tag]
   }
 
-  implicit class JavaReplicationRuleAndOperatorOps(val self: JavaReplicationRuleAndOperator) extends AnyVal {
+}
 
-    def toScala: ScalaReplicationRuleAndOperator = {
-      ScalaReplicationRuleAndOperator()
-        .withPrefix(Option(self.prefix)) // String
-        .withTags(Option(self.tags).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
-    }
+final class ReplicationRuleAndOperatorOps(val self: ReplicationRuleAndOperator) extends AnyVal {
 
-  }
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToReplicationRuleAndOperatorOps {
+
+  implicit def toReplicationRuleAndOperatorBuilderOps(
+      v: ReplicationRuleAndOperator.Builder
+  ): ReplicationRuleAndOperatorBuilderOps = new ReplicationRuleAndOperatorBuilderOps(v)
+
+  implicit def toReplicationRuleAndOperatorOps(v: ReplicationRuleAndOperator): ReplicationRuleAndOperatorOps =
+    new ReplicationRuleAndOperatorOps(v)
 
 }

@@ -1,36 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ NoncurrentVersionTransition => ScalaNoncurrentVersionTransition, _ }
-import software.amazon.awssdk.services.s3.model.{ NoncurrentVersionTransition => JavaNoncurrentVersionTransition }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object NoncurrentVersionTransitionOps {
+final class NoncurrentVersionTransitionBuilderOps(val self: NoncurrentVersionTransition.Builder) extends AnyVal {
 
-  implicit class ScalaNoncurrentVersionTransitionOps(val self: ScalaNoncurrentVersionTransition) extends AnyVal {
-
-    def toJava: JavaNoncurrentVersionTransition = {
-      val result = JavaNoncurrentVersionTransition.builder()
-      self.noncurrentDays.map(_.intValue).foreach(v => result.noncurrentDays(v)) // Int
-      self.storageClass.foreach { v =>
-        import TransitionStorageClassOps._; result.storageClass(v.toJava)
-      } // String
-
-      result.build()
+  final def withNoncurrentDaysAsScala(value: Option[Int]): NoncurrentVersionTransition.Builder = {
+    value.fold(self) { v =>
+      self.noncurrentDays(v)
     }
+  } // Int
 
-  }
-
-  implicit class JavaNoncurrentVersionTransitionOps(val self: JavaNoncurrentVersionTransition) extends AnyVal {
-
-    def toScala: ScalaNoncurrentVersionTransition = {
-      ScalaNoncurrentVersionTransition()
-        .withNoncurrentDays(Option(self.noncurrentDays).map(_.intValue)) // Int
-        .withStorageClass(Option(self.storageClass).map { v =>
-          import TransitionStorageClassOps._; v.toScala
-        }) // String
+  final def withStorageClassAsScala(value: Option[TransitionStorageClass]): NoncurrentVersionTransition.Builder = {
+    value.fold(self) { v =>
+      self.storageClass(v)
     }
+  } // String
 
-  }
+}
+
+final class NoncurrentVersionTransitionOps(val self: NoncurrentVersionTransition) extends AnyVal {
+
+  final def noncurrentDaysAsScala: Option[Int] = Option(self.noncurrentDays) // Int
+
+  final def storageClassAsScala: Option[TransitionStorageClass] = Option(self.storageClass) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToNoncurrentVersionTransitionOps {
+
+  implicit def toNoncurrentVersionTransitionBuilderOps(
+      v: NoncurrentVersionTransition.Builder
+  ): NoncurrentVersionTransitionBuilderOps = new NoncurrentVersionTransitionBuilderOps(v)
+
+  implicit def toNoncurrentVersionTransitionOps(v: NoncurrentVersionTransition): NoncurrentVersionTransitionOps =
+    new NoncurrentVersionTransitionOps(v)
 
 }

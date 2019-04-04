@@ -1,23 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectTaggingRequest => ScalaGetObjectTaggingRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectTaggingRequest => JavaGetObjectTaggingRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectTaggingRequestOps {
+final class GetObjectTaggingRequestBuilderOps(val self: GetObjectTaggingRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetObjectTaggingRequestOps(val self: ScalaGetObjectTaggingRequest) extends AnyVal {
-
-    def toJava: JavaGetObjectTaggingRequest = {
-      val result = JavaGetObjectTaggingRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))       // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))             // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withVersionIdAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+}
+
+final class GetObjectTaggingRequestOps(val self: GetObjectTaggingRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectTaggingRequestOps {
+
+  implicit def toGetObjectTaggingRequestBuilderOps(
+      v: GetObjectTaggingRequest.Builder
+  ): GetObjectTaggingRequestBuilderOps = new GetObjectTaggingRequestBuilderOps(v)
+
+  implicit def toGetObjectTaggingRequestOps(v: GetObjectTaggingRequest): GetObjectTaggingRequestOps =
+    new GetObjectTaggingRequestOps(v)
 
 }

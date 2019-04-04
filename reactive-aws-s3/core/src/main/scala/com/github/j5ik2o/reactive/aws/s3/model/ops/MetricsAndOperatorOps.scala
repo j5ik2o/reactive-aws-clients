@@ -1,36 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ MetricsAndOperator => ScalaMetricsAndOperator, _ }
-import software.amazon.awssdk.services.s3.model.{ MetricsAndOperator => JavaMetricsAndOperator }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object MetricsAndOperatorOps {
+final class MetricsAndOperatorBuilderOps(val self: MetricsAndOperator.Builder) extends AnyVal {
 
-  implicit class ScalaMetricsAndOperatorOps(val self: ScalaMetricsAndOperator) extends AnyVal {
-
-    def toJava: JavaMetricsAndOperator = {
-      val result = JavaMetricsAndOperator.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.tags.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TagOps._; result.tags(v.map(_.toJava).asJava)
-      } // Seq[Tag]
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): MetricsAndOperator.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
+  final def withTagsAsScala(value: Option[Seq[Tag]]): MetricsAndOperator.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tags(v.asJava)
+    } // Seq[Tag]
   }
 
-  implicit class JavaMetricsAndOperatorOps(val self: JavaMetricsAndOperator) extends AnyVal {
+}
 
-    def toScala: ScalaMetricsAndOperator = {
-      ScalaMetricsAndOperator()
-        .withPrefix(Option(self.prefix)) // String
-        .withTags(Option(self.tags).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
-    }
+final class MetricsAndOperatorOps(val self: MetricsAndOperator) extends AnyVal {
 
-  }
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToMetricsAndOperatorOps {
+
+  implicit def toMetricsAndOperatorBuilderOps(v: MetricsAndOperator.Builder): MetricsAndOperatorBuilderOps =
+    new MetricsAndOperatorBuilderOps(v)
+
+  implicit def toMetricsAndOperatorOps(v: MetricsAndOperator): MetricsAndOperatorOps = new MetricsAndOperatorOps(v)
 
 }

@@ -1,28 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ RestoreObjectResponse => ScalaRestoreObjectResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ RestoreObjectResponse => JavaRestoreObjectResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class RestoreObjectResponseBuilderOps(val self: RestoreObjectResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RestoreObjectResponseOps {
-
-  implicit class JavaRestoreObjectResponseOps(val self: JavaRestoreObjectResponse) extends AnyVal {
-
-    def toScala: ScalaRestoreObjectResponse = {
-      ScalaRestoreObjectResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
-        .withRestoreOutputPath(Option(self.restoreOutputPath)) // String
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): RestoreObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
     }
+  } // String
 
-  }
+  final def withRestoreOutputPathAsScala(value: Option[String]): RestoreObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.restoreOutputPath(v)
+    }
+  } // String
+
+}
+
+final class RestoreObjectResponseOps(val self: RestoreObjectResponse) extends AnyVal {
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+  final def restoreOutputPathAsScala: Option[String] = Option(self.restoreOutputPath) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRestoreObjectResponseOps {
+
+  implicit def toRestoreObjectResponseBuilderOps(v: RestoreObjectResponse.Builder): RestoreObjectResponseBuilderOps =
+    new RestoreObjectResponseBuilderOps(v)
+
+  implicit def toRestoreObjectResponseOps(v: RestoreObjectResponse): RestoreObjectResponseOps =
+    new RestoreObjectResponseOps(v)
 
 }
