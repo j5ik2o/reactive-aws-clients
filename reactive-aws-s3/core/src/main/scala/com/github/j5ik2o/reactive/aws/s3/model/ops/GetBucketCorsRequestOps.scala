@@ -1,21 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketCorsRequest => ScalaGetBucketCorsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketCorsRequest => JavaGetBucketCorsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketCorsRequestOps {
+final class GetBucketCorsRequestBuilderOps(val self: GetBucketCorsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketCorsRequestOps(val self: ScalaGetBucketCorsRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketCorsRequest = {
-      val result = JavaGetBucketCorsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketCorsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketCorsRequestOps(val self: GetBucketCorsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketCorsRequestOps {
+
+  implicit def toGetBucketCorsRequestBuilderOps(v: GetBucketCorsRequest.Builder): GetBucketCorsRequestBuilderOps =
+    new GetBucketCorsRequestBuilderOps(v)
+
+  implicit def toGetBucketCorsRequestOps(v: GetBucketCorsRequest): GetBucketCorsRequestOps =
+    new GetBucketCorsRequestOps(v)
 
 }

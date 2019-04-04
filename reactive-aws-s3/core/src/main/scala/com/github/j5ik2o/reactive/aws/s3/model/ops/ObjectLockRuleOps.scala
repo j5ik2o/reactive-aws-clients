@@ -1,34 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ObjectLockRule => ScalaObjectLockRule, _ }
-import software.amazon.awssdk.services.s3.model.{ ObjectLockRule => JavaObjectLockRule }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ObjectLockRuleOps {
+final class ObjectLockRuleBuilderOps(val self: ObjectLockRule.Builder) extends AnyVal {
 
-  implicit class ScalaObjectLockRuleOps(val self: ScalaObjectLockRule) extends AnyVal {
-
-    def toJava: JavaObjectLockRule = {
-      val result = JavaObjectLockRule.builder()
-      self.defaultRetention.foreach { v =>
-        import DefaultRetentionOps._; result.defaultRetention(v.toJava)
-      } // DefaultRetention
-
-      result.build()
+  final def withDefaultRetentionAsScala(value: Option[DefaultRetention]): ObjectLockRule.Builder = {
+    value.fold(self) { v =>
+      self.defaultRetention(v)
     }
+  } // DefaultRetention
 
-  }
+}
 
-  implicit class JavaObjectLockRuleOps(val self: JavaObjectLockRule) extends AnyVal {
+final class ObjectLockRuleOps(val self: ObjectLockRule) extends AnyVal {
 
-    def toScala: ScalaObjectLockRule = {
-      ScalaObjectLockRule()
-        .withDefaultRetention(Option(self.defaultRetention).map { v =>
-          import DefaultRetentionOps._; v.toScala
-        }) // DefaultRetention
-    }
+  final def defaultRetentionAsScala: Option[DefaultRetention] = Option(self.defaultRetention) // DefaultRetention
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToObjectLockRuleOps {
+
+  implicit def toObjectLockRuleBuilderOps(v: ObjectLockRule.Builder): ObjectLockRuleBuilderOps =
+    new ObjectLockRuleBuilderOps(v)
+
+  implicit def toObjectLockRuleOps(v: ObjectLockRule): ObjectLockRuleOps = new ObjectLockRuleOps(v)
 
 }

@@ -1,24 +1,19 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketCorsResponse => ScalaPutBucketCorsResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketCorsResponse => JavaPutBucketCorsResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketCorsResponseBuilderOps(val self: PutBucketCorsResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketCorsResponseOps {
+final class PutBucketCorsResponseOps(val self: PutBucketCorsResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketCorsResponseOps(val self: JavaPutBucketCorsResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketCorsResponseOps {
 
-    def toScala: ScalaPutBucketCorsResponse = {
-      ScalaPutBucketCorsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketCorsResponseBuilderOps(v: PutBucketCorsResponse.Builder): PutBucketCorsResponseBuilderOps =
+    new PutBucketCorsResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketCorsResponseOps(v: PutBucketCorsResponse): PutBucketCorsResponseOps =
+    new PutBucketCorsResponseOps(v)
 
 }

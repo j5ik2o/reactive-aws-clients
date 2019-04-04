@@ -1,24 +1,19 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ UntagResourceResponse => ScalaUntagResourceResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ UntagResourceResponse => JavaUntagResourceResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class UntagResourceResponseBuilderOps(val self: UntagResourceResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UntagResourceResponseOps {
+final class UntagResourceResponseOps(val self: UntagResourceResponse) extends AnyVal {}
 
-  implicit class JavaUntagResourceResponseOps(val self: JavaUntagResourceResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUntagResourceResponseOps {
 
-    def toScala: ScalaUntagResourceResponse = {
-      ScalaUntagResourceResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toUntagResourceResponseBuilderOps(v: UntagResourceResponse.Builder): UntagResourceResponseBuilderOps =
+    new UntagResourceResponseBuilderOps(v)
 
-  }
+  implicit def toUntagResourceResponseOps(v: UntagResourceResponse): UntagResourceResponseOps =
+    new UntagResourceResponseOps(v)
 
 }

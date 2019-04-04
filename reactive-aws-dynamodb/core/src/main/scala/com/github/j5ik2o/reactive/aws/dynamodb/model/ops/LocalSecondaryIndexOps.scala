@@ -1,42 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ LocalSecondaryIndex => ScalaLocalSecondaryIndex, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ LocalSecondaryIndex => JavaLocalSecondaryIndex }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object LocalSecondaryIndexOps {
+final class LocalSecondaryIndexBuilderOps(val self: LocalSecondaryIndex.Builder) extends AnyVal {
 
-  implicit class ScalaLocalSecondaryIndexOps(val self: ScalaLocalSecondaryIndex) extends AnyVal {
-
-    def toJava: JavaLocalSecondaryIndex = {
-      val result = JavaLocalSecondaryIndex.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
-      self.keySchema.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement]
-      self.projection.foreach { v =>
-        import ProjectionOps._; result.projection(v.toJava)
-      } // Projection
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): LocalSecondaryIndex.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
+  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndex.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+    } // Seq[KeySchemaElement]
   }
 
-  implicit class JavaLocalSecondaryIndexOps(val self: JavaLocalSecondaryIndex) extends AnyVal {
-
-    def toScala: ScalaLocalSecondaryIndex = {
-      ScalaLocalSecondaryIndex()
-        .withIndexName(Option(self.indexName)) // String
-        .withKeySchema(Option(self.keySchema).map { v =>
-          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement]
-        .withProjection(Option(self.projection).map { v =>
-          import ProjectionOps._; v.toScala
-        }) // Projection
+  final def withProjectionAsScala(value: Option[Projection]): LocalSecondaryIndex.Builder = {
+    value.fold(self) { v =>
+      self.projection(v)
     }
+  } // Projection
 
-  }
+}
+
+final class LocalSecondaryIndexOps(val self: LocalSecondaryIndex) extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[KeySchemaElement]
+
+  final def projectionAsScala: Option[Projection] = Option(self.projection) // Projection
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToLocalSecondaryIndexOps {
+
+  implicit def toLocalSecondaryIndexBuilderOps(v: LocalSecondaryIndex.Builder): LocalSecondaryIndexBuilderOps =
+    new LocalSecondaryIndexBuilderOps(v)
+
+  implicit def toLocalSecondaryIndexOps(v: LocalSecondaryIndex): LocalSecondaryIndexOps = new LocalSecondaryIndexOps(v)
 
 }

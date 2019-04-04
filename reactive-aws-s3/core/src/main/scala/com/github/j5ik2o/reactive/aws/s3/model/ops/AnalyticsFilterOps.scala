@@ -1,42 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AnalyticsFilter => ScalaAnalyticsFilter, _ }
-import software.amazon.awssdk.services.s3.model.{ AnalyticsFilter => JavaAnalyticsFilter }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AnalyticsFilterOps {
+final class AnalyticsFilterBuilderOps(val self: AnalyticsFilter.Builder) extends AnyVal {
 
-  implicit class ScalaAnalyticsFilterOps(val self: ScalaAnalyticsFilter) extends AnyVal {
-
-    def toJava: JavaAnalyticsFilter = {
-      val result = JavaAnalyticsFilter.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.tag.foreach { v =>
-        import TagOps._; result.tag(v.toJava)
-      } // Tag
-      self.and.foreach { v =>
-        import AnalyticsAndOperatorOps._; result.and(v.toJava)
-      } // AnalyticsAndOperator
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): AnalyticsFilter.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaAnalyticsFilterOps(val self: JavaAnalyticsFilter) extends AnyVal {
-
-    def toScala: ScalaAnalyticsFilter = {
-      ScalaAnalyticsFilter()
-        .withPrefix(Option(self.prefix)) // String
-        .withTag(Option(self.tag).map { v =>
-          import TagOps._; v.toScala
-        }) // Tag
-        .withAnd(Option(self.and).map { v =>
-          import AnalyticsAndOperatorOps._; v.toScala
-        }) // AnalyticsAndOperator
+  final def withTagAsScala(value: Option[Tag]): AnalyticsFilter.Builder = {
+    value.fold(self) { v =>
+      self.tag(v)
     }
+  } // Tag
 
-  }
+  final def withAndAsScala(value: Option[AnalyticsAndOperator]): AnalyticsFilter.Builder = {
+    value.fold(self) { v =>
+      self.and(v)
+    }
+  } // AnalyticsAndOperator
+
+}
+
+final class AnalyticsFilterOps(val self: AnalyticsFilter) extends AnyVal {
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+
+  final def andAsScala: Option[AnalyticsAndOperator] = Option(self.and) // AnalyticsAndOperator
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAnalyticsFilterOps {
+
+  implicit def toAnalyticsFilterBuilderOps(v: AnalyticsFilter.Builder): AnalyticsFilterBuilderOps =
+    new AnalyticsFilterBuilderOps(v)
+
+  implicit def toAnalyticsFilterOps(v: AnalyticsFilter): AnalyticsFilterOps = new AnalyticsFilterOps(v)
 
 }

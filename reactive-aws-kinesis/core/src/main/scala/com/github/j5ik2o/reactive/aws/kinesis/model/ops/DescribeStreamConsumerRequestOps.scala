@@ -1,28 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  DescribeStreamConsumerRequest => ScalaDescribeStreamConsumerRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  DescribeStreamConsumerRequest => JavaDescribeStreamConsumerRequest
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeStreamConsumerRequestOps {
+final class DescribeStreamConsumerRequestBuilderOps(val self: DescribeStreamConsumerRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDescribeStreamConsumerRequestOps(val self: ScalaDescribeStreamConsumerRequest) extends AnyVal {
-
-    def toJava: JavaDescribeStreamConsumerRequest = {
-      val result = JavaDescribeStreamConsumerRequest.builder()
-      self.streamARN.filter(_.nonEmpty).foreach(v => result.streamARN(v))       // String
-      self.consumerName.filter(_.nonEmpty).foreach(v => result.consumerName(v)) // String
-      self.consumerARN.filter(_.nonEmpty).foreach(v => result.consumerARN(v))   // String
-
-      result.build()
+  final def withStreamARNAsScala(value: Option[String]): DescribeStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamARN(v)
     }
+  } // String
 
-  }
+  final def withConsumerNameAsScala(value: Option[String]): DescribeStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.consumerName(v)
+    }
+  } // String
+
+  final def withConsumerARNAsScala(value: Option[String]): DescribeStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.consumerARN(v)
+    }
+  } // String
+
+}
+
+final class DescribeStreamConsumerRequestOps(val self: DescribeStreamConsumerRequest) extends AnyVal {
+
+  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+
+  final def consumerNameAsScala: Option[String] = Option(self.consumerName) // String
+
+  final def consumerARNAsScala: Option[String] = Option(self.consumerARN) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeStreamConsumerRequestOps {
+
+  implicit def toDescribeStreamConsumerRequestBuilderOps(
+      v: DescribeStreamConsumerRequest.Builder
+  ): DescribeStreamConsumerRequestBuilderOps = new DescribeStreamConsumerRequestBuilderOps(v)
+
+  implicit def toDescribeStreamConsumerRequestOps(v: DescribeStreamConsumerRequest): DescribeStreamConsumerRequestOps =
+    new DescribeStreamConsumerRequestOps(v)
 
 }

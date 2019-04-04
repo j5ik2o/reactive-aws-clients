@@ -1,21 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ HeadBucketRequest => ScalaHeadBucketRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ HeadBucketRequest => JavaHeadBucketRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object HeadBucketRequestOps {
+final class HeadBucketRequestBuilderOps(val self: HeadBucketRequest.Builder) extends AnyVal {
 
-  implicit class ScalaHeadBucketRequestOps(val self: ScalaHeadBucketRequest) extends AnyVal {
-
-    def toJava: JavaHeadBucketRequest = {
-      val result = JavaHeadBucketRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): HeadBucketRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class HeadBucketRequestOps(val self: HeadBucketRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToHeadBucketRequestOps {
+
+  implicit def toHeadBucketRequestBuilderOps(v: HeadBucketRequest.Builder): HeadBucketRequestBuilderOps =
+    new HeadBucketRequestBuilderOps(v)
+
+  implicit def toHeadBucketRequestOps(v: HeadBucketRequest): HeadBucketRequestOps = new HeadBucketRequestOps(v)
 
 }

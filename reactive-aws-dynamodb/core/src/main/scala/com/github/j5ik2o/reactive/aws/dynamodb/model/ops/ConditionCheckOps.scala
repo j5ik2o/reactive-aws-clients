@@ -1,57 +1,81 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ConditionCheck => ScalaConditionCheck, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ConditionCheck => JavaConditionCheck }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ConditionCheckOps {
+final class ConditionCheckBuilderOps(val self: ConditionCheck.Builder) extends AnyVal {
 
-  implicit class ScalaConditionCheckOps(val self: ScalaConditionCheck) extends AnyVal {
-
-    def toJava: JavaConditionCheck = {
-      val result = JavaConditionCheck.builder()
-      self.key.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                     // String
-      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
-      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
-        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
-      } // Map[String, String]
-      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._;
-        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.returnValuesOnConditionCheckFailure.foreach { v =>
-        import ReturnValuesOnConditionCheckFailureOps._; result.returnValuesOnConditionCheckFailure(v.toJava)
-      } // String
-
-      result.build()
-    }
-
+  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): ConditionCheck.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.key(v.asJava)
+    } // Map[String, AttributeValue]
   }
 
-  implicit class JavaConditionCheckOps(val self: JavaConditionCheck) extends AnyVal {
-
-    def toScala: ScalaConditionCheck = {
-      ScalaConditionCheck()
-        .withKey(Option(self.key).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withTableName(Option(self.tableName)) // String
-        .withConditionExpression(Option(self.conditionExpression)) // String
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.toMap
-        }) // Map[String, String]
-        .withExpressionAttributeValues(Option(self.expressionAttributeValues).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withReturnValuesOnConditionCheckFailure(Option(self.returnValuesOnConditionCheckFailure).map { v =>
-          import ReturnValuesOnConditionCheckFailureOps._; v.toScala
-        }) // String
+  final def withTableNameAsScala(value: Option[String]): ConditionCheck.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withConditionExpressionAsScala(value: Option[String]): ConditionCheck.Builder = {
+    value.fold(self) { v =>
+      self.conditionExpression(v)
+    }
+  } // String
+
+  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): ConditionCheck.Builder = {
+    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
+    } // Map[String, String]
   }
+
+  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): ConditionCheck.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+  final def withReturnValuesOnConditionCheckFailureAsScala(
+      value: Option[ReturnValuesOnConditionCheckFailure]
+  ): ConditionCheck.Builder = {
+    value.fold(self) { v =>
+      self.returnValuesOnConditionCheckFailure(v)
+    }
+  } // String
+
+}
+
+final class ConditionCheckOps(val self: ConditionCheck) extends AnyVal {
+
+  final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression) // String
+
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, String]
+
+  final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.expressionAttributeValues).map { v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+    } // Map[String, AttributeValue]
+
+  final def returnValuesOnConditionCheckFailureAsScala: Option[ReturnValuesOnConditionCheckFailure] =
+    Option(self.returnValuesOnConditionCheckFailure) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToConditionCheckOps {
+
+  implicit def toConditionCheckBuilderOps(v: ConditionCheck.Builder): ConditionCheckBuilderOps =
+    new ConditionCheckBuilderOps(v)
+
+  implicit def toConditionCheckOps(v: ConditionCheck): ConditionCheckOps = new ConditionCheckOps(v)
 
 }

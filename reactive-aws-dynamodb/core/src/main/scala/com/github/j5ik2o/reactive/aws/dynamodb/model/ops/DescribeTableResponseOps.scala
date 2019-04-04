@@ -1,27 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeTableResponse => ScalaDescribeTableResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeTableResponse => JavaDescribeTableResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeTableResponseBuilderOps(val self: DescribeTableResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeTableResponseOps {
-
-  implicit class JavaDescribeTableResponseOps(val self: JavaDescribeTableResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeTableResponse = {
-      ScalaDescribeTableResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTable(Option(self.table).map { v =>
-          import TableDescriptionOps._; v.toScala
-        }) // TableDescription
+  final def withTableAsScala(value: Option[TableDescription]): DescribeTableResponse.Builder = {
+    value.fold(self) { v =>
+      self.table(v)
     }
+  } // TableDescription
 
-  }
+}
+
+final class DescribeTableResponseOps(val self: DescribeTableResponse) extends AnyVal {
+
+  final def tableAsScala: Option[TableDescription] = Option(self.table) // TableDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeTableResponseOps {
+
+  implicit def toDescribeTableResponseBuilderOps(v: DescribeTableResponse.Builder): DescribeTableResponseBuilderOps =
+    new DescribeTableResponseBuilderOps(v)
+
+  implicit def toDescribeTableResponseOps(v: DescribeTableResponse): DescribeTableResponseOps =
+    new DescribeTableResponseOps(v)
 
 }

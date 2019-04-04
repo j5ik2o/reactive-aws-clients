@@ -1,25 +1,56 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketPolicyRequest => ScalaPutBucketPolicyRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketPolicyRequest => JavaPutBucketPolicyRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketPolicyRequestOps {
+final class PutBucketPolicyRequestBuilderOps(val self: PutBucketPolicyRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutBucketPolicyRequestOps(val self: ScalaPutBucketPolicyRequest) extends AnyVal {
-
-    def toJava: JavaPutBucketPolicyRequest = {
-      val result = JavaPutBucketPolicyRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))         // String
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v)) // String
-      self.confirmRemoveSelfBucketAccess
-        .map(_.booleanValue).foreach(v => result.confirmRemoveSelfBucketAccess(v)) // Boolean
-      self.policy.filter(_.nonEmpty).foreach(v => result.policy(v))                // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContentMD5AsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withConfirmRemoveSelfBucketAccessAsScala(value: Option[Boolean]): PutBucketPolicyRequest.Builder = {
+    value.fold(self) { v =>
+      self.confirmRemoveSelfBucketAccess(v)
+    }
+  } // Boolean
+
+  final def withPolicyAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
+    value.fold(self) { v =>
+      self.policy(v)
+    }
+  } // String
+
+}
+
+final class PutBucketPolicyRequestOps(val self: PutBucketPolicyRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def confirmRemoveSelfBucketAccessAsScala: Option[Boolean] =
+    Option(self.confirmRemoveSelfBucketAccess) // Boolean
+
+  final def policyAsScala: Option[String] = Option(self.policy) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketPolicyRequestOps {
+
+  implicit def toPutBucketPolicyRequestBuilderOps(v: PutBucketPolicyRequest.Builder): PutBucketPolicyRequestBuilderOps =
+    new PutBucketPolicyRequestBuilderOps(v)
+
+  implicit def toPutBucketPolicyRequestOps(v: PutBucketPolicyRequest): PutBucketPolicyRequestOps =
+    new PutBucketPolicyRequestOps(v)
 
 }

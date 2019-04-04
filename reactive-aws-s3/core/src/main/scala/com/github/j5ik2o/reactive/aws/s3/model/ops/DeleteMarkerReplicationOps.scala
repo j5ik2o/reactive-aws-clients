@@ -1,34 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteMarkerReplication => ScalaDeleteMarkerReplication, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteMarkerReplication => JavaDeleteMarkerReplication }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteMarkerReplicationOps {
+final class DeleteMarkerReplicationBuilderOps(val self: DeleteMarkerReplication.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteMarkerReplicationOps(val self: ScalaDeleteMarkerReplication) extends AnyVal {
-
-    def toJava: JavaDeleteMarkerReplication = {
-      val result = JavaDeleteMarkerReplication.builder()
-      self.status.foreach { v =>
-        import DeleteMarkerReplicationStatusOps._; result.status(v.toJava)
-      } // String
-
-      result.build()
+  final def withStatusAsScala(value: Option[DeleteMarkerReplicationStatus]): DeleteMarkerReplication.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaDeleteMarkerReplicationOps(val self: JavaDeleteMarkerReplication) extends AnyVal {
+final class DeleteMarkerReplicationOps(val self: DeleteMarkerReplication) extends AnyVal {
 
-    def toScala: ScalaDeleteMarkerReplication = {
-      ScalaDeleteMarkerReplication()
-        .withStatus(Option(self.status).map { v =>
-          import DeleteMarkerReplicationStatusOps._; v.toScala
-        }) // String
-    }
+  final def statusAsScala: Option[DeleteMarkerReplicationStatus] = Option(self.status) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteMarkerReplicationOps {
+
+  implicit def toDeleteMarkerReplicationBuilderOps(
+      v: DeleteMarkerReplication.Builder
+  ): DeleteMarkerReplicationBuilderOps = new DeleteMarkerReplicationBuilderOps(v)
+
+  implicit def toDeleteMarkerReplicationOps(v: DeleteMarkerReplication): DeleteMarkerReplicationOps =
+    new DeleteMarkerReplicationOps(v)
 
 }

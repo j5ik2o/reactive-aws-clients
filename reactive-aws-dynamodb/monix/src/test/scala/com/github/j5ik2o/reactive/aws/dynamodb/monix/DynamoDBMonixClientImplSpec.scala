@@ -3,13 +3,14 @@ package com.github.j5ik2o.reactive.aws.dynamodb.monix
 import java.net.URI
 import java.util.UUID
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClient, DynamoDBContainerSpecSupport }
+import com.github.j5ik2o.reactive.aws.dynamodb.model.ops._
 import monix.execution.Scheduler.Implicits.global
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
+import software.amazon.awssdk.services.dynamodb.model._
 
 import scala.concurrent.duration._
 
@@ -30,79 +31,89 @@ class DynamoDBMonixClientImplSpec extends FreeSpec with Matchers with ScalaFutur
   "DynamoDBTaskClientV2Impl" - {
     "createTable & listTables" in {
       val (tableName: String, createResponse: CreateTableResponse) = createTable()
-      createResponse.isSuccessful shouldBe true
-      val listTablesRequest  = ListTablesRequest().withLimit(Some(1))
+      createResponse.sdkHttpResponse().isSuccessful shouldBe true
+      val listTablesRequest  = ListTablesRequest.builder().withLimitAsScala(Some(1)).build()
       val listTablesResponse = client.listTables(listTablesRequest).runToFuture.futureValue
-      listTablesResponse.isSuccessful shouldBe true
-      listTablesResponse.tableNames.get should contain(tableName)
+      listTablesResponse.sdkHttpResponse().isSuccessful shouldBe true
+      listTablesResponse.tableNamesAsScala.get should contain(tableName)
     }
     "putItem & getItem & updateItem" in {
       val (tableName: String, createResponse: CreateTableResponse) = createTable()
-      createResponse.isSuccessful shouldBe true
-      val putItemRequest = PutItemRequest()
-        .withTableName(Some(tableName)).withItem(
+      createResponse.sdkHttpResponse().isSuccessful shouldBe true
+      val putItemRequest = PutItemRequest
+        .builder()
+        .withTableNameAsScala(Some(tableName)).withItemAsScala(
           Some(
             Map[String, AttributeValue](
-              "Id"   -> AttributeValue().withString(Some("abc")),
-              "Name" -> AttributeValue().withString(Some("xyz"))
+              "Id"   -> AttributeValue.builder().withSAsScala(Some("abc")).build(),
+              "Name" -> AttributeValue.builder().withSAsScala(Some("xyz")).build()
             )
           )
-        )
+        ).build()
       val putItemResponse = client.putItem(putItemRequest).runToFuture.futureValue
-      putItemResponse.isSuccessful shouldBe true
-      val getItemRequest = GetItemRequest()
-        .withTableName(Some(tableName))
-        .withKey(Some(Map("Id" -> AttributeValue().withString(Some("abc")))))
+      putItemResponse.sdkHttpResponse().isSuccessful shouldBe true
+      val getItemRequest = GetItemRequest
+        .builder()
+        .withTableNameAsScala(Some(tableName))
+        .withKeyAsScala(Some(Map("Id" -> AttributeValue.builder().withSAsScala(Some("abc")).build()))).build()
       val getItemResponse = client.getItem(getItemRequest).runToFuture.futureValue
-      getItemResponse.isSuccessful shouldBe true
-      getItemResponse.item.get.mapValues(_.string.get) shouldBe Map("Id" -> "abc", "Name" -> "xyz")
+      getItemResponse.sdkHttpResponse().isSuccessful shouldBe true
+      getItemResponse.itemAsScala.get.mapValues(_.sAsScala.get) shouldBe Map("Id" -> "abc", "Name" -> "xyz")
 
-      val updateItemRequest = UpdateItemRequest()
-        .withTableName(Some(tableName))
-        .withKey(Some(Map("Id" -> AttributeValue().withString(Some("abc")))))
-        .withAttributeUpdates(
+      val updateItemRequest = UpdateItemRequest
+        .builder()
+        .withTableNameAsScala(Some(tableName))
+        .withKeyAsScala(Some(Map("Id" -> AttributeValue.builder().withSAsScala(Some("abc")).build())))
+        .withAttributeUpdatesAsScala(
           Some(
             Map(
-              "Name" -> AttributeValueUpdate()
-                .withAction(Some(AttributeAction.PUT)).withValue(Some(AttributeValue().withString(Some("---"))))
+              "Name" -> AttributeValueUpdate
+                .builder()
+                .withActionAsScala(Some(AttributeAction.PUT)).withValueAsScala(
+                  Some(AttributeValue.builder().withSAsScala(Some("---")).build())
+                ).build()
             )
           )
-        )
+        ).build()
       val updateItemResponse = client.updateItem(updateItemRequest).runToFuture.futureValue
-      updateItemResponse.isSuccessful shouldBe true
+      updateItemResponse.sdkHttpResponse().isSuccessful shouldBe true
     }
   }
 
   private def createTable(
       tableName: String = "example_" + UUID.randomUUID().toString
   ): (String, CreateTableResponse) = {
-    val createRequest = CreateTableRequest()
-      .withAttributeDefinitions(
+    val createRequest = CreateTableRequest
+      .builder()
+      .withAttributeDefinitionsAsScala(
         Some(
           Seq(
-            AttributeDefinition()
-              .withAttributeName(Some("Id"))
-              .withAttributeType(Some(ScalarAttributeType.S))
+            AttributeDefinition
+              .builder()
+              .withAttributeNameAsScala(Some("Id"))
+              .withAttributeTypeAsScala(Some(ScalarAttributeType.S)).build()
           )
         )
       )
-      .withKeySchema(
+      .withKeySchemaAsScala(
         Some(
           Seq(
-            KeySchemaElement()
-              .withAttributeName(Some("Id"))
-              .withKeyType(Some(KeyType.HASH))
+            KeySchemaElement
+              .builder()
+              .withAttributeNameAsScala(Some("Id"))
+              .withKeyTypeAsScala(Some(KeyType.HASH)).build()
           )
         )
       )
-      .withProvisionedThroughput(
+      .withProvisionedThroughputAsScala(
         Some(
-          ProvisionedThroughput()
-            .withReadCapacityUnits(Some(10L))
-            .withWriteCapacityUnits(Some(10L))
+          ProvisionedThroughput
+            .builder()
+            .withReadCapacityUnitsAsScala(Some(10L))
+            .withWriteCapacityUnitsAsScala(Some(10L)).build()
         )
       )
-      .withTableName(Some(tableName))
+      .withTableNameAsScala(Some(tableName)).build()
     val createResponse = client
       .createTable(createRequest).runToFuture.futureValue
     (tableName, createResponse)

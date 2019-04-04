@@ -1,48 +1,118 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteItemRequest => ScalaDeleteItemRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DeleteItemRequest => JavaDeleteItemRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteItemRequestOps {
+final class DeleteItemRequestBuilderOps(val self: DeleteItemRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteItemRequestOps(val self: ScalaDeleteItemRequest) extends AnyVal {
-
-    def toJava: JavaDeleteItemRequest = {
-      val result = JavaDeleteItemRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-      self.key.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.expected.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ExpectedAttributeValueOps._;
-        result.expected(v.mapValues(_.toJava).asJava)
-      } // Map[String, ExpectedAttributeValue]
-      self.conditionalOperator.foreach { v =>
-        import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
-      } // String
-      self.returnValues.foreach { v =>
-        import ReturnValueOps._; result.returnValues(v.toJava)
-      } // String
-      self.returnConsumedCapacity.foreach { v =>
-        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String
-      self.returnItemCollectionMetrics.foreach { v =>
-        import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
-      } // String
-      self.conditionExpression.filter(_.nonEmpty).foreach(v => result.conditionExpression(v)) // String
-      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
-        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
-      } // Map[String, String]
-      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._;
-        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): DeleteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): DeleteItemRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.key(v.asJava)
+    } // Map[String, AttributeValue]
   }
+
+  final def withExpectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): DeleteItemRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expected(v.asJava)
+    } // Map[String, ExpectedAttributeValue]
+  }
+
+  final def withConditionalOperatorAsScala(value: Option[ConditionalOperator]): DeleteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.conditionalOperator(v)
+    }
+  } // String
+
+  final def withReturnValuesAsScala(value: Option[ReturnValue]): DeleteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnValues(v)
+    }
+  } // String
+
+  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): DeleteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnConsumedCapacity(v)
+    }
+  } // String
+
+  final def withReturnItemCollectionMetricsAsScala(
+      value: Option[ReturnItemCollectionMetrics]
+  ): DeleteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnItemCollectionMetrics(v)
+    }
+  } // String
+
+  final def withConditionExpressionAsScala(value: Option[String]): DeleteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.conditionExpression(v)
+    }
+  } // String
+
+  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): DeleteItemRequest.Builder = {
+    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
+    } // Map[String, String]
+  }
+
+  final def withExpressionAttributeValuesAsScala(
+      value: Option[Map[String, AttributeValue]]
+  ): DeleteItemRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+}
+
+final class DeleteItemRequestOps(val self: DeleteItemRequest) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def expectedAsScala: Option[Map[String, ExpectedAttributeValue]] = Option(self.expected).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, ExpectedAttributeValue]
+
+  final def conditionalOperatorAsScala: Option[ConditionalOperator] = Option(self.conditionalOperator) // String
+
+  final def returnValuesAsScala: Option[ReturnValue] = Option(self.returnValues) // String
+
+  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
+    Option(self.returnConsumedCapacity) // String
+
+  final def returnItemCollectionMetricsAsScala: Option[ReturnItemCollectionMetrics] =
+    Option(self.returnItemCollectionMetrics) // String
+
+  final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression) // String
+
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, String]
+
+  final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.expressionAttributeValues).map { v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+    } // Map[String, AttributeValue]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteItemRequestOps {
+
+  implicit def toDeleteItemRequestBuilderOps(v: DeleteItemRequest.Builder): DeleteItemRequestBuilderOps =
+    new DeleteItemRequestBuilderOps(v)
+
+  implicit def toDeleteItemRequestOps(v: DeleteItemRequest): DeleteItemRequestOps = new DeleteItemRequestOps(v)
 
 }

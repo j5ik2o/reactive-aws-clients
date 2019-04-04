@@ -1,27 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetPublicAccessBlockResponse => ScalaGetPublicAccessBlockResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetPublicAccessBlockResponse => JavaGetPublicAccessBlockResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetPublicAccessBlockResponseBuilderOps(val self: GetPublicAccessBlockResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetPublicAccessBlockResponseOps {
-
-  implicit class JavaGetPublicAccessBlockResponseOps(val self: JavaGetPublicAccessBlockResponse) extends AnyVal {
-
-    def toScala: ScalaGetPublicAccessBlockResponse = {
-      ScalaGetPublicAccessBlockResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withPublicAccessBlockConfiguration(Option(self.publicAccessBlockConfiguration).map { v =>
-          import PublicAccessBlockConfigurationOps._; v.toScala
-        }) // PublicAccessBlockConfiguration
+  final def withPublicAccessBlockConfigurationAsScala(
+      value: Option[PublicAccessBlockConfiguration]
+  ): GetPublicAccessBlockResponse.Builder = {
+    value.fold(self) { v =>
+      self.publicAccessBlockConfiguration(v)
     }
+  } // PublicAccessBlockConfiguration
 
-  }
+}
+
+final class GetPublicAccessBlockResponseOps(val self: GetPublicAccessBlockResponse) extends AnyVal {
+
+  final def publicAccessBlockConfigurationAsScala: Option[PublicAccessBlockConfiguration] =
+    Option(self.publicAccessBlockConfiguration) // PublicAccessBlockConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetPublicAccessBlockResponseOps {
+
+  implicit def toGetPublicAccessBlockResponseBuilderOps(
+      v: GetPublicAccessBlockResponse.Builder
+  ): GetPublicAccessBlockResponseBuilderOps = new GetPublicAccessBlockResponseBuilderOps(v)
+
+  implicit def toGetPublicAccessBlockResponseOps(v: GetPublicAccessBlockResponse): GetPublicAccessBlockResponseOps =
+    new GetPublicAccessBlockResponseOps(v)
 
 }

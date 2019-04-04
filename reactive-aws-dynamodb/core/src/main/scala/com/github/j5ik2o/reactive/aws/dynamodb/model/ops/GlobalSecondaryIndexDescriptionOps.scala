@@ -1,68 +1,103 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  GlobalSecondaryIndexDescription => ScalaGlobalSecondaryIndexDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  GlobalSecondaryIndexDescription => JavaGlobalSecondaryIndexDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GlobalSecondaryIndexDescriptionOps {
+final class GlobalSecondaryIndexDescriptionBuilderOps(val self: GlobalSecondaryIndexDescription.Builder)
+    extends AnyVal {
 
-  implicit class ScalaGlobalSecondaryIndexDescriptionOps(val self: ScalaGlobalSecondaryIndexDescription)
-      extends AnyVal {
-
-    def toJava: JavaGlobalSecondaryIndexDescription = {
-      val result = JavaGlobalSecondaryIndexDescription.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
-      self.keySchema.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement]
-      self.projection.foreach { v =>
-        import ProjectionOps._; result.projection(v.toJava)
-      } // Projection
-      self.indexStatus.foreach { v =>
-        import IndexStatusOps._; result.indexStatus(v.toJava)
-      } // String
-      self.backfilling.map(_.booleanValue).foreach(v => result.backfilling(v)) // Boolean
-      self.provisionedThroughput.foreach { v =>
-        import ProvisionedThroughputDescriptionOps._; result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughputDescription
-      self.indexSizeBytes.map(_.longValue).foreach(v => result.indexSizeBytes(v)) // Long
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
-      self.indexArn.filter(_.nonEmpty).foreach(v => result.indexArn(v))           // String
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
+  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+    } // Seq[KeySchemaElement]
   }
 
-  implicit class JavaGlobalSecondaryIndexDescriptionOps(val self: JavaGlobalSecondaryIndexDescription) extends AnyVal {
-
-    def toScala: ScalaGlobalSecondaryIndexDescription = {
-      ScalaGlobalSecondaryIndexDescription()
-        .withIndexName(Option(self.indexName)) // String
-        .withKeySchema(Option(self.keySchema).map { v =>
-          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement]
-        .withProjection(Option(self.projection).map { v =>
-          import ProjectionOps._; v.toScala
-        }) // Projection
-        .withIndexStatus(Option(self.indexStatus).map { v =>
-          import IndexStatusOps._; v.toScala
-        }) // String
-        .withBackfilling(Option(self.backfilling).map(_.booleanValue)) // Boolean
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          import ProvisionedThroughputDescriptionOps._; v.toScala
-        }) // ProvisionedThroughputDescription
-        .withIndexSizeBytes(Option(self.indexSizeBytes).map(_.longValue)) // Long
-        .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
-        .withIndexArn(Option(self.indexArn)) // String
+  final def withProjectionAsScala(value: Option[Projection]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.projection(v)
     }
+  } // Projection
 
-  }
+  final def withIndexStatusAsScala(value: Option[IndexStatus]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexStatus(v)
+    }
+  } // String
+
+  final def withBackfillingAsScala(value: Option[Boolean]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.backfilling(v)
+    }
+  } // Boolean
+
+  final def withProvisionedThroughputAsScala(
+      value: Option[ProvisionedThroughputDescription]
+  ): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughput(v)
+    }
+  } // ProvisionedThroughputDescription
+
+  final def withIndexSizeBytesAsScala(value: Option[Long]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexSizeBytes(v)
+    }
+  } // Long
+
+  final def withItemCountAsScala(value: Option[Long]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.itemCount(v)
+    }
+  } // Long
+
+  final def withIndexArnAsScala(value: Option[String]): GlobalSecondaryIndexDescription.Builder = {
+    value.fold(self) { v =>
+      self.indexArn(v)
+    }
+  } // String
+
+}
+
+final class GlobalSecondaryIndexDescriptionOps(val self: GlobalSecondaryIndexDescription) extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[KeySchemaElement]
+
+  final def projectionAsScala: Option[Projection] = Option(self.projection) // Projection
+
+  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus) // String
+
+  final def backfillingAsScala: Option[Boolean] = Option(self.backfilling) // Boolean
+
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughputDescription] =
+    Option(self.provisionedThroughput) // ProvisionedThroughputDescription
+
+  final def indexSizeBytesAsScala: Option[Long] = Option(self.indexSizeBytes) // Long
+
+  final def itemCountAsScala: Option[Long] = Option(self.itemCount) // Long
+
+  final def indexArnAsScala: Option[String] = Option(self.indexArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGlobalSecondaryIndexDescriptionOps {
+
+  implicit def toGlobalSecondaryIndexDescriptionBuilderOps(
+      v: GlobalSecondaryIndexDescription.Builder
+  ): GlobalSecondaryIndexDescriptionBuilderOps = new GlobalSecondaryIndexDescriptionBuilderOps(v)
+
+  implicit def toGlobalSecondaryIndexDescriptionOps(
+      v: GlobalSecondaryIndexDescription
+  ): GlobalSecondaryIndexDescriptionOps = new GlobalSecondaryIndexDescriptionOps(v)
 
 }

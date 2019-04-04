@@ -1,24 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ HeadBucketResponse => ScalaHeadBucketResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ HeadBucketResponse => JavaHeadBucketResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class HeadBucketResponseBuilderOps(val self: HeadBucketResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object HeadBucketResponseOps {
+final class HeadBucketResponseOps(val self: HeadBucketResponse) extends AnyVal {}
 
-  implicit class JavaHeadBucketResponseOps(val self: JavaHeadBucketResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToHeadBucketResponseOps {
 
-    def toScala: ScalaHeadBucketResponse = {
-      ScalaHeadBucketResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toHeadBucketResponseBuilderOps(v: HeadBucketResponse.Builder): HeadBucketResponseBuilderOps =
+    new HeadBucketResponseBuilderOps(v)
 
-  }
+  implicit def toHeadBucketResponseOps(v: HeadBucketResponse): HeadBucketResponseOps = new HeadBucketResponseOps(v)
 
 }

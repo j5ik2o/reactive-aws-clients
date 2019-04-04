@@ -1,32 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TimeToLiveSpecification => ScalaTimeToLiveSpecification, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TimeToLiveSpecification => JavaTimeToLiveSpecification }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TimeToLiveSpecificationOps {
+final class TimeToLiveSpecificationBuilderOps(val self: TimeToLiveSpecification.Builder) extends AnyVal {
 
-  implicit class ScalaTimeToLiveSpecificationOps(val self: ScalaTimeToLiveSpecification) extends AnyVal {
-
-    def toJava: JavaTimeToLiveSpecification = {
-      val result = JavaTimeToLiveSpecification.builder()
-      self.enabled.map(_.booleanValue).foreach(v => result.enabled(v))            // Boolean
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
-
-      result.build()
+  final def withEnabledAsScala(value: Option[Boolean]): TimeToLiveSpecification.Builder = {
+    value.fold(self) { v =>
+      self.enabled(v)
     }
+  } // Boolean
 
-  }
-
-  implicit class JavaTimeToLiveSpecificationOps(val self: JavaTimeToLiveSpecification) extends AnyVal {
-
-    def toScala: ScalaTimeToLiveSpecification = {
-      ScalaTimeToLiveSpecification()
-        .withEnabled(Option(self.enabled).map(_.booleanValue)) // Boolean
-        .withAttributeName(Option(self.attributeName)) // String
+  final def withAttributeNameAsScala(value: Option[String]): TimeToLiveSpecification.Builder = {
+    value.fold(self) { v =>
+      self.attributeName(v)
     }
+  } // String
 
-  }
+}
+
+final class TimeToLiveSpecificationOps(val self: TimeToLiveSpecification) extends AnyVal {
+
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+
+  final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTimeToLiveSpecificationOps {
+
+  implicit def toTimeToLiveSpecificationBuilderOps(
+      v: TimeToLiveSpecification.Builder
+  ): TimeToLiveSpecificationBuilderOps = new TimeToLiveSpecificationBuilderOps(v)
+
+  implicit def toTimeToLiveSpecificationOps(v: TimeToLiveSpecification): TimeToLiveSpecificationOps =
+    new TimeToLiveSpecificationOps(v)
 
 }

@@ -1,30 +1,53 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchWriteItemRequest => ScalaBatchWriteItemRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ BatchWriteItemRequest => JavaBatchWriteItemRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object BatchWriteItemRequestOps {
+final class BatchWriteItemRequestBuilderOps(val self: BatchWriteItemRequest.Builder) extends AnyVal {
 
-  implicit class ScalaBatchWriteItemRequestOps(val self: ScalaBatchWriteItemRequest) extends AnyVal {
-
-    def toJava: JavaBatchWriteItemRequest = {
-      val result = JavaBatchWriteItemRequest.builder()
-      self.requestItems.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, WriteRequestOps._;
-        result.requestItems(v.mapValues(_.map(_.toJava).asJava).asJava)
-      } // Map[String, Seq[WriteRequest]]
-      self.returnConsumedCapacity.foreach { v =>
-        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String
-      self.returnItemCollectionMetrics.foreach { v =>
-        import ReturnItemCollectionMetricsOps._; result.returnItemCollectionMetrics(v.toJava)
-      } // String
-
-      result.build()
-    }
-
+  final def withRequestItemsAsScala(value: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.requestItems(v.mapValues(_.asJava).asJava)
+    } // Map[String, Seq[WriteRequest]]
   }
+
+  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchWriteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnConsumedCapacity(v)
+    }
+  } // String
+
+  final def withReturnItemCollectionMetricsAsScala(
+      value: Option[ReturnItemCollectionMetrics]
+  ): BatchWriteItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnItemCollectionMetrics(v)
+    }
+  } // String
+
+}
+
+final class BatchWriteItemRequestOps(val self: BatchWriteItemRequest) extends AnyVal {
+
+  final def requestItemsAsScala: Option[Map[String, Seq[WriteRequest]]] = Option(self.requestItems).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala)
+  } // Map[String, Seq[WriteRequest]]
+
+  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
+    Option(self.returnConsumedCapacity) // String
+
+  final def returnItemCollectionMetricsAsScala: Option[ReturnItemCollectionMetrics] =
+    Option(self.returnItemCollectionMetrics) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToBatchWriteItemRequestOps {
+
+  implicit def toBatchWriteItemRequestBuilderOps(v: BatchWriteItemRequest.Builder): BatchWriteItemRequestBuilderOps =
+    new BatchWriteItemRequestBuilderOps(v)
+
+  implicit def toBatchWriteItemRequestOps(v: BatchWriteItemRequest): BatchWriteItemRequestOps =
+    new BatchWriteItemRequestOps(v)
 
 }

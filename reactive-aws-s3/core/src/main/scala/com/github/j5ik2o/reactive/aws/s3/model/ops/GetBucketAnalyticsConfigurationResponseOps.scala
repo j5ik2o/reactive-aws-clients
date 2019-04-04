@@ -1,33 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketAnalyticsConfigurationResponse => ScalaGetBucketAnalyticsConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketAnalyticsConfigurationResponse => JavaGetBucketAnalyticsConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketAnalyticsConfigurationResponseBuilderOps(val self: GetBucketAnalyticsConfigurationResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketAnalyticsConfigurationResponseOps {
-
-  implicit class JavaGetBucketAnalyticsConfigurationResponseOps(val self: JavaGetBucketAnalyticsConfigurationResponse)
-      extends AnyVal {
-
-    def toScala: ScalaGetBucketAnalyticsConfigurationResponse = {
-      ScalaGetBucketAnalyticsConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withAnalyticsConfiguration(Option(self.analyticsConfiguration).map { v =>
-          import AnalyticsConfigurationOps._; v.toScala
-        }) // AnalyticsConfiguration
+  final def withAnalyticsConfigurationAsScala(
+      value: Option[AnalyticsConfiguration]
+  ): GetBucketAnalyticsConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.analyticsConfiguration(v)
     }
+  } // AnalyticsConfiguration
 
-  }
+}
+
+final class GetBucketAnalyticsConfigurationResponseOps(val self: GetBucketAnalyticsConfigurationResponse)
+    extends AnyVal {
+
+  final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] =
+    Option(self.analyticsConfiguration) // AnalyticsConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketAnalyticsConfigurationResponseOps {
+
+  implicit def toGetBucketAnalyticsConfigurationResponseBuilderOps(
+      v: GetBucketAnalyticsConfigurationResponse.Builder
+  ): GetBucketAnalyticsConfigurationResponseBuilderOps = new GetBucketAnalyticsConfigurationResponseBuilderOps(v)
+
+  implicit def toGetBucketAnalyticsConfigurationResponseOps(
+      v: GetBucketAnalyticsConfigurationResponse
+  ): GetBucketAnalyticsConfigurationResponseOps = new GetBucketAnalyticsConfigurationResponseOps(v)
 
 }

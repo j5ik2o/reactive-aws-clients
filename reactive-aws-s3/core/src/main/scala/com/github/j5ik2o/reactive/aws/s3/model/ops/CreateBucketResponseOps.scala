@@ -1,25 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CreateBucketResponse => ScalaCreateBucketResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ CreateBucketResponse => JavaCreateBucketResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class CreateBucketResponseBuilderOps(val self: CreateBucketResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CreateBucketResponseOps {
-
-  implicit class JavaCreateBucketResponseOps(val self: JavaCreateBucketResponse) extends AnyVal {
-
-    def toScala: ScalaCreateBucketResponse = {
-      ScalaCreateBucketResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withLocation(Option(self.location)) // String
+  final def withLocationAsScala(value: Option[String]): CreateBucketResponse.Builder = {
+    value.fold(self) { v =>
+      self.location(v)
     }
+  } // String
 
-  }
+}
+
+final class CreateBucketResponseOps(val self: CreateBucketResponse) extends AnyVal {
+
+  final def locationAsScala: Option[String] = Option(self.location) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCreateBucketResponseOps {
+
+  implicit def toCreateBucketResponseBuilderOps(v: CreateBucketResponse.Builder): CreateBucketResponseBuilderOps =
+    new CreateBucketResponseBuilderOps(v)
+
+  implicit def toCreateBucketResponseOps(v: CreateBucketResponse): CreateBucketResponseOps =
+    new CreateBucketResponseOps(v)
 
 }

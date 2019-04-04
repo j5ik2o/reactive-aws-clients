@@ -1,34 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Tagging => ScalaTagging, _ }
-import software.amazon.awssdk.services.s3.model.{ Tagging => JavaTagging }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TaggingOps {
+final class TaggingBuilderOps(val self: Tagging.Builder) extends AnyVal {
 
-  implicit class ScalaTaggingOps(val self: ScalaTagging) extends AnyVal {
-
-    def toJava: JavaTagging = {
-      val result = JavaTagging.builder()
-      self.tagSet.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TagOps._; result.tagSet(v.map(_.toJava).asJava)
-      } // Seq[Tag]
-
-      result.build()
-    }
-
+  final def withTagSetAsScala(value: Option[Seq[Tag]]): Tagging.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tagSet(v.asJava)
+    } // Seq[Tag]
   }
 
-  implicit class JavaTaggingOps(val self: JavaTagging) extends AnyVal {
+}
 
-    def toScala: ScalaTagging = {
-      ScalaTagging()
-        .withTagSet(Option(self.tagSet).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
-    }
+final class TaggingOps(val self: Tagging) extends AnyVal {
 
-  }
+  final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTaggingOps {
+
+  implicit def toTaggingBuilderOps(v: Tagging.Builder): TaggingBuilderOps = new TaggingBuilderOps(v)
+
+  implicit def toTaggingOps(v: Tagging): TaggingOps = new TaggingOps(v)
 
 }

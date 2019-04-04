@@ -1,36 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TimeToLiveDescription => ScalaTimeToLiveDescription, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TimeToLiveDescription => JavaTimeToLiveDescription }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TimeToLiveDescriptionOps {
+final class TimeToLiveDescriptionBuilderOps(val self: TimeToLiveDescription.Builder) extends AnyVal {
 
-  implicit class ScalaTimeToLiveDescriptionOps(val self: ScalaTimeToLiveDescription) extends AnyVal {
-
-    def toJava: JavaTimeToLiveDescription = {
-      val result = JavaTimeToLiveDescription.builder()
-      self.timeToLiveStatus.foreach { v =>
-        import TimeToLiveStatusOps._; result.timeToLiveStatus(v.toJava)
-      } // String
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
-
-      result.build()
+  final def withTimeToLiveStatusAsScala(value: Option[TimeToLiveStatus]): TimeToLiveDescription.Builder = {
+    value.fold(self) { v =>
+      self.timeToLiveStatus(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaTimeToLiveDescriptionOps(val self: JavaTimeToLiveDescription) extends AnyVal {
-
-    def toScala: ScalaTimeToLiveDescription = {
-      ScalaTimeToLiveDescription()
-        .withTimeToLiveStatus(Option(self.timeToLiveStatus).map { v =>
-          import TimeToLiveStatusOps._; v.toScala
-        }) // String
-        .withAttributeName(Option(self.attributeName)) // String
+  final def withAttributeNameAsScala(value: Option[String]): TimeToLiveDescription.Builder = {
+    value.fold(self) { v =>
+      self.attributeName(v)
     }
+  } // String
 
-  }
+}
+
+final class TimeToLiveDescriptionOps(val self: TimeToLiveDescription) extends AnyVal {
+
+  final def timeToLiveStatusAsScala: Option[TimeToLiveStatus] = Option(self.timeToLiveStatus) // String
+
+  final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTimeToLiveDescriptionOps {
+
+  implicit def toTimeToLiveDescriptionBuilderOps(v: TimeToLiveDescription.Builder): TimeToLiveDescriptionBuilderOps =
+    new TimeToLiveDescriptionBuilderOps(v)
+
+  implicit def toTimeToLiveDescriptionOps(v: TimeToLiveDescription): TimeToLiveDescriptionOps =
+    new TimeToLiveDescriptionOps(v)
 
 }

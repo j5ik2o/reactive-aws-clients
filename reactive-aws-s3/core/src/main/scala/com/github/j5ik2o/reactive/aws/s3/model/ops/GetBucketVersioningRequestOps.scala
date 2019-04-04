@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketVersioningRequest => ScalaGetBucketVersioningRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketVersioningRequest => JavaGetBucketVersioningRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketVersioningRequestOps {
+final class GetBucketVersioningRequestBuilderOps(val self: GetBucketVersioningRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketVersioningRequestOps(val self: ScalaGetBucketVersioningRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketVersioningRequest = {
-      val result = JavaGetBucketVersioningRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketVersioningRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketVersioningRequestOps(val self: GetBucketVersioningRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketVersioningRequestOps {
+
+  implicit def toGetBucketVersioningRequestBuilderOps(
+      v: GetBucketVersioningRequest.Builder
+  ): GetBucketVersioningRequestBuilderOps = new GetBucketVersioningRequestBuilderOps(v)
+
+  implicit def toGetBucketVersioningRequestOps(v: GetBucketVersioningRequest): GetBucketVersioningRequestOps =
+    new GetBucketVersioningRequestOps(v)
 
 }

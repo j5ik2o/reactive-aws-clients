@@ -1,32 +1,33 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  RestoreTableFromBackupResponse => ScalaRestoreTableFromBackupResponse,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  RestoreTableFromBackupResponse => JavaRestoreTableFromBackupResponse
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class RestoreTableFromBackupResponseBuilderOps(val self: RestoreTableFromBackupResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RestoreTableFromBackupResponseOps {
-
-  implicit class JavaRestoreTableFromBackupResponseOps(val self: JavaRestoreTableFromBackupResponse) extends AnyVal {
-
-    def toScala: ScalaRestoreTableFromBackupResponse = {
-      ScalaRestoreTableFromBackupResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTableDescription(Option(self.tableDescription).map { v =>
-          import TableDescriptionOps._; v.toScala
-        }) // TableDescription
+  final def withTableDescriptionAsScala(value: Option[TableDescription]): RestoreTableFromBackupResponse.Builder = {
+    value.fold(self) { v =>
+      self.tableDescription(v)
     }
+  } // TableDescription
 
-  }
+}
+
+final class RestoreTableFromBackupResponseOps(val self: RestoreTableFromBackupResponse) extends AnyVal {
+
+  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription) // TableDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRestoreTableFromBackupResponseOps {
+
+  implicit def toRestoreTableFromBackupResponseBuilderOps(
+      v: RestoreTableFromBackupResponse.Builder
+  ): RestoreTableFromBackupResponseBuilderOps = new RestoreTableFromBackupResponseBuilderOps(v)
+
+  implicit def toRestoreTableFromBackupResponseOps(
+      v: RestoreTableFromBackupResponse
+  ): RestoreTableFromBackupResponseOps = new RestoreTableFromBackupResponseOps(v)
 
 }

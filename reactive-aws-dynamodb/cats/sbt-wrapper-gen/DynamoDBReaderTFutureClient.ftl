@@ -3,8 +3,9 @@ package com.github.j5ik2o.reactive.aws.dynamodb.cats
 
 import cats.data.ReaderT
 import com.github.j5ik2o.reactive.aws.dynamodb.{DynamoDBAsyncClient, DynamoDBClient}
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
-import com.github.j5ik2o.reactive.aws.dynamodb.model.rs._
+import software.amazon.awssdk.services.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.paginators._
+
 
 import scala.concurrent.{ ExecutionContext, Future }
 

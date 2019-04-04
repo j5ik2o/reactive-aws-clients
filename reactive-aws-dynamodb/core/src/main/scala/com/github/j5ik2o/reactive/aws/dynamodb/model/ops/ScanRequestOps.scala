@@ -1,54 +1,162 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ScanRequest => ScalaScanRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ScanRequest => JavaScanRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ScanRequestOps {
+final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal {
 
-  implicit class ScalaScanRequestOps(val self: ScalaScanRequest) extends AnyVal {
-
-    def toJava: JavaScanRequest = {
-      val result = JavaScanRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
-      self.attributesToGet.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.attributesToGet(v.asJava)
-      } // Seq[String]
-      self.limit.map(_.intValue).foreach(v => result.limit(v)) // Int
-      self.select.foreach { v =>
-        import SelectOps._; result.select(v.toJava)
-      } // String
-      self.scanFilter.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ConditionOps._; result.scanFilter(v.mapValues(_.toJava).asJava)
-      } // Map[String, Condition]
-      self.conditionalOperator.foreach { v =>
-        import ConditionalOperatorOps._; result.conditionalOperator(v.toJava)
-      } // String
-      self.exclusiveStartKey.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._;
-        result.exclusiveStartKey(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.returnConsumedCapacity.foreach { v =>
-        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String
-      self.totalSegments.map(_.intValue).foreach(v => result.totalSegments(v))                  // Int
-      self.segment.map(_.intValue).foreach(v => result.segment(v))                              // Int
-      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String
-      self.filterExpression.filter(_.nonEmpty).foreach(v => result.filterExpression(v))         // String
-      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
-        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
-      } // Map[String, String]
-      self.expressionAttributeValues.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._;
-        result.expressionAttributeValues(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.consistentRead.map(_.booleanValue).foreach(v => result.consistentRead(v)) // Boolean
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withIndexNameAsScala(value: Option[String]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
+    }
+  } // String
+
+  final def withAttributesToGetAsScala(value: Option[Seq[String]]): ScanRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.attributesToGet(v.asJava)
+    } // Seq[String]
   }
+
+  final def withLimitAsScala(value: Option[Int]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.limit(v)
+    }
+  } // Int
+
+  final def withSelectAsScala(value: Option[Select]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.select(v)
+    }
+  } // String
+
+  final def withScanFilterAsScala(value: Option[Map[String, Condition]]): ScanRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.scanFilter(v.asJava)
+    } // Map[String, Condition]
+  }
+
+  final def withConditionalOperatorAsScala(value: Option[ConditionalOperator]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.conditionalOperator(v)
+    }
+  } // String
+
+  final def withExclusiveStartKeyAsScala(value: Option[Map[String, AttributeValue]]): ScanRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.exclusiveStartKey(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnConsumedCapacity(v)
+    }
+  } // String
+
+  final def withTotalSegmentsAsScala(value: Option[Int]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.totalSegments(v)
+    }
+  } // Int
+
+  final def withSegmentAsScala(value: Option[Int]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.segment(v)
+    }
+  } // Int
+
+  final def withProjectionExpressionAsScala(value: Option[String]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.projectionExpression(v)
+    }
+  } // String
+
+  final def withFilterExpressionAsScala(value: Option[String]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.filterExpression(v)
+    }
+  } // String
+
+  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): ScanRequest.Builder = {
+    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
+    } // Map[String, String]
+  }
+
+  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): ScanRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+  final def withConsistentReadAsScala(value: Option[Boolean]): ScanRequest.Builder = {
+    value.fold(self) { v =>
+      self.consistentRead(v)
+    }
+  } // Boolean
+
+}
+
+final class ScanRequestOps(val self: ScanRequest) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def attributesToGetAsScala: Option[Seq[String]] = Option(self.attributesToGet).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+
+  final def selectAsScala: Option[Select] = Option(self.select) // String
+
+  final def scanFilterAsScala: Option[Map[String, Condition]] = Option(self.scanFilter).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, Condition]
+
+  final def conditionalOperatorAsScala: Option[ConditionalOperator] = Option(self.conditionalOperator) // String
+
+  final def exclusiveStartKeyAsScala: Option[Map[String, AttributeValue]] = Option(self.exclusiveStartKey).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
+    Option(self.returnConsumedCapacity) // String
+
+  final def totalSegmentsAsScala: Option[Int] = Option(self.totalSegments) // Int
+
+  final def segmentAsScala: Option[Int] = Option(self.segment) // Int
+
+  final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression) // String
+
+  final def filterExpressionAsScala: Option[String] = Option(self.filterExpression) // String
+
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, String]
+
+  final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.expressionAttributeValues).map { v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+    } // Map[String, AttributeValue]
+
+  final def consistentReadAsScala: Option[Boolean] = Option(self.consistentRead) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToScanRequestOps {
+
+  implicit def toScanRequestBuilderOps(v: ScanRequest.Builder): ScanRequestBuilderOps = new ScanRequestBuilderOps(v)
+
+  implicit def toScanRequestOps(v: ScanRequest): ScanRequestOps = new ScanRequestOps(v)
 
 }

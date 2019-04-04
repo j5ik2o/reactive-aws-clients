@@ -1,30 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ EncryptionConfiguration => ScalaEncryptionConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ EncryptionConfiguration => JavaEncryptionConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object EncryptionConfigurationOps {
+final class EncryptionConfigurationBuilderOps(val self: EncryptionConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaEncryptionConfigurationOps(val self: ScalaEncryptionConfiguration) extends AnyVal {
-
-    def toJava: JavaEncryptionConfiguration = {
-      val result = JavaEncryptionConfiguration.builder()
-      self.replicaKmsKeyID.filter(_.nonEmpty).foreach(v => result.replicaKmsKeyID(v)) // String
-
-      result.build()
+  final def withReplicaKmsKeyIDAsScala(value: Option[String]): EncryptionConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.replicaKmsKeyID(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaEncryptionConfigurationOps(val self: JavaEncryptionConfiguration) extends AnyVal {
+final class EncryptionConfigurationOps(val self: EncryptionConfiguration) extends AnyVal {
 
-    def toScala: ScalaEncryptionConfiguration = {
-      ScalaEncryptionConfiguration()
-        .withReplicaKmsKeyID(Option(self.replicaKmsKeyID)) // String
-    }
+  final def replicaKmsKeyIDAsScala: Option[String] = Option(self.replicaKmsKeyID) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToEncryptionConfigurationOps {
+
+  implicit def toEncryptionConfigurationBuilderOps(
+      v: EncryptionConfiguration.Builder
+  ): EncryptionConfigurationBuilderOps = new EncryptionConfigurationBuilderOps(v)
+
+  implicit def toEncryptionConfigurationOps(v: EncryptionConfiguration): EncryptionConfigurationOps =
+    new EncryptionConfigurationOps(v)
 
 }

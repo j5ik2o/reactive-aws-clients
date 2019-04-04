@@ -1,32 +1,102 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ UploadPartRequest => ScalaUploadPartRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ UploadPartRequest => JavaUploadPartRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UploadPartRequestOps {
+final class UploadPartRequestBuilderOps(val self: UploadPartRequest.Builder) extends AnyVal {
 
-  implicit class ScalaUploadPartRequestOps(val self: ScalaUploadPartRequest) extends AnyVal {
-
-    def toJava: JavaUploadPartRequest = {
-      val result = JavaUploadPartRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))                             // String
-      self.contentLength.map(_.longValue).foreach(v => result.contentLength(v))                 // Long
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v))                     // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))                                   // String
-      self.partNumber.map(_.intValue).foreach(v => result.partNumber(v))                        // Int
-      self.uploadId.filter(_.nonEmpty).foreach(v => result.uploadId(v))                         // String
-      self.sseCustomerAlgorithm.filter(_.nonEmpty).foreach(v => result.sseCustomerAlgorithm(v)) // String
-      self.sseCustomerKey.filter(_.nonEmpty).foreach(v => result.sseCustomerKey(v))             // String
-      self.sseCustomerKeyMD5.filter(_.nonEmpty).foreach(v => result.sseCustomerKeyMD5(v))       // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContentLengthAsScala(value: Option[Long]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentLength(v)
+    }
+  } // Long
+
+  final def withContentMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withPartNumberAsScala(value: Option[Int]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.partNumber(v)
+    }
+  } // Int
+
+  final def withUploadIdAsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.uploadId(v)
+    }
+  } // String
+
+  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerAlgorithm(v)
+    }
+  } // String
+
+  final def withSseCustomerKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerKey(v)
+    }
+  } // String
+
+  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.sseCustomerKeyMD5(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): UploadPartRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class UploadPartRequestOps(val self: UploadPartRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentLengthAsScala: Option[Long] = Option(self.contentLength) // Long
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
+
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+
+  final def sseCustomerKeyAsScala: Option[String] = Option(self.sseCustomerKey) // String
+
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUploadPartRequestOps {
+
+  implicit def toUploadPartRequestBuilderOps(v: UploadPartRequest.Builder): UploadPartRequestBuilderOps =
+    new UploadPartRequestBuilderOps(v)
+
+  implicit def toUploadPartRequestOps(v: UploadPartRequest): UploadPartRequestOps = new UploadPartRequestOps(v)
 
 }

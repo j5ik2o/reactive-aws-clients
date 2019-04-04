@@ -3,17 +3,16 @@ package com.github.j5ik2o.reactive.aws.s3
 
 import java.util.concurrent.CompletableFuture
 
-import com.github.j5ik2o.reactive.aws.s3.model._
-import com.github.j5ik2o.reactive.aws.s3.model.rs._
-import com.github.j5ik2o.reactive.aws.s3.model.ops._
+import software.amazon.awssdk.services.s3.model._
+import software.amazon.awssdk.services.s3.paginators._
 import software.amazon.awssdk.services.s3.{ S3AsyncClient => JavaS3AsyncClient }
 
 import scala.compat.java8.FutureConverters
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.Future
 
 object S3AsyncClient {
 
-  def apply(underlying: JavaS3AsyncClient)(implicit ec: ExecutionContext): S3AsyncClient =
+  def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
     new S3AsyncClientImpl(underlying)
 
   implicit class CompletableFutureOps[A](val cf: CompletableFuture[A]) extends AnyVal {
@@ -23,614 +22,443 @@ object S3AsyncClient {
 }
 
 trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
-  implicit val execution: ExecutionContext
   val underlying: JavaS3AsyncClient
   import S3AsyncClient._
 
   override def abortMultipartUpload(
       abortMultipartUploadRequest: AbortMultipartUploadRequest
   ): Future[AbortMultipartUploadResponse] = {
-    import AbortMultipartUploadRequestOps._
-    import AbortMultipartUploadResponseOps._
-    underlying.abortMultipartUpload(abortMultipartUploadRequest.toJava).toFuture.map(_.toScala)
+    underlying.abortMultipartUpload(abortMultipartUploadRequest).toFuture
   }
 
   override def completeMultipartUpload(
       completeMultipartUploadRequest: CompleteMultipartUploadRequest
   ): Future[CompleteMultipartUploadResponse] = {
-    import CompleteMultipartUploadRequestOps._
-    import CompleteMultipartUploadResponseOps._
-    underlying.completeMultipartUpload(completeMultipartUploadRequest.toJava).toFuture.map(_.toScala)
+    underlying.completeMultipartUpload(completeMultipartUploadRequest).toFuture
   }
 
   override def copyObject(copyObjectRequest: CopyObjectRequest): Future[CopyObjectResponse] = {
-    import CopyObjectRequestOps._
-    import CopyObjectResponseOps._
-    underlying.copyObject(copyObjectRequest.toJava).toFuture.map(_.toScala)
+    underlying.copyObject(copyObjectRequest).toFuture
   }
 
   override def createBucket(createBucketRequest: CreateBucketRequest): Future[CreateBucketResponse] = {
-    import CreateBucketRequestOps._
-    import CreateBucketResponseOps._
-    underlying.createBucket(createBucketRequest.toJava).toFuture.map(_.toScala)
+    underlying.createBucket(createBucketRequest).toFuture
   }
 
   override def createMultipartUpload(
       createMultipartUploadRequest: CreateMultipartUploadRequest
   ): Future[CreateMultipartUploadResponse] = {
-    import CreateMultipartUploadRequestOps._
-    import CreateMultipartUploadResponseOps._
-    underlying.createMultipartUpload(createMultipartUploadRequest.toJava).toFuture.map(_.toScala)
+    underlying.createMultipartUpload(createMultipartUploadRequest).toFuture
   }
 
   override def deleteBucket(deleteBucketRequest: DeleteBucketRequest): Future[DeleteBucketResponse] = {
-    import DeleteBucketRequestOps._
-    import DeleteBucketResponseOps._
-    underlying.deleteBucket(deleteBucketRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucket(deleteBucketRequest).toFuture
   }
 
   override def deleteBucketAnalyticsConfiguration(
       deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest
   ): Future[DeleteBucketAnalyticsConfigurationResponse] = {
-    import DeleteBucketAnalyticsConfigurationRequestOps._
-    import DeleteBucketAnalyticsConfigurationResponseOps._
-    underlying
-      .deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest).toFuture
   }
 
   override def deleteBucketCors(deleteBucketCorsRequest: DeleteBucketCorsRequest): Future[DeleteBucketCorsResponse] = {
-    import DeleteBucketCorsRequestOps._
-    import DeleteBucketCorsResponseOps._
-    underlying.deleteBucketCors(deleteBucketCorsRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketCors(deleteBucketCorsRequest).toFuture
   }
 
   override def deleteBucketEncryption(
       deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest
   ): Future[DeleteBucketEncryptionResponse] = {
-    import DeleteBucketEncryptionRequestOps._
-    import DeleteBucketEncryptionResponseOps._
-    underlying.deleteBucketEncryption(deleteBucketEncryptionRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketEncryption(deleteBucketEncryptionRequest).toFuture
   }
 
   override def deleteBucketInventoryConfiguration(
       deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest
   ): Future[DeleteBucketInventoryConfigurationResponse] = {
-    import DeleteBucketInventoryConfigurationRequestOps._
-    import DeleteBucketInventoryConfigurationResponseOps._
-    underlying
-      .deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest).toFuture
   }
 
   override def deleteBucketLifecycle(
       deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest
   ): Future[DeleteBucketLifecycleResponse] = {
-    import DeleteBucketLifecycleRequestOps._
-    import DeleteBucketLifecycleResponseOps._
-    underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest).toFuture
   }
 
   override def deleteBucketMetricsConfiguration(
       deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest
   ): Future[DeleteBucketMetricsConfigurationResponse] = {
-    import DeleteBucketMetricsConfigurationRequestOps._
-    import DeleteBucketMetricsConfigurationResponseOps._
-    underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest).toFuture
   }
 
   override def deleteBucketPolicy(
       deleteBucketPolicyRequest: DeleteBucketPolicyRequest
   ): Future[DeleteBucketPolicyResponse] = {
-    import DeleteBucketPolicyRequestOps._
-    import DeleteBucketPolicyResponseOps._
-    underlying.deleteBucketPolicy(deleteBucketPolicyRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketPolicy(deleteBucketPolicyRequest).toFuture
   }
 
   override def deleteBucketReplication(
       deleteBucketReplicationRequest: DeleteBucketReplicationRequest
   ): Future[DeleteBucketReplicationResponse] = {
-    import DeleteBucketReplicationRequestOps._
-    import DeleteBucketReplicationResponseOps._
-    underlying.deleteBucketReplication(deleteBucketReplicationRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketReplication(deleteBucketReplicationRequest).toFuture
   }
 
   override def deleteBucketTagging(
       deleteBucketTaggingRequest: DeleteBucketTaggingRequest
   ): Future[DeleteBucketTaggingResponse] = {
-    import DeleteBucketTaggingRequestOps._
-    import DeleteBucketTaggingResponseOps._
-    underlying.deleteBucketTagging(deleteBucketTaggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketTagging(deleteBucketTaggingRequest).toFuture
   }
 
   override def deleteBucketWebsite(
       deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest
   ): Future[DeleteBucketWebsiteResponse] = {
-    import DeleteBucketWebsiteRequestOps._
-    import DeleteBucketWebsiteResponseOps._
-    underlying.deleteBucketWebsite(deleteBucketWebsiteRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteBucketWebsite(deleteBucketWebsiteRequest).toFuture
   }
 
   override def deleteObject(deleteObjectRequest: DeleteObjectRequest): Future[DeleteObjectResponse] = {
-    import DeleteObjectRequestOps._
-    import DeleteObjectResponseOps._
-    underlying.deleteObject(deleteObjectRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteObject(deleteObjectRequest).toFuture
   }
 
   override def deleteObjectTagging(
       deleteObjectTaggingRequest: DeleteObjectTaggingRequest
   ): Future[DeleteObjectTaggingResponse] = {
-    import DeleteObjectTaggingRequestOps._
-    import DeleteObjectTaggingResponseOps._
-    underlying.deleteObjectTagging(deleteObjectTaggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteObjectTagging(deleteObjectTaggingRequest).toFuture
   }
 
   override def deleteObjects(deleteObjectsRequest: DeleteObjectsRequest): Future[DeleteObjectsResponse] = {
-    import DeleteObjectsRequestOps._
-    import DeleteObjectsResponseOps._
-    underlying.deleteObjects(deleteObjectsRequest.toJava).toFuture.map(_.toScala)
+    underlying.deleteObjects(deleteObjectsRequest).toFuture
   }
 
   override def deletePublicAccessBlock(
       deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest
   ): Future[DeletePublicAccessBlockResponse] = {
-    import DeletePublicAccessBlockRequestOps._
-    import DeletePublicAccessBlockResponseOps._
-    underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest.toJava).toFuture.map(_.toScala)
+    underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest).toFuture
   }
 
   override def getBucketAccelerateConfiguration(
       getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest
   ): Future[GetBucketAccelerateConfigurationResponse] = {
-    import GetBucketAccelerateConfigurationRequestOps._
-    import GetBucketAccelerateConfigurationResponseOps._
-    underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest).toFuture
   }
 
   override def getBucketAcl(getBucketAclRequest: GetBucketAclRequest): Future[GetBucketAclResponse] = {
-    import GetBucketAclRequestOps._
-    import GetBucketAclResponseOps._
-    underlying.getBucketAcl(getBucketAclRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketAcl(getBucketAclRequest).toFuture
   }
 
   override def getBucketAnalyticsConfiguration(
       getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest
   ): Future[GetBucketAnalyticsConfigurationResponse] = {
-    import GetBucketAnalyticsConfigurationRequestOps._
-    import GetBucketAnalyticsConfigurationResponseOps._
-    underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest).toFuture
   }
 
   override def getBucketCors(getBucketCorsRequest: GetBucketCorsRequest): Future[GetBucketCorsResponse] = {
-    import GetBucketCorsRequestOps._
-    import GetBucketCorsResponseOps._
-    underlying.getBucketCors(getBucketCorsRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketCors(getBucketCorsRequest).toFuture
   }
 
   override def getBucketEncryption(
       getBucketEncryptionRequest: GetBucketEncryptionRequest
   ): Future[GetBucketEncryptionResponse] = {
-    import GetBucketEncryptionRequestOps._
-    import GetBucketEncryptionResponseOps._
-    underlying.getBucketEncryption(getBucketEncryptionRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketEncryption(getBucketEncryptionRequest).toFuture
   }
 
   override def getBucketInventoryConfiguration(
       getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest
   ): Future[GetBucketInventoryConfigurationResponse] = {
-    import GetBucketInventoryConfigurationRequestOps._
-    import GetBucketInventoryConfigurationResponseOps._
-    underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest).toFuture
   }
 
   override def getBucketLifecycleConfiguration(
       getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest
   ): Future[GetBucketLifecycleConfigurationResponse] = {
-    import GetBucketLifecycleConfigurationRequestOps._
-    import GetBucketLifecycleConfigurationResponseOps._
-    underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest).toFuture
   }
 
   override def getBucketLocation(
       getBucketLocationRequest: GetBucketLocationRequest
   ): Future[GetBucketLocationResponse] = {
-    import GetBucketLocationRequestOps._
-    import GetBucketLocationResponseOps._
-    underlying.getBucketLocation(getBucketLocationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketLocation(getBucketLocationRequest).toFuture
   }
 
   override def getBucketLogging(getBucketLoggingRequest: GetBucketLoggingRequest): Future[GetBucketLoggingResponse] = {
-    import GetBucketLoggingRequestOps._
-    import GetBucketLoggingResponseOps._
-    underlying.getBucketLogging(getBucketLoggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketLogging(getBucketLoggingRequest).toFuture
   }
 
   override def getBucketMetricsConfiguration(
       getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest
   ): Future[GetBucketMetricsConfigurationResponse] = {
-    import GetBucketMetricsConfigurationRequestOps._
-    import GetBucketMetricsConfigurationResponseOps._
-    underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest).toFuture
   }
 
   override def getBucketNotificationConfiguration(
       getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest
   ): Future[GetBucketNotificationConfigurationResponse] = {
-    import GetBucketNotificationConfigurationRequestOps._
-    import GetBucketNotificationConfigurationResponseOps._
-    underlying
-      .getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest).toFuture
   }
 
   override def getBucketPolicy(getBucketPolicyRequest: GetBucketPolicyRequest): Future[GetBucketPolicyResponse] = {
-    import GetBucketPolicyRequestOps._
-    import GetBucketPolicyResponseOps._
-    underlying.getBucketPolicy(getBucketPolicyRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketPolicy(getBucketPolicyRequest).toFuture
   }
 
   override def getBucketPolicyStatus(
       getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest
   ): Future[GetBucketPolicyStatusResponse] = {
-    import GetBucketPolicyStatusRequestOps._
-    import GetBucketPolicyStatusResponseOps._
-    underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest).toFuture
   }
 
   override def getBucketReplication(
       getBucketReplicationRequest: GetBucketReplicationRequest
   ): Future[GetBucketReplicationResponse] = {
-    import GetBucketReplicationRequestOps._
-    import GetBucketReplicationResponseOps._
-    underlying.getBucketReplication(getBucketReplicationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketReplication(getBucketReplicationRequest).toFuture
   }
 
   override def getBucketRequestPayment(
       getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest
   ): Future[GetBucketRequestPaymentResponse] = {
-    import GetBucketRequestPaymentRequestOps._
-    import GetBucketRequestPaymentResponseOps._
-    underlying.getBucketRequestPayment(getBucketRequestPaymentRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketRequestPayment(getBucketRequestPaymentRequest).toFuture
   }
 
   override def getBucketTagging(getBucketTaggingRequest: GetBucketTaggingRequest): Future[GetBucketTaggingResponse] = {
-    import GetBucketTaggingRequestOps._
-    import GetBucketTaggingResponseOps._
-    underlying.getBucketTagging(getBucketTaggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketTagging(getBucketTaggingRequest).toFuture
   }
 
   override def getBucketVersioning(
       getBucketVersioningRequest: GetBucketVersioningRequest
   ): Future[GetBucketVersioningResponse] = {
-    import GetBucketVersioningRequestOps._
-    import GetBucketVersioningResponseOps._
-    underlying.getBucketVersioning(getBucketVersioningRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketVersioning(getBucketVersioningRequest).toFuture
   }
 
   override def getBucketWebsite(getBucketWebsiteRequest: GetBucketWebsiteRequest): Future[GetBucketWebsiteResponse] = {
-    import GetBucketWebsiteRequestOps._
-    import GetBucketWebsiteResponseOps._
-    underlying.getBucketWebsite(getBucketWebsiteRequest.toJava).toFuture.map(_.toScala)
+    underlying.getBucketWebsite(getBucketWebsiteRequest).toFuture
   }
 
   override def getObjectAcl(getObjectAclRequest: GetObjectAclRequest): Future[GetObjectAclResponse] = {
-    import GetObjectAclRequestOps._
-    import GetObjectAclResponseOps._
-    underlying.getObjectAcl(getObjectAclRequest.toJava).toFuture.map(_.toScala)
+    underlying.getObjectAcl(getObjectAclRequest).toFuture
   }
 
   override def getObjectLegalHold(
       getObjectLegalHoldRequest: GetObjectLegalHoldRequest
   ): Future[GetObjectLegalHoldResponse] = {
-    import GetObjectLegalHoldRequestOps._
-    import GetObjectLegalHoldResponseOps._
-    underlying.getObjectLegalHold(getObjectLegalHoldRequest.toJava).toFuture.map(_.toScala)
+    underlying.getObjectLegalHold(getObjectLegalHoldRequest).toFuture
   }
 
   override def getObjectLockConfiguration(
       getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
   ): Future[GetObjectLockConfigurationResponse] = {
-    import GetObjectLockConfigurationRequestOps._
-    import GetObjectLockConfigurationResponseOps._
-    underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest).toFuture
   }
 
   override def getObjectRetention(
       getObjectRetentionRequest: GetObjectRetentionRequest
   ): Future[GetObjectRetentionResponse] = {
-    import GetObjectRetentionRequestOps._
-    import GetObjectRetentionResponseOps._
-    underlying.getObjectRetention(getObjectRetentionRequest.toJava).toFuture.map(_.toScala)
+    underlying.getObjectRetention(getObjectRetentionRequest).toFuture
   }
 
   override def getObjectTagging(getObjectTaggingRequest: GetObjectTaggingRequest): Future[GetObjectTaggingResponse] = {
-    import GetObjectTaggingRequestOps._
-    import GetObjectTaggingResponseOps._
-    underlying.getObjectTagging(getObjectTaggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.getObjectTagging(getObjectTaggingRequest).toFuture
   }
 
   override def getPublicAccessBlock(
       getPublicAccessBlockRequest: GetPublicAccessBlockRequest
   ): Future[GetPublicAccessBlockResponse] = {
-    import GetPublicAccessBlockRequestOps._
-    import GetPublicAccessBlockResponseOps._
-    underlying.getPublicAccessBlock(getPublicAccessBlockRequest.toJava).toFuture.map(_.toScala)
+    underlying.getPublicAccessBlock(getPublicAccessBlockRequest).toFuture
   }
 
   override def headBucket(headBucketRequest: HeadBucketRequest): Future[HeadBucketResponse] = {
-    import HeadBucketRequestOps._
-    import HeadBucketResponseOps._
-    underlying.headBucket(headBucketRequest.toJava).toFuture.map(_.toScala)
+    underlying.headBucket(headBucketRequest).toFuture
   }
 
   override def headObject(headObjectRequest: HeadObjectRequest): Future[HeadObjectResponse] = {
-    import HeadObjectRequestOps._
-    import HeadObjectResponseOps._
-    underlying.headObject(headObjectRequest.toJava).toFuture.map(_.toScala)
+    underlying.headObject(headObjectRequest).toFuture
   }
 
   override def listBucketAnalyticsConfigurations(
       listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest
   ): Future[ListBucketAnalyticsConfigurationsResponse] = {
-    import ListBucketAnalyticsConfigurationsRequestOps._
-    import ListBucketAnalyticsConfigurationsResponseOps._
-    underlying
-      .listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest).toFuture
   }
 
   override def listBucketInventoryConfigurations(
       listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest
   ): Future[ListBucketInventoryConfigurationsResponse] = {
-    import ListBucketInventoryConfigurationsRequestOps._
-    import ListBucketInventoryConfigurationsResponseOps._
-    underlying
-      .listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest).toFuture
   }
 
   override def listBucketMetricsConfigurations(
       listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest
   ): Future[ListBucketMetricsConfigurationsResponse] = {
-    import ListBucketMetricsConfigurationsRequestOps._
-    import ListBucketMetricsConfigurationsResponseOps._
-    underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest).toFuture
   }
 
   override def listBuckets(listBucketsRequest: ListBucketsRequest): Future[ListBucketsResponse] = {
-    import ListBucketsRequestOps._
-    import ListBucketsResponseOps._
-    underlying.listBuckets(listBucketsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listBuckets(listBucketsRequest).toFuture
   }
 
   override def listBuckets(): Future[ListBucketsResponse] = {
-
-    import ListBucketsResponseOps._
-    underlying.listBuckets().toFuture.map(_.toScala)
+    underlying.listBuckets().toFuture
   }
 
   override def listMultipartUploads(
       listMultipartUploadsRequest: ListMultipartUploadsRequest
   ): Future[ListMultipartUploadsResponse] = {
-    import ListMultipartUploadsRequestOps._
-    import ListMultipartUploadsResponseOps._
-    underlying.listMultipartUploads(listMultipartUploadsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listMultipartUploads(listMultipartUploadsRequest).toFuture
   }
 
   def listMultipartUploadsPaginator(
       listMultipartUploadsRequest: ListMultipartUploadsRequest
   ): ListMultipartUploadsPublisher = {
-    import ListMultipartUploadsRequestOps._
-    new ListMultipartUploadsPublisherImpl(underlying.listMultipartUploadsPaginator(listMultipartUploadsRequest.toJava))
+    underlying.listMultipartUploadsPaginator(listMultipartUploadsRequest)
   }
 
   override def listObjectVersions(
       listObjectVersionsRequest: ListObjectVersionsRequest
   ): Future[ListObjectVersionsResponse] = {
-    import ListObjectVersionsRequestOps._
-    import ListObjectVersionsResponseOps._
-    underlying.listObjectVersions(listObjectVersionsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listObjectVersions(listObjectVersionsRequest).toFuture
   }
 
   def listObjectVersionsPaginator(listObjectVersionsRequest: ListObjectVersionsRequest): ListObjectVersionsPublisher = {
-    import ListObjectVersionsRequestOps._
-    new ListObjectVersionsPublisherImpl(underlying.listObjectVersionsPaginator(listObjectVersionsRequest.toJava))
+    underlying.listObjectVersionsPaginator(listObjectVersionsRequest)
   }
 
   override def listObjects(listObjectsRequest: ListObjectsRequest): Future[ListObjectsResponse] = {
-    import ListObjectsRequestOps._
-    import ListObjectsResponseOps._
-    underlying.listObjects(listObjectsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listObjects(listObjectsRequest).toFuture
   }
 
   override def listObjectsV2(listObjectsV2Request: ListObjectsV2Request): Future[ListObjectsV2Response] = {
-    import ListObjectsV2RequestOps._
-    import ListObjectsV2ResponseOps._
-    underlying.listObjectsV2(listObjectsV2Request.toJava).toFuture.map(_.toScala)
+    underlying.listObjectsV2(listObjectsV2Request).toFuture
   }
 
   def listObjectsV2Paginator(listObjectsV2Request: ListObjectsV2Request): ListObjectsV2Publisher = {
-    import ListObjectsV2RequestOps._
-    new ListObjectsV2PublisherImpl(underlying.listObjectsV2Paginator(listObjectsV2Request.toJava))
+    underlying.listObjectsV2Paginator(listObjectsV2Request)
   }
 
   override def listParts(listPartsRequest: ListPartsRequest): Future[ListPartsResponse] = {
-    import ListPartsRequestOps._
-    import ListPartsResponseOps._
-    underlying.listParts(listPartsRequest.toJava).toFuture.map(_.toScala)
+    underlying.listParts(listPartsRequest).toFuture
   }
 
   def listPartsPaginator(listPartsRequest: ListPartsRequest): ListPartsPublisher = {
-    import ListPartsRequestOps._
-    new ListPartsPublisherImpl(underlying.listPartsPaginator(listPartsRequest.toJava))
+    underlying.listPartsPaginator(listPartsRequest)
   }
 
   override def putBucketAccelerateConfiguration(
       putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest
   ): Future[PutBucketAccelerateConfigurationResponse] = {
-    import PutBucketAccelerateConfigurationRequestOps._
-    import PutBucketAccelerateConfigurationResponseOps._
-    underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest).toFuture
   }
 
   override def putBucketAcl(putBucketAclRequest: PutBucketAclRequest): Future[PutBucketAclResponse] = {
-    import PutBucketAclRequestOps._
-    import PutBucketAclResponseOps._
-    underlying.putBucketAcl(putBucketAclRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketAcl(putBucketAclRequest).toFuture
   }
 
   override def putBucketAnalyticsConfiguration(
       putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest
   ): Future[PutBucketAnalyticsConfigurationResponse] = {
-    import PutBucketAnalyticsConfigurationRequestOps._
-    import PutBucketAnalyticsConfigurationResponseOps._
-    underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest).toFuture
   }
 
   override def putBucketCors(putBucketCorsRequest: PutBucketCorsRequest): Future[PutBucketCorsResponse] = {
-    import PutBucketCorsRequestOps._
-    import PutBucketCorsResponseOps._
-    underlying.putBucketCors(putBucketCorsRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketCors(putBucketCorsRequest).toFuture
   }
 
   override def putBucketEncryption(
       putBucketEncryptionRequest: PutBucketEncryptionRequest
   ): Future[PutBucketEncryptionResponse] = {
-    import PutBucketEncryptionRequestOps._
-    import PutBucketEncryptionResponseOps._
-    underlying.putBucketEncryption(putBucketEncryptionRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketEncryption(putBucketEncryptionRequest).toFuture
   }
 
   override def putBucketInventoryConfiguration(
       putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest
   ): Future[PutBucketInventoryConfigurationResponse] = {
-    import PutBucketInventoryConfigurationRequestOps._
-    import PutBucketInventoryConfigurationResponseOps._
-    underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest).toFuture
   }
 
   override def putBucketLifecycleConfiguration(
       putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest
   ): Future[PutBucketLifecycleConfigurationResponse] = {
-    import PutBucketLifecycleConfigurationRequestOps._
-    import PutBucketLifecycleConfigurationResponseOps._
-    underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest).toFuture
   }
 
   override def putBucketLogging(putBucketLoggingRequest: PutBucketLoggingRequest): Future[PutBucketLoggingResponse] = {
-    import PutBucketLoggingRequestOps._
-    import PutBucketLoggingResponseOps._
-    underlying.putBucketLogging(putBucketLoggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketLogging(putBucketLoggingRequest).toFuture
   }
 
   override def putBucketMetricsConfiguration(
       putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest
   ): Future[PutBucketMetricsConfigurationResponse] = {
-    import PutBucketMetricsConfigurationRequestOps._
-    import PutBucketMetricsConfigurationResponseOps._
-    underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest).toFuture
   }
 
   override def putBucketNotificationConfiguration(
       putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest
   ): Future[PutBucketNotificationConfigurationResponse] = {
-    import PutBucketNotificationConfigurationRequestOps._
-    import PutBucketNotificationConfigurationResponseOps._
-    underlying
-      .putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest).toFuture
   }
 
   override def putBucketPolicy(putBucketPolicyRequest: PutBucketPolicyRequest): Future[PutBucketPolicyResponse] = {
-    import PutBucketPolicyRequestOps._
-    import PutBucketPolicyResponseOps._
-    underlying.putBucketPolicy(putBucketPolicyRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketPolicy(putBucketPolicyRequest).toFuture
   }
 
   override def putBucketReplication(
       putBucketReplicationRequest: PutBucketReplicationRequest
   ): Future[PutBucketReplicationResponse] = {
-    import PutBucketReplicationRequestOps._
-    import PutBucketReplicationResponseOps._
-    underlying.putBucketReplication(putBucketReplicationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketReplication(putBucketReplicationRequest).toFuture
   }
 
   override def putBucketRequestPayment(
       putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest
   ): Future[PutBucketRequestPaymentResponse] = {
-    import PutBucketRequestPaymentRequestOps._
-    import PutBucketRequestPaymentResponseOps._
-    underlying.putBucketRequestPayment(putBucketRequestPaymentRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketRequestPayment(putBucketRequestPaymentRequest).toFuture
   }
 
   override def putBucketTagging(putBucketTaggingRequest: PutBucketTaggingRequest): Future[PutBucketTaggingResponse] = {
-    import PutBucketTaggingRequestOps._
-    import PutBucketTaggingResponseOps._
-    underlying.putBucketTagging(putBucketTaggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketTagging(putBucketTaggingRequest).toFuture
   }
 
   override def putBucketVersioning(
       putBucketVersioningRequest: PutBucketVersioningRequest
   ): Future[PutBucketVersioningResponse] = {
-    import PutBucketVersioningRequestOps._
-    import PutBucketVersioningResponseOps._
-    underlying.putBucketVersioning(putBucketVersioningRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketVersioning(putBucketVersioningRequest).toFuture
   }
 
   override def putBucketWebsite(putBucketWebsiteRequest: PutBucketWebsiteRequest): Future[PutBucketWebsiteResponse] = {
-    import PutBucketWebsiteRequestOps._
-    import PutBucketWebsiteResponseOps._
-    underlying.putBucketWebsite(putBucketWebsiteRequest.toJava).toFuture.map(_.toScala)
+    underlying.putBucketWebsite(putBucketWebsiteRequest).toFuture
   }
 
   override def putObjectAcl(putObjectAclRequest: PutObjectAclRequest): Future[PutObjectAclResponse] = {
-    import PutObjectAclRequestOps._
-    import PutObjectAclResponseOps._
-    underlying.putObjectAcl(putObjectAclRequest.toJava).toFuture.map(_.toScala)
+    underlying.putObjectAcl(putObjectAclRequest).toFuture
   }
 
   override def putObjectLegalHold(
       putObjectLegalHoldRequest: PutObjectLegalHoldRequest
   ): Future[PutObjectLegalHoldResponse] = {
-    import PutObjectLegalHoldRequestOps._
-    import PutObjectLegalHoldResponseOps._
-    underlying.putObjectLegalHold(putObjectLegalHoldRequest.toJava).toFuture.map(_.toScala)
+    underlying.putObjectLegalHold(putObjectLegalHoldRequest).toFuture
   }
 
   override def putObjectLockConfiguration(
       putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest
   ): Future[PutObjectLockConfigurationResponse] = {
-    import PutObjectLockConfigurationRequestOps._
-    import PutObjectLockConfigurationResponseOps._
-    underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest.toJava).toFuture.map(_.toScala)
+    underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest).toFuture
   }
 
   override def putObjectRetention(
       putObjectRetentionRequest: PutObjectRetentionRequest
   ): Future[PutObjectRetentionResponse] = {
-    import PutObjectRetentionRequestOps._
-    import PutObjectRetentionResponseOps._
-    underlying.putObjectRetention(putObjectRetentionRequest.toJava).toFuture.map(_.toScala)
+    underlying.putObjectRetention(putObjectRetentionRequest).toFuture
   }
 
   override def putObjectTagging(putObjectTaggingRequest: PutObjectTaggingRequest): Future[PutObjectTaggingResponse] = {
-    import PutObjectTaggingRequestOps._
-    import PutObjectTaggingResponseOps._
-    underlying.putObjectTagging(putObjectTaggingRequest.toJava).toFuture.map(_.toScala)
+    underlying.putObjectTagging(putObjectTaggingRequest).toFuture
   }
 
   override def putPublicAccessBlock(
       putPublicAccessBlockRequest: PutPublicAccessBlockRequest
   ): Future[PutPublicAccessBlockResponse] = {
-    import PutPublicAccessBlockRequestOps._
-    import PutPublicAccessBlockResponseOps._
-    underlying.putPublicAccessBlock(putPublicAccessBlockRequest.toJava).toFuture.map(_.toScala)
+    underlying.putPublicAccessBlock(putPublicAccessBlockRequest).toFuture
   }
 
   override def restoreObject(restoreObjectRequest: RestoreObjectRequest): Future[RestoreObjectResponse] = {
-    import RestoreObjectRequestOps._
-    import RestoreObjectResponseOps._
-    underlying.restoreObject(restoreObjectRequest.toJava).toFuture.map(_.toScala)
+    underlying.restoreObject(restoreObjectRequest).toFuture
   }
 
   override def uploadPartCopy(uploadPartCopyRequest: UploadPartCopyRequest): Future[UploadPartCopyResponse] = {
-    import UploadPartCopyRequestOps._
-    import UploadPartCopyResponseOps._
-    underlying.uploadPartCopy(uploadPartCopyRequest.toJava).toFuture.map(_.toScala)
+    underlying.uploadPartCopy(uploadPartCopyRequest).toFuture
   }
 
 }

@@ -1,29 +1,22 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeletePublicAccessBlockResponse => ScalaDeletePublicAccessBlockResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  DeletePublicAccessBlockResponse => JavaDeletePublicAccessBlockResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeletePublicAccessBlockResponseBuilderOps(val self: DeletePublicAccessBlockResponse.Builder)
+    extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeletePublicAccessBlockResponseOps {
+final class DeletePublicAccessBlockResponseOps(val self: DeletePublicAccessBlockResponse) extends AnyVal {}
 
-  implicit class JavaDeletePublicAccessBlockResponseOps(val self: JavaDeletePublicAccessBlockResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeletePublicAccessBlockResponseOps {
 
-    def toScala: ScalaDeletePublicAccessBlockResponse = {
-      ScalaDeletePublicAccessBlockResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeletePublicAccessBlockResponseBuilderOps(
+      v: DeletePublicAccessBlockResponse.Builder
+  ): DeletePublicAccessBlockResponseBuilderOps = new DeletePublicAccessBlockResponseBuilderOps(v)
 
-  }
+  implicit def toDeletePublicAccessBlockResponseOps(
+      v: DeletePublicAccessBlockResponse
+  ): DeletePublicAccessBlockResponseOps = new DeletePublicAccessBlockResponseOps(v)
 
 }

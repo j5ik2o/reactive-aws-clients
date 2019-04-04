@@ -1,33 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketLifecycleConfigurationResponse => ScalaGetBucketLifecycleConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketLifecycleConfigurationResponse => JavaGetBucketLifecycleConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketLifecycleConfigurationResponseBuilderOps(val self: GetBucketLifecycleConfigurationResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketLifecycleConfigurationResponseOps {
-
-  implicit class JavaGetBucketLifecycleConfigurationResponseOps(val self: JavaGetBucketLifecycleConfigurationResponse)
-      extends AnyVal {
-
-    def toScala: ScalaGetBucketLifecycleConfigurationResponse = {
-      ScalaGetBucketLifecycleConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRules(Option(self.rules).map { v =>
-          import scala.collection.JavaConverters._, LifecycleRuleOps._; v.asScala.map(_.toScala)
-        }) // Seq[LifecycleRule]
-    }
-
+  final def withRulesAsScala(value: Option[Seq[LifecycleRule]]): GetBucketLifecycleConfigurationResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.rules(v.asJava)
+    } // Seq[LifecycleRule]
   }
+
+}
+
+final class GetBucketLifecycleConfigurationResponseOps(val self: GetBucketLifecycleConfigurationResponse)
+    extends AnyVal {
+
+  final def rulesAsScala: Option[Seq[LifecycleRule]] = Option(self.rules).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[LifecycleRule]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketLifecycleConfigurationResponseOps {
+
+  implicit def toGetBucketLifecycleConfigurationResponseBuilderOps(
+      v: GetBucketLifecycleConfigurationResponse.Builder
+  ): GetBucketLifecycleConfigurationResponseBuilderOps = new GetBucketLifecycleConfigurationResponseBuilderOps(v)
+
+  implicit def toGetBucketLifecycleConfigurationResponseOps(
+      v: GetBucketLifecycleConfigurationResponse
+  ): GetBucketLifecycleConfigurationResponseOps = new GetBucketLifecycleConfigurationResponseOps(v)
 
 }

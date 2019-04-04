@@ -1,33 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DescribeContinuousBackupsResponse => ScalaDescribeContinuousBackupsResponse,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  DescribeContinuousBackupsResponse => JavaDescribeContinuousBackupsResponse
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeContinuousBackupsResponseBuilderOps(val self: DescribeContinuousBackupsResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeContinuousBackupsResponseOps {
-
-  implicit class JavaDescribeContinuousBackupsResponseOps(val self: JavaDescribeContinuousBackupsResponse)
-      extends AnyVal {
-
-    def toScala: ScalaDescribeContinuousBackupsResponse = {
-      ScalaDescribeContinuousBackupsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withContinuousBackupsDescription(Option(self.continuousBackupsDescription).map { v =>
-          import ContinuousBackupsDescriptionOps._; v.toScala
-        }) // ContinuousBackupsDescription
+  final def withContinuousBackupsDescriptionAsScala(
+      value: Option[ContinuousBackupsDescription]
+  ): DescribeContinuousBackupsResponse.Builder = {
+    value.fold(self) { v =>
+      self.continuousBackupsDescription(v)
     }
+  } // ContinuousBackupsDescription
 
-  }
+}
+
+final class DescribeContinuousBackupsResponseOps(val self: DescribeContinuousBackupsResponse) extends AnyVal {
+
+  final def continuousBackupsDescriptionAsScala: Option[ContinuousBackupsDescription] =
+    Option(self.continuousBackupsDescription) // ContinuousBackupsDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeContinuousBackupsResponseOps {
+
+  implicit def toDescribeContinuousBackupsResponseBuilderOps(
+      v: DescribeContinuousBackupsResponse.Builder
+  ): DescribeContinuousBackupsResponseBuilderOps = new DescribeContinuousBackupsResponseBuilderOps(v)
+
+  implicit def toDescribeContinuousBackupsResponseOps(
+      v: DescribeContinuousBackupsResponse
+  ): DescribeContinuousBackupsResponseOps = new DescribeContinuousBackupsResponseOps(v)
 
 }

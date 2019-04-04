@@ -1,31 +1,24 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketNotificationConfigurationResponse => ScalaPutBucketNotificationConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketNotificationConfigurationResponse => JavaPutBucketNotificationConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketNotificationConfigurationResponseBuilderOps(
+    val self: PutBucketNotificationConfigurationResponse.Builder
+) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketNotificationConfigurationResponseOps {
+final class PutBucketNotificationConfigurationResponseOps(val self: PutBucketNotificationConfigurationResponse)
+    extends AnyVal {}
 
-  implicit class JavaPutBucketNotificationConfigurationResponseOps(
-      val self: JavaPutBucketNotificationConfigurationResponse
-  ) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketNotificationConfigurationResponseOps {
 
-    def toScala: ScalaPutBucketNotificationConfigurationResponse = {
-      ScalaPutBucketNotificationConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketNotificationConfigurationResponseBuilderOps(
+      v: PutBucketNotificationConfigurationResponse.Builder
+  ): PutBucketNotificationConfigurationResponseBuilderOps = new PutBucketNotificationConfigurationResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketNotificationConfigurationResponseOps(
+      v: PutBucketNotificationConfigurationResponse
+  ): PutBucketNotificationConfigurationResponseOps = new PutBucketNotificationConfigurationResponseOps(v)
 
 }

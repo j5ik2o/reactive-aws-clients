@@ -1,31 +1,53 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketAnalyticsConfigurationRequest => ScalaPutBucketAnalyticsConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketAnalyticsConfigurationRequest => JavaPutBucketAnalyticsConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketAnalyticsConfigurationRequestOps {
+final class PutBucketAnalyticsConfigurationRequestBuilderOps(val self: PutBucketAnalyticsConfigurationRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaPutBucketAnalyticsConfigurationRequestOps(val self: ScalaPutBucketAnalyticsConfigurationRequest)
-      extends AnyVal {
-
-    def toJava: JavaPutBucketAnalyticsConfigurationRequest = {
-      val result = JavaPutBucketAnalyticsConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))         // String
-      self.analyticsConfiguration.foreach { v =>
-        import AnalyticsConfigurationOps._; result.analyticsConfiguration(v.toJava)
-      } // AnalyticsConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketAnalyticsConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withIdAsScala(value: Option[String]): PutBucketAnalyticsConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
+    }
+  } // String
+
+  final def withAnalyticsConfigurationAsScala(
+      value: Option[AnalyticsConfiguration]
+  ): PutBucketAnalyticsConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.analyticsConfiguration(v)
+    }
+  } // AnalyticsConfiguration
+
+}
+
+final class PutBucketAnalyticsConfigurationRequestOps(val self: PutBucketAnalyticsConfigurationRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] =
+    Option(self.analyticsConfiguration) // AnalyticsConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketAnalyticsConfigurationRequestOps {
+
+  implicit def toPutBucketAnalyticsConfigurationRequestBuilderOps(
+      v: PutBucketAnalyticsConfigurationRequest.Builder
+  ): PutBucketAnalyticsConfigurationRequestBuilderOps = new PutBucketAnalyticsConfigurationRequestBuilderOps(v)
+
+  implicit def toPutBucketAnalyticsConfigurationRequestOps(
+      v: PutBucketAnalyticsConfigurationRequest
+  ): PutBucketAnalyticsConfigurationRequestOps = new PutBucketAnalyticsConfigurationRequestOps(v)
 
 }

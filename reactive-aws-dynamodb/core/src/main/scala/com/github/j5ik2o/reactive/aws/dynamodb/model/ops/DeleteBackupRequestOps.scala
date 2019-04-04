@@ -1,21 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteBackupRequest => ScalaDeleteBackupRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DeleteBackupRequest => JavaDeleteBackupRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBackupRequestOps {
+final class DeleteBackupRequestBuilderOps(val self: DeleteBackupRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteBackupRequestOps(val self: ScalaDeleteBackupRequest) extends AnyVal {
-
-    def toJava: JavaDeleteBackupRequest = {
-      val result = JavaDeleteBackupRequest.builder()
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v)) // String
-
-      result.build()
+  final def withBackupArnAsScala(value: Option[String]): DeleteBackupRequest.Builder = {
+    value.fold(self) { v =>
+      self.backupArn(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteBackupRequestOps(val self: DeleteBackupRequest) extends AnyVal {
+
+  final def backupArnAsScala: Option[String] = Option(self.backupArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBackupRequestOps {
+
+  implicit def toDeleteBackupRequestBuilderOps(v: DeleteBackupRequest.Builder): DeleteBackupRequestBuilderOps =
+    new DeleteBackupRequestBuilderOps(v)
+
+  implicit def toDeleteBackupRequestOps(v: DeleteBackupRequest): DeleteBackupRequestOps = new DeleteBackupRequestOps(v)
 
 }

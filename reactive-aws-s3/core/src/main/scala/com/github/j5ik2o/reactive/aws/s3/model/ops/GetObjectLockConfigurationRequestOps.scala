@@ -1,27 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetObjectLockConfigurationRequest => ScalaGetObjectLockConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetObjectLockConfigurationRequest => JavaGetObjectLockConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectLockConfigurationRequestOps {
+final class GetObjectLockConfigurationRequestBuilderOps(val self: GetObjectLockConfigurationRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaGetObjectLockConfigurationRequestOps(val self: ScalaGetObjectLockConfigurationRequest)
-      extends AnyVal {
-
-    def toJava: JavaGetObjectLockConfigurationRequest = {
-      val result = JavaGetObjectLockConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetObjectLockConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetObjectLockConfigurationRequestOps(val self: GetObjectLockConfigurationRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectLockConfigurationRequestOps {
+
+  implicit def toGetObjectLockConfigurationRequestBuilderOps(
+      v: GetObjectLockConfigurationRequest.Builder
+  ): GetObjectLockConfigurationRequestBuilderOps = new GetObjectLockConfigurationRequestBuilderOps(v)
+
+  implicit def toGetObjectLockConfigurationRequestOps(
+      v: GetObjectLockConfigurationRequest
+  ): GetObjectLockConfigurationRequestOps = new GetObjectLockConfigurationRequestOps(v)
 
 }

@@ -1,22 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GetRecordsRequest => ScalaGetRecordsRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ GetRecordsRequest => JavaGetRecordsRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetRecordsRequestOps {
+final class GetRecordsRequestBuilderOps(val self: GetRecordsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetRecordsRequestOps(val self: ScalaGetRecordsRequest) extends AnyVal {
-
-    def toJava: JavaGetRecordsRequest = {
-      val result = JavaGetRecordsRequest.builder()
-      self.shardIterator.filter(_.nonEmpty).foreach(v => result.shardIterator(v)) // String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))                    // Int
-
-      result.build()
+  final def withShardIteratorAsScala(value: Option[String]): GetRecordsRequest.Builder = {
+    value.fold(self) { v =>
+      self.shardIterator(v)
     }
+  } // String
 
-  }
+  final def withLimitAsScala(value: Option[Int]): GetRecordsRequest.Builder = {
+    value.fold(self) { v =>
+      self.limit(v)
+    }
+  } // Int
+
+}
+
+final class GetRecordsRequestOps(val self: GetRecordsRequest) extends AnyVal {
+
+  final def shardIteratorAsScala: Option[String] = Option(self.shardIterator) // String
+
+  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetRecordsRequestOps {
+
+  implicit def toGetRecordsRequestBuilderOps(v: GetRecordsRequest.Builder): GetRecordsRequestBuilderOps =
+    new GetRecordsRequestBuilderOps(v)
+
+  implicit def toGetRecordsRequestOps(v: GetRecordsRequest): GetRecordsRequestOps = new GetRecordsRequestOps(v)
 
 }

@@ -1,31 +1,47 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketNotificationConfigurationRequest => ScalaPutBucketNotificationConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketNotificationConfigurationRequest => JavaPutBucketNotificationConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketNotificationConfigurationRequestOps {
+final class PutBucketNotificationConfigurationRequestBuilderOps(
+    val self: PutBucketNotificationConfigurationRequest.Builder
+) extends AnyVal {
 
-  implicit class ScalaPutBucketNotificationConfigurationRequestOps(
-      val self: ScalaPutBucketNotificationConfigurationRequest
-  ) extends AnyVal {
-
-    def toJava: JavaPutBucketNotificationConfigurationRequest = {
-      val result = JavaPutBucketNotificationConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.notificationConfiguration.foreach { v =>
-        import NotificationConfigurationOps._; result.notificationConfiguration(v.toJava)
-      } // NotificationConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketNotificationConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withNotificationConfigurationAsScala(
+      value: Option[NotificationConfiguration]
+  ): PutBucketNotificationConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.notificationConfiguration(v)
+    }
+  } // NotificationConfiguration
+
+}
+
+final class PutBucketNotificationConfigurationRequestOps(val self: PutBucketNotificationConfigurationRequest)
+    extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def notificationConfigurationAsScala: Option[NotificationConfiguration] =
+    Option(self.notificationConfiguration) // NotificationConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketNotificationConfigurationRequestOps {
+
+  implicit def toPutBucketNotificationConfigurationRequestBuilderOps(
+      v: PutBucketNotificationConfigurationRequest.Builder
+  ): PutBucketNotificationConfigurationRequestBuilderOps = new PutBucketNotificationConfigurationRequestBuilderOps(v)
+
+  implicit def toPutBucketNotificationConfigurationRequestOps(
+      v: PutBucketNotificationConfigurationRequest
+  ): PutBucketNotificationConfigurationRequestOps = new PutBucketNotificationConfigurationRequestOps(v)
 
 }

@@ -1,49 +1,57 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  ReplicaGlobalSecondaryIndexSettingsUpdate => ScalaReplicaGlobalSecondaryIndexSettingsUpdate,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  ReplicaGlobalSecondaryIndexSettingsUpdate => JavaReplicaGlobalSecondaryIndexSettingsUpdate
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ReplicaGlobalSecondaryIndexSettingsUpdateOps {
+final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
+    val self: ReplicaGlobalSecondaryIndexSettingsUpdate.Builder
+) extends AnyVal {
 
-  implicit class ScalaReplicaGlobalSecondaryIndexSettingsUpdateOps(
-      val self: ScalaReplicaGlobalSecondaryIndexSettingsUpdate
-  ) extends AnyVal {
-
-    def toJava: JavaReplicaGlobalSecondaryIndexSettingsUpdate = {
-      val result = JavaReplicaGlobalSecondaryIndexSettingsUpdate.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v))                                     // String
-      self.provisionedReadCapacityUnits.map(_.longValue).foreach(v => result.provisionedReadCapacityUnits(v)) // Long
-      self.provisionedReadCapacityAutoScalingSettingsUpdate.foreach { v =>
-        import AutoScalingSettingsUpdateOps._; result.provisionedReadCapacityAutoScalingSettingsUpdate(v.toJava)
-      } // AutoScalingSettingsUpdate
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaReplicaGlobalSecondaryIndexSettingsUpdateOps(
-      val self: JavaReplicaGlobalSecondaryIndexSettingsUpdate
-  ) extends AnyVal {
-
-    def toScala: ScalaReplicaGlobalSecondaryIndexSettingsUpdate = {
-      ScalaReplicaGlobalSecondaryIndexSettingsUpdate()
-        .withIndexName(Option(self.indexName)) // String
-        .withProvisionedReadCapacityUnits(Option(self.provisionedReadCapacityUnits).map(_.longValue)) // Long
-        .withProvisionedReadCapacityAutoScalingSettingsUpdate(
-          Option(self.provisionedReadCapacityAutoScalingSettingsUpdate).map { v =>
-            import AutoScalingSettingsUpdateOps._; v.toScala
-          }
-        ) // AutoScalingSettingsUpdate
+  final def withProvisionedReadCapacityUnitsAsScala(
+      value: Option[Long]
+  ): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.provisionedReadCapacityUnits(v)
     }
+  } // Long
 
-  }
+  final def withProvisionedReadCapacityAutoScalingSettingsUpdateAsScala(
+      value: Option[AutoScalingSettingsUpdate]
+  ): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.provisionedReadCapacityAutoScalingSettingsUpdate(v)
+    }
+  } // AutoScalingSettingsUpdate
+
+}
+
+final class ReplicaGlobalSecondaryIndexSettingsUpdateOps(val self: ReplicaGlobalSecondaryIndexSettingsUpdate)
+    extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits) // Long
+
+  final def provisionedReadCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
+    Option(self.provisionedReadCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToReplicaGlobalSecondaryIndexSettingsUpdateOps {
+
+  implicit def toReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
+      v: ReplicaGlobalSecondaryIndexSettingsUpdate.Builder
+  ): ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps = new ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(v)
+
+  implicit def toReplicaGlobalSecondaryIndexSettingsUpdateOps(
+      v: ReplicaGlobalSecondaryIndexSettingsUpdate
+  ): ReplicaGlobalSecondaryIndexSettingsUpdateOps = new ReplicaGlobalSecondaryIndexSettingsUpdateOps(v)
 
 }

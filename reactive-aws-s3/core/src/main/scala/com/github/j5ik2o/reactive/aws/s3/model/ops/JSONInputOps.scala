@@ -1,34 +1,29 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ JSONInput => ScalaJSONInput, _ }
-import software.amazon.awssdk.services.s3.model.{ JSONInput => JavaJSONInput }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object JSONInputOps {
+final class JSONInputBuilderOps(val self: JSONInput.Builder) extends AnyVal {
 
-  implicit class ScalaJSONInputOps(val self: ScalaJSONInput) extends AnyVal {
-
-    def toJava: JavaJSONInput = {
-      val result = JavaJSONInput.builder()
-      self.`type`.foreach { v =>
-        import JSONTypeOps._; result.`type`(v.toJava)
-      } // String
-
-      result.build()
+  final def withTypeAsScala(value: Option[JSONType]): JSONInput.Builder = {
+    value.fold(self) { v =>
+      self.`type`(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaJSONInputOps(val self: JavaJSONInput) extends AnyVal {
+final class JSONInputOps(val self: JSONInput) extends AnyVal {
 
-    def toScala: ScalaJSONInput = {
-      ScalaJSONInput()
-        .withType(Option(self.`type`).map { v =>
-          import JSONTypeOps._; v.toScala
-        }) // String
-    }
+  final def typeAsScala: Option[JSONType] = Option(self.`type`) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToJSONInputOps {
+
+  implicit def toJSONInputBuilderOps(v: JSONInput.Builder): JSONInputBuilderOps = new JSONInputBuilderOps(v)
+
+  implicit def toJSONInputOps(v: JSONInput): JSONInputOps = new JSONInputOps(v)
 
 }

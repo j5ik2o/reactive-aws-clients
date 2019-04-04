@@ -1,28 +1,17 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ SSES3 => ScalaSSES3, _ }
-import software.amazon.awssdk.services.s3.model.{ SSES3 => JavaSSES3 }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SSES3Ops {
+final class SSES3BuilderOps(val self: SSES3.Builder) extends AnyVal {}
 
-  implicit class ScalaSSES3Ops(val self: ScalaSSES3) extends AnyVal {
+final class SSES3Ops(val self: SSES3) extends AnyVal {}
 
-    def toJava: JavaSSES3 = {
-      val result = JavaSSES3.builder()
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSSES3Ops {
 
-      result.build()
-    }
+  implicit def toSSES3BuilderOps(v: SSES3.Builder): SSES3BuilderOps = new SSES3BuilderOps(v)
 
-  }
-
-  implicit class JavaSSES3Ops(val self: JavaSSES3) extends AnyVal {
-
-    def toScala: ScalaSSES3 = {
-      ScalaSSES3()
-    }
-
-  }
+  implicit def toSSES3Ops(v: SSES3): SSES3Ops = new SSES3Ops(v)
 
 }

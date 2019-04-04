@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteBucketCorsRequest => ScalaDeleteBucketCorsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketCorsRequest => JavaDeleteBucketCorsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketCorsRequestOps {
+final class DeleteBucketCorsRequestBuilderOps(val self: DeleteBucketCorsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteBucketCorsRequestOps(val self: ScalaDeleteBucketCorsRequest) extends AnyVal {
-
-    def toJava: JavaDeleteBucketCorsRequest = {
-      val result = JavaDeleteBucketCorsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteBucketCorsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteBucketCorsRequestOps(val self: DeleteBucketCorsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketCorsRequestOps {
+
+  implicit def toDeleteBucketCorsRequestBuilderOps(
+      v: DeleteBucketCorsRequest.Builder
+  ): DeleteBucketCorsRequestBuilderOps = new DeleteBucketCorsRequestBuilderOps(v)
+
+  implicit def toDeleteBucketCorsRequestOps(v: DeleteBucketCorsRequest): DeleteBucketCorsRequestOps =
+    new DeleteBucketCorsRequestOps(v)
 
 }

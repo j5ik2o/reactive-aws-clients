@@ -1,34 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AccelerateConfiguration => ScalaAccelerateConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ AccelerateConfiguration => JavaAccelerateConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AccelerateConfigurationOps {
+final class AccelerateConfigurationBuilderOps(val self: AccelerateConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaAccelerateConfigurationOps(val self: ScalaAccelerateConfiguration) extends AnyVal {
-
-    def toJava: JavaAccelerateConfiguration = {
-      val result = JavaAccelerateConfiguration.builder()
-      self.status.foreach { v =>
-        import BucketAccelerateStatusOps._; result.status(v.toJava)
-      } // String
-
-      result.build()
+  final def withStatusAsScala(value: Option[BucketAccelerateStatus]): AccelerateConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaAccelerateConfigurationOps(val self: JavaAccelerateConfiguration) extends AnyVal {
+final class AccelerateConfigurationOps(val self: AccelerateConfiguration) extends AnyVal {
 
-    def toScala: ScalaAccelerateConfiguration = {
-      ScalaAccelerateConfiguration()
-        .withStatus(Option(self.status).map { v =>
-          import BucketAccelerateStatusOps._; v.toScala
-        }) // String
-    }
+  final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAccelerateConfigurationOps {
+
+  implicit def toAccelerateConfigurationBuilderOps(
+      v: AccelerateConfiguration.Builder
+  ): AccelerateConfigurationBuilderOps = new AccelerateConfigurationBuilderOps(v)
+
+  implicit def toAccelerateConfigurationOps(v: AccelerateConfiguration): AccelerateConfigurationOps =
+    new AccelerateConfigurationOps(v)
 
 }

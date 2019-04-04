@@ -1,49 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  GlobalTableGlobalSecondaryIndexSettingsUpdate => ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  GlobalTableGlobalSecondaryIndexSettingsUpdate => JavaGlobalTableGlobalSecondaryIndexSettingsUpdate
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GlobalTableGlobalSecondaryIndexSettingsUpdateOps {
+final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
+    val self: GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder
+) extends AnyVal {
 
-  implicit class ScalaGlobalTableGlobalSecondaryIndexSettingsUpdateOps(
-      val self: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate
-  ) extends AnyVal {
-
-    def toJava: JavaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
-      val result = JavaGlobalTableGlobalSecondaryIndexSettingsUpdate.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v))                                       // String
-      self.provisionedWriteCapacityUnits.map(_.longValue).foreach(v => result.provisionedWriteCapacityUnits(v)) // Long
-      self.provisionedWriteCapacityAutoScalingSettingsUpdate.foreach { v =>
-        import AutoScalingSettingsUpdateOps._; result.provisionedWriteCapacityAutoScalingSettingsUpdate(v.toJava)
-      } // AutoScalingSettingsUpdate
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaGlobalTableGlobalSecondaryIndexSettingsUpdateOps(
-      val self: JavaGlobalTableGlobalSecondaryIndexSettingsUpdate
-  ) extends AnyVal {
-
-    def toScala: ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate = {
-      ScalaGlobalTableGlobalSecondaryIndexSettingsUpdate()
-        .withIndexName(Option(self.indexName)) // String
-        .withProvisionedWriteCapacityUnits(Option(self.provisionedWriteCapacityUnits).map(_.longValue)) // Long
-        .withProvisionedWriteCapacityAutoScalingSettingsUpdate(
-          Option(self.provisionedWriteCapacityAutoScalingSettingsUpdate).map { v =>
-            import AutoScalingSettingsUpdateOps._; v.toScala
-          }
-        ) // AutoScalingSettingsUpdate
+  final def withProvisionedWriteCapacityUnitsAsScala(
+      value: Option[Long]
+  ): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.provisionedWriteCapacityUnits(v)
     }
+  } // Long
 
-  }
+  final def withProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
+      value: Option[AutoScalingSettingsUpdate]
+  ): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.provisionedWriteCapacityAutoScalingSettingsUpdate(v)
+    }
+  } // AutoScalingSettingsUpdate
+
+}
+
+final class GlobalTableGlobalSecondaryIndexSettingsUpdateOps(val self: GlobalTableGlobalSecondaryIndexSettingsUpdate)
+    extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def provisionedWriteCapacityUnitsAsScala: Option[Long] = Option(self.provisionedWriteCapacityUnits) // Long
+
+  final def provisionedWriteCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
+    Option(self.provisionedWriteCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGlobalTableGlobalSecondaryIndexSettingsUpdateOps {
+
+  implicit def toGlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
+      v: GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder
+  ): GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps =
+    new GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(v)
+
+  implicit def toGlobalTableGlobalSecondaryIndexSettingsUpdateOps(
+      v: GlobalTableGlobalSecondaryIndexSettingsUpdate
+  ): GlobalTableGlobalSecondaryIndexSettingsUpdateOps = new GlobalTableGlobalSecondaryIndexSettingsUpdateOps(v)
 
 }

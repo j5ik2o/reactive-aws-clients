@@ -1,30 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ReplicaDescription => ScalaReplicaDescription, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ReplicaDescription => JavaReplicaDescription }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ReplicaDescriptionOps {
+final class ReplicaDescriptionBuilderOps(val self: ReplicaDescription.Builder) extends AnyVal {
 
-  implicit class ScalaReplicaDescriptionOps(val self: ScalaReplicaDescription) extends AnyVal {
-
-    def toJava: JavaReplicaDescription = {
-      val result = JavaReplicaDescription.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
-
-      result.build()
+  final def withRegionNameAsScala(value: Option[String]): ReplicaDescription.Builder = {
+    value.fold(self) { v =>
+      self.regionName(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaReplicaDescriptionOps(val self: JavaReplicaDescription) extends AnyVal {
+final class ReplicaDescriptionOps(val self: ReplicaDescription) extends AnyVal {
 
-    def toScala: ScalaReplicaDescription = {
-      ScalaReplicaDescription()
-        .withRegionName(Option(self.regionName)) // String
-    }
+  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToReplicaDescriptionOps {
+
+  implicit def toReplicaDescriptionBuilderOps(v: ReplicaDescription.Builder): ReplicaDescriptionBuilderOps =
+    new ReplicaDescriptionBuilderOps(v)
+
+  implicit def toReplicaDescriptionOps(v: ReplicaDescription): ReplicaDescriptionOps = new ReplicaDescriptionOps(v)
 
 }

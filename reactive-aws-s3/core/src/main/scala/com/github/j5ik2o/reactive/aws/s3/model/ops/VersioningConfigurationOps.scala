@@ -1,40 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ VersioningConfiguration => ScalaVersioningConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ VersioningConfiguration => JavaVersioningConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object VersioningConfigurationOps {
+final class VersioningConfigurationBuilderOps(val self: VersioningConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaVersioningConfigurationOps(val self: ScalaVersioningConfiguration) extends AnyVal {
-
-    def toJava: JavaVersioningConfiguration = {
-      val result = JavaVersioningConfiguration.builder()
-      self.mfaDelete.foreach { v =>
-        import MFADeleteOps._; result.mfaDelete(v.toJava)
-      } // String
-      self.status.foreach { v =>
-        import BucketVersioningStatusOps._; result.status(v.toJava)
-      } // String
-
-      result.build()
+  final def withMfaDeleteAsScala(value: Option[MFADelete]): VersioningConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.mfaDelete(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaVersioningConfigurationOps(val self: JavaVersioningConfiguration) extends AnyVal {
-
-    def toScala: ScalaVersioningConfiguration = {
-      ScalaVersioningConfiguration()
-        .withMfaDelete(Option(self.mfaDelete).map { v =>
-          import MFADeleteOps._; v.toScala
-        }) // String
-        .withStatus(Option(self.status).map { v =>
-          import BucketVersioningStatusOps._; v.toScala
-        }) // String
+  final def withStatusAsScala(value: Option[BucketVersioningStatus]): VersioningConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
+}
+
+final class VersioningConfigurationOps(val self: VersioningConfiguration) extends AnyVal {
+
+  final def mfaDeleteAsScala: Option[MFADelete] = Option(self.mfaDelete) // String
+
+  final def statusAsScala: Option[BucketVersioningStatus] = Option(self.status) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToVersioningConfigurationOps {
+
+  implicit def toVersioningConfigurationBuilderOps(
+      v: VersioningConfiguration.Builder
+  ): VersioningConfigurationBuilderOps = new VersioningConfigurationBuilderOps(v)
+
+  implicit def toVersioningConfigurationOps(v: VersioningConfiguration): VersioningConfigurationOps =
+    new VersioningConfigurationOps(v)
 
 }

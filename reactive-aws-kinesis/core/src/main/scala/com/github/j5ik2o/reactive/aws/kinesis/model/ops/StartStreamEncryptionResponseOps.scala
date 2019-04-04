@@ -1,29 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  StartStreamEncryptionResponse => ScalaStartStreamEncryptionResponse,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  StartStreamEncryptionResponse => JavaStartStreamEncryptionResponse
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class StartStreamEncryptionResponseBuilderOps(val self: StartStreamEncryptionResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StartStreamEncryptionResponseOps {
+final class StartStreamEncryptionResponseOps(val self: StartStreamEncryptionResponse) extends AnyVal {}
 
-  implicit class JavaStartStreamEncryptionResponseOps(val self: JavaStartStreamEncryptionResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStartStreamEncryptionResponseOps {
 
-    def toScala: ScalaStartStreamEncryptionResponse = {
-      ScalaStartStreamEncryptionResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toStartStreamEncryptionResponseBuilderOps(
+      v: StartStreamEncryptionResponse.Builder
+  ): StartStreamEncryptionResponseBuilderOps = new StartStreamEncryptionResponseBuilderOps(v)
 
-  }
+  implicit def toStartStreamEncryptionResponseOps(v: StartStreamEncryptionResponse): StartStreamEncryptionResponseOps =
+    new StartStreamEncryptionResponseOps(v)
 
 }

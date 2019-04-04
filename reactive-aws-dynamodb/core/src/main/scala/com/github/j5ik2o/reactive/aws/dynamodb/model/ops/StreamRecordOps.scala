@@ -1,58 +1,84 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ StreamRecord => ScalaStreamRecord, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ StreamRecord => JavaStreamRecord }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StreamRecordOps {
+final class StreamRecordBuilderOps(val self: StreamRecord.Builder) extends AnyVal {
 
-  implicit class ScalaStreamRecordOps(val self: ScalaStreamRecord) extends AnyVal {
-
-    def toJava: JavaStreamRecord = {
-      val result = JavaStreamRecord.builder()
-      self.approximateCreationDateTime.foreach(v => result.approximateCreationDateTime(v)) // Instant
-      self.keys.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.keys(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.newImage.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.newImage(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.oldImage.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.oldImage(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v)) // String
-      self.sizeBytes.map(_.longValue).foreach(v => result.sizeBytes(v))             // Long
-      self.streamViewType.foreach { v =>
-        import StreamViewTypeOps._; result.streamViewType(v.toJava)
-      } // String
-
-      result.build()
+  final def withApproximateCreationDateTimeAsScala(value: Option[java.time.Instant]): StreamRecord.Builder = {
+    value.fold(self) { v =>
+      self.approximateCreationDateTime(v)
     }
+  } // Instant
 
+  final def withKeysAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keys(v.asJava)
+    } // Map[String, AttributeValue]
   }
 
-  implicit class JavaStreamRecordOps(val self: JavaStreamRecord) extends AnyVal {
-
-    def toScala: ScalaStreamRecord = {
-      ScalaStreamRecord()
-        .withApproximateCreationDateTime(Option(self.approximateCreationDateTime)) // Instant
-        .withKeys(Option(self.keys).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withNewImage(Option(self.newImage).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withOldImage(Option(self.oldImage).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withSequenceNumber(Option(self.sequenceNumber)) // String
-        .withSizeBytes(Option(self.sizeBytes).map(_.longValue)) // Long
-        .withStreamViewType(Option(self.streamViewType).map { v =>
-          import StreamViewTypeOps._; v.toScala
-        }) // String
-    }
-
+  final def withNewImageAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.newImage(v.asJava)
+    } // Map[String, AttributeValue]
   }
+
+  final def withOldImageAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.oldImage(v.asJava)
+    } // Map[String, AttributeValue]
+  }
+
+  final def withSequenceNumberAsScala(value: Option[String]): StreamRecord.Builder = {
+    value.fold(self) { v =>
+      self.sequenceNumber(v)
+    }
+  } // String
+
+  final def withSizeBytesAsScala(value: Option[Long]): StreamRecord.Builder = {
+    value.fold(self) { v =>
+      self.sizeBytes(v)
+    }
+  } // Long
+
+  final def withStreamViewTypeAsScala(value: Option[StreamViewType]): StreamRecord.Builder = {
+    value.fold(self) { v =>
+      self.streamViewType(v)
+    }
+  } // String
+
+}
+
+final class StreamRecordOps(val self: StreamRecord) extends AnyVal {
+
+  final def approximateCreationDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.approximateCreationDateTime) // Instant
+
+  final def keysAsScala: Option[Map[String, AttributeValue]] = Option(self.keys).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def newImageAsScala: Option[Map[String, AttributeValue]] = Option(self.newImage).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def oldImageAsScala: Option[Map[String, AttributeValue]] = Option(self.oldImage).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+
+  final def sizeBytesAsScala: Option[Long] = Option(self.sizeBytes) // Long
+
+  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStreamRecordOps {
+
+  implicit def toStreamRecordBuilderOps(v: StreamRecord.Builder): StreamRecordBuilderOps = new StreamRecordBuilderOps(v)
+
+  implicit def toStreamRecordOps(v: StreamRecord): StreamRecordOps = new StreamRecordOps(v)
 
 }

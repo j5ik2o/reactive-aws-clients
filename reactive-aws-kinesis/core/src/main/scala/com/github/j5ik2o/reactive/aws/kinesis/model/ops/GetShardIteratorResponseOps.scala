@@ -1,25 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ GetShardIteratorResponse => ScalaGetShardIteratorResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ GetShardIteratorResponse => JavaGetShardIteratorResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetShardIteratorResponseBuilderOps(val self: GetShardIteratorResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetShardIteratorResponseOps {
-
-  implicit class JavaGetShardIteratorResponseOps(val self: JavaGetShardIteratorResponse) extends AnyVal {
-
-    def toScala: ScalaGetShardIteratorResponse = {
-      ScalaGetShardIteratorResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withShardIterator(Option(self.shardIterator)) // String
+  final def withShardIteratorAsScala(value: Option[String]): GetShardIteratorResponse.Builder = {
+    value.fold(self) { v =>
+      self.shardIterator(v)
     }
+  } // String
 
-  }
+}
+
+final class GetShardIteratorResponseOps(val self: GetShardIteratorResponse) extends AnyVal {
+
+  final def shardIteratorAsScala: Option[String] = Option(self.shardIterator) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetShardIteratorResponseOps {
+
+  implicit def toGetShardIteratorResponseBuilderOps(
+      v: GetShardIteratorResponse.Builder
+  ): GetShardIteratorResponseBuilderOps = new GetShardIteratorResponseBuilderOps(v)
+
+  implicit def toGetShardIteratorResponseOps(v: GetShardIteratorResponse): GetShardIteratorResponseOps =
+    new GetShardIteratorResponseOps(v)
 
 }

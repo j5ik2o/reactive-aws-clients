@@ -1,30 +1,22 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketMetricsConfigurationResponse => ScalaPutBucketMetricsConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketMetricsConfigurationResponse => JavaPutBucketMetricsConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketMetricsConfigurationResponseBuilderOps(val self: PutBucketMetricsConfigurationResponse.Builder)
+    extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketMetricsConfigurationResponseOps {
+final class PutBucketMetricsConfigurationResponseOps(val self: PutBucketMetricsConfigurationResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketMetricsConfigurationResponseOps(val self: JavaPutBucketMetricsConfigurationResponse)
-      extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketMetricsConfigurationResponseOps {
 
-    def toScala: ScalaPutBucketMetricsConfigurationResponse = {
-      ScalaPutBucketMetricsConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketMetricsConfigurationResponseBuilderOps(
+      v: PutBucketMetricsConfigurationResponse.Builder
+  ): PutBucketMetricsConfigurationResponseBuilderOps = new PutBucketMetricsConfigurationResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketMetricsConfigurationResponseOps(
+      v: PutBucketMetricsConfigurationResponse
+  ): PutBucketMetricsConfigurationResponseOps = new PutBucketMetricsConfigurationResponseOps(v)
 
 }

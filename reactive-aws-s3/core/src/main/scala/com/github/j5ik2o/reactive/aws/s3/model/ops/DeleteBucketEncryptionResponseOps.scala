@@ -1,27 +1,21 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeleteBucketEncryptionResponse => ScalaDeleteBucketEncryptionResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketEncryptionResponse => JavaDeleteBucketEncryptionResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBucketEncryptionResponseBuilderOps(val self: DeleteBucketEncryptionResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketEncryptionResponseOps {
+final class DeleteBucketEncryptionResponseOps(val self: DeleteBucketEncryptionResponse) extends AnyVal {}
 
-  implicit class JavaDeleteBucketEncryptionResponseOps(val self: JavaDeleteBucketEncryptionResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketEncryptionResponseOps {
 
-    def toScala: ScalaDeleteBucketEncryptionResponse = {
-      ScalaDeleteBucketEncryptionResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteBucketEncryptionResponseBuilderOps(
+      v: DeleteBucketEncryptionResponse.Builder
+  ): DeleteBucketEncryptionResponseBuilderOps = new DeleteBucketEncryptionResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteBucketEncryptionResponseOps(
+      v: DeleteBucketEncryptionResponse
+  ): DeleteBucketEncryptionResponseOps = new DeleteBucketEncryptionResponseOps(v)
 
 }

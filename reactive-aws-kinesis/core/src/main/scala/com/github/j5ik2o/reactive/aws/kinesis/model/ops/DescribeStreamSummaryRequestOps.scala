@@ -1,26 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  DescribeStreamSummaryRequest => ScalaDescribeStreamSummaryRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  DescribeStreamSummaryRequest => JavaDescribeStreamSummaryRequest
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeStreamSummaryRequestOps {
+final class DescribeStreamSummaryRequestBuilderOps(val self: DescribeStreamSummaryRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDescribeStreamSummaryRequestOps(val self: ScalaDescribeStreamSummaryRequest) extends AnyVal {
-
-    def toJava: JavaDescribeStreamSummaryRequest = {
-      val result = JavaDescribeStreamSummaryRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v)) // String
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): DescribeStreamSummaryRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+}
+
+final class DescribeStreamSummaryRequestOps(val self: DescribeStreamSummaryRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeStreamSummaryRequestOps {
+
+  implicit def toDescribeStreamSummaryRequestBuilderOps(
+      v: DescribeStreamSummaryRequest.Builder
+  ): DescribeStreamSummaryRequestBuilderOps = new DescribeStreamSummaryRequestBuilderOps(v)
+
+  implicit def toDescribeStreamSummaryRequestOps(v: DescribeStreamSummaryRequest): DescribeStreamSummaryRequestOps =
+    new DescribeStreamSummaryRequestOps(v)
 
 }

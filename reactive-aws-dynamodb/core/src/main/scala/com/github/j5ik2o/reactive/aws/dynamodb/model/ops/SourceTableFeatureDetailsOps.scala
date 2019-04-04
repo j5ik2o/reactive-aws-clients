@@ -1,60 +1,78 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ SourceTableFeatureDetails => ScalaSourceTableFeatureDetails, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ SourceTableFeatureDetails => JavaSourceTableFeatureDetails }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SourceTableFeatureDetailsOps {
+final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDetails.Builder) extends AnyVal {
 
-  implicit class ScalaSourceTableFeatureDetailsOps(val self: ScalaSourceTableFeatureDetails) extends AnyVal {
-
-    def toJava: JavaSourceTableFeatureDetails = {
-      val result = JavaSourceTableFeatureDetails.builder()
-      self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, LocalSecondaryIndexInfoOps._;
-        result.localSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[LocalSecondaryIndexInfo]
-      self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, GlobalSecondaryIndexInfoOps._;
-        result.globalSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[GlobalSecondaryIndexInfo]
-      self.streamDescription.foreach { v =>
-        import StreamSpecificationOps._; result.streamDescription(v.toJava)
-      } // StreamSpecification
-      self.timeToLiveDescription.foreach { v =>
-        import TimeToLiveDescriptionOps._; result.timeToLiveDescription(v.toJava)
-      } // TimeToLiveDescription
-      self.sseDescription.foreach { v =>
-        import SSEDescriptionOps._; result.sseDescription(v.toJava)
-      } // SSEDescription
-
-      result.build()
-    }
-
+  final def withLocalSecondaryIndexesAsScala(
+      value: Option[Seq[LocalSecondaryIndexInfo]]
+  ): SourceTableFeatureDetails.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.localSecondaryIndexes(v.asJava)
+    } // Seq[LocalSecondaryIndexInfo]
   }
 
-  implicit class JavaSourceTableFeatureDetailsOps(val self: JavaSourceTableFeatureDetails) extends AnyVal {
-
-    def toScala: ScalaSourceTableFeatureDetails = {
-      ScalaSourceTableFeatureDetails()
-        .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._, LocalSecondaryIndexInfoOps._; v.asScala.map(_.toScala)
-        }) // Seq[LocalSecondaryIndexInfo]
-        .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._, GlobalSecondaryIndexInfoOps._; v.asScala.map(_.toScala)
-        }) // Seq[GlobalSecondaryIndexInfo]
-        .withStreamDescription(Option(self.streamDescription).map { v =>
-          import StreamSpecificationOps._; v.toScala
-        }) // StreamSpecification
-        .withTimeToLiveDescription(Option(self.timeToLiveDescription).map { v =>
-          import TimeToLiveDescriptionOps._; v.toScala
-        }) // TimeToLiveDescription
-        .withSseDescription(Option(self.sseDescription).map { v =>
-          import SSEDescriptionOps._; v.toScala
-        }) // SSEDescription
-    }
-
+  final def withGlobalSecondaryIndexesAsScala(
+      value: Option[Seq[GlobalSecondaryIndexInfo]]
+  ): SourceTableFeatureDetails.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.globalSecondaryIndexes(v.asJava)
+    } // Seq[GlobalSecondaryIndexInfo]
   }
+
+  final def withStreamDescriptionAsScala(value: Option[StreamSpecification]): SourceTableFeatureDetails.Builder = {
+    value.fold(self) { v =>
+      self.streamDescription(v)
+    }
+  } // StreamSpecification
+
+  final def withTimeToLiveDescriptionAsScala(
+      value: Option[TimeToLiveDescription]
+  ): SourceTableFeatureDetails.Builder = {
+    value.fold(self) { v =>
+      self.timeToLiveDescription(v)
+    }
+  } // TimeToLiveDescription
+
+  final def withSseDescriptionAsScala(value: Option[SSEDescription]): SourceTableFeatureDetails.Builder = {
+    value.fold(self) { v =>
+      self.sseDescription(v)
+    }
+  } // SSEDescription
+
+}
+
+final class SourceTableFeatureDetailsOps(val self: SourceTableFeatureDetails) extends AnyVal {
+
+  final def localSecondaryIndexesAsScala: Option[Seq[LocalSecondaryIndexInfo]] =
+    Option(self.localSecondaryIndexes).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[LocalSecondaryIndexInfo]
+
+  final def globalSecondaryIndexesAsScala: Option[Seq[GlobalSecondaryIndexInfo]] =
+    Option(self.globalSecondaryIndexes).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[GlobalSecondaryIndexInfo]
+
+  final def streamDescriptionAsScala: Option[StreamSpecification] =
+    Option(self.streamDescription) // StreamSpecification
+
+  final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] =
+    Option(self.timeToLiveDescription) // TimeToLiveDescription
+
+  final def sseDescriptionAsScala: Option[SSEDescription] = Option(self.sseDescription) // SSEDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSourceTableFeatureDetailsOps {
+
+  implicit def toSourceTableFeatureDetailsBuilderOps(
+      v: SourceTableFeatureDetails.Builder
+  ): SourceTableFeatureDetailsBuilderOps = new SourceTableFeatureDetailsBuilderOps(v)
+
+  implicit def toSourceTableFeatureDetailsOps(v: SourceTableFeatureDetails): SourceTableFeatureDetailsOps =
+    new SourceTableFeatureDetailsOps(v)
 
 }

@@ -1,24 +1,33 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeletePublicAccessBlockRequest => ScalaDeletePublicAccessBlockRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{ DeletePublicAccessBlockRequest => JavaDeletePublicAccessBlockRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeletePublicAccessBlockRequestOps {
+final class DeletePublicAccessBlockRequestBuilderOps(val self: DeletePublicAccessBlockRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeletePublicAccessBlockRequestOps(val self: ScalaDeletePublicAccessBlockRequest) extends AnyVal {
-
-    def toJava: JavaDeletePublicAccessBlockRequest = {
-      val result = JavaDeletePublicAccessBlockRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeletePublicAccessBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class DeletePublicAccessBlockRequestOps(val self: DeletePublicAccessBlockRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeletePublicAccessBlockRequestOps {
+
+  implicit def toDeletePublicAccessBlockRequestBuilderOps(
+      v: DeletePublicAccessBlockRequest.Builder
+  ): DeletePublicAccessBlockRequestBuilderOps = new DeletePublicAccessBlockRequestBuilderOps(v)
+
+  implicit def toDeletePublicAccessBlockRequestOps(
+      v: DeletePublicAccessBlockRequest
+  ): DeletePublicAccessBlockRequestOps = new DeletePublicAccessBlockRequestOps(v)
 
 }

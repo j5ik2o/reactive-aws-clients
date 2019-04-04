@@ -1,27 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectLegalHoldResponse => ScalaGetObjectLegalHoldResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectLegalHoldResponse => JavaGetObjectLegalHoldResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetObjectLegalHoldResponseBuilderOps(val self: GetObjectLegalHoldResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectLegalHoldResponseOps {
-
-  implicit class JavaGetObjectLegalHoldResponseOps(val self: JavaGetObjectLegalHoldResponse) extends AnyVal {
-
-    def toScala: ScalaGetObjectLegalHoldResponse = {
-      ScalaGetObjectLegalHoldResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withLegalHold(Option(self.legalHold).map { v =>
-          import ObjectLockLegalHoldOps._; v.toScala
-        }) // ObjectLockLegalHold
+  final def withLegalHoldAsScala(value: Option[ObjectLockLegalHold]): GetObjectLegalHoldResponse.Builder = {
+    value.fold(self) { v =>
+      self.legalHold(v)
     }
+  } // ObjectLockLegalHold
 
-  }
+}
+
+final class GetObjectLegalHoldResponseOps(val self: GetObjectLegalHoldResponse) extends AnyVal {
+
+  final def legalHoldAsScala: Option[ObjectLockLegalHold] = Option(self.legalHold) // ObjectLockLegalHold
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectLegalHoldResponseOps {
+
+  implicit def toGetObjectLegalHoldResponseBuilderOps(
+      v: GetObjectLegalHoldResponse.Builder
+  ): GetObjectLegalHoldResponseBuilderOps = new GetObjectLegalHoldResponseBuilderOps(v)
+
+  implicit def toGetObjectLegalHoldResponseOps(v: GetObjectLegalHoldResponse): GetObjectLegalHoldResponseOps =
+    new GetObjectLegalHoldResponseOps(v)
 
 }

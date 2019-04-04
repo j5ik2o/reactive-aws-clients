@@ -1,31 +1,24 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeleteBucketInventoryConfigurationResponse => ScalaDeleteBucketInventoryConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  DeleteBucketInventoryConfigurationResponse => JavaDeleteBucketInventoryConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteBucketInventoryConfigurationResponseBuilderOps(
+    val self: DeleteBucketInventoryConfigurationResponse.Builder
+) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketInventoryConfigurationResponseOps {
+final class DeleteBucketInventoryConfigurationResponseOps(val self: DeleteBucketInventoryConfigurationResponse)
+    extends AnyVal {}
 
-  implicit class JavaDeleteBucketInventoryConfigurationResponseOps(
-      val self: JavaDeleteBucketInventoryConfigurationResponse
-  ) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketInventoryConfigurationResponseOps {
 
-    def toScala: ScalaDeleteBucketInventoryConfigurationResponse = {
-      ScalaDeleteBucketInventoryConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteBucketInventoryConfigurationResponseBuilderOps(
+      v: DeleteBucketInventoryConfigurationResponse.Builder
+  ): DeleteBucketInventoryConfigurationResponseBuilderOps = new DeleteBucketInventoryConfigurationResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteBucketInventoryConfigurationResponseOps(
+      v: DeleteBucketInventoryConfigurationResponse
+  ): DeleteBucketInventoryConfigurationResponseOps = new DeleteBucketInventoryConfigurationResponseOps(v)
 
 }

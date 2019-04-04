@@ -1,54 +1,77 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Record => ScalaRecord, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Record => JavaRecord }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RecordOps {
+final class RecordBuilderOps(val self: Record.Builder) extends AnyVal {
 
-  implicit class ScalaRecordOps(val self: ScalaRecord) extends AnyVal {
-
-    def toJava: JavaRecord = {
-      val result = JavaRecord.builder()
-      self.eventID.filter(_.nonEmpty).foreach(v => result.eventID(v)) // String
-      self.eventName.foreach { v =>
-        import OperationTypeOps._; result.eventName(v.toJava)
-      } // String
-      self.eventVersion.filter(_.nonEmpty).foreach(v => result.eventVersion(v)) // String
-      self.eventSource.filter(_.nonEmpty).foreach(v => result.eventSource(v))   // String
-      self.awsRegion.filter(_.nonEmpty).foreach(v => result.awsRegion(v))       // String
-      self.dynamodb.foreach { v =>
-        import StreamRecordOps._; result.dynamodb(v.toJava)
-      } // StreamRecord
-      self.userIdentity.foreach { v =>
-        import IdentityOps._; result.userIdentity(v.toJava)
-      } // Identity
-
-      result.build()
+  final def withEventIDAsScala(value: Option[String]): Record.Builder = {
+    value.fold(self) { v =>
+      self.eventID(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaRecordOps(val self: JavaRecord) extends AnyVal {
-
-    def toScala: ScalaRecord = {
-      ScalaRecord()
-        .withEventID(Option(self.eventID)) // String
-        .withEventName(Option(self.eventName).map { v =>
-          import OperationTypeOps._; v.toScala
-        }) // String
-        .withEventVersion(Option(self.eventVersion)) // String
-        .withEventSource(Option(self.eventSource)) // String
-        .withAwsRegion(Option(self.awsRegion)) // String
-        .withDynamodb(Option(self.dynamodb).map { v =>
-          import StreamRecordOps._; v.toScala
-        }) // StreamRecord
-        .withUserIdentity(Option(self.userIdentity).map { v =>
-          import IdentityOps._; v.toScala
-        }) // Identity
+  final def withEventNameAsScala(value: Option[OperationType]): Record.Builder = {
+    value.fold(self) { v =>
+      self.eventName(v)
     }
+  } // String
 
-  }
+  final def withEventVersionAsScala(value: Option[String]): Record.Builder = {
+    value.fold(self) { v =>
+      self.eventVersion(v)
+    }
+  } // String
+
+  final def withEventSourceAsScala(value: Option[String]): Record.Builder = {
+    value.fold(self) { v =>
+      self.eventSource(v)
+    }
+  } // String
+
+  final def withAwsRegionAsScala(value: Option[String]): Record.Builder = {
+    value.fold(self) { v =>
+      self.awsRegion(v)
+    }
+  } // String
+
+  final def withDynamodbAsScala(value: Option[StreamRecord]): Record.Builder = {
+    value.fold(self) { v =>
+      self.dynamodb(v)
+    }
+  } // StreamRecord
+
+  final def withUserIdentityAsScala(value: Option[Identity]): Record.Builder = {
+    value.fold(self) { v =>
+      self.userIdentity(v)
+    }
+  } // Identity
+
+}
+
+final class RecordOps(val self: Record) extends AnyVal {
+
+  final def eventIDAsScala: Option[String] = Option(self.eventID) // String
+
+  final def eventNameAsScala: Option[OperationType] = Option(self.eventName) // String
+
+  final def eventVersionAsScala: Option[String] = Option(self.eventVersion) // String
+
+  final def eventSourceAsScala: Option[String] = Option(self.eventSource) // String
+
+  final def awsRegionAsScala: Option[String] = Option(self.awsRegion) // String
+
+  final def dynamodbAsScala: Option[StreamRecord] = Option(self.dynamodb) // StreamRecord
+
+  final def userIdentityAsScala: Option[Identity] = Option(self.userIdentity) // Identity
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRecordOps {
+
+  implicit def toRecordBuilderOps(v: Record.Builder): RecordBuilderOps = new RecordBuilderOps(v)
+
+  implicit def toRecordOps(v: Record): RecordOps = new RecordOps(v)
 
 }

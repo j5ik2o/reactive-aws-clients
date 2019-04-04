@@ -1,23 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteObjectTaggingRequest => ScalaDeleteObjectTaggingRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteObjectTaggingRequest => JavaDeleteObjectTaggingRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteObjectTaggingRequestOps {
+final class DeleteObjectTaggingRequestBuilderOps(val self: DeleteObjectTaggingRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteObjectTaggingRequestOps(val self: ScalaDeleteObjectTaggingRequest) extends AnyVal {
-
-    def toJava: JavaDeleteObjectTaggingRequest = {
-      val result = JavaDeleteObjectTaggingRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))       // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))             // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withVersionIdAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+}
+
+final class DeleteObjectTaggingRequestOps(val self: DeleteObjectTaggingRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteObjectTaggingRequestOps {
+
+  implicit def toDeleteObjectTaggingRequestBuilderOps(
+      v: DeleteObjectTaggingRequest.Builder
+  ): DeleteObjectTaggingRequestBuilderOps = new DeleteObjectTaggingRequestBuilderOps(v)
+
+  implicit def toDeleteObjectTaggingRequestOps(v: DeleteObjectTaggingRequest): DeleteObjectTaggingRequestOps =
+    new DeleteObjectTaggingRequestOps(v)
 
 }

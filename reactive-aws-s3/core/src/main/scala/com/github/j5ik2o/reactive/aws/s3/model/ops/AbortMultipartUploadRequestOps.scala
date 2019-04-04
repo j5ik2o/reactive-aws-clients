@@ -1,26 +1,56 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AbortMultipartUploadRequest => ScalaAbortMultipartUploadRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ AbortMultipartUploadRequest => JavaAbortMultipartUploadRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AbortMultipartUploadRequestOps {
+final class AbortMultipartUploadRequestBuilderOps(val self: AbortMultipartUploadRequest.Builder) extends AnyVal {
 
-  implicit class ScalaAbortMultipartUploadRequestOps(val self: ScalaAbortMultipartUploadRequest) extends AnyVal {
-
-    def toJava: JavaAbortMultipartUploadRequest = {
-      val result = JavaAbortMultipartUploadRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))     // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))           // String
-      self.uploadId.filter(_.nonEmpty).foreach(v => result.uploadId(v)) // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withUploadIdAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.uploadId(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): AbortMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class AbortMultipartUploadRequestOps(val self: AbortMultipartUploadRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAbortMultipartUploadRequestOps {
+
+  implicit def toAbortMultipartUploadRequestBuilderOps(
+      v: AbortMultipartUploadRequest.Builder
+  ): AbortMultipartUploadRequestBuilderOps = new AbortMultipartUploadRequestBuilderOps(v)
+
+  implicit def toAbortMultipartUploadRequestOps(v: AbortMultipartUploadRequest): AbortMultipartUploadRequestOps =
+    new AbortMultipartUploadRequestOps(v)
 
 }

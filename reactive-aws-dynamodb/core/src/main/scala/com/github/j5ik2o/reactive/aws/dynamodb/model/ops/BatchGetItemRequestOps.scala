@@ -1,27 +1,41 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BatchGetItemRequest => ScalaBatchGetItemRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ BatchGetItemRequest => JavaBatchGetItemRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object BatchGetItemRequestOps {
+final class BatchGetItemRequestBuilderOps(val self: BatchGetItemRequest.Builder) extends AnyVal {
 
-  implicit class ScalaBatchGetItemRequestOps(val self: ScalaBatchGetItemRequest) extends AnyVal {
-
-    def toJava: JavaBatchGetItemRequest = {
-      val result = JavaBatchGetItemRequest.builder()
-      self.requestItems.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeysAndAttributesOps._;
-        result.requestItems(v.mapValues(_.toJava).asJava)
-      } // Map[String, KeysAndAttributes]
-      self.returnConsumedCapacity.foreach { v =>
-        import ReturnConsumedCapacityOps._; result.returnConsumedCapacity(v.toJava)
-      } // String
-
-      result.build()
-    }
-
+  final def withRequestItemsAsScala(value: Option[Map[String, KeysAndAttributes]]): BatchGetItemRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.requestItems(v.asJava)
+    } // Map[String, KeysAndAttributes]
   }
+
+  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchGetItemRequest.Builder = {
+    value.fold(self) { v =>
+      self.returnConsumedCapacity(v)
+    }
+  } // String
+
+}
+
+final class BatchGetItemRequestOps(val self: BatchGetItemRequest) extends AnyVal {
+
+  final def requestItemsAsScala: Option[Map[String, KeysAndAttributes]] = Option(self.requestItems).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, KeysAndAttributes]
+
+  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
+    Option(self.returnConsumedCapacity) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToBatchGetItemRequestOps {
+
+  implicit def toBatchGetItemRequestBuilderOps(v: BatchGetItemRequest.Builder): BatchGetItemRequestBuilderOps =
+    new BatchGetItemRequestBuilderOps(v)
+
+  implicit def toBatchGetItemRequestOps(v: BatchGetItemRequest): BatchGetItemRequestOps = new BatchGetItemRequestOps(v)
 
 }

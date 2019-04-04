@@ -1,36 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AttributeDefinition => ScalaAttributeDefinition, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ AttributeDefinition => JavaAttributeDefinition }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AttributeDefinitionOps {
+final class AttributeDefinitionBuilderOps(val self: AttributeDefinition.Builder) extends AnyVal {
 
-  implicit class ScalaAttributeDefinitionOps(val self: ScalaAttributeDefinition) extends AnyVal {
-
-    def toJava: JavaAttributeDefinition = {
-      val result = JavaAttributeDefinition.builder()
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
-      self.attributeType.foreach { v =>
-        import ScalarAttributeTypeOps._; result.attributeType(v.toJava)
-      } // String
-
-      result.build()
+  final def withAttributeNameAsScala(value: Option[String]): AttributeDefinition.Builder = {
+    value.fold(self) { v =>
+      self.attributeName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaAttributeDefinitionOps(val self: JavaAttributeDefinition) extends AnyVal {
-
-    def toScala: ScalaAttributeDefinition = {
-      ScalaAttributeDefinition()
-        .withAttributeName(Option(self.attributeName)) // String
-        .withAttributeType(Option(self.attributeType).map { v =>
-          import ScalarAttributeTypeOps._; v.toScala
-        }) // String
+  final def withAttributeTypeAsScala(value: Option[ScalarAttributeType]): AttributeDefinition.Builder = {
+    value.fold(self) { v =>
+      self.attributeType(v)
     }
+  } // String
 
-  }
+}
+
+final class AttributeDefinitionOps(val self: AttributeDefinition) extends AnyVal {
+
+  final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
+
+  final def attributeTypeAsScala: Option[ScalarAttributeType] = Option(self.attributeType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAttributeDefinitionOps {
+
+  implicit def toAttributeDefinitionBuilderOps(v: AttributeDefinition.Builder): AttributeDefinitionBuilderOps =
+    new AttributeDefinitionBuilderOps(v)
+
+  implicit def toAttributeDefinitionOps(v: AttributeDefinition): AttributeDefinitionOps = new AttributeDefinitionOps(v)
 
 }

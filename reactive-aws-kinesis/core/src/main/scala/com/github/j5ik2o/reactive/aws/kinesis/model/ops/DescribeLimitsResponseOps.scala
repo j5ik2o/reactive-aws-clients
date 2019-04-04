@@ -1,26 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DescribeLimitsResponse => ScalaDescribeLimitsResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ DescribeLimitsResponse => JavaDescribeLimitsResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeLimitsResponseOps {
-
-  implicit class JavaDescribeLimitsResponseOps(val self: JavaDescribeLimitsResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeLimitsResponse = {
-      ScalaDescribeLimitsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withShardLimit(Option(self.shardLimit).map(_.intValue)) // Int
-        .withOpenShardCount(Option(self.openShardCount).map(_.intValue)) // Int
+  final def withShardLimitAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
+    value.fold(self) { v =>
+      self.shardLimit(v)
     }
+  } // Int
 
-  }
+  final def withOpenShardCountAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
+    value.fold(self) { v =>
+      self.openShardCount(v)
+    }
+  } // Int
+
+}
+
+final class DescribeLimitsResponseOps(val self: DescribeLimitsResponse) extends AnyVal {
+
+  final def shardLimitAsScala: Option[Int] = Option(self.shardLimit) // Int
+
+  final def openShardCountAsScala: Option[Int] = Option(self.openShardCount) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeLimitsResponseOps {
+
+  implicit def toDescribeLimitsResponseBuilderOps(v: DescribeLimitsResponse.Builder): DescribeLimitsResponseBuilderOps =
+    new DescribeLimitsResponseBuilderOps(v)
+
+  implicit def toDescribeLimitsResponseOps(v: DescribeLimitsResponse): DescribeLimitsResponseOps =
+    new DescribeLimitsResponseOps(v)
 
 }

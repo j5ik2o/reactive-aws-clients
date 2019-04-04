@@ -1,21 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeTableRequest => ScalaDescribeTableRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeTableRequest => JavaDescribeTableRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeTableRequestOps {
+final class DescribeTableRequestBuilderOps(val self: DescribeTableRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDescribeTableRequestOps(val self: ScalaDescribeTableRequest) extends AnyVal {
-
-    def toJava: JavaDescribeTableRequest = {
-      val result = JavaDescribeTableRequest.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): DescribeTableRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
-  }
+}
+
+final class DescribeTableRequestOps(val self: DescribeTableRequest) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeTableRequestOps {
+
+  implicit def toDescribeTableRequestBuilderOps(v: DescribeTableRequest.Builder): DescribeTableRequestBuilderOps =
+    new DescribeTableRequestBuilderOps(v)
+
+  implicit def toDescribeTableRequestOps(v: DescribeTableRequest): DescribeTableRequestOps =
+    new DescribeTableRequestOps(v)
 
 }

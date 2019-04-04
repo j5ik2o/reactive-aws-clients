@@ -1,34 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItem => ScalaTransactGetItem, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TransactGetItem => JavaTransactGetItem }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TransactGetItemOps {
+final class TransactGetItemBuilderOps(val self: TransactGetItem.Builder) extends AnyVal {
 
-  implicit class ScalaTransactGetItemOps(val self: ScalaTransactGetItem) extends AnyVal {
-
-    def toJava: JavaTransactGetItem = {
-      val result = JavaTransactGetItem.builder()
-      self.get.foreach { v =>
-        import GetOps._; result.get(v.toJava)
-      } // Get
-
-      result.build()
+  final def withGetAsScala(value: Option[Get]): TransactGetItem.Builder = {
+    value.fold(self) { v =>
+      self.get(v)
     }
+  } // Get
 
-  }
+}
 
-  implicit class JavaTransactGetItemOps(val self: JavaTransactGetItem) extends AnyVal {
+final class TransactGetItemOps(val self: TransactGetItem) extends AnyVal {
 
-    def toScala: ScalaTransactGetItem = {
-      ScalaTransactGetItem()
-        .withGet(Option(self.get).map { v =>
-          import GetOps._; v.toScala
-        }) // Get
-    }
+  final def getAsScala: Option[Get] = Option(self.get) // Get
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTransactGetItemOps {
+
+  implicit def toTransactGetItemBuilderOps(v: TransactGetItem.Builder): TransactGetItemBuilderOps =
+    new TransactGetItemBuilderOps(v)
+
+  implicit def toTransactGetItemOps(v: TransactGetItem): TransactGetItemOps = new TransactGetItemOps(v)
 
 }

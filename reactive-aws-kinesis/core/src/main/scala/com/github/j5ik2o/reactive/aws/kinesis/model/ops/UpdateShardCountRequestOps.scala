@@ -1,25 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ UpdateShardCountRequest => ScalaUpdateShardCountRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ UpdateShardCountRequest => JavaUpdateShardCountRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateShardCountRequestOps {
+final class UpdateShardCountRequestBuilderOps(val self: UpdateShardCountRequest.Builder) extends AnyVal {
 
-  implicit class ScalaUpdateShardCountRequestOps(val self: ScalaUpdateShardCountRequest) extends AnyVal {
-
-    def toJava: JavaUpdateShardCountRequest = {
-      val result = JavaUpdateShardCountRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v))          // String
-      self.targetShardCount.map(_.intValue).foreach(v => result.targetShardCount(v)) // Int
-      self.scalingType.foreach { v =>
-        import ScalingTypeOps._; result.scalingType(v.toJava)
-      } // String
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): UpdateShardCountRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withTargetShardCountAsScala(value: Option[Int]): UpdateShardCountRequest.Builder = {
+    value.fold(self) { v =>
+      self.targetShardCount(v)
+    }
+  } // Int
+
+  final def withScalingTypeAsScala(value: Option[ScalingType]): UpdateShardCountRequest.Builder = {
+    value.fold(self) { v =>
+      self.scalingType(v)
+    }
+  } // String
+
+}
+
+final class UpdateShardCountRequestOps(val self: UpdateShardCountRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def targetShardCountAsScala: Option[Int] = Option(self.targetShardCount) // Int
+
+  final def scalingTypeAsScala: Option[ScalingType] = Option(self.scalingType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateShardCountRequestOps {
+
+  implicit def toUpdateShardCountRequestBuilderOps(
+      v: UpdateShardCountRequest.Builder
+  ): UpdateShardCountRequestBuilderOps = new UpdateShardCountRequestBuilderOps(v)
+
+  implicit def toUpdateShardCountRequestOps(v: UpdateShardCountRequest): UpdateShardCountRequestOps =
+    new UpdateShardCountRequestOps(v)
 
 }

@@ -1,33 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketAccelerateConfigurationResponse => ScalaGetBucketAccelerateConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketAccelerateConfigurationResponse => JavaGetBucketAccelerateConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketAccelerateConfigurationResponseBuilderOps(
+    val self: GetBucketAccelerateConfigurationResponse.Builder
+) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketAccelerateConfigurationResponseOps {
-
-  implicit class JavaGetBucketAccelerateConfigurationResponseOps(val self: JavaGetBucketAccelerateConfigurationResponse)
-      extends AnyVal {
-
-    def toScala: ScalaGetBucketAccelerateConfigurationResponse = {
-      ScalaGetBucketAccelerateConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withStatus(Option(self.status).map { v =>
-          import BucketAccelerateStatusOps._; v.toScala
-        }) // String
+  final def withStatusAsScala(
+      value: Option[BucketAccelerateStatus]
+  ): GetBucketAccelerateConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketAccelerateConfigurationResponseOps(val self: GetBucketAccelerateConfigurationResponse)
+    extends AnyVal {
+
+  final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketAccelerateConfigurationResponseOps {
+
+  implicit def toGetBucketAccelerateConfigurationResponseBuilderOps(
+      v: GetBucketAccelerateConfigurationResponse.Builder
+  ): GetBucketAccelerateConfigurationResponseBuilderOps = new GetBucketAccelerateConfigurationResponseBuilderOps(v)
+
+  implicit def toGetBucketAccelerateConfigurationResponseOps(
+      v: GetBucketAccelerateConfigurationResponse
+  ): GetBucketAccelerateConfigurationResponseOps = new GetBucketAccelerateConfigurationResponseOps(v)
 
 }

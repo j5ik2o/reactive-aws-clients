@@ -1,42 +1,67 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ AutoScalingSettingsUpdate => ScalaAutoScalingSettingsUpdate, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ AutoScalingSettingsUpdate => JavaAutoScalingSettingsUpdate }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AutoScalingSettingsUpdateOps {
+final class AutoScalingSettingsUpdateBuilderOps(val self: AutoScalingSettingsUpdate.Builder) extends AnyVal {
 
-  implicit class ScalaAutoScalingSettingsUpdateOps(val self: ScalaAutoScalingSettingsUpdate) extends AnyVal {
-
-    def toJava: JavaAutoScalingSettingsUpdate = {
-      val result = JavaAutoScalingSettingsUpdate.builder()
-      self.minimumUnits.map(_.longValue).foreach(v => result.minimumUnits(v))                  // Long
-      self.maximumUnits.map(_.longValue).foreach(v => result.maximumUnits(v))                  // Long
-      self.autoScalingDisabled.map(_.booleanValue).foreach(v => result.autoScalingDisabled(v)) // Boolean
-      self.autoScalingRoleArn.filter(_.nonEmpty).foreach(v => result.autoScalingRoleArn(v))    // String
-      self.scalingPolicyUpdate.foreach { v =>
-        import AutoScalingPolicyUpdateOps._; result.scalingPolicyUpdate(v.toJava)
-      } // AutoScalingPolicyUpdate
-
-      result.build()
+  final def withMinimumUnitsAsScala(value: Option[Long]): AutoScalingSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.minimumUnits(v)
     }
+  } // Long
 
-  }
-
-  implicit class JavaAutoScalingSettingsUpdateOps(val self: JavaAutoScalingSettingsUpdate) extends AnyVal {
-
-    def toScala: ScalaAutoScalingSettingsUpdate = {
-      ScalaAutoScalingSettingsUpdate()
-        .withMinimumUnits(Option(self.minimumUnits).map(_.longValue)) // Long
-        .withMaximumUnits(Option(self.maximumUnits).map(_.longValue)) // Long
-        .withAutoScalingDisabled(Option(self.autoScalingDisabled).map(_.booleanValue)) // Boolean
-        .withAutoScalingRoleArn(Option(self.autoScalingRoleArn)) // String
-        .withScalingPolicyUpdate(Option(self.scalingPolicyUpdate).map { v =>
-          import AutoScalingPolicyUpdateOps._; v.toScala
-        }) // AutoScalingPolicyUpdate
+  final def withMaximumUnitsAsScala(value: Option[Long]): AutoScalingSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.maximumUnits(v)
     }
+  } // Long
 
-  }
+  final def withAutoScalingDisabledAsScala(value: Option[Boolean]): AutoScalingSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.autoScalingDisabled(v)
+    }
+  } // Boolean
+
+  final def withAutoScalingRoleArnAsScala(value: Option[String]): AutoScalingSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.autoScalingRoleArn(v)
+    }
+  } // String
+
+  final def withScalingPolicyUpdateAsScala(
+      value: Option[AutoScalingPolicyUpdate]
+  ): AutoScalingSettingsUpdate.Builder = {
+    value.fold(self) { v =>
+      self.scalingPolicyUpdate(v)
+    }
+  } // AutoScalingPolicyUpdate
+
+}
+
+final class AutoScalingSettingsUpdateOps(val self: AutoScalingSettingsUpdate) extends AnyVal {
+
+  final def minimumUnitsAsScala: Option[Long] = Option(self.minimumUnits) // Long
+
+  final def maximumUnitsAsScala: Option[Long] = Option(self.maximumUnits) // Long
+
+  final def autoScalingDisabledAsScala: Option[Boolean] = Option(self.autoScalingDisabled) // Boolean
+
+  final def autoScalingRoleArnAsScala: Option[String] = Option(self.autoScalingRoleArn) // String
+
+  final def scalingPolicyUpdateAsScala: Option[AutoScalingPolicyUpdate] =
+    Option(self.scalingPolicyUpdate) // AutoScalingPolicyUpdate
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAutoScalingSettingsUpdateOps {
+
+  implicit def toAutoScalingSettingsUpdateBuilderOps(
+      v: AutoScalingSettingsUpdate.Builder
+  ): AutoScalingSettingsUpdateBuilderOps = new AutoScalingSettingsUpdateBuilderOps(v)
+
+  implicit def toAutoScalingSettingsUpdateOps(v: AutoScalingSettingsUpdate): AutoScalingSettingsUpdateOps =
+    new AutoScalingSettingsUpdateOps(v)
 
 }

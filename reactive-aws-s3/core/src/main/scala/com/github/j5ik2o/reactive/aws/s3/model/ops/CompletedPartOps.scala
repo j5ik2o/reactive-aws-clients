@@ -1,32 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ CompletedPart => ScalaCompletedPart, _ }
-import software.amazon.awssdk.services.s3.model.{ CompletedPart => JavaCompletedPart }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CompletedPartOps {
+final class CompletedPartBuilderOps(val self: CompletedPart.Builder) extends AnyVal {
 
-  implicit class ScalaCompletedPartOps(val self: ScalaCompletedPart) extends AnyVal {
-
-    def toJava: JavaCompletedPart = {
-      val result = JavaCompletedPart.builder()
-      self.eTag.filter(_.nonEmpty).foreach(v => result.eTag(v))          // String
-      self.partNumber.map(_.intValue).foreach(v => result.partNumber(v)) // Int
-
-      result.build()
+  final def withETagAsScala(value: Option[String]): CompletedPart.Builder = {
+    value.fold(self) { v =>
+      self.eTag(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaCompletedPartOps(val self: JavaCompletedPart) extends AnyVal {
-
-    def toScala: ScalaCompletedPart = {
-      ScalaCompletedPart()
-        .withETag(Option(self.eTag)) // String
-        .withPartNumber(Option(self.partNumber).map(_.intValue)) // Int
+  final def withPartNumberAsScala(value: Option[Int]): CompletedPart.Builder = {
+    value.fold(self) { v =>
+      self.partNumber(v)
     }
+  } // Int
 
-  }
+}
+
+final class CompletedPartOps(val self: CompletedPart) extends AnyVal {
+
+  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+
+  final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCompletedPartOps {
+
+  implicit def toCompletedPartBuilderOps(v: CompletedPart.Builder): CompletedPartBuilderOps =
+    new CompletedPartBuilderOps(v)
+
+  implicit def toCompletedPartOps(v: CompletedPart): CompletedPartOps = new CompletedPartOps(v)
 
 }

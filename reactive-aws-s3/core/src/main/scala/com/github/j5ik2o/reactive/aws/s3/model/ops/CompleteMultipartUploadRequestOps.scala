@@ -1,32 +1,68 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  CompleteMultipartUploadRequest => ScalaCompleteMultipartUploadRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{ CompleteMultipartUploadRequest => JavaCompleteMultipartUploadRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CompleteMultipartUploadRequestOps {
+final class CompleteMultipartUploadRequestBuilderOps(val self: CompleteMultipartUploadRequest.Builder) extends AnyVal {
 
-  implicit class ScalaCompleteMultipartUploadRequestOps(val self: ScalaCompleteMultipartUploadRequest) extends AnyVal {
-
-    def toJava: JavaCompleteMultipartUploadRequest = {
-      val result = JavaCompleteMultipartUploadRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))       // String
-      self.multipartUpload.foreach { v =>
-        import CompletedMultipartUploadOps._; result.multipartUpload(v.toJava)
-      } // CompletedMultipartUpload
-      self.uploadId.filter(_.nonEmpty).foreach(v => result.uploadId(v)) // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withKeyAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  } // String
+
+  final def withMultipartUploadAsScala(
+      value: Option[CompletedMultipartUpload]
+  ): CompleteMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.multipartUpload(v)
+    }
+  } // CompletedMultipartUpload
+
+  final def withUploadIdAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.uploadId(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): CompleteMultipartUploadRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+}
+
+final class CompleteMultipartUploadRequestOps(val self: CompleteMultipartUploadRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def multipartUploadAsScala: Option[CompletedMultipartUpload] =
+    Option(self.multipartUpload) // CompletedMultipartUpload
+
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCompleteMultipartUploadRequestOps {
+
+  implicit def toCompleteMultipartUploadRequestBuilderOps(
+      v: CompleteMultipartUploadRequest.Builder
+  ): CompleteMultipartUploadRequestBuilderOps = new CompleteMultipartUploadRequestBuilderOps(v)
+
+  implicit def toCompleteMultipartUploadRequestOps(
+      v: CompleteMultipartUploadRequest
+  ): CompleteMultipartUploadRequestOps = new CompleteMultipartUploadRequestOps(v)
 
 }

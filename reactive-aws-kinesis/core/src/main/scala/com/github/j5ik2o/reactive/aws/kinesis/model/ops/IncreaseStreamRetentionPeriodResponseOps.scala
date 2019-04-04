@@ -1,30 +1,22 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  IncreaseStreamRetentionPeriodResponse => ScalaIncreaseStreamRetentionPeriodResponse,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  IncreaseStreamRetentionPeriodResponse => JavaIncreaseStreamRetentionPeriodResponse
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class IncreaseStreamRetentionPeriodResponseBuilderOps(val self: IncreaseStreamRetentionPeriodResponse.Builder)
+    extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object IncreaseStreamRetentionPeriodResponseOps {
+final class IncreaseStreamRetentionPeriodResponseOps(val self: IncreaseStreamRetentionPeriodResponse) extends AnyVal {}
 
-  implicit class JavaIncreaseStreamRetentionPeriodResponseOps(val self: JavaIncreaseStreamRetentionPeriodResponse)
-      extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToIncreaseStreamRetentionPeriodResponseOps {
 
-    def toScala: ScalaIncreaseStreamRetentionPeriodResponse = {
-      ScalaIncreaseStreamRetentionPeriodResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toIncreaseStreamRetentionPeriodResponseBuilderOps(
+      v: IncreaseStreamRetentionPeriodResponse.Builder
+  ): IncreaseStreamRetentionPeriodResponseBuilderOps = new IncreaseStreamRetentionPeriodResponseBuilderOps(v)
 
-  }
+  implicit def toIncreaseStreamRetentionPeriodResponseOps(
+      v: IncreaseStreamRetentionPeriodResponse
+  ): IncreaseStreamRetentionPeriodResponseOps = new IncreaseStreamRetentionPeriodResponseOps(v)
 
 }

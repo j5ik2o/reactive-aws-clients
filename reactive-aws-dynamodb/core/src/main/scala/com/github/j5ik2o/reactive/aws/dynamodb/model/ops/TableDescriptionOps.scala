@@ -1,107 +1,185 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TableDescription => ScalaTableDescription, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TableDescription => JavaTableDescription }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TableDescriptionOps {
+final class TableDescriptionBuilderOps(val self: TableDescription.Builder) extends AnyVal {
 
-  implicit class ScalaTableDescriptionOps(val self: ScalaTableDescription) extends AnyVal {
-
-    def toJava: JavaTableDescription = {
-      val result = JavaTableDescription.builder()
-      self.attributeDefinitions.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeDefinitionOps._;
-        result.attributeDefinitions(v.map(_.toJava).asJava)
-      } // Seq[AttributeDefinition]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v)) // String
-      self.keySchema.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement]
-      self.tableStatus.foreach { v =>
-        import TableStatusOps._; result.tableStatus(v.toJava)
-      } // String
-      self.creationDateTime.foreach(v => result.creationDateTime(v)) // Instant
-      self.provisionedThroughput.foreach { v =>
-        import ProvisionedThroughputDescriptionOps._; result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughputDescription
-      self.tableSizeBytes.map(_.longValue).foreach(v => result.tableSizeBytes(v)) // Long
-      self.itemCount.map(_.longValue).foreach(v => result.itemCount(v))           // Long
-      self.tableArn.filter(_.nonEmpty).foreach(v => result.tableArn(v))           // String
-      self.tableId.filter(_.nonEmpty).foreach(v => result.tableId(v))             // String
-      self.billingModeSummary.foreach { v =>
-        import BillingModeSummaryOps._; result.billingModeSummary(v.toJava)
-      } // BillingModeSummary
-      self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, LocalSecondaryIndexDescriptionOps._;
-        result.localSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[LocalSecondaryIndexDescription]
-      self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, GlobalSecondaryIndexDescriptionOps._;
-        result.globalSecondaryIndexes(v.map(_.toJava).asJava)
-      } // Seq[GlobalSecondaryIndexDescription]
-      self.streamSpecification.foreach { v =>
-        import StreamSpecificationOps._; result.streamSpecification(v.toJava)
-      } // StreamSpecification
-      self.latestStreamLabel.filter(_.nonEmpty).foreach(v => result.latestStreamLabel(v)) // String
-      self.latestStreamArn.filter(_.nonEmpty).foreach(v => result.latestStreamArn(v))     // String
-      self.restoreSummary.foreach { v =>
-        import RestoreSummaryOps._; result.restoreSummary(v.toJava)
-      } // RestoreSummary
-      self.sseDescription.foreach { v =>
-        import SSEDescriptionOps._; result.sseDescription(v.toJava)
-      } // SSEDescription
-
-      result.build()
-    }
-
+  final def withAttributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): TableDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.attributeDefinitions(v.asJava)
+    } // Seq[AttributeDefinition]
   }
 
-  implicit class JavaTableDescriptionOps(val self: JavaTableDescription) extends AnyVal {
-
-    def toScala: ScalaTableDescription = {
-      ScalaTableDescription()
-        .withAttributeDefinitions(Option(self.attributeDefinitions).map { v =>
-          import scala.collection.JavaConverters._, AttributeDefinitionOps._; v.asScala.map(_.toScala)
-        }) // Seq[AttributeDefinition]
-        .withTableName(Option(self.tableName)) // String
-        .withKeySchema(Option(self.keySchema).map { v =>
-          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement]
-        .withTableStatus(Option(self.tableStatus).map { v =>
-          import TableStatusOps._; v.toScala
-        }) // String
-        .withCreationDateTime(Option(self.creationDateTime)) // Instant
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          import ProvisionedThroughputDescriptionOps._; v.toScala
-        }) // ProvisionedThroughputDescription
-        .withTableSizeBytes(Option(self.tableSizeBytes).map(_.longValue)) // Long
-        .withItemCount(Option(self.itemCount).map(_.longValue)) // Long
-        .withTableArn(Option(self.tableArn)) // String
-        .withTableId(Option(self.tableId)) // String
-        .withBillingModeSummary(Option(self.billingModeSummary).map { v =>
-          import BillingModeSummaryOps._; v.toScala
-        }) // BillingModeSummary
-        .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._, LocalSecondaryIndexDescriptionOps._; v.asScala.map(_.toScala)
-        }) // Seq[LocalSecondaryIndexDescription]
-        .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._, GlobalSecondaryIndexDescriptionOps._; v.asScala.map(_.toScala)
-        }) // Seq[GlobalSecondaryIndexDescription]
-        .withStreamSpecification(Option(self.streamSpecification).map { v =>
-          import StreamSpecificationOps._; v.toScala
-        }) // StreamSpecification
-        .withLatestStreamLabel(Option(self.latestStreamLabel)) // String
-        .withLatestStreamArn(Option(self.latestStreamArn)) // String
-        .withRestoreSummary(Option(self.restoreSummary).map { v =>
-          import RestoreSummaryOps._; v.toScala
-        }) // RestoreSummary
-        .withSseDescription(Option(self.sseDescription).map { v =>
-          import SSEDescriptionOps._; v.toScala
-        }) // SSEDescription
+  final def withTableNameAsScala(value: Option[String]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): TableDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+    } // Seq[KeySchemaElement]
   }
+
+  final def withTableStatusAsScala(value: Option[TableStatus]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.tableStatus(v)
+    }
+  } // String
+
+  final def withCreationDateTimeAsScala(value: Option[java.time.Instant]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.creationDateTime(v)
+    }
+  } // Instant
+
+  final def withProvisionedThroughputAsScala(
+      value: Option[ProvisionedThroughputDescription]
+  ): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughput(v)
+    }
+  } // ProvisionedThroughputDescription
+
+  final def withTableSizeBytesAsScala(value: Option[Long]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.tableSizeBytes(v)
+    }
+  } // Long
+
+  final def withItemCountAsScala(value: Option[Long]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.itemCount(v)
+    }
+  } // Long
+
+  final def withTableArnAsScala(value: Option[String]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.tableArn(v)
+    }
+  } // String
+
+  final def withTableIdAsScala(value: Option[String]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.tableId(v)
+    }
+  } // String
+
+  final def withBillingModeSummaryAsScala(value: Option[BillingModeSummary]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.billingModeSummary(v)
+    }
+  } // BillingModeSummary
+
+  final def withLocalSecondaryIndexesAsScala(
+      value: Option[Seq[LocalSecondaryIndexDescription]]
+  ): TableDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.localSecondaryIndexes(v.asJava)
+    } // Seq[LocalSecondaryIndexDescription]
+  }
+
+  final def withGlobalSecondaryIndexesAsScala(
+      value: Option[Seq[GlobalSecondaryIndexDescription]]
+  ): TableDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.globalSecondaryIndexes(v.asJava)
+    } // Seq[GlobalSecondaryIndexDescription]
+  }
+
+  final def withStreamSpecificationAsScala(value: Option[StreamSpecification]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.streamSpecification(v)
+    }
+  } // StreamSpecification
+
+  final def withLatestStreamLabelAsScala(value: Option[String]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.latestStreamLabel(v)
+    }
+  } // String
+
+  final def withLatestStreamArnAsScala(value: Option[String]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.latestStreamArn(v)
+    }
+  } // String
+
+  final def withRestoreSummaryAsScala(value: Option[RestoreSummary]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.restoreSummary(v)
+    }
+  } // RestoreSummary
+
+  final def withSseDescriptionAsScala(value: Option[SSEDescription]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.sseDescription(v)
+    }
+  } // SSEDescription
+
+}
+
+final class TableDescriptionOps(val self: TableDescription) extends AnyVal {
+
+  final def attributeDefinitionsAsScala: Option[Seq[AttributeDefinition]] = Option(self.attributeDefinitions).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[AttributeDefinition]
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[KeySchemaElement]
+
+  final def tableStatusAsScala: Option[TableStatus] = Option(self.tableStatus) // String
+
+  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // Instant
+
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughputDescription] =
+    Option(self.provisionedThroughput) // ProvisionedThroughputDescription
+
+  final def tableSizeBytesAsScala: Option[Long] = Option(self.tableSizeBytes) // Long
+
+  final def itemCountAsScala: Option[Long] = Option(self.itemCount) // Long
+
+  final def tableArnAsScala: Option[String] = Option(self.tableArn) // String
+
+  final def tableIdAsScala: Option[String] = Option(self.tableId) // String
+
+  final def billingModeSummaryAsScala: Option[BillingModeSummary] =
+    Option(self.billingModeSummary) // BillingModeSummary
+
+  final def localSecondaryIndexesAsScala: Option[Seq[LocalSecondaryIndexDescription]] =
+    Option(self.localSecondaryIndexes).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[LocalSecondaryIndexDescription]
+
+  final def globalSecondaryIndexesAsScala: Option[Seq[GlobalSecondaryIndexDescription]] =
+    Option(self.globalSecondaryIndexes).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[GlobalSecondaryIndexDescription]
+
+  final def streamSpecificationAsScala: Option[StreamSpecification] =
+    Option(self.streamSpecification) // StreamSpecification
+
+  final def latestStreamLabelAsScala: Option[String] = Option(self.latestStreamLabel) // String
+
+  final def latestStreamArnAsScala: Option[String] = Option(self.latestStreamArn) // String
+
+  final def restoreSummaryAsScala: Option[RestoreSummary] = Option(self.restoreSummary) // RestoreSummary
+
+  final def sseDescriptionAsScala: Option[SSEDescription] = Option(self.sseDescription) // SSEDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTableDescriptionOps {
+
+  implicit def toTableDescriptionBuilderOps(v: TableDescription.Builder): TableDescriptionBuilderOps =
+    new TableDescriptionBuilderOps(v)
+
+  implicit def toTableDescriptionOps(v: TableDescription): TableDescriptionOps = new TableDescriptionOps(v)
 
 }

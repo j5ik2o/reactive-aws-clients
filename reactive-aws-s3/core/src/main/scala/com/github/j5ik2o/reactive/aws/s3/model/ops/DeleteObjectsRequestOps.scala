@@ -1,29 +1,63 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteObjectsRequest => ScalaDeleteObjectsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteObjectsRequest => JavaDeleteObjectsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteObjectsRequestOps {
+final class DeleteObjectsRequestBuilderOps(val self: DeleteObjectsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteObjectsRequestOps(val self: ScalaDeleteObjectsRequest) extends AnyVal {
-
-    def toJava: JavaDeleteObjectsRequest = {
-      val result = JavaDeleteObjectsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.delete.foreach { v =>
-        import DeleteOps._; result.delete(v.toJava)
-      } // Delete
-      self.mfa.filter(_.nonEmpty).foreach(v => result.mfa(v)) // String
-      self.requestPayer.foreach { v =>
-        import RequestPayerOps._; result.requestPayer(v.toJava)
-      } // String
-      self.bypassGovernanceRetention.map(_.booleanValue).foreach(v => result.bypassGovernanceRetention(v)) // Boolean
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withDeleteAsScala(value: Option[Delete]): DeleteObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.delete(v)
+    }
+  } // Delete
+
+  final def withMfaAsScala(value: Option[String]): DeleteObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.mfa(v)
+    }
+  } // String
+
+  final def withRequestPayerAsScala(value: Option[RequestPayer]): DeleteObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.requestPayer(v)
+    }
+  } // String
+
+  final def withBypassGovernanceRetentionAsScala(value: Option[Boolean]): DeleteObjectsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bypassGovernanceRetention(v)
+    }
+  } // Boolean
+
+}
+
+final class DeleteObjectsRequestOps(val self: DeleteObjectsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def deleteAsScala: Option[Delete] = Option(self.delete) // Delete
+
+  final def mfaAsScala: Option[String] = Option(self.mfa) // String
+
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+
+  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteObjectsRequestOps {
+
+  implicit def toDeleteObjectsRequestBuilderOps(v: DeleteObjectsRequest.Builder): DeleteObjectsRequestBuilderOps =
+    new DeleteObjectsRequestBuilderOps(v)
+
+  implicit def toDeleteObjectsRequestOps(v: DeleteObjectsRequest): DeleteObjectsRequestOps =
+    new DeleteObjectsRequestOps(v)
 
 }

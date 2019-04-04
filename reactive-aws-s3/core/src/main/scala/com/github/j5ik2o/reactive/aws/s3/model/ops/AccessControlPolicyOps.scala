@@ -1,40 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AccessControlPolicy => ScalaAccessControlPolicy, _ }
-import software.amazon.awssdk.services.s3.model.{ AccessControlPolicy => JavaAccessControlPolicy }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AccessControlPolicyOps {
+final class AccessControlPolicyBuilderOps(val self: AccessControlPolicy.Builder) extends AnyVal {
 
-  implicit class ScalaAccessControlPolicyOps(val self: ScalaAccessControlPolicy) extends AnyVal {
-
-    def toJava: JavaAccessControlPolicy = {
-      val result = JavaAccessControlPolicy.builder()
-      self.grants.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, GrantOps._; result.grants(v.map(_.toJava).asJava)
-      } // Seq[Grant]
-      self.owner.foreach { v =>
-        import OwnerOps._; result.owner(v.toJava)
-      } // Owner
-
-      result.build()
-    }
-
+  final def withGrantsAsScala(value: Option[Seq[Grant]]): AccessControlPolicy.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.grants(v.asJava)
+    } // Seq[Grant]
   }
 
-  implicit class JavaAccessControlPolicyOps(val self: JavaAccessControlPolicy) extends AnyVal {
-
-    def toScala: ScalaAccessControlPolicy = {
-      ScalaAccessControlPolicy()
-        .withGrants(Option(self.grants).map { v =>
-          import scala.collection.JavaConverters._, GrantOps._; v.asScala.map(_.toScala)
-        }) // Seq[Grant]
-        .withOwner(Option(self.owner).map { v =>
-          import OwnerOps._; v.toScala
-        }) // Owner
+  final def withOwnerAsScala(value: Option[Owner]): AccessControlPolicy.Builder = {
+    value.fold(self) { v =>
+      self.owner(v)
     }
+  } // Owner
 
-  }
+}
+
+final class AccessControlPolicyOps(val self: AccessControlPolicy) extends AnyVal {
+
+  final def grantsAsScala: Option[Seq[Grant]] = Option(self.grants).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Grant]
+
+  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAccessControlPolicyOps {
+
+  implicit def toAccessControlPolicyBuilderOps(v: AccessControlPolicy.Builder): AccessControlPolicyBuilderOps =
+    new AccessControlPolicyBuilderOps(v)
+
+  implicit def toAccessControlPolicyOps(v: AccessControlPolicy): AccessControlPolicyOps = new AccessControlPolicyOps(v)
 
 }

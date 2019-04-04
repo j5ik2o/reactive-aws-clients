@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketEncryptionResponse => ScalaPutBucketEncryptionResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketEncryptionResponse => JavaPutBucketEncryptionResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketEncryptionResponseBuilderOps(val self: PutBucketEncryptionResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketEncryptionResponseOps {
+final class PutBucketEncryptionResponseOps(val self: PutBucketEncryptionResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketEncryptionResponseOps(val self: JavaPutBucketEncryptionResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketEncryptionResponseOps {
 
-    def toScala: ScalaPutBucketEncryptionResponse = {
-      ScalaPutBucketEncryptionResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketEncryptionResponseBuilderOps(
+      v: PutBucketEncryptionResponse.Builder
+  ): PutBucketEncryptionResponseBuilderOps = new PutBucketEncryptionResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketEncryptionResponseOps(v: PutBucketEncryptionResponse): PutBucketEncryptionResponseOps =
+    new PutBucketEncryptionResponseOps(v)
 
 }

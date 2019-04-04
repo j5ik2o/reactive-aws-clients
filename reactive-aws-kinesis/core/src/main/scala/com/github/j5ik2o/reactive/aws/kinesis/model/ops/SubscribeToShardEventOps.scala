@@ -1,38 +1,49 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ SubscribeToShardEvent => ScalaSubscribeToShardEvent, _ }
-import software.amazon.awssdk.services.kinesis.model.{ SubscribeToShardEvent => JavaSubscribeToShardEvent }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SubscribeToShardEventOps {
+final class SubscribeToShardEventBuilderOps(val self: SubscribeToShardEvent.Builder) extends AnyVal {
 
-  implicit class ScalaSubscribeToShardEventOps(val self: ScalaSubscribeToShardEvent) extends AnyVal {
-
-    def toJava: JavaSubscribeToShardEvent = {
-      val result = JavaSubscribeToShardEvent.builder()
-      self.records.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, RecordOps._; result.records(v.map(_.toJava).asJava)
-      } // Seq[Record]
-      self.continuationSequenceNumber.filter(_.nonEmpty).foreach(v => result.continuationSequenceNumber(v)) // String
-      self.millisBehindLatest.map(_.longValue).foreach(v => result.millisBehindLatest(v))                   // Long
-
-      result.build()
-    }
-
+  final def withRecordsAsScala(value: Option[Seq[Record]]): SubscribeToShardEvent.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.records(v.asJava)
+    } // Seq[Record]
   }
 
-  implicit class JavaSubscribeToShardEventOps(val self: JavaSubscribeToShardEvent) extends AnyVal {
-
-    def toScala: ScalaSubscribeToShardEvent = {
-      ScalaSubscribeToShardEvent()
-        .withRecords(Option(self.records).map { v =>
-          import scala.collection.JavaConverters._, RecordOps._; v.asScala.map(_.toScala)
-        }) // Seq[Record]
-        .withContinuationSequenceNumber(Option(self.continuationSequenceNumber)) // String
-        .withMillisBehindLatest(Option(self.millisBehindLatest).map(_.longValue)) // Long
+  final def withContinuationSequenceNumberAsScala(value: Option[String]): SubscribeToShardEvent.Builder = {
+    value.fold(self) { v =>
+      self.continuationSequenceNumber(v)
     }
+  } // String
 
-  }
+  final def withMillisBehindLatestAsScala(value: Option[Long]): SubscribeToShardEvent.Builder = {
+    value.fold(self) { v =>
+      self.millisBehindLatest(v)
+    }
+  } // Long
+
+}
+
+final class SubscribeToShardEventOps(val self: SubscribeToShardEvent) extends AnyVal {
+
+  final def recordsAsScala: Option[Seq[Record]] = Option(self.records).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Record]
+
+  final def continuationSequenceNumberAsScala: Option[String] = Option(self.continuationSequenceNumber) // String
+
+  final def millisBehindLatestAsScala: Option[Long] = Option(self.millisBehindLatest) // Long
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSubscribeToShardEventOps {
+
+  implicit def toSubscribeToShardEventBuilderOps(v: SubscribeToShardEvent.Builder): SubscribeToShardEventBuilderOps =
+    new SubscribeToShardEventBuilderOps(v)
+
+  implicit def toSubscribeToShardEventOps(v: SubscribeToShardEvent): SubscribeToShardEventOps =
+    new SubscribeToShardEventOps(v)
 
 }

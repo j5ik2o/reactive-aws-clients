@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketReplicationResponse => ScalaPutBucketReplicationResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketReplicationResponse => JavaPutBucketReplicationResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketReplicationResponseBuilderOps(val self: PutBucketReplicationResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketReplicationResponseOps {
+final class PutBucketReplicationResponseOps(val self: PutBucketReplicationResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketReplicationResponseOps(val self: JavaPutBucketReplicationResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketReplicationResponseOps {
 
-    def toScala: ScalaPutBucketReplicationResponse = {
-      ScalaPutBucketReplicationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketReplicationResponseBuilderOps(
+      v: PutBucketReplicationResponse.Builder
+  ): PutBucketReplicationResponseBuilderOps = new PutBucketReplicationResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketReplicationResponseOps(v: PutBucketReplicationResponse): PutBucketReplicationResponseOps =
+    new PutBucketReplicationResponseOps(v)
 
 }

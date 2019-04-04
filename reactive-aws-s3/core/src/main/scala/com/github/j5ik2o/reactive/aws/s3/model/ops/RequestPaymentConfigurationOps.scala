@@ -1,34 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ RequestPaymentConfiguration => ScalaRequestPaymentConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ RequestPaymentConfiguration => JavaRequestPaymentConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RequestPaymentConfigurationOps {
+final class RequestPaymentConfigurationBuilderOps(val self: RequestPaymentConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaRequestPaymentConfigurationOps(val self: ScalaRequestPaymentConfiguration) extends AnyVal {
-
-    def toJava: JavaRequestPaymentConfiguration = {
-      val result = JavaRequestPaymentConfiguration.builder()
-      self.payer.foreach { v =>
-        import PayerOps._; result.payer(v.toJava)
-      } // String
-
-      result.build()
+  final def withPayerAsScala(value: Option[Payer]): RequestPaymentConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.payer(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaRequestPaymentConfigurationOps(val self: JavaRequestPaymentConfiguration) extends AnyVal {
+final class RequestPaymentConfigurationOps(val self: RequestPaymentConfiguration) extends AnyVal {
 
-    def toScala: ScalaRequestPaymentConfiguration = {
-      ScalaRequestPaymentConfiguration()
-        .withPayer(Option(self.payer).map { v =>
-          import PayerOps._; v.toScala
-        }) // String
-    }
+  final def payerAsScala: Option[Payer] = Option(self.payer) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRequestPaymentConfigurationOps {
+
+  implicit def toRequestPaymentConfigurationBuilderOps(
+      v: RequestPaymentConfiguration.Builder
+  ): RequestPaymentConfigurationBuilderOps = new RequestPaymentConfigurationBuilderOps(v)
+
+  implicit def toRequestPaymentConfigurationOps(v: RequestPaymentConfiguration): RequestPaymentConfigurationOps =
+    new RequestPaymentConfigurationOps(v)
 
 }

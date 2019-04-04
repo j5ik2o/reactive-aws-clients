@@ -1,42 +1,44 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  AutoScalingPolicyDescription => ScalaAutoScalingPolicyDescription,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  AutoScalingPolicyDescription => JavaAutoScalingPolicyDescription
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AutoScalingPolicyDescriptionOps {
+final class AutoScalingPolicyDescriptionBuilderOps(val self: AutoScalingPolicyDescription.Builder) extends AnyVal {
 
-  implicit class ScalaAutoScalingPolicyDescriptionOps(val self: ScalaAutoScalingPolicyDescription) extends AnyVal {
-
-    def toJava: JavaAutoScalingPolicyDescription = {
-      val result = JavaAutoScalingPolicyDescription.builder()
-      self.policyName.filter(_.nonEmpty).foreach(v => result.policyName(v)) // String
-      self.targetTrackingScalingPolicyConfiguration.foreach { v =>
-        import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._;
-        result.targetTrackingScalingPolicyConfiguration(v.toJava)
-      } // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-
-      result.build()
+  final def withPolicyNameAsScala(value: Option[String]): AutoScalingPolicyDescription.Builder = {
+    value.fold(self) { v =>
+      self.policyName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaAutoScalingPolicyDescriptionOps(val self: JavaAutoScalingPolicyDescription) extends AnyVal {
-
-    def toScala: ScalaAutoScalingPolicyDescription = {
-      ScalaAutoScalingPolicyDescription()
-        .withPolicyName(Option(self.policyName)) // String
-        .withTargetTrackingScalingPolicyConfiguration(Option(self.targetTrackingScalingPolicyConfiguration).map { v =>
-          import AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps._; v.toScala
-        }) // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+  final def withTargetTrackingScalingPolicyConfigurationAsScala(
+      value: Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription]
+  ): AutoScalingPolicyDescription.Builder = {
+    value.fold(self) { v =>
+      self.targetTrackingScalingPolicyConfiguration(v)
     }
+  } // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
 
-  }
+}
+
+final class AutoScalingPolicyDescriptionOps(val self: AutoScalingPolicyDescription) extends AnyVal {
+
+  final def policyNameAsScala: Option[String] = Option(self.policyName) // String
+
+  final def targetTrackingScalingPolicyConfigurationAsScala
+    : Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription] =
+    Option(self.targetTrackingScalingPolicyConfiguration) // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAutoScalingPolicyDescriptionOps {
+
+  implicit def toAutoScalingPolicyDescriptionBuilderOps(
+      v: AutoScalingPolicyDescription.Builder
+  ): AutoScalingPolicyDescriptionBuilderOps = new AutoScalingPolicyDescriptionBuilderOps(v)
+
+  implicit def toAutoScalingPolicyDescriptionOps(v: AutoScalingPolicyDescription): AutoScalingPolicyDescriptionOps =
+    new AutoScalingPolicyDescriptionOps(v)
 
 }

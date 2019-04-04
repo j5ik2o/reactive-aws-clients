@@ -1,30 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketPolicyStatusResponse => ScalaGetBucketPolicyStatusResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{ GetBucketPolicyStatusResponse => JavaGetBucketPolicyStatusResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketPolicyStatusResponseBuilderOps(val self: GetBucketPolicyStatusResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketPolicyStatusResponseOps {
-
-  implicit class JavaGetBucketPolicyStatusResponseOps(val self: JavaGetBucketPolicyStatusResponse) extends AnyVal {
-
-    def toScala: ScalaGetBucketPolicyStatusResponse = {
-      ScalaGetBucketPolicyStatusResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withPolicyStatus(Option(self.policyStatus).map { v =>
-          import PolicyStatusOps._; v.toScala
-        }) // PolicyStatus
+  final def withPolicyStatusAsScala(value: Option[PolicyStatus]): GetBucketPolicyStatusResponse.Builder = {
+    value.fold(self) { v =>
+      self.policyStatus(v)
     }
+  } // PolicyStatus
 
-  }
+}
+
+final class GetBucketPolicyStatusResponseOps(val self: GetBucketPolicyStatusResponse) extends AnyVal {
+
+  final def policyStatusAsScala: Option[PolicyStatus] = Option(self.policyStatus) // PolicyStatus
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketPolicyStatusResponseOps {
+
+  implicit def toGetBucketPolicyStatusResponseBuilderOps(
+      v: GetBucketPolicyStatusResponse.Builder
+  ): GetBucketPolicyStatusResponseBuilderOps = new GetBucketPolicyStatusResponseBuilderOps(v)
+
+  implicit def toGetBucketPolicyStatusResponseOps(v: GetBucketPolicyStatusResponse): GetBucketPolicyStatusResponseOps =
+    new GetBucketPolicyStatusResponseOps(v)
 
 }

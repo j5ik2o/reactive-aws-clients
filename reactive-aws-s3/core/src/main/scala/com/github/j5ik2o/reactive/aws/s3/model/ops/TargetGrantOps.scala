@@ -1,40 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ TargetGrant => ScalaTargetGrant, _ }
-import software.amazon.awssdk.services.s3.model.{ TargetGrant => JavaTargetGrant }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TargetGrantOps {
+final class TargetGrantBuilderOps(val self: TargetGrant.Builder) extends AnyVal {
 
-  implicit class ScalaTargetGrantOps(val self: ScalaTargetGrant) extends AnyVal {
-
-    def toJava: JavaTargetGrant = {
-      val result = JavaTargetGrant.builder()
-      self.grantee.foreach { v =>
-        import GranteeOps._; result.grantee(v.toJava)
-      } // Grantee
-      self.permission.foreach { v =>
-        import BucketLogsPermissionOps._; result.permission(v.toJava)
-      } // String
-
-      result.build()
+  final def withGranteeAsScala(value: Option[Grantee]): TargetGrant.Builder = {
+    value.fold(self) { v =>
+      self.grantee(v)
     }
+  } // Grantee
 
-  }
-
-  implicit class JavaTargetGrantOps(val self: JavaTargetGrant) extends AnyVal {
-
-    def toScala: ScalaTargetGrant = {
-      ScalaTargetGrant()
-        .withGrantee(Option(self.grantee).map { v =>
-          import GranteeOps._; v.toScala
-        }) // Grantee
-        .withPermission(Option(self.permission).map { v =>
-          import BucketLogsPermissionOps._; v.toScala
-        }) // String
+  final def withPermissionAsScala(value: Option[BucketLogsPermission]): TargetGrant.Builder = {
+    value.fold(self) { v =>
+      self.permission(v)
     }
+  } // String
 
-  }
+}
+
+final class TargetGrantOps(val self: TargetGrant) extends AnyVal {
+
+  final def granteeAsScala: Option[Grantee] = Option(self.grantee) // Grantee
+
+  final def permissionAsScala: Option[BucketLogsPermission] = Option(self.permission) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTargetGrantOps {
+
+  implicit def toTargetGrantBuilderOps(v: TargetGrant.Builder): TargetGrantBuilderOps = new TargetGrantBuilderOps(v)
+
+  implicit def toTargetGrantOps(v: TargetGrant): TargetGrantOps = new TargetGrantOps(v)
 
 }

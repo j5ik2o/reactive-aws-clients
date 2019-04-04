@@ -1,44 +1,57 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ QueueConfiguration => ScalaQueueConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ QueueConfiguration => JavaQueueConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object QueueConfigurationOps {
+final class QueueConfigurationBuilderOps(val self: QueueConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaQueueConfigurationOps(val self: ScalaQueueConfiguration) extends AnyVal {
-
-    def toJava: JavaQueueConfiguration = {
-      val result = JavaQueueConfiguration.builder()
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))             // String
-      self.queueArn.filter(_.nonEmpty).foreach(v => result.queueArn(v)) // String
-      self.events.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, EventOps._; result.events(v.map(_.toJava).asJava)
-      } // Seq[String]
-      self.filter.foreach { v =>
-        import NotificationConfigurationFilterOps._; result.filter(v.toJava)
-      } // NotificationConfigurationFilter
-
-      result.build()
+  final def withIdAsScala(value: Option[String]): QueueConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
     }
+  } // String
 
+  final def withQueueArnAsScala(value: Option[String]): QueueConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.queueArn(v)
+    }
+  } // String
+
+  final def withEventsAsScala(value: Option[Seq[Event]]): QueueConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.events(v.asJava)
+    } // Seq[String]
   }
 
-  implicit class JavaQueueConfigurationOps(val self: JavaQueueConfiguration) extends AnyVal {
-
-    def toScala: ScalaQueueConfiguration = {
-      ScalaQueueConfiguration()
-        .withId(Option(self.id)) // String
-        .withQueueArn(Option(self.queueArn)) // String
-        .withEvents(Option(self.events).map { v =>
-          import scala.collection.JavaConverters._, EventOps._; v.asScala.map(_.toScala)
-        }) // Seq[String]
-        .withFilter(Option(self.filter).map { v =>
-          import NotificationConfigurationFilterOps._; v.toScala
-        }) // NotificationConfigurationFilter
+  final def withFilterAsScala(value: Option[NotificationConfigurationFilter]): QueueConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.filter(v)
     }
+  } // NotificationConfigurationFilter
 
-  }
+}
+
+final class QueueConfigurationOps(val self: QueueConfiguration) extends AnyVal {
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def queueArnAsScala: Option[String] = Option(self.queueArn) // String
+
+  final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def filterAsScala: Option[NotificationConfigurationFilter] =
+    Option(self.filter) // NotificationConfigurationFilter
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToQueueConfigurationOps {
+
+  implicit def toQueueConfigurationBuilderOps(v: QueueConfiguration.Builder): QueueConfigurationBuilderOps =
+    new QueueConfigurationBuilderOps(v)
+
+  implicit def toQueueConfigurationOps(v: QueueConfiguration): QueueConfigurationOps = new QueueConfigurationOps(v)
 
 }

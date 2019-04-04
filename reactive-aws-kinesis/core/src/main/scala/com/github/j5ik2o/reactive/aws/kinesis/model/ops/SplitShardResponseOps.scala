@@ -1,24 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ SplitShardResponse => ScalaSplitShardResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ SplitShardResponse => JavaSplitShardResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class SplitShardResponseBuilderOps(val self: SplitShardResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SplitShardResponseOps {
+final class SplitShardResponseOps(val self: SplitShardResponse) extends AnyVal {}
 
-  implicit class JavaSplitShardResponseOps(val self: JavaSplitShardResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSplitShardResponseOps {
 
-    def toScala: ScalaSplitShardResponse = {
-      ScalaSplitShardResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toSplitShardResponseBuilderOps(v: SplitShardResponse.Builder): SplitShardResponseBuilderOps =
+    new SplitShardResponseBuilderOps(v)
 
-  }
+  implicit def toSplitShardResponseOps(v: SplitShardResponse): SplitShardResponseOps = new SplitShardResponseOps(v)
 
 }

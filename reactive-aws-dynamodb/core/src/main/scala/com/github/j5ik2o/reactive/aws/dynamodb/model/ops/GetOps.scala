@@ -1,44 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Get => ScalaGet, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Get => JavaGet }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetOps {
+final class GetBuilderOps(val self: Get.Builder) extends AnyVal {
 
-  implicit class ScalaGetOps(val self: ScalaGet) extends AnyVal {
-
-    def toJava: JavaGet = {
-      val result = JavaGet.builder()
-      self.key.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, AttributeValueOps._; result.key(v.mapValues(_.toJava).asJava)
-      } // Map[String, AttributeValue]
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                       // String
-      self.projectionExpression.filter(_.nonEmpty).foreach(v => result.projectionExpression(v)) // String
-      self.expressionAttributeNames.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).foreach { v =>
-        import scala.collection.JavaConverters._; result.expressionAttributeNames(v.asJava)
-      } // Map[String, String]
-
-      result.build()
-    }
-
+  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): Get.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.key(v.asJava)
+    } // Map[String, AttributeValue]
   }
 
-  implicit class JavaGetOps(val self: JavaGet) extends AnyVal {
-
-    def toScala: ScalaGet = {
-      ScalaGet()
-        .withKey(Option(self.key).map { v =>
-          import scala.collection.JavaConverters._, AttributeValueOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, AttributeValue]
-        .withTableName(Option(self.tableName)) // String
-        .withProjectionExpression(Option(self.projectionExpression)) // String
-        .withExpressionAttributeNames(Option(self.expressionAttributeNames).map { v =>
-          import scala.collection.JavaConverters._; v.asScala.toMap
-        }) // Map[String, String]
+  final def withTableNameAsScala(value: Option[String]): Get.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withProjectionExpressionAsScala(value: Option[String]): Get.Builder = {
+    value.fold(self) { v =>
+      self.projectionExpression(v)
+    }
+  } // String
+
+  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): Get.Builder = {
+    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
+    } // Map[String, String]
   }
+
+}
+
+final class GetOps(val self: Get) extends AnyVal {
+
+  final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, AttributeValue]
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression) // String
+
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, String]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetOps {
+
+  implicit def toGetBuilderOps(v: Get.Builder): GetBuilderOps = new GetBuilderOps(v)
+
+  implicit def toGetOps(v: Get): GetOps = new GetOps(v)
 
 }

@@ -1,28 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  ListBucketMetricsConfigurationsRequest => ScalaListBucketMetricsConfigurationsRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  ListBucketMetricsConfigurationsRequest => JavaListBucketMetricsConfigurationsRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListBucketMetricsConfigurationsRequestOps {
+final class ListBucketMetricsConfigurationsRequestBuilderOps(val self: ListBucketMetricsConfigurationsRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaListBucketMetricsConfigurationsRequestOps(val self: ScalaListBucketMetricsConfigurationsRequest)
-      extends AnyVal {
-
-    def toJava: JavaListBucketMetricsConfigurationsRequest = {
-      val result = JavaListBucketMetricsConfigurationsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))                       // String
-      self.continuationToken.filter(_.nonEmpty).foreach(v => result.continuationToken(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
+    value.fold(self) { v =>
+      self.continuationToken(v)
+    }
+  } // String
+
+}
+
+final class ListBucketMetricsConfigurationsRequestOps(val self: ListBucketMetricsConfigurationsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListBucketMetricsConfigurationsRequestOps {
+
+  implicit def toListBucketMetricsConfigurationsRequestBuilderOps(
+      v: ListBucketMetricsConfigurationsRequest.Builder
+  ): ListBucketMetricsConfigurationsRequestBuilderOps = new ListBucketMetricsConfigurationsRequestBuilderOps(v)
+
+  implicit def toListBucketMetricsConfigurationsRequestOps(
+      v: ListBucketMetricsConfigurationsRequest
+  ): ListBucketMetricsConfigurationsRequestOps = new ListBucketMetricsConfigurationsRequestOps(v)
 
 }

@@ -1,34 +1,45 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Capacity => ScalaCapacity, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Capacity => JavaCapacity }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CapacityOps {
+final class CapacityBuilderOps(val self: Capacity.Builder) extends AnyVal {
 
-  implicit class ScalaCapacityOps(val self: ScalaCapacity) extends AnyVal {
-
-    def toJava: JavaCapacity = {
-      val result = JavaCapacity.builder()
-      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double
-      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double
-      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double
-
-      result.build()
+  final def withReadCapacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
+    value.fold(self) { v =>
+      self.readCapacityUnits(v)
     }
+  } // Double
 
-  }
-
-  implicit class JavaCapacityOps(val self: JavaCapacity) extends AnyVal {
-
-    def toScala: ScalaCapacity = {
-      ScalaCapacity()
-        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.doubleValue)) // Double
-        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.doubleValue)) // Double
-        .withCapacityUnits(Option(self.capacityUnits).map(_.doubleValue)) // Double
+  final def withWriteCapacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
+    value.fold(self) { v =>
+      self.writeCapacityUnits(v)
     }
+  } // Double
 
-  }
+  final def withCapacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
+    value.fold(self) { v =>
+      self.capacityUnits(v)
+    }
+  } // Double
+
+}
+
+final class CapacityOps(val self: Capacity) extends AnyVal {
+
+  final def readCapacityUnitsAsScala: Option[Double] = Option(self.readCapacityUnits) // Double
+
+  final def writeCapacityUnitsAsScala: Option[Double] = Option(self.writeCapacityUnits) // Double
+
+  final def capacityUnitsAsScala: Option[Double] = Option(self.capacityUnits) // Double
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCapacityOps {
+
+  implicit def toCapacityBuilderOps(v: Capacity.Builder): CapacityBuilderOps = new CapacityBuilderOps(v)
+
+  implicit def toCapacityOps(v: Capacity): CapacityOps = new CapacityOps(v)
 
 }

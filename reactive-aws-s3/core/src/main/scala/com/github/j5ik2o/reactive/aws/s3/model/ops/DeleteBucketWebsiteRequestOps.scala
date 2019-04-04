@@ -1,21 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteBucketWebsiteRequest => ScalaDeleteBucketWebsiteRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteBucketWebsiteRequest => JavaDeleteBucketWebsiteRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketWebsiteRequestOps {
+final class DeleteBucketWebsiteRequestBuilderOps(val self: DeleteBucketWebsiteRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteBucketWebsiteRequestOps(val self: ScalaDeleteBucketWebsiteRequest) extends AnyVal {
-
-    def toJava: JavaDeleteBucketWebsiteRequest = {
-      val result = JavaDeleteBucketWebsiteRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteBucketWebsiteRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class DeleteBucketWebsiteRequestOps(val self: DeleteBucketWebsiteRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketWebsiteRequestOps {
+
+  implicit def toDeleteBucketWebsiteRequestBuilderOps(
+      v: DeleteBucketWebsiteRequest.Builder
+  ): DeleteBucketWebsiteRequestBuilderOps = new DeleteBucketWebsiteRequestBuilderOps(v)
+
+  implicit def toDeleteBucketWebsiteRequestOps(v: DeleteBucketWebsiteRequest): DeleteBucketWebsiteRequestOps =
+    new DeleteBucketWebsiteRequestOps(v)
 
 }

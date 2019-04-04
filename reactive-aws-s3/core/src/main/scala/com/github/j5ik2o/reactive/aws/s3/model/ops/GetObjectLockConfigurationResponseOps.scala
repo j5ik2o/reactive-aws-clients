@@ -1,33 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetObjectLockConfigurationResponse => ScalaGetObjectLockConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetObjectLockConfigurationResponse => JavaGetObjectLockConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetObjectLockConfigurationResponseBuilderOps(val self: GetObjectLockConfigurationResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectLockConfigurationResponseOps {
-
-  implicit class JavaGetObjectLockConfigurationResponseOps(val self: JavaGetObjectLockConfigurationResponse)
-      extends AnyVal {
-
-    def toScala: ScalaGetObjectLockConfigurationResponse = {
-      ScalaGetObjectLockConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withObjectLockConfiguration(Option(self.objectLockConfiguration).map { v =>
-          import ObjectLockConfigurationOps._; v.toScala
-        }) // ObjectLockConfiguration
+  final def withObjectLockConfigurationAsScala(
+      value: Option[ObjectLockConfiguration]
+  ): GetObjectLockConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.objectLockConfiguration(v)
     }
+  } // ObjectLockConfiguration
 
-  }
+}
+
+final class GetObjectLockConfigurationResponseOps(val self: GetObjectLockConfigurationResponse) extends AnyVal {
+
+  final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] =
+    Option(self.objectLockConfiguration) // ObjectLockConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectLockConfigurationResponseOps {
+
+  implicit def toGetObjectLockConfigurationResponseBuilderOps(
+      v: GetObjectLockConfigurationResponse.Builder
+  ): GetObjectLockConfigurationResponseBuilderOps = new GetObjectLockConfigurationResponseBuilderOps(v)
+
+  implicit def toGetObjectLockConfigurationResponseOps(
+      v: GetObjectLockConfigurationResponse
+  ): GetObjectLockConfigurationResponseOps = new GetObjectLockConfigurationResponseOps(v)
 
 }

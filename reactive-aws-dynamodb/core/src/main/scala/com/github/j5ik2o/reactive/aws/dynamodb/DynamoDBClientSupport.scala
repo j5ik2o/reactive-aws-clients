@@ -1,23 +1,25 @@
 package com.github.j5ik2o.reactive.aws.dynamodb
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import com.github.j5ik2o.reactive.aws.dynamodb.model.ops._
+import software.amazon.awssdk.services.dynamodb.model._
 
 private[dynamodb] trait DynamoDBClientSupport[M[_]] { this: DynamoDBClient[M] =>
 
   def batchGetItem(requestItems: Map[String, KeysAndAttributes],
                    returnConsumedCapacity: ReturnConsumedCapacity): M[BatchGetItemResponse] = {
     batchGetItem(
-      BatchGetItemRequest()
-        .withRequestItems(Some(requestItems)).withReturnConsumedCapacity(Some(returnConsumedCapacity))
+      BatchGetItemRequest
+        .builder()
+        .withRequestItemsAsScala(Some(requestItems)).withReturnConsumedCapacityAsScala(Some(returnConsumedCapacity)).build()
     )
   }
 
   def batchGetItem(requestItems: Map[String, KeysAndAttributes]): M[BatchGetItemResponse] = {
-    batchGetItem(BatchGetItemRequest().withRequestItems(Some(requestItems)))
+    batchGetItem(BatchGetItemRequest.builder().withRequestItemsAsScala(Some(requestItems)).build())
   }
 
   def batchWriteItem(requestItems: Map[String, Seq[WriteRequest]]): M[BatchWriteItemResponse] = {
-    batchWriteItem(BatchWriteItemRequest().withRequestItems(Some(requestItems)))
+    batchWriteItem(BatchWriteItemRequest.builder().withRequestItemsAsScala(Some(requestItems)).build())
   }
 
   def createTable(attributeDefinitions: Seq[AttributeDefinition],
@@ -25,102 +27,128 @@ private[dynamodb] trait DynamoDBClientSupport[M[_]] { this: DynamoDBClient[M] =>
                   keySchema: Seq[KeySchemaElement],
                   provisionedThroughput: ProvisionedThroughput): M[CreateTableResponse] = {
     createTable(
-      CreateTableRequest()
-        .withAttributeDefinitions(Some(attributeDefinitions))
-        .withTableName(Some(tableName))
-        .withKeySchema(Some(keySchema))
-        .withProvisionedThroughput(Some(provisionedThroughput))
+      CreateTableRequest
+        .builder()
+        .withAttributeDefinitionsAsScala(Some(attributeDefinitions))
+        .withTableNameAsScala(Some(tableName))
+        .withKeySchemaAsScala(Some(keySchema))
+        .withProvisionedThroughputAsScala(Some(provisionedThroughput)).build()
     )
   }
 
   def describeEndpoints(): M[DescribeEndpointsResponse] = {
-    describeEndpoints(DescribeEndpointsRequest())
+    describeEndpoints(DescribeEndpointsRequest.builder().build())
   }
 
   def describeLimits: M[DescribeLimitsResponse] = {
-    describeLimits(DescribeLimitsRequest())
+    describeLimits(DescribeLimitsRequest.builder().build())
   }
 
   def listGlobalTables: M[ListGlobalTablesResponse] = {
-    listGlobalTables(ListGlobalTablesRequest())
+    listGlobalTables(ListGlobalTablesRequest.builder().build())
   }
 
   def describeTable(tableName: String): M[DescribeTableResponse] = {
-    describeTable(DescribeTableRequest().withTableName(Some(tableName)))
+    describeTable(DescribeTableRequest.builder().withTableNameAsScala(Some(tableName)).build())
   }
 
   def deleteItem(tableName: String, key: Map[String, AttributeValue]): M[DeleteItemResponse] = {
-    deleteItem(DeleteItemRequest().withTableName(Some(tableName)).withKey(Some(key)))
+    deleteItem(DeleteItemRequest.builder().withTableNameAsScala(Some(tableName)).withKeyAsScala(Some(key)).build())
   }
 
   def deleteItem(tableName: String,
                  key: Map[String, AttributeValue],
                  returnValues: ReturnValue): M[DeleteItemResponse] = {
     deleteItem(
-      DeleteItemRequest().withTableName(Some(tableName)).withKey(Some(key)).withReturnValues(Some(returnValues))
+      DeleteItemRequest
+        .builder().withTableNameAsScala(Some(tableName)).withKeyAsScala(Some(key)).withReturnValuesAsScala(
+          Some(returnValues)
+        ).build()
     )
   }
 
   def deleteTable(tableName: String): M[DeleteTableResponse] = {
-    deleteTable(DeleteTableRequest().withTableName(Some(tableName)))
+    deleteTable(DeleteTableRequest.builder().withTableNameAsScala(Some(tableName)).build())
   }
 
   def listBackups(): M[ListBackupsResponse] = {
-    listBackups(ListBackupsRequest())
+    listBackups(ListBackupsRequest.builder().build())
   }
 
   def listTables: M[ListTablesResponse] = {
-    listTables(ListTablesRequest())
+    listTables(ListTablesRequest.builder().build())
   }
 
   def listTables(exclusiveStartTableName: String): M[ListTablesResponse] = {
-    listTables(ListTablesRequest().withExclusiveStartTableName(Some(exclusiveStartTableName)))
+    listTables(ListTablesRequest.builder().withExclusiveStartTableNameAsScala(Some(exclusiveStartTableName)).build())
   }
 
   def listTables(exclusiveStartTableName: String, limit: Int): M[ListTablesResponse] = {
-    listTables(ListTablesRequest().withExclusiveStartTableName(Some(exclusiveStartTableName)).withLimit(Some(limit)))
+    listTables(
+      ListTablesRequest
+        .builder().withExclusiveStartTableNameAsScala(Some(exclusiveStartTableName)).withLimitAsScala(Some(limit)).build()
+    )
   }
 
   def listTables(limit: Int): M[ListTablesResponse] = {
-    listTables(ListTablesRequest().withLimit(Some(limit)))
+    listTables(ListTablesRequest.builder().withLimitAsScala(Some(limit)).build())
   }
 
   def putItem(tableName: String, item: Map[String, AttributeValue]): M[PutItemResponse] = {
-    putItem(PutItemRequest().withTableName(Some(tableName)).withItem(Some(item)))
+    putItem(PutItemRequest.builder().withTableNameAsScala(Some(tableName)).withItemAsScala(Some(item)).build())
   }
 
   def putItem(tableName: String, item: Map[String, AttributeValue], returnValues: ReturnValue): M[PutItemResponse] = {
-    putItem(PutItemRequest().withTableName(Some(tableName)).withItem(Some(item)).withReturnValues(Some(returnValues)))
+    putItem(
+      PutItemRequest
+        .builder().withTableNameAsScala(Some(tableName)).withItemAsScala(Some(item)).withReturnValuesAsScala(
+          Some(returnValues)
+        ).build()
+    )
   }
 
   def scan(tableName: String, attributesToGet: Seq[String]): M[ScanResponse] = {
-    scan(ScanRequest().withTableName(Some(tableName)).withAttributesToGet(Some(attributesToGet)))
+    scan(
+      ScanRequest
+        .builder().withTableNameAsScala(Some(tableName)).withAttributesToGetAsScala(Some(attributesToGet)).build()
+    )
   }
 
   def scan(tableName: String, scanFilter: Map[String, Condition]): M[ScanResponse] = {
-    scan(ScanRequest().withTableName(Some(tableName)).withScanFilter(Some(scanFilter)))
+    scan(ScanRequest.builder().withTableNameAsScala(Some(tableName)).withScanFilterAsScala(Some(scanFilter)).build())
   }
 
   def scan(tableName: String, attributesToGet: Seq[String], scanFilter: Map[String, Condition]): M[ScanResponse] = {
     scan(
-      ScanRequest()
-        .withTableName(Some(tableName)).withAttributesToGet(Some(attributesToGet)).withScanFilter(Some(scanFilter))
+      ScanRequest
+        .builder()
+        .withTableNameAsScala(Some(tableName)).withAttributesToGetAsScala(Some(attributesToGet)).withScanFilterAsScala(
+          Some(scanFilter)
+        ).build()
     )
   }
 
   def getItem(tableName: String, key: Map[String, AttributeValue]): M[GetItemResponse] = {
-    getItem(GetItemRequest().withTableName(Some(tableName)).withKey(Some(key)))
+    getItem(GetItemRequest.builder().withTableNameAsScala(Some(tableName)).withKeyAsScala(Some(key)).build())
   }
 
   def getItem(tableName: String, key: Map[String, AttributeValue], consistentRead: Boolean): M[GetItemResponse] = {
-    getItem(GetItemRequest().withTableName(Some(tableName)).withKey(Some(key)).withConsistentRead(Some(consistentRead)))
+    getItem(
+      GetItemRequest
+        .builder().withTableNameAsScala(Some(tableName)).withKeyAsScala(Some(key)).withConsistentReadAsScala(
+          Some(consistentRead)
+        ).build()
+    )
   }
 
   def updateItem(tableName: String,
                  key: Map[String, AttributeValue],
                  attributeUpdates: Map[String, AttributeValueUpdate]): M[UpdateItemResponse] = {
     updateItem(
-      UpdateItemRequest().withTableName(Some(tableName)).withKey(Some(key)).withAttributeUpdates(Some(attributeUpdates))
+      UpdateItemRequest
+        .builder().withTableNameAsScala(Some(tableName)).withKeyAsScala(Some(key)).withAttributeUpdatesAsScala(
+          Some(attributeUpdates)
+        ).build()
     )
   }
 
@@ -129,16 +157,17 @@ private[dynamodb] trait DynamoDBClientSupport[M[_]] { this: DynamoDBClient[M] =>
                  attributeUpdates: Map[String, AttributeValueUpdate],
                  returnValues: ReturnValue): M[UpdateItemResponse] = {
     updateItem(
-      UpdateItemRequest()
-        .withTableName(Some(tableName))
-        .withKey(Some(key))
-        .withAttributeUpdates(Some(attributeUpdates))
-        .withReturnValues(Some(returnValues))
+      UpdateItemRequest
+        .builder()
+        .withTableNameAsScala(Some(tableName))
+        .withKeyAsScala(Some(key))
+        .withAttributeUpdatesAsScala(Some(attributeUpdates))
+        .withReturnValuesAsScala(Some(returnValues)).build()
     )
   }
 
   def updateTable(tableName: String, provisionedThroughput: ProvisionedThroughput): M[UpdateTableResponse] = {
-    updateTable(UpdateTableRequest())
+    updateTable(UpdateTableRequest.builder().build())
   }
 
 }

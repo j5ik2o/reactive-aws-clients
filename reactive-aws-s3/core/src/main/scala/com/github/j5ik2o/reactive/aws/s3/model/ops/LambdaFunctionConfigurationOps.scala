@@ -1,44 +1,59 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ LambdaFunctionConfiguration => ScalaLambdaFunctionConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ LambdaFunctionConfiguration => JavaLambdaFunctionConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object LambdaFunctionConfigurationOps {
+final class LambdaFunctionConfigurationBuilderOps(val self: LambdaFunctionConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaLambdaFunctionConfigurationOps(val self: ScalaLambdaFunctionConfiguration) extends AnyVal {
-
-    def toJava: JavaLambdaFunctionConfiguration = {
-      val result = JavaLambdaFunctionConfiguration.builder()
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))                               // String
-      self.lambdaFunctionArn.filter(_.nonEmpty).foreach(v => result.lambdaFunctionArn(v)) // String
-      self.events.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, EventOps._; result.events(v.map(_.toJava).asJava)
-      } // Seq[String]
-      self.filter.foreach { v =>
-        import NotificationConfigurationFilterOps._; result.filter(v.toJava)
-      } // NotificationConfigurationFilter
-
-      result.build()
+  final def withIdAsScala(value: Option[String]): LambdaFunctionConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
     }
+  } // String
 
+  final def withLambdaFunctionArnAsScala(value: Option[String]): LambdaFunctionConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.lambdaFunctionArn(v)
+    }
+  } // String
+
+  final def withEventsAsScala(value: Option[Seq[Event]]): LambdaFunctionConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.events(v.asJava)
+    } // Seq[String]
   }
 
-  implicit class JavaLambdaFunctionConfigurationOps(val self: JavaLambdaFunctionConfiguration) extends AnyVal {
-
-    def toScala: ScalaLambdaFunctionConfiguration = {
-      ScalaLambdaFunctionConfiguration()
-        .withId(Option(self.id)) // String
-        .withLambdaFunctionArn(Option(self.lambdaFunctionArn)) // String
-        .withEvents(Option(self.events).map { v =>
-          import scala.collection.JavaConverters._, EventOps._; v.asScala.map(_.toScala)
-        }) // Seq[String]
-        .withFilter(Option(self.filter).map { v =>
-          import NotificationConfigurationFilterOps._; v.toScala
-        }) // NotificationConfigurationFilter
+  final def withFilterAsScala(value: Option[NotificationConfigurationFilter]): LambdaFunctionConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.filter(v)
     }
+  } // NotificationConfigurationFilter
 
-  }
+}
+
+final class LambdaFunctionConfigurationOps(val self: LambdaFunctionConfiguration) extends AnyVal {
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def lambdaFunctionArnAsScala: Option[String] = Option(self.lambdaFunctionArn) // String
+
+  final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def filterAsScala: Option[NotificationConfigurationFilter] =
+    Option(self.filter) // NotificationConfigurationFilter
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToLambdaFunctionConfigurationOps {
+
+  implicit def toLambdaFunctionConfigurationBuilderOps(
+      v: LambdaFunctionConfiguration.Builder
+  ): LambdaFunctionConfigurationBuilderOps = new LambdaFunctionConfigurationBuilderOps(v)
+
+  implicit def toLambdaFunctionConfigurationOps(v: LambdaFunctionConfiguration): LambdaFunctionConfigurationOps =
+    new LambdaFunctionConfigurationOps(v)
 
 }

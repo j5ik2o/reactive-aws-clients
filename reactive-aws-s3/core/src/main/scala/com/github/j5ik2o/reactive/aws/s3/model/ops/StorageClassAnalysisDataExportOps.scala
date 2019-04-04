@@ -1,43 +1,47 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  StorageClassAnalysisDataExport => ScalaStorageClassAnalysisDataExport,
-  _
+import software.amazon.awssdk.services.s3.model._
+
+final class StorageClassAnalysisDataExportBuilderOps(val self: StorageClassAnalysisDataExport.Builder) extends AnyVal {
+
+  final def withOutputSchemaVersionAsScala(
+      value: Option[StorageClassAnalysisSchemaVersion]
+  ): StorageClassAnalysisDataExport.Builder = {
+    value.fold(self) { v =>
+      self.outputSchemaVersion(v)
+    }
+  } // String
+
+  final def withDestinationAsScala(
+      value: Option[AnalyticsExportDestination]
+  ): StorageClassAnalysisDataExport.Builder = {
+    value.fold(self) { v =>
+      self.destination(v)
+    }
+  } // AnalyticsExportDestination
+
 }
-import software.amazon.awssdk.services.s3.model.{ StorageClassAnalysisDataExport => JavaStorageClassAnalysisDataExport }
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StorageClassAnalysisDataExportOps {
+final class StorageClassAnalysisDataExportOps(val self: StorageClassAnalysisDataExport) extends AnyVal {
 
-  implicit class ScalaStorageClassAnalysisDataExportOps(val self: ScalaStorageClassAnalysisDataExport) extends AnyVal {
+  final def outputSchemaVersionAsScala: Option[StorageClassAnalysisSchemaVersion] =
+    Option(self.outputSchemaVersion) // String
 
-    def toJava: JavaStorageClassAnalysisDataExport = {
-      val result = JavaStorageClassAnalysisDataExport.builder()
-      self.outputSchemaVersion.foreach { v =>
-        import StorageClassAnalysisSchemaVersionOps._; result.outputSchemaVersion(v.toJava)
-      } // String
-      self.destination.foreach { v =>
-        import AnalyticsExportDestinationOps._; result.destination(v.toJava)
-      } // AnalyticsExportDestination
+  final def destinationAsScala: Option[AnalyticsExportDestination] =
+    Option(self.destination) // AnalyticsExportDestination
 
-      result.build()
-    }
+}
 
-  }
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStorageClassAnalysisDataExportOps {
 
-  implicit class JavaStorageClassAnalysisDataExportOps(val self: JavaStorageClassAnalysisDataExport) extends AnyVal {
+  implicit def toStorageClassAnalysisDataExportBuilderOps(
+      v: StorageClassAnalysisDataExport.Builder
+  ): StorageClassAnalysisDataExportBuilderOps = new StorageClassAnalysisDataExportBuilderOps(v)
 
-    def toScala: ScalaStorageClassAnalysisDataExport = {
-      ScalaStorageClassAnalysisDataExport()
-        .withOutputSchemaVersion(Option(self.outputSchemaVersion).map { v =>
-          import StorageClassAnalysisSchemaVersionOps._; v.toScala
-        }) // String
-        .withDestination(Option(self.destination).map { v =>
-          import AnalyticsExportDestinationOps._; v.toScala
-        }) // AnalyticsExportDestination
-    }
-
-  }
+  implicit def toStorageClassAnalysisDataExportOps(
+      v: StorageClassAnalysisDataExport
+  ): StorageClassAnalysisDataExportOps = new StorageClassAnalysisDataExportOps(v)
 
 }

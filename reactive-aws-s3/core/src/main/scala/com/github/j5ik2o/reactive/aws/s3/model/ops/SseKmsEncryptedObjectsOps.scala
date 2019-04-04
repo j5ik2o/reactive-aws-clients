@@ -1,34 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ SseKmsEncryptedObjects => ScalaSseKmsEncryptedObjects, _ }
-import software.amazon.awssdk.services.s3.model.{ SseKmsEncryptedObjects => JavaSseKmsEncryptedObjects }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SseKmsEncryptedObjectsOps {
+final class SseKmsEncryptedObjectsBuilderOps(val self: SseKmsEncryptedObjects.Builder) extends AnyVal {
 
-  implicit class ScalaSseKmsEncryptedObjectsOps(val self: ScalaSseKmsEncryptedObjects) extends AnyVal {
-
-    def toJava: JavaSseKmsEncryptedObjects = {
-      val result = JavaSseKmsEncryptedObjects.builder()
-      self.status.foreach { v =>
-        import SseKmsEncryptedObjectsStatusOps._; result.status(v.toJava)
-      } // String
-
-      result.build()
+  final def withStatusAsScala(value: Option[SseKmsEncryptedObjectsStatus]): SseKmsEncryptedObjects.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaSseKmsEncryptedObjectsOps(val self: JavaSseKmsEncryptedObjects) extends AnyVal {
+final class SseKmsEncryptedObjectsOps(val self: SseKmsEncryptedObjects) extends AnyVal {
 
-    def toScala: ScalaSseKmsEncryptedObjects = {
-      ScalaSseKmsEncryptedObjects()
-        .withStatus(Option(self.status).map { v =>
-          import SseKmsEncryptedObjectsStatusOps._; v.toScala
-        }) // String
-    }
+  final def statusAsScala: Option[SseKmsEncryptedObjectsStatus] = Option(self.status) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSseKmsEncryptedObjectsOps {
+
+  implicit def toSseKmsEncryptedObjectsBuilderOps(v: SseKmsEncryptedObjects.Builder): SseKmsEncryptedObjectsBuilderOps =
+    new SseKmsEncryptedObjectsBuilderOps(v)
+
+  implicit def toSseKmsEncryptedObjectsOps(v: SseKmsEncryptedObjects): SseKmsEncryptedObjectsOps =
+    new SseKmsEncryptedObjectsOps(v)
 
 }

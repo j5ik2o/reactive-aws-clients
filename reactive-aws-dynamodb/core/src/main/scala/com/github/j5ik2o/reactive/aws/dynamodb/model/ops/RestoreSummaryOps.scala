@@ -1,36 +1,54 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ RestoreSummary => ScalaRestoreSummary, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ RestoreSummary => JavaRestoreSummary }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RestoreSummaryOps {
+final class RestoreSummaryBuilderOps(val self: RestoreSummary.Builder) extends AnyVal {
 
-  implicit class ScalaRestoreSummaryOps(val self: ScalaRestoreSummary) extends AnyVal {
-
-    def toJava: JavaRestoreSummary = {
-      val result = JavaRestoreSummary.builder()
-      self.sourceBackupArn.filter(_.nonEmpty).foreach(v => result.sourceBackupArn(v))      // String
-      self.sourceTableArn.filter(_.nonEmpty).foreach(v => result.sourceTableArn(v))        // String
-      self.restoreDateTime.foreach(v => result.restoreDateTime(v))                         // Instant
-      self.restoreInProgress.map(_.booleanValue).foreach(v => result.restoreInProgress(v)) // Boolean
-
-      result.build()
+  final def withSourceBackupArnAsScala(value: Option[String]): RestoreSummary.Builder = {
+    value.fold(self) { v =>
+      self.sourceBackupArn(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaRestoreSummaryOps(val self: JavaRestoreSummary) extends AnyVal {
-
-    def toScala: ScalaRestoreSummary = {
-      ScalaRestoreSummary()
-        .withSourceBackupArn(Option(self.sourceBackupArn)) // String
-        .withSourceTableArn(Option(self.sourceTableArn)) // String
-        .withRestoreDateTime(Option(self.restoreDateTime)) // Instant
-        .withRestoreInProgress(Option(self.restoreInProgress).map(_.booleanValue)) // Boolean
+  final def withSourceTableArnAsScala(value: Option[String]): RestoreSummary.Builder = {
+    value.fold(self) { v =>
+      self.sourceTableArn(v)
     }
+  } // String
 
-  }
+  final def withRestoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreSummary.Builder = {
+    value.fold(self) { v =>
+      self.restoreDateTime(v)
+    }
+  } // Instant
+
+  final def withRestoreInProgressAsScala(value: Option[Boolean]): RestoreSummary.Builder = {
+    value.fold(self) { v =>
+      self.restoreInProgress(v)
+    }
+  } // Boolean
+
+}
+
+final class RestoreSummaryOps(val self: RestoreSummary) extends AnyVal {
+
+  final def sourceBackupArnAsScala: Option[String] = Option(self.sourceBackupArn) // String
+
+  final def sourceTableArnAsScala: Option[String] = Option(self.sourceTableArn) // String
+
+  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // Instant
+
+  final def restoreInProgressAsScala: Option[Boolean] = Option(self.restoreInProgress) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRestoreSummaryOps {
+
+  implicit def toRestoreSummaryBuilderOps(v: RestoreSummary.Builder): RestoreSummaryBuilderOps =
+    new RestoreSummaryBuilderOps(v)
+
+  implicit def toRestoreSummaryOps(v: RestoreSummary): RestoreSummaryOps = new RestoreSummaryOps(v)
 
 }

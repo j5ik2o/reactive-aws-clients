@@ -1,29 +1,44 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  ListBucketAnalyticsConfigurationsRequest => ScalaListBucketAnalyticsConfigurationsRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  ListBucketAnalyticsConfigurationsRequest => JavaListBucketAnalyticsConfigurationsRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListBucketAnalyticsConfigurationsRequestOps {
+final class ListBucketAnalyticsConfigurationsRequestBuilderOps(
+    val self: ListBucketAnalyticsConfigurationsRequest.Builder
+) extends AnyVal {
 
-  implicit class ScalaListBucketAnalyticsConfigurationsRequestOps(
-      val self: ScalaListBucketAnalyticsConfigurationsRequest
-  ) extends AnyVal {
-
-    def toJava: JavaListBucketAnalyticsConfigurationsRequest = {
-      val result = JavaListBucketAnalyticsConfigurationsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))                       // String
-      self.continuationToken.filter(_.nonEmpty).foreach(v => result.continuationToken(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContinuationTokenAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsRequest.Builder = {
+    value.fold(self) { v =>
+      self.continuationToken(v)
+    }
+  } // String
+
+}
+
+final class ListBucketAnalyticsConfigurationsRequestOps(val self: ListBucketAnalyticsConfigurationsRequest)
+    extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListBucketAnalyticsConfigurationsRequestOps {
+
+  implicit def toListBucketAnalyticsConfigurationsRequestBuilderOps(
+      v: ListBucketAnalyticsConfigurationsRequest.Builder
+  ): ListBucketAnalyticsConfigurationsRequestBuilderOps = new ListBucketAnalyticsConfigurationsRequestBuilderOps(v)
+
+  implicit def toListBucketAnalyticsConfigurationsRequestOps(
+      v: ListBucketAnalyticsConfigurationsRequest
+  ): ListBucketAnalyticsConfigurationsRequestOps = new ListBucketAnalyticsConfigurationsRequestOps(v)
 
 }

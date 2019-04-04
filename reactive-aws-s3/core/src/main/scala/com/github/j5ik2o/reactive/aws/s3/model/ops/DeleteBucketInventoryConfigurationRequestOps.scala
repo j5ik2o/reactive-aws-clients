@@ -1,29 +1,44 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  DeleteBucketInventoryConfigurationRequest => ScalaDeleteBucketInventoryConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  DeleteBucketInventoryConfigurationRequest => JavaDeleteBucketInventoryConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteBucketInventoryConfigurationRequestOps {
+final class DeleteBucketInventoryConfigurationRequestBuilderOps(
+    val self: DeleteBucketInventoryConfigurationRequest.Builder
+) extends AnyVal {
 
-  implicit class ScalaDeleteBucketInventoryConfigurationRequestOps(
-      val self: ScalaDeleteBucketInventoryConfigurationRequest
-  ) extends AnyVal {
-
-    def toJava: JavaDeleteBucketInventoryConfigurationRequest = {
-      val result = JavaDeleteBucketInventoryConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))         // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withIdAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
+    }
+  } // String
+
+}
+
+final class DeleteBucketInventoryConfigurationRequestOps(val self: DeleteBucketInventoryConfigurationRequest)
+    extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteBucketInventoryConfigurationRequestOps {
+
+  implicit def toDeleteBucketInventoryConfigurationRequestBuilderOps(
+      v: DeleteBucketInventoryConfigurationRequest.Builder
+  ): DeleteBucketInventoryConfigurationRequestBuilderOps = new DeleteBucketInventoryConfigurationRequestBuilderOps(v)
+
+  implicit def toDeleteBucketInventoryConfigurationRequestOps(
+      v: DeleteBucketInventoryConfigurationRequest
+  ): DeleteBucketInventoryConfigurationRequestOps = new DeleteBucketInventoryConfigurationRequestOps(v)
 
 }

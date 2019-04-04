@@ -1,36 +1,64 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  ListBucketMetricsConfigurationsResponse => ScalaListBucketMetricsConfigurationsResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  ListBucketMetricsConfigurationsResponse => JavaListBucketMetricsConfigurationsResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListBucketMetricsConfigurationsResponseBuilderOps(val self: ListBucketMetricsConfigurationsResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListBucketMetricsConfigurationsResponseOps {
-
-  implicit class JavaListBucketMetricsConfigurationsResponseOps(val self: JavaListBucketMetricsConfigurationsResponse)
-      extends AnyVal {
-
-    def toScala: ScalaListBucketMetricsConfigurationsResponse = {
-      ScalaListBucketMetricsConfigurationsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withIsTruncated(Option(self.isTruncated).map(_.booleanValue)) // Boolean
-        .withContinuationToken(Option(self.continuationToken)) // String
-        .withNextContinuationToken(Option(self.nextContinuationToken)) // String
-        .withMetricsConfigurationList(Option(self.metricsConfigurationList).map { v =>
-          import scala.collection.JavaConverters._, MetricsConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[MetricsConfiguration]
+  final def withIsTruncatedAsScala(value: Option[Boolean]): ListBucketMetricsConfigurationsResponse.Builder = {
+    value.fold(self) { v =>
+      self.isTruncated(v)
     }
+  } // Boolean
 
+  final def withContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsResponse.Builder = {
+    value.fold(self) { v =>
+      self.continuationToken(v)
+    }
+  } // String
+
+  final def withNextContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextContinuationToken(v)
+    }
+  } // String
+
+  final def withMetricsConfigurationListAsScala(
+      value: Option[Seq[MetricsConfiguration]]
+  ): ListBucketMetricsConfigurationsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.metricsConfigurationList(v.asJava)
+    } // Seq[MetricsConfiguration]
   }
+
+}
+
+final class ListBucketMetricsConfigurationsResponseOps(val self: ListBucketMetricsConfigurationsResponse)
+    extends AnyVal {
+
+  final def isTruncatedAsScala: Option[Boolean] = Option(self.isTruncated) // Boolean
+
+  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken) // String
+
+  final def nextContinuationTokenAsScala: Option[String] = Option(self.nextContinuationToken) // String
+
+  final def metricsConfigurationListAsScala: Option[Seq[MetricsConfiguration]] =
+    Option(self.metricsConfigurationList).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[MetricsConfiguration]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListBucketMetricsConfigurationsResponseOps {
+
+  implicit def toListBucketMetricsConfigurationsResponseBuilderOps(
+      v: ListBucketMetricsConfigurationsResponse.Builder
+  ): ListBucketMetricsConfigurationsResponseBuilderOps = new ListBucketMetricsConfigurationsResponseBuilderOps(v)
+
+  implicit def toListBucketMetricsConfigurationsResponseOps(
+      v: ListBucketMetricsConfigurationsResponse
+  ): ListBucketMetricsConfigurationsResponseOps = new ListBucketMetricsConfigurationsResponseOps(v)
 
 }

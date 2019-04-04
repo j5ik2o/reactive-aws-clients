@@ -1,32 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ProvisionedThroughput => ScalaProvisionedThroughput, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ProvisionedThroughput => JavaProvisionedThroughput }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ProvisionedThroughputOps {
+final class ProvisionedThroughputBuilderOps(val self: ProvisionedThroughput.Builder) extends AnyVal {
 
-  implicit class ScalaProvisionedThroughputOps(val self: ScalaProvisionedThroughput) extends AnyVal {
-
-    def toJava: JavaProvisionedThroughput = {
-      val result = JavaProvisionedThroughput.builder()
-      self.readCapacityUnits.map(_.longValue).foreach(v => result.readCapacityUnits(v))   // Long
-      self.writeCapacityUnits.map(_.longValue).foreach(v => result.writeCapacityUnits(v)) // Long
-
-      result.build()
+  final def withReadCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
+    value.fold(self) { v =>
+      self.readCapacityUnits(v)
     }
+  } // Long
 
-  }
-
-  implicit class JavaProvisionedThroughputOps(val self: JavaProvisionedThroughput) extends AnyVal {
-
-    def toScala: ScalaProvisionedThroughput = {
-      ScalaProvisionedThroughput()
-        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.longValue)) // Long
-        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.longValue)) // Long
+  final def withWriteCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
+    value.fold(self) { v =>
+      self.writeCapacityUnits(v)
     }
+  } // Long
 
-  }
+}
+
+final class ProvisionedThroughputOps(val self: ProvisionedThroughput) extends AnyVal {
+
+  final def readCapacityUnitsAsScala: Option[Long] = Option(self.readCapacityUnits) // Long
+
+  final def writeCapacityUnitsAsScala: Option[Long] = Option(self.writeCapacityUnits) // Long
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToProvisionedThroughputOps {
+
+  implicit def toProvisionedThroughputBuilderOps(v: ProvisionedThroughput.Builder): ProvisionedThroughputBuilderOps =
+    new ProvisionedThroughputBuilderOps(v)
+
+  implicit def toProvisionedThroughputOps(v: ProvisionedThroughput): ProvisionedThroughputOps =
+    new ProvisionedThroughputOps(v)
 
 }

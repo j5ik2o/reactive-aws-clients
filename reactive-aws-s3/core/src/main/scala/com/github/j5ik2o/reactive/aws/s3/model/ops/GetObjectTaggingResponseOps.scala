@@ -1,28 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectTaggingResponse => ScalaGetObjectTaggingResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectTaggingResponse => JavaGetObjectTaggingResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetObjectTaggingResponseBuilderOps(val self: GetObjectTaggingResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectTaggingResponseOps {
-
-  implicit class JavaGetObjectTaggingResponseOps(val self: JavaGetObjectTaggingResponse) extends AnyVal {
-
-    def toScala: ScalaGetObjectTaggingResponse = {
-      ScalaGetObjectTaggingResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withVersionId(Option(self.versionId)) // String
-        .withTagSet(Option(self.tagSet).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
+  final def withVersionIdAsScala(value: Option[String]): GetObjectTaggingResponse.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
     }
+  } // String
 
+  final def withTagSetAsScala(value: Option[Seq[Tag]]): GetObjectTaggingResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tagSet(v.asJava)
+    } // Seq[Tag]
   }
+
+}
+
+final class GetObjectTaggingResponseOps(val self: GetObjectTaggingResponse) extends AnyVal {
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectTaggingResponseOps {
+
+  implicit def toGetObjectTaggingResponseBuilderOps(
+      v: GetObjectTaggingResponse.Builder
+  ): GetObjectTaggingResponseBuilderOps = new GetObjectTaggingResponseBuilderOps(v)
+
+  implicit def toGetObjectTaggingResponseOps(v: GetObjectTaggingResponse): GetObjectTaggingResponseOps =
+    new GetObjectTaggingResponseOps(v)
 
 }

@@ -1,30 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DeleteReplicaAction => ScalaDeleteReplicaAction, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DeleteReplicaAction => JavaDeleteReplicaAction }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteReplicaActionOps {
+final class DeleteReplicaActionBuilderOps(val self: DeleteReplicaAction.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteReplicaActionOps(val self: ScalaDeleteReplicaAction) extends AnyVal {
-
-    def toJava: JavaDeleteReplicaAction = {
-      val result = JavaDeleteReplicaAction.builder()
-      self.regionName.filter(_.nonEmpty).foreach(v => result.regionName(v)) // String
-
-      result.build()
+  final def withRegionNameAsScala(value: Option[String]): DeleteReplicaAction.Builder = {
+    value.fold(self) { v =>
+      self.regionName(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaDeleteReplicaActionOps(val self: JavaDeleteReplicaAction) extends AnyVal {
+final class DeleteReplicaActionOps(val self: DeleteReplicaAction) extends AnyVal {
 
-    def toScala: ScalaDeleteReplicaAction = {
-      ScalaDeleteReplicaAction()
-        .withRegionName(Option(self.regionName)) // String
-    }
+  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteReplicaActionOps {
+
+  implicit def toDeleteReplicaActionBuilderOps(v: DeleteReplicaAction.Builder): DeleteReplicaActionBuilderOps =
+    new DeleteReplicaActionBuilderOps(v)
+
+  implicit def toDeleteReplicaActionOps(v: DeleteReplicaAction): DeleteReplicaActionOps = new DeleteReplicaActionOps(v)
 
 }

@@ -1,44 +1,91 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  UpdateGlobalTableSettingsRequest => ScalaUpdateGlobalTableSettingsRequest,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{
-  UpdateGlobalTableSettingsRequest => JavaUpdateGlobalTableSettingsRequest
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object UpdateGlobalTableSettingsRequestOps {
+final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTableSettingsRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaUpdateGlobalTableSettingsRequestOps(val self: ScalaUpdateGlobalTableSettingsRequest)
-      extends AnyVal {
-
-    def toJava: JavaUpdateGlobalTableSettingsRequest = {
-      val result = JavaUpdateGlobalTableSettingsRequest.builder()
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
-      self.globalTableBillingMode.foreach { v =>
-        import BillingModeOps._; result.globalTableBillingMode(v.toJava)
-      } // String
-      self.globalTableProvisionedWriteCapacityUnits
-        .map(_.longValue).foreach(v => result.globalTableProvisionedWriteCapacityUnits(v)) // Long
-      self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate.foreach { v =>
-        import AutoScalingSettingsUpdateOps._;
-        result.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(v.toJava)
-      } // AutoScalingSettingsUpdate
-      self.globalTableGlobalSecondaryIndexSettingsUpdate.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, GlobalTableGlobalSecondaryIndexSettingsUpdateOps._;
-        result.globalTableGlobalSecondaryIndexSettingsUpdate(v.map(_.toJava).asJava)
-      } // Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]
-      self.replicaSettingsUpdate.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ReplicaSettingsUpdateOps._;
-        result.replicaSettingsUpdate(v.map(_.toJava).asJava)
-      } // Seq[ReplicaSettingsUpdate]
-
-      result.build()
+  final def withGlobalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsRequest.Builder = {
+    value.fold(self) { v =>
+      self.globalTableName(v)
     }
+  } // String
 
+  final def withGlobalTableBillingModeAsScala(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest.Builder = {
+    value.fold(self) { v =>
+      self.globalTableBillingMode(v)
+    }
+  } // String
+
+  final def withGlobalTableProvisionedWriteCapacityUnitsAsScala(
+      value: Option[Long]
+  ): UpdateGlobalTableSettingsRequest.Builder = {
+    value.fold(self) { v =>
+      self.globalTableProvisionedWriteCapacityUnits(v)
+    }
+  } // Long
+
+  final def withGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
+      value: Option[AutoScalingSettingsUpdate]
+  ): UpdateGlobalTableSettingsRequest.Builder = {
+    value.fold(self) { v =>
+      self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(v)
+    }
+  } // AutoScalingSettingsUpdate
+
+  final def withGlobalTableGlobalSecondaryIndexSettingsUpdateAsScala(
+      value: Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]]
+  ): UpdateGlobalTableSettingsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.globalTableGlobalSecondaryIndexSettingsUpdate(v.asJava)
+    } // Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]
   }
+
+  final def withReplicaSettingsUpdateAsScala(
+      value: Option[Seq[ReplicaSettingsUpdate]]
+  ): UpdateGlobalTableSettingsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.replicaSettingsUpdate(v.asJava)
+    } // Seq[ReplicaSettingsUpdate]
+  }
+
+}
+
+final class UpdateGlobalTableSettingsRequestOps(val self: UpdateGlobalTableSettingsRequest) extends AnyVal {
+
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+
+  final def globalTableBillingModeAsScala: Option[BillingMode] = Option(self.globalTableBillingMode) // String
+
+  final def globalTableProvisionedWriteCapacityUnitsAsScala: Option[Long] =
+    Option(self.globalTableProvisionedWriteCapacityUnits) // Long
+
+  final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
+    Option(self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+
+  final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala
+    : Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]] =
+    Option(self.globalTableGlobalSecondaryIndexSettingsUpdate).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]
+
+  final def replicaSettingsUpdateAsScala: Option[Seq[ReplicaSettingsUpdate]] = Option(self.replicaSettingsUpdate).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ReplicaSettingsUpdate]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToUpdateGlobalTableSettingsRequestOps {
+
+  implicit def toUpdateGlobalTableSettingsRequestBuilderOps(
+      v: UpdateGlobalTableSettingsRequest.Builder
+  ): UpdateGlobalTableSettingsRequestBuilderOps = new UpdateGlobalTableSettingsRequestBuilderOps(v)
+
+  implicit def toUpdateGlobalTableSettingsRequestOps(
+      v: UpdateGlobalTableSettingsRequest
+  ): UpdateGlobalTableSettingsRequestOps = new UpdateGlobalTableSettingsRequestOps(v)
 
 }

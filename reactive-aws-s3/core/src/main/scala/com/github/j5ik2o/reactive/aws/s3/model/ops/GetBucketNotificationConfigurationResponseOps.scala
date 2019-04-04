@@ -1,40 +1,65 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketNotificationConfigurationResponse => ScalaGetBucketNotificationConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketNotificationConfigurationResponse => JavaGetBucketNotificationConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketNotificationConfigurationResponseBuilderOps(
+    val self: GetBucketNotificationConfigurationResponse.Builder
+) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketNotificationConfigurationResponseOps {
-
-  implicit class JavaGetBucketNotificationConfigurationResponseOps(
-      val self: JavaGetBucketNotificationConfigurationResponse
-  ) extends AnyVal {
-
-    def toScala: ScalaGetBucketNotificationConfigurationResponse = {
-      ScalaGetBucketNotificationConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTopicConfigurations(Option(self.topicConfigurations).map { v =>
-          import scala.collection.JavaConverters._, TopicConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[TopicConfiguration]
-        .withQueueConfigurations(Option(self.queueConfigurations).map { v =>
-          import scala.collection.JavaConverters._, QueueConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[QueueConfiguration]
-        .withLambdaFunctionConfigurations(Option(self.lambdaFunctionConfigurations).map { v =>
-          import scala.collection.JavaConverters._, LambdaFunctionConfigurationOps._; v.asScala.map(_.toScala)
-        }) // Seq[LambdaFunctionConfiguration]
-    }
-
+  final def withTopicConfigurationsAsScala(
+      value: Option[Seq[TopicConfiguration]]
+  ): GetBucketNotificationConfigurationResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.topicConfigurations(v.asJava)
+    } // Seq[TopicConfiguration]
   }
+
+  final def withQueueConfigurationsAsScala(
+      value: Option[Seq[QueueConfiguration]]
+  ): GetBucketNotificationConfigurationResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.queueConfigurations(v.asJava)
+    } // Seq[QueueConfiguration]
+  }
+
+  final def withLambdaFunctionConfigurationsAsScala(
+      value: Option[Seq[LambdaFunctionConfiguration]]
+  ): GetBucketNotificationConfigurationResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.lambdaFunctionConfigurations(v.asJava)
+    } // Seq[LambdaFunctionConfiguration]
+  }
+
+}
+
+final class GetBucketNotificationConfigurationResponseOps(val self: GetBucketNotificationConfigurationResponse)
+    extends AnyVal {
+
+  final def topicConfigurationsAsScala: Option[Seq[TopicConfiguration]] = Option(self.topicConfigurations).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[TopicConfiguration]
+
+  final def queueConfigurationsAsScala: Option[Seq[QueueConfiguration]] = Option(self.queueConfigurations).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[QueueConfiguration]
+
+  final def lambdaFunctionConfigurationsAsScala: Option[Seq[LambdaFunctionConfiguration]] =
+    Option(self.lambdaFunctionConfigurations).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[LambdaFunctionConfiguration]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketNotificationConfigurationResponseOps {
+
+  implicit def toGetBucketNotificationConfigurationResponseBuilderOps(
+      v: GetBucketNotificationConfigurationResponse.Builder
+  ): GetBucketNotificationConfigurationResponseBuilderOps = new GetBucketNotificationConfigurationResponseBuilderOps(v)
+
+  implicit def toGetBucketNotificationConfigurationResponseOps(
+      v: GetBucketNotificationConfigurationResponse
+  ): GetBucketNotificationConfigurationResponseOps = new GetBucketNotificationConfigurationResponseOps(v)
 
 }

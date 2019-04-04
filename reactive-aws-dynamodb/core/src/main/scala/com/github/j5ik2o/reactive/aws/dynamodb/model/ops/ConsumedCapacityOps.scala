@@ -1,56 +1,83 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ ConsumedCapacity => ScalaConsumedCapacity, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ ConsumedCapacity => JavaConsumedCapacity }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ConsumedCapacityOps {
+final class ConsumedCapacityBuilderOps(val self: ConsumedCapacity.Builder) extends AnyVal {
 
-  implicit class ScalaConsumedCapacityOps(val self: ScalaConsumedCapacity) extends AnyVal {
-
-    def toJava: JavaConsumedCapacity = {
-      val result = JavaConsumedCapacity.builder()
-      self.tableName.filter(_.nonEmpty).foreach(v => result.tableName(v))                   // String
-      self.capacityUnits.map(_.doubleValue).foreach(v => result.capacityUnits(v))           // Double
-      self.readCapacityUnits.map(_.doubleValue).foreach(v => result.readCapacityUnits(v))   // Double
-      self.writeCapacityUnits.map(_.doubleValue).foreach(v => result.writeCapacityUnits(v)) // Double
-      self.table.foreach { v =>
-        import CapacityOps._; result.table(v.toJava)
-      } // Capacity
-      self.localSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, CapacityOps._;
-        result.localSecondaryIndexes(v.mapValues(_.toJava).asJava)
-      } // Map[String, Capacity]
-      self.globalSecondaryIndexes.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, CapacityOps._;
-        result.globalSecondaryIndexes(v.mapValues(_.toJava).asJava)
-      } // Map[String, Capacity]
-
-      result.build()
+  final def withTableNameAsScala(value: Option[String]): ConsumedCapacity.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
     }
+  } // String
 
+  final def withCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
+    value.fold(self) { v =>
+      self.capacityUnits(v)
+    }
+  } // Double
+
+  final def withReadCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
+    value.fold(self) { v =>
+      self.readCapacityUnits(v)
+    }
+  } // Double
+
+  final def withWriteCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
+    value.fold(self) { v =>
+      self.writeCapacityUnits(v)
+    }
+  } // Double
+
+  final def withTableAsScala(value: Option[Capacity]): ConsumedCapacity.Builder = {
+    value.fold(self) { v =>
+      self.table(v)
+    }
+  } // Capacity
+
+  final def withLocalSecondaryIndexesAsScala(value: Option[Map[String, Capacity]]): ConsumedCapacity.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.localSecondaryIndexes(v.asJava)
+    } // Map[String, Capacity]
   }
 
-  implicit class JavaConsumedCapacityOps(val self: JavaConsumedCapacity) extends AnyVal {
-
-    def toScala: ScalaConsumedCapacity = {
-      ScalaConsumedCapacity()
-        .withTableName(Option(self.tableName)) // String
-        .withCapacityUnits(Option(self.capacityUnits).map(_.doubleValue)) // Double
-        .withReadCapacityUnits(Option(self.readCapacityUnits).map(_.doubleValue)) // Double
-        .withWriteCapacityUnits(Option(self.writeCapacityUnits).map(_.doubleValue)) // Double
-        .withTable(Option(self.table).map { v =>
-          import CapacityOps._; v.toScala
-        }) // Capacity
-        .withLocalSecondaryIndexes(Option(self.localSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._, CapacityOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, Capacity]
-        .withGlobalSecondaryIndexes(Option(self.globalSecondaryIndexes).map { v =>
-          import scala.collection.JavaConverters._, CapacityOps._; v.asScala.toMap.mapValues(_.toScala)
-        }) // Map[String, Capacity]
-    }
-
+  final def withGlobalSecondaryIndexesAsScala(value: Option[Map[String, Capacity]]): ConsumedCapacity.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.globalSecondaryIndexes(v.asJava)
+    } // Map[String, Capacity]
   }
+
+}
+
+final class ConsumedCapacityOps(val self: ConsumedCapacity) extends AnyVal {
+
+  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+
+  final def capacityUnitsAsScala: Option[Double] = Option(self.capacityUnits) // Double
+
+  final def readCapacityUnitsAsScala: Option[Double] = Option(self.readCapacityUnits) // Double
+
+  final def writeCapacityUnitsAsScala: Option[Double] = Option(self.writeCapacityUnits) // Double
+
+  final def tableAsScala: Option[Capacity] = Option(self.table) // Capacity
+
+  final def localSecondaryIndexesAsScala: Option[Map[String, Capacity]] = Option(self.localSecondaryIndexes).map { v =>
+    import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, Capacity]
+
+  final def globalSecondaryIndexesAsScala: Option[Map[String, Capacity]] = Option(self.globalSecondaryIndexes).map {
+    v =>
+      import scala.collection.JavaConverters._; v.asScala.toMap
+  } // Map[String, Capacity]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToConsumedCapacityOps {
+
+  implicit def toConsumedCapacityBuilderOps(v: ConsumedCapacity.Builder): ConsumedCapacityBuilderOps =
+    new ConsumedCapacityBuilderOps(v)
+
+  implicit def toConsumedCapacityOps(v: ConsumedCapacity): ConsumedCapacityOps = new ConsumedCapacityOps(v)
 
 }

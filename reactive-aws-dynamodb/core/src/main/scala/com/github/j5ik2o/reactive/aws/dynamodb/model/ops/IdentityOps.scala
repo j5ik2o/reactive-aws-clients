@@ -1,32 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ Identity => ScalaIdentity, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ Identity => JavaIdentity }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object IdentityOps {
+final class IdentityBuilderOps(val self: Identity.Builder) extends AnyVal {
 
-  implicit class ScalaIdentityOps(val self: ScalaIdentity) extends AnyVal {
-
-    def toJava: JavaIdentity = {
-      val result = JavaIdentity.builder()
-      self.principalId.filter(_.nonEmpty).foreach(v => result.principalId(v)) // String
-      self.`type`.filter(_.nonEmpty).foreach(v => result.`type`(v))           // String
-
-      result.build()
+  final def withPrincipalIdAsScala(value: Option[String]): Identity.Builder = {
+    value.fold(self) { v =>
+      self.principalId(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaIdentityOps(val self: JavaIdentity) extends AnyVal {
-
-    def toScala: ScalaIdentity = {
-      ScalaIdentity()
-        .withPrincipalId(Option(self.principalId)) // String
-        .withType(Option(self.`type`)) // String
+  final def withTypeAsScala(value: Option[String]): Identity.Builder = {
+    value.fold(self) { v =>
+      self.`type`(v)
     }
+  } // String
 
-  }
+}
+
+final class IdentityOps(val self: Identity) extends AnyVal {
+
+  final def principalIdAsScala: Option[String] = Option(self.principalId) // String
+
+  final def typeAsScala: Option[String] = Option(self.`type`) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToIdentityOps {
+
+  implicit def toIdentityBuilderOps(v: Identity.Builder): IdentityBuilderOps = new IdentityBuilderOps(v)
+
+  implicit def toIdentityOps(v: Identity): IdentityOps = new IdentityOps(v)
 
 }

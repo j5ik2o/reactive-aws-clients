@@ -1,20 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeEndpointsRequest => ScalaDescribeEndpointsRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeEndpointsRequest => JavaDescribeEndpointsRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeEndpointsRequestOps {
+final class DescribeEndpointsRequestBuilderOps(val self: DescribeEndpointsRequest.Builder) extends AnyVal {}
 
-  implicit class ScalaDescribeEndpointsRequestOps(val self: ScalaDescribeEndpointsRequest) extends AnyVal {
+final class DescribeEndpointsRequestOps(val self: DescribeEndpointsRequest) extends AnyVal {}
 
-    def toJava: JavaDescribeEndpointsRequest = {
-      val result = JavaDescribeEndpointsRequest.builder()
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeEndpointsRequestOps {
 
-      result.build()
-    }
+  implicit def toDescribeEndpointsRequestBuilderOps(
+      v: DescribeEndpointsRequest.Builder
+  ): DescribeEndpointsRequestBuilderOps = new DescribeEndpointsRequestBuilderOps(v)
 
-  }
+  implicit def toDescribeEndpointsRequestOps(v: DescribeEndpointsRequest): DescribeEndpointsRequestOps =
+    new DescribeEndpointsRequestOps(v)
 
 }

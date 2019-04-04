@@ -1,31 +1,53 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketInventoryConfigurationRequest => ScalaPutBucketInventoryConfigurationRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketInventoryConfigurationRequest => JavaPutBucketInventoryConfigurationRequest
-}
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketInventoryConfigurationRequestOps {
+final class PutBucketInventoryConfigurationRequestBuilderOps(val self: PutBucketInventoryConfigurationRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaPutBucketInventoryConfigurationRequestOps(val self: ScalaPutBucketInventoryConfigurationRequest)
-      extends AnyVal {
-
-    def toJava: JavaPutBucketInventoryConfigurationRequest = {
-      val result = JavaPutBucketInventoryConfigurationRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))         // String
-      self.inventoryConfiguration.foreach { v =>
-        import InventoryConfigurationOps._; result.inventoryConfiguration(v.toJava)
-      } // InventoryConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withIdAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
+    }
+  } // String
+
+  final def withInventoryConfigurationAsScala(
+      value: Option[InventoryConfiguration]
+  ): PutBucketInventoryConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.inventoryConfiguration(v)
+    }
+  } // InventoryConfiguration
+
+}
+
+final class PutBucketInventoryConfigurationRequestOps(val self: PutBucketInventoryConfigurationRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def inventoryConfigurationAsScala: Option[InventoryConfiguration] =
+    Option(self.inventoryConfiguration) // InventoryConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketInventoryConfigurationRequestOps {
+
+  implicit def toPutBucketInventoryConfigurationRequestBuilderOps(
+      v: PutBucketInventoryConfigurationRequest.Builder
+  ): PutBucketInventoryConfigurationRequestBuilderOps = new PutBucketInventoryConfigurationRequestBuilderOps(v)
+
+  implicit def toPutBucketInventoryConfigurationRequestOps(
+      v: PutBucketInventoryConfigurationRequest
+  ): PutBucketInventoryConfigurationRequestOps = new PutBucketInventoryConfigurationRequestOps(v)
 
 }

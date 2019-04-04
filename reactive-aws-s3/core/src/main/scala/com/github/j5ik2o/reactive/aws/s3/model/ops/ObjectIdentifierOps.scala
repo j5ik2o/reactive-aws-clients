@@ -1,32 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ObjectIdentifier => ScalaObjectIdentifier, _ }
-import software.amazon.awssdk.services.s3.model.{ ObjectIdentifier => JavaObjectIdentifier }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ObjectIdentifierOps {
+final class ObjectIdentifierBuilderOps(val self: ObjectIdentifier.Builder) extends AnyVal {
 
-  implicit class ScalaObjectIdentifierOps(val self: ScalaObjectIdentifier) extends AnyVal {
-
-    def toJava: JavaObjectIdentifier = {
-      val result = JavaObjectIdentifier.builder()
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))             // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v)) // String
-
-      result.build()
+  final def withKeyAsScala(value: Option[String]): ObjectIdentifier.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaObjectIdentifierOps(val self: JavaObjectIdentifier) extends AnyVal {
-
-    def toScala: ScalaObjectIdentifier = {
-      ScalaObjectIdentifier()
-        .withKey(Option(self.key)) // String
-        .withVersionId(Option(self.versionId)) // String
+  final def withVersionIdAsScala(value: Option[String]): ObjectIdentifier.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
     }
+  } // String
 
-  }
+}
+
+final class ObjectIdentifierOps(val self: ObjectIdentifier) extends AnyVal {
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToObjectIdentifierOps {
+
+  implicit def toObjectIdentifierBuilderOps(v: ObjectIdentifier.Builder): ObjectIdentifierBuilderOps =
+    new ObjectIdentifierBuilderOps(v)
+
+  implicit def toObjectIdentifierOps(v: ObjectIdentifier): ObjectIdentifierOps = new ObjectIdentifierOps(v)
 
 }

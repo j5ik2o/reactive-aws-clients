@@ -1,30 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ InventoryFilter => ScalaInventoryFilter, _ }
-import software.amazon.awssdk.services.s3.model.{ InventoryFilter => JavaInventoryFilter }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object InventoryFilterOps {
+final class InventoryFilterBuilderOps(val self: InventoryFilter.Builder) extends AnyVal {
 
-  implicit class ScalaInventoryFilterOps(val self: ScalaInventoryFilter) extends AnyVal {
-
-    def toJava: JavaInventoryFilter = {
-      val result = JavaInventoryFilter.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): InventoryFilter.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaInventoryFilterOps(val self: JavaInventoryFilter) extends AnyVal {
+final class InventoryFilterOps(val self: InventoryFilter) extends AnyVal {
 
-    def toScala: ScalaInventoryFilter = {
-      ScalaInventoryFilter()
-        .withPrefix(Option(self.prefix)) // String
-    }
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToInventoryFilterOps {
+
+  implicit def toInventoryFilterBuilderOps(v: InventoryFilter.Builder): InventoryFilterBuilderOps =
+    new InventoryFilterBuilderOps(v)
+
+  implicit def toInventoryFilterOps(v: InventoryFilter): InventoryFilterOps = new InventoryFilterOps(v)
 
 }

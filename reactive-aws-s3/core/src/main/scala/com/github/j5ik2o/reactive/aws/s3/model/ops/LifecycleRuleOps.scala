@@ -1,75 +1,107 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ LifecycleRule => ScalaLifecycleRule, _ }
-import software.amazon.awssdk.services.s3.model.{ LifecycleRule => JavaLifecycleRule }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object LifecycleRuleOps {
+final class LifecycleRuleBuilderOps(val self: LifecycleRule.Builder) extends AnyVal {
 
-  implicit class ScalaLifecycleRuleOps(val self: ScalaLifecycleRule) extends AnyVal {
-
-    def toJava: JavaLifecycleRule = {
-      val result = JavaLifecycleRule.builder()
-      self.expiration.foreach { v =>
-        import LifecycleExpirationOps._; result.expiration(v.toJava)
-      } // LifecycleExpiration
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v))         // String
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.filter.foreach { v =>
-        import LifecycleRuleFilterOps._; result.filter(v.toJava)
-      } // LifecycleRuleFilter
-      self.status.foreach { v =>
-        import ExpirationStatusOps._; result.status(v.toJava)
-      } // String
-      self.transitions.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, TransitionOps._; result.transitions(v.map(_.toJava).asJava)
-      } // Seq[Transition]
-      self.noncurrentVersionTransitions.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, NoncurrentVersionTransitionOps._;
-        result.noncurrentVersionTransitions(v.map(_.toJava).asJava)
-      } // Seq[NoncurrentVersionTransition]
-      self.noncurrentVersionExpiration.foreach { v =>
-        import NoncurrentVersionExpirationOps._; result.noncurrentVersionExpiration(v.toJava)
-      } // NoncurrentVersionExpiration
-      self.abortIncompleteMultipartUpload.foreach { v =>
-        import AbortIncompleteMultipartUploadOps._; result.abortIncompleteMultipartUpload(v.toJava)
-      } // AbortIncompleteMultipartUpload
-
-      result.build()
+  final def withExpirationAsScala(value: Option[LifecycleExpiration]): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.expiration(v)
     }
+  } // LifecycleExpiration
 
+  final def withIdAsScala(value: Option[String]): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
+    }
+  } // String
+
+  final def withPrefixAsScala(value: Option[String]): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
+    }
+  } // String
+
+  final def withFilterAsScala(value: Option[LifecycleRuleFilter]): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.filter(v)
+    }
+  } // LifecycleRuleFilter
+
+  final def withStatusAsScala(value: Option[ExpirationStatus]): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
+    }
+  } // String
+
+  final def withTransitionsAsScala(value: Option[Seq[Transition]]): LifecycleRule.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.transitions(v.asJava)
+    } // Seq[Transition]
   }
 
-  implicit class JavaLifecycleRuleOps(val self: JavaLifecycleRule) extends AnyVal {
-
-    def toScala: ScalaLifecycleRule = {
-      ScalaLifecycleRule()
-        .withExpiration(Option(self.expiration).map { v =>
-          import LifecycleExpirationOps._; v.toScala
-        }) // LifecycleExpiration
-        .withId(Option(self.id)) // String
-        .withPrefix(Option(self.prefix)) // String
-        .withFilter(Option(self.filter).map { v =>
-          import LifecycleRuleFilterOps._; v.toScala
-        }) // LifecycleRuleFilter
-        .withStatus(Option(self.status).map { v =>
-          import ExpirationStatusOps._; v.toScala
-        }) // String
-        .withTransitions(Option(self.transitions).map { v =>
-          import scala.collection.JavaConverters._, TransitionOps._; v.asScala.map(_.toScala)
-        }) // Seq[Transition]
-        .withNoncurrentVersionTransitions(Option(self.noncurrentVersionTransitions).map { v =>
-          import scala.collection.JavaConverters._, NoncurrentVersionTransitionOps._; v.asScala.map(_.toScala)
-        }) // Seq[NoncurrentVersionTransition]
-        .withNoncurrentVersionExpiration(Option(self.noncurrentVersionExpiration).map { v =>
-          import NoncurrentVersionExpirationOps._; v.toScala
-        }) // NoncurrentVersionExpiration
-        .withAbortIncompleteMultipartUpload(Option(self.abortIncompleteMultipartUpload).map { v =>
-          import AbortIncompleteMultipartUploadOps._; v.toScala
-        }) // AbortIncompleteMultipartUpload
-    }
-
+  final def withNoncurrentVersionTransitionsAsScala(
+      value: Option[Seq[NoncurrentVersionTransition]]
+  ): LifecycleRule.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.noncurrentVersionTransitions(v.asJava)
+    } // Seq[NoncurrentVersionTransition]
   }
+
+  final def withNoncurrentVersionExpirationAsScala(
+      value: Option[NoncurrentVersionExpiration]
+  ): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.noncurrentVersionExpiration(v)
+    }
+  } // NoncurrentVersionExpiration
+
+  final def withAbortIncompleteMultipartUploadAsScala(
+      value: Option[AbortIncompleteMultipartUpload]
+  ): LifecycleRule.Builder = {
+    value.fold(self) { v =>
+      self.abortIncompleteMultipartUpload(v)
+    }
+  } // AbortIncompleteMultipartUpload
+
+}
+
+final class LifecycleRuleOps(val self: LifecycleRule) extends AnyVal {
+
+  final def expirationAsScala: Option[LifecycleExpiration] = Option(self.expiration) // LifecycleExpiration
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def filterAsScala: Option[LifecycleRuleFilter] = Option(self.filter) // LifecycleRuleFilter
+
+  final def statusAsScala: Option[ExpirationStatus] = Option(self.status) // String
+
+  final def transitionsAsScala: Option[Seq[Transition]] = Option(self.transitions).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Transition]
+
+  final def noncurrentVersionTransitionsAsScala: Option[Seq[NoncurrentVersionTransition]] =
+    Option(self.noncurrentVersionTransitions).map { v =>
+      import scala.collection.JavaConverters._; v.asScala
+    } // Seq[NoncurrentVersionTransition]
+
+  final def noncurrentVersionExpirationAsScala: Option[NoncurrentVersionExpiration] =
+    Option(self.noncurrentVersionExpiration) // NoncurrentVersionExpiration
+
+  final def abortIncompleteMultipartUploadAsScala: Option[AbortIncompleteMultipartUpload] =
+    Option(self.abortIncompleteMultipartUpload) // AbortIncompleteMultipartUpload
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToLifecycleRuleOps {
+
+  implicit def toLifecycleRuleBuilderOps(v: LifecycleRule.Builder): LifecycleRuleBuilderOps =
+    new LifecycleRuleBuilderOps(v)
+
+  implicit def toLifecycleRuleOps(v: LifecycleRule): LifecycleRuleOps = new LifecycleRuleOps(v)
 
 }

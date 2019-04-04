@@ -1,27 +1,64 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ GetShardIteratorRequest => ScalaGetShardIteratorRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ GetShardIteratorRequest => JavaGetShardIteratorRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetShardIteratorRequestOps {
+final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetShardIteratorRequestOps(val self: ScalaGetShardIteratorRequest) extends AnyVal {
-
-    def toJava: JavaGetShardIteratorRequest = {
-      val result = JavaGetShardIteratorRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v)) // String
-      self.shardId.filter(_.nonEmpty).foreach(v => result.shardId(v))       // String
-      self.shardIteratorType.foreach { v =>
-        import ShardIteratorTypeOps._; result.shardIteratorType(v.toJava)
-      } // String
-      self.startingSequenceNumber.filter(_.nonEmpty).foreach(v => result.startingSequenceNumber(v)) // String
-      self.timestamp.foreach(v => result.timestamp(v))                                              // Instant
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withShardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+    value.fold(self) { v =>
+      self.shardId(v)
+    }
+  } // String
+
+  final def withShardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
+    value.fold(self) { v =>
+      self.shardIteratorType(v)
+    }
+  } // String
+
+  final def withStartingSequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+    value.fold(self) { v =>
+      self.startingSequenceNumber(v)
+    }
+  } // String
+
+  final def withTimestampAsScala(value: Option[java.time.Instant]): GetShardIteratorRequest.Builder = {
+    value.fold(self) { v =>
+      self.timestamp(v)
+    }
+  } // Instant
+
+}
+
+final class GetShardIteratorRequestOps(val self: GetShardIteratorRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+
+  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType) // String
+
+  final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber) // String
+
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetShardIteratorRequestOps {
+
+  implicit def toGetShardIteratorRequestBuilderOps(
+      v: GetShardIteratorRequest.Builder
+  ): GetShardIteratorRequestBuilderOps = new GetShardIteratorRequestBuilderOps(v)
+
+  implicit def toGetShardIteratorRequestOps(v: GetShardIteratorRequest): GetShardIteratorRequestOps =
+    new GetShardIteratorRequestOps(v)
 
 }

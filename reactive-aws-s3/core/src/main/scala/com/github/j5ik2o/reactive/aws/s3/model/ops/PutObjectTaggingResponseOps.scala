@@ -1,25 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutObjectTaggingResponse => ScalaPutObjectTaggingResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ PutObjectTaggingResponse => JavaPutObjectTaggingResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutObjectTaggingResponseBuilderOps(val self: PutObjectTaggingResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutObjectTaggingResponseOps {
-
-  implicit class JavaPutObjectTaggingResponseOps(val self: JavaPutObjectTaggingResponse) extends AnyVal {
-
-    def toScala: ScalaPutObjectTaggingResponse = {
-      ScalaPutObjectTaggingResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withVersionId(Option(self.versionId)) // String
+  final def withVersionIdAsScala(value: Option[String]): PutObjectTaggingResponse.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
     }
+  } // String
 
-  }
+}
+
+final class PutObjectTaggingResponseOps(val self: PutObjectTaggingResponse) extends AnyVal {
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutObjectTaggingResponseOps {
+
+  implicit def toPutObjectTaggingResponseBuilderOps(
+      v: PutObjectTaggingResponse.Builder
+  ): PutObjectTaggingResponseBuilderOps = new PutObjectTaggingResponseBuilderOps(v)
+
+  implicit def toPutObjectTaggingResponseOps(v: PutObjectTaggingResponse): PutObjectTaggingResponseOps =
+    new PutObjectTaggingResponseOps(v)
 
 }

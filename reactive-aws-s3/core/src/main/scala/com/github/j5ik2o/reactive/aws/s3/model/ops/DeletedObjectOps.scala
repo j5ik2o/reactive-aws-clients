@@ -1,36 +1,54 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeletedObject => ScalaDeletedObject, _ }
-import software.amazon.awssdk.services.s3.model.{ DeletedObject => JavaDeletedObject }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeletedObjectOps {
+final class DeletedObjectBuilderOps(val self: DeletedObject.Builder) extends AnyVal {
 
-  implicit class ScalaDeletedObjectOps(val self: ScalaDeletedObject) extends AnyVal {
-
-    def toJava: JavaDeletedObject = {
-      val result = JavaDeletedObject.builder()
-      self.key.filter(_.nonEmpty).foreach(v => result.key(v))                                     // String
-      self.versionId.filter(_.nonEmpty).foreach(v => result.versionId(v))                         // String
-      self.deleteMarker.map(_.booleanValue).foreach(v => result.deleteMarker(v))                  // Boolean
-      self.deleteMarkerVersionId.filter(_.nonEmpty).foreach(v => result.deleteMarkerVersionId(v)) // String
-
-      result.build()
+  final def withKeyAsScala(value: Option[String]): DeletedObject.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaDeletedObjectOps(val self: JavaDeletedObject) extends AnyVal {
-
-    def toScala: ScalaDeletedObject = {
-      ScalaDeletedObject()
-        .withKey(Option(self.key)) // String
-        .withVersionId(Option(self.versionId)) // String
-        .withDeleteMarker(Option(self.deleteMarker).map(_.booleanValue)) // Boolean
-        .withDeleteMarkerVersionId(Option(self.deleteMarkerVersionId)) // String
+  final def withVersionIdAsScala(value: Option[String]): DeletedObject.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
     }
+  } // String
 
-  }
+  final def withDeleteMarkerAsScala(value: Option[Boolean]): DeletedObject.Builder = {
+    value.fold(self) { v =>
+      self.deleteMarker(v)
+    }
+  } // Boolean
+
+  final def withDeleteMarkerVersionIdAsScala(value: Option[String]): DeletedObject.Builder = {
+    value.fold(self) { v =>
+      self.deleteMarkerVersionId(v)
+    }
+  } // String
+
+}
+
+final class DeletedObjectOps(val self: DeletedObject) extends AnyVal {
+
+  final def keyAsScala: Option[String] = Option(self.key) // String
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def deleteMarkerAsScala: Option[Boolean] = Option(self.deleteMarker) // Boolean
+
+  final def deleteMarkerVersionIdAsScala: Option[String] = Option(self.deleteMarkerVersionId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeletedObjectOps {
+
+  implicit def toDeletedObjectBuilderOps(v: DeletedObject.Builder): DeletedObjectBuilderOps =
+    new DeletedObjectBuilderOps(v)
+
+  implicit def toDeletedObjectOps(v: DeletedObject): DeletedObjectOps = new DeletedObjectOps(v)
 
 }

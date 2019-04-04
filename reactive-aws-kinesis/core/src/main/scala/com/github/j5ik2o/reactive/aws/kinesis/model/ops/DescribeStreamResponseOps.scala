@@ -1,27 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DescribeStreamResponse => ScalaDescribeStreamResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ DescribeStreamResponse => JavaDescribeStreamResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeStreamResponseBuilderOps(val self: DescribeStreamResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeStreamResponseOps {
-
-  implicit class JavaDescribeStreamResponseOps(val self: JavaDescribeStreamResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeStreamResponse = {
-      ScalaDescribeStreamResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withStreamDescription(Option(self.streamDescription).map { v =>
-          import StreamDescriptionOps._; v.toScala
-        }) // StreamDescription
+  final def withStreamDescriptionAsScala(value: Option[StreamDescription]): DescribeStreamResponse.Builder = {
+    value.fold(self) { v =>
+      self.streamDescription(v)
     }
+  } // StreamDescription
 
-  }
+}
+
+final class DescribeStreamResponseOps(val self: DescribeStreamResponse) extends AnyVal {
+
+  final def streamDescriptionAsScala: Option[StreamDescription] = Option(self.streamDescription) // StreamDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeStreamResponseOps {
+
+  implicit def toDescribeStreamResponseBuilderOps(v: DescribeStreamResponse.Builder): DescribeStreamResponseBuilderOps =
+    new DescribeStreamResponseBuilderOps(v)
+
+  implicit def toDescribeStreamResponseOps(v: DescribeStreamResponse): DescribeStreamResponseOps =
+    new DescribeStreamResponseOps(v)
 
 }

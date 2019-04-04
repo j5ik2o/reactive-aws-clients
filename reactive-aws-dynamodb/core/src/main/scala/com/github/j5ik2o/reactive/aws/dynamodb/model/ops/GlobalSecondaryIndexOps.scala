@@ -1,48 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GlobalSecondaryIndex => ScalaGlobalSecondaryIndex, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ GlobalSecondaryIndex => JavaGlobalSecondaryIndex }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GlobalSecondaryIndexOps {
+final class GlobalSecondaryIndexBuilderOps(val self: GlobalSecondaryIndex.Builder) extends AnyVal {
 
-  implicit class ScalaGlobalSecondaryIndexOps(val self: ScalaGlobalSecondaryIndex) extends AnyVal {
-
-    def toJava: JavaGlobalSecondaryIndex = {
-      val result = JavaGlobalSecondaryIndex.builder()
-      self.indexName.filter(_.nonEmpty).foreach(v => result.indexName(v)) // String
-      self.keySchema.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, KeySchemaElementOps._; result.keySchema(v.map(_.toJava).asJava)
-      } // Seq[KeySchemaElement]
-      self.projection.foreach { v =>
-        import ProjectionOps._; result.projection(v.toJava)
-      } // Projection
-      self.provisionedThroughput.foreach { v =>
-        import ProvisionedThroughputOps._; result.provisionedThroughput(v.toJava)
-      } // ProvisionedThroughput
-
-      result.build()
+  final def withIndexNameAsScala(value: Option[String]): GlobalSecondaryIndex.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
     }
+  } // String
 
+  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndex.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+    } // Seq[KeySchemaElement]
   }
 
-  implicit class JavaGlobalSecondaryIndexOps(val self: JavaGlobalSecondaryIndex) extends AnyVal {
-
-    def toScala: ScalaGlobalSecondaryIndex = {
-      ScalaGlobalSecondaryIndex()
-        .withIndexName(Option(self.indexName)) // String
-        .withKeySchema(Option(self.keySchema).map { v =>
-          import scala.collection.JavaConverters._, KeySchemaElementOps._; v.asScala.map(_.toScala)
-        }) // Seq[KeySchemaElement]
-        .withProjection(Option(self.projection).map { v =>
-          import ProjectionOps._; v.toScala
-        }) // Projection
-        .withProvisionedThroughput(Option(self.provisionedThroughput).map { v =>
-          import ProvisionedThroughputOps._; v.toScala
-        }) // ProvisionedThroughput
+  final def withProjectionAsScala(value: Option[Projection]): GlobalSecondaryIndex.Builder = {
+    value.fold(self) { v =>
+      self.projection(v)
     }
+  } // Projection
 
-  }
+  final def withProvisionedThroughputAsScala(value: Option[ProvisionedThroughput]): GlobalSecondaryIndex.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughput(v)
+    }
+  } // ProvisionedThroughput
+
+}
+
+final class GlobalSecondaryIndexOps(val self: GlobalSecondaryIndex) extends AnyVal {
+
+  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[KeySchemaElement]
+
+  final def projectionAsScala: Option[Projection] = Option(self.projection) // Projection
+
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
+    Option(self.provisionedThroughput) // ProvisionedThroughput
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGlobalSecondaryIndexOps {
+
+  implicit def toGlobalSecondaryIndexBuilderOps(v: GlobalSecondaryIndex.Builder): GlobalSecondaryIndexBuilderOps =
+    new GlobalSecondaryIndexBuilderOps(v)
+
+  implicit def toGlobalSecondaryIndexOps(v: GlobalSecondaryIndex): GlobalSecondaryIndexOps =
+    new GlobalSecondaryIndexOps(v)
 
 }

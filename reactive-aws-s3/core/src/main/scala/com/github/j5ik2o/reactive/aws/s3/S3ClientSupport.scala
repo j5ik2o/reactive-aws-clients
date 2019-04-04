@@ -3,8 +3,8 @@ package com.github.j5ik2o.reactive.aws.s3
 import java.io.File
 import java.nio.file.Path
 
-import com.github.j5ik2o.reactive.aws.s3.model._
 import software.amazon.awssdk.core.ResponseBytes
+import software.amazon.awssdk.services.s3.model._
 
 trait S3ClientSupport[M[_]] { this: S3Client[M] =>
 

@@ -1,30 +1,29 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ JSONOutput => ScalaJSONOutput, _ }
-import software.amazon.awssdk.services.s3.model.{ JSONOutput => JavaJSONOutput }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object JSONOutputOps {
+final class JSONOutputBuilderOps(val self: JSONOutput.Builder) extends AnyVal {
 
-  implicit class ScalaJSONOutputOps(val self: ScalaJSONOutput) extends AnyVal {
-
-    def toJava: JavaJSONOutput = {
-      val result = JavaJSONOutput.builder()
-      self.recordDelimiter.filter(_.nonEmpty).foreach(v => result.recordDelimiter(v)) // String
-
-      result.build()
+  final def withRecordDelimiterAsScala(value: Option[String]): JSONOutput.Builder = {
+    value.fold(self) { v =>
+      self.recordDelimiter(v)
     }
+  } // String
 
-  }
+}
 
-  implicit class JavaJSONOutputOps(val self: JavaJSONOutput) extends AnyVal {
+final class JSONOutputOps(val self: JSONOutput) extends AnyVal {
 
-    def toScala: ScalaJSONOutput = {
-      ScalaJSONOutput()
-        .withRecordDelimiter(Option(self.recordDelimiter)) // String
-    }
+  final def recordDelimiterAsScala: Option[String] = Option(self.recordDelimiter) // String
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToJSONOutputOps {
+
+  implicit def toJSONOutputBuilderOps(v: JSONOutput.Builder): JSONOutputBuilderOps = new JSONOutputBuilderOps(v)
+
+  implicit def toJSONOutputOps(v: JSONOutput): JSONOutputOps = new JSONOutputOps(v)
 
 }

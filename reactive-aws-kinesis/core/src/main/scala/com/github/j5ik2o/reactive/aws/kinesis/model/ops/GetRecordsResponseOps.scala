@@ -1,29 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ GetRecordsResponse => ScalaGetRecordsResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ GetRecordsResponse => JavaGetRecordsResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetRecordsResponseBuilderOps(val self: GetRecordsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetRecordsResponseOps {
-
-  implicit class JavaGetRecordsResponseOps(val self: JavaGetRecordsResponse) extends AnyVal {
-
-    def toScala: ScalaGetRecordsResponse = {
-      ScalaGetRecordsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRecords(Option(self.records).map { v =>
-          import scala.collection.JavaConverters._, RecordOps._; v.asScala.map(_.toScala)
-        }) // Seq[Record]
-        .withNextShardIterator(Option(self.nextShardIterator)) // String
-        .withMillisBehindLatest(Option(self.millisBehindLatest).map(_.longValue)) // Long
-    }
-
+  final def withRecordsAsScala(value: Option[Seq[Record]]): GetRecordsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.records(v.asJava)
+    } // Seq[Record]
   }
+
+  final def withNextShardIteratorAsScala(value: Option[String]): GetRecordsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextShardIterator(v)
+    }
+  } // String
+
+  final def withMillisBehindLatestAsScala(value: Option[Long]): GetRecordsResponse.Builder = {
+    value.fold(self) { v =>
+      self.millisBehindLatest(v)
+    }
+  } // Long
+
+}
+
+final class GetRecordsResponseOps(val self: GetRecordsResponse) extends AnyVal {
+
+  final def recordsAsScala: Option[Seq[Record]] = Option(self.records).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Record]
+
+  final def nextShardIteratorAsScala: Option[String] = Option(self.nextShardIterator) // String
+
+  final def millisBehindLatestAsScala: Option[Long] = Option(self.millisBehindLatest) // Long
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetRecordsResponseOps {
+
+  implicit def toGetRecordsResponseBuilderOps(v: GetRecordsResponse.Builder): GetRecordsResponseBuilderOps =
+    new GetRecordsResponseBuilderOps(v)
+
+  implicit def toGetRecordsResponseOps(v: GetRecordsResponse): GetRecordsResponseOps = new GetRecordsResponseOps(v)
 
 }

@@ -1,29 +1,47 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ DeleteObjectResponse => ScalaDeleteObjectResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ DeleteObjectResponse => JavaDeleteObjectResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteObjectResponseBuilderOps(val self: DeleteObjectResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteObjectResponseOps {
-
-  implicit class JavaDeleteObjectResponseOps(val self: JavaDeleteObjectResponse) extends AnyVal {
-
-    def toScala: ScalaDeleteObjectResponse = {
-      ScalaDeleteObjectResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withDeleteMarker(Option(self.deleteMarker).map(_.booleanValue)) // Boolean
-        .withVersionId(Option(self.versionId)) // String
-        .withRequestCharged(Option(self.requestCharged).map { v =>
-          import RequestChargedOps._; v.toScala
-        }) // String
+  final def withDeleteMarkerAsScala(value: Option[Boolean]): DeleteObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.deleteMarker(v)
     }
+  } // Boolean
 
-  }
+  final def withVersionIdAsScala(value: Option[String]): DeleteObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.versionId(v)
+    }
+  } // String
+
+  final def withRequestChargedAsScala(value: Option[RequestCharged]): DeleteObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.requestCharged(v)
+    }
+  } // String
+
+}
+
+final class DeleteObjectResponseOps(val self: DeleteObjectResponse) extends AnyVal {
+
+  final def deleteMarkerAsScala: Option[Boolean] = Option(self.deleteMarker) // Boolean
+
+  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteObjectResponseOps {
+
+  implicit def toDeleteObjectResponseBuilderOps(v: DeleteObjectResponse.Builder): DeleteObjectResponseBuilderOps =
+    new DeleteObjectResponseBuilderOps(v)
+
+  implicit def toDeleteObjectResponseOps(v: DeleteObjectResponse): DeleteObjectResponseOps =
+    new DeleteObjectResponseOps(v)
 
 }

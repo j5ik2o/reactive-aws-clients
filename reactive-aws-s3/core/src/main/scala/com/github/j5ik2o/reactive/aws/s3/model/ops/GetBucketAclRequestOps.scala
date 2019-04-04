@@ -1,21 +1,30 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetBucketAclRequest => ScalaGetBucketAclRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ GetBucketAclRequest => JavaGetBucketAclRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketAclRequestOps {
+final class GetBucketAclRequestBuilderOps(val self: GetBucketAclRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketAclRequestOps(val self: ScalaGetBucketAclRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketAclRequest = {
-      val result = JavaGetBucketAclRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketAclRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketAclRequestOps(val self: GetBucketAclRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketAclRequestOps {
+
+  implicit def toGetBucketAclRequestBuilderOps(v: GetBucketAclRequest.Builder): GetBucketAclRequestBuilderOps =
+    new GetBucketAclRequestBuilderOps(v)
+
+  implicit def toGetBucketAclRequestOps(v: GetBucketAclRequest): GetBucketAclRequestOps = new GetBucketAclRequestOps(v)
 
 }

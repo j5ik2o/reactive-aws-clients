@@ -1,29 +1,22 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  PutBucketRequestPaymentResponse => ScalaPutBucketRequestPaymentResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  PutBucketRequestPaymentResponse => JavaPutBucketRequestPaymentResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutBucketRequestPaymentResponseBuilderOps(val self: PutBucketRequestPaymentResponse.Builder)
+    extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketRequestPaymentResponseOps {
+final class PutBucketRequestPaymentResponseOps(val self: PutBucketRequestPaymentResponse) extends AnyVal {}
 
-  implicit class JavaPutBucketRequestPaymentResponseOps(val self: JavaPutBucketRequestPaymentResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketRequestPaymentResponseOps {
 
-    def toScala: ScalaPutBucketRequestPaymentResponse = {
-      ScalaPutBucketRequestPaymentResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toPutBucketRequestPaymentResponseBuilderOps(
+      v: PutBucketRequestPaymentResponse.Builder
+  ): PutBucketRequestPaymentResponseBuilderOps = new PutBucketRequestPaymentResponseBuilderOps(v)
 
-  }
+  implicit def toPutBucketRequestPaymentResponseOps(
+      v: PutBucketRequestPaymentResponse
+  ): PutBucketRequestPaymentResponseOps = new PutBucketRequestPaymentResponseOps(v)
 
 }

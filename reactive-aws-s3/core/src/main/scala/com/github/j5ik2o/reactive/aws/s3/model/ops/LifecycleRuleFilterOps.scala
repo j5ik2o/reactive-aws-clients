@@ -1,42 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ LifecycleRuleFilter => ScalaLifecycleRuleFilter, _ }
-import software.amazon.awssdk.services.s3.model.{ LifecycleRuleFilter => JavaLifecycleRuleFilter }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object LifecycleRuleFilterOps {
+final class LifecycleRuleFilterBuilderOps(val self: LifecycleRuleFilter.Builder) extends AnyVal {
 
-  implicit class ScalaLifecycleRuleFilterOps(val self: ScalaLifecycleRuleFilter) extends AnyVal {
-
-    def toJava: JavaLifecycleRuleFilter = {
-      val result = JavaLifecycleRuleFilter.builder()
-      self.prefix.filter(_.nonEmpty).foreach(v => result.prefix(v)) // String
-      self.tag.foreach { v =>
-        import TagOps._; result.tag(v.toJava)
-      } // Tag
-      self.and.foreach { v =>
-        import LifecycleRuleAndOperatorOps._; result.and(v.toJava)
-      } // LifecycleRuleAndOperator
-
-      result.build()
+  final def withPrefixAsScala(value: Option[String]): LifecycleRuleFilter.Builder = {
+    value.fold(self) { v =>
+      self.prefix(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaLifecycleRuleFilterOps(val self: JavaLifecycleRuleFilter) extends AnyVal {
-
-    def toScala: ScalaLifecycleRuleFilter = {
-      ScalaLifecycleRuleFilter()
-        .withPrefix(Option(self.prefix)) // String
-        .withTag(Option(self.tag).map { v =>
-          import TagOps._; v.toScala
-        }) // Tag
-        .withAnd(Option(self.and).map { v =>
-          import LifecycleRuleAndOperatorOps._; v.toScala
-        }) // LifecycleRuleAndOperator
+  final def withTagAsScala(value: Option[Tag]): LifecycleRuleFilter.Builder = {
+    value.fold(self) { v =>
+      self.tag(v)
     }
+  } // Tag
 
-  }
+  final def withAndAsScala(value: Option[LifecycleRuleAndOperator]): LifecycleRuleFilter.Builder = {
+    value.fold(self) { v =>
+      self.and(v)
+    }
+  } // LifecycleRuleAndOperator
+
+}
+
+final class LifecycleRuleFilterOps(val self: LifecycleRuleFilter) extends AnyVal {
+
+  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+
+  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+
+  final def andAsScala: Option[LifecycleRuleAndOperator] = Option(self.and) // LifecycleRuleAndOperator
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToLifecycleRuleFilterOps {
+
+  implicit def toLifecycleRuleFilterBuilderOps(v: LifecycleRuleFilter.Builder): LifecycleRuleFilterBuilderOps =
+    new LifecycleRuleFilterBuilderOps(v)
+
+  implicit def toLifecycleRuleFilterOps(v: LifecycleRuleFilter): LifecycleRuleFilterOps = new LifecycleRuleFilterOps(v)
 
 }

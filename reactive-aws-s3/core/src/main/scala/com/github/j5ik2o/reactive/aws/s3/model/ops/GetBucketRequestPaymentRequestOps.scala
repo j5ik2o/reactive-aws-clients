@@ -1,24 +1,33 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketRequestPaymentRequest => ScalaGetBucketRequestPaymentRequest,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{ GetBucketRequestPaymentRequest => JavaGetBucketRequestPaymentRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketRequestPaymentRequestOps {
+final class GetBucketRequestPaymentRequestBuilderOps(val self: GetBucketRequestPaymentRequest.Builder) extends AnyVal {
 
-  implicit class ScalaGetBucketRequestPaymentRequestOps(val self: ScalaGetBucketRequestPaymentRequest) extends AnyVal {
-
-    def toJava: JavaGetBucketRequestPaymentRequest = {
-      val result = JavaGetBucketRequestPaymentRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): GetBucketRequestPaymentRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+}
+
+final class GetBucketRequestPaymentRequestOps(val self: GetBucketRequestPaymentRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketRequestPaymentRequestOps {
+
+  implicit def toGetBucketRequestPaymentRequestBuilderOps(
+      v: GetBucketRequestPaymentRequest.Builder
+  ): GetBucketRequestPaymentRequestBuilderOps = new GetBucketRequestPaymentRequestBuilderOps(v)
+
+  implicit def toGetBucketRequestPaymentRequestOps(
+      v: GetBucketRequestPaymentRequest
+  ): GetBucketRequestPaymentRequestOps = new GetBucketRequestPaymentRequestOps(v)
 
 }

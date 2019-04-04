@@ -1,42 +1,62 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ Record => ScalaRecord, _ }
-import software.amazon.awssdk.services.kinesis.model.{ Record => JavaRecord }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RecordOps {
+final class RecordBuilderOps(val self: Record.Builder) extends AnyVal {
 
-  implicit class ScalaRecordOps(val self: ScalaRecord) extends AnyVal {
-
-    def toJava: JavaRecord = {
-      val result = JavaRecord.builder()
-      self.sequenceNumber.filter(_.nonEmpty).foreach(v => result.sequenceNumber(v))        // String
-      self.approximateArrivalTimestamp.foreach(v => result.approximateArrivalTimestamp(v)) // Instant
-      self.data.foreach(v => result.data(v))                                               // SdkBytes
-      self.partitionKey.filter(_.nonEmpty).foreach(v => result.partitionKey(v))            // String
-      self.encryptionType.foreach { v =>
-        import EncryptionTypeOps._; result.encryptionType(v.toJava)
-      } // String
-
-      result.build()
+  final def withSequenceNumberAsScala(value: Option[String]): Record.Builder = {
+    value.fold(self) { v =>
+      self.sequenceNumber(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaRecordOps(val self: JavaRecord) extends AnyVal {
-
-    def toScala: ScalaRecord = {
-      ScalaRecord()
-        .withSequenceNumber(Option(self.sequenceNumber)) // String
-        .withApproximateArrivalTimestamp(Option(self.approximateArrivalTimestamp)) // Instant
-        .withData(Option(self.data)) // SdkBytes
-        .withPartitionKey(Option(self.partitionKey)) // String
-        .withEncryptionType(Option(self.encryptionType).map { v =>
-          import EncryptionTypeOps._; v.toScala
-        }) // String
+  final def withApproximateArrivalTimestampAsScala(value: Option[java.time.Instant]): Record.Builder = {
+    value.fold(self) { v =>
+      self.approximateArrivalTimestamp(v)
     }
+  } // Instant
 
-  }
+  final def withDataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): Record.Builder = {
+    value.fold(self) { v =>
+      self.data(v)
+    }
+  } // SdkBytes
+
+  final def withPartitionKeyAsScala(value: Option[String]): Record.Builder = {
+    value.fold(self) { v =>
+      self.partitionKey(v)
+    }
+  } // String
+
+  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): Record.Builder = {
+    value.fold(self) { v =>
+      self.encryptionType(v)
+    }
+  } // String
+
+}
+
+final class RecordOps(val self: Record) extends AnyVal {
+
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+
+  final def approximateArrivalTimestampAsScala: Option[java.time.Instant] =
+    Option(self.approximateArrivalTimestamp) // Instant
+
+  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.data) // SdkBytes
+
+  final def partitionKeyAsScala: Option[String] = Option(self.partitionKey) // String
+
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRecordOps {
+
+  implicit def toRecordBuilderOps(v: Record.Builder): RecordBuilderOps = new RecordBuilderOps(v)
+
+  implicit def toRecordOps(v: Record): RecordOps = new RecordOps(v)
 
 }

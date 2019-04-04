@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.monix
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.model._
 import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClient, DynamoDBClient }
 import monix.eval.Task
 import monix.reactive.Observable
@@ -22,12 +22,12 @@ val underlying: DynamoDBAsyncClient
         <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
         <#if method.name?ends_with("Paginator")>
             <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-            def ${method.name}(<#list method.parameterTypeDescs as p>${requestParameterName}: ${requestTypeName}<#if p_has_next>,</#if></#list>): Observable[${responseTypeName}] =
+            def ${method.name}(${requestParameterName}: ${requestTypeName}): Observable[${responseTypeName}] =
             Observable.fromReactivePublisher(underlying.${method.name}(${requestParameterName}))
         <#else>
             <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
             override def  ${method.name}(
-            ${requestParameterName}: ${requestTypeName},
+            ${requestParameterName}: ${requestTypeName}
             ): Task[${responseTypeName}] = Task.deferFuture {
             underlying.${method.name}(${requestParameterName})
             }

@@ -1,42 +1,61 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ Redirect => ScalaRedirect, _ }
-import software.amazon.awssdk.services.s3.model.{ Redirect => JavaRedirect }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RedirectOps {
+final class RedirectBuilderOps(val self: Redirect.Builder) extends AnyVal {
 
-  implicit class ScalaRedirectOps(val self: ScalaRedirect) extends AnyVal {
-
-    def toJava: JavaRedirect = {
-      val result = JavaRedirect.builder()
-      self.hostName.filter(_.nonEmpty).foreach(v => result.hostName(v))                 // String
-      self.httpRedirectCode.filter(_.nonEmpty).foreach(v => result.httpRedirectCode(v)) // String
-      self.protocol.foreach { v =>
-        import ProtocolOps._; result.protocol(v.toJava)
-      } // String
-      self.replaceKeyPrefixWith.filter(_.nonEmpty).foreach(v => result.replaceKeyPrefixWith(v)) // String
-      self.replaceKeyWith.filter(_.nonEmpty).foreach(v => result.replaceKeyWith(v))             // String
-
-      result.build()
+  final def withHostNameAsScala(value: Option[String]): Redirect.Builder = {
+    value.fold(self) { v =>
+      self.hostName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaRedirectOps(val self: JavaRedirect) extends AnyVal {
-
-    def toScala: ScalaRedirect = {
-      ScalaRedirect()
-        .withHostName(Option(self.hostName)) // String
-        .withHttpRedirectCode(Option(self.httpRedirectCode)) // String
-        .withProtocol(Option(self.protocol).map { v =>
-          import ProtocolOps._; v.toScala
-        }) // String
-        .withReplaceKeyPrefixWith(Option(self.replaceKeyPrefixWith)) // String
-        .withReplaceKeyWith(Option(self.replaceKeyWith)) // String
+  final def withHttpRedirectCodeAsScala(value: Option[String]): Redirect.Builder = {
+    value.fold(self) { v =>
+      self.httpRedirectCode(v)
     }
+  } // String
 
-  }
+  final def withProtocolAsScala(value: Option[Protocol]): Redirect.Builder = {
+    value.fold(self) { v =>
+      self.protocol(v)
+    }
+  } // String
+
+  final def withReplaceKeyPrefixWithAsScala(value: Option[String]): Redirect.Builder = {
+    value.fold(self) { v =>
+      self.replaceKeyPrefixWith(v)
+    }
+  } // String
+
+  final def withReplaceKeyWithAsScala(value: Option[String]): Redirect.Builder = {
+    value.fold(self) { v =>
+      self.replaceKeyWith(v)
+    }
+  } // String
+
+}
+
+final class RedirectOps(val self: Redirect) extends AnyVal {
+
+  final def hostNameAsScala: Option[String] = Option(self.hostName) // String
+
+  final def httpRedirectCodeAsScala: Option[String] = Option(self.httpRedirectCode) // String
+
+  final def protocolAsScala: Option[Protocol] = Option(self.protocol) // String
+
+  final def replaceKeyPrefixWithAsScala: Option[String] = Option(self.replaceKeyPrefixWith) // String
+
+  final def replaceKeyWithAsScala: Option[String] = Option(self.replaceKeyWith) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRedirectOps {
+
+  implicit def toRedirectBuilderOps(v: Redirect.Builder): RedirectBuilderOps = new RedirectBuilderOps(v)
+
+  implicit def toRedirectOps(v: Redirect): RedirectOps = new RedirectOps(v)
 
 }

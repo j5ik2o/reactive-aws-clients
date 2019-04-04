@@ -1,23 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ SplitShardRequest => ScalaSplitShardRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ SplitShardRequest => JavaSplitShardRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SplitShardRequestOps {
+final class SplitShardRequestBuilderOps(val self: SplitShardRequest.Builder) extends AnyVal {
 
-  implicit class ScalaSplitShardRequestOps(val self: ScalaSplitShardRequest) extends AnyVal {
-
-    def toJava: JavaSplitShardRequest = {
-      val result = JavaSplitShardRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v))                 // String
-      self.shardToSplit.filter(_.nonEmpty).foreach(v => result.shardToSplit(v))             // String
-      self.newStartingHashKey.filter(_.nonEmpty).foreach(v => result.newStartingHashKey(v)) // String
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): SplitShardRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withShardToSplitAsScala(value: Option[String]): SplitShardRequest.Builder = {
+    value.fold(self) { v =>
+      self.shardToSplit(v)
+    }
+  } // String
+
+  final def withNewStartingHashKeyAsScala(value: Option[String]): SplitShardRequest.Builder = {
+    value.fold(self) { v =>
+      self.newStartingHashKey(v)
+    }
+  } // String
+
+}
+
+final class SplitShardRequestOps(val self: SplitShardRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def shardToSplitAsScala: Option[String] = Option(self.shardToSplit) // String
+
+  final def newStartingHashKeyAsScala: Option[String] = Option(self.newStartingHashKey) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSplitShardRequestOps {
+
+  implicit def toSplitShardRequestBuilderOps(v: SplitShardRequest.Builder): SplitShardRequestBuilderOps =
+    new SplitShardRequestBuilderOps(v)
+
+  implicit def toSplitShardRequestOps(v: SplitShardRequest): SplitShardRequestOps = new SplitShardRequestOps(v)
 
 }

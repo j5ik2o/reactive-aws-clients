@@ -1,50 +1,78 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ BackupDetails => ScalaBackupDetails, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ BackupDetails => JavaBackupDetails }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object BackupDetailsOps {
+final class BackupDetailsBuilderOps(val self: BackupDetails.Builder) extends AnyVal {
 
-  implicit class ScalaBackupDetailsOps(val self: ScalaBackupDetails) extends AnyVal {
-
-    def toJava: JavaBackupDetails = {
-      val result = JavaBackupDetails.builder()
-      self.backupArn.filter(_.nonEmpty).foreach(v => result.backupArn(v))           // String
-      self.backupName.filter(_.nonEmpty).foreach(v => result.backupName(v))         // String
-      self.backupSizeBytes.map(_.longValue).foreach(v => result.backupSizeBytes(v)) // Long
-      self.backupStatus.foreach { v =>
-        import BackupStatusOps._; result.backupStatus(v.toJava)
-      } // String
-      self.backupType.foreach { v =>
-        import BackupTypeOps._; result.backupType(v.toJava)
-      } // String
-      self.backupCreationDateTime.foreach(v => result.backupCreationDateTime(v)) // Instant
-      self.backupExpiryDateTime.foreach(v => result.backupExpiryDateTime(v))     // Instant
-
-      result.build()
+  final def withBackupArnAsScala(value: Option[String]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupArn(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaBackupDetailsOps(val self: JavaBackupDetails) extends AnyVal {
-
-    def toScala: ScalaBackupDetails = {
-      ScalaBackupDetails()
-        .withBackupArn(Option(self.backupArn)) // String
-        .withBackupName(Option(self.backupName)) // String
-        .withBackupSizeBytes(Option(self.backupSizeBytes).map(_.longValue)) // Long
-        .withBackupStatus(Option(self.backupStatus).map { v =>
-          import BackupStatusOps._; v.toScala
-        }) // String
-        .withBackupType(Option(self.backupType).map { v =>
-          import BackupTypeOps._; v.toScala
-        }) // String
-        .withBackupCreationDateTime(Option(self.backupCreationDateTime)) // Instant
-        .withBackupExpiryDateTime(Option(self.backupExpiryDateTime)) // Instant
+  final def withBackupNameAsScala(value: Option[String]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupName(v)
     }
+  } // String
 
-  }
+  final def withBackupSizeBytesAsScala(value: Option[Long]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupSizeBytes(v)
+    }
+  } // Long
+
+  final def withBackupStatusAsScala(value: Option[BackupStatus]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupStatus(v)
+    }
+  } // String
+
+  final def withBackupTypeAsScala(value: Option[BackupType]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupType(v)
+    }
+  } // String
+
+  final def withBackupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupCreationDateTime(v)
+    }
+  } // Instant
+
+  final def withBackupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
+    value.fold(self) { v =>
+      self.backupExpiryDateTime(v)
+    }
+  } // Instant
+
+}
+
+final class BackupDetailsOps(val self: BackupDetails) extends AnyVal {
+
+  final def backupArnAsScala: Option[String] = Option(self.backupArn) // String
+
+  final def backupNameAsScala: Option[String] = Option(self.backupName) // String
+
+  final def backupSizeBytesAsScala: Option[Long] = Option(self.backupSizeBytes) // Long
+
+  final def backupStatusAsScala: Option[BackupStatus] = Option(self.backupStatus) // String
+
+  final def backupTypeAsScala: Option[BackupType] = Option(self.backupType) // String
+
+  final def backupCreationDateTimeAsScala: Option[java.time.Instant] = Option(self.backupCreationDateTime) // Instant
+
+  final def backupExpiryDateTimeAsScala: Option[java.time.Instant] = Option(self.backupExpiryDateTime) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToBackupDetailsOps {
+
+  implicit def toBackupDetailsBuilderOps(v: BackupDetails.Builder): BackupDetailsBuilderOps =
+    new BackupDetailsBuilderOps(v)
+
+  implicit def toBackupDetailsOps(v: BackupDetails): BackupDetailsOps = new BackupDetailsOps(v)
 
 }

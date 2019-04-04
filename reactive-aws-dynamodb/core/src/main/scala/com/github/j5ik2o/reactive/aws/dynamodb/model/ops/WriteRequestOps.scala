@@ -1,40 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ WriteRequest => ScalaWriteRequest, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ WriteRequest => JavaWriteRequest }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object WriteRequestOps {
+final class WriteRequestBuilderOps(val self: WriteRequest.Builder) extends AnyVal {
 
-  implicit class ScalaWriteRequestOps(val self: ScalaWriteRequest) extends AnyVal {
-
-    def toJava: JavaWriteRequest = {
-      val result = JavaWriteRequest.builder()
-      self.putRequest.foreach { v =>
-        import PutRequestOps._; result.putRequest(v.toJava)
-      } // PutRequest
-      self.deleteRequest.foreach { v =>
-        import DeleteRequestOps._; result.deleteRequest(v.toJava)
-      } // DeleteRequest
-
-      result.build()
+  final def withPutRequestAsScala(value: Option[PutRequest]): WriteRequest.Builder = {
+    value.fold(self) { v =>
+      self.putRequest(v)
     }
+  } // PutRequest
 
-  }
-
-  implicit class JavaWriteRequestOps(val self: JavaWriteRequest) extends AnyVal {
-
-    def toScala: ScalaWriteRequest = {
-      ScalaWriteRequest()
-        .withPutRequest(Option(self.putRequest).map { v =>
-          import PutRequestOps._; v.toScala
-        }) // PutRequest
-        .withDeleteRequest(Option(self.deleteRequest).map { v =>
-          import DeleteRequestOps._; v.toScala
-        }) // DeleteRequest
+  final def withDeleteRequestAsScala(value: Option[DeleteRequest]): WriteRequest.Builder = {
+    value.fold(self) { v =>
+      self.deleteRequest(v)
     }
+  } // DeleteRequest
 
-  }
+}
+
+final class WriteRequestOps(val self: WriteRequest) extends AnyVal {
+
+  final def putRequestAsScala: Option[PutRequest] = Option(self.putRequest) // PutRequest
+
+  final def deleteRequestAsScala: Option[DeleteRequest] = Option(self.deleteRequest) // DeleteRequest
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToWriteRequestOps {
+
+  implicit def toWriteRequestBuilderOps(v: WriteRequest.Builder): WriteRequestBuilderOps = new WriteRequestBuilderOps(v)
+
+  implicit def toWriteRequestOps(v: WriteRequest): WriteRequestOps = new WriteRequestOps(v)
 
 }

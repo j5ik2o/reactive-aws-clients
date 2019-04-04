@@ -1,33 +1,37 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{
-  GetBucketMetricsConfigurationResponse => ScalaGetBucketMetricsConfigurationResponse,
-  _
-}
-import software.amazon.awssdk.services.s3.model.{
-  GetBucketMetricsConfigurationResponse => JavaGetBucketMetricsConfigurationResponse
-}
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetBucketMetricsConfigurationResponseBuilderOps(val self: GetBucketMetricsConfigurationResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetBucketMetricsConfigurationResponseOps {
-
-  implicit class JavaGetBucketMetricsConfigurationResponseOps(val self: JavaGetBucketMetricsConfigurationResponse)
-      extends AnyVal {
-
-    def toScala: ScalaGetBucketMetricsConfigurationResponse = {
-      ScalaGetBucketMetricsConfigurationResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withMetricsConfiguration(Option(self.metricsConfiguration).map { v =>
-          import MetricsConfigurationOps._; v.toScala
-        }) // MetricsConfiguration
+  final def withMetricsConfigurationAsScala(
+      value: Option[MetricsConfiguration]
+  ): GetBucketMetricsConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.metricsConfiguration(v)
     }
+  } // MetricsConfiguration
 
-  }
+}
+
+final class GetBucketMetricsConfigurationResponseOps(val self: GetBucketMetricsConfigurationResponse) extends AnyVal {
+
+  final def metricsConfigurationAsScala: Option[MetricsConfiguration] =
+    Option(self.metricsConfiguration) // MetricsConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetBucketMetricsConfigurationResponseOps {
+
+  implicit def toGetBucketMetricsConfigurationResponseBuilderOps(
+      v: GetBucketMetricsConfigurationResponse.Builder
+  ): GetBucketMetricsConfigurationResponseBuilderOps = new GetBucketMetricsConfigurationResponseBuilderOps(v)
+
+  implicit def toGetBucketMetricsConfigurationResponseOps(
+      v: GetBucketMetricsConfigurationResponse
+  ): GetBucketMetricsConfigurationResponseOps = new GetBucketMetricsConfigurationResponseOps(v)
 
 }

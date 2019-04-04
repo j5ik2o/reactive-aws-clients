@@ -1,30 +1,44 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ TransactGetItemsResponse => ScalaTransactGetItemsResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ TransactGetItemsResponse => JavaTransactGetItemsResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class TransactGetItemsResponseBuilderOps(val self: TransactGetItemsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object TransactGetItemsResponseOps {
-
-  implicit class JavaTransactGetItemsResponseOps(val self: JavaTransactGetItemsResponse) extends AnyVal {
-
-    def toScala: ScalaTransactGetItemsResponse = {
-      ScalaTransactGetItemsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withConsumedCapacity(Option(self.consumedCapacity).map { v =>
-          import scala.collection.JavaConverters._, ConsumedCapacityOps._; v.asScala.map(_.toScala)
-        }) // Seq[ConsumedCapacity]
-        .withResponses(Option(self.responses).map { v =>
-          import scala.collection.JavaConverters._, ItemResponseOps._; v.asScala.map(_.toScala)
-        }) // Seq[ItemResponse]
-    }
-
+  final def withConsumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): TransactGetItemsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
+    } // Seq[ConsumedCapacity]
   }
+
+  final def withResponsesAsScala(value: Option[Seq[ItemResponse]]): TransactGetItemsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.responses(v.asJava)
+    } // Seq[ItemResponse]
+  }
+
+}
+
+final class TransactGetItemsResponseOps(val self: TransactGetItemsResponse) extends AnyVal {
+
+  final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ConsumedCapacity]
+
+  final def responsesAsScala: Option[Seq[ItemResponse]] = Option(self.responses).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ItemResponse]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToTransactGetItemsResponseOps {
+
+  implicit def toTransactGetItemsResponseBuilderOps(
+      v: TransactGetItemsResponse.Builder
+  ): TransactGetItemsResponseBuilderOps = new TransactGetItemsResponseBuilderOps(v)
+
+  implicit def toTransactGetItemsResponseOps(v: TransactGetItemsResponse): TransactGetItemsResponseOps =
+    new TransactGetItemsResponseOps(v)
 
 }

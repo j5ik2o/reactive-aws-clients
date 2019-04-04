@@ -1,36 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ObjectLockRetention => ScalaObjectLockRetention, _ }
-import software.amazon.awssdk.services.s3.model.{ ObjectLockRetention => JavaObjectLockRetention }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ObjectLockRetentionOps {
+final class ObjectLockRetentionBuilderOps(val self: ObjectLockRetention.Builder) extends AnyVal {
 
-  implicit class ScalaObjectLockRetentionOps(val self: ScalaObjectLockRetention) extends AnyVal {
-
-    def toJava: JavaObjectLockRetention = {
-      val result = JavaObjectLockRetention.builder()
-      self.mode.foreach { v =>
-        import ObjectLockRetentionModeOps._; result.mode(v.toJava)
-      } // String
-      self.retainUntilDate.foreach(v => result.retainUntilDate(v)) // Instant
-
-      result.build()
+  final def withModeAsScala(value: Option[ObjectLockRetentionMode]): ObjectLockRetention.Builder = {
+    value.fold(self) { v =>
+      self.mode(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaObjectLockRetentionOps(val self: JavaObjectLockRetention) extends AnyVal {
-
-    def toScala: ScalaObjectLockRetention = {
-      ScalaObjectLockRetention()
-        .withMode(Option(self.mode).map { v =>
-          import ObjectLockRetentionModeOps._; v.toScala
-        }) // String
-        .withRetainUntilDate(Option(self.retainUntilDate)) // Instant
+  final def withRetainUntilDateAsScala(value: Option[java.time.Instant]): ObjectLockRetention.Builder = {
+    value.fold(self) { v =>
+      self.retainUntilDate(v)
     }
+  } // Instant
 
-  }
+}
+
+final class ObjectLockRetentionOps(val self: ObjectLockRetention) extends AnyVal {
+
+  final def modeAsScala: Option[ObjectLockRetentionMode] = Option(self.mode) // String
+
+  final def retainUntilDateAsScala: Option[java.time.Instant] = Option(self.retainUntilDate) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToObjectLockRetentionOps {
+
+  implicit def toObjectLockRetentionBuilderOps(v: ObjectLockRetention.Builder): ObjectLockRetentionBuilderOps =
+    new ObjectLockRetentionBuilderOps(v)
+
+  implicit def toObjectLockRetentionOps(v: ObjectLockRetention): ObjectLockRetentionOps = new ObjectLockRetentionOps(v)
 
 }

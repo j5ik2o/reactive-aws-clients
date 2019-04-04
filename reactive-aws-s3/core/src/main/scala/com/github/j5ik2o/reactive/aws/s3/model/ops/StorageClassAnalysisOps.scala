@@ -1,34 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ StorageClassAnalysis => ScalaStorageClassAnalysis, _ }
-import software.amazon.awssdk.services.s3.model.{ StorageClassAnalysis => JavaStorageClassAnalysis }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StorageClassAnalysisOps {
+final class StorageClassAnalysisBuilderOps(val self: StorageClassAnalysis.Builder) extends AnyVal {
 
-  implicit class ScalaStorageClassAnalysisOps(val self: ScalaStorageClassAnalysis) extends AnyVal {
-
-    def toJava: JavaStorageClassAnalysis = {
-      val result = JavaStorageClassAnalysis.builder()
-      self.dataExport.foreach { v =>
-        import StorageClassAnalysisDataExportOps._; result.dataExport(v.toJava)
-      } // StorageClassAnalysisDataExport
-
-      result.build()
+  final def withDataExportAsScala(value: Option[StorageClassAnalysisDataExport]): StorageClassAnalysis.Builder = {
+    value.fold(self) { v =>
+      self.dataExport(v)
     }
+  } // StorageClassAnalysisDataExport
 
-  }
+}
 
-  implicit class JavaStorageClassAnalysisOps(val self: JavaStorageClassAnalysis) extends AnyVal {
+final class StorageClassAnalysisOps(val self: StorageClassAnalysis) extends AnyVal {
 
-    def toScala: ScalaStorageClassAnalysis = {
-      ScalaStorageClassAnalysis()
-        .withDataExport(Option(self.dataExport).map { v =>
-          import StorageClassAnalysisDataExportOps._; v.toScala
-        }) // StorageClassAnalysisDataExport
-    }
+  final def dataExportAsScala: Option[StorageClassAnalysisDataExport] =
+    Option(self.dataExport) // StorageClassAnalysisDataExport
 
-  }
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStorageClassAnalysisOps {
+
+  implicit def toStorageClassAnalysisBuilderOps(v: StorageClassAnalysis.Builder): StorageClassAnalysisBuilderOps =
+    new StorageClassAnalysisBuilderOps(v)
+
+  implicit def toStorageClassAnalysisOps(v: StorageClassAnalysis): StorageClassAnalysisOps =
+    new StorageClassAnalysisOps(v)
 
 }

@@ -1,36 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ MetricsConfiguration => ScalaMetricsConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ MetricsConfiguration => JavaMetricsConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object MetricsConfigurationOps {
+final class MetricsConfigurationBuilderOps(val self: MetricsConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaMetricsConfigurationOps(val self: ScalaMetricsConfiguration) extends AnyVal {
-
-    def toJava: JavaMetricsConfiguration = {
-      val result = JavaMetricsConfiguration.builder()
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v)) // String
-      self.filter.foreach { v =>
-        import MetricsFilterOps._; result.filter(v.toJava)
-      } // MetricsFilter
-
-      result.build()
+  final def withIdAsScala(value: Option[String]): MetricsConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaMetricsConfigurationOps(val self: JavaMetricsConfiguration) extends AnyVal {
-
-    def toScala: ScalaMetricsConfiguration = {
-      ScalaMetricsConfiguration()
-        .withId(Option(self.id)) // String
-        .withFilter(Option(self.filter).map { v =>
-          import MetricsFilterOps._; v.toScala
-        }) // MetricsFilter
+  final def withFilterAsScala(value: Option[MetricsFilter]): MetricsConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.filter(v)
     }
+  } // MetricsFilter
 
-  }
+}
+
+final class MetricsConfigurationOps(val self: MetricsConfiguration) extends AnyVal {
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def filterAsScala: Option[MetricsFilter] = Option(self.filter) // MetricsFilter
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToMetricsConfigurationOps {
+
+  implicit def toMetricsConfigurationBuilderOps(v: MetricsConfiguration.Builder): MetricsConfigurationBuilderOps =
+    new MetricsConfigurationBuilderOps(v)
+
+  implicit def toMetricsConfigurationOps(v: MetricsConfiguration): MetricsConfigurationOps =
+    new MetricsConfigurationOps(v)
 
 }

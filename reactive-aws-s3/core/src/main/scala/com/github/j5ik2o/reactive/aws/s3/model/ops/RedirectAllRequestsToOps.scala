@@ -1,36 +1,39 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ RedirectAllRequestsTo => ScalaRedirectAllRequestsTo, _ }
-import software.amazon.awssdk.services.s3.model.{ RedirectAllRequestsTo => JavaRedirectAllRequestsTo }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RedirectAllRequestsToOps {
+final class RedirectAllRequestsToBuilderOps(val self: RedirectAllRequestsTo.Builder) extends AnyVal {
 
-  implicit class ScalaRedirectAllRequestsToOps(val self: ScalaRedirectAllRequestsTo) extends AnyVal {
-
-    def toJava: JavaRedirectAllRequestsTo = {
-      val result = JavaRedirectAllRequestsTo.builder()
-      self.hostName.filter(_.nonEmpty).foreach(v => result.hostName(v)) // String
-      self.protocol.foreach { v =>
-        import ProtocolOps._; result.protocol(v.toJava)
-      } // String
-
-      result.build()
+  final def withHostNameAsScala(value: Option[String]): RedirectAllRequestsTo.Builder = {
+    value.fold(self) { v =>
+      self.hostName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaRedirectAllRequestsToOps(val self: JavaRedirectAllRequestsTo) extends AnyVal {
-
-    def toScala: ScalaRedirectAllRequestsTo = {
-      ScalaRedirectAllRequestsTo()
-        .withHostName(Option(self.hostName)) // String
-        .withProtocol(Option(self.protocol).map { v =>
-          import ProtocolOps._; v.toScala
-        }) // String
+  final def withProtocolAsScala(value: Option[Protocol]): RedirectAllRequestsTo.Builder = {
+    value.fold(self) { v =>
+      self.protocol(v)
     }
+  } // String
 
-  }
+}
+
+final class RedirectAllRequestsToOps(val self: RedirectAllRequestsTo) extends AnyVal {
+
+  final def hostNameAsScala: Option[String] = Option(self.hostName) // String
+
+  final def protocolAsScala: Option[Protocol] = Option(self.protocol) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRedirectAllRequestsToOps {
+
+  implicit def toRedirectAllRequestsToBuilderOps(v: RedirectAllRequestsTo.Builder): RedirectAllRequestsToBuilderOps =
+    new RedirectAllRequestsToBuilderOps(v)
+
+  implicit def toRedirectAllRequestsToOps(v: RedirectAllRequestsTo): RedirectAllRequestsToOps =
+    new RedirectAllRequestsToOps(v)
 
 }

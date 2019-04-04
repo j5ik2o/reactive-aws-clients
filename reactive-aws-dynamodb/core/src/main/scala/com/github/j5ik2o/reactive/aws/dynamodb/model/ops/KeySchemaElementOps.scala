@@ -1,36 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ KeySchemaElement => ScalaKeySchemaElement, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ KeySchemaElement => JavaKeySchemaElement }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object KeySchemaElementOps {
+final class KeySchemaElementBuilderOps(val self: KeySchemaElement.Builder) extends AnyVal {
 
-  implicit class ScalaKeySchemaElementOps(val self: ScalaKeySchemaElement) extends AnyVal {
-
-    def toJava: JavaKeySchemaElement = {
-      val result = JavaKeySchemaElement.builder()
-      self.attributeName.filter(_.nonEmpty).foreach(v => result.attributeName(v)) // String
-      self.keyType.foreach { v =>
-        import KeyTypeOps._; result.keyType(v.toJava)
-      } // String
-
-      result.build()
+  final def withAttributeNameAsScala(value: Option[String]): KeySchemaElement.Builder = {
+    value.fold(self) { v =>
+      self.attributeName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaKeySchemaElementOps(val self: JavaKeySchemaElement) extends AnyVal {
-
-    def toScala: ScalaKeySchemaElement = {
-      ScalaKeySchemaElement()
-        .withAttributeName(Option(self.attributeName)) // String
-        .withKeyType(Option(self.keyType).map { v =>
-          import KeyTypeOps._; v.toScala
-        }) // String
+  final def withKeyTypeAsScala(value: Option[KeyType]): KeySchemaElement.Builder = {
+    value.fold(self) { v =>
+      self.keyType(v)
     }
+  } // String
 
-  }
+}
+
+final class KeySchemaElementOps(val self: KeySchemaElement) extends AnyVal {
+
+  final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
+
+  final def keyTypeAsScala: Option[KeyType] = Option(self.keyType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToKeySchemaElementOps {
+
+  implicit def toKeySchemaElementBuilderOps(v: KeySchemaElement.Builder): KeySchemaElementBuilderOps =
+    new KeySchemaElementBuilderOps(v)
+
+  implicit def toKeySchemaElementOps(v: KeySchemaElement): KeySchemaElementOps = new KeySchemaElementOps(v)
 
 }

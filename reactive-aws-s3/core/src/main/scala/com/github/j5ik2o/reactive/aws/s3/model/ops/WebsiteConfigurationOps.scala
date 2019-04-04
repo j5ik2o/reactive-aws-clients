@@ -1,52 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ WebsiteConfiguration => ScalaWebsiteConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ WebsiteConfiguration => JavaWebsiteConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object WebsiteConfigurationOps {
+final class WebsiteConfigurationBuilderOps(val self: WebsiteConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaWebsiteConfigurationOps(val self: ScalaWebsiteConfiguration) extends AnyVal {
-
-    def toJava: JavaWebsiteConfiguration = {
-      val result = JavaWebsiteConfiguration.builder()
-      self.errorDocument.foreach { v =>
-        import ErrorDocumentOps._; result.errorDocument(v.toJava)
-      } // ErrorDocument
-      self.indexDocument.foreach { v =>
-        import IndexDocumentOps._; result.indexDocument(v.toJava)
-      } // IndexDocument
-      self.redirectAllRequestsTo.foreach { v =>
-        import RedirectAllRequestsToOps._; result.redirectAllRequestsTo(v.toJava)
-      } // RedirectAllRequestsTo
-      self.routingRules.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, RoutingRuleOps._; result.routingRules(v.map(_.toJava).asJava)
-      } // Seq[RoutingRule]
-
-      result.build()
+  final def withErrorDocumentAsScala(value: Option[ErrorDocument]): WebsiteConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.errorDocument(v)
     }
+  } // ErrorDocument
 
+  final def withIndexDocumentAsScala(value: Option[IndexDocument]): WebsiteConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.indexDocument(v)
+    }
+  } // IndexDocument
+
+  final def withRedirectAllRequestsToAsScala(value: Option[RedirectAllRequestsTo]): WebsiteConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.redirectAllRequestsTo(v)
+    }
+  } // RedirectAllRequestsTo
+
+  final def withRoutingRulesAsScala(value: Option[Seq[RoutingRule]]): WebsiteConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.routingRules(v.asJava)
+    } // Seq[RoutingRule]
   }
 
-  implicit class JavaWebsiteConfigurationOps(val self: JavaWebsiteConfiguration) extends AnyVal {
+}
 
-    def toScala: ScalaWebsiteConfiguration = {
-      ScalaWebsiteConfiguration()
-        .withErrorDocument(Option(self.errorDocument).map { v =>
-          import ErrorDocumentOps._; v.toScala
-        }) // ErrorDocument
-        .withIndexDocument(Option(self.indexDocument).map { v =>
-          import IndexDocumentOps._; v.toScala
-        }) // IndexDocument
-        .withRedirectAllRequestsTo(Option(self.redirectAllRequestsTo).map { v =>
-          import RedirectAllRequestsToOps._; v.toScala
-        }) // RedirectAllRequestsTo
-        .withRoutingRules(Option(self.routingRules).map { v =>
-          import scala.collection.JavaConverters._, RoutingRuleOps._; v.asScala.map(_.toScala)
-        }) // Seq[RoutingRule]
-    }
+final class WebsiteConfigurationOps(val self: WebsiteConfiguration) extends AnyVal {
 
-  }
+  final def errorDocumentAsScala: Option[ErrorDocument] = Option(self.errorDocument) // ErrorDocument
+
+  final def indexDocumentAsScala: Option[IndexDocument] = Option(self.indexDocument) // IndexDocument
+
+  final def redirectAllRequestsToAsScala: Option[RedirectAllRequestsTo] =
+    Option(self.redirectAllRequestsTo) // RedirectAllRequestsTo
+
+  final def routingRulesAsScala: Option[Seq[RoutingRule]] = Option(self.routingRules).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[RoutingRule]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToWebsiteConfigurationOps {
+
+  implicit def toWebsiteConfigurationBuilderOps(v: WebsiteConfiguration.Builder): WebsiteConfigurationBuilderOps =
+    new WebsiteConfigurationBuilderOps(v)
+
+  implicit def toWebsiteConfigurationOps(v: WebsiteConfiguration): WebsiteConfigurationOps =
+    new WebsiteConfigurationOps(v)
 
 }

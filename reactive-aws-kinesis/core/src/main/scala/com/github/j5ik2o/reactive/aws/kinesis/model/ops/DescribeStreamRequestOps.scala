@@ -1,23 +1,47 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DescribeStreamRequest => ScalaDescribeStreamRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ DescribeStreamRequest => JavaDescribeStreamRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeStreamRequestOps {
+final class DescribeStreamRequestBuilderOps(val self: DescribeStreamRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDescribeStreamRequestOps(val self: ScalaDescribeStreamRequest) extends AnyVal {
-
-    def toJava: JavaDescribeStreamRequest = {
-      val result = JavaDescribeStreamRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v))                       // String
-      self.limit.map(_.intValue).foreach(v => result.limit(v))                                    // Int
-      self.exclusiveStartShardId.filter(_.nonEmpty).foreach(v => result.exclusiveStartShardId(v)) // String
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withLimitAsScala(value: Option[Int]): DescribeStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.limit(v)
+    }
+  } // Int
+
+  final def withExclusiveStartShardIdAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.exclusiveStartShardId(v)
+    }
+  } // String
+
+}
+
+final class DescribeStreamRequestOps(val self: DescribeStreamRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+
+  final def exclusiveStartShardIdAsScala: Option[String] = Option(self.exclusiveStartShardId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeStreamRequestOps {
+
+  implicit def toDescribeStreamRequestBuilderOps(v: DescribeStreamRequest.Builder): DescribeStreamRequestBuilderOps =
+    new DescribeStreamRequestBuilderOps(v)
+
+  implicit def toDescribeStreamRequestOps(v: DescribeStreamRequest): DescribeStreamRequestOps =
+    new DescribeStreamRequestOps(v)
 
 }

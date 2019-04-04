@@ -1,22 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DeleteStreamRequest => ScalaDeleteStreamRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ DeleteStreamRequest => JavaDeleteStreamRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteStreamRequestOps {
+final class DeleteStreamRequestBuilderOps(val self: DeleteStreamRequest.Builder) extends AnyVal {
 
-  implicit class ScalaDeleteStreamRequestOps(val self: ScalaDeleteStreamRequest) extends AnyVal {
-
-    def toJava: JavaDeleteStreamRequest = {
-      val result = JavaDeleteStreamRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v))                            // String
-      self.enforceConsumerDeletion.map(_.booleanValue).foreach(v => result.enforceConsumerDeletion(v)) // Boolean
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): DeleteStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withEnforceConsumerDeletionAsScala(value: Option[Boolean]): DeleteStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.enforceConsumerDeletion(v)
+    }
+  } // Boolean
+
+}
+
+final class DeleteStreamRequestOps(val self: DeleteStreamRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def enforceConsumerDeletionAsScala: Option[Boolean] = Option(self.enforceConsumerDeletion) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteStreamRequestOps {
+
+  implicit def toDeleteStreamRequestBuilderOps(v: DeleteStreamRequest.Builder): DeleteStreamRequestBuilderOps =
+    new DeleteStreamRequestBuilderOps(v)
+
+  implicit def toDeleteStreamRequestOps(v: DeleteStreamRequest): DeleteStreamRequestOps = new DeleteStreamRequestOps(v)
 
 }

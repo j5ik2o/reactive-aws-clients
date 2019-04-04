@@ -1,30 +1,35 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{
-  DescribeGlobalTableResponse => ScalaDescribeGlobalTableResponse,
-  _
-}
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeGlobalTableResponse => JavaDescribeGlobalTableResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeGlobalTableResponseBuilderOps(val self: DescribeGlobalTableResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeGlobalTableResponseOps {
-
-  implicit class JavaDescribeGlobalTableResponseOps(val self: JavaDescribeGlobalTableResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeGlobalTableResponse = {
-      ScalaDescribeGlobalTableResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withGlobalTableDescription(Option(self.globalTableDescription).map { v =>
-          import GlobalTableDescriptionOps._; v.toScala
-        }) // GlobalTableDescription
+  final def withGlobalTableDescriptionAsScala(
+      value: Option[GlobalTableDescription]
+  ): DescribeGlobalTableResponse.Builder = {
+    value.fold(self) { v =>
+      self.globalTableDescription(v)
     }
+  } // GlobalTableDescription
 
-  }
+}
+
+final class DescribeGlobalTableResponseOps(val self: DescribeGlobalTableResponse) extends AnyVal {
+
+  final def globalTableDescriptionAsScala: Option[GlobalTableDescription] =
+    Option(self.globalTableDescription) // GlobalTableDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeGlobalTableResponseOps {
+
+  implicit def toDescribeGlobalTableResponseBuilderOps(
+      v: DescribeGlobalTableResponse.Builder
+  ): DescribeGlobalTableResponseBuilderOps = new DescribeGlobalTableResponseBuilderOps(v)
+
+  implicit def toDescribeGlobalTableResponseOps(v: DescribeGlobalTableResponse): DescribeGlobalTableResponseOps =
+    new DescribeGlobalTableResponseOps(v)
 
 }

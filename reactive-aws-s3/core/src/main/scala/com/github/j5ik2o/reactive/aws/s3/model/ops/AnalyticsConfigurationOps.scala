@@ -1,42 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ AnalyticsConfiguration => ScalaAnalyticsConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ AnalyticsConfiguration => JavaAnalyticsConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object AnalyticsConfigurationOps {
+final class AnalyticsConfigurationBuilderOps(val self: AnalyticsConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaAnalyticsConfigurationOps(val self: ScalaAnalyticsConfiguration) extends AnyVal {
-
-    def toJava: JavaAnalyticsConfiguration = {
-      val result = JavaAnalyticsConfiguration.builder()
-      self.id.filter(_.nonEmpty).foreach(v => result.id(v)) // String
-      self.filter.foreach { v =>
-        import AnalyticsFilterOps._; result.filter(v.toJava)
-      } // AnalyticsFilter
-      self.storageClassAnalysis.foreach { v =>
-        import StorageClassAnalysisOps._; result.storageClassAnalysis(v.toJava)
-      } // StorageClassAnalysis
-
-      result.build()
+  final def withIdAsScala(value: Option[String]): AnalyticsConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.id(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaAnalyticsConfigurationOps(val self: JavaAnalyticsConfiguration) extends AnyVal {
-
-    def toScala: ScalaAnalyticsConfiguration = {
-      ScalaAnalyticsConfiguration()
-        .withId(Option(self.id)) // String
-        .withFilter(Option(self.filter).map { v =>
-          import AnalyticsFilterOps._; v.toScala
-        }) // AnalyticsFilter
-        .withStorageClassAnalysis(Option(self.storageClassAnalysis).map { v =>
-          import StorageClassAnalysisOps._; v.toScala
-        }) // StorageClassAnalysis
+  final def withFilterAsScala(value: Option[AnalyticsFilter]): AnalyticsConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.filter(v)
     }
+  } // AnalyticsFilter
 
-  }
+  final def withStorageClassAnalysisAsScala(value: Option[StorageClassAnalysis]): AnalyticsConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.storageClassAnalysis(v)
+    }
+  } // StorageClassAnalysis
+
+}
+
+final class AnalyticsConfigurationOps(val self: AnalyticsConfiguration) extends AnyVal {
+
+  final def idAsScala: Option[String] = Option(self.id) // String
+
+  final def filterAsScala: Option[AnalyticsFilter] = Option(self.filter) // AnalyticsFilter
+
+  final def storageClassAnalysisAsScala: Option[StorageClassAnalysis] =
+    Option(self.storageClassAnalysis) // StorageClassAnalysis
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAnalyticsConfigurationOps {
+
+  implicit def toAnalyticsConfigurationBuilderOps(v: AnalyticsConfiguration.Builder): AnalyticsConfigurationBuilderOps =
+    new AnalyticsConfigurationBuilderOps(v)
+
+  implicit def toAnalyticsConfigurationOps(v: AnalyticsConfiguration): AnalyticsConfigurationOps =
+    new AnalyticsConfigurationOps(v)
 
 }

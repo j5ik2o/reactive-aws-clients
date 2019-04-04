@@ -1,25 +1,49 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketWebsiteRequest => ScalaPutBucketWebsiteRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketWebsiteRequest => JavaPutBucketWebsiteRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketWebsiteRequestOps {
+final class PutBucketWebsiteRequestBuilderOps(val self: PutBucketWebsiteRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutBucketWebsiteRequestOps(val self: ScalaPutBucketWebsiteRequest) extends AnyVal {
-
-    def toJava: JavaPutBucketWebsiteRequest = {
-      val result = JavaPutBucketWebsiteRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v))         // String
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v)) // String
-      self.websiteConfiguration.foreach { v =>
-        import WebsiteConfigurationOps._; result.websiteConfiguration(v.toJava)
-      } // WebsiteConfiguration
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withContentMD5AsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+  final def withWebsiteConfigurationAsScala(value: Option[WebsiteConfiguration]): PutBucketWebsiteRequest.Builder = {
+    value.fold(self) { v =>
+      self.websiteConfiguration(v)
+    }
+  } // WebsiteConfiguration
+
+}
+
+final class PutBucketWebsiteRequestOps(val self: PutBucketWebsiteRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+  final def websiteConfigurationAsScala: Option[WebsiteConfiguration] =
+    Option(self.websiteConfiguration) // WebsiteConfiguration
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketWebsiteRequestOps {
+
+  implicit def toPutBucketWebsiteRequestBuilderOps(
+      v: PutBucketWebsiteRequest.Builder
+  ): PutBucketWebsiteRequestBuilderOps = new PutBucketWebsiteRequestBuilderOps(v)
+
+  implicit def toPutBucketWebsiteRequestOps(v: PutBucketWebsiteRequest): PutBucketWebsiteRequestOps =
+    new PutBucketWebsiteRequestOps(v)
 
 }

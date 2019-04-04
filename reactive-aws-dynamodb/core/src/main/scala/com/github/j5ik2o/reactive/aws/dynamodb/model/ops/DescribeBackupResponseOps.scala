@@ -1,27 +1,31 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ DescribeBackupResponse => ScalaDescribeBackupResponse, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ DescribeBackupResponse => JavaDescribeBackupResponse }
+import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeBackupResponseBuilderOps(val self: DescribeBackupResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeBackupResponseOps {
-
-  implicit class JavaDescribeBackupResponseOps(val self: JavaDescribeBackupResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeBackupResponse = {
-      ScalaDescribeBackupResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withBackupDescription(Option(self.backupDescription).map { v =>
-          import BackupDescriptionOps._; v.toScala
-        }) // BackupDescription
+  final def withBackupDescriptionAsScala(value: Option[BackupDescription]): DescribeBackupResponse.Builder = {
+    value.fold(self) { v =>
+      self.backupDescription(v)
     }
+  } // BackupDescription
 
-  }
+}
+
+final class DescribeBackupResponseOps(val self: DescribeBackupResponse) extends AnyVal {
+
+  final def backupDescriptionAsScala: Option[BackupDescription] = Option(self.backupDescription) // BackupDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeBackupResponseOps {
+
+  implicit def toDescribeBackupResponseBuilderOps(v: DescribeBackupResponse.Builder): DescribeBackupResponseBuilderOps =
+    new DescribeBackupResponseBuilderOps(v)
+
+  implicit def toDescribeBackupResponseOps(v: DescribeBackupResponse): DescribeBackupResponseOps =
+    new DescribeBackupResponseOps(v)
 
 }

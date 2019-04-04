@@ -1,25 +1,47 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ PutBucketCorsRequest => ScalaPutBucketCorsRequest, _ }
-import software.amazon.awssdk.services.s3.model.{ PutBucketCorsRequest => JavaPutBucketCorsRequest }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutBucketCorsRequestOps {
+final class PutBucketCorsRequestBuilderOps(val self: PutBucketCorsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaPutBucketCorsRequestOps(val self: ScalaPutBucketCorsRequest) extends AnyVal {
-
-    def toJava: JavaPutBucketCorsRequest = {
-      val result = JavaPutBucketCorsRequest.builder()
-      self.bucket.filter(_.nonEmpty).foreach(v => result.bucket(v)) // String
-      self.corsConfiguration.foreach { v =>
-        import CORSConfigurationOps._; result.corsConfiguration(v.toJava)
-      } // CORSConfiguration
-      self.contentMD5.filter(_.nonEmpty).foreach(v => result.contentMD5(v)) // String
-
-      result.build()
+  final def withBucketAsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
     }
+  } // String
 
-  }
+  final def withCorsConfigurationAsScala(value: Option[CORSConfiguration]): PutBucketCorsRequest.Builder = {
+    value.fold(self) { v =>
+      self.corsConfiguration(v)
+    }
+  } // CORSConfiguration
+
+  final def withContentMD5AsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
+    value.fold(self) { v =>
+      self.contentMD5(v)
+    }
+  } // String
+
+}
+
+final class PutBucketCorsRequestOps(val self: PutBucketCorsRequest) extends AnyVal {
+
+  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+
+  final def corsConfigurationAsScala: Option[CORSConfiguration] = Option(self.corsConfiguration) // CORSConfiguration
+
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutBucketCorsRequestOps {
+
+  implicit def toPutBucketCorsRequestBuilderOps(v: PutBucketCorsRequest.Builder): PutBucketCorsRequestBuilderOps =
+    new PutBucketCorsRequestBuilderOps(v)
+
+  implicit def toPutBucketCorsRequestOps(v: PutBucketCorsRequest): PutBucketCorsRequestOps =
+    new PutBucketCorsRequestOps(v)
 
 }

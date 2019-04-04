@@ -1,40 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ ObjectLockConfiguration => ScalaObjectLockConfiguration, _ }
-import software.amazon.awssdk.services.s3.model.{ ObjectLockConfiguration => JavaObjectLockConfiguration }
+import software.amazon.awssdk.services.s3.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ObjectLockConfigurationOps {
+final class ObjectLockConfigurationBuilderOps(val self: ObjectLockConfiguration.Builder) extends AnyVal {
 
-  implicit class ScalaObjectLockConfigurationOps(val self: ScalaObjectLockConfiguration) extends AnyVal {
-
-    def toJava: JavaObjectLockConfiguration = {
-      val result = JavaObjectLockConfiguration.builder()
-      self.objectLockEnabled.foreach { v =>
-        import ObjectLockEnabledOps._; result.objectLockEnabled(v.toJava)
-      } // String
-      self.rule.foreach { v =>
-        import ObjectLockRuleOps._; result.rule(v.toJava)
-      } // ObjectLockRule
-
-      result.build()
+  final def withObjectLockEnabledAsScala(value: Option[ObjectLockEnabled]): ObjectLockConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.objectLockEnabled(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaObjectLockConfigurationOps(val self: JavaObjectLockConfiguration) extends AnyVal {
-
-    def toScala: ScalaObjectLockConfiguration = {
-      ScalaObjectLockConfiguration()
-        .withObjectLockEnabled(Option(self.objectLockEnabled).map { v =>
-          import ObjectLockEnabledOps._; v.toScala
-        }) // String
-        .withRule(Option(self.rule).map { v =>
-          import ObjectLockRuleOps._; v.toScala
-        }) // ObjectLockRule
+  final def withRuleAsScala(value: Option[ObjectLockRule]): ObjectLockConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.rule(v)
     }
+  } // ObjectLockRule
 
-  }
+}
+
+final class ObjectLockConfigurationOps(val self: ObjectLockConfiguration) extends AnyVal {
+
+  final def objectLockEnabledAsScala: Option[ObjectLockEnabled] = Option(self.objectLockEnabled) // String
+
+  final def ruleAsScala: Option[ObjectLockRule] = Option(self.rule) // ObjectLockRule
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToObjectLockConfigurationOps {
+
+  implicit def toObjectLockConfigurationBuilderOps(
+      v: ObjectLockConfiguration.Builder
+  ): ObjectLockConfigurationBuilderOps = new ObjectLockConfigurationBuilderOps(v)
+
+  implicit def toObjectLockConfigurationOps(v: ObjectLockConfiguration): ObjectLockConfigurationOps =
+    new ObjectLockConfigurationOps(v)
 
 }

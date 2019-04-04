@@ -1,47 +1,65 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
-import com.github.j5ik2o.reactive.aws.dynamodb.model.{ GlobalTableDescription => ScalaGlobalTableDescription, _ }
-import software.amazon.awssdk.services.dynamodb.model.{ GlobalTableDescription => JavaGlobalTableDescription }
+import software.amazon.awssdk.services.dynamodb.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GlobalTableDescriptionOps {
+final class GlobalTableDescriptionBuilderOps(val self: GlobalTableDescription.Builder) extends AnyVal {
 
-  implicit class ScalaGlobalTableDescriptionOps(val self: ScalaGlobalTableDescription) extends AnyVal {
-
-    def toJava: JavaGlobalTableDescription = {
-      val result = JavaGlobalTableDescription.builder()
-      self.replicationGroup.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, ReplicaDescriptionOps._;
-        result.replicationGroup(v.map(_.toJava).asJava)
-      } // Seq[ReplicaDescription]
-      self.globalTableArn.filter(_.nonEmpty).foreach(v => result.globalTableArn(v)) // String
-      self.creationDateTime.foreach(v => result.creationDateTime(v))                // Instant
-      self.globalTableStatus.foreach { v =>
-        import GlobalTableStatusOps._; result.globalTableStatus(v.toJava)
-      } // String
-      self.globalTableName.filter(_.nonEmpty).foreach(v => result.globalTableName(v)) // String
-
-      result.build()
-    }
-
+  final def withReplicationGroupAsScala(value: Option[Seq[ReplicaDescription]]): GlobalTableDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.replicationGroup(v.asJava)
+    } // Seq[ReplicaDescription]
   }
 
-  implicit class JavaGlobalTableDescriptionOps(val self: JavaGlobalTableDescription) extends AnyVal {
-
-    def toScala: ScalaGlobalTableDescription = {
-      ScalaGlobalTableDescription()
-        .withReplicationGroup(Option(self.replicationGroup).map { v =>
-          import scala.collection.JavaConverters._, ReplicaDescriptionOps._; v.asScala.map(_.toScala)
-        }) // Seq[ReplicaDescription]
-        .withGlobalTableArn(Option(self.globalTableArn)) // String
-        .withCreationDateTime(Option(self.creationDateTime)) // Instant
-        .withGlobalTableStatus(Option(self.globalTableStatus).map { v =>
-          import GlobalTableStatusOps._; v.toScala
-        }) // String
-        .withGlobalTableName(Option(self.globalTableName)) // String
+  final def withGlobalTableArnAsScala(value: Option[String]): GlobalTableDescription.Builder = {
+    value.fold(self) { v =>
+      self.globalTableArn(v)
     }
+  } // String
 
-  }
+  final def withCreationDateTimeAsScala(value: Option[java.time.Instant]): GlobalTableDescription.Builder = {
+    value.fold(self) { v =>
+      self.creationDateTime(v)
+    }
+  } // Instant
+
+  final def withGlobalTableStatusAsScala(value: Option[GlobalTableStatus]): GlobalTableDescription.Builder = {
+    value.fold(self) { v =>
+      self.globalTableStatus(v)
+    }
+  } // String
+
+  final def withGlobalTableNameAsScala(value: Option[String]): GlobalTableDescription.Builder = {
+    value.fold(self) { v =>
+      self.globalTableName(v)
+    }
+  } // String
+
+}
+
+final class GlobalTableDescriptionOps(val self: GlobalTableDescription) extends AnyVal {
+
+  final def replicationGroupAsScala: Option[Seq[ReplicaDescription]] = Option(self.replicationGroup).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[ReplicaDescription]
+
+  final def globalTableArnAsScala: Option[String] = Option(self.globalTableArn) // String
+
+  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // Instant
+
+  final def globalTableStatusAsScala: Option[GlobalTableStatus] = Option(self.globalTableStatus) // String
+
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGlobalTableDescriptionOps {
+
+  implicit def toGlobalTableDescriptionBuilderOps(v: GlobalTableDescription.Builder): GlobalTableDescriptionBuilderOps =
+    new GlobalTableDescriptionBuilderOps(v)
+
+  implicit def toGlobalTableDescriptionOps(v: GlobalTableDescription): GlobalTableDescriptionOps =
+    new GlobalTableDescriptionOps(v)
 
 }

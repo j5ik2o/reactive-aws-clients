@@ -1,27 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
 
-import com.github.j5ik2o.reactive.aws.s3.model.{ GetObjectRetentionResponse => ScalaGetObjectRetentionResponse, _ }
-import software.amazon.awssdk.services.s3.model.{ GetObjectRetentionResponse => JavaGetObjectRetentionResponse }
+import software.amazon.awssdk.services.s3.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class GetObjectRetentionResponseBuilderOps(val self: GetObjectRetentionResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object GetObjectRetentionResponseOps {
-
-  implicit class JavaGetObjectRetentionResponseOps(val self: JavaGetObjectRetentionResponse) extends AnyVal {
-
-    def toScala: ScalaGetObjectRetentionResponse = {
-      ScalaGetObjectRetentionResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withRetention(Option(self.retention).map { v =>
-          import ObjectLockRetentionOps._; v.toScala
-        }) // ObjectLockRetention
+  final def withRetentionAsScala(value: Option[ObjectLockRetention]): GetObjectRetentionResponse.Builder = {
+    value.fold(self) { v =>
+      self.retention(v)
     }
+  } // ObjectLockRetention
 
-  }
+}
+
+final class GetObjectRetentionResponseOps(val self: GetObjectRetentionResponse) extends AnyVal {
+
+  final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention) // ObjectLockRetention
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetObjectRetentionResponseOps {
+
+  implicit def toGetObjectRetentionResponseBuilderOps(
+      v: GetObjectRetentionResponse.Builder
+  ): GetObjectRetentionResponseBuilderOps = new GetObjectRetentionResponseBuilderOps(v)
+
+  implicit def toGetObjectRetentionResponseOps(v: GetObjectRetentionResponse): GetObjectRetentionResponseOps =
+    new GetObjectRetentionResponseOps(v)
 
 }

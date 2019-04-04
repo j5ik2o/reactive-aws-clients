@@ -1,22 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ CreateStreamRequest => ScalaCreateStreamRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ CreateStreamRequest => JavaCreateStreamRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object CreateStreamRequestOps {
+final class CreateStreamRequestBuilderOps(val self: CreateStreamRequest.Builder) extends AnyVal {
 
-  implicit class ScalaCreateStreamRequestOps(val self: ScalaCreateStreamRequest) extends AnyVal {
-
-    def toJava: JavaCreateStreamRequest = {
-      val result = JavaCreateStreamRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v)) // String
-      self.shardCount.map(_.intValue).foreach(v => result.shardCount(v))    // Int
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): CreateStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withShardCountAsScala(value: Option[Int]): CreateStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.shardCount(v)
+    }
+  } // Int
+
+}
+
+final class CreateStreamRequestOps(val self: CreateStreamRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def shardCountAsScala: Option[Int] = Option(self.shardCount) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToCreateStreamRequestOps {
+
+  implicit def toCreateStreamRequestBuilderOps(v: CreateStreamRequest.Builder): CreateStreamRequestBuilderOps =
+    new CreateStreamRequestBuilderOps(v)
+
+  implicit def toCreateStreamRequestOps(v: CreateStreamRequest): CreateStreamRequestOps = new CreateStreamRequestOps(v)
 
 }
