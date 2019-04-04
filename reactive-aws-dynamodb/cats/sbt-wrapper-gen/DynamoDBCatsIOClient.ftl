@@ -1,23 +1,21 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.kinesis.cats
+package com.github.j5ik2o.reactive.aws.dynamodb.cats
 
-import cats.data.ReaderT
-import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
-import software.amazon.awssdk.services.kinesis.model._
-import software.amazon.awssdk.services.kinesis.paginators._
+import cats.effect.IO
+import com.github.j5ik2o.reactive.aws.dynamodb.{DynamoDBAsyncClient, DynamoDBClient}
+import software.amazon.awssdk.services.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.paginators._
 
-import scala.concurrent.{ ExecutionContext, Future }
+object DynamoDBCatsIOClient {
 
-object KinesisReaderTFutureClient {
-
-  def apply(underlying: KinesisAsyncClient): KinesisReaderTFutureClient =
-    new KinesisReaderTFutureClientImpl(underlying)
+def apply(underlying: DynamoDBAsyncClient): DynamoDBCatsIOClient =
+new DynamoDBCatsIOClientImpl(underlying)
 
 }
 
-trait KinesisReaderTFutureClient extends KinesisClient[ReaderT[Future, ExecutionContext, ?]] {
+trait DynamoDBCatsIOClient extends DynamoDBClient[IO] {
 
-  val underlying: KinesisAsyncClient
+val underlying: DynamoDBAsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
@@ -30,20 +28,17 @@ trait KinesisReaderTFutureClient extends KinesisClient[ReaderT[Future, Execution
             <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
             override def ${method.name}(
             ${requestParameterName}: ${requestTypeName}
-            ): ReaderT[Future, ExecutionContext, ${responseTypeName}] =
-            ReaderT { implicit ec =>
-            underlying.${method.name}(${requestParameterName})
+            ): IO[${responseTypeName}] =
+            IO.fromFuture{
+            IO(underlying.${method.name}(${requestParameterName}))
             }
         </#if>
-    </#if>
-</#list>
+
+    </#if></#list>
 }
 
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if methodDesc.name == "subscribeToShard">
         <#return false>
     </#if>
     <#if !methodDesc.parameterTypeDescs?has_content>

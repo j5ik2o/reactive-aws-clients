@@ -14,7 +14,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 import scala.concurrent.duration._
 
-class DynamoDBReaderTFutureClientImplSpec
+class DynamoDBCatsIOClientImplSpec
     extends AsyncFreeSpec
     with Matchers
     with ScalaFutures
@@ -30,14 +30,14 @@ class DynamoDBReaderTFutureClientImplSpec
     .endpointOverride(URI.create(endpoint))
     .build()
 
-  val client = DynamoDBReaderTFutureClient(DynamoDBAsyncClient(underlying))
+  val client = DynamoDBCatsIOClient(DynamoDBAsyncClient(underlying))
 
   "DynamoDBAsyncClientV2ImplSpec" - {
     "createTable & listTables" in {
       val (tableName: String, createResponse: CreateTableResponse) = createTable()
       createResponse.sdkHttpResponse().isSuccessful shouldBe true
       val listTablesRequest  = ListTablesRequest.builder().withLimitAsScala(Some(1)).build()
-      val listTablesResponse = client.listTables(listTablesRequest).run(executionContext).futureValue
+      val listTablesResponse = client.listTables(listTablesRequest).unsafeToFuture().futureValue
       listTablesResponse.sdkHttpResponse().isSuccessful shouldBe true
       listTablesResponse.tableNamesAsScala.get should contain(tableName)
     }
@@ -54,13 +54,13 @@ class DynamoDBReaderTFutureClientImplSpec
             )
           )
         ).build()
-      val putItemResponse = client.putItem(putItemRequest).run(executionContext).futureValue
+      val putItemResponse = client.putItem(putItemRequest).unsafeToFuture().futureValue
       putItemResponse.sdkHttpResponse().isSuccessful shouldBe true
       val getItemRequest = GetItemRequest
         .builder()
         .withTableNameAsScala(Some(tableName))
         .withKeyAsScala(Some(Map("Id" -> AttributeValue.builder().withSAsScala(Some("abc")).build()))).build()
-      val getItemResponse = client.getItem(getItemRequest).run(executionContext).futureValue
+      val getItemResponse = client.getItem(getItemRequest).unsafeToFuture().futureValue
       getItemResponse.sdkHttpResponse().isSuccessful shouldBe true
       getItemResponse.itemAsScala.get.mapValues(_.sAsScala.get) shouldBe Map("Id" -> "abc", "Name" -> "xyz")
 
@@ -79,7 +79,7 @@ class DynamoDBReaderTFutureClientImplSpec
             )
           )
         ).build()
-      val updateItemResponse = client.updateItem(updateItemRequest).run(executionContext).futureValue
+      val updateItemResponse = client.updateItem(updateItemRequest).unsafeToFuture().futureValue
       updateItemResponse.sdkHttpResponse().isSuccessful shouldBe true
     }
   }
@@ -118,7 +118,7 @@ class DynamoDBReaderTFutureClientImplSpec
       )
       .withTableNameAsScala(Some(tableName)).build()
     val createResponse = client
-      .createTable(createRequest).run(executionContext).futureValue
+      .createTable(createRequest).unsafeToFuture().futureValue
     (tableName, createResponse)
   }
 

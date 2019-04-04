@@ -40,6 +40,7 @@ object Settings {
         "-encoding",
         "UTF-8",
         "-language:_",
+        "-Ypartial-unification",
         "-Ydelambdafy:method",
         "-target:jvm-1.8"
       )

@@ -6,8 +6,6 @@ import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.kinesis.KinesisAsyncClient
 import software.amazon.awssdk.services.kinesis.model._
 
-import scala.concurrent.Future
-
 object KinesisStreamClient {
 
   def apply(underlying: KinesisAsyncClient): KinesisStreamClient = new KinesisStreamClientImpl(underlying)
