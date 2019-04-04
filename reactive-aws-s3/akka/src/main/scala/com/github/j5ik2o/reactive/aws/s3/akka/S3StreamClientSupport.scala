@@ -141,7 +141,20 @@ trait S3StreamClientSupport {
   ): Flow[(PutObjectRequest, Path), PutObjectResponse, NotUsed] =
     Flow[(PutObjectRequest, Path)].mapAsync(parallelism) {
       case (putObjectRequest, sourcePath) =>
-        underlying.putObject(putObjectRequest, sourcePath)
+        underlying.putObjectFromPath(putObjectRequest, sourcePath)
+    }
+
+  def putObjectFromFileSource(putObjectRequest: PutObjectRequest,
+                              sourceFile: File,
+                              parallelism: Int = DefaultParallelism): Source[PutObjectResponse, NotUsed] =
+    Source.single((putObjectRequest, sourceFile)).via(putObjectFromFileFlow(parallelism))
+
+  def putObjectFromFileFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[(PutObjectRequest, File), PutObjectResponse, NotUsed] =
+    Flow[(PutObjectRequest, File)].mapAsync(parallelism) {
+      case (putObjectRequest, sourceFile) =>
+        underlying.putObjectFromFile(putObjectRequest, sourceFile)
     }
 
   def uploadPartSource(uploadPartRequest: UploadPartRequest,
@@ -167,6 +180,19 @@ trait S3StreamClientSupport {
   ): Flow[(UploadPartRequest, Path), UploadPartResponse, NotUsed] =
     Flow[(UploadPartRequest, Path)].mapAsync(parallelism) {
       case (uploadPartRequest, sourcePath) =>
-        underlying.uploadPart(uploadPartRequest, sourcePath)
+        underlying.uploadPartFromPath(uploadPartRequest, sourcePath)
+    }
+
+  def uploadPartFromFileSource(uploadPartRequest: UploadPartRequest,
+                               sourceFile: File,
+                               parallelism: Int = DefaultParallelism): Source[UploadPartResponse, NotUsed] =
+    Source.single((uploadPartRequest, sourceFile)).via(uploadPartFromFileFlow(parallelism))
+
+  def uploadPartFromFileFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[(UploadPartRequest, File), UploadPartResponse, NotUsed] =
+    Flow[(UploadPartRequest, File)].mapAsync(parallelism) {
+      case (uploadPartRequest, sourceFile) =>
+        underlying.uploadPartFromFile(uploadPartRequest, sourceFile)
     }
 }

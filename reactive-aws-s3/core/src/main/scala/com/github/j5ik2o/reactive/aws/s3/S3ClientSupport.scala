@@ -34,10 +34,14 @@ trait S3ClientSupport[M[_]] { this: S3Client[M] =>
 
   def putObject(putObjectRequest: PutObjectRequest, requestBody: RB): M[PutObjectResponse]
 
-  def putObject(putObjectRequest: PutObjectRequest, sourcePath: Path): M[PutObjectResponse]
+  def putObjectFromPath(putObjectRequest: PutObjectRequest, sourcePath: Path): M[PutObjectResponse]
+
+  def putObjectFromFile(putObjectRequest: PutObjectRequest, sourceFile: File): M[PutObjectResponse]
 
   def uploadPart(uploadPartRequest: UploadPartRequest, requestBody: RB): M[UploadPartResponse]
 
-  def uploadPart(uploadPartRequest: UploadPartRequest, sourcePath: Path): M[UploadPartResponse]
+  def uploadPartFromPath(uploadPartRequest: UploadPartRequest, sourcePath: Path): M[UploadPartResponse]
+
+  def uploadPartFromFile(uploadPartRequest: UploadPartRequest, sourceFile: File): M[UploadPartResponse]
 
 }

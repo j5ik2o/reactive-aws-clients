@@ -7,11 +7,11 @@ import software.amazon.awssdk.core.ResponseBytes
 import software.amazon.awssdk.core.async.{ AsyncRequestBody, AsyncResponseTransformer }
 import software.amazon.awssdk.services.s3.model._
 
+import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
 trait S3AsyncClientSupport extends S3ClientSupport[Future] {
   this: S3AsyncClient =>
-  import S3AsyncClient._
 
   override type RT[A, B] = AsyncResponseTransformer[A, B]
   override type RB       = AsyncRequestBody
@@ -33,7 +33,7 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       .getObject(
         getObjectRequest,
         asyncResponseTransformer
-      ).toFuture
+      ).toScala
   }
 
   override def getObjectTorrentAsBytes(
@@ -55,13 +55,13 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       .getObjectTorrent(
         getObjectTorrentRequest,
         asyncResponseTransformer
-      ).toFuture
+      ).toScala
   }
 
   override def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
                                       destinationPath: Path): Future[GetObjectTorrentResponse] = {
     underlying
-      .getObjectTorrent(getObjectTorrentRequest, destinationPath).toFuture
+      .getObjectTorrent(getObjectTorrentRequest, destinationPath).toScala
   }
 
   override def putObject(putObjectRequest: PutObjectRequest,
@@ -70,11 +70,15 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       .putObject(
         putObjectRequest,
         requestBody
-      ).toFuture
+      ).toScala
   }
 
-  override def putObject(putObjectRequest: PutObjectRequest, sourcePath: Path): Future[PutObjectResponse] = {
-    underlying.putObject(putObjectRequest, sourcePath).toFuture
+  override def putObjectFromPath(putObjectRequest: PutObjectRequest, sourcePath: Path): Future[PutObjectResponse] = {
+    underlying.putObject(putObjectRequest, sourcePath).toScala
+  }
+
+  override def putObjectFromFile(putObjectRequest: PutObjectRequest, sourceFile: File): Future[PutObjectResponse] = {
+    underlying.putObject(putObjectRequest, sourceFile.toPath).toScala
   }
 
   override def uploadPart(uploadPartRequest: UploadPartRequest,
@@ -83,11 +87,17 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       .uploadPart(
         uploadPartRequest,
         requestBody
-      ).toFuture
+      ).toScala
   }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest, sourcePath: Path): Future[UploadPartResponse] = {
-    underlying.uploadPart(uploadPartRequest, sourcePath).toFuture
+  override def uploadPartFromPath(uploadPartRequest: UploadPartRequest,
+                                  sourcePath: Path): Future[UploadPartResponse] = {
+    underlying.uploadPart(uploadPartRequest, sourcePath).toScala
+  }
+
+  override def uploadPartFromFile(uploadPartRequest: UploadPartRequest,
+                                  sourceFile: File): Future[UploadPartResponse] = {
+    underlying.uploadPart(uploadPartRequest, sourceFile.toPath).toScala
   }
 
 }
