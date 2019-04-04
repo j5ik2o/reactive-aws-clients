@@ -99,6 +99,15 @@ lazy val `reactive-aws-s3-core` =
   (project in file("reactive-aws-s3/core"))
     .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-s3-test` % "test")
 
+lazy val `reactive-aws-s3-cats` = (project in file("reactive-aws-s3/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-s3-core`, `reactive-aws-s3-test` % "test")
+
+lazy val `reactive-aws-s3-monix` = (project in file("reactive-aws-s3/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-s3-core`, `reactive-aws-s3-test` % "test")
+
+lazy val `reactive-aws-s3-akka` = (project in file("reactive-aws-s3/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-s3-core`, `reactive-aws-s3-test` % "test")
+
 lazy val `reactive-aws-s3-root`: Project = (project in file("reactive-aws-s3"))
   .settings(coreSettings)
   .settings(
@@ -106,7 +115,10 @@ lazy val `reactive-aws-s3-root`: Project = (project in file("reactive-aws-s3"))
   )
   .aggregate(
     `reactive-aws-s3-core`,
-    `reactive-aws-s3-test`
+    `reactive-aws-s3-test`,
+    `reactive-aws-s3-akka`,
+    `reactive-aws-s3-cats`,
+    `reactive-aws-s3-monix`
   )
 
 lazy val `root`: Project = (project in file("."))
