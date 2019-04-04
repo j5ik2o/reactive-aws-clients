@@ -1,29 +1,50 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  DeregisterStreamConsumerRequest => ScalaDeregisterStreamConsumerRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  DeregisterStreamConsumerRequest => JavaDeregisterStreamConsumerRequest
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeregisterStreamConsumerRequestOps {
+final class DeregisterStreamConsumerRequestBuilderOps(val self: DeregisterStreamConsumerRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaDeregisterStreamConsumerRequestOps(val self: ScalaDeregisterStreamConsumerRequest)
-      extends AnyVal {
-
-    def toJava: JavaDeregisterStreamConsumerRequest = {
-      val result = JavaDeregisterStreamConsumerRequest.builder()
-      self.streamARN.filter(_.nonEmpty).foreach(v => result.streamARN(v))       // String
-      self.consumerName.filter(_.nonEmpty).foreach(v => result.consumerName(v)) // String
-      self.consumerARN.filter(_.nonEmpty).foreach(v => result.consumerARN(v))   // String
-
-      result.build()
+  final def withStreamARNAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamARN(v)
     }
+  } // String
 
-  }
+  final def withConsumerNameAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.consumerName(v)
+    }
+  } // String
+
+  final def withConsumerARNAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.consumerARN(v)
+    }
+  } // String
+
+}
+
+final class DeregisterStreamConsumerRequestOps(val self: DeregisterStreamConsumerRequest) extends AnyVal {
+
+  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+
+  final def consumerNameAsScala: Option[String] = Option(self.consumerName) // String
+
+  final def consumerARNAsScala: Option[String] = Option(self.consumerARN) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeregisterStreamConsumerRequestOps {
+
+  implicit def toDeregisterStreamConsumerRequestBuilderOps(
+      v: DeregisterStreamConsumerRequest.Builder
+  ): DeregisterStreamConsumerRequestBuilderOps = new DeregisterStreamConsumerRequestBuilderOps(v)
+
+  implicit def toDeregisterStreamConsumerRequestOps(
+      v: DeregisterStreamConsumerRequest
+  ): DeregisterStreamConsumerRequestOps = new DeregisterStreamConsumerRequestOps(v)
 
 }

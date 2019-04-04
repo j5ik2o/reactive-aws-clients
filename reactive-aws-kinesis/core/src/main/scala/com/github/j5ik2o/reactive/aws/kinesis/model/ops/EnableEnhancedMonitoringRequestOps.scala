@@ -1,30 +1,44 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  EnableEnhancedMonitoringRequest => ScalaEnableEnhancedMonitoringRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  EnableEnhancedMonitoringRequest => JavaEnableEnhancedMonitoringRequest
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object EnableEnhancedMonitoringRequestOps {
+final class EnableEnhancedMonitoringRequestBuilderOps(val self: EnableEnhancedMonitoringRequest.Builder)
+    extends AnyVal {
 
-  implicit class ScalaEnableEnhancedMonitoringRequestOps(val self: ScalaEnableEnhancedMonitoringRequest)
-      extends AnyVal {
-
-    def toJava: JavaEnableEnhancedMonitoringRequest = {
-      val result = JavaEnableEnhancedMonitoringRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v)) // String
-      self.shardLevelMetrics.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._, MetricsNameOps._; result.shardLevelMetrics(v.map(_.toJava).asJava)
-      } // Seq[String]
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): EnableEnhancedMonitoringRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
+  final def withShardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): EnableEnhancedMonitoringRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.shardLevelMetrics(v.asJava)
+    } // Seq[String]
   }
+
+}
+
+final class EnableEnhancedMonitoringRequestOps(val self: EnableEnhancedMonitoringRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def shardLevelMetricsAsScala: Option[Seq[MetricsName]] = Option(self.shardLevelMetrics).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToEnableEnhancedMonitoringRequestOps {
+
+  implicit def toEnableEnhancedMonitoringRequestBuilderOps(
+      v: EnableEnhancedMonitoringRequest.Builder
+  ): EnableEnhancedMonitoringRequestBuilderOps = new EnableEnhancedMonitoringRequestBuilderOps(v)
+
+  implicit def toEnableEnhancedMonitoringRequestOps(
+      v: EnableEnhancedMonitoringRequest
+  ): EnableEnhancedMonitoringRequestOps = new EnableEnhancedMonitoringRequestOps(v)
 
 }

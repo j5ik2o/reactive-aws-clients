@@ -4,6 +4,5 @@ import software.amazon.awssdk.services.kinesis.{ KinesisAsyncClient => JavaKines
 
 import scala.concurrent.{ ExecutionContext, Future }
 
-private[kinesis] class KinesisAsyncClientImpl(override val underlying: JavaKinesisAsyncClient)(
-    implicit val ec: ExecutionContext
-) extends KinesisAsyncClient
+private[kinesis] class KinesisAsyncClientImpl(override val underlying: JavaKinesisAsyncClient)
+    extends KinesisAsyncClient

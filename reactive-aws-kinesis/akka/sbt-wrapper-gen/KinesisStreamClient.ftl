@@ -4,7 +4,7 @@ package com.github.j5ik2o.reactive.aws.kinesis.akka
 import akka.NotUsed
 import akka.stream.scaladsl.{Flow, Source}
 import com.github.j5ik2o.reactive.aws.kinesis.KinesisAsyncClient
-import com.github.j5ik2o.reactive.aws.kinesis.model._
+import software.amazon.awssdk.services.kinesis.model._
 
 import scala.concurrent.Future
 

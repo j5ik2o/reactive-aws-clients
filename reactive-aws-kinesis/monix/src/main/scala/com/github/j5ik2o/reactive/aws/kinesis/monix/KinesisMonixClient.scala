@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.monix
 
-import com.github.j5ik2o.reactive.aws.kinesis.model._
+import software.amazon.awssdk.services.kinesis.model._
 import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
 import monix.eval.Task
 import monix.reactive.Observable
@@ -16,14 +16,11 @@ trait KinesisMonixClient extends KinesisClient[Task] {
 
   val underlying: KinesisAsyncClient
 
-  override def addTagsToStream(
-      addTagsToStreamRequest: AddTagsToStreamRequest
-  ): Task[AddTagsToStreamResponse] = Task.deferFuture {
-    underlying.addTagsToStream(addTagsToStreamRequest)
-  }
-  override def createStream(
-      createStreamRequest: CreateStreamRequest
-  ): Task[CreateStreamResponse] = Task.deferFuture {
+  override def addTagsToStream(addTagsToStreamRequest: AddTagsToStreamRequest): Task[AddTagsToStreamResponse] =
+    Task.deferFuture {
+      underlying.addTagsToStream(addTagsToStreamRequest)
+    }
+  override def createStream(createStreamRequest: CreateStreamRequest): Task[CreateStreamResponse] = Task.deferFuture {
     underlying.createStream(createStreamRequest)
   }
   override def decreaseStreamRetentionPeriod(
@@ -31,9 +28,7 @@ trait KinesisMonixClient extends KinesisClient[Task] {
   ): Task[DecreaseStreamRetentionPeriodResponse] = Task.deferFuture {
     underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest)
   }
-  override def deleteStream(
-      deleteStreamRequest: DeleteStreamRequest
-  ): Task[DeleteStreamResponse] = Task.deferFuture {
+  override def deleteStream(deleteStreamRequest: DeleteStreamRequest): Task[DeleteStreamResponse] = Task.deferFuture {
     underlying.deleteStream(deleteStreamRequest)
   }
   override def deregisterStreamConsumer(
@@ -41,16 +36,14 @@ trait KinesisMonixClient extends KinesisClient[Task] {
   ): Task[DeregisterStreamConsumerResponse] = Task.deferFuture {
     underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest)
   }
-  override def describeLimits(
-      describeLimitsRequest: DescribeLimitsRequest
-  ): Task[DescribeLimitsResponse] = Task.deferFuture {
-    underlying.describeLimits(describeLimitsRequest)
-  }
-  override def describeStream(
-      describeStreamRequest: DescribeStreamRequest
-  ): Task[DescribeStreamResponse] = Task.deferFuture {
-    underlying.describeStream(describeStreamRequest)
-  }
+  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Task[DescribeLimitsResponse] =
+    Task.deferFuture {
+      underlying.describeLimits(describeLimitsRequest)
+    }
+  override def describeStream(describeStreamRequest: DescribeStreamRequest): Task[DescribeStreamResponse] =
+    Task.deferFuture {
+      underlying.describeStream(describeStreamRequest)
+    }
   override def describeStreamConsumer(
       describeStreamConsumerRequest: DescribeStreamConsumerRequest
   ): Task[DescribeStreamConsumerResponse] = Task.deferFuture {
@@ -71,24 +64,19 @@ trait KinesisMonixClient extends KinesisClient[Task] {
   ): Task[EnableEnhancedMonitoringResponse] = Task.deferFuture {
     underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest)
   }
-  override def getRecords(
-      getRecordsRequest: GetRecordsRequest
-  ): Task[GetRecordsResponse] = Task.deferFuture {
+  override def getRecords(getRecordsRequest: GetRecordsRequest): Task[GetRecordsResponse] = Task.deferFuture {
     underlying.getRecords(getRecordsRequest)
   }
-  override def getShardIterator(
-      getShardIteratorRequest: GetShardIteratorRequest
-  ): Task[GetShardIteratorResponse] = Task.deferFuture {
-    underlying.getShardIterator(getShardIteratorRequest)
-  }
+  override def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): Task[GetShardIteratorResponse] =
+    Task.deferFuture {
+      underlying.getShardIterator(getShardIteratorRequest)
+    }
   override def increaseStreamRetentionPeriod(
       increaseStreamRetentionPeriodRequest: IncreaseStreamRetentionPeriodRequest
   ): Task[IncreaseStreamRetentionPeriodResponse] = Task.deferFuture {
     underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest)
   }
-  override def listShards(
-      listShardsRequest: ListShardsRequest
-  ): Task[ListShardsResponse] = Task.deferFuture {
+  override def listShards(listShardsRequest: ListShardsRequest): Task[ListShardsResponse] = Task.deferFuture {
     underlying.listShards(listShardsRequest)
   }
   override def listStreamConsumers(
@@ -100,29 +88,20 @@ trait KinesisMonixClient extends KinesisClient[Task] {
       listStreamConsumersRequest: ListStreamConsumersRequest
   ): Observable[ListStreamConsumersResponse] =
     Observable.fromReactivePublisher(underlying.listStreamConsumersPaginator(listStreamConsumersRequest))
-  override def listStreams(
-      listStreamsRequest: ListStreamsRequest
-  ): Task[ListStreamsResponse] = Task.deferFuture {
+  override def listStreams(listStreamsRequest: ListStreamsRequest): Task[ListStreamsResponse] = Task.deferFuture {
     underlying.listStreams(listStreamsRequest)
   }
-  override def listTagsForStream(
-      listTagsForStreamRequest: ListTagsForStreamRequest
-  ): Task[ListTagsForStreamResponse] = Task.deferFuture {
-    underlying.listTagsForStream(listTagsForStreamRequest)
-  }
-  override def mergeShards(
-      mergeShardsRequest: MergeShardsRequest
-  ): Task[MergeShardsResponse] = Task.deferFuture {
+  override def listTagsForStream(listTagsForStreamRequest: ListTagsForStreamRequest): Task[ListTagsForStreamResponse] =
+    Task.deferFuture {
+      underlying.listTagsForStream(listTagsForStreamRequest)
+    }
+  override def mergeShards(mergeShardsRequest: MergeShardsRequest): Task[MergeShardsResponse] = Task.deferFuture {
     underlying.mergeShards(mergeShardsRequest)
   }
-  override def putRecord(
-      putRecordRequest: PutRecordRequest
-  ): Task[PutRecordResponse] = Task.deferFuture {
+  override def putRecord(putRecordRequest: PutRecordRequest): Task[PutRecordResponse] = Task.deferFuture {
     underlying.putRecord(putRecordRequest)
   }
-  override def putRecords(
-      putRecordsRequest: PutRecordsRequest
-  ): Task[PutRecordsResponse] = Task.deferFuture {
+  override def putRecords(putRecordsRequest: PutRecordsRequest): Task[PutRecordsResponse] = Task.deferFuture {
     underlying.putRecords(putRecordsRequest)
   }
   override def registerStreamConsumer(
@@ -135,9 +114,7 @@ trait KinesisMonixClient extends KinesisClient[Task] {
   ): Task[RemoveTagsFromStreamResponse] = Task.deferFuture {
     underlying.removeTagsFromStream(removeTagsFromStreamRequest)
   }
-  override def splitShard(
-      splitShardRequest: SplitShardRequest
-  ): Task[SplitShardResponse] = Task.deferFuture {
+  override def splitShard(splitShardRequest: SplitShardRequest): Task[SplitShardResponse] = Task.deferFuture {
     underlying.splitShard(splitShardRequest)
   }
   override def startStreamEncryption(
@@ -150,10 +127,9 @@ trait KinesisMonixClient extends KinesisClient[Task] {
   ): Task[StopStreamEncryptionResponse] = Task.deferFuture {
     underlying.stopStreamEncryption(stopStreamEncryptionRequest)
   }
-  override def updateShardCount(
-      updateShardCountRequest: UpdateShardCountRequest
-  ): Task[UpdateShardCountResponse] = Task.deferFuture {
-    underlying.updateShardCount(updateShardCountRequest)
-  }
+  override def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): Task[UpdateShardCountResponse] =
+    Task.deferFuture {
+      underlying.updateShardCount(updateShardCountRequest)
+    }
 
 }

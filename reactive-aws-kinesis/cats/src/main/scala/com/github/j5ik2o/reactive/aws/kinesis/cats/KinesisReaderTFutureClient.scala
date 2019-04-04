@@ -3,8 +3,8 @@ package com.github.j5ik2o.reactive.aws.kinesis.cats
 
 import cats.data.ReaderT
 import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
-import com.github.j5ik2o.reactive.aws.kinesis.model._
-import com.github.j5ik2o.reactive.aws.kinesis.model.rs._
+import software.amazon.awssdk.services.kinesis.model._
+import software.amazon.awssdk.services.kinesis.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 

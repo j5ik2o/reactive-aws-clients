@@ -1,32 +1,33 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  RegisterStreamConsumerResponse => ScalaRegisterStreamConsumerResponse,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  RegisterStreamConsumerResponse => JavaRegisterStreamConsumerResponse
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class RegisterStreamConsumerResponseBuilderOps(val self: RegisterStreamConsumerResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RegisterStreamConsumerResponseOps {
-
-  implicit class JavaRegisterStreamConsumerResponseOps(val self: JavaRegisterStreamConsumerResponse) extends AnyVal {
-
-    def toScala: ScalaRegisterStreamConsumerResponse = {
-      ScalaRegisterStreamConsumerResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withConsumer(Option(self.consumer).map { v =>
-          import ConsumerOps._; v.toScala
-        }) // Consumer
+  final def withConsumerAsScala(value: Option[Consumer]): RegisterStreamConsumerResponse.Builder = {
+    value.fold(self) { v =>
+      self.consumer(v)
     }
+  } // Consumer
 
-  }
+}
+
+final class RegisterStreamConsumerResponseOps(val self: RegisterStreamConsumerResponse) extends AnyVal {
+
+  final def consumerAsScala: Option[Consumer] = Option(self.consumer) // Consumer
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRegisterStreamConsumerResponseOps {
+
+  implicit def toRegisterStreamConsumerResponseBuilderOps(
+      v: RegisterStreamConsumerResponse.Builder
+  ): RegisterStreamConsumerResponseBuilderOps = new RegisterStreamConsumerResponseBuilderOps(v)
+
+  implicit def toRegisterStreamConsumerResponseOps(
+      v: RegisterStreamConsumerResponse
+  ): RegisterStreamConsumerResponseOps = new RegisterStreamConsumerResponseOps(v)
 
 }

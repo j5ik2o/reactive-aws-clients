@@ -1,27 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  RemoveTagsFromStreamRequest => ScalaRemoveTagsFromStreamRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{ RemoveTagsFromStreamRequest => JavaRemoveTagsFromStreamRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RemoveTagsFromStreamRequestOps {
+final class RemoveTagsFromStreamRequestBuilderOps(val self: RemoveTagsFromStreamRequest.Builder) extends AnyVal {
 
-  implicit class ScalaRemoveTagsFromStreamRequestOps(val self: ScalaRemoveTagsFromStreamRequest) extends AnyVal {
-
-    def toJava: JavaRemoveTagsFromStreamRequest = {
-      val result = JavaRemoveTagsFromStreamRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v)) // String
-      self.tagKeys.filter(_.nonEmpty).foreach { v =>
-        import scala.collection.JavaConverters._; result.tagKeys(v.asJava)
-      } // Seq[String]
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): RemoveTagsFromStreamRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
+  final def withTagKeysAsScala(value: Option[Seq[String]]): RemoveTagsFromStreamRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
+    } // Seq[String]
   }
+
+}
+
+final class RemoveTagsFromStreamRequestOps(val self: RemoveTagsFromStreamRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRemoveTagsFromStreamRequestOps {
+
+  implicit def toRemoveTagsFromStreamRequestBuilderOps(
+      v: RemoveTagsFromStreamRequest.Builder
+  ): RemoveTagsFromStreamRequestBuilderOps = new RemoveTagsFromStreamRequestBuilderOps(v)
+
+  implicit def toRemoveTagsFromStreamRequestOps(v: RemoveTagsFromStreamRequest): RemoveTagsFromStreamRequestOps =
+    new RemoveTagsFromStreamRequestOps(v)
 
 }

@@ -1,24 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ SubscribeToShardResponse => ScalaSubscribeToShardResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ SubscribeToShardResponse => JavaSubscribeToShardResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class SubscribeToShardResponseBuilderOps(val self: SubscribeToShardResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SubscribeToShardResponseOps {
+final class SubscribeToShardResponseOps(val self: SubscribeToShardResponse) extends AnyVal {}
 
-  implicit class JavaSubscribeToShardResponseOps(val self: JavaSubscribeToShardResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSubscribeToShardResponseOps {
 
-    def toScala: ScalaSubscribeToShardResponse = {
-      ScalaSubscribeToShardResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toSubscribeToShardResponseBuilderOps(
+      v: SubscribeToShardResponse.Builder
+  ): SubscribeToShardResponseBuilderOps = new SubscribeToShardResponseBuilderOps(v)
 
-  }
+  implicit def toSubscribeToShardResponseOps(v: SubscribeToShardResponse): SubscribeToShardResponseOps =
+    new SubscribeToShardResponseOps(v)
 
 }

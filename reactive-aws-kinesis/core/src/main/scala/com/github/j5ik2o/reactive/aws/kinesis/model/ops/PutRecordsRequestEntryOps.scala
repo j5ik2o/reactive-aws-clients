@@ -1,34 +1,47 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ PutRecordsRequestEntry => ScalaPutRecordsRequestEntry, _ }
-import software.amazon.awssdk.services.kinesis.model.{ PutRecordsRequestEntry => JavaPutRecordsRequestEntry }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutRecordsRequestEntryOps {
+final class PutRecordsRequestEntryBuilderOps(val self: PutRecordsRequestEntry.Builder) extends AnyVal {
 
-  implicit class ScalaPutRecordsRequestEntryOps(val self: ScalaPutRecordsRequestEntry) extends AnyVal {
-
-    def toJava: JavaPutRecordsRequestEntry = {
-      val result = JavaPutRecordsRequestEntry.builder()
-      self.data.foreach(v => result.data(v))                                          // SdkBytes
-      self.explicitHashKey.filter(_.nonEmpty).foreach(v => result.explicitHashKey(v)) // String
-      self.partitionKey.filter(_.nonEmpty).foreach(v => result.partitionKey(v))       // String
-
-      result.build()
+  final def withDataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordsRequestEntry.Builder = {
+    value.fold(self) { v =>
+      self.data(v)
     }
+  } // SdkBytes
 
-  }
-
-  implicit class JavaPutRecordsRequestEntryOps(val self: JavaPutRecordsRequestEntry) extends AnyVal {
-
-    def toScala: ScalaPutRecordsRequestEntry = {
-      ScalaPutRecordsRequestEntry()
-        .withData(Option(self.data)) // SdkBytes
-        .withExplicitHashKey(Option(self.explicitHashKey)) // String
-        .withPartitionKey(Option(self.partitionKey)) // String
+  final def withExplicitHashKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
+    value.fold(self) { v =>
+      self.explicitHashKey(v)
     }
+  } // String
 
-  }
+  final def withPartitionKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
+    value.fold(self) { v =>
+      self.partitionKey(v)
+    }
+  } // String
+
+}
+
+final class PutRecordsRequestEntryOps(val self: PutRecordsRequestEntry) extends AnyVal {
+
+  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.data) // SdkBytes
+
+  final def explicitHashKeyAsScala: Option[String] = Option(self.explicitHashKey) // String
+
+  final def partitionKeyAsScala: Option[String] = Option(self.partitionKey) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutRecordsRequestEntryOps {
+
+  implicit def toPutRecordsRequestEntryBuilderOps(v: PutRecordsRequestEntry.Builder): PutRecordsRequestEntryBuilderOps =
+    new PutRecordsRequestEntryBuilderOps(v)
+
+  implicit def toPutRecordsRequestEntryOps(v: PutRecordsRequestEntry): PutRecordsRequestEntryOps =
+    new PutRecordsRequestEntryOps(v)
 
 }

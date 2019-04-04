@@ -1,28 +1,42 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ ListTagsForStreamResponse => ScalaListTagsForStreamResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ ListTagsForStreamResponse => JavaListTagsForStreamResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListTagsForStreamResponseBuilderOps(val self: ListTagsForStreamResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListTagsForStreamResponseOps {
-
-  implicit class JavaListTagsForStreamResponseOps(val self: JavaListTagsForStreamResponse) extends AnyVal {
-
-    def toScala: ScalaListTagsForStreamResponse = {
-      ScalaListTagsForStreamResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withTags(Option(self.tags).map { v =>
-          import scala.collection.JavaConverters._, TagOps._; v.asScala.map(_.toScala)
-        }) // Seq[Tag]
-        .withHasMoreTags(Option(self.hasMoreTags).map(_.booleanValue)) // Boolean
-    }
-
+  final def withTagsAsScala(value: Option[Seq[Tag]]): ListTagsForStreamResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.tags(v.asJava)
+    } // Seq[Tag]
   }
+
+  final def withHasMoreTagsAsScala(value: Option[Boolean]): ListTagsForStreamResponse.Builder = {
+    value.fold(self) { v =>
+      self.hasMoreTags(v)
+    }
+  } // Boolean
+
+}
+
+final class ListTagsForStreamResponseOps(val self: ListTagsForStreamResponse) extends AnyVal {
+
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Tag]
+
+  final def hasMoreTagsAsScala: Option[Boolean] = Option(self.hasMoreTags) // Boolean
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListTagsForStreamResponseOps {
+
+  implicit def toListTagsForStreamResponseBuilderOps(
+      v: ListTagsForStreamResponse.Builder
+  ): ListTagsForStreamResponseBuilderOps = new ListTagsForStreamResponseBuilderOps(v)
+
+  implicit def toListTagsForStreamResponseOps(v: ListTagsForStreamResponse): ListTagsForStreamResponseOps =
+    new ListTagsForStreamResponseOps(v)
 
 }

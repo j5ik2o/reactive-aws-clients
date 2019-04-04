@@ -1,29 +1,20 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  RemoveTagsFromStreamResponse => ScalaRemoveTagsFromStreamResponse,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  RemoveTagsFromStreamResponse => JavaRemoveTagsFromStreamResponse
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class RemoveTagsFromStreamResponseBuilderOps(val self: RemoveTagsFromStreamResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RemoveTagsFromStreamResponseOps {
+final class RemoveTagsFromStreamResponseOps(val self: RemoveTagsFromStreamResponse) extends AnyVal {}
 
-  implicit class JavaRemoveTagsFromStreamResponseOps(val self: JavaRemoveTagsFromStreamResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRemoveTagsFromStreamResponseOps {
 
-    def toScala: ScalaRemoveTagsFromStreamResponse = {
-      ScalaRemoveTagsFromStreamResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toRemoveTagsFromStreamResponseBuilderOps(
+      v: RemoveTagsFromStreamResponse.Builder
+  ): RemoveTagsFromStreamResponseBuilderOps = new RemoveTagsFromStreamResponseBuilderOps(v)
 
-  }
+  implicit def toRemoveTagsFromStreamResponseOps(v: RemoveTagsFromStreamResponse): RemoveTagsFromStreamResponseOps =
+    new RemoveTagsFromStreamResponseOps(v)
 
 }

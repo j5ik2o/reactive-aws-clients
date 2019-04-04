@@ -1,27 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  RegisterStreamConsumerRequest => ScalaRegisterStreamConsumerRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  RegisterStreamConsumerRequest => JavaRegisterStreamConsumerRequest
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object RegisterStreamConsumerRequestOps {
+final class RegisterStreamConsumerRequestBuilderOps(val self: RegisterStreamConsumerRequest.Builder) extends AnyVal {
 
-  implicit class ScalaRegisterStreamConsumerRequestOps(val self: ScalaRegisterStreamConsumerRequest) extends AnyVal {
-
-    def toJava: JavaRegisterStreamConsumerRequest = {
-      val result = JavaRegisterStreamConsumerRequest.builder()
-      self.streamARN.filter(_.nonEmpty).foreach(v => result.streamARN(v))       // String
-      self.consumerName.filter(_.nonEmpty).foreach(v => result.consumerName(v)) // String
-
-      result.build()
+  final def withStreamARNAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamARN(v)
     }
+  } // String
 
-  }
+  final def withConsumerNameAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
+    value.fold(self) { v =>
+      self.consumerName(v)
+    }
+  } // String
+
+}
+
+final class RegisterStreamConsumerRequestOps(val self: RegisterStreamConsumerRequest) extends AnyVal {
+
+  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+
+  final def consumerNameAsScala: Option[String] = Option(self.consumerName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToRegisterStreamConsumerRequestOps {
+
+  implicit def toRegisterStreamConsumerRequestBuilderOps(
+      v: RegisterStreamConsumerRequest.Builder
+  ): RegisterStreamConsumerRequestBuilderOps = new RegisterStreamConsumerRequestBuilderOps(v)
+
+  implicit def toRegisterStreamConsumerRequestOps(v: RegisterStreamConsumerRequest): RegisterStreamConsumerRequestOps =
+    new RegisterStreamConsumerRequestOps(v)
 
 }

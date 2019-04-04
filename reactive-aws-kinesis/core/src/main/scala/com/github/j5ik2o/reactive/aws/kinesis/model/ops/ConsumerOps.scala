@@ -1,40 +1,54 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ Consumer => ScalaConsumer, _ }
-import software.amazon.awssdk.services.kinesis.model.{ Consumer => JavaConsumer }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ConsumerOps {
+final class ConsumerBuilderOps(val self: Consumer.Builder) extends AnyVal {
 
-  implicit class ScalaConsumerOps(val self: ScalaConsumer) extends AnyVal {
-
-    def toJava: JavaConsumer = {
-      val result = JavaConsumer.builder()
-      self.consumerName.filter(_.nonEmpty).foreach(v => result.consumerName(v)) // String
-      self.consumerARN.filter(_.nonEmpty).foreach(v => result.consumerARN(v))   // String
-      self.consumerStatus.foreach { v =>
-        import ConsumerStatusOps._; result.consumerStatus(v.toJava)
-      } // String
-      self.consumerCreationTimestamp.foreach(v => result.consumerCreationTimestamp(v)) // Instant
-
-      result.build()
+  final def withConsumerNameAsScala(value: Option[String]): Consumer.Builder = {
+    value.fold(self) { v =>
+      self.consumerName(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaConsumerOps(val self: JavaConsumer) extends AnyVal {
-
-    def toScala: ScalaConsumer = {
-      ScalaConsumer()
-        .withConsumerName(Option(self.consumerName)) // String
-        .withConsumerARN(Option(self.consumerARN)) // String
-        .withConsumerStatus(Option(self.consumerStatus).map { v =>
-          import ConsumerStatusOps._; v.toScala
-        }) // String
-        .withConsumerCreationTimestamp(Option(self.consumerCreationTimestamp)) // Instant
+  final def withConsumerARNAsScala(value: Option[String]): Consumer.Builder = {
+    value.fold(self) { v =>
+      self.consumerARN(v)
     }
+  } // String
 
-  }
+  final def withConsumerStatusAsScala(value: Option[ConsumerStatus]): Consumer.Builder = {
+    value.fold(self) { v =>
+      self.consumerStatus(v)
+    }
+  } // String
+
+  final def withConsumerCreationTimestampAsScala(value: Option[java.time.Instant]): Consumer.Builder = {
+    value.fold(self) { v =>
+      self.consumerCreationTimestamp(v)
+    }
+  } // Instant
+
+}
+
+final class ConsumerOps(val self: Consumer) extends AnyVal {
+
+  final def consumerNameAsScala: Option[String] = Option(self.consumerName) // String
+
+  final def consumerARNAsScala: Option[String] = Option(self.consumerARN) // String
+
+  final def consumerStatusAsScala: Option[ConsumerStatus] = Option(self.consumerStatus) // String
+
+  final def consumerCreationTimestampAsScala: Option[java.time.Instant] =
+    Option(self.consumerCreationTimestamp) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToConsumerOps {
+
+  implicit def toConsumerBuilderOps(v: Consumer.Builder): ConsumerBuilderOps = new ConsumerBuilderOps(v)
+
+  implicit def toConsumerOps(v: Consumer): ConsumerOps = new ConsumerOps(v)
 
 }

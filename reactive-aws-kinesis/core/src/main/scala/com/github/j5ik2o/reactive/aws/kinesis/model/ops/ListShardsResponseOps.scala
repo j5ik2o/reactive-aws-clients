@@ -1,28 +1,40 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ ListShardsResponse => ScalaListShardsResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ ListShardsResponse => JavaListShardsResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class ListShardsResponseBuilderOps(val self: ListShardsResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListShardsResponseOps {
-
-  implicit class JavaListShardsResponseOps(val self: JavaListShardsResponse) extends AnyVal {
-
-    def toScala: ScalaListShardsResponse = {
-      ScalaListShardsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withShards(Option(self.shards).map { v =>
-          import scala.collection.JavaConverters._, ShardOps._; v.asScala.map(_.toScala)
-        }) // Seq[Shard]
-        .withNextToken(Option(self.nextToken)) // String
-    }
-
+  final def withShardsAsScala(value: Option[Seq[Shard]]): ListShardsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.shards(v.asJava)
+    } // Seq[Shard]
   }
+
+  final def withNextTokenAsScala(value: Option[String]): ListShardsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  } // String
+
+}
+
+final class ListShardsResponseOps(val self: ListShardsResponse) extends AnyVal {
+
+  final def shardsAsScala: Option[Seq[Shard]] = Option(self.shards).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[Shard]
+
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListShardsResponseOps {
+
+  implicit def toListShardsResponseBuilderOps(v: ListShardsResponse.Builder): ListShardsResponseBuilderOps =
+    new ListShardsResponseBuilderOps(v)
+
+  implicit def toListShardsResponseOps(v: ListShardsResponse): ListShardsResponseOps = new ListShardsResponseOps(v)
 
 }

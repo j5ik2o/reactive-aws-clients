@@ -1,24 +1,56 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ ListStreamConsumersRequest => ScalaListStreamConsumersRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ ListStreamConsumersRequest => JavaListStreamConsumersRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListStreamConsumersRequestOps {
+final class ListStreamConsumersRequestBuilderOps(val self: ListStreamConsumersRequest.Builder) extends AnyVal {
 
-  implicit class ScalaListStreamConsumersRequestOps(val self: ScalaListStreamConsumersRequest) extends AnyVal {
-
-    def toJava: JavaListStreamConsumersRequest = {
-      val result = JavaListStreamConsumersRequest.builder()
-      self.streamARN.filter(_.nonEmpty).foreach(v => result.streamARN(v))          // String
-      self.nextToken.filter(_.nonEmpty).foreach(v => result.nextToken(v))          // String
-      self.maxResults.map(_.intValue).foreach(v => result.maxResults(v))           // Int
-      self.streamCreationTimestamp.foreach(v => result.streamCreationTimestamp(v)) // Instant
-
-      result.build()
+  final def withStreamARNAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamARN(v)
     }
+  } // String
 
-  }
+  final def withNextTokenAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  } // String
+
+  final def withMaxResultsAsScala(value: Option[Int]): ListStreamConsumersRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxResults(v)
+    }
+  } // Int
+
+  final def withStreamCreationTimestampAsScala(value: Option[java.time.Instant]): ListStreamConsumersRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamCreationTimestamp(v)
+    }
+  } // Instant
+
+}
+
+final class ListStreamConsumersRequestOps(val self: ListStreamConsumersRequest) extends AnyVal {
+
+  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp) // Instant
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListStreamConsumersRequestOps {
+
+  implicit def toListStreamConsumersRequestBuilderOps(
+      v: ListStreamConsumersRequest.Builder
+  ): ListStreamConsumersRequestBuilderOps = new ListStreamConsumersRequestBuilderOps(v)
+
+  implicit def toListStreamConsumersRequestOps(v: ListStreamConsumersRequest): ListStreamConsumersRequestOps =
+    new ListStreamConsumersRequestOps(v)
 
 }

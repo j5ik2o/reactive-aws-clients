@@ -1,28 +1,48 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  StopStreamEncryptionRequest => ScalaStopStreamEncryptionRequest,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{ StopStreamEncryptionRequest => JavaStopStreamEncryptionRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object StopStreamEncryptionRequestOps {
+final class StopStreamEncryptionRequestBuilderOps(val self: StopStreamEncryptionRequest.Builder) extends AnyVal {
 
-  implicit class ScalaStopStreamEncryptionRequestOps(val self: ScalaStopStreamEncryptionRequest) extends AnyVal {
-
-    def toJava: JavaStopStreamEncryptionRequest = {
-      val result = JavaStopStreamEncryptionRequest.builder()
-      self.streamName.filter(_.nonEmpty).foreach(v => result.streamName(v)) // String
-      self.encryptionType.foreach { v =>
-        import EncryptionTypeOps._; result.encryptionType(v.toJava)
-      } // String
-      self.keyId.filter(_.nonEmpty).foreach(v => result.keyId(v)) // String
-
-      result.build()
+  final def withStreamNameAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
-  }
+  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): StopStreamEncryptionRequest.Builder = {
+    value.fold(self) { v =>
+      self.encryptionType(v)
+    }
+  } // String
+
+  final def withKeyIdAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
+    value.fold(self) { v =>
+      self.keyId(v)
+    }
+  } // String
+
+}
+
+final class StopStreamEncryptionRequestOps(val self: StopStreamEncryptionRequest) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+
+  final def keyIdAsScala: Option[String] = Option(self.keyId) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStopStreamEncryptionRequestOps {
+
+  implicit def toStopStreamEncryptionRequestBuilderOps(
+      v: StopStreamEncryptionRequest.Builder
+  ): StopStreamEncryptionRequestBuilderOps = new StopStreamEncryptionRequestBuilderOps(v)
+
+  implicit def toStopStreamEncryptionRequestOps(v: StopStreamEncryptionRequest): StopStreamEncryptionRequestOps =
+    new StopStreamEncryptionRequestOps(v)
 
 }

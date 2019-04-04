@@ -1,37 +1,58 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  DisableEnhancedMonitoringResponse => ScalaDisableEnhancedMonitoringResponse,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  DisableEnhancedMonitoringResponse => JavaDisableEnhancedMonitoringResponse
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DisableEnhancedMonitoringResponseBuilderOps(val self: DisableEnhancedMonitoringResponse.Builder)
+    extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DisableEnhancedMonitoringResponseOps {
-
-  implicit class JavaDisableEnhancedMonitoringResponseOps(val self: JavaDisableEnhancedMonitoringResponse)
-      extends AnyVal {
-
-    def toScala: ScalaDisableEnhancedMonitoringResponse = {
-      ScalaDisableEnhancedMonitoringResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withStreamName(Option(self.streamName)) // String
-        .withCurrentShardLevelMetrics(Option(self.currentShardLevelMetrics).map { v =>
-          import scala.collection.JavaConverters._, MetricsNameOps._; v.asScala.map(_.toScala)
-        }) // Seq[String]
-        .withDesiredShardLevelMetrics(Option(self.desiredShardLevelMetrics).map { v =>
-          import scala.collection.JavaConverters._, MetricsNameOps._; v.asScala.map(_.toScala)
-        }) // Seq[String]
+  final def withStreamNameAsScala(value: Option[String]): DisableEnhancedMonitoringResponse.Builder = {
+    value.fold(self) { v =>
+      self.streamName(v)
     }
+  } // String
 
+  final def withCurrentShardLevelMetricsAsScala(
+      value: Option[Seq[MetricsName]]
+  ): DisableEnhancedMonitoringResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.currentShardLevelMetrics(v.asJava)
+    } // Seq[String]
   }
+
+  final def withDesiredShardLevelMetricsAsScala(
+      value: Option[Seq[MetricsName]]
+  ): DisableEnhancedMonitoringResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.desiredShardLevelMetrics(v.asJava)
+    } // Seq[String]
+  }
+
+}
+
+final class DisableEnhancedMonitoringResponseOps(val self: DisableEnhancedMonitoringResponse) extends AnyVal {
+
+  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+
+  final def currentShardLevelMetricsAsScala: Option[Seq[MetricsName]] = Option(self.currentShardLevelMetrics).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+  final def desiredShardLevelMetricsAsScala: Option[Seq[MetricsName]] = Option(self.desiredShardLevelMetrics).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  } // Seq[String]
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDisableEnhancedMonitoringResponseOps {
+
+  implicit def toDisableEnhancedMonitoringResponseBuilderOps(
+      v: DisableEnhancedMonitoringResponse.Builder
+  ): DisableEnhancedMonitoringResponseBuilderOps = new DisableEnhancedMonitoringResponseBuilderOps(v)
+
+  implicit def toDisableEnhancedMonitoringResponseOps(
+      v: DisableEnhancedMonitoringResponse
+  ): DisableEnhancedMonitoringResponseOps = new DisableEnhancedMonitoringResponseOps(v)
 
 }

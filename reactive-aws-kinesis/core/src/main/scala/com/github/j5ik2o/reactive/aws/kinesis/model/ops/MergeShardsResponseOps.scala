@@ -1,24 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ MergeShardsResponse => ScalaMergeShardsResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ MergeShardsResponse => JavaMergeShardsResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class MergeShardsResponseBuilderOps(val self: MergeShardsResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object MergeShardsResponseOps {
+final class MergeShardsResponseOps(val self: MergeShardsResponse) extends AnyVal {}
 
-  implicit class JavaMergeShardsResponseOps(val self: JavaMergeShardsResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToMergeShardsResponseOps {
 
-    def toScala: ScalaMergeShardsResponse = {
-      ScalaMergeShardsResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toMergeShardsResponseBuilderOps(v: MergeShardsResponse.Builder): MergeShardsResponseBuilderOps =
+    new MergeShardsResponseBuilderOps(v)
 
-  }
+  implicit def toMergeShardsResponseOps(v: MergeShardsResponse): MergeShardsResponseOps = new MergeShardsResponseOps(v)
 
 }

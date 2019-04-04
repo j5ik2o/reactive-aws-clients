@@ -1,22 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ ListStreamsRequest => ScalaListStreamsRequest, _ }
-import software.amazon.awssdk.services.kinesis.model.{ ListStreamsRequest => JavaListStreamsRequest }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object ListStreamsRequestOps {
+final class ListStreamsRequestBuilderOps(val self: ListStreamsRequest.Builder) extends AnyVal {
 
-  implicit class ScalaListStreamsRequestOps(val self: ScalaListStreamsRequest) extends AnyVal {
-
-    def toJava: JavaListStreamsRequest = {
-      val result = JavaListStreamsRequest.builder()
-      self.limit.map(_.intValue).foreach(v => result.limit(v))                                          // Int
-      self.exclusiveStartStreamName.filter(_.nonEmpty).foreach(v => result.exclusiveStartStreamName(v)) // String
-
-      result.build()
+  final def withLimitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
+    value.fold(self) { v =>
+      self.limit(v)
     }
+  } // Int
 
-  }
+  final def withExclusiveStartStreamNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
+    value.fold(self) { v =>
+      self.exclusiveStartStreamName(v)
+    }
+  } // String
+
+}
+
+final class ListStreamsRequestOps(val self: ListStreamsRequest) extends AnyVal {
+
+  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+
+  final def exclusiveStartStreamNameAsScala: Option[String] = Option(self.exclusiveStartStreamName) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListStreamsRequestOps {
+
+  implicit def toListStreamsRequestBuilderOps(v: ListStreamsRequest.Builder): ListStreamsRequestBuilderOps =
+    new ListStreamsRequestBuilderOps(v)
+
+  implicit def toListStreamsRequestOps(v: ListStreamsRequest): ListStreamsRequestOps = new ListStreamsRequestOps(v)
 
 }

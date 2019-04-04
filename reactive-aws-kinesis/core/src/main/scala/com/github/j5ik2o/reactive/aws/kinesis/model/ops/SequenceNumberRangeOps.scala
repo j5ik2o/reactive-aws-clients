@@ -1,32 +1,38 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ SequenceNumberRange => ScalaSequenceNumberRange, _ }
-import software.amazon.awssdk.services.kinesis.model.{ SequenceNumberRange => JavaSequenceNumberRange }
+import software.amazon.awssdk.services.kinesis.model._
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object SequenceNumberRangeOps {
+final class SequenceNumberRangeBuilderOps(val self: SequenceNumberRange.Builder) extends AnyVal {
 
-  implicit class ScalaSequenceNumberRangeOps(val self: ScalaSequenceNumberRange) extends AnyVal {
-
-    def toJava: JavaSequenceNumberRange = {
-      val result = JavaSequenceNumberRange.builder()
-      self.startingSequenceNumber.filter(_.nonEmpty).foreach(v => result.startingSequenceNumber(v)) // String
-      self.endingSequenceNumber.filter(_.nonEmpty).foreach(v => result.endingSequenceNumber(v))     // String
-
-      result.build()
+  final def withStartingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
+    value.fold(self) { v =>
+      self.startingSequenceNumber(v)
     }
+  } // String
 
-  }
-
-  implicit class JavaSequenceNumberRangeOps(val self: JavaSequenceNumberRange) extends AnyVal {
-
-    def toScala: ScalaSequenceNumberRange = {
-      ScalaSequenceNumberRange()
-        .withStartingSequenceNumber(Option(self.startingSequenceNumber)) // String
-        .withEndingSequenceNumber(Option(self.endingSequenceNumber)) // String
+  final def withEndingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
+    value.fold(self) { v =>
+      self.endingSequenceNumber(v)
     }
+  } // String
 
-  }
+}
+
+final class SequenceNumberRangeOps(val self: SequenceNumberRange) extends AnyVal {
+
+  final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber) // String
+
+  final def endingSequenceNumberAsScala: Option[String] = Option(self.endingSequenceNumber) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToSequenceNumberRangeOps {
+
+  implicit def toSequenceNumberRangeBuilderOps(v: SequenceNumberRange.Builder): SequenceNumberRangeBuilderOps =
+    new SequenceNumberRangeBuilderOps(v)
+
+  implicit def toSequenceNumberRangeOps(v: SequenceNumberRange): SequenceNumberRangeOps = new SequenceNumberRangeOps(v)
 
 }

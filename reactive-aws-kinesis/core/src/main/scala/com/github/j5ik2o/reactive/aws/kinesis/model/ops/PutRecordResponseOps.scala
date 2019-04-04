@@ -1,29 +1,46 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ PutRecordResponse => ScalaPutRecordResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ PutRecordResponse => JavaPutRecordResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class PutRecordResponseBuilderOps(val self: PutRecordResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object PutRecordResponseOps {
-
-  implicit class JavaPutRecordResponseOps(val self: JavaPutRecordResponse) extends AnyVal {
-
-    def toScala: ScalaPutRecordResponse = {
-      ScalaPutRecordResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withShardId(Option(self.shardId)) // String
-        .withSequenceNumber(Option(self.sequenceNumber)) // String
-        .withEncryptionType(Option(self.encryptionType).map { v =>
-          import EncryptionTypeOps._; v.toScala
-        }) // String
+  final def withShardIdAsScala(value: Option[String]): PutRecordResponse.Builder = {
+    value.fold(self) { v =>
+      self.shardId(v)
     }
+  } // String
 
-  }
+  final def withSequenceNumberAsScala(value: Option[String]): PutRecordResponse.Builder = {
+    value.fold(self) { v =>
+      self.sequenceNumber(v)
+    }
+  } // String
+
+  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): PutRecordResponse.Builder = {
+    value.fold(self) { v =>
+      self.encryptionType(v)
+    }
+  } // String
+
+}
+
+final class PutRecordResponseOps(val self: PutRecordResponse) extends AnyVal {
+
+  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPutRecordResponseOps {
+
+  implicit def toPutRecordResponseBuilderOps(v: PutRecordResponse.Builder): PutRecordResponseBuilderOps =
+    new PutRecordResponseBuilderOps(v)
+
+  implicit def toPutRecordResponseOps(v: PutRecordResponse): PutRecordResponseOps = new PutRecordResponseOps(v)
 
 }

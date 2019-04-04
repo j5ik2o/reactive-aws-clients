@@ -1,24 +1,19 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{ DeleteStreamResponse => ScalaDeleteStreamResponse, _ }
-import software.amazon.awssdk.services.kinesis.model.{ DeleteStreamResponse => JavaDeleteStreamResponse }
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DeleteStreamResponseBuilderOps(val self: DeleteStreamResponse.Builder) extends AnyVal {}
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DeleteStreamResponseOps {
+final class DeleteStreamResponseOps(val self: DeleteStreamResponse) extends AnyVal {}
 
-  implicit class JavaDeleteStreamResponseOps(val self: JavaDeleteStreamResponse) extends AnyVal {
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDeleteStreamResponseOps {
 
-    def toScala: ScalaDeleteStreamResponse = {
-      ScalaDeleteStreamResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-    }
+  implicit def toDeleteStreamResponseBuilderOps(v: DeleteStreamResponse.Builder): DeleteStreamResponseBuilderOps =
+    new DeleteStreamResponseBuilderOps(v)
 
-  }
+  implicit def toDeleteStreamResponseOps(v: DeleteStreamResponse): DeleteStreamResponseOps =
+    new DeleteStreamResponseOps(v)
 
 }

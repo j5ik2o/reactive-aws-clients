@@ -1,32 +1,36 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.{
-  DescribeStreamConsumerResponse => ScalaDescribeStreamConsumerResponse,
-  _
-}
-import software.amazon.awssdk.services.kinesis.model.{
-  DescribeStreamConsumerResponse => JavaDescribeStreamConsumerResponse
-}
+import software.amazon.awssdk.services.kinesis.model._
 
-import scala.compat.java8.OptionConverters._
-import scala.collection.JavaConverters._
+final class DescribeStreamConsumerResponseBuilderOps(val self: DescribeStreamConsumerResponse.Builder) extends AnyVal {
 
-@SuppressWarnings(Array("org.wartremover.warts.Recursion"))
-object DescribeStreamConsumerResponseOps {
-
-  implicit class JavaDescribeStreamConsumerResponseOps(val self: JavaDescribeStreamConsumerResponse) extends AnyVal {
-
-    def toScala: ScalaDescribeStreamConsumerResponse = {
-      ScalaDescribeStreamConsumerResponse()
-        .withStatusCode(Option(self.sdkHttpResponse().statusCode()))
-        .withStatusText(self.sdkHttpResponse().statusText().asScala)
-        .withHttpHeaders(Option(self.sdkHttpResponse().headers().asScala.mapValues(_.asScala).toMap))
-        .withConsumerDescription(Option(self.consumerDescription).map { v =>
-          import ConsumerDescriptionOps._; v.toScala
-        }) // ConsumerDescription
+  final def withConsumerDescriptionAsScala(
+      value: Option[ConsumerDescription]
+  ): DescribeStreamConsumerResponse.Builder = {
+    value.fold(self) { v =>
+      self.consumerDescription(v)
     }
+  } // ConsumerDescription
 
-  }
+}
+
+final class DescribeStreamConsumerResponseOps(val self: DescribeStreamConsumerResponse) extends AnyVal {
+
+  final def consumerDescriptionAsScala: Option[ConsumerDescription] =
+    Option(self.consumerDescription) // ConsumerDescription
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeStreamConsumerResponseOps {
+
+  implicit def toDescribeStreamConsumerResponseBuilderOps(
+      v: DescribeStreamConsumerResponse.Builder
+  ): DescribeStreamConsumerResponseBuilderOps = new DescribeStreamConsumerResponseBuilderOps(v)
+
+  implicit def toDescribeStreamConsumerResponseOps(
+      v: DescribeStreamConsumerResponse
+  ): DescribeStreamConsumerResponseOps = new DescribeStreamConsumerResponseOps(v)
 
 }

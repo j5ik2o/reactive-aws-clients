@@ -1,6 +1,6 @@
 package com.github.j5ik2o.reactive.aws.kinesis
 
-import com.github.j5ik2o.reactive.aws.kinesis.model._
+import software.amazon.awssdk.services.kinesis.model._
 
 trait KinesisClient[M[_]] extends KinesisClientSupport[M] {
 
