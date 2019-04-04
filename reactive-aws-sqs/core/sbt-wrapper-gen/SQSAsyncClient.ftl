@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3
+package com.github.j5ik2o.reactive.aws.sqs
 
 import java.util.concurrent.CompletableFuture
 
@@ -7,13 +7,17 @@ import software.amazon.awssdk.services.s3.model._
 import software.amazon.awssdk.services.s3.paginators._
 import software.amazon.awssdk.services.s3.{ S3AsyncClient => JavaS3AsyncClient }
 
-import scala.compat.java8.FutureConverters._
+import scala.compat.java8.FutureConverters
 import scala.concurrent.Future
 
 object S3AsyncClient {
 
   def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
     new S3AsyncClientImpl(underlying)
+
+  implicit class CompletableFutureOps[A](val cf: CompletableFuture[A]) extends AnyVal {
+    def toFuture: Future[A] = FutureConverters.toScala(cf)
+  }
 
 }
 
@@ -25,7 +29,7 @@ import S3AsyncClient._
     <#if method.name?ends_with("Paginator")>
         underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
     <#else>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toFuture
     </#if>
     }
 

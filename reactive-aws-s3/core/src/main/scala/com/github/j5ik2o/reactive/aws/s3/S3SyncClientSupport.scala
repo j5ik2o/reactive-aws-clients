@@ -78,8 +78,14 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
     )
   }
 
-  override def putObject(putObjectRequest: PutObjectRequest, sourcePath: Path): Either[Throwable, PutObjectResponse] = {
+  override def putObjectFromPath(putObjectRequest: PutObjectRequest,
+                                 sourcePath: Path): Either[Throwable, PutObjectResponse] = {
     putObject(putObjectRequest, RequestBody.fromFile(sourcePath))
+  }
+
+  override def putObjectFromFile(putObjectRequest: PutObjectRequest,
+                                 sourceFile: File): Either[Throwable, PutObjectResponse] = {
+    putObject(putObjectRequest, RequestBody.fromFile(sourceFile))
   }
 
   override def uploadPart(uploadPartRequest: UploadPartRequest,
@@ -89,8 +95,14 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
     )
   }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest,
-                          sourcePath: Path): Either[Throwable, UploadPartResponse] = {
+  override def uploadPartFromPath(uploadPartRequest: UploadPartRequest,
+                                  sourcePath: Path): Either[Throwable, UploadPartResponse] = {
     uploadPart(uploadPartRequest, RequestBody.fromFile(sourcePath))
   }
+
+  override def uploadPartFromFile(uploadPartRequest: UploadPartRequest,
+                                  sourceFile: File): Either[Throwable, UploadPartResponse] = {
+    uploadPart(uploadPartRequest, RequestBody.fromFile(sourceFile))
+  }
+
 }

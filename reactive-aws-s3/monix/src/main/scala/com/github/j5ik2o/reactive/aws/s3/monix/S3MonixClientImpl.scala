@@ -66,9 +66,14 @@ private[s3] class S3MonixClientImpl(override val underlying: S3AsyncClient) exte
       underlying.putObject(putObjectRequest, requestBody)
     }
 
-  override def putObject(putObjectRequest: PutObjectRequest, sourcePath: Path): Task[PutObjectResponse] =
+  override def putObjectFromPath(putObjectRequest: PutObjectRequest, sourcePath: Path): Task[PutObjectResponse] =
     Task.deferFuture {
-      underlying.putObject(putObjectRequest, sourcePath)
+      underlying.putObjectFromPath(putObjectRequest, sourcePath)
+    }
+
+  override def putObjectFromFile(putObjectRequest: PutObjectRequest, sourceFile: File): Task[PutObjectResponse] =
+    Task.deferFuture {
+      underlying.putObjectFromFile(putObjectRequest, sourceFile)
     }
 
   override def uploadPart(uploadPartRequest: UploadPartRequest,
@@ -76,9 +81,14 @@ private[s3] class S3MonixClientImpl(override val underlying: S3AsyncClient) exte
     underlying.uploadPart(uploadPartRequest, requestBody)
   }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest, sourcePath: Path): Task[UploadPartResponse] =
+  override def uploadPartFromPath(uploadPartRequest: UploadPartRequest, sourcePath: Path): Task[UploadPartResponse] =
     Task.deferFuture {
-      underlying.uploadPart(uploadPartRequest, sourcePath)
+      underlying.uploadPartFromPath(uploadPartRequest, sourcePath)
+    }
+
+  override def uploadPartFromFile(uploadPartRequest: UploadPartRequest, sourceFile: File): Task[UploadPartResponse] =
+    Task.deferFuture {
+      underlying.uploadPartFromFile(uploadPartRequest, sourceFile)
     }
 
 }

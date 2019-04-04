@@ -66,17 +66,28 @@ private[s3] class S3CatsIOClientImpl(override val underlying: S3AsyncClient) ext
       IO(underlying.putObject(putObjectRequest, requestBody))
     }
 
-  override def putObject(putObjectRequest: PutObjectRequest, sourcePath: Path): IO[PutObjectResponse] = IO.fromFuture {
-    IO(underlying.putObject(putObjectRequest, sourcePath))
-  }
+  override def putObjectFromPath(putObjectRequest: PutObjectRequest, sourcePath: Path): IO[PutObjectResponse] =
+    IO.fromFuture {
+      IO(underlying.putObjectFromPath(putObjectRequest, sourcePath))
+    }
+
+  override def putObjectFromFile(putObjectRequest: PutObjectRequest, sourceFile: File): IO[PutObjectResponse] =
+    IO.fromFuture {
+      IO(underlying.putObjectFromFile(putObjectRequest, sourceFile))
+    }
 
   override def uploadPart(uploadPartRequest: UploadPartRequest, requestBody: AsyncRequestBody): IO[UploadPartResponse] =
     IO.fromFuture {
       IO(underlying.uploadPart(uploadPartRequest, requestBody))
     }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest, sourcePath: Path): IO[UploadPartResponse] =
+  override def uploadPartFromPath(uploadPartRequest: UploadPartRequest, sourcePath: Path): IO[UploadPartResponse] =
     IO.fromFuture {
-      IO(underlying.uploadPart(uploadPartRequest, sourcePath))
+      IO(underlying.uploadPartFromPath(uploadPartRequest, sourcePath))
+    }
+
+  override def uploadPartFromFile(uploadPartRequest: UploadPartRequest, sourceFile: File): IO[UploadPartResponse] =
+    IO.fromFuture {
+      IO(underlying.uploadPartFromFile(uploadPartRequest, sourceFile))
     }
 }
