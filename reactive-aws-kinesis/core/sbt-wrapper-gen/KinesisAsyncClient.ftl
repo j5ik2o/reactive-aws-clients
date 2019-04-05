@@ -7,17 +7,13 @@ import software.amazon.awssdk.services.kinesis.model._
 import software.amazon.awssdk.services.kinesis.paginators._
 import software.amazon.awssdk.services.kinesis.{ KinesisAsyncClient => JavaKinesisAsyncClient }
 
-import scala.compat.java8.FutureConverters
+import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
 object KinesisAsyncClient {
 
 def apply(underlying: JavaKinesisAsyncClient): KinesisAsyncClient =
 new KinesisAsyncClientImpl(underlying)
-
-implicit class CompletableFutureOps[A](val cf: CompletableFuture[A]) extends AnyVal {
-  def toFuture: Future[A] = FutureConverters.toScala(cf)
-}
 
 }
 
@@ -32,9 +28,9 @@ import KinesisAsyncClient._
     underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
   <#else>
     <#if method.returnTypeDesc.valueTypeDesc.simpleTypeName == "Unit">
-      underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toFuture.map(_ => ())
+      underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala.map(_ => ())
     <#else>
-      underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toFuture
+      underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
     </#if>
   </#if>
   }

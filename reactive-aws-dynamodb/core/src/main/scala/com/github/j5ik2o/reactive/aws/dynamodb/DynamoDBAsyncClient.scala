@@ -1,13 +1,11 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb
 
-import java.util.concurrent.CompletableFuture
-
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.paginators._
 
-import scala.compat.java8.FutureConverters
+import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
 object DynamoDBAsyncClient {
@@ -15,18 +13,13 @@ object DynamoDBAsyncClient {
   def apply(underlying: DynamoDbAsyncClient): DynamoDBAsyncClient =
     new DynamoDBAsyncClientImpl(underlying)
 
-  implicit class CompletableFutureOps[A](val cf: CompletableFuture[A]) extends AnyVal {
-    def toFuture: Future[A] = FutureConverters.toScala(cf)
-  }
-
 }
 
 trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
   val underlying: DynamoDbAsyncClient
-  import DynamoDBAsyncClient._
 
   override def batchGetItem(batchGetItemRequest: BatchGetItemRequest): Future[BatchGetItemResponse] = {
-    underlying.batchGetItem(batchGetItemRequest).toFuture
+    underlying.batchGetItem(batchGetItemRequest).toScala
   }
 
   def batchGetItemPaginator(batchGetItemRequest: BatchGetItemRequest): BatchGetItemPublisher = {
@@ -34,111 +27,111 @@ trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
   }
 
   override def batchWriteItem(batchWriteItemRequest: BatchWriteItemRequest): Future[BatchWriteItemResponse] = {
-    underlying.batchWriteItem(batchWriteItemRequest).toFuture
+    underlying.batchWriteItem(batchWriteItemRequest).toScala
   }
 
   override def createBackup(createBackupRequest: CreateBackupRequest): Future[CreateBackupResponse] = {
-    underlying.createBackup(createBackupRequest).toFuture
+    underlying.createBackup(createBackupRequest).toScala
   }
 
   override def createGlobalTable(
       createGlobalTableRequest: CreateGlobalTableRequest
   ): Future[CreateGlobalTableResponse] = {
-    underlying.createGlobalTable(createGlobalTableRequest).toFuture
+    underlying.createGlobalTable(createGlobalTableRequest).toScala
   }
 
   override def createTable(createTableRequest: CreateTableRequest): Future[CreateTableResponse] = {
-    underlying.createTable(createTableRequest).toFuture
+    underlying.createTable(createTableRequest).toScala
   }
 
   override def deleteBackup(deleteBackupRequest: DeleteBackupRequest): Future[DeleteBackupResponse] = {
-    underlying.deleteBackup(deleteBackupRequest).toFuture
+    underlying.deleteBackup(deleteBackupRequest).toScala
   }
 
   override def deleteItem(deleteItemRequest: DeleteItemRequest): Future[DeleteItemResponse] = {
-    underlying.deleteItem(deleteItemRequest).toFuture
+    underlying.deleteItem(deleteItemRequest).toScala
   }
 
   override def deleteTable(deleteTableRequest: DeleteTableRequest): Future[DeleteTableResponse] = {
-    underlying.deleteTable(deleteTableRequest).toFuture
+    underlying.deleteTable(deleteTableRequest).toScala
   }
 
   override def describeBackup(describeBackupRequest: DescribeBackupRequest): Future[DescribeBackupResponse] = {
-    underlying.describeBackup(describeBackupRequest).toFuture
+    underlying.describeBackup(describeBackupRequest).toScala
   }
 
   override def describeContinuousBackups(
       describeContinuousBackupsRequest: DescribeContinuousBackupsRequest
   ): Future[DescribeContinuousBackupsResponse] = {
-    underlying.describeContinuousBackups(describeContinuousBackupsRequest).toFuture
+    underlying.describeContinuousBackups(describeContinuousBackupsRequest).toScala
   }
 
   override def describeEndpoints(
       describeEndpointsRequest: DescribeEndpointsRequest
   ): Future[DescribeEndpointsResponse] = {
-    underlying.describeEndpoints(describeEndpointsRequest).toFuture
+    underlying.describeEndpoints(describeEndpointsRequest).toScala
   }
 
   override def describeEndpoints(): Future[DescribeEndpointsResponse] = {
-    underlying.describeEndpoints().toFuture
+    underlying.describeEndpoints().toScala
   }
 
   override def describeGlobalTable(
       describeGlobalTableRequest: DescribeGlobalTableRequest
   ): Future[DescribeGlobalTableResponse] = {
-    underlying.describeGlobalTable(describeGlobalTableRequest).toFuture
+    underlying.describeGlobalTable(describeGlobalTableRequest).toScala
   }
 
   override def describeGlobalTableSettings(
       describeGlobalTableSettingsRequest: DescribeGlobalTableSettingsRequest
   ): Future[DescribeGlobalTableSettingsResponse] = {
-    underlying.describeGlobalTableSettings(describeGlobalTableSettingsRequest).toFuture
+    underlying.describeGlobalTableSettings(describeGlobalTableSettingsRequest).toScala
   }
 
   override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Future[DescribeLimitsResponse] = {
-    underlying.describeLimits(describeLimitsRequest).toFuture
+    underlying.describeLimits(describeLimitsRequest).toScala
   }
 
   override def describeLimits(): Future[DescribeLimitsResponse] = {
-    underlying.describeLimits().toFuture
+    underlying.describeLimits().toScala
   }
 
   override def describeTable(describeTableRequest: DescribeTableRequest): Future[DescribeTableResponse] = {
-    underlying.describeTable(describeTableRequest).toFuture
+    underlying.describeTable(describeTableRequest).toScala
   }
 
   override def describeTimeToLive(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest
   ): Future[DescribeTimeToLiveResponse] = {
-    underlying.describeTimeToLive(describeTimeToLiveRequest).toFuture
+    underlying.describeTimeToLive(describeTimeToLiveRequest).toScala
   }
 
   override def getItem(getItemRequest: GetItemRequest): Future[GetItemResponse] = {
-    underlying.getItem(getItemRequest).toFuture
+    underlying.getItem(getItemRequest).toScala
   }
 
   override def listBackups(listBackupsRequest: ListBackupsRequest): Future[ListBackupsResponse] = {
-    underlying.listBackups(listBackupsRequest).toFuture
+    underlying.listBackups(listBackupsRequest).toScala
   }
 
   override def listBackups(): Future[ListBackupsResponse] = {
-    underlying.listBackups().toFuture
+    underlying.listBackups().toScala
   }
 
   override def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): Future[ListGlobalTablesResponse] = {
-    underlying.listGlobalTables(listGlobalTablesRequest).toFuture
+    underlying.listGlobalTables(listGlobalTablesRequest).toScala
   }
 
   override def listGlobalTables(): Future[ListGlobalTablesResponse] = {
-    underlying.listGlobalTables().toFuture
+    underlying.listGlobalTables().toScala
   }
 
   override def listTables(listTablesRequest: ListTablesRequest): Future[ListTablesResponse] = {
-    underlying.listTables(listTablesRequest).toFuture
+    underlying.listTables(listTablesRequest).toScala
   }
 
   override def listTables(): Future[ListTablesResponse] = {
-    underlying.listTables().toFuture
+    underlying.listTables().toScala
   }
 
   def listTablesPaginator(): ListTablesPublisher = {
@@ -152,15 +145,15 @@ trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
   override def listTagsOfResource(
       listTagsOfResourceRequest: ListTagsOfResourceRequest
   ): Future[ListTagsOfResourceResponse] = {
-    underlying.listTagsOfResource(listTagsOfResourceRequest).toFuture
+    underlying.listTagsOfResource(listTagsOfResourceRequest).toScala
   }
 
   override def putItem(putItemRequest: PutItemRequest): Future[PutItemResponse] = {
-    underlying.putItem(putItemRequest).toFuture
+    underlying.putItem(putItemRequest).toScala
   }
 
   override def query(queryRequest: QueryRequest): Future[QueryResponse] = {
-    underlying.query(queryRequest).toFuture
+    underlying.query(queryRequest).toScala
   }
 
   def queryPaginator(queryRequest: QueryRequest): QueryPublisher = {
@@ -170,17 +163,17 @@ trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
   override def restoreTableFromBackup(
       restoreTableFromBackupRequest: RestoreTableFromBackupRequest
   ): Future[RestoreTableFromBackupResponse] = {
-    underlying.restoreTableFromBackup(restoreTableFromBackupRequest).toFuture
+    underlying.restoreTableFromBackup(restoreTableFromBackupRequest).toScala
   }
 
   override def restoreTableToPointInTime(
       restoreTableToPointInTimeRequest: RestoreTableToPointInTimeRequest
   ): Future[RestoreTableToPointInTimeResponse] = {
-    underlying.restoreTableToPointInTime(restoreTableToPointInTimeRequest).toFuture
+    underlying.restoreTableToPointInTime(restoreTableToPointInTimeRequest).toScala
   }
 
   override def scan(scanRequest: ScanRequest): Future[ScanResponse] = {
-    underlying.scan(scanRequest).toFuture
+    underlying.scan(scanRequest).toScala
   }
 
   def scanPaginator(scanRequest: ScanRequest): ScanPublisher = {
@@ -188,51 +181,51 @@ trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
   }
 
   override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] = {
-    underlying.tagResource(tagResourceRequest).toFuture
+    underlying.tagResource(tagResourceRequest).toScala
   }
 
   override def transactGetItems(transactGetItemsRequest: TransactGetItemsRequest): Future[TransactGetItemsResponse] = {
-    underlying.transactGetItems(transactGetItemsRequest).toFuture
+    underlying.transactGetItems(transactGetItemsRequest).toScala
   }
 
   override def transactWriteItems(
       transactWriteItemsRequest: TransactWriteItemsRequest
   ): Future[TransactWriteItemsResponse] = {
-    underlying.transactWriteItems(transactWriteItemsRequest).toFuture
+    underlying.transactWriteItems(transactWriteItemsRequest).toScala
   }
 
   override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] = {
-    underlying.untagResource(untagResourceRequest).toFuture
+    underlying.untagResource(untagResourceRequest).toScala
   }
 
   override def updateContinuousBackups(
       updateContinuousBackupsRequest: UpdateContinuousBackupsRequest
   ): Future[UpdateContinuousBackupsResponse] = {
-    underlying.updateContinuousBackups(updateContinuousBackupsRequest).toFuture
+    underlying.updateContinuousBackups(updateContinuousBackupsRequest).toScala
   }
 
   override def updateGlobalTable(
       updateGlobalTableRequest: UpdateGlobalTableRequest
   ): Future[UpdateGlobalTableResponse] = {
-    underlying.updateGlobalTable(updateGlobalTableRequest).toFuture
+    underlying.updateGlobalTable(updateGlobalTableRequest).toScala
   }
 
   override def updateGlobalTableSettings(
       updateGlobalTableSettingsRequest: UpdateGlobalTableSettingsRequest
   ): Future[UpdateGlobalTableSettingsResponse] = {
-    underlying.updateGlobalTableSettings(updateGlobalTableSettingsRequest).toFuture
+    underlying.updateGlobalTableSettings(updateGlobalTableSettingsRequest).toScala
   }
 
   override def updateItem(updateItemRequest: UpdateItemRequest): Future[UpdateItemResponse] = {
-    underlying.updateItem(updateItemRequest).toFuture
+    underlying.updateItem(updateItemRequest).toScala
   }
 
   override def updateTable(updateTableRequest: UpdateTableRequest): Future[UpdateTableResponse] = {
-    underlying.updateTable(updateTableRequest).toFuture
+    underlying.updateTable(updateTableRequest).toScala
   }
 
   override def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): Future[UpdateTimeToLiveResponse] = {
-    underlying.updateTimeToLive(updateTimeToLiveRequest).toFuture
+    underlying.updateTimeToLive(updateTimeToLiveRequest).toScala
   }
 
 }
