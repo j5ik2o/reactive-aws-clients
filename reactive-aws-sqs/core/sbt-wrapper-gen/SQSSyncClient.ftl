@@ -1,18 +1,17 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3
+package com.github.j5ik2o.reactive.aws.sqs
 
-import software.amazon.awssdk.services.s3.model._
-import software.amazon.awssdk.services.s3.paginators._
-import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
+import software.amazon.awssdk.services.sqs.model._
+import software.amazon.awssdk.services.sqs.{ SqsClient => JavaSQSSyncClient }
 
-object S3SyncClient {
+object SQSSyncClient {
 
-  def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
+  def apply(underlying: JavaSQSSyncClient): SQSSyncClient = new SQSSyncClientImpl(underlying)
 
 }
 
-trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
-  val underlying: JavaS3SyncClient
+trait SQSSyncClient extends SQSClient[Either[Throwable, ?]] /*with SQSSyncClientSupport*/ {
+  val underlying: JavaSQSSyncClient
 
 protected def toEither[A](f: => A): Either[Throwable, A] = {
 try {
@@ -36,9 +35,6 @@ Left(t)
 
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes">
         <#return false>
     </#if>
     <#if methodDesc.parameterTypeDescs?size gte 2>

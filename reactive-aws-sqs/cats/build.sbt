@@ -3,9 +3,9 @@ import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 
 coreSettings
 
-scalaWrapperGenS3BaseSettings
+scalaWrapperGenSQSBaseSettings
 
-name := "reactive-aws-s3-cats"
+name := "reactive-aws-sqs-cats"
 
 libraryDependencies ++= Seq(
   )
@@ -14,22 +14,22 @@ compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapp
 
 packageNameMapper in scalaWrapperGen := {
   case (s, _, _) =>
-    s.replace("software.amazon.awssdk.services.s3", "com.github.j5ik2o.reactive.aws.s3.cats")
+    s.replace("software.amazon.awssdk.services.sqs", "com.github.j5ik2o.reactive.aws.sqs.cats")
 }
 
 typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "S3AsyncClient" => true
+  case cd if cd.simpleTypeName == "SqsAsyncClient" => true
   case _ =>
     false
 }
 
 typeNameMapper in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "S3AsyncClient" =>
-    Seq("S3CatsIOClient")
+  case cd if cd.simpleTypeName == "SqsAsyncClient" =>
+    Seq("SQSCatsIOClient")
 }
 
 templateNameMapper in scalaWrapperGen := {
-  case ("S3CatsIOClient", cd: ClassDesc) if cd.simpleTypeName == "S3AsyncClient" =>
-    "S3CatsIOClient.ftl"
+  case ("SQSCatsIOClient", cd: ClassDesc) if cd.simpleTypeName == "SqsAsyncClient" =>
+    "SQSCatsIOClient.ftl"
   case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
 }
