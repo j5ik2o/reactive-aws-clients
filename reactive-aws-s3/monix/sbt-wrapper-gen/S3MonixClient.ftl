@@ -18,16 +18,16 @@ val underlying: S3AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#assign requestParameterName=method.parameterTypeDescs[0].name>
-        <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
         <#if method.name?ends_with("Paginator")>
+            <#assign requestParameterName=method.parameterTypeDescs[0].name>
+            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
             <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-            def ${method.name}(${requestParameterName}: ${requestTypeName}): Observable[${responseTypeName}] =
-              Observable.fromReactivePublisher(underlying.${method.name}(${requestParameterName}))
+            def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Observable[${responseTypeName}] =
+              Observable.fromReactivePublisher(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
         <#else>
             <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def  ${method.name}(${requestParameterName}: ${requestTypeName}): Task[${responseTypeName}] = Task.deferFuture {
-              underlying.${method.name}(${requestParameterName})
+            override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Task[${responseTypeName}] = Task.deferFuture {
+              underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
             }
         </#if>
 
@@ -40,9 +40,6 @@ val underlying: S3AsyncClient
         <#return false>
     </#if>
     <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes"> <#return false>
-    </#if>
-    <#if !methodDesc.parameterTypeDescs?has_content>
-        <#return false>
     </#if>
     <#if methodDesc.parameterTypeDescs?size gte 2>
         <#return false>

@@ -6,7 +6,7 @@ import java.nio.file.Path
 import com.github.j5ik2o.reactive.aws.s3.S3AsyncClient
 import monix.eval.Task
 import software.amazon.awssdk.core.ResponseBytes
-import software.amazon.awssdk.core.async.{ AsyncRequestBody, AsyncResponseTransformer }
+import software.amazon.awssdk.core.async._
 import software.amazon.awssdk.services.s3.model._
 
 private[s3] class S3MonixClientImpl(override val underlying: S3AsyncClient) extends S3MonixClient {
