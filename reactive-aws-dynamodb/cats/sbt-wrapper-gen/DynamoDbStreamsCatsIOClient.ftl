@@ -4,22 +4,20 @@
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.cats
 
 import cats.effect.IO
-import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
-import software.amazon.awssdk.services.${baseName?lower_case}.model._
-import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
-
-import scala.concurrent.{ ExecutionContext, Future }
+import com.github.j5ik2o.reactive.aws.dynamodb.streams.{ DynamoDbStreamsAsyncClient, DynamoDbStreamsClient }
+import software.amazon.awssdk.services.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.streams.paginators.{ DescribeStreamPublisher, ListStreamsPublisher }
 
 object ${baseName}CatsIOClient {
 
-  def apply(underlying: ${baseName}AsyncClient): ${baseName}CatsIOClient =
-    new ${baseName}CatsIOClientImpl(underlying)
+def apply(underlying: ${baseName}AsyncClient): ${baseName}CatsIOClient =
+new ${baseName}CatsIOClientImpl(underlying)
 
 }
 
 trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
 
-  val underlying: ${baseName}AsyncClient
+val underlying: ${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
@@ -31,12 +29,6 @@ trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
 
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if methodDesc.name == "subscribeToShard">
-        <#return false>
-    </#if>
-    <#if !methodDesc.parameterTypeDescs?has_content>
         <#return false>
     </#if>
     <#local target=true>

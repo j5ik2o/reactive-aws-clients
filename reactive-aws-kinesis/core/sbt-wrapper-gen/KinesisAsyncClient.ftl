@@ -1,24 +1,25 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
-import software.amazon.awssdk.services.kinesis.model._
-import software.amazon.awssdk.services.kinesis.paginators._
-import software.amazon.awssdk.services.kinesis.{ KinesisAsyncClient => JavaKinesisAsyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}AsyncClient => Java${baseName}AsyncClient }
 
 import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
-object KinesisAsyncClient {
+object ${baseName}AsyncClient {
 
-def apply(underlying: JavaKinesisAsyncClient): KinesisAsyncClient =
-new KinesisAsyncClientImpl(underlying)
+def apply(underlying: Java${baseName}AsyncClient): ${baseName}AsyncClient =
+new ${baseName}AsyncClientImpl(underlying)
 
 }
 
-trait KinesisAsyncClient extends KinesisClient[Future] {
+trait ${baseName}AsyncClient extends ${baseName}Client[Future] {
 
-val underlying: JavaKinesisAsyncClient
+val underlying: Java${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>

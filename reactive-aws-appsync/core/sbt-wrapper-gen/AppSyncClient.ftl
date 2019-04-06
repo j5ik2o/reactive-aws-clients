@@ -1,9 +1,11 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
+// Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
-import software.amazon.awssdk.services.appsync.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
 
-trait AppSyncClient[M[_]] {
+trait ${baseName}Client[M[_]] {
 
 <#list methods as method>
     <#if targetMethod(method)>

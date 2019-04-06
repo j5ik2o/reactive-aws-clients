@@ -1,27 +1,33 @@
 <#include "common.ftl"/>
 <#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
-package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.cats
 
+import cats.effect.IO
+import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{${baseName}AsyncClient, ${baseName}Client}
 import software.amazon.awssdk.services.${baseName?lower_case}.model._
 
-trait ${baseName}Client[M[_]] extends ${baseName}ClientSupport[M] {
+object ${baseName}CatsIOClient {
+
+def apply(underlying: ${baseName}AsyncClient): ${baseName}CatsIOClient =
+new ${baseName}CatsIOClientImpl(underlying)
+
+}
+
+trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
+
+val underlying: ${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <@defScalaInterface method/>
+        <@defCatsMethod method />
 
     </#if>
 </#list>
 }
+
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if methodDesc.name == "subscribeToShard">
-        <#return false>
-    </#if>
-    <#if methodDesc.name?ends_with("Paginator")>
         <#return false>
     </#if>
     <#local target=true>
@@ -33,3 +39,4 @@ trait ${baseName}Client[M[_]] extends ${baseName}ClientSupport[M] {
     </#list>
     <#return target>
 </#function>
+

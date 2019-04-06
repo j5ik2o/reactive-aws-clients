@@ -7,8 +7,8 @@ import java.util.concurrent.CompletableFuture
 import java.util.function.BiConsumer
 
 import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor
-import software.amazon.awssdk.services.dynamodb.${baseName}AsyncClient
-import software.amazon.awssdk.services.dynamodb.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.${baseName}AsyncClient
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
 
 trait JavaAsyncClientMetricsInterceptor extends ${baseName}AsyncClient with JavaClientMetricsInterceptor {
 

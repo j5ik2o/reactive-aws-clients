@@ -1,20 +1,21 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("Client", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
-import software.amazon.awssdk.services.appsync.model._
-import software.amazon.awssdk.services.appsync.{ AppSyncClient => JavaAppSyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}Client => Java${baseName}Client }
 
-object AppSyncSyncClient extends ToEitherSupport {
+object ${baseName}SyncClient extends ToEitherSupport {
 
-def apply(underlying: JavaAppSyncClient): AppSyncSyncClient = new AppSyncSyncClientImpl(underlying)
+def apply(underlying: Java${baseName}Client): ${baseName}SyncClient = new ${baseName}SyncClientImpl(underlying)
 
 }
 
-trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
-val underlying: JavaAppSyncClient
-import AppSyncSyncClient._
+trait ${baseName}SyncClient extends ${baseName}Client[Either[Throwable, ?]] {
+val underlying: Java${baseName}Client
+import ${baseName}SyncClient._
 
 <#list methods as method>
     <#if targetMethod(method)>

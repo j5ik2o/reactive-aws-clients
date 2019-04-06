@@ -1,22 +1,23 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("Client", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
-import software.amazon.awssdk.services.s3.model._
-import software.amazon.awssdk.services.s3.paginators._
-import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}Client => Java${baseName}SyncClient }
 
-object S3SyncClient extends ToEitherSupport {
+object ${baseName}SyncClient extends ToEitherSupport {
 
-def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
+def apply(underlying: Java${baseName}SyncClient): ${baseName}SyncClient = new ${baseName}SyncClientImpl(underlying)
 
 }
 
-trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
-val underlying: JavaS3SyncClient
+trait ${baseName}SyncClient extends ${baseName}Client[Either[Throwable, ?]] with ${baseName}SyncClientSupport {
+val underlying: Java${baseName}SyncClient
 
-import S3SyncClient._
+import ${baseName}SyncClient._
 
 <#list methods as method>
     <#if targetMethod(method)>

@@ -10,7 +10,7 @@ import org.scalatest.{ FreeSpec, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import com.github.j5ik2o.reactive.aws.dynamodb.implicits._
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
-import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
+import software.amazon.awssdk.services.dynamodb.{ DynamoDbAsyncClient => JavaDynamoDbAsyncClient }
 import software.amazon.awssdk.services.dynamodb.model._
 
 import scala.concurrent.duration._
@@ -19,7 +19,7 @@ class DynamoDBAsyncClientImplSpec extends FreeSpec with Matchers with ScalaFutur
 
   implicit val pc: PatienceConfig = PatienceConfig(20 seconds, 1 seconds)
 
-  val _underlying = DynamoDbAsyncClient
+  val _underlying = JavaDynamoDbAsyncClient
     .builder()
     .httpClient(NettyNioAsyncHttpClient.builder().maxConcurrency(1).build())
     .credentialsProvider(
@@ -40,7 +40,7 @@ class DynamoDBAsyncClientImplSpec extends FreeSpec with Matchers with ScalaFutur
     }
   )
 
-  val client: DynamoDBAsyncClient = DynamoDBAsyncClient(underlying)
+  val client: DynamoDbAsyncClient = DynamoDbAsyncClient(underlying)
 
   "DynamoDBClientV2FutureSpec" - {
     "createTable & listTables" in {

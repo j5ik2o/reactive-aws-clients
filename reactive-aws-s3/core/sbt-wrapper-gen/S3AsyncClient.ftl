@@ -1,23 +1,24 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
-import software.amazon.awssdk.services.s3.model._
-import software.amazon.awssdk.services.s3.paginators._
-import software.amazon.awssdk.services.s3.{ S3AsyncClient => JavaS3AsyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ S3AsyncClient => JavaS3AsyncClient }
 
 import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
-object S3AsyncClient {
+object ${baseName}AsyncClient {
 
-def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
-new S3AsyncClientImpl(underlying)
+def apply(underlying: Java${baseName}AsyncClient): ${baseName}AsyncClient =
+new ${baseName}AsyncClientImpl(underlying)
 
 }
 
-trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
-val underlying: JavaS3AsyncClient
+trait ${baseName}AsyncClient extends ${baseName}Client[Future] with ${baseName}AsyncClientSupport {
+val underlying: Java${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetAsyncMethod(method)>

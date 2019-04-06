@@ -1,22 +1,23 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
-import software.amazon.awssdk.services.appsync.model._
-import software.amazon.awssdk.services.appsync.{ AppSyncAsyncClient => JavaAppSyncAsyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}AsyncClient => Java${baseName}AsyncClient }
 
 import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
 object AppSyncAsyncClient {
 
-def apply(underlying: JavaAppSyncAsyncClient): AppSyncAsyncClient =
-new AppSyncAsyncClientImpl(underlying)
+def apply(underlying: Java${baseName}AsyncClient): ${baseName}AsyncClient =
+new ${baseName}AsyncClientImpl(underlying)
 
 }
 
-trait AppSyncAsyncClient extends AppSyncClient[Future] {
-val underlying: JavaAppSyncAsyncClient
+trait ${baseName}AsyncClient extends ${baseName}Client[Future] {
+val underlying: Java${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
