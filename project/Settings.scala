@@ -1,8 +1,8 @@
 import com.github.j5ik2o.sbt.wrapper.gen.SbtWrapperGenPlugin.autoImport._
+import com.github.j5ik2o.sbt.wrapper.gen.model.TypeDesc
 import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{ scalafmtOnCompile, scalafmtTestOnCompile }
-import sbt._
+import sbt.{ Classpaths, Credentials, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
 import sbt.Keys._
-import sbt.{ addCompilerPlugin, taskKey, Classpaths, Credentials, Resolver, Test }
 import wartremover.WartRemover.autoImport.{ wartremoverErrors, wartremoverExcluded, Wart, Warts }
 import xerial.sbt.Sonatype.autoImport.{ sonatypeProfileName, sonatypePublishTo }
 
@@ -134,32 +134,20 @@ object Settings {
     }
   )
 
-  val scalaWrapperGenKinesisBaseSettings = Seq(
-    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
-      (scalaSource in Compile).value
-    },
-    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/kinesis/target/generated-sources/sdk/software/amazon/awssdk/services/kinesis"
-  )
+  def scalaWrapperGenBaseSettings(name: String): Seq[Def.Setting[_]] =
+    Seq(
+      templateDirectories in scalaWrapperGen := Seq((baseDirectory in LocalRootProject).value / "ftl",
+                                                    baseDirectory.value / "sbt-wrapper-gen"),
+      outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
+        (scalaSource in Compile).value
+      },
+      inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / s"aws-sdk-src/aws-sdk-java-v2/services/$name/target/generated-sources/sdk/software/amazon/awssdk/services/$name"
+    )
 
-  val scalaWrapperGenDynamoDBBaseSettings = Seq(
-    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
-      (scalaSource in Compile).value
-    },
-    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/dynamodb/target/generated-sources/sdk/software/amazon/awssdk/services/dynamodb"
-  )
-
-  val scalaWrapperGenS3BaseSettings = Seq(
-    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
-      (scalaSource in Compile).value
-    },
-    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/s3/target/generated-sources/sdk/software/amazon/awssdk/services/s3"
-  )
-
-  val scalaWrapperGenSQSBaseSettings = Seq(
-    outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
-      (scalaSource in Compile).value
-    },
-    inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / "aws-sdk-src/aws-sdk-java-v2/services/sqs/target/generated-sources/sdk/software/amazon/awssdk/services/sqs"
-  )
+  val scalaWrapperGenKinesisBaseSettings: Seq[Def.Setting[_]]  = scalaWrapperGenBaseSettings("kinesis")
+  val scalaWrapperGenDynamoDBBaseSettings: Seq[Def.Setting[_]] = scalaWrapperGenBaseSettings("dynamodb")
+  val scalaWrapperGenS3BaseSettings: Seq[Def.Setting[_]]       = scalaWrapperGenBaseSettings("s3")
+  val scalaWrapperGenSQSBaseSettings: Seq[Def.Setting[_]]      = scalaWrapperGenBaseSettings("sqs")
+  val scalaWrapperGenAppSyncBaseSettings: Seq[Def.Setting[_]]  = scalaWrapperGenBaseSettings("appsync")
 
 }

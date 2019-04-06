@@ -1,8 +1,8 @@
-// Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3.model.ops
 <#include "common.ftl">
+// Auto-Generated
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")+".ops"}
 
-import software.amazon.awssdk.services.s3.model._
+import ${packageName}._
 
 final class ${simpleTypeName}BuilderOps(val self: ${simpleTypeName}.Builder) extends AnyVal {
 
