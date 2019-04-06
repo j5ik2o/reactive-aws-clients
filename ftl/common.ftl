@@ -172,3 +172,98 @@
     </#switch>
 </#macro>
 
+<#macro defAkkaMethod method>
+    <#if method.name?ends_with("Paginator")>
+        <#if method.parameterTypeDescs?has_content>
+            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
+            <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
+            def ${method.name}Flow: Flow[${requestTypeName},${responseTypeName}, NotUsed] = Flow[${requestTypeName}].flatMapConcat { request =>
+            Source.fromPublisher(underlying.${method.name}(request))
+            }
+        <#else>
+            <#assign responseTypeName=method.returnTypeDesc.simpleTypeName?replace("Publisher", "Response")>
+            def ${method.name}Source: Source[${responseTypeName}, NotUsed] =
+            Source.fromPublisher(underlying.${method.name}())
+        </#if>
+    <#else>
+        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
+        <#if method.parameterTypeDescs?has_content>
+            def ${method.name}Source(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list><#if method.parameterTypeDescs?has_content>,</#if> parallelism: Int = DefaultParallelism): Source[${responseTypeName}, NotUsed] =
+            Source.single(<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].name}<#else>(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)</#if>).via(${method.name}Flow(parallelism))
+
+            def ${method.name}Flow(parallelism: Int = DefaultParallelism): Flow[<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].fullTypeName}<#else>(<#list method.parameterTypeDescs as p>${p.fullTypeName}<#if p_has_next>,</#if></#list>)</#if>,${responseTypeName}, NotUsed] =
+            Flow[<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].fullTypeName}<#else>(<#list method.parameterTypeDescs as p>${p.fullTypeName}<#if p_has_next>,</#if></#list>)</#if>].mapAsync(parallelism){ <#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].name}<#else>case (<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)</#if> =>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+            }
+        <#else>
+            def ${method.name}Source(): Source[${responseTypeName}, NotUsed] =
+            Source.fromFuture(underlying.${method.name}())
+        </#if>
+    </#if>
+</#macro>
+
+<#macro defScalaInterface method>
+    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
+</#macro>
+
+<#macro defScalaFutureMethod method overrideOpt=true>
+    <#if !method.name?ends_with("Paginator") && method.returnTypeDesc.valueTypeDesc.simpleTypeName == "Unit">
+        @SuppressWarnings(Array("org.wartremover.warts.Equals"))
+    </#if>
+    <#if !method.name?ends_with("Paginator") && overrideOpt>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
+    <#if method.name?ends_with("Paginator")>
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+    <#else>
+        <#if method.returnTypeDesc.valueTypeDesc.simpleTypeName == "Unit">
+            {
+            val p = scala.concurrent.Promise[Unit]()
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).whenCompleteAsync(
+            new java.util.function.BiConsumer[Void, Throwable] {
+              override def accept(t: Void, u: Throwable): Unit = {
+                if (u != null) p.failure(u)
+                else p.success(())
+              }
+            })
+            p.future
+            }
+        <#else>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+        </#if>
+    </#if>
+</#macro>
+
+<#macro defScalaEitherMethod method>
+    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> =
+    <#if method.name?ends_with("Paginator")>
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+    <#else>
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toEither
+    </#if>
+</#macro>
+
+<#macro defCatsMethod method>
+    <#if method.name?ends_with("Paginator")>
+        def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): ${method.returnTypeDesc.simpleTypeName} =
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+    <#else>
+        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
+        override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): IO[${responseTypeName}] =
+        IO.fromFuture {
+        IO(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
+        }
+    </#if>
+</#macro>
+
+<#macro defMonixMethod method>
+    <#if method.name?ends_with("Paginator")>
+        <#assign responseTypeName=method.returnTypeDesc.simpleTypeName?replace("Publisher", "Response")>
+        def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Observable[${responseTypeName}] =
+        Observable.fromReactivePublisher(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
+    <#else>
+        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
+        override def  ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Task[${responseTypeName}] =
+        Task.deferFuture {
+        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        }
+    </#if>
+</#macro>

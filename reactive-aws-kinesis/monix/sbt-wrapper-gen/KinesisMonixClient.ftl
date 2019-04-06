@@ -1,3 +1,4 @@
+<#include "common.ftl"/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.monix
 
@@ -18,21 +19,10 @@ val underlying: KinesisAsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#assign requestParameterName=method.parameterTypeDescs[0].name>
-        <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
-        <#if method.name?ends_with("Paginator")>
-            <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-            def ${method.name}(${requestParameterName}: ${requestTypeName}): Observable[${responseTypeName}] =
-              Observable.fromReactivePublisher(underlying.${method.name}(${requestParameterName}))
-        <#else>
-            <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def  ${method.name}(${requestParameterName}: ${requestTypeName}): Task[${responseTypeName}] = Task.deferFuture {
-              underlying.${method.name}(${requestParameterName})
-            }
-        </#if>
+        <@defMonixMethod method/>
 
-    </#if></#list>
-
+    </#if>
+</#list>
 }
 
 <#function targetMethod methodDesc>

@@ -1,5 +1,6 @@
+<#include "common.ftl"/>
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.sqs
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import software.amazon.awssdk.services.sqs.model._
 import software.amazon.awssdk.services.sqs.{ SqsAsyncClient => JavaSqsAsyncClient }
@@ -19,12 +20,7 @@ val underlying: JavaSqsAsyncClient
 
 <#list methods as method>
     <#if targetAsyncMethod(method)>
-        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
-        <#if method.name?ends_with("Paginator")>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-        <#else>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
-        </#if>
+        <@defScalaFutureMethod method/>
 
     </#if>
 </#list>

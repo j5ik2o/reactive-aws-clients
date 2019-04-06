@@ -1,3 +1,4 @@
+<#include "common.ftl"/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
@@ -20,12 +21,7 @@ val underlying: DynamoDbAsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
-        <#if method.name?ends_with("Paginator")>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-        <#else>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
-        </#if>
+        <@defScalaFutureMethod method/>
 
     </#if>
 </#list>

@@ -1,3 +1,4 @@
+<#include "common.ftl"/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.monix
 
@@ -18,21 +19,10 @@ val underlying: S3AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#if method.name?ends_with("Paginator")>
-            <#assign requestParameterName=method.parameterTypeDescs[0].name>
-            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
-            <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-            def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Observable[${responseTypeName}] =
-              Observable.fromReactivePublisher(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
-        <#else>
-            <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Task[${responseTypeName}] = Task.deferFuture {
-              underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-            }
-        </#if>
+        <@defMonixMethod method/>
 
-    </#if></#list>
-
+    </#if>
+</#list>
 }
 
 <#function targetMethod methodDesc>

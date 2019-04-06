@@ -1,3 +1,5 @@
+<#include "common.ftl"/>
+// Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import software.amazon.awssdk.services.s3.model._
@@ -6,7 +8,7 @@ trait S3Client[M[_]] extends S3ClientSupport[M] {
 
 <#list methods as method>
     <#if targetMethod(method)>
-        def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
+        <@defScalaInterface method/>
 
     </#if>
 </#list>

@@ -19,151 +19,120 @@ trait KinesisAsyncClient extends KinesisClient[Future] {
 
   val underlying: JavaKinesisAsyncClient
 
-  import KinesisAsyncClient._
-
-  override def addTagsToStream(addTagsToStreamRequest: AddTagsToStreamRequest): Future[AddTagsToStreamResponse] = {
+  override def addTagsToStream(addTagsToStreamRequest: AddTagsToStreamRequest): Future[AddTagsToStreamResponse] =
     underlying.addTagsToStream(addTagsToStreamRequest).toScala
-  }
 
-  override def createStream(createStreamRequest: CreateStreamRequest): Future[CreateStreamResponse] = {
+  override def createStream(createStreamRequest: CreateStreamRequest): Future[CreateStreamResponse] =
     underlying.createStream(createStreamRequest).toScala
-  }
 
   override def decreaseStreamRetentionPeriod(
       decreaseStreamRetentionPeriodRequest: DecreaseStreamRetentionPeriodRequest
-  ): Future[DecreaseStreamRetentionPeriodResponse] = {
+  ): Future[DecreaseStreamRetentionPeriodResponse] =
     underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest).toScala
-  }
 
-  override def deleteStream(deleteStreamRequest: DeleteStreamRequest): Future[DeleteStreamResponse] = {
+  override def deleteStream(deleteStreamRequest: DeleteStreamRequest): Future[DeleteStreamResponse] =
     underlying.deleteStream(deleteStreamRequest).toScala
-  }
 
   override def deregisterStreamConsumer(
       deregisterStreamConsumerRequest: DeregisterStreamConsumerRequest
-  ): Future[DeregisterStreamConsumerResponse] = {
+  ): Future[DeregisterStreamConsumerResponse] =
     underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest).toScala
-  }
 
-  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Future[DescribeLimitsResponse] = {
+  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Future[DescribeLimitsResponse] =
     underlying.describeLimits(describeLimitsRequest).toScala
-  }
 
-  override def describeLimits(): Future[DescribeLimitsResponse] = {
+  override def describeLimits(): Future[DescribeLimitsResponse] =
     underlying.describeLimits().toScala
-  }
 
-  override def describeStream(describeStreamRequest: DescribeStreamRequest): Future[DescribeStreamResponse] = {
+  override def describeStream(describeStreamRequest: DescribeStreamRequest): Future[DescribeStreamResponse] =
     underlying.describeStream(describeStreamRequest).toScala
-  }
 
   override def describeStreamConsumer(
       describeStreamConsumerRequest: DescribeStreamConsumerRequest
-  ): Future[DescribeStreamConsumerResponse] = {
+  ): Future[DescribeStreamConsumerResponse] =
     underlying.describeStreamConsumer(describeStreamConsumerRequest).toScala
-  }
 
   override def describeStreamSummary(
       describeStreamSummaryRequest: DescribeStreamSummaryRequest
-  ): Future[DescribeStreamSummaryResponse] = {
+  ): Future[DescribeStreamSummaryResponse] =
     underlying.describeStreamSummary(describeStreamSummaryRequest).toScala
-  }
 
   override def disableEnhancedMonitoring(
       disableEnhancedMonitoringRequest: DisableEnhancedMonitoringRequest
-  ): Future[DisableEnhancedMonitoringResponse] = {
+  ): Future[DisableEnhancedMonitoringResponse] =
     underlying.disableEnhancedMonitoring(disableEnhancedMonitoringRequest).toScala
-  }
 
   override def enableEnhancedMonitoring(
       enableEnhancedMonitoringRequest: EnableEnhancedMonitoringRequest
-  ): Future[EnableEnhancedMonitoringResponse] = {
+  ): Future[EnableEnhancedMonitoringResponse] =
     underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest).toScala
-  }
 
-  override def getRecords(getRecordsRequest: GetRecordsRequest): Future[GetRecordsResponse] = {
+  override def getRecords(getRecordsRequest: GetRecordsRequest): Future[GetRecordsResponse] =
     underlying.getRecords(getRecordsRequest).toScala
-  }
 
-  override def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): Future[GetShardIteratorResponse] = {
+  override def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): Future[GetShardIteratorResponse] =
     underlying.getShardIterator(getShardIteratorRequest).toScala
-  }
 
   override def increaseStreamRetentionPeriod(
       increaseStreamRetentionPeriodRequest: IncreaseStreamRetentionPeriodRequest
-  ): Future[IncreaseStreamRetentionPeriodResponse] = {
+  ): Future[IncreaseStreamRetentionPeriodResponse] =
     underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest).toScala
-  }
 
-  override def listShards(listShardsRequest: ListShardsRequest): Future[ListShardsResponse] = {
+  override def listShards(listShardsRequest: ListShardsRequest): Future[ListShardsResponse] =
     underlying.listShards(listShardsRequest).toScala
-  }
 
   override def listStreamConsumers(
       listStreamConsumersRequest: ListStreamConsumersRequest
-  ): Future[ListStreamConsumersResponse] = {
+  ): Future[ListStreamConsumersResponse] =
     underlying.listStreamConsumers(listStreamConsumersRequest).toScala
-  }
 
   def listStreamConsumersPaginator(
       listStreamConsumersRequest: ListStreamConsumersRequest
-  ): ListStreamConsumersPublisher = {
+  ): ListStreamConsumersPublisher =
     underlying.listStreamConsumersPaginator(listStreamConsumersRequest)
-  }
 
-  override def listStreams(listStreamsRequest: ListStreamsRequest): Future[ListStreamsResponse] = {
+  override def listStreams(listStreamsRequest: ListStreamsRequest): Future[ListStreamsResponse] =
     underlying.listStreams(listStreamsRequest).toScala
-  }
 
-  override def listStreams(): Future[ListStreamsResponse] = {
+  override def listStreams(): Future[ListStreamsResponse] =
     underlying.listStreams().toScala
-  }
 
   override def listTagsForStream(
       listTagsForStreamRequest: ListTagsForStreamRequest
-  ): Future[ListTagsForStreamResponse] = {
+  ): Future[ListTagsForStreamResponse] =
     underlying.listTagsForStream(listTagsForStreamRequest).toScala
-  }
 
-  override def mergeShards(mergeShardsRequest: MergeShardsRequest): Future[MergeShardsResponse] = {
+  override def mergeShards(mergeShardsRequest: MergeShardsRequest): Future[MergeShardsResponse] =
     underlying.mergeShards(mergeShardsRequest).toScala
-  }
 
-  override def putRecord(putRecordRequest: PutRecordRequest): Future[PutRecordResponse] = {
+  override def putRecord(putRecordRequest: PutRecordRequest): Future[PutRecordResponse] =
     underlying.putRecord(putRecordRequest).toScala
-  }
 
-  override def putRecords(putRecordsRequest: PutRecordsRequest): Future[PutRecordsResponse] = {
+  override def putRecords(putRecordsRequest: PutRecordsRequest): Future[PutRecordsResponse] =
     underlying.putRecords(putRecordsRequest).toScala
-  }
 
   override def registerStreamConsumer(
       registerStreamConsumerRequest: RegisterStreamConsumerRequest
-  ): Future[RegisterStreamConsumerResponse] = {
+  ): Future[RegisterStreamConsumerResponse] =
     underlying.registerStreamConsumer(registerStreamConsumerRequest).toScala
-  }
 
   override def removeTagsFromStream(
       removeTagsFromStreamRequest: RemoveTagsFromStreamRequest
-  ): Future[RemoveTagsFromStreamResponse] = {
+  ): Future[RemoveTagsFromStreamResponse] =
     underlying.removeTagsFromStream(removeTagsFromStreamRequest).toScala
-  }
 
-  override def splitShard(splitShardRequest: SplitShardRequest): Future[SplitShardResponse] = {
+  override def splitShard(splitShardRequest: SplitShardRequest): Future[SplitShardResponse] =
     underlying.splitShard(splitShardRequest).toScala
-  }
 
   override def startStreamEncryption(
       startStreamEncryptionRequest: StartStreamEncryptionRequest
-  ): Future[StartStreamEncryptionResponse] = {
+  ): Future[StartStreamEncryptionResponse] =
     underlying.startStreamEncryption(startStreamEncryptionRequest).toScala
-  }
 
   override def stopStreamEncryption(
       stopStreamEncryptionRequest: StopStreamEncryptionRequest
-  ): Future[StopStreamEncryptionResponse] = {
+  ): Future[StopStreamEncryptionResponse] =
     underlying.stopStreamEncryption(stopStreamEncryptionRequest).toScala
-  }
 
   @SuppressWarnings(Array("org.wartremover.warts.Equals"))
   def subscribeToShard(subscribeToShardRequest: SubscribeToShardRequest,
@@ -173,18 +142,15 @@ trait KinesisAsyncClient extends KinesisClient[Future] {
       .subscribeToShard(subscribeToShardRequest, asyncResponseHandler).whenCompleteAsync(
         new java.util.function.BiConsumer[Void, Throwable] {
           override def accept(t: Void, u: Throwable): Unit = {
-            if (u != null)
-              p.failure(u)
-            else
-              p.success(())
+            if (u != null) p.failure(u)
+            else p.success(())
           }
         }
       )
     p.future
   }
 
-  override def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): Future[UpdateShardCountResponse] = {
+  override def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): Future[UpdateShardCountResponse] =
     underlying.updateShardCount(updateShardCountRequest).toScala
-  }
 
 }
