@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.metrics
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.metrics
 
 import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient

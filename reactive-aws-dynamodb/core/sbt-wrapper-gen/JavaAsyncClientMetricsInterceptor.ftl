@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb.metrics
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.metrics
 
 import java.util.concurrent.CompletableFuture
 import java.util.function.BiConsumer

@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3.monix
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.monix
 
 import software.amazon.awssdk.services.s3.model._
 import com.github.j5ik2o.reactive.aws.s3.{ S3AsyncClient, S3Client }

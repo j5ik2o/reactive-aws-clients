@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import software.amazon.awssdk.services.s3.model._
 import software.amazon.awssdk.services.s3.paginators._

@@ -1,4 +1,5 @@
-package com.github.j5ik2o.reactive.aws.kinesis
+// Auto-Generated
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import software.amazon.awssdk.services.kinesis.model._
 

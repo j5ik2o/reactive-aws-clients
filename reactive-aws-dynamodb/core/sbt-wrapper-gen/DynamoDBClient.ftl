@@ -1,4 +1,4 @@
-package com.github.j5ik2o.reactive.aws.dynamodb
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import software.amazon.awssdk.services.dynamodb.model._
 

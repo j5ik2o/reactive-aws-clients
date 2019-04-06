@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.dynamodb.monix.streams
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.monix
 
 import com.github.j5ik2o.reactive.aws.dynamodb.streams.{DynamoDBStreamsAsyncClient, DynamoDBStreamsClient}
 import monix.eval.Task

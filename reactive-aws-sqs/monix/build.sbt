@@ -14,7 +14,7 @@ compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapp
 
 packageNameMapper in scalaWrapperGen := {
   case (s, _, _) =>
-    s.replace("software.amazon.awssdk.services.sqs", "com.github.j5ik2o.reactive.aws.sqs.monix")
+    s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws") + ".monix"
 }
 
 typeDescFilter in scalaWrapperGen := {

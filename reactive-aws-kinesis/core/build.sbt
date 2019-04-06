@@ -17,7 +17,7 @@ packageNameMapper in scalaWrapperGen := {
   case (s, tn, _) if tn.endsWith("Ops") =>
     s.replace("software.amazon.awssdk.services.kinesis.model", "com.github.j5ik2o.reactive.aws.kinesis.model.ops")
   case (s, _, _) =>
-    s.replace("software.amazon.awssdk.services.kinesis", "com.github.j5ik2o.reactive.aws.kinesis")
+    s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")
 }
 
 typeDescFilter in scalaWrapperGen := {
