@@ -1,24 +1,25 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.cats
 
 import cats.effect.IO
-import com.github.j5ik2o.reactive.aws.s3.{ S3AsyncClient, S3Client }
-import software.amazon.awssdk.services.s3.model._
-import software.amazon.awssdk.services.s3.paginators._
+import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
-object S3CatsIOClient {
+object ${baseName}CatsIOClient {
 
-  def apply(underlying: S3AsyncClient): S3CatsIOClient =
-    new S3CatsIOClientImpl(underlying)
+  def apply(underlying: ${baseName}AsyncClient): ${baseName}CatsIOClient =
+    new ${baseName}CatsIOClientImpl(underlying)
 
 }
 
-trait S3CatsIOClient extends S3Client[IO] {
+trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
 
-  val underlying: S3AsyncClient
+  val underlying: ${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>

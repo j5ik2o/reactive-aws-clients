@@ -1,3 +1,6 @@
+<#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
+// Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.metrics
 
 import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor

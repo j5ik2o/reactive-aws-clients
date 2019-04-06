@@ -5,24 +5,24 @@ import java.util.function.Consumer
 
 import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaAsyncClientMetricsInterceptor
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
-import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
+import software.amazon.awssdk.services.dynamodb.{ DynamoDbAsyncClient => JavaDynamoDbAsyncClient }
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.paginators._
 
 object JavaAsyncClientDecorator {
 
-  def ofMetricsCollector(underlying: DynamoDbAsyncClient, _reporter: MetricsReporter): JavaAsyncClientDecorator =
+  def ofMetricsCollector(underlying: JavaDynamoDbAsyncClient, _reporter: MetricsReporter): JavaAsyncClientDecorator =
     new JavaAsyncClientDecoratorImpl(underlying) with JavaAsyncClientMetricsInterceptor {
       override protected val reporter: MetricsReporter = _reporter
     }
 
-  class JavaAsyncClientDecoratorImpl(val underlying: DynamoDbAsyncClient) extends JavaAsyncClientDecorator
+  class JavaAsyncClientDecoratorImpl(val underlying: JavaDynamoDbAsyncClient) extends JavaAsyncClientDecorator
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.Equals", "org.wartremover.warts.ToString"))
-trait JavaAsyncClientDecorator extends DynamoDbAsyncClient {
-  val underlying: DynamoDbAsyncClient
+trait JavaAsyncClientDecorator extends JavaDynamoDbAsyncClient {
+  val underlying: JavaDynamoDbAsyncClient
 
   override def serviceName(): String = underlying.serviceName()
 

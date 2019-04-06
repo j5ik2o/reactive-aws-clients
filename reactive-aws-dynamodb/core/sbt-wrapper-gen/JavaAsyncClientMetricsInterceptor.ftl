@@ -1,13 +1,16 @@
+<#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
+// Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.metrics
 
 import java.util.concurrent.CompletableFuture
 import java.util.function.BiConsumer
 
 import com.github.j5ik2o.reactive.aws.metrics.JavaClientMetricsInterceptor
-import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
+import software.amazon.awssdk.services.dynamodb.${baseName}AsyncClient
 import software.amazon.awssdk.services.dynamodb.model._
 
-trait JavaAsyncClientMetricsInterceptor extends DynamoDbAsyncClient with JavaClientMetricsInterceptor {
+trait JavaAsyncClientMetricsInterceptor extends ${baseName}AsyncClient with JavaClientMetricsInterceptor {
 
 protected def collectCompletableFuture[A, B](name: String, request: A)(f: A => CompletableFuture[B]): CompletableFuture[B] = {
 val start = currentTime

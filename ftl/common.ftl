@@ -1,41 +1,41 @@
-<#function filterMethodName name>
+<#function filterTypeName name>
     <#return name?replace("SdkBytes", "software.amazon.awssdk.core.SdkBytes")?replace("Instant", "java.time.Instant")>
 </#function>
 
 <#function getGetterSimpleTypeName methods name default>
     <#list methods as method>
         <#if method.name == name>
-            <#return filterMethodName(method.returnTypeDesc.simpleTypeName)>
+            <#return filterTypeName(method.returnTypeDesc.simpleTypeName)>
         </#if>
     </#list>
-    <#return filterMethodName(default)>
+    <#return filterTypeName(default)>
 </#function>
 
 <#function getGetterFullTypeName name default>
     <#list methods as method>
         <#if method.name == name>
-            <#return filterMethodName(method.returnTypeDesc.fullTypeName)>
+            <#return filterTypeName(method.returnTypeDesc.fullTypeName)>
         </#if>
     </#list>
-    <#return filterMethodName(default)>
+    <#return filterTypeName(default)>
 </#function>
 
 <#function getGetterKeyTypeName methods name default>
     <#list methods as method>
         <#if method.name == name>
-            <#return filterMethodName(method.returnTypeDesc.keyTypeDesc.simpleTypeName)>
+            <#return filterTypeName(method.returnTypeDesc.keyTypeDesc.simpleTypeName)>
         </#if>
     </#list>
-    <#return filterMethodName(default)>
+    <#return filterTypeName(default)>
 </#function>
 
 <#function getGetterValueTypeName methods name default>
     <#list methods as method>
         <#if method.name == name>
-            <#return filterMethodName(method.returnTypeDesc.valueTypeDesc.simpleTypeName)>
+            <#return filterTypeName(method.returnTypeDesc.valueTypeDesc.simpleTypeName)>
         </#if>
     </#list>
-    <#return filterMethodName(default)>
+    <#return filterTypeName(default)>
 </#function>
 
 <#function isDefined typeName>
@@ -64,32 +64,40 @@
 </#function>
 
 
+<#function escapeMethodName name>
+    <#if name=="type">
+        <#return "`type`" />
+    </#if>
+    <#return name />
+</#function>
+
+
 
 <#macro enrichSetterAsScala simpleTypeName methods field>
-    <#local fieldName=field.name?replace("type", "`type`")>
-    <#local typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)>
+    <#local methodName=escapeMethodName(field.name)/>
+    <#local typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)/>
     <#switch typeName>
         <#case "Seq">
             final def with${field.name?cap_first}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
             <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if valueTypeName == "SdkBytes">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if mapValueTypeName == "Seq">
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.map(_.mapValues(_.asJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.mapValues(_.asJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#else>
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 </#if>
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif isDefined(valueTypeName)>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#else>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
             }
             <#break >
@@ -97,77 +105,77 @@
             final def with${field.name?cap_first}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
             <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if isDefined(valueTypeName)>
-                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName == "Map">
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.mapValues(_.map(_.asJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.map(_.asJava).asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 <#else>
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.mapValues(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
                 </#if>
             <#else>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${fieldName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
             }
             <#break >
         <#default >
             final def with${field.name?cap_first}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
-            value.fold(self){ v => self.${fieldName}(v) }
+            value.fold(self){ v => self.${methodName}(v) }
             } // ${field.fieldTypeDesc.fullTypeName}
             <#break >
     </#switch>
 </#macro>
 
 <#macro enrichGetterAsScala simpleTypeName methods field>
-    <#local fieldName=field.name?replace("type", "`type`")>
-    <#local typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)>
+    <#local methodName=escapeMethodName(field.name)/>
+    <#local typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)/>
     <#switch typeName>
         <#case "Seq">
-            <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
+            <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)/>
             <#if valueTypeName == "SdkBytes">
-                final def ${field.name}AsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Map">
                 <#local mapKeyTypeName=field.fieldTypeDesc.valueTypeDesc.keyTypeDesc.simpleTypeName>
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                final def ${field.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${mapValueTypeName}]]] = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap) } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${mapValueTypeName}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${field.name}AsScala: Option[Seq[${valueTypeName}]] = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Seq[${valueTypeName}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "String">
-                final def ${field.name}AsScala: Option[Seq[String]] = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala} // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala} // ${field.fieldTypeDesc.fullTypeName}
             <#else>
-                final def ${field.name}AsScala: Option[Seq[${valueTypeName}]] = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Seq[${valueTypeName}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
             <#break >
         <#case "Map">
             <#local keyTypeName=getGetterKeyTypeName(methods, field.name, field.fieldTypeDesc.keyTypeDesc.simpleTypeName)>
             <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if valueTypeName == "SdkBytes">
-                final def ${field.name}AsScala: Option[Map[${keyTypeName}, software.amazon.awssdk.core.SdkBytes]] = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Map[${keyTypeName}, software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName=="Map">
                     <#local mapKeyTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.keyTypeDesc.simpleTypeName>
                     <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                    final def ${field.name}AsScala: Option[Map[${keyTypeName}, Seq[Map[${mapKeyTypeName},${mapValueTypeName}]]]]  = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap)) } // ${field.fieldTypeDesc.fullTypeName}
+                    final def ${field.name}AsScala: Option[Map[${keyTypeName}, Seq[Map[${mapKeyTypeName},${mapValueTypeName}]]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap)) } // ${field.fieldTypeDesc.fullTypeName}
                 <#else>
-                    final def ${field.name}AsScala: Option[Map[${keyTypeName},Seq[${seqValueTypeName}]]]  = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala) } // ${field.fieldTypeDesc.fullTypeName}
+                    final def ${field.name}AsScala: Option[Map[${keyTypeName},Seq[${seqValueTypeName}]]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala) } // ${field.fieldTypeDesc.fullTypeName}
                 </#if>
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "String">
-                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${field.fieldTypeDesc.fullTypeName}
             <#else>
-                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${fieldName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${field.fieldTypeDesc.fullTypeName}
+                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
             <#break >
         <#case "SdkBytes">
-            final def ${field.name}AsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.${fieldName}) // ${field.fieldTypeDesc.fullTypeName}
+            final def ${field.name}AsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.${methodName}) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
         <#default >
-            final def ${field.name}AsScala: Option[${typeName}] = Option(self.${fieldName}) // ${field.fieldTypeDesc.fullTypeName}
+            final def ${field.name}AsScala: Option[${typeName}] = Option(self.${methodName}) // ${field.fieldTypeDesc.fullTypeName}
             <#break >
     </#switch>
 </#macro>

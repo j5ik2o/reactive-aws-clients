@@ -1,21 +1,22 @@
 <#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.monix
 
-import software.amazon.awssdk.services.s3.model._
-import com.github.j5ik2o.reactive.aws.s3.{ S3AsyncClient, S3Client }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
 import monix.eval.Task
 import monix.reactive.Observable
 
-object S3MonixClient {
+object ${baseName}MonixClient {
 
-def apply(underlying: S3AsyncClient): S3MonixClient = new S3MonixClientImpl(underlying)
+def apply(underlying: ${baseName}AsyncClient): ${baseName}MonixClient = new ${baseName}MonixClientImpl(underlying)
 
 }
 
-trait S3MonixClient extends S3Client[Task] {
+trait ${baseName}MonixClient extends ${baseName}Client[Task] {
 
-val underlying: S3AsyncClient
+val underlying: ${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>

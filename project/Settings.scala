@@ -1,5 +1,5 @@
 import com.github.j5ik2o.sbt.wrapper.gen.SbtWrapperGenPlugin.autoImport._
-import com.github.j5ik2o.sbt.wrapper.gen.model.TypeDesc
+import com.github.j5ik2o.sbt.wrapper.gen.model.{ ClassDesc, TypeDesc }
 import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{ scalafmtOnCompile, scalafmtTestOnCompile }
 import sbt.{ Classpaths, Credentials, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
 import sbt.Keys._
@@ -7,6 +7,7 @@ import wartremover.WartRemover.autoImport.{ wartremoverErrors, wartremoverExclud
 import xerial.sbt.Sonatype.autoImport.{ sonatypeProfileName, sonatypePublishTo }
 
 object Settings {
+  val sdkBaseName     = settingKey[String]("sdk base name")
   val scalaVersion211 = "2.11.12"
   val scalaVersion212 = "2.12.8"
 
@@ -134,20 +135,35 @@ object Settings {
     }
   )
 
-  def scalaWrapperGenBaseSettings(name: String): Seq[Def.Setting[_]] =
+  def scalaWrapperGenBaseSettings(typeName: String = "", packageName: String = ""): Seq[Def.Setting[_]] =
     Seq(
       templateDirectories in scalaWrapperGen := Seq((baseDirectory in LocalRootProject).value / "ftl",
                                                     baseDirectory.value / "sbt-wrapper-gen"),
       outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
         (scalaSource in Compile).value
       },
-      inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / s"aws-sdk-src/aws-sdk-java-v2/services/$name/target/generated-sources/sdk/software/amazon/awssdk/services/$name"
+      packageNameMapper in scalaWrapperGen := {
+        case (s, _, _) =>
+          s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws") + (if (packageName.nonEmpty)
+                                                                                              "." + packageName.toLowerCase
+                                                                                            else "")
+      },
+      typeDescFilter in scalaWrapperGen := {
+        case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" => true
+        case _ =>
+          false
+      },
+      typeNameMapper in scalaWrapperGen := {
+        case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+          Seq(s"${sdkBaseName.value}${typeName}Client")
+      },
+      templateNameMapper in scalaWrapperGen := {
+        case (f, cd: ClassDesc)
+            if f == s"${sdkBaseName.value}${typeName}Client" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+          s"${sdkBaseName.value}${typeName}Client.ftl"
+        case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
+      },
+      inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / s"aws-sdk-src/aws-sdk-java-v2/services/${sdkBaseName.value.toLowerCase}/target/generated-sources/sdk/software/amazon/awssdk/services/${sdkBaseName.value.toLowerCase}"
     )
-
-  val scalaWrapperGenKinesisBaseSettings: Seq[Def.Setting[_]]  = scalaWrapperGenBaseSettings("kinesis")
-  val scalaWrapperGenDynamoDBBaseSettings: Seq[Def.Setting[_]] = scalaWrapperGenBaseSettings("dynamodb")
-  val scalaWrapperGenS3BaseSettings: Seq[Def.Setting[_]]       = scalaWrapperGenBaseSettings("s3")
-  val scalaWrapperGenSQSBaseSettings: Seq[Def.Setting[_]]      = scalaWrapperGenBaseSettings("sqs")
-  val scalaWrapperGenAppSyncBaseSettings: Seq[Def.Setting[_]]  = scalaWrapperGenBaseSettings("appsync")
 
 }

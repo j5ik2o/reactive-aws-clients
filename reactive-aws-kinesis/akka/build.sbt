@@ -1,11 +1,12 @@
 import Settings._
-import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 
 coreSettings
 
-scalaWrapperGenKinesisBaseSettings
+scalaWrapperGenBaseSettings("Akka", "akka")
 
-name := "reactive-aws-kinesis-akka"
+sdkBaseName := "Kinesis"
+
+name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-akka"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-testkit"        % akkaVersion % Test,
@@ -13,25 +14,3 @@ libraryDependencies ++= Seq(
 )
 
 compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value
-
-packageNameMapper in scalaWrapperGen := {
-  case (s, _, _) =>
-    s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws") + ".akka"
-}
-
-typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "KinesisAsyncClient" => true
-  case _ =>
-    false
-}
-
-typeNameMapper in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "KinesisAsyncClient" =>
-    Seq("KinesisStreamClient")
-}
-
-templateNameMapper in scalaWrapperGen := {
-  case ("KinesisStreamClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
-    "KinesisStreamClient.ftl"
-  case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
-}

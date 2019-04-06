@@ -1,11 +1,13 @@
 import Settings._
-import com.github.j5ik2o.sbt.wrapper.gen.model.{ ClassDesc, EnumDesc }
+import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 
 coreSettings
 
-scalaWrapperGenKinesisBaseSettings
+scalaWrapperGenBaseSettings()
 
-name := "reactive-aws-kinesis-core"
+sdkBaseName := "Kinesis"
+
+name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-core"
 
 libraryDependencies ++= Seq(
   "software.amazon.awssdk" % "kinesis" % awsSdk2Version
@@ -15,14 +17,17 @@ compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapp
 
 packageNameMapper in scalaWrapperGen := {
   case (s, tn, _) if tn.endsWith("Ops") =>
-    s.replace("software.amazon.awssdk.services.kinesis.model", "com.github.j5ik2o.reactive.aws.kinesis.model.ops")
+    s.replace(
+      s"software.amazon.awssdk.services.${sdkBaseName.value.toLowerCase}.model",
+      s"com.github.j5ik2o.reactive.aws.${sdkBaseName.value.toLowerCase}.model.ops"
+    )
   case (s, _, _) =>
     s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")
 }
 
 typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "KinesisAsyncClient"                                               => true
-  case cd if cd.simpleTypeName == "KinesisClient"                                                    => true
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient"                                 => true
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client"                                      => true
   case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")                                      => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")                                        => false
@@ -36,19 +41,20 @@ typeDescFilter in scalaWrapperGen := {
 }
 
 typeNameMapper in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "KinesisAsyncClient" =>
-    Seq("KinesisClient", "KinesisAsyncClient")
-  case cd if cd.simpleTypeName == "KinesisClient" =>
-    Seq("KinesisSyncClient")
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+    Seq(s"${sdkBaseName.value}Client", s"${sdkBaseName.value}AsyncClient")
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client" =>
+    Seq(s"${sdkBaseName.value}SyncClient")
   case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
   case cd                                               => Seq(cd.simpleTypeName)
 }
 
 templateNameMapper in scalaWrapperGen := {
-  case ("KinesisClient", cd) if cd.simpleTypeName == "KinesisAsyncClient" => "KinesisClient.ftl"
-  case ("KinesisAsyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisAsyncClient" =>
+  case ("KinesisClient", cd) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+    s"${sdkBaseName.value}Client.ftl"
+  case ("KinesisAsyncClient", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
     "KinesisAsyncClient.ftl"
-  case ("KinesisSyncClient", cd: ClassDesc) if cd.simpleTypeName == "KinesisClient" =>
+  case ("KinesisSyncClient", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}Client" =>
     "KinesisSyncClient.ftl"
 
   case (s, cd: ClassDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
