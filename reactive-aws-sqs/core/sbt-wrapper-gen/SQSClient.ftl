@@ -1,8 +1,8 @@
-package com.github.j5ik2o.reactive.aws.s3
+package com.github.j5ik2o.reactive.aws.sqs
 
-import software.amazon.awssdk.services.s3.model._
+import software.amazon.awssdk.services.sqs.model._
 
-trait S3Client[M[_]] extends S3ClientSupport[M] {
+trait SQSClient[M[_]] {
 
 <#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
 
@@ -10,9 +10,6 @@ trait S3Client[M[_]] extends S3ClientSupport[M] {
 }
 <#function targetMethod methodDesc>
     <#if methodDesc.static >
-        <#return false>
-    </#if>
-    <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes">
         <#return false>
     </#if>
     <#if methodDesc.parameterTypeDescs?size gte 2>

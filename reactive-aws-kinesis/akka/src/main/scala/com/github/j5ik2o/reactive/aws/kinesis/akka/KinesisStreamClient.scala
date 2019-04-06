@@ -27,7 +27,9 @@ trait KinesisStreamClient {
   def addTagsToStreamFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[AddTagsToStreamRequest, AddTagsToStreamResponse, NotUsed] =
-    Flow[AddTagsToStreamRequest].mapAsync(parallelism)(underlying.addTagsToStream)
+    Flow[AddTagsToStreamRequest].mapAsync(parallelism) { addTagsToStreamRequest =>
+      underlying.addTagsToStream(addTagsToStreamRequest)
+    }
 
   def createStreamSource(createStreamRequest: CreateStreamRequest,
                          parallelism: Int = DefaultParallelism): Source[CreateStreamResponse, NotUsed] =
@@ -36,7 +38,9 @@ trait KinesisStreamClient {
   def createStreamFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[CreateStreamRequest, CreateStreamResponse, NotUsed] =
-    Flow[CreateStreamRequest].mapAsync(parallelism)(underlying.createStream)
+    Flow[CreateStreamRequest].mapAsync(parallelism) { createStreamRequest =>
+      underlying.createStream(createStreamRequest)
+    }
 
   def decreaseStreamRetentionPeriodSource(
       decreaseStreamRetentionPeriodRequest: DecreaseStreamRetentionPeriodRequest,
@@ -47,7 +51,9 @@ trait KinesisStreamClient {
   def decreaseStreamRetentionPeriodFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DecreaseStreamRetentionPeriodRequest, DecreaseStreamRetentionPeriodResponse, NotUsed] =
-    Flow[DecreaseStreamRetentionPeriodRequest].mapAsync(parallelism)(underlying.decreaseStreamRetentionPeriod)
+    Flow[DecreaseStreamRetentionPeriodRequest].mapAsync(parallelism) { decreaseStreamRetentionPeriodRequest =>
+      underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest)
+    }
 
   def deleteStreamSource(deleteStreamRequest: DeleteStreamRequest,
                          parallelism: Int = DefaultParallelism): Source[DeleteStreamResponse, NotUsed] =
@@ -56,7 +62,9 @@ trait KinesisStreamClient {
   def deleteStreamFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteStreamRequest, DeleteStreamResponse, NotUsed] =
-    Flow[DeleteStreamRequest].mapAsync(parallelism)(underlying.deleteStream)
+    Flow[DeleteStreamRequest].mapAsync(parallelism) { deleteStreamRequest =>
+      underlying.deleteStream(deleteStreamRequest)
+    }
 
   def deregisterStreamConsumerSource(
       deregisterStreamConsumerRequest: DeregisterStreamConsumerRequest,
@@ -67,7 +75,9 @@ trait KinesisStreamClient {
   def deregisterStreamConsumerFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeregisterStreamConsumerRequest, DeregisterStreamConsumerResponse, NotUsed] =
-    Flow[DeregisterStreamConsumerRequest].mapAsync(parallelism)(underlying.deregisterStreamConsumer)
+    Flow[DeregisterStreamConsumerRequest].mapAsync(parallelism) { deregisterStreamConsumerRequest =>
+      underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest)
+    }
 
   def describeLimitsSource(describeLimitsRequest: DescribeLimitsRequest,
                            parallelism: Int = DefaultParallelism): Source[DescribeLimitsResponse, NotUsed] =
@@ -76,7 +86,12 @@ trait KinesisStreamClient {
   def describeLimitsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeLimitsRequest, DescribeLimitsResponse, NotUsed] =
-    Flow[DescribeLimitsRequest].mapAsync(parallelism)(underlying.describeLimits)
+    Flow[DescribeLimitsRequest].mapAsync(parallelism) { describeLimitsRequest =>
+      underlying.describeLimits(describeLimitsRequest)
+    }
+
+  def describeLimitsSource(): Source[DescribeLimitsResponse, NotUsed] =
+    Source.fromFuture(underlying.describeLimits())
 
   def describeStreamSource(describeStreamRequest: DescribeStreamRequest,
                            parallelism: Int = DefaultParallelism): Source[DescribeStreamResponse, NotUsed] =
@@ -85,7 +100,9 @@ trait KinesisStreamClient {
   def describeStreamFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeStreamRequest, DescribeStreamResponse, NotUsed] =
-    Flow[DescribeStreamRequest].mapAsync(parallelism)(underlying.describeStream)
+    Flow[DescribeStreamRequest].mapAsync(parallelism) { describeStreamRequest =>
+      underlying.describeStream(describeStreamRequest)
+    }
 
   def describeStreamConsumerSource(
       describeStreamConsumerRequest: DescribeStreamConsumerRequest,
@@ -96,7 +113,9 @@ trait KinesisStreamClient {
   def describeStreamConsumerFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeStreamConsumerRequest, DescribeStreamConsumerResponse, NotUsed] =
-    Flow[DescribeStreamConsumerRequest].mapAsync(parallelism)(underlying.describeStreamConsumer)
+    Flow[DescribeStreamConsumerRequest].mapAsync(parallelism) { describeStreamConsumerRequest =>
+      underlying.describeStreamConsumer(describeStreamConsumerRequest)
+    }
 
   def describeStreamSummarySource(
       describeStreamSummaryRequest: DescribeStreamSummaryRequest,
@@ -107,7 +126,9 @@ trait KinesisStreamClient {
   def describeStreamSummaryFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeStreamSummaryRequest, DescribeStreamSummaryResponse, NotUsed] =
-    Flow[DescribeStreamSummaryRequest].mapAsync(parallelism)(underlying.describeStreamSummary)
+    Flow[DescribeStreamSummaryRequest].mapAsync(parallelism) { describeStreamSummaryRequest =>
+      underlying.describeStreamSummary(describeStreamSummaryRequest)
+    }
 
   def disableEnhancedMonitoringSource(
       disableEnhancedMonitoringRequest: DisableEnhancedMonitoringRequest,
@@ -118,7 +139,9 @@ trait KinesisStreamClient {
   def disableEnhancedMonitoringFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DisableEnhancedMonitoringRequest, DisableEnhancedMonitoringResponse, NotUsed] =
-    Flow[DisableEnhancedMonitoringRequest].mapAsync(parallelism)(underlying.disableEnhancedMonitoring)
+    Flow[DisableEnhancedMonitoringRequest].mapAsync(parallelism) { disableEnhancedMonitoringRequest =>
+      underlying.disableEnhancedMonitoring(disableEnhancedMonitoringRequest)
+    }
 
   def enableEnhancedMonitoringSource(
       enableEnhancedMonitoringRequest: EnableEnhancedMonitoringRequest,
@@ -129,14 +152,18 @@ trait KinesisStreamClient {
   def enableEnhancedMonitoringFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[EnableEnhancedMonitoringRequest, EnableEnhancedMonitoringResponse, NotUsed] =
-    Flow[EnableEnhancedMonitoringRequest].mapAsync(parallelism)(underlying.enableEnhancedMonitoring)
+    Flow[EnableEnhancedMonitoringRequest].mapAsync(parallelism) { enableEnhancedMonitoringRequest =>
+      underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest)
+    }
 
   def getRecordsSource(getRecordsRequest: GetRecordsRequest,
                        parallelism: Int = DefaultParallelism): Source[GetRecordsResponse, NotUsed] =
     Source.single(getRecordsRequest).via(getRecordsFlow(parallelism))
 
   def getRecordsFlow(parallelism: Int = DefaultParallelism): Flow[GetRecordsRequest, GetRecordsResponse, NotUsed] =
-    Flow[GetRecordsRequest].mapAsync(parallelism)(underlying.getRecords)
+    Flow[GetRecordsRequest].mapAsync(parallelism) { getRecordsRequest =>
+      underlying.getRecords(getRecordsRequest)
+    }
 
   def getShardIteratorSource(getShardIteratorRequest: GetShardIteratorRequest,
                              parallelism: Int = DefaultParallelism): Source[GetShardIteratorResponse, NotUsed] =
@@ -145,7 +172,9 @@ trait KinesisStreamClient {
   def getShardIteratorFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetShardIteratorRequest, GetShardIteratorResponse, NotUsed] =
-    Flow[GetShardIteratorRequest].mapAsync(parallelism)(underlying.getShardIterator)
+    Flow[GetShardIteratorRequest].mapAsync(parallelism) { getShardIteratorRequest =>
+      underlying.getShardIterator(getShardIteratorRequest)
+    }
 
   def increaseStreamRetentionPeriodSource(
       increaseStreamRetentionPeriodRequest: IncreaseStreamRetentionPeriodRequest,
@@ -156,14 +185,18 @@ trait KinesisStreamClient {
   def increaseStreamRetentionPeriodFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[IncreaseStreamRetentionPeriodRequest, IncreaseStreamRetentionPeriodResponse, NotUsed] =
-    Flow[IncreaseStreamRetentionPeriodRequest].mapAsync(parallelism)(underlying.increaseStreamRetentionPeriod)
+    Flow[IncreaseStreamRetentionPeriodRequest].mapAsync(parallelism) { increaseStreamRetentionPeriodRequest =>
+      underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest)
+    }
 
   def listShardsSource(listShardsRequest: ListShardsRequest,
                        parallelism: Int = DefaultParallelism): Source[ListShardsResponse, NotUsed] =
     Source.single(listShardsRequest).via(listShardsFlow(parallelism))
 
   def listShardsFlow(parallelism: Int = DefaultParallelism): Flow[ListShardsRequest, ListShardsResponse, NotUsed] =
-    Flow[ListShardsRequest].mapAsync(parallelism)(underlying.listShards)
+    Flow[ListShardsRequest].mapAsync(parallelism) { listShardsRequest =>
+      underlying.listShards(listShardsRequest)
+    }
 
   def listStreamConsumersSource(listStreamConsumersRequest: ListStreamConsumersRequest,
                                 parallelism: Int = DefaultParallelism): Source[ListStreamConsumersResponse, NotUsed] =
@@ -172,9 +205,11 @@ trait KinesisStreamClient {
   def listStreamConsumersFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListStreamConsumersRequest, ListStreamConsumersResponse, NotUsed] =
-    Flow[ListStreamConsumersRequest].mapAsync(parallelism)(underlying.listStreamConsumers)
+    Flow[ListStreamConsumersRequest].mapAsync(parallelism) { listStreamConsumersRequest =>
+      underlying.listStreamConsumers(listStreamConsumersRequest)
+    }
 
-  def listStreamConsumersFlow: Flow[ListStreamConsumersRequest, ListStreamConsumersResponse, NotUsed] =
+  def listStreamConsumersPaginatorFlow: Flow[ListStreamConsumersRequest, ListStreamConsumersResponse, NotUsed] =
     Flow[ListStreamConsumersRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listStreamConsumersPaginator(request))
     }
@@ -184,7 +219,12 @@ trait KinesisStreamClient {
     Source.single(listStreamsRequest).via(listStreamsFlow(parallelism))
 
   def listStreamsFlow(parallelism: Int = DefaultParallelism): Flow[ListStreamsRequest, ListStreamsResponse, NotUsed] =
-    Flow[ListStreamsRequest].mapAsync(parallelism)(underlying.listStreams)
+    Flow[ListStreamsRequest].mapAsync(parallelism) { listStreamsRequest =>
+      underlying.listStreams(listStreamsRequest)
+    }
+
+  def listStreamsSource(): Source[ListStreamsResponse, NotUsed] =
+    Source.fromFuture(underlying.listStreams())
 
   def listTagsForStreamSource(listTagsForStreamRequest: ListTagsForStreamRequest,
                               parallelism: Int = DefaultParallelism): Source[ListTagsForStreamResponse, NotUsed] =
@@ -193,28 +233,36 @@ trait KinesisStreamClient {
   def listTagsForStreamFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListTagsForStreamRequest, ListTagsForStreamResponse, NotUsed] =
-    Flow[ListTagsForStreamRequest].mapAsync(parallelism)(underlying.listTagsForStream)
+    Flow[ListTagsForStreamRequest].mapAsync(parallelism) { listTagsForStreamRequest =>
+      underlying.listTagsForStream(listTagsForStreamRequest)
+    }
 
   def mergeShardsSource(mergeShardsRequest: MergeShardsRequest,
                         parallelism: Int = DefaultParallelism): Source[MergeShardsResponse, NotUsed] =
     Source.single(mergeShardsRequest).via(mergeShardsFlow(parallelism))
 
   def mergeShardsFlow(parallelism: Int = DefaultParallelism): Flow[MergeShardsRequest, MergeShardsResponse, NotUsed] =
-    Flow[MergeShardsRequest].mapAsync(parallelism)(underlying.mergeShards)
+    Flow[MergeShardsRequest].mapAsync(parallelism) { mergeShardsRequest =>
+      underlying.mergeShards(mergeShardsRequest)
+    }
 
   def putRecordSource(putRecordRequest: PutRecordRequest,
                       parallelism: Int = DefaultParallelism): Source[PutRecordResponse, NotUsed] =
     Source.single(putRecordRequest).via(putRecordFlow(parallelism))
 
   def putRecordFlow(parallelism: Int = DefaultParallelism): Flow[PutRecordRequest, PutRecordResponse, NotUsed] =
-    Flow[PutRecordRequest].mapAsync(parallelism)(underlying.putRecord)
+    Flow[PutRecordRequest].mapAsync(parallelism) { putRecordRequest =>
+      underlying.putRecord(putRecordRequest)
+    }
 
   def putRecordsSource(putRecordsRequest: PutRecordsRequest,
                        parallelism: Int = DefaultParallelism): Source[PutRecordsResponse, NotUsed] =
     Source.single(putRecordsRequest).via(putRecordsFlow(parallelism))
 
   def putRecordsFlow(parallelism: Int = DefaultParallelism): Flow[PutRecordsRequest, PutRecordsResponse, NotUsed] =
-    Flow[PutRecordsRequest].mapAsync(parallelism)(underlying.putRecords)
+    Flow[PutRecordsRequest].mapAsync(parallelism) { putRecordsRequest =>
+      underlying.putRecords(putRecordsRequest)
+    }
 
   def registerStreamConsumerSource(
       registerStreamConsumerRequest: RegisterStreamConsumerRequest,
@@ -225,7 +273,9 @@ trait KinesisStreamClient {
   def registerStreamConsumerFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[RegisterStreamConsumerRequest, RegisterStreamConsumerResponse, NotUsed] =
-    Flow[RegisterStreamConsumerRequest].mapAsync(parallelism)(underlying.registerStreamConsumer)
+    Flow[RegisterStreamConsumerRequest].mapAsync(parallelism) { registerStreamConsumerRequest =>
+      underlying.registerStreamConsumer(registerStreamConsumerRequest)
+    }
 
   def removeTagsFromStreamSource(removeTagsFromStreamRequest: RemoveTagsFromStreamRequest,
                                  parallelism: Int = DefaultParallelism): Source[RemoveTagsFromStreamResponse, NotUsed] =
@@ -234,14 +284,18 @@ trait KinesisStreamClient {
   def removeTagsFromStreamFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[RemoveTagsFromStreamRequest, RemoveTagsFromStreamResponse, NotUsed] =
-    Flow[RemoveTagsFromStreamRequest].mapAsync(parallelism)(underlying.removeTagsFromStream)
+    Flow[RemoveTagsFromStreamRequest].mapAsync(parallelism) { removeTagsFromStreamRequest =>
+      underlying.removeTagsFromStream(removeTagsFromStreamRequest)
+    }
 
   def splitShardSource(splitShardRequest: SplitShardRequest,
                        parallelism: Int = DefaultParallelism): Source[SplitShardResponse, NotUsed] =
     Source.single(splitShardRequest).via(splitShardFlow(parallelism))
 
   def splitShardFlow(parallelism: Int = DefaultParallelism): Flow[SplitShardRequest, SplitShardResponse, NotUsed] =
-    Flow[SplitShardRequest].mapAsync(parallelism)(underlying.splitShard)
+    Flow[SplitShardRequest].mapAsync(parallelism) { splitShardRequest =>
+      underlying.splitShard(splitShardRequest)
+    }
 
   def startStreamEncryptionSource(
       startStreamEncryptionRequest: StartStreamEncryptionRequest,
@@ -252,7 +306,9 @@ trait KinesisStreamClient {
   def startStreamEncryptionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[StartStreamEncryptionRequest, StartStreamEncryptionResponse, NotUsed] =
-    Flow[StartStreamEncryptionRequest].mapAsync(parallelism)(underlying.startStreamEncryption)
+    Flow[StartStreamEncryptionRequest].mapAsync(parallelism) { startStreamEncryptionRequest =>
+      underlying.startStreamEncryption(startStreamEncryptionRequest)
+    }
 
   def stopStreamEncryptionSource(stopStreamEncryptionRequest: StopStreamEncryptionRequest,
                                  parallelism: Int = DefaultParallelism): Source[StopStreamEncryptionResponse, NotUsed] =
@@ -261,7 +317,22 @@ trait KinesisStreamClient {
   def stopStreamEncryptionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[StopStreamEncryptionRequest, StopStreamEncryptionResponse, NotUsed] =
-    Flow[StopStreamEncryptionRequest].mapAsync(parallelism)(underlying.stopStreamEncryption)
+    Flow[StopStreamEncryptionRequest].mapAsync(parallelism) { stopStreamEncryptionRequest =>
+      underlying.stopStreamEncryption(stopStreamEncryptionRequest)
+    }
+
+  def subscribeToShardSource(subscribeToShardRequest: SubscribeToShardRequest,
+                             asyncResponseHandler: SubscribeToShardResponseHandler,
+                             parallelism: Int = DefaultParallelism): Source[Unit, NotUsed] =
+    Source.single((subscribeToShardRequest, asyncResponseHandler)).via(subscribeToShardFlow(parallelism))
+
+  def subscribeToShardFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[(SubscribeToShardRequest, SubscribeToShardResponseHandler), Unit, NotUsed] =
+    Flow[(SubscribeToShardRequest, SubscribeToShardResponseHandler)].mapAsync(parallelism) {
+      case (subscribeToShardRequest, asyncResponseHandler) =>
+        underlying.subscribeToShard(subscribeToShardRequest, asyncResponseHandler)
+    }
 
   def updateShardCountSource(updateShardCountRequest: UpdateShardCountRequest,
                              parallelism: Int = DefaultParallelism): Source[UpdateShardCountResponse, NotUsed] =
@@ -270,6 +341,8 @@ trait KinesisStreamClient {
   def updateShardCountFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UpdateShardCountRequest, UpdateShardCountResponse, NotUsed] =
-    Flow[UpdateShardCountRequest].mapAsync(parallelism)(underlying.updateShardCount)
+    Flow[UpdateShardCountRequest].mapAsync(parallelism) { updateShardCountRequest =>
+      underlying.updateShardCount(updateShardCountRequest)
+    }
 
 }

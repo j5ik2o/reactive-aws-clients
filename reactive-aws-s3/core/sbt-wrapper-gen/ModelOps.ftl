@@ -1,11 +1,5 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.model.ops
-<#function targetField fieldDesc>
-  <#if fieldDesc.static >
-    <#return false>
-  </#if>
-  <#return true>
-</#function>
 <#include "common.ftl">
 
 import software.amazon.awssdk.services.s3.model._
@@ -40,3 +34,10 @@ trait To${simpleTypeName}Ops {
   implicit def to${simpleTypeName}Ops(v: ${simpleTypeName}): ${simpleTypeName}Ops = new ${simpleTypeName}Ops(v)
 
 }
+
+<#function targetField fieldDesc>
+    <#if fieldDesc.static >
+        <#return false>
+    </#if>
+    <#return true>
+</#function>

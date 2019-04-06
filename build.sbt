@@ -121,6 +121,37 @@ lazy val `reactive-aws-s3-root`: Project = (project in file("reactive-aws-s3"))
     `reactive-aws-s3-monix`
   )
 
+// --- sqs
+
+lazy val `reactive-aws-sqs-test` = (project in file("reactive-aws-sqs/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-sqs-core` =
+  (project in file("reactive-aws-sqs/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-sqs-test` % "test")
+
+lazy val `reactive-aws-sqs-cats` = (project in file("reactive-aws-sqs/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
+
+lazy val `reactive-aws-sqs-monix` = (project in file("reactive-aws-sqs/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-sqs-core`, `reactive-aws-s3-test` % "test")
+
+lazy val `reactive-aws-sqs-akka` = (project in file("reactive-aws-sqs/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-sqs-core`, `reactive-aws-s3-test` % "test")
+
+lazy val `reactive-aws-sqs-root`: Project = (project in file("reactive-aws-sqs"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-sqs-project"
+  )
+  .aggregate(
+    `reactive-aws-sqs-core`,
+    `reactive-aws-sqs-test`,
+    `reactive-aws-sqs-akka`,
+    `reactive-aws-sqs-cats`,
+    `reactive-aws-sqs-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -129,4 +160,5 @@ lazy val `root`: Project = (project in file("."))
   .aggregate(`reactive-aws-common-root`,
              `reactive-aws-dynamodb-root`,
              `reactive-aws-kinesis-root`,
-             `reactive-aws-s3-root`)
+             `reactive-aws-s3-root`,
+             `reactive-aws-sqs-root`)

@@ -289,6 +289,10 @@ trait S3MonixClient extends S3Client[Task] {
     underlying.listBuckets(listBucketsRequest)
   }
 
+  override def listBuckets(): Task[ListBucketsResponse] = Task.deferFuture {
+    underlying.listBuckets()
+  }
+
   override def listMultipartUploads(
       listMultipartUploadsRequest: ListMultipartUploadsRequest
   ): Task[ListMultipartUploadsResponse] = Task.deferFuture {

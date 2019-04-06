@@ -30,6 +30,7 @@ val underlying: KinesisAsyncClient
               underlying.${method.name}(${requestParameterName})
             }
         </#if>
+
     </#if></#list>
 
 }

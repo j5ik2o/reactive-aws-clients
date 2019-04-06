@@ -1,11 +1,12 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3
 
+import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.s3.model._
 import software.amazon.awssdk.services.s3.paginators._
 import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
 
-object S3SyncClient {
+object S3SyncClient extends ToEitherSupport {
 
   def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
 
@@ -14,301 +15,294 @@ object S3SyncClient {
 trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
   val underlying: JavaS3SyncClient
 
-  protected def toEither[A](f: => A): Either[Throwable, A] = {
-    try {
-      Right(f)
-    } catch {
-      case t: Throwable =>
-        Left(t)
-    }
-  }
+  import S3SyncClient._
 
   override def abortMultipartUpload(
       abortMultipartUploadRequest: AbortMultipartUploadRequest
   ): Either[Throwable, AbortMultipartUploadResponse] = {
-    toEither(underlying.abortMultipartUpload(abortMultipartUploadRequest))
+    underlying.abortMultipartUpload(abortMultipartUploadRequest).toEither
   }
 
   override def completeMultipartUpload(
       completeMultipartUploadRequest: CompleteMultipartUploadRequest
   ): Either[Throwable, CompleteMultipartUploadResponse] = {
-    toEither(underlying.completeMultipartUpload(completeMultipartUploadRequest))
+    underlying.completeMultipartUpload(completeMultipartUploadRequest).toEither
   }
 
   override def copyObject(copyObjectRequest: CopyObjectRequest): Either[Throwable, CopyObjectResponse] = {
-    toEither(underlying.copyObject(copyObjectRequest))
+    underlying.copyObject(copyObjectRequest).toEither
   }
 
   override def createBucket(createBucketRequest: CreateBucketRequest): Either[Throwable, CreateBucketResponse] = {
-    toEither(underlying.createBucket(createBucketRequest))
+    underlying.createBucket(createBucketRequest).toEither
   }
 
   override def createMultipartUpload(
       createMultipartUploadRequest: CreateMultipartUploadRequest
   ): Either[Throwable, CreateMultipartUploadResponse] = {
-    toEither(underlying.createMultipartUpload(createMultipartUploadRequest))
+    underlying.createMultipartUpload(createMultipartUploadRequest).toEither
   }
 
   override def deleteBucket(deleteBucketRequest: DeleteBucketRequest): Either[Throwable, DeleteBucketResponse] = {
-    toEither(underlying.deleteBucket(deleteBucketRequest))
+    underlying.deleteBucket(deleteBucketRequest).toEither
   }
 
   override def deleteBucketAnalyticsConfiguration(
       deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest
   ): Either[Throwable, DeleteBucketAnalyticsConfigurationResponse] = {
-    toEither(underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest))
+    underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest).toEither
   }
 
   override def deleteBucketCors(
       deleteBucketCorsRequest: DeleteBucketCorsRequest
   ): Either[Throwable, DeleteBucketCorsResponse] = {
-    toEither(underlying.deleteBucketCors(deleteBucketCorsRequest))
+    underlying.deleteBucketCors(deleteBucketCorsRequest).toEither
   }
 
   override def deleteBucketEncryption(
       deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest
   ): Either[Throwable, DeleteBucketEncryptionResponse] = {
-    toEither(underlying.deleteBucketEncryption(deleteBucketEncryptionRequest))
+    underlying.deleteBucketEncryption(deleteBucketEncryptionRequest).toEither
   }
 
   override def deleteBucketInventoryConfiguration(
       deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest
   ): Either[Throwable, DeleteBucketInventoryConfigurationResponse] = {
-    toEither(underlying.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest))
+    underlying.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest).toEither
   }
 
   override def deleteBucketLifecycle(
       deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest
   ): Either[Throwable, DeleteBucketLifecycleResponse] = {
-    toEither(underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest))
+    underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest).toEither
   }
 
   override def deleteBucketMetricsConfiguration(
       deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest
   ): Either[Throwable, DeleteBucketMetricsConfigurationResponse] = {
-    toEither(underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest))
+    underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest).toEither
   }
 
   override def deleteBucketPolicy(
       deleteBucketPolicyRequest: DeleteBucketPolicyRequest
   ): Either[Throwable, DeleteBucketPolicyResponse] = {
-    toEither(underlying.deleteBucketPolicy(deleteBucketPolicyRequest))
+    underlying.deleteBucketPolicy(deleteBucketPolicyRequest).toEither
   }
 
   override def deleteBucketReplication(
       deleteBucketReplicationRequest: DeleteBucketReplicationRequest
   ): Either[Throwable, DeleteBucketReplicationResponse] = {
-    toEither(underlying.deleteBucketReplication(deleteBucketReplicationRequest))
+    underlying.deleteBucketReplication(deleteBucketReplicationRequest).toEither
   }
 
   override def deleteBucketTagging(
       deleteBucketTaggingRequest: DeleteBucketTaggingRequest
   ): Either[Throwable, DeleteBucketTaggingResponse] = {
-    toEither(underlying.deleteBucketTagging(deleteBucketTaggingRequest))
+    underlying.deleteBucketTagging(deleteBucketTaggingRequest).toEither
   }
 
   override def deleteBucketWebsite(
       deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest
   ): Either[Throwable, DeleteBucketWebsiteResponse] = {
-    toEither(underlying.deleteBucketWebsite(deleteBucketWebsiteRequest))
+    underlying.deleteBucketWebsite(deleteBucketWebsiteRequest).toEither
   }
 
   override def deleteObject(deleteObjectRequest: DeleteObjectRequest): Either[Throwable, DeleteObjectResponse] = {
-    toEither(underlying.deleteObject(deleteObjectRequest))
+    underlying.deleteObject(deleteObjectRequest).toEither
   }
 
   override def deleteObjectTagging(
       deleteObjectTaggingRequest: DeleteObjectTaggingRequest
   ): Either[Throwable, DeleteObjectTaggingResponse] = {
-    toEither(underlying.deleteObjectTagging(deleteObjectTaggingRequest))
+    underlying.deleteObjectTagging(deleteObjectTaggingRequest).toEither
   }
 
   override def deleteObjects(deleteObjectsRequest: DeleteObjectsRequest): Either[Throwable, DeleteObjectsResponse] = {
-    toEither(underlying.deleteObjects(deleteObjectsRequest))
+    underlying.deleteObjects(deleteObjectsRequest).toEither
   }
 
   override def deletePublicAccessBlock(
       deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest
   ): Either[Throwable, DeletePublicAccessBlockResponse] = {
-    toEither(underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest))
+    underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest).toEither
   }
 
   override def getBucketAccelerateConfiguration(
       getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest
   ): Either[Throwable, GetBucketAccelerateConfigurationResponse] = {
-    toEither(underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest))
+    underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest).toEither
   }
 
   override def getBucketAcl(getBucketAclRequest: GetBucketAclRequest): Either[Throwable, GetBucketAclResponse] = {
-    toEither(underlying.getBucketAcl(getBucketAclRequest))
+    underlying.getBucketAcl(getBucketAclRequest).toEither
   }
 
   override def getBucketAnalyticsConfiguration(
       getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest
   ): Either[Throwable, GetBucketAnalyticsConfigurationResponse] = {
-    toEither(underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest))
+    underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest).toEither
   }
 
   override def getBucketCors(getBucketCorsRequest: GetBucketCorsRequest): Either[Throwable, GetBucketCorsResponse] = {
-    toEither(underlying.getBucketCors(getBucketCorsRequest))
+    underlying.getBucketCors(getBucketCorsRequest).toEither
   }
 
   override def getBucketEncryption(
       getBucketEncryptionRequest: GetBucketEncryptionRequest
   ): Either[Throwable, GetBucketEncryptionResponse] = {
-    toEither(underlying.getBucketEncryption(getBucketEncryptionRequest))
+    underlying.getBucketEncryption(getBucketEncryptionRequest).toEither
   }
 
   override def getBucketInventoryConfiguration(
       getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest
   ): Either[Throwable, GetBucketInventoryConfigurationResponse] = {
-    toEither(underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest))
+    underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest).toEither
   }
 
   override def getBucketLifecycleConfiguration(
       getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest
   ): Either[Throwable, GetBucketLifecycleConfigurationResponse] = {
-    toEither(underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest))
+    underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest).toEither
   }
 
   override def getBucketLocation(
       getBucketLocationRequest: GetBucketLocationRequest
   ): Either[Throwable, GetBucketLocationResponse] = {
-    toEither(underlying.getBucketLocation(getBucketLocationRequest))
+    underlying.getBucketLocation(getBucketLocationRequest).toEither
   }
 
   override def getBucketLogging(
       getBucketLoggingRequest: GetBucketLoggingRequest
   ): Either[Throwable, GetBucketLoggingResponse] = {
-    toEither(underlying.getBucketLogging(getBucketLoggingRequest))
+    underlying.getBucketLogging(getBucketLoggingRequest).toEither
   }
 
   override def getBucketMetricsConfiguration(
       getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest
   ): Either[Throwable, GetBucketMetricsConfigurationResponse] = {
-    toEither(underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest))
+    underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest).toEither
   }
 
   override def getBucketNotificationConfiguration(
       getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest
   ): Either[Throwable, GetBucketNotificationConfigurationResponse] = {
-    toEither(underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest))
+    underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest).toEither
   }
 
   override def getBucketPolicy(
       getBucketPolicyRequest: GetBucketPolicyRequest
   ): Either[Throwable, GetBucketPolicyResponse] = {
-    toEither(underlying.getBucketPolicy(getBucketPolicyRequest))
+    underlying.getBucketPolicy(getBucketPolicyRequest).toEither
   }
 
   override def getBucketPolicyStatus(
       getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest
   ): Either[Throwable, GetBucketPolicyStatusResponse] = {
-    toEither(underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest))
+    underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest).toEither
   }
 
   override def getBucketReplication(
       getBucketReplicationRequest: GetBucketReplicationRequest
   ): Either[Throwable, GetBucketReplicationResponse] = {
-    toEither(underlying.getBucketReplication(getBucketReplicationRequest))
+    underlying.getBucketReplication(getBucketReplicationRequest).toEither
   }
 
   override def getBucketRequestPayment(
       getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest
   ): Either[Throwable, GetBucketRequestPaymentResponse] = {
-    toEither(underlying.getBucketRequestPayment(getBucketRequestPaymentRequest))
+    underlying.getBucketRequestPayment(getBucketRequestPaymentRequest).toEither
   }
 
   override def getBucketTagging(
       getBucketTaggingRequest: GetBucketTaggingRequest
   ): Either[Throwable, GetBucketTaggingResponse] = {
-    toEither(underlying.getBucketTagging(getBucketTaggingRequest))
+    underlying.getBucketTagging(getBucketTaggingRequest).toEither
   }
 
   override def getBucketVersioning(
       getBucketVersioningRequest: GetBucketVersioningRequest
   ): Either[Throwable, GetBucketVersioningResponse] = {
-    toEither(underlying.getBucketVersioning(getBucketVersioningRequest))
+    underlying.getBucketVersioning(getBucketVersioningRequest).toEither
   }
 
   override def getBucketWebsite(
       getBucketWebsiteRequest: GetBucketWebsiteRequest
   ): Either[Throwable, GetBucketWebsiteResponse] = {
-    toEither(underlying.getBucketWebsite(getBucketWebsiteRequest))
+    underlying.getBucketWebsite(getBucketWebsiteRequest).toEither
   }
 
   override def getObjectAcl(getObjectAclRequest: GetObjectAclRequest): Either[Throwable, GetObjectAclResponse] = {
-    toEither(underlying.getObjectAcl(getObjectAclRequest))
+    underlying.getObjectAcl(getObjectAclRequest).toEither
   }
 
   override def getObjectLegalHold(
       getObjectLegalHoldRequest: GetObjectLegalHoldRequest
   ): Either[Throwable, GetObjectLegalHoldResponse] = {
-    toEither(underlying.getObjectLegalHold(getObjectLegalHoldRequest))
+    underlying.getObjectLegalHold(getObjectLegalHoldRequest).toEither
   }
 
   override def getObjectLockConfiguration(
       getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
   ): Either[Throwable, GetObjectLockConfigurationResponse] = {
-    toEither(underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest))
+    underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest).toEither
   }
 
   override def getObjectRetention(
       getObjectRetentionRequest: GetObjectRetentionRequest
   ): Either[Throwable, GetObjectRetentionResponse] = {
-    toEither(underlying.getObjectRetention(getObjectRetentionRequest))
+    underlying.getObjectRetention(getObjectRetentionRequest).toEither
   }
 
   override def getObjectTagging(
       getObjectTaggingRequest: GetObjectTaggingRequest
   ): Either[Throwable, GetObjectTaggingResponse] = {
-    toEither(underlying.getObjectTagging(getObjectTaggingRequest))
+    underlying.getObjectTagging(getObjectTaggingRequest).toEither
   }
 
   override def getPublicAccessBlock(
       getPublicAccessBlockRequest: GetPublicAccessBlockRequest
   ): Either[Throwable, GetPublicAccessBlockResponse] = {
-    toEither(underlying.getPublicAccessBlock(getPublicAccessBlockRequest))
+    underlying.getPublicAccessBlock(getPublicAccessBlockRequest).toEither
   }
 
   override def headBucket(headBucketRequest: HeadBucketRequest): Either[Throwable, HeadBucketResponse] = {
-    toEither(underlying.headBucket(headBucketRequest))
+    underlying.headBucket(headBucketRequest).toEither
   }
 
   override def headObject(headObjectRequest: HeadObjectRequest): Either[Throwable, HeadObjectResponse] = {
-    toEither(underlying.headObject(headObjectRequest))
+    underlying.headObject(headObjectRequest).toEither
   }
 
   override def listBucketAnalyticsConfigurations(
       listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest
   ): Either[Throwable, ListBucketAnalyticsConfigurationsResponse] = {
-    toEither(underlying.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest))
+    underlying.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest).toEither
   }
 
   override def listBucketInventoryConfigurations(
       listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest
   ): Either[Throwable, ListBucketInventoryConfigurationsResponse] = {
-    toEither(underlying.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest))
+    underlying.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest).toEither
   }
 
   override def listBucketMetricsConfigurations(
       listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest
   ): Either[Throwable, ListBucketMetricsConfigurationsResponse] = {
-    toEither(underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest))
+    underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest).toEither
   }
 
   override def listBuckets(): Either[Throwable, ListBucketsResponse] = {
-    toEither(underlying.listBuckets())
+    underlying.listBuckets().toEither
   }
 
   override def listBuckets(listBucketsRequest: ListBucketsRequest): Either[Throwable, ListBucketsResponse] = {
-    toEither(underlying.listBuckets(listBucketsRequest))
+    underlying.listBuckets(listBucketsRequest).toEither
   }
 
   override def listMultipartUploads(
       listMultipartUploadsRequest: ListMultipartUploadsRequest
   ): Either[Throwable, ListMultipartUploadsResponse] = {
-    toEither(underlying.listMultipartUploads(listMultipartUploadsRequest))
+    underlying.listMultipartUploads(listMultipartUploadsRequest).toEither
   }
 
   def listMultipartUploadsPaginator(
@@ -320,7 +314,7 @@ trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSuppo
   override def listObjectVersions(
       listObjectVersionsRequest: ListObjectVersionsRequest
   ): Either[Throwable, ListObjectVersionsResponse] = {
-    toEither(underlying.listObjectVersions(listObjectVersionsRequest))
+    underlying.listObjectVersions(listObjectVersionsRequest).toEither
   }
 
   def listObjectVersionsPaginator(listObjectVersionsRequest: ListObjectVersionsRequest): ListObjectVersionsIterable = {
@@ -328,11 +322,11 @@ trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSuppo
   }
 
   override def listObjects(listObjectsRequest: ListObjectsRequest): Either[Throwable, ListObjectsResponse] = {
-    toEither(underlying.listObjects(listObjectsRequest))
+    underlying.listObjects(listObjectsRequest).toEither
   }
 
   override def listObjectsV2(listObjectsV2Request: ListObjectsV2Request): Either[Throwable, ListObjectsV2Response] = {
-    toEither(underlying.listObjectsV2(listObjectsV2Request))
+    underlying.listObjectsV2(listObjectsV2Request).toEither
   }
 
   def listObjectsV2Paginator(listObjectsV2Request: ListObjectsV2Request): ListObjectsV2Iterable = {
@@ -340,7 +334,7 @@ trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSuppo
   }
 
   override def listParts(listPartsRequest: ListPartsRequest): Either[Throwable, ListPartsResponse] = {
-    toEither(underlying.listParts(listPartsRequest))
+    underlying.listParts(listPartsRequest).toEither
   }
 
   def listPartsPaginator(listPartsRequest: ListPartsRequest): ListPartsIterable = {
@@ -350,137 +344,137 @@ trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSuppo
   override def putBucketAccelerateConfiguration(
       putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest
   ): Either[Throwable, PutBucketAccelerateConfigurationResponse] = {
-    toEither(underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest))
+    underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest).toEither
   }
 
   override def putBucketAcl(putBucketAclRequest: PutBucketAclRequest): Either[Throwable, PutBucketAclResponse] = {
-    toEither(underlying.putBucketAcl(putBucketAclRequest))
+    underlying.putBucketAcl(putBucketAclRequest).toEither
   }
 
   override def putBucketAnalyticsConfiguration(
       putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest
   ): Either[Throwable, PutBucketAnalyticsConfigurationResponse] = {
-    toEither(underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest))
+    underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest).toEither
   }
 
   override def putBucketCors(putBucketCorsRequest: PutBucketCorsRequest): Either[Throwable, PutBucketCorsResponse] = {
-    toEither(underlying.putBucketCors(putBucketCorsRequest))
+    underlying.putBucketCors(putBucketCorsRequest).toEither
   }
 
   override def putBucketEncryption(
       putBucketEncryptionRequest: PutBucketEncryptionRequest
   ): Either[Throwable, PutBucketEncryptionResponse] = {
-    toEither(underlying.putBucketEncryption(putBucketEncryptionRequest))
+    underlying.putBucketEncryption(putBucketEncryptionRequest).toEither
   }
 
   override def putBucketInventoryConfiguration(
       putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest
   ): Either[Throwable, PutBucketInventoryConfigurationResponse] = {
-    toEither(underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest))
+    underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest).toEither
   }
 
   override def putBucketLifecycleConfiguration(
       putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest
   ): Either[Throwable, PutBucketLifecycleConfigurationResponse] = {
-    toEither(underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest))
+    underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest).toEither
   }
 
   override def putBucketLogging(
       putBucketLoggingRequest: PutBucketLoggingRequest
   ): Either[Throwable, PutBucketLoggingResponse] = {
-    toEither(underlying.putBucketLogging(putBucketLoggingRequest))
+    underlying.putBucketLogging(putBucketLoggingRequest).toEither
   }
 
   override def putBucketMetricsConfiguration(
       putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest
   ): Either[Throwable, PutBucketMetricsConfigurationResponse] = {
-    toEither(underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest))
+    underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest).toEither
   }
 
   override def putBucketNotificationConfiguration(
       putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest
   ): Either[Throwable, PutBucketNotificationConfigurationResponse] = {
-    toEither(underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest))
+    underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest).toEither
   }
 
   override def putBucketPolicy(
       putBucketPolicyRequest: PutBucketPolicyRequest
   ): Either[Throwable, PutBucketPolicyResponse] = {
-    toEither(underlying.putBucketPolicy(putBucketPolicyRequest))
+    underlying.putBucketPolicy(putBucketPolicyRequest).toEither
   }
 
   override def putBucketReplication(
       putBucketReplicationRequest: PutBucketReplicationRequest
   ): Either[Throwable, PutBucketReplicationResponse] = {
-    toEither(underlying.putBucketReplication(putBucketReplicationRequest))
+    underlying.putBucketReplication(putBucketReplicationRequest).toEither
   }
 
   override def putBucketRequestPayment(
       putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest
   ): Either[Throwable, PutBucketRequestPaymentResponse] = {
-    toEither(underlying.putBucketRequestPayment(putBucketRequestPaymentRequest))
+    underlying.putBucketRequestPayment(putBucketRequestPaymentRequest).toEither
   }
 
   override def putBucketTagging(
       putBucketTaggingRequest: PutBucketTaggingRequest
   ): Either[Throwable, PutBucketTaggingResponse] = {
-    toEither(underlying.putBucketTagging(putBucketTaggingRequest))
+    underlying.putBucketTagging(putBucketTaggingRequest).toEither
   }
 
   override def putBucketVersioning(
       putBucketVersioningRequest: PutBucketVersioningRequest
   ): Either[Throwable, PutBucketVersioningResponse] = {
-    toEither(underlying.putBucketVersioning(putBucketVersioningRequest))
+    underlying.putBucketVersioning(putBucketVersioningRequest).toEither
   }
 
   override def putBucketWebsite(
       putBucketWebsiteRequest: PutBucketWebsiteRequest
   ): Either[Throwable, PutBucketWebsiteResponse] = {
-    toEither(underlying.putBucketWebsite(putBucketWebsiteRequest))
+    underlying.putBucketWebsite(putBucketWebsiteRequest).toEither
   }
 
   override def putObjectAcl(putObjectAclRequest: PutObjectAclRequest): Either[Throwable, PutObjectAclResponse] = {
-    toEither(underlying.putObjectAcl(putObjectAclRequest))
+    underlying.putObjectAcl(putObjectAclRequest).toEither
   }
 
   override def putObjectLegalHold(
       putObjectLegalHoldRequest: PutObjectLegalHoldRequest
   ): Either[Throwable, PutObjectLegalHoldResponse] = {
-    toEither(underlying.putObjectLegalHold(putObjectLegalHoldRequest))
+    underlying.putObjectLegalHold(putObjectLegalHoldRequest).toEither
   }
 
   override def putObjectLockConfiguration(
       putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest
   ): Either[Throwable, PutObjectLockConfigurationResponse] = {
-    toEither(underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest))
+    underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest).toEither
   }
 
   override def putObjectRetention(
       putObjectRetentionRequest: PutObjectRetentionRequest
   ): Either[Throwable, PutObjectRetentionResponse] = {
-    toEither(underlying.putObjectRetention(putObjectRetentionRequest))
+    underlying.putObjectRetention(putObjectRetentionRequest).toEither
   }
 
   override def putObjectTagging(
       putObjectTaggingRequest: PutObjectTaggingRequest
   ): Either[Throwable, PutObjectTaggingResponse] = {
-    toEither(underlying.putObjectTagging(putObjectTaggingRequest))
+    underlying.putObjectTagging(putObjectTaggingRequest).toEither
   }
 
   override def putPublicAccessBlock(
       putPublicAccessBlockRequest: PutPublicAccessBlockRequest
   ): Either[Throwable, PutPublicAccessBlockResponse] = {
-    toEither(underlying.putPublicAccessBlock(putPublicAccessBlockRequest))
+    underlying.putPublicAccessBlock(putPublicAccessBlockRequest).toEither
   }
 
   override def restoreObject(restoreObjectRequest: RestoreObjectRequest): Either[Throwable, RestoreObjectResponse] = {
-    toEither(underlying.restoreObject(restoreObjectRequest))
+    underlying.restoreObject(restoreObjectRequest).toEither
   }
 
   override def uploadPartCopy(
       uploadPartCopyRequest: UploadPartCopyRequest
   ): Either[Throwable, UploadPartCopyResponse] = {
-    toEither(underlying.uploadPartCopy(uploadPartCopyRequest))
+    underlying.uploadPartCopy(uploadPartCopyRequest).toEither
   }
 
 }

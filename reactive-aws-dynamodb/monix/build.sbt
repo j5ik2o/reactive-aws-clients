@@ -18,7 +18,8 @@ packageNameMapper in scalaWrapperGen := {
 }
 
 typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == "DynamoDbAsyncClient" => true
+  case cd if cd.simpleTypeName == "DynamoDbAsyncClient"        => true
+  case cd if cd.simpleTypeName == "DynamoDbStreamsAsyncClient" => true
   case _ =>
     false
 }
@@ -26,10 +27,14 @@ typeDescFilter in scalaWrapperGen := {
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient" =>
     Seq("DynamoDBMonixClient")
+  case cd if cd.simpleTypeName == "DynamoDbStreamsAsyncClient" =>
+    Seq("DynamoDBStreamsMonixClient")
 }
 
 templateNameMapper in scalaWrapperGen := {
   case ("DynamoDBMonixClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbAsyncClient" =>
     "DynamoDBMonixClient.ftl"
+  case ("DynamoDBStreamsMonixClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbStreamsAsyncClient" =>
+    "DynamoDBStreamsMonixClient.ftl"
   case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
 }

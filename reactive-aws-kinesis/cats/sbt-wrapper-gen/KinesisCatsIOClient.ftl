@@ -25,14 +25,10 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
             def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): ${method.returnTypeDesc.simpleTypeName} =
             underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
         <#else>
-            <#assign requestParameterName=method.parameterTypeDescs[0].name>
-            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
             <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def ${method.name}(
-            ${requestParameterName}: ${requestTypeName}
-            ): IO[${responseTypeName}] =
+            override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): IO[${responseTypeName}] =
             IO.fromFuture{
-            IO(underlying.${method.name}(${requestParameterName}))
+              IO(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
             }
         </#if>
 

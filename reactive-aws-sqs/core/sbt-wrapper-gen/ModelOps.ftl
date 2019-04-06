@@ -1,5 +1,5 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3.model.ops
+package com.github.j5ik2o.reactive.aws.sqs.model.ops
 <#function targetField fieldDesc>
   <#if fieldDesc.static >
     <#return false>
@@ -8,7 +8,7 @@ package com.github.j5ik2o.reactive.aws.s3.model.ops
 </#function>
 <#include "common.ftl">
 
-import software.amazon.awssdk.services.s3.model._
+import software.amazon.awssdk.services.sqs.model._
 
 final class ${simpleTypeName}BuilderOps(val self: ${simpleTypeName}.Builder) extends AnyVal {
 

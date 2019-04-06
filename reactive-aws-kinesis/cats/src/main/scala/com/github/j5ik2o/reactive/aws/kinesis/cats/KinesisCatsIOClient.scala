@@ -19,16 +19,12 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
 
   val underlying: KinesisAsyncClient
 
-  override def addTagsToStream(
-      addTagsToStreamRequest: AddTagsToStreamRequest
-  ): IO[AddTagsToStreamResponse] =
+  override def addTagsToStream(addTagsToStreamRequest: AddTagsToStreamRequest): IO[AddTagsToStreamResponse] =
     IO.fromFuture {
       IO(underlying.addTagsToStream(addTagsToStreamRequest))
     }
 
-  override def createStream(
-      createStreamRequest: CreateStreamRequest
-  ): IO[CreateStreamResponse] =
+  override def createStream(createStreamRequest: CreateStreamRequest): IO[CreateStreamResponse] =
     IO.fromFuture {
       IO(underlying.createStream(createStreamRequest))
     }
@@ -40,9 +36,7 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
       IO(underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest))
     }
 
-  override def deleteStream(
-      deleteStreamRequest: DeleteStreamRequest
-  ): IO[DeleteStreamResponse] =
+  override def deleteStream(deleteStreamRequest: DeleteStreamRequest): IO[DeleteStreamResponse] =
     IO.fromFuture {
       IO(underlying.deleteStream(deleteStreamRequest))
     }
@@ -54,16 +48,12 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
       IO(underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest))
     }
 
-  override def describeLimits(
-      describeLimitsRequest: DescribeLimitsRequest
-  ): IO[DescribeLimitsResponse] =
+  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): IO[DescribeLimitsResponse] =
     IO.fromFuture {
       IO(underlying.describeLimits(describeLimitsRequest))
     }
 
-  override def describeStream(
-      describeStreamRequest: DescribeStreamRequest
-  ): IO[DescribeStreamResponse] =
+  override def describeStream(describeStreamRequest: DescribeStreamRequest): IO[DescribeStreamResponse] =
     IO.fromFuture {
       IO(underlying.describeStream(describeStreamRequest))
     }
@@ -96,16 +86,12 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
       IO(underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest))
     }
 
-  override def getRecords(
-      getRecordsRequest: GetRecordsRequest
-  ): IO[GetRecordsResponse] =
+  override def getRecords(getRecordsRequest: GetRecordsRequest): IO[GetRecordsResponse] =
     IO.fromFuture {
       IO(underlying.getRecords(getRecordsRequest))
     }
 
-  override def getShardIterator(
-      getShardIteratorRequest: GetShardIteratorRequest
-  ): IO[GetShardIteratorResponse] =
+  override def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): IO[GetShardIteratorResponse] =
     IO.fromFuture {
       IO(underlying.getShardIterator(getShardIteratorRequest))
     }
@@ -117,9 +103,7 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
       IO(underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest))
     }
 
-  override def listShards(
-      listShardsRequest: ListShardsRequest
-  ): IO[ListShardsResponse] =
+  override def listShards(listShardsRequest: ListShardsRequest): IO[ListShardsResponse] =
     IO.fromFuture {
       IO(underlying.listShards(listShardsRequest))
     }
@@ -136,37 +120,27 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
   ): ListStreamConsumersPublisher =
     underlying.listStreamConsumersPaginator(listStreamConsumersRequest)
 
-  override def listStreams(
-      listStreamsRequest: ListStreamsRequest
-  ): IO[ListStreamsResponse] =
+  override def listStreams(listStreamsRequest: ListStreamsRequest): IO[ListStreamsResponse] =
     IO.fromFuture {
       IO(underlying.listStreams(listStreamsRequest))
     }
 
-  override def listTagsForStream(
-      listTagsForStreamRequest: ListTagsForStreamRequest
-  ): IO[ListTagsForStreamResponse] =
+  override def listTagsForStream(listTagsForStreamRequest: ListTagsForStreamRequest): IO[ListTagsForStreamResponse] =
     IO.fromFuture {
       IO(underlying.listTagsForStream(listTagsForStreamRequest))
     }
 
-  override def mergeShards(
-      mergeShardsRequest: MergeShardsRequest
-  ): IO[MergeShardsResponse] =
+  override def mergeShards(mergeShardsRequest: MergeShardsRequest): IO[MergeShardsResponse] =
     IO.fromFuture {
       IO(underlying.mergeShards(mergeShardsRequest))
     }
 
-  override def putRecord(
-      putRecordRequest: PutRecordRequest
-  ): IO[PutRecordResponse] =
+  override def putRecord(putRecordRequest: PutRecordRequest): IO[PutRecordResponse] =
     IO.fromFuture {
       IO(underlying.putRecord(putRecordRequest))
     }
 
-  override def putRecords(
-      putRecordsRequest: PutRecordsRequest
-  ): IO[PutRecordsResponse] =
+  override def putRecords(putRecordsRequest: PutRecordsRequest): IO[PutRecordsResponse] =
     IO.fromFuture {
       IO(underlying.putRecords(putRecordsRequest))
     }
@@ -185,9 +159,7 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
       IO(underlying.removeTagsFromStream(removeTagsFromStreamRequest))
     }
 
-  override def splitShard(
-      splitShardRequest: SplitShardRequest
-  ): IO[SplitShardResponse] =
+  override def splitShard(splitShardRequest: SplitShardRequest): IO[SplitShardResponse] =
     IO.fromFuture {
       IO(underlying.splitShard(splitShardRequest))
     }
@@ -206,9 +178,7 @@ trait KinesisCatsIOClient extends KinesisClient[IO] {
       IO(underlying.stopStreamEncryption(stopStreamEncryptionRequest))
     }
 
-  override def updateShardCount(
-      updateShardCountRequest: UpdateShardCountRequest
-  ): IO[UpdateShardCountResponse] =
+  override def updateShardCount(updateShardCountRequest: UpdateShardCountRequest): IO[UpdateShardCountResponse] =
     IO.fromFuture {
       IO(underlying.updateShardCount(updateShardCountRequest))
     }

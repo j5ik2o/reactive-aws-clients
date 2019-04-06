@@ -8,7 +8,7 @@ import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
-import com.github.j5ik2o.reactive.aws.dynamodb.model.ops._
+import com.github.j5ik2o.reactive.aws.dynamodb.implicits._
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model._
