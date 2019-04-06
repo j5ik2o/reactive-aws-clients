@@ -12,15 +12,14 @@ trait KinesisClient[M[_]] extends KinesisClientSupport[M] {
     <#if methodDesc.static >
         <#return false>
     </#if>
+    <#if methodDesc.name == "subscribeToShard">
+        <#return false>
+    </#if>
     <#if methodDesc.name?ends_with("Paginator")>
         <#return false>
     </#if>
     <#local target=true>
     <#list methodDesc.parameterTypeDescs as p>
-        <#if p.name?ends_with("Handler")>
-            <#local target = false>
-            <#break >
-        </#if>
         <#if p.parameterTypeDesc.fullTypeName == "Consumer[Builder]">
             <#local target = false>
             <#break >

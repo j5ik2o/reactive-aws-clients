@@ -16,7 +16,7 @@ object DynamoDBStreamClient {
 
 }
 
-trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
+trait DynamoDBStreamClient {
 
   import DynamoDBStreamClient._
 
@@ -29,9 +29,11 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def batchGetItemFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
-    Flow[BatchGetItemRequest].mapAsync(parallelism)(underlying.batchGetItem)
+    Flow[BatchGetItemRequest].mapAsync(parallelism) { batchGetItemRequest =>
+      underlying.batchGetItem(batchGetItemRequest)
+    }
 
-  def batchGetItemFlow: Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
+  def batchGetItemPaginatorFlow: Flow[BatchGetItemRequest, BatchGetItemResponse, NotUsed] =
     Flow[BatchGetItemRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.batchGetItemPaginator(request))
     }
@@ -43,7 +45,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def batchWriteItemFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[BatchWriteItemRequest, BatchWriteItemResponse, NotUsed] =
-    Flow[BatchWriteItemRequest].mapAsync(parallelism)(underlying.batchWriteItem)
+    Flow[BatchWriteItemRequest].mapAsync(parallelism) { batchWriteItemRequest =>
+      underlying.batchWriteItem(batchWriteItemRequest)
+    }
 
   def createBackupSource(createBackupRequest: CreateBackupRequest,
                          parallelism: Int = DefaultParallelism): Source[CreateBackupResponse, NotUsed] =
@@ -52,7 +56,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def createBackupFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[CreateBackupRequest, CreateBackupResponse, NotUsed] =
-    Flow[CreateBackupRequest].mapAsync(parallelism)(underlying.createBackup)
+    Flow[CreateBackupRequest].mapAsync(parallelism) { createBackupRequest =>
+      underlying.createBackup(createBackupRequest)
+    }
 
   def createGlobalTableSource(createGlobalTableRequest: CreateGlobalTableRequest,
                               parallelism: Int = DefaultParallelism): Source[CreateGlobalTableResponse, NotUsed] =
@@ -61,14 +67,18 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def createGlobalTableFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[CreateGlobalTableRequest, CreateGlobalTableResponse, NotUsed] =
-    Flow[CreateGlobalTableRequest].mapAsync(parallelism)(underlying.createGlobalTable)
+    Flow[CreateGlobalTableRequest].mapAsync(parallelism) { createGlobalTableRequest =>
+      underlying.createGlobalTable(createGlobalTableRequest)
+    }
 
   def createTableSource(createTableRequest: CreateTableRequest,
                         parallelism: Int = DefaultParallelism): Source[CreateTableResponse, NotUsed] =
     Source.single(createTableRequest).via(createTableFlow(parallelism))
 
   def createTableFlow(parallelism: Int = DefaultParallelism): Flow[CreateTableRequest, CreateTableResponse, NotUsed] =
-    Flow[CreateTableRequest].mapAsync(parallelism)(underlying.createTable)
+    Flow[CreateTableRequest].mapAsync(parallelism) { createTableRequest =>
+      underlying.createTable(createTableRequest)
+    }
 
   def deleteBackupSource(deleteBackupRequest: DeleteBackupRequest,
                          parallelism: Int = DefaultParallelism): Source[DeleteBackupResponse, NotUsed] =
@@ -77,21 +87,27 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def deleteBackupFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBackupRequest, DeleteBackupResponse, NotUsed] =
-    Flow[DeleteBackupRequest].mapAsync(parallelism)(underlying.deleteBackup)
+    Flow[DeleteBackupRequest].mapAsync(parallelism) { deleteBackupRequest =>
+      underlying.deleteBackup(deleteBackupRequest)
+    }
 
   def deleteItemSource(deleteItemRequest: DeleteItemRequest,
                        parallelism: Int = DefaultParallelism): Source[DeleteItemResponse, NotUsed] =
     Source.single(deleteItemRequest).via(deleteItemFlow(parallelism))
 
   def deleteItemFlow(parallelism: Int = DefaultParallelism): Flow[DeleteItemRequest, DeleteItemResponse, NotUsed] =
-    Flow[DeleteItemRequest].mapAsync(parallelism)(underlying.deleteItem)
+    Flow[DeleteItemRequest].mapAsync(parallelism) { deleteItemRequest =>
+      underlying.deleteItem(deleteItemRequest)
+    }
 
   def deleteTableSource(deleteTableRequest: DeleteTableRequest,
                         parallelism: Int = DefaultParallelism): Source[DeleteTableResponse, NotUsed] =
     Source.single(deleteTableRequest).via(deleteTableFlow(parallelism))
 
   def deleteTableFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTableRequest, DeleteTableResponse, NotUsed] =
-    Flow[DeleteTableRequest].mapAsync(parallelism)(underlying.deleteTable)
+    Flow[DeleteTableRequest].mapAsync(parallelism) { deleteTableRequest =>
+      underlying.deleteTable(deleteTableRequest)
+    }
 
   def describeBackupSource(describeBackupRequest: DescribeBackupRequest,
                            parallelism: Int = DefaultParallelism): Source[DescribeBackupResponse, NotUsed] =
@@ -100,7 +116,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeBackupFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeBackupRequest, DescribeBackupResponse, NotUsed] =
-    Flow[DescribeBackupRequest].mapAsync(parallelism)(underlying.describeBackup)
+    Flow[DescribeBackupRequest].mapAsync(parallelism) { describeBackupRequest =>
+      underlying.describeBackup(describeBackupRequest)
+    }
 
   def describeContinuousBackupsSource(
       describeContinuousBackupsRequest: DescribeContinuousBackupsRequest,
@@ -111,7 +129,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeContinuousBackupsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeContinuousBackupsRequest, DescribeContinuousBackupsResponse, NotUsed] =
-    Flow[DescribeContinuousBackupsRequest].mapAsync(parallelism)(underlying.describeContinuousBackups)
+    Flow[DescribeContinuousBackupsRequest].mapAsync(parallelism) { describeContinuousBackupsRequest =>
+      underlying.describeContinuousBackups(describeContinuousBackupsRequest)
+    }
 
   def describeEndpointsSource(describeEndpointsRequest: DescribeEndpointsRequest,
                               parallelism: Int = DefaultParallelism): Source[DescribeEndpointsResponse, NotUsed] =
@@ -120,7 +140,12 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeEndpointsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeEndpointsRequest, DescribeEndpointsResponse, NotUsed] =
-    Flow[DescribeEndpointsRequest].mapAsync(parallelism)(underlying.describeEndpoints)
+    Flow[DescribeEndpointsRequest].mapAsync(parallelism) { describeEndpointsRequest =>
+      underlying.describeEndpoints(describeEndpointsRequest)
+    }
+
+  def describeEndpointsSource(): Source[DescribeEndpointsResponse, NotUsed] =
+    Source.fromFuture(underlying.describeEndpoints())
 
   def describeGlobalTableSource(describeGlobalTableRequest: DescribeGlobalTableRequest,
                                 parallelism: Int = DefaultParallelism): Source[DescribeGlobalTableResponse, NotUsed] =
@@ -129,7 +154,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeGlobalTableFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeGlobalTableRequest, DescribeGlobalTableResponse, NotUsed] =
-    Flow[DescribeGlobalTableRequest].mapAsync(parallelism)(underlying.describeGlobalTable)
+    Flow[DescribeGlobalTableRequest].mapAsync(parallelism) { describeGlobalTableRequest =>
+      underlying.describeGlobalTable(describeGlobalTableRequest)
+    }
 
   def describeGlobalTableSettingsSource(
       describeGlobalTableSettingsRequest: DescribeGlobalTableSettingsRequest,
@@ -140,7 +167,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeGlobalTableSettingsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeGlobalTableSettingsRequest, DescribeGlobalTableSettingsResponse, NotUsed] =
-    Flow[DescribeGlobalTableSettingsRequest].mapAsync(parallelism)(underlying.describeGlobalTableSettings)
+    Flow[DescribeGlobalTableSettingsRequest].mapAsync(parallelism) { describeGlobalTableSettingsRequest =>
+      underlying.describeGlobalTableSettings(describeGlobalTableSettingsRequest)
+    }
 
   def describeLimitsSource(describeLimitsRequest: DescribeLimitsRequest,
                            parallelism: Int = DefaultParallelism): Source[DescribeLimitsResponse, NotUsed] =
@@ -149,7 +178,12 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeLimitsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeLimitsRequest, DescribeLimitsResponse, NotUsed] =
-    Flow[DescribeLimitsRequest].mapAsync(parallelism)(underlying.describeLimits)
+    Flow[DescribeLimitsRequest].mapAsync(parallelism) { describeLimitsRequest =>
+      underlying.describeLimits(describeLimitsRequest)
+    }
+
+  def describeLimitsSource(): Source[DescribeLimitsResponse, NotUsed] =
+    Source.fromFuture(underlying.describeLimits())
 
   def describeTableSource(describeTableRequest: DescribeTableRequest,
                           parallelism: Int = DefaultParallelism): Source[DescribeTableResponse, NotUsed] =
@@ -158,7 +192,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeTableFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeTableRequest, DescribeTableResponse, NotUsed] =
-    Flow[DescribeTableRequest].mapAsync(parallelism)(underlying.describeTable)
+    Flow[DescribeTableRequest].mapAsync(parallelism) { describeTableRequest =>
+      underlying.describeTable(describeTableRequest)
+    }
 
   def describeTimeToLiveSource(describeTimeToLiveRequest: DescribeTimeToLiveRequest,
                                parallelism: Int = DefaultParallelism): Source[DescribeTimeToLiveResponse, NotUsed] =
@@ -167,21 +203,30 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def describeTimeToLiveFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DescribeTimeToLiveRequest, DescribeTimeToLiveResponse, NotUsed] =
-    Flow[DescribeTimeToLiveRequest].mapAsync(parallelism)(underlying.describeTimeToLive)
+    Flow[DescribeTimeToLiveRequest].mapAsync(parallelism) { describeTimeToLiveRequest =>
+      underlying.describeTimeToLive(describeTimeToLiveRequest)
+    }
 
   def getItemSource(getItemRequest: GetItemRequest,
                     parallelism: Int = DefaultParallelism): Source[GetItemResponse, NotUsed] =
     Source.single(getItemRequest).via(getItemFlow(parallelism))
 
   def getItemFlow(parallelism: Int = DefaultParallelism): Flow[GetItemRequest, GetItemResponse, NotUsed] =
-    Flow[GetItemRequest].mapAsync(parallelism)(underlying.getItem)
+    Flow[GetItemRequest].mapAsync(parallelism) { getItemRequest =>
+      underlying.getItem(getItemRequest)
+    }
 
   def listBackupsSource(listBackupsRequest: ListBackupsRequest,
                         parallelism: Int = DefaultParallelism): Source[ListBackupsResponse, NotUsed] =
     Source.single(listBackupsRequest).via(listBackupsFlow(parallelism))
 
   def listBackupsFlow(parallelism: Int = DefaultParallelism): Flow[ListBackupsRequest, ListBackupsResponse, NotUsed] =
-    Flow[ListBackupsRequest].mapAsync(parallelism)(underlying.listBackups)
+    Flow[ListBackupsRequest].mapAsync(parallelism) { listBackupsRequest =>
+      underlying.listBackups(listBackupsRequest)
+    }
+
+  def listBackupsSource(): Source[ListBackupsResponse, NotUsed] =
+    Source.fromFuture(underlying.listBackups())
 
   def listGlobalTablesSource(listGlobalTablesRequest: ListGlobalTablesRequest,
                              parallelism: Int = DefaultParallelism): Source[ListGlobalTablesResponse, NotUsed] =
@@ -190,19 +235,32 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def listGlobalTablesFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListGlobalTablesRequest, ListGlobalTablesResponse, NotUsed] =
-    Flow[ListGlobalTablesRequest].mapAsync(parallelism)(underlying.listGlobalTables)
+    Flow[ListGlobalTablesRequest].mapAsync(parallelism) { listGlobalTablesRequest =>
+      underlying.listGlobalTables(listGlobalTablesRequest)
+    }
+
+  def listGlobalTablesSource(): Source[ListGlobalTablesResponse, NotUsed] =
+    Source.fromFuture(underlying.listGlobalTables())
 
   def listTablesSource(listTablesRequest: ListTablesRequest,
                        parallelism: Int = DefaultParallelism): Source[ListTablesResponse, NotUsed] =
     Source.single(listTablesRequest).via(listTablesFlow(parallelism))
 
   def listTablesFlow(parallelism: Int = DefaultParallelism): Flow[ListTablesRequest, ListTablesResponse, NotUsed] =
-    Flow[ListTablesRequest].mapAsync(parallelism)(underlying.listTables)
+    Flow[ListTablesRequest].mapAsync(parallelism) { listTablesRequest =>
+      underlying.listTables(listTablesRequest)
+    }
 
-  def listTablesFlow: Flow[ListTablesRequest, ListTablesResponse, NotUsed] = Flow[ListTablesRequest].flatMapConcat {
-    request =>
+  def listTablesSource(): Source[ListTablesResponse, NotUsed] =
+    Source.fromFuture(underlying.listTables())
+
+  def listTablesPaginatorSource: Source[ListTablesResponse, NotUsed] =
+    Source.fromPublisher(underlying.listTablesPaginator())
+
+  def listTablesPaginatorFlow: Flow[ListTablesRequest, ListTablesResponse, NotUsed] =
+    Flow[ListTablesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listTablesPaginator(request))
-  }
+    }
 
   def listTagsOfResourceSource(listTagsOfResourceRequest: ListTagsOfResourceRequest,
                                parallelism: Int = DefaultParallelism): Source[ListTagsOfResourceResponse, NotUsed] =
@@ -211,22 +269,28 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def listTagsOfResourceFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListTagsOfResourceRequest, ListTagsOfResourceResponse, NotUsed] =
-    Flow[ListTagsOfResourceRequest].mapAsync(parallelism)(underlying.listTagsOfResource)
+    Flow[ListTagsOfResourceRequest].mapAsync(parallelism) { listTagsOfResourceRequest =>
+      underlying.listTagsOfResource(listTagsOfResourceRequest)
+    }
 
   def putItemSource(putItemRequest: PutItemRequest,
                     parallelism: Int = DefaultParallelism): Source[PutItemResponse, NotUsed] =
     Source.single(putItemRequest).via(putItemFlow(parallelism))
 
   def putItemFlow(parallelism: Int = DefaultParallelism): Flow[PutItemRequest, PutItemResponse, NotUsed] =
-    Flow[PutItemRequest].mapAsync(parallelism)(underlying.putItem)
+    Flow[PutItemRequest].mapAsync(parallelism) { putItemRequest =>
+      underlying.putItem(putItemRequest)
+    }
 
   def querySource(queryRequest: QueryRequest, parallelism: Int = DefaultParallelism): Source[QueryResponse, NotUsed] =
     Source.single(queryRequest).via(queryFlow(parallelism))
 
   def queryFlow(parallelism: Int = DefaultParallelism): Flow[QueryRequest, QueryResponse, NotUsed] =
-    Flow[QueryRequest].mapAsync(parallelism)(underlying.query)
+    Flow[QueryRequest].mapAsync(parallelism) { queryRequest =>
+      underlying.query(queryRequest)
+    }
 
-  def queryFlow: Flow[QueryRequest, QueryResponse, NotUsed] = Flow[QueryRequest].flatMapConcat { request =>
+  def queryPaginatorFlow: Flow[QueryRequest, QueryResponse, NotUsed] = Flow[QueryRequest].flatMapConcat { request =>
     Source.fromPublisher(underlying.queryPaginator(request))
   }
 
@@ -239,7 +303,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def restoreTableFromBackupFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[RestoreTableFromBackupRequest, RestoreTableFromBackupResponse, NotUsed] =
-    Flow[RestoreTableFromBackupRequest].mapAsync(parallelism)(underlying.restoreTableFromBackup)
+    Flow[RestoreTableFromBackupRequest].mapAsync(parallelism) { restoreTableFromBackupRequest =>
+      underlying.restoreTableFromBackup(restoreTableFromBackupRequest)
+    }
 
   def restoreTableToPointInTimeSource(
       restoreTableToPointInTimeRequest: RestoreTableToPointInTimeRequest,
@@ -250,15 +316,19 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def restoreTableToPointInTimeFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[RestoreTableToPointInTimeRequest, RestoreTableToPointInTimeResponse, NotUsed] =
-    Flow[RestoreTableToPointInTimeRequest].mapAsync(parallelism)(underlying.restoreTableToPointInTime)
+    Flow[RestoreTableToPointInTimeRequest].mapAsync(parallelism) { restoreTableToPointInTimeRequest =>
+      underlying.restoreTableToPointInTime(restoreTableToPointInTimeRequest)
+    }
 
   def scanSource(scanRequest: ScanRequest, parallelism: Int = DefaultParallelism): Source[ScanResponse, NotUsed] =
     Source.single(scanRequest).via(scanFlow(parallelism))
 
   def scanFlow(parallelism: Int = DefaultParallelism): Flow[ScanRequest, ScanResponse, NotUsed] =
-    Flow[ScanRequest].mapAsync(parallelism)(underlying.scan)
+    Flow[ScanRequest].mapAsync(parallelism) { scanRequest =>
+      underlying.scan(scanRequest)
+    }
 
-  def scanFlow: Flow[ScanRequest, ScanResponse, NotUsed] = Flow[ScanRequest].flatMapConcat { request =>
+  def scanPaginatorFlow: Flow[ScanRequest, ScanResponse, NotUsed] = Flow[ScanRequest].flatMapConcat { request =>
     Source.fromPublisher(underlying.scanPaginator(request))
   }
 
@@ -267,7 +337,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
-    Flow[TagResourceRequest].mapAsync(parallelism)(underlying.tagResource)
+    Flow[TagResourceRequest].mapAsync(parallelism) { tagResourceRequest =>
+      underlying.tagResource(tagResourceRequest)
+    }
 
   def transactGetItemsSource(transactGetItemsRequest: TransactGetItemsRequest,
                              parallelism: Int = DefaultParallelism): Source[TransactGetItemsResponse, NotUsed] =
@@ -276,7 +348,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def transactGetItemsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[TransactGetItemsRequest, TransactGetItemsResponse, NotUsed] =
-    Flow[TransactGetItemsRequest].mapAsync(parallelism)(underlying.transactGetItems)
+    Flow[TransactGetItemsRequest].mapAsync(parallelism) { transactGetItemsRequest =>
+      underlying.transactGetItems(transactGetItemsRequest)
+    }
 
   def transactWriteItemsSource(transactWriteItemsRequest: TransactWriteItemsRequest,
                                parallelism: Int = DefaultParallelism): Source[TransactWriteItemsResponse, NotUsed] =
@@ -285,7 +359,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def transactWriteItemsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[TransactWriteItemsRequest, TransactWriteItemsResponse, NotUsed] =
-    Flow[TransactWriteItemsRequest].mapAsync(parallelism)(underlying.transactWriteItems)
+    Flow[TransactWriteItemsRequest].mapAsync(parallelism) { transactWriteItemsRequest =>
+      underlying.transactWriteItems(transactWriteItemsRequest)
+    }
 
   def untagResourceSource(untagResourceRequest: UntagResourceRequest,
                           parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
@@ -294,7 +370,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def untagResourceFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
-    Flow[UntagResourceRequest].mapAsync(parallelism)(underlying.untagResource)
+    Flow[UntagResourceRequest].mapAsync(parallelism) { untagResourceRequest =>
+      underlying.untagResource(untagResourceRequest)
+    }
 
   def updateContinuousBackupsSource(
       updateContinuousBackupsRequest: UpdateContinuousBackupsRequest,
@@ -305,7 +383,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def updateContinuousBackupsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UpdateContinuousBackupsRequest, UpdateContinuousBackupsResponse, NotUsed] =
-    Flow[UpdateContinuousBackupsRequest].mapAsync(parallelism)(underlying.updateContinuousBackups)
+    Flow[UpdateContinuousBackupsRequest].mapAsync(parallelism) { updateContinuousBackupsRequest =>
+      underlying.updateContinuousBackups(updateContinuousBackupsRequest)
+    }
 
   def updateGlobalTableSource(updateGlobalTableRequest: UpdateGlobalTableRequest,
                               parallelism: Int = DefaultParallelism): Source[UpdateGlobalTableResponse, NotUsed] =
@@ -314,7 +394,9 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def updateGlobalTableFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UpdateGlobalTableRequest, UpdateGlobalTableResponse, NotUsed] =
-    Flow[UpdateGlobalTableRequest].mapAsync(parallelism)(underlying.updateGlobalTable)
+    Flow[UpdateGlobalTableRequest].mapAsync(parallelism) { updateGlobalTableRequest =>
+      underlying.updateGlobalTable(updateGlobalTableRequest)
+    }
 
   def updateGlobalTableSettingsSource(
       updateGlobalTableSettingsRequest: UpdateGlobalTableSettingsRequest,
@@ -325,21 +407,27 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def updateGlobalTableSettingsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UpdateGlobalTableSettingsRequest, UpdateGlobalTableSettingsResponse, NotUsed] =
-    Flow[UpdateGlobalTableSettingsRequest].mapAsync(parallelism)(underlying.updateGlobalTableSettings)
+    Flow[UpdateGlobalTableSettingsRequest].mapAsync(parallelism) { updateGlobalTableSettingsRequest =>
+      underlying.updateGlobalTableSettings(updateGlobalTableSettingsRequest)
+    }
 
   def updateItemSource(updateItemRequest: UpdateItemRequest,
                        parallelism: Int = DefaultParallelism): Source[UpdateItemResponse, NotUsed] =
     Source.single(updateItemRequest).via(updateItemFlow(parallelism))
 
   def updateItemFlow(parallelism: Int = DefaultParallelism): Flow[UpdateItemRequest, UpdateItemResponse, NotUsed] =
-    Flow[UpdateItemRequest].mapAsync(parallelism)(underlying.updateItem)
+    Flow[UpdateItemRequest].mapAsync(parallelism) { updateItemRequest =>
+      underlying.updateItem(updateItemRequest)
+    }
 
   def updateTableSource(updateTableRequest: UpdateTableRequest,
                         parallelism: Int = DefaultParallelism): Source[UpdateTableResponse, NotUsed] =
     Source.single(updateTableRequest).via(updateTableFlow(parallelism))
 
   def updateTableFlow(parallelism: Int = DefaultParallelism): Flow[UpdateTableRequest, UpdateTableResponse, NotUsed] =
-    Flow[UpdateTableRequest].mapAsync(parallelism)(underlying.updateTable)
+    Flow[UpdateTableRequest].mapAsync(parallelism) { updateTableRequest =>
+      underlying.updateTable(updateTableRequest)
+    }
 
   def updateTimeToLiveSource(updateTimeToLiveRequest: UpdateTimeToLiveRequest,
                              parallelism: Int = DefaultParallelism): Source[UpdateTimeToLiveResponse, NotUsed] =
@@ -348,6 +436,8 @@ trait DynamoDBStreamClient extends DynamoDBStreamClientSupport {
   def updateTimeToLiveFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UpdateTimeToLiveRequest, UpdateTimeToLiveResponse, NotUsed] =
-    Flow[UpdateTimeToLiveRequest].mapAsync(parallelism)(underlying.updateTimeToLive)
+    Flow[UpdateTimeToLiveRequest].mapAsync(parallelism) { updateTimeToLiveRequest =>
+      underlying.updateTimeToLive(updateTimeToLiveRequest)
+    }
 
 }

@@ -29,6 +29,8 @@ packageNameMapper in scalaWrapperGen := {
 typeDescFilter in scalaWrapperGen := {
   case cd if cd.simpleTypeName == "DynamoDbAsyncClient"                                              => true
   case cd if cd.simpleTypeName == "DynamoDbClient"                                                   => true
+  case cd if cd.simpleTypeName == "DynamoDbStreamsAsyncClient"                                       => true
+  case cd if cd.simpleTypeName == "DynamoDbStreamsClient"                                            => true
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
@@ -43,9 +45,12 @@ typeNameMapper in scalaWrapperGen := {
         "DynamoDBAsyncClient",
         "JavaAsyncClientMetricsInterceptor",
         "JavaSyncClientMetricsInterceptor")
-  case cd if cd.simpleTypeName == "DynamoDbClient"      => Seq("DynamoDBSyncClient")
-  case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
-  case cd                                               => Seq(cd.simpleTypeName)
+  case cd if cd.simpleTypeName == "DynamoDbClient" => Seq("DynamoDBSyncClient")
+  case cd if cd.simpleTypeName == "DynamoDbStreamsAsyncClient" =>
+    Seq("DynamoDBStreamsClient", "DynamoDBStreamsAsyncClient")
+  case cd if cd.simpleTypeName == "DynamoDbStreamsClient" => Seq("DynamoDBStreamsSyncClient")
+  case cd if cd.packageName.exists(_.endsWith("model"))   => Seq(cd.simpleTypeName + "Ops")
+  case cd                                                 => Seq(cd.simpleTypeName)
 }
 
 templateNameMapper in scalaWrapperGen := {
@@ -58,6 +63,12 @@ templateNameMapper in scalaWrapperGen := {
     "JavaSyncClientMetricsInterceptor.ftl"
   case ("DynamoDBSyncClient", cd: ClassDesc) if cd.simpleTypeName == "DynamoDbClient" =>
     "DynamoDBSyncClient.ftl"
+
+  case ("DynamoDBStreamsClient", cd) if cd.simpleTypeName == "DynamoDbStreamsAsyncClient" => "DynamoDBStreamsClient.ftl"
+  case ("DynamoDBStreamsAsyncClient", cd) if cd.simpleTypeName == "DynamoDbStreamsAsyncClient" =>
+    "DynamoDBStreamsAsyncClient.ftl"
+  case ("DynamoDBStreamsSyncClient", cd) if cd.simpleTypeName == "DynamoDbStreamsClient" =>
+    "DynamoDBStreamsSyncClient.ftl"
 
   case (s, cd: ClassDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
 

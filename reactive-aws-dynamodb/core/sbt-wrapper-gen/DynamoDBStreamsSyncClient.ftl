@@ -1,18 +1,18 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.kinesis
+package com.github.j5ik2o.reactive.aws.dynamodb.streams
 
-import software.amazon.awssdk.services.kinesis.model._
-import software.amazon.awssdk.services.kinesis.paginators._
-import software.amazon.awssdk.services.kinesis.{ KinesisClient => JavaKinesisSyncClient }
+import software.amazon.awssdk.services.dynamodb.model._
+import software.amazon.awssdk.services.dynamodb.streams.DynamoDbStreamsClient
+import software.amazon.awssdk.services.dynamodb.streams.paginators._
 
-object KinesisSyncClient {
+object DynamoDBStreamsSyncClient {
 
-  def apply(underlying: JavaKinesisSyncClient): KinesisSyncClient = new KinesisSyncClientImpl(underlying)
+  def apply(underlying: DynamoDbStreamsClient): DynamoDBStreamsSyncClient = new DynamoDBStreamsSyncClientImpl(underlying)
 
 }
 
-trait KinesisSyncClient extends KinesisClient[Either[Throwable, ?]] {
-  val underlying: JavaKinesisSyncClient
+trait DynamoDBStreamsSyncClient extends DynamoDBStreamsClient[Either[Throwable, ?]] {
+  val underlying: DynamoDbStreamsClient
 
   private def toEither[A](f: => A): Either[Throwable, A] = {
     try {

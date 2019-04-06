@@ -1,20 +1,20 @@
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.dynamodb.monix
+package com.github.j5ik2o.reactive.aws.dynamodb.monix.streams
 
-import software.amazon.awssdk.services.dynamodb.model._
-import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBAsyncClient, DynamoDBClient }
+import com.github.j5ik2o.reactive.aws.dynamodb.streams.{DynamoDBStreamsAsyncClient, DynamoDBStreamsClient}
 import monix.eval.Task
 import monix.reactive.Observable
+import software.amazon.awssdk.services.dynamodb.model._
 
-object DynamoDBMonixClient {
+object DynamoDBStreamsMonixClient {
 
-def apply(underlying: DynamoDBAsyncClient): DynamoDBMonixClient = new DynamoDBMonixClientImpl(underlying)
+def apply(underlying: DynamoDBStreamsAsyncClient): DynamoDBStreamsMonixClient = new DynamoDBStreamsMonixClientImpl(underlying)
 
 }
 
-trait DynamoDBMonixClient extends DynamoDBClient[Task] {
+trait DynamoDBStreamsMonixClient extends DynamoDBStreamsClient[Task] {
 
-val underlying: DynamoDBAsyncClient
+val underlying: DynamoDBStreamsAsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
@@ -24,10 +24,10 @@ val underlying: DynamoDBAsyncClient
               Observable.fromReactivePublisher(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
         <#else>
             <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def  ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Task[${responseTypeName}] =
-            Task.deferFuture {
-              underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-            }
+            override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Task[${responseTypeName}] =
+              Task.deferFuture {
+                underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+              }
         </#if>
 
     </#if></#list>

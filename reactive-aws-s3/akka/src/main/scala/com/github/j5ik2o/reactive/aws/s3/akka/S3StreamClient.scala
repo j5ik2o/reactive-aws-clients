@@ -27,7 +27,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def abortMultipartUploadFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[AbortMultipartUploadRequest, AbortMultipartUploadResponse, NotUsed] =
-    Flow[AbortMultipartUploadRequest].mapAsync(parallelism)(underlying.abortMultipartUpload)
+    Flow[AbortMultipartUploadRequest].mapAsync(parallelism) { abortMultipartUploadRequest =>
+      underlying.abortMultipartUpload(abortMultipartUploadRequest)
+    }
 
   def completeMultipartUploadSource(
       completeMultipartUploadRequest: CompleteMultipartUploadRequest,
@@ -38,14 +40,18 @@ trait S3StreamClient extends S3StreamClientSupport {
   def completeMultipartUploadFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[CompleteMultipartUploadRequest, CompleteMultipartUploadResponse, NotUsed] =
-    Flow[CompleteMultipartUploadRequest].mapAsync(parallelism)(underlying.completeMultipartUpload)
+    Flow[CompleteMultipartUploadRequest].mapAsync(parallelism) { completeMultipartUploadRequest =>
+      underlying.completeMultipartUpload(completeMultipartUploadRequest)
+    }
 
   def copyObjectSource(copyObjectRequest: CopyObjectRequest,
                        parallelism: Int = DefaultParallelism): Source[CopyObjectResponse, NotUsed] =
     Source.single(copyObjectRequest).via(copyObjectFlow(parallelism))
 
   def copyObjectFlow(parallelism: Int = DefaultParallelism): Flow[CopyObjectRequest, CopyObjectResponse, NotUsed] =
-    Flow[CopyObjectRequest].mapAsync(parallelism)(underlying.copyObject)
+    Flow[CopyObjectRequest].mapAsync(parallelism) { copyObjectRequest =>
+      underlying.copyObject(copyObjectRequest)
+    }
 
   def createBucketSource(createBucketRequest: CreateBucketRequest,
                          parallelism: Int = DefaultParallelism): Source[CreateBucketResponse, NotUsed] =
@@ -54,7 +60,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def createBucketFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[CreateBucketRequest, CreateBucketResponse, NotUsed] =
-    Flow[CreateBucketRequest].mapAsync(parallelism)(underlying.createBucket)
+    Flow[CreateBucketRequest].mapAsync(parallelism) { createBucketRequest =>
+      underlying.createBucket(createBucketRequest)
+    }
 
   def createMultipartUploadSource(
       createMultipartUploadRequest: CreateMultipartUploadRequest,
@@ -65,7 +73,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def createMultipartUploadFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[CreateMultipartUploadRequest, CreateMultipartUploadResponse, NotUsed] =
-    Flow[CreateMultipartUploadRequest].mapAsync(parallelism)(underlying.createMultipartUpload)
+    Flow[CreateMultipartUploadRequest].mapAsync(parallelism) { createMultipartUploadRequest =>
+      underlying.createMultipartUpload(createMultipartUploadRequest)
+    }
 
   def deleteBucketSource(deleteBucketRequest: DeleteBucketRequest,
                          parallelism: Int = DefaultParallelism): Source[DeleteBucketResponse, NotUsed] =
@@ -74,7 +84,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketRequest, DeleteBucketResponse, NotUsed] =
-    Flow[DeleteBucketRequest].mapAsync(parallelism)(underlying.deleteBucket)
+    Flow[DeleteBucketRequest].mapAsync(parallelism) { deleteBucketRequest =>
+      underlying.deleteBucket(deleteBucketRequest)
+    }
 
   def deleteBucketAnalyticsConfigurationSource(
       deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest,
@@ -85,7 +97,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketAnalyticsConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketAnalyticsConfigurationRequest, DeleteBucketAnalyticsConfigurationResponse, NotUsed] =
-    Flow[DeleteBucketAnalyticsConfigurationRequest].mapAsync(parallelism)(underlying.deleteBucketAnalyticsConfiguration)
+    Flow[DeleteBucketAnalyticsConfigurationRequest].mapAsync(parallelism) { deleteBucketAnalyticsConfigurationRequest =>
+      underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest)
+    }
 
   def deleteBucketCorsSource(deleteBucketCorsRequest: DeleteBucketCorsRequest,
                              parallelism: Int = DefaultParallelism): Source[DeleteBucketCorsResponse, NotUsed] =
@@ -94,7 +108,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketCorsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketCorsRequest, DeleteBucketCorsResponse, NotUsed] =
-    Flow[DeleteBucketCorsRequest].mapAsync(parallelism)(underlying.deleteBucketCors)
+    Flow[DeleteBucketCorsRequest].mapAsync(parallelism) { deleteBucketCorsRequest =>
+      underlying.deleteBucketCors(deleteBucketCorsRequest)
+    }
 
   def deleteBucketEncryptionSource(
       deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest,
@@ -105,7 +121,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketEncryptionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketEncryptionRequest, DeleteBucketEncryptionResponse, NotUsed] =
-    Flow[DeleteBucketEncryptionRequest].mapAsync(parallelism)(underlying.deleteBucketEncryption)
+    Flow[DeleteBucketEncryptionRequest].mapAsync(parallelism) { deleteBucketEncryptionRequest =>
+      underlying.deleteBucketEncryption(deleteBucketEncryptionRequest)
+    }
 
   def deleteBucketInventoryConfigurationSource(
       deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest,
@@ -116,7 +134,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketInventoryConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketInventoryConfigurationRequest, DeleteBucketInventoryConfigurationResponse, NotUsed] =
-    Flow[DeleteBucketInventoryConfigurationRequest].mapAsync(parallelism)(underlying.deleteBucketInventoryConfiguration)
+    Flow[DeleteBucketInventoryConfigurationRequest].mapAsync(parallelism) { deleteBucketInventoryConfigurationRequest =>
+      underlying.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest)
+    }
 
   def deleteBucketLifecycleSource(
       deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest,
@@ -127,7 +147,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketLifecycleFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketLifecycleRequest, DeleteBucketLifecycleResponse, NotUsed] =
-    Flow[DeleteBucketLifecycleRequest].mapAsync(parallelism)(underlying.deleteBucketLifecycle)
+    Flow[DeleteBucketLifecycleRequest].mapAsync(parallelism) { deleteBucketLifecycleRequest =>
+      underlying.deleteBucketLifecycle(deleteBucketLifecycleRequest)
+    }
 
   def deleteBucketMetricsConfigurationSource(
       deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest,
@@ -138,7 +160,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketMetricsConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketMetricsConfigurationRequest, DeleteBucketMetricsConfigurationResponse, NotUsed] =
-    Flow[DeleteBucketMetricsConfigurationRequest].mapAsync(parallelism)(underlying.deleteBucketMetricsConfiguration)
+    Flow[DeleteBucketMetricsConfigurationRequest].mapAsync(parallelism) { deleteBucketMetricsConfigurationRequest =>
+      underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest)
+    }
 
   def deleteBucketPolicySource(deleteBucketPolicyRequest: DeleteBucketPolicyRequest,
                                parallelism: Int = DefaultParallelism): Source[DeleteBucketPolicyResponse, NotUsed] =
@@ -147,7 +171,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketPolicyFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketPolicyRequest, DeleteBucketPolicyResponse, NotUsed] =
-    Flow[DeleteBucketPolicyRequest].mapAsync(parallelism)(underlying.deleteBucketPolicy)
+    Flow[DeleteBucketPolicyRequest].mapAsync(parallelism) { deleteBucketPolicyRequest =>
+      underlying.deleteBucketPolicy(deleteBucketPolicyRequest)
+    }
 
   def deleteBucketReplicationSource(
       deleteBucketReplicationRequest: DeleteBucketReplicationRequest,
@@ -158,7 +184,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketReplicationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketReplicationRequest, DeleteBucketReplicationResponse, NotUsed] =
-    Flow[DeleteBucketReplicationRequest].mapAsync(parallelism)(underlying.deleteBucketReplication)
+    Flow[DeleteBucketReplicationRequest].mapAsync(parallelism) { deleteBucketReplicationRequest =>
+      underlying.deleteBucketReplication(deleteBucketReplicationRequest)
+    }
 
   def deleteBucketTaggingSource(deleteBucketTaggingRequest: DeleteBucketTaggingRequest,
                                 parallelism: Int = DefaultParallelism): Source[DeleteBucketTaggingResponse, NotUsed] =
@@ -167,7 +195,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketTaggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketTaggingRequest, DeleteBucketTaggingResponse, NotUsed] =
-    Flow[DeleteBucketTaggingRequest].mapAsync(parallelism)(underlying.deleteBucketTagging)
+    Flow[DeleteBucketTaggingRequest].mapAsync(parallelism) { deleteBucketTaggingRequest =>
+      underlying.deleteBucketTagging(deleteBucketTaggingRequest)
+    }
 
   def deleteBucketWebsiteSource(deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest,
                                 parallelism: Int = DefaultParallelism): Source[DeleteBucketWebsiteResponse, NotUsed] =
@@ -176,7 +206,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteBucketWebsiteFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteBucketWebsiteRequest, DeleteBucketWebsiteResponse, NotUsed] =
-    Flow[DeleteBucketWebsiteRequest].mapAsync(parallelism)(underlying.deleteBucketWebsite)
+    Flow[DeleteBucketWebsiteRequest].mapAsync(parallelism) { deleteBucketWebsiteRequest =>
+      underlying.deleteBucketWebsite(deleteBucketWebsiteRequest)
+    }
 
   def deleteObjectSource(deleteObjectRequest: DeleteObjectRequest,
                          parallelism: Int = DefaultParallelism): Source[DeleteObjectResponse, NotUsed] =
@@ -185,7 +217,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteObjectFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteObjectRequest, DeleteObjectResponse, NotUsed] =
-    Flow[DeleteObjectRequest].mapAsync(parallelism)(underlying.deleteObject)
+    Flow[DeleteObjectRequest].mapAsync(parallelism) { deleteObjectRequest =>
+      underlying.deleteObject(deleteObjectRequest)
+    }
 
   def deleteObjectTaggingSource(deleteObjectTaggingRequest: DeleteObjectTaggingRequest,
                                 parallelism: Int = DefaultParallelism): Source[DeleteObjectTaggingResponse, NotUsed] =
@@ -194,7 +228,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteObjectTaggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteObjectTaggingRequest, DeleteObjectTaggingResponse, NotUsed] =
-    Flow[DeleteObjectTaggingRequest].mapAsync(parallelism)(underlying.deleteObjectTagging)
+    Flow[DeleteObjectTaggingRequest].mapAsync(parallelism) { deleteObjectTaggingRequest =>
+      underlying.deleteObjectTagging(deleteObjectTaggingRequest)
+    }
 
   def deleteObjectsSource(deleteObjectsRequest: DeleteObjectsRequest,
                           parallelism: Int = DefaultParallelism): Source[DeleteObjectsResponse, NotUsed] =
@@ -203,7 +239,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deleteObjectsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeleteObjectsRequest, DeleteObjectsResponse, NotUsed] =
-    Flow[DeleteObjectsRequest].mapAsync(parallelism)(underlying.deleteObjects)
+    Flow[DeleteObjectsRequest].mapAsync(parallelism) { deleteObjectsRequest =>
+      underlying.deleteObjects(deleteObjectsRequest)
+    }
 
   def deletePublicAccessBlockSource(
       deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest,
@@ -214,7 +252,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def deletePublicAccessBlockFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[DeletePublicAccessBlockRequest, DeletePublicAccessBlockResponse, NotUsed] =
-    Flow[DeletePublicAccessBlockRequest].mapAsync(parallelism)(underlying.deletePublicAccessBlock)
+    Flow[DeletePublicAccessBlockRequest].mapAsync(parallelism) { deletePublicAccessBlockRequest =>
+      underlying.deletePublicAccessBlock(deletePublicAccessBlockRequest)
+    }
 
   def getBucketAccelerateConfigurationSource(
       getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest,
@@ -225,7 +265,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketAccelerateConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketAccelerateConfigurationRequest, GetBucketAccelerateConfigurationResponse, NotUsed] =
-    Flow[GetBucketAccelerateConfigurationRequest].mapAsync(parallelism)(underlying.getBucketAccelerateConfiguration)
+    Flow[GetBucketAccelerateConfigurationRequest].mapAsync(parallelism) { getBucketAccelerateConfigurationRequest =>
+      underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest)
+    }
 
   def getBucketAclSource(getBucketAclRequest: GetBucketAclRequest,
                          parallelism: Int = DefaultParallelism): Source[GetBucketAclResponse, NotUsed] =
@@ -234,7 +276,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketAclFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketAclRequest, GetBucketAclResponse, NotUsed] =
-    Flow[GetBucketAclRequest].mapAsync(parallelism)(underlying.getBucketAcl)
+    Flow[GetBucketAclRequest].mapAsync(parallelism) { getBucketAclRequest =>
+      underlying.getBucketAcl(getBucketAclRequest)
+    }
 
   def getBucketAnalyticsConfigurationSource(
       getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest,
@@ -245,7 +289,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketAnalyticsConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketAnalyticsConfigurationRequest, GetBucketAnalyticsConfigurationResponse, NotUsed] =
-    Flow[GetBucketAnalyticsConfigurationRequest].mapAsync(parallelism)(underlying.getBucketAnalyticsConfiguration)
+    Flow[GetBucketAnalyticsConfigurationRequest].mapAsync(parallelism) { getBucketAnalyticsConfigurationRequest =>
+      underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest)
+    }
 
   def getBucketCorsSource(getBucketCorsRequest: GetBucketCorsRequest,
                           parallelism: Int = DefaultParallelism): Source[GetBucketCorsResponse, NotUsed] =
@@ -254,7 +300,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketCorsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketCorsRequest, GetBucketCorsResponse, NotUsed] =
-    Flow[GetBucketCorsRequest].mapAsync(parallelism)(underlying.getBucketCors)
+    Flow[GetBucketCorsRequest].mapAsync(parallelism) { getBucketCorsRequest =>
+      underlying.getBucketCors(getBucketCorsRequest)
+    }
 
   def getBucketEncryptionSource(getBucketEncryptionRequest: GetBucketEncryptionRequest,
                                 parallelism: Int = DefaultParallelism): Source[GetBucketEncryptionResponse, NotUsed] =
@@ -263,7 +311,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketEncryptionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketEncryptionRequest, GetBucketEncryptionResponse, NotUsed] =
-    Flow[GetBucketEncryptionRequest].mapAsync(parallelism)(underlying.getBucketEncryption)
+    Flow[GetBucketEncryptionRequest].mapAsync(parallelism) { getBucketEncryptionRequest =>
+      underlying.getBucketEncryption(getBucketEncryptionRequest)
+    }
 
   def getBucketInventoryConfigurationSource(
       getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest,
@@ -274,7 +324,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketInventoryConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketInventoryConfigurationRequest, GetBucketInventoryConfigurationResponse, NotUsed] =
-    Flow[GetBucketInventoryConfigurationRequest].mapAsync(parallelism)(underlying.getBucketInventoryConfiguration)
+    Flow[GetBucketInventoryConfigurationRequest].mapAsync(parallelism) { getBucketInventoryConfigurationRequest =>
+      underlying.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest)
+    }
 
   def getBucketLifecycleConfigurationSource(
       getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest,
@@ -285,7 +337,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketLifecycleConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketLifecycleConfigurationRequest, GetBucketLifecycleConfigurationResponse, NotUsed] =
-    Flow[GetBucketLifecycleConfigurationRequest].mapAsync(parallelism)(underlying.getBucketLifecycleConfiguration)
+    Flow[GetBucketLifecycleConfigurationRequest].mapAsync(parallelism) { getBucketLifecycleConfigurationRequest =>
+      underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest)
+    }
 
   def getBucketLocationSource(getBucketLocationRequest: GetBucketLocationRequest,
                               parallelism: Int = DefaultParallelism): Source[GetBucketLocationResponse, NotUsed] =
@@ -294,7 +348,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketLocationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketLocationRequest, GetBucketLocationResponse, NotUsed] =
-    Flow[GetBucketLocationRequest].mapAsync(parallelism)(underlying.getBucketLocation)
+    Flow[GetBucketLocationRequest].mapAsync(parallelism) { getBucketLocationRequest =>
+      underlying.getBucketLocation(getBucketLocationRequest)
+    }
 
   def getBucketLoggingSource(getBucketLoggingRequest: GetBucketLoggingRequest,
                              parallelism: Int = DefaultParallelism): Source[GetBucketLoggingResponse, NotUsed] =
@@ -303,7 +359,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketLoggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketLoggingRequest, GetBucketLoggingResponse, NotUsed] =
-    Flow[GetBucketLoggingRequest].mapAsync(parallelism)(underlying.getBucketLogging)
+    Flow[GetBucketLoggingRequest].mapAsync(parallelism) { getBucketLoggingRequest =>
+      underlying.getBucketLogging(getBucketLoggingRequest)
+    }
 
   def getBucketMetricsConfigurationSource(
       getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest,
@@ -314,7 +372,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketMetricsConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketMetricsConfigurationRequest, GetBucketMetricsConfigurationResponse, NotUsed] =
-    Flow[GetBucketMetricsConfigurationRequest].mapAsync(parallelism)(underlying.getBucketMetricsConfiguration)
+    Flow[GetBucketMetricsConfigurationRequest].mapAsync(parallelism) { getBucketMetricsConfigurationRequest =>
+      underlying.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest)
+    }
 
   def getBucketNotificationConfigurationSource(
       getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest,
@@ -325,7 +385,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketNotificationConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketNotificationConfigurationRequest, GetBucketNotificationConfigurationResponse, NotUsed] =
-    Flow[GetBucketNotificationConfigurationRequest].mapAsync(parallelism)(underlying.getBucketNotificationConfiguration)
+    Flow[GetBucketNotificationConfigurationRequest].mapAsync(parallelism) { getBucketNotificationConfigurationRequest =>
+      underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest)
+    }
 
   def getBucketPolicySource(getBucketPolicyRequest: GetBucketPolicyRequest,
                             parallelism: Int = DefaultParallelism): Source[GetBucketPolicyResponse, NotUsed] =
@@ -334,7 +396,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketPolicyFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketPolicyRequest, GetBucketPolicyResponse, NotUsed] =
-    Flow[GetBucketPolicyRequest].mapAsync(parallelism)(underlying.getBucketPolicy)
+    Flow[GetBucketPolicyRequest].mapAsync(parallelism) { getBucketPolicyRequest =>
+      underlying.getBucketPolicy(getBucketPolicyRequest)
+    }
 
   def getBucketPolicyStatusSource(
       getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest,
@@ -345,7 +409,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketPolicyStatusFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketPolicyStatusRequest, GetBucketPolicyStatusResponse, NotUsed] =
-    Flow[GetBucketPolicyStatusRequest].mapAsync(parallelism)(underlying.getBucketPolicyStatus)
+    Flow[GetBucketPolicyStatusRequest].mapAsync(parallelism) { getBucketPolicyStatusRequest =>
+      underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest)
+    }
 
   def getBucketReplicationSource(getBucketReplicationRequest: GetBucketReplicationRequest,
                                  parallelism: Int = DefaultParallelism): Source[GetBucketReplicationResponse, NotUsed] =
@@ -354,7 +420,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketReplicationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketReplicationRequest, GetBucketReplicationResponse, NotUsed] =
-    Flow[GetBucketReplicationRequest].mapAsync(parallelism)(underlying.getBucketReplication)
+    Flow[GetBucketReplicationRequest].mapAsync(parallelism) { getBucketReplicationRequest =>
+      underlying.getBucketReplication(getBucketReplicationRequest)
+    }
 
   def getBucketRequestPaymentSource(
       getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest,
@@ -365,7 +433,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketRequestPaymentFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketRequestPaymentRequest, GetBucketRequestPaymentResponse, NotUsed] =
-    Flow[GetBucketRequestPaymentRequest].mapAsync(parallelism)(underlying.getBucketRequestPayment)
+    Flow[GetBucketRequestPaymentRequest].mapAsync(parallelism) { getBucketRequestPaymentRequest =>
+      underlying.getBucketRequestPayment(getBucketRequestPaymentRequest)
+    }
 
   def getBucketTaggingSource(getBucketTaggingRequest: GetBucketTaggingRequest,
                              parallelism: Int = DefaultParallelism): Source[GetBucketTaggingResponse, NotUsed] =
@@ -374,7 +444,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketTaggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketTaggingRequest, GetBucketTaggingResponse, NotUsed] =
-    Flow[GetBucketTaggingRequest].mapAsync(parallelism)(underlying.getBucketTagging)
+    Flow[GetBucketTaggingRequest].mapAsync(parallelism) { getBucketTaggingRequest =>
+      underlying.getBucketTagging(getBucketTaggingRequest)
+    }
 
   def getBucketVersioningSource(getBucketVersioningRequest: GetBucketVersioningRequest,
                                 parallelism: Int = DefaultParallelism): Source[GetBucketVersioningResponse, NotUsed] =
@@ -383,7 +455,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketVersioningFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketVersioningRequest, GetBucketVersioningResponse, NotUsed] =
-    Flow[GetBucketVersioningRequest].mapAsync(parallelism)(underlying.getBucketVersioning)
+    Flow[GetBucketVersioningRequest].mapAsync(parallelism) { getBucketVersioningRequest =>
+      underlying.getBucketVersioning(getBucketVersioningRequest)
+    }
 
   def getBucketWebsiteSource(getBucketWebsiteRequest: GetBucketWebsiteRequest,
                              parallelism: Int = DefaultParallelism): Source[GetBucketWebsiteResponse, NotUsed] =
@@ -392,7 +466,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getBucketWebsiteFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetBucketWebsiteRequest, GetBucketWebsiteResponse, NotUsed] =
-    Flow[GetBucketWebsiteRequest].mapAsync(parallelism)(underlying.getBucketWebsite)
+    Flow[GetBucketWebsiteRequest].mapAsync(parallelism) { getBucketWebsiteRequest =>
+      underlying.getBucketWebsite(getBucketWebsiteRequest)
+    }
 
   def getObjectAclSource(getObjectAclRequest: GetObjectAclRequest,
                          parallelism: Int = DefaultParallelism): Source[GetObjectAclResponse, NotUsed] =
@@ -401,7 +477,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getObjectAclFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetObjectAclRequest, GetObjectAclResponse, NotUsed] =
-    Flow[GetObjectAclRequest].mapAsync(parallelism)(underlying.getObjectAcl)
+    Flow[GetObjectAclRequest].mapAsync(parallelism) { getObjectAclRequest =>
+      underlying.getObjectAcl(getObjectAclRequest)
+    }
 
   def getObjectLegalHoldSource(getObjectLegalHoldRequest: GetObjectLegalHoldRequest,
                                parallelism: Int = DefaultParallelism): Source[GetObjectLegalHoldResponse, NotUsed] =
@@ -410,7 +488,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getObjectLegalHoldFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetObjectLegalHoldRequest, GetObjectLegalHoldResponse, NotUsed] =
-    Flow[GetObjectLegalHoldRequest].mapAsync(parallelism)(underlying.getObjectLegalHold)
+    Flow[GetObjectLegalHoldRequest].mapAsync(parallelism) { getObjectLegalHoldRequest =>
+      underlying.getObjectLegalHold(getObjectLegalHoldRequest)
+    }
 
   def getObjectLockConfigurationSource(
       getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest,
@@ -421,7 +501,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getObjectLockConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetObjectLockConfigurationRequest, GetObjectLockConfigurationResponse, NotUsed] =
-    Flow[GetObjectLockConfigurationRequest].mapAsync(parallelism)(underlying.getObjectLockConfiguration)
+    Flow[GetObjectLockConfigurationRequest].mapAsync(parallelism) { getObjectLockConfigurationRequest =>
+      underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest)
+    }
 
   def getObjectRetentionSource(getObjectRetentionRequest: GetObjectRetentionRequest,
                                parallelism: Int = DefaultParallelism): Source[GetObjectRetentionResponse, NotUsed] =
@@ -430,7 +512,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getObjectRetentionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetObjectRetentionRequest, GetObjectRetentionResponse, NotUsed] =
-    Flow[GetObjectRetentionRequest].mapAsync(parallelism)(underlying.getObjectRetention)
+    Flow[GetObjectRetentionRequest].mapAsync(parallelism) { getObjectRetentionRequest =>
+      underlying.getObjectRetention(getObjectRetentionRequest)
+    }
 
   def getObjectTaggingSource(getObjectTaggingRequest: GetObjectTaggingRequest,
                              parallelism: Int = DefaultParallelism): Source[GetObjectTaggingResponse, NotUsed] =
@@ -439,7 +523,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getObjectTaggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetObjectTaggingRequest, GetObjectTaggingResponse, NotUsed] =
-    Flow[GetObjectTaggingRequest].mapAsync(parallelism)(underlying.getObjectTagging)
+    Flow[GetObjectTaggingRequest].mapAsync(parallelism) { getObjectTaggingRequest =>
+      underlying.getObjectTagging(getObjectTaggingRequest)
+    }
 
   def getPublicAccessBlockSource(getPublicAccessBlockRequest: GetPublicAccessBlockRequest,
                                  parallelism: Int = DefaultParallelism): Source[GetPublicAccessBlockResponse, NotUsed] =
@@ -448,21 +534,27 @@ trait S3StreamClient extends S3StreamClientSupport {
   def getPublicAccessBlockFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[GetPublicAccessBlockRequest, GetPublicAccessBlockResponse, NotUsed] =
-    Flow[GetPublicAccessBlockRequest].mapAsync(parallelism)(underlying.getPublicAccessBlock)
+    Flow[GetPublicAccessBlockRequest].mapAsync(parallelism) { getPublicAccessBlockRequest =>
+      underlying.getPublicAccessBlock(getPublicAccessBlockRequest)
+    }
 
   def headBucketSource(headBucketRequest: HeadBucketRequest,
                        parallelism: Int = DefaultParallelism): Source[HeadBucketResponse, NotUsed] =
     Source.single(headBucketRequest).via(headBucketFlow(parallelism))
 
   def headBucketFlow(parallelism: Int = DefaultParallelism): Flow[HeadBucketRequest, HeadBucketResponse, NotUsed] =
-    Flow[HeadBucketRequest].mapAsync(parallelism)(underlying.headBucket)
+    Flow[HeadBucketRequest].mapAsync(parallelism) { headBucketRequest =>
+      underlying.headBucket(headBucketRequest)
+    }
 
   def headObjectSource(headObjectRequest: HeadObjectRequest,
                        parallelism: Int = DefaultParallelism): Source[HeadObjectResponse, NotUsed] =
     Source.single(headObjectRequest).via(headObjectFlow(parallelism))
 
   def headObjectFlow(parallelism: Int = DefaultParallelism): Flow[HeadObjectRequest, HeadObjectResponse, NotUsed] =
-    Flow[HeadObjectRequest].mapAsync(parallelism)(underlying.headObject)
+    Flow[HeadObjectRequest].mapAsync(parallelism) { headObjectRequest =>
+      underlying.headObject(headObjectRequest)
+    }
 
   def listBucketAnalyticsConfigurationsSource(
       listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest,
@@ -473,7 +565,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def listBucketAnalyticsConfigurationsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListBucketAnalyticsConfigurationsRequest, ListBucketAnalyticsConfigurationsResponse, NotUsed] =
-    Flow[ListBucketAnalyticsConfigurationsRequest].mapAsync(parallelism)(underlying.listBucketAnalyticsConfigurations)
+    Flow[ListBucketAnalyticsConfigurationsRequest].mapAsync(parallelism) { listBucketAnalyticsConfigurationsRequest =>
+      underlying.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest)
+    }
 
   def listBucketInventoryConfigurationsSource(
       listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest,
@@ -484,7 +578,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def listBucketInventoryConfigurationsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListBucketInventoryConfigurationsRequest, ListBucketInventoryConfigurationsResponse, NotUsed] =
-    Flow[ListBucketInventoryConfigurationsRequest].mapAsync(parallelism)(underlying.listBucketInventoryConfigurations)
+    Flow[ListBucketInventoryConfigurationsRequest].mapAsync(parallelism) { listBucketInventoryConfigurationsRequest =>
+      underlying.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest)
+    }
 
   def listBucketMetricsConfigurationsSource(
       listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest,
@@ -495,14 +591,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def listBucketMetricsConfigurationsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListBucketMetricsConfigurationsRequest, ListBucketMetricsConfigurationsResponse, NotUsed] =
-    Flow[ListBucketMetricsConfigurationsRequest].mapAsync(parallelism)(underlying.listBucketMetricsConfigurations)
-
-  def listBucketsSource(listBucketsRequest: ListBucketsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListBucketsResponse, NotUsed] =
-    Source.single(listBucketsRequest).via(listBucketsFlow(parallelism))
-
-  def listBucketsFlow(parallelism: Int = DefaultParallelism): Flow[ListBucketsRequest, ListBucketsResponse, NotUsed] =
-    Flow[ListBucketsRequest].mapAsync(parallelism)(underlying.listBuckets)
+    Flow[ListBucketMetricsConfigurationsRequest].mapAsync(parallelism) { listBucketMetricsConfigurationsRequest =>
+      underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest)
+    }
 
   def listMultipartUploadsSource(listMultipartUploadsRequest: ListMultipartUploadsRequest,
                                  parallelism: Int = DefaultParallelism): Source[ListMultipartUploadsResponse, NotUsed] =
@@ -511,9 +602,11 @@ trait S3StreamClient extends S3StreamClientSupport {
   def listMultipartUploadsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListMultipartUploadsRequest, ListMultipartUploadsResponse, NotUsed] =
-    Flow[ListMultipartUploadsRequest].mapAsync(parallelism)(underlying.listMultipartUploads)
+    Flow[ListMultipartUploadsRequest].mapAsync(parallelism) { listMultipartUploadsRequest =>
+      underlying.listMultipartUploads(listMultipartUploadsRequest)
+    }
 
-  def listMultipartUploadsFlow: Flow[ListMultipartUploadsRequest, ListMultipartUploadsResponse, NotUsed] =
+  def listMultipartUploadsPaginatorFlow: Flow[ListMultipartUploadsRequest, ListMultipartUploadsResponse, NotUsed] =
     Flow[ListMultipartUploadsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listMultipartUploadsPaginator(request))
     }
@@ -525,9 +618,11 @@ trait S3StreamClient extends S3StreamClientSupport {
   def listObjectVersionsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListObjectVersionsRequest, ListObjectVersionsResponse, NotUsed] =
-    Flow[ListObjectVersionsRequest].mapAsync(parallelism)(underlying.listObjectVersions)
+    Flow[ListObjectVersionsRequest].mapAsync(parallelism) { listObjectVersionsRequest =>
+      underlying.listObjectVersions(listObjectVersionsRequest)
+    }
 
-  def listObjectVersionsFlow: Flow[ListObjectVersionsRequest, ListObjectVersionsResponse, NotUsed] =
+  def listObjectVersionsPaginatorFlow: Flow[ListObjectVersionsRequest, ListObjectVersionsResponse, NotUsed] =
     Flow[ListObjectVersionsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listObjectVersionsPaginator(request))
     }
@@ -537,7 +632,9 @@ trait S3StreamClient extends S3StreamClientSupport {
     Source.single(listObjectsRequest).via(listObjectsFlow(parallelism))
 
   def listObjectsFlow(parallelism: Int = DefaultParallelism): Flow[ListObjectsRequest, ListObjectsResponse, NotUsed] =
-    Flow[ListObjectsRequest].mapAsync(parallelism)(underlying.listObjects)
+    Flow[ListObjectsRequest].mapAsync(parallelism) { listObjectsRequest =>
+      underlying.listObjects(listObjectsRequest)
+    }
 
   def listObjectsV2Source(listObjectsV2Request: ListObjectsV2Request,
                           parallelism: Int = DefaultParallelism): Source[ListObjectsV2Response, NotUsed] =
@@ -546,9 +643,11 @@ trait S3StreamClient extends S3StreamClientSupport {
   def listObjectsV2Flow(
       parallelism: Int = DefaultParallelism
   ): Flow[ListObjectsV2Request, ListObjectsV2Response, NotUsed] =
-    Flow[ListObjectsV2Request].mapAsync(parallelism)(underlying.listObjectsV2)
+    Flow[ListObjectsV2Request].mapAsync(parallelism) { listObjectsV2Request =>
+      underlying.listObjectsV2(listObjectsV2Request)
+    }
 
-  def listObjectsV2Flow: Flow[ListObjectsV2Request, ListObjectsV2Response, NotUsed] =
+  def listObjectsV2PaginatorFlow: Flow[ListObjectsV2Request, ListObjectsV2Response, NotUsed] =
     Flow[ListObjectsV2Request].flatMapConcat { request =>
       Source.fromPublisher(underlying.listObjectsV2Paginator(request))
     }
@@ -558,12 +657,14 @@ trait S3StreamClient extends S3StreamClientSupport {
     Source.single(listPartsRequest).via(listPartsFlow(parallelism))
 
   def listPartsFlow(parallelism: Int = DefaultParallelism): Flow[ListPartsRequest, ListPartsResponse, NotUsed] =
-    Flow[ListPartsRequest].mapAsync(parallelism)(underlying.listParts)
+    Flow[ListPartsRequest].mapAsync(parallelism) { listPartsRequest =>
+      underlying.listParts(listPartsRequest)
+    }
 
-  def listPartsFlow: Flow[ListPartsRequest, ListPartsResponse, NotUsed] = Flow[ListPartsRequest].flatMapConcat {
-    request =>
+  def listPartsPaginatorFlow: Flow[ListPartsRequest, ListPartsResponse, NotUsed] =
+    Flow[ListPartsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listPartsPaginator(request))
-  }
+    }
 
   def putBucketAccelerateConfigurationSource(
       putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest,
@@ -574,7 +675,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketAccelerateConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketAccelerateConfigurationRequest, PutBucketAccelerateConfigurationResponse, NotUsed] =
-    Flow[PutBucketAccelerateConfigurationRequest].mapAsync(parallelism)(underlying.putBucketAccelerateConfiguration)
+    Flow[PutBucketAccelerateConfigurationRequest].mapAsync(parallelism) { putBucketAccelerateConfigurationRequest =>
+      underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest)
+    }
 
   def putBucketAclSource(putBucketAclRequest: PutBucketAclRequest,
                          parallelism: Int = DefaultParallelism): Source[PutBucketAclResponse, NotUsed] =
@@ -583,7 +686,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketAclFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketAclRequest, PutBucketAclResponse, NotUsed] =
-    Flow[PutBucketAclRequest].mapAsync(parallelism)(underlying.putBucketAcl)
+    Flow[PutBucketAclRequest].mapAsync(parallelism) { putBucketAclRequest =>
+      underlying.putBucketAcl(putBucketAclRequest)
+    }
 
   def putBucketAnalyticsConfigurationSource(
       putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest,
@@ -594,7 +699,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketAnalyticsConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketAnalyticsConfigurationRequest, PutBucketAnalyticsConfigurationResponse, NotUsed] =
-    Flow[PutBucketAnalyticsConfigurationRequest].mapAsync(parallelism)(underlying.putBucketAnalyticsConfiguration)
+    Flow[PutBucketAnalyticsConfigurationRequest].mapAsync(parallelism) { putBucketAnalyticsConfigurationRequest =>
+      underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest)
+    }
 
   def putBucketCorsSource(putBucketCorsRequest: PutBucketCorsRequest,
                           parallelism: Int = DefaultParallelism): Source[PutBucketCorsResponse, NotUsed] =
@@ -603,7 +710,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketCorsFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketCorsRequest, PutBucketCorsResponse, NotUsed] =
-    Flow[PutBucketCorsRequest].mapAsync(parallelism)(underlying.putBucketCors)
+    Flow[PutBucketCorsRequest].mapAsync(parallelism) { putBucketCorsRequest =>
+      underlying.putBucketCors(putBucketCorsRequest)
+    }
 
   def putBucketEncryptionSource(putBucketEncryptionRequest: PutBucketEncryptionRequest,
                                 parallelism: Int = DefaultParallelism): Source[PutBucketEncryptionResponse, NotUsed] =
@@ -612,7 +721,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketEncryptionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketEncryptionRequest, PutBucketEncryptionResponse, NotUsed] =
-    Flow[PutBucketEncryptionRequest].mapAsync(parallelism)(underlying.putBucketEncryption)
+    Flow[PutBucketEncryptionRequest].mapAsync(parallelism) { putBucketEncryptionRequest =>
+      underlying.putBucketEncryption(putBucketEncryptionRequest)
+    }
 
   def putBucketInventoryConfigurationSource(
       putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest,
@@ -623,7 +734,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketInventoryConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketInventoryConfigurationRequest, PutBucketInventoryConfigurationResponse, NotUsed] =
-    Flow[PutBucketInventoryConfigurationRequest].mapAsync(parallelism)(underlying.putBucketInventoryConfiguration)
+    Flow[PutBucketInventoryConfigurationRequest].mapAsync(parallelism) { putBucketInventoryConfigurationRequest =>
+      underlying.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest)
+    }
 
   def putBucketLifecycleConfigurationSource(
       putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest,
@@ -634,7 +747,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketLifecycleConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketLifecycleConfigurationRequest, PutBucketLifecycleConfigurationResponse, NotUsed] =
-    Flow[PutBucketLifecycleConfigurationRequest].mapAsync(parallelism)(underlying.putBucketLifecycleConfiguration)
+    Flow[PutBucketLifecycleConfigurationRequest].mapAsync(parallelism) { putBucketLifecycleConfigurationRequest =>
+      underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest)
+    }
 
   def putBucketLoggingSource(putBucketLoggingRequest: PutBucketLoggingRequest,
                              parallelism: Int = DefaultParallelism): Source[PutBucketLoggingResponse, NotUsed] =
@@ -643,7 +758,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketLoggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketLoggingRequest, PutBucketLoggingResponse, NotUsed] =
-    Flow[PutBucketLoggingRequest].mapAsync(parallelism)(underlying.putBucketLogging)
+    Flow[PutBucketLoggingRequest].mapAsync(parallelism) { putBucketLoggingRequest =>
+      underlying.putBucketLogging(putBucketLoggingRequest)
+    }
 
   def putBucketMetricsConfigurationSource(
       putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest,
@@ -654,7 +771,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketMetricsConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketMetricsConfigurationRequest, PutBucketMetricsConfigurationResponse, NotUsed] =
-    Flow[PutBucketMetricsConfigurationRequest].mapAsync(parallelism)(underlying.putBucketMetricsConfiguration)
+    Flow[PutBucketMetricsConfigurationRequest].mapAsync(parallelism) { putBucketMetricsConfigurationRequest =>
+      underlying.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest)
+    }
 
   def putBucketNotificationConfigurationSource(
       putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest,
@@ -665,7 +784,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketNotificationConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketNotificationConfigurationRequest, PutBucketNotificationConfigurationResponse, NotUsed] =
-    Flow[PutBucketNotificationConfigurationRequest].mapAsync(parallelism)(underlying.putBucketNotificationConfiguration)
+    Flow[PutBucketNotificationConfigurationRequest].mapAsync(parallelism) { putBucketNotificationConfigurationRequest =>
+      underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest)
+    }
 
   def putBucketPolicySource(putBucketPolicyRequest: PutBucketPolicyRequest,
                             parallelism: Int = DefaultParallelism): Source[PutBucketPolicyResponse, NotUsed] =
@@ -674,7 +795,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketPolicyFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketPolicyRequest, PutBucketPolicyResponse, NotUsed] =
-    Flow[PutBucketPolicyRequest].mapAsync(parallelism)(underlying.putBucketPolicy)
+    Flow[PutBucketPolicyRequest].mapAsync(parallelism) { putBucketPolicyRequest =>
+      underlying.putBucketPolicy(putBucketPolicyRequest)
+    }
 
   def putBucketReplicationSource(putBucketReplicationRequest: PutBucketReplicationRequest,
                                  parallelism: Int = DefaultParallelism): Source[PutBucketReplicationResponse, NotUsed] =
@@ -683,7 +806,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketReplicationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketReplicationRequest, PutBucketReplicationResponse, NotUsed] =
-    Flow[PutBucketReplicationRequest].mapAsync(parallelism)(underlying.putBucketReplication)
+    Flow[PutBucketReplicationRequest].mapAsync(parallelism) { putBucketReplicationRequest =>
+      underlying.putBucketReplication(putBucketReplicationRequest)
+    }
 
   def putBucketRequestPaymentSource(
       putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest,
@@ -694,7 +819,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketRequestPaymentFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketRequestPaymentRequest, PutBucketRequestPaymentResponse, NotUsed] =
-    Flow[PutBucketRequestPaymentRequest].mapAsync(parallelism)(underlying.putBucketRequestPayment)
+    Flow[PutBucketRequestPaymentRequest].mapAsync(parallelism) { putBucketRequestPaymentRequest =>
+      underlying.putBucketRequestPayment(putBucketRequestPaymentRequest)
+    }
 
   def putBucketTaggingSource(putBucketTaggingRequest: PutBucketTaggingRequest,
                              parallelism: Int = DefaultParallelism): Source[PutBucketTaggingResponse, NotUsed] =
@@ -703,7 +830,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketTaggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketTaggingRequest, PutBucketTaggingResponse, NotUsed] =
-    Flow[PutBucketTaggingRequest].mapAsync(parallelism)(underlying.putBucketTagging)
+    Flow[PutBucketTaggingRequest].mapAsync(parallelism) { putBucketTaggingRequest =>
+      underlying.putBucketTagging(putBucketTaggingRequest)
+    }
 
   def putBucketVersioningSource(putBucketVersioningRequest: PutBucketVersioningRequest,
                                 parallelism: Int = DefaultParallelism): Source[PutBucketVersioningResponse, NotUsed] =
@@ -712,7 +841,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketVersioningFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketVersioningRequest, PutBucketVersioningResponse, NotUsed] =
-    Flow[PutBucketVersioningRequest].mapAsync(parallelism)(underlying.putBucketVersioning)
+    Flow[PutBucketVersioningRequest].mapAsync(parallelism) { putBucketVersioningRequest =>
+      underlying.putBucketVersioning(putBucketVersioningRequest)
+    }
 
   def putBucketWebsiteSource(putBucketWebsiteRequest: PutBucketWebsiteRequest,
                              parallelism: Int = DefaultParallelism): Source[PutBucketWebsiteResponse, NotUsed] =
@@ -721,7 +852,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putBucketWebsiteFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutBucketWebsiteRequest, PutBucketWebsiteResponse, NotUsed] =
-    Flow[PutBucketWebsiteRequest].mapAsync(parallelism)(underlying.putBucketWebsite)
+    Flow[PutBucketWebsiteRequest].mapAsync(parallelism) { putBucketWebsiteRequest =>
+      underlying.putBucketWebsite(putBucketWebsiteRequest)
+    }
 
   def putObjectAclSource(putObjectAclRequest: PutObjectAclRequest,
                          parallelism: Int = DefaultParallelism): Source[PutObjectAclResponse, NotUsed] =
@@ -730,7 +863,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putObjectAclFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutObjectAclRequest, PutObjectAclResponse, NotUsed] =
-    Flow[PutObjectAclRequest].mapAsync(parallelism)(underlying.putObjectAcl)
+    Flow[PutObjectAclRequest].mapAsync(parallelism) { putObjectAclRequest =>
+      underlying.putObjectAcl(putObjectAclRequest)
+    }
 
   def putObjectLegalHoldSource(putObjectLegalHoldRequest: PutObjectLegalHoldRequest,
                                parallelism: Int = DefaultParallelism): Source[PutObjectLegalHoldResponse, NotUsed] =
@@ -739,7 +874,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putObjectLegalHoldFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutObjectLegalHoldRequest, PutObjectLegalHoldResponse, NotUsed] =
-    Flow[PutObjectLegalHoldRequest].mapAsync(parallelism)(underlying.putObjectLegalHold)
+    Flow[PutObjectLegalHoldRequest].mapAsync(parallelism) { putObjectLegalHoldRequest =>
+      underlying.putObjectLegalHold(putObjectLegalHoldRequest)
+    }
 
   def putObjectLockConfigurationSource(
       putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest,
@@ -750,7 +887,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putObjectLockConfigurationFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutObjectLockConfigurationRequest, PutObjectLockConfigurationResponse, NotUsed] =
-    Flow[PutObjectLockConfigurationRequest].mapAsync(parallelism)(underlying.putObjectLockConfiguration)
+    Flow[PutObjectLockConfigurationRequest].mapAsync(parallelism) { putObjectLockConfigurationRequest =>
+      underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest)
+    }
 
   def putObjectRetentionSource(putObjectRetentionRequest: PutObjectRetentionRequest,
                                parallelism: Int = DefaultParallelism): Source[PutObjectRetentionResponse, NotUsed] =
@@ -759,7 +898,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putObjectRetentionFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutObjectRetentionRequest, PutObjectRetentionResponse, NotUsed] =
-    Flow[PutObjectRetentionRequest].mapAsync(parallelism)(underlying.putObjectRetention)
+    Flow[PutObjectRetentionRequest].mapAsync(parallelism) { putObjectRetentionRequest =>
+      underlying.putObjectRetention(putObjectRetentionRequest)
+    }
 
   def putObjectTaggingSource(putObjectTaggingRequest: PutObjectTaggingRequest,
                              parallelism: Int = DefaultParallelism): Source[PutObjectTaggingResponse, NotUsed] =
@@ -768,7 +909,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putObjectTaggingFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutObjectTaggingRequest, PutObjectTaggingResponse, NotUsed] =
-    Flow[PutObjectTaggingRequest].mapAsync(parallelism)(underlying.putObjectTagging)
+    Flow[PutObjectTaggingRequest].mapAsync(parallelism) { putObjectTaggingRequest =>
+      underlying.putObjectTagging(putObjectTaggingRequest)
+    }
 
   def putPublicAccessBlockSource(putPublicAccessBlockRequest: PutPublicAccessBlockRequest,
                                  parallelism: Int = DefaultParallelism): Source[PutPublicAccessBlockResponse, NotUsed] =
@@ -777,7 +920,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def putPublicAccessBlockFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[PutPublicAccessBlockRequest, PutPublicAccessBlockResponse, NotUsed] =
-    Flow[PutPublicAccessBlockRequest].mapAsync(parallelism)(underlying.putPublicAccessBlock)
+    Flow[PutPublicAccessBlockRequest].mapAsync(parallelism) { putPublicAccessBlockRequest =>
+      underlying.putPublicAccessBlock(putPublicAccessBlockRequest)
+    }
 
   def restoreObjectSource(restoreObjectRequest: RestoreObjectRequest,
                           parallelism: Int = DefaultParallelism): Source[RestoreObjectResponse, NotUsed] =
@@ -786,7 +931,9 @@ trait S3StreamClient extends S3StreamClientSupport {
   def restoreObjectFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[RestoreObjectRequest, RestoreObjectResponse, NotUsed] =
-    Flow[RestoreObjectRequest].mapAsync(parallelism)(underlying.restoreObject)
+    Flow[RestoreObjectRequest].mapAsync(parallelism) { restoreObjectRequest =>
+      underlying.restoreObject(restoreObjectRequest)
+    }
 
   def uploadPartCopySource(uploadPartCopyRequest: UploadPartCopyRequest,
                            parallelism: Int = DefaultParallelism): Source[UploadPartCopyResponse, NotUsed] =
@@ -795,6 +942,8 @@ trait S3StreamClient extends S3StreamClientSupport {
   def uploadPartCopyFlow(
       parallelism: Int = DefaultParallelism
   ): Flow[UploadPartCopyRequest, UploadPartCopyResponse, NotUsed] =
-    Flow[UploadPartCopyRequest].mapAsync(parallelism)(underlying.uploadPartCopy)
+    Flow[UploadPartCopyRequest].mapAsync(parallelism) { uploadPartCopyRequest =>
+      underlying.uploadPartCopy(uploadPartCopyRequest)
+    }
 
 }
