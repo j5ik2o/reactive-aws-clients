@@ -134,10 +134,10 @@ lazy val `reactive-aws-sqs-cats` = (project in file("reactive-aws-sqs/cats"))
   .dependsOn(`reactive-aws-common-cats`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
 
 lazy val `reactive-aws-sqs-monix` = (project in file("reactive-aws-sqs/monix"))
-  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-sqs-core`, `reactive-aws-s3-test` % "test")
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
 
 lazy val `reactive-aws-sqs-akka` = (project in file("reactive-aws-sqs/akka"))
-  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-sqs-core`, `reactive-aws-s3-test` % "test")
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
 
 lazy val `reactive-aws-sqs-root`: Project = (project in file("reactive-aws-sqs"))
   .settings(coreSettings)
@@ -152,13 +152,47 @@ lazy val `reactive-aws-sqs-root`: Project = (project in file("reactive-aws-sqs")
     `reactive-aws-sqs-monix`
   )
 
+// --- appsync
+
+lazy val `reactive-aws-appsync-test` = (project in file("reactive-aws-appsync/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-appsync-core` =
+  (project in file("reactive-aws-appsync/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-cats` = (project in file("reactive-aws-appsync/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-appsync-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-monix` = (project in file("reactive-aws-appsync/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-appsync-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-akka` = (project in file("reactive-aws-appsync/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-appsync-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-root`: Project = (project in file("reactive-aws-appsync"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-appsync-project"
+  )
+  .aggregate(
+    `reactive-aws-appsync-core`,
+    `reactive-aws-appsync-test`,
+    `reactive-aws-appsync-akka`,
+    `reactive-aws-appsync-cats`,
+    `reactive-aws-appsync-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
     name := "reactive-aws-client-project"
   )
-  .aggregate(`reactive-aws-common-root`,
-             `reactive-aws-dynamodb-root`,
-             `reactive-aws-kinesis-root`,
-             `reactive-aws-s3-root`,
-             `reactive-aws-sqs-root`)
+  .aggregate(
+    `reactive-aws-common-root`,
+    `reactive-aws-dynamodb-root`,
+    `reactive-aws-kinesis-root`,
+    `reactive-aws-s3-root`,
+    `reactive-aws-sqs-root`,
+    `reactive-aws-appsync-root`
+  )
