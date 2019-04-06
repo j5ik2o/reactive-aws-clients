@@ -1,6 +1,5 @@
 package com.github.j5ik2o.reactive.aws.kinesis
 
-import com.github.j5ik2o.reactive.aws.kinesis.model.ops._
 import software.amazon.awssdk.core.SdkBytes
 import software.amazon.awssdk.services.kinesis.model._
 

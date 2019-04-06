@@ -1,37 +1,34 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3
 
+import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.s3.model._
 import software.amazon.awssdk.services.s3.paginators._
 import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
 
-object S3SyncClient {
+object S3SyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
+def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
 
 }
 
 trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
-  val underlying: JavaS3SyncClient
+val underlying: JavaS3SyncClient
 
-protected def toEither[A](f: => A): Either[Throwable, A] = {
-try {
-Right(f)
-} catch {
-case t: Throwable =>
-Left(t)
-}
-}
+import S3SyncClient._
 
-<#list methods as method><#if targetMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> = {
-    <#if method.name?ends_with("Paginator")>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-    <#else>
-        toEither(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
+<#list methods as method>
+    <#if targetMethod(method)>
+        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> = {
+        <#if method.name?ends_with("Paginator")>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        <#else>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toEither
+        </#if>
+        }
+
     </#if>
-    }
-
-</#if></#list>
+</#list>
 }
 
 <#function targetMethod methodDesc>

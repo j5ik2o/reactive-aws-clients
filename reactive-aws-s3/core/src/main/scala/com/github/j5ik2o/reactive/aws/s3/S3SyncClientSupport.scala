@@ -11,6 +11,7 @@ import software.amazon.awssdk.services.s3.model._
 
 trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
   this: S3SyncClient =>
+  import S3SyncClient._
 
   override type RT[A, B] = ResponseTransformer[A, B]
   override type RB       = RequestBody
@@ -34,13 +35,11 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
       getObjectRequest: GetObjectRequest,
       responseTransformer: ResponseTransformer[GetObjectResponse, A]
   ): Either[Throwable, A] = {
-    toEither(
-      underlying
-        .getObject(
-          getObjectRequest,
-          responseTransformer
-        )
-    )
+    underlying
+      .getObject(
+        getObjectRequest,
+        responseTransformer
+      ).toEither
 
   }
 
@@ -61,21 +60,17 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
       getObjectTorrentRequest: GetObjectTorrentRequest,
       responseTransformer: ResponseTransformer[GetObjectTorrentResponse, A]
   ): Either[Throwable, A] = {
-    toEither(
-      underlying
-        .getObjectTorrent(
-          getObjectTorrentRequest,
-          responseTransformer
-        )
-    )
+    underlying
+      .getObjectTorrent(
+        getObjectTorrentRequest,
+        responseTransformer
+      ).toEither
 
   }
 
   override def putObject(putObjectRequest: PutObjectRequest,
                          requestBody: RequestBody): Either[Throwable, PutObjectResponse] = {
-    toEither(
-      underlying.putObject(putObjectRequest, requestBody)
-    )
+    underlying.putObject(putObjectRequest, requestBody).toEither
   }
 
   override def putObjectFromPath(putObjectRequest: PutObjectRequest,
@@ -90,9 +85,7 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
 
   override def uploadPart(uploadPartRequest: UploadPartRequest,
                           requestBody: RequestBody): Either[Throwable, UploadPartResponse] = {
-    toEither(
-      underlying.uploadPart(uploadPartRequest, requestBody)
-    )
+    underlying.uploadPart(uploadPartRequest, requestBody).toEither
   }
 
   override def uploadPartFromPath(uploadPartRequest: UploadPartRequest,

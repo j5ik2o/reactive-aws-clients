@@ -4,9 +4,11 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 trait DynamoDBClient[M[_]] extends DynamoDBClientSupport[M] {
 
-<#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
+<#list methods as method>
+    <#if targetMethod(method)>def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
 
-</#if></#list>
+    </#if>
+</#list>
 }
 <#function targetMethod methodDesc>
     <#if methodDesc.static >

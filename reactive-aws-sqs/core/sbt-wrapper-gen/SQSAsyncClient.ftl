@@ -9,23 +9,25 @@ import scala.concurrent.Future
 
 object SQSAsyncClient {
 
-  def apply(underlying: JavaSqsAsyncClient): SQSAsyncClient =
-    new SQSAsyncClientImpl(underlying)
+def apply(underlying: JavaSqsAsyncClient): SQSAsyncClient =
+new SQSAsyncClientImpl(underlying)
 
 }
 
-trait SQSAsyncClient extends SQSClient[Future] /*with SQSAsyncClientSupport*/ {
-  val underlying: JavaSqsAsyncClient
+trait SQSAsyncClient extends SQSClient[Future] {
+val underlying: JavaSqsAsyncClient
 
-<#list methods as method><#if targetAsyncMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> = {
-    <#if method.name?ends_with("Paginator")>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-    <#else>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+<#list methods as method>
+    <#if targetAsyncMethod(method)>
+        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
+        <#if method.name?ends_with("Paginator")>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        <#else>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+        </#if>
+
     </#if>
-    }
-
-</#if></#list>
+</#list>
 }
 
 <#function targetAsyncMethod methodDesc>

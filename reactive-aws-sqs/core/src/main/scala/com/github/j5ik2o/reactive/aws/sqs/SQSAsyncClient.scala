@@ -14,103 +14,82 @@ object SQSAsyncClient {
 
 }
 
-trait SQSAsyncClient extends SQSClient[Future] /*with SQSAsyncClientSupport*/ {
+trait SQSAsyncClient extends SQSClient[Future] {
   val underlying: JavaSqsAsyncClient
 
-  override def addPermission(addPermissionRequest: AddPermissionRequest): Future[AddPermissionResponse] = {
+  override def addPermission(addPermissionRequest: AddPermissionRequest): Future[AddPermissionResponse] =
     underlying.addPermission(addPermissionRequest).toScala
-  }
 
   override def changeMessageVisibility(
       changeMessageVisibilityRequest: ChangeMessageVisibilityRequest
-  ): Future[ChangeMessageVisibilityResponse] = {
+  ): Future[ChangeMessageVisibilityResponse] =
     underlying.changeMessageVisibility(changeMessageVisibilityRequest).toScala
-  }
 
   override def changeMessageVisibilityBatch(
       changeMessageVisibilityBatchRequest: ChangeMessageVisibilityBatchRequest
-  ): Future[ChangeMessageVisibilityBatchResponse] = {
+  ): Future[ChangeMessageVisibilityBatchResponse] =
     underlying.changeMessageVisibilityBatch(changeMessageVisibilityBatchRequest).toScala
-  }
 
-  override def createQueue(createQueueRequest: CreateQueueRequest): Future[CreateQueueResponse] = {
+  override def createQueue(createQueueRequest: CreateQueueRequest): Future[CreateQueueResponse] =
     underlying.createQueue(createQueueRequest).toScala
-  }
 
-  override def deleteMessage(deleteMessageRequest: DeleteMessageRequest): Future[DeleteMessageResponse] = {
+  override def deleteMessage(deleteMessageRequest: DeleteMessageRequest): Future[DeleteMessageResponse] =
     underlying.deleteMessage(deleteMessageRequest).toScala
-  }
 
   override def deleteMessageBatch(
       deleteMessageBatchRequest: DeleteMessageBatchRequest
-  ): Future[DeleteMessageBatchResponse] = {
+  ): Future[DeleteMessageBatchResponse] =
     underlying.deleteMessageBatch(deleteMessageBatchRequest).toScala
-  }
 
-  override def deleteQueue(deleteQueueRequest: DeleteQueueRequest): Future[DeleteQueueResponse] = {
+  override def deleteQueue(deleteQueueRequest: DeleteQueueRequest): Future[DeleteQueueResponse] =
     underlying.deleteQueue(deleteQueueRequest).toScala
-  }
 
   override def getQueueAttributes(
       getQueueAttributesRequest: GetQueueAttributesRequest
-  ): Future[GetQueueAttributesResponse] = {
+  ): Future[GetQueueAttributesResponse] =
     underlying.getQueueAttributes(getQueueAttributesRequest).toScala
-  }
 
-  override def getQueueUrl(getQueueUrlRequest: GetQueueUrlRequest): Future[GetQueueUrlResponse] = {
+  override def getQueueUrl(getQueueUrlRequest: GetQueueUrlRequest): Future[GetQueueUrlResponse] =
     underlying.getQueueUrl(getQueueUrlRequest).toScala
-  }
 
   override def listDeadLetterSourceQueues(
       listDeadLetterSourceQueuesRequest: ListDeadLetterSourceQueuesRequest
-  ): Future[ListDeadLetterSourceQueuesResponse] = {
+  ): Future[ListDeadLetterSourceQueuesResponse] =
     underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest).toScala
-  }
 
-  override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Future[ListQueueTagsResponse] = {
+  override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Future[ListQueueTagsResponse] =
     underlying.listQueueTags(listQueueTagsRequest).toScala
-  }
 
-  override def listQueues(listQueuesRequest: ListQueuesRequest): Future[ListQueuesResponse] = {
+  override def listQueues(listQueuesRequest: ListQueuesRequest): Future[ListQueuesResponse] =
     underlying.listQueues(listQueuesRequest).toScala
-  }
 
-  override def listQueues(): Future[ListQueuesResponse] = {
+  override def listQueues(): Future[ListQueuesResponse] =
     underlying.listQueues().toScala
-  }
 
-  override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Future[PurgeQueueResponse] = {
+  override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Future[PurgeQueueResponse] =
     underlying.purgeQueue(purgeQueueRequest).toScala
-  }
 
-  override def receiveMessage(receiveMessageRequest: ReceiveMessageRequest): Future[ReceiveMessageResponse] = {
+  override def receiveMessage(receiveMessageRequest: ReceiveMessageRequest): Future[ReceiveMessageResponse] =
     underlying.receiveMessage(receiveMessageRequest).toScala
-  }
 
-  override def removePermission(removePermissionRequest: RemovePermissionRequest): Future[RemovePermissionResponse] = {
+  override def removePermission(removePermissionRequest: RemovePermissionRequest): Future[RemovePermissionResponse] =
     underlying.removePermission(removePermissionRequest).toScala
-  }
 
-  override def sendMessage(sendMessageRequest: SendMessageRequest): Future[SendMessageResponse] = {
+  override def sendMessage(sendMessageRequest: SendMessageRequest): Future[SendMessageResponse] =
     underlying.sendMessage(sendMessageRequest).toScala
-  }
 
-  override def sendMessageBatch(sendMessageBatchRequest: SendMessageBatchRequest): Future[SendMessageBatchResponse] = {
+  override def sendMessageBatch(sendMessageBatchRequest: SendMessageBatchRequest): Future[SendMessageBatchResponse] =
     underlying.sendMessageBatch(sendMessageBatchRequest).toScala
-  }
 
   override def setQueueAttributes(
       setQueueAttributesRequest: SetQueueAttributesRequest
-  ): Future[SetQueueAttributesResponse] = {
+  ): Future[SetQueueAttributesResponse] =
     underlying.setQueueAttributes(setQueueAttributesRequest).toScala
-  }
 
-  override def tagQueue(tagQueueRequest: TagQueueRequest): Future[TagQueueResponse] = {
+  override def tagQueue(tagQueueRequest: TagQueueRequest): Future[TagQueueResponse] =
     underlying.tagQueue(tagQueueRequest).toScala
-  }
 
-  override def untagQueue(untagQueueRequest: UntagQueueRequest): Future[UntagQueueResponse] = {
+  override def untagQueue(untagQueueRequest: UntagQueueRequest): Future[UntagQueueResponse] =
     underlying.untagQueue(untagQueueRequest).toScala
-  }
 
 }

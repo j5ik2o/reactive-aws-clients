@@ -10,22 +10,25 @@ import scala.concurrent.Future
 
 object S3AsyncClient {
 
-  def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
-    new S3AsyncClientImpl(underlying)
+def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
+new S3AsyncClientImpl(underlying)
 
 }
 
 trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
-  val underlying: JavaS3AsyncClient
+val underlying: JavaS3AsyncClient
 
-<#list methods as method><#if targetAsyncMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
-    <#if method.name?ends_with("Paginator")>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-    <#else>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+<#list methods as method>
+    <#if targetAsyncMethod(method)>
+        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
+        <#if method.name?ends_with("Paginator")>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        <#else>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+        </#if>
+
     </#if>
-
-</#if></#list>
+</#list>
 }
 
 <#function targetAsyncMethod methodDesc>

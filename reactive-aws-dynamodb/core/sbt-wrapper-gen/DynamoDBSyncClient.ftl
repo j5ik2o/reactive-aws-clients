@@ -1,37 +1,32 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb
 
+import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 import software.amazon.awssdk.services.dynamodb.paginators._
 
-object DynamoDBSyncClient {
+object DynamoDBSyncClient extends ToEitherSupport {
 
-  def apply(underlying: DynamoDbClient): DynamoDBSyncClient = new DynamoDBSyncClientImpl(underlying)
+def apply(underlying: DynamoDbClient): DynamoDBSyncClient = new DynamoDBSyncClientImpl(underlying)
 
 }
 
 trait DynamoDBSyncClient extends DynamoDBClient[Either[Throwable, ?]] {
-  val underlying: DynamoDbClient
+val underlying: DynamoDbClient
+import DynamoDBSyncClient._
 
-  private def toEither[A](f: => A): Either[Throwable, A] = {
-    try {
-      Right(f)
-    } catch {
-      case t: Throwable =>
-        Left(t)
-    }
-  }
+<#list methods as method>
+    <#if targetMethod(method)>
+        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> =
+        <#if method.name?ends_with("Paginator")>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        <#else>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toEither
+        </#if>
 
-<#list methods as method><#if targetMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> = {
-    <#if method.name?ends_with("Paginator")>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-    <#else>
-        toEither(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
     </#if>
-    }
-
-</#if></#list>
+</#list>
 }
 
 <#function targetMethod methodDesc>

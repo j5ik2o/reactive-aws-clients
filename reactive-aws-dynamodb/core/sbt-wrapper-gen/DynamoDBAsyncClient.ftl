@@ -10,23 +10,25 @@ import scala.concurrent.Future
 
 object DynamoDBAsyncClient {
 
-  def apply(underlying: DynamoDbAsyncClient): DynamoDBAsyncClient =
-    new DynamoDBAsyncClientImpl(underlying)
+def apply(underlying: DynamoDbAsyncClient): DynamoDBAsyncClient =
+new DynamoDBAsyncClientImpl(underlying)
 
 }
 
 trait DynamoDBAsyncClient extends DynamoDBClient[Future] {
-  val underlying: DynamoDbAsyncClient
+val underlying: DynamoDbAsyncClient
 
-<#list methods as method><#if targetMethod(method)>    <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> = {
-    <#if method.name?ends_with("Paginator")>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-    <#else>
-        underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+<#list methods as method>
+    <#if targetMethod(method)>
+        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
+        <#if method.name?ends_with("Paginator")>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+        <#else>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
+        </#if>
+
     </#if>
-    }
-
-</#if></#list>
+</#list>
 }
 
 <#function targetMethod methodDesc>

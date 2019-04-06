@@ -1,127 +1,98 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.sqs
 
+import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.sqs.model._
 import software.amazon.awssdk.services.sqs.{ SqsClient => JavaSQSSyncClient }
 
-object SQSSyncClient {
+object SQSSyncClient extends ToEitherSupport {
 
   def apply(underlying: JavaSQSSyncClient): SQSSyncClient = new SQSSyncClientImpl(underlying)
 
 }
 
-trait SQSSyncClient extends SQSClient[Either[Throwable, ?]] /*with SQSSyncClientSupport*/ {
+trait SQSSyncClient extends SQSClient[Either[Throwable, ?]] {
   val underlying: JavaSQSSyncClient
 
-  protected def toEither[A](f: => A): Either[Throwable, A] = {
-    try {
-      Right(f)
-    } catch {
-      case t: Throwable =>
-        Left(t)
-    }
-  }
+  import SQSSyncClient._
 
-  override def addPermission(addPermissionRequest: AddPermissionRequest): Either[Throwable, AddPermissionResponse] = {
-    toEither(underlying.addPermission(addPermissionRequest))
-  }
+  override def addPermission(addPermissionRequest: AddPermissionRequest): Either[Throwable, AddPermissionResponse] =
+    underlying.addPermission(addPermissionRequest).toEither
 
   override def changeMessageVisibility(
       changeMessageVisibilityRequest: ChangeMessageVisibilityRequest
-  ): Either[Throwable, ChangeMessageVisibilityResponse] = {
-    toEither(underlying.changeMessageVisibility(changeMessageVisibilityRequest))
-  }
+  ): Either[Throwable, ChangeMessageVisibilityResponse] =
+    underlying.changeMessageVisibility(changeMessageVisibilityRequest).toEither
 
   override def changeMessageVisibilityBatch(
       changeMessageVisibilityBatchRequest: ChangeMessageVisibilityBatchRequest
-  ): Either[Throwable, ChangeMessageVisibilityBatchResponse] = {
-    toEither(underlying.changeMessageVisibilityBatch(changeMessageVisibilityBatchRequest))
-  }
+  ): Either[Throwable, ChangeMessageVisibilityBatchResponse] =
+    underlying.changeMessageVisibilityBatch(changeMessageVisibilityBatchRequest).toEither
 
-  override def createQueue(createQueueRequest: CreateQueueRequest): Either[Throwable, CreateQueueResponse] = {
-    toEither(underlying.createQueue(createQueueRequest))
-  }
+  override def createQueue(createQueueRequest: CreateQueueRequest): Either[Throwable, CreateQueueResponse] =
+    underlying.createQueue(createQueueRequest).toEither
 
-  override def deleteMessage(deleteMessageRequest: DeleteMessageRequest): Either[Throwable, DeleteMessageResponse] = {
-    toEither(underlying.deleteMessage(deleteMessageRequest))
-  }
+  override def deleteMessage(deleteMessageRequest: DeleteMessageRequest): Either[Throwable, DeleteMessageResponse] =
+    underlying.deleteMessage(deleteMessageRequest).toEither
 
   override def deleteMessageBatch(
       deleteMessageBatchRequest: DeleteMessageBatchRequest
-  ): Either[Throwable, DeleteMessageBatchResponse] = {
-    toEither(underlying.deleteMessageBatch(deleteMessageBatchRequest))
-  }
+  ): Either[Throwable, DeleteMessageBatchResponse] =
+    underlying.deleteMessageBatch(deleteMessageBatchRequest).toEither
 
-  override def deleteQueue(deleteQueueRequest: DeleteQueueRequest): Either[Throwable, DeleteQueueResponse] = {
-    toEither(underlying.deleteQueue(deleteQueueRequest))
-  }
+  override def deleteQueue(deleteQueueRequest: DeleteQueueRequest): Either[Throwable, DeleteQueueResponse] =
+    underlying.deleteQueue(deleteQueueRequest).toEither
 
   override def getQueueAttributes(
       getQueueAttributesRequest: GetQueueAttributesRequest
-  ): Either[Throwable, GetQueueAttributesResponse] = {
-    toEither(underlying.getQueueAttributes(getQueueAttributesRequest))
-  }
+  ): Either[Throwable, GetQueueAttributesResponse] =
+    underlying.getQueueAttributes(getQueueAttributesRequest).toEither
 
-  override def getQueueUrl(getQueueUrlRequest: GetQueueUrlRequest): Either[Throwable, GetQueueUrlResponse] = {
-    toEither(underlying.getQueueUrl(getQueueUrlRequest))
-  }
+  override def getQueueUrl(getQueueUrlRequest: GetQueueUrlRequest): Either[Throwable, GetQueueUrlResponse] =
+    underlying.getQueueUrl(getQueueUrlRequest).toEither
 
   override def listDeadLetterSourceQueues(
       listDeadLetterSourceQueuesRequest: ListDeadLetterSourceQueuesRequest
-  ): Either[Throwable, ListDeadLetterSourceQueuesResponse] = {
-    toEither(underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest))
-  }
+  ): Either[Throwable, ListDeadLetterSourceQueuesResponse] =
+    underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest).toEither
 
-  override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Either[Throwable, ListQueueTagsResponse] = {
-    toEither(underlying.listQueueTags(listQueueTagsRequest))
-  }
+  override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Either[Throwable, ListQueueTagsResponse] =
+    underlying.listQueueTags(listQueueTagsRequest).toEither
 
-  override def listQueues(): Either[Throwable, ListQueuesResponse] = {
-    toEither(underlying.listQueues())
-  }
+  override def listQueues(): Either[Throwable, ListQueuesResponse] =
+    underlying.listQueues().toEither
 
-  override def listQueues(listQueuesRequest: ListQueuesRequest): Either[Throwable, ListQueuesResponse] = {
-    toEither(underlying.listQueues(listQueuesRequest))
-  }
+  override def listQueues(listQueuesRequest: ListQueuesRequest): Either[Throwable, ListQueuesResponse] =
+    underlying.listQueues(listQueuesRequest).toEither
 
-  override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Either[Throwable, PurgeQueueResponse] = {
-    toEither(underlying.purgeQueue(purgeQueueRequest))
-  }
+  override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Either[Throwable, PurgeQueueResponse] =
+    underlying.purgeQueue(purgeQueueRequest).toEither
 
-  override def receiveMessage(
-      receiveMessageRequest: ReceiveMessageRequest
-  ): Either[Throwable, ReceiveMessageResponse] = {
-    toEither(underlying.receiveMessage(receiveMessageRequest))
-  }
+  override def receiveMessage(receiveMessageRequest: ReceiveMessageRequest): Either[Throwable, ReceiveMessageResponse] =
+    underlying.receiveMessage(receiveMessageRequest).toEither
 
   override def removePermission(
       removePermissionRequest: RemovePermissionRequest
-  ): Either[Throwable, RemovePermissionResponse] = {
-    toEither(underlying.removePermission(removePermissionRequest))
-  }
+  ): Either[Throwable, RemovePermissionResponse] =
+    underlying.removePermission(removePermissionRequest).toEither
 
-  override def sendMessage(sendMessageRequest: SendMessageRequest): Either[Throwable, SendMessageResponse] = {
-    toEither(underlying.sendMessage(sendMessageRequest))
-  }
+  override def sendMessage(sendMessageRequest: SendMessageRequest): Either[Throwable, SendMessageResponse] =
+    underlying.sendMessage(sendMessageRequest).toEither
 
   override def sendMessageBatch(
       sendMessageBatchRequest: SendMessageBatchRequest
-  ): Either[Throwable, SendMessageBatchResponse] = {
-    toEither(underlying.sendMessageBatch(sendMessageBatchRequest))
-  }
+  ): Either[Throwable, SendMessageBatchResponse] =
+    underlying.sendMessageBatch(sendMessageBatchRequest).toEither
 
   override def setQueueAttributes(
       setQueueAttributesRequest: SetQueueAttributesRequest
-  ): Either[Throwable, SetQueueAttributesResponse] = {
-    toEither(underlying.setQueueAttributes(setQueueAttributesRequest))
-  }
+  ): Either[Throwable, SetQueueAttributesResponse] =
+    underlying.setQueueAttributes(setQueueAttributesRequest).toEither
 
-  override def tagQueue(tagQueueRequest: TagQueueRequest): Either[Throwable, TagQueueResponse] = {
-    toEither(underlying.tagQueue(tagQueueRequest))
-  }
+  override def tagQueue(tagQueueRequest: TagQueueRequest): Either[Throwable, TagQueueResponse] =
+    underlying.tagQueue(tagQueueRequest).toEither
 
-  override def untagQueue(untagQueueRequest: UntagQueueRequest): Either[Throwable, UntagQueueResponse] = {
-    toEither(underlying.untagQueue(untagQueueRequest))
-  }
+  override def untagQueue(untagQueueRequest: UntagQueueRequest): Either[Throwable, UntagQueueResponse] =
+    underlying.untagQueue(untagQueueRequest).toEither
 
 }

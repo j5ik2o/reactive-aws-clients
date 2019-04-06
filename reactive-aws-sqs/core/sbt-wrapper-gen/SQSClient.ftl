@@ -2,7 +2,7 @@ package com.github.j5ik2o.reactive.aws.sqs
 
 import software.amazon.awssdk.services.sqs.model._
 
-trait SQSClient[M[_]] extends SQSClientSupport[M] {
+trait SQSClient[M[_]] {
 
 <#list methods as method><#if targetMethod(method)>    def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
 

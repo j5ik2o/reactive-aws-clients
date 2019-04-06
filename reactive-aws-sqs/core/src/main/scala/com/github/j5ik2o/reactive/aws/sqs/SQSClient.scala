@@ -2,7 +2,7 @@ package com.github.j5ik2o.reactive.aws.sqs
 
 import software.amazon.awssdk.services.sqs.model._
 
-trait SQSClient[M[_]] extends SQSClientSupport[M] {
+trait SQSClient[M[_]] {
 
   def addPermission(addPermissionRequest: AddPermissionRequest): M[AddPermissionResponse]
 
