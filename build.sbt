@@ -183,6 +183,37 @@ lazy val `reactive-aws-appsync-root`: Project = (project in file("reactive-aws-a
     `reactive-aws-appsync-monix`
   )
 
+// --- dax
+
+lazy val `reactive-aws-dax-test` = (project in file("reactive-aws-dax/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-dax-core` =
+  (project in file("reactive-aws-dax/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-cats` = (project in file("reactive-aws-dax/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-dax-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-monix` = (project in file("reactive-aws-dax/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-dax-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-akka` = (project in file("reactive-aws-dax/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-dax-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-root`: Project = (project in file("reactive-aws-dax"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-dax-project"
+  )
+  .aggregate(
+    `reactive-aws-dax-core`,
+    `reactive-aws-dax-test`,
+    `reactive-aws-dax-akka`,
+    `reactive-aws-dax-cats`,
+    `reactive-aws-dax-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -194,5 +225,6 @@ lazy val `root`: Project = (project in file("."))
     `reactive-aws-kinesis-root`,
     `reactive-aws-s3-root`,
     `reactive-aws-sqs-root`,
-    `reactive-aws-appsync-root`
+    `reactive-aws-appsync-root`,
+    `reactive-aws-dax-root`
   )

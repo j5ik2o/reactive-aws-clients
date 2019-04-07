@@ -1,39 +1,33 @@
 import Settings._
-import com.github.j5ik2o.sbt.wrapper.gen.model.{ ClassDesc, EnumDesc }
+import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 
 coreSettings
 
 scalaWrapperGenBaseSettings()
 
-// logLevel := Level.Debug,
+sdkBaseName := "AppSync"
 
-val baseName = "AppSync"
-
-sdkBaseName := baseName
-
-name := s"reactive-aws-${baseName.toLowerCase}-core"
+name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-core"
 
 libraryDependencies ++= Seq(
-  "software.amazon.awssdk" % baseName.toLowerCase % awsSdk2Version
+  "software.amazon.awssdk" % sdkBaseName.value.toLowerCase % awsSdk2Version
 )
 
 compile in Compile := ((compile in Compile) dependsOn (generateAll in scalaWrapperGen)).value
 
-val BaseClient  = baseName + "Client"
-val AsyncClient = baseName + "AsyncClient"
-val SyncClient  = baseName + "SyncClient"
-
 packageNameMapper in scalaWrapperGen := {
   case (s, tn, _) if tn.endsWith("Ops") =>
-    s.replace(s"software.amazon.awssdk.services.${baseName.toLowerCase}.model",
-              s"com.github.j5ik2o.reactive.aws.${baseName.toLowerCase}.model.ops")
+    s.replace(
+      s"software.amazon.awssdk.services.${sdkBaseName.value.toLowerCase}.model",
+      s"com.github.j5ik2o.reactive.aws.${sdkBaseName.value.toLowerCase}.model.ops"
+    )
   case (s, _, _) =>
     s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")
 }
 
 typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == s"${baseName}AsyncClient"                                          => true
-  case cd if cd.simpleTypeName == s"${baseName}Client"                                               => true
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient"                                 => true
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client"                                      => true
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
   case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
@@ -43,19 +37,22 @@ typeDescFilter in scalaWrapperGen := {
 }
 
 typeNameMapper in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == s"${baseName}AsyncClient" =>
-    Seq(s"$BaseClient", s"$AsyncClient")
-  case cd if cd.simpleTypeName == s"${baseName}Client"  => Seq(s"$SyncClient")
-  case cd if cd.packageName.exists(_.endsWith("model")) => Seq(cd.simpleTypeName + "Ops")
-  case cd                                               => Seq(cd.simpleTypeName)
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+    Seq(s"${sdkBaseName.value}Client", s"${sdkBaseName.value}AsyncClient")
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client" => Seq(s"${sdkBaseName.value}SyncClient")
+  case cd if cd.packageName.exists(_.endsWith("model"))         => Seq(cd.simpleTypeName + "Ops")
+  case cd                                                       => Seq(cd.simpleTypeName)
 }
 
 templateNameMapper in scalaWrapperGen := {
-  case (BaseClient, cd) if cd.simpleTypeName == s"${baseName}AsyncClient" => s"$BaseClient.ftl"
-  case (AsyncClient, cd: ClassDesc) if cd.simpleTypeName == s"${baseName}AsyncClient" =>
-    s"$AsyncClient.ftl"
-  case (SyncClient, cd: ClassDesc) if cd.simpleTypeName == s"${baseName}Client" =>
-    s"$SyncClient.ftl"
+  case (f, cd) if f == s"${sdkBaseName.value}Client" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+    s"${sdkBaseName.value}Client.ftl"
+  case (f, cd: ClassDesc)
+      if f == s"${sdkBaseName.value}AsyncClient" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+    s"${sdkBaseName.value}AsyncClient.ftl"
+  case (f, cd: ClassDesc)
+      if f == s"${sdkBaseName.value}SyncClient" && cd.simpleTypeName == s"${sdkBaseName.value}Client" =>
+    s"${sdkBaseName.value}SyncClient.ftl"
 
   case (s, cd: ClassDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
 
