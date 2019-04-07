@@ -3,11 +3,11 @@ import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 
 coreSettings
 
-scalaWrapperGenBaseSettings("CatsIO", "Cats")
+val typeName = "CatsIO"
 
-val baseName = "DynamoDb"
+scalaWrapperGenBaseSettings(typeName, "Cats")
 
-sdkBaseName := baseName
+sdkBaseName := "DynamoDb"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-cats"
 
@@ -25,17 +25,17 @@ typeDescFilter in scalaWrapperGen := {
 
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
-    Seq(s"${sdkBaseName.value}CatsIOClient")
+    Seq(s"${sdkBaseName.value}${typeName}Client")
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}StreamsAsyncClient" =>
-    Seq(s"${sdkBaseName.value}StreamsCatsIOClient")
+    Seq(s"${sdkBaseName.value}Streams${typeName}Client")
 }
 
 templateNameMapper in scalaWrapperGen := {
   case (f, cd: ClassDesc)
-      if f == s"${sdkBaseName.value}CatsIOClient" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
-    s"${sdkBaseName.value}CatsIOClient.ftl"
+      if f == s"${sdkBaseName.value}${typeName}Client" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+    s"${sdkBaseName.value}${typeName}Client.ftl"
   case (f, cd: ClassDesc)
-      if f == s"${sdkBaseName.value}StreamsCatsIOClient" && cd.simpleTypeName == s"${sdkBaseName.value}StreamsAsyncClient" =>
-    s"${sdkBaseName.value}StreamsCatsIOClient.ftl"
+      if f == s"${sdkBaseName.value}Streams${typeName}Client" && cd.simpleTypeName == s"${sdkBaseName.value}StreamsAsyncClient" =>
+    s"${sdkBaseName.value}Streams${typeName}Client.ftl"
   case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
 }
