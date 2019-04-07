@@ -9,8 +9,10 @@ import scala.concurrent.Future
 
 object AppSyncAsyncClient {
 
-  def apply(underlying: JavaAppSyncAsyncClient): AppSyncAsyncClient =
-    new AppSyncAsyncClientImpl(underlying)
+  def apply(javaClient: JavaAppSyncAsyncClient): AppSyncAsyncClient =
+    new AppSyncAsyncClient {
+      override val underlying: JavaAppSyncAsyncClient = javaClient
+    }
 
 }
 

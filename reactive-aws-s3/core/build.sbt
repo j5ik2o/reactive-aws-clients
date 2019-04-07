@@ -26,15 +26,17 @@ packageNameMapper in scalaWrapperGen := {
 }
 
 typeDescFilter in scalaWrapperGen := {
-  case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient"                                       => true
-  case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client"                                            => true
-  case cd: ClassDesc if cd.simpleTypeName.startsWith("Default") && cd.packageName.exists(_.endsWith("s3")) => false
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                            => false
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                               => false
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")                                              => false
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")                                              => false
-  case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                                     => false
-  case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract       => true
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" => true
+  case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client"      => true
+  case cd: ClassDesc
+      if cd.simpleTypeName.startsWith("Default") && cd.packageName.exists(_.endsWith(sdkBaseName.value.toLowerCase)) =>
+    false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")                                        => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")                                        => false
+  case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
+  case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
   case _ =>
     false
 }
@@ -50,11 +52,14 @@ typeNameMapper in scalaWrapperGen := {
 }
 
 templateNameMapper in scalaWrapperGen := {
-  case ("S3Client", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+  case (f, cd: ClassDesc)
+      if f == s"${sdkBaseName.value}Client" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
     s"${sdkBaseName.value}Client.ftl"
-  case ("S3AsyncClient", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+  case (f, cd: ClassDesc)
+      if f == s"${sdkBaseName.value}AsyncClient" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
     s"${sdkBaseName.value}AsyncClient.ftl"
-  case ("S3SyncClient", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}Client" =>
+  case (f, cd: ClassDesc)
+      if f == s"${sdkBaseName.value}SyncClient" && cd.simpleTypeName == s"${sdkBaseName.value}Client" =>
     s"${sdkBaseName.value}SyncClient.ftl"
 
   case (s, cd: ClassDesc) if s.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"

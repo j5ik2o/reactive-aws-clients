@@ -11,8 +11,9 @@ import scala.concurrent.Future
 
 object ${baseName}AsyncClient {
 
-def apply(underlying: Java${baseName}AsyncClient): ${baseName}AsyncClient =
-new ${baseName}AsyncClientImpl(underlying)
+def apply(asyncClient: Java${baseName}AsyncClient): ${baseName}AsyncClient = new ${baseName}AsyncClient {
+override val underlying: Java${baseName}AsyncClient = asyncClient
+}
 
 }
 

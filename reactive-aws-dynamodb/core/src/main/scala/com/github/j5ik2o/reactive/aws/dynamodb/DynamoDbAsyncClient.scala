@@ -10,8 +10,10 @@ import scala.concurrent.Future
 
 object DynamoDbAsyncClient {
 
-  def apply(underlying: JavaDynamoDbAsyncClient): DynamoDbAsyncClient =
-    new DynamoDbAsyncClientImpl(underlying)
+  def apply(javaClient: JavaDynamoDbAsyncClient): DynamoDbAsyncClient =
+    new DynamoDbAsyncClient {
+      override val underlying: JavaDynamoDbAsyncClient = javaClient
+    }
 
 }
 

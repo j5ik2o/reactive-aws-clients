@@ -8,7 +8,9 @@ import software.amazon.awssdk.services.dynamodb.paginators._
 
 object DynamoDbSyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaDynamoDbClient): DynamoDbSyncClient = new DynamoDbSyncClientImpl(underlying)
+  def apply(javaClient: JavaDynamoDbClient): DynamoDbSyncClient = new DynamoDbSyncClient {
+    override val underlying: JavaDynamoDbClient = javaClient
+  }
 
 }
 

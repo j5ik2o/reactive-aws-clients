@@ -10,8 +10,9 @@ import scala.concurrent.Future
 
 object S3AsyncClient {
 
-  def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
-    new S3AsyncClientImpl(underlying)
+  def apply(asyncClient: JavaS3AsyncClient): S3AsyncClient = new S3AsyncClient {
+    override val underlying: JavaS3AsyncClient = asyncClient
+  }
 
 }
 

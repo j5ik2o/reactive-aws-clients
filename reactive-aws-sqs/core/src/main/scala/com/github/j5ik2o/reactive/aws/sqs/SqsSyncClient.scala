@@ -7,7 +7,9 @@ import software.amazon.awssdk.services.sqs.{ SqsClient => JavaSqsSyncClient }
 
 object SqsSyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaSqsSyncClient): SqsSyncClient = new SqsSyncClientImpl(underlying)
+  def apply(javaClient: JavaSqsSyncClient): SqsSyncClient = new SqsSyncClient {
+    override val underlying: JavaSqsSyncClient = javaClient
+  }
 
 }
 

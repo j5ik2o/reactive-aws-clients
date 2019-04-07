@@ -5,15 +5,16 @@ package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5i
 
 import software.amazon.awssdk.services.${baseName?lower_case}.model._
 import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
-import software.amazon.awssdk.services.${baseName?lower_case}.{ S3AsyncClient => JavaS3AsyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}AsyncClient => Java${baseName}AsyncClient }
 
 import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
 object ${baseName}AsyncClient {
 
-def apply(underlying: Java${baseName}AsyncClient): ${baseName}AsyncClient =
-new ${baseName}AsyncClientImpl(underlying)
+def apply(asyncClient: Java${baseName}AsyncClient): ${baseName}AsyncClient = new ${baseName}AsyncClient {
+override val underlying: Java${baseName}AsyncClient = asyncClient
+}
 
 }
 

@@ -7,8 +7,9 @@ import software.amazon.awssdk.services.dax.model._
 
 object DaxCatsIOClient {
 
-  def apply(underlying: DaxAsyncClient): DaxCatsIOClient =
-    new DaxCatsIOClientImpl(underlying)
+  def apply(asyncClient: DaxAsyncClient): DaxCatsIOClient = new DaxCatsIOClient {
+    override val underlying: DaxAsyncClient = asyncClient
+  }
 
 }
 

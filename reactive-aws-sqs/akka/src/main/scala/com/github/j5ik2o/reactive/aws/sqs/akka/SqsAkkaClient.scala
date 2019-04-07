@@ -8,7 +8,9 @@ import software.amazon.awssdk.services.sqs.model._
 
 object SqsAkkaClient {
 
-  def apply(underlying: SqsAsyncClient): SqsAkkaClient = new SqsAkkaClientImpl(underlying)
+  def apply(asyncClient: SqsAsyncClient): SqsAkkaClient = new SqsAkkaClient {
+    override val underlying: SqsAsyncClient = asyncClient
+  }
 
   val DefaultParallelism: Int = 1
 

@@ -12,7 +12,9 @@ import scala.concurrent.Future
 
 object ${baseName}AkkaClient {
 
-def apply(underlying: ${baseName}AsyncClient): ${baseName}AkkaClient = new ${baseName}AkkaClientImpl(underlying)
+def apply(asyncClient: ${baseName}AsyncClient): ${baseName}AkkaClient = new ${baseName}AkkaClient {
+override val underlying: ${baseName}AsyncClient = asyncClient
+}
 
 val DefaultParallelism: Int = 1
 

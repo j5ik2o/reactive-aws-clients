@@ -214,6 +214,38 @@ lazy val `reactive-aws-dax-root`: Project = (project in file("reactive-aws-dax")
     `reactive-aws-dax-monix`
   )
 
+// --- elasticsearch
+
+lazy val `reactive-aws-elasticsearch-test` = (project in file("reactive-aws-elasticsearch/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-elasticsearch-core` =
+  (project in file("reactive-aws-elasticsearch/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
+                                                     `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-cats` = (project in file("reactive-aws-elasticsearch/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-elasticsearch-core`, `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-monix` = (project in file("reactive-aws-elasticsearch/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-elasticsearch-core`, `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-akka` = (project in file("reactive-aws-elasticsearch/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-elasticsearch-core`, `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-root`: Project = (project in file("reactive-aws-elasticsearch"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-elasticsearch-project"
+  )
+  .aggregate(
+    `reactive-aws-elasticsearch-core`,
+    `reactive-aws-elasticsearch-test`,
+    `reactive-aws-elasticsearch-akka`,
+    `reactive-aws-elasticsearch-cats`,
+    `reactive-aws-elasticsearch-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -222,9 +254,10 @@ lazy val `root`: Project = (project in file("."))
   .aggregate(
     `reactive-aws-common-root`,
     `reactive-aws-dynamodb-root`,
+    `reactive-aws-dax-root`,
     `reactive-aws-kinesis-root`,
     `reactive-aws-s3-root`,
     `reactive-aws-sqs-root`,
     `reactive-aws-appsync-root`,
-    `reactive-aws-dax-root`
+    `reactive-aws-elasticsearch-root`
   )

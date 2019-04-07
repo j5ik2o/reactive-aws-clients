@@ -8,7 +8,9 @@ import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
 
 object S3SyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
+  def apply(javaClient: JavaS3SyncClient): S3SyncClient = new S3SyncClient {
+    override val underlying: JavaS3SyncClient = javaClient
+  }
 
 }
 

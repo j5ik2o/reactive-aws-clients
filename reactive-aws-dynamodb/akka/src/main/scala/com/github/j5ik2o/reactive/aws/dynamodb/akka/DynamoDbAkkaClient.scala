@@ -10,7 +10,9 @@ import scala.concurrent.Future
 
 object DynamoDbAkkaClient {
 
-  def apply(underlying: DynamoDbAsyncClient): DynamoDbAkkaClient = new DynamoDbAkkaClientImpl(underlying)
+  def apply(asyncClient: DynamoDbAsyncClient): DynamoDbAkkaClient = new DynamoDbAkkaClient {
+    override val underlying: DynamoDbAsyncClient = asyncClient
+  }
 
   val DefaultParallelism: Int = 1
 

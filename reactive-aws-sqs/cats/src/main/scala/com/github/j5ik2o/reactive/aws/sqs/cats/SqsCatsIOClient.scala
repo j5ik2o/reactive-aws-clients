@@ -7,8 +7,9 @@ import software.amazon.awssdk.services.sqs.model._
 
 object SqsCatsIOClient {
 
-  def apply(underlying: SqsAsyncClient): SqsCatsIOClient =
-    new SqsCatsIOClientImpl(underlying)
+  def apply(asyncClient: SqsAsyncClient): SqsCatsIOClient = new SqsCatsIOClient {
+    override val underlying: SqsAsyncClient = asyncClient
+  }
 
 }
 

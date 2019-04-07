@@ -9,8 +9,9 @@ import software.amazon.awssdk.services.${baseName?lower_case}.model._
 
 object ${baseName}CatsIOClient {
 
-  def apply(underlying: ${baseName}AsyncClient): ${baseName}CatsIOClient =
-    new ${baseName}CatsIOClientImpl(underlying)
+  def apply(asyncClient: ${baseName}AsyncClient): ${baseName}CatsIOClient = new ${baseName}CatsIOClient {
+override val underlying: ${baseName}AsyncClient = asyncClient
+}
 
 }
 

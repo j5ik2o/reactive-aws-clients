@@ -10,8 +10,9 @@ import scala.concurrent.Future
 
 object KinesisAsyncClient {
 
-  def apply(underlying: JavaKinesisAsyncClient): KinesisAsyncClient =
-    new KinesisAsyncClientImpl(underlying)
+  def apply(javaClient: JavaKinesisAsyncClient): KinesisAsyncClient = new KinesisAsyncClient {
+    override val underlying: JavaKinesisAsyncClient = javaClient
+  }
 
 }
 

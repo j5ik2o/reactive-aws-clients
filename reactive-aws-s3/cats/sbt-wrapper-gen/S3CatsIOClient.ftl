@@ -12,12 +12,13 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object ${baseName}CatsIOClient {
 
-  def apply(underlying: ${baseName}AsyncClient): ${baseName}CatsIOClient =
-    new ${baseName}CatsIOClientImpl(underlying)
+  def apply(asyncClient: ${baseName}AsyncClient): ${baseName}CatsIOClient = new ${baseName}CatsIOClient {
+override val underlying: ${baseName}AsyncClient = asyncClient
+}
 
 }
 
-trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
+trait ${baseName}CatsIOClient extends ${baseName}Client[IO] with ${baseName}CatsIOClientSupoprt {
 
   val underlying: ${baseName}AsyncClient
 

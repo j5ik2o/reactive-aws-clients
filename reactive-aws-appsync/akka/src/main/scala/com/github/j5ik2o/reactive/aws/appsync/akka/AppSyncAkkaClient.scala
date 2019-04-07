@@ -6,11 +6,11 @@ import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.appsync.AppSyncAsyncClient
 import software.amazon.awssdk.services.appsync.model._
 
-import scala.concurrent.Future
-
 object AppSyncAkkaClient {
 
-  def apply(underlying: AppSyncAsyncClient): AppSyncAkkaClient = new AppSyncAkkaClientImpl(underlying)
+  def apply(asyncClient: AppSyncAsyncClient): AppSyncAkkaClient = new AppSyncAkkaClient {
+    override val underlying: AppSyncAsyncClient = asyncClient
+  }
 
   val DefaultParallelism: Int = 1
 

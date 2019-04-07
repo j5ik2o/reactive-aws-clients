@@ -8,8 +8,9 @@ import software.amazon.awssdk.services.dynamodb.streams.paginators.{ DescribeStr
 
 object DynamoDbStreamsCatsIOClient {
 
-  def apply(underlying: DynamoDbStreamsAsyncClient): DynamoDbStreamsCatsIOClient =
-    new DynamoDbStreamsCatsIOClientImpl(underlying)
+  def apply(asyncClient: DynamoDbStreamsAsyncClient): DynamoDbStreamsCatsIOClient = new DynamoDbStreamsCatsIOClient {
+    override val underlying: DynamoDbStreamsAsyncClient = asyncClient
+  }
 
 }
 

@@ -9,7 +9,9 @@ import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}Clien
 
 object ${baseName}SyncClient extends ToEitherSupport {
 
-def apply(underlying: Java${baseName}Client): ${baseName}SyncClient = new ${baseName}SyncClientImpl(underlying)
+def apply(javaClient: Java${baseName}Client): ${baseName}SyncClient = new ${baseName}SyncClient {
+override val underlying: Java${baseName}Client = javaClient
+}
 
 }
 

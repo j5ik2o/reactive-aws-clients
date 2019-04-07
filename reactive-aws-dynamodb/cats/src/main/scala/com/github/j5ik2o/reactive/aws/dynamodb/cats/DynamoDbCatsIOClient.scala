@@ -8,8 +8,9 @@ import software.amazon.awssdk.services.dynamodb.paginators._
 
 object DynamoDbCatsIOClient {
 
-  def apply(underlying: DynamoDbAsyncClient): DynamoDbCatsIOClient =
-    new DynamoDbCatsIOClientImpl(underlying)
+  def apply(asyncClient: DynamoDbAsyncClient): DynamoDbCatsIOClient = new DynamoDbCatsIOClient {
+    override val underlying: DynamoDbAsyncClient = asyncClient
+  }
 
 }
 

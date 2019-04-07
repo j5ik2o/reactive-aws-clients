@@ -9,8 +9,9 @@ import scala.concurrent.Future
 
 object SqsAsyncClient {
 
-  def apply(underlying: JavaSqsAsyncClient): SqsAsyncClient =
-    new SqsAsyncClientImpl(underlying)
+  def apply(javaClient: JavaSqsAsyncClient): SqsAsyncClient = new SqsAsyncClient {
+    override val underlying: JavaSqsAsyncClient = javaClient
+  }
 
 }
 

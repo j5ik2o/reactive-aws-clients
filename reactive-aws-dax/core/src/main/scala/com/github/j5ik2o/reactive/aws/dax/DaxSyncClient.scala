@@ -7,7 +7,9 @@ import software.amazon.awssdk.services.dax.{ DaxClient => JavaDaxSyncClient }
 
 object DaxSyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaDaxSyncClient): DaxSyncClient = new DaxSyncClientImpl(underlying)
+  def apply(syncClient: JavaDaxSyncClient): DaxSyncClient = new DaxSyncClient {
+    override val underlying: JavaDaxSyncClient = syncClient
+  }
 
 }
 

@@ -8,7 +8,9 @@ import software.amazon.awssdk.services.kinesis.{ KinesisClient => JavaKinesisSyn
 
 object KinesisSyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaKinesisSyncClient): KinesisSyncClient = new KinesisSyncClientImpl(underlying)
+  def apply(javaClient: JavaKinesisSyncClient): KinesisSyncClient = new KinesisSyncClient {
+    override val underlying: JavaKinesisSyncClient = javaClient
+  }
 
 }
 

@@ -10,7 +10,10 @@ import monix.reactive.Observable
 
 object ${baseName}MonixClient {
 
-def apply(underlying: ${baseName}AsyncClient): ${baseName}MonixClient = new ${baseName}MonixClientImpl(underlying)
+def apply(asyncClient: ${baseName}AsyncClient): ${baseName}MonixClient = new ${baseName}MonixClient {
+override val underlying: ${baseName}AsyncClient = asyncClient
+}
+
 
 }
 

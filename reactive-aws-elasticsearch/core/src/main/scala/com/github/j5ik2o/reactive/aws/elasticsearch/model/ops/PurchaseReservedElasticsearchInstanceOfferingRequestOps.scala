@@ -1,0 +1,62 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.elasticsearch.model.ops
+
+import software.amazon.awssdk.services.elasticsearch.model._
+
+final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
+    val self: PurchaseReservedElasticsearchInstanceOfferingRequest.Builder
+) extends AnyVal {
+
+  final def withReservedElasticsearchInstanceOfferingIdAsScala(
+      value: Option[String]
+  ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
+    value.fold(self) { v =>
+      self.reservedElasticsearchInstanceOfferingId(v)
+    }
+  } // String
+
+  final def withReservationNameAsScala(
+      value: Option[String]
+  ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
+    value.fold(self) { v =>
+      self.reservationName(v)
+    }
+  } // String
+
+  final def withInstanceCountAsScala(
+      value: Option[Int]
+  ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
+    value.fold(self) { v =>
+      self.instanceCount(v)
+    }
+  } // Int
+
+}
+
+final class PurchaseReservedElasticsearchInstanceOfferingRequestOps(
+    val self: PurchaseReservedElasticsearchInstanceOfferingRequest
+) extends AnyVal {
+
+  final def reservedElasticsearchInstanceOfferingIdAsScala: Option[String] =
+    Option(self.reservedElasticsearchInstanceOfferingId) // String
+
+  final def reservationNameAsScala: Option[String] = Option(self.reservationName) // String
+
+  final def instanceCountAsScala: Option[Int] = Option(self.instanceCount) // Int
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToPurchaseReservedElasticsearchInstanceOfferingRequestOps {
+
+  implicit def toPurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
+      v: PurchaseReservedElasticsearchInstanceOfferingRequest.Builder
+  ): PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps =
+    new PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(v)
+
+  implicit def toPurchaseReservedElasticsearchInstanceOfferingRequestOps(
+      v: PurchaseReservedElasticsearchInstanceOfferingRequest
+  ): PurchaseReservedElasticsearchInstanceOfferingRequestOps =
+    new PurchaseReservedElasticsearchInstanceOfferingRequestOps(v)
+
+}

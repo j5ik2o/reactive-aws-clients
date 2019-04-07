@@ -7,8 +7,10 @@ import software.amazon.awssdk.services.appsync.model._
 
 object AppSyncCatsIOClient {
 
-  def apply(underlying: AppSyncAsyncClient): AppSyncCatsIOClient =
-    new AppSyncCatsIOClientImpl(underlying)
+  def apply(asyncClient: AppSyncAsyncClient): AppSyncCatsIOClient =
+    new AppSyncCatsIOClient {
+      override val underlying: AppSyncAsyncClient = asyncClient
+    }
 
 }
 

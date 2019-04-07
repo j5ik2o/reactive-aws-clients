@@ -8,11 +8,13 @@ import monix.reactive.Observable
 
 object S3MonixClient {
 
-  def apply(underlying: S3AsyncClient): S3MonixClient = new S3MonixClientImpl(underlying)
+  def apply(asyncClient: S3AsyncClient): S3MonixClient = new S3MonixClient {
+    override val underlying: S3AsyncClient = asyncClient
+  }
 
 }
 
-trait S3MonixClient extends S3Client[Task] {
+trait S3MonixClient extends S3Client[Task] with S3MonixClientSupport {
 
   val underlying: S3AsyncClient
 
