@@ -14,6 +14,9 @@ object CloudWatchLogsSyncClient extends ToEitherSupport {
     }
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudwatchlogs/CloudWatchLogsClient.html
+  */
 trait CloudWatchLogsSyncClient extends CloudWatchLogsClient[Either[Throwable, ?]] {
   val underlying: JavaCloudWatchLogsSyncClient
 

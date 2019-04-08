@@ -9,37 +9,37 @@ final class SwapEnvironmentCnamEsRequestBuilderOps(val self: SwapEnvironmentCnam
     value.fold(self) { v =>
       self.sourceEnvironmentId(v)
     }
-  } // String
+  }
 
   final def sourceEnvironmentNameAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
     value.fold(self) { v =>
       self.sourceEnvironmentName(v)
     }
-  } // String
+  }
 
   final def destinationEnvironmentIdAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
     value.fold(self) { v =>
       self.destinationEnvironmentId(v)
     }
-  } // String
+  }
 
   final def destinationEnvironmentNameAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
     value.fold(self) { v =>
       self.destinationEnvironmentName(v)
     }
-  } // String
+  }
 
 }
 
 final class SwapEnvironmentCnamEsRequestOps(val self: SwapEnvironmentCnamEsRequest) extends AnyVal {
 
-  final def sourceEnvironmentIdAsScala: Option[String] = Option(self.sourceEnvironmentId) // String
+  final def sourceEnvironmentIdAsScala: Option[String] = Option(self.sourceEnvironmentId)
 
-  final def sourceEnvironmentNameAsScala: Option[String] = Option(self.sourceEnvironmentName) // String
+  final def sourceEnvironmentNameAsScala: Option[String] = Option(self.sourceEnvironmentName)
 
-  final def destinationEnvironmentIdAsScala: Option[String] = Option(self.destinationEnvironmentId) // String
+  final def destinationEnvironmentIdAsScala: Option[String] = Option(self.destinationEnvironmentId)
 
-  final def destinationEnvironmentNameAsScala: Option[String] = Option(self.destinationEnvironmentName) // String
+  final def destinationEnvironmentNameAsScala: Option[String] = Option(self.destinationEnvironmentName)
 
 }
 

@@ -9,13 +9,13 @@ final class GetBucketLocationRequestBuilderOps(val self: GetBucketLocationReques
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketLocationRequestOps(val self: GetBucketLocationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

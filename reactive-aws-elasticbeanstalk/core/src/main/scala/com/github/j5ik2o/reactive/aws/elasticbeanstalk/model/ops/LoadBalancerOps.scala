@@ -9,13 +9,13 @@ final class LoadBalancerBuilderOps(val self: LoadBalancer.Builder) extends AnyVa
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class LoadBalancerOps(val self: LoadBalancer) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

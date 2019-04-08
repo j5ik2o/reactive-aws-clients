@@ -10,29 +10,29 @@ final class DescribeConfigurationSettingsRequestBuilderOps(val self: DescribeCon
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def templateNameAsScala(value: Option[String]): DescribeConfigurationSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): DescribeConfigurationSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeConfigurationSettingsRequestOps(val self: DescribeConfigurationSettingsRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def templateNameAsScala: Option[String] = Option(self.templateName) // String
+  final def templateNameAsScala: Option[String] = Option(self.templateName)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
 }
 

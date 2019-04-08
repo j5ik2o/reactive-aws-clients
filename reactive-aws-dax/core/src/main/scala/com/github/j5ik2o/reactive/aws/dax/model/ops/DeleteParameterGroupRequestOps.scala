@@ -9,13 +9,13 @@ final class DeleteParameterGroupRequestBuilderOps(val self: DeleteParameterGroup
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteParameterGroupRequestOps(val self: DeleteParameterGroupRequest) extends AnyVal {
 
-  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName) // String
+  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
 }
 

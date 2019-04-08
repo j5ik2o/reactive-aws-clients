@@ -9,21 +9,21 @@ final class PutFunctionConcurrencyRequestBuilderOps(val self: PutFunctionConcurr
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def reservedConcurrentExecutionsAsScala(value: Option[Int]): PutFunctionConcurrencyRequest.Builder = {
     value.fold(self) { v =>
       self.reservedConcurrentExecutions(v)
     }
-  } // Int
+  }
 
 }
 
 final class PutFunctionConcurrencyRequestOps(val self: PutFunctionConcurrencyRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def reservedConcurrentExecutionsAsScala: Option[Int] = Option(self.reservedConcurrentExecutions) // Int
+  final def reservedConcurrentExecutionsAsScala: Option[Int] = Option(self.reservedConcurrentExecutions)
 
 }
 

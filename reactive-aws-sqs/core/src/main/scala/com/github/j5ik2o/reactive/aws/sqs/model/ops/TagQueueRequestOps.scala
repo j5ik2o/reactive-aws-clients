@@ -9,23 +9,23 @@ final class TagQueueRequestBuilderOps(val self: TagQueueRequest.Builder) extends
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Map[String, String]]): TagQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
 
 final class TagQueueRequestOps(val self: TagQueueRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

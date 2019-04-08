@@ -9,13 +9,13 @@ final class DeleteTableResponseBuilderOps(val self: DeleteTableResponse.Builder)
     value.fold(self) { v =>
       self.tableDescription(v)
     }
-  } // TableDescription
+  }
 
 }
 
 final class DeleteTableResponseOps(val self: DeleteTableResponse) extends AnyVal {
 
-  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription) // TableDescription
+  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription)
 
 }
 

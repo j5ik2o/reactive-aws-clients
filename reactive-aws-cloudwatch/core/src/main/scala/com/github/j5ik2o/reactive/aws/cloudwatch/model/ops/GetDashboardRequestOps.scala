@@ -9,13 +9,13 @@ final class GetDashboardRequestBuilderOps(val self: GetDashboardRequest.Builder)
     value.fold(self) { v =>
       self.dashboardName(v)
     }
-  } // String
+  }
 
 }
 
 final class GetDashboardRequestOps(val self: GetDashboardRequest) extends AnyVal {
 
-  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName) // String
+  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName)
 
 }
 

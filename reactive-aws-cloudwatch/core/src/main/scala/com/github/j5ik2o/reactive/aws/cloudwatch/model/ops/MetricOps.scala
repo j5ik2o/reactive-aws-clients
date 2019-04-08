@@ -9,31 +9,31 @@ final class MetricBuilderOps(val self: Metric.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.namespace(v)
     }
-  } // String
+  }
 
   final def metricNameAsScala(value: Option[String]): Metric.Builder = {
     value.fold(self) { v =>
       self.metricName(v)
     }
-  } // String
+  }
 
   final def dimensionsAsScala(value: Option[Seq[Dimension]]): Metric.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.dimensions(v.asJava)
-    } // Seq[Dimension]
+    }
   }
 
 }
 
 final class MetricOps(val self: Metric) extends AnyVal {
 
-  final def namespaceAsScala: Option[String] = Option(self.namespace) // String
+  final def namespaceAsScala: Option[String] = Option(self.namespace)
 
-  final def metricNameAsScala: Option[String] = Option(self.metricName) // String
+  final def metricNameAsScala: Option[String] = Option(self.metricName)
 
   final def dimensionsAsScala: Option[Seq[Dimension]] = Option(self.dimensions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Dimension]
+  }
 
 }
 

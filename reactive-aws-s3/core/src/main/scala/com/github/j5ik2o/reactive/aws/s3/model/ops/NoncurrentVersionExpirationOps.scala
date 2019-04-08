@@ -9,13 +9,13 @@ final class NoncurrentVersionExpirationBuilderOps(val self: NoncurrentVersionExp
     value.fold(self) { v =>
       self.noncurrentDays(v)
     }
-  } // Int
+  }
 
 }
 
 final class NoncurrentVersionExpirationOps(val self: NoncurrentVersionExpiration) extends AnyVal {
 
-  final def noncurrentDaysAsScala: Option[Int] = Option(self.noncurrentDays) // Int
+  final def noncurrentDaysAsScala: Option[Int] = Option(self.noncurrentDays)
 
 }
 

@@ -9,13 +9,13 @@ final class InventoryFilterBuilderOps(val self: InventoryFilter.Builder) extends
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
 }
 
 final class InventoryFilterOps(val self: InventoryFilter) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
 }
 

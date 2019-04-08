@@ -9,23 +9,23 @@ final class UntagResourceRequestBuilderOps(val self: UntagResourceRequest.Builde
     value.fold(self) { v =>
       self.resourceArn(v)
     }
-  } // String
+  }
 
   final def tagKeysAsScala(value: Option[Seq[String]]): UntagResourceRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class UntagResourceRequestOps(val self: UntagResourceRequest) extends AnyVal {
 
-  final def resourceArnAsScala: Option[String] = Option(self.resourceArn) // String
+  final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
   final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

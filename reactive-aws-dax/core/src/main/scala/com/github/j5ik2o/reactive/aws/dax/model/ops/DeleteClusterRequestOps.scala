@@ -9,13 +9,13 @@ final class DeleteClusterRequestBuilderOps(val self: DeleteClusterRequest.Builde
     value.fold(self) { v =>
       self.clusterName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteClusterRequestOps(val self: DeleteClusterRequest) extends AnyVal {
 
-  final def clusterNameAsScala: Option[String] = Option(self.clusterName) // String
+  final def clusterNameAsScala: Option[String] = Option(self.clusterName)
 
 }
 

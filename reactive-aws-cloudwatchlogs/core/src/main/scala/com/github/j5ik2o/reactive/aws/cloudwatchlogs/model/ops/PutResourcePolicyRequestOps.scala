@@ -9,21 +9,21 @@ final class PutResourcePolicyRequestBuilderOps(val self: PutResourcePolicyReques
     value.fold(self) { v =>
       self.policyName(v)
     }
-  } // String
+  }
 
   final def policyDocumentAsScala(value: Option[String]): PutResourcePolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policyDocument(v)
     }
-  } // String
+  }
 
 }
 
 final class PutResourcePolicyRequestOps(val self: PutResourcePolicyRequest) extends AnyVal {
 
-  final def policyNameAsScala: Option[String] = Option(self.policyName) // String
+  final def policyNameAsScala: Option[String] = Option(self.policyName)
 
-  final def policyDocumentAsScala: Option[String] = Option(self.policyDocument) // String
+  final def policyDocumentAsScala: Option[String] = Option(self.policyDocument)
 
 }
 

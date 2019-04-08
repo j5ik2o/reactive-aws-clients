@@ -9,13 +9,13 @@ final class AccessControlTranslationBuilderOps(val self: AccessControlTranslatio
     value.fold(self) { v =>
       self.owner(v)
     }
-  } // OwnerOverride
+  }
 
 }
 
 final class AccessControlTranslationOps(val self: AccessControlTranslation) extends AnyVal {
 
-  final def ownerAsScala: Option[OwnerOverride] = Option(self.owner) // OwnerOverride
+  final def ownerAsScala: Option[OwnerOverride] = Option(self.owner)
 
 }
 

@@ -9,21 +9,21 @@ final class KeyValuePairBuilderOps(val self: KeyValuePair.Builder) extends AnyVa
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): KeyValuePair.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class KeyValuePairOps(val self: KeyValuePair) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

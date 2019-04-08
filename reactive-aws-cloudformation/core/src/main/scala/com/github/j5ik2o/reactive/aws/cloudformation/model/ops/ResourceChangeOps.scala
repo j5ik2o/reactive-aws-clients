@@ -9,65 +9,65 @@ final class ResourceChangeBuilderOps(val self: ResourceChange.Builder) extends A
     value.fold(self) { v =>
       self.action(v)
     }
-  } // ChangeAction
+  }
 
   final def logicalResourceIdAsScala(value: Option[String]): ResourceChange.Builder = {
     value.fold(self) { v =>
       self.logicalResourceId(v)
     }
-  } // String
+  }
 
   final def physicalResourceIdAsScala(value: Option[String]): ResourceChange.Builder = {
     value.fold(self) { v =>
       self.physicalResourceId(v)
     }
-  } // String
+  }
 
   final def resourceTypeAsScala(value: Option[String]): ResourceChange.Builder = {
     value.fold(self) { v =>
       self.resourceType(v)
     }
-  } // String
+  }
 
   final def replacementAsScala(value: Option[Replacement]): ResourceChange.Builder = {
     value.fold(self) { v =>
       self.replacement(v)
     }
-  } // Replacement
+  }
 
   final def scopeAsScala(value: Option[Seq[ResourceAttribute]]): ResourceChange.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.scope(v.asJava)
-    } // Seq[ResourceAttribute]
+    }
   }
 
   final def detailsAsScala(value: Option[Seq[ResourceChangeDetail]]): ResourceChange.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.details(v.asJava)
-    } // Seq[ResourceChangeDetail]
+    }
   }
 
 }
 
 final class ResourceChangeOps(val self: ResourceChange) extends AnyVal {
 
-  final def actionAsScala: Option[ChangeAction] = Option(self.action) // ChangeAction
+  final def actionAsScala: Option[ChangeAction] = Option(self.action)
 
-  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId) // String
+  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId)
 
-  final def physicalResourceIdAsScala: Option[String] = Option(self.physicalResourceId) // String
+  final def physicalResourceIdAsScala: Option[String] = Option(self.physicalResourceId)
 
-  final def resourceTypeAsScala: Option[String] = Option(self.resourceType) // String
+  final def resourceTypeAsScala: Option[String] = Option(self.resourceType)
 
-  final def replacementAsScala: Option[Replacement] = Option(self.replacement) // Replacement
+  final def replacementAsScala: Option[Replacement] = Option(self.replacement)
 
   final def scopeAsScala: Option[Seq[ResourceAttribute]] = Option(self.scope).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ResourceAttribute]
+  }
 
   final def detailsAsScala: Option[Seq[ResourceChangeDetail]] = Option(self.details).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ResourceChangeDetail]
+  }
 
 }
 

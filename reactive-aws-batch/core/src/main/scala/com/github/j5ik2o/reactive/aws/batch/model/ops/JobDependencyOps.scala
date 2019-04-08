@@ -9,21 +9,21 @@ final class JobDependencyBuilderOps(val self: JobDependency.Builder) extends Any
     value.fold(self) { v =>
       self.jobId(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[ArrayJobDependency]): JobDependency.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // ArrayJobDependency
+  }
 
 }
 
 final class JobDependencyOps(val self: JobDependency) extends AnyVal {
 
-  final def jobIdAsScala: Option[String] = Option(self.jobId) // String
+  final def jobIdAsScala: Option[String] = Option(self.jobId)
 
-  final def typeAsScala: Option[ArrayJobDependency] = Option(self.`type`) // ArrayJobDependency
+  final def typeAsScala: Option[ArrayJobDependency] = Option(self.`type`)
 
 }
 

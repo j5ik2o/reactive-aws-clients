@@ -9,13 +9,13 @@ final class DomainInfoBuilderOps(val self: DomainInfo.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.domainName(v)
     }
-  } // String
+  }
 
 }
 
 final class DomainInfoOps(val self: DomainInfo) extends AnyVal {
 
-  final def domainNameAsScala: Option[String] = Option(self.domainName) // String
+  final def domainNameAsScala: Option[String] = Option(self.domainName)
 
 }
 

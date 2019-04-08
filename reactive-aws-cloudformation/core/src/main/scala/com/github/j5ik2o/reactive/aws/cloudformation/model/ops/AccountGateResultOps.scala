@@ -9,21 +9,21 @@ final class AccountGateResultBuilderOps(val self: AccountGateResult.Builder) ext
     value.fold(self) { v =>
       self.status(v)
     }
-  } // AccountGateStatus
+  }
 
   final def statusReasonAsScala(value: Option[String]): AccountGateResult.Builder = {
     value.fold(self) { v =>
       self.statusReason(v)
     }
-  } // String
+  }
 
 }
 
 final class AccountGateResultOps(val self: AccountGateResult) extends AnyVal {
 
-  final def statusAsScala: Option[AccountGateStatus] = Option(self.status) // AccountGateStatus
+  final def statusAsScala: Option[AccountGateStatus] = Option(self.status)
 
-  final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
+  final def statusReasonAsScala: Option[String] = Option(self.statusReason)
 
 }
 

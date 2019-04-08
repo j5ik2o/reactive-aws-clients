@@ -8,14 +8,14 @@ final class ListTablesResponseBuilderOps(val self: ListTablesResponse.Builder) e
   final def tableNamesAsScala(value: Option[Seq[String]]): ListTablesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tableNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def lastEvaluatedTableNameAsScala(value: Option[String]): ListTablesResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedTableName(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListTablesResponseOps(val self: ListTablesResponse) extends AnyVal {
 
   final def tableNamesAsScala: Option[Seq[String]] = Option(self.tableNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def lastEvaluatedTableNameAsScala: Option[String] = Option(self.lastEvaluatedTableName) // String
+  final def lastEvaluatedTableNameAsScala: Option[String] = Option(self.lastEvaluatedTableName)
 
 }
 

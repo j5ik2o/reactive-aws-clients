@@ -9,37 +9,37 @@ final class ApplicationMetricsBuilderOps(val self: ApplicationMetrics.Builder) e
     value.fold(self) { v =>
       self.duration(v)
     }
-  } // Int
+  }
 
   final def requestCountAsScala(value: Option[Int]): ApplicationMetrics.Builder = {
     value.fold(self) { v =>
       self.requestCount(v)
     }
-  } // Int
+  }
 
   final def statusCodesAsScala(value: Option[StatusCodes]): ApplicationMetrics.Builder = {
     value.fold(self) { v =>
       self.statusCodes(v)
     }
-  } // StatusCodes
+  }
 
   final def latencyAsScala(value: Option[Latency]): ApplicationMetrics.Builder = {
     value.fold(self) { v =>
       self.latency(v)
     }
-  } // Latency
+  }
 
 }
 
 final class ApplicationMetricsOps(val self: ApplicationMetrics) extends AnyVal {
 
-  final def durationAsScala: Option[Int] = Option(self.duration) // Int
+  final def durationAsScala: Option[Int] = Option(self.duration)
 
-  final def requestCountAsScala: Option[Int] = Option(self.requestCount) // Int
+  final def requestCountAsScala: Option[Int] = Option(self.requestCount)
 
-  final def statusCodesAsScala: Option[StatusCodes] = Option(self.statusCodes) // StatusCodes
+  final def statusCodesAsScala: Option[StatusCodes] = Option(self.statusCodes)
 
-  final def latencyAsScala: Option[Latency] = Option(self.latency) // Latency
+  final def latencyAsScala: Option[Latency] = Option(self.latency)
 
 }
 

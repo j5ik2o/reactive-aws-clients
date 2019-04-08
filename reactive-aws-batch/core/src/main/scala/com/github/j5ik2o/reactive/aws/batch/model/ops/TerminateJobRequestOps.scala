@@ -9,21 +9,21 @@ final class TerminateJobRequestBuilderOps(val self: TerminateJobRequest.Builder)
     value.fold(self) { v =>
       self.jobId(v)
     }
-  } // String
+  }
 
   final def reasonAsScala(value: Option[String]): TerminateJobRequest.Builder = {
     value.fold(self) { v =>
       self.reason(v)
     }
-  } // String
+  }
 
 }
 
 final class TerminateJobRequestOps(val self: TerminateJobRequest) extends AnyVal {
 
-  final def jobIdAsScala: Option[String] = Option(self.jobId) // String
+  final def jobIdAsScala: Option[String] = Option(self.jobId)
 
-  final def reasonAsScala: Option[String] = Option(self.reason) // String
+  final def reasonAsScala: Option[String] = Option(self.reason)
 
 }
 

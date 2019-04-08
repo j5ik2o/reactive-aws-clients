@@ -10,14 +10,13 @@ final class CreateElasticsearchDomainResponseBuilderOps(val self: CreateElastics
     value.fold(self) { v =>
       self.domainStatus(v)
     }
-  } // ElasticsearchDomainStatus
+  }
 
 }
 
 final class CreateElasticsearchDomainResponseOps(val self: CreateElasticsearchDomainResponse) extends AnyVal {
 
-  final def domainStatusAsScala: Option[ElasticsearchDomainStatus] =
-    Option(self.domainStatus) // ElasticsearchDomainStatus
+  final def domainStatusAsScala: Option[ElasticsearchDomainStatus] = Option(self.domainStatus)
 
 }
 

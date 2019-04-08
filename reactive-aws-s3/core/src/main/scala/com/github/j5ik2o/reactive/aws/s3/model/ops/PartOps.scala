@@ -9,37 +9,37 @@ final class PartBuilderOps(val self: Part.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.partNumber(v)
     }
-  } // Int
+  }
 
   final def lastModifiedAsScala(value: Option[java.time.Instant]): Part.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // java.time.Instant
+  }
 
   final def eTagAsScala(value: Option[String]): Part.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
-  } // String
+  }
 
   final def sizeAsScala(value: Option[Int]): Part.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
-  } // Int
+  }
 
 }
 
 final class PartOps(val self: Part) extends AnyVal {
 
-  final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
+  final def partNumberAsScala: Option[Int] = Option(self.partNumber)
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified)
 
-  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+  final def eTagAsScala: Option[String] = Option(self.eTag)
 
-  final def sizeAsScala: Option[Int] = Option(self.size) // Int
+  final def sizeAsScala: Option[Int] = Option(self.size)
 
 }
 

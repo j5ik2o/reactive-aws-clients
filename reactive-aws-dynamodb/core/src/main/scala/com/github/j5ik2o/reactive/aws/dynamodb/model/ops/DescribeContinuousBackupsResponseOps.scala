@@ -12,14 +12,14 @@ final class DescribeContinuousBackupsResponseBuilderOps(val self: DescribeContin
     value.fold(self) { v =>
       self.continuousBackupsDescription(v)
     }
-  } // ContinuousBackupsDescription
+  }
 
 }
 
 final class DescribeContinuousBackupsResponseOps(val self: DescribeContinuousBackupsResponse) extends AnyVal {
 
   final def continuousBackupsDescriptionAsScala: Option[ContinuousBackupsDescription] =
-    Option(self.continuousBackupsDescription) // ContinuousBackupsDescription
+    Option(self.continuousBackupsDescription)
 
 }
 

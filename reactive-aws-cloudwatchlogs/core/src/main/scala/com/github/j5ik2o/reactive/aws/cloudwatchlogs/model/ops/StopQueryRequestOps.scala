@@ -9,13 +9,13 @@ final class StopQueryRequestBuilderOps(val self: StopQueryRequest.Builder) exten
     value.fold(self) { v =>
       self.queryId(v)
     }
-  } // String
+  }
 
 }
 
 final class StopQueryRequestOps(val self: StopQueryRequest) extends AnyVal {
 
-  final def queryIdAsScala: Option[String] = Option(self.queryId) // String
+  final def queryIdAsScala: Option[String] = Option(self.queryId)
 
 }
 

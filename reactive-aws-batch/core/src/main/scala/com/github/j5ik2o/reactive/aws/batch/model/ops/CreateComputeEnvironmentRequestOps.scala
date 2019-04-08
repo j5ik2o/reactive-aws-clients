@@ -10,45 +10,45 @@ final class CreateComputeEnvironmentRequestBuilderOps(val self: CreateComputeEnv
     value.fold(self) { v =>
       self.computeEnvironmentName(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[CEType]): CreateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // CEType
+  }
 
   final def stateAsScala(value: Option[CEState]): CreateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
-  } // CEState
+  }
 
   final def computeResourcesAsScala(value: Option[ComputeResource]): CreateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.computeResources(v)
     }
-  } // ComputeResource
+  }
 
   final def serviceRoleAsScala(value: Option[String]): CreateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.serviceRole(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateComputeEnvironmentRequestOps(val self: CreateComputeEnvironmentRequest) extends AnyVal {
 
-  final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName) // String
+  final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName)
 
-  final def typeAsScala: Option[CEType] = Option(self.`type`) // CEType
+  final def typeAsScala: Option[CEType] = Option(self.`type`)
 
-  final def stateAsScala: Option[CEState] = Option(self.state) // CEState
+  final def stateAsScala: Option[CEState] = Option(self.state)
 
-  final def computeResourcesAsScala: Option[ComputeResource] = Option(self.computeResources) // ComputeResource
+  final def computeResourcesAsScala: Option[ComputeResource] = Option(self.computeResources)
 
-  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole) // String
+  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole)
 
 }
 

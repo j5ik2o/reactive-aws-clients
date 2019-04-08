@@ -9,13 +9,13 @@ final class ListTagsLogGroupRequestBuilderOps(val self: ListTagsLogGroupRequest.
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class ListTagsLogGroupRequestOps(val self: ListTagsLogGroupRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }
 

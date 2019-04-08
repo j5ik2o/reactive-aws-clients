@@ -9,13 +9,13 @@ final class DeleteLogGroupRequestBuilderOps(val self: DeleteLogGroupRequest.Buil
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteLogGroupRequestOps(val self: DeleteLogGroupRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }
 

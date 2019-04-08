@@ -9,21 +9,21 @@ final class OutputSerializationBuilderOps(val self: OutputSerialization.Builder)
     value.fold(self) { v =>
       self.csv(v)
     }
-  } // CSVOutput
+  }
 
   final def jsonAsScala(value: Option[JSONOutput]): OutputSerialization.Builder = {
     value.fold(self) { v =>
       self.json(v)
     }
-  } // JSONOutput
+  }
 
 }
 
 final class OutputSerializationOps(val self: OutputSerialization) extends AnyVal {
 
-  final def csvAsScala: Option[CSVOutput] = Option(self.csv) // CSVOutput
+  final def csvAsScala: Option[CSVOutput] = Option(self.csv)
 
-  final def jsonAsScala: Option[JSONOutput] = Option(self.json) // JSONOutput
+  final def jsonAsScala: Option[JSONOutput] = Option(self.json)
 
 }
 

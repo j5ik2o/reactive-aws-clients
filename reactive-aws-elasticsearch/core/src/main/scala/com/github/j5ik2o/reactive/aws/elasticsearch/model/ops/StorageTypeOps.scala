@@ -9,31 +9,31 @@ final class StorageTypeBuilderOps(val self: StorageType.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.storageTypeName(v)
     }
-  } // String
+  }
 
   final def storageSubTypeNameAsScala(value: Option[String]): StorageType.Builder = {
     value.fold(self) { v =>
       self.storageSubTypeName(v)
     }
-  } // String
+  }
 
   final def storageTypeLimitsAsScala(value: Option[Seq[StorageTypeLimit]]): StorageType.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.storageTypeLimits(v.asJava)
-    } // Seq[StorageTypeLimit]
+    }
   }
 
 }
 
 final class StorageTypeOps(val self: StorageType) extends AnyVal {
 
-  final def storageTypeNameAsScala: Option[String] = Option(self.storageTypeName) // String
+  final def storageTypeNameAsScala: Option[String] = Option(self.storageTypeName)
 
-  final def storageSubTypeNameAsScala: Option[String] = Option(self.storageSubTypeName) // String
+  final def storageSubTypeNameAsScala: Option[String] = Option(self.storageSubTypeName)
 
   final def storageTypeLimitsAsScala: Option[Seq[StorageTypeLimit]] = Option(self.storageTypeLimits).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[StorageTypeLimit]
+  }
 
 }
 

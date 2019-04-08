@@ -9,13 +9,13 @@ final class GetSchemaCreationStatusRequestBuilderOps(val self: GetSchemaCreation
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetSchemaCreationStatusRequestOps(val self: GetSchemaCreationStatusRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
 }
 

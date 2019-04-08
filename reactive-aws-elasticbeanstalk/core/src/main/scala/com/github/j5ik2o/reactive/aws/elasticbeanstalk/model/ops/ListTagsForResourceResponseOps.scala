@@ -9,23 +9,23 @@ final class ListTagsForResourceResponseBuilderOps(val self: ListTagsForResourceR
     value.fold(self) { v =>
       self.resourceArn(v)
     }
-  } // String
+  }
 
   final def resourceTagsAsScala(value: Option[Seq[Tag]]): ListTagsForResourceResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.resourceTags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
 
 final class ListTagsForResourceResponseOps(val self: ListTagsForResourceResponse) extends AnyVal {
 
-  final def resourceArnAsScala: Option[String] = Option(self.resourceArn) // String
+  final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
   final def resourceTagsAsScala: Option[Seq[Tag]] = Option(self.resourceTags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

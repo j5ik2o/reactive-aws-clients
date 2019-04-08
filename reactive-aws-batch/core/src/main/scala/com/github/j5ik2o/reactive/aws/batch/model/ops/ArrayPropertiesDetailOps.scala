@@ -8,20 +8,20 @@ final class ArrayPropertiesDetailBuilderOps(val self: ArrayPropertiesDetail.Buil
   final def statusSummaryAsScala(value: Option[Map[String, Int]]): ArrayPropertiesDetail.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Integer])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.statusSummary(v.asJava)
-    } // Map[String, Int]
+    }
   }
 
   final def sizeAsScala(value: Option[Int]): ArrayPropertiesDetail.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
-  } // Int
+  }
 
   final def indexAsScala(value: Option[Int]): ArrayPropertiesDetail.Builder = {
     value.fold(self) { v =>
       self.index(v)
     }
-  } // Int
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class ArrayPropertiesDetailOps(val self: ArrayPropertiesDetail) extends An
 
   final def statusSummaryAsScala: Option[Map[String, Int]] = Option(self.statusSummary).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.intValue())
-  } // Map[String, Int]
+  }
 
-  final def sizeAsScala: Option[Int] = Option(self.size) // Int
+  final def sizeAsScala: Option[Int] = Option(self.size)
 
-  final def indexAsScala: Option[Int] = Option(self.index) // Int
+  final def indexAsScala: Option[Int] = Option(self.index)
 
 }
 

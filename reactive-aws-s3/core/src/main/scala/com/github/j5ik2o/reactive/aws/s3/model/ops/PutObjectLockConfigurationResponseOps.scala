@@ -10,13 +10,13 @@ final class PutObjectLockConfigurationResponseBuilderOps(val self: PutObjectLock
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // RequestCharged
+  }
 
 }
 
 final class PutObjectLockConfigurationResponseOps(val self: PutObjectLockConfigurationResponse) extends AnyVal {
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

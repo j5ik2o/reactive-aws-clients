@@ -9,21 +9,21 @@ final class QueryCompileErrorLocationBuilderOps(val self: QueryCompileErrorLocat
     value.fold(self) { v =>
       self.startCharOffset(v)
     }
-  } // Int
+  }
 
   final def endCharOffsetAsScala(value: Option[Int]): QueryCompileErrorLocation.Builder = {
     value.fold(self) { v =>
       self.endCharOffset(v)
     }
-  } // Int
+  }
 
 }
 
 final class QueryCompileErrorLocationOps(val self: QueryCompileErrorLocation) extends AnyVal {
 
-  final def startCharOffsetAsScala: Option[Int] = Option(self.startCharOffset) // Int
+  final def startCharOffsetAsScala: Option[Int] = Option(self.startCharOffset)
 
-  final def endCharOffsetAsScala: Option[Int] = Option(self.endCharOffset) // Int
+  final def endCharOffsetAsScala: Option[Int] = Option(self.endCharOffset)
 
 }
 

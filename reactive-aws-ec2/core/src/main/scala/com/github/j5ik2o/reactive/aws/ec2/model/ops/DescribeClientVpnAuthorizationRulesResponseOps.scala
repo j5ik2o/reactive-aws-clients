@@ -1,0 +1,49 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.ec2.model.ops
+
+import software.amazon.awssdk.services.ec2.model._
+
+final class DescribeClientVpnAuthorizationRulesResponseBuilderOps(
+    val self: DescribeClientVpnAuthorizationRulesResponse.Builder
+) extends AnyVal {
+
+  final def authorizationRulesAsScala(
+      value: Option[Seq[AuthorizationRule]]
+  ): DescribeClientVpnAuthorizationRulesResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.authorizationRules(v.asJava)
+    }
+  }
+
+  final def nextTokenAsScala(value: Option[String]): DescribeClientVpnAuthorizationRulesResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
+}
+
+final class DescribeClientVpnAuthorizationRulesResponseOps(val self: DescribeClientVpnAuthorizationRulesResponse)
+    extends AnyVal {
+
+  final def authorizationRulesAsScala: Option[Seq[AuthorizationRule]] = Option(self.authorizationRules).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  }
+
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeClientVpnAuthorizationRulesResponseOps {
+
+  implicit def toDescribeClientVpnAuthorizationRulesResponseBuilderOps(
+      v: DescribeClientVpnAuthorizationRulesResponse.Builder
+  ): DescribeClientVpnAuthorizationRulesResponseBuilderOps =
+    new DescribeClientVpnAuthorizationRulesResponseBuilderOps(v)
+
+  implicit def toDescribeClientVpnAuthorizationRulesResponseOps(
+      v: DescribeClientVpnAuthorizationRulesResponse
+  ): DescribeClientVpnAuthorizationRulesResponseOps = new DescribeClientVpnAuthorizationRulesResponseOps(v)
+
+}

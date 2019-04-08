@@ -9,23 +9,23 @@ final class ListLayerVersionsResponseBuilderOps(val self: ListLayerVersionsRespo
     value.fold(self) { v =>
       self.nextMarker(v)
     }
-  } // String
+  }
 
   final def layerVersionsAsScala(value: Option[Seq[LayerVersionsListItem]]): ListLayerVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.layerVersions(v.asJava)
-    } // Seq[LayerVersionsListItem]
+    }
   }
 
 }
 
 final class ListLayerVersionsResponseOps(val self: ListLayerVersionsResponse) extends AnyVal {
 
-  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker) // String
+  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   final def layerVersionsAsScala: Option[Seq[LayerVersionsListItem]] = Option(self.layerVersions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[LayerVersionsListItem]
+  }
 
 }
 

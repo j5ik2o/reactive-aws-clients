@@ -9,13 +9,13 @@ final class UpdateApiKeyResponseBuilderOps(val self: UpdateApiKeyResponse.Builde
     value.fold(self) { v =>
       self.apiKey(v)
     }
-  } // ApiKey
+  }
 
 }
 
 final class UpdateApiKeyResponseOps(val self: UpdateApiKeyResponse) extends AnyVal {
 
-  final def apiKeyAsScala: Option[ApiKey] = Option(self.apiKey) // ApiKey
+  final def apiKeyAsScala: Option[ApiKey] = Option(self.apiKey)
 
 }
 

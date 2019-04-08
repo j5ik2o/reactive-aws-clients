@@ -21,17 +21,11 @@ trait ToAllOps
     with ToCreateTypeResponseOps
     with ToDataSourceOps
     with ToDeleteApiKeyRequestOps
-    with ToDeleteApiKeyResponseOps
     with ToDeleteDataSourceRequestOps
-    with ToDeleteDataSourceResponseOps
     with ToDeleteFunctionRequestOps
-    with ToDeleteFunctionResponseOps
     with ToDeleteGraphqlApiRequestOps
-    with ToDeleteGraphqlApiResponseOps
     with ToDeleteResolverRequestOps
-    with ToDeleteResolverResponseOps
     with ToDeleteTypeRequestOps
-    with ToDeleteTypeResponseOps
     with ToDynamodbDataSourceConfigOps
     with ToElasticsearchDataSourceConfigOps
     with ToFunctionConfigurationOps

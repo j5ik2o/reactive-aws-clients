@@ -9,21 +9,21 @@ final class UpdateJobQueueResponseBuilderOps(val self: UpdateJobQueueResponse.Bu
     value.fold(self) { v =>
       self.jobQueueName(v)
     }
-  } // String
+  }
 
   final def jobQueueArnAsScala(value: Option[String]): UpdateJobQueueResponse.Builder = {
     value.fold(self) { v =>
       self.jobQueueArn(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateJobQueueResponseOps(val self: UpdateJobQueueResponse) extends AnyVal {
 
-  final def jobQueueNameAsScala: Option[String] = Option(self.jobQueueName) // String
+  final def jobQueueNameAsScala: Option[String] = Option(self.jobQueueName)
 
-  final def jobQueueArnAsScala: Option[String] = Option(self.jobQueueArn) // String
+  final def jobQueueArnAsScala: Option[String] = Option(self.jobQueueArn)
 
 }
 

@@ -9,13 +9,13 @@ final class CreateExportTaskResponseBuilderOps(val self: CreateExportTaskRespons
     value.fold(self) { v =>
       self.taskId(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateExportTaskResponseOps(val self: CreateExportTaskResponse) extends AnyVal {
 
-  final def taskIdAsScala: Option[String] = Option(self.taskId) // String
+  final def taskIdAsScala: Option[String] = Option(self.taskId)
 
 }
 

@@ -9,53 +9,53 @@ final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.destinationName(v)
     }
-  } // String
+  }
 
   final def targetArnAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.targetArn(v)
     }
-  } // String
+  }
 
   final def roleArnAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.roleArn(v)
     }
-  } // String
+  }
 
   final def accessPolicyAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.accessPolicy(v)
     }
-  } // String
+  }
 
   final def arnAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def creationTimeAsScala(value: Option[Long]): Destination.Builder = {
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Long
+  }
 
 }
 
 final class DestinationOps(val self: Destination) extends AnyVal {
 
-  final def destinationNameAsScala: Option[String] = Option(self.destinationName) // String
+  final def destinationNameAsScala: Option[String] = Option(self.destinationName)
 
-  final def targetArnAsScala: Option[String] = Option(self.targetArn) // String
+  final def targetArnAsScala: Option[String] = Option(self.targetArn)
 
-  final def roleArnAsScala: Option[String] = Option(self.roleArn) // String
+  final def roleArnAsScala: Option[String] = Option(self.roleArn)
 
-  final def accessPolicyAsScala: Option[String] = Option(self.accessPolicy) // String
+  final def accessPolicyAsScala: Option[String] = Option(self.accessPolicy)
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
-  final def creationTimeAsScala: Option[Long] = Option(self.creationTime) // Long
+  final def creationTimeAsScala: Option[Long] = Option(self.creationTime)
 
 }
 

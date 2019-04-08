@@ -9,13 +9,13 @@ final class CreateApplicationRequestBuilderOps(val self: CreateApplicationReques
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): CreateApplicationRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def resourceLifecycleConfigAsScala(
       value: Option[ApplicationResourceLifecycleConfig]
@@ -23,18 +23,18 @@ final class CreateApplicationRequestBuilderOps(val self: CreateApplicationReques
     value.fold(self) { v =>
       self.resourceLifecycleConfig(v)
     }
-  } // ApplicationResourceLifecycleConfig
+  }
 
 }
 
 final class CreateApplicationRequestOps(val self: CreateApplicationRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
   final def resourceLifecycleConfigAsScala: Option[ApplicationResourceLifecycleConfig] =
-    Option(self.resourceLifecycleConfig) // ApplicationResourceLifecycleConfig
+    Option(self.resourceLifecycleConfig)
 
 }
 

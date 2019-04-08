@@ -9,21 +9,21 @@ final class LogGroupFieldBuilderOps(val self: LogGroupField.Builder) extends Any
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def percentAsScala(value: Option[Int]): LogGroupField.Builder = {
     value.fold(self) { v =>
       self.percent(v)
     }
-  } // Int
+  }
 
 }
 
 final class LogGroupFieldOps(val self: LogGroupField) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def percentAsScala: Option[Int] = Option(self.percent) // Int
+  final def percentAsScala: Option[Int] = Option(self.percent)
 
 }
 

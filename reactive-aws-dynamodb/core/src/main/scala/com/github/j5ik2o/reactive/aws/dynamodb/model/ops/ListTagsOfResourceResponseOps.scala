@@ -8,14 +8,14 @@ final class ListTagsOfResourceResponseBuilderOps(val self: ListTagsOfResourceRes
   final def tagsAsScala(value: Option[Seq[Tag]]): ListTagsOfResourceResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListTagsOfResourceResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListTagsOfResourceResponseOps(val self: ListTagsOfResourceResponse) 
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

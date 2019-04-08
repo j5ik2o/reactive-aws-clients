@@ -9,13 +9,13 @@ final class StartQueryResponseBuilderOps(val self: StartQueryResponse.Builder) e
     value.fold(self) { v =>
       self.queryId(v)
     }
-  } // String
+  }
 
 }
 
 final class StartQueryResponseOps(val self: StartQueryResponse) extends AnyVal {
 
-  final def queryIdAsScala: Option[String] = Option(self.queryId) // String
+  final def queryIdAsScala: Option[String] = Option(self.queryId)
 
 }
 

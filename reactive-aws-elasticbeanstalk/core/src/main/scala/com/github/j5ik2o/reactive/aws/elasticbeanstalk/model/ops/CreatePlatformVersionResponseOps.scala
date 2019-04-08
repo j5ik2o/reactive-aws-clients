@@ -9,21 +9,21 @@ final class CreatePlatformVersionResponseBuilderOps(val self: CreatePlatformVers
     value.fold(self) { v =>
       self.platformSummary(v)
     }
-  } // PlatformSummary
+  }
 
   final def platformBuilderAsScala(value: Option[PlatformBuilder]): CreatePlatformVersionResponse.Builder = {
     value.fold(self) { v =>
       self.platformBuilder(v)
     }
-  } // PlatformBuilder
+  }
 
 }
 
 final class CreatePlatformVersionResponseOps(val self: CreatePlatformVersionResponse) extends AnyVal {
 
-  final def platformSummaryAsScala: Option[PlatformSummary] = Option(self.platformSummary) // PlatformSummary
+  final def platformSummaryAsScala: Option[PlatformSummary] = Option(self.platformSummary)
 
-  final def platformBuilderAsScala: Option[PlatformBuilder] = Option(self.platformBuilder) // PlatformBuilder
+  final def platformBuilderAsScala: Option[PlatformBuilder] = Option(self.platformBuilder)
 
 }
 

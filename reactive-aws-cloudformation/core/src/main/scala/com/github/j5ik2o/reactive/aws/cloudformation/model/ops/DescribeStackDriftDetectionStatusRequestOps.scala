@@ -11,14 +11,14 @@ final class DescribeStackDriftDetectionStatusRequestBuilderOps(
     value.fold(self) { v =>
       self.stackDriftDetectionId(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStackDriftDetectionStatusRequestOps(val self: DescribeStackDriftDetectionStatusRequest)
     extends AnyVal {
 
-  final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId) // String
+  final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId)
 
 }
 

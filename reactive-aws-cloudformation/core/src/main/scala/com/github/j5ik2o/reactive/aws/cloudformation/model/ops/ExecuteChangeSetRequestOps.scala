@@ -9,29 +9,29 @@ final class ExecuteChangeSetRequestBuilderOps(val self: ExecuteChangeSetRequest.
     value.fold(self) { v =>
       self.changeSetName(v)
     }
-  } // String
+  }
 
   final def stackNameAsScala(value: Option[String]): ExecuteChangeSetRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def clientRequestTokenAsScala(value: Option[String]): ExecuteChangeSetRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ExecuteChangeSetRequestOps(val self: ExecuteChangeSetRequest) extends AnyVal {
 
-  final def changeSetNameAsScala: Option[String] = Option(self.changeSetName) // String
+  final def changeSetNameAsScala: Option[String] = Option(self.changeSetName)
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken) // String
+  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)
 
 }
 

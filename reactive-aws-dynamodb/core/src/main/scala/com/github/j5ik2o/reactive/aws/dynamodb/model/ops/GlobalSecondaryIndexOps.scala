@@ -9,40 +9,39 @@ final class GlobalSecondaryIndexBuilderOps(val self: GlobalSecondaryIndex.Builde
     value.fold(self) { v =>
       self.indexName(v)
     }
-  } // String
+  }
 
   final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndex.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
-    } // Seq[KeySchemaElement]
+    }
   }
 
   final def projectionAsScala(value: Option[Projection]): GlobalSecondaryIndex.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }
-  } // Projection
+  }
 
   final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): GlobalSecondaryIndex.Builder = {
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }
-  } // ProvisionedThroughput
+  }
 
 }
 
 final class GlobalSecondaryIndexOps(val self: GlobalSecondaryIndex) extends AnyVal {
 
-  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
 
   final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[KeySchemaElement]
+  }
 
-  final def projectionAsScala: Option[Projection] = Option(self.projection) // Projection
+  final def projectionAsScala: Option[Projection] = Option(self.projection)
 
-  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
-    Option(self.provisionedThroughput) // ProvisionedThroughput
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] = Option(self.provisionedThroughput)
 
 }
 

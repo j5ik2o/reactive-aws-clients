@@ -9,13 +9,13 @@ final class SSEKMSBuilderOps(val self: SSEKMS.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.keyId(v)
     }
-  } // String
+  }
 
 }
 
 final class SSEKMSOps(val self: SSEKMS) extends AnyVal {
 
-  final def keyIdAsScala: Option[String] = Option(self.keyId) // String
+  final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }
 

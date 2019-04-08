@@ -9,23 +9,23 @@ final class DetectStackDriftRequestBuilderOps(val self: DetectStackDriftRequest.
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def logicalResourceIdsAsScala(value: Option[Seq[String]]): DetectStackDriftRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logicalResourceIds(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class DetectStackDriftRequestOps(val self: DetectStackDriftRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
   final def logicalResourceIdsAsScala: Option[Seq[String]] = Option(self.logicalResourceIds).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

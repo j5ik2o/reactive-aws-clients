@@ -9,37 +9,37 @@ final class StatusCodesBuilderOps(val self: StatusCodes.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.status2xx(v)
     }
-  } // Int
+  }
 
   final def status3xxAsScala(value: Option[Int]): StatusCodes.Builder = {
     value.fold(self) { v =>
       self.status3xx(v)
     }
-  } // Int
+  }
 
   final def status4xxAsScala(value: Option[Int]): StatusCodes.Builder = {
     value.fold(self) { v =>
       self.status4xx(v)
     }
-  } // Int
+  }
 
   final def status5xxAsScala(value: Option[Int]): StatusCodes.Builder = {
     value.fold(self) { v =>
       self.status5xx(v)
     }
-  } // Int
+  }
 
 }
 
 final class StatusCodesOps(val self: StatusCodes) extends AnyVal {
 
-  final def status2xxAsScala: Option[Int] = Option(self.status2xx) // Int
+  final def status2xxAsScala: Option[Int] = Option(self.status2xx)
 
-  final def status3xxAsScala: Option[Int] = Option(self.status3xx) // Int
+  final def status3xxAsScala: Option[Int] = Option(self.status3xx)
 
-  final def status4xxAsScala: Option[Int] = Option(self.status4xx) // Int
+  final def status4xxAsScala: Option[Int] = Option(self.status4xx)
 
-  final def status5xxAsScala: Option[Int] = Option(self.status5xx) // Int
+  final def status5xxAsScala: Option[Int] = Option(self.status5xx)
 
 }
 

@@ -12,7 +12,7 @@ final class StackResourceDriftInformationSummaryBuilderOps(val self: StackResour
     value.fold(self) { v =>
       self.stackResourceDriftStatus(v)
     }
-  } // StackResourceDriftStatus
+  }
 
   final def lastCheckTimestampAsScala(
       value: Option[java.time.Instant]
@@ -20,16 +20,15 @@ final class StackResourceDriftInformationSummaryBuilderOps(val self: StackResour
     value.fold(self) { v =>
       self.lastCheckTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class StackResourceDriftInformationSummaryOps(val self: StackResourceDriftInformationSummary) extends AnyVal {
 
-  final def stackResourceDriftStatusAsScala: Option[StackResourceDriftStatus] =
-    Option(self.stackResourceDriftStatus) // StackResourceDriftStatus
+  final def stackResourceDriftStatusAsScala: Option[StackResourceDriftStatus] = Option(self.stackResourceDriftStatus)
 
-  final def lastCheckTimestampAsScala: Option[java.time.Instant] = Option(self.lastCheckTimestamp) // java.time.Instant
+  final def lastCheckTimestampAsScala: Option[java.time.Instant] = Option(self.lastCheckTimestamp)
 
 }
 

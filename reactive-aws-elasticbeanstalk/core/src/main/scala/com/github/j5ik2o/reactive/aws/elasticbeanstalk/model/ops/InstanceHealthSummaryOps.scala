@@ -9,69 +9,69 @@ final class InstanceHealthSummaryBuilderOps(val self: InstanceHealthSummary.Buil
     value.fold(self) { v =>
       self.noData(v)
     }
-  } // Int
+  }
 
   final def unknownAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.unknown(v)
     }
-  } // Int
+  }
 
   final def pendingAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.pending(v)
     }
-  } // Int
+  }
 
   final def okAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.ok(v)
     }
-  } // Int
+  }
 
   final def infoAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.info(v)
     }
-  } // Int
+  }
 
   final def warningAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.warning(v)
     }
-  } // Int
+  }
 
   final def degradedAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.degraded(v)
     }
-  } // Int
+  }
 
   final def severeAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
     value.fold(self) { v =>
       self.severe(v)
     }
-  } // Int
+  }
 
 }
 
 final class InstanceHealthSummaryOps(val self: InstanceHealthSummary) extends AnyVal {
 
-  final def noDataAsScala: Option[Int] = Option(self.noData) // Int
+  final def noDataAsScala: Option[Int] = Option(self.noData)
 
-  final def unknownAsScala: Option[Int] = Option(self.unknown) // Int
+  final def unknownAsScala: Option[Int] = Option(self.unknown)
 
-  final def pendingAsScala: Option[Int] = Option(self.pending) // Int
+  final def pendingAsScala: Option[Int] = Option(self.pending)
 
-  final def okAsScala: Option[Int] = Option(self.ok) // Int
+  final def okAsScala: Option[Int] = Option(self.ok)
 
-  final def infoAsScala: Option[Int] = Option(self.info) // Int
+  final def infoAsScala: Option[Int] = Option(self.info)
 
-  final def warningAsScala: Option[Int] = Option(self.warning) // Int
+  final def warningAsScala: Option[Int] = Option(self.warning)
 
-  final def degradedAsScala: Option[Int] = Option(self.degraded) // Int
+  final def degradedAsScala: Option[Int] = Option(self.degraded)
 
-  final def severeAsScala: Option[Int] = Option(self.severe) // Int
+  final def severeAsScala: Option[Int] = Option(self.severe)
 
 }
 

@@ -9,13 +9,13 @@ final class TriggerBuilderOps(val self: Trigger.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class TriggerOps(val self: Trigger) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

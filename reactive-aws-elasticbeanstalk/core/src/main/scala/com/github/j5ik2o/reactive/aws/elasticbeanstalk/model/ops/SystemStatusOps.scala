@@ -9,23 +9,23 @@ final class SystemStatusBuilderOps(val self: SystemStatus.Builder) extends AnyVa
     value.fold(self) { v =>
       self.cpuUtilization(v)
     }
-  } // CPUUtilization
+  }
 
   final def loadAverageAsScala(value: Option[Seq[Double]]): SystemStatus.Builder = {
     value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Double])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.loadAverage(v.asJava)
-    } // Seq[Double]
+    }
   }
 
 }
 
 final class SystemStatusOps(val self: SystemStatus) extends AnyVal {
 
-  final def cpuUtilizationAsScala: Option[CPUUtilization] = Option(self.cpuUtilization) // CPUUtilization
+  final def cpuUtilizationAsScala: Option[CPUUtilization] = Option(self.cpuUtilization)
 
   final def loadAverageAsScala: Option[Seq[Double]] = Option(self.loadAverage).map { v =>
     import scala.collection.JavaConverters._; v.asScala.map(_.doubleValue())
-  } // Seq[Double]
+  }
 
 }
 

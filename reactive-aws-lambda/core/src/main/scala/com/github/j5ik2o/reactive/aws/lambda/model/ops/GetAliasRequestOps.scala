@@ -9,21 +9,21 @@ final class GetAliasRequestBuilderOps(val self: GetAliasRequest.Builder) extends
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def nameAsScala(value: Option[String]): GetAliasRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class GetAliasRequestOps(val self: GetAliasRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

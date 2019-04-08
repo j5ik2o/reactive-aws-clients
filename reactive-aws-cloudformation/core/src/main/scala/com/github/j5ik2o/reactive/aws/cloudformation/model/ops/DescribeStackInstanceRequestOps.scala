@@ -9,29 +9,29 @@ final class DescribeStackInstanceRequestBuilderOps(val self: DescribeStackInstan
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def stackInstanceAccountAsScala(value: Option[String]): DescribeStackInstanceRequest.Builder = {
     value.fold(self) { v =>
       self.stackInstanceAccount(v)
     }
-  } // String
+  }
 
   final def stackInstanceRegionAsScala(value: Option[String]): DescribeStackInstanceRequest.Builder = {
     value.fold(self) { v =>
       self.stackInstanceRegion(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStackInstanceRequestOps(val self: DescribeStackInstanceRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
-  final def stackInstanceAccountAsScala: Option[String] = Option(self.stackInstanceAccount) // String
+  final def stackInstanceAccountAsScala: Option[String] = Option(self.stackInstanceAccount)
 
-  final def stackInstanceRegionAsScala: Option[String] = Option(self.stackInstanceRegion) // String
+  final def stackInstanceRegionAsScala: Option[String] = Option(self.stackInstanceRegion)
 
 }
 

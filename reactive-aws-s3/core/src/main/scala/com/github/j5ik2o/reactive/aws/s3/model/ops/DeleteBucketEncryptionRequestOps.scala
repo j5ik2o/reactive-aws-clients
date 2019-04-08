@@ -9,13 +9,13 @@ final class DeleteBucketEncryptionRequestBuilderOps(val self: DeleteBucketEncryp
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteBucketEncryptionRequestOps(val self: DeleteBucketEncryptionRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

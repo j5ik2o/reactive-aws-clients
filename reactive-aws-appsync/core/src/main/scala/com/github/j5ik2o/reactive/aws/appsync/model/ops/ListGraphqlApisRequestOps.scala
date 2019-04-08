@@ -9,21 +9,21 @@ final class ListGraphqlApisRequestBuilderOps(val self: ListGraphqlApisRequest.Bu
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListGraphqlApisRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListGraphqlApisRequestOps(val self: ListGraphqlApisRequest) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

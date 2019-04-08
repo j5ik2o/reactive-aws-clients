@@ -9,13 +9,13 @@ final class ArrayPropertiesBuilderOps(val self: ArrayProperties.Builder) extends
     value.fold(self) { v =>
       self.size(v)
     }
-  } // Int
+  }
 
 }
 
 final class ArrayPropertiesOps(val self: ArrayProperties) extends AnyVal {
 
-  final def sizeAsScala: Option[Int] = Option(self.size) // Int
+  final def sizeAsScala: Option[Int] = Option(self.size)
 
 }
 

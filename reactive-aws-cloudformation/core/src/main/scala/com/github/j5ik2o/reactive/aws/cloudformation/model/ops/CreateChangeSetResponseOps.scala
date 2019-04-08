@@ -9,21 +9,21 @@ final class CreateChangeSetResponseBuilderOps(val self: CreateChangeSetResponse.
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def stackIdAsScala(value: Option[String]): CreateChangeSetResponse.Builder = {
     value.fold(self) { v =>
       self.stackId(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateChangeSetResponseOps(val self: CreateChangeSetResponse) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def stackIdAsScala: Option[String] = Option(self.stackId) // String
+  final def stackIdAsScala: Option[String] = Option(self.stackId)
 
 }
 

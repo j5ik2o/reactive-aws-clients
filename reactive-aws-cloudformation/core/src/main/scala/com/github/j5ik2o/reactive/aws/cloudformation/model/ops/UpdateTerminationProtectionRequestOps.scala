@@ -10,21 +10,21 @@ final class UpdateTerminationProtectionRequestBuilderOps(val self: UpdateTermina
     value.fold(self) { v =>
       self.enableTerminationProtection(v)
     }
-  } // Boolean
+  }
 
   final def stackNameAsScala(value: Option[String]): UpdateTerminationProtectionRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateTerminationProtectionRequestOps(val self: UpdateTerminationProtectionRequest) extends AnyVal {
 
-  final def enableTerminationProtectionAsScala: Option[Boolean] = Option(self.enableTerminationProtection) // Boolean
+  final def enableTerminationProtectionAsScala: Option[Boolean] = Option(self.enableTerminationProtection)
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
 }
 

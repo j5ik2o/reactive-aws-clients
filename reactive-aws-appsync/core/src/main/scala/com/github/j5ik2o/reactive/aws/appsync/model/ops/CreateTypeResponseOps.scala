@@ -9,13 +9,13 @@ final class CreateTypeResponseBuilderOps(val self: CreateTypeResponse.Builder) e
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // Type
+  }
 
 }
 
 final class CreateTypeResponseOps(val self: CreateTypeResponse) extends AnyVal {
 
-  final def typeAsScala: Option[Type] = Option(self.`type`) // Type
+  final def typeAsScala: Option[Type] = Option(self.`type`)
 
 }
 

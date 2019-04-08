@@ -9,37 +9,37 @@ final class ListLayerVersionsRequestBuilderOps(val self: ListLayerVersionsReques
     value.fold(self) { v =>
       self.compatibleRuntime(v)
     }
-  } // Runtime
+  }
 
   final def layerNameAsScala(value: Option[String]): ListLayerVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.layerName(v)
     }
-  } // String
+  }
 
   final def markerAsScala(value: Option[String]): ListLayerVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.marker(v)
     }
-  } // String
+  }
 
   final def maxItemsAsScala(value: Option[Int]): ListLayerVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.maxItems(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListLayerVersionsRequestOps(val self: ListLayerVersionsRequest) extends AnyVal {
 
-  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime) // Runtime
+  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime)
 
-  final def layerNameAsScala: Option[String] = Option(self.layerName) // String
+  final def layerNameAsScala: Option[String] = Option(self.layerName)
 
-  final def markerAsScala: Option[String] = Option(self.marker) // String
+  final def markerAsScala: Option[String] = Option(self.marker)
 
-  final def maxItemsAsScala: Option[Int] = Option(self.maxItems) // Int
+  final def maxItemsAsScala: Option[Int] = Option(self.maxItems)
 
 }
 

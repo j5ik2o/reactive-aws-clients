@@ -9,21 +9,21 @@ final class CognitoOptionsStatusBuilderOps(val self: CognitoOptionsStatus.Builde
     value.fold(self) { v =>
       self.options(v)
     }
-  } // CognitoOptions
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): CognitoOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class CognitoOptionsStatusOps(val self: CognitoOptionsStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[CognitoOptions] = Option(self.options) // CognitoOptions
+  final def optionsAsScala: Option[CognitoOptions] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

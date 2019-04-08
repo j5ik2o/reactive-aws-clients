@@ -9,21 +9,21 @@ final class DeleteLogStreamRequestBuilderOps(val self: DeleteLogStreamRequest.Bu
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def logStreamNameAsScala(value: Option[String]): DeleteLogStreamRequest.Builder = {
     value.fold(self) { v =>
       self.logStreamName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteLogStreamRequestOps(val self: DeleteLogStreamRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def logStreamNameAsScala: Option[String] = Option(self.logStreamName) // String
+  final def logStreamNameAsScala: Option[String] = Option(self.logStreamName)
 
 }
 

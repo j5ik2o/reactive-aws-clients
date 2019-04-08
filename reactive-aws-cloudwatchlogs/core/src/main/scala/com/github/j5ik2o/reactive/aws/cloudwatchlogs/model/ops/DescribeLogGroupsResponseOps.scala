@@ -8,14 +8,14 @@ final class DescribeLogGroupsResponseBuilderOps(val self: DescribeLogGroupsRespo
   final def logGroupsAsScala(value: Option[Seq[LogGroup]]): DescribeLogGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logGroups(v.asJava)
-    } // Seq[LogGroup]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeLogGroupsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeLogGroupsResponseOps(val self: DescribeLogGroupsResponse) ex
 
   final def logGroupsAsScala: Option[Seq[LogGroup]] = Option(self.logGroups).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[LogGroup]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

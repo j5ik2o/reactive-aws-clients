@@ -9,40 +9,39 @@ final class TopicConfigurationBuilderOps(val self: TopicConfiguration.Builder) e
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def topicArnAsScala(value: Option[String]): TopicConfiguration.Builder = {
     value.fold(self) { v =>
       self.topicArn(v)
     }
-  } // String
+  }
 
   final def eventsAsScala(value: Option[Seq[Event]]): TopicConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
-    } // Seq[Event]
+    }
   }
 
   final def filterAsScala(value: Option[NotificationConfigurationFilter]): TopicConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
-  } // NotificationConfigurationFilter
+  }
 
 }
 
 final class TopicConfigurationOps(val self: TopicConfiguration) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def topicArnAsScala: Option[String] = Option(self.topicArn) // String
+  final def topicArnAsScala: Option[String] = Option(self.topicArn)
 
   final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Event]
+  }
 
-  final def filterAsScala: Option[NotificationConfigurationFilter] =
-    Option(self.filter) // NotificationConfigurationFilter
+  final def filterAsScala: Option[NotificationConfigurationFilter] = Option(self.filter)
 
 }
 

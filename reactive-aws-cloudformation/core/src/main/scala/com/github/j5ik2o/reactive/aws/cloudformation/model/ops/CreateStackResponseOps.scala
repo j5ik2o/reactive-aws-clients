@@ -9,13 +9,13 @@ final class CreateStackResponseBuilderOps(val self: CreateStackResponse.Builder)
     value.fold(self) { v =>
       self.stackId(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateStackResponseOps(val self: CreateStackResponse) extends AnyVal {
 
-  final def stackIdAsScala: Option[String] = Option(self.stackId) // String
+  final def stackIdAsScala: Option[String] = Option(self.stackId)
 
 }
 

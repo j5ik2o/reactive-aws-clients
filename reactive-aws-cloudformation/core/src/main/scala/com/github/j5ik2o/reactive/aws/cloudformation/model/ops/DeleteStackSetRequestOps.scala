@@ -9,13 +9,13 @@ final class DeleteStackSetRequestBuilderOps(val self: DeleteStackSetRequest.Buil
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteStackSetRequestOps(val self: DeleteStackSetRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
 }
 

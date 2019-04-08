@@ -9,13 +9,13 @@ final class PutDestinationResponseBuilderOps(val self: PutDestinationResponse.Bu
     value.fold(self) { v =>
       self.destination(v)
     }
-  } // Destination
+  }
 
 }
 
 final class PutDestinationResponseOps(val self: PutDestinationResponse) extends AnyVal {
 
-  final def destinationAsScala: Option[Destination] = Option(self.destination) // Destination
+  final def destinationAsScala: Option[Destination] = Option(self.destination)
 
 }
 

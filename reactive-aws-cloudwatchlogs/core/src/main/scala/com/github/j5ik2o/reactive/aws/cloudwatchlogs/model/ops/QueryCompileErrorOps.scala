@@ -9,21 +9,21 @@ final class QueryCompileErrorBuilderOps(val self: QueryCompileError.Builder) ext
     value.fold(self) { v =>
       self.location(v)
     }
-  } // QueryCompileErrorLocation
+  }
 
   final def messageAsScala(value: Option[String]): QueryCompileError.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class QueryCompileErrorOps(val self: QueryCompileError) extends AnyVal {
 
-  final def locationAsScala: Option[QueryCompileErrorLocation] = Option(self.location) // QueryCompileErrorLocation
+  final def locationAsScala: Option[QueryCompileErrorLocation] = Option(self.location)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

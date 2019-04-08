@@ -9,45 +9,45 @@ final class CSVOutputBuilderOps(val self: CSVOutput.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.quoteFields(v)
     }
-  } // QuoteFields
+  }
 
   final def quoteEscapeCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.quoteEscapeCharacter(v)
     }
-  } // String
+  }
 
   final def recordDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.recordDelimiter(v)
     }
-  } // String
+  }
 
   final def fieldDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.fieldDelimiter(v)
     }
-  } // String
+  }
 
   final def quoteCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.quoteCharacter(v)
     }
-  } // String
+  }
 
 }
 
 final class CSVOutputOps(val self: CSVOutput) extends AnyVal {
 
-  final def quoteFieldsAsScala: Option[QuoteFields] = Option(self.quoteFields) // QuoteFields
+  final def quoteFieldsAsScala: Option[QuoteFields] = Option(self.quoteFields)
 
-  final def quoteEscapeCharacterAsScala: Option[String] = Option(self.quoteEscapeCharacter) // String
+  final def quoteEscapeCharacterAsScala: Option[String] = Option(self.quoteEscapeCharacter)
 
-  final def recordDelimiterAsScala: Option[String] = Option(self.recordDelimiter) // String
+  final def recordDelimiterAsScala: Option[String] = Option(self.recordDelimiter)
 
-  final def fieldDelimiterAsScala: Option[String] = Option(self.fieldDelimiter) // String
+  final def fieldDelimiterAsScala: Option[String] = Option(self.fieldDelimiter)
 
-  final def quoteCharacterAsScala: Option[String] = Option(self.quoteCharacter) // String
+  final def quoteCharacterAsScala: Option[String] = Option(self.quoteCharacter)
 
 }
 

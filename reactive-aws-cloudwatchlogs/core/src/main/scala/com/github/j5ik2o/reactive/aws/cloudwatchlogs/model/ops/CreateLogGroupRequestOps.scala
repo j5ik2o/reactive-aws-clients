@@ -9,31 +9,31 @@ final class CreateLogGroupRequestBuilderOps(val self: CreateLogGroupRequest.Buil
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def kmsKeyIdAsScala(value: Option[String]): CreateLogGroupRequest.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Map[String, String]]): CreateLogGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
 
 final class CreateLogGroupRequestOps(val self: CreateLogGroupRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId) // String
+  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

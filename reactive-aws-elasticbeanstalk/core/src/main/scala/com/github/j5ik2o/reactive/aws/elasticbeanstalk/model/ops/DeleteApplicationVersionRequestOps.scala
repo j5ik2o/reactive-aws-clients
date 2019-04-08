@@ -10,29 +10,29 @@ final class DeleteApplicationVersionRequestBuilderOps(val self: DeleteApplicatio
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def versionLabelAsScala(value: Option[String]): DeleteApplicationVersionRequest.Builder = {
     value.fold(self) { v =>
       self.versionLabel(v)
     }
-  } // String
+  }
 
   final def deleteSourceBundleAsScala(value: Option[Boolean]): DeleteApplicationVersionRequest.Builder = {
     value.fold(self) { v =>
       self.deleteSourceBundle(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class DeleteApplicationVersionRequestOps(val self: DeleteApplicationVersionRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def versionLabelAsScala: Option[String] = Option(self.versionLabel) // String
+  final def versionLabelAsScala: Option[String] = Option(self.versionLabel)
 
-  final def deleteSourceBundleAsScala: Option[Boolean] = Option(self.deleteSourceBundle) // Boolean
+  final def deleteSourceBundleAsScala: Option[Boolean] = Option(self.deleteSourceBundle)
 
 }
 

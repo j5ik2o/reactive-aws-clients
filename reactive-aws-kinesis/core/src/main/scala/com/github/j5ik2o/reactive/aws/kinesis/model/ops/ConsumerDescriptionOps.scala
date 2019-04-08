@@ -9,46 +9,45 @@ final class ConsumerDescriptionBuilderOps(val self: ConsumerDescription.Builder)
     value.fold(self) { v =>
       self.consumerName(v)
     }
-  } // String
+  }
 
   final def consumerARNAsScala(value: Option[String]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerARN(v)
     }
-  } // String
+  }
 
   final def consumerStatusAsScala(value: Option[ConsumerStatus]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerStatus(v)
     }
-  } // ConsumerStatus
+  }
 
   final def consumerCreationTimestampAsScala(value: Option[java.time.Instant]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerCreationTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
   final def streamARNAsScala(value: Option[String]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
-  } // String
+  }
 
 }
 
 final class ConsumerDescriptionOps(val self: ConsumerDescription) extends AnyVal {
 
-  final def consumerNameAsScala: Option[String] = Option(self.consumerName) // String
+  final def consumerNameAsScala: Option[String] = Option(self.consumerName)
 
-  final def consumerARNAsScala: Option[String] = Option(self.consumerARN) // String
+  final def consumerARNAsScala: Option[String] = Option(self.consumerARN)
 
-  final def consumerStatusAsScala: Option[ConsumerStatus] = Option(self.consumerStatus) // ConsumerStatus
+  final def consumerStatusAsScala: Option[ConsumerStatus] = Option(self.consumerStatus)
 
-  final def consumerCreationTimestampAsScala: Option[java.time.Instant] =
-    Option(self.consumerCreationTimestamp) // java.time.Instant
+  final def consumerCreationTimestampAsScala: Option[java.time.Instant] = Option(self.consumerCreationTimestamp)
 
-  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+  final def streamARNAsScala: Option[String] = Option(self.streamARN)
 
 }
 

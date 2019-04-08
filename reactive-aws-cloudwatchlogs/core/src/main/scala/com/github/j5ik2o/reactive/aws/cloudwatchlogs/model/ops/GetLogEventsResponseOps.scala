@@ -8,20 +8,20 @@ final class GetLogEventsResponseBuilderOps(val self: GetLogEventsResponse.Builde
   final def eventsAsScala(value: Option[Seq[OutputLogEvent]]): GetLogEventsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
-    } // Seq[OutputLogEvent]
+    }
   }
 
   final def nextForwardTokenAsScala(value: Option[String]): GetLogEventsResponse.Builder = {
     value.fold(self) { v =>
       self.nextForwardToken(v)
     }
-  } // String
+  }
 
   final def nextBackwardTokenAsScala(value: Option[String]): GetLogEventsResponse.Builder = {
     value.fold(self) { v =>
       self.nextBackwardToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class GetLogEventsResponseOps(val self: GetLogEventsResponse) extends AnyV
 
   final def eventsAsScala: Option[Seq[OutputLogEvent]] = Option(self.events).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[OutputLogEvent]
+  }
 
-  final def nextForwardTokenAsScala: Option[String] = Option(self.nextForwardToken) // String
+  final def nextForwardTokenAsScala: Option[String] = Option(self.nextForwardToken)
 
-  final def nextBackwardTokenAsScala: Option[String] = Option(self.nextBackwardToken) // String
+  final def nextBackwardTokenAsScala: Option[String] = Option(self.nextBackwardToken)
 
 }
 

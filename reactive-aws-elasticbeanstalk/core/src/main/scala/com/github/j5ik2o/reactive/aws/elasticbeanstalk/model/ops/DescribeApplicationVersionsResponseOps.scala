@@ -11,14 +11,14 @@ final class DescribeApplicationVersionsResponseBuilderOps(val self: DescribeAppl
   ): DescribeApplicationVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.applicationVersions(v.asJava)
-    } // Seq[ApplicationVersionDescription]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeApplicationVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -27,9 +27,9 @@ final class DescribeApplicationVersionsResponseOps(val self: DescribeApplication
   final def applicationVersionsAsScala: Option[Seq[ApplicationVersionDescription]] =
     Option(self.applicationVersions).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ApplicationVersionDescription]
+    }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

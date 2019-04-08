@@ -9,13 +9,13 @@ final class TracingConfigResponseBuilderOps(val self: TracingConfigResponse.Buil
     value.fold(self) { v =>
       self.mode(v)
     }
-  } // TracingMode
+  }
 
 }
 
 final class TracingConfigResponseOps(val self: TracingConfigResponse) extends AnyVal {
 
-  final def modeAsScala: Option[TracingMode] = Option(self.mode) // TracingMode
+  final def modeAsScala: Option[TracingMode] = Option(self.mode)
 
 }
 

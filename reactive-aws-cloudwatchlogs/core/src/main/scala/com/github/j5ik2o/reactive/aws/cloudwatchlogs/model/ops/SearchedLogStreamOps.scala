@@ -9,21 +9,21 @@ final class SearchedLogStreamBuilderOps(val self: SearchedLogStream.Builder) ext
     value.fold(self) { v =>
       self.logStreamName(v)
     }
-  } // String
+  }
 
   final def searchedCompletelyAsScala(value: Option[Boolean]): SearchedLogStream.Builder = {
     value.fold(self) { v =>
       self.searchedCompletely(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class SearchedLogStreamOps(val self: SearchedLogStream) extends AnyVal {
 
-  final def logStreamNameAsScala: Option[String] = Option(self.logStreamName) // String
+  final def logStreamNameAsScala: Option[String] = Option(self.logStreamName)
 
-  final def searchedCompletelyAsScala: Option[Boolean] = Option(self.searchedCompletely) // Boolean
+  final def searchedCompletelyAsScala: Option[Boolean] = Option(self.searchedCompletely)
 
 }
 

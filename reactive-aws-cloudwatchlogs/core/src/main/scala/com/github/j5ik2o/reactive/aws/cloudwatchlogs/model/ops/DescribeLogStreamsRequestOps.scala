@@ -9,53 +9,53 @@ final class DescribeLogStreamsRequestBuilderOps(val self: DescribeLogStreamsRequ
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def logStreamNamePrefixAsScala(value: Option[String]): DescribeLogStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.logStreamNamePrefix(v)
     }
-  } // String
+  }
 
   final def orderByAsScala(value: Option[OrderBy]): DescribeLogStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.orderBy(v)
     }
-  } // OrderBy
+  }
 
   final def descendingAsScala(value: Option[Boolean]): DescribeLogStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.descending(v)
     }
-  } // Boolean
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeLogStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): DescribeLogStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeLogStreamsRequestOps(val self: DescribeLogStreamsRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def logStreamNamePrefixAsScala: Option[String] = Option(self.logStreamNamePrefix) // String
+  final def logStreamNamePrefixAsScala: Option[String] = Option(self.logStreamNamePrefix)
 
-  final def orderByAsScala: Option[OrderBy] = Option(self.orderBy) // OrderBy
+  final def orderByAsScala: Option[OrderBy] = Option(self.orderBy)
 
-  final def descendingAsScala: Option[Boolean] = Option(self.descending) // Boolean
+  final def descendingAsScala: Option[Boolean] = Option(self.descending)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

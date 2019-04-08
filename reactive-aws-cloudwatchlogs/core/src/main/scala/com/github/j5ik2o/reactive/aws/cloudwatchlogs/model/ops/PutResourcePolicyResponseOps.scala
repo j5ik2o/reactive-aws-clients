@@ -9,13 +9,13 @@ final class PutResourcePolicyResponseBuilderOps(val self: PutResourcePolicyRespo
     value.fold(self) { v =>
       self.resourcePolicy(v)
     }
-  } // ResourcePolicy
+  }
 
 }
 
 final class PutResourcePolicyResponseOps(val self: PutResourcePolicyResponse) extends AnyVal {
 
-  final def resourcePolicyAsScala: Option[ResourcePolicy] = Option(self.resourcePolicy) // ResourcePolicy
+  final def resourcePolicyAsScala: Option[ResourcePolicy] = Option(self.resourcePolicy)
 
 }
 

@@ -9,13 +9,13 @@ final class JobTimeoutBuilderOps(val self: JobTimeout.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.attemptDurationSeconds(v)
     }
-  } // Int
+  }
 
 }
 
 final class JobTimeoutOps(val self: JobTimeout) extends AnyVal {
 
-  final def attemptDurationSecondsAsScala: Option[Int] = Option(self.attemptDurationSeconds) // Int
+  final def attemptDurationSecondsAsScala: Option[Int] = Option(self.attemptDurationSeconds)
 
 }
 

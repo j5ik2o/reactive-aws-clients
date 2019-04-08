@@ -9,53 +9,53 @@ final class ListPartsRequestBuilderOps(val self: ListPartsRequest.Builder) exten
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def maxPartsAsScala(value: Option[Int]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.maxParts(v)
     }
-  } // Int
+  }
 
   final def partNumberMarkerAsScala(value: Option[Int]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.partNumberMarker(v)
     }
-  } // Int
+  }
 
   final def uploadIdAsScala(value: Option[String]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // RequestPayer
+  }
 
 }
 
 final class ListPartsRequestOps(val self: ListPartsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def maxPartsAsScala: Option[Int] = Option(self.maxParts) // Int
+  final def maxPartsAsScala: Option[Int] = Option(self.maxParts)
 
-  final def partNumberMarkerAsScala: Option[Int] = Option(self.partNumberMarker) // Int
+  final def partNumberMarkerAsScala: Option[Int] = Option(self.partNumberMarker)
 
-  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
 }
 

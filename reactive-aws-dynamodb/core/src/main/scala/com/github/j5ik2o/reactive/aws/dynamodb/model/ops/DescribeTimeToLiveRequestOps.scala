@@ -9,13 +9,13 @@ final class DescribeTimeToLiveRequestBuilderOps(val self: DescribeTimeToLiveRequ
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeTimeToLiveRequestOps(val self: DescribeTimeToLiveRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
 }
 

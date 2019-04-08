@@ -9,29 +9,29 @@ final class LayerVersionContentOutputBuilderOps(val self: LayerVersionContentOut
     value.fold(self) { v =>
       self.location(v)
     }
-  } // String
+  }
 
   final def codeSha256AsScala(value: Option[String]): LayerVersionContentOutput.Builder = {
     value.fold(self) { v =>
       self.codeSha256(v)
     }
-  } // String
+  }
 
   final def codeSizeAsScala(value: Option[Long]): LayerVersionContentOutput.Builder = {
     value.fold(self) { v =>
       self.codeSize(v)
     }
-  } // Long
+  }
 
 }
 
 final class LayerVersionContentOutputOps(val self: LayerVersionContentOutput) extends AnyVal {
 
-  final def locationAsScala: Option[String] = Option(self.location) // String
+  final def locationAsScala: Option[String] = Option(self.location)
 
-  final def codeSha256AsScala: Option[String] = Option(self.codeSha256) // String
+  final def codeSha256AsScala: Option[String] = Option(self.codeSha256)
 
-  final def codeSizeAsScala: Option[Long] = Option(self.codeSize) // Long
+  final def codeSizeAsScala: Option[Long] = Option(self.codeSize)
 
 }
 

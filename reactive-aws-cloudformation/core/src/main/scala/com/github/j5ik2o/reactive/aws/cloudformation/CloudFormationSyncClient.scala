@@ -14,6 +14,9 @@ object CloudFormationSyncClient extends ToEitherSupport {
     }
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudformation/CloudFormationClient.html
+  */
 trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]] {
   val underlying: JavaCloudFormationSyncClient
 

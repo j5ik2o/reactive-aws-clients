@@ -8,7 +8,7 @@ final class DeleteAlarmsRequestBuilderOps(val self: DeleteAlarmsRequest.Builder)
   final def alarmNamesAsScala(value: Option[Seq[String]]): DeleteAlarmsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.alarmNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DeleteAlarmsRequestOps(val self: DeleteAlarmsRequest) extends AnyVal
 
   final def alarmNamesAsScala: Option[Seq[String]] = Option(self.alarmNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

@@ -8,14 +8,14 @@ final class GetMetricDataResponseBuilderOps(val self: GetMetricDataResponse.Buil
   final def metricDataResultsAsScala(value: Option[Seq[MetricDataResult]]): GetMetricDataResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metricDataResults(v.asJava)
-    } // Seq[MetricDataResult]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): GetMetricDataResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class GetMetricDataResponseOps(val self: GetMetricDataResponse) extends An
 
   final def metricDataResultsAsScala: Option[Seq[MetricDataResult]] = Option(self.metricDataResults).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricDataResult]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

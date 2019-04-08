@@ -9,69 +9,69 @@ final class LogStreamBuilderOps(val self: LogStream.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.logStreamName(v)
     }
-  } // String
+  }
 
   final def creationTimeAsScala(value: Option[Long]): LogStream.Builder = {
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Long
+  }
 
   final def firstEventTimestampAsScala(value: Option[Long]): LogStream.Builder = {
     value.fold(self) { v =>
       self.firstEventTimestamp(v)
     }
-  } // Long
+  }
 
   final def lastEventTimestampAsScala(value: Option[Long]): LogStream.Builder = {
     value.fold(self) { v =>
       self.lastEventTimestamp(v)
     }
-  } // Long
+  }
 
   final def lastIngestionTimeAsScala(value: Option[Long]): LogStream.Builder = {
     value.fold(self) { v =>
       self.lastIngestionTime(v)
     }
-  } // Long
+  }
 
   final def uploadSequenceTokenAsScala(value: Option[String]): LogStream.Builder = {
     value.fold(self) { v =>
       self.uploadSequenceToken(v)
     }
-  } // String
+  }
 
   final def arnAsScala(value: Option[String]): LogStream.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def storedBytesAsScala(value: Option[Long]): LogStream.Builder = {
     value.fold(self) { v =>
       self.storedBytes(v)
     }
-  } // Long
+  }
 
 }
 
 final class LogStreamOps(val self: LogStream) extends AnyVal {
 
-  final def logStreamNameAsScala: Option[String] = Option(self.logStreamName) // String
+  final def logStreamNameAsScala: Option[String] = Option(self.logStreamName)
 
-  final def creationTimeAsScala: Option[Long] = Option(self.creationTime) // Long
+  final def creationTimeAsScala: Option[Long] = Option(self.creationTime)
 
-  final def firstEventTimestampAsScala: Option[Long] = Option(self.firstEventTimestamp) // Long
+  final def firstEventTimestampAsScala: Option[Long] = Option(self.firstEventTimestamp)
 
-  final def lastEventTimestampAsScala: Option[Long] = Option(self.lastEventTimestamp) // Long
+  final def lastEventTimestampAsScala: Option[Long] = Option(self.lastEventTimestamp)
 
-  final def lastIngestionTimeAsScala: Option[Long] = Option(self.lastIngestionTime) // Long
+  final def lastIngestionTimeAsScala: Option[Long] = Option(self.lastIngestionTime)
 
-  final def uploadSequenceTokenAsScala: Option[String] = Option(self.uploadSequenceToken) // String
+  final def uploadSequenceTokenAsScala: Option[String] = Option(self.uploadSequenceToken)
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
-  final def storedBytesAsScala: Option[Long] = Option(self.storedBytes) // Long
+  final def storedBytesAsScala: Option[Long] = Option(self.storedBytes)
 
 }
 

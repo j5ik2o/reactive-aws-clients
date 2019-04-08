@@ -8,7 +8,7 @@ final class ListTagsResponseBuilderOps(val self: ListTagsResponse.Builder) exten
   final def tagListAsScala(value: Option[Seq[Tag]]): ListTagsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagList(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ListTagsResponseOps(val self: ListTagsResponse) extends AnyVal {
 
   final def tagListAsScala: Option[Seq[Tag]] = Option(self.tagList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

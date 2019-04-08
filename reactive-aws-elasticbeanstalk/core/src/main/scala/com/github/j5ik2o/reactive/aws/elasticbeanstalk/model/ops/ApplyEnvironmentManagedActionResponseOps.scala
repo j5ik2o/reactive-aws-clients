@@ -10,37 +10,37 @@ final class ApplyEnvironmentManagedActionResponseBuilderOps(val self: ApplyEnvir
     value.fold(self) { v =>
       self.actionId(v)
     }
-  } // String
+  }
 
   final def actionDescriptionAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.actionDescription(v)
     }
-  } // String
+  }
 
   final def actionTypeAsScala(value: Option[ActionType]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.actionType(v)
     }
-  } // ActionType
+  }
 
   final def statusAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  }
 
 }
 
 final class ApplyEnvironmentManagedActionResponseOps(val self: ApplyEnvironmentManagedActionResponse) extends AnyVal {
 
-  final def actionIdAsScala: Option[String] = Option(self.actionId) // String
+  final def actionIdAsScala: Option[String] = Option(self.actionId)
 
-  final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription) // String
+  final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription)
 
-  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // ActionType
+  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType)
 
-  final def statusAsScala: Option[String] = Option(self.status) // String
+  final def statusAsScala: Option[String] = Option(self.status)
 
 }
 

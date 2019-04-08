@@ -9,54 +9,53 @@ final class AliasConfigurationBuilderOps(val self: AliasConfiguration.Builder) e
     value.fold(self) { v =>
       self.aliasArn(v)
     }
-  } // String
+  }
 
   final def nameAsScala(value: Option[String]): AliasConfiguration.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def functionVersionAsScala(value: Option[String]): AliasConfiguration.Builder = {
     value.fold(self) { v =>
       self.functionVersion(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): AliasConfiguration.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def routingConfigAsScala(value: Option[AliasRoutingConfiguration]): AliasConfiguration.Builder = {
     value.fold(self) { v =>
       self.routingConfig(v)
     }
-  } // AliasRoutingConfiguration
+  }
 
   final def revisionIdAsScala(value: Option[String]): AliasConfiguration.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class AliasConfigurationOps(val self: AliasConfiguration) extends AnyVal {
 
-  final def aliasArnAsScala: Option[String] = Option(self.aliasArn) // String
+  final def aliasArnAsScala: Option[String] = Option(self.aliasArn)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def functionVersionAsScala: Option[String] = Option(self.functionVersion) // String
+  final def functionVersionAsScala: Option[String] = Option(self.functionVersion)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def routingConfigAsScala: Option[AliasRoutingConfiguration] =
-    Option(self.routingConfig) // AliasRoutingConfiguration
+  final def routingConfigAsScala: Option[AliasRoutingConfiguration] = Option(self.routingConfig)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

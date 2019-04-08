@@ -9,37 +9,37 @@ final class ListResolversByFunctionRequestBuilderOps(val self: ListResolversByFu
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def functionIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionId(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListResolversByFunctionRequestOps(val self: ListResolversByFunctionRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def functionIdAsScala: Option[String] = Option(self.functionId) // String
+  final def functionIdAsScala: Option[String] = Option(self.functionId)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

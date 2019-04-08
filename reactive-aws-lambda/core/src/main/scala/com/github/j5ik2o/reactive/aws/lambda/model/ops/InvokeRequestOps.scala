@@ -9,54 +9,53 @@ final class InvokeRequestBuilderOps(val self: InvokeRequest.Builder) extends Any
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def invocationTypeAsScala(value: Option[InvocationType]): InvokeRequest.Builder = {
     value.fold(self) { v =>
       self.invocationType(v)
     }
-  } // InvocationType
+  }
 
   final def logTypeAsScala(value: Option[LogType]): InvokeRequest.Builder = {
     value.fold(self) { v =>
       self.logType(v)
     }
-  } // LogType
+  }
 
   final def clientContextAsScala(value: Option[String]): InvokeRequest.Builder = {
     value.fold(self) { v =>
       self.clientContext(v)
     }
-  } // String
+  }
 
   final def payloadAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): InvokeRequest.Builder = {
     value.fold(self) { v =>
       self.payload(v)
     }
-  } // software.amazon.awssdk.core.SdkBytes
+  }
 
   final def qualifierAsScala(value: Option[String]): InvokeRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
     }
-  } // String
+  }
 
 }
 
 final class InvokeRequestOps(val self: InvokeRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def invocationTypeAsScala: Option[InvocationType] = Option(self.invocationType) // InvocationType
+  final def invocationTypeAsScala: Option[InvocationType] = Option(self.invocationType)
 
-  final def logTypeAsScala: Option[LogType] = Option(self.logType) // LogType
+  final def logTypeAsScala: Option[LogType] = Option(self.logType)
 
-  final def clientContextAsScala: Option[String] = Option(self.clientContext) // String
+  final def clientContextAsScala: Option[String] = Option(self.clientContext)
 
-  final def payloadAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
-    Option(self.payload) // software.amazon.awssdk.core.SdkBytes
+  final def payloadAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.payload)
 
-  final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
+  final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
 }
 

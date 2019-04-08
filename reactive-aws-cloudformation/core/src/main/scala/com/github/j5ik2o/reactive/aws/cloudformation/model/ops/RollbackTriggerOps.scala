@@ -9,21 +9,21 @@ final class RollbackTriggerBuilderOps(val self: RollbackTrigger.Builder) extends
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[String]): RollbackTrigger.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  }
 
 }
 
 final class RollbackTriggerOps(val self: RollbackTrigger) extends AnyVal {
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
-  final def typeAsScala: Option[String] = Option(self.`type`) // String
+  final def typeAsScala: Option[String] = Option(self.`type`)
 
 }
 

@@ -10,14 +10,13 @@ final class DetectStackResourceDriftResponseBuilderOps(val self: DetectStackReso
     value.fold(self) { v =>
       self.stackResourceDrift(v)
     }
-  } // StackResourceDrift
+  }
 
 }
 
 final class DetectStackResourceDriftResponseOps(val self: DetectStackResourceDriftResponse) extends AnyVal {
 
-  final def stackResourceDriftAsScala: Option[StackResourceDrift] =
-    Option(self.stackResourceDrift) // StackResourceDrift
+  final def stackResourceDriftAsScala: Option[StackResourceDrift] = Option(self.stackResourceDrift)
 
 }
 

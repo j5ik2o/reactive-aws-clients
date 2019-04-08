@@ -9,21 +9,21 @@ final class ExportTaskExecutionInfoBuilderOps(val self: ExportTaskExecutionInfo.
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Long
+  }
 
   final def completionTimeAsScala(value: Option[Long]): ExportTaskExecutionInfo.Builder = {
     value.fold(self) { v =>
       self.completionTime(v)
     }
-  } // Long
+  }
 
 }
 
 final class ExportTaskExecutionInfoOps(val self: ExportTaskExecutionInfo) extends AnyVal {
 
-  final def creationTimeAsScala: Option[Long] = Option(self.creationTime) // Long
+  final def creationTimeAsScala: Option[Long] = Option(self.creationTime)
 
-  final def completionTimeAsScala: Option[Long] = Option(self.completionTime) // Long
+  final def completionTimeAsScala: Option[Long] = Option(self.completionTime)
 
 }
 

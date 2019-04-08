@@ -9,21 +9,21 @@ final class GetAccountSettingsResponseBuilderOps(val self: GetAccountSettingsRes
     value.fold(self) { v =>
       self.accountLimit(v)
     }
-  } // AccountLimit
+  }
 
   final def accountUsageAsScala(value: Option[AccountUsage]): GetAccountSettingsResponse.Builder = {
     value.fold(self) { v =>
       self.accountUsage(v)
     }
-  } // AccountUsage
+  }
 
 }
 
 final class GetAccountSettingsResponseOps(val self: GetAccountSettingsResponse) extends AnyVal {
 
-  final def accountLimitAsScala: Option[AccountLimit] = Option(self.accountLimit) // AccountLimit
+  final def accountLimitAsScala: Option[AccountLimit] = Option(self.accountLimit)
 
-  final def accountUsageAsScala: Option[AccountUsage] = Option(self.accountUsage) // AccountUsage
+  final def accountUsageAsScala: Option[AccountUsage] = Option(self.accountUsage)
 
 }
 

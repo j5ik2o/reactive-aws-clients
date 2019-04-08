@@ -9,7 +9,7 @@ final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousB
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
   final def pointInTimeRecoverySpecificationAsScala(
       value: Option[PointInTimeRecoverySpecification]
@@ -17,16 +17,16 @@ final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousB
     value.fold(self) { v =>
       self.pointInTimeRecoverySpecification(v)
     }
-  } // PointInTimeRecoverySpecification
+  }
 
 }
 
 final class UpdateContinuousBackupsRequestOps(val self: UpdateContinuousBackupsRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
   final def pointInTimeRecoverySpecificationAsScala: Option[PointInTimeRecoverySpecification] =
-    Option(self.pointInTimeRecoverySpecification) // PointInTimeRecoverySpecification
+    Option(self.pointInTimeRecoverySpecification)
 
 }
 

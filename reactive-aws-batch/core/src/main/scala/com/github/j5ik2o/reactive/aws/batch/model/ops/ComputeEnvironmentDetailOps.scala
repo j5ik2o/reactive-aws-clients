@@ -9,77 +9,77 @@ final class ComputeEnvironmentDetailBuilderOps(val self: ComputeEnvironmentDetai
     value.fold(self) { v =>
       self.computeEnvironmentName(v)
     }
-  } // String
+  }
 
   final def computeEnvironmentArnAsScala(value: Option[String]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.computeEnvironmentArn(v)
     }
-  } // String
+  }
 
   final def ecsClusterArnAsScala(value: Option[String]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.ecsClusterArn(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[CEType]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // CEType
+  }
 
   final def stateAsScala(value: Option[CEState]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
-  } // CEState
+  }
 
   final def statusAsScala(value: Option[CEStatus]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // CEStatus
+  }
 
   final def statusReasonAsScala(value: Option[String]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.statusReason(v)
     }
-  } // String
+  }
 
   final def computeResourcesAsScala(value: Option[ComputeResource]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.computeResources(v)
     }
-  } // ComputeResource
+  }
 
   final def serviceRoleAsScala(value: Option[String]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.serviceRole(v)
     }
-  } // String
+  }
 
 }
 
 final class ComputeEnvironmentDetailOps(val self: ComputeEnvironmentDetail) extends AnyVal {
 
-  final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName) // String
+  final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName)
 
-  final def computeEnvironmentArnAsScala: Option[String] = Option(self.computeEnvironmentArn) // String
+  final def computeEnvironmentArnAsScala: Option[String] = Option(self.computeEnvironmentArn)
 
-  final def ecsClusterArnAsScala: Option[String] = Option(self.ecsClusterArn) // String
+  final def ecsClusterArnAsScala: Option[String] = Option(self.ecsClusterArn)
 
-  final def typeAsScala: Option[CEType] = Option(self.`type`) // CEType
+  final def typeAsScala: Option[CEType] = Option(self.`type`)
 
-  final def stateAsScala: Option[CEState] = Option(self.state) // CEState
+  final def stateAsScala: Option[CEState] = Option(self.state)
 
-  final def statusAsScala: Option[CEStatus] = Option(self.status) // CEStatus
+  final def statusAsScala: Option[CEStatus] = Option(self.status)
 
-  final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
+  final def statusReasonAsScala: Option[String] = Option(self.statusReason)
 
-  final def computeResourcesAsScala: Option[ComputeResource] = Option(self.computeResources) // ComputeResource
+  final def computeResourcesAsScala: Option[ComputeResource] = Option(self.computeResources)
 
-  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole) // String
+  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole)
 
 }
 

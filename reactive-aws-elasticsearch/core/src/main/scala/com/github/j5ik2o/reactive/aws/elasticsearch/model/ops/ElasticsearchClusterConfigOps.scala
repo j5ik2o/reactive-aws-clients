@@ -9,63 +9,61 @@ final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterC
     value.fold(self) { v =>
       self.instanceType(v)
     }
-  } // ESPartitionInstanceType
+  }
 
   final def instanceCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
-  } // Int
+  }
 
   final def dedicatedMasterEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.dedicatedMasterEnabled(v)
     }
-  } // Boolean
+  }
 
   final def zoneAwarenessEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.zoneAwarenessEnabled(v)
     }
-  } // Boolean
+  }
 
   final def zoneAwarenessConfigAsScala(value: Option[ZoneAwarenessConfig]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.zoneAwarenessConfig(v)
     }
-  } // ZoneAwarenessConfig
+  }
 
   final def dedicatedMasterTypeAsScala(value: Option[ESPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.dedicatedMasterType(v)
     }
-  } // ESPartitionInstanceType
+  }
 
   final def dedicatedMasterCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.dedicatedMasterCount(v)
     }
-  } // Int
+  }
 
 }
 
 final class ElasticsearchClusterConfigOps(val self: ElasticsearchClusterConfig) extends AnyVal {
 
-  final def instanceTypeAsScala: Option[ESPartitionInstanceType] = Option(self.instanceType) // ESPartitionInstanceType
+  final def instanceTypeAsScala: Option[ESPartitionInstanceType] = Option(self.instanceType)
 
-  final def instanceCountAsScala: Option[Int] = Option(self.instanceCount) // Int
+  final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
-  final def dedicatedMasterEnabledAsScala: Option[Boolean] = Option(self.dedicatedMasterEnabled) // Boolean
+  final def dedicatedMasterEnabledAsScala: Option[Boolean] = Option(self.dedicatedMasterEnabled)
 
-  final def zoneAwarenessEnabledAsScala: Option[Boolean] = Option(self.zoneAwarenessEnabled) // Boolean
+  final def zoneAwarenessEnabledAsScala: Option[Boolean] = Option(self.zoneAwarenessEnabled)
 
-  final def zoneAwarenessConfigAsScala: Option[ZoneAwarenessConfig] =
-    Option(self.zoneAwarenessConfig) // ZoneAwarenessConfig
+  final def zoneAwarenessConfigAsScala: Option[ZoneAwarenessConfig] = Option(self.zoneAwarenessConfig)
 
-  final def dedicatedMasterTypeAsScala: Option[ESPartitionInstanceType] =
-    Option(self.dedicatedMasterType) // ESPartitionInstanceType
+  final def dedicatedMasterTypeAsScala: Option[ESPartitionInstanceType] = Option(self.dedicatedMasterType)
 
-  final def dedicatedMasterCountAsScala: Option[Int] = Option(self.dedicatedMasterCount) // Int
+  final def dedicatedMasterCountAsScala: Option[Int] = Option(self.dedicatedMasterCount)
 
 }
 

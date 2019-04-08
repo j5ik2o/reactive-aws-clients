@@ -9,29 +9,29 @@ final class ListFunctionsRequestBuilderOps(val self: ListFunctionsRequest.Builde
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListFunctionsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListFunctionsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListFunctionsRequestOps(val self: ListFunctionsRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

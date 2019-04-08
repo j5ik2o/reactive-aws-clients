@@ -10,21 +10,21 @@ final class GetSchemaCreationStatusResponseBuilderOps(val self: GetSchemaCreatio
     value.fold(self) { v =>
       self.status(v)
     }
-  } // SchemaStatus
+  }
 
   final def detailsAsScala(value: Option[String]): GetSchemaCreationStatusResponse.Builder = {
     value.fold(self) { v =>
       self.details(v)
     }
-  } // String
+  }
 
 }
 
 final class GetSchemaCreationStatusResponseOps(val self: GetSchemaCreationStatusResponse) extends AnyVal {
 
-  final def statusAsScala: Option[SchemaStatus] = Option(self.status) // SchemaStatus
+  final def statusAsScala: Option[SchemaStatus] = Option(self.status)
 
-  final def detailsAsScala: Option[String] = Option(self.details) // String
+  final def detailsAsScala: Option[String] = Option(self.details)
 
 }
 

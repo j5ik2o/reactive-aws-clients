@@ -8,7 +8,7 @@ final class DescribeApplicationsResponseBuilderOps(val self: DescribeApplication
   final def applicationsAsScala(value: Option[Seq[ApplicationDescription]]): DescribeApplicationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.applications(v.asJava)
-    } // Seq[ApplicationDescription]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DescribeApplicationsResponseOps(val self: DescribeApplicationsRespon
 
   final def applicationsAsScala: Option[Seq[ApplicationDescription]] = Option(self.applications).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ApplicationDescription]
+  }
 
 }
 

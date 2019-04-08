@@ -9,13 +9,13 @@ final class InventoryScheduleBuilderOps(val self: InventorySchedule.Builder) ext
     value.fold(self) { v =>
       self.frequency(v)
     }
-  } // InventoryFrequency
+  }
 
 }
 
 final class InventoryScheduleOps(val self: InventorySchedule) extends AnyVal {
 
-  final def frequencyAsScala: Option[InventoryFrequency] = Option(self.frequency) // InventoryFrequency
+  final def frequencyAsScala: Option[InventoryFrequency] = Option(self.frequency)
 
 }
 

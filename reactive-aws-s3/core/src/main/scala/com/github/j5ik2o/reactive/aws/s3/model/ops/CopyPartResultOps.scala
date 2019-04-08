@@ -9,21 +9,21 @@ final class CopyPartResultBuilderOps(val self: CopyPartResult.Builder) extends A
     value.fold(self) { v =>
       self.eTag(v)
     }
-  } // String
+  }
 
   final def lastModifiedAsScala(value: Option[java.time.Instant]): CopyPartResult.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class CopyPartResultOps(val self: CopyPartResult) extends AnyVal {
 
-  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+  final def eTagAsScala: Option[String] = Option(self.eTag)
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified)
 
 }
 

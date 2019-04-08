@@ -9,21 +9,21 @@ final class CreateParameterGroupRequestBuilderOps(val self: CreateParameterGroup
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): CreateParameterGroupRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateParameterGroupRequestOps(val self: CreateParameterGroupRequest) extends AnyVal {
 
-  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName) // String
+  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
 }
 

@@ -9,21 +9,21 @@ final class TimeToLiveSpecificationBuilderOps(val self: TimeToLiveSpecification.
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
   final def attributeNameAsScala(value: Option[String]): TimeToLiveSpecification.Builder = {
     value.fold(self) { v =>
       self.attributeName(v)
     }
-  } // String
+  }
 
 }
 
 final class TimeToLiveSpecificationOps(val self: TimeToLiveSpecification) extends AnyVal {
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
-  final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
+  final def attributeNameAsScala: Option[String] = Option(self.attributeName)
 
 }
 

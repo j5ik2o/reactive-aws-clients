@@ -9,18 +9,18 @@ final class DeleteStackInstancesRequestBuilderOps(val self: DeleteStackInstances
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def accountsAsScala(value: Option[Seq[String]]): DeleteStackInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.accounts(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def regionsAsScala(value: Option[Seq[String]]): DeleteStackInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.regions(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def operationPreferencesAsScala(
@@ -29,40 +29,39 @@ final class DeleteStackInstancesRequestBuilderOps(val self: DeleteStackInstances
     value.fold(self) { v =>
       self.operationPreferences(v)
     }
-  } // StackSetOperationPreferences
+  }
 
   final def retainStacksAsScala(value: Option[Boolean]): DeleteStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.retainStacks(v)
     }
-  } // Boolean
+  }
 
   final def operationIdAsScala(value: Option[String]): DeleteStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteStackInstancesRequestOps(val self: DeleteStackInstancesRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
   final def accountsAsScala: Option[Seq[String]] = Option(self.accounts).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def regionsAsScala: Option[Seq[String]] = Option(self.regions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def operationPreferencesAsScala: Option[StackSetOperationPreferences] =
-    Option(self.operationPreferences) // StackSetOperationPreferences
+  final def operationPreferencesAsScala: Option[StackSetOperationPreferences] = Option(self.operationPreferences)
 
-  final def retainStacksAsScala: Option[Boolean] = Option(self.retainStacks) // Boolean
+  final def retainStacksAsScala: Option[Boolean] = Option(self.retainStacks)
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }
 

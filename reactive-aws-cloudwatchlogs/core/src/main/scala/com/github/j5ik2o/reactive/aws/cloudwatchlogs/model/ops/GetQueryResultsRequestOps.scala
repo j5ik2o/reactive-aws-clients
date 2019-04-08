@@ -9,13 +9,13 @@ final class GetQueryResultsRequestBuilderOps(val self: GetQueryResultsRequest.Bu
     value.fold(self) { v =>
       self.queryId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetQueryResultsRequestOps(val self: GetQueryResultsRequest) extends AnyVal {
 
-  final def queryIdAsScala: Option[String] = Option(self.queryId) // String
+  final def queryIdAsScala: Option[String] = Option(self.queryId)
 
 }
 

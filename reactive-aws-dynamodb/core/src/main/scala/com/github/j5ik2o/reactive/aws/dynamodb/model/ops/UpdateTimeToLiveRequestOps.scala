@@ -9,22 +9,21 @@ final class UpdateTimeToLiveRequestBuilderOps(val self: UpdateTimeToLiveRequest.
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
   final def timeToLiveSpecificationAsScala(value: Option[TimeToLiveSpecification]): UpdateTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.timeToLiveSpecification(v)
     }
-  } // TimeToLiveSpecification
+  }
 
 }
 
 final class UpdateTimeToLiveRequestOps(val self: UpdateTimeToLiveRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
-  final def timeToLiveSpecificationAsScala: Option[TimeToLiveSpecification] =
-    Option(self.timeToLiveSpecification) // TimeToLiveSpecification
+  final def timeToLiveSpecificationAsScala: Option[TimeToLiveSpecification] = Option(self.timeToLiveSpecification)
 
 }
 

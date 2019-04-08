@@ -9,29 +9,29 @@ final class DescribeChangeSetRequestBuilderOps(val self: DescribeChangeSetReques
     value.fold(self) { v =>
       self.changeSetName(v)
     }
-  } // String
+  }
 
   final def stackNameAsScala(value: Option[String]): DescribeChangeSetRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeChangeSetRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeChangeSetRequestOps(val self: DescribeChangeSetRequest) extends AnyVal {
 
-  final def changeSetNameAsScala: Option[String] = Option(self.changeSetName) // String
+  final def changeSetNameAsScala: Option[String] = Option(self.changeSetName)
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

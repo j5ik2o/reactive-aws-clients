@@ -9,21 +9,21 @@ final class GetLayerVersionPolicyResponseBuilderOps(val self: GetLayerVersionPol
     value.fold(self) { v =>
       self.policy(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): GetLayerVersionPolicyResponse.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetLayerVersionPolicyResponseOps(val self: GetLayerVersionPolicyResponse) extends AnyVal {
 
-  final def policyAsScala: Option[String] = Option(self.policy) // String
+  final def policyAsScala: Option[String] = Option(self.policy)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

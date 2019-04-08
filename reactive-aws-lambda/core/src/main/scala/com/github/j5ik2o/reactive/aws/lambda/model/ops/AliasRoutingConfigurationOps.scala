@@ -8,7 +8,7 @@ final class AliasRoutingConfigurationBuilderOps(val self: AliasRoutingConfigurat
   final def additionalVersionWeightsAsScala(value: Option[Map[String, Double]]): AliasRoutingConfiguration.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Double])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.additionalVersionWeights(v.asJava)
-    } // Map[String, Double]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class AliasRoutingConfigurationOps(val self: AliasRoutingConfiguration) ex
   final def additionalVersionWeightsAsScala: Option[Map[String, Double]] = Option(self.additionalVersionWeights).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.doubleValue())
-  } // Map[String, Double]
+  }
 
 }
 

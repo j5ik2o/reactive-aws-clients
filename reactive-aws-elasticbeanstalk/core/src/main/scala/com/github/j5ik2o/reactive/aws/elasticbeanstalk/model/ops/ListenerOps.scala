@@ -9,21 +9,21 @@ final class ListenerBuilderOps(val self: Listener.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.protocol(v)
     }
-  } // String
+  }
 
   final def portAsScala(value: Option[Int]): Listener.Builder = {
     value.fold(self) { v =>
       self.port(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListenerOps(val self: Listener) extends AnyVal {
 
-  final def protocolAsScala: Option[String] = Option(self.protocol) // String
+  final def protocolAsScala: Option[String] = Option(self.protocol)
 
-  final def portAsScala: Option[Int] = Option(self.port) // Int
+  final def portAsScala: Option[Int] = Option(self.port)
 
 }
 

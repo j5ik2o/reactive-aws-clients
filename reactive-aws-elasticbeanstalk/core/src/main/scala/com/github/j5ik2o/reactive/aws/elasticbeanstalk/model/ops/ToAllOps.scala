@@ -5,7 +5,6 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 trait ToAllOps
     extends ToOptionSupport
     with ToAbortEnvironmentUpdateRequestOps
-    with ToAbortEnvironmentUpdateResponseOps
     with ToApplicationDescriptionOps
     with ToApplicationMetricsOps
     with ToApplicationResourceLifecycleConfigOps
@@ -33,21 +32,15 @@ trait ToAllOps
     with ToCreateEnvironmentResponseOps
     with ToCreatePlatformVersionRequestOps
     with ToCreatePlatformVersionResponseOps
-    with ToCreateStorageLocationRequestOps
     with ToCreateStorageLocationResponseOps
     with ToCustomAmiOps
     with ToDeleteApplicationRequestOps
-    with ToDeleteApplicationResponseOps
     with ToDeleteApplicationVersionRequestOps
-    with ToDeleteApplicationVersionResponseOps
     with ToDeleteConfigurationTemplateRequestOps
-    with ToDeleteConfigurationTemplateResponseOps
     with ToDeleteEnvironmentConfigurationRequestOps
-    with ToDeleteEnvironmentConfigurationResponseOps
     with ToDeletePlatformVersionRequestOps
     with ToDeletePlatformVersionResponseOps
     with ToDeploymentOps
-    with ToDescribeAccountAttributesRequestOps
     with ToDescribeAccountAttributesResponseOps
     with ToDescribeApplicationVersionsRequestOps
     with ToDescribeApplicationVersionsResponseOps
@@ -85,7 +78,6 @@ trait ToAllOps
     with ToLatencyOps
     with ToLaunchConfigurationOps
     with ToLaunchTemplateOps
-    with ToListAvailableSolutionStacksRequestOps
     with ToListAvailableSolutionStacksResponseOps
     with ToListPlatformVersionsRequestOps
     with ToListPlatformVersionsResponseOps
@@ -107,13 +99,10 @@ trait ToAllOps
     with ToPlatformSummaryOps
     with ToQueueOps
     with ToRebuildEnvironmentRequestOps
-    with ToRebuildEnvironmentResponseOps
     with ToRequestEnvironmentInfoRequestOps
-    with ToRequestEnvironmentInfoResponseOps
     with ToResourceQuotaOps
     with ToResourceQuotasOps
     with ToRestartAppServerRequestOps
-    with ToRestartAppServerResponseOps
     with ToRetrieveEnvironmentInfoRequestOps
     with ToRetrieveEnvironmentInfoResponseOps
     with ToS3LocationOps
@@ -122,7 +111,6 @@ trait ToAllOps
     with ToSourceBuildInformationOps
     with ToSourceConfigurationOps
     with ToStatusCodesOps
-    with ToSwapEnvironmentCNAMEsResponseOps
     with ToSwapEnvironmentCnamEsRequestOps
     with ToSystemStatusOps
     with ToTagOps
@@ -140,7 +128,6 @@ trait ToAllOps
     with ToUpdateEnvironmentRequestOps
     with ToUpdateEnvironmentResponseOps
     with ToUpdateTagsForResourceRequestOps
-    with ToUpdateTagsForResourceResponseOps
     with ToValidateConfigurationSettingsRequestOps
     with ToValidateConfigurationSettingsResponseOps
     with ToValidationMessageOps

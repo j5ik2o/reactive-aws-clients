@@ -9,21 +9,21 @@ final class RebuildEnvironmentRequestBuilderOps(val self: RebuildEnvironmentRequ
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): RebuildEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
 }
 
 final class RebuildEnvironmentRequestOps(val self: RebuildEnvironmentRequest) extends AnyVal {
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
 }
 

@@ -9,23 +9,23 @@ final class ListAliasesResponseBuilderOps(val self: ListAliasesResponse.Builder)
     value.fold(self) { v =>
       self.nextMarker(v)
     }
-  } // String
+  }
 
   final def aliasesAsScala(value: Option[Seq[AliasConfiguration]]): ListAliasesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.aliases(v.asJava)
-    } // Seq[AliasConfiguration]
+    }
   }
 
 }
 
 final class ListAliasesResponseOps(val self: ListAliasesResponse) extends AnyVal {
 
-  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker) // String
+  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   final def aliasesAsScala: Option[Seq[AliasConfiguration]] = Option(self.aliases).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[AliasConfiguration]
+  }
 
 }
 

@@ -9,23 +9,23 @@ final class SolutionStackDescriptionBuilderOps(val self: SolutionStackDescriptio
     value.fold(self) { v =>
       self.solutionStackName(v)
     }
-  } // String
+  }
 
   final def permittedFileTypesAsScala(value: Option[Seq[String]]): SolutionStackDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.permittedFileTypes(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class SolutionStackDescriptionOps(val self: SolutionStackDescription) extends AnyVal {
 
-  final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName) // String
+  final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName)
 
   final def permittedFileTypesAsScala: Option[Seq[String]] = Option(self.permittedFileTypes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

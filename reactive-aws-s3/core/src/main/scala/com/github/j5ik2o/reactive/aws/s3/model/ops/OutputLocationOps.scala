@@ -9,13 +9,13 @@ final class OutputLocationBuilderOps(val self: OutputLocation.Builder) extends A
     value.fold(self) { v =>
       self.s3(v)
     }
-  } // S3Location
+  }
 
 }
 
 final class OutputLocationOps(val self: OutputLocation) extends AnyVal {
 
-  final def s3AsScala: Option[S3Location] = Option(self.s3) // S3Location
+  final def s3AsScala: Option[S3Location] = Option(self.s3)
 
 }
 

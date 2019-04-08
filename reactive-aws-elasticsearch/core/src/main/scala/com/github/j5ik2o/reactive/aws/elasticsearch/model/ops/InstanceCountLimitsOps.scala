@@ -9,21 +9,21 @@ final class InstanceCountLimitsBuilderOps(val self: InstanceCountLimits.Builder)
     value.fold(self) { v =>
       self.minimumInstanceCount(v)
     }
-  } // Int
+  }
 
   final def maximumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
     value.fold(self) { v =>
       self.maximumInstanceCount(v)
     }
-  } // Int
+  }
 
 }
 
 final class InstanceCountLimitsOps(val self: InstanceCountLimits) extends AnyVal {
 
-  final def minimumInstanceCountAsScala: Option[Int] = Option(self.minimumInstanceCount) // Int
+  final def minimumInstanceCountAsScala: Option[Int] = Option(self.minimumInstanceCount)
 
-  final def maximumInstanceCountAsScala: Option[Int] = Option(self.maximumInstanceCount) // Int
+  final def maximumInstanceCountAsScala: Option[Int] = Option(self.maximumInstanceCount)
 
 }
 

@@ -9,21 +9,21 @@ final class NodeRangePropertyBuilderOps(val self: NodeRangeProperty.Builder) ext
     value.fold(self) { v =>
       self.targetNodes(v)
     }
-  } // String
+  }
 
   final def containerAsScala(value: Option[ContainerProperties]): NodeRangeProperty.Builder = {
     value.fold(self) { v =>
       self.container(v)
     }
-  } // ContainerProperties
+  }
 
 }
 
 final class NodeRangePropertyOps(val self: NodeRangeProperty) extends AnyVal {
 
-  final def targetNodesAsScala: Option[String] = Option(self.targetNodes) // String
+  final def targetNodesAsScala: Option[String] = Option(self.targetNodes)
 
-  final def containerAsScala: Option[ContainerProperties] = Option(self.container) // ContainerProperties
+  final def containerAsScala: Option[ContainerProperties] = Option(self.container)
 
 }
 

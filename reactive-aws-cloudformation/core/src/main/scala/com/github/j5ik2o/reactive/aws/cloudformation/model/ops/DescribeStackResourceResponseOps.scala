@@ -9,14 +9,13 @@ final class DescribeStackResourceResponseBuilderOps(val self: DescribeStackResou
     value.fold(self) { v =>
       self.stackResourceDetail(v)
     }
-  } // StackResourceDetail
+  }
 
 }
 
 final class DescribeStackResourceResponseOps(val self: DescribeStackResourceResponse) extends AnyVal {
 
-  final def stackResourceDetailAsScala: Option[StackResourceDetail] =
-    Option(self.stackResourceDetail) // StackResourceDetail
+  final def stackResourceDetailAsScala: Option[StackResourceDetail] = Option(self.stackResourceDetail)
 
 }
 

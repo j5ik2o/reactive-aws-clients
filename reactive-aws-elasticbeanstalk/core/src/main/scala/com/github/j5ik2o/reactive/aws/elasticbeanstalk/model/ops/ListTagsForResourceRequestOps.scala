@@ -9,13 +9,13 @@ final class ListTagsForResourceRequestBuilderOps(val self: ListTagsForResourceRe
     value.fold(self) { v =>
       self.resourceArn(v)
     }
-  } // String
+  }
 
 }
 
 final class ListTagsForResourceRequestOps(val self: ListTagsForResourceRequest) extends AnyVal {
 
-  final def resourceArnAsScala: Option[String] = Option(self.resourceArn) // String
+  final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
 }
 

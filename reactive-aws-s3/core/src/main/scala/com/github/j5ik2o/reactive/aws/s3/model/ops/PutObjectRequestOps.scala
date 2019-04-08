@@ -9,234 +9,231 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // ObjectCannedACL
+  }
 
   final def bucketAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def cacheControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.cacheControl(v)
     }
-  } // String
+  }
 
   final def contentDispositionAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentDisposition(v)
     }
-  } // String
+  }
 
   final def contentEncodingAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentEncoding(v)
     }
-  } // String
+  }
 
   final def contentLanguageAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentLanguage(v)
     }
-  } // String
+  }
 
   final def contentLengthAsScala(value: Option[Long]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentLength(v)
     }
-  } // Long
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def contentTypeAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentType(v)
     }
-  } // String
+  }
 
   final def expiresAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
-  } // java.time.Instant
+  }
 
   final def grantFullControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
-  } // String
+  }
 
   final def grantReadAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
-  } // String
+  }
 
   final def grantReadACPAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
-  } // String
+  }
 
   final def grantWriteACPAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def metadataAsScala(value: Option[Map[String, String]]): PutObjectRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
-    } // Map[String, String]
+    }
   }
 
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // ServerSideEncryption
+  }
 
   final def storageClassAsScala(value: Option[StorageClass]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // StorageClass
+  }
 
   final def websiteRedirectLocationAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.websiteRedirectLocation(v)
     }
-  } // String
+  }
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyMD5AsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
-  } // String
+  }
 
   final def ssekmsKeyIdAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // RequestPayer
+  }
 
   final def taggingAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }
-  } // String
+  }
 
   final def objectLockModeAsScala(value: Option[ObjectLockMode]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
-  } // ObjectLockMode
+  }
 
   final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
-  } // java.time.Instant
+  }
 
   final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }
-  } // ObjectLockLegalHoldStatus
+  }
 
 }
 
 final class PutObjectRequestOps(val self: PutObjectRequest) extends AnyVal {
 
-  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // ObjectCannedACL
+  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl)
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def cacheControlAsScala: Option[String] = Option(self.cacheControl) // String
+  final def cacheControlAsScala: Option[String] = Option(self.cacheControl)
 
-  final def contentDispositionAsScala: Option[String] = Option(self.contentDisposition) // String
+  final def contentDispositionAsScala: Option[String] = Option(self.contentDisposition)
 
-  final def contentEncodingAsScala: Option[String] = Option(self.contentEncoding) // String
+  final def contentEncodingAsScala: Option[String] = Option(self.contentEncoding)
 
-  final def contentLanguageAsScala: Option[String] = Option(self.contentLanguage) // String
+  final def contentLanguageAsScala: Option[String] = Option(self.contentLanguage)
 
-  final def contentLengthAsScala: Option[Long] = Option(self.contentLength) // Long
+  final def contentLengthAsScala: Option[Long] = Option(self.contentLength)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def contentTypeAsScala: Option[String] = Option(self.contentType) // String
+  final def contentTypeAsScala: Option[String] = Option(self.contentType)
 
-  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // java.time.Instant
+  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires)
 
-  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl) // String
+  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl)
 
-  final def grantReadAsScala: Option[String] = Option(self.grantRead) // String
+  final def grantReadAsScala: Option[String] = Option(self.grantRead)
 
-  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP) // String
+  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP)
 
-  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP) // String
+  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
   final def metadataAsScala: Option[Map[String, String]] = Option(self.metadata).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
-    Option(self.serverSideEncryption) // ServerSideEncryption
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption)
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass)
 
-  final def websiteRedirectLocationAsScala: Option[String] = Option(self.websiteRedirectLocation) // String
+  final def websiteRedirectLocationAsScala: Option[String] = Option(self.websiteRedirectLocation)
 
-  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm)
 
-  final def sseCustomerKeyAsScala: Option[String] = Option(self.sseCustomerKey) // String
+  final def sseCustomerKeyAsScala: Option[String] = Option(self.sseCustomerKey)
 
-  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5)
 
-  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
-  final def taggingAsScala: Option[String] = Option(self.tagging) // String
+  final def taggingAsScala: Option[String] = Option(self.tagging)
 
-  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // ObjectLockMode
+  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode)
 
-  final def objectLockRetainUntilDateAsScala: Option[java.time.Instant] =
-    Option(self.objectLockRetainUntilDate) // java.time.Instant
+  final def objectLockRetainUntilDateAsScala: Option[java.time.Instant] = Option(self.objectLockRetainUntilDate)
 
-  final def objectLockLegalHoldStatusAsScala: Option[ObjectLockLegalHoldStatus] =
-    Option(self.objectLockLegalHoldStatus) // ObjectLockLegalHoldStatus
+  final def objectLockLegalHoldStatusAsScala: Option[ObjectLockLegalHoldStatus] = Option(self.objectLockLegalHoldStatus)
 
 }
 

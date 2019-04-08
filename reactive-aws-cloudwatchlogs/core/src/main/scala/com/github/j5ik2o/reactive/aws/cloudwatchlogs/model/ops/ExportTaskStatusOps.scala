@@ -9,21 +9,21 @@ final class ExportTaskStatusBuilderOps(val self: ExportTaskStatus.Builder) exten
     value.fold(self) { v =>
       self.code(v)
     }
-  } // ExportTaskStatusCode
+  }
 
   final def messageAsScala(value: Option[String]): ExportTaskStatus.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class ExportTaskStatusOps(val self: ExportTaskStatus) extends AnyVal {
 
-  final def codeAsScala: Option[ExportTaskStatusCode] = Option(self.code) // ExportTaskStatusCode
+  final def codeAsScala: Option[ExportTaskStatusCode] = Option(self.code)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

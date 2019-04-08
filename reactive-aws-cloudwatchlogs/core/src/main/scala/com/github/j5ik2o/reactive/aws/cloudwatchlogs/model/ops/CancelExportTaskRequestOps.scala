@@ -9,13 +9,13 @@ final class CancelExportTaskRequestBuilderOps(val self: CancelExportTaskRequest.
     value.fold(self) { v =>
       self.taskId(v)
     }
-  } // String
+  }
 
 }
 
 final class CancelExportTaskRequestOps(val self: CancelExportTaskRequest) extends AnyVal {
 
-  final def taskIdAsScala: Option[String] = Option(self.taskId) // String
+  final def taskIdAsScala: Option[String] = Option(self.taskId)
 
 }
 

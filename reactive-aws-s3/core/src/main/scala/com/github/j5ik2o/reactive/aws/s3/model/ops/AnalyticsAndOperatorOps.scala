@@ -9,23 +9,23 @@ final class AnalyticsAndOperatorBuilderOps(val self: AnalyticsAndOperator.Builde
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): AnalyticsAndOperator.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
 
 final class AnalyticsAndOperatorOps(val self: AnalyticsAndOperator) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

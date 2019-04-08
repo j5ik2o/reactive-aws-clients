@@ -9,21 +9,21 @@ final class DeleteMessageRequestBuilderOps(val self: DeleteMessageRequest.Builde
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def receiptHandleAsScala(value: Option[String]): DeleteMessageRequest.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteMessageRequestOps(val self: DeleteMessageRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
-  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle) // String
+  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle)
 
 }
 

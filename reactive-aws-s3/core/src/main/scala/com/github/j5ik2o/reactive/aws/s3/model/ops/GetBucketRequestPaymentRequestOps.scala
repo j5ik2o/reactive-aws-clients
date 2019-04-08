@@ -9,13 +9,13 @@ final class GetBucketRequestPaymentRequestBuilderOps(val self: GetBucketRequestP
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketRequestPaymentRequestOps(val self: GetBucketRequestPaymentRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

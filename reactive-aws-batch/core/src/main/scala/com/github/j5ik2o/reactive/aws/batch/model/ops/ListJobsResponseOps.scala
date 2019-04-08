@@ -8,14 +8,14 @@ final class ListJobsResponseBuilderOps(val self: ListJobsResponse.Builder) exten
   final def jobSummaryListAsScala(value: Option[Seq[JobSummary]]): ListJobsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.jobSummaryList(v.asJava)
-    } // Seq[JobSummary]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListJobsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListJobsResponseOps(val self: ListJobsResponse) extends AnyVal {
 
   final def jobSummaryListAsScala: Option[Seq[JobSummary]] = Option(self.jobSummaryList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[JobSummary]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -9,64 +9,63 @@ final class RegisterJobDefinitionRequestBuilderOps(val self: RegisterJobDefiniti
     value.fold(self) { v =>
       self.jobDefinitionName(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[JobDefinitionType]): RegisterJobDefinitionRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // JobDefinitionType
+  }
 
   final def parametersAsScala(value: Option[Map[String, String]]): RegisterJobDefinitionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameters(v.asJava)
-    } // Map[String, String]
+    }
   }
 
   final def containerPropertiesAsScala(value: Option[ContainerProperties]): RegisterJobDefinitionRequest.Builder = {
     value.fold(self) { v =>
       self.containerProperties(v)
     }
-  } // ContainerProperties
+  }
 
   final def nodePropertiesAsScala(value: Option[NodeProperties]): RegisterJobDefinitionRequest.Builder = {
     value.fold(self) { v =>
       self.nodeProperties(v)
     }
-  } // NodeProperties
+  }
 
   final def retryStrategyAsScala(value: Option[RetryStrategy]): RegisterJobDefinitionRequest.Builder = {
     value.fold(self) { v =>
       self.retryStrategy(v)
     }
-  } // RetryStrategy
+  }
 
   final def timeoutAsScala(value: Option[JobTimeout]): RegisterJobDefinitionRequest.Builder = {
     value.fold(self) { v =>
       self.timeout(v)
     }
-  } // JobTimeout
+  }
 
 }
 
 final class RegisterJobDefinitionRequestOps(val self: RegisterJobDefinitionRequest) extends AnyVal {
 
-  final def jobDefinitionNameAsScala: Option[String] = Option(self.jobDefinitionName) // String
+  final def jobDefinitionNameAsScala: Option[String] = Option(self.jobDefinitionName)
 
-  final def typeAsScala: Option[JobDefinitionType] = Option(self.`type`) // JobDefinitionType
+  final def typeAsScala: Option[JobDefinitionType] = Option(self.`type`)
 
   final def parametersAsScala: Option[Map[String, String]] = Option(self.parameters).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
-  final def containerPropertiesAsScala: Option[ContainerProperties] =
-    Option(self.containerProperties) // ContainerProperties
+  final def containerPropertiesAsScala: Option[ContainerProperties] = Option(self.containerProperties)
 
-  final def nodePropertiesAsScala: Option[NodeProperties] = Option(self.nodeProperties) // NodeProperties
+  final def nodePropertiesAsScala: Option[NodeProperties] = Option(self.nodeProperties)
 
-  final def retryStrategyAsScala: Option[RetryStrategy] = Option(self.retryStrategy) // RetryStrategy
+  final def retryStrategyAsScala: Option[RetryStrategy] = Option(self.retryStrategy)
 
-  final def timeoutAsScala: Option[JobTimeout] = Option(self.timeout) // JobTimeout
+  final def timeoutAsScala: Option[JobTimeout] = Option(self.timeout)
 
 }
 

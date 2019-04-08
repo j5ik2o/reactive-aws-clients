@@ -13,6 +13,9 @@ object AppSyncSyncClient extends ToEitherSupport {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appsync/AppSyncClient.html
+  */
 trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
   val underlying: JavaAppSyncClient
   import AppSyncSyncClient._

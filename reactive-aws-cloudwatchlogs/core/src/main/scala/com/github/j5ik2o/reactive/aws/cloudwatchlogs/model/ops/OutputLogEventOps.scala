@@ -9,29 +9,29 @@ final class OutputLogEventBuilderOps(val self: OutputLogEvent.Builder) extends A
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Long
+  }
 
   final def messageAsScala(value: Option[String]): OutputLogEvent.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
   final def ingestionTimeAsScala(value: Option[Long]): OutputLogEvent.Builder = {
     value.fold(self) { v =>
       self.ingestionTime(v)
     }
-  } // Long
+  }
 
 }
 
 final class OutputLogEventOps(val self: OutputLogEvent) extends AnyVal {
 
-  final def timestampAsScala: Option[Long] = Option(self.timestamp) // Long
+  final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
-  final def ingestionTimeAsScala: Option[Long] = Option(self.ingestionTime) // Long
+  final def ingestionTimeAsScala: Option[Long] = Option(self.ingestionTime)
 
 }
 

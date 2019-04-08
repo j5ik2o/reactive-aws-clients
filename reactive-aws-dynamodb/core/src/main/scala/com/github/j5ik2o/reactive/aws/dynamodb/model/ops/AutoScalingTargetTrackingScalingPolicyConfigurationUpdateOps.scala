@@ -13,7 +13,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilderOps(
     value.fold(self) { v =>
       self.disableScaleIn(v)
     }
-  } // Boolean
+  }
 
   final def scaleInCooldownAsScala(
       value: Option[Int]
@@ -21,7 +21,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilderOps(
     value.fold(self) { v =>
       self.scaleInCooldown(v)
     }
-  } // Int
+  }
 
   final def scaleOutCooldownAsScala(
       value: Option[Int]
@@ -29,7 +29,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilderOps(
     value.fold(self) { v =>
       self.scaleOutCooldown(v)
     }
-  } // Int
+  }
 
   final def targetValueAsScala(
       value: Option[Double]
@@ -37,7 +37,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilderOps(
     value.fold(self) { v =>
       self.targetValue(v)
     }
-  } // Double
+  }
 
 }
 
@@ -45,13 +45,13 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateOps(
     val self: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
 ) extends AnyVal {
 
-  final def disableScaleInAsScala: Option[Boolean] = Option(self.disableScaleIn) // Boolean
+  final def disableScaleInAsScala: Option[Boolean] = Option(self.disableScaleIn)
 
-  final def scaleInCooldownAsScala: Option[Int] = Option(self.scaleInCooldown) // Int
+  final def scaleInCooldownAsScala: Option[Int] = Option(self.scaleInCooldown)
 
-  final def scaleOutCooldownAsScala: Option[Int] = Option(self.scaleOutCooldown) // Int
+  final def scaleOutCooldownAsScala: Option[Int] = Option(self.scaleOutCooldown)
 
-  final def targetValueAsScala: Option[Double] = Option(self.targetValue) // Double
+  final def targetValueAsScala: Option[Double] = Option(self.targetValue)
 
 }
 

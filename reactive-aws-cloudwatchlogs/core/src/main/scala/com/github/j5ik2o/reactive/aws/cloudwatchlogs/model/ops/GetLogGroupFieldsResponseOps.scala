@@ -8,7 +8,7 @@ final class GetLogGroupFieldsResponseBuilderOps(val self: GetLogGroupFieldsRespo
   final def logGroupFieldsAsScala(value: Option[Seq[LogGroupField]]): GetLogGroupFieldsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logGroupFields(v.asJava)
-    } // Seq[LogGroupField]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class GetLogGroupFieldsResponseOps(val self: GetLogGroupFieldsResponse) ex
 
   final def logGroupFieldsAsScala: Option[Seq[LogGroupField]] = Option(self.logGroupFields).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[LogGroupField]
+  }
 
 }
 

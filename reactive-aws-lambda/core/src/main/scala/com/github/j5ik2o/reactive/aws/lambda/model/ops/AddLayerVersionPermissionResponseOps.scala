@@ -10,21 +10,21 @@ final class AddLayerVersionPermissionResponseBuilderOps(val self: AddLayerVersio
     value.fold(self) { v =>
       self.statement(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): AddLayerVersionPermissionResponse.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class AddLayerVersionPermissionResponseOps(val self: AddLayerVersionPermissionResponse) extends AnyVal {
 
-  final def statementAsScala: Option[String] = Option(self.statement) // String
+  final def statementAsScala: Option[String] = Option(self.statement)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

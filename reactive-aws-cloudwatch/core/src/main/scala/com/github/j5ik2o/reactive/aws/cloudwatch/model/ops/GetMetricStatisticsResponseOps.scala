@@ -9,23 +9,23 @@ final class GetMetricStatisticsResponseBuilderOps(val self: GetMetricStatisticsR
     value.fold(self) { v =>
       self.label(v)
     }
-  } // String
+  }
 
   final def datapointsAsScala(value: Option[Seq[Datapoint]]): GetMetricStatisticsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.datapoints(v.asJava)
-    } // Seq[Datapoint]
+    }
   }
 
 }
 
 final class GetMetricStatisticsResponseOps(val self: GetMetricStatisticsResponse) extends AnyVal {
 
-  final def labelAsScala: Option[String] = Option(self.label) // String
+  final def labelAsScala: Option[String] = Option(self.label)
 
   final def datapointsAsScala: Option[Seq[Datapoint]] = Option(self.datapoints).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Datapoint]
+  }
 
 }
 

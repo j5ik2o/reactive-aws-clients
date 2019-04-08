@@ -9,31 +9,31 @@ final class ParameterGroupStatusBuilderOps(val self: ParameterGroupStatus.Builde
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
-  } // String
+  }
 
   final def parameterApplyStatusAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
     value.fold(self) { v =>
       self.parameterApplyStatus(v)
     }
-  } // String
+  }
 
   final def nodeIdsToRebootAsScala(value: Option[Seq[String]]): ParameterGroupStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeIdsToReboot(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class ParameterGroupStatusOps(val self: ParameterGroupStatus) extends AnyVal {
 
-  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName) // String
+  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
-  final def parameterApplyStatusAsScala: Option[String] = Option(self.parameterApplyStatus) // String
+  final def parameterApplyStatusAsScala: Option[String] = Option(self.parameterApplyStatus)
 
   final def nodeIdsToRebootAsScala: Option[Seq[String]] = Option(self.nodeIdsToReboot).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

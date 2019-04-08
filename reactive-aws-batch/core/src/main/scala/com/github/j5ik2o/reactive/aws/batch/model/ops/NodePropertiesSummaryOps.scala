@@ -9,29 +9,29 @@ final class NodePropertiesSummaryBuilderOps(val self: NodePropertiesSummary.Buil
     value.fold(self) { v =>
       self.isMainNode(v)
     }
-  } // Boolean
+  }
 
   final def numNodesAsScala(value: Option[Int]): NodePropertiesSummary.Builder = {
     value.fold(self) { v =>
       self.numNodes(v)
     }
-  } // Int
+  }
 
   final def nodeIndexAsScala(value: Option[Int]): NodePropertiesSummary.Builder = {
     value.fold(self) { v =>
       self.nodeIndex(v)
     }
-  } // Int
+  }
 
 }
 
 final class NodePropertiesSummaryOps(val self: NodePropertiesSummary) extends AnyVal {
 
-  final def isMainNodeAsScala: Option[Boolean] = Option(self.isMainNode) // Boolean
+  final def isMainNodeAsScala: Option[Boolean] = Option(self.isMainNode)
 
-  final def numNodesAsScala: Option[Int] = Option(self.numNodes) // Int
+  final def numNodesAsScala: Option[Int] = Option(self.numNodes)
 
-  final def nodeIndexAsScala: Option[Int] = Option(self.nodeIndex) // Int
+  final def nodeIndexAsScala: Option[Int] = Option(self.nodeIndex)
 
 }
 

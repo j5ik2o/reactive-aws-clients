@@ -9,37 +9,37 @@ final class PutRecordsResultEntryBuilderOps(val self: PutRecordsResultEntry.Buil
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
-  } // String
+  }
 
   final def shardIdAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
-  } // String
+  }
 
   final def errorCodeAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.errorCode(v)
     }
-  } // String
+  }
 
   final def errorMessageAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.errorMessage(v)
     }
-  } // String
+  }
 
 }
 
 final class PutRecordsResultEntryOps(val self: PutRecordsResultEntry) extends AnyVal {
 
-  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber)
 
-  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+  final def shardIdAsScala: Option[String] = Option(self.shardId)
 
-  final def errorCodeAsScala: Option[String] = Option(self.errorCode) // String
+  final def errorCodeAsScala: Option[String] = Option(self.errorCode)
 
-  final def errorMessageAsScala: Option[String] = Option(self.errorMessage) // String
+  final def errorMessageAsScala: Option[String] = Option(self.errorMessage)
 
 }
 

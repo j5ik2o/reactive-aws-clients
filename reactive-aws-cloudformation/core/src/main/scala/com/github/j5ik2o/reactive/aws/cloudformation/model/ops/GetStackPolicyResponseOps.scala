@@ -9,13 +9,13 @@ final class GetStackPolicyResponseBuilderOps(val self: GetStackPolicyResponse.Bu
     value.fold(self) { v =>
       self.stackPolicyBody(v)
     }
-  } // String
+  }
 
 }
 
 final class GetStackPolicyResponseOps(val self: GetStackPolicyResponse) extends AnyVal {
 
-  final def stackPolicyBodyAsScala: Option[String] = Option(self.stackPolicyBody) // String
+  final def stackPolicyBodyAsScala: Option[String] = Option(self.stackPolicyBody)
 
 }
 

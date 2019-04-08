@@ -9,21 +9,21 @@ final class GetPolicyResponseBuilderOps(val self: GetPolicyResponse.Builder) ext
     value.fold(self) { v =>
       self.policy(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): GetPolicyResponse.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetPolicyResponseOps(val self: GetPolicyResponse) extends AnyVal {
 
-  final def policyAsScala: Option[String] = Option(self.policy) // String
+  final def policyAsScala: Option[String] = Option(self.policy)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

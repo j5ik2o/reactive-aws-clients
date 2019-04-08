@@ -9,21 +9,21 @@ final class ArrayPropertiesSummaryBuilderOps(val self: ArrayPropertiesSummary.Bu
     value.fold(self) { v =>
       self.size(v)
     }
-  } // Int
+  }
 
   final def indexAsScala(value: Option[Int]): ArrayPropertiesSummary.Builder = {
     value.fold(self) { v =>
       self.index(v)
     }
-  } // Int
+  }
 
 }
 
 final class ArrayPropertiesSummaryOps(val self: ArrayPropertiesSummary) extends AnyVal {
 
-  final def sizeAsScala: Option[Int] = Option(self.size) // Int
+  final def sizeAsScala: Option[Int] = Option(self.size)
 
-  final def indexAsScala: Option[Int] = Option(self.index) // Int
+  final def indexAsScala: Option[Int] = Option(self.index)
 
 }
 

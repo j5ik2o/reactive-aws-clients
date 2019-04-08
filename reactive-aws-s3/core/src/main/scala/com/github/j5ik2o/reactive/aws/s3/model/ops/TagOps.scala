@@ -9,21 +9,21 @@ final class TagBuilderOps(val self: Tag.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): Tag.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class TagOps(val self: Tag) extends AnyVal {
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

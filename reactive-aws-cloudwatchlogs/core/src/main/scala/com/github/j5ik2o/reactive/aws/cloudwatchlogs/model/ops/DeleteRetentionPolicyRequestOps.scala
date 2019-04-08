@@ -9,13 +9,13 @@ final class DeleteRetentionPolicyRequestBuilderOps(val self: DeleteRetentionPoli
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteRetentionPolicyRequestOps(val self: DeleteRetentionPolicyRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }
 

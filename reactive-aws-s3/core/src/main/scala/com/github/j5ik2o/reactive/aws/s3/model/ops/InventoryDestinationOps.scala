@@ -9,14 +9,13 @@ final class InventoryDestinationBuilderOps(val self: InventoryDestination.Builde
     value.fold(self) { v =>
       self.s3BucketDestination(v)
     }
-  } // InventoryS3BucketDestination
+  }
 
 }
 
 final class InventoryDestinationOps(val self: InventoryDestination) extends AnyVal {
 
-  final def s3BucketDestinationAsScala: Option[InventoryS3BucketDestination] =
-    Option(self.s3BucketDestination) // InventoryS3BucketDestination
+  final def s3BucketDestinationAsScala: Option[InventoryS3BucketDestination] = Option(self.s3BucketDestination)
 
 }
 

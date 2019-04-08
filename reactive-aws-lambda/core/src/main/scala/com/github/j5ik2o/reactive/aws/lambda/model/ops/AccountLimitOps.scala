@@ -9,45 +9,45 @@ final class AccountLimitBuilderOps(val self: AccountLimit.Builder) extends AnyVa
     value.fold(self) { v =>
       self.totalCodeSize(v)
     }
-  } // Long
+  }
 
   final def codeSizeUnzippedAsScala(value: Option[Long]): AccountLimit.Builder = {
     value.fold(self) { v =>
       self.codeSizeUnzipped(v)
     }
-  } // Long
+  }
 
   final def codeSizeZippedAsScala(value: Option[Long]): AccountLimit.Builder = {
     value.fold(self) { v =>
       self.codeSizeZipped(v)
     }
-  } // Long
+  }
 
   final def concurrentExecutionsAsScala(value: Option[Int]): AccountLimit.Builder = {
     value.fold(self) { v =>
       self.concurrentExecutions(v)
     }
-  } // Int
+  }
 
   final def unreservedConcurrentExecutionsAsScala(value: Option[Int]): AccountLimit.Builder = {
     value.fold(self) { v =>
       self.unreservedConcurrentExecutions(v)
     }
-  } // Int
+  }
 
 }
 
 final class AccountLimitOps(val self: AccountLimit) extends AnyVal {
 
-  final def totalCodeSizeAsScala: Option[Long] = Option(self.totalCodeSize) // Long
+  final def totalCodeSizeAsScala: Option[Long] = Option(self.totalCodeSize)
 
-  final def codeSizeUnzippedAsScala: Option[Long] = Option(self.codeSizeUnzipped) // Long
+  final def codeSizeUnzippedAsScala: Option[Long] = Option(self.codeSizeUnzipped)
 
-  final def codeSizeZippedAsScala: Option[Long] = Option(self.codeSizeZipped) // Long
+  final def codeSizeZippedAsScala: Option[Long] = Option(self.codeSizeZipped)
 
-  final def concurrentExecutionsAsScala: Option[Int] = Option(self.concurrentExecutions) // Int
+  final def concurrentExecutionsAsScala: Option[Int] = Option(self.concurrentExecutions)
 
-  final def unreservedConcurrentExecutionsAsScala: Option[Int] = Option(self.unreservedConcurrentExecutions) // Int
+  final def unreservedConcurrentExecutionsAsScala: Option[Int] = Option(self.unreservedConcurrentExecutions)
 
 }
 

@@ -8,20 +8,20 @@ final class GetQueryResultsResponseBuilderOps(val self: GetQueryResultsResponse.
   final def resultsAsScala(value: Option[Seq[Seq[ResultField]]]): GetQueryResultsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.results(v.map(_.asJava).asJava)
-    } // Seq[Seq[ResultField]]
+    }
   }
 
   final def statisticsAsScala(value: Option[QueryStatistics]): GetQueryResultsResponse.Builder = {
     value.fold(self) { v =>
       self.statistics(v)
     }
-  } // QueryStatistics
+  }
 
   final def statusAsScala(value: Option[QueryStatus]): GetQueryResultsResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // QueryStatus
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class GetQueryResultsResponseOps(val self: GetQueryResultsResponse) extend
 
   final def resultsAsScala: Option[Seq[Seq[ResultField]]] = Option(self.results).map { v =>
     import scala.collection.JavaConverters._; v.asScala.map(_.asScala)
-  } // Seq[Seq[ResultField]]
+  }
 
-  final def statisticsAsScala: Option[QueryStatistics] = Option(self.statistics) // QueryStatistics
+  final def statisticsAsScala: Option[QueryStatistics] = Option(self.statistics)
 
-  final def statusAsScala: Option[QueryStatus] = Option(self.status) // QueryStatus
+  final def statusAsScala: Option[QueryStatus] = Option(self.status)
 
 }
 

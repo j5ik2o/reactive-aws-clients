@@ -10,29 +10,29 @@ final class UpgradeElasticsearchDomainResponseBuilderOps(val self: UpgradeElasti
     value.fold(self) { v =>
       self.domainName(v)
     }
-  } // String
+  }
 
   final def targetVersionAsScala(value: Option[String]): UpgradeElasticsearchDomainResponse.Builder = {
     value.fold(self) { v =>
       self.targetVersion(v)
     }
-  } // String
+  }
 
   final def performCheckOnlyAsScala(value: Option[Boolean]): UpgradeElasticsearchDomainResponse.Builder = {
     value.fold(self) { v =>
       self.performCheckOnly(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class UpgradeElasticsearchDomainResponseOps(val self: UpgradeElasticsearchDomainResponse) extends AnyVal {
 
-  final def domainNameAsScala: Option[String] = Option(self.domainName) // String
+  final def domainNameAsScala: Option[String] = Option(self.domainName)
 
-  final def targetVersionAsScala: Option[String] = Option(self.targetVersion) // String
+  final def targetVersionAsScala: Option[String] = Option(self.targetVersion)
 
-  final def performCheckOnlyAsScala: Option[Boolean] = Option(self.performCheckOnly) // Boolean
+  final def performCheckOnlyAsScala: Option[Boolean] = Option(self.performCheckOnly)
 
 }
 

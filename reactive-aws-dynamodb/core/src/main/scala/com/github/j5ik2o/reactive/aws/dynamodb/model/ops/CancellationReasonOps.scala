@@ -8,20 +8,20 @@ final class CancellationReasonBuilderOps(val self: CancellationReason.Builder) e
   final def itemAsScala(value: Option[Map[String, AttributeValue]]): CancellationReason.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
-    } // Map[String, AttributeValue]
+    }
   }
 
   final def codeAsScala(value: Option[String]): CancellationReason.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
-  } // String
+  }
 
   final def messageAsScala(value: Option[String]): CancellationReason.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class CancellationReasonOps(val self: CancellationReason) extends AnyVal {
 
   final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, AttributeValue]
+  }
 
-  final def codeAsScala: Option[String] = Option(self.code) // String
+  final def codeAsScala: Option[String] = Option(self.code)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

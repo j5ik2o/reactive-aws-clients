@@ -9,53 +9,53 @@ final class DeleteObjectRequestBuilderOps(val self: DeleteObjectRequest.Builder)
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def mfaAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.mfa(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // RequestPayer
+  }
 
   final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bypassGovernanceRetention(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class DeleteObjectRequestOps(val self: DeleteObjectRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def mfaAsScala: Option[String] = Option(self.mfa) // String
+  final def mfaAsScala: Option[String] = Option(self.mfa)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
-  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention) // Boolean
+  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention)
 
 }
 

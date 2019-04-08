@@ -9,13 +9,13 @@ final class DescribeTableResponseBuilderOps(val self: DescribeTableResponse.Buil
     value.fold(self) { v =>
       self.table(v)
     }
-  } // TableDescription
+  }
 
 }
 
 final class DescribeTableResponseOps(val self: DescribeTableResponse) extends AnyVal {
 
-  final def tableAsScala: Option[TableDescription] = Option(self.table) // TableDescription
+  final def tableAsScala: Option[TableDescription] = Option(self.table)
 
 }
 

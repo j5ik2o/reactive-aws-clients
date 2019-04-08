@@ -12,7 +12,7 @@ final class GetCompatibleElasticsearchVersionsResponseBuilderOps(
   ): GetCompatibleElasticsearchVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.compatibleElasticsearchVersions(v.asJava)
-    } // Seq[CompatibleVersionsMap]
+    }
   }
 
 }
@@ -23,7 +23,7 @@ final class GetCompatibleElasticsearchVersionsResponseOps(val self: GetCompatibl
   final def compatibleElasticsearchVersionsAsScala: Option[Seq[CompatibleVersionsMap]] =
     Option(self.compatibleElasticsearchVersions).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[CompatibleVersionsMap]
+    }
 
 }
 

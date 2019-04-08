@@ -11,14 +11,14 @@ final class DescribeStackResourceDriftsResponseBuilderOps(val self: DescribeStac
   ): DescribeStackResourceDriftsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackResourceDrifts(v.asJava)
-    } // Seq[StackResourceDrift]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeStackResourceDriftsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -26,9 +26,9 @@ final class DescribeStackResourceDriftsResponseOps(val self: DescribeStackResour
 
   final def stackResourceDriftsAsScala: Option[Seq[StackResourceDrift]] = Option(self.stackResourceDrifts).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[StackResourceDrift]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

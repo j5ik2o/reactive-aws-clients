@@ -9,21 +9,21 @@ final class LayerBuilderOps(val self: Layer.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def codeSizeAsScala(value: Option[Long]): Layer.Builder = {
     value.fold(self) { v =>
       self.codeSize(v)
     }
-  } // Long
+  }
 
 }
 
 final class LayerOps(val self: Layer) extends AnyVal {
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
-  final def codeSizeAsScala: Option[Long] = Option(self.codeSize) // Long
+  final def codeSizeAsScala: Option[Long] = Option(self.codeSize)
 
 }
 

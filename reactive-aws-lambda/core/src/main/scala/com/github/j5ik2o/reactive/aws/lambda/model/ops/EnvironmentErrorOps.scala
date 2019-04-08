@@ -9,21 +9,21 @@ final class EnvironmentErrorBuilderOps(val self: EnvironmentError.Builder) exten
     value.fold(self) { v =>
       self.errorCode(v)
     }
-  } // String
+  }
 
   final def messageAsScala(value: Option[String]): EnvironmentError.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class EnvironmentErrorOps(val self: EnvironmentError) extends AnyVal {
 
-  final def errorCodeAsScala: Option[String] = Option(self.errorCode) // String
+  final def errorCodeAsScala: Option[String] = Option(self.errorCode)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

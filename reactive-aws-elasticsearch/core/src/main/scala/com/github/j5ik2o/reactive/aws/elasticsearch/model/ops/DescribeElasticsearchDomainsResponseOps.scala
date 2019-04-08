@@ -11,7 +11,7 @@ final class DescribeElasticsearchDomainsResponseBuilderOps(val self: DescribeEla
   ): DescribeElasticsearchDomainsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.domainStatusList(v.asJava)
-    } // Seq[ElasticsearchDomainStatus]
+    }
   }
 
 }
@@ -20,7 +20,7 @@ final class DescribeElasticsearchDomainsResponseOps(val self: DescribeElasticsea
 
   final def domainStatusListAsScala: Option[Seq[ElasticsearchDomainStatus]] = Option(self.domainStatusList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ElasticsearchDomainStatus]
+  }
 
 }
 

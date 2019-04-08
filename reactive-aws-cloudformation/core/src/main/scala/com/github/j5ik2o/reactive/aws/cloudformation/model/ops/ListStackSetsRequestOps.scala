@@ -9,29 +9,29 @@ final class ListStackSetsRequestBuilderOps(val self: ListStackSetsRequest.Builde
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListStackSetsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def statusAsScala(value: Option[StackSetStatus]): ListStackSetsRequest.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // StackSetStatus
+  }
 
 }
 
 final class ListStackSetsRequestOps(val self: ListStackSetsRequest) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // StackSetStatus
+  final def statusAsScala: Option[StackSetStatus] = Option(self.status)
 
 }
 

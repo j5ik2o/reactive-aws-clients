@@ -9,13 +9,13 @@ final class DeleteQueueRequestBuilderOps(val self: DeleteQueueRequest.Builder) e
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteQueueRequestOps(val self: DeleteQueueRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }
 

@@ -9,39 +9,37 @@ final class SelectParametersBuilderOps(val self: SelectParameters.Builder) exten
     value.fold(self) { v =>
       self.inputSerialization(v)
     }
-  } // InputSerialization
+  }
 
   final def expressionTypeAsScala(value: Option[ExpressionType]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.expressionType(v)
     }
-  } // ExpressionType
+  }
 
   final def expressionAsScala(value: Option[String]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.expression(v)
     }
-  } // String
+  }
 
   final def outputSerializationAsScala(value: Option[OutputSerialization]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.outputSerialization(v)
     }
-  } // OutputSerialization
+  }
 
 }
 
 final class SelectParametersOps(val self: SelectParameters) extends AnyVal {
 
-  final def inputSerializationAsScala: Option[InputSerialization] =
-    Option(self.inputSerialization) // InputSerialization
+  final def inputSerializationAsScala: Option[InputSerialization] = Option(self.inputSerialization)
 
-  final def expressionTypeAsScala: Option[ExpressionType] = Option(self.expressionType) // ExpressionType
+  final def expressionTypeAsScala: Option[ExpressionType] = Option(self.expressionType)
 
-  final def expressionAsScala: Option[String] = Option(self.expression) // String
+  final def expressionAsScala: Option[String] = Option(self.expression)
 
-  final def outputSerializationAsScala: Option[OutputSerialization] =
-    Option(self.outputSerialization) // OutputSerialization
+  final def outputSerializationAsScala: Option[OutputSerialization] = Option(self.outputSerialization)
 
 }
 

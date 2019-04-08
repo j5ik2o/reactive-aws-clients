@@ -9,31 +9,31 @@ final class ComposeEnvironmentsRequestBuilderOps(val self: ComposeEnvironmentsRe
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def groupNameAsScala(value: Option[String]): ComposeEnvironmentsRequest.Builder = {
     value.fold(self) { v =>
       self.groupName(v)
     }
-  } // String
+  }
 
   final def versionLabelsAsScala(value: Option[Seq[String]]): ComposeEnvironmentsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.versionLabels(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class ComposeEnvironmentsRequestOps(val self: ComposeEnvironmentsRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def groupNameAsScala: Option[String] = Option(self.groupName) // String
+  final def groupNameAsScala: Option[String] = Option(self.groupName)
 
   final def versionLabelsAsScala: Option[Seq[String]] = Option(self.versionLabels).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

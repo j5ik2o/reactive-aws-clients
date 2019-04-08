@@ -9,13 +9,13 @@ final class GetEventSourceMappingRequestBuilderOps(val self: GetEventSourceMappi
     value.fold(self) { v =>
       self.uuid(v)
     }
-  } // String
+  }
 
 }
 
 final class GetEventSourceMappingRequestOps(val self: GetEventSourceMappingRequest) extends AnyVal {
 
-  final def uuidAsScala: Option[String] = Option(self.uuid) // String
+  final def uuidAsScala: Option[String] = Option(self.uuid)
 
 }
 

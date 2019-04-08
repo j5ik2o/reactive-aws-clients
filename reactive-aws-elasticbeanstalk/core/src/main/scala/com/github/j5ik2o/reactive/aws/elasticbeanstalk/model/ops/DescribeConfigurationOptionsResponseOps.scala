@@ -10,33 +10,33 @@ final class DescribeConfigurationOptionsResponseBuilderOps(val self: DescribeCon
     value.fold(self) { v =>
       self.solutionStackName(v)
     }
-  } // String
+  }
 
   final def platformArnAsScala(value: Option[String]): DescribeConfigurationOptionsResponse.Builder = {
     value.fold(self) { v =>
       self.platformArn(v)
     }
-  } // String
+  }
 
   final def optionsAsScala(
       value: Option[Seq[ConfigurationOptionDescription]]
   ): DescribeConfigurationOptionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.options(v.asJava)
-    } // Seq[ConfigurationOptionDescription]
+    }
   }
 
 }
 
 final class DescribeConfigurationOptionsResponseOps(val self: DescribeConfigurationOptionsResponse) extends AnyVal {
 
-  final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName) // String
+  final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName)
 
-  final def platformArnAsScala: Option[String] = Option(self.platformArn) // String
+  final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
   final def optionsAsScala: Option[Seq[ConfigurationOptionDescription]] = Option(self.options).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ConfigurationOptionDescription]
+  }
 
 }
 

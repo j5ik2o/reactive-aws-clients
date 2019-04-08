@@ -8,14 +8,14 @@ final class ListExportsResponseBuilderOps(val self: ListExportsResponse.Builder)
   final def exportsAsScala(value: Option[Seq[Export]]): ListExportsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.exports(v.asJava)
-    } // Seq[Export]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListExportsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListExportsResponseOps(val self: ListExportsResponse) extends AnyVal
 
   final def exportsAsScala: Option[Seq[Export]] = Option(self.exports).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Export]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

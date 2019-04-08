@@ -9,37 +9,37 @@ final class BatchResultErrorEntryBuilderOps(val self: BatchResultErrorEntry.Buil
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def senderFaultAsScala(value: Option[Boolean]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.senderFault(v)
     }
-  } // Boolean
+  }
 
   final def codeAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
-  } // String
+  }
 
   final def messageAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class BatchResultErrorEntryOps(val self: BatchResultErrorEntry) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def senderFaultAsScala: Option[Boolean] = Option(self.senderFault) // Boolean
+  final def senderFaultAsScala: Option[Boolean] = Option(self.senderFault)
 
-  final def codeAsScala: Option[String] = Option(self.code) // String
+  final def codeAsScala: Option[String] = Option(self.code)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

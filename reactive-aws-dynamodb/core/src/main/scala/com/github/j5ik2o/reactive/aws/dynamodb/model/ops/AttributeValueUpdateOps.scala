@@ -9,21 +9,21 @@ final class AttributeValueUpdateBuilderOps(val self: AttributeValueUpdate.Builde
     value.fold(self) { v =>
       self.value(v)
     }
-  } // AttributeValue
+  }
 
   final def actionAsScala(value: Option[AttributeAction]): AttributeValueUpdate.Builder = {
     value.fold(self) { v =>
       self.action(v)
     }
-  } // AttributeAction
+  }
 
 }
 
 final class AttributeValueUpdateOps(val self: AttributeValueUpdate) extends AnyVal {
 
-  final def valueAsScala: Option[AttributeValue] = Option(self.value) // AttributeValue
+  final def valueAsScala: Option[AttributeValue] = Option(self.value)
 
-  final def actionAsScala: Option[AttributeAction] = Option(self.action) // AttributeAction
+  final def actionAsScala: Option[AttributeAction] = Option(self.action)
 
 }
 

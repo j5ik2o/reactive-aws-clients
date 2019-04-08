@@ -9,14 +9,13 @@ final class CreateBucketConfigurationBuilderOps(val self: CreateBucketConfigurat
     value.fold(self) { v =>
       self.locationConstraint(v)
     }
-  } // BucketLocationConstraint
+  }
 
 }
 
 final class CreateBucketConfigurationOps(val self: CreateBucketConfiguration) extends AnyVal {
 
-  final def locationConstraintAsScala: Option[BucketLocationConstraint] =
-    Option(self.locationConstraint) // BucketLocationConstraint
+  final def locationConstraintAsScala: Option[BucketLocationConstraint] = Option(self.locationConstraint)
 
 }
 

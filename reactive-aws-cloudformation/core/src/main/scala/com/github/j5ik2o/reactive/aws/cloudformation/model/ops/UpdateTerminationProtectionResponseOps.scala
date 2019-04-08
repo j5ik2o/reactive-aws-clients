@@ -10,13 +10,13 @@ final class UpdateTerminationProtectionResponseBuilderOps(val self: UpdateTermin
     value.fold(self) { v =>
       self.stackId(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateTerminationProtectionResponseOps(val self: UpdateTerminationProtectionResponse) extends AnyVal {
 
-  final def stackIdAsScala: Option[String] = Option(self.stackId) // String
+  final def stackIdAsScala: Option[String] = Option(self.stackId)
 
 }
 

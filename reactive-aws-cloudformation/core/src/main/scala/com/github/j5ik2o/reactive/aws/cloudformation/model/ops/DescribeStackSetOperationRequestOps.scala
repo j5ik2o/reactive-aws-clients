@@ -10,21 +10,21 @@ final class DescribeStackSetOperationRequestBuilderOps(val self: DescribeStackSe
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def operationIdAsScala(value: Option[String]): DescribeStackSetOperationRequest.Builder = {
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStackSetOperationRequestOps(val self: DescribeStackSetOperationRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }
 

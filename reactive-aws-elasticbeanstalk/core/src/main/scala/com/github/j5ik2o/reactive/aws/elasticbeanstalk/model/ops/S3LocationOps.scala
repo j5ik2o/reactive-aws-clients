@@ -9,21 +9,21 @@ final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.s3Bucket(v)
     }
-  } // String
+  }
 
   final def s3KeyAsScala(value: Option[String]): S3Location.Builder = {
     value.fold(self) { v =>
       self.s3Key(v)
     }
-  } // String
+  }
 
 }
 
 final class S3LocationOps(val self: S3Location) extends AnyVal {
 
-  final def s3BucketAsScala: Option[String] = Option(self.s3Bucket) // String
+  final def s3BucketAsScala: Option[String] = Option(self.s3Bucket)
 
-  final def s3KeyAsScala: Option[String] = Option(self.s3Key) // String
+  final def s3KeyAsScala: Option[String] = Option(self.s3Key)
 
 }
 

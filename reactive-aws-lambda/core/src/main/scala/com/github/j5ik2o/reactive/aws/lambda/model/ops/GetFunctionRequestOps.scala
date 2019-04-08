@@ -9,21 +9,21 @@ final class GetFunctionRequestBuilderOps(val self: GetFunctionRequest.Builder) e
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def qualifierAsScala(value: Option[String]): GetFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
     }
-  } // String
+  }
 
 }
 
 final class GetFunctionRequestOps(val self: GetFunctionRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
+  final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
 }
 

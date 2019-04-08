@@ -11,22 +11,22 @@ final class DeleteBucketAnalyticsConfigurationRequestBuilderOps(
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): DeleteBucketAnalyticsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteBucketAnalyticsConfigurationRequestOps(val self: DeleteBucketAnalyticsConfigurationRequest)
     extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

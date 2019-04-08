@@ -9,45 +9,45 @@ final class ListStackInstancesRequestBuilderOps(val self: ListStackInstancesRequ
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def stackInstanceAccountAsScala(value: Option[String]): ListStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.stackInstanceAccount(v)
     }
-  } // String
+  }
 
   final def stackInstanceRegionAsScala(value: Option[String]): ListStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.stackInstanceRegion(v)
     }
-  } // String
+  }
 
 }
 
 final class ListStackInstancesRequestOps(val self: ListStackInstancesRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def stackInstanceAccountAsScala: Option[String] = Option(self.stackInstanceAccount) // String
+  final def stackInstanceAccountAsScala: Option[String] = Option(self.stackInstanceAccount)
 
-  final def stackInstanceRegionAsScala: Option[String] = Option(self.stackInstanceRegion) // String
+  final def stackInstanceRegionAsScala: Option[String] = Option(self.stackInstanceRegion)
 
 }
 

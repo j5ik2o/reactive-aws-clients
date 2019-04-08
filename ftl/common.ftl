@@ -83,25 +83,25 @@
             final def ${method.name}AsScala(value: Option[${fullTypeName}]): ${simpleTypeName}.Builder = {
             <#local valueTypeName=firstType.valueTypeDesc.simpleTypeName>
             <#if valueTypeName == "SdkBytes">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if mapValueTypeName == "Seq">
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.mapValues(_.asJava).asJava).asJava) } // ${fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.mapValues(_.asJava).asJava).asJava) } 
                 <#else>
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } 
                 </#if>
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } 
             <#elseif valueTypeName == "String">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Int">
-                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#else>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             </#if>
             }
             <#break >
@@ -109,30 +109,30 @@
             final def ${method.name}AsScala(value: Option[${fullTypeName}]): ${simpleTypeName}.Builder = {
             <#assign valueTypeName=firstType.valueTypeDesc.simpleTypeName>
             <#if valueTypeName == "String">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Int">
-                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } 
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName == "Map">
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.map(_.asJava).asJava).asJava) } // ${fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.map(_.asJava).asJava).asJava) } 
                 <#else>
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.asJava).asJava) } // ${fullTypeName}
+                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.asJava).asJava) } 
                 </#if>
             <#else>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${fullTypeName}
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
             </#if>
             }
             <#break >
         <#default >
             final def ${method.name}AsScala(value: Option[${fullTypeName}]): ${simpleTypeName}.Builder = {
             value.fold(self){ v => self.${methodName}(v) }
-            } // ${fullTypeName}
+            } 
             <#break >
     </#switch>
 </#macro>
@@ -146,88 +146,62 @@
         <#case "Seq">
             <#local valueTypeName=firstType.valueTypeDesc.simpleTypeName/>
             <#if valueTypeName == "SdkBytes">
-                final def ${method.name}AsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                final def ${method.name}AsScala: Option[Seq[Seq[${filterTypeName(seqValueTypeName)}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala) } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Seq[Seq[${filterTypeName(seqValueTypeName)}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala) } 
             <#elseif valueTypeName == "Map">
                 <#local mapKeyTypeName=firstType.valueTypeDesc.keyTypeDesc.simpleTypeName>
                 <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                final def ${method.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${filterTypeName(mapValueTypeName)}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap) } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${filterTypeName(mapValueTypeName)}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap) } 
             <#elseif valueTypeName == "String">
-                final def ${method.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } 
             <#else>
-                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
             </#if>
             <#break >
         <#case "Map">
             <#local keyTypeName=firstType.keyTypeDesc.simpleTypeName>
             <#local valueTypeName=firstType.valueTypeDesc.simpleTypeName>
             <#if valueTypeName == "SdkBytes">
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName=="Map">
                     <#local mapKeyTypeName=firstType.valueTypeDesc.valueTypeDesc.keyTypeDesc.simpleTypeName>
                     <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                    final def ${method.name}AsScala: Option[Map[${keyTypeName}, Seq[Map[${mapKeyTypeName},${filterTypeName(mapValueTypeName)}]]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap)) } // ${fullTypeName}
+                    final def ${method.name}AsScala: Option[Map[${keyTypeName}, Seq[Map[${mapKeyTypeName},${filterTypeName(mapValueTypeName)}]]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap)) } 
                 <#else>
-                    final def ${method.name}AsScala: Option[Map[${keyTypeName},Seq[${filterTypeName(seqValueTypeName)}]]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala) } // ${fullTypeName}
+                    final def ${method.name}AsScala: Option[Map[${keyTypeName},Seq[${filterTypeName(seqValueTypeName)}]]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala) } 
                 </#if>
             <#elseif valueTypeName == "String">
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} 
             <#else>
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${fullTypeName}
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } 
             </#if>
             <#break >
         <#case "SdkBytes">
-            final def ${method.name}AsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.${methodName}) // ${fullTypeName}
+            final def ${method.name}AsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.${methodName}) 
             <#break >
         <#default >
-            final def ${method.name}AsScala: Option[${fullTypeName}] = Option(self.${methodName}) // ${fullTypeName}
+            final def ${method.name}AsScala: Option[${fullTypeName}] = Option(self.${methodName}) 
             <#break >
     </#switch>
 </#macro>
 
-<#macro defAkkaMethod method>
-    <#if method.name?ends_with("Paginator")>
-        <#if method.parameterTypeDescs?has_content>
-            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
-            <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-            def ${method.name}Flow: Flow[${requestTypeName},${responseTypeName}, NotUsed] = Flow[${requestTypeName}].flatMapConcat { request =>
-            Source.fromPublisher(underlying.${method.name}(request))
-            }
-        <#else>
-            <#assign responseTypeName=method.returnTypeDesc.simpleTypeName?replace("Publisher", "Response")>
-            def ${method.name}Source: Source[${responseTypeName}, NotUsed] =
-            Source.fromPublisher(underlying.${method.name}())
-        </#if>
-    <#else>
-        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-        <#if method.parameterTypeDescs?has_content>
-            def ${method.name}Source(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list><#if method.parameterTypeDescs?has_content>,</#if> parallelism: Int = DefaultParallelism): Source[${responseTypeName}, NotUsed] =
-            Source.single(<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].name}<#else>(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)</#if>).via(${method.name}Flow(parallelism))
-
-            def ${method.name}Flow(parallelism: Int = DefaultParallelism): Flow[<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].fullTypeName}<#else>(<#list method.parameterTypeDescs as p>${p.fullTypeName}<#if p_has_next>,</#if></#list>)</#if>,${responseTypeName}, NotUsed] =
-            Flow[<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].fullTypeName}<#else>(<#list method.parameterTypeDescs as p>${p.fullTypeName}<#if p_has_next>,</#if></#list>)</#if>].mapAsync(parallelism){ <#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].name}<#else>case (<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)</#if> =>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-            }
-        <#else>
-            def ${method.name}Source(): Source[${responseTypeName}, NotUsed] =
-            Source.fromFuture(underlying.${method.name}())
-        </#if>
-    </#if>
-</#macro>
 
 <#macro defScalaInterface method>
     def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): M[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]
 </#macro>
 
 <#macro defScalaFutureMethod method overrideOpt=true>
+    <#--/**-->
+    <#--* @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/${baseName?lower_case}/${simpleTypeName}.html#${method.name}-software.amazon.awssdk.services.cloudwatch.model.${fullTypeName}--->
+    <#--*/-->
     <#if !method.name?ends_with("Paginator") && method.returnTypeDesc.valueTypeDesc.simpleTypeName == "Unit">
         @SuppressWarnings(Array("org.wartremover.warts.Equals"))
     </#if>
@@ -277,7 +251,7 @@
 
 <#macro defMonixMethod method>
     <#if method.name?ends_with("Paginator")>
-        <#assign responseTypeName=method.returnTypeDesc.simpleTypeName?replace("Publisher", "Response")>
+        <#assign responseTypeName=method.returnTypeDesc.simpleTypeName?replace("Publisher$", "Response", "r")>
         def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): Observable[${responseTypeName}] =
         Observable.fromReactivePublisher(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
     <#else>
@@ -286,5 +260,36 @@
         Task.deferFuture {
         underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
         }
+    </#if>
+</#macro>
+
+
+<#macro defAkkaMethod method>
+    <#if method.name?ends_with("Paginator")>
+        <#if method.parameterTypeDescs?has_content>
+            <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
+            <#assign responseTypeName=requestTypeName?replace("Request$", "Response", "r")>
+            def ${method.name}Flow: Flow[${requestTypeName},${responseTypeName}, NotUsed] = Flow[${requestTypeName}].flatMapConcat { request =>
+            Source.fromPublisher(underlying.${method.name}(request))
+            }
+        <#else>
+            <#assign responseTypeName=method.returnTypeDesc.simpleTypeName?replace("Publisher$", "Response", "r")>
+            def ${method.name}Source: Source[${responseTypeName}, NotUsed] =
+            Source.fromPublisher(underlying.${method.name}())
+        </#if>
+    <#else>
+        <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
+        <#if method.parameterTypeDescs?has_content>
+            def ${method.name}Source(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list><#if method.parameterTypeDescs?has_content>,</#if> parallelism: Int = DefaultParallelism): Source[${responseTypeName}, NotUsed] =
+            Source.single(<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].name}<#else>(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)</#if>).via(${method.name}Flow(parallelism))
+
+            def ${method.name}Flow(parallelism: Int = DefaultParallelism): Flow[<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].fullTypeName}<#else>(<#list method.parameterTypeDescs as p>${p.fullTypeName}<#if p_has_next>,</#if></#list>)</#if>,${responseTypeName}, NotUsed] =
+            Flow[<#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].fullTypeName}<#else>(<#list method.parameterTypeDescs as p>${p.fullTypeName}<#if p_has_next>,</#if></#list>)</#if>].mapAsync(parallelism){ <#if method.parameterTypeDescs?size == 1>${method.parameterTypeDescs[0].name}<#else>case (<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)</#if> =>
+            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
+            }
+        <#else>
+            def ${method.name}Source(): Source[${responseTypeName}, NotUsed] =
+            Source.fromFuture(underlying.${method.name}())
+        </#if>
     </#if>
 </#macro>

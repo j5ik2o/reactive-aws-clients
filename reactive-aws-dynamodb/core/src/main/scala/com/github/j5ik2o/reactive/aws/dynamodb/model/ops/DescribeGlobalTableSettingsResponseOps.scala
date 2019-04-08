@@ -10,25 +10,25 @@ final class DescribeGlobalTableSettingsResponseBuilderOps(val self: DescribeGlob
     value.fold(self) { v =>
       self.globalTableName(v)
     }
-  } // String
+  }
 
   final def replicaSettingsAsScala(
       value: Option[Seq[ReplicaSettingsDescription]]
   ): DescribeGlobalTableSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicaSettings(v.asJava)
-    } // Seq[ReplicaSettingsDescription]
+    }
   }
 
 }
 
 final class DescribeGlobalTableSettingsResponseOps(val self: DescribeGlobalTableSettingsResponse) extends AnyVal {
 
-  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
   final def replicaSettingsAsScala: Option[Seq[ReplicaSettingsDescription]] = Option(self.replicaSettings).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ReplicaSettingsDescription]
+  }
 
 }
 

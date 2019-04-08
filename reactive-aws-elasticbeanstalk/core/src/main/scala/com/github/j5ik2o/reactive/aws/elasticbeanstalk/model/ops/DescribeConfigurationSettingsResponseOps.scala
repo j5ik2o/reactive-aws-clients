@@ -11,7 +11,7 @@ final class DescribeConfigurationSettingsResponseBuilderOps(val self: DescribeCo
   ): DescribeConfigurationSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.configurationSettings(v.asJava)
-    } // Seq[ConfigurationSettingsDescription]
+    }
   }
 
 }
@@ -21,7 +21,7 @@ final class DescribeConfigurationSettingsResponseOps(val self: DescribeConfigura
   final def configurationSettingsAsScala: Option[Seq[ConfigurationSettingsDescription]] =
     Option(self.configurationSettings).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ConfigurationSettingsDescription]
+    }
 
 }
 

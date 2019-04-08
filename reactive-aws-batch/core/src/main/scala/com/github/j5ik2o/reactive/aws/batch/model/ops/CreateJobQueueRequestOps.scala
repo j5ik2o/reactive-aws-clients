@@ -9,42 +9,42 @@ final class CreateJobQueueRequestBuilderOps(val self: CreateJobQueueRequest.Buil
     value.fold(self) { v =>
       self.jobQueueName(v)
     }
-  } // String
+  }
 
   final def stateAsScala(value: Option[JQState]): CreateJobQueueRequest.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
-  } // JQState
+  }
 
   final def priorityAsScala(value: Option[Int]): CreateJobQueueRequest.Builder = {
     value.fold(self) { v =>
       self.priority(v)
     }
-  } // Int
+  }
 
   final def computeEnvironmentOrderAsScala(
       value: Option[Seq[ComputeEnvironmentOrder]]
   ): CreateJobQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.computeEnvironmentOrder(v.asJava)
-    } // Seq[ComputeEnvironmentOrder]
+    }
   }
 
 }
 
 final class CreateJobQueueRequestOps(val self: CreateJobQueueRequest) extends AnyVal {
 
-  final def jobQueueNameAsScala: Option[String] = Option(self.jobQueueName) // String
+  final def jobQueueNameAsScala: Option[String] = Option(self.jobQueueName)
 
-  final def stateAsScala: Option[JQState] = Option(self.state) // JQState
+  final def stateAsScala: Option[JQState] = Option(self.state)
 
-  final def priorityAsScala: Option[Int] = Option(self.priority) // Int
+  final def priorityAsScala: Option[Int] = Option(self.priority)
 
   final def computeEnvironmentOrderAsScala: Option[Seq[ComputeEnvironmentOrder]] =
     Option(self.computeEnvironmentOrder).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ComputeEnvironmentOrder]
+    }
 
 }
 

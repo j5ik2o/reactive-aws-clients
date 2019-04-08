@@ -9,37 +9,37 @@ final class DescribeQueriesRequestBuilderOps(val self: DescribeQueriesRequest.Bu
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[QueryStatus]): DescribeQueriesRequest.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // QueryStatus
+  }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeQueriesRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeQueriesRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeQueriesRequestOps(val self: DescribeQueriesRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def statusAsScala: Option[QueryStatus] = Option(self.status) // QueryStatus
+  final def statusAsScala: Option[QueryStatus] = Option(self.status)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

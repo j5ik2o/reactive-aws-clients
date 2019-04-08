@@ -10,14 +10,14 @@ final class ListStackResourcesResponseBuilderOps(val self: ListStackResourcesRes
   ): ListStackResourcesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackResourceSummaries(v.asJava)
-    } // Seq[StackResourceSummary]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListStackResourcesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -26,9 +26,9 @@ final class ListStackResourcesResponseOps(val self: ListStackResourcesResponse) 
   final def stackResourceSummariesAsScala: Option[Seq[StackResourceSummary]] = Option(self.stackResourceSummaries).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala
-  } // Seq[StackResourceSummary]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

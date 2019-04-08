@@ -10,14 +10,14 @@ final class ChangeMessageVisibilityBatchResultEntryBuilderOps(val self: ChangeMe
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class ChangeMessageVisibilityBatchResultEntryOps(val self: ChangeMessageVisibilityBatchResultEntry)
     extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

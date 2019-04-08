@@ -9,29 +9,29 @@ final class MountPointBuilderOps(val self: MountPoint.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.containerPath(v)
     }
-  } // String
+  }
 
   final def readOnlyAsScala(value: Option[Boolean]): MountPoint.Builder = {
     value.fold(self) { v =>
       self.readOnly(v)
     }
-  } // Boolean
+  }
 
   final def sourceVolumeAsScala(value: Option[String]): MountPoint.Builder = {
     value.fold(self) { v =>
       self.sourceVolume(v)
     }
-  } // String
+  }
 
 }
 
 final class MountPointOps(val self: MountPoint) extends AnyVal {
 
-  final def containerPathAsScala: Option[String] = Option(self.containerPath) // String
+  final def containerPathAsScala: Option[String] = Option(self.containerPath)
 
-  final def readOnlyAsScala: Option[Boolean] = Option(self.readOnly) // Boolean
+  final def readOnlyAsScala: Option[Boolean] = Option(self.readOnly)
 
-  final def sourceVolumeAsScala: Option[String] = Option(self.sourceVolume) // String
+  final def sourceVolumeAsScala: Option[String] = Option(self.sourceVolume)
 
 }
 

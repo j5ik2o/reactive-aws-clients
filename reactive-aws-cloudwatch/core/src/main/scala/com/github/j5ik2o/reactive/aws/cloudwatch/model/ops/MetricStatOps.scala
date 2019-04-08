@@ -9,37 +9,37 @@ final class MetricStatBuilderOps(val self: MetricStat.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.metric(v)
     }
-  } // Metric
+  }
 
   final def periodAsScala(value: Option[Int]): MetricStat.Builder = {
     value.fold(self) { v =>
       self.period(v)
     }
-  } // Int
+  }
 
   final def statAsScala(value: Option[String]): MetricStat.Builder = {
     value.fold(self) { v =>
       self.stat(v)
     }
-  } // String
+  }
 
   final def unitAsScala(value: Option[StandardUnit]): MetricStat.Builder = {
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // StandardUnit
+  }
 
 }
 
 final class MetricStatOps(val self: MetricStat) extends AnyVal {
 
-  final def metricAsScala: Option[Metric] = Option(self.metric) // Metric
+  final def metricAsScala: Option[Metric] = Option(self.metric)
 
-  final def periodAsScala: Option[Int] = Option(self.period) // Int
+  final def periodAsScala: Option[Int] = Option(self.period)
 
-  final def statAsScala: Option[String] = Option(self.stat) // String
+  final def statAsScala: Option[String] = Option(self.stat)
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit)
 
 }
 

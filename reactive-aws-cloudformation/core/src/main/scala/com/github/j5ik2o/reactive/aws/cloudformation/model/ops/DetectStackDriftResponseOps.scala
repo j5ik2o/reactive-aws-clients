@@ -9,13 +9,13 @@ final class DetectStackDriftResponseBuilderOps(val self: DetectStackDriftRespons
     value.fold(self) { v =>
       self.stackDriftDetectionId(v)
     }
-  } // String
+  }
 
 }
 
 final class DetectStackDriftResponseOps(val self: DetectStackDriftResponse) extends AnyVal {
 
-  final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId) // String
+  final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId)
 
 }
 

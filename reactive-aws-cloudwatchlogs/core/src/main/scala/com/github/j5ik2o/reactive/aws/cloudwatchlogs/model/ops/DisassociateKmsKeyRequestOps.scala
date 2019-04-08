@@ -9,13 +9,13 @@ final class DisassociateKmsKeyRequestBuilderOps(val self: DisassociateKmsKeyRequ
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class DisassociateKmsKeyRequestOps(val self: DisassociateKmsKeyRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }
 

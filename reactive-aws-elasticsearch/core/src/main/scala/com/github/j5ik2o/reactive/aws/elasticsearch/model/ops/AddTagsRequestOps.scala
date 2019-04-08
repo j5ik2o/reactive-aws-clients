@@ -9,23 +9,23 @@ final class AddTagsRequestBuilderOps(val self: AddTagsRequest.Builder) extends A
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def tagListAsScala(value: Option[Seq[Tag]]): AddTagsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagList(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
 
 final class AddTagsRequestOps(val self: AddTagsRequest) extends AnyVal {
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
   final def tagListAsScala: Option[Seq[Tag]] = Option(self.tagList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

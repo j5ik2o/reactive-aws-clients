@@ -10,13 +10,13 @@ final class PutBucketInventoryConfigurationRequestBuilderOps(val self: PutBucket
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def inventoryConfigurationAsScala(
       value: Option[InventoryConfiguration]
@@ -24,18 +24,17 @@ final class PutBucketInventoryConfigurationRequestBuilderOps(val self: PutBucket
     value.fold(self) { v =>
       self.inventoryConfiguration(v)
     }
-  } // InventoryConfiguration
+  }
 
 }
 
 final class PutBucketInventoryConfigurationRequestOps(val self: PutBucketInventoryConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def inventoryConfigurationAsScala: Option[InventoryConfiguration] =
-    Option(self.inventoryConfiguration) // InventoryConfiguration
+  final def inventoryConfigurationAsScala: Option[InventoryConfiguration] = Option(self.inventoryConfiguration)
 
 }
 

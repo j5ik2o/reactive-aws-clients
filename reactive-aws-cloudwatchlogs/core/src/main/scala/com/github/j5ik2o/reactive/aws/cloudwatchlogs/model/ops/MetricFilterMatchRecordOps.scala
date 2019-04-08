@@ -9,31 +9,31 @@ final class MetricFilterMatchRecordBuilderOps(val self: MetricFilterMatchRecord.
     value.fold(self) { v =>
       self.eventNumber(v)
     }
-  } // Long
+  }
 
   final def eventMessageAsScala(value: Option[String]): MetricFilterMatchRecord.Builder = {
     value.fold(self) { v =>
       self.eventMessage(v)
     }
-  } // String
+  }
 
   final def extractedValuesAsScala(value: Option[Map[String, String]]): MetricFilterMatchRecord.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.extractedValues(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
 
 final class MetricFilterMatchRecordOps(val self: MetricFilterMatchRecord) extends AnyVal {
 
-  final def eventNumberAsScala: Option[Long] = Option(self.eventNumber) // Long
+  final def eventNumberAsScala: Option[Long] = Option(self.eventNumber)
 
-  final def eventMessageAsScala: Option[String] = Option(self.eventMessage) // String
+  final def eventMessageAsScala: Option[String] = Option(self.eventMessage)
 
   final def extractedValuesAsScala: Option[Map[String, String]] = Option(self.extractedValues).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

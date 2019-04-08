@@ -8,7 +8,7 @@ final class DescribeStackResourcesResponseBuilderOps(val self: DescribeStackReso
   final def stackResourcesAsScala(value: Option[Seq[StackResource]]): DescribeStackResourcesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackResources(v.asJava)
-    } // Seq[StackResource]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DescribeStackResourcesResponseOps(val self: DescribeStackResourcesRe
 
   final def stackResourcesAsScala: Option[Seq[StackResource]] = Option(self.stackResources).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[StackResource]
+  }
 
 }
 

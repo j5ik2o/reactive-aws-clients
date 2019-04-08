@@ -9,29 +9,29 @@ final class GetUpgradeHistoryRequestBuilderOps(val self: GetUpgradeHistoryReques
     value.fold(self) { v =>
       self.domainName(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): GetUpgradeHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): GetUpgradeHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class GetUpgradeHistoryRequestOps(val self: GetUpgradeHistoryRequest) extends AnyVal {
 
-  final def domainNameAsScala: Option[String] = Option(self.domainName) // String
+  final def domainNameAsScala: Option[String] = Option(self.domainName)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

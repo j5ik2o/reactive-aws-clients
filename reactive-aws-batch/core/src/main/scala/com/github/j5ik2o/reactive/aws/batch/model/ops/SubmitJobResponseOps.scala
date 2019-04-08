@@ -9,21 +9,21 @@ final class SubmitJobResponseBuilderOps(val self: SubmitJobResponse.Builder) ext
     value.fold(self) { v =>
       self.jobName(v)
     }
-  } // String
+  }
 
   final def jobIdAsScala(value: Option[String]): SubmitJobResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
     }
-  } // String
+  }
 
 }
 
 final class SubmitJobResponseOps(val self: SubmitJobResponse) extends AnyVal {
 
-  final def jobNameAsScala: Option[String] = Option(self.jobName) // String
+  final def jobNameAsScala: Option[String] = Option(self.jobName)
 
-  final def jobIdAsScala: Option[String] = Option(self.jobId) // String
+  final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }
 

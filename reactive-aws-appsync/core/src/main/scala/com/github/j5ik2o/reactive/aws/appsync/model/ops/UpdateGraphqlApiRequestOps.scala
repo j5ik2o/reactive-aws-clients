@@ -9,55 +9,53 @@ final class UpdateGraphqlApiRequestBuilderOps(val self: UpdateGraphqlApiRequest.
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def nameAsScala(value: Option[String]): UpdateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def logConfigAsScala(value: Option[LogConfig]): UpdateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.logConfig(v)
     }
-  } // LogConfig
+  }
 
   final def authenticationTypeAsScala(value: Option[AuthenticationType]): UpdateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.authenticationType(v)
     }
-  } // AuthenticationType
+  }
 
   final def userPoolConfigAsScala(value: Option[UserPoolConfig]): UpdateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.userPoolConfig(v)
     }
-  } // UserPoolConfig
+  }
 
   final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): UpdateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.openIDConnectConfig(v)
     }
-  } // OpenIDConnectConfig
+  }
 
 }
 
 final class UpdateGraphqlApiRequestOps(val self: UpdateGraphqlApiRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig) // LogConfig
+  final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig)
 
-  final def authenticationTypeAsScala: Option[AuthenticationType] =
-    Option(self.authenticationType) // AuthenticationType
+  final def authenticationTypeAsScala: Option[AuthenticationType] = Option(self.authenticationType)
 
-  final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig) // UserPoolConfig
+  final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig)
 
-  final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] =
-    Option(self.openIDConnectConfig) // OpenIDConnectConfig
+  final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] = Option(self.openIDConnectConfig)
 
 }
 

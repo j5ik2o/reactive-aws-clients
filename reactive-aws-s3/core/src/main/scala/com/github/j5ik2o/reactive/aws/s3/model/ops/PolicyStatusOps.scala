@@ -9,13 +9,13 @@ final class PolicyStatusBuilderOps(val self: PolicyStatus.Builder) extends AnyVa
     value.fold(self) { v =>
       self.isPublic(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class PolicyStatusOps(val self: PolicyStatus) extends AnyVal {
 
-  final def isPublicAsScala: Option[Boolean] = Option(self.isPublic) // Boolean
+  final def isPublicAsScala: Option[Boolean] = Option(self.isPublic)
 
 }
 

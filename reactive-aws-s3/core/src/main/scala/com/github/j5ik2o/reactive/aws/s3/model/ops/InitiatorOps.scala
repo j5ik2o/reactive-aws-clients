@@ -9,21 +9,21 @@ final class InitiatorBuilderOps(val self: Initiator.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def displayNameAsScala(value: Option[String]): Initiator.Builder = {
     value.fold(self) { v =>
       self.displayName(v)
     }
-  } // String
+  }
 
 }
 
 final class InitiatorOps(val self: Initiator) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def displayNameAsScala: Option[String] = Option(self.displayName) // String
+  final def displayNameAsScala: Option[String] = Option(self.displayName)
 
 }
 

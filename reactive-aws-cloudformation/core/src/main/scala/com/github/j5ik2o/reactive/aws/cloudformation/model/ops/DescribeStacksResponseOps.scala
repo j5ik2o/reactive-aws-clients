@@ -8,14 +8,14 @@ final class DescribeStacksResponseBuilderOps(val self: DescribeStacksResponse.Bu
   final def stacksAsScala(value: Option[Seq[Stack]]): DescribeStacksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stacks(v.asJava)
-    } // Seq[Stack]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeStacksResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeStacksResponseOps(val self: DescribeStacksResponse) extends 
 
   final def stacksAsScala: Option[Seq[Stack]] = Option(self.stacks).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Stack]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

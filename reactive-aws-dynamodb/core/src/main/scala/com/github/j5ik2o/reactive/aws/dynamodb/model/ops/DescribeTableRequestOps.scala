@@ -9,13 +9,13 @@ final class DescribeTableRequestBuilderOps(val self: DescribeTableRequest.Builde
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeTableRequestOps(val self: DescribeTableRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
 }
 

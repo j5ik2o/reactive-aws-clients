@@ -9,21 +9,21 @@ final class PlatformFrameworkBuilderOps(val self: PlatformFramework.Builder) ext
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def versionAsScala(value: Option[String]): PlatformFramework.Builder = {
     value.fold(self) { v =>
       self.version(v)
     }
-  } // String
+  }
 
 }
 
 final class PlatformFrameworkOps(val self: PlatformFramework) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def versionAsScala: Option[String] = Option(self.version) // String
+  final def versionAsScala: Option[String] = Option(self.version)
 
 }
 

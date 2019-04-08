@@ -10,23 +10,23 @@ final class DescribeParameterGroupsResponseBuilderOps(val self: DescribeParamete
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def parameterGroupsAsScala(value: Option[Seq[ParameterGroup]]): DescribeParameterGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameterGroups(v.asJava)
-    } // Seq[ParameterGroup]
+    }
   }
 
 }
 
 final class DescribeParameterGroupsResponseOps(val self: DescribeParameterGroupsResponse) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   final def parameterGroupsAsScala: Option[Seq[ParameterGroup]] = Option(self.parameterGroups).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ParameterGroup]
+  }
 
 }
 

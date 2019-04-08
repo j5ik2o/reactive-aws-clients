@@ -8,7 +8,7 @@ final class ParameterConstraintsBuilderOps(val self: ParameterConstraints.Builde
   final def allowedValuesAsScala(value: Option[Seq[String]]): ParameterConstraints.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedValues(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ParameterConstraintsOps(val self: ParameterConstraints) extends AnyV
 
   final def allowedValuesAsScala: Option[Seq[String]] = Option(self.allowedValues).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

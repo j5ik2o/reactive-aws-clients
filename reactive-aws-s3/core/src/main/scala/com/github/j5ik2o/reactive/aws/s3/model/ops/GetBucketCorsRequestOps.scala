@@ -9,13 +9,13 @@ final class GetBucketCorsRequestBuilderOps(val self: GetBucketCorsRequest.Builde
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketCorsRequestOps(val self: GetBucketCorsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

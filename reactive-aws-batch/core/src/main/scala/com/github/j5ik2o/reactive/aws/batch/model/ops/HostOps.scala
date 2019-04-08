@@ -9,13 +9,13 @@ final class HostBuilderOps(val self: Host.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.sourcePath(v)
     }
-  } // String
+  }
 
 }
 
 final class HostOps(val self: Host) extends AnyVal {
 
-  final def sourcePathAsScala: Option[String] = Option(self.sourcePath) // String
+  final def sourcePathAsScala: Option[String] = Option(self.sourcePath)
 
 }
 

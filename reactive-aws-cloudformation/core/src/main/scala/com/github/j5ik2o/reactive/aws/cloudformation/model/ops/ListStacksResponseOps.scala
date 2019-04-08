@@ -8,14 +8,14 @@ final class ListStacksResponseBuilderOps(val self: ListStacksResponse.Builder) e
   final def stackSummariesAsScala(value: Option[Seq[StackSummary]]): ListStacksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackSummaries(v.asJava)
-    } // Seq[StackSummary]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListStacksResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListStacksResponseOps(val self: ListStacksResponse) extends AnyVal {
 
   final def stackSummariesAsScala: Option[Seq[StackSummary]] = Option(self.stackSummaries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[StackSummary]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

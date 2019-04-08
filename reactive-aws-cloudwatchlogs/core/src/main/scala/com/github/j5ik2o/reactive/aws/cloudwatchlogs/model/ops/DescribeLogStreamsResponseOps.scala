@@ -8,14 +8,14 @@ final class DescribeLogStreamsResponseBuilderOps(val self: DescribeLogStreamsRes
   final def logStreamsAsScala(value: Option[Seq[LogStream]]): DescribeLogStreamsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logStreams(v.asJava)
-    } // Seq[LogStream]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeLogStreamsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeLogStreamsResponseOps(val self: DescribeLogStreamsResponse) 
 
   final def logStreamsAsScala: Option[Seq[LogStream]] = Option(self.logStreams).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[LogStream]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -8,7 +8,7 @@ final class PutRequestBuilderOps(val self: PutRequest.Builder) extends AnyVal {
   final def itemAsScala(value: Option[Map[String, AttributeValue]]): PutRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
-    } // Map[String, AttributeValue]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class PutRequestOps(val self: PutRequest) extends AnyVal {
 
   final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, AttributeValue]
+  }
 
 }
 

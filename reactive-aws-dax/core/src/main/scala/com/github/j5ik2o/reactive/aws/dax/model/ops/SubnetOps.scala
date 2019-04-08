@@ -9,21 +9,21 @@ final class SubnetBuilderOps(val self: Subnet.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.subnetIdentifier(v)
     }
-  } // String
+  }
 
   final def subnetAvailabilityZoneAsScala(value: Option[String]): Subnet.Builder = {
     value.fold(self) { v =>
       self.subnetAvailabilityZone(v)
     }
-  } // String
+  }
 
 }
 
 final class SubnetOps(val self: Subnet) extends AnyVal {
 
-  final def subnetIdentifierAsScala: Option[String] = Option(self.subnetIdentifier) // String
+  final def subnetIdentifierAsScala: Option[String] = Option(self.subnetIdentifier)
 
-  final def subnetAvailabilityZoneAsScala: Option[String] = Option(self.subnetAvailabilityZone) // String
+  final def subnetAvailabilityZoneAsScala: Option[String] = Option(self.subnetAvailabilityZone)
 
 }
 

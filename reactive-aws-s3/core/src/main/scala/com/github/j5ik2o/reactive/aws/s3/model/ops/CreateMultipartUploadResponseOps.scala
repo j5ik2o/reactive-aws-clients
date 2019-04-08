@@ -9,86 +9,85 @@ final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUpl
     value.fold(self) { v =>
       self.abortDate(v)
     }
-  } // java.time.Instant
+  }
 
   final def abortRuleIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.abortRuleId(v)
     }
-  } // String
+  }
 
   final def bucketAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def uploadIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
-  } // String
+  }
 
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // ServerSideEncryption
+  }
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyMD5AsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
-  } // String
+  }
 
   final def ssekmsKeyIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
-  } // String
+  }
 
   final def requestChargedAsScala(value: Option[RequestCharged]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // RequestCharged
+  }
 
 }
 
 final class CreateMultipartUploadResponseOps(val self: CreateMultipartUploadResponse) extends AnyVal {
 
-  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate) // java.time.Instant
+  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate)
 
-  final def abortRuleIdAsScala: Option[String] = Option(self.abortRuleId) // String
+  final def abortRuleIdAsScala: Option[String] = Option(self.abortRuleId)
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId)
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
-    Option(self.serverSideEncryption) // ServerSideEncryption
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption)
 
-  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm)
 
-  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5)
 
-  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

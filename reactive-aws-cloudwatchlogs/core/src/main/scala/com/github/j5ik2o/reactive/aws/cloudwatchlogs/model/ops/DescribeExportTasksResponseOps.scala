@@ -8,14 +8,14 @@ final class DescribeExportTasksResponseBuilderOps(val self: DescribeExportTasksR
   final def exportTasksAsScala(value: Option[Seq[ExportTask]]): DescribeExportTasksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.exportTasks(v.asJava)
-    } // Seq[ExportTask]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeExportTasksResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeExportTasksResponseOps(val self: DescribeExportTasksResponse
 
   final def exportTasksAsScala: Option[Seq[ExportTask]] = Option(self.exportTasks).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ExportTask]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

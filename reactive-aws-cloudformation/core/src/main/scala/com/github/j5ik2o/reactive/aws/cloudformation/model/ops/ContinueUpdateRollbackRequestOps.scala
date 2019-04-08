@@ -9,39 +9,39 @@ final class ContinueUpdateRollbackRequestBuilderOps(val self: ContinueUpdateRoll
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def roleARNAsScala(value: Option[String]): ContinueUpdateRollbackRequest.Builder = {
     value.fold(self) { v =>
       self.roleARN(v)
     }
-  } // String
+  }
 
   final def resourcesToSkipAsScala(value: Option[Seq[String]]): ContinueUpdateRollbackRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.resourcesToSkip(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def clientRequestTokenAsScala(value: Option[String]): ContinueUpdateRollbackRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ContinueUpdateRollbackRequestOps(val self: ContinueUpdateRollbackRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def roleARNAsScala: Option[String] = Option(self.roleARN) // String
+  final def roleARNAsScala: Option[String] = Option(self.roleARN)
 
   final def resourcesToSkipAsScala: Option[Seq[String]] = Option(self.resourcesToSkip).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken) // String
+  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)
 
 }
 

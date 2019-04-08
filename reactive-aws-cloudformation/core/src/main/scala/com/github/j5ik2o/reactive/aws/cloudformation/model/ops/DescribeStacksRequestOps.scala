@@ -9,21 +9,21 @@ final class DescribeStacksRequestBuilderOps(val self: DescribeStacksRequest.Buil
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeStacksRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStacksRequestOps(val self: DescribeStacksRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

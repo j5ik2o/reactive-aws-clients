@@ -10,25 +10,25 @@ final class CreateConfigurationTemplateRequestBuilderOps(val self: CreateConfigu
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def templateNameAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
     }
-  } // String
+  }
 
   final def solutionStackNameAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.solutionStackName(v)
     }
-  } // String
+  }
 
   final def platformArnAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.platformArn(v)
     }
-  } // String
+  }
 
   final def sourceConfigurationAsScala(
       value: Option[SourceConfiguration]
@@ -36,50 +36,49 @@ final class CreateConfigurationTemplateRequestBuilderOps(val self: CreateConfigu
     value.fold(self) { v =>
       self.sourceConfiguration(v)
     }
-  } // SourceConfiguration
+  }
 
   final def environmentIdAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def optionSettingsAsScala(
       value: Option[Seq[ConfigurationOptionSetting]]
   ): CreateConfigurationTemplateRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.optionSettings(v.asJava)
-    } // Seq[ConfigurationOptionSetting]
+    }
   }
 
 }
 
 final class CreateConfigurationTemplateRequestOps(val self: CreateConfigurationTemplateRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def templateNameAsScala: Option[String] = Option(self.templateName) // String
+  final def templateNameAsScala: Option[String] = Option(self.templateName)
 
-  final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName) // String
+  final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName)
 
-  final def platformArnAsScala: Option[String] = Option(self.platformArn) // String
+  final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
-  final def sourceConfigurationAsScala: Option[SourceConfiguration] =
-    Option(self.sourceConfiguration) // SourceConfiguration
+  final def sourceConfigurationAsScala: Option[SourceConfiguration] = Option(self.sourceConfiguration)
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
   final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ConfigurationOptionSetting]
+  }
 
 }
 

@@ -9,13 +9,13 @@ final class ErrorDocumentBuilderOps(val self: ErrorDocument.Builder) extends Any
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
 }
 
 final class ErrorDocumentOps(val self: ErrorDocument) extends AnyVal {
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
 }
 

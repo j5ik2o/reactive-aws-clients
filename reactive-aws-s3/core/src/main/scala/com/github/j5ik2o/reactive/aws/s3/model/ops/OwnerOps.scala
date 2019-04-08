@@ -9,21 +9,21 @@ final class OwnerBuilderOps(val self: Owner.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.displayName(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): Owner.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class OwnerOps(val self: Owner) extends AnyVal {
 
-  final def displayNameAsScala: Option[String] = Option(self.displayName) // String
+  final def displayNameAsScala: Option[String] = Option(self.displayName)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

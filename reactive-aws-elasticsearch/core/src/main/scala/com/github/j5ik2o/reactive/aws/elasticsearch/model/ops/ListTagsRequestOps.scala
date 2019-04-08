@@ -9,13 +9,13 @@ final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
 }
 
 final class ListTagsRequestOps(val self: ListTagsRequest) extends AnyVal {
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
 }
 

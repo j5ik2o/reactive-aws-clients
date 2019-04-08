@@ -9,29 +9,29 @@ final class DeleteObjectResponseBuilderOps(val self: DeleteObjectResponse.Builde
     value.fold(self) { v =>
       self.deleteMarker(v)
     }
-  } // Boolean
+  }
 
   final def versionIdAsScala(value: Option[String]): DeleteObjectResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def requestChargedAsScala(value: Option[RequestCharged]): DeleteObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // RequestCharged
+  }
 
 }
 
 final class DeleteObjectResponseOps(val self: DeleteObjectResponse) extends AnyVal {
 
-  final def deleteMarkerAsScala: Option[Boolean] = Option(self.deleteMarker) // Boolean
+  final def deleteMarkerAsScala: Option[Boolean] = Option(self.deleteMarker)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

@@ -8,32 +8,32 @@ final class StackSetOperationPreferencesBuilderOps(val self: StackSetOperationPr
   final def regionOrderAsScala(value: Option[Seq[String]]): StackSetOperationPreferences.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.regionOrder(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def failureToleranceCountAsScala(value: Option[Int]): StackSetOperationPreferences.Builder = {
     value.fold(self) { v =>
       self.failureToleranceCount(v)
     }
-  } // Int
+  }
 
   final def failureTolerancePercentageAsScala(value: Option[Int]): StackSetOperationPreferences.Builder = {
     value.fold(self) { v =>
       self.failureTolerancePercentage(v)
     }
-  } // Int
+  }
 
   final def maxConcurrentCountAsScala(value: Option[Int]): StackSetOperationPreferences.Builder = {
     value.fold(self) { v =>
       self.maxConcurrentCount(v)
     }
-  } // Int
+  }
 
   final def maxConcurrentPercentageAsScala(value: Option[Int]): StackSetOperationPreferences.Builder = {
     value.fold(self) { v =>
       self.maxConcurrentPercentage(v)
     }
-  } // Int
+  }
 
 }
 
@@ -41,15 +41,15 @@ final class StackSetOperationPreferencesOps(val self: StackSetOperationPreferenc
 
   final def regionOrderAsScala: Option[Seq[String]] = Option(self.regionOrder).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def failureToleranceCountAsScala: Option[Int] = Option(self.failureToleranceCount) // Int
+  final def failureToleranceCountAsScala: Option[Int] = Option(self.failureToleranceCount)
 
-  final def failureTolerancePercentageAsScala: Option[Int] = Option(self.failureTolerancePercentage) // Int
+  final def failureTolerancePercentageAsScala: Option[Int] = Option(self.failureTolerancePercentage)
 
-  final def maxConcurrentCountAsScala: Option[Int] = Option(self.maxConcurrentCount) // Int
+  final def maxConcurrentCountAsScala: Option[Int] = Option(self.maxConcurrentCount)
 
-  final def maxConcurrentPercentageAsScala: Option[Int] = Option(self.maxConcurrentPercentage) // Int
+  final def maxConcurrentPercentageAsScala: Option[Int] = Option(self.maxConcurrentPercentage)
 
 }
 

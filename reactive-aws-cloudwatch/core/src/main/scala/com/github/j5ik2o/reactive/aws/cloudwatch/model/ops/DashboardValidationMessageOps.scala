@@ -9,21 +9,21 @@ final class DashboardValidationMessageBuilderOps(val self: DashboardValidationMe
     value.fold(self) { v =>
       self.dataPath(v)
     }
-  } // String
+  }
 
   final def messageAsScala(value: Option[String]): DashboardValidationMessage.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class DashboardValidationMessageOps(val self: DashboardValidationMessage) extends AnyVal {
 
-  final def dataPathAsScala: Option[String] = Option(self.dataPath) // String
+  final def dataPathAsScala: Option[String] = Option(self.dataPath)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

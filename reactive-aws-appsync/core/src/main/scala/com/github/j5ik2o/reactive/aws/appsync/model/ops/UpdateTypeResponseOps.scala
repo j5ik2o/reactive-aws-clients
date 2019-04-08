@@ -9,13 +9,13 @@ final class UpdateTypeResponseBuilderOps(val self: UpdateTypeResponse.Builder) e
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // Type
+  }
 
 }
 
 final class UpdateTypeResponseOps(val self: UpdateTypeResponse) extends AnyVal {
 
-  final def typeAsScala: Option[Type] = Option(self.`type`) // Type
+  final def typeAsScala: Option[Type] = Option(self.`type`)
 
 }
 

@@ -8,14 +8,14 @@ final class ListBucketsResponseBuilderOps(val self: ListBucketsResponse.Builder)
   final def bucketsAsScala(value: Option[Seq[Bucket]]): ListBucketsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.buckets(v.asJava)
-    } // Seq[Bucket]
+    }
   }
 
   final def ownerAsScala(value: Option[Owner]): ListBucketsResponse.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
-  } // Owner
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListBucketsResponseOps(val self: ListBucketsResponse) extends AnyVal
 
   final def bucketsAsScala: Option[Seq[Bucket]] = Option(self.buckets).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Bucket]
+  }
 
-  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+  final def ownerAsScala: Option[Owner] = Option(self.owner)
 
 }
 

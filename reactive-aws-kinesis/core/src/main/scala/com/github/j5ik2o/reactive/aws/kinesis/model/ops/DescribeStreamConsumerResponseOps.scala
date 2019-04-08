@@ -9,14 +9,13 @@ final class DescribeStreamConsumerResponseBuilderOps(val self: DescribeStreamCon
     value.fold(self) { v =>
       self.consumerDescription(v)
     }
-  } // ConsumerDescription
+  }
 
 }
 
 final class DescribeStreamConsumerResponseOps(val self: DescribeStreamConsumerResponse) extends AnyVal {
 
-  final def consumerDescriptionAsScala: Option[ConsumerDescription] =
-    Option(self.consumerDescription) // ConsumerDescription
+  final def consumerDescriptionAsScala: Option[ConsumerDescription] = Option(self.consumerDescription)
 
 }
 

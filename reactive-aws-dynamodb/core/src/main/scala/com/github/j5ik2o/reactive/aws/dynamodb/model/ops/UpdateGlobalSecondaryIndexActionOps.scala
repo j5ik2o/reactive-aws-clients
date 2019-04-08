@@ -10,7 +10,7 @@ final class UpdateGlobalSecondaryIndexActionBuilderOps(val self: UpdateGlobalSec
     value.fold(self) { v =>
       self.indexName(v)
     }
-  } // String
+  }
 
   final def provisionedThroughputAsScala(
       value: Option[ProvisionedThroughput]
@@ -18,16 +18,15 @@ final class UpdateGlobalSecondaryIndexActionBuilderOps(val self: UpdateGlobalSec
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }
-  } // ProvisionedThroughput
+  }
 
 }
 
 final class UpdateGlobalSecondaryIndexActionOps(val self: UpdateGlobalSecondaryIndexAction) extends AnyVal {
 
-  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
 
-  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
-    Option(self.provisionedThroughput) // ProvisionedThroughput
+  final def provisionedThroughputAsScala: Option[ProvisionedThroughput] = Option(self.provisionedThroughput)
 
 }
 

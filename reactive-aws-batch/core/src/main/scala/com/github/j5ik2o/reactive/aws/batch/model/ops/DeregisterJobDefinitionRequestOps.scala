@@ -9,13 +9,13 @@ final class DeregisterJobDefinitionRequestBuilderOps(val self: DeregisterJobDefi
     value.fold(self) { v =>
       self.jobDefinition(v)
     }
-  } // String
+  }
 
 }
 
 final class DeregisterJobDefinitionRequestOps(val self: DeregisterJobDefinitionRequest) extends AnyVal {
 
-  final def jobDefinitionAsScala: Option[String] = Option(self.jobDefinition) // String
+  final def jobDefinitionAsScala: Option[String] = Option(self.jobDefinition)
 
 }
 

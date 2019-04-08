@@ -9,45 +9,45 @@ final class SendMessageBatchResultEntryBuilderOps(val self: SendMessageBatchResu
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def messageIdAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.messageId(v)
     }
-  } // String
+  }
 
   final def md5OfMessageBodyAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageBody(v)
     }
-  } // String
+  }
 
   final def md5OfMessageAttributesAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageAttributes(v)
     }
-  } // String
+  }
 
   final def sequenceNumberAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
-  } // String
+  }
 
 }
 
 final class SendMessageBatchResultEntryOps(val self: SendMessageBatchResultEntry) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def messageIdAsScala: Option[String] = Option(self.messageId) // String
+  final def messageIdAsScala: Option[String] = Option(self.messageId)
 
-  final def md5OfMessageBodyAsScala: Option[String] = Option(self.md5OfMessageBody) // String
+  final def md5OfMessageBodyAsScala: Option[String] = Option(self.md5OfMessageBody)
 
-  final def md5OfMessageAttributesAsScala: Option[String] = Option(self.md5OfMessageAttributes) // String
+  final def md5OfMessageAttributesAsScala: Option[String] = Option(self.md5OfMessageAttributes)
 
-  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber)
 
 }
 

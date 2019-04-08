@@ -5,18 +5,12 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 trait ToAllOps
     extends ToOptionSupport
     with ToAddTagsToStreamRequestOps
-    with ToAddTagsToStreamResponseOps
     with ToConsumerDescriptionOps
     with ToConsumerOps
     with ToCreateStreamRequestOps
-    with ToCreateStreamResponseOps
     with ToDecreaseStreamRetentionPeriodRequestOps
-    with ToDecreaseStreamRetentionPeriodResponseOps
     with ToDeleteStreamRequestOps
-    with ToDeleteStreamResponseOps
     with ToDeregisterStreamConsumerRequestOps
-    with ToDeregisterStreamConsumerResponseOps
-    with ToDescribeLimitsRequestOps
     with ToDescribeLimitsResponseOps
     with ToDescribeStreamConsumerRequestOps
     with ToDescribeStreamConsumerResponseOps
@@ -35,7 +29,6 @@ trait ToAllOps
     with ToGetShardIteratorResponseOps
     with ToHashKeyRangeOps
     with ToIncreaseStreamRetentionPeriodRequestOps
-    with ToIncreaseStreamRetentionPeriodResponseOps
     with ToListShardsRequestOps
     with ToListShardsResponseOps
     with ToListStreamConsumersRequestOps
@@ -45,7 +38,6 @@ trait ToAllOps
     with ToListTagsForStreamRequestOps
     with ToListTagsForStreamResponseOps
     with ToMergeShardsRequestOps
-    with ToMergeShardsResponseOps
     with ToPutRecordRequestOps
     with ToPutRecordResponseOps
     with ToPutRecordsRequestEntryOps
@@ -56,21 +48,16 @@ trait ToAllOps
     with ToRegisterStreamConsumerRequestOps
     with ToRegisterStreamConsumerResponseOps
     with ToRemoveTagsFromStreamRequestOps
-    with ToRemoveTagsFromStreamResponseOps
     with ToSequenceNumberRangeOps
     with ToShardOps
     with ToSplitShardRequestOps
-    with ToSplitShardResponseOps
     with ToStartStreamEncryptionRequestOps
-    with ToStartStreamEncryptionResponseOps
     with ToStartingPositionOps
     with ToStopStreamEncryptionRequestOps
-    with ToStopStreamEncryptionResponseOps
     with ToStreamDescriptionOps
     with ToStreamDescriptionSummaryOps
     with ToSubscribeToShardEventOps
     with ToSubscribeToShardRequestOps
-    with ToSubscribeToShardResponseOps
     with ToTagOps
     with ToUpdateShardCountRequestOps
     with ToUpdateShardCountResponseOps

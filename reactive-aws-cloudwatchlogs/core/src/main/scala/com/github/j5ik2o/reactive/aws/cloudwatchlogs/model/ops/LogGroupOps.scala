@@ -9,61 +9,61 @@ final class LogGroupBuilderOps(val self: LogGroup.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def creationTimeAsScala(value: Option[Long]): LogGroup.Builder = {
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Long
+  }
 
   final def retentionInDaysAsScala(value: Option[Int]): LogGroup.Builder = {
     value.fold(self) { v =>
       self.retentionInDays(v)
     }
-  } // Int
+  }
 
   final def metricFilterCountAsScala(value: Option[Int]): LogGroup.Builder = {
     value.fold(self) { v =>
       self.metricFilterCount(v)
     }
-  } // Int
+  }
 
   final def arnAsScala(value: Option[String]): LogGroup.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def storedBytesAsScala(value: Option[Long]): LogGroup.Builder = {
     value.fold(self) { v =>
       self.storedBytes(v)
     }
-  } // Long
+  }
 
   final def kmsKeyIdAsScala(value: Option[String]): LogGroup.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
-  } // String
+  }
 
 }
 
 final class LogGroupOps(val self: LogGroup) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def creationTimeAsScala: Option[Long] = Option(self.creationTime) // Long
+  final def creationTimeAsScala: Option[Long] = Option(self.creationTime)
 
-  final def retentionInDaysAsScala: Option[Int] = Option(self.retentionInDays) // Int
+  final def retentionInDaysAsScala: Option[Int] = Option(self.retentionInDays)
 
-  final def metricFilterCountAsScala: Option[Int] = Option(self.metricFilterCount) // Int
+  final def metricFilterCountAsScala: Option[Int] = Option(self.metricFilterCount)
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
-  final def storedBytesAsScala: Option[Long] = Option(self.storedBytes) // Long
+  final def storedBytesAsScala: Option[Long] = Option(self.storedBytes)
 
-  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId) // String
+  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
 }
 

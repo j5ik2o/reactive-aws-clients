@@ -10,47 +10,45 @@ final class ProvisionedThroughputDescriptionBuilderOps(val self: ProvisionedThro
     value.fold(self) { v =>
       self.lastIncreaseDateTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def lastDecreaseDateTimeAsScala(value: Option[java.time.Instant]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.lastDecreaseDateTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def numberOfDecreasesTodayAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.numberOfDecreasesToday(v)
     }
-  } // Long
+  }
 
   final def readCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.readCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def writeCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.writeCapacityUnits(v)
     }
-  } // Long
+  }
 
 }
 
 final class ProvisionedThroughputDescriptionOps(val self: ProvisionedThroughputDescription) extends AnyVal {
 
-  final def lastIncreaseDateTimeAsScala: Option[java.time.Instant] =
-    Option(self.lastIncreaseDateTime) // java.time.Instant
+  final def lastIncreaseDateTimeAsScala: Option[java.time.Instant] = Option(self.lastIncreaseDateTime)
 
-  final def lastDecreaseDateTimeAsScala: Option[java.time.Instant] =
-    Option(self.lastDecreaseDateTime) // java.time.Instant
+  final def lastDecreaseDateTimeAsScala: Option[java.time.Instant] = Option(self.lastDecreaseDateTime)
 
-  final def numberOfDecreasesTodayAsScala: Option[Long] = Option(self.numberOfDecreasesToday) // Long
+  final def numberOfDecreasesTodayAsScala: Option[Long] = Option(self.numberOfDecreasesToday)
 
-  final def readCapacityUnitsAsScala: Option[Long] = Option(self.readCapacityUnits) // Long
+  final def readCapacityUnitsAsScala: Option[Long] = Option(self.readCapacityUnits)
 
-  final def writeCapacityUnitsAsScala: Option[Long] = Option(self.writeCapacityUnits) // Long
+  final def writeCapacityUnitsAsScala: Option[Long] = Option(self.writeCapacityUnits)
 
 }
 

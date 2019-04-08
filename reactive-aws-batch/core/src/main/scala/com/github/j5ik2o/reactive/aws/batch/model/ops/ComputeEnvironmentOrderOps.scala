@@ -9,21 +9,21 @@ final class ComputeEnvironmentOrderBuilderOps(val self: ComputeEnvironmentOrder.
     value.fold(self) { v =>
       self.order(v)
     }
-  } // Int
+  }
 
   final def computeEnvironmentAsScala(value: Option[String]): ComputeEnvironmentOrder.Builder = {
     value.fold(self) { v =>
       self.computeEnvironment(v)
     }
-  } // String
+  }
 
 }
 
 final class ComputeEnvironmentOrderOps(val self: ComputeEnvironmentOrder) extends AnyVal {
 
-  final def orderAsScala: Option[Int] = Option(self.order) // Int
+  final def orderAsScala: Option[Int] = Option(self.order)
 
-  final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment) // String
+  final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment)
 
 }
 

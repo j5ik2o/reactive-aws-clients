@@ -9,21 +9,21 @@ final class GetMetricWidgetImageRequestBuilderOps(val self: GetMetricWidgetImage
     value.fold(self) { v =>
       self.metricWidget(v)
     }
-  } // String
+  }
 
   final def outputFormatAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
     value.fold(self) { v =>
       self.outputFormat(v)
     }
-  } // String
+  }
 
 }
 
 final class GetMetricWidgetImageRequestOps(val self: GetMetricWidgetImageRequest) extends AnyVal {
 
-  final def metricWidgetAsScala: Option[String] = Option(self.metricWidget) // String
+  final def metricWidgetAsScala: Option[String] = Option(self.metricWidget)
 
-  final def outputFormatAsScala: Option[String] = Option(self.outputFormat) // String
+  final def outputFormatAsScala: Option[String] = Option(self.outputFormat)
 
 }
 

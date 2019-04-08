@@ -9,46 +9,45 @@ final class PutRecordRequestBuilderOps(val self: PutRecordRequest.Builder) exten
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def dataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.data(v)
     }
-  } // software.amazon.awssdk.core.SdkBytes
+  }
 
   final def partitionKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.partitionKey(v)
     }
-  } // String
+  }
 
   final def explicitHashKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.explicitHashKey(v)
     }
-  } // String
+  }
 
   final def sequenceNumberForOrderingAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.sequenceNumberForOrdering(v)
     }
-  } // String
+  }
 
 }
 
 final class PutRecordRequestOps(val self: PutRecordRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
-    Option(self.data) // software.amazon.awssdk.core.SdkBytes
+  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.data)
 
-  final def partitionKeyAsScala: Option[String] = Option(self.partitionKey) // String
+  final def partitionKeyAsScala: Option[String] = Option(self.partitionKey)
 
-  final def explicitHashKeyAsScala: Option[String] = Option(self.explicitHashKey) // String
+  final def explicitHashKeyAsScala: Option[String] = Option(self.explicitHashKey)
 
-  final def sequenceNumberForOrderingAsScala: Option[String] = Option(self.sequenceNumberForOrdering) // String
+  final def sequenceNumberForOrderingAsScala: Option[String] = Option(self.sequenceNumberForOrdering)
 
 }
 

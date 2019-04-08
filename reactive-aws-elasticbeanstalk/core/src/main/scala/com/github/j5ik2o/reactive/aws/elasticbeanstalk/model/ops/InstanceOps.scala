@@ -9,13 +9,13 @@ final class InstanceBuilderOps(val self: Instance.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class InstanceOps(val self: Instance) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

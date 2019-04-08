@@ -9,13 +9,13 @@ final class JSONOutputBuilderOps(val self: JSONOutput.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.recordDelimiter(v)
     }
-  } // String
+  }
 
 }
 
 final class JSONOutputOps(val self: JSONOutput) extends AnyVal {
 
-  final def recordDelimiterAsScala: Option[String] = Option(self.recordDelimiter) // String
+  final def recordDelimiterAsScala: Option[String] = Option(self.recordDelimiter)
 
 }
 

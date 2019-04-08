@@ -9,13 +9,13 @@ final class TransactGetItemBuilderOps(val self: TransactGetItem.Builder) extends
     value.fold(self) { v =>
       self.get(v)
     }
-  } // Get
+  }
 
 }
 
 final class TransactGetItemOps(val self: TransactGetItem) extends AnyVal {
 
-  final def getAsScala: Option[Get] = Option(self.get) // Get
+  final def getAsScala: Option[Get] = Option(self.get)
 
 }
 

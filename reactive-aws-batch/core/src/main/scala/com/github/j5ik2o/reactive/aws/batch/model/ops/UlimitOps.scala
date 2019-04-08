@@ -9,29 +9,29 @@ final class UlimitBuilderOps(val self: Ulimit.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.hardLimit(v)
     }
-  } // Int
+  }
 
   final def nameAsScala(value: Option[String]): Ulimit.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def softLimitAsScala(value: Option[Int]): Ulimit.Builder = {
     value.fold(self) { v =>
       self.softLimit(v)
     }
-  } // Int
+  }
 
 }
 
 final class UlimitOps(val self: Ulimit) extends AnyVal {
 
-  final def hardLimitAsScala: Option[Int] = Option(self.hardLimit) // Int
+  final def hardLimitAsScala: Option[Int] = Option(self.hardLimit)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def softLimitAsScala: Option[Int] = Option(self.softLimit) // Int
+  final def softLimitAsScala: Option[Int] = Option(self.softLimit)
 
 }
 

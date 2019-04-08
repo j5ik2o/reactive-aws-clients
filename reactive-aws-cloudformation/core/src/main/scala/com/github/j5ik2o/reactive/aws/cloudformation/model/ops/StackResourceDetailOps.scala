@@ -9,95 +9,93 @@ final class StackResourceDetailBuilderOps(val self: StackResourceDetail.Builder)
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def stackIdAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.stackId(v)
     }
-  } // String
+  }
 
   final def logicalResourceIdAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.logicalResourceId(v)
     }
-  } // String
+  }
 
   final def physicalResourceIdAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.physicalResourceId(v)
     }
-  } // String
+  }
 
   final def resourceTypeAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.resourceType(v)
     }
-  } // String
+  }
 
   final def lastUpdatedTimestampAsScala(value: Option[java.time.Instant]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.lastUpdatedTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
   final def resourceStatusAsScala(value: Option[ResourceStatus]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.resourceStatus(v)
     }
-  } // ResourceStatus
+  }
 
   final def resourceStatusReasonAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.resourceStatusReason(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def metadataAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.metadata(v)
     }
-  } // String
+  }
 
   final def driftInformationAsScala(value: Option[StackResourceDriftInformation]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.driftInformation(v)
     }
-  } // StackResourceDriftInformation
+  }
 
 }
 
 final class StackResourceDetailOps(val self: StackResourceDetail) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def stackIdAsScala: Option[String] = Option(self.stackId) // String
+  final def stackIdAsScala: Option[String] = Option(self.stackId)
 
-  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId) // String
+  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId)
 
-  final def physicalResourceIdAsScala: Option[String] = Option(self.physicalResourceId) // String
+  final def physicalResourceIdAsScala: Option[String] = Option(self.physicalResourceId)
 
-  final def resourceTypeAsScala: Option[String] = Option(self.resourceType) // String
+  final def resourceTypeAsScala: Option[String] = Option(self.resourceType)
 
-  final def lastUpdatedTimestampAsScala: Option[java.time.Instant] =
-    Option(self.lastUpdatedTimestamp) // java.time.Instant
+  final def lastUpdatedTimestampAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTimestamp)
 
-  final def resourceStatusAsScala: Option[ResourceStatus] = Option(self.resourceStatus) // ResourceStatus
+  final def resourceStatusAsScala: Option[ResourceStatus] = Option(self.resourceStatus)
 
-  final def resourceStatusReasonAsScala: Option[String] = Option(self.resourceStatusReason) // String
+  final def resourceStatusReasonAsScala: Option[String] = Option(self.resourceStatusReason)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def metadataAsScala: Option[String] = Option(self.metadata) // String
+  final def metadataAsScala: Option[String] = Option(self.metadata)
 
-  final def driftInformationAsScala: Option[StackResourceDriftInformation] =
-    Option(self.driftInformation) // StackResourceDriftInformation
+  final def driftInformationAsScala: Option[StackResourceDriftInformation] = Option(self.driftInformation)
 
 }
 

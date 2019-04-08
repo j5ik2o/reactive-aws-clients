@@ -8,7 +8,7 @@ final class GetLogRecordResponseBuilderOps(val self: GetLogRecordResponse.Builde
   final def logRecordAsScala(value: Option[Map[String, String]]): GetLogRecordResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logRecord(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class GetLogRecordResponseOps(val self: GetLogRecordResponse) extends AnyV
 
   final def logRecordAsScala: Option[Map[String, String]] = Option(self.logRecord).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

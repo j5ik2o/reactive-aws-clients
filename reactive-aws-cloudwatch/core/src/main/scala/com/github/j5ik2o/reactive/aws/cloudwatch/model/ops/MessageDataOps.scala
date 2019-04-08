@@ -9,21 +9,21 @@ final class MessageDataBuilderOps(val self: MessageData.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.code(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): MessageData.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class MessageDataOps(val self: MessageData) extends AnyVal {
 
-  final def codeAsScala: Option[String] = Option(self.code) // String
+  final def codeAsScala: Option[String] = Option(self.code)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

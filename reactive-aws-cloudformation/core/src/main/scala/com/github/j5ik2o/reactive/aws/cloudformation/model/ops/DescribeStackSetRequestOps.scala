@@ -9,13 +9,13 @@ final class DescribeStackSetRequestBuilderOps(val self: DescribeStackSetRequest.
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStackSetRequestOps(val self: DescribeStackSetRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
 }
 

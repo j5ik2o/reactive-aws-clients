@@ -10,19 +10,19 @@ final class BatchGetItemResponseBuilderOps(val self: BatchGetItemResponse.Builde
   ): BatchGetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.responses(v.mapValues(_.map(_.asJava).asJava).asJava)
-    } // Map[String, Seq[Map[String, AttributeValue]]]
+    }
   }
 
   final def unprocessedKeysAsScala(value: Option[Map[String, KeysAndAttributes]]): BatchGetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.unprocessedKeys(v.asJava)
-    } // Map[String, KeysAndAttributes]
+    }
   }
 
   final def consumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): BatchGetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
-    } // Seq[ConsumedCapacity]
+    }
   }
 
 }
@@ -31,15 +31,15 @@ final class BatchGetItemResponseOps(val self: BatchGetItemResponse) extends AnyV
 
   final def responsesAsScala: Option[Map[String, Seq[Map[String, AttributeValue]]]] = Option(self.responses).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap))
-  } // Map[String, Seq[Map[String, AttributeValue]]]
+  }
 
   final def unprocessedKeysAsScala: Option[Map[String, KeysAndAttributes]] = Option(self.unprocessedKeys).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, KeysAndAttributes]
+  }
 
   final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ConsumedCapacity]
+  }
 
 }
 

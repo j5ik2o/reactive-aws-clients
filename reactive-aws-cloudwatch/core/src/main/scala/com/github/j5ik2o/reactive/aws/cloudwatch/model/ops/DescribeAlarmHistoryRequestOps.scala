@@ -9,53 +9,53 @@ final class DescribeAlarmHistoryRequestBuilderOps(val self: DescribeAlarmHistory
     value.fold(self) { v =>
       self.alarmName(v)
     }
-  } // String
+  }
 
   final def historyItemTypeAsScala(value: Option[HistoryItemType]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.historyItemType(v)
     }
-  } // HistoryItemType
+  }
 
   final def startDateAsScala(value: Option[java.time.Instant]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.startDate(v)
     }
-  } // java.time.Instant
+  }
 
   final def endDateAsScala(value: Option[java.time.Instant]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.endDate(v)
     }
-  } // java.time.Instant
+  }
 
   final def maxRecordsAsScala(value: Option[Int]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.maxRecords(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeAlarmHistoryRequestOps(val self: DescribeAlarmHistoryRequest) extends AnyVal {
 
-  final def alarmNameAsScala: Option[String] = Option(self.alarmName) // String
+  final def alarmNameAsScala: Option[String] = Option(self.alarmName)
 
-  final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType) // HistoryItemType
+  final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType)
 
-  final def startDateAsScala: Option[java.time.Instant] = Option(self.startDate) // java.time.Instant
+  final def startDateAsScala: Option[java.time.Instant] = Option(self.startDate)
 
-  final def endDateAsScala: Option[java.time.Instant] = Option(self.endDate) // java.time.Instant
+  final def endDateAsScala: Option[java.time.Instant] = Option(self.endDate)
 
-  final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords) // Int
+  final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

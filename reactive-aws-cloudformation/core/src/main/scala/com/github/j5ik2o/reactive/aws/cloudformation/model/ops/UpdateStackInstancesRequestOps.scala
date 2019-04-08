@@ -9,24 +9,24 @@ final class UpdateStackInstancesRequestBuilderOps(val self: UpdateStackInstances
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def accountsAsScala(value: Option[Seq[String]]): UpdateStackInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.accounts(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def regionsAsScala(value: Option[Seq[String]]): UpdateStackInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.regions(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def parameterOverridesAsScala(value: Option[Seq[Parameter]]): UpdateStackInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameterOverrides(v.asJava)
-    } // Seq[Parameter]
+    }
   }
 
   final def operationPreferencesAsScala(
@@ -35,36 +35,35 @@ final class UpdateStackInstancesRequestBuilderOps(val self: UpdateStackInstances
     value.fold(self) { v =>
       self.operationPreferences(v)
     }
-  } // StackSetOperationPreferences
+  }
 
   final def operationIdAsScala(value: Option[String]): UpdateStackInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateStackInstancesRequestOps(val self: UpdateStackInstancesRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
   final def accountsAsScala: Option[Seq[String]] = Option(self.accounts).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def regionsAsScala: Option[Seq[String]] = Option(self.regions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def parameterOverridesAsScala: Option[Seq[Parameter]] = Option(self.parameterOverrides).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Parameter]
+  }
 
-  final def operationPreferencesAsScala: Option[StackSetOperationPreferences] =
-    Option(self.operationPreferences) // StackSetOperationPreferences
+  final def operationPreferencesAsScala: Option[StackSetOperationPreferences] = Option(self.operationPreferences)
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }
 

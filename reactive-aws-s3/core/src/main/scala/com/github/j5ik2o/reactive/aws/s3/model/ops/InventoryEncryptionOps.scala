@@ -9,21 +9,21 @@ final class InventoryEncryptionBuilderOps(val self: InventoryEncryption.Builder)
     value.fold(self) { v =>
       self.sses3(v)
     }
-  } // SSES3
+  }
 
   final def ssekmsAsScala(value: Option[SSEKMS]): InventoryEncryption.Builder = {
     value.fold(self) { v =>
       self.ssekms(v)
     }
-  } // SSEKMS
+  }
 
 }
 
 final class InventoryEncryptionOps(val self: InventoryEncryption) extends AnyVal {
 
-  final def sses3AsScala: Option[SSES3] = Option(self.sses3) // SSES3
+  final def sses3AsScala: Option[SSES3] = Option(self.sses3)
 
-  final def ssekmsAsScala: Option[SSEKMS] = Option(self.ssekms) // SSEKMS
+  final def ssekmsAsScala: Option[SSEKMS] = Option(self.ssekms)
 
 }
 

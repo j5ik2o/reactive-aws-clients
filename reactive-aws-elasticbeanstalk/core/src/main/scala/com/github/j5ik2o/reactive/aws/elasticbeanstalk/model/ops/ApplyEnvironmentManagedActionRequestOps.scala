@@ -10,29 +10,29 @@ final class ApplyEnvironmentManagedActionRequestBuilderOps(val self: ApplyEnviro
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
   final def environmentIdAsScala(value: Option[String]): ApplyEnvironmentManagedActionRequest.Builder = {
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def actionIdAsScala(value: Option[String]): ApplyEnvironmentManagedActionRequest.Builder = {
     value.fold(self) { v =>
       self.actionId(v)
     }
-  } // String
+  }
 
 }
 
 final class ApplyEnvironmentManagedActionRequestOps(val self: ApplyEnvironmentManagedActionRequest) extends AnyVal {
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
-  final def actionIdAsScala: Option[String] = Option(self.actionId) // String
+  final def actionIdAsScala: Option[String] = Option(self.actionId)
 
 }
 

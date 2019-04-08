@@ -9,13 +9,13 @@ final class DeleteDestinationRequestBuilderOps(val self: DeleteDestinationReques
     value.fold(self) { v =>
       self.destinationName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteDestinationRequestOps(val self: DeleteDestinationRequest) extends AnyVal {
 
-  final def destinationNameAsScala: Option[String] = Option(self.destinationName) // String
+  final def destinationNameAsScala: Option[String] = Option(self.destinationName)
 
 }
 

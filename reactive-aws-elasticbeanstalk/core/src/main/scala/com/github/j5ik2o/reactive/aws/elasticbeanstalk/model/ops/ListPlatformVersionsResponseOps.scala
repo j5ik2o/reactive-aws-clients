@@ -8,14 +8,14 @@ final class ListPlatformVersionsResponseBuilderOps(val self: ListPlatformVersion
   final def platformSummaryListAsScala(value: Option[Seq[PlatformSummary]]): ListPlatformVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.platformSummaryList(v.asJava)
-    } // Seq[PlatformSummary]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListPlatformVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListPlatformVersionsResponseOps(val self: ListPlatformVersionsRespon
 
   final def platformSummaryListAsScala: Option[Seq[PlatformSummary]] = Option(self.platformSummaryList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[PlatformSummary]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

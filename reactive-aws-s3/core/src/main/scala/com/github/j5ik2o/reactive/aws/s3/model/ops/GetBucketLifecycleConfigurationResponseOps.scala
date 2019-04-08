@@ -9,7 +9,7 @@ final class GetBucketLifecycleConfigurationResponseBuilderOps(val self: GetBucke
   final def rulesAsScala(value: Option[Seq[LifecycleRule]]): GetBucketLifecycleConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
-    } // Seq[LifecycleRule]
+    }
   }
 
 }
@@ -19,7 +19,7 @@ final class GetBucketLifecycleConfigurationResponseOps(val self: GetBucketLifecy
 
   final def rulesAsScala: Option[Seq[LifecycleRule]] = Option(self.rules).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[LifecycleRule]
+  }
 
 }
 

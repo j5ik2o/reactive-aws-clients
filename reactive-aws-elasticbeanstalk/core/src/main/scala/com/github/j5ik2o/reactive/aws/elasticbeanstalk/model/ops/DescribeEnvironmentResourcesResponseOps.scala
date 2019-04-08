@@ -12,14 +12,13 @@ final class DescribeEnvironmentResourcesResponseBuilderOps(val self: DescribeEnv
     value.fold(self) { v =>
       self.environmentResources(v)
     }
-  } // EnvironmentResourceDescription
+  }
 
 }
 
 final class DescribeEnvironmentResourcesResponseOps(val self: DescribeEnvironmentResourcesResponse) extends AnyVal {
 
-  final def environmentResourcesAsScala: Option[EnvironmentResourceDescription] =
-    Option(self.environmentResources) // EnvironmentResourceDescription
+  final def environmentResourcesAsScala: Option[EnvironmentResourceDescription] = Option(self.environmentResources)
 
 }
 

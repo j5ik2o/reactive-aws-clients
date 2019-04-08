@@ -9,23 +9,23 @@ final class DeleteMessageBatchRequestBuilderOps(val self: DeleteMessageBatchRequ
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def entriesAsScala(value: Option[Seq[DeleteMessageBatchRequestEntry]]): DeleteMessageBatchRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.entries(v.asJava)
-    } // Seq[DeleteMessageBatchRequestEntry]
+    }
   }
 
 }
 
 final class DeleteMessageBatchRequestOps(val self: DeleteMessageBatchRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   final def entriesAsScala: Option[Seq[DeleteMessageBatchRequestEntry]] = Option(self.entries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[DeleteMessageBatchRequestEntry]
+  }
 
 }
 

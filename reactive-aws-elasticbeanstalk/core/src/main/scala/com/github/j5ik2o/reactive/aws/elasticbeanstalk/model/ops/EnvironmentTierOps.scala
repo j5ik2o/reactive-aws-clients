@@ -9,29 +9,29 @@ final class EnvironmentTierBuilderOps(val self: EnvironmentTier.Builder) extends
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[String]): EnvironmentTier.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  }
 
   final def versionAsScala(value: Option[String]): EnvironmentTier.Builder = {
     value.fold(self) { v =>
       self.version(v)
     }
-  } // String
+  }
 
 }
 
 final class EnvironmentTierOps(val self: EnvironmentTier) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def typeAsScala: Option[String] = Option(self.`type`) // String
+  final def typeAsScala: Option[String] = Option(self.`type`)
 
-  final def versionAsScala: Option[String] = Option(self.version) // String
+  final def versionAsScala: Option[String] = Option(self.version)
 
 }
 

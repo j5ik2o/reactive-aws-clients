@@ -9,13 +9,13 @@ final class SnapshotOptionsBuilderOps(val self: SnapshotOptions.Builder) extends
     value.fold(self) { v =>
       self.automatedSnapshotStartHour(v)
     }
-  } // Int
+  }
 
 }
 
 final class SnapshotOptionsOps(val self: SnapshotOptions) extends AnyVal {
 
-  final def automatedSnapshotStartHourAsScala: Option[Int] = Option(self.automatedSnapshotStartHour) // Int
+  final def automatedSnapshotStartHourAsScala: Option[Int] = Option(self.automatedSnapshotStartHour)
 
 }
 

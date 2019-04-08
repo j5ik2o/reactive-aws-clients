@@ -9,21 +9,21 @@ final class NodeDetailsBuilderOps(val self: NodeDetails.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.nodeIndex(v)
     }
-  } // Int
+  }
 
   final def isMainNodeAsScala(value: Option[Boolean]): NodeDetails.Builder = {
     value.fold(self) { v =>
       self.isMainNode(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class NodeDetailsOps(val self: NodeDetails) extends AnyVal {
 
-  final def nodeIndexAsScala: Option[Int] = Option(self.nodeIndex) // Int
+  final def nodeIndexAsScala: Option[Int] = Option(self.nodeIndex)
 
-  final def isMainNodeAsScala: Option[Boolean] = Option(self.isMainNode) // Boolean
+  final def isMainNodeAsScala: Option[Boolean] = Option(self.isMainNode)
 
 }
 

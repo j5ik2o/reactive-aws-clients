@@ -9,21 +9,21 @@ final class WriteRequestBuilderOps(val self: WriteRequest.Builder) extends AnyVa
     value.fold(self) { v =>
       self.putRequest(v)
     }
-  } // PutRequest
+  }
 
   final def deleteRequestAsScala(value: Option[DeleteRequest]): WriteRequest.Builder = {
     value.fold(self) { v =>
       self.deleteRequest(v)
     }
-  } // DeleteRequest
+  }
 
 }
 
 final class WriteRequestOps(val self: WriteRequest) extends AnyVal {
 
-  final def putRequestAsScala: Option[PutRequest] = Option(self.putRequest) // PutRequest
+  final def putRequestAsScala: Option[PutRequest] = Option(self.putRequest)
 
-  final def deleteRequestAsScala: Option[DeleteRequest] = Option(self.deleteRequest) // DeleteRequest
+  final def deleteRequestAsScala: Option[DeleteRequest] = Option(self.deleteRequest)
 
 }
 

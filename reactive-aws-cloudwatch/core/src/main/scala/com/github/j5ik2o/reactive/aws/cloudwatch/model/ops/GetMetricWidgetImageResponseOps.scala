@@ -11,14 +11,13 @@ final class GetMetricWidgetImageResponseBuilderOps(val self: GetMetricWidgetImag
     value.fold(self) { v =>
       self.metricWidgetImage(v)
     }
-  } // software.amazon.awssdk.core.SdkBytes
+  }
 
 }
 
 final class GetMetricWidgetImageResponseOps(val self: GetMetricWidgetImageResponse) extends AnyVal {
 
-  final def metricWidgetImageAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
-    Option(self.metricWidgetImage) // software.amazon.awssdk.core.SdkBytes
+  final def metricWidgetImageAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.metricWidgetImage)
 
 }
 

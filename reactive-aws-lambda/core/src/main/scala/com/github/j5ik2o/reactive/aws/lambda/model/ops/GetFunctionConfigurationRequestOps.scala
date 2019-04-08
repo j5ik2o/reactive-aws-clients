@@ -10,21 +10,21 @@ final class GetFunctionConfigurationRequestBuilderOps(val self: GetFunctionConfi
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def qualifierAsScala(value: Option[String]): GetFunctionConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
     }
-  } // String
+  }
 
 }
 
 final class GetFunctionConfigurationRequestOps(val self: GetFunctionConfigurationRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
+  final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
 }
 

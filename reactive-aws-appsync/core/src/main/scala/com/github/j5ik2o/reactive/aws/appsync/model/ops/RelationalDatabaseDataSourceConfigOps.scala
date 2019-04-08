@@ -12,7 +12,7 @@ final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDat
     value.fold(self) { v =>
       self.relationalDatabaseSourceType(v)
     }
-  } // RelationalDatabaseSourceType
+  }
 
   final def rdsHttpEndpointConfigAsScala(
       value: Option[RdsHttpEndpointConfig]
@@ -20,17 +20,16 @@ final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDat
     value.fold(self) { v =>
       self.rdsHttpEndpointConfig(v)
     }
-  } // RdsHttpEndpointConfig
+  }
 
 }
 
 final class RelationalDatabaseDataSourceConfigOps(val self: RelationalDatabaseDataSourceConfig) extends AnyVal {
 
   final def relationalDatabaseSourceTypeAsScala: Option[RelationalDatabaseSourceType] =
-    Option(self.relationalDatabaseSourceType) // RelationalDatabaseSourceType
+    Option(self.relationalDatabaseSourceType)
 
-  final def rdsHttpEndpointConfigAsScala: Option[RdsHttpEndpointConfig] =
-    Option(self.rdsHttpEndpointConfig) // RdsHttpEndpointConfig
+  final def rdsHttpEndpointConfigAsScala: Option[RdsHttpEndpointConfig] = Option(self.rdsHttpEndpointConfig)
 
 }
 

@@ -9,29 +9,29 @@ final class DescribeDestinationsRequestBuilderOps(val self: DescribeDestinations
     value.fold(self) { v =>
       self.destinationNamePrefix(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeDestinationsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): DescribeDestinationsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeDestinationsRequestOps(val self: DescribeDestinationsRequest) extends AnyVal {
 
-  final def destinationNamePrefixAsScala: Option[String] = Option(self.destinationNamePrefix) // String
+  final def destinationNamePrefixAsScala: Option[String] = Option(self.destinationNamePrefix)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

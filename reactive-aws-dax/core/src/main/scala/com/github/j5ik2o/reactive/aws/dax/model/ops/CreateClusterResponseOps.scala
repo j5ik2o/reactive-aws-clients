@@ -9,13 +9,13 @@ final class CreateClusterResponseBuilderOps(val self: CreateClusterResponse.Buil
     value.fold(self) { v =>
       self.cluster(v)
     }
-  } // Cluster
+  }
 
 }
 
 final class CreateClusterResponseOps(val self: CreateClusterResponse) extends AnyVal {
 
-  final def clusterAsScala: Option[Cluster] = Option(self.cluster) // Cluster
+  final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }
 

@@ -9,21 +9,21 @@ final class DeleteLayerVersionRequestBuilderOps(val self: DeleteLayerVersionRequ
     value.fold(self) { v =>
       self.layerName(v)
     }
-  } // String
+  }
 
   final def versionNumberAsScala(value: Option[Long]): DeleteLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.versionNumber(v)
     }
-  } // Long
+  }
 
 }
 
 final class DeleteLayerVersionRequestOps(val self: DeleteLayerVersionRequest) extends AnyVal {
 
-  final def layerNameAsScala: Option[String] = Option(self.layerName) // String
+  final def layerNameAsScala: Option[String] = Option(self.layerName)
 
-  final def versionNumberAsScala: Option[Long] = Option(self.versionNumber) // Long
+  final def versionNumberAsScala: Option[Long] = Option(self.versionNumber)
 
 }
 

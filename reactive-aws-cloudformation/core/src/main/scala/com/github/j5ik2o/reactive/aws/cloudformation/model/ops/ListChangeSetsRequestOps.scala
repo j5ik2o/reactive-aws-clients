@@ -9,21 +9,21 @@ final class ListChangeSetsRequestBuilderOps(val self: ListChangeSetsRequest.Buil
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListChangeSetsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListChangeSetsRequestOps(val self: ListChangeSetsRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

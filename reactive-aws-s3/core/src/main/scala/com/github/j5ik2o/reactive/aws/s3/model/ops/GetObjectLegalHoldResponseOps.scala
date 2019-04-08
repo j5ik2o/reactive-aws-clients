@@ -9,13 +9,13 @@ final class GetObjectLegalHoldResponseBuilderOps(val self: GetObjectLegalHoldRes
     value.fold(self) { v =>
       self.legalHold(v)
     }
-  } // ObjectLockLegalHold
+  }
 
 }
 
 final class GetObjectLegalHoldResponseOps(val self: GetObjectLegalHoldResponse) extends AnyVal {
 
-  final def legalHoldAsScala: Option[ObjectLockLegalHold] = Option(self.legalHold) // ObjectLockLegalHold
+  final def legalHoldAsScala: Option[ObjectLockLegalHold] = Option(self.legalHold)
 
 }
 

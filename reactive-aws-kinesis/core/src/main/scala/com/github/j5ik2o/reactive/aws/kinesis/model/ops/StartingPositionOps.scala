@@ -9,29 +9,29 @@ final class StartingPositionBuilderOps(val self: StartingPosition.Builder) exten
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // ShardIteratorType
+  }
 
   final def sequenceNumberAsScala(value: Option[String]): StartingPosition.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
-  } // String
+  }
 
   final def timestampAsScala(value: Option[java.time.Instant]): StartingPosition.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class StartingPositionOps(val self: StartingPosition) extends AnyVal {
 
-  final def typeAsScala: Option[ShardIteratorType] = Option(self.`type`) // ShardIteratorType
+  final def typeAsScala: Option[ShardIteratorType] = Option(self.`type`)
 
-  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber)
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp)
 
 }
 

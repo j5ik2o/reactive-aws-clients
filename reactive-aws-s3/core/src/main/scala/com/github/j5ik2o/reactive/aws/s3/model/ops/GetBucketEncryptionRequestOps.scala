@@ -9,13 +9,13 @@ final class GetBucketEncryptionRequestBuilderOps(val self: GetBucketEncryptionRe
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketEncryptionRequestOps(val self: GetBucketEncryptionRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

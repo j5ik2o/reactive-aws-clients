@@ -9,13 +9,13 @@ final class HeadBucketRequestBuilderOps(val self: HeadBucketRequest.Builder) ext
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class HeadBucketRequestOps(val self: HeadBucketRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

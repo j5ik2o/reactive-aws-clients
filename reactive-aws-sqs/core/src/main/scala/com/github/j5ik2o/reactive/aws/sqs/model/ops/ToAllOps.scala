@@ -5,14 +5,12 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 trait ToAllOps
     extends ToOptionSupport
     with ToAddPermissionRequestOps
-    with ToAddPermissionResponseOps
     with ToBatchResultErrorEntryOps
     with ToChangeMessageVisibilityBatchRequestEntryOps
     with ToChangeMessageVisibilityBatchRequestOps
     with ToChangeMessageVisibilityBatchResponseOps
     with ToChangeMessageVisibilityBatchResultEntryOps
     with ToChangeMessageVisibilityRequestOps
-    with ToChangeMessageVisibilityResponseOps
     with ToCreateQueueRequestOps
     with ToCreateQueueResponseOps
     with ToDeleteMessageBatchRequestEntryOps
@@ -20,9 +18,7 @@ trait ToAllOps
     with ToDeleteMessageBatchResponseOps
     with ToDeleteMessageBatchResultEntryOps
     with ToDeleteMessageRequestOps
-    with ToDeleteMessageResponseOps
     with ToDeleteQueueRequestOps
-    with ToDeleteQueueResponseOps
     with ToGetQueueAttributesRequestOps
     with ToGetQueueAttributesResponseOps
     with ToGetQueueUrlRequestOps
@@ -36,11 +32,9 @@ trait ToAllOps
     with ToMessageAttributeValueOps
     with ToMessageOps
     with ToPurgeQueueRequestOps
-    with ToPurgeQueueResponseOps
     with ToReceiveMessageRequestOps
     with ToReceiveMessageResponseOps
     with ToRemovePermissionRequestOps
-    with ToRemovePermissionResponseOps
     with ToSendMessageBatchRequestEntryOps
     with ToSendMessageBatchRequestOps
     with ToSendMessageBatchResponseOps
@@ -48,8 +42,5 @@ trait ToAllOps
     with ToSendMessageRequestOps
     with ToSendMessageResponseOps
     with ToSetQueueAttributesRequestOps
-    with ToSetQueueAttributesResponseOps
     with ToTagQueueRequestOps
-    with ToTagQueueResponseOps
     with ToUntagQueueRequestOps
-    with ToUntagQueueResponseOps

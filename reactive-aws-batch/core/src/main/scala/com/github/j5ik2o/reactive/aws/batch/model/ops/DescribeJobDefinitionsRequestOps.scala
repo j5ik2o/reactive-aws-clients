@@ -8,32 +8,32 @@ final class DescribeJobDefinitionsRequestBuilderOps(val self: DescribeJobDefinit
   final def jobDefinitionsAsScala(value: Option[Seq[String]]): DescribeJobDefinitionsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.jobDefinitions(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeJobDefinitionsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def jobDefinitionNameAsScala(value: Option[String]): DescribeJobDefinitionsRequest.Builder = {
     value.fold(self) { v =>
       self.jobDefinitionName(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[String]): DescribeJobDefinitionsRequest.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeJobDefinitionsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -41,15 +41,15 @@ final class DescribeJobDefinitionsRequestOps(val self: DescribeJobDefinitionsReq
 
   final def jobDefinitionsAsScala: Option[Seq[String]] = Option(self.jobDefinitions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def jobDefinitionNameAsScala: Option[String] = Option(self.jobDefinitionName) // String
+  final def jobDefinitionNameAsScala: Option[String] = Option(self.jobDefinitionName)
 
-  final def statusAsScala: Option[String] = Option(self.status) // String
+  final def statusAsScala: Option[String] = Option(self.status)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

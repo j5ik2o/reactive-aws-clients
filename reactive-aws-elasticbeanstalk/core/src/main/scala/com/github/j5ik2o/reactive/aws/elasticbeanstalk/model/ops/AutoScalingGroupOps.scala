@@ -9,13 +9,13 @@ final class AutoScalingGroupBuilderOps(val self: AutoScalingGroup.Builder) exten
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class AutoScalingGroupOps(val self: AutoScalingGroup) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

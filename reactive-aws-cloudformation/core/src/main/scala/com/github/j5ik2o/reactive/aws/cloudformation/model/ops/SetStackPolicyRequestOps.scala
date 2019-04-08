@@ -9,29 +9,29 @@ final class SetStackPolicyRequestBuilderOps(val self: SetStackPolicyRequest.Buil
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def stackPolicyBodyAsScala(value: Option[String]): SetStackPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.stackPolicyBody(v)
     }
-  } // String
+  }
 
   final def stackPolicyURLAsScala(value: Option[String]): SetStackPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.stackPolicyURL(v)
     }
-  } // String
+  }
 
 }
 
 final class SetStackPolicyRequestOps(val self: SetStackPolicyRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def stackPolicyBodyAsScala: Option[String] = Option(self.stackPolicyBody) // String
+  final def stackPolicyBodyAsScala: Option[String] = Option(self.stackPolicyBody)
 
-  final def stackPolicyURLAsScala: Option[String] = Option(self.stackPolicyURL) // String
+  final def stackPolicyURLAsScala: Option[String] = Option(self.stackPolicyURL)
 
 }
 

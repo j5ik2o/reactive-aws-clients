@@ -9,21 +9,21 @@ final class UpdateApplicationRequestBuilderOps(val self: UpdateApplicationReques
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): UpdateApplicationRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateApplicationRequestOps(val self: UpdateApplicationRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
 }
 

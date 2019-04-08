@@ -9,21 +9,21 @@ final class OptionRestrictionRegexBuilderOps(val self: OptionRestrictionRegex.Bu
     value.fold(self) { v =>
       self.pattern(v)
     }
-  } // String
+  }
 
   final def labelAsScala(value: Option[String]): OptionRestrictionRegex.Builder = {
     value.fold(self) { v =>
       self.label(v)
     }
-  } // String
+  }
 
 }
 
 final class OptionRestrictionRegexOps(val self: OptionRestrictionRegex) extends AnyVal {
 
-  final def patternAsScala: Option[String] = Option(self.pattern) // String
+  final def patternAsScala: Option[String] = Option(self.pattern)
 
-  final def labelAsScala: Option[String] = Option(self.label) // String
+  final def labelAsScala: Option[String] = Option(self.label)
 
 }
 

@@ -9,47 +9,47 @@ final class PublishLayerVersionRequestBuilderOps(val self: PublishLayerVersionRe
     value.fold(self) { v =>
       self.layerName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): PublishLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def contentAsScala(value: Option[LayerVersionContentInput]): PublishLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.content(v)
     }
-  } // LayerVersionContentInput
+  }
 
   final def compatibleRuntimesAsScala(value: Option[Seq[Runtime]]): PublishLayerVersionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.compatibleRuntimes(v.asJava)
-    } // Seq[Runtime]
+    }
   }
 
   final def licenseInfoAsScala(value: Option[String]): PublishLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.licenseInfo(v)
     }
-  } // String
+  }
 
 }
 
 final class PublishLayerVersionRequestOps(val self: PublishLayerVersionRequest) extends AnyVal {
 
-  final def layerNameAsScala: Option[String] = Option(self.layerName) // String
+  final def layerNameAsScala: Option[String] = Option(self.layerName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def contentAsScala: Option[LayerVersionContentInput] = Option(self.content) // LayerVersionContentInput
+  final def contentAsScala: Option[LayerVersionContentInput] = Option(self.content)
 
   final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Runtime]
+  }
 
-  final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo) // String
+  final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo)
 
 }
 

@@ -9,30 +9,29 @@ final class PutBucketWebsiteRequestBuilderOps(val self: PutBucketWebsiteRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def websiteConfigurationAsScala(value: Option[WebsiteConfiguration]): PutBucketWebsiteRequest.Builder = {
     value.fold(self) { v =>
       self.websiteConfiguration(v)
     }
-  } // WebsiteConfiguration
+  }
 
 }
 
 final class PutBucketWebsiteRequestOps(val self: PutBucketWebsiteRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def websiteConfigurationAsScala: Option[WebsiteConfiguration] =
-    Option(self.websiteConfiguration) // WebsiteConfiguration
+  final def websiteConfigurationAsScala: Option[WebsiteConfiguration] = Option(self.websiteConfiguration)
 
 }
 

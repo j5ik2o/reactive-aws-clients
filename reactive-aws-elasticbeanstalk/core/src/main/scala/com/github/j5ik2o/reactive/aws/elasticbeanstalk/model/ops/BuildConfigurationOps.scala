@@ -9,45 +9,45 @@ final class BuildConfigurationBuilderOps(val self: BuildConfiguration.Builder) e
     value.fold(self) { v =>
       self.artifactName(v)
     }
-  } // String
+  }
 
   final def codeBuildServiceRoleAsScala(value: Option[String]): BuildConfiguration.Builder = {
     value.fold(self) { v =>
       self.codeBuildServiceRole(v)
     }
-  } // String
+  }
 
   final def computeTypeAsScala(value: Option[ComputeType]): BuildConfiguration.Builder = {
     value.fold(self) { v =>
       self.computeType(v)
     }
-  } // ComputeType
+  }
 
   final def imageAsScala(value: Option[String]): BuildConfiguration.Builder = {
     value.fold(self) { v =>
       self.image(v)
     }
-  } // String
+  }
 
   final def timeoutInMinutesAsScala(value: Option[Int]): BuildConfiguration.Builder = {
     value.fold(self) { v =>
       self.timeoutInMinutes(v)
     }
-  } // Int
+  }
 
 }
 
 final class BuildConfigurationOps(val self: BuildConfiguration) extends AnyVal {
 
-  final def artifactNameAsScala: Option[String] = Option(self.artifactName) // String
+  final def artifactNameAsScala: Option[String] = Option(self.artifactName)
 
-  final def codeBuildServiceRoleAsScala: Option[String] = Option(self.codeBuildServiceRole) // String
+  final def codeBuildServiceRoleAsScala: Option[String] = Option(self.codeBuildServiceRole)
 
-  final def computeTypeAsScala: Option[ComputeType] = Option(self.computeType) // ComputeType
+  final def computeTypeAsScala: Option[ComputeType] = Option(self.computeType)
 
-  final def imageAsScala: Option[String] = Option(self.image) // String
+  final def imageAsScala: Option[String] = Option(self.image)
 
-  final def timeoutInMinutesAsScala: Option[Int] = Option(self.timeoutInMinutes) // Int
+  final def timeoutInMinutesAsScala: Option[Int] = Option(self.timeoutInMinutes)
 
 }
 

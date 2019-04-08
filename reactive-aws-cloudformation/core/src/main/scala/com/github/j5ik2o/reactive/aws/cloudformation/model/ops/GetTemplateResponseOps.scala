@@ -9,23 +9,23 @@ final class GetTemplateResponseBuilderOps(val self: GetTemplateResponse.Builder)
     value.fold(self) { v =>
       self.templateBody(v)
     }
-  } // String
+  }
 
   final def stagesAvailableAsScala(value: Option[Seq[TemplateStage]]): GetTemplateResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stagesAvailable(v.asJava)
-    } // Seq[TemplateStage]
+    }
   }
 
 }
 
 final class GetTemplateResponseOps(val self: GetTemplateResponse) extends AnyVal {
 
-  final def templateBodyAsScala: Option[String] = Option(self.templateBody) // String
+  final def templateBodyAsScala: Option[String] = Option(self.templateBody)
 
   final def stagesAvailableAsScala: Option[Seq[TemplateStage]] = Option(self.stagesAvailable).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[TemplateStage]
+  }
 
 }
 

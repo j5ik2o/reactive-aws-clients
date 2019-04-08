@@ -9,37 +9,37 @@ final class ValidationMessageBuilderOps(val self: ValidationMessage.Builder) ext
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
   final def severityAsScala(value: Option[ValidationSeverity]): ValidationMessage.Builder = {
     value.fold(self) { v =>
       self.severity(v)
     }
-  } // ValidationSeverity
+  }
 
   final def namespaceAsScala(value: Option[String]): ValidationMessage.Builder = {
     value.fold(self) { v =>
       self.namespace(v)
     }
-  } // String
+  }
 
   final def optionNameAsScala(value: Option[String]): ValidationMessage.Builder = {
     value.fold(self) { v =>
       self.optionName(v)
     }
-  } // String
+  }
 
 }
 
 final class ValidationMessageOps(val self: ValidationMessage) extends AnyVal {
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
-  final def severityAsScala: Option[ValidationSeverity] = Option(self.severity) // ValidationSeverity
+  final def severityAsScala: Option[ValidationSeverity] = Option(self.severity)
 
-  final def namespaceAsScala: Option[String] = Option(self.namespace) // String
+  final def namespaceAsScala: Option[String] = Option(self.namespace)
 
-  final def optionNameAsScala: Option[String] = Option(self.optionName) // String
+  final def optionNameAsScala: Option[String] = Option(self.optionName)
 
 }
 

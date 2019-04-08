@@ -9,21 +9,21 @@ final class NotificationConfigurationBuilderOps(val self: NotificationConfigurat
     value.fold(self) { v =>
       self.topicArn(v)
     }
-  } // String
+  }
 
   final def topicStatusAsScala(value: Option[String]): NotificationConfiguration.Builder = {
     value.fold(self) { v =>
       self.topicStatus(v)
     }
-  } // String
+  }
 
 }
 
 final class NotificationConfigurationOps(val self: NotificationConfiguration) extends AnyVal {
 
-  final def topicArnAsScala: Option[String] = Option(self.topicArn) // String
+  final def topicArnAsScala: Option[String] = Option(self.topicArn)
 
-  final def topicStatusAsScala: Option[String] = Option(self.topicStatus) // String
+  final def topicStatusAsScala: Option[String] = Option(self.topicStatus)
 
 }
 

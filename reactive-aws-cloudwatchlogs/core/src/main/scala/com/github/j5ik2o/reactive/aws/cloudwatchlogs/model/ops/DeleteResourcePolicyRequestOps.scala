@@ -9,13 +9,13 @@ final class DeleteResourcePolicyRequestBuilderOps(val self: DeleteResourcePolicy
     value.fold(self) { v =>
       self.policyName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteResourcePolicyRequestOps(val self: DeleteResourcePolicyRequest) extends AnyVal {
 
-  final def policyNameAsScala: Option[String] = Option(self.policyName) // String
+  final def policyNameAsScala: Option[String] = Option(self.policyName)
 
 }
 

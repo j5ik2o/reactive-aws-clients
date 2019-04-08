@@ -9,13 +9,13 @@ final class LaunchConfigurationBuilderOps(val self: LaunchConfiguration.Builder)
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class LaunchConfigurationOps(val self: LaunchConfiguration) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

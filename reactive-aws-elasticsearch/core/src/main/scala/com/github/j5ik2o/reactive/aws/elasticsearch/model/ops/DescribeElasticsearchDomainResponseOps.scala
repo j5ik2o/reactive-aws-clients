@@ -12,14 +12,13 @@ final class DescribeElasticsearchDomainResponseBuilderOps(val self: DescribeElas
     value.fold(self) { v =>
       self.domainStatus(v)
     }
-  } // ElasticsearchDomainStatus
+  }
 
 }
 
 final class DescribeElasticsearchDomainResponseOps(val self: DescribeElasticsearchDomainResponse) extends AnyVal {
 
-  final def domainStatusAsScala: Option[ElasticsearchDomainStatus] =
-    Option(self.domainStatus) // ElasticsearchDomainStatus
+  final def domainStatusAsScala: Option[ElasticsearchDomainStatus] = Option(self.domainStatus)
 
 }
 

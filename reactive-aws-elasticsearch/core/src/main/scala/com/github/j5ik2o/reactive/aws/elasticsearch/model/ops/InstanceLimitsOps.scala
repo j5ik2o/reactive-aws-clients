@@ -9,14 +9,13 @@ final class InstanceLimitsBuilderOps(val self: InstanceLimits.Builder) extends A
     value.fold(self) { v =>
       self.instanceCountLimits(v)
     }
-  } // InstanceCountLimits
+  }
 
 }
 
 final class InstanceLimitsOps(val self: InstanceLimits) extends AnyVal {
 
-  final def instanceCountLimitsAsScala: Option[InstanceCountLimits] =
-    Option(self.instanceCountLimits) // InstanceCountLimits
+  final def instanceCountLimitsAsScala: Option[InstanceCountLimits] = Option(self.instanceCountLimits)
 
 }
 

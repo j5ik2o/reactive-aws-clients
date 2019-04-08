@@ -9,21 +9,21 @@ final class DimensionBuilderOps(val self: Dimension.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): Dimension.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class DimensionOps(val self: Dimension) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

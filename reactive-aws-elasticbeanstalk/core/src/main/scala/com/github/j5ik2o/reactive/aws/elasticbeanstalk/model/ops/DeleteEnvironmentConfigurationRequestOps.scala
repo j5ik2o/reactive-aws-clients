@@ -10,21 +10,21 @@ final class DeleteEnvironmentConfigurationRequestBuilderOps(val self: DeleteEnvi
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): DeleteEnvironmentConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteEnvironmentConfigurationRequestOps(val self: DeleteEnvironmentConfigurationRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
 }
 

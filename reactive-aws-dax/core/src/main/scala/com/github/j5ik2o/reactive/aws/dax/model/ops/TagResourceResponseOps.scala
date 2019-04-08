@@ -8,7 +8,7 @@ final class TagResourceResponseBuilderOps(val self: TagResourceResponse.Builder)
   final def tagsAsScala(value: Option[Seq[Tag]]): TagResourceResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class TagResourceResponseOps(val self: TagResourceResponse) extends AnyVal
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

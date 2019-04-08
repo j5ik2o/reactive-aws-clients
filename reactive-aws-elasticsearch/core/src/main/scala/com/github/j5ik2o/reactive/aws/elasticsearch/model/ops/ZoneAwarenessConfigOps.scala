@@ -9,13 +9,13 @@ final class ZoneAwarenessConfigBuilderOps(val self: ZoneAwarenessConfig.Builder)
     value.fold(self) { v =>
       self.availabilityZoneCount(v)
     }
-  } // Int
+  }
 
 }
 
 final class ZoneAwarenessConfigOps(val self: ZoneAwarenessConfig) extends AnyVal {
 
-  final def availabilityZoneCountAsScala: Option[Int] = Option(self.availabilityZoneCount) // Int
+  final def availabilityZoneCountAsScala: Option[Int] = Option(self.availabilityZoneCount)
 
 }
 

@@ -10,21 +10,21 @@ final class DeleteConfigurationTemplateRequestBuilderOps(val self: DeleteConfigu
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def templateNameAsScala(value: Option[String]): DeleteConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteConfigurationTemplateRequestOps(val self: DeleteConfigurationTemplateRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def templateNameAsScala: Option[String] = Option(self.templateName) // String
+  final def templateNameAsScala: Option[String] = Option(self.templateName)
 
 }
 

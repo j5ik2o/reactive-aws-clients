@@ -9,22 +9,22 @@ final class BillingModeSummaryBuilderOps(val self: BillingModeSummary.Builder) e
     value.fold(self) { v =>
       self.billingMode(v)
     }
-  } // BillingMode
+  }
 
   final def lastUpdateToPayPerRequestDateTimeAsScala(value: Option[java.time.Instant]): BillingModeSummary.Builder = {
     value.fold(self) { v =>
       self.lastUpdateToPayPerRequestDateTime(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class BillingModeSummaryOps(val self: BillingModeSummary) extends AnyVal {
 
-  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // BillingMode
+  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode)
 
   final def lastUpdateToPayPerRequestDateTimeAsScala: Option[java.time.Instant] =
-    Option(self.lastUpdateToPayPerRequestDateTime) // java.time.Instant
+    Option(self.lastUpdateToPayPerRequestDateTime)
 
 }
 

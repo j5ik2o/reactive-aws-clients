@@ -9,21 +9,21 @@ final class FunctionCodeLocationBuilderOps(val self: FunctionCodeLocation.Builde
     value.fold(self) { v =>
       self.repositoryType(v)
     }
-  } // String
+  }
 
   final def locationAsScala(value: Option[String]): FunctionCodeLocation.Builder = {
     value.fold(self) { v =>
       self.location(v)
     }
-  } // String
+  }
 
 }
 
 final class FunctionCodeLocationOps(val self: FunctionCodeLocation) extends AnyVal {
 
-  final def repositoryTypeAsScala: Option[String] = Option(self.repositoryType) // String
+  final def repositoryTypeAsScala: Option[String] = Option(self.repositoryType)
 
-  final def locationAsScala: Option[String] = Option(self.location) // String
+  final def locationAsScala: Option[String] = Option(self.location)
 
 }
 

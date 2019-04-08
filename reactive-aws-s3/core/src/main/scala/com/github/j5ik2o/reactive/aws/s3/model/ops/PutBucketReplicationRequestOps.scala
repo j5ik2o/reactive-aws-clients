@@ -9,13 +9,13 @@ final class PutBucketReplicationRequestBuilderOps(val self: PutBucketReplication
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketReplicationRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def replicationConfigurationAsScala(
       value: Option[ReplicationConfiguration]
@@ -23,18 +23,17 @@ final class PutBucketReplicationRequestBuilderOps(val self: PutBucketReplication
     value.fold(self) { v =>
       self.replicationConfiguration(v)
     }
-  } // ReplicationConfiguration
+  }
 
 }
 
 final class PutBucketReplicationRequestOps(val self: PutBucketReplicationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def replicationConfigurationAsScala: Option[ReplicationConfiguration] =
-    Option(self.replicationConfiguration) // ReplicationConfiguration
+  final def replicationConfigurationAsScala: Option[ReplicationConfiguration] = Option(self.replicationConfiguration)
 
 }
 

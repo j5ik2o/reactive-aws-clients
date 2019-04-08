@@ -10,42 +10,42 @@ final class DescribeStackResourceDriftsRequestBuilderOps(val self: DescribeStack
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def stackResourceDriftStatusFiltersAsScala(
       value: Option[Seq[StackResourceDriftStatus]]
   ): DescribeStackResourceDriftsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackResourceDriftStatusFilters(v.asJava)
-    } // Seq[StackResourceDriftStatus]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeStackResourceDriftsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeStackResourceDriftsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeStackResourceDriftsRequestOps(val self: DescribeStackResourceDriftsRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
   final def stackResourceDriftStatusFiltersAsScala: Option[Seq[StackResourceDriftStatus]] =
     Option(self.stackResourceDriftStatusFilters).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[StackResourceDriftStatus]
+    }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

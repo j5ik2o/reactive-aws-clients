@@ -9,14 +9,13 @@ final class GetBucketLocationResponseBuilderOps(val self: GetBucketLocationRespo
     value.fold(self) { v =>
       self.locationConstraint(v)
     }
-  } // BucketLocationConstraint
+  }
 
 }
 
 final class GetBucketLocationResponseOps(val self: GetBucketLocationResponse) extends AnyVal {
 
-  final def locationConstraintAsScala: Option[BucketLocationConstraint] =
-    Option(self.locationConstraint) // BucketLocationConstraint
+  final def locationConstraintAsScala: Option[BucketLocationConstraint] = Option(self.locationConstraint)
 
 }
 

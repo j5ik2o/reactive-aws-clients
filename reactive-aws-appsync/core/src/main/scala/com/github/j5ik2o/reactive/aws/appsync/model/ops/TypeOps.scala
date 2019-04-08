@@ -9,45 +9,45 @@ final class TypeBuilderOps(val self: Type.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def arnAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def definitionAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.definition(v)
     }
-  } // String
+  }
 
   final def formatAsScala(value: Option[TypeDefinitionFormat]): Type.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }
-  } // TypeDefinitionFormat
+  }
 
 }
 
 final class TypeOps(val self: Type) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
-  final def definitionAsScala: Option[String] = Option(self.definition) // String
+  final def definitionAsScala: Option[String] = Option(self.definition)
 
-  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // TypeDefinitionFormat
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format)
 
 }
 

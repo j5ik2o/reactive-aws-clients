@@ -9,55 +9,53 @@ final class ListBackupsRequestBuilderOps(val self: ListBackupsRequest.Builder) e
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
   final def timeRangeLowerBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.timeRangeLowerBound(v)
     }
-  } // java.time.Instant
+  }
 
   final def timeRangeUpperBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.timeRangeUpperBound(v)
     }
-  } // java.time.Instant
+  }
 
   final def exclusiveStartBackupArnAsScala(value: Option[String]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartBackupArn(v)
     }
-  } // String
+  }
 
   final def backupTypeAsScala(value: Option[BackupTypeFilter]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.backupType(v)
     }
-  } // BackupTypeFilter
+  }
 
 }
 
 final class ListBackupsRequestOps(val self: ListBackupsRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
-  final def timeRangeLowerBoundAsScala: Option[java.time.Instant] =
-    Option(self.timeRangeLowerBound) // java.time.Instant
+  final def timeRangeLowerBoundAsScala: Option[java.time.Instant] = Option(self.timeRangeLowerBound)
 
-  final def timeRangeUpperBoundAsScala: Option[java.time.Instant] =
-    Option(self.timeRangeUpperBound) // java.time.Instant
+  final def timeRangeUpperBoundAsScala: Option[java.time.Instant] = Option(self.timeRangeUpperBound)
 
-  final def exclusiveStartBackupArnAsScala: Option[String] = Option(self.exclusiveStartBackupArn) // String
+  final def exclusiveStartBackupArnAsScala: Option[String] = Option(self.exclusiveStartBackupArn)
 
-  final def backupTypeAsScala: Option[BackupTypeFilter] = Option(self.backupType) // BackupTypeFilter
+  final def backupTypeAsScala: Option[BackupTypeFilter] = Option(self.backupType)
 
 }
 

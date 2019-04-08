@@ -10,21 +10,21 @@ final class ApplicationVersionLifecycleConfigBuilderOps(val self: ApplicationVer
     value.fold(self) { v =>
       self.maxCountRule(v)
     }
-  } // MaxCountRule
+  }
 
   final def maxAgeRuleAsScala(value: Option[MaxAgeRule]): ApplicationVersionLifecycleConfig.Builder = {
     value.fold(self) { v =>
       self.maxAgeRule(v)
     }
-  } // MaxAgeRule
+  }
 
 }
 
 final class ApplicationVersionLifecycleConfigOps(val self: ApplicationVersionLifecycleConfig) extends AnyVal {
 
-  final def maxCountRuleAsScala: Option[MaxCountRule] = Option(self.maxCountRule) // MaxCountRule
+  final def maxCountRuleAsScala: Option[MaxCountRule] = Option(self.maxCountRule)
 
-  final def maxAgeRuleAsScala: Option[MaxAgeRule] = Option(self.maxAgeRule) // MaxAgeRule
+  final def maxAgeRuleAsScala: Option[MaxAgeRule] = Option(self.maxAgeRule)
 
 }
 

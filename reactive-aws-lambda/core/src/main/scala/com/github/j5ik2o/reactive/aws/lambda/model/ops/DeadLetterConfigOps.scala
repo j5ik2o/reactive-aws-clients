@@ -9,13 +9,13 @@ final class DeadLetterConfigBuilderOps(val self: DeadLetterConfig.Builder) exten
     value.fold(self) { v =>
       self.targetArn(v)
     }
-  } // String
+  }
 
 }
 
 final class DeadLetterConfigOps(val self: DeadLetterConfig) extends AnyVal {
 
-  final def targetArnAsScala: Option[String] = Option(self.targetArn) // String
+  final def targetArnAsScala: Option[String] = Option(self.targetArn)
 
 }
 

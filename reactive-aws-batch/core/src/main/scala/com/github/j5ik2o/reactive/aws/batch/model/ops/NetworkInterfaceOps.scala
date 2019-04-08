@@ -9,29 +9,29 @@ final class NetworkInterfaceBuilderOps(val self: NetworkInterface.Builder) exten
     value.fold(self) { v =>
       self.attachmentId(v)
     }
-  } // String
+  }
 
   final def ipv6AddressAsScala(value: Option[String]): NetworkInterface.Builder = {
     value.fold(self) { v =>
       self.ipv6Address(v)
     }
-  } // String
+  }
 
   final def privateIpv4AddressAsScala(value: Option[String]): NetworkInterface.Builder = {
     value.fold(self) { v =>
       self.privateIpv4Address(v)
     }
-  } // String
+  }
 
 }
 
 final class NetworkInterfaceOps(val self: NetworkInterface) extends AnyVal {
 
-  final def attachmentIdAsScala: Option[String] = Option(self.attachmentId) // String
+  final def attachmentIdAsScala: Option[String] = Option(self.attachmentId)
 
-  final def ipv6AddressAsScala: Option[String] = Option(self.ipv6Address) // String
+  final def ipv6AddressAsScala: Option[String] = Option(self.ipv6Address)
 
-  final def privateIpv4AddressAsScala: Option[String] = Option(self.privateIpv4Address) // String
+  final def privateIpv4AddressAsScala: Option[String] = Option(self.privateIpv4Address)
 
 }
 

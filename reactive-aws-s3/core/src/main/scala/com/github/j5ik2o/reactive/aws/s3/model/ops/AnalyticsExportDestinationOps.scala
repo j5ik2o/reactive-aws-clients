@@ -11,14 +11,13 @@ final class AnalyticsExportDestinationBuilderOps(val self: AnalyticsExportDestin
     value.fold(self) { v =>
       self.s3BucketDestination(v)
     }
-  } // AnalyticsS3BucketDestination
+  }
 
 }
 
 final class AnalyticsExportDestinationOps(val self: AnalyticsExportDestination) extends AnyVal {
 
-  final def s3BucketDestinationAsScala: Option[AnalyticsS3BucketDestination] =
-    Option(self.s3BucketDestination) // AnalyticsS3BucketDestination
+  final def s3BucketDestinationAsScala: Option[AnalyticsS3BucketDestination] = Option(self.s3BucketDestination)
 
 }
 

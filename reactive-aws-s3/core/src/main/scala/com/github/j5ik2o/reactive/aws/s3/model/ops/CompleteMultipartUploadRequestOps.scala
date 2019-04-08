@@ -9,46 +9,45 @@ final class CompleteMultipartUploadRequestBuilderOps(val self: CompleteMultipart
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def multipartUploadAsScala(value: Option[CompletedMultipartUpload]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.multipartUpload(v)
     }
-  } // CompletedMultipartUpload
+  }
 
   final def uploadIdAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // RequestPayer
+  }
 
 }
 
 final class CompleteMultipartUploadRequestOps(val self: CompleteMultipartUploadRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def multipartUploadAsScala: Option[CompletedMultipartUpload] =
-    Option(self.multipartUpload) // CompletedMultipartUpload
+  final def multipartUploadAsScala: Option[CompletedMultipartUpload] = Option(self.multipartUpload)
 
-  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
 }
 

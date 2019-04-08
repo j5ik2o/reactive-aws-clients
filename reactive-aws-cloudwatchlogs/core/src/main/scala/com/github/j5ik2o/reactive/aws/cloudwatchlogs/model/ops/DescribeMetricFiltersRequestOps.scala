@@ -9,53 +9,53 @@ final class DescribeMetricFiltersRequestBuilderOps(val self: DescribeMetricFilte
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def filterNamePrefixAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.filterNamePrefix(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): DescribeMetricFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
   final def metricNameAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.metricName(v)
     }
-  } // String
+  }
 
   final def metricNamespaceAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.metricNamespace(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeMetricFiltersRequestOps(val self: DescribeMetricFiltersRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def filterNamePrefixAsScala: Option[String] = Option(self.filterNamePrefix) // String
+  final def filterNamePrefixAsScala: Option[String] = Option(self.filterNamePrefix)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
-  final def metricNameAsScala: Option[String] = Option(self.metricName) // String
+  final def metricNameAsScala: Option[String] = Option(self.metricName)
 
-  final def metricNamespaceAsScala: Option[String] = Option(self.metricNamespace) // String
+  final def metricNamespaceAsScala: Option[String] = Option(self.metricNamespace)
 
 }
 

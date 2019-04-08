@@ -9,31 +9,31 @@ final class LoggingEnabledBuilderOps(val self: LoggingEnabled.Builder) extends A
     value.fold(self) { v =>
       self.targetBucket(v)
     }
-  } // String
+  }
 
   final def targetGrantsAsScala(value: Option[Seq[TargetGrant]]): LoggingEnabled.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.targetGrants(v.asJava)
-    } // Seq[TargetGrant]
+    }
   }
 
   final def targetPrefixAsScala(value: Option[String]): LoggingEnabled.Builder = {
     value.fold(self) { v =>
       self.targetPrefix(v)
     }
-  } // String
+  }
 
 }
 
 final class LoggingEnabledOps(val self: LoggingEnabled) extends AnyVal {
 
-  final def targetBucketAsScala: Option[String] = Option(self.targetBucket) // String
+  final def targetBucketAsScala: Option[String] = Option(self.targetBucket)
 
   final def targetGrantsAsScala: Option[Seq[TargetGrant]] = Option(self.targetGrants).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[TargetGrant]
+  }
 
-  final def targetPrefixAsScala: Option[String] = Option(self.targetPrefix) // String
+  final def targetPrefixAsScala: Option[String] = Option(self.targetPrefix)
 
 }
 

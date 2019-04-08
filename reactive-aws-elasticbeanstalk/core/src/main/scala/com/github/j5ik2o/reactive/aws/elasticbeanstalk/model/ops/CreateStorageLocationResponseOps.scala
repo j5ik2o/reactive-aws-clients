@@ -9,13 +9,13 @@ final class CreateStorageLocationResponseBuilderOps(val self: CreateStorageLocat
     value.fold(self) { v =>
       self.s3Bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateStorageLocationResponseOps(val self: CreateStorageLocationResponse) extends AnyVal {
 
-  final def s3BucketAsScala: Option[String] = Option(self.s3Bucket) // String
+  final def s3BucketAsScala: Option[String] = Option(self.s3Bucket)
 
 }
 

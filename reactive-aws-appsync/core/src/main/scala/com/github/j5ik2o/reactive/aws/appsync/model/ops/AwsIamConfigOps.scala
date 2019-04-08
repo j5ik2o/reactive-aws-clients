@@ -9,21 +9,21 @@ final class AwsIamConfigBuilderOps(val self: AwsIamConfig.Builder) extends AnyVa
     value.fold(self) { v =>
       self.signingRegion(v)
     }
-  } // String
+  }
 
   final def signingServiceNameAsScala(value: Option[String]): AwsIamConfig.Builder = {
     value.fold(self) { v =>
       self.signingServiceName(v)
     }
-  } // String
+  }
 
 }
 
 final class AwsIamConfigOps(val self: AwsIamConfig) extends AnyVal {
 
-  final def signingRegionAsScala: Option[String] = Option(self.signingRegion) // String
+  final def signingRegionAsScala: Option[String] = Option(self.signingRegion)
 
-  final def signingServiceNameAsScala: Option[String] = Option(self.signingServiceName) // String
+  final def signingServiceNameAsScala: Option[String] = Option(self.signingServiceName)
 
 }
 

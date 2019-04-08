@@ -9,13 +9,13 @@ final class LaunchTemplateBuilderOps(val self: LaunchTemplate.Builder) extends A
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class LaunchTemplateOps(val self: LaunchTemplate) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

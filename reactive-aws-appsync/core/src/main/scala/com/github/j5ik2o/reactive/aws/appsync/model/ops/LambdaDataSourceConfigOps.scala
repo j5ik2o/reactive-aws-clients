@@ -9,13 +9,13 @@ final class LambdaDataSourceConfigBuilderOps(val self: LambdaDataSourceConfig.Bu
     value.fold(self) { v =>
       self.lambdaFunctionArn(v)
     }
-  } // String
+  }
 
 }
 
 final class LambdaDataSourceConfigOps(val self: LambdaDataSourceConfig) extends AnyVal {
 
-  final def lambdaFunctionArnAsScala: Option[String] = Option(self.lambdaFunctionArn) // String
+  final def lambdaFunctionArnAsScala: Option[String] = Option(self.lambdaFunctionArn)
 
 }
 

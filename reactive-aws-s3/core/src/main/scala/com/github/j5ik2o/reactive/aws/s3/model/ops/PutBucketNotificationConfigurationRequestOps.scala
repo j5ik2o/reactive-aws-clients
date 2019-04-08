@@ -11,7 +11,7 @@ final class PutBucketNotificationConfigurationRequestBuilderOps(
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def notificationConfigurationAsScala(
       value: Option[NotificationConfiguration]
@@ -19,17 +19,16 @@ final class PutBucketNotificationConfigurationRequestBuilderOps(
     value.fold(self) { v =>
       self.notificationConfiguration(v)
     }
-  } // NotificationConfiguration
+  }
 
 }
 
 final class PutBucketNotificationConfigurationRequestOps(val self: PutBucketNotificationConfigurationRequest)
     extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def notificationConfigurationAsScala: Option[NotificationConfiguration] =
-    Option(self.notificationConfiguration) // NotificationConfiguration
+  final def notificationConfigurationAsScala: Option[NotificationConfiguration] = Option(self.notificationConfiguration)
 
 }
 

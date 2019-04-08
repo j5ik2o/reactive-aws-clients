@@ -17,6 +17,9 @@ object ElasticsearchAsyncClient {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticsearch/ElasticsearchAsyncClient.html
+  */
 trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
   val underlying: JavaElasticsearchAsyncClient
 

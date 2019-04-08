@@ -10,13 +10,13 @@ final class NotificationConfigurationFilterBuilderOps(val self: NotificationConf
     value.fold(self) { v =>
       self.key(v)
     }
-  } // S3KeyFilter
+  }
 
 }
 
 final class NotificationConfigurationFilterOps(val self: NotificationConfigurationFilter) extends AnyVal {
 
-  final def keyAsScala: Option[S3KeyFilter] = Option(self.key) // S3KeyFilter
+  final def keyAsScala: Option[S3KeyFilter] = Option(self.key)
 
 }
 

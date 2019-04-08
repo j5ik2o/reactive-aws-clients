@@ -9,21 +9,21 @@ final class PutRetentionPolicyRequestBuilderOps(val self: PutRetentionPolicyRequ
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def retentionInDaysAsScala(value: Option[Int]): PutRetentionPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.retentionInDays(v)
     }
-  } // Int
+  }
 
 }
 
 final class PutRetentionPolicyRequestOps(val self: PutRetentionPolicyRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def retentionInDaysAsScala: Option[Int] = Option(self.retentionInDays) // Int
+  final def retentionInDaysAsScala: Option[Int] = Option(self.retentionInDays)
 
 }
 

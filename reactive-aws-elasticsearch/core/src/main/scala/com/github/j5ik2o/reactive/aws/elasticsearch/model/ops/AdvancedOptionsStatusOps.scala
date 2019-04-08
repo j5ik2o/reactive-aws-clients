@@ -8,14 +8,14 @@ final class AdvancedOptionsStatusBuilderOps(val self: AdvancedOptionsStatus.Buil
   final def optionsAsScala(value: Option[Map[String, String]]): AdvancedOptionsStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.options(v.asJava)
-    } // Map[String, String]
+    }
   }
 
   final def statusAsScala(value: Option[OptionStatus]): AdvancedOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class AdvancedOptionsStatusOps(val self: AdvancedOptionsStatus) extends An
 
   final def optionsAsScala: Option[Map[String, String]] = Option(self.options).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

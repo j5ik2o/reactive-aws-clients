@@ -9,7 +9,7 @@ final class DescribeAlarmsForMetricResponseBuilderOps(val self: DescribeAlarmsFo
   final def metricAlarmsAsScala(value: Option[Seq[MetricAlarm]]): DescribeAlarmsForMetricResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metricAlarms(v.asJava)
-    } // Seq[MetricAlarm]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class DescribeAlarmsForMetricResponseOps(val self: DescribeAlarmsForMetric
 
   final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] = Option(self.metricAlarms).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricAlarm]
+  }
 
 }
 

@@ -8,7 +8,7 @@ final class TestMetricFilterResponseBuilderOps(val self: TestMetricFilterRespons
   final def matchesAsScala(value: Option[Seq[MetricFilterMatchRecord]]): TestMetricFilterResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.matches(v.asJava)
-    } // Seq[MetricFilterMatchRecord]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class TestMetricFilterResponseOps(val self: TestMetricFilterResponse) exte
 
   final def matchesAsScala: Option[Seq[MetricFilterMatchRecord]] = Option(self.matches).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricFilterMatchRecord]
+  }
 
 }
 

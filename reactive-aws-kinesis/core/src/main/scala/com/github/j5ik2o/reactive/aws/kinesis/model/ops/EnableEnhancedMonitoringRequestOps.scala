@@ -10,23 +10,23 @@ final class EnableEnhancedMonitoringRequestBuilderOps(val self: EnableEnhancedMo
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def shardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): EnableEnhancedMonitoringRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shardLevelMetrics(v.asJava)
-    } // Seq[MetricsName]
+    }
   }
 
 }
 
 final class EnableEnhancedMonitoringRequestOps(val self: EnableEnhancedMonitoringRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
   final def shardLevelMetricsAsScala: Option[Seq[MetricsName]] = Option(self.shardLevelMetrics).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricsName]
+  }
 
 }
 

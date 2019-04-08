@@ -9,13 +9,13 @@ final class GetLogRecordRequestBuilderOps(val self: GetLogRecordRequest.Builder)
     value.fold(self) { v =>
       self.logRecordPointer(v)
     }
-  } // String
+  }
 
 }
 
 final class GetLogRecordRequestOps(val self: GetLogRecordRequest) extends AnyVal {
 
-  final def logRecordPointerAsScala: Option[String] = Option(self.logRecordPointer) // String
+  final def logRecordPointerAsScala: Option[String] = Option(self.logRecordPointer)
 
 }
 

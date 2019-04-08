@@ -17,6 +17,9 @@ object LambdaAsyncClient {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/lambda/LambdaAsyncClient.html
+  */
 trait LambdaAsyncClient extends LambdaClient[Future] {
   val underlying: JavaLambdaAsyncClient
 

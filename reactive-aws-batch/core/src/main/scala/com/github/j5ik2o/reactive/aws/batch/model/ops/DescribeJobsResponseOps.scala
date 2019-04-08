@@ -8,7 +8,7 @@ final class DescribeJobsResponseBuilderOps(val self: DescribeJobsResponse.Builde
   final def jobsAsScala(value: Option[Seq[JobDetail]]): DescribeJobsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.jobs(v.asJava)
-    } // Seq[JobDetail]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DescribeJobsResponseOps(val self: DescribeJobsResponse) extends AnyV
 
   final def jobsAsScala: Option[Seq[JobDetail]] = Option(self.jobs).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[JobDetail]
+  }
 
 }
 

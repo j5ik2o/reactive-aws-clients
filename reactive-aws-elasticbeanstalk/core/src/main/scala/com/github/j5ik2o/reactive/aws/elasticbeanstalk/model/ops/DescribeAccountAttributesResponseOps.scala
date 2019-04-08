@@ -10,13 +10,13 @@ final class DescribeAccountAttributesResponseBuilderOps(val self: DescribeAccoun
     value.fold(self) { v =>
       self.resourceQuotas(v)
     }
-  } // ResourceQuotas
+  }
 
 }
 
 final class DescribeAccountAttributesResponseOps(val self: DescribeAccountAttributesResponse) extends AnyVal {
 
-  final def resourceQuotasAsScala: Option[ResourceQuotas] = Option(self.resourceQuotas) // ResourceQuotas
+  final def resourceQuotasAsScala: Option[ResourceQuotas] = Option(self.resourceQuotas)
 
 }
 

@@ -9,94 +9,93 @@ final class StackSummaryBuilderOps(val self: StackSummary.Builder) extends AnyVa
     value.fold(self) { v =>
       self.stackId(v)
     }
-  } // String
+  }
 
   final def stackNameAsScala(value: Option[String]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def templateDescriptionAsScala(value: Option[String]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.templateDescription(v)
     }
-  } // String
+  }
 
   final def creationTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def lastUpdatedTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.lastUpdatedTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def deletionTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.deletionTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def stackStatusAsScala(value: Option[StackStatus]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.stackStatus(v)
     }
-  } // StackStatus
+  }
 
   final def stackStatusReasonAsScala(value: Option[String]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.stackStatusReason(v)
     }
-  } // String
+  }
 
   final def parentIdAsScala(value: Option[String]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.parentId(v)
     }
-  } // String
+  }
 
   final def rootIdAsScala(value: Option[String]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.rootId(v)
     }
-  } // String
+  }
 
   final def driftInformationAsScala(value: Option[StackDriftInformationSummary]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.driftInformation(v)
     }
-  } // StackDriftInformationSummary
+  }
 
 }
 
 final class StackSummaryOps(val self: StackSummary) extends AnyVal {
 
-  final def stackIdAsScala: Option[String] = Option(self.stackId) // String
+  final def stackIdAsScala: Option[String] = Option(self.stackId)
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def templateDescriptionAsScala: Option[String] = Option(self.templateDescription) // String
+  final def templateDescriptionAsScala: Option[String] = Option(self.templateDescription)
 
-  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // java.time.Instant
+  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime)
 
-  final def lastUpdatedTimeAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTime) // java.time.Instant
+  final def lastUpdatedTimeAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTime)
 
-  final def deletionTimeAsScala: Option[java.time.Instant] = Option(self.deletionTime) // java.time.Instant
+  final def deletionTimeAsScala: Option[java.time.Instant] = Option(self.deletionTime)
 
-  final def stackStatusAsScala: Option[StackStatus] = Option(self.stackStatus) // StackStatus
+  final def stackStatusAsScala: Option[StackStatus] = Option(self.stackStatus)
 
-  final def stackStatusReasonAsScala: Option[String] = Option(self.stackStatusReason) // String
+  final def stackStatusReasonAsScala: Option[String] = Option(self.stackStatusReason)
 
-  final def parentIdAsScala: Option[String] = Option(self.parentId) // String
+  final def parentIdAsScala: Option[String] = Option(self.parentId)
 
-  final def rootIdAsScala: Option[String] = Option(self.rootId) // String
+  final def rootIdAsScala: Option[String] = Option(self.rootId)
 
-  final def driftInformationAsScala: Option[StackDriftInformationSummary] =
-    Option(self.driftInformation) // StackDriftInformationSummary
+  final def driftInformationAsScala: Option[StackDriftInformationSummary] = Option(self.driftInformation)
 
 }
 

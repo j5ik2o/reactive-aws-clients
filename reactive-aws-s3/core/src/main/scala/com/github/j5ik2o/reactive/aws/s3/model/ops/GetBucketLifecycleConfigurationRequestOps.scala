@@ -10,13 +10,13 @@ final class GetBucketLifecycleConfigurationRequestBuilderOps(val self: GetBucket
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketLifecycleConfigurationRequestOps(val self: GetBucketLifecycleConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

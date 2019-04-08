@@ -9,13 +9,13 @@ final class JSONInputBuilderOps(val self: JSONInput.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // JSONType
+  }
 
 }
 
 final class JSONInputOps(val self: JSONInput) extends AnyVal {
 
-  final def typeAsScala: Option[JSONType] = Option(self.`type`) // JSONType
+  final def typeAsScala: Option[JSONType] = Option(self.`type`)
 
 }
 

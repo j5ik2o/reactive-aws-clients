@@ -9,45 +9,45 @@ final class QueryInfoBuilderOps(val self: QueryInfo.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.queryId(v)
     }
-  } // String
+  }
 
   final def queryStringAsScala(value: Option[String]): QueryInfo.Builder = {
     value.fold(self) { v =>
       self.queryString(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[QueryStatus]): QueryInfo.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // QueryStatus
+  }
 
   final def createTimeAsScala(value: Option[Long]): QueryInfo.Builder = {
     value.fold(self) { v =>
       self.createTime(v)
     }
-  } // Long
+  }
 
   final def logGroupNameAsScala(value: Option[String]): QueryInfo.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class QueryInfoOps(val self: QueryInfo) extends AnyVal {
 
-  final def queryIdAsScala: Option[String] = Option(self.queryId) // String
+  final def queryIdAsScala: Option[String] = Option(self.queryId)
 
-  final def queryStringAsScala: Option[String] = Option(self.queryString) // String
+  final def queryStringAsScala: Option[String] = Option(self.queryString)
 
-  final def statusAsScala: Option[QueryStatus] = Option(self.status) // QueryStatus
+  final def statusAsScala: Option[QueryStatus] = Option(self.status)
 
-  final def createTimeAsScala: Option[Long] = Option(self.createTime) // Long
+  final def createTimeAsScala: Option[Long] = Option(self.createTime)
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }
 

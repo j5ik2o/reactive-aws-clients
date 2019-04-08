@@ -9,21 +9,21 @@ final class PutDestinationPolicyRequestBuilderOps(val self: PutDestinationPolicy
     value.fold(self) { v =>
       self.destinationName(v)
     }
-  } // String
+  }
 
   final def accessPolicyAsScala(value: Option[String]): PutDestinationPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.accessPolicy(v)
     }
-  } // String
+  }
 
 }
 
 final class PutDestinationPolicyRequestOps(val self: PutDestinationPolicyRequest) extends AnyVal {
 
-  final def destinationNameAsScala: Option[String] = Option(self.destinationName) // String
+  final def destinationNameAsScala: Option[String] = Option(self.destinationName)
 
-  final def accessPolicyAsScala: Option[String] = Option(self.accessPolicy) // String
+  final def accessPolicyAsScala: Option[String] = Option(self.accessPolicy)
 
 }
 

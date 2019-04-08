@@ -9,69 +9,69 @@ final class CPUUtilizationBuilderOps(val self: CPUUtilization.Builder) extends A
     value.fold(self) { v =>
       self.user(v)
     }
-  } // Double
+  }
 
   final def niceAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.nice(v)
     }
-  } // Double
+  }
 
   final def systemAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.system(v)
     }
-  } // Double
+  }
 
   final def idleAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.idle(v)
     }
-  } // Double
+  }
 
   final def ioWaitAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.ioWait(v)
     }
-  } // Double
+  }
 
   final def irqAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.irq(v)
     }
-  } // Double
+  }
 
   final def softIRQAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.softIRQ(v)
     }
-  } // Double
+  }
 
   final def privilegedAsScala(value: Option[Double]): CPUUtilization.Builder = {
     value.fold(self) { v =>
       self.privileged(v)
     }
-  } // Double
+  }
 
 }
 
 final class CPUUtilizationOps(val self: CPUUtilization) extends AnyVal {
 
-  final def userAsScala: Option[Double] = Option(self.user) // Double
+  final def userAsScala: Option[Double] = Option(self.user)
 
-  final def niceAsScala: Option[Double] = Option(self.nice) // Double
+  final def niceAsScala: Option[Double] = Option(self.nice)
 
-  final def systemAsScala: Option[Double] = Option(self.system) // Double
+  final def systemAsScala: Option[Double] = Option(self.system)
 
-  final def idleAsScala: Option[Double] = Option(self.idle) // Double
+  final def idleAsScala: Option[Double] = Option(self.idle)
 
-  final def ioWaitAsScala: Option[Double] = Option(self.ioWait) // Double
+  final def ioWaitAsScala: Option[Double] = Option(self.ioWait)
 
-  final def irqAsScala: Option[Double] = Option(self.irq) // Double
+  final def irqAsScala: Option[Double] = Option(self.irq)
 
-  final def softIRQAsScala: Option[Double] = Option(self.softIRQ) // Double
+  final def softIRQAsScala: Option[Double] = Option(self.softIRQ)
 
-  final def privilegedAsScala: Option[Double] = Option(self.privileged) // Double
+  final def privilegedAsScala: Option[Double] = Option(self.privileged)
 
 }
 

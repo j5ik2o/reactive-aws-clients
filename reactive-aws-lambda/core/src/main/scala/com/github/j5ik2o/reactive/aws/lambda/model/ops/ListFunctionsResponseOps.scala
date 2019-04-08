@@ -9,23 +9,23 @@ final class ListFunctionsResponseBuilderOps(val self: ListFunctionsResponse.Buil
     value.fold(self) { v =>
       self.nextMarker(v)
     }
-  } // String
+  }
 
   final def functionsAsScala(value: Option[Seq[FunctionConfiguration]]): ListFunctionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.functions(v.asJava)
-    } // Seq[FunctionConfiguration]
+    }
   }
 
 }
 
 final class ListFunctionsResponseOps(val self: ListFunctionsResponse) extends AnyVal {
 
-  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker) // String
+  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   final def functionsAsScala: Option[Seq[FunctionConfiguration]] = Option(self.functions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[FunctionConfiguration]
+  }
 
 }
 

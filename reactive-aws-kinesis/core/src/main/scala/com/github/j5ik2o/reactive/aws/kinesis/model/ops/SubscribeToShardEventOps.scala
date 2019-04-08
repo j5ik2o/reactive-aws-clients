@@ -8,20 +8,20 @@ final class SubscribeToShardEventBuilderOps(val self: SubscribeToShardEvent.Buil
   final def recordsAsScala(value: Option[Seq[Record]]): SubscribeToShardEvent.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
-    } // Seq[Record]
+    }
   }
 
   final def continuationSequenceNumberAsScala(value: Option[String]): SubscribeToShardEvent.Builder = {
     value.fold(self) { v =>
       self.continuationSequenceNumber(v)
     }
-  } // String
+  }
 
   final def millisBehindLatestAsScala(value: Option[Long]): SubscribeToShardEvent.Builder = {
     value.fold(self) { v =>
       self.millisBehindLatest(v)
     }
-  } // Long
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class SubscribeToShardEventOps(val self: SubscribeToShardEvent) extends An
 
   final def recordsAsScala: Option[Seq[Record]] = Option(self.records).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Record]
+  }
 
-  final def continuationSequenceNumberAsScala: Option[String] = Option(self.continuationSequenceNumber) // String
+  final def continuationSequenceNumberAsScala: Option[String] = Option(self.continuationSequenceNumber)
 
-  final def millisBehindLatestAsScala: Option[Long] = Option(self.millisBehindLatest) // Long
+  final def millisBehindLatestAsScala: Option[Long] = Option(self.millisBehindLatest)
 
 }
 

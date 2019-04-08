@@ -9,21 +9,21 @@ final class ListImportsRequestBuilderOps(val self: ListImportsRequest.Builder) e
     value.fold(self) { v =>
       self.exportName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListImportsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListImportsRequestOps(val self: ListImportsRequest) extends AnyVal {
 
-  final def exportNameAsScala: Option[String] = Option(self.exportName) // String
+  final def exportNameAsScala: Option[String] = Option(self.exportName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

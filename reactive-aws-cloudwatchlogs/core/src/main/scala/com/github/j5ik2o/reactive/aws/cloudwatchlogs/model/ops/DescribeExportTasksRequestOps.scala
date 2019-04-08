@@ -9,37 +9,37 @@ final class DescribeExportTasksRequestBuilderOps(val self: DescribeExportTasksRe
     value.fold(self) { v =>
       self.taskId(v)
     }
-  } // String
+  }
 
   final def statusCodeAsScala(value: Option[ExportTaskStatusCode]): DescribeExportTasksRequest.Builder = {
     value.fold(self) { v =>
       self.statusCode(v)
     }
-  } // ExportTaskStatusCode
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeExportTasksRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): DescribeExportTasksRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeExportTasksRequestOps(val self: DescribeExportTasksRequest) extends AnyVal {
 
-  final def taskIdAsScala: Option[String] = Option(self.taskId) // String
+  final def taskIdAsScala: Option[String] = Option(self.taskId)
 
-  final def statusCodeAsScala: Option[ExportTaskStatusCode] = Option(self.statusCode) // ExportTaskStatusCode
+  final def statusCodeAsScala: Option[ExportTaskStatusCode] = Option(self.statusCode)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

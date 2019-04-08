@@ -8,20 +8,20 @@ final class FilterLogEventsResponseBuilderOps(val self: FilterLogEventsResponse.
   final def eventsAsScala(value: Option[Seq[FilteredLogEvent]]): FilterLogEventsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
-    } // Seq[FilteredLogEvent]
+    }
   }
 
   final def searchedLogStreamsAsScala(value: Option[Seq[SearchedLogStream]]): FilterLogEventsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.searchedLogStreams(v.asJava)
-    } // Seq[SearchedLogStream]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): FilterLogEventsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -29,13 +29,13 @@ final class FilterLogEventsResponseOps(val self: FilterLogEventsResponse) extend
 
   final def eventsAsScala: Option[Seq[FilteredLogEvent]] = Option(self.events).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[FilteredLogEvent]
+  }
 
   final def searchedLogStreamsAsScala: Option[Seq[SearchedLogStream]] = Option(self.searchedLogStreams).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[SearchedLogStream]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

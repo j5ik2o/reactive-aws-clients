@@ -9,29 +9,29 @@ final class UpdateShardCountRequestBuilderOps(val self: UpdateShardCountRequest.
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def targetShardCountAsScala(value: Option[Int]): UpdateShardCountRequest.Builder = {
     value.fold(self) { v =>
       self.targetShardCount(v)
     }
-  } // Int
+  }
 
   final def scalingTypeAsScala(value: Option[ScalingType]): UpdateShardCountRequest.Builder = {
     value.fold(self) { v =>
       self.scalingType(v)
     }
-  } // ScalingType
+  }
 
 }
 
 final class UpdateShardCountRequestOps(val self: UpdateShardCountRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def targetShardCountAsScala: Option[Int] = Option(self.targetShardCount) // Int
+  final def targetShardCountAsScala: Option[Int] = Option(self.targetShardCount)
 
-  final def scalingTypeAsScala: Option[ScalingType] = Option(self.scalingType) // ScalingType
+  final def scalingTypeAsScala: Option[ScalingType] = Option(self.scalingType)
 
 }
 

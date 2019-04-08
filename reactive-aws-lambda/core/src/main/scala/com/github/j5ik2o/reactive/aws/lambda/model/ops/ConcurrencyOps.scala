@@ -9,13 +9,13 @@ final class ConcurrencyBuilderOps(val self: Concurrency.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.reservedConcurrentExecutions(v)
     }
-  } // Int
+  }
 
 }
 
 final class ConcurrencyOps(val self: Concurrency) extends AnyVal {
 
-  final def reservedConcurrentExecutionsAsScala: Option[Int] = Option(self.reservedConcurrentExecutions) // Int
+  final def reservedConcurrentExecutionsAsScala: Option[Int] = Option(self.reservedConcurrentExecutions)
 
 }
 

@@ -9,21 +9,21 @@ final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends
     value.fold(self) { v =>
       self.resourceName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListTagsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListTagsRequestOps(val self: ListTagsRequest) extends AnyVal {
 
-  final def resourceNameAsScala: Option[String] = Option(self.resourceName) // String
+  final def resourceNameAsScala: Option[String] = Option(self.resourceName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

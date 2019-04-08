@@ -10,29 +10,29 @@ final class UpdateApplicationVersionRequestBuilderOps(val self: UpdateApplicatio
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def versionLabelAsScala(value: Option[String]): UpdateApplicationVersionRequest.Builder = {
     value.fold(self) { v =>
       self.versionLabel(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): UpdateApplicationVersionRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateApplicationVersionRequestOps(val self: UpdateApplicationVersionRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def versionLabelAsScala: Option[String] = Option(self.versionLabel) // String
+  final def versionLabelAsScala: Option[String] = Option(self.versionLabel)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
 }
 

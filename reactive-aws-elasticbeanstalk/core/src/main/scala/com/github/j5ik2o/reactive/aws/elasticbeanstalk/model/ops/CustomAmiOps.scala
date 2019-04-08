@@ -9,21 +9,21 @@ final class CustomAmiBuilderOps(val self: CustomAmi.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.virtualizationType(v)
     }
-  } // String
+  }
 
   final def imageIdAsScala(value: Option[String]): CustomAmi.Builder = {
     value.fold(self) { v =>
       self.imageId(v)
     }
-  } // String
+  }
 
 }
 
 final class CustomAmiOps(val self: CustomAmi) extends AnyVal {
 
-  final def virtualizationTypeAsScala: Option[String] = Option(self.virtualizationType) // String
+  final def virtualizationTypeAsScala: Option[String] = Option(self.virtualizationType)
 
-  final def imageIdAsScala: Option[String] = Option(self.imageId) // String
+  final def imageIdAsScala: Option[String] = Option(self.imageId)
 
 }
 

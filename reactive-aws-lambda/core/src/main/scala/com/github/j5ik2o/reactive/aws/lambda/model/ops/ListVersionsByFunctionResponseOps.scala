@@ -9,23 +9,23 @@ final class ListVersionsByFunctionResponseBuilderOps(val self: ListVersionsByFun
     value.fold(self) { v =>
       self.nextMarker(v)
     }
-  } // String
+  }
 
   final def versionsAsScala(value: Option[Seq[FunctionConfiguration]]): ListVersionsByFunctionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.versions(v.asJava)
-    } // Seq[FunctionConfiguration]
+    }
   }
 
 }
 
 final class ListVersionsByFunctionResponseOps(val self: ListVersionsByFunctionResponse) extends AnyVal {
 
-  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker) // String
+  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   final def versionsAsScala: Option[Seq[FunctionConfiguration]] = Option(self.versions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[FunctionConfiguration]
+  }
 
 }
 

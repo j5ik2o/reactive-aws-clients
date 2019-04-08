@@ -9,32 +9,29 @@ final class GlobalSecondaryIndexUpdateBuilderOps(val self: GlobalSecondaryIndexU
     value.fold(self) { v =>
       self.update(v)
     }
-  } // UpdateGlobalSecondaryIndexAction
+  }
 
   final def createAsScala(value: Option[CreateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.create(v)
     }
-  } // CreateGlobalSecondaryIndexAction
+  }
 
   final def deleteAsScala(value: Option[DeleteGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }
-  } // DeleteGlobalSecondaryIndexAction
+  }
 
 }
 
 final class GlobalSecondaryIndexUpdateOps(val self: GlobalSecondaryIndexUpdate) extends AnyVal {
 
-  final def updateAsScala: Option[UpdateGlobalSecondaryIndexAction] =
-    Option(self.update) // UpdateGlobalSecondaryIndexAction
+  final def updateAsScala: Option[UpdateGlobalSecondaryIndexAction] = Option(self.update)
 
-  final def createAsScala: Option[CreateGlobalSecondaryIndexAction] =
-    Option(self.create) // CreateGlobalSecondaryIndexAction
+  final def createAsScala: Option[CreateGlobalSecondaryIndexAction] = Option(self.create)
 
-  final def deleteAsScala: Option[DeleteGlobalSecondaryIndexAction] =
-    Option(self.delete) // DeleteGlobalSecondaryIndexAction
+  final def deleteAsScala: Option[DeleteGlobalSecondaryIndexAction] = Option(self.delete)
 
 }
 

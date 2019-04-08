@@ -8,7 +8,7 @@ final class DeleteDashboardsRequestBuilderOps(val self: DeleteDashboardsRequest.
   final def dashboardNamesAsScala(value: Option[Seq[String]]): DeleteDashboardsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.dashboardNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DeleteDashboardsRequestOps(val self: DeleteDashboardsRequest) extend
 
   final def dashboardNamesAsScala: Option[Seq[String]] = Option(self.dashboardNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

@@ -8,14 +8,14 @@ final class ListStreamsResponseBuilderOps(val self: ListStreamsResponse.Builder)
   final def streamNamesAsScala(value: Option[Seq[String]]): ListStreamsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.streamNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def hasMoreStreamsAsScala(value: Option[Boolean]): ListStreamsResponse.Builder = {
     value.fold(self) { v =>
       self.hasMoreStreams(v)
     }
-  } // Boolean
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListStreamsResponseOps(val self: ListStreamsResponse) extends AnyVal
 
   final def streamNamesAsScala: Option[Seq[String]] = Option(self.streamNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def hasMoreStreamsAsScala: Option[Boolean] = Option(self.hasMoreStreams) // Boolean
+  final def hasMoreStreamsAsScala: Option[Boolean] = Option(self.hasMoreStreams)
 
 }
 

@@ -9,29 +9,29 @@ final class PutDestinationRequestBuilderOps(val self: PutDestinationRequest.Buil
     value.fold(self) { v =>
       self.destinationName(v)
     }
-  } // String
+  }
 
   final def targetArnAsScala(value: Option[String]): PutDestinationRequest.Builder = {
     value.fold(self) { v =>
       self.targetArn(v)
     }
-  } // String
+  }
 
   final def roleArnAsScala(value: Option[String]): PutDestinationRequest.Builder = {
     value.fold(self) { v =>
       self.roleArn(v)
     }
-  } // String
+  }
 
 }
 
 final class PutDestinationRequestOps(val self: PutDestinationRequest) extends AnyVal {
 
-  final def destinationNameAsScala: Option[String] = Option(self.destinationName) // String
+  final def destinationNameAsScala: Option[String] = Option(self.destinationName)
 
-  final def targetArnAsScala: Option[String] = Option(self.targetArn) // String
+  final def targetArnAsScala: Option[String] = Option(self.targetArn)
 
-  final def roleArnAsScala: Option[String] = Option(self.roleArn) // String
+  final def roleArnAsScala: Option[String] = Option(self.roleArn)
 
 }
 

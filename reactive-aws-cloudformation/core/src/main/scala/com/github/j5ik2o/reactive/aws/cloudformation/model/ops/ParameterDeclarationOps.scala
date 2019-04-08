@@ -9,54 +9,53 @@ final class ParameterDeclarationBuilderOps(val self: ParameterDeclaration.Builde
     value.fold(self) { v =>
       self.parameterKey(v)
     }
-  } // String
+  }
 
   final def defaultValueAsScala(value: Option[String]): ParameterDeclaration.Builder = {
     value.fold(self) { v =>
       self.defaultValue(v)
     }
-  } // String
+  }
 
   final def parameterTypeAsScala(value: Option[String]): ParameterDeclaration.Builder = {
     value.fold(self) { v =>
       self.parameterType(v)
     }
-  } // String
+  }
 
   final def noEchoAsScala(value: Option[Boolean]): ParameterDeclaration.Builder = {
     value.fold(self) { v =>
       self.noEcho(v)
     }
-  } // Boolean
+  }
 
   final def descriptionAsScala(value: Option[String]): ParameterDeclaration.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def parameterConstraintsAsScala(value: Option[ParameterConstraints]): ParameterDeclaration.Builder = {
     value.fold(self) { v =>
       self.parameterConstraints(v)
     }
-  } // ParameterConstraints
+  }
 
 }
 
 final class ParameterDeclarationOps(val self: ParameterDeclaration) extends AnyVal {
 
-  final def parameterKeyAsScala: Option[String] = Option(self.parameterKey) // String
+  final def parameterKeyAsScala: Option[String] = Option(self.parameterKey)
 
-  final def defaultValueAsScala: Option[String] = Option(self.defaultValue) // String
+  final def defaultValueAsScala: Option[String] = Option(self.defaultValue)
 
-  final def parameterTypeAsScala: Option[String] = Option(self.parameterType) // String
+  final def parameterTypeAsScala: Option[String] = Option(self.parameterType)
 
-  final def noEchoAsScala: Option[Boolean] = Option(self.noEcho) // Boolean
+  final def noEchoAsScala: Option[Boolean] = Option(self.noEcho)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def parameterConstraintsAsScala: Option[ParameterConstraints] =
-    Option(self.parameterConstraints) // ParameterConstraints
+  final def parameterConstraintsAsScala: Option[ParameterConstraints] = Option(self.parameterConstraints)
 
 }
 

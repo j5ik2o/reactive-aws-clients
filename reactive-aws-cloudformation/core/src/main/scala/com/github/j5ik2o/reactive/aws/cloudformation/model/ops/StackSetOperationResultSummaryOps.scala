@@ -9,45 +9,45 @@ final class StackSetOperationResultSummaryBuilderOps(val self: StackSetOperation
     value.fold(self) { v =>
       self.account(v)
     }
-  } // String
+  }
 
   final def regionAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
     value.fold(self) { v =>
       self.region(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[StackSetOperationResultStatus]): StackSetOperationResultSummary.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // StackSetOperationResultStatus
+  }
 
   final def statusReasonAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
     value.fold(self) { v =>
       self.statusReason(v)
     }
-  } // String
+  }
 
   final def accountGateResultAsScala(value: Option[AccountGateResult]): StackSetOperationResultSummary.Builder = {
     value.fold(self) { v =>
       self.accountGateResult(v)
     }
-  } // AccountGateResult
+  }
 
 }
 
 final class StackSetOperationResultSummaryOps(val self: StackSetOperationResultSummary) extends AnyVal {
 
-  final def accountAsScala: Option[String] = Option(self.account) // String
+  final def accountAsScala: Option[String] = Option(self.account)
 
-  final def regionAsScala: Option[String] = Option(self.region) // String
+  final def regionAsScala: Option[String] = Option(self.region)
 
-  final def statusAsScala: Option[StackSetOperationResultStatus] = Option(self.status) // StackSetOperationResultStatus
+  final def statusAsScala: Option[StackSetOperationResultStatus] = Option(self.status)
 
-  final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
+  final def statusReasonAsScala: Option[String] = Option(self.statusReason)
 
-  final def accountGateResultAsScala: Option[AccountGateResult] = Option(self.accountGateResult) // AccountGateResult
+  final def accountGateResultAsScala: Option[AccountGateResult] = Option(self.accountGateResult)
 
 }
 

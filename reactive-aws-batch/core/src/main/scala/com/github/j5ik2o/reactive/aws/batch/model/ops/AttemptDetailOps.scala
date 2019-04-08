@@ -9,37 +9,37 @@ final class AttemptDetailBuilderOps(val self: AttemptDetail.Builder) extends Any
     value.fold(self) { v =>
       self.container(v)
     }
-  } // AttemptContainerDetail
+  }
 
   final def startedAtAsScala(value: Option[Long]): AttemptDetail.Builder = {
     value.fold(self) { v =>
       self.startedAt(v)
     }
-  } // Long
+  }
 
   final def stoppedAtAsScala(value: Option[Long]): AttemptDetail.Builder = {
     value.fold(self) { v =>
       self.stoppedAt(v)
     }
-  } // Long
+  }
 
   final def statusReasonAsScala(value: Option[String]): AttemptDetail.Builder = {
     value.fold(self) { v =>
       self.statusReason(v)
     }
-  } // String
+  }
 
 }
 
 final class AttemptDetailOps(val self: AttemptDetail) extends AnyVal {
 
-  final def containerAsScala: Option[AttemptContainerDetail] = Option(self.container) // AttemptContainerDetail
+  final def containerAsScala: Option[AttemptContainerDetail] = Option(self.container)
 
-  final def startedAtAsScala: Option[Long] = Option(self.startedAt) // Long
+  final def startedAtAsScala: Option[Long] = Option(self.startedAt)
 
-  final def stoppedAtAsScala: Option[Long] = Option(self.stoppedAt) // Long
+  final def stoppedAtAsScala: Option[Long] = Option(self.stoppedAt)
 
-  final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
+  final def statusReasonAsScala: Option[String] = Option(self.statusReason)
 
 }
 

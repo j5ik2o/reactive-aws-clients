@@ -9,47 +9,45 @@ final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def accountAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.account(v)
     }
-  } // String
+  }
 
   final def storageClassAsScala(value: Option[StorageClass]): Destination.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // StorageClass
+  }
 
   final def accessControlTranslationAsScala(value: Option[AccessControlTranslation]): Destination.Builder = {
     value.fold(self) { v =>
       self.accessControlTranslation(v)
     }
-  } // AccessControlTranslation
+  }
 
   final def encryptionConfigurationAsScala(value: Option[EncryptionConfiguration]): Destination.Builder = {
     value.fold(self) { v =>
       self.encryptionConfiguration(v)
     }
-  } // EncryptionConfiguration
+  }
 
 }
 
 final class DestinationOps(val self: Destination) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def accountAsScala: Option[String] = Option(self.account) // String
+  final def accountAsScala: Option[String] = Option(self.account)
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass)
 
-  final def accessControlTranslationAsScala: Option[AccessControlTranslation] =
-    Option(self.accessControlTranslation) // AccessControlTranslation
+  final def accessControlTranslationAsScala: Option[AccessControlTranslation] = Option(self.accessControlTranslation)
 
-  final def encryptionConfigurationAsScala: Option[EncryptionConfiguration] =
-    Option(self.encryptionConfiguration) // EncryptionConfiguration
+  final def encryptionConfigurationAsScala: Option[EncryptionConfiguration] = Option(self.encryptionConfiguration)
 
 }
 

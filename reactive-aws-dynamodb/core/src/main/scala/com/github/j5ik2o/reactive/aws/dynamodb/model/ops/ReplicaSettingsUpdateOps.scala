@@ -9,13 +9,13 @@ final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Buil
     value.fold(self) { v =>
       self.regionName(v)
     }
-  } // String
+  }
 
   final def replicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def replicaProvisionedReadCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
@@ -23,32 +23,31 @@ final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Buil
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate(v)
     }
-  } // AutoScalingSettingsUpdate
+  }
 
   final def replicaGlobalSecondaryIndexSettingsUpdateAsScala(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]]
   ): ReplicaSettingsUpdate.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicaGlobalSecondaryIndexSettingsUpdate(v.asJava)
-    } // Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]
+    }
   }
 
 }
 
 final class ReplicaSettingsUpdateOps(val self: ReplicaSettingsUpdate) extends AnyVal {
 
-  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+  final def regionNameAsScala: Option[String] = Option(self.regionName)
 
-  final def replicaProvisionedReadCapacityUnitsAsScala: Option[Long] =
-    Option(self.replicaProvisionedReadCapacityUnits) // Long
+  final def replicaProvisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.replicaProvisionedReadCapacityUnits)
 
   final def replicaProvisionedReadCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
-    Option(self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+    Option(self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate)
 
   final def replicaGlobalSecondaryIndexSettingsUpdateAsScala: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]] =
     Option(self.replicaGlobalSecondaryIndexSettingsUpdate).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]
+    }
 
 }
 

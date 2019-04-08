@@ -9,42 +9,42 @@ final class ApplicationDescriptionBuilderOps(val self: ApplicationDescription.Bu
     value.fold(self) { v =>
       self.applicationArn(v)
     }
-  } // String
+  }
 
   final def applicationNameAsScala(value: Option[String]): ApplicationDescription.Builder = {
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): ApplicationDescription.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def dateCreatedAsScala(value: Option[java.time.Instant]): ApplicationDescription.Builder = {
     value.fold(self) { v =>
       self.dateCreated(v)
     }
-  } // java.time.Instant
+  }
 
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): ApplicationDescription.Builder = {
     value.fold(self) { v =>
       self.dateUpdated(v)
     }
-  } // java.time.Instant
+  }
 
   final def versionsAsScala(value: Option[Seq[String]]): ApplicationDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.versions(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def configurationTemplatesAsScala(value: Option[Seq[String]]): ApplicationDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.configurationTemplates(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def resourceLifecycleConfigAsScala(
@@ -53,32 +53,32 @@ final class ApplicationDescriptionBuilderOps(val self: ApplicationDescription.Bu
     value.fold(self) { v =>
       self.resourceLifecycleConfig(v)
     }
-  } // ApplicationResourceLifecycleConfig
+  }
 
 }
 
 final class ApplicationDescriptionOps(val self: ApplicationDescription) extends AnyVal {
 
-  final def applicationArnAsScala: Option[String] = Option(self.applicationArn) // String
+  final def applicationArnAsScala: Option[String] = Option(self.applicationArn)
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // java.time.Instant
+  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated)
 
-  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // java.time.Instant
+  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated)
 
   final def versionsAsScala: Option[Seq[String]] = Option(self.versions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def configurationTemplatesAsScala: Option[Seq[String]] = Option(self.configurationTemplates).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def resourceLifecycleConfigAsScala: Option[ApplicationResourceLifecycleConfig] =
-    Option(self.resourceLifecycleConfig) // ApplicationResourceLifecycleConfig
+    Option(self.resourceLifecycleConfig)
 
 }
 

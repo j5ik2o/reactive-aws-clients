@@ -17,6 +17,9 @@ object CloudFormationAsyncClient {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudformation/CloudFormationAsyncClient.html
+  */
 trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   val underlying: JavaCloudFormationAsyncClient
 

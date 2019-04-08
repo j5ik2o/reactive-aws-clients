@@ -10,37 +10,37 @@ final class RemoveLayerVersionPermissionRequestBuilderOps(val self: RemoveLayerV
     value.fold(self) { v =>
       self.layerName(v)
     }
-  } // String
+  }
 
   final def versionNumberAsScala(value: Option[Long]): RemoveLayerVersionPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.versionNumber(v)
     }
-  } // Long
+  }
 
   final def statementIdAsScala(value: Option[String]): RemoveLayerVersionPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.statementId(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): RemoveLayerVersionPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class RemoveLayerVersionPermissionRequestOps(val self: RemoveLayerVersionPermissionRequest) extends AnyVal {
 
-  final def layerNameAsScala: Option[String] = Option(self.layerName) // String
+  final def layerNameAsScala: Option[String] = Option(self.layerName)
 
-  final def versionNumberAsScala: Option[Long] = Option(self.versionNumber) // Long
+  final def versionNumberAsScala: Option[Long] = Option(self.versionNumber)
 
-  final def statementIdAsScala: Option[String] = Option(self.statementId) // String
+  final def statementIdAsScala: Option[String] = Option(self.statementId)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

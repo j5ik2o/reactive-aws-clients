@@ -10,26 +10,26 @@ final class UpdateConfigurationTemplateRequestBuilderOps(val self: UpdateConfigu
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def templateNameAsScala(value: Option[String]): UpdateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): UpdateConfigurationTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def optionSettingsAsScala(
       value: Option[Seq[ConfigurationOptionSetting]]
   ): UpdateConfigurationTemplateRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.optionSettings(v.asJava)
-    } // Seq[ConfigurationOptionSetting]
+    }
   }
 
   final def optionsToRemoveAsScala(
@@ -37,26 +37,26 @@ final class UpdateConfigurationTemplateRequestBuilderOps(val self: UpdateConfigu
   ): UpdateConfigurationTemplateRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.optionsToRemove(v.asJava)
-    } // Seq[OptionSpecification]
+    }
   }
 
 }
 
 final class UpdateConfigurationTemplateRequestOps(val self: UpdateConfigurationTemplateRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def templateNameAsScala: Option[String] = Option(self.templateName) // String
+  final def templateNameAsScala: Option[String] = Option(self.templateName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
   final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ConfigurationOptionSetting]
+  }
 
   final def optionsToRemoveAsScala: Option[Seq[OptionSpecification]] = Option(self.optionsToRemove).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[OptionSpecification]
+  }
 
 }
 

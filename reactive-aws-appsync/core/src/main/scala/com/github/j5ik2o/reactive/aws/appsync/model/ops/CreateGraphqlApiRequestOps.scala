@@ -9,47 +9,45 @@ final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def logConfigAsScala(value: Option[LogConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.logConfig(v)
     }
-  } // LogConfig
+  }
 
   final def authenticationTypeAsScala(value: Option[AuthenticationType]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.authenticationType(v)
     }
-  } // AuthenticationType
+  }
 
   final def userPoolConfigAsScala(value: Option[UserPoolConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.userPoolConfig(v)
     }
-  } // UserPoolConfig
+  }
 
   final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.openIDConnectConfig(v)
     }
-  } // OpenIDConnectConfig
+  }
 
 }
 
 final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig) // LogConfig
+  final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig)
 
-  final def authenticationTypeAsScala: Option[AuthenticationType] =
-    Option(self.authenticationType) // AuthenticationType
+  final def authenticationTypeAsScala: Option[AuthenticationType] = Option(self.authenticationType)
 
-  final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig) // UserPoolConfig
+  final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig)
 
-  final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] =
-    Option(self.openIDConnectConfig) // OpenIDConnectConfig
+  final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] = Option(self.openIDConnectConfig)
 
 }
 

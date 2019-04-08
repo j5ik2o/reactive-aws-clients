@@ -8,14 +8,14 @@ final class DescribeJobQueuesResponseBuilderOps(val self: DescribeJobQueuesRespo
   final def jobQueuesAsScala(value: Option[Seq[JobQueueDetail]]): DescribeJobQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.jobQueues(v.asJava)
-    } // Seq[JobQueueDetail]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeJobQueuesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeJobQueuesResponseOps(val self: DescribeJobQueuesResponse) ex
 
   final def jobQueuesAsScala: Option[Seq[JobQueueDetail]] = Option(self.jobQueues).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[JobQueueDetail]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

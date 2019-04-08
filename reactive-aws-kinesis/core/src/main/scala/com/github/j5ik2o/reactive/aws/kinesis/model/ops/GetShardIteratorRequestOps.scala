@@ -9,45 +9,45 @@ final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def shardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
-  } // String
+  }
 
   final def shardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.shardIteratorType(v)
     }
-  } // ShardIteratorType
+  }
 
   final def startingSequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.startingSequenceNumber(v)
     }
-  } // String
+  }
 
   final def timestampAsScala(value: Option[java.time.Instant]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class GetShardIteratorRequestOps(val self: GetShardIteratorRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+  final def shardIdAsScala: Option[String] = Option(self.shardId)
 
-  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType) // ShardIteratorType
+  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType)
 
-  final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber) // String
+  final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber)
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp)
 
 }
 

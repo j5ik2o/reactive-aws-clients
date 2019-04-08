@@ -9,23 +9,23 @@ final class CreateQueueRequestBuilderOps(val self: CreateQueueRequest.Builder) e
     value.fold(self) { v =>
       self.queueName(v)
     }
-  } // String
+  }
 
   final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): CreateQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
-    } // Map[QueueAttributeName, String]
+    }
   }
 
 }
 
 final class CreateQueueRequestOps(val self: CreateQueueRequest) extends AnyVal {
 
-  final def queueNameAsScala: Option[String] = Option(self.queueName) // String
+  final def queueNameAsScala: Option[String] = Option(self.queueName)
 
   final def attributesAsScala: Option[Map[QueueAttributeName, String]] = Option(self.attributes).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[QueueAttributeName, String]
+  }
 
 }
 

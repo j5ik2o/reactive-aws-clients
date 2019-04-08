@@ -9,13 +9,13 @@ final class DeletePlatformVersionResponseBuilderOps(val self: DeletePlatformVers
     value.fold(self) { v =>
       self.platformSummary(v)
     }
-  } // PlatformSummary
+  }
 
 }
 
 final class DeletePlatformVersionResponseOps(val self: DeletePlatformVersionResponse) extends AnyVal {
 
-  final def platformSummaryAsScala: Option[PlatformSummary] = Option(self.platformSummary) // PlatformSummary
+  final def platformSummaryAsScala: Option[PlatformSummary] = Option(self.platformSummary)
 
 }
 

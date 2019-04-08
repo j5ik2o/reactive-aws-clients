@@ -9,21 +9,21 @@ final class PutDashboardRequestBuilderOps(val self: PutDashboardRequest.Builder)
     value.fold(self) { v =>
       self.dashboardName(v)
     }
-  } // String
+  }
 
   final def dashboardBodyAsScala(value: Option[String]): PutDashboardRequest.Builder = {
     value.fold(self) { v =>
       self.dashboardBody(v)
     }
-  } // String
+  }
 
 }
 
 final class PutDashboardRequestOps(val self: PutDashboardRequest) extends AnyVal {
 
-  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName) // String
+  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName)
 
-  final def dashboardBodyAsScala: Option[String] = Option(self.dashboardBody) // String
+  final def dashboardBodyAsScala: Option[String] = Option(self.dashboardBody)
 
 }
 

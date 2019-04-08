@@ -12,14 +12,14 @@ final class DescribeEnvironmentManagedActionHistoryResponseBuilderOps(
   ): DescribeEnvironmentManagedActionHistoryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.managedActionHistoryItems(v.asJava)
-    } // Seq[ManagedActionHistoryItem]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -30,9 +30,9 @@ final class DescribeEnvironmentManagedActionHistoryResponseOps(
   final def managedActionHistoryItemsAsScala: Option[Seq[ManagedActionHistoryItem]] =
     Option(self.managedActionHistoryItems).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ManagedActionHistoryItem]
+    }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

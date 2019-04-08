@@ -9,14 +9,14 @@ final class DescribeResourcePoliciesResponseBuilderOps(val self: DescribeResourc
   final def resourcePoliciesAsScala(value: Option[Seq[ResourcePolicy]]): DescribeResourcePoliciesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.resourcePolicies(v.asJava)
-    } // Seq[ResourcePolicy]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeResourcePoliciesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -24,9 +24,9 @@ final class DescribeResourcePoliciesResponseOps(val self: DescribeResourcePolici
 
   final def resourcePoliciesAsScala: Option[Seq[ResourcePolicy]] = Option(self.resourcePolicies).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ResourcePolicy]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -10,38 +10,37 @@ final class UpdateComputeEnvironmentRequestBuilderOps(val self: UpdateComputeEnv
     value.fold(self) { v =>
       self.computeEnvironment(v)
     }
-  } // String
+  }
 
   final def stateAsScala(value: Option[CEState]): UpdateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
-  } // CEState
+  }
 
   final def computeResourcesAsScala(value: Option[ComputeResourceUpdate]): UpdateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.computeResources(v)
     }
-  } // ComputeResourceUpdate
+  }
 
   final def serviceRoleAsScala(value: Option[String]): UpdateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.serviceRole(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateComputeEnvironmentRequestOps(val self: UpdateComputeEnvironmentRequest) extends AnyVal {
 
-  final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment) // String
+  final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment)
 
-  final def stateAsScala: Option[CEState] = Option(self.state) // CEState
+  final def stateAsScala: Option[CEState] = Option(self.state)
 
-  final def computeResourcesAsScala: Option[ComputeResourceUpdate] =
-    Option(self.computeResources) // ComputeResourceUpdate
+  final def computeResourcesAsScala: Option[ComputeResourceUpdate] = Option(self.computeResources)
 
-  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole) // String
+  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole)
 
 }
 

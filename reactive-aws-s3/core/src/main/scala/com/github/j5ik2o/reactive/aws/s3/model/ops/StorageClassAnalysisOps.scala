@@ -9,14 +9,13 @@ final class StorageClassAnalysisBuilderOps(val self: StorageClassAnalysis.Builde
     value.fold(self) { v =>
       self.dataExport(v)
     }
-  } // StorageClassAnalysisDataExport
+  }
 
 }
 
 final class StorageClassAnalysisOps(val self: StorageClassAnalysis) extends AnyVal {
 
-  final def dataExportAsScala: Option[StorageClassAnalysisDataExport] =
-    Option(self.dataExport) // StorageClassAnalysisDataExport
+  final def dataExportAsScala: Option[StorageClassAnalysisDataExport] = Option(self.dataExport)
 
 }
 

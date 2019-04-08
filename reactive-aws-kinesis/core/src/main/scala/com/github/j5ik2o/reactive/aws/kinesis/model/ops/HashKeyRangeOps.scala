@@ -9,21 +9,21 @@ final class HashKeyRangeBuilderOps(val self: HashKeyRange.Builder) extends AnyVa
     value.fold(self) { v =>
       self.startingHashKey(v)
     }
-  } // String
+  }
 
   final def endingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
     value.fold(self) { v =>
       self.endingHashKey(v)
     }
-  } // String
+  }
 
 }
 
 final class HashKeyRangeOps(val self: HashKeyRange) extends AnyVal {
 
-  final def startingHashKeyAsScala: Option[String] = Option(self.startingHashKey) // String
+  final def startingHashKeyAsScala: Option[String] = Option(self.startingHashKey)
 
-  final def endingHashKeyAsScala: Option[String] = Option(self.endingHashKey) // String
+  final def endingHashKeyAsScala: Option[String] = Option(self.endingHashKey)
 
 }
 

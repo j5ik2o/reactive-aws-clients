@@ -10,37 +10,37 @@ final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToP
     value.fold(self) { v =>
       self.sourceTableName(v)
     }
-  } // String
+  }
 
   final def targetTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.targetTableName(v)
     }
-  } // String
+  }
 
   final def useLatestRestorableTimeAsScala(value: Option[Boolean]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.useLatestRestorableTime(v)
     }
-  } // Boolean
+  }
 
   final def restoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.restoreDateTime(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInTimeRequest) extends AnyVal {
 
-  final def sourceTableNameAsScala: Option[String] = Option(self.sourceTableName) // String
+  final def sourceTableNameAsScala: Option[String] = Option(self.sourceTableName)
 
-  final def targetTableNameAsScala: Option[String] = Option(self.targetTableName) // String
+  final def targetTableNameAsScala: Option[String] = Option(self.targetTableName)
 
-  final def useLatestRestorableTimeAsScala: Option[Boolean] = Option(self.useLatestRestorableTime) // Boolean
+  final def useLatestRestorableTimeAsScala: Option[Boolean] = Option(self.useLatestRestorableTime)
 
-  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // java.time.Instant
+  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime)
 
 }
 

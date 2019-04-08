@@ -9,13 +9,13 @@ final class GetDataSourceResponseBuilderOps(val self: GetDataSourceResponse.Buil
     value.fold(self) { v =>
       self.dataSource(v)
     }
-  } // DataSource
+  }
 
 }
 
 final class GetDataSourceResponseOps(val self: GetDataSourceResponse) extends AnyVal {
 
-  final def dataSourceAsScala: Option[DataSource] = Option(self.dataSource) // DataSource
+  final def dataSourceAsScala: Option[DataSource] = Option(self.dataSource)
 
 }
 

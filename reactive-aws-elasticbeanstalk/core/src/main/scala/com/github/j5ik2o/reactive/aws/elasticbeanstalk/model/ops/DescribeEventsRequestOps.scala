@@ -9,101 +9,101 @@ final class DescribeEventsRequestBuilderOps(val self: DescribeEventsRequest.Buil
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def versionLabelAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.versionLabel(v)
     }
-  } // String
+  }
 
   final def templateNameAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
     }
-  } // String
+  }
 
   final def environmentIdAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
   final def platformArnAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.platformArn(v)
     }
-  } // String
+  }
 
   final def requestIdAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.requestId(v)
     }
-  } // String
+  }
 
   final def severityAsScala(value: Option[EventSeverity]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.severity(v)
     }
-  } // EventSeverity
+  }
 
   final def startTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def endTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def maxRecordsAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.maxRecords(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeEventsRequestOps(val self: DescribeEventsRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def versionLabelAsScala: Option[String] = Option(self.versionLabel) // String
+  final def versionLabelAsScala: Option[String] = Option(self.versionLabel)
 
-  final def templateNameAsScala: Option[String] = Option(self.templateName) // String
+  final def templateNameAsScala: Option[String] = Option(self.templateName)
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
-  final def platformArnAsScala: Option[String] = Option(self.platformArn) // String
+  final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
-  final def requestIdAsScala: Option[String] = Option(self.requestId) // String
+  final def requestIdAsScala: Option[String] = Option(self.requestId)
 
-  final def severityAsScala: Option[EventSeverity] = Option(self.severity) // EventSeverity
+  final def severityAsScala: Option[EventSeverity] = Option(self.severity)
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime)
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // java.time.Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime)
 
-  final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords) // Int
+  final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

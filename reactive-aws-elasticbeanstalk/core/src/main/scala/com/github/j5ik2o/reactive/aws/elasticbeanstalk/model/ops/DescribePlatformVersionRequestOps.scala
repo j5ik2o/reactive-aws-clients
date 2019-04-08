@@ -9,13 +9,13 @@ final class DescribePlatformVersionRequestBuilderOps(val self: DescribePlatformV
     value.fold(self) { v =>
       self.platformArn(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribePlatformVersionRequestOps(val self: DescribePlatformVersionRequest) extends AnyVal {
 
-  final def platformArnAsScala: Option[String] = Option(self.platformArn) // String
+  final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
 }
 

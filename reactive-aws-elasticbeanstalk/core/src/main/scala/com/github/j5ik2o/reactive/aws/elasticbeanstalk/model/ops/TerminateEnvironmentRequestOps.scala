@@ -9,37 +9,37 @@ final class TerminateEnvironmentRequestBuilderOps(val self: TerminateEnvironment
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): TerminateEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
   final def terminateResourcesAsScala(value: Option[Boolean]): TerminateEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.terminateResources(v)
     }
-  } // Boolean
+  }
 
   final def forceTerminateAsScala(value: Option[Boolean]): TerminateEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.forceTerminate(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class TerminateEnvironmentRequestOps(val self: TerminateEnvironmentRequest) extends AnyVal {
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
-  final def terminateResourcesAsScala: Option[Boolean] = Option(self.terminateResources) // Boolean
+  final def terminateResourcesAsScala: Option[Boolean] = Option(self.terminateResources)
 
-  final def forceTerminateAsScala: Option[Boolean] = Option(self.forceTerminate) // Boolean
+  final def forceTerminateAsScala: Option[Boolean] = Option(self.forceTerminate)
 
 }
 

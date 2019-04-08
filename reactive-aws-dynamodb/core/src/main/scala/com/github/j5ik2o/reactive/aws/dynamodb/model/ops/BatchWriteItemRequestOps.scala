@@ -8,14 +8,14 @@ final class BatchWriteItemRequestBuilderOps(val self: BatchWriteItemRequest.Buil
   final def requestItemsAsScala(value: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.requestItems(v.mapValues(_.asJava).asJava)
-    } // Map[String, Seq[WriteRequest]]
+    }
   }
 
   final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchWriteItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // ReturnConsumedCapacity
+  }
 
   final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
@@ -23,7 +23,7 @@ final class BatchWriteItemRequestBuilderOps(val self: BatchWriteItemRequest.Buil
     value.fold(self) { v =>
       self.returnItemCollectionMetrics(v)
     }
-  } // ReturnItemCollectionMetrics
+  }
 
 }
 
@@ -31,13 +31,12 @@ final class BatchWriteItemRequestOps(val self: BatchWriteItemRequest) extends An
 
   final def requestItemsAsScala: Option[Map[String, Seq[WriteRequest]]] = Option(self.requestItems).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala)
-  } // Map[String, Seq[WriteRequest]]
+  }
 
-  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
+  final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] = Option(self.returnConsumedCapacity)
 
   final def returnItemCollectionMetricsAsScala: Option[ReturnItemCollectionMetrics] =
-    Option(self.returnItemCollectionMetrics) // ReturnItemCollectionMetrics
+    Option(self.returnItemCollectionMetrics)
 
 }
 

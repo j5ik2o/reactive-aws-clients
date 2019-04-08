@@ -8,7 +8,7 @@ final class NodeOverridesBuilderOps(val self: NodeOverrides.Builder) extends Any
   final def nodePropertyOverridesAsScala(value: Option[Seq[NodePropertyOverride]]): NodeOverrides.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodePropertyOverrides(v.asJava)
-    } // Seq[NodePropertyOverride]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class NodeOverridesOps(val self: NodeOverrides) extends AnyVal {
   final def nodePropertyOverridesAsScala: Option[Seq[NodePropertyOverride]] = Option(self.nodePropertyOverrides).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala
-  } // Seq[NodePropertyOverride]
+  }
 
 }
 

@@ -10,13 +10,13 @@ final class DeleteFunctionConcurrencyRequestBuilderOps(val self: DeleteFunctionC
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteFunctionConcurrencyRequestOps(val self: DeleteFunctionConcurrencyRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
 }
 

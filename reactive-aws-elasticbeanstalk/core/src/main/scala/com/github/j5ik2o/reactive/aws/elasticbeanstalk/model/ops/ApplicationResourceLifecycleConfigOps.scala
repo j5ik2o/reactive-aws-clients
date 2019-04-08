@@ -10,7 +10,7 @@ final class ApplicationResourceLifecycleConfigBuilderOps(val self: ApplicationRe
     value.fold(self) { v =>
       self.serviceRole(v)
     }
-  } // String
+  }
 
   final def versionLifecycleConfigAsScala(
       value: Option[ApplicationVersionLifecycleConfig]
@@ -18,16 +18,16 @@ final class ApplicationResourceLifecycleConfigBuilderOps(val self: ApplicationRe
     value.fold(self) { v =>
       self.versionLifecycleConfig(v)
     }
-  } // ApplicationVersionLifecycleConfig
+  }
 
 }
 
 final class ApplicationResourceLifecycleConfigOps(val self: ApplicationResourceLifecycleConfig) extends AnyVal {
 
-  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole) // String
+  final def serviceRoleAsScala: Option[String] = Option(self.serviceRole)
 
   final def versionLifecycleConfigAsScala: Option[ApplicationVersionLifecycleConfig] =
-    Option(self.versionLifecycleConfig) // ApplicationVersionLifecycleConfig
+    Option(self.versionLifecycleConfig)
 
 }
 

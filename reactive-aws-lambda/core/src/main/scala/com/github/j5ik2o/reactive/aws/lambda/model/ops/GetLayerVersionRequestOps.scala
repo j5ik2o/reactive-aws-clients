@@ -9,21 +9,21 @@ final class GetLayerVersionRequestBuilderOps(val self: GetLayerVersionRequest.Bu
     value.fold(self) { v =>
       self.layerName(v)
     }
-  } // String
+  }
 
   final def versionNumberAsScala(value: Option[Long]): GetLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.versionNumber(v)
     }
-  } // Long
+  }
 
 }
 
 final class GetLayerVersionRequestOps(val self: GetLayerVersionRequest) extends AnyVal {
 
-  final def layerNameAsScala: Option[String] = Option(self.layerName) // String
+  final def layerNameAsScala: Option[String] = Option(self.layerName)
 
-  final def versionNumberAsScala: Option[Long] = Option(self.versionNumber) // Long
+  final def versionNumberAsScala: Option[Long] = Option(self.versionNumber)
 
 }
 

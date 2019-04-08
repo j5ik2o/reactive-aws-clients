@@ -9,37 +9,37 @@ final class RemovePermissionRequestBuilderOps(val self: RemovePermissionRequest.
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def statementIdAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.statementId(v)
     }
-  } // String
+  }
 
   final def qualifierAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class RemovePermissionRequestOps(val self: RemovePermissionRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def statementIdAsScala: Option[String] = Option(self.statementId) // String
+  final def statementIdAsScala: Option[String] = Option(self.statementId)
 
-  final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
+  final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

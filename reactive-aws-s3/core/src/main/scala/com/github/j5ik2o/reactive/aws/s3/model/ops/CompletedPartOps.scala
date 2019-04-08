@@ -9,21 +9,21 @@ final class CompletedPartBuilderOps(val self: CompletedPart.Builder) extends Any
     value.fold(self) { v =>
       self.eTag(v)
     }
-  } // String
+  }
 
   final def partNumberAsScala(value: Option[Int]): CompletedPart.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }
-  } // Int
+  }
 
 }
 
 final class CompletedPartOps(val self: CompletedPart) extends AnyVal {
 
-  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+  final def eTagAsScala: Option[String] = Option(self.eTag)
 
-  final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
+  final def partNumberAsScala: Option[Int] = Option(self.partNumber)
 
 }
 

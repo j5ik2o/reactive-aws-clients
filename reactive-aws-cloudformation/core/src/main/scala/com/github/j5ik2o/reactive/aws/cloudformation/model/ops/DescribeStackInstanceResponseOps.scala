@@ -9,13 +9,13 @@ final class DescribeStackInstanceResponseBuilderOps(val self: DescribeStackInsta
     value.fold(self) { v =>
       self.stackInstance(v)
     }
-  } // StackInstance
+  }
 
 }
 
 final class DescribeStackInstanceResponseOps(val self: DescribeStackInstanceResponse) extends AnyVal {
 
-  final def stackInstanceAsScala: Option[StackInstance] = Option(self.stackInstance) // StackInstance
+  final def stackInstanceAsScala: Option[StackInstance] = Option(self.stackInstance)
 
 }
 

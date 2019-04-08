@@ -9,69 +9,69 @@ final class ManagedActionHistoryItemBuilderOps(val self: ManagedActionHistoryIte
     value.fold(self) { v =>
       self.actionId(v)
     }
-  } // String
+  }
 
   final def actionTypeAsScala(value: Option[ActionType]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.actionType(v)
     }
-  } // ActionType
+  }
 
   final def actionDescriptionAsScala(value: Option[String]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.actionDescription(v)
     }
-  } // String
+  }
 
   final def failureTypeAsScala(value: Option[FailureType]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.failureType(v)
     }
-  } // FailureType
+  }
 
   final def statusAsScala(value: Option[ActionHistoryStatus]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // ActionHistoryStatus
+  }
 
   final def failureDescriptionAsScala(value: Option[String]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.failureDescription(v)
     }
-  } // String
+  }
 
   final def executedTimeAsScala(value: Option[java.time.Instant]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.executedTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def finishedTimeAsScala(value: Option[java.time.Instant]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.finishedTime(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class ManagedActionHistoryItemOps(val self: ManagedActionHistoryItem) extends AnyVal {
 
-  final def actionIdAsScala: Option[String] = Option(self.actionId) // String
+  final def actionIdAsScala: Option[String] = Option(self.actionId)
 
-  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // ActionType
+  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType)
 
-  final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription) // String
+  final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription)
 
-  final def failureTypeAsScala: Option[FailureType] = Option(self.failureType) // FailureType
+  final def failureTypeAsScala: Option[FailureType] = Option(self.failureType)
 
-  final def statusAsScala: Option[ActionHistoryStatus] = Option(self.status) // ActionHistoryStatus
+  final def statusAsScala: Option[ActionHistoryStatus] = Option(self.status)
 
-  final def failureDescriptionAsScala: Option[String] = Option(self.failureDescription) // String
+  final def failureDescriptionAsScala: Option[String] = Option(self.failureDescription)
 
-  final def executedTimeAsScala: Option[java.time.Instant] = Option(self.executedTime) // java.time.Instant
+  final def executedTimeAsScala: Option[java.time.Instant] = Option(self.executedTime)
 
-  final def finishedTimeAsScala: Option[java.time.Instant] = Option(self.finishedTime) // java.time.Instant
+  final def finishedTimeAsScala: Option[java.time.Instant] = Option(self.finishedTime)
 
 }
 

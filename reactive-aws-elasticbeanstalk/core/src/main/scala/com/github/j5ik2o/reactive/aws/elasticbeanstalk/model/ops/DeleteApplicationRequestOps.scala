@@ -9,21 +9,21 @@ final class DeleteApplicationRequestBuilderOps(val self: DeleteApplicationReques
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def terminateEnvByForceAsScala(value: Option[Boolean]): DeleteApplicationRequest.Builder = {
     value.fold(self) { v =>
       self.terminateEnvByForce(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class DeleteApplicationRequestOps(val self: DeleteApplicationRequest) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def terminateEnvByForceAsScala: Option[Boolean] = Option(self.terminateEnvByForce) // Boolean
+  final def terminateEnvByForceAsScala: Option[Boolean] = Option(self.terminateEnvByForce)
 
 }
 

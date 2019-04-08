@@ -11,43 +11,43 @@ final class ListBucketInventoryConfigurationsResponseBuilderOps(
     value.fold(self) { v =>
       self.continuationToken(v)
     }
-  } // String
+  }
 
   final def inventoryConfigurationListAsScala(
       value: Option[Seq[InventoryConfiguration]]
   ): ListBucketInventoryConfigurationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.inventoryConfigurationList(v.asJava)
-    } // Seq[InventoryConfiguration]
+    }
   }
 
   final def isTruncatedAsScala(value: Option[Boolean]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
-  } // Boolean
+  }
 
   final def nextContinuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextContinuationToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListBucketInventoryConfigurationsResponseOps(val self: ListBucketInventoryConfigurationsResponse)
     extends AnyVal {
 
-  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken) // String
+  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken)
 
   final def inventoryConfigurationListAsScala: Option[Seq[InventoryConfiguration]] =
     Option(self.inventoryConfigurationList).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[InventoryConfiguration]
+    }
 
-  final def isTruncatedAsScala: Option[Boolean] = Option(self.isTruncated) // Boolean
+  final def isTruncatedAsScala: Option[Boolean] = Option(self.isTruncated)
 
-  final def nextContinuationTokenAsScala: Option[String] = Option(self.nextContinuationToken) // String
+  final def nextContinuationTokenAsScala: Option[String] = Option(self.nextContinuationToken)
 
 }
 

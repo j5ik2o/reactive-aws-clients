@@ -9,69 +9,69 @@ final class FunctionConfigurationBuilderOps(val self: FunctionConfiguration.Buil
     value.fold(self) { v =>
       self.functionId(v)
     }
-  } // String
+  }
 
   final def functionArnAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.functionArn(v)
     }
-  } // String
+  }
 
   final def nameAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def dataSourceNameAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.dataSourceName(v)
     }
-  } // String
+  }
 
   final def requestMappingTemplateAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.requestMappingTemplate(v)
     }
-  } // String
+  }
 
   final def responseMappingTemplateAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.responseMappingTemplate(v)
     }
-  } // String
+  }
 
   final def functionVersionAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.functionVersion(v)
     }
-  } // String
+  }
 
 }
 
 final class FunctionConfigurationOps(val self: FunctionConfiguration) extends AnyVal {
 
-  final def functionIdAsScala: Option[String] = Option(self.functionId) // String
+  final def functionIdAsScala: Option[String] = Option(self.functionId)
 
-  final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
+  final def functionArnAsScala: Option[String] = Option(self.functionArn)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def dataSourceNameAsScala: Option[String] = Option(self.dataSourceName) // String
+  final def dataSourceNameAsScala: Option[String] = Option(self.dataSourceName)
 
-  final def requestMappingTemplateAsScala: Option[String] = Option(self.requestMappingTemplate) // String
+  final def requestMappingTemplateAsScala: Option[String] = Option(self.requestMappingTemplate)
 
-  final def responseMappingTemplateAsScala: Option[String] = Option(self.responseMappingTemplate) // String
+  final def responseMappingTemplateAsScala: Option[String] = Option(self.responseMappingTemplate)
 
-  final def functionVersionAsScala: Option[String] = Option(self.functionVersion) // String
+  final def functionVersionAsScala: Option[String] = Option(self.functionVersion)
 
 }
 

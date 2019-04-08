@@ -10,14 +10,13 @@ final class DeleteElasticsearchDomainResponseBuilderOps(val self: DeleteElastics
     value.fold(self) { v =>
       self.domainStatus(v)
     }
-  } // ElasticsearchDomainStatus
+  }
 
 }
 
 final class DeleteElasticsearchDomainResponseOps(val self: DeleteElasticsearchDomainResponse) extends AnyVal {
 
-  final def domainStatusAsScala: Option[ElasticsearchDomainStatus] =
-    Option(self.domainStatus) // ElasticsearchDomainStatus
+  final def domainStatusAsScala: Option[ElasticsearchDomainStatus] = Option(self.domainStatus)
 
 }
 

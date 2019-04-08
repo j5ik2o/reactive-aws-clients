@@ -9,21 +9,21 @@ final class ContainerSummaryBuilderOps(val self: ContainerSummary.Builder) exten
     value.fold(self) { v =>
       self.exitCode(v)
     }
-  } // Int
+  }
 
   final def reasonAsScala(value: Option[String]): ContainerSummary.Builder = {
     value.fold(self) { v =>
       self.reason(v)
     }
-  } // String
+  }
 
 }
 
 final class ContainerSummaryOps(val self: ContainerSummary) extends AnyVal {
 
-  final def exitCodeAsScala: Option[Int] = Option(self.exitCode) // Int
+  final def exitCodeAsScala: Option[Int] = Option(self.exitCode)
 
-  final def reasonAsScala: Option[String] = Option(self.reason) // String
+  final def reasonAsScala: Option[String] = Option(self.reason)
 
 }
 

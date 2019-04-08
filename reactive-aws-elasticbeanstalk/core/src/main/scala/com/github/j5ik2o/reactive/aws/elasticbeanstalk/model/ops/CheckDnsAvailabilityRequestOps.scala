@@ -9,13 +9,13 @@ final class CheckDnsAvailabilityRequestBuilderOps(val self: CheckDnsAvailability
     value.fold(self) { v =>
       self.cnamePrefix(v)
     }
-  } // String
+  }
 
 }
 
 final class CheckDnsAvailabilityRequestOps(val self: CheckDnsAvailabilityRequest) extends AnyVal {
 
-  final def cnamePrefixAsScala: Option[String] = Option(self.cnamePrefix) // String
+  final def cnamePrefixAsScala: Option[String] = Option(self.cnamePrefix)
 
 }
 

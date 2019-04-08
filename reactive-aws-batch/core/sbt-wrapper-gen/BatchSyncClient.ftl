@@ -15,6 +15,9 @@ override val underlying: Java${baseName}SyncClient = javaClient
 }
 }
 
+/**
+* @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/${baseName?lower_case}/${simpleTypeName}.html
+*/
 trait ${baseName}SyncClient extends ${baseName}Client[Either[Throwable, ?]] {
 val underlying: Java${baseName}SyncClient
 

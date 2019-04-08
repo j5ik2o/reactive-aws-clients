@@ -9,21 +9,21 @@ final class VolumeBuilderOps(val self: Volume.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.host(v)
     }
-  } // Host
+  }
 
   final def nameAsScala(value: Option[String]): Volume.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class VolumeOps(val self: Volume) extends AnyVal {
 
-  final def hostAsScala: Option[Host] = Option(self.host) // Host
+  final def hostAsScala: Option[Host] = Option(self.host)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

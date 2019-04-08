@@ -9,29 +9,29 @@ final class RejectedLogEventsInfoBuilderOps(val self: RejectedLogEventsInfo.Buil
     value.fold(self) { v =>
       self.tooNewLogEventStartIndex(v)
     }
-  } // Int
+  }
 
   final def tooOldLogEventEndIndexAsScala(value: Option[Int]): RejectedLogEventsInfo.Builder = {
     value.fold(self) { v =>
       self.tooOldLogEventEndIndex(v)
     }
-  } // Int
+  }
 
   final def expiredLogEventEndIndexAsScala(value: Option[Int]): RejectedLogEventsInfo.Builder = {
     value.fold(self) { v =>
       self.expiredLogEventEndIndex(v)
     }
-  } // Int
+  }
 
 }
 
 final class RejectedLogEventsInfoOps(val self: RejectedLogEventsInfo) extends AnyVal {
 
-  final def tooNewLogEventStartIndexAsScala: Option[Int] = Option(self.tooNewLogEventStartIndex) // Int
+  final def tooNewLogEventStartIndexAsScala: Option[Int] = Option(self.tooNewLogEventStartIndex)
 
-  final def tooOldLogEventEndIndexAsScala: Option[Int] = Option(self.tooOldLogEventEndIndex) // Int
+  final def tooOldLogEventEndIndexAsScala: Option[Int] = Option(self.tooOldLogEventEndIndex)
 
-  final def expiredLogEventEndIndexAsScala: Option[Int] = Option(self.expiredLogEventEndIndex) // Int
+  final def expiredLogEventEndIndexAsScala: Option[Int] = Option(self.expiredLogEventEndIndex)
 
 }
 

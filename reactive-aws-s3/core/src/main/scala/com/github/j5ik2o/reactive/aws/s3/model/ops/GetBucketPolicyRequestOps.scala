@@ -9,13 +9,13 @@ final class GetBucketPolicyRequestBuilderOps(val self: GetBucketPolicyRequest.Bu
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketPolicyRequestOps(val self: GetBucketPolicyRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

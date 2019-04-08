@@ -9,13 +9,13 @@ final class AbortIncompleteMultipartUploadBuilderOps(val self: AbortIncompleteMu
     value.fold(self) { v =>
       self.daysAfterInitiation(v)
     }
-  } // Int
+  }
 
 }
 
 final class AbortIncompleteMultipartUploadOps(val self: AbortIncompleteMultipartUpload) extends AnyVal {
 
-  final def daysAfterInitiationAsScala: Option[Int] = Option(self.daysAfterInitiation) // Int
+  final def daysAfterInitiationAsScala: Option[Int] = Option(self.daysAfterInitiation)
 
 }
 

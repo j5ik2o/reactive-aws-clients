@@ -8,14 +8,14 @@ final class ListMetricsResponseBuilderOps(val self: ListMetricsResponse.Builder)
   final def metricsAsScala(value: Option[Seq[Metric]]): ListMetricsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metrics(v.asJava)
-    } // Seq[Metric]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListMetricsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListMetricsResponseOps(val self: ListMetricsResponse) extends AnyVal
 
   final def metricsAsScala: Option[Seq[Metric]] = Option(self.metrics).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Metric]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

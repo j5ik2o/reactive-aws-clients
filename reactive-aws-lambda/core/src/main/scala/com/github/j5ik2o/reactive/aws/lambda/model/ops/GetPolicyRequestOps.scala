@@ -9,21 +9,21 @@ final class GetPolicyRequestBuilderOps(val self: GetPolicyRequest.Builder) exten
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def qualifierAsScala(value: Option[String]): GetPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
     }
-  } // String
+  }
 
 }
 
 final class GetPolicyRequestOps(val self: GetPolicyRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
+  final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
 }
 

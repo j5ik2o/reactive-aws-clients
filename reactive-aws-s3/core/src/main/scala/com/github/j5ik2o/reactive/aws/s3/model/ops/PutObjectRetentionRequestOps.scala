@@ -9,61 +9,61 @@ final class PutObjectRetentionRequestBuilderOps(val self: PutObjectRetentionRequ
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def retentionAsScala(value: Option[ObjectLockRetention]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.retention(v)
     }
-  } // ObjectLockRetention
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // RequestPayer
+  }
 
   final def versionIdAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.bypassGovernanceRetention(v)
     }
-  } // Boolean
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
 }
 
 final class PutObjectRetentionRequestOps(val self: PutObjectRetentionRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention) // ObjectLockRetention
+  final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention) // Boolean
+  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
 }
 

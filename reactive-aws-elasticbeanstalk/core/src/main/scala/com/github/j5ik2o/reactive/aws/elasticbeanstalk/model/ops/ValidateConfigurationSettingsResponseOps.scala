@@ -9,7 +9,7 @@ final class ValidateConfigurationSettingsResponseBuilderOps(val self: ValidateCo
   final def messagesAsScala(value: Option[Seq[ValidationMessage]]): ValidateConfigurationSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messages(v.asJava)
-    } // Seq[ValidationMessage]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class ValidateConfigurationSettingsResponseOps(val self: ValidateConfigura
 
   final def messagesAsScala: Option[Seq[ValidationMessage]] = Option(self.messages).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ValidationMessage]
+  }
 
 }
 

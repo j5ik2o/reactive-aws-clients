@@ -8,20 +8,20 @@ final class PutItemResponseBuilderOps(val self: PutItemResponse.Builder) extends
   final def attributesAsScala(value: Option[Map[String, AttributeValue]]): PutItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
-    } // Map[String, AttributeValue]
+    }
   }
 
   final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): PutItemResponse.Builder = {
     value.fold(self) { v =>
       self.consumedCapacity(v)
     }
-  } // ConsumedCapacity
+  }
 
   final def itemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): PutItemResponse.Builder = {
     value.fold(self) { v =>
       self.itemCollectionMetrics(v)
     }
-  } // ItemCollectionMetrics
+  }
 
 }
 
@@ -29,12 +29,11 @@ final class PutItemResponseOps(val self: PutItemResponse) extends AnyVal {
 
   final def attributesAsScala: Option[Map[String, AttributeValue]] = Option(self.attributes).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, AttributeValue]
+  }
 
-  final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity) // ConsumedCapacity
+  final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity)
 
-  final def itemCollectionMetricsAsScala: Option[ItemCollectionMetrics] =
-    Option(self.itemCollectionMetrics) // ItemCollectionMetrics
+  final def itemCollectionMetricsAsScala: Option[ItemCollectionMetrics] = Option(self.itemCollectionMetrics)
 
 }
 

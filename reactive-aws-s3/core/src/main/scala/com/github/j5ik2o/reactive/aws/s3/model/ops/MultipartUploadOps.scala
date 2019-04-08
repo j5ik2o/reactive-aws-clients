@@ -9,53 +9,53 @@ final class MultipartUploadBuilderOps(val self: MultipartUpload.Builder) extends
     value.fold(self) { v =>
       self.uploadId(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def initiatedAsScala(value: Option[java.time.Instant]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.initiated(v)
     }
-  } // java.time.Instant
+  }
 
   final def storageClassAsScala(value: Option[StorageClass]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // StorageClass
+  }
 
   final def ownerAsScala(value: Option[Owner]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
-  } // Owner
+  }
 
   final def initiatorAsScala(value: Option[Initiator]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.initiator(v)
     }
-  } // Initiator
+  }
 
 }
 
 final class MultipartUploadOps(val self: MultipartUpload) extends AnyVal {
 
-  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def initiatedAsScala: Option[java.time.Instant] = Option(self.initiated) // java.time.Instant
+  final def initiatedAsScala: Option[java.time.Instant] = Option(self.initiated)
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass)
 
-  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+  final def ownerAsScala: Option[Owner] = Option(self.owner)
 
-  final def initiatorAsScala: Option[Initiator] = Option(self.initiator) // Initiator
+  final def initiatorAsScala: Option[Initiator] = Option(self.initiator)
 
 }
 

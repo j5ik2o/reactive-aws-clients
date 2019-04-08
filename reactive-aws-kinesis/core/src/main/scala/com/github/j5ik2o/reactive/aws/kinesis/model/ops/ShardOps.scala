@@ -9,46 +9,45 @@ final class ShardBuilderOps(val self: Shard.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.shardId(v)
     }
-  } // String
+  }
 
   final def parentShardIdAsScala(value: Option[String]): Shard.Builder = {
     value.fold(self) { v =>
       self.parentShardId(v)
     }
-  } // String
+  }
 
   final def adjacentParentShardIdAsScala(value: Option[String]): Shard.Builder = {
     value.fold(self) { v =>
       self.adjacentParentShardId(v)
     }
-  } // String
+  }
 
   final def hashKeyRangeAsScala(value: Option[HashKeyRange]): Shard.Builder = {
     value.fold(self) { v =>
       self.hashKeyRange(v)
     }
-  } // HashKeyRange
+  }
 
   final def sequenceNumberRangeAsScala(value: Option[SequenceNumberRange]): Shard.Builder = {
     value.fold(self) { v =>
       self.sequenceNumberRange(v)
     }
-  } // SequenceNumberRange
+  }
 
 }
 
 final class ShardOps(val self: Shard) extends AnyVal {
 
-  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+  final def shardIdAsScala: Option[String] = Option(self.shardId)
 
-  final def parentShardIdAsScala: Option[String] = Option(self.parentShardId) // String
+  final def parentShardIdAsScala: Option[String] = Option(self.parentShardId)
 
-  final def adjacentParentShardIdAsScala: Option[String] = Option(self.adjacentParentShardId) // String
+  final def adjacentParentShardIdAsScala: Option[String] = Option(self.adjacentParentShardId)
 
-  final def hashKeyRangeAsScala: Option[HashKeyRange] = Option(self.hashKeyRange) // HashKeyRange
+  final def hashKeyRangeAsScala: Option[HashKeyRange] = Option(self.hashKeyRange)
 
-  final def sequenceNumberRangeAsScala: Option[SequenceNumberRange] =
-    Option(self.sequenceNumberRange) // SequenceNumberRange
+  final def sequenceNumberRangeAsScala: Option[SequenceNumberRange] = Option(self.sequenceNumberRange)
 
 }
 

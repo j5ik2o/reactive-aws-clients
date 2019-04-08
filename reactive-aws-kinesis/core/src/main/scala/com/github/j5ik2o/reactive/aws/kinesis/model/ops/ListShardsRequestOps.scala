@@ -9,46 +9,45 @@ final class ListShardsRequestBuilderOps(val self: ListShardsRequest.Builder) ext
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def exclusiveStartShardIdAsScala(value: Option[String]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartShardId(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def streamCreationTimestampAsScala(value: Option[java.time.Instant]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class ListShardsRequestOps(val self: ListShardsRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def exclusiveStartShardIdAsScala: Option[String] = Option(self.exclusiveStartShardId) // String
+  final def exclusiveStartShardIdAsScala: Option[String] = Option(self.exclusiveStartShardId)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def streamCreationTimestampAsScala: Option[java.time.Instant] =
-    Option(self.streamCreationTimestamp) // java.time.Instant
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp)
 
 }
 

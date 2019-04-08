@@ -9,29 +9,29 @@ final class ComputeResourceUpdateBuilderOps(val self: ComputeResourceUpdate.Buil
     value.fold(self) { v =>
       self.minvCpus(v)
     }
-  } // Int
+  }
 
   final def maxvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
     value.fold(self) { v =>
       self.maxvCpus(v)
     }
-  } // Int
+  }
 
   final def desiredvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
     value.fold(self) { v =>
       self.desiredvCpus(v)
     }
-  } // Int
+  }
 
 }
 
 final class ComputeResourceUpdateOps(val self: ComputeResourceUpdate) extends AnyVal {
 
-  final def minvCpusAsScala: Option[Int] = Option(self.minvCpus) // Int
+  final def minvCpusAsScala: Option[Int] = Option(self.minvCpus)
 
-  final def maxvCpusAsScala: Option[Int] = Option(self.maxvCpus) // Int
+  final def maxvCpusAsScala: Option[Int] = Option(self.maxvCpus)
 
-  final def desiredvCpusAsScala: Option[Int] = Option(self.desiredvCpus) // Int
+  final def desiredvCpusAsScala: Option[Int] = Option(self.desiredvCpus)
 
 }
 

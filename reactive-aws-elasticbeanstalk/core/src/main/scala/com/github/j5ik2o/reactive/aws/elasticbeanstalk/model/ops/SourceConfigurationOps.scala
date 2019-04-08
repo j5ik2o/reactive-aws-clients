@@ -9,21 +9,21 @@ final class SourceConfigurationBuilderOps(val self: SourceConfiguration.Builder)
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def templateNameAsScala(value: Option[String]): SourceConfiguration.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
     }
-  } // String
+  }
 
 }
 
 final class SourceConfigurationOps(val self: SourceConfiguration) extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
-  final def templateNameAsScala: Option[String] = Option(self.templateName) // String
+  final def templateNameAsScala: Option[String] = Option(self.templateName)
 
 }
 

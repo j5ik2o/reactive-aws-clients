@@ -9,78 +9,77 @@ final class CopyObjectResponseBuilderOps(val self: CopyObjectResponse.Builder) e
     value.fold(self) { v =>
       self.copyObjectResult(v)
     }
-  } // CopyObjectResult
+  }
 
   final def expirationAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.expiration(v)
     }
-  } // String
+  }
 
   final def copySourceVersionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.copySourceVersionId(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // ServerSideEncryption
+  }
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyMD5AsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
-  } // String
+  }
 
   final def ssekmsKeyIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
-  } // String
+  }
 
   final def requestChargedAsScala(value: Option[RequestCharged]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // RequestCharged
+  }
 
 }
 
 final class CopyObjectResponseOps(val self: CopyObjectResponse) extends AnyVal {
 
-  final def copyObjectResultAsScala: Option[CopyObjectResult] = Option(self.copyObjectResult) // CopyObjectResult
+  final def copyObjectResultAsScala: Option[CopyObjectResult] = Option(self.copyObjectResult)
 
-  final def expirationAsScala: Option[String] = Option(self.expiration) // String
+  final def expirationAsScala: Option[String] = Option(self.expiration)
 
-  final def copySourceVersionIdAsScala: Option[String] = Option(self.copySourceVersionId) // String
+  final def copySourceVersionIdAsScala: Option[String] = Option(self.copySourceVersionId)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
-    Option(self.serverSideEncryption) // ServerSideEncryption
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption)
 
-  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm)
 
-  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5)
 
-  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

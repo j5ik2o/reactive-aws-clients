@@ -9,7 +9,7 @@ final class ListAvailableSolutionStacksResponseBuilderOps(val self: ListAvailabl
   final def solutionStacksAsScala(value: Option[Seq[String]]): ListAvailableSolutionStacksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.solutionStacks(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def solutionStackDetailsAsScala(
@@ -17,7 +17,7 @@ final class ListAvailableSolutionStacksResponseBuilderOps(val self: ListAvailabl
   ): ListAvailableSolutionStacksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.solutionStackDetails(v.asJava)
-    } // Seq[SolutionStackDescription]
+    }
   }
 
 }
@@ -26,12 +26,12 @@ final class ListAvailableSolutionStacksResponseOps(val self: ListAvailableSoluti
 
   final def solutionStacksAsScala: Option[Seq[String]] = Option(self.solutionStacks).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def solutionStackDetailsAsScala: Option[Seq[SolutionStackDescription]] = Option(self.solutionStackDetails).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala
-  } // Seq[SolutionStackDescription]
+  }
 
 }
 

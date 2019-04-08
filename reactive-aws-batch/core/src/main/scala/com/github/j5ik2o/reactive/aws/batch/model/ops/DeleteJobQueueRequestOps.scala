@@ -9,13 +9,13 @@ final class DeleteJobQueueRequestBuilderOps(val self: DeleteJobQueueRequest.Buil
     value.fold(self) { v =>
       self.jobQueue(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteJobQueueRequestOps(val self: DeleteJobQueueRequest) extends AnyVal {
 
-  final def jobQueueAsScala: Option[String] = Option(self.jobQueue) // String
+  final def jobQueueAsScala: Option[String] = Option(self.jobQueue)
 
 }
 

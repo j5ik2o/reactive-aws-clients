@@ -9,21 +9,21 @@ final class DeleteAliasRequestBuilderOps(val self: DeleteAliasRequest.Builder) e
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def nameAsScala(value: Option[String]): DeleteAliasRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteAliasRequestOps(val self: DeleteAliasRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

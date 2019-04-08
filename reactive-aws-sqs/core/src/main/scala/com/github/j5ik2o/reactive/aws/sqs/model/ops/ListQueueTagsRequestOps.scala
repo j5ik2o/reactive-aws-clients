@@ -9,13 +9,13 @@ final class ListQueueTagsRequestBuilderOps(val self: ListQueueTagsRequest.Builde
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
 }
 
 final class ListQueueTagsRequestOps(val self: ListQueueTagsRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }
 

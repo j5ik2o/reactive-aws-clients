@@ -10,21 +10,21 @@ final class DetectStackResourceDriftRequestBuilderOps(val self: DetectStackResou
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def logicalResourceIdAsScala(value: Option[String]): DetectStackResourceDriftRequest.Builder = {
     value.fold(self) { v =>
       self.logicalResourceId(v)
     }
-  } // String
+  }
 
 }
 
 final class DetectStackResourceDriftRequestOps(val self: DetectStackResourceDriftRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId) // String
+  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId)
 
 }
 

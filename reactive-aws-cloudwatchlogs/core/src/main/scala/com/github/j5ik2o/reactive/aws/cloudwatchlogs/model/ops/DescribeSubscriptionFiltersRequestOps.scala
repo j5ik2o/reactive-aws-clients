@@ -10,37 +10,37 @@ final class DescribeSubscriptionFiltersRequestBuilderOps(val self: DescribeSubsc
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def filterNamePrefixAsScala(value: Option[String]): DescribeSubscriptionFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.filterNamePrefix(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeSubscriptionFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): DescribeSubscriptionFiltersRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeSubscriptionFiltersRequestOps(val self: DescribeSubscriptionFiltersRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def filterNamePrefixAsScala: Option[String] = Option(self.filterNamePrefix) // String
+  final def filterNamePrefixAsScala: Option[String] = Option(self.filterNamePrefix)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

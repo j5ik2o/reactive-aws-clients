@@ -37,29 +37,17 @@ trait ToAllOps
     with ToCreateBucketResponseOps
     with ToCreateMultipartUploadRequestOps
     with ToCreateMultipartUploadResponseOps
-    with ToDefaultRetentionOps
     with ToDeleteBucketAnalyticsConfigurationRequestOps
-    with ToDeleteBucketAnalyticsConfigurationResponseOps
     with ToDeleteBucketCorsRequestOps
-    with ToDeleteBucketCorsResponseOps
     with ToDeleteBucketEncryptionRequestOps
-    with ToDeleteBucketEncryptionResponseOps
     with ToDeleteBucketInventoryConfigurationRequestOps
-    with ToDeleteBucketInventoryConfigurationResponseOps
     with ToDeleteBucketLifecycleRequestOps
-    with ToDeleteBucketLifecycleResponseOps
     with ToDeleteBucketMetricsConfigurationRequestOps
-    with ToDeleteBucketMetricsConfigurationResponseOps
     with ToDeleteBucketPolicyRequestOps
-    with ToDeleteBucketPolicyResponseOps
     with ToDeleteBucketReplicationRequestOps
-    with ToDeleteBucketReplicationResponseOps
     with ToDeleteBucketRequestOps
-    with ToDeleteBucketResponseOps
     with ToDeleteBucketTaggingRequestOps
-    with ToDeleteBucketTaggingResponseOps
     with ToDeleteBucketWebsiteRequestOps
-    with ToDeleteBucketWebsiteResponseOps
     with ToDeleteMarkerEntryOps
     with ToDeleteMarkerReplicationOps
     with ToDeleteObjectRequestOps
@@ -70,7 +58,6 @@ trait ToAllOps
     with ToDeleteObjectsResponseOps
     with ToDeleteOps
     with ToDeletePublicAccessBlockRequestOps
-    with ToDeletePublicAccessBlockResponseOps
     with ToDeletedObjectOps
     with ToDestinationOps
     with ToEncryptionConfigurationOps
@@ -133,7 +120,6 @@ trait ToAllOps
     with ToGrantOps
     with ToGranteeOps
     with ToHeadBucketRequestOps
-    with ToHeadBucketResponseOps
     with ToHeadObjectRequestOps
     with ToHeadObjectResponseOps
     with ToIndexDocumentOps
@@ -158,7 +144,6 @@ trait ToAllOps
     with ToListBucketInventoryConfigurationsResponseOps
     with ToListBucketMetricsConfigurationsRequestOps
     with ToListBucketMetricsConfigurationsResponseOps
-    with ToListBucketsRequestOps
     with ToListBucketsResponseOps
     with ToListMultipartUploadsRequestOps
     with ToListMultipartUploadsResponseOps
@@ -189,42 +174,25 @@ trait ToAllOps
     with ToOutputLocationOps
     with ToOutputSerializationOps
     with ToOwnerOps
-    with ToParquetInputOps
     with ToPartOps
     with ToPolicyStatusOps
     with ToPublicAccessBlockConfigurationOps
     with ToPutBucketAccelerateConfigurationRequestOps
-    with ToPutBucketAccelerateConfigurationResponseOps
     with ToPutBucketAclRequestOps
-    with ToPutBucketAclResponseOps
     with ToPutBucketAnalyticsConfigurationRequestOps
-    with ToPutBucketAnalyticsConfigurationResponseOps
     with ToPutBucketCorsRequestOps
-    with ToPutBucketCorsResponseOps
     with ToPutBucketEncryptionRequestOps
-    with ToPutBucketEncryptionResponseOps
     with ToPutBucketInventoryConfigurationRequestOps
-    with ToPutBucketInventoryConfigurationResponseOps
     with ToPutBucketLifecycleConfigurationRequestOps
-    with ToPutBucketLifecycleConfigurationResponseOps
     with ToPutBucketLoggingRequestOps
-    with ToPutBucketLoggingResponseOps
     with ToPutBucketMetricsConfigurationRequestOps
-    with ToPutBucketMetricsConfigurationResponseOps
     with ToPutBucketNotificationConfigurationRequestOps
-    with ToPutBucketNotificationConfigurationResponseOps
     with ToPutBucketPolicyRequestOps
-    with ToPutBucketPolicyResponseOps
     with ToPutBucketReplicationRequestOps
-    with ToPutBucketReplicationResponseOps
     with ToPutBucketRequestPaymentRequestOps
-    with ToPutBucketRequestPaymentResponseOps
     with ToPutBucketTaggingRequestOps
-    with ToPutBucketTaggingResponseOps
     with ToPutBucketVersioningRequestOps
-    with ToPutBucketVersioningResponseOps
     with ToPutBucketWebsiteRequestOps
-    with ToPutBucketWebsiteResponseOps
     with ToPutObjectAclRequestOps
     with ToPutObjectAclResponseOps
     with ToPutObjectLegalHoldRequestOps
@@ -238,7 +206,6 @@ trait ToAllOps
     with ToPutObjectTaggingRequestOps
     with ToPutObjectTaggingResponseOps
     with ToPutPublicAccessBlockRequestOps
-    with ToPutPublicAccessBlockResponseOps
     with ToQueueConfigurationOps
     with ToRedirectAllRequestsToOps
     with ToRedirectOps
@@ -256,7 +223,6 @@ trait ToAllOps
     with ToS3LocationOps
     with ToS3ObjectOps
     with ToSSEKMSOps
-    with ToSSES3Ops
     with ToSelectParametersOps
     with ToServerSideEncryptionByDefaultOps
     with ToServerSideEncryptionConfigurationOps

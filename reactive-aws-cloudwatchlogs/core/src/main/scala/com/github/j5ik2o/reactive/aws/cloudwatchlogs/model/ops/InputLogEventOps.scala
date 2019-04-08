@@ -9,21 +9,21 @@ final class InputLogEventBuilderOps(val self: InputLogEvent.Builder) extends Any
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Long
+  }
 
   final def messageAsScala(value: Option[String]): InputLogEvent.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class InputLogEventOps(val self: InputLogEvent) extends AnyVal {
 
-  final def timestampAsScala: Option[Long] = Option(self.timestamp) // Long
+  final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

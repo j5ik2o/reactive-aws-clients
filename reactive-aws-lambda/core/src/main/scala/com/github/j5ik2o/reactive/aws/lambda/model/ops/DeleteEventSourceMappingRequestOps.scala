@@ -10,13 +10,13 @@ final class DeleteEventSourceMappingRequestBuilderOps(val self: DeleteEventSourc
     value.fold(self) { v =>
       self.uuid(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteEventSourceMappingRequestOps(val self: DeleteEventSourceMappingRequest) extends AnyVal {
 
-  final def uuidAsScala: Option[String] = Option(self.uuid) // String
+  final def uuidAsScala: Option[String] = Option(self.uuid)
 
 }
 

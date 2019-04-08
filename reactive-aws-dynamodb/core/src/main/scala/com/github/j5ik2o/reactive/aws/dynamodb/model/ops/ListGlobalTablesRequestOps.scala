@@ -9,29 +9,29 @@ final class ListGlobalTablesRequestBuilderOps(val self: ListGlobalTablesRequest.
     value.fold(self) { v =>
       self.exclusiveStartGlobalTableName(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
   final def regionNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }
-  } // String
+  }
 
 }
 
 final class ListGlobalTablesRequestOps(val self: ListGlobalTablesRequest) extends AnyVal {
 
-  final def exclusiveStartGlobalTableNameAsScala: Option[String] = Option(self.exclusiveStartGlobalTableName) // String
+  final def exclusiveStartGlobalTableNameAsScala: Option[String] = Option(self.exclusiveStartGlobalTableName)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
-  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+  final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }
 

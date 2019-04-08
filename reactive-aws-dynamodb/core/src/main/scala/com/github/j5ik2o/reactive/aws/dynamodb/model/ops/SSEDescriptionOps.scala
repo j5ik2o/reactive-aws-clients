@@ -9,29 +9,29 @@ final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends A
     value.fold(self) { v =>
       self.status(v)
     }
-  } // SSEStatus
+  }
 
   final def sseTypeAsScala(value: Option[SSEType]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.sseType(v)
     }
-  } // SSEType
+  }
 
   final def kmsMasterKeyArnAsScala(value: Option[String]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyArn(v)
     }
-  } // String
+  }
 
 }
 
 final class SSEDescriptionOps(val self: SSEDescription) extends AnyVal {
 
-  final def statusAsScala: Option[SSEStatus] = Option(self.status) // SSEStatus
+  final def statusAsScala: Option[SSEStatus] = Option(self.status)
 
-  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType) // SSEType
+  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType)
 
-  final def kmsMasterKeyArnAsScala: Option[String] = Option(self.kmsMasterKeyArn) // String
+  final def kmsMasterKeyArnAsScala: Option[String] = Option(self.kmsMasterKeyArn)
 
 }
 

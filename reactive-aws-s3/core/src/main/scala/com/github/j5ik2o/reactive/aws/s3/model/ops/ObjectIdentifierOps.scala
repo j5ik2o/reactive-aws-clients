@@ -9,21 +9,21 @@ final class ObjectIdentifierBuilderOps(val self: ObjectIdentifier.Builder) exten
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): ObjectIdentifier.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
 }
 
 final class ObjectIdentifierOps(val self: ObjectIdentifier) extends AnyVal {
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }
 

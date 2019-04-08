@@ -9,21 +9,21 @@ final class QueueBuilderOps(val self: Queue.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def urlAsScala(value: Option[String]): Queue.Builder = {
     value.fold(self) { v =>
       self.url(v)
     }
-  } // String
+  }
 
 }
 
 final class QueueOps(val self: Queue) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def urlAsScala: Option[String] = Option(self.url) // String
+  final def urlAsScala: Option[String] = Option(self.url)
 
 }
 

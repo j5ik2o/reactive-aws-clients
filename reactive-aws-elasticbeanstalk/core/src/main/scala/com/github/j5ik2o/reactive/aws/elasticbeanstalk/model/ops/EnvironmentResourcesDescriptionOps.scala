@@ -10,13 +10,13 @@ final class EnvironmentResourcesDescriptionBuilderOps(val self: EnvironmentResou
     value.fold(self) { v =>
       self.loadBalancer(v)
     }
-  } // LoadBalancerDescription
+  }
 
 }
 
 final class EnvironmentResourcesDescriptionOps(val self: EnvironmentResourcesDescription) extends AnyVal {
 
-  final def loadBalancerAsScala: Option[LoadBalancerDescription] = Option(self.loadBalancer) // LoadBalancerDescription
+  final def loadBalancerAsScala: Option[LoadBalancerDescription] = Option(self.loadBalancer)
 
 }
 

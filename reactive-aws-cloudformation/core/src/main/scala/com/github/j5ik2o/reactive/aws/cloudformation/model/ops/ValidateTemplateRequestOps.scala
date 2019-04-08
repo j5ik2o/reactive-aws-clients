@@ -9,21 +9,21 @@ final class ValidateTemplateRequestBuilderOps(val self: ValidateTemplateRequest.
     value.fold(self) { v =>
       self.templateBody(v)
     }
-  } // String
+  }
 
   final def templateURLAsScala(value: Option[String]): ValidateTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.templateURL(v)
     }
-  } // String
+  }
 
 }
 
 final class ValidateTemplateRequestOps(val self: ValidateTemplateRequest) extends AnyVal {
 
-  final def templateBodyAsScala: Option[String] = Option(self.templateBody) // String
+  final def templateBodyAsScala: Option[String] = Option(self.templateBody)
 
-  final def templateURLAsScala: Option[String] = Option(self.templateURL) // String
+  final def templateURLAsScala: Option[String] = Option(self.templateURL)
 
 }
 

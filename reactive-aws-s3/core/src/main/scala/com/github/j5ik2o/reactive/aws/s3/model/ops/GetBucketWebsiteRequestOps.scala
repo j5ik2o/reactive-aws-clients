@@ -9,13 +9,13 @@ final class GetBucketWebsiteRequestBuilderOps(val self: GetBucketWebsiteRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketWebsiteRequestOps(val self: GetBucketWebsiteRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

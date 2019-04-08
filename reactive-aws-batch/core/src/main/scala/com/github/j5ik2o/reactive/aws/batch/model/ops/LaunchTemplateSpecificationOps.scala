@@ -9,29 +9,29 @@ final class LaunchTemplateSpecificationBuilderOps(val self: LaunchTemplateSpecif
     value.fold(self) { v =>
       self.launchTemplateId(v)
     }
-  } // String
+  }
 
   final def launchTemplateNameAsScala(value: Option[String]): LaunchTemplateSpecification.Builder = {
     value.fold(self) { v =>
       self.launchTemplateName(v)
     }
-  } // String
+  }
 
   final def versionAsScala(value: Option[String]): LaunchTemplateSpecification.Builder = {
     value.fold(self) { v =>
       self.version(v)
     }
-  } // String
+  }
 
 }
 
 final class LaunchTemplateSpecificationOps(val self: LaunchTemplateSpecification) extends AnyVal {
 
-  final def launchTemplateIdAsScala: Option[String] = Option(self.launchTemplateId) // String
+  final def launchTemplateIdAsScala: Option[String] = Option(self.launchTemplateId)
 
-  final def launchTemplateNameAsScala: Option[String] = Option(self.launchTemplateName) // String
+  final def launchTemplateNameAsScala: Option[String] = Option(self.launchTemplateName)
 
-  final def versionAsScala: Option[String] = Option(self.version) // String
+  final def versionAsScala: Option[String] = Option(self.version)
 
 }
 

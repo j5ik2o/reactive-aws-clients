@@ -8,20 +8,20 @@ final class DescribeSubnetGroupsRequestBuilderOps(val self: DescribeSubnetGroups
   final def subnetGroupNamesAsScala(value: Option[Seq[String]]): DescribeSubnetGroupsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetGroupNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeSubnetGroupsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeSubnetGroupsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class DescribeSubnetGroupsRequestOps(val self: DescribeSubnetGroupsRequest
 
   final def subnetGroupNamesAsScala: Option[Seq[String]] = Option(self.subnetGroupNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

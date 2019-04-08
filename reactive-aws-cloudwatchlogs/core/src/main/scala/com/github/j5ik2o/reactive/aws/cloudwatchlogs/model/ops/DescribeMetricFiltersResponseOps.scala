@@ -8,14 +8,14 @@ final class DescribeMetricFiltersResponseBuilderOps(val self: DescribeMetricFilt
   final def metricFiltersAsScala(value: Option[Seq[MetricFilter]]): DescribeMetricFiltersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metricFilters(v.asJava)
-    } // Seq[MetricFilter]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeMetricFiltersResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeMetricFiltersResponseOps(val self: DescribeMetricFiltersResp
 
   final def metricFiltersAsScala: Option[Seq[MetricFilter]] = Option(self.metricFilters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricFilter]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

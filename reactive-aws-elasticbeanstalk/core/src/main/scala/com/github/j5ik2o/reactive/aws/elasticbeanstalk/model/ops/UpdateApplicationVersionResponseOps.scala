@@ -12,14 +12,13 @@ final class UpdateApplicationVersionResponseBuilderOps(val self: UpdateApplicati
     value.fold(self) { v =>
       self.applicationVersion(v)
     }
-  } // ApplicationVersionDescription
+  }
 
 }
 
 final class UpdateApplicationVersionResponseOps(val self: UpdateApplicationVersionResponse) extends AnyVal {
 
-  final def applicationVersionAsScala: Option[ApplicationVersionDescription] =
-    Option(self.applicationVersion) // ApplicationVersionDescription
+  final def applicationVersionAsScala: Option[ApplicationVersionDescription] = Option(self.applicationVersion)
 
 }
 

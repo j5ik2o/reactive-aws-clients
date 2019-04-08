@@ -8,14 +8,14 @@ final class ListGraphqlApisResponseBuilderOps(val self: ListGraphqlApisResponse.
   final def graphqlApisAsScala(value: Option[Seq[GraphqlApi]]): ListGraphqlApisResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.graphqlApis(v.asJava)
-    } // Seq[GraphqlApi]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListGraphqlApisResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListGraphqlApisResponseOps(val self: ListGraphqlApisResponse) extend
 
   final def graphqlApisAsScala: Option[Seq[GraphqlApi]] = Option(self.graphqlApis).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[GraphqlApi]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

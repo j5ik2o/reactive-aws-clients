@@ -8,7 +8,7 @@ final class TransactWriteItemsResponseBuilderOps(val self: TransactWriteItemsRes
   final def consumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): TransactWriteItemsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
-    } // Seq[ConsumedCapacity]
+    }
   }
 
   final def itemCollectionMetricsAsScala(
@@ -16,7 +16,7 @@ final class TransactWriteItemsResponseBuilderOps(val self: TransactWriteItemsRes
   ): TransactWriteItemsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.itemCollectionMetrics(v.mapValues(_.asJava).asJava)
-    } // Map[String, Seq[ItemCollectionMetrics]]
+    }
   }
 
 }
@@ -25,12 +25,12 @@ final class TransactWriteItemsResponseOps(val self: TransactWriteItemsResponse) 
 
   final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ConsumedCapacity]
+  }
 
   final def itemCollectionMetricsAsScala: Option[Map[String, Seq[ItemCollectionMetrics]]] =
     Option(self.itemCollectionMetrics).map { v =>
       import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala)
-    } // Map[String, Seq[ItemCollectionMetrics]]
+    }
 
 }
 

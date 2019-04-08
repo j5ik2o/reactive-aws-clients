@@ -8,14 +8,14 @@ final class ListApiKeysResponseBuilderOps(val self: ListApiKeysResponse.Builder)
   final def apiKeysAsScala(value: Option[Seq[ApiKey]]): ListApiKeysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.apiKeys(v.asJava)
-    } // Seq[ApiKey]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListApiKeysResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListApiKeysResponseOps(val self: ListApiKeysResponse) extends AnyVal
 
   final def apiKeysAsScala: Option[Seq[ApiKey]] = Option(self.apiKeys).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ApiKey]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

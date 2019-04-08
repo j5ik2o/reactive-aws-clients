@@ -9,23 +9,23 @@ final class PutMetricDataRequestBuilderOps(val self: PutMetricDataRequest.Builde
     value.fold(self) { v =>
       self.namespace(v)
     }
-  } // String
+  }
 
   final def metricDataAsScala(value: Option[Seq[MetricDatum]]): PutMetricDataRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metricData(v.asJava)
-    } // Seq[MetricDatum]
+    }
   }
 
 }
 
 final class PutMetricDataRequestOps(val self: PutMetricDataRequest) extends AnyVal {
 
-  final def namespaceAsScala: Option[String] = Option(self.namespace) // String
+  final def namespaceAsScala: Option[String] = Option(self.namespace)
 
   final def metricDataAsScala: Option[Seq[MetricDatum]] = Option(self.metricData).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricDatum]
+  }
 
 }
 

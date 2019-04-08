@@ -21,15 +21,11 @@ trait ToAllOps
     with ToCreateFunctionResponseOps
     with ToDeadLetterConfigOps
     with ToDeleteAliasRequestOps
-    with ToDeleteAliasResponseOps
     with ToDeleteEventSourceMappingRequestOps
     with ToDeleteEventSourceMappingResponseOps
     with ToDeleteFunctionConcurrencyRequestOps
-    with ToDeleteFunctionConcurrencyResponseOps
     with ToDeleteFunctionRequestOps
-    with ToDeleteFunctionResponseOps
     with ToDeleteLayerVersionRequestOps
-    with ToDeleteLayerVersionResponseOps
     with ToEnvironmentErrorOps
     with ToEnvironmentOps
     with ToEnvironmentResponseOps
@@ -37,7 +33,6 @@ trait ToAllOps
     with ToFunctionCodeLocationOps
     with ToFunctionCodeOps
     with ToFunctionConfigurationOps
-    with ToGetAccountSettingsRequestOps
     with ToGetAccountSettingsResponseOps
     with ToGetAliasRequestOps
     with ToGetAliasResponseOps
@@ -81,15 +76,11 @@ trait ToAllOps
     with ToPutFunctionConcurrencyRequestOps
     with ToPutFunctionConcurrencyResponseOps
     with ToRemoveLayerVersionPermissionRequestOps
-    with ToRemoveLayerVersionPermissionResponseOps
     with ToRemovePermissionRequestOps
-    with ToRemovePermissionResponseOps
     with ToTagResourceRequestOps
-    with ToTagResourceResponseOps
     with ToTracingConfigOps
     with ToTracingConfigResponseOps
     with ToUntagResourceRequestOps
-    with ToUntagResourceResponseOps
     with ToUpdateAliasRequestOps
     with ToUpdateAliasResponseOps
     with ToUpdateEventSourceMappingRequestOps

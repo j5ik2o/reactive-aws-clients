@@ -9,37 +9,37 @@ final class UpdateTypeRequestBuilderOps(val self: UpdateTypeRequest.Builder) ext
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def typeNameAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
-  } // String
+  }
 
   final def definitionAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.definition(v)
     }
-  } // String
+  }
 
   final def formatAsScala(value: Option[TypeDefinitionFormat]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }
-  } // TypeDefinitionFormat
+  }
 
 }
 
 final class UpdateTypeRequestOps(val self: UpdateTypeRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def typeNameAsScala: Option[String] = Option(self.typeName) // String
+  final def typeNameAsScala: Option[String] = Option(self.typeName)
 
-  final def definitionAsScala: Option[String] = Option(self.definition) // String
+  final def definitionAsScala: Option[String] = Option(self.definition)
 
-  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // TypeDefinitionFormat
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format)
 
 }
 

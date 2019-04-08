@@ -11,38 +11,38 @@ final class DescribeEnvironmentManagedActionHistoryRequestBuilderOps(
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxItemsAsScala(value: Option[Int]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.maxItems(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeEnvironmentManagedActionHistoryRequestOps(val self: DescribeEnvironmentManagedActionHistoryRequest)
     extends AnyVal {
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxItemsAsScala: Option[Int] = Option(self.maxItems) // Int
+  final def maxItemsAsScala: Option[Int] = Option(self.maxItems)
 
 }
 

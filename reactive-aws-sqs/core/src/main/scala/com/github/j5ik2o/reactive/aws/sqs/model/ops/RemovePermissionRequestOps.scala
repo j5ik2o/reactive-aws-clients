@@ -9,21 +9,21 @@ final class RemovePermissionRequestBuilderOps(val self: RemovePermissionRequest.
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def labelAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.label(v)
     }
-  } // String
+  }
 
 }
 
 final class RemovePermissionRequestOps(val self: RemovePermissionRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
-  final def labelAsScala: Option[String] = Option(self.label) // String
+  final def labelAsScala: Option[String] = Option(self.label)
 
 }
 

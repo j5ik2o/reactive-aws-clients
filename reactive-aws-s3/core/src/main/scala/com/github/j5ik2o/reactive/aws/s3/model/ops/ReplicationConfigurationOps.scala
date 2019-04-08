@@ -9,23 +9,23 @@ final class ReplicationConfigurationBuilderOps(val self: ReplicationConfiguratio
     value.fold(self) { v =>
       self.role(v)
     }
-  } // String
+  }
 
   final def rulesAsScala(value: Option[Seq[ReplicationRule]]): ReplicationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
-    } // Seq[ReplicationRule]
+    }
   }
 
 }
 
 final class ReplicationConfigurationOps(val self: ReplicationConfiguration) extends AnyVal {
 
-  final def roleAsScala: Option[String] = Option(self.role) // String
+  final def roleAsScala: Option[String] = Option(self.role)
 
   final def rulesAsScala: Option[Seq[ReplicationRule]] = Option(self.rules).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ReplicationRule]
+  }
 
 }
 

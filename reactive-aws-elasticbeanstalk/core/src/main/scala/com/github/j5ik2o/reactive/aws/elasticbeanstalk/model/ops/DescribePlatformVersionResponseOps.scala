@@ -10,14 +10,13 @@ final class DescribePlatformVersionResponseBuilderOps(val self: DescribePlatform
     value.fold(self) { v =>
       self.platformDescription(v)
     }
-  } // PlatformDescription
+  }
 
 }
 
 final class DescribePlatformVersionResponseOps(val self: DescribePlatformVersionResponse) extends AnyVal {
 
-  final def platformDescriptionAsScala: Option[PlatformDescription] =
-    Option(self.platformDescription) // PlatformDescription
+  final def platformDescriptionAsScala: Option[PlatformDescription] = Option(self.platformDescription)
 
 }
 

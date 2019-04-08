@@ -9,102 +9,101 @@ final class PutObjectAclRequestBuilderOps(val self: PutObjectAclRequest.Builder)
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // ObjectCannedACL
+  }
 
   final def accessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.accessControlPolicy(v)
     }
-  } // AccessControlPolicy
+  }
 
   final def bucketAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def grantFullControlAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
-  } // String
+  }
 
   final def grantReadAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
-  } // String
+  }
 
   final def grantReadACPAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
-  } // String
+  }
 
   final def grantWriteAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantWrite(v)
     }
-  } // String
+  }
 
   final def grantWriteACPAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // RequestPayer
+  }
 
   final def versionIdAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
 }
 
 final class PutObjectAclRequestOps(val self: PutObjectAclRequest) extends AnyVal {
 
-  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // ObjectCannedACL
+  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl)
 
-  final def accessControlPolicyAsScala: Option[AccessControlPolicy] =
-    Option(self.accessControlPolicy) // AccessControlPolicy
+  final def accessControlPolicyAsScala: Option[AccessControlPolicy] = Option(self.accessControlPolicy)
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl) // String
+  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl)
 
-  final def grantReadAsScala: Option[String] = Option(self.grantRead) // String
+  final def grantReadAsScala: Option[String] = Option(self.grantRead)
 
-  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP) // String
+  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP)
 
-  final def grantWriteAsScala: Option[String] = Option(self.grantWrite) // String
+  final def grantWriteAsScala: Option[String] = Option(self.grantWrite)
 
-  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP) // String
+  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }
 

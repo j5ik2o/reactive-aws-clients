@@ -9,21 +9,21 @@ final class AssociateKmsKeyRequestBuilderOps(val self: AssociateKmsKeyRequest.Bu
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def kmsKeyIdAsScala(value: Option[String]): AssociateKmsKeyRequest.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
-  } // String
+  }
 
 }
 
 final class AssociateKmsKeyRequestOps(val self: AssociateKmsKeyRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId) // String
+  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
 }
 

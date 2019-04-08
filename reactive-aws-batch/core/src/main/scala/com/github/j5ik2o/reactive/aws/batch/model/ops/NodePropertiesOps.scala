@@ -9,31 +9,31 @@ final class NodePropertiesBuilderOps(val self: NodeProperties.Builder) extends A
     value.fold(self) { v =>
       self.numNodes(v)
     }
-  } // Int
+  }
 
   final def mainNodeAsScala(value: Option[Int]): NodeProperties.Builder = {
     value.fold(self) { v =>
       self.mainNode(v)
     }
-  } // Int
+  }
 
   final def nodeRangePropertiesAsScala(value: Option[Seq[NodeRangeProperty]]): NodeProperties.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeRangeProperties(v.asJava)
-    } // Seq[NodeRangeProperty]
+    }
   }
 
 }
 
 final class NodePropertiesOps(val self: NodeProperties) extends AnyVal {
 
-  final def numNodesAsScala: Option[Int] = Option(self.numNodes) // Int
+  final def numNodesAsScala: Option[Int] = Option(self.numNodes)
 
-  final def mainNodeAsScala: Option[Int] = Option(self.mainNode) // Int
+  final def mainNodeAsScala: Option[Int] = Option(self.mainNode)
 
   final def nodeRangePropertiesAsScala: Option[Seq[NodeRangeProperty]] = Option(self.nodeRangeProperties).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[NodeRangeProperty]
+  }
 
 }
 

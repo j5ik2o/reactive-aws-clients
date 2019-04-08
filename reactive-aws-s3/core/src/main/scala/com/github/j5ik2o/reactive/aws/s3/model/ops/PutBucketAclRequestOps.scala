@@ -9,78 +9,77 @@ final class PutBucketAclRequestBuilderOps(val self: PutBucketAclRequest.Builder)
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // BucketCannedACL
+  }
 
   final def accessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.accessControlPolicy(v)
     }
-  } // AccessControlPolicy
+  }
 
   final def bucketAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def grantFullControlAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
-  } // String
+  }
 
   final def grantReadAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
-  } // String
+  }
 
   final def grantReadACPAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
-  } // String
+  }
 
   final def grantWriteAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantWrite(v)
     }
-  } // String
+  }
 
   final def grantWriteACPAsScala(value: Option[String]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
-  } // String
+  }
 
 }
 
 final class PutBucketAclRequestOps(val self: PutBucketAclRequest) extends AnyVal {
 
-  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl) // BucketCannedACL
+  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl)
 
-  final def accessControlPolicyAsScala: Option[AccessControlPolicy] =
-    Option(self.accessControlPolicy) // AccessControlPolicy
+  final def accessControlPolicyAsScala: Option[AccessControlPolicy] = Option(self.accessControlPolicy)
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl) // String
+  final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl)
 
-  final def grantReadAsScala: Option[String] = Option(self.grantRead) // String
+  final def grantReadAsScala: Option[String] = Option(self.grantRead)
 
-  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP) // String
+  final def grantReadACPAsScala: Option[String] = Option(self.grantReadACP)
 
-  final def grantWriteAsScala: Option[String] = Option(self.grantWrite) // String
+  final def grantWriteAsScala: Option[String] = Option(self.grantWrite)
 
-  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP) // String
+  final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP)
 
 }
 

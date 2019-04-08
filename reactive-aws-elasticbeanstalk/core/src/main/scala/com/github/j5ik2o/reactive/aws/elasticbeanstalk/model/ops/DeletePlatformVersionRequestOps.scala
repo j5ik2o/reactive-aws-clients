@@ -9,13 +9,13 @@ final class DeletePlatformVersionRequestBuilderOps(val self: DeletePlatformVersi
     value.fold(self) { v =>
       self.platformArn(v)
     }
-  } // String
+  }
 
 }
 
 final class DeletePlatformVersionRequestOps(val self: DeletePlatformVersionRequest) extends AnyVal {
 
-  final def platformArnAsScala: Option[String] = Option(self.platformArn) // String
+  final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
 }
 

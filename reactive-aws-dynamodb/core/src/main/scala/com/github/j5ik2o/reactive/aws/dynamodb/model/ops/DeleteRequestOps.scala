@@ -8,7 +8,7 @@ final class DeleteRequestBuilderOps(val self: DeleteRequest.Builder) extends Any
   final def keyAsScala(value: Option[Map[String, AttributeValue]]): DeleteRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
-    } // Map[String, AttributeValue]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DeleteRequestOps(val self: DeleteRequest) extends AnyVal {
 
   final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, AttributeValue]
+  }
 
 }
 

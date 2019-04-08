@@ -9,13 +9,13 @@ final class ResourceQuotaBuilderOps(val self: ResourceQuota.Builder) extends Any
     value.fold(self) { v =>
       self.maximum(v)
     }
-  } // Int
+  }
 
 }
 
 final class ResourceQuotaOps(val self: ResourceQuota) extends AnyVal {
 
-  final def maximumAsScala: Option[Int] = Option(self.maximum) // Int
+  final def maximumAsScala: Option[Int] = Option(self.maximum)
 
 }
 

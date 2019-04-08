@@ -9,23 +9,23 @@ final class ProjectionBuilderOps(val self: Projection.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.projectionType(v)
     }
-  } // ProjectionType
+  }
 
   final def nonKeyAttributesAsScala(value: Option[Seq[String]]): Projection.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nonKeyAttributes(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class ProjectionOps(val self: Projection) extends AnyVal {
 
-  final def projectionTypeAsScala: Option[ProjectionType] = Option(self.projectionType) // ProjectionType
+  final def projectionTypeAsScala: Option[ProjectionType] = Option(self.projectionType)
 
   final def nonKeyAttributesAsScala: Option[Seq[String]] = Option(self.nonKeyAttributes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

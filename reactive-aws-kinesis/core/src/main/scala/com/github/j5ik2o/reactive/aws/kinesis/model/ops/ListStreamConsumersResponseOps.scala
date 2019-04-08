@@ -8,14 +8,14 @@ final class ListStreamConsumersResponseBuilderOps(val self: ListStreamConsumersR
   final def consumersAsScala(value: Option[Seq[Consumer]]): ListStreamConsumersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumers(v.asJava)
-    } // Seq[Consumer]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListStreamConsumersResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListStreamConsumersResponseOps(val self: ListStreamConsumersResponse
 
   final def consumersAsScala: Option[Seq[Consumer]] = Option(self.consumers).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Consumer]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

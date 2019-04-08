@@ -9,46 +9,45 @@ final class InvokeResponseBuilderOps(val self: InvokeResponse.Builder) extends A
     value.fold(self) { v =>
       self.statusCode(v)
     }
-  } // Int
+  }
 
   final def functionErrorAsScala(value: Option[String]): InvokeResponse.Builder = {
     value.fold(self) { v =>
       self.functionError(v)
     }
-  } // String
+  }
 
   final def logResultAsScala(value: Option[String]): InvokeResponse.Builder = {
     value.fold(self) { v =>
       self.logResult(v)
     }
-  } // String
+  }
 
   final def payloadAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): InvokeResponse.Builder = {
     value.fold(self) { v =>
       self.payload(v)
     }
-  } // software.amazon.awssdk.core.SdkBytes
+  }
 
   final def executedVersionAsScala(value: Option[String]): InvokeResponse.Builder = {
     value.fold(self) { v =>
       self.executedVersion(v)
     }
-  } // String
+  }
 
 }
 
 final class InvokeResponseOps(val self: InvokeResponse) extends AnyVal {
 
-  final def statusCodeAsScala: Option[Int] = Option(self.statusCode) // Int
+  final def statusCodeAsScala: Option[Int] = Option(self.statusCode)
 
-  final def functionErrorAsScala: Option[String] = Option(self.functionError) // String
+  final def functionErrorAsScala: Option[String] = Option(self.functionError)
 
-  final def logResultAsScala: Option[String] = Option(self.logResult) // String
+  final def logResultAsScala: Option[String] = Option(self.logResult)
 
-  final def payloadAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
-    Option(self.payload) // software.amazon.awssdk.core.SdkBytes
+  final def payloadAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.payload)
 
-  final def executedVersionAsScala: Option[String] = Option(self.executedVersion) // String
+  final def executedVersionAsScala: Option[String] = Option(self.executedVersion)
 
 }
 

@@ -9,21 +9,21 @@ final class ChangeBuilderOps(val self: Change.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // ChangeType
+  }
 
   final def resourceChangeAsScala(value: Option[ResourceChange]): Change.Builder = {
     value.fold(self) { v =>
       self.resourceChange(v)
     }
-  } // ResourceChange
+  }
 
 }
 
 final class ChangeOps(val self: Change) extends AnyVal {
 
-  final def typeAsScala: Option[ChangeType] = Option(self.`type`) // ChangeType
+  final def typeAsScala: Option[ChangeType] = Option(self.`type`)
 
-  final def resourceChangeAsScala: Option[ResourceChange] = Option(self.resourceChange) // ResourceChange
+  final def resourceChangeAsScala: Option[ResourceChange] = Option(self.resourceChange)
 
 }
 

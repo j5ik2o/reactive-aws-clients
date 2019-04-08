@@ -9,13 +9,13 @@ final class AddPermissionResponseBuilderOps(val self: AddPermissionResponse.Buil
     value.fold(self) { v =>
       self.statement(v)
     }
-  } // String
+  }
 
 }
 
 final class AddPermissionResponseOps(val self: AddPermissionResponse) extends AnyVal {
 
-  final def statementAsScala: Option[String] = Option(self.statement) // String
+  final def statementAsScala: Option[String] = Option(self.statement)
 
 }
 

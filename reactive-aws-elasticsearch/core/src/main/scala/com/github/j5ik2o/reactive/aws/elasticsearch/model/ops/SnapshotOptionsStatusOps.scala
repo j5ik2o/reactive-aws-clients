@@ -9,21 +9,21 @@ final class SnapshotOptionsStatusBuilderOps(val self: SnapshotOptionsStatus.Buil
     value.fold(self) { v =>
       self.options(v)
     }
-  } // SnapshotOptions
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): SnapshotOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class SnapshotOptionsStatusOps(val self: SnapshotOptionsStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[SnapshotOptions] = Option(self.options) // SnapshotOptions
+  final def optionsAsScala: Option[SnapshotOptions] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

@@ -9,29 +9,29 @@ final class DescribeStackResourcesRequestBuilderOps(val self: DescribeStackResou
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def logicalResourceIdAsScala(value: Option[String]): DescribeStackResourcesRequest.Builder = {
     value.fold(self) { v =>
       self.logicalResourceId(v)
     }
-  } // String
+  }
 
   final def physicalResourceIdAsScala(value: Option[String]): DescribeStackResourcesRequest.Builder = {
     value.fold(self) { v =>
       self.physicalResourceId(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStackResourcesRequestOps(val self: DescribeStackResourcesRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
-  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId) // String
+  final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId)
 
-  final def physicalResourceIdAsScala: Option[String] = Option(self.physicalResourceId) // String
+  final def physicalResourceIdAsScala: Option[String] = Option(self.physicalResourceId)
 
 }
 

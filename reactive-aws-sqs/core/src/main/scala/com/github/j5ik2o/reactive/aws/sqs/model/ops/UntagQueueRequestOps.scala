@@ -9,23 +9,23 @@ final class UntagQueueRequestBuilderOps(val self: UntagQueueRequest.Builder) ext
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def tagKeysAsScala(value: Option[Seq[String]]): UntagQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class UntagQueueRequestOps(val self: UntagQueueRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

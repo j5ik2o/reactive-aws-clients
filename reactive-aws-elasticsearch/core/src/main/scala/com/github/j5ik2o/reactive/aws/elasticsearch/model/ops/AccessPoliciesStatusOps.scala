@@ -9,21 +9,21 @@ final class AccessPoliciesStatusBuilderOps(val self: AccessPoliciesStatus.Builde
     value.fold(self) { v =>
       self.options(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): AccessPoliciesStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class AccessPoliciesStatusOps(val self: AccessPoliciesStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[String] = Option(self.options) // String
+  final def optionsAsScala: Option[String] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

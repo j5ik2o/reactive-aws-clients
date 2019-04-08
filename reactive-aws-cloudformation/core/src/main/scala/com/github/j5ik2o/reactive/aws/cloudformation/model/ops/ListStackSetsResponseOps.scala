@@ -8,14 +8,14 @@ final class ListStackSetsResponseBuilderOps(val self: ListStackSetsResponse.Buil
   final def summariesAsScala(value: Option[Seq[StackSetSummary]]): ListStackSetsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.summaries(v.asJava)
-    } // Seq[StackSetSummary]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListStackSetsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListStackSetsResponseOps(val self: ListStackSetsResponse) extends An
 
   final def summariesAsScala: Option[Seq[StackSetSummary]] = Option(self.summaries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[StackSetSummary]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

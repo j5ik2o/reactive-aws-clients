@@ -9,13 +9,13 @@ final class StartSchemaCreationResponseBuilderOps(val self: StartSchemaCreationR
     value.fold(self) { v =>
       self.status(v)
     }
-  } // SchemaStatus
+  }
 
 }
 
 final class StartSchemaCreationResponseOps(val self: StartSchemaCreationResponse) extends AnyVal {
 
-  final def statusAsScala: Option[SchemaStatus] = Option(self.status) // SchemaStatus
+  final def statusAsScala: Option[SchemaStatus] = Option(self.status)
 
 }
 

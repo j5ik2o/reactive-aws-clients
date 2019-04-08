@@ -9,21 +9,21 @@ final class EndpointBuilderOps(val self: Endpoint.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.address(v)
     }
-  } // String
+  }
 
   final def portAsScala(value: Option[Int]): Endpoint.Builder = {
     value.fold(self) { v =>
       self.port(v)
     }
-  } // Int
+  }
 
 }
 
 final class EndpointOps(val self: Endpoint) extends AnyVal {
 
-  final def addressAsScala: Option[String] = Option(self.address) // String
+  final def addressAsScala: Option[String] = Option(self.address)
 
-  final def portAsScala: Option[Int] = Option(self.port) // Int
+  final def portAsScala: Option[Int] = Option(self.port)
 
 }
 

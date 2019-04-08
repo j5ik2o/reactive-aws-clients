@@ -9,13 +9,13 @@ final class UpdateApplicationResponseBuilderOps(val self: UpdateApplicationRespo
     value.fold(self) { v =>
       self.application(v)
     }
-  } // ApplicationDescription
+  }
 
 }
 
 final class UpdateApplicationResponseOps(val self: UpdateApplicationResponse) extends AnyVal {
 
-  final def applicationAsScala: Option[ApplicationDescription] = Option(self.application) // ApplicationDescription
+  final def applicationAsScala: Option[ApplicationDescription] = Option(self.application)
 
 }
 

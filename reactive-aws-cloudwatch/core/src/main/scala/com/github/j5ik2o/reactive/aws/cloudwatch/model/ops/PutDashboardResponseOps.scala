@@ -10,7 +10,7 @@ final class PutDashboardResponseBuilderOps(val self: PutDashboardResponse.Builde
   ): PutDashboardResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.dashboardValidationMessages(v.asJava)
-    } // Seq[DashboardValidationMessage]
+    }
   }
 
 }
@@ -20,7 +20,7 @@ final class PutDashboardResponseOps(val self: PutDashboardResponse) extends AnyV
   final def dashboardValidationMessagesAsScala: Option[Seq[DashboardValidationMessage]] =
     Option(self.dashboardValidationMessages).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[DashboardValidationMessage]
+    }
 
 }
 

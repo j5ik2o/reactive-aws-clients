@@ -9,29 +9,29 @@ final class ListStreamsRequestBuilderOps(val self: ListStreamsRequest.Builder) e
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
   final def exclusiveStartStreamArnAsScala(value: Option[String]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartStreamArn(v)
     }
-  } // String
+  }
 
 }
 
 final class ListStreamsRequestOps(val self: ListStreamsRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
-  final def exclusiveStartStreamArnAsScala: Option[String] = Option(self.exclusiveStartStreamArn) // String
+  final def exclusiveStartStreamArnAsScala: Option[String] = Option(self.exclusiveStartStreamArn)
 
 }
 

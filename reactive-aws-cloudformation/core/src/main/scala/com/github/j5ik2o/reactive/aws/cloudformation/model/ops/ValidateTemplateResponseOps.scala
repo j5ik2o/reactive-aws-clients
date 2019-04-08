@@ -8,31 +8,31 @@ final class ValidateTemplateResponseBuilderOps(val self: ValidateTemplateRespons
   final def parametersAsScala(value: Option[Seq[TemplateParameter]]): ValidateTemplateResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameters(v.asJava)
-    } // Seq[TemplateParameter]
+    }
   }
 
   final def descriptionAsScala(value: Option[String]): ValidateTemplateResponse.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): ValidateTemplateResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[Capability]
+    }
   }
 
   final def capabilitiesReasonAsScala(value: Option[String]): ValidateTemplateResponse.Builder = {
     value.fold(self) { v =>
       self.capabilitiesReason(v)
     }
-  } // String
+  }
 
   final def declaredTransformsAsScala(value: Option[Seq[String]]): ValidateTemplateResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.declaredTransforms(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -41,19 +41,19 @@ final class ValidateTemplateResponseOps(val self: ValidateTemplateResponse) exte
 
   final def parametersAsScala: Option[Seq[TemplateParameter]] = Option(self.parameters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[TemplateParameter]
+  }
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Capability]
+  }
 
-  final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason) // String
+  final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason)
 
   final def declaredTransformsAsScala: Option[Seq[String]] = Option(self.declaredTransforms).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

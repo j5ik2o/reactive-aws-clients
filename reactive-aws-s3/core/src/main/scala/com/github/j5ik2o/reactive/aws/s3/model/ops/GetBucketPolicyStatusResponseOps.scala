@@ -9,13 +9,13 @@ final class GetBucketPolicyStatusResponseBuilderOps(val self: GetBucketPolicySta
     value.fold(self) { v =>
       self.policyStatus(v)
     }
-  } // PolicyStatus
+  }
 
 }
 
 final class GetBucketPolicyStatusResponseOps(val self: GetBucketPolicyStatusResponse) extends AnyVal {
 
-  final def policyStatusAsScala: Option[PolicyStatus] = Option(self.policyStatus) // PolicyStatus
+  final def policyStatusAsScala: Option[PolicyStatus] = Option(self.policyStatus)
 
 }
 

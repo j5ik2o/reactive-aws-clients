@@ -9,21 +9,21 @@ final class ResultFieldBuilderOps(val self: ResultField.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.field(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): ResultField.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class ResultFieldOps(val self: ResultField) extends AnyVal {
 
-  final def fieldAsScala: Option[String] = Option(self.field) // String
+  final def fieldAsScala: Option[String] = Option(self.field)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

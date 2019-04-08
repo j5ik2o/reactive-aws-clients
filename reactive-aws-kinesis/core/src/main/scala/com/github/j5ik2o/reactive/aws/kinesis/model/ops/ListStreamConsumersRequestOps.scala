@@ -9,38 +9,37 @@ final class ListStreamConsumersRequestBuilderOps(val self: ListStreamConsumersRe
     value.fold(self) { v =>
       self.streamARN(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def streamCreationTimestampAsScala(value: Option[java.time.Instant]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class ListStreamConsumersRequestOps(val self: ListStreamConsumersRequest) extends AnyVal {
 
-  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+  final def streamARNAsScala: Option[String] = Option(self.streamARN)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def streamCreationTimestampAsScala: Option[java.time.Instant] =
-    Option(self.streamCreationTimestamp) // java.time.Instant
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp)
 
 }
 

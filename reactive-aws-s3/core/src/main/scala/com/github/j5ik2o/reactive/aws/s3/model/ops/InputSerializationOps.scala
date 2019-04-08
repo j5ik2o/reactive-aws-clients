@@ -9,37 +9,37 @@ final class InputSerializationBuilderOps(val self: InputSerialization.Builder) e
     value.fold(self) { v =>
       self.csv(v)
     }
-  } // CSVInput
+  }
 
   final def compressionTypeAsScala(value: Option[CompressionType]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.compressionType(v)
     }
-  } // CompressionType
+  }
 
   final def jsonAsScala(value: Option[JSONInput]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.json(v)
     }
-  } // JSONInput
+  }
 
   final def parquetAsScala(value: Option[ParquetInput]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.parquet(v)
     }
-  } // ParquetInput
+  }
 
 }
 
 final class InputSerializationOps(val self: InputSerialization) extends AnyVal {
 
-  final def csvAsScala: Option[CSVInput] = Option(self.csv) // CSVInput
+  final def csvAsScala: Option[CSVInput] = Option(self.csv)
 
-  final def compressionTypeAsScala: Option[CompressionType] = Option(self.compressionType) // CompressionType
+  final def compressionTypeAsScala: Option[CompressionType] = Option(self.compressionType)
 
-  final def jsonAsScala: Option[JSONInput] = Option(self.json) // JSONInput
+  final def jsonAsScala: Option[JSONInput] = Option(self.json)
 
-  final def parquetAsScala: Option[ParquetInput] = Option(self.parquet) // ParquetInput
+  final def parquetAsScala: Option[ParquetInput] = Option(self.parquet)
 
 }
 

@@ -9,21 +9,21 @@ final class ObjectLockRetentionBuilderOps(val self: ObjectLockRetention.Builder)
     value.fold(self) { v =>
       self.mode(v)
     }
-  } // ObjectLockRetentionMode
+  }
 
   final def retainUntilDateAsScala(value: Option[java.time.Instant]): ObjectLockRetention.Builder = {
     value.fold(self) { v =>
       self.retainUntilDate(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class ObjectLockRetentionOps(val self: ObjectLockRetention) extends AnyVal {
 
-  final def modeAsScala: Option[ObjectLockRetentionMode] = Option(self.mode) // ObjectLockRetentionMode
+  final def modeAsScala: Option[ObjectLockRetentionMode] = Option(self.mode)
 
-  final def retainUntilDateAsScala: Option[java.time.Instant] = Option(self.retainUntilDate) // java.time.Instant
+  final def retainUntilDateAsScala: Option[java.time.Instant] = Option(self.retainUntilDate)
 
 }
 

@@ -14,6 +14,9 @@ object CloudWatchSyncClient extends ToEitherSupport {
     }
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudwatch/CloudWatchClient.html
+  */
 trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   val underlying: JavaCloudWatchSyncClient
 

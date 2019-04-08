@@ -9,13 +9,13 @@ final class UpdateResolverResponseBuilderOps(val self: UpdateResolverResponse.Bu
     value.fold(self) { v =>
       self.resolver(v)
     }
-  } // Resolver
+  }
 
 }
 
 final class UpdateResolverResponseOps(val self: UpdateResolverResponse) extends AnyVal {
 
-  final def resolverAsScala: Option[Resolver] = Option(self.resolver) // Resolver
+  final def resolverAsScala: Option[Resolver] = Option(self.resolver)
 
 }
 

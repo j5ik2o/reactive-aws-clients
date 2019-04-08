@@ -9,39 +9,39 @@ final class GetFunctionResponseBuilderOps(val self: GetFunctionResponse.Builder)
     value.fold(self) { v =>
       self.configuration(v)
     }
-  } // FunctionConfiguration
+  }
 
   final def codeAsScala(value: Option[FunctionCodeLocation]): GetFunctionResponse.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
-  } // FunctionCodeLocation
+  }
 
   final def tagsAsScala(value: Option[Map[String, String]]): GetFunctionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Map[String, String]
+    }
   }
 
   final def concurrencyAsScala(value: Option[Concurrency]): GetFunctionResponse.Builder = {
     value.fold(self) { v =>
       self.concurrency(v)
     }
-  } // Concurrency
+  }
 
 }
 
 final class GetFunctionResponseOps(val self: GetFunctionResponse) extends AnyVal {
 
-  final def configurationAsScala: Option[FunctionConfiguration] = Option(self.configuration) // FunctionConfiguration
+  final def configurationAsScala: Option[FunctionConfiguration] = Option(self.configuration)
 
-  final def codeAsScala: Option[FunctionCodeLocation] = Option(self.code) // FunctionCodeLocation
+  final def codeAsScala: Option[FunctionCodeLocation] = Option(self.code)
 
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
-  final def concurrencyAsScala: Option[Concurrency] = Option(self.concurrency) // Concurrency
+  final def concurrencyAsScala: Option[Concurrency] = Option(self.concurrency)
 
 }
 

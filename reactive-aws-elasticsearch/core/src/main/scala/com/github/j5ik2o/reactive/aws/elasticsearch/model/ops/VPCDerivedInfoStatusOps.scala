@@ -9,21 +9,21 @@ final class VPCDerivedInfoStatusBuilderOps(val self: VPCDerivedInfoStatus.Builde
     value.fold(self) { v =>
       self.options(v)
     }
-  } // VPCDerivedInfo
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): VPCDerivedInfoStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class VPCDerivedInfoStatusOps(val self: VPCDerivedInfoStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[VPCDerivedInfo] = Option(self.options) // VPCDerivedInfo
+  final def optionsAsScala: Option[VPCDerivedInfo] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

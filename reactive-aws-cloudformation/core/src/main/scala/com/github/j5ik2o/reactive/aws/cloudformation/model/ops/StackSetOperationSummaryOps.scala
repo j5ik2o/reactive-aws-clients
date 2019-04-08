@@ -9,45 +9,45 @@ final class StackSetOperationSummaryBuilderOps(val self: StackSetOperationSummar
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
   final def actionAsScala(value: Option[StackSetOperationAction]): StackSetOperationSummary.Builder = {
     value.fold(self) { v =>
       self.action(v)
     }
-  } // StackSetOperationAction
+  }
 
   final def statusAsScala(value: Option[StackSetOperationStatus]): StackSetOperationSummary.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // StackSetOperationStatus
+  }
 
   final def creationTimestampAsScala(value: Option[java.time.Instant]): StackSetOperationSummary.Builder = {
     value.fold(self) { v =>
       self.creationTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
   final def endTimestampAsScala(value: Option[java.time.Instant]): StackSetOperationSummary.Builder = {
     value.fold(self) { v =>
       self.endTimestamp(v)
     }
-  } // java.time.Instant
+  }
 
 }
 
 final class StackSetOperationSummaryOps(val self: StackSetOperationSummary) extends AnyVal {
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
-  final def actionAsScala: Option[StackSetOperationAction] = Option(self.action) // StackSetOperationAction
+  final def actionAsScala: Option[StackSetOperationAction] = Option(self.action)
 
-  final def statusAsScala: Option[StackSetOperationStatus] = Option(self.status) // StackSetOperationStatus
+  final def statusAsScala: Option[StackSetOperationStatus] = Option(self.status)
 
-  final def creationTimestampAsScala: Option[java.time.Instant] = Option(self.creationTimestamp) // java.time.Instant
+  final def creationTimestampAsScala: Option[java.time.Instant] = Option(self.creationTimestamp)
 
-  final def endTimestampAsScala: Option[java.time.Instant] = Option(self.endTimestamp) // java.time.Instant
+  final def endTimestampAsScala: Option[java.time.Instant] = Option(self.endTimestamp)
 
 }
 

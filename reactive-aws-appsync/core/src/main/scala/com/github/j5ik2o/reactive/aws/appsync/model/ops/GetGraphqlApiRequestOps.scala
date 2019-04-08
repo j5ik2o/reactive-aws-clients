@@ -9,13 +9,13 @@ final class GetGraphqlApiRequestBuilderOps(val self: GetGraphqlApiRequest.Builde
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetGraphqlApiRequestOps(val self: GetGraphqlApiRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
 }
 

@@ -9,37 +9,37 @@ final class TransactWriteItemBuilderOps(val self: TransactWriteItem.Builder) ext
     value.fold(self) { v =>
       self.conditionCheck(v)
     }
-  } // ConditionCheck
+  }
 
   final def putAsScala(value: Option[Put]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.put(v)
     }
-  } // Put
+  }
 
   final def deleteAsScala(value: Option[Delete]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }
-  } // Delete
+  }
 
   final def updateAsScala(value: Option[Update]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.update(v)
     }
-  } // Update
+  }
 
 }
 
 final class TransactWriteItemOps(val self: TransactWriteItem) extends AnyVal {
 
-  final def conditionCheckAsScala: Option[ConditionCheck] = Option(self.conditionCheck) // ConditionCheck
+  final def conditionCheckAsScala: Option[ConditionCheck] = Option(self.conditionCheck)
 
-  final def putAsScala: Option[Put] = Option(self.put) // Put
+  final def putAsScala: Option[Put] = Option(self.put)
 
-  final def deleteAsScala: Option[Delete] = Option(self.delete) // Delete
+  final def deleteAsScala: Option[Delete] = Option(self.delete)
 
-  final def updateAsScala: Option[Update] = Option(self.update) // Update
+  final def updateAsScala: Option[Update] = Option(self.update)
 
 }
 

@@ -9,13 +9,13 @@ final class DescribeAccountLimitsRequestBuilderOps(val self: DescribeAccountLimi
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeAccountLimitsRequestOps(val self: DescribeAccountLimitsRequest) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

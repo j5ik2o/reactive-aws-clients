@@ -11,14 +11,14 @@ final class GetCompatibleElasticsearchVersionsRequestBuilderOps(
     value.fold(self) { v =>
       self.domainName(v)
     }
-  } // String
+  }
 
 }
 
 final class GetCompatibleElasticsearchVersionsRequestOps(val self: GetCompatibleElasticsearchVersionsRequest)
     extends AnyVal {
 
-  final def domainNameAsScala: Option[String] = Option(self.domainName) // String
+  final def domainNameAsScala: Option[String] = Option(self.domainName)
 
 }
 

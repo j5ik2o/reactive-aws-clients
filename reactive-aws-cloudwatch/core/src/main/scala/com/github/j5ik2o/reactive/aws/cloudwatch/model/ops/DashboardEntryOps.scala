@@ -9,37 +9,37 @@ final class DashboardEntryBuilderOps(val self: DashboardEntry.Builder) extends A
     value.fold(self) { v =>
       self.dashboardName(v)
     }
-  } // String
+  }
 
   final def dashboardArnAsScala(value: Option[String]): DashboardEntry.Builder = {
     value.fold(self) { v =>
       self.dashboardArn(v)
     }
-  } // String
+  }
 
   final def lastModifiedAsScala(value: Option[java.time.Instant]): DashboardEntry.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // java.time.Instant
+  }
 
   final def sizeAsScala(value: Option[Long]): DashboardEntry.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
-  } // Long
+  }
 
 }
 
 final class DashboardEntryOps(val self: DashboardEntry) extends AnyVal {
 
-  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName) // String
+  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName)
 
-  final def dashboardArnAsScala: Option[String] = Option(self.dashboardArn) // String
+  final def dashboardArnAsScala: Option[String] = Option(self.dashboardArn)
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified)
 
-  final def sizeAsScala: Option[Long] = Option(self.size) // Long
+  final def sizeAsScala: Option[Long] = Option(self.size)
 
 }
 

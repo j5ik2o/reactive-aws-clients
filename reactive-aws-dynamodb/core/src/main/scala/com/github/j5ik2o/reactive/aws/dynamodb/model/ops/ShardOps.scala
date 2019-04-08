@@ -9,30 +9,29 @@ final class ShardBuilderOps(val self: Shard.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.shardId(v)
     }
-  } // String
+  }
 
   final def sequenceNumberRangeAsScala(value: Option[SequenceNumberRange]): Shard.Builder = {
     value.fold(self) { v =>
       self.sequenceNumberRange(v)
     }
-  } // SequenceNumberRange
+  }
 
   final def parentShardIdAsScala(value: Option[String]): Shard.Builder = {
     value.fold(self) { v =>
       self.parentShardId(v)
     }
-  } // String
+  }
 
 }
 
 final class ShardOps(val self: Shard) extends AnyVal {
 
-  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+  final def shardIdAsScala: Option[String] = Option(self.shardId)
 
-  final def sequenceNumberRangeAsScala: Option[SequenceNumberRange] =
-    Option(self.sequenceNumberRange) // SequenceNumberRange
+  final def sequenceNumberRangeAsScala: Option[SequenceNumberRange] = Option(self.sequenceNumberRange)
 
-  final def parentShardIdAsScala: Option[String] = Option(self.parentShardId) // String
+  final def parentShardIdAsScala: Option[String] = Option(self.parentShardId)
 
 }
 

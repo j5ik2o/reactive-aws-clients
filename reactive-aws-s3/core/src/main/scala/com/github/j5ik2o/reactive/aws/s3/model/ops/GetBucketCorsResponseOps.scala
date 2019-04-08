@@ -8,7 +8,7 @@ final class GetBucketCorsResponseBuilderOps(val self: GetBucketCorsResponse.Buil
   final def corsRulesAsScala(value: Option[Seq[CORSRule]]): GetBucketCorsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.corsRules(v.asJava)
-    } // Seq[CORSRule]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class GetBucketCorsResponseOps(val self: GetBucketCorsResponse) extends An
 
   final def corsRulesAsScala: Option[Seq[CORSRule]] = Option(self.corsRules).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[CORSRule]
+  }
 
 }
 

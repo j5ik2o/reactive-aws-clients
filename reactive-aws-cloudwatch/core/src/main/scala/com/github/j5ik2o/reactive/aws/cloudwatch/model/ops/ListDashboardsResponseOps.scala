@@ -8,14 +8,14 @@ final class ListDashboardsResponseBuilderOps(val self: ListDashboardsResponse.Bu
   final def dashboardEntriesAsScala(value: Option[Seq[DashboardEntry]]): ListDashboardsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.dashboardEntries(v.asJava)
-    } // Seq[DashboardEntry]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListDashboardsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListDashboardsResponseOps(val self: ListDashboardsResponse) extends 
 
   final def dashboardEntriesAsScala: Option[Seq[DashboardEntry]] = Option(self.dashboardEntries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[DashboardEntry]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

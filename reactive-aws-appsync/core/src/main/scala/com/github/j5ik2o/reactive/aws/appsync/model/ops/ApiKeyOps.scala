@@ -9,29 +9,29 @@ final class ApiKeyBuilderOps(val self: ApiKey.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def expiresAsScala(value: Option[Long]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
-  } // Long
+  }
 
 }
 
 final class ApiKeyOps(val self: ApiKey) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def expiresAsScala: Option[Long] = Option(self.expires) // Long
+  final def expiresAsScala: Option[Long] = Option(self.expires)
 
 }
 

@@ -9,21 +9,21 @@ final class AccountLimitBuilderOps(val self: AccountLimit.Builder) extends AnyVa
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[Int]): AccountLimit.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // Int
+  }
 
 }
 
 final class AccountLimitOps(val self: AccountLimit) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def valueAsScala: Option[Int] = Option(self.value) // Int
+  final def valueAsScala: Option[Int] = Option(self.value)
 
 }
 

@@ -9,13 +9,13 @@ final class DeleteParameterGroupResponseBuilderOps(val self: DeleteParameterGrou
     value.fold(self) { v =>
       self.deletionMessage(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteParameterGroupResponseOps(val self: DeleteParameterGroupResponse) extends AnyVal {
 
-  final def deletionMessageAsScala: Option[String] = Option(self.deletionMessage) // String
+  final def deletionMessageAsScala: Option[String] = Option(self.deletionMessage)
 
 }
 

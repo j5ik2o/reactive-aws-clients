@@ -9,37 +9,37 @@ final class ListAliasesRequestBuilderOps(val self: ListAliasesRequest.Builder) e
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def functionVersionAsScala(value: Option[String]): ListAliasesRequest.Builder = {
     value.fold(self) { v =>
       self.functionVersion(v)
     }
-  } // String
+  }
 
   final def markerAsScala(value: Option[String]): ListAliasesRequest.Builder = {
     value.fold(self) { v =>
       self.marker(v)
     }
-  } // String
+  }
 
   final def maxItemsAsScala(value: Option[Int]): ListAliasesRequest.Builder = {
     value.fold(self) { v =>
       self.maxItems(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListAliasesRequestOps(val self: ListAliasesRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def functionVersionAsScala: Option[String] = Option(self.functionVersion) // String
+  final def functionVersionAsScala: Option[String] = Option(self.functionVersion)
 
-  final def markerAsScala: Option[String] = Option(self.marker) // String
+  final def markerAsScala: Option[String] = Option(self.marker)
 
-  final def maxItemsAsScala: Option[Int] = Option(self.maxItems) // Int
+  final def maxItemsAsScala: Option[Int] = Option(self.maxItems)
 
 }
 

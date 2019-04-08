@@ -11,14 +11,14 @@ final class GetBucketEncryptionResponseBuilderOps(val self: GetBucketEncryptionR
     value.fold(self) { v =>
       self.serverSideEncryptionConfiguration(v)
     }
-  } // ServerSideEncryptionConfiguration
+  }
 
 }
 
 final class GetBucketEncryptionResponseOps(val self: GetBucketEncryptionResponse) extends AnyVal {
 
   final def serverSideEncryptionConfigurationAsScala: Option[ServerSideEncryptionConfiguration] =
-    Option(self.serverSideEncryptionConfiguration) // ServerSideEncryptionConfiguration
+    Option(self.serverSideEncryptionConfiguration)
 
 }
 

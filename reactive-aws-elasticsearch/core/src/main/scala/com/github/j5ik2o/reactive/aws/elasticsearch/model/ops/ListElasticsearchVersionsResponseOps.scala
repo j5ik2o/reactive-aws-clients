@@ -9,14 +9,14 @@ final class ListElasticsearchVersionsResponseBuilderOps(val self: ListElasticsea
   final def elasticsearchVersionsAsScala(value: Option[Seq[String]]): ListElasticsearchVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.elasticsearchVersions(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListElasticsearchVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -24,9 +24,9 @@ final class ListElasticsearchVersionsResponseOps(val self: ListElasticsearchVers
 
   final def elasticsearchVersionsAsScala: Option[Seq[String]] = Option(self.elasticsearchVersions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

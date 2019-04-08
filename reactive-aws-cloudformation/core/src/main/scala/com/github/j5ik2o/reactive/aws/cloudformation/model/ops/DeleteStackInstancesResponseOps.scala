@@ -9,13 +9,13 @@ final class DeleteStackInstancesResponseBuilderOps(val self: DeleteStackInstance
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteStackInstancesResponseOps(val self: DeleteStackInstancesResponse) extends AnyVal {
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }
 

@@ -9,21 +9,21 @@ final class CheckDnsAvailabilityResponseBuilderOps(val self: CheckDnsAvailabilit
     value.fold(self) { v =>
       self.available(v)
     }
-  } // Boolean
+  }
 
   final def fullyQualifiedCNAMEAsScala(value: Option[String]): CheckDnsAvailabilityResponse.Builder = {
     value.fold(self) { v =>
       self.fullyQualifiedCNAME(v)
     }
-  } // String
+  }
 
 }
 
 final class CheckDnsAvailabilityResponseOps(val self: CheckDnsAvailabilityResponse) extends AnyVal {
 
-  final def availableAsScala: Option[Boolean] = Option(self.available) // Boolean
+  final def availableAsScala: Option[Boolean] = Option(self.available)
 
-  final def fullyQualifiedCNAMEAsScala: Option[String] = Option(self.fullyQualifiedCNAME) // String
+  final def fullyQualifiedCNAMEAsScala: Option[String] = Option(self.fullyQualifiedCNAME)
 
 }
 

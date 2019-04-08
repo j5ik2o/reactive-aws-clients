@@ -9,167 +9,167 @@ final class FunctionConfigurationBuilderOps(val self: FunctionConfiguration.Buil
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def functionArnAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.functionArn(v)
     }
-  } // String
+  }
 
   final def runtimeAsScala(value: Option[Runtime]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.runtime(v)
     }
-  } // Runtime
+  }
 
   final def roleAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.role(v)
     }
-  } // String
+  }
 
   final def handlerAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.handler(v)
     }
-  } // String
+  }
 
   final def codeSizeAsScala(value: Option[Long]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.codeSize(v)
     }
-  } // Long
+  }
 
   final def descriptionAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def timeoutAsScala(value: Option[Int]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.timeout(v)
     }
-  } // Int
+  }
 
   final def memorySizeAsScala(value: Option[Int]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.memorySize(v)
     }
-  } // Int
+  }
 
   final def lastModifiedAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // String
+  }
 
   final def codeSha256AsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.codeSha256(v)
     }
-  } // String
+  }
 
   final def versionAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.version(v)
     }
-  } // String
+  }
 
   final def vpcConfigAsScala(value: Option[VpcConfigResponse]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.vpcConfig(v)
     }
-  } // VpcConfigResponse
+  }
 
   final def deadLetterConfigAsScala(value: Option[DeadLetterConfig]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.deadLetterConfig(v)
     }
-  } // DeadLetterConfig
+  }
 
   final def environmentAsScala(value: Option[EnvironmentResponse]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.environment(v)
     }
-  } // EnvironmentResponse
+  }
 
   final def kmsKeyArnAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.kmsKeyArn(v)
     }
-  } // String
+  }
 
   final def tracingConfigAsScala(value: Option[TracingConfigResponse]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.tracingConfig(v)
     }
-  } // TracingConfigResponse
+  }
 
   final def masterArnAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.masterArn(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): FunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
   final def layersAsScala(value: Option[Seq[Layer]]): FunctionConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.layers(v.asJava)
-    } // Seq[Layer]
+    }
   }
 
 }
 
 final class FunctionConfigurationOps(val self: FunctionConfiguration) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
+  final def functionArnAsScala: Option[String] = Option(self.functionArn)
 
-  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // Runtime
+  final def runtimeAsScala: Option[Runtime] = Option(self.runtime)
 
-  final def roleAsScala: Option[String] = Option(self.role) // String
+  final def roleAsScala: Option[String] = Option(self.role)
 
-  final def handlerAsScala: Option[String] = Option(self.handler) // String
+  final def handlerAsScala: Option[String] = Option(self.handler)
 
-  final def codeSizeAsScala: Option[Long] = Option(self.codeSize) // Long
+  final def codeSizeAsScala: Option[Long] = Option(self.codeSize)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def timeoutAsScala: Option[Int] = Option(self.timeout) // Int
+  final def timeoutAsScala: Option[Int] = Option(self.timeout)
 
-  final def memorySizeAsScala: Option[Int] = Option(self.memorySize) // Int
+  final def memorySizeAsScala: Option[Int] = Option(self.memorySize)
 
-  final def lastModifiedAsScala: Option[String] = Option(self.lastModified) // String
+  final def lastModifiedAsScala: Option[String] = Option(self.lastModified)
 
-  final def codeSha256AsScala: Option[String] = Option(self.codeSha256) // String
+  final def codeSha256AsScala: Option[String] = Option(self.codeSha256)
 
-  final def versionAsScala: Option[String] = Option(self.version) // String
+  final def versionAsScala: Option[String] = Option(self.version)
 
-  final def vpcConfigAsScala: Option[VpcConfigResponse] = Option(self.vpcConfig) // VpcConfigResponse
+  final def vpcConfigAsScala: Option[VpcConfigResponse] = Option(self.vpcConfig)
 
-  final def deadLetterConfigAsScala: Option[DeadLetterConfig] = Option(self.deadLetterConfig) // DeadLetterConfig
+  final def deadLetterConfigAsScala: Option[DeadLetterConfig] = Option(self.deadLetterConfig)
 
-  final def environmentAsScala: Option[EnvironmentResponse] = Option(self.environment) // EnvironmentResponse
+  final def environmentAsScala: Option[EnvironmentResponse] = Option(self.environment)
 
-  final def kmsKeyArnAsScala: Option[String] = Option(self.kmsKeyArn) // String
+  final def kmsKeyArnAsScala: Option[String] = Option(self.kmsKeyArn)
 
-  final def tracingConfigAsScala: Option[TracingConfigResponse] = Option(self.tracingConfig) // TracingConfigResponse
+  final def tracingConfigAsScala: Option[TracingConfigResponse] = Option(self.tracingConfig)
 
-  final def masterArnAsScala: Option[String] = Option(self.masterArn) // String
+  final def masterArnAsScala: Option[String] = Option(self.masterArn)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
   final def layersAsScala: Option[Seq[Layer]] = Option(self.layers).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Layer]
+  }
 
 }
 

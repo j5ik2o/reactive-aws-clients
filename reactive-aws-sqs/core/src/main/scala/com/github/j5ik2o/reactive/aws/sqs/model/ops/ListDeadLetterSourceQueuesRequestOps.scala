@@ -10,13 +10,13 @@ final class ListDeadLetterSourceQueuesRequestBuilderOps(val self: ListDeadLetter
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
 }
 
 final class ListDeadLetterSourceQueuesRequestOps(val self: ListDeadLetterSourceQueuesRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }
 

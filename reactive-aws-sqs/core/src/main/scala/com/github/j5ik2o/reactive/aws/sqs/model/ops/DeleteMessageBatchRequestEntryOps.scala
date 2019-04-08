@@ -9,21 +9,21 @@ final class DeleteMessageBatchRequestEntryBuilderOps(val self: DeleteMessageBatc
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def receiptHandleAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteMessageBatchRequestEntryOps(val self: DeleteMessageBatchRequestEntry) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle) // String
+  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle)
 
 }
 

@@ -9,29 +9,29 @@ final class StreamBuilderOps(val self: Stream.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.streamArn(v)
     }
-  } // String
+  }
 
   final def tableNameAsScala(value: Option[String]): Stream.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
   final def streamLabelAsScala(value: Option[String]): Stream.Builder = {
     value.fold(self) { v =>
       self.streamLabel(v)
     }
-  } // String
+  }
 
 }
 
 final class StreamOps(val self: Stream) extends AnyVal {
 
-  final def streamArnAsScala: Option[String] = Option(self.streamArn) // String
+  final def streamArnAsScala: Option[String] = Option(self.streamArn)
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
-  final def streamLabelAsScala: Option[String] = Option(self.streamLabel) // String
+  final def streamLabelAsScala: Option[String] = Option(self.streamLabel)
 
 }
 

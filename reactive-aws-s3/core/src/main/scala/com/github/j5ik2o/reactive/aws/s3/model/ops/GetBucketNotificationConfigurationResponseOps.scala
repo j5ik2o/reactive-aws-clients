@@ -12,7 +12,7 @@ final class GetBucketNotificationConfigurationResponseBuilderOps(
   ): GetBucketNotificationConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.topicConfigurations(v.asJava)
-    } // Seq[TopicConfiguration]
+    }
   }
 
   final def queueConfigurationsAsScala(
@@ -20,7 +20,7 @@ final class GetBucketNotificationConfigurationResponseBuilderOps(
   ): GetBucketNotificationConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queueConfigurations(v.asJava)
-    } // Seq[QueueConfiguration]
+    }
   }
 
   final def lambdaFunctionConfigurationsAsScala(
@@ -28,7 +28,7 @@ final class GetBucketNotificationConfigurationResponseBuilderOps(
   ): GetBucketNotificationConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.lambdaFunctionConfigurations(v.asJava)
-    } // Seq[LambdaFunctionConfiguration]
+    }
   }
 
 }
@@ -38,16 +38,16 @@ final class GetBucketNotificationConfigurationResponseOps(val self: GetBucketNot
 
   final def topicConfigurationsAsScala: Option[Seq[TopicConfiguration]] = Option(self.topicConfigurations).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[TopicConfiguration]
+  }
 
   final def queueConfigurationsAsScala: Option[Seq[QueueConfiguration]] = Option(self.queueConfigurations).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[QueueConfiguration]
+  }
 
   final def lambdaFunctionConfigurationsAsScala: Option[Seq[LambdaFunctionConfiguration]] =
     Option(self.lambdaFunctionConfigurations).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[LambdaFunctionConfiguration]
+    }
 
 }
 

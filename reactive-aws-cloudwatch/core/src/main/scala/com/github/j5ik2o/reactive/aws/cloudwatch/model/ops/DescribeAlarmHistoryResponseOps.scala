@@ -8,14 +8,14 @@ final class DescribeAlarmHistoryResponseBuilderOps(val self: DescribeAlarmHistor
   final def alarmHistoryItemsAsScala(value: Option[Seq[AlarmHistoryItem]]): DescribeAlarmHistoryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.alarmHistoryItems(v.asJava)
-    } // Seq[AlarmHistoryItem]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeAlarmHistoryResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeAlarmHistoryResponseOps(val self: DescribeAlarmHistoryRespon
 
   final def alarmHistoryItemsAsScala: Option[Seq[AlarmHistoryItem]] = Option(self.alarmHistoryItems).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[AlarmHistoryItem]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

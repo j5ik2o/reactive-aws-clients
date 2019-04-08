@@ -9,21 +9,21 @@ final class ListDashboardsRequestBuilderOps(val self: ListDashboardsRequest.Buil
     value.fold(self) { v =>
       self.dashboardNamePrefix(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListDashboardsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListDashboardsRequestOps(val self: ListDashboardsRequest) extends AnyVal {
 
-  final def dashboardNamePrefixAsScala: Option[String] = Option(self.dashboardNamePrefix) // String
+  final def dashboardNamePrefixAsScala: Option[String] = Option(self.dashboardNamePrefix)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -8,38 +8,38 @@ final class DescribeAlarmsRequestBuilderOps(val self: DescribeAlarmsRequest.Buil
   final def alarmNamesAsScala(value: Option[Seq[String]]): DescribeAlarmsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.alarmNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def alarmNamePrefixAsScala(value: Option[String]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
       self.alarmNamePrefix(v)
     }
-  } // String
+  }
 
   final def stateValueAsScala(value: Option[StateValue]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
       self.stateValue(v)
     }
-  } // StateValue
+  }
 
   final def actionPrefixAsScala(value: Option[String]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
       self.actionPrefix(v)
     }
-  } // String
+  }
 
   final def maxRecordsAsScala(value: Option[Int]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
       self.maxRecords(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -47,17 +47,17 @@ final class DescribeAlarmsRequestOps(val self: DescribeAlarmsRequest) extends An
 
   final def alarmNamesAsScala: Option[Seq[String]] = Option(self.alarmNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def alarmNamePrefixAsScala: Option[String] = Option(self.alarmNamePrefix) // String
+  final def alarmNamePrefixAsScala: Option[String] = Option(self.alarmNamePrefix)
 
-  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // StateValue
+  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue)
 
-  final def actionPrefixAsScala: Option[String] = Option(self.actionPrefix) // String
+  final def actionPrefixAsScala: Option[String] = Option(self.actionPrefix)
 
-  final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords) // Int
+  final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

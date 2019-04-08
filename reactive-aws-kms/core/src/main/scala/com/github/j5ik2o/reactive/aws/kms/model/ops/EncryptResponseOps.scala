@@ -1,0 +1,38 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.kms.model.ops
+
+import software.amazon.awssdk.services.kms.model._
+
+final class EncryptResponseBuilderOps(val self: EncryptResponse.Builder) extends AnyVal {
+
+  final def ciphertextBlobAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): EncryptResponse.Builder = {
+    value.fold(self) { v =>
+      self.ciphertextBlob(v)
+    }
+  }
+
+  final def keyIdAsScala(value: Option[String]): EncryptResponse.Builder = {
+    value.fold(self) { v =>
+      self.keyId(v)
+    }
+  }
+
+}
+
+final class EncryptResponseOps(val self: EncryptResponse) extends AnyVal {
+
+  final def ciphertextBlobAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.ciphertextBlob)
+
+  final def keyIdAsScala: Option[String] = Option(self.keyId)
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToEncryptResponseOps {
+
+  implicit def toEncryptResponseBuilderOps(v: EncryptResponse.Builder): EncryptResponseBuilderOps =
+    new EncryptResponseBuilderOps(v)
+
+  implicit def toEncryptResponseOps(v: EncryptResponse): EncryptResponseOps = new EncryptResponseOps(v)
+
+}

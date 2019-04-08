@@ -9,13 +9,13 @@ final class GetObjectRetentionResponseBuilderOps(val self: GetObjectRetentionRes
     value.fold(self) { v =>
       self.retention(v)
     }
-  } // ObjectLockRetention
+  }
 
 }
 
 final class GetObjectRetentionResponseOps(val self: GetObjectRetentionResponse) extends AnyVal {
 
-  final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention) // ObjectLockRetention
+  final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention)
 
 }
 

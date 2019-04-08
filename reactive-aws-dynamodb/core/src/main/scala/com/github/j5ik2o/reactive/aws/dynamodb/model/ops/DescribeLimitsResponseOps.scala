@@ -9,37 +9,37 @@ final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Bu
     value.fold(self) { v =>
       self.accountMaxReadCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def accountMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.accountMaxWriteCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def tableMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.tableMaxReadCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def tableMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.tableMaxWriteCapacityUnits(v)
     }
-  } // Long
+  }
 
 }
 
 final class DescribeLimitsResponseOps(val self: DescribeLimitsResponse) extends AnyVal {
 
-  final def accountMaxReadCapacityUnitsAsScala: Option[Long] = Option(self.accountMaxReadCapacityUnits) // Long
+  final def accountMaxReadCapacityUnitsAsScala: Option[Long] = Option(self.accountMaxReadCapacityUnits)
 
-  final def accountMaxWriteCapacityUnitsAsScala: Option[Long] = Option(self.accountMaxWriteCapacityUnits) // Long
+  final def accountMaxWriteCapacityUnitsAsScala: Option[Long] = Option(self.accountMaxWriteCapacityUnits)
 
-  final def tableMaxReadCapacityUnitsAsScala: Option[Long] = Option(self.tableMaxReadCapacityUnits) // Long
+  final def tableMaxReadCapacityUnitsAsScala: Option[Long] = Option(self.tableMaxReadCapacityUnits)
 
-  final def tableMaxWriteCapacityUnitsAsScala: Option[Long] = Option(self.tableMaxWriteCapacityUnits) // Long
+  final def tableMaxWriteCapacityUnitsAsScala: Option[Long] = Option(self.tableMaxWriteCapacityUnits)
 
 }
 

@@ -8,49 +8,49 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
   final def parametersAsScala(value: Option[Seq[ParameterDeclaration]]): GetTemplateSummaryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameters(v.asJava)
-    } // Seq[ParameterDeclaration]
+    }
   }
 
   final def descriptionAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): GetTemplateSummaryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[Capability]
+    }
   }
 
   final def capabilitiesReasonAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
     value.fold(self) { v =>
       self.capabilitiesReason(v)
     }
-  } // String
+  }
 
   final def resourceTypesAsScala(value: Option[Seq[String]]): GetTemplateSummaryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.resourceTypes(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def versionAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
     value.fold(self) { v =>
       self.version(v)
     }
-  } // String
+  }
 
   final def metadataAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
     value.fold(self) { v =>
       self.metadata(v)
     }
-  } // String
+  }
 
   final def declaredTransformsAsScala(value: Option[Seq[String]]): GetTemplateSummaryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.declaredTransforms(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -59,27 +59,27 @@ final class GetTemplateSummaryResponseOps(val self: GetTemplateSummaryResponse) 
 
   final def parametersAsScala: Option[Seq[ParameterDeclaration]] = Option(self.parameters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ParameterDeclaration]
+  }
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Capability]
+  }
 
-  final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason) // String
+  final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason)
 
   final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def versionAsScala: Option[String] = Option(self.version) // String
+  final def versionAsScala: Option[String] = Option(self.version)
 
-  final def metadataAsScala: Option[String] = Option(self.metadata) // String
+  final def metadataAsScala: Option[String] = Option(self.metadata)
 
   final def declaredTransformsAsScala: Option[Seq[String]] = Option(self.declaredTransforms).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

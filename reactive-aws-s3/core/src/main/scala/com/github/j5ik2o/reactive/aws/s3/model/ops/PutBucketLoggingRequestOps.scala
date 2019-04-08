@@ -9,30 +9,29 @@ final class PutBucketLoggingRequestBuilderOps(val self: PutBucketLoggingRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def bucketLoggingStatusAsScala(value: Option[BucketLoggingStatus]): PutBucketLoggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucketLoggingStatus(v)
     }
-  } // BucketLoggingStatus
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketLoggingRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
 }
 
 final class PutBucketLoggingRequestOps(val self: PutBucketLoggingRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def bucketLoggingStatusAsScala: Option[BucketLoggingStatus] =
-    Option(self.bucketLoggingStatus) // BucketLoggingStatus
+  final def bucketLoggingStatusAsScala: Option[BucketLoggingStatus] = Option(self.bucketLoggingStatus)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
 }
 

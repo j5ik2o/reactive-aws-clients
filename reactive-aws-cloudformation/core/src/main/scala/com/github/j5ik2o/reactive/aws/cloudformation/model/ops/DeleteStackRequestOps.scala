@@ -9,39 +9,39 @@ final class DeleteStackRequestBuilderOps(val self: DeleteStackRequest.Builder) e
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
   final def retainResourcesAsScala(value: Option[Seq[String]]): DeleteStackRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.retainResources(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def roleARNAsScala(value: Option[String]): DeleteStackRequest.Builder = {
     value.fold(self) { v =>
       self.roleARN(v)
     }
-  } // String
+  }
 
   final def clientRequestTokenAsScala(value: Option[String]): DeleteStackRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteStackRequestOps(val self: DeleteStackRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
   final def retainResourcesAsScala: Option[Seq[String]] = Option(self.retainResources).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def roleARNAsScala: Option[String] = Option(self.roleARN) // String
+  final def roleARNAsScala: Option[String] = Option(self.roleARN)
 
-  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken) // String
+  final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)
 
 }
 

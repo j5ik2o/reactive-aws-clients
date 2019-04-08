@@ -9,29 +9,29 @@ final class PutRecordResponseBuilderOps(val self: PutRecordResponse.Builder) ext
     value.fold(self) { v =>
       self.shardId(v)
     }
-  } // String
+  }
 
   final def sequenceNumberAsScala(value: Option[String]): PutRecordResponse.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
-  } // String
+  }
 
   final def encryptionTypeAsScala(value: Option[EncryptionType]): PutRecordResponse.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // EncryptionType
+  }
 
 }
 
 final class PutRecordResponseOps(val self: PutRecordResponse) extends AnyVal {
 
-  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+  final def shardIdAsScala: Option[String] = Option(self.shardId)
 
-  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
+  final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber)
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // EncryptionType
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType)
 
 }
 

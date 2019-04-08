@@ -9,13 +9,13 @@ final class CreateStackSetResponseBuilderOps(val self: CreateStackSetResponse.Bu
     value.fold(self) { v =>
       self.stackSetId(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateStackSetResponseOps(val self: CreateStackSetResponse) extends AnyVal {
 
-  final def stackSetIdAsScala: Option[String] = Option(self.stackSetId) // String
+  final def stackSetIdAsScala: Option[String] = Option(self.stackSetId)
 
 }
 

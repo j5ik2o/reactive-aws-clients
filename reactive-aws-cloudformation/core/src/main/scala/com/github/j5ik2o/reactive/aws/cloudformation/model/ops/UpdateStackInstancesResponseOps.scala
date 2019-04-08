@@ -9,13 +9,13 @@ final class UpdateStackInstancesResponseBuilderOps(val self: UpdateStackInstance
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
 }
 
 final class UpdateStackInstancesResponseOps(val self: UpdateStackInstancesResponse) extends AnyVal {
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }
 

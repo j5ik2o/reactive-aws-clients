@@ -8,32 +8,32 @@ final class GlobalTableDescriptionBuilderOps(val self: GlobalTableDescription.Bu
   final def replicationGroupAsScala(value: Option[Seq[ReplicaDescription]]): GlobalTableDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicationGroup(v.asJava)
-    } // Seq[ReplicaDescription]
+    }
   }
 
   final def globalTableArnAsScala(value: Option[String]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableArn(v)
     }
-  } // String
+  }
 
   final def creationDateTimeAsScala(value: Option[java.time.Instant]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.creationDateTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def globalTableStatusAsScala(value: Option[GlobalTableStatus]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableStatus(v)
     }
-  } // GlobalTableStatus
+  }
 
   final def globalTableNameAsScala(value: Option[String]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }
-  } // String
+  }
 
 }
 
@@ -41,15 +41,15 @@ final class GlobalTableDescriptionOps(val self: GlobalTableDescription) extends 
 
   final def replicationGroupAsScala: Option[Seq[ReplicaDescription]] = Option(self.replicationGroup).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ReplicaDescription]
+  }
 
-  final def globalTableArnAsScala: Option[String] = Option(self.globalTableArn) // String
+  final def globalTableArnAsScala: Option[String] = Option(self.globalTableArn)
 
-  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // java.time.Instant
+  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime)
 
-  final def globalTableStatusAsScala: Option[GlobalTableStatus] = Option(self.globalTableStatus) // GlobalTableStatus
+  final def globalTableStatusAsScala: Option[GlobalTableStatus] = Option(self.globalTableStatus)
 
-  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
 }
 

@@ -9,37 +9,37 @@ final class StatisticSetBuilderOps(val self: StatisticSet.Builder) extends AnyVa
     value.fold(self) { v =>
       self.sampleCount(v)
     }
-  } // Double
+  }
 
   final def sumAsScala(value: Option[Double]): StatisticSet.Builder = {
     value.fold(self) { v =>
       self.sum(v)
     }
-  } // Double
+  }
 
   final def minimumAsScala(value: Option[Double]): StatisticSet.Builder = {
     value.fold(self) { v =>
       self.minimum(v)
     }
-  } // Double
+  }
 
   final def maximumAsScala(value: Option[Double]): StatisticSet.Builder = {
     value.fold(self) { v =>
       self.maximum(v)
     }
-  } // Double
+  }
 
 }
 
 final class StatisticSetOps(val self: StatisticSet) extends AnyVal {
 
-  final def sampleCountAsScala: Option[Double] = Option(self.sampleCount) // Double
+  final def sampleCountAsScala: Option[Double] = Option(self.sampleCount)
 
-  final def sumAsScala: Option[Double] = Option(self.sum) // Double
+  final def sumAsScala: Option[Double] = Option(self.sum)
 
-  final def minimumAsScala: Option[Double] = Option(self.minimum) // Double
+  final def minimumAsScala: Option[Double] = Option(self.minimum)
 
-  final def maximumAsScala: Option[Double] = Option(self.maximum) // Double
+  final def maximumAsScala: Option[Double] = Option(self.maximum)
 
 }
 

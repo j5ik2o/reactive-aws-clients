@@ -11,7 +11,7 @@ final class UpdateApplicationResourceLifecycleRequestBuilderOps(
     value.fold(self) { v =>
       self.applicationName(v)
     }
-  } // String
+  }
 
   final def resourceLifecycleConfigAsScala(
       value: Option[ApplicationResourceLifecycleConfig]
@@ -19,17 +19,17 @@ final class UpdateApplicationResourceLifecycleRequestBuilderOps(
     value.fold(self) { v =>
       self.resourceLifecycleConfig(v)
     }
-  } // ApplicationResourceLifecycleConfig
+  }
 
 }
 
 final class UpdateApplicationResourceLifecycleRequestOps(val self: UpdateApplicationResourceLifecycleRequest)
     extends AnyVal {
 
-  final def applicationNameAsScala: Option[String] = Option(self.applicationName) // String
+  final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
   final def resourceLifecycleConfigAsScala: Option[ApplicationResourceLifecycleConfig] =
-    Option(self.resourceLifecycleConfig) // ApplicationResourceLifecycleConfig
+    Option(self.resourceLifecycleConfig)
 
 }
 

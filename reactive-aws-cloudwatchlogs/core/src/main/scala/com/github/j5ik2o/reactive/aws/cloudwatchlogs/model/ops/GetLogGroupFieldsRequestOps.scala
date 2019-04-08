@@ -9,21 +9,21 @@ final class GetLogGroupFieldsRequestBuilderOps(val self: GetLogGroupFieldsReques
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def timeAsScala(value: Option[Long]): GetLogGroupFieldsRequest.Builder = {
     value.fold(self) { v =>
       self.time(v)
     }
-  } // Long
+  }
 
 }
 
 final class GetLogGroupFieldsRequestOps(val self: GetLogGroupFieldsRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def timeAsScala: Option[Long] = Option(self.time) // Long
+  final def timeAsScala: Option[Long] = Option(self.time)
 
 }
 

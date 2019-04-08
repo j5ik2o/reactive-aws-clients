@@ -9,7 +9,7 @@ final class StartSchemaCreationRequestBuilderOps(val self: StartSchemaCreationRe
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def definitionAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
@@ -17,16 +17,15 @@ final class StartSchemaCreationRequestBuilderOps(val self: StartSchemaCreationRe
     value.fold(self) { v =>
       self.definition(v)
     }
-  } // software.amazon.awssdk.core.SdkBytes
+  }
 
 }
 
 final class StartSchemaCreationRequestOps(val self: StartSchemaCreationRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def definitionAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
-    Option(self.definition) // software.amazon.awssdk.core.SdkBytes
+  final def definitionAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.definition)
 
 }
 

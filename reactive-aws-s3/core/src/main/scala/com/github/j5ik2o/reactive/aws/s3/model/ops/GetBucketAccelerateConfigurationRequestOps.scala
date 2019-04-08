@@ -10,14 +10,14 @@ final class GetBucketAccelerateConfigurationRequestBuilderOps(val self: GetBucke
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketAccelerateConfigurationRequestOps(val self: GetBucketAccelerateConfigurationRequest)
     extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

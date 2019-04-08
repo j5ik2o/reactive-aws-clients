@@ -9,13 +9,13 @@ final class StopQueryResponseBuilderOps(val self: StopQueryResponse.Builder) ext
     value.fold(self) { v =>
       self.success(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class StopQueryResponseOps(val self: StopQueryResponse) extends AnyVal {
 
-  final def successAsScala: Option[Boolean] = Option(self.success) // Boolean
+  final def successAsScala: Option[Boolean] = Option(self.success)
 
 }
 

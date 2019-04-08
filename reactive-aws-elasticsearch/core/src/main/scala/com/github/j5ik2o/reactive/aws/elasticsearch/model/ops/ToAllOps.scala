@@ -6,7 +6,6 @@ trait ToAllOps
     extends ToOptionSupport
     with ToAccessPoliciesStatusOps
     with ToAddTagsRequestOps
-    with ToAddTagsResponseOps
     with ToAdditionalLimitOps
     with ToAdvancedOptionsStatusOps
     with ToCancelElasticsearchServiceSoftwareUpdateRequestOps
@@ -18,8 +17,6 @@ trait ToAllOps
     with ToCreateElasticsearchDomainResponseOps
     with ToDeleteElasticsearchDomainRequestOps
     with ToDeleteElasticsearchDomainResponseOps
-    with ToDeleteElasticsearchServiceRoleRequestOps
-    with ToDeleteElasticsearchServiceRoleResponseOps
     with ToDescribeElasticsearchDomainConfigRequestOps
     with ToDescribeElasticsearchDomainConfigResponseOps
     with ToDescribeElasticsearchDomainRequestOps
@@ -51,7 +48,6 @@ trait ToAllOps
     with ToInstanceCountLimitsOps
     with ToInstanceLimitsOps
     with ToLimitsOps
-    with ToListDomainNamesRequestOps
     with ToListDomainNamesResponseOps
     with ToListElasticsearchInstanceTypesRequestOps
     with ToListElasticsearchInstanceTypesResponseOps
@@ -68,7 +64,6 @@ trait ToAllOps
     with ToPurchaseReservedElasticsearchInstanceOfferingResponseOps
     with ToRecurringChargeOps
     with ToRemoveTagsRequestOps
-    with ToRemoveTagsResponseOps
     with ToReservedElasticsearchInstanceOfferingOps
     with ToReservedElasticsearchInstanceOps
     with ToServiceSoftwareOptionsOps

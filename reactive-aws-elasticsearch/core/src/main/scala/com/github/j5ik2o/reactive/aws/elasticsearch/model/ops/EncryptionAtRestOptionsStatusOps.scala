@@ -9,21 +9,21 @@ final class EncryptionAtRestOptionsStatusBuilderOps(val self: EncryptionAtRestOp
     value.fold(self) { v =>
       self.options(v)
     }
-  } // EncryptionAtRestOptions
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): EncryptionAtRestOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class EncryptionAtRestOptionsStatusOps(val self: EncryptionAtRestOptionsStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[EncryptionAtRestOptions] = Option(self.options) // EncryptionAtRestOptions
+  final def optionsAsScala: Option[EncryptionAtRestOptions] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

@@ -1,0 +1,33 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.ec2.model.ops
+
+import software.amazon.awssdk.services.ec2.model._
+
+final class StopInstancesResponseBuilderOps(val self: StopInstancesResponse.Builder) extends AnyVal {
+
+  final def stoppingInstancesAsScala(value: Option[Seq[InstanceStateChange]]): StopInstancesResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import scala.collection.JavaConverters._; self.stoppingInstances(v.asJava)
+    }
+  }
+
+}
+
+final class StopInstancesResponseOps(val self: StopInstancesResponse) extends AnyVal {
+
+  final def stoppingInstancesAsScala: Option[Seq[InstanceStateChange]] = Option(self.stoppingInstances).map { v =>
+    import scala.collection.JavaConverters._; v.asScala
+  }
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStopInstancesResponseOps {
+
+  implicit def toStopInstancesResponseBuilderOps(v: StopInstancesResponse.Builder): StopInstancesResponseBuilderOps =
+    new StopInstancesResponseBuilderOps(v)
+
+  implicit def toStopInstancesResponseOps(v: StopInstancesResponse): StopInstancesResponseOps =
+    new StopInstancesResponseOps(v)
+
+}

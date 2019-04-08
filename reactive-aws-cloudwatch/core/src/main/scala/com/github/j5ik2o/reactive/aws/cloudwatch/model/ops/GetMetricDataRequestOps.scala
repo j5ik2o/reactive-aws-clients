@@ -8,38 +8,38 @@ final class GetMetricDataRequestBuilderOps(val self: GetMetricDataRequest.Builde
   final def metricDataQueriesAsScala(value: Option[Seq[MetricDataQuery]]): GetMetricDataRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metricDataQueries(v.asJava)
-    } // Seq[MetricDataQuery]
+    }
   }
 
   final def startTimeAsScala(value: Option[java.time.Instant]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def endTimeAsScala(value: Option[java.time.Instant]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // java.time.Instant
+  }
 
   final def nextTokenAsScala(value: Option[String]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def scanByAsScala(value: Option[ScanBy]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.scanBy(v)
     }
-  } // ScanBy
+  }
 
   final def maxDatapointsAsScala(value: Option[Int]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.maxDatapoints(v)
     }
-  } // Int
+  }
 
 }
 
@@ -47,17 +47,17 @@ final class GetMetricDataRequestOps(val self: GetMetricDataRequest) extends AnyV
 
   final def metricDataQueriesAsScala: Option[Seq[MetricDataQuery]] = Option(self.metricDataQueries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[MetricDataQuery]
+  }
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime)
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // java.time.Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def scanByAsScala: Option[ScanBy] = Option(self.scanBy) // ScanBy
+  final def scanByAsScala: Option[ScanBy] = Option(self.scanBy)
 
-  final def maxDatapointsAsScala: Option[Int] = Option(self.maxDatapoints) // Int
+  final def maxDatapointsAsScala: Option[Int] = Option(self.maxDatapoints)
 
 }
 

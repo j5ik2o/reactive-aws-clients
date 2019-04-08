@@ -8,7 +8,7 @@ final class ListTagsResponseBuilderOps(val self: ListTagsResponse.Builder) exten
   final def tagsAsScala(value: Option[Map[String, String]]): ListTagsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ListTagsResponseOps(val self: ListTagsResponse) extends AnyVal {
 
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

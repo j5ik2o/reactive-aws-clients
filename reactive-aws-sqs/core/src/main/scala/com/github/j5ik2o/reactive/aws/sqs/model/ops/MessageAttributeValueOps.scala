@@ -9,18 +9,18 @@ final class MessageAttributeValueBuilderOps(val self: MessageAttributeValue.Buil
     value.fold(self) { v =>
       self.stringValue(v)
     }
-  } // String
+  }
 
   final def binaryValueAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): MessageAttributeValue.Builder = {
     value.fold(self) { v =>
       self.binaryValue(v)
     }
-  } // software.amazon.awssdk.core.SdkBytes
+  }
 
   final def stringListValuesAsScala(value: Option[Seq[String]]): MessageAttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stringListValues(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def binaryListValuesAsScala(
@@ -28,34 +28,33 @@ final class MessageAttributeValueBuilderOps(val self: MessageAttributeValue.Buil
   ): MessageAttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.binaryListValues(v.asJava)
-    } // Seq[software.amazon.awssdk.core.SdkBytes]
+    }
   }
 
   final def dataTypeAsScala(value: Option[String]): MessageAttributeValue.Builder = {
     value.fold(self) { v =>
       self.dataType(v)
     }
-  } // String
+  }
 
 }
 
 final class MessageAttributeValueOps(val self: MessageAttributeValue) extends AnyVal {
 
-  final def stringValueAsScala: Option[String] = Option(self.stringValue) // String
+  final def stringValueAsScala: Option[String] = Option(self.stringValue)
 
-  final def binaryValueAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
-    Option(self.binaryValue) // software.amazon.awssdk.core.SdkBytes
+  final def binaryValueAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.binaryValue)
 
   final def stringListValuesAsScala: Option[Seq[String]] = Option(self.stringListValues).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def binaryListValuesAsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] =
     Option(self.binaryListValues).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[software.amazon.awssdk.core.SdkBytes]
+    }
 
-  final def dataTypeAsScala: Option[String] = Option(self.dataType) // String
+  final def dataTypeAsScala: Option[String] = Option(self.dataType)
 
 }
 

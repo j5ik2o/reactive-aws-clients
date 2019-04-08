@@ -9,13 +9,13 @@ final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) exten
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class SSESpecificationOps(val self: SSESpecification) extends AnyVal {
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }
 

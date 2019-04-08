@@ -9,13 +9,13 @@ final class RetryStrategyBuilderOps(val self: RetryStrategy.Builder) extends Any
     value.fold(self) { v =>
       self.attempts(v)
     }
-  } // Int
+  }
 
 }
 
 final class RetryStrategyOps(val self: RetryStrategy) extends AnyVal {
 
-  final def attemptsAsScala: Option[Int] = Option(self.attempts) // Int
+  final def attemptsAsScala: Option[Int] = Option(self.attempts)
 
 }
 

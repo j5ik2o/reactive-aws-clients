@@ -9,13 +9,13 @@ final class EstimateTemplateCostResponseBuilderOps(val self: EstimateTemplateCos
     value.fold(self) { v =>
       self.url(v)
     }
-  } // String
+  }
 
 }
 
 final class EstimateTemplateCostResponseOps(val self: EstimateTemplateCostResponse) extends AnyVal {
 
-  final def urlAsScala: Option[String] = Option(self.url) // String
+  final def urlAsScala: Option[String] = Option(self.url)
 
 }
 

@@ -9,29 +9,29 @@ final class DescribeLogGroupsRequestBuilderOps(val self: DescribeLogGroupsReques
     value.fold(self) { v =>
       self.logGroupNamePrefix(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeLogGroupsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): DescribeLogGroupsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeLogGroupsRequestOps(val self: DescribeLogGroupsRequest) extends AnyVal {
 
-  final def logGroupNamePrefixAsScala: Option[String] = Option(self.logGroupNamePrefix) // String
+  final def logGroupNamePrefixAsScala: Option[String] = Option(self.logGroupNamePrefix)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

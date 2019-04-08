@@ -9,21 +9,21 @@ final class RecurringChargeBuilderOps(val self: RecurringCharge.Builder) extends
     value.fold(self) { v =>
       self.recurringChargeAmount(v)
     }
-  } // Double
+  }
 
   final def recurringChargeFrequencyAsScala(value: Option[String]): RecurringCharge.Builder = {
     value.fold(self) { v =>
       self.recurringChargeFrequency(v)
     }
-  } // String
+  }
 
 }
 
 final class RecurringChargeOps(val self: RecurringCharge) extends AnyVal {
 
-  final def recurringChargeAmountAsScala: Option[Double] = Option(self.recurringChargeAmount) // Double
+  final def recurringChargeAmountAsScala: Option[Double] = Option(self.recurringChargeAmount)
 
-  final def recurringChargeFrequencyAsScala: Option[String] = Option(self.recurringChargeFrequency) // String
+  final def recurringChargeFrequencyAsScala: Option[String] = Option(self.recurringChargeFrequency)
 
 }
 

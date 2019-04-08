@@ -8,14 +8,14 @@ final class DescribeAccountLimitsResponseBuilderOps(val self: DescribeAccountLim
   final def accountLimitsAsScala(value: Option[Seq[AccountLimit]]): DescribeAccountLimitsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.accountLimits(v.asJava)
-    } // Seq[AccountLimit]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeAccountLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeAccountLimitsResponseOps(val self: DescribeAccountLimitsResp
 
   final def accountLimitsAsScala: Option[Seq[AccountLimit]] = Option(self.accountLimits).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[AccountLimit]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

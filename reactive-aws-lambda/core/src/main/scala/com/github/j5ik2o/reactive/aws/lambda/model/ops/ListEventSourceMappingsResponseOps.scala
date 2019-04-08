@@ -10,26 +10,26 @@ final class ListEventSourceMappingsResponseBuilderOps(val self: ListEventSourceM
     value.fold(self) { v =>
       self.nextMarker(v)
     }
-  } // String
+  }
 
   final def eventSourceMappingsAsScala(
       value: Option[Seq[EventSourceMappingConfiguration]]
   ): ListEventSourceMappingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.eventSourceMappings(v.asJava)
-    } // Seq[EventSourceMappingConfiguration]
+    }
   }
 
 }
 
 final class ListEventSourceMappingsResponseOps(val self: ListEventSourceMappingsResponse) extends AnyVal {
 
-  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker) // String
+  final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   final def eventSourceMappingsAsScala: Option[Seq[EventSourceMappingConfiguration]] =
     Option(self.eventSourceMappings).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[EventSourceMappingConfiguration]
+    }
 
 }
 

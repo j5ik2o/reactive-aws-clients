@@ -12,15 +12,14 @@ final class UpdateElasticsearchDomainConfigResponseBuilderOps(val self: UpdateEl
     value.fold(self) { v =>
       self.domainConfig(v)
     }
-  } // ElasticsearchDomainConfig
+  }
 
 }
 
 final class UpdateElasticsearchDomainConfigResponseOps(val self: UpdateElasticsearchDomainConfigResponse)
     extends AnyVal {
 
-  final def domainConfigAsScala: Option[ElasticsearchDomainConfig] =
-    Option(self.domainConfig) // ElasticsearchDomainConfig
+  final def domainConfigAsScala: Option[ElasticsearchDomainConfig] = Option(self.domainConfig)
 
 }
 

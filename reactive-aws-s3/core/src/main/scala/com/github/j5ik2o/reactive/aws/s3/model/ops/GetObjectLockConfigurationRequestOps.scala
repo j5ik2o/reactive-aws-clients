@@ -10,13 +10,13 @@ final class GetObjectLockConfigurationRequestBuilderOps(val self: GetObjectLockC
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetObjectLockConfigurationRequestOps(val self: GetObjectLockConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

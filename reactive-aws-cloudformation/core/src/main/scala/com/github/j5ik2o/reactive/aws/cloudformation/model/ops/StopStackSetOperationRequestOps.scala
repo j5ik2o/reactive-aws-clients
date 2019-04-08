@@ -9,21 +9,21 @@ final class StopStackSetOperationRequestBuilderOps(val self: StopStackSetOperati
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def operationIdAsScala(value: Option[String]): StopStackSetOperationRequest.Builder = {
     value.fold(self) { v =>
       self.operationId(v)
     }
-  } // String
+  }
 
 }
 
 final class StopStackSetOperationRequestOps(val self: StopStackSetOperationRequest) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
-  final def operationIdAsScala: Option[String] = Option(self.operationId) // String
+  final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }
 

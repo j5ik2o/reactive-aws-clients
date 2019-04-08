@@ -8,14 +8,14 @@ final class ListTagsForStreamResponseBuilderOps(val self: ListTagsForStreamRespo
   final def tagsAsScala(value: Option[Seq[Tag]]): ListTagsForStreamResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
   final def hasMoreTagsAsScala(value: Option[Boolean]): ListTagsForStreamResponse.Builder = {
     value.fold(self) { v =>
       self.hasMoreTags(v)
     }
-  } // Boolean
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListTagsForStreamResponseOps(val self: ListTagsForStreamResponse) ex
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
-  final def hasMoreTagsAsScala: Option[Boolean] = Option(self.hasMoreTags) // Boolean
+  final def hasMoreTagsAsScala: Option[Boolean] = Option(self.hasMoreTags)
 
 }
 

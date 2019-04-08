@@ -10,23 +10,23 @@ final class DescribeDefaultParametersResponseBuilderOps(val self: DescribeDefaul
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def parametersAsScala(value: Option[Seq[Parameter]]): DescribeDefaultParametersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameters(v.asJava)
-    } // Seq[Parameter]
+    }
   }
 
 }
 
 final class DescribeDefaultParametersResponseOps(val self: DescribeDefaultParametersResponse) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   final def parametersAsScala: Option[Seq[Parameter]] = Option(self.parameters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Parameter]
+  }
 
 }
 

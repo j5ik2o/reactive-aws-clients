@@ -9,23 +9,23 @@ final class TagResourceRequestBuilderOps(val self: TagResourceRequest.Builder) e
     value.fold(self) { v =>
       self.resourceName(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): TagResourceRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
 
 final class TagResourceRequestOps(val self: TagResourceRequest) extends AnyVal {
 
-  final def resourceNameAsScala: Option[String] = Option(self.resourceName) // String
+  final def resourceNameAsScala: Option[String] = Option(self.resourceName)
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

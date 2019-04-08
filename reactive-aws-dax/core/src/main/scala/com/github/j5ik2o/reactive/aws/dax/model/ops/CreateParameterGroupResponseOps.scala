@@ -9,13 +9,13 @@ final class CreateParameterGroupResponseBuilderOps(val self: CreateParameterGrou
     value.fold(self) { v =>
       self.parameterGroup(v)
     }
-  } // ParameterGroup
+  }
 
 }
 
 final class CreateParameterGroupResponseOps(val self: CreateParameterGroupResponse) extends AnyVal {
 
-  final def parameterGroupAsScala: Option[ParameterGroup] = Option(self.parameterGroup) // ParameterGroup
+  final def parameterGroupAsScala: Option[ParameterGroup] = Option(self.parameterGroup)
 
 }
 

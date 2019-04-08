@@ -9,22 +9,21 @@ final class PutLogEventsResponseBuilderOps(val self: PutLogEventsResponse.Builde
     value.fold(self) { v =>
       self.nextSequenceToken(v)
     }
-  } // String
+  }
 
   final def rejectedLogEventsInfoAsScala(value: Option[RejectedLogEventsInfo]): PutLogEventsResponse.Builder = {
     value.fold(self) { v =>
       self.rejectedLogEventsInfo(v)
     }
-  } // RejectedLogEventsInfo
+  }
 
 }
 
 final class PutLogEventsResponseOps(val self: PutLogEventsResponse) extends AnyVal {
 
-  final def nextSequenceTokenAsScala: Option[String] = Option(self.nextSequenceToken) // String
+  final def nextSequenceTokenAsScala: Option[String] = Option(self.nextSequenceToken)
 
-  final def rejectedLogEventsInfoAsScala: Option[RejectedLogEventsInfo] =
-    Option(self.rejectedLogEventsInfo) // RejectedLogEventsInfo
+  final def rejectedLogEventsInfoAsScala: Option[RejectedLogEventsInfo] = Option(self.rejectedLogEventsInfo)
 
 }
 

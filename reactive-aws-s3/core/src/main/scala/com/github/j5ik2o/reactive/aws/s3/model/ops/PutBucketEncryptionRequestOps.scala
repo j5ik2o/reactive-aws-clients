@@ -9,13 +9,13 @@ final class PutBucketEncryptionRequestBuilderOps(val self: PutBucketEncryptionRe
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def serverSideEncryptionConfigurationAsScala(
       value: Option[ServerSideEncryptionConfiguration]
@@ -23,18 +23,18 @@ final class PutBucketEncryptionRequestBuilderOps(val self: PutBucketEncryptionRe
     value.fold(self) { v =>
       self.serverSideEncryptionConfiguration(v)
     }
-  } // ServerSideEncryptionConfiguration
+  }
 
 }
 
 final class PutBucketEncryptionRequestOps(val self: PutBucketEncryptionRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
   final def serverSideEncryptionConfigurationAsScala: Option[ServerSideEncryptionConfiguration] =
-    Option(self.serverSideEncryptionConfiguration) // ServerSideEncryptionConfiguration
+    Option(self.serverSideEncryptionConfiguration)
 
 }
 

@@ -9,14 +9,13 @@ final class DescribeTimeToLiveResponseBuilderOps(val self: DescribeTimeToLiveRes
     value.fold(self) { v =>
       self.timeToLiveDescription(v)
     }
-  } // TimeToLiveDescription
+  }
 
 }
 
 final class DescribeTimeToLiveResponseOps(val self: DescribeTimeToLiveResponse) extends AnyVal {
 
-  final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] =
-    Option(self.timeToLiveDescription) // TimeToLiveDescription
+  final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] = Option(self.timeToLiveDescription)
 
 }
 

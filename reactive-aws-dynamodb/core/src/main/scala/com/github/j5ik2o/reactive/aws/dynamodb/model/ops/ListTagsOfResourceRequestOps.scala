@@ -9,21 +9,21 @@ final class ListTagsOfResourceRequestBuilderOps(val self: ListTagsOfResourceRequ
     value.fold(self) { v =>
       self.resourceArn(v)
     }
-  } // String
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListTagsOfResourceRequestOps(val self: ListTagsOfResourceRequest) extends AnyVal {
 
-  final def resourceArnAsScala: Option[String] = Option(self.resourceArn) // String
+  final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -9,99 +9,99 @@ final class StackSetBuilderOps(val self: StackSet.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.stackSetName(v)
     }
-  } // String
+  }
 
   final def stackSetIdAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
       self.stackSetId(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[StackSetStatus]): StackSet.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // StackSetStatus
+  }
 
   final def templateBodyAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
       self.templateBody(v)
     }
-  } // String
+  }
 
   final def parametersAsScala(value: Option[Seq[Parameter]]): StackSet.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameters(v.asJava)
-    } // Seq[Parameter]
+    }
   }
 
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): StackSet.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[Capability]
+    }
   }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): StackSet.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
   final def stackSetARNAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
       self.stackSetARN(v)
     }
-  } // String
+  }
 
   final def administrationRoleARNAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
       self.administrationRoleARN(v)
     }
-  } // String
+  }
 
   final def executionRoleNameAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
       self.executionRoleName(v)
     }
-  } // String
+  }
 
 }
 
 final class StackSetOps(val self: StackSet) extends AnyVal {
 
-  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName) // String
+  final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
-  final def stackSetIdAsScala: Option[String] = Option(self.stackSetId) // String
+  final def stackSetIdAsScala: Option[String] = Option(self.stackSetId)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // StackSetStatus
+  final def statusAsScala: Option[StackSetStatus] = Option(self.status)
 
-  final def templateBodyAsScala: Option[String] = Option(self.templateBody) // String
+  final def templateBodyAsScala: Option[String] = Option(self.templateBody)
 
   final def parametersAsScala: Option[Seq[Parameter]] = Option(self.parameters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Parameter]
+  }
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Capability]
+  }
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
-  final def stackSetARNAsScala: Option[String] = Option(self.stackSetARN) // String
+  final def stackSetARNAsScala: Option[String] = Option(self.stackSetARN)
 
-  final def administrationRoleARNAsScala: Option[String] = Option(self.administrationRoleARN) // String
+  final def administrationRoleARNAsScala: Option[String] = Option(self.administrationRoleARN)
 
-  final def executionRoleNameAsScala: Option[String] = Option(self.executionRoleName) // String
+  final def executionRoleNameAsScala: Option[String] = Option(self.executionRoleName)
 
 }
 

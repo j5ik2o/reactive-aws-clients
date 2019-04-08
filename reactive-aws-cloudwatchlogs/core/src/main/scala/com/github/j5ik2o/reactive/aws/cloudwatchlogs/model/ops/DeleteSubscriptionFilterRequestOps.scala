@@ -10,21 +10,21 @@ final class DeleteSubscriptionFilterRequestBuilderOps(val self: DeleteSubscripti
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def filterNameAsScala(value: Option[String]): DeleteSubscriptionFilterRequest.Builder = {
     value.fold(self) { v =>
       self.filterName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteSubscriptionFilterRequestOps(val self: DeleteSubscriptionFilterRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
-  final def filterNameAsScala: Option[String] = Option(self.filterName) // String
+  final def filterNameAsScala: Option[String] = Option(self.filterName)
 
 }
 

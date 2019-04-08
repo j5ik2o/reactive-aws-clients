@@ -9,29 +9,29 @@ final class ListLayersRequestBuilderOps(val self: ListLayersRequest.Builder) ext
     value.fold(self) { v =>
       self.compatibleRuntime(v)
     }
-  } // Runtime
+  }
 
   final def markerAsScala(value: Option[String]): ListLayersRequest.Builder = {
     value.fold(self) { v =>
       self.marker(v)
     }
-  } // String
+  }
 
   final def maxItemsAsScala(value: Option[Int]): ListLayersRequest.Builder = {
     value.fold(self) { v =>
       self.maxItems(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListLayersRequestOps(val self: ListLayersRequest) extends AnyVal {
 
-  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime) // Runtime
+  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime)
 
-  final def markerAsScala: Option[String] = Option(self.marker) // String
+  final def markerAsScala: Option[String] = Option(self.marker)
 
-  final def maxItemsAsScala: Option[Int] = Option(self.maxItems) // Int
+  final def maxItemsAsScala: Option[Int] = Option(self.maxItems)
 
 }
 

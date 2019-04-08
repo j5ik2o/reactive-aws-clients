@@ -9,73 +9,73 @@ final class PlatformSummaryBuilderOps(val self: PlatformSummary.Builder) extends
     value.fold(self) { v =>
       self.platformArn(v)
     }
-  } // String
+  }
 
   final def platformOwnerAsScala(value: Option[String]): PlatformSummary.Builder = {
     value.fold(self) { v =>
       self.platformOwner(v)
     }
-  } // String
+  }
 
   final def platformStatusAsScala(value: Option[PlatformStatus]): PlatformSummary.Builder = {
     value.fold(self) { v =>
       self.platformStatus(v)
     }
-  } // PlatformStatus
+  }
 
   final def platformCategoryAsScala(value: Option[String]): PlatformSummary.Builder = {
     value.fold(self) { v =>
       self.platformCategory(v)
     }
-  } // String
+  }
 
   final def operatingSystemNameAsScala(value: Option[String]): PlatformSummary.Builder = {
     value.fold(self) { v =>
       self.operatingSystemName(v)
     }
-  } // String
+  }
 
   final def operatingSystemVersionAsScala(value: Option[String]): PlatformSummary.Builder = {
     value.fold(self) { v =>
       self.operatingSystemVersion(v)
     }
-  } // String
+  }
 
   final def supportedTierListAsScala(value: Option[Seq[String]]): PlatformSummary.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.supportedTierList(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def supportedAddonListAsScala(value: Option[Seq[String]]): PlatformSummary.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.supportedAddonList(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class PlatformSummaryOps(val self: PlatformSummary) extends AnyVal {
 
-  final def platformArnAsScala: Option[String] = Option(self.platformArn) // String
+  final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
-  final def platformOwnerAsScala: Option[String] = Option(self.platformOwner) // String
+  final def platformOwnerAsScala: Option[String] = Option(self.platformOwner)
 
-  final def platformStatusAsScala: Option[PlatformStatus] = Option(self.platformStatus) // PlatformStatus
+  final def platformStatusAsScala: Option[PlatformStatus] = Option(self.platformStatus)
 
-  final def platformCategoryAsScala: Option[String] = Option(self.platformCategory) // String
+  final def platformCategoryAsScala: Option[String] = Option(self.platformCategory)
 
-  final def operatingSystemNameAsScala: Option[String] = Option(self.operatingSystemName) // String
+  final def operatingSystemNameAsScala: Option[String] = Option(self.operatingSystemName)
 
-  final def operatingSystemVersionAsScala: Option[String] = Option(self.operatingSystemVersion) // String
+  final def operatingSystemVersionAsScala: Option[String] = Option(self.operatingSystemVersion)
 
   final def supportedTierListAsScala: Option[Seq[String]] = Option(self.supportedTierList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def supportedAddonListAsScala: Option[Seq[String]] = Option(self.supportedAddonList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

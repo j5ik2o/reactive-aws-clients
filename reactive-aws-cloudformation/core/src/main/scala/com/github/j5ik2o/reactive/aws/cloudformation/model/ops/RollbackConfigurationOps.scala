@@ -8,14 +8,14 @@ final class RollbackConfigurationBuilderOps(val self: RollbackConfiguration.Buil
   final def rollbackTriggersAsScala(value: Option[Seq[RollbackTrigger]]): RollbackConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rollbackTriggers(v.asJava)
-    } // Seq[RollbackTrigger]
+    }
   }
 
   final def monitoringTimeInMinutesAsScala(value: Option[Int]): RollbackConfiguration.Builder = {
     value.fold(self) { v =>
       self.monitoringTimeInMinutes(v)
     }
-  } // Int
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class RollbackConfigurationOps(val self: RollbackConfiguration) extends An
 
   final def rollbackTriggersAsScala: Option[Seq[RollbackTrigger]] = Option(self.rollbackTriggers).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[RollbackTrigger]
+  }
 
-  final def monitoringTimeInMinutesAsScala: Option[Int] = Option(self.monitoringTimeInMinutes) // Int
+  final def monitoringTimeInMinutesAsScala: Option[Int] = Option(self.monitoringTimeInMinutes)
 
 }
 

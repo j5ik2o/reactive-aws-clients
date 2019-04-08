@@ -9,30 +9,29 @@ final class AnalyticsConfigurationBuilderOps(val self: AnalyticsConfiguration.Bu
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def filterAsScala(value: Option[AnalyticsFilter]): AnalyticsConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
-  } // AnalyticsFilter
+  }
 
   final def storageClassAnalysisAsScala(value: Option[StorageClassAnalysis]): AnalyticsConfiguration.Builder = {
     value.fold(self) { v =>
       self.storageClassAnalysis(v)
     }
-  } // StorageClassAnalysis
+  }
 
 }
 
 final class AnalyticsConfigurationOps(val self: AnalyticsConfiguration) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def filterAsScala: Option[AnalyticsFilter] = Option(self.filter) // AnalyticsFilter
+  final def filterAsScala: Option[AnalyticsFilter] = Option(self.filter)
 
-  final def storageClassAnalysisAsScala: Option[StorageClassAnalysis] =
-    Option(self.storageClassAnalysis) // StorageClassAnalysis
+  final def storageClassAnalysisAsScala: Option[StorageClassAnalysis] = Option(self.storageClassAnalysis)
 
 }
 

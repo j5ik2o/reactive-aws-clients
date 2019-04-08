@@ -9,13 +9,13 @@ final class GetStackPolicyRequestBuilderOps(val self: GetStackPolicyRequest.Buil
     value.fold(self) { v =>
       self.stackName(v)
     }
-  } // String
+  }
 
 }
 
 final class GetStackPolicyRequestOps(val self: GetStackPolicyRequest) extends AnyVal {
 
-  final def stackNameAsScala: Option[String] = Option(self.stackName) // String
+  final def stackNameAsScala: Option[String] = Option(self.stackName)
 
 }
 

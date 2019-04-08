@@ -9,37 +9,37 @@ final class OutputBuilderOps(val self: Output.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.outputKey(v)
     }
-  } // String
+  }
 
   final def outputValueAsScala(value: Option[String]): Output.Builder = {
     value.fold(self) { v =>
       self.outputValue(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): Output.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def exportNameAsScala(value: Option[String]): Output.Builder = {
     value.fold(self) { v =>
       self.exportName(v)
     }
-  } // String
+  }
 
 }
 
 final class OutputOps(val self: Output) extends AnyVal {
 
-  final def outputKeyAsScala: Option[String] = Option(self.outputKey) // String
+  final def outputKeyAsScala: Option[String] = Option(self.outputKey)
 
-  final def outputValueAsScala: Option[String] = Option(self.outputValue) // String
+  final def outputValueAsScala: Option[String] = Option(self.outputValue)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def exportNameAsScala: Option[String] = Option(self.exportName) // String
+  final def exportNameAsScala: Option[String] = Option(self.exportName)
 
 }
 

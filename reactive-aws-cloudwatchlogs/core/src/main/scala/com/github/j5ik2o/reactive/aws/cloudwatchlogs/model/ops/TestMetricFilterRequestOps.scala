@@ -9,23 +9,23 @@ final class TestMetricFilterRequestBuilderOps(val self: TestMetricFilterRequest.
     value.fold(self) { v =>
       self.filterPattern(v)
     }
-  } // String
+  }
 
   final def logEventMessagesAsScala(value: Option[Seq[String]]): TestMetricFilterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logEventMessages(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class TestMetricFilterRequestOps(val self: TestMetricFilterRequest) extends AnyVal {
 
-  final def filterPatternAsScala: Option[String] = Option(self.filterPattern) // String
+  final def filterPatternAsScala: Option[String] = Option(self.filterPattern)
 
   final def logEventMessagesAsScala: Option[Seq[String]] = Option(self.logEventMessages).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

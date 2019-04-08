@@ -9,21 +9,21 @@ final class LogPublishingOptionBuilderOps(val self: LogPublishingOption.Builder)
     value.fold(self) { v =>
       self.cloudWatchLogsLogGroupArn(v)
     }
-  } // String
+  }
 
   final def enabledAsScala(value: Option[Boolean]): LogPublishingOption.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class LogPublishingOptionOps(val self: LogPublishingOption) extends AnyVal {
 
-  final def cloudWatchLogsLogGroupArnAsScala: Option[String] = Option(self.cloudWatchLogsLogGroupArn) // String
+  final def cloudWatchLogsLogGroupArnAsScala: Option[String] = Option(self.cloudWatchLogsLogGroupArn)
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }
 

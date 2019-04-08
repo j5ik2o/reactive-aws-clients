@@ -10,33 +10,33 @@ final class DescribeEnvironmentHealthRequestBuilderOps(val self: DescribeEnviron
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
   final def environmentIdAsScala(value: Option[String]): DescribeEnvironmentHealthRequest.Builder = {
     value.fold(self) { v =>
       self.environmentId(v)
     }
-  } // String
+  }
 
   final def attributeNamesAsScala(
       value: Option[Seq[EnvironmentHealthAttribute]]
   ): DescribeEnvironmentHealthRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeNames(v.asJava)
-    } // Seq[EnvironmentHealthAttribute]
+    }
   }
 
 }
 
 final class DescribeEnvironmentHealthRequestOps(val self: DescribeEnvironmentHealthRequest) extends AnyVal {
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
-  final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
+  final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
   final def attributeNamesAsScala: Option[Seq[EnvironmentHealthAttribute]] = Option(self.attributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[EnvironmentHealthAttribute]
+  }
 
 }
 

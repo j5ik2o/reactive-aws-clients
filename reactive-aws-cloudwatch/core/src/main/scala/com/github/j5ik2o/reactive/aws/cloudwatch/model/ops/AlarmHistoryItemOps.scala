@@ -9,45 +9,45 @@ final class AlarmHistoryItemBuilderOps(val self: AlarmHistoryItem.Builder) exten
     value.fold(self) { v =>
       self.alarmName(v)
     }
-  } // String
+  }
 
   final def timestampAsScala(value: Option[java.time.Instant]): AlarmHistoryItem.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // java.time.Instant
+  }
 
   final def historyItemTypeAsScala(value: Option[HistoryItemType]): AlarmHistoryItem.Builder = {
     value.fold(self) { v =>
       self.historyItemType(v)
     }
-  } // HistoryItemType
+  }
 
   final def historySummaryAsScala(value: Option[String]): AlarmHistoryItem.Builder = {
     value.fold(self) { v =>
       self.historySummary(v)
     }
-  } // String
+  }
 
   final def historyDataAsScala(value: Option[String]): AlarmHistoryItem.Builder = {
     value.fold(self) { v =>
       self.historyData(v)
     }
-  } // String
+  }
 
 }
 
 final class AlarmHistoryItemOps(val self: AlarmHistoryItem) extends AnyVal {
 
-  final def alarmNameAsScala: Option[String] = Option(self.alarmName) // String
+  final def alarmNameAsScala: Option[String] = Option(self.alarmName)
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp)
 
-  final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType) // HistoryItemType
+  final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType)
 
-  final def historySummaryAsScala: Option[String] = Option(self.historySummary) // String
+  final def historySummaryAsScala: Option[String] = Option(self.historySummary)
 
-  final def historyDataAsScala: Option[String] = Option(self.historyData) // String
+  final def historyDataAsScala: Option[String] = Option(self.historyData)
 
 }
 

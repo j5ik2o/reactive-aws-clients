@@ -9,23 +9,23 @@ final class SendMessageBatchRequestBuilderOps(val self: SendMessageBatchRequest.
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def entriesAsScala(value: Option[Seq[SendMessageBatchRequestEntry]]): SendMessageBatchRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.entries(v.asJava)
-    } // Seq[SendMessageBatchRequestEntry]
+    }
   }
 
 }
 
 final class SendMessageBatchRequestOps(val self: SendMessageBatchRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   final def entriesAsScala: Option[Seq[SendMessageBatchRequestEntry]] = Option(self.entries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[SendMessageBatchRequestEntry]
+  }
 
 }
 

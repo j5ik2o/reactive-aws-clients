@@ -9,37 +9,37 @@ final class ListTypesRequestBuilderOps(val self: ListTypesRequest.Builder) exten
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def formatAsScala(value: Option[TypeDefinitionFormat]): ListTypesRequest.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }
-  } // TypeDefinitionFormat
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListTypesRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): ListTypesRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListTypesRequestOps(val self: ListTypesRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // TypeDefinitionFormat
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

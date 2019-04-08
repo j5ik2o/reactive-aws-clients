@@ -9,71 +9,71 @@ final class GetLayerVersionResponseBuilderOps(val self: GetLayerVersionResponse.
     value.fold(self) { v =>
       self.content(v)
     }
-  } // LayerVersionContentOutput
+  }
 
   final def layerArnAsScala(value: Option[String]): GetLayerVersionResponse.Builder = {
     value.fold(self) { v =>
       self.layerArn(v)
     }
-  } // String
+  }
 
   final def layerVersionArnAsScala(value: Option[String]): GetLayerVersionResponse.Builder = {
     value.fold(self) { v =>
       self.layerVersionArn(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): GetLayerVersionResponse.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def createdDateAsScala(value: Option[String]): GetLayerVersionResponse.Builder = {
     value.fold(self) { v =>
       self.createdDate(v)
     }
-  } // String
+  }
 
   final def versionAsScala(value: Option[Long]): GetLayerVersionResponse.Builder = {
     value.fold(self) { v =>
       self.version(v)
     }
-  } // Long
+  }
 
   final def compatibleRuntimesAsScala(value: Option[Seq[Runtime]]): GetLayerVersionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.compatibleRuntimes(v.asJava)
-    } // Seq[Runtime]
+    }
   }
 
   final def licenseInfoAsScala(value: Option[String]): GetLayerVersionResponse.Builder = {
     value.fold(self) { v =>
       self.licenseInfo(v)
     }
-  } // String
+  }
 
 }
 
 final class GetLayerVersionResponseOps(val self: GetLayerVersionResponse) extends AnyVal {
 
-  final def contentAsScala: Option[LayerVersionContentOutput] = Option(self.content) // LayerVersionContentOutput
+  final def contentAsScala: Option[LayerVersionContentOutput] = Option(self.content)
 
-  final def layerArnAsScala: Option[String] = Option(self.layerArn) // String
+  final def layerArnAsScala: Option[String] = Option(self.layerArn)
 
-  final def layerVersionArnAsScala: Option[String] = Option(self.layerVersionArn) // String
+  final def layerVersionArnAsScala: Option[String] = Option(self.layerVersionArn)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def createdDateAsScala: Option[String] = Option(self.createdDate) // String
+  final def createdDateAsScala: Option[String] = Option(self.createdDate)
 
-  final def versionAsScala: Option[Long] = Option(self.version) // Long
+  final def versionAsScala: Option[Long] = Option(self.version)
 
   final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Runtime]
+  }
 
-  final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo) // String
+  final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo)
 
 }
 

@@ -8,7 +8,7 @@ final class ListDomainNamesResponseBuilderOps(val self: ListDomainNamesResponse.
   final def domainNamesAsScala(value: Option[Seq[DomainInfo]]): ListDomainNamesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.domainNames(v.asJava)
-    } // Seq[DomainInfo]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ListDomainNamesResponseOps(val self: ListDomainNamesResponse) extend
 
   final def domainNamesAsScala: Option[Seq[DomainInfo]] = Option(self.domainNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[DomainInfo]
+  }
 
 }
 

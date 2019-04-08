@@ -9,37 +9,37 @@ final class TemplateParameterBuilderOps(val self: TemplateParameter.Builder) ext
     value.fold(self) { v =>
       self.parameterKey(v)
     }
-  } // String
+  }
 
   final def defaultValueAsScala(value: Option[String]): TemplateParameter.Builder = {
     value.fold(self) { v =>
       self.defaultValue(v)
     }
-  } // String
+  }
 
   final def noEchoAsScala(value: Option[Boolean]): TemplateParameter.Builder = {
     value.fold(self) { v =>
       self.noEcho(v)
     }
-  } // Boolean
+  }
 
   final def descriptionAsScala(value: Option[String]): TemplateParameter.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
 }
 
 final class TemplateParameterOps(val self: TemplateParameter) extends AnyVal {
 
-  final def parameterKeyAsScala: Option[String] = Option(self.parameterKey) // String
+  final def parameterKeyAsScala: Option[String] = Option(self.parameterKey)
 
-  final def defaultValueAsScala: Option[String] = Option(self.defaultValue) // String
+  final def defaultValueAsScala: Option[String] = Option(self.defaultValue)
 
-  final def noEchoAsScala: Option[Boolean] = Option(self.noEcho) // Boolean
+  final def noEchoAsScala: Option[Boolean] = Option(self.noEcho)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
 }
 

@@ -9,13 +9,13 @@ final class UpdateSubnetGroupResponseBuilderOps(val self: UpdateSubnetGroupRespo
     value.fold(self) { v =>
       self.subnetGroup(v)
     }
-  } // SubnetGroup
+  }
 
 }
 
 final class UpdateSubnetGroupResponseOps(val self: UpdateSubnetGroupResponse) extends AnyVal {
 
-  final def subnetGroupAsScala: Option[SubnetGroup] = Option(self.subnetGroup) // SubnetGroup
+  final def subnetGroupAsScala: Option[SubnetGroup] = Option(self.subnetGroup)
 
 }
 

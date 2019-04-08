@@ -9,22 +9,21 @@ final class NodePropertyOverrideBuilderOps(val self: NodePropertyOverride.Builde
     value.fold(self) { v =>
       self.targetNodes(v)
     }
-  } // String
+  }
 
   final def containerOverridesAsScala(value: Option[ContainerOverrides]): NodePropertyOverride.Builder = {
     value.fold(self) { v =>
       self.containerOverrides(v)
     }
-  } // ContainerOverrides
+  }
 
 }
 
 final class NodePropertyOverrideOps(val self: NodePropertyOverride) extends AnyVal {
 
-  final def targetNodesAsScala: Option[String] = Option(self.targetNodes) // String
+  final def targetNodesAsScala: Option[String] = Option(self.targetNodes)
 
-  final def containerOverridesAsScala: Option[ContainerOverrides] =
-    Option(self.containerOverrides) // ContainerOverrides
+  final def containerOverridesAsScala: Option[ContainerOverrides] = Option(self.containerOverrides)
 
 }
 

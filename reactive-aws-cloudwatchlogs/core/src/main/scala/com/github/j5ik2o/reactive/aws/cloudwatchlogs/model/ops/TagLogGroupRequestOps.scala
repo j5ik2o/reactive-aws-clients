@@ -9,23 +9,23 @@ final class TagLogGroupRequestBuilderOps(val self: TagLogGroupRequest.Builder) e
     value.fold(self) { v =>
       self.logGroupName(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Map[String, String]]): TagLogGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
 
 final class TagLogGroupRequestOps(val self: TagLogGroupRequest) extends AnyVal {
 
-  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName) // String
+  final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

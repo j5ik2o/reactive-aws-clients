@@ -10,13 +10,13 @@ final class DeleteComputeEnvironmentRequestBuilderOps(val self: DeleteComputeEnv
     value.fold(self) { v =>
       self.computeEnvironment(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteComputeEnvironmentRequestOps(val self: DeleteComputeEnvironmentRequest) extends AnyVal {
 
-  final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment) // String
+  final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment)
 
 }
 

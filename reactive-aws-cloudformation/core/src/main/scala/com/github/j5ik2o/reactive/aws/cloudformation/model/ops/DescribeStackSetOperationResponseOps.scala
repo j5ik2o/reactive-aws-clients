@@ -10,13 +10,13 @@ final class DescribeStackSetOperationResponseBuilderOps(val self: DescribeStackS
     value.fold(self) { v =>
       self.stackSetOperation(v)
     }
-  } // StackSetOperation
+  }
 
 }
 
 final class DescribeStackSetOperationResponseOps(val self: DescribeStackSetOperationResponse) extends AnyVal {
 
-  final def stackSetOperationAsScala: Option[StackSetOperation] = Option(self.stackSetOperation) // StackSetOperation
+  final def stackSetOperationAsScala: Option[StackSetOperation] = Option(self.stackSetOperation)
 
 }
 

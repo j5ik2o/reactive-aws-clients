@@ -9,13 +9,13 @@ final class AbortMultipartUploadResponseBuilderOps(val self: AbortMultipartUploa
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // RequestCharged
+  }
 
 }
 
 final class AbortMultipartUploadResponseOps(val self: AbortMultipartUploadResponse) extends AnyVal {
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

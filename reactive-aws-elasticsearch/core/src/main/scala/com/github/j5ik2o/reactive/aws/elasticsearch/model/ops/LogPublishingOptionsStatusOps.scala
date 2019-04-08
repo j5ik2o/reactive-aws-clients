@@ -8,14 +8,14 @@ final class LogPublishingOptionsStatusBuilderOps(val self: LogPublishingOptionsS
   final def optionsAsScala(value: Option[Map[LogType, LogPublishingOption]]): LogPublishingOptionsStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.options(v.asJava)
-    } // Map[LogType, LogPublishingOption]
+    }
   }
 
   final def statusAsScala(value: Option[OptionStatus]): LogPublishingOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class LogPublishingOptionsStatusOps(val self: LogPublishingOptionsStatus) 
 
   final def optionsAsScala: Option[Map[LogType, LogPublishingOption]] = Option(self.options).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[LogType, LogPublishingOption]
+  }
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

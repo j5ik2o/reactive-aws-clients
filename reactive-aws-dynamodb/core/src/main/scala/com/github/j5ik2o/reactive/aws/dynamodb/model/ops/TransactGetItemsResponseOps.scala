@@ -8,13 +8,13 @@ final class TransactGetItemsResponseBuilderOps(val self: TransactGetItemsRespons
   final def consumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): TransactGetItemsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
-    } // Seq[ConsumedCapacity]
+    }
   }
 
   final def responsesAsScala(value: Option[Seq[ItemResponse]]): TransactGetItemsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.responses(v.asJava)
-    } // Seq[ItemResponse]
+    }
   }
 
 }
@@ -23,11 +23,11 @@ final class TransactGetItemsResponseOps(val self: TransactGetItemsResponse) exte
 
   final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ConsumedCapacity]
+  }
 
   final def responsesAsScala: Option[Seq[ItemResponse]] = Option(self.responses).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ItemResponse]
+  }
 
 }
 

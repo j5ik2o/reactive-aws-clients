@@ -10,37 +10,37 @@ final class UpdateEventSourceMappingRequestBuilderOps(val self: UpdateEventSourc
     value.fold(self) { v =>
       self.uuid(v)
     }
-  } // String
+  }
 
   final def functionNameAsScala(value: Option[String]): UpdateEventSourceMappingRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def enabledAsScala(value: Option[Boolean]): UpdateEventSourceMappingRequest.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
   final def batchSizeAsScala(value: Option[Int]): UpdateEventSourceMappingRequest.Builder = {
     value.fold(self) { v =>
       self.batchSize(v)
     }
-  } // Int
+  }
 
 }
 
 final class UpdateEventSourceMappingRequestOps(val self: UpdateEventSourceMappingRequest) extends AnyVal {
 
-  final def uuidAsScala: Option[String] = Option(self.uuid) // String
+  final def uuidAsScala: Option[String] = Option(self.uuid)
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
-  final def batchSizeAsScala: Option[Int] = Option(self.batchSize) // Int
+  final def batchSizeAsScala: Option[Int] = Option(self.batchSize)
 
 }
 

@@ -8,14 +8,14 @@ final class DescribeEnvironmentsResponseBuilderOps(val self: DescribeEnvironment
   final def environmentsAsScala(value: Option[Seq[EnvironmentDescription]]): DescribeEnvironmentsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.environments(v.asJava)
-    } // Seq[EnvironmentDescription]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeEnvironmentsResponseOps(val self: DescribeEnvironmentsRespon
 
   final def environmentsAsScala: Option[Seq[EnvironmentDescription]] = Option(self.environments).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[EnvironmentDescription]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

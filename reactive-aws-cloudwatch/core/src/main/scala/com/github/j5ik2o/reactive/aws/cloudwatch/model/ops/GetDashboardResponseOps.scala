@@ -9,29 +9,29 @@ final class GetDashboardResponseBuilderOps(val self: GetDashboardResponse.Builde
     value.fold(self) { v =>
       self.dashboardArn(v)
     }
-  } // String
+  }
 
   final def dashboardBodyAsScala(value: Option[String]): GetDashboardResponse.Builder = {
     value.fold(self) { v =>
       self.dashboardBody(v)
     }
-  } // String
+  }
 
   final def dashboardNameAsScala(value: Option[String]): GetDashboardResponse.Builder = {
     value.fold(self) { v =>
       self.dashboardName(v)
     }
-  } // String
+  }
 
 }
 
 final class GetDashboardResponseOps(val self: GetDashboardResponse) extends AnyVal {
 
-  final def dashboardArnAsScala: Option[String] = Option(self.dashboardArn) // String
+  final def dashboardArnAsScala: Option[String] = Option(self.dashboardArn)
 
-  final def dashboardBodyAsScala: Option[String] = Option(self.dashboardBody) // String
+  final def dashboardBodyAsScala: Option[String] = Option(self.dashboardBody)
 
-  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName) // String
+  final def dashboardNameAsScala: Option[String] = Option(self.dashboardName)
 
 }
 

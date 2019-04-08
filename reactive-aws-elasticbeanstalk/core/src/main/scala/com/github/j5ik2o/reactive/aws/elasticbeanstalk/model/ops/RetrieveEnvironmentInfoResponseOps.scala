@@ -11,7 +11,7 @@ final class RetrieveEnvironmentInfoResponseBuilderOps(val self: RetrieveEnvironm
   ): RetrieveEnvironmentInfoResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.environmentInfo(v.asJava)
-    } // Seq[EnvironmentInfoDescription]
+    }
   }
 
 }
@@ -20,7 +20,7 @@ final class RetrieveEnvironmentInfoResponseOps(val self: RetrieveEnvironmentInfo
 
   final def environmentInfoAsScala: Option[Seq[EnvironmentInfoDescription]] = Option(self.environmentInfo).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[EnvironmentInfoDescription]
+  }
 
 }
 

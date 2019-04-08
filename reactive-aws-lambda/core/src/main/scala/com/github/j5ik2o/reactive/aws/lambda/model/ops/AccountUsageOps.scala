@@ -9,21 +9,21 @@ final class AccountUsageBuilderOps(val self: AccountUsage.Builder) extends AnyVa
     value.fold(self) { v =>
       self.totalCodeSize(v)
     }
-  } // Long
+  }
 
   final def functionCountAsScala(value: Option[Long]): AccountUsage.Builder = {
     value.fold(self) { v =>
       self.functionCount(v)
     }
-  } // Long
+  }
 
 }
 
 final class AccountUsageOps(val self: AccountUsage) extends AnyVal {
 
-  final def totalCodeSizeAsScala: Option[Long] = Option(self.totalCodeSize) // Long
+  final def totalCodeSizeAsScala: Option[Long] = Option(self.totalCodeSize)
 
-  final def functionCountAsScala: Option[Long] = Option(self.functionCount) // Long
+  final def functionCountAsScala: Option[Long] = Option(self.functionCount)
 
 }
 

@@ -10,21 +10,21 @@ final class CreateComputeEnvironmentResponseBuilderOps(val self: CreateComputeEn
     value.fold(self) { v =>
       self.computeEnvironmentName(v)
     }
-  } // String
+  }
 
   final def computeEnvironmentArnAsScala(value: Option[String]): CreateComputeEnvironmentResponse.Builder = {
     value.fold(self) { v =>
       self.computeEnvironmentArn(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateComputeEnvironmentResponseOps(val self: CreateComputeEnvironmentResponse) extends AnyVal {
 
-  final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName) // String
+  final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName)
 
-  final def computeEnvironmentArnAsScala: Option[String] = Option(self.computeEnvironmentArn) // String
+  final def computeEnvironmentArnAsScala: Option[String] = Option(self.computeEnvironmentArn)
 
 }
 

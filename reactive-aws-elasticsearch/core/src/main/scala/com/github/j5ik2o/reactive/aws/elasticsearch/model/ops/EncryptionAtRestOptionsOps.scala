@@ -9,21 +9,21 @@ final class EncryptionAtRestOptionsBuilderOps(val self: EncryptionAtRestOptions.
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
   final def kmsKeyIdAsScala(value: Option[String]): EncryptionAtRestOptions.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
-  } // String
+  }
 
 }
 
 final class EncryptionAtRestOptionsOps(val self: EncryptionAtRestOptions) extends AnyVal {
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
-  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId) // String
+  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
 }
 

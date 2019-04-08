@@ -9,21 +9,21 @@ final class RoutingRuleBuilderOps(val self: RoutingRule.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.condition(v)
     }
-  } // Condition
+  }
 
   final def redirectAsScala(value: Option[Redirect]): RoutingRule.Builder = {
     value.fold(self) { v =>
       self.redirect(v)
     }
-  } // Redirect
+  }
 
 }
 
 final class RoutingRuleOps(val self: RoutingRule) extends AnyVal {
 
-  final def conditionAsScala: Option[Condition] = Option(self.condition) // Condition
+  final def conditionAsScala: Option[Condition] = Option(self.condition)
 
-  final def redirectAsScala: Option[Redirect] = Option(self.redirect) // Redirect
+  final def redirectAsScala: Option[Redirect] = Option(self.redirect)
 
 }
 

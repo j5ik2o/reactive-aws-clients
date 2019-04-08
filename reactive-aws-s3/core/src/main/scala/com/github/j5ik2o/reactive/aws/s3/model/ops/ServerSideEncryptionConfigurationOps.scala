@@ -9,7 +9,7 @@ final class ServerSideEncryptionConfigurationBuilderOps(val self: ServerSideEncr
   final def rulesAsScala(value: Option[Seq[ServerSideEncryptionRule]]): ServerSideEncryptionConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
-    } // Seq[ServerSideEncryptionRule]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class ServerSideEncryptionConfigurationOps(val self: ServerSideEncryptionC
 
   final def rulesAsScala: Option[Seq[ServerSideEncryptionRule]] = Option(self.rules).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ServerSideEncryptionRule]
+  }
 
 }
 

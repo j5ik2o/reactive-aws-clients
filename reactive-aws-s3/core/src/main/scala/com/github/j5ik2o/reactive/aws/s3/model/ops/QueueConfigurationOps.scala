@@ -9,40 +9,39 @@ final class QueueConfigurationBuilderOps(val self: QueueConfiguration.Builder) e
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def queueArnAsScala(value: Option[String]): QueueConfiguration.Builder = {
     value.fold(self) { v =>
       self.queueArn(v)
     }
-  } // String
+  }
 
   final def eventsAsScala(value: Option[Seq[Event]]): QueueConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
-    } // Seq[Event]
+    }
   }
 
   final def filterAsScala(value: Option[NotificationConfigurationFilter]): QueueConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
-  } // NotificationConfigurationFilter
+  }
 
 }
 
 final class QueueConfigurationOps(val self: QueueConfiguration) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def queueArnAsScala: Option[String] = Option(self.queueArn) // String
+  final def queueArnAsScala: Option[String] = Option(self.queueArn)
 
   final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Event]
+  }
 
-  final def filterAsScala: Option[NotificationConfigurationFilter] =
-    Option(self.filter) // NotificationConfigurationFilter
+  final def filterAsScala: Option[NotificationConfigurationFilter] = Option(self.filter)
 
 }
 

@@ -7,7 +7,6 @@ trait ToAllOps
     with ToAttemptContainerDetailOps
     with ToAttemptDetailOps
     with ToCancelJobRequestOps
-    with ToCancelJobResponseOps
     with ToComputeEnvironmentDetailOps
     with ToComputeEnvironmentOrderOps
     with ToComputeResourceOps
@@ -21,11 +20,8 @@ trait ToAllOps
     with ToCreateJobQueueRequestOps
     with ToCreateJobQueueResponseOps
     with ToDeleteComputeEnvironmentRequestOps
-    with ToDeleteComputeEnvironmentResponseOps
     with ToDeleteJobQueueRequestOps
-    with ToDeleteJobQueueResponseOps
     with ToDeregisterJobDefinitionRequestOps
-    with ToDeregisterJobDefinitionResponseOps
     with ToDescribeComputeEnvironmentsRequestOps
     with ToDescribeComputeEnvironmentsResponseOps
     with ToDescribeJobDefinitionsRequestOps
@@ -59,7 +55,6 @@ trait ToAllOps
     with ToSubmitJobRequestOps
     with ToSubmitJobResponseOps
     with ToTerminateJobRequestOps
-    with ToTerminateJobResponseOps
     with ToUlimitOps
     with ToUpdateComputeEnvironmentRequestOps
     with ToUpdateComputeEnvironmentResponseOps

@@ -9,21 +9,21 @@ final class EnvironmentLinkBuilderOps(val self: EnvironmentLink.Builder) extends
     value.fold(self) { v =>
       self.linkName(v)
     }
-  } // String
+  }
 
   final def environmentNameAsScala(value: Option[String]): EnvironmentLink.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
-  } // String
+  }
 
 }
 
 final class EnvironmentLinkOps(val self: EnvironmentLink) extends AnyVal {
 
-  final def linkNameAsScala: Option[String] = Option(self.linkName) // String
+  final def linkNameAsScala: Option[String] = Option(self.linkName)
 
-  final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
+  final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
 }
 

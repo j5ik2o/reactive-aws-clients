@@ -9,77 +9,77 @@ final class AddPermissionRequestBuilderOps(val self: AddPermissionRequest.Builde
     value.fold(self) { v =>
       self.functionName(v)
     }
-  } // String
+  }
 
   final def statementIdAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.statementId(v)
     }
-  } // String
+  }
 
   final def actionAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.action(v)
     }
-  } // String
+  }
 
   final def principalAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.principal(v)
     }
-  } // String
+  }
 
   final def sourceArnAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.sourceArn(v)
     }
-  } // String
+  }
 
   final def sourceAccountAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.sourceAccount(v)
     }
-  } // String
+  }
 
   final def eventSourceTokenAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.eventSourceToken(v)
     }
-  } // String
+  }
 
   final def qualifierAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
     }
-  } // String
+  }
 
   final def revisionIdAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
     }
-  } // String
+  }
 
 }
 
 final class AddPermissionRequestOps(val self: AddPermissionRequest) extends AnyVal {
 
-  final def functionNameAsScala: Option[String] = Option(self.functionName) // String
+  final def functionNameAsScala: Option[String] = Option(self.functionName)
 
-  final def statementIdAsScala: Option[String] = Option(self.statementId) // String
+  final def statementIdAsScala: Option[String] = Option(self.statementId)
 
-  final def actionAsScala: Option[String] = Option(self.action) // String
+  final def actionAsScala: Option[String] = Option(self.action)
 
-  final def principalAsScala: Option[String] = Option(self.principal) // String
+  final def principalAsScala: Option[String] = Option(self.principal)
 
-  final def sourceArnAsScala: Option[String] = Option(self.sourceArn) // String
+  final def sourceArnAsScala: Option[String] = Option(self.sourceArn)
 
-  final def sourceAccountAsScala: Option[String] = Option(self.sourceAccount) // String
+  final def sourceAccountAsScala: Option[String] = Option(self.sourceAccount)
 
-  final def eventSourceTokenAsScala: Option[String] = Option(self.eventSourceToken) // String
+  final def eventSourceTokenAsScala: Option[String] = Option(self.eventSourceToken)
 
-  final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
+  final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
-  final def revisionIdAsScala: Option[String] = Option(self.revisionId) // String
+  final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }
 

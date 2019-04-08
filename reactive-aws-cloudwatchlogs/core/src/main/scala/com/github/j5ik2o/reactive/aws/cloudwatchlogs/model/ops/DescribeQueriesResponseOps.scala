@@ -8,14 +8,14 @@ final class DescribeQueriesResponseBuilderOps(val self: DescribeQueriesResponse.
   final def queriesAsScala(value: Option[Seq[QueryInfo]]): DescribeQueriesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queries(v.asJava)
-    } // Seq[QueryInfo]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeQueriesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class DescribeQueriesResponseOps(val self: DescribeQueriesResponse) extend
 
   final def queriesAsScala: Option[Seq[QueryInfo]] = Option(self.queries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[QueryInfo]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

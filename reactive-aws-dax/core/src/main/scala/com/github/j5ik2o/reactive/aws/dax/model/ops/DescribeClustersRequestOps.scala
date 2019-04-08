@@ -8,20 +8,20 @@ final class DescribeClustersRequestBuilderOps(val self: DescribeClustersRequest.
   final def clusterNamesAsScala(value: Option[Seq[String]]): DescribeClustersRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.clusterNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeClustersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeClustersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class DescribeClustersRequestOps(val self: DescribeClustersRequest) extend
 
   final def clusterNamesAsScala: Option[Seq[String]] = Option(self.clusterNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

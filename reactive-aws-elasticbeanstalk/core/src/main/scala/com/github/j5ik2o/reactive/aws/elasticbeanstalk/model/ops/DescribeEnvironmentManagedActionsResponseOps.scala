@@ -12,7 +12,7 @@ final class DescribeEnvironmentManagedActionsResponseBuilderOps(
   ): DescribeEnvironmentManagedActionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.managedActions(v.asJava)
-    } // Seq[ManagedAction]
+    }
   }
 
 }
@@ -22,7 +22,7 @@ final class DescribeEnvironmentManagedActionsResponseOps(val self: DescribeEnvir
 
   final def managedActionsAsScala: Option[Seq[ManagedAction]] = Option(self.managedActions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ManagedAction]
+  }
 
 }
 

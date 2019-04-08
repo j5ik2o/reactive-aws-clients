@@ -8,14 +8,14 @@ final class GetUpgradeHistoryResponseBuilderOps(val self: GetUpgradeHistoryRespo
   final def upgradeHistoriesAsScala(value: Option[Seq[UpgradeHistory]]): GetUpgradeHistoryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.upgradeHistories(v.asJava)
-    } // Seq[UpgradeHistory]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): GetUpgradeHistoryResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class GetUpgradeHistoryResponseOps(val self: GetUpgradeHistoryResponse) ex
 
   final def upgradeHistoriesAsScala: Option[Seq[UpgradeHistory]] = Option(self.upgradeHistories).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[UpgradeHistory]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

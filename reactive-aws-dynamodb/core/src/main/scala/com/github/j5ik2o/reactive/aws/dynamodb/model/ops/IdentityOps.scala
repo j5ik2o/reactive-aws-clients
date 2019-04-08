@@ -9,21 +9,21 @@ final class IdentityBuilderOps(val self: Identity.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.principalId(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[String]): Identity.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  }
 
 }
 
 final class IdentityOps(val self: Identity) extends AnyVal {
 
-  final def principalIdAsScala: Option[String] = Option(self.principalId) // String
+  final def principalIdAsScala: Option[String] = Option(self.principalId)
 
-  final def typeAsScala: Option[String] = Option(self.`type`) // String
+  final def typeAsScala: Option[String] = Option(self.`type`)
 
 }
 

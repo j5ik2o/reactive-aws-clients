@@ -9,13 +9,13 @@ final class DeleteBucketCorsRequestBuilderOps(val self: DeleteBucketCorsRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteBucketCorsRequestOps(val self: DeleteBucketCorsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

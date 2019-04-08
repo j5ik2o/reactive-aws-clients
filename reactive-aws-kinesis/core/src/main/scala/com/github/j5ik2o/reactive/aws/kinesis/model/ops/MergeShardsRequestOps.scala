@@ -9,29 +9,29 @@ final class MergeShardsRequestBuilderOps(val self: MergeShardsRequest.Builder) e
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def shardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.shardToMerge(v)
     }
-  } // String
+  }
 
   final def adjacentShardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.adjacentShardToMerge(v)
     }
-  } // String
+  }
 
 }
 
 final class MergeShardsRequestOps(val self: MergeShardsRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def shardToMergeAsScala: Option[String] = Option(self.shardToMerge) // String
+  final def shardToMergeAsScala: Option[String] = Option(self.shardToMerge)
 
-  final def adjacentShardToMergeAsScala: Option[String] = Option(self.adjacentShardToMerge) // String
+  final def adjacentShardToMergeAsScala: Option[String] = Option(self.adjacentShardToMerge)
 
 }
 

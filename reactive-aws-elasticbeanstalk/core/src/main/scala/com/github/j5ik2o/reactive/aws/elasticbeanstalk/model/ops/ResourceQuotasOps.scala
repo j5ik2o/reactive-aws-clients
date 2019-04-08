@@ -9,47 +9,45 @@ final class ResourceQuotasBuilderOps(val self: ResourceQuotas.Builder) extends A
     value.fold(self) { v =>
       self.applicationQuota(v)
     }
-  } // ResourceQuota
+  }
 
   final def applicationVersionQuotaAsScala(value: Option[ResourceQuota]): ResourceQuotas.Builder = {
     value.fold(self) { v =>
       self.applicationVersionQuota(v)
     }
-  } // ResourceQuota
+  }
 
   final def environmentQuotaAsScala(value: Option[ResourceQuota]): ResourceQuotas.Builder = {
     value.fold(self) { v =>
       self.environmentQuota(v)
     }
-  } // ResourceQuota
+  }
 
   final def configurationTemplateQuotaAsScala(value: Option[ResourceQuota]): ResourceQuotas.Builder = {
     value.fold(self) { v =>
       self.configurationTemplateQuota(v)
     }
-  } // ResourceQuota
+  }
 
   final def customPlatformQuotaAsScala(value: Option[ResourceQuota]): ResourceQuotas.Builder = {
     value.fold(self) { v =>
       self.customPlatformQuota(v)
     }
-  } // ResourceQuota
+  }
 
 }
 
 final class ResourceQuotasOps(val self: ResourceQuotas) extends AnyVal {
 
-  final def applicationQuotaAsScala: Option[ResourceQuota] = Option(self.applicationQuota) // ResourceQuota
+  final def applicationQuotaAsScala: Option[ResourceQuota] = Option(self.applicationQuota)
 
-  final def applicationVersionQuotaAsScala: Option[ResourceQuota] =
-    Option(self.applicationVersionQuota) // ResourceQuota
+  final def applicationVersionQuotaAsScala: Option[ResourceQuota] = Option(self.applicationVersionQuota)
 
-  final def environmentQuotaAsScala: Option[ResourceQuota] = Option(self.environmentQuota) // ResourceQuota
+  final def environmentQuotaAsScala: Option[ResourceQuota] = Option(self.environmentQuota)
 
-  final def configurationTemplateQuotaAsScala: Option[ResourceQuota] =
-    Option(self.configurationTemplateQuota) // ResourceQuota
+  final def configurationTemplateQuotaAsScala: Option[ResourceQuota] = Option(self.configurationTemplateQuota)
 
-  final def customPlatformQuotaAsScala: Option[ResourceQuota] = Option(self.customPlatformQuota) // ResourceQuota
+  final def customPlatformQuotaAsScala: Option[ResourceQuota] = Option(self.customPlatformQuota)
 
 }
 
