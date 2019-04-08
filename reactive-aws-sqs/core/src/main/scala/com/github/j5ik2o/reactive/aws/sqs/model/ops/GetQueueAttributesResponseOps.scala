@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.sqs.model._
 final class GetQueueAttributesResponseBuilderOps(val self: GetQueueAttributesResponse.Builder) extends AnyVal {
 
   final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): GetQueueAttributesResponse.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, String]
   }

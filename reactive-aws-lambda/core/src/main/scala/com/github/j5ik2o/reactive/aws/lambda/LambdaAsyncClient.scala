@@ -1,0 +1,196 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.lambda
+
+import software.amazon.awssdk.services.lambda.model._
+import software.amazon.awssdk.services.lambda.paginators._
+import software.amazon.awssdk.services.lambda.{ LambdaAsyncClient => JavaLambdaAsyncClient }
+
+import scala.compat.java8.FutureConverters._
+import scala.concurrent.Future
+
+object LambdaAsyncClient {
+
+  def apply(javaClient: JavaLambdaAsyncClient): LambdaAsyncClient =
+    new LambdaAsyncClient {
+      override val underlying: JavaLambdaAsyncClient = javaClient
+    }
+
+}
+
+trait LambdaAsyncClient extends LambdaClient[Future] {
+  val underlying: JavaLambdaAsyncClient
+
+  override def addLayerVersionPermission(
+      addLayerVersionPermissionRequest: AddLayerVersionPermissionRequest
+  ): Future[AddLayerVersionPermissionResponse] =
+    underlying.addLayerVersionPermission(addLayerVersionPermissionRequest).toScala
+
+  override def addPermission(addPermissionRequest: AddPermissionRequest): Future[AddPermissionResponse] =
+    underlying.addPermission(addPermissionRequest).toScala
+
+  override def createAlias(createAliasRequest: CreateAliasRequest): Future[CreateAliasResponse] =
+    underlying.createAlias(createAliasRequest).toScala
+
+  override def createEventSourceMapping(
+      createEventSourceMappingRequest: CreateEventSourceMappingRequest
+  ): Future[CreateEventSourceMappingResponse] =
+    underlying.createEventSourceMapping(createEventSourceMappingRequest).toScala
+
+  override def createFunction(createFunctionRequest: CreateFunctionRequest): Future[CreateFunctionResponse] =
+    underlying.createFunction(createFunctionRequest).toScala
+
+  override def deleteAlias(deleteAliasRequest: DeleteAliasRequest): Future[DeleteAliasResponse] =
+    underlying.deleteAlias(deleteAliasRequest).toScala
+
+  override def deleteEventSourceMapping(
+      deleteEventSourceMappingRequest: DeleteEventSourceMappingRequest
+  ): Future[DeleteEventSourceMappingResponse] =
+    underlying.deleteEventSourceMapping(deleteEventSourceMappingRequest).toScala
+
+  override def deleteFunction(deleteFunctionRequest: DeleteFunctionRequest): Future[DeleteFunctionResponse] =
+    underlying.deleteFunction(deleteFunctionRequest).toScala
+
+  override def deleteFunctionConcurrency(
+      deleteFunctionConcurrencyRequest: DeleteFunctionConcurrencyRequest
+  ): Future[DeleteFunctionConcurrencyResponse] =
+    underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest).toScala
+
+  override def deleteLayerVersion(
+      deleteLayerVersionRequest: DeleteLayerVersionRequest
+  ): Future[DeleteLayerVersionResponse] =
+    underlying.deleteLayerVersion(deleteLayerVersionRequest).toScala
+
+  override def getAccountSettings(
+      getAccountSettingsRequest: GetAccountSettingsRequest
+  ): Future[GetAccountSettingsResponse] =
+    underlying.getAccountSettings(getAccountSettingsRequest).toScala
+
+  override def getAccountSettings(): Future[GetAccountSettingsResponse] =
+    underlying.getAccountSettings().toScala
+
+  override def getAlias(getAliasRequest: GetAliasRequest): Future[GetAliasResponse] =
+    underlying.getAlias(getAliasRequest).toScala
+
+  override def getEventSourceMapping(
+      getEventSourceMappingRequest: GetEventSourceMappingRequest
+  ): Future[GetEventSourceMappingResponse] =
+    underlying.getEventSourceMapping(getEventSourceMappingRequest).toScala
+
+  override def getFunction(getFunctionRequest: GetFunctionRequest): Future[GetFunctionResponse] =
+    underlying.getFunction(getFunctionRequest).toScala
+
+  override def getFunctionConfiguration(
+      getFunctionConfigurationRequest: GetFunctionConfigurationRequest
+  ): Future[GetFunctionConfigurationResponse] =
+    underlying.getFunctionConfiguration(getFunctionConfigurationRequest).toScala
+
+  override def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): Future[GetLayerVersionResponse] =
+    underlying.getLayerVersion(getLayerVersionRequest).toScala
+
+  override def getLayerVersionPolicy(
+      getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest
+  ): Future[GetLayerVersionPolicyResponse] =
+    underlying.getLayerVersionPolicy(getLayerVersionPolicyRequest).toScala
+
+  override def getPolicy(getPolicyRequest: GetPolicyRequest): Future[GetPolicyResponse] =
+    underlying.getPolicy(getPolicyRequest).toScala
+
+  override def invoke(invokeRequest: InvokeRequest): Future[InvokeResponse] =
+    underlying.invoke(invokeRequest).toScala
+
+  override def listAliases(listAliasesRequest: ListAliasesRequest): Future[ListAliasesResponse] =
+    underlying.listAliases(listAliasesRequest).toScala
+
+  override def listEventSourceMappings(
+      listEventSourceMappingsRequest: ListEventSourceMappingsRequest
+  ): Future[ListEventSourceMappingsResponse] =
+    underlying.listEventSourceMappings(listEventSourceMappingsRequest).toScala
+
+  override def listEventSourceMappings(): Future[ListEventSourceMappingsResponse] =
+    underlying.listEventSourceMappings().toScala
+
+  def listEventSourceMappingsPaginator(): ListEventSourceMappingsPublisher =
+    underlying.listEventSourceMappingsPaginator()
+
+  def listEventSourceMappingsPaginator(
+      listEventSourceMappingsRequest: ListEventSourceMappingsRequest
+  ): ListEventSourceMappingsPublisher =
+    underlying.listEventSourceMappingsPaginator(listEventSourceMappingsRequest)
+
+  override def listFunctions(listFunctionsRequest: ListFunctionsRequest): Future[ListFunctionsResponse] =
+    underlying.listFunctions(listFunctionsRequest).toScala
+
+  override def listFunctions(): Future[ListFunctionsResponse] =
+    underlying.listFunctions().toScala
+
+  def listFunctionsPaginator(): ListFunctionsPublisher =
+    underlying.listFunctionsPaginator()
+
+  def listFunctionsPaginator(listFunctionsRequest: ListFunctionsRequest): ListFunctionsPublisher =
+    underlying.listFunctionsPaginator(listFunctionsRequest)
+
+  override def listLayerVersions(
+      listLayerVersionsRequest: ListLayerVersionsRequest
+  ): Future[ListLayerVersionsResponse] =
+    underlying.listLayerVersions(listLayerVersionsRequest).toScala
+
+  override def listLayers(listLayersRequest: ListLayersRequest): Future[ListLayersResponse] =
+    underlying.listLayers(listLayersRequest).toScala
+
+  override def listLayers(): Future[ListLayersResponse] =
+    underlying.listLayers().toScala
+
+  override def listTags(listTagsRequest: ListTagsRequest): Future[ListTagsResponse] =
+    underlying.listTags(listTagsRequest).toScala
+
+  override def listVersionsByFunction(
+      listVersionsByFunctionRequest: ListVersionsByFunctionRequest
+  ): Future[ListVersionsByFunctionResponse] =
+    underlying.listVersionsByFunction(listVersionsByFunctionRequest).toScala
+
+  override def publishLayerVersion(
+      publishLayerVersionRequest: PublishLayerVersionRequest
+  ): Future[PublishLayerVersionResponse] =
+    underlying.publishLayerVersion(publishLayerVersionRequest).toScala
+
+  override def publishVersion(publishVersionRequest: PublishVersionRequest): Future[PublishVersionResponse] =
+    underlying.publishVersion(publishVersionRequest).toScala
+
+  override def putFunctionConcurrency(
+      putFunctionConcurrencyRequest: PutFunctionConcurrencyRequest
+  ): Future[PutFunctionConcurrencyResponse] =
+    underlying.putFunctionConcurrency(putFunctionConcurrencyRequest).toScala
+
+  override def removeLayerVersionPermission(
+      removeLayerVersionPermissionRequest: RemoveLayerVersionPermissionRequest
+  ): Future[RemoveLayerVersionPermissionResponse] =
+    underlying.removeLayerVersionPermission(removeLayerVersionPermissionRequest).toScala
+
+  override def removePermission(removePermissionRequest: RemovePermissionRequest): Future[RemovePermissionResponse] =
+    underlying.removePermission(removePermissionRequest).toScala
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toScala
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toScala
+
+  override def updateAlias(updateAliasRequest: UpdateAliasRequest): Future[UpdateAliasResponse] =
+    underlying.updateAlias(updateAliasRequest).toScala
+
+  override def updateEventSourceMapping(
+      updateEventSourceMappingRequest: UpdateEventSourceMappingRequest
+  ): Future[UpdateEventSourceMappingResponse] =
+    underlying.updateEventSourceMapping(updateEventSourceMappingRequest).toScala
+
+  override def updateFunctionCode(
+      updateFunctionCodeRequest: UpdateFunctionCodeRequest
+  ): Future[UpdateFunctionCodeResponse] =
+    underlying.updateFunctionCode(updateFunctionCodeRequest).toScala
+
+  override def updateFunctionConfiguration(
+      updateFunctionConfigurationRequest: UpdateFunctionConfigurationRequest
+  ): Future[UpdateFunctionConfigurationResponse] =
+    underlying.updateFunctionConfiguration(updateFunctionConfigurationRequest).toScala
+
+}

@@ -114,7 +114,7 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
   } // String
 
   final def metadataAsScala(value: Option[Map[String, String]]): CopyObjectRequest.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }

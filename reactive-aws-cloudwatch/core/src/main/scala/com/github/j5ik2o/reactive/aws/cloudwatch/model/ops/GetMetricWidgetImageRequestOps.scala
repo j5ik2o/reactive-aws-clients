@@ -1,0 +1,40 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.cloudwatch.model.ops
+
+import software.amazon.awssdk.services.cloudwatch.model._
+
+final class GetMetricWidgetImageRequestBuilderOps(val self: GetMetricWidgetImageRequest.Builder) extends AnyVal {
+
+  final def metricWidgetAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
+    value.fold(self) { v =>
+      self.metricWidget(v)
+    }
+  } // String
+
+  final def outputFormatAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
+    value.fold(self) { v =>
+      self.outputFormat(v)
+    }
+  } // String
+
+}
+
+final class GetMetricWidgetImageRequestOps(val self: GetMetricWidgetImageRequest) extends AnyVal {
+
+  final def metricWidgetAsScala: Option[String] = Option(self.metricWidget) // String
+
+  final def outputFormatAsScala: Option[String] = Option(self.outputFormat) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetMetricWidgetImageRequestOps {
+
+  implicit def toGetMetricWidgetImageRequestBuilderOps(
+      v: GetMetricWidgetImageRequest.Builder
+  ): GetMetricWidgetImageRequestBuilderOps = new GetMetricWidgetImageRequestBuilderOps(v)
+
+  implicit def toGetMetricWidgetImageRequestOps(v: GetMetricWidgetImageRequest): GetMetricWidgetImageRequestOps =
+    new GetMetricWidgetImageRequestOps(v)
+
+}

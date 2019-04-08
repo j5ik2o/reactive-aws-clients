@@ -108,7 +108,7 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
   } // String
 
   final def metadataAsScala(value: Option[Map[String, String]]): HeadObjectResponse.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }

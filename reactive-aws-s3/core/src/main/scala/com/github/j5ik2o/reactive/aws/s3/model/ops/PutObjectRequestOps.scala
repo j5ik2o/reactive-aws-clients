@@ -96,7 +96,7 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
   } // String
 
   final def metadataAsScala(value: Option[Map[String, String]]): PutObjectRequest.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }

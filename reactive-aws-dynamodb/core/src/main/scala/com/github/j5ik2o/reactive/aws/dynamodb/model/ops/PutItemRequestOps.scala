@@ -54,7 +54,7 @@ final class PutItemRequestBuilderOps(val self: PutItemRequest.Builder) extends A
   } // String
 
   final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): PutItemRequest.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }

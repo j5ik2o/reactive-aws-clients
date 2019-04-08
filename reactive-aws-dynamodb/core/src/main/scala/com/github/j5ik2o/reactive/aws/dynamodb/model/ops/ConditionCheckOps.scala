@@ -24,7 +24,7 @@ final class ConditionCheckBuilderOps(val self: ConditionCheck.Builder) extends A
   } // String
 
   final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): ConditionCheck.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }

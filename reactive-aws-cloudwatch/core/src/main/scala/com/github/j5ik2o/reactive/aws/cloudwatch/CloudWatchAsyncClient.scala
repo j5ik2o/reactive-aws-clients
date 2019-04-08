@@ -1,0 +1,118 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.cloudwatch
+
+import software.amazon.awssdk.services.cloudwatch.model._
+import software.amazon.awssdk.services.cloudwatch.paginators._
+import software.amazon.awssdk.services.cloudwatch.{ CloudWatchAsyncClient => JavaCloudWatchAsyncClient }
+
+import scala.compat.java8.FutureConverters._
+import scala.concurrent.Future
+
+object CloudWatchAsyncClient {
+
+  def apply(javaClient: JavaCloudWatchAsyncClient): CloudWatchAsyncClient =
+    new CloudWatchAsyncClient {
+      override val underlying: JavaCloudWatchAsyncClient = javaClient
+    }
+
+}
+
+trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
+  val underlying: JavaCloudWatchAsyncClient
+
+  override def deleteAlarms(deleteAlarmsRequest: DeleteAlarmsRequest): Future[DeleteAlarmsResponse] =
+    underlying.deleteAlarms(deleteAlarmsRequest).toScala
+
+  override def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): Future[DeleteDashboardsResponse] =
+    underlying.deleteDashboards(deleteDashboardsRequest).toScala
+
+  override def describeAlarmHistory(
+      describeAlarmHistoryRequest: DescribeAlarmHistoryRequest
+  ): Future[DescribeAlarmHistoryResponse] =
+    underlying.describeAlarmHistory(describeAlarmHistoryRequest).toScala
+
+  override def describeAlarmHistory(): Future[DescribeAlarmHistoryResponse] =
+    underlying.describeAlarmHistory().toScala
+
+  def describeAlarmHistoryPaginator(): DescribeAlarmHistoryPublisher =
+    underlying.describeAlarmHistoryPaginator()
+
+  def describeAlarmHistoryPaginator(
+      describeAlarmHistoryRequest: DescribeAlarmHistoryRequest
+  ): DescribeAlarmHistoryPublisher =
+    underlying.describeAlarmHistoryPaginator(describeAlarmHistoryRequest)
+
+  override def describeAlarms(describeAlarmsRequest: DescribeAlarmsRequest): Future[DescribeAlarmsResponse] =
+    underlying.describeAlarms(describeAlarmsRequest).toScala
+
+  override def describeAlarms(): Future[DescribeAlarmsResponse] =
+    underlying.describeAlarms().toScala
+
+  override def describeAlarmsForMetric(
+      describeAlarmsForMetricRequest: DescribeAlarmsForMetricRequest
+  ): Future[DescribeAlarmsForMetricResponse] =
+    underlying.describeAlarmsForMetric(describeAlarmsForMetricRequest).toScala
+
+  def describeAlarmsPaginator(): DescribeAlarmsPublisher =
+    underlying.describeAlarmsPaginator()
+
+  def describeAlarmsPaginator(describeAlarmsRequest: DescribeAlarmsRequest): DescribeAlarmsPublisher =
+    underlying.describeAlarmsPaginator(describeAlarmsRequest)
+
+  override def disableAlarmActions(
+      disableAlarmActionsRequest: DisableAlarmActionsRequest
+  ): Future[DisableAlarmActionsResponse] =
+    underlying.disableAlarmActions(disableAlarmActionsRequest).toScala
+
+  override def enableAlarmActions(
+      enableAlarmActionsRequest: EnableAlarmActionsRequest
+  ): Future[EnableAlarmActionsResponse] =
+    underlying.enableAlarmActions(enableAlarmActionsRequest).toScala
+
+  override def getDashboard(getDashboardRequest: GetDashboardRequest): Future[GetDashboardResponse] =
+    underlying.getDashboard(getDashboardRequest).toScala
+
+  override def getMetricData(getMetricDataRequest: GetMetricDataRequest): Future[GetMetricDataResponse] =
+    underlying.getMetricData(getMetricDataRequest).toScala
+
+  override def getMetricStatistics(
+      getMetricStatisticsRequest: GetMetricStatisticsRequest
+  ): Future[GetMetricStatisticsResponse] =
+    underlying.getMetricStatistics(getMetricStatisticsRequest).toScala
+
+  override def getMetricWidgetImage(
+      getMetricWidgetImageRequest: GetMetricWidgetImageRequest
+  ): Future[GetMetricWidgetImageResponse] =
+    underlying.getMetricWidgetImage(getMetricWidgetImageRequest).toScala
+
+  override def listDashboards(listDashboardsRequest: ListDashboardsRequest): Future[ListDashboardsResponse] =
+    underlying.listDashboards(listDashboardsRequest).toScala
+
+  override def listDashboards(): Future[ListDashboardsResponse] =
+    underlying.listDashboards().toScala
+
+  override def listMetrics(listMetricsRequest: ListMetricsRequest): Future[ListMetricsResponse] =
+    underlying.listMetrics(listMetricsRequest).toScala
+
+  override def listMetrics(): Future[ListMetricsResponse] =
+    underlying.listMetrics().toScala
+
+  def listMetricsPaginator(): ListMetricsPublisher =
+    underlying.listMetricsPaginator()
+
+  def listMetricsPaginator(listMetricsRequest: ListMetricsRequest): ListMetricsPublisher =
+    underlying.listMetricsPaginator(listMetricsRequest)
+
+  override def putDashboard(putDashboardRequest: PutDashboardRequest): Future[PutDashboardResponse] =
+    underlying.putDashboard(putDashboardRequest).toScala
+
+  override def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): Future[PutMetricAlarmResponse] =
+    underlying.putMetricAlarm(putMetricAlarmRequest).toScala
+
+  override def putMetricData(putMetricDataRequest: PutMetricDataRequest): Future[PutMetricDataResponse] =
+    underlying.putMetricData(putMetricDataRequest).toScala
+
+  override def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): Future[SetAlarmStateResponse] =
+    underlying.setAlarmState(setAlarmStateRequest).toScala
+
+}

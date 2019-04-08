@@ -284,6 +284,138 @@ lazy val `reactive-aws-elasticbeanstalk-root`: Project = (project in file("react
     `reactive-aws-elasticbeanstalk-monix`
   )
 
+// --- lambda
+
+lazy val `reactive-aws-lambda-test` = (project in file("reactive-aws-lambda/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-lambda-core` =
+  (project in file("reactive-aws-lambda/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-lambda-test` % "test")
+
+lazy val `reactive-aws-lambda-cats` = (project in file("reactive-aws-lambda/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-lambda-core`, `reactive-aws-lambda-test` % "test")
+
+lazy val `reactive-aws-lambda-monix` = (project in file("reactive-aws-lambda/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-lambda-core`, `reactive-aws-lambda-test` % "test")
+
+lazy val `reactive-aws-lambda-akka` = (project in file("reactive-aws-lambda/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-lambda-core`, `reactive-aws-lambda-test` % "test")
+
+lazy val `reactive-aws-lambda-root`: Project = (project in file("reactive-aws-lambda"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-lambda-project"
+  )
+  .aggregate(
+    `reactive-aws-lambda-core`,
+    `reactive-aws-lambda-test`,
+    `reactive-aws-lambda-akka`,
+    `reactive-aws-lambda-cats`,
+    `reactive-aws-lambda-monix`
+  )
+
+// --- cloudwatch
+
+lazy val `reactive-aws-cloudwatch-test` = (project in file("reactive-aws-cloudwatch/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-cloudwatch-core` =
+  (project in file("reactive-aws-cloudwatch/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
+                                                     `reactive-aws-cloudwatch-test` % "test")
+
+lazy val `reactive-aws-cloudwatch-cats` = (project in file("reactive-aws-cloudwatch/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-cloudwatch-core`, `reactive-aws-cloudwatch-test` % "test")
+
+lazy val `reactive-aws-cloudwatch-monix` = (project in file("reactive-aws-cloudwatch/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-cloudwatch-core`, `reactive-aws-cloudwatch-test` % "test")
+
+lazy val `reactive-aws-cloudwatch-akka` = (project in file("reactive-aws-cloudwatch/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-cloudwatch-core`, `reactive-aws-cloudwatch-test` % "test")
+
+lazy val `reactive-aws-cloudwatch-root`: Project = (project in file("reactive-aws-cloudwatch"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-cloudwatch-project"
+  )
+  .aggregate(
+    `reactive-aws-cloudwatch-core`,
+    `reactive-aws-cloudwatch-test`,
+    `reactive-aws-cloudwatch-akka`,
+    `reactive-aws-cloudwatch-cats`,
+    `reactive-aws-cloudwatch-monix`
+  )
+
+// --- cloudformation
+
+lazy val `reactive-aws-cloudformation-test` = (project in file("reactive-aws-cloudformation/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-cloudformation-core` =
+  (project in file("reactive-aws-cloudformation/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
+                                                     `reactive-aws-cloudformation-test` % "test")
+
+lazy val `reactive-aws-cloudformation-cats` = (project in file("reactive-aws-cloudformation/cats"))
+  .dependsOn(`reactive-aws-common-cats`,
+             `reactive-aws-cloudformation-core`,
+             `reactive-aws-cloudformation-test` % "test")
+
+lazy val `reactive-aws-cloudformation-monix` = (project in file("reactive-aws-cloudformation/monix"))
+  .dependsOn(`reactive-aws-common-monix`,
+             `reactive-aws-cloudformation-core`,
+             `reactive-aws-cloudformation-test` % "test")
+
+lazy val `reactive-aws-cloudformation-akka` = (project in file("reactive-aws-cloudformation/akka"))
+  .dependsOn(`reactive-aws-common-akka`,
+             `reactive-aws-cloudformation-core`,
+             `reactive-aws-cloudformation-test` % "test")
+
+lazy val `reactive-aws-cloudformation-root`: Project = (project in file("reactive-aws-cloudformation"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-cloudformation-project"
+  )
+  .aggregate(
+    `reactive-aws-cloudformation-core`,
+    `reactive-aws-cloudformation-test`,
+    `reactive-aws-cloudformation-akka`,
+    `reactive-aws-cloudformation-cats`,
+    `reactive-aws-cloudformation-monix`
+  )
+
+// --- batch
+
+lazy val `reactive-aws-batch-test` = (project in file("reactive-aws-batch/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-batch-core` =
+  (project in file("reactive-aws-batch/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-batch-test` % "test")
+
+lazy val `reactive-aws-batch-cats` = (project in file("reactive-aws-batch/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-batch-core`, `reactive-aws-batch-test` % "test")
+
+lazy val `reactive-aws-batch-monix` = (project in file("reactive-aws-batch/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-batch-core`, `reactive-aws-batch-test` % "test")
+
+lazy val `reactive-aws-batch-akka` = (project in file("reactive-aws-batch/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-batch-core`, `reactive-aws-batch-test` % "test")
+
+lazy val `reactive-aws-batch-root`: Project = (project in file("reactive-aws-batch"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-batch-project"
+  )
+  .aggregate(
+    `reactive-aws-batch-core`,
+    `reactive-aws-batch-test`,
+    `reactive-aws-batch-akka`,
+    `reactive-aws-batch-cats`,
+    `reactive-aws-batch-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -298,5 +430,9 @@ lazy val `root`: Project = (project in file("."))
     `reactive-aws-sqs-root`,
     `reactive-aws-appsync-root`,
     `reactive-aws-elasticsearch-root`,
-    `reactive-aws-elasticbeanstalk-root`
+    `reactive-aws-elasticbeanstalk-root`,
+    `reactive-aws-lambda-root`,
+    `reactive-aws-cloudwatch-root`,
+    `reactive-aws-cloudformation-root`,
+    `reactive-aws-batch-root`
   )

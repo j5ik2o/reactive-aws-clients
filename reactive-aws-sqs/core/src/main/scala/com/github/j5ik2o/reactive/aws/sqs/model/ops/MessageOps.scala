@@ -30,7 +30,7 @@ final class MessageBuilderOps(val self: Message.Builder) extends AnyVal {
   } // String
 
   final def attributesAsScala(value: Option[Map[MessageSystemAttributeName, String]]): Message.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, String]
   }

@@ -12,7 +12,7 @@ final class CreateQueueRequestBuilderOps(val self: CreateQueueRequest.Builder) e
   } // String
 
   final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): CreateQueueRequest.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, String]
   }

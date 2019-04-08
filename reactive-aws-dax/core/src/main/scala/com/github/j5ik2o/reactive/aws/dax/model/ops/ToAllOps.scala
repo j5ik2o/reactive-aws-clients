@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.dax.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToClusterOps
+    extends ToOptionSupport
+    with ToClusterOps
     with ToCreateClusterRequestOps
     with ToCreateClusterResponseOps
     with ToCreateParameterGroupRequestOps

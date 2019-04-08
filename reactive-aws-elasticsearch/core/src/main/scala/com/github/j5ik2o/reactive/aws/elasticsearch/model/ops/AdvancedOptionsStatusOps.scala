@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class AdvancedOptionsStatusBuilderOps(val self: AdvancedOptionsStatus.Builder) extends AnyVal {
 
   final def optionsAsScala(value: Option[Map[String, String]]): AdvancedOptionsStatus.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.options(v.asJava)
     } // Map[String, String]
   }

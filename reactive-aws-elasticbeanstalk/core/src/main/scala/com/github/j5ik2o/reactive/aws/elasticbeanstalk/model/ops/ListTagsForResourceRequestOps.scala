@@ -1,0 +1,32 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.elasticbeanstalk.model.ops
+
+import software.amazon.awssdk.services.elasticbeanstalk.model._
+
+final class ListTagsForResourceRequestBuilderOps(val self: ListTagsForResourceRequest.Builder) extends AnyVal {
+
+  final def resourceArnAsScala(value: Option[String]): ListTagsForResourceRequest.Builder = {
+    value.fold(self) { v =>
+      self.resourceArn(v)
+    }
+  } // String
+
+}
+
+final class ListTagsForResourceRequestOps(val self: ListTagsForResourceRequest) extends AnyVal {
+
+  final def resourceArnAsScala: Option[String] = Option(self.resourceArn) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToListTagsForResourceRequestOps {
+
+  implicit def toListTagsForResourceRequestBuilderOps(
+      v: ListTagsForResourceRequest.Builder
+  ): ListTagsForResourceRequestBuilderOps = new ListTagsForResourceRequestBuilderOps(v)
+
+  implicit def toListTagsForResourceRequestOps(v: ListTagsForResourceRequest): ListTagsForResourceRequestOps =
+    new ListTagsForResourceRequestOps(v)
+
+}

@@ -92,10 +92,12 @@
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } // ${field.fieldTypeDesc.fullTypeName}
+            <#elseif valueTypeName == "String">
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+            <#elseif valueTypeName == "Int">
+                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
                 value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
-            <#elseif isDefined(valueTypeName)>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#else>
                 value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
@@ -104,7 +106,11 @@
         <#case "Map">
             final def ${field.name}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
             <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
-            <#if isDefined(valueTypeName)>
+            <#if valueTypeName == "String">
+                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+            <#elseif valueTypeName == "Int">
+                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
+            <#elseif isDefined(valueTypeName) && valueTypeName != "String">
                 value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
@@ -141,10 +147,10 @@
                 <#local mapKeyTypeName=field.fieldTypeDesc.valueTypeDesc.keyTypeDesc.simpleTypeName>
                 <#local mapValueTypeName=field.fieldTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 final def ${field.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${mapValueTypeName}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap) } // ${field.fieldTypeDesc.fullTypeName}
+            <#elseif valueTypeName == "String">
+                final def ${field.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
                 final def ${field.name}AsScala: Option[Seq[${valueTypeName}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } // ${field.fieldTypeDesc.fullTypeName}
-            <#elseif valueTypeName == "String">
-                final def ${field.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala} // ${field.fieldTypeDesc.fullTypeName}
             <#else>
                 final def ${field.name}AsScala: Option[Seq[${valueTypeName}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
@@ -163,10 +169,10 @@
                 <#else>
                     final def ${field.name}AsScala: Option[Map[${keyTypeName},Seq[${seqValueTypeName}]]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala) } // ${field.fieldTypeDesc.fullTypeName}
                 </#if>
-            <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} // ${field.fieldTypeDesc.fullTypeName}
             <#elseif valueTypeName == "String">
                 final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${field.fieldTypeDesc.fullTypeName}
+            <#elseif isDefined(valueTypeName) && valueTypeName != "String">
+                final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} // ${field.fieldTypeDesc.fullTypeName}
             <#else>
                 final def ${field.name}AsScala: Option[Map[${keyTypeName}, ${valueTypeName}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } // ${field.fieldTypeDesc.fullTypeName}
             </#if>
@@ -227,10 +233,10 @@
             val p = scala.concurrent.Promise[Unit]()
             underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).whenCompleteAsync(
             new java.util.function.BiConsumer[Void, Throwable] {
-              override def accept(t: Void, u: Throwable): Unit = {
-                if (u != null) p.failure(u)
-                else p.success(())
-              }
+            override def accept(t: Void, u: Throwable): Unit = {
+            if (u != null) p.failure(u)
+            else p.success(())
+            }
             })
             p.future
             }

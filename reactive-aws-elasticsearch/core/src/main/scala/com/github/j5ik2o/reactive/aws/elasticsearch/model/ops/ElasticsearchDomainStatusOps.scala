@@ -42,7 +42,7 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
   } // String
 
   final def endpointsAsScala(value: Option[Map[String, String]]): ElasticsearchDomainStatus.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.endpoints(v.asJava)
     } // Map[String, String]
   }
@@ -120,7 +120,7 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
   } // NodeToNodeEncryptionOptions
 
   final def advancedOptionsAsScala(value: Option[Map[String, String]]): ElasticsearchDomainStatus.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.advancedOptions(v.asJava)
     } // Map[String, String]
   }

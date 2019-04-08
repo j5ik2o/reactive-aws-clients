@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.appsync.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToApiKeyOps
+    extends ToOptionSupport
+    with ToApiKeyOps
     with ToAuthorizationConfigOps
     with ToAwsIamConfigOps
     with ToCreateApiKeyRequestOps

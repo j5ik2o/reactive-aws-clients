@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.kinesis.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToAddTagsToStreamRequestOps
+    extends ToOptionSupport
+    with ToAddTagsToStreamRequestOps
     with ToAddTagsToStreamResponseOps
     with ToConsumerDescriptionOps
     with ToConsumerOps

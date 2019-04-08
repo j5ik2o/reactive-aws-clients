@@ -12,7 +12,7 @@ final class AddTagsToStreamRequestBuilderOps(val self: AddTagsToStreamRequest.Bu
   } // String
 
   final def tagsAsScala(value: Option[Map[String, String]]): AddTagsToStreamRequest.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Map[String, String]
   }
