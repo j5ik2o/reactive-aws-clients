@@ -21,7 +21,7 @@ final class PublishVersionResponseBuilderOps(val self: PublishVersionResponse.Bu
     value.fold(self) { v =>
       self.runtime(v)
     }
-  } // String
+  } // Runtime
 
   final def roleAsScala(value: Option[String]): PublishVersionResponse.Builder = {
     value.fold(self) { v =>
@@ -133,7 +133,7 @@ final class PublishVersionResponseOps(val self: PublishVersionResponse) extends 
 
   final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
 
-  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // String
+  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // Runtime
 
   final def roleAsScala: Option[String] = Option(self.role) // String
 

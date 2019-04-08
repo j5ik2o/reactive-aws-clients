@@ -21,7 +21,7 @@ final class StreamDescriptionSummaryBuilderOps(val self: StreamDescriptionSummar
     value.fold(self) { v =>
       self.streamStatus(v)
     }
-  } // String
+  } // StreamStatus
 
   final def retentionPeriodHoursAsScala(value: Option[Int]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class StreamDescriptionSummaryBuilderOps(val self: StreamDescriptionSummar
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def enhancedMonitoringAsScala(value: Option[Seq[EnhancedMetrics]]): StreamDescriptionSummary.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -45,7 +45,7 @@ final class StreamDescriptionSummaryBuilderOps(val self: StreamDescriptionSummar
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  } // EncryptionType
 
   final def keyIdAsScala(value: Option[String]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
@@ -73,17 +73,18 @@ final class StreamDescriptionSummaryOps(val self: StreamDescriptionSummary) exte
 
   final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
 
-  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // String
+  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // StreamStatus
 
   final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours) // Int
 
-  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp) // Instant
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] =
+    Option(self.streamCreationTimestamp) // java.time.Instant
 
   final def enhancedMonitoringAsScala: Option[Seq[EnhancedMetrics]] = Option(self.enhancedMonitoring).map { v =>
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[EnhancedMetrics]
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // EncryptionType
 
   final def keyIdAsScala: Option[String] = Option(self.keyId) // String
 

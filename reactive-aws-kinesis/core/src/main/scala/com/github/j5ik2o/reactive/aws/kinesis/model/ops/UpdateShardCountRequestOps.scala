@@ -21,7 +21,7 @@ final class UpdateShardCountRequestBuilderOps(val self: UpdateShardCountRequest.
     value.fold(self) { v =>
       self.scalingType(v)
     }
-  } // String
+  } // ScalingType
 
 }
 
@@ -31,7 +31,7 @@ final class UpdateShardCountRequestOps(val self: UpdateShardCountRequest) extend
 
   final def targetShardCountAsScala: Option[Int] = Option(self.targetShardCount) // Int
 
-  final def scalingTypeAsScala: Option[ScalingType] = Option(self.scalingType) // String
+  final def scalingTypeAsScala: Option[ScalingType] = Option(self.scalingType) // ScalingType
 
 }
 

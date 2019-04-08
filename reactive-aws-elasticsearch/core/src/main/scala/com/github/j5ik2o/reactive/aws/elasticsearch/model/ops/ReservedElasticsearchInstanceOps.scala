@@ -31,13 +31,13 @@ final class ReservedElasticsearchInstanceBuilderOps(val self: ReservedElasticsea
     value.fold(self) { v =>
       self.elasticsearchInstanceType(v)
     }
-  } // String
+  } // ESPartitionInstanceType
 
   final def startTimeAsScala(value: Option[java.time.Instant]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def durationAsScala(value: Option[Int]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
@@ -81,7 +81,7 @@ final class ReservedElasticsearchInstanceBuilderOps(val self: ReservedElasticsea
     value.fold(self) { v =>
       self.paymentOption(v)
     }
-  } // String
+  } // ReservedElasticsearchInstancePaymentOption
 
   final def recurringChargesAsScala(value: Option[Seq[RecurringCharge]]): ReservedElasticsearchInstance.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -102,9 +102,9 @@ final class ReservedElasticsearchInstanceOps(val self: ReservedElasticsearchInst
     Option(self.reservedElasticsearchInstanceOfferingId) // String
 
   final def elasticsearchInstanceTypeAsScala: Option[ESPartitionInstanceType] =
-    Option(self.elasticsearchInstanceType) // String
+    Option(self.elasticsearchInstanceType) // ESPartitionInstanceType
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
 
   final def durationAsScala: Option[Int] = Option(self.duration) // Int
 
@@ -119,7 +119,7 @@ final class ReservedElasticsearchInstanceOps(val self: ReservedElasticsearchInst
   final def stateAsScala: Option[String] = Option(self.state) // String
 
   final def paymentOptionAsScala: Option[ReservedElasticsearchInstancePaymentOption] =
-    Option(self.paymentOption) // String
+    Option(self.paymentOption) // ReservedElasticsearchInstancePaymentOption
 
   final def recurringChargesAsScala: Option[Seq[RecurringCharge]] = Option(self.recurringCharges).map { v =>
     import scala.collection.JavaConverters._; v.asScala

@@ -15,7 +15,7 @@ final class ParameterBuilderOps(val self: Parameter.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.parameterType(v)
     }
-  } // String
+  } // ParameterType
 
   final def parameterValueAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
@@ -57,13 +57,13 @@ final class ParameterBuilderOps(val self: Parameter.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.isModifiable(v)
     }
-  } // String
+  } // IsModifiable
 
   final def changeTypeAsScala(value: Option[ChangeType]): Parameter.Builder = {
     value.fold(self) { v =>
       self.changeType(v)
     }
-  } // String
+  } // ChangeType
 
 }
 
@@ -71,7 +71,7 @@ final class ParameterOps(val self: Parameter) extends AnyVal {
 
   final def parameterNameAsScala: Option[String] = Option(self.parameterName) // String
 
-  final def parameterTypeAsScala: Option[ParameterType] = Option(self.parameterType) // String
+  final def parameterTypeAsScala: Option[ParameterType] = Option(self.parameterType) // ParameterType
 
   final def parameterValueAsScala: Option[String] = Option(self.parameterValue) // String
 
@@ -88,9 +88,9 @@ final class ParameterOps(val self: Parameter) extends AnyVal {
 
   final def allowedValuesAsScala: Option[String] = Option(self.allowedValues) // String
 
-  final def isModifiableAsScala: Option[IsModifiable] = Option(self.isModifiable) // String
+  final def isModifiableAsScala: Option[IsModifiable] = Option(self.isModifiable) // IsModifiable
 
-  final def changeTypeAsScala: Option[ChangeType] = Option(self.changeType) // String
+  final def changeTypeAsScala: Option[ChangeType] = Option(self.changeType) // ChangeType
 
 }
 

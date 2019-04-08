@@ -15,7 +15,7 @@ final class TransactWriteItemsRequestBuilderOps(val self: TransactWriteItemsRequ
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
   final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
@@ -23,7 +23,7 @@ final class TransactWriteItemsRequestBuilderOps(val self: TransactWriteItemsRequ
     value.fold(self) { v =>
       self.returnItemCollectionMetrics(v)
     }
-  } // String
+  } // ReturnItemCollectionMetrics
 
   final def clientRequestTokenAsScala(value: Option[String]): TransactWriteItemsRequest.Builder = {
     value.fold(self) { v =>
@@ -40,10 +40,10 @@ final class TransactWriteItemsRequestOps(val self: TransactWriteItemsRequest) ex
   } // Seq[TransactWriteItem]
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
   final def returnItemCollectionMetricsAsScala: Option[ReturnItemCollectionMetrics] =
-    Option(self.returnItemCollectionMetrics) // String
+    Option(self.returnItemCollectionMetrics) // ReturnItemCollectionMetrics
 
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken) // String
 

@@ -39,7 +39,7 @@ final class ListPartsRequestBuilderOps(val self: ListPartsRequest.Builder) exten
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -55,7 +55,7 @@ final class ListPartsRequestOps(val self: ListPartsRequest) extends AnyVal {
 
   final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

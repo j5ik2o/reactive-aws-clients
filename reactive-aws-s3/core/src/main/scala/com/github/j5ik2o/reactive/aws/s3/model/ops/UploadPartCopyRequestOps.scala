@@ -27,7 +27,7 @@ final class UploadPartCopyRequestBuilderOps(val self: UploadPartCopyRequest.Buil
     value.fold(self) { v =>
       self.copySourceIfModifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def copySourceIfNoneMatchAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
@@ -39,7 +39,7 @@ final class UploadPartCopyRequestBuilderOps(val self: UploadPartCopyRequest.Buil
     value.fold(self) { v =>
       self.copySourceIfUnmodifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def copySourceRangeAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
@@ -105,7 +105,7 @@ final class UploadPartCopyRequestBuilderOps(val self: UploadPartCopyRequest.Buil
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -118,12 +118,12 @@ final class UploadPartCopyRequestOps(val self: UploadPartCopyRequest) extends An
   final def copySourceIfMatchAsScala: Option[String] = Option(self.copySourceIfMatch) // String
 
   final def copySourceIfModifiedSinceAsScala: Option[java.time.Instant] =
-    Option(self.copySourceIfModifiedSince) // Instant
+    Option(self.copySourceIfModifiedSince) // java.time.Instant
 
   final def copySourceIfNoneMatchAsScala: Option[String] = Option(self.copySourceIfNoneMatch) // String
 
   final def copySourceIfUnmodifiedSinceAsScala: Option[java.time.Instant] =
-    Option(self.copySourceIfUnmodifiedSince) // Instant
+    Option(self.copySourceIfUnmodifiedSince) // java.time.Instant
 
   final def copySourceRangeAsScala: Option[String] = Option(self.copySourceRange) // String
 
@@ -146,7 +146,7 @@ final class UploadPartCopyRequestOps(val self: UploadPartCopyRequest) extends An
 
   final def copySourceSSECustomerKeyMD5AsScala: Option[String] = Option(self.copySourceSSECustomerKeyMD5) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

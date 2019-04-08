@@ -18,7 +18,7 @@ final class DescribeInstancesHealthResponseBuilderOps(val self: DescribeInstance
     value.fold(self) { v =>
       self.refreshedAt(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def nextTokenAsScala(value: Option[String]): DescribeInstancesHealthResponse.Builder = {
     value.fold(self) { v =>
@@ -34,7 +34,7 @@ final class DescribeInstancesHealthResponseOps(val self: DescribeInstancesHealth
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[SingleInstanceHealth]
 
-  final def refreshedAtAsScala: Option[java.time.Instant] = Option(self.refreshedAt) // Instant
+  final def refreshedAtAsScala: Option[java.time.Instant] = Option(self.refreshedAt) // java.time.Instant
 
   final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
 

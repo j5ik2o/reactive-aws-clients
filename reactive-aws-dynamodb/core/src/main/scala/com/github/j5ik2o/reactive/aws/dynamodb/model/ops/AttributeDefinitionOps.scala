@@ -15,7 +15,7 @@ final class AttributeDefinitionBuilderOps(val self: AttributeDefinition.Builder)
     value.fold(self) { v =>
       self.attributeType(v)
     }
-  } // String
+  } // ScalarAttributeType
 
 }
 
@@ -23,7 +23,7 @@ final class AttributeDefinitionOps(val self: AttributeDefinition) extends AnyVal
 
   final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
 
-  final def attributeTypeAsScala: Option[ScalarAttributeType] = Option(self.attributeType) // String
+  final def attributeTypeAsScala: Option[ScalarAttributeType] = Option(self.attributeType) // ScalarAttributeType
 
 }
 

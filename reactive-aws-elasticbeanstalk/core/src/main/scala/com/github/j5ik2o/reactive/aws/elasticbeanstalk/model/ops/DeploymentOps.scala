@@ -27,7 +27,7 @@ final class DeploymentBuilderOps(val self: Deployment.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.deploymentTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -39,7 +39,7 @@ final class DeploymentOps(val self: Deployment) extends AnyVal {
 
   final def statusAsScala: Option[String] = Option(self.status) // String
 
-  final def deploymentTimeAsScala: Option[java.time.Instant] = Option(self.deploymentTime) // Instant
+  final def deploymentTimeAsScala: Option[java.time.Instant] = Option(self.deploymentTime) // java.time.Instant
 
 }
 

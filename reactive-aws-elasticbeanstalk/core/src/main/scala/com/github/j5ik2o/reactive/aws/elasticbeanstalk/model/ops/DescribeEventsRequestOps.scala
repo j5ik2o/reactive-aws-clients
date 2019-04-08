@@ -51,19 +51,19 @@ final class DescribeEventsRequestBuilderOps(val self: DescribeEventsRequest.Buil
     value.fold(self) { v =>
       self.severity(v)
     }
-  } // String
+  } // EventSeverity
 
   final def startTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def endTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def maxRecordsAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
@@ -95,11 +95,11 @@ final class DescribeEventsRequestOps(val self: DescribeEventsRequest) extends An
 
   final def requestIdAsScala: Option[String] = Option(self.requestId) // String
 
-  final def severityAsScala: Option[EventSeverity] = Option(self.severity) // String
+  final def severityAsScala: Option[EventSeverity] = Option(self.severity) // EventSeverity
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // java.time.Instant
 
   final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords) // Int
 

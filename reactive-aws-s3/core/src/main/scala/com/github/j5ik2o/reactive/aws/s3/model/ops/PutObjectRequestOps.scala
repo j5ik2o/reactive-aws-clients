@@ -9,7 +9,7 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // String
+  } // ObjectCannedACL
 
   final def bucketAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -63,7 +63,7 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.expires(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def grantFullControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -105,13 +105,13 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def storageClassAsScala(value: Option[StorageClass]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
   final def websiteRedirectLocationAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -147,7 +147,7 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def taggingAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -159,25 +159,25 @@ final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
-  } // String
+  } // ObjectLockMode
 
   final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }
-  } // String
+  } // ObjectLockLegalHoldStatus
 
 }
 
 final class PutObjectRequestOps(val self: PutObjectRequest) extends AnyVal {
 
-  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // String
+  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // ObjectCannedACL
 
   final def bucketAsScala: Option[String] = Option(self.bucket) // String
 
@@ -195,7 +195,7 @@ final class PutObjectRequestOps(val self: PutObjectRequest) extends AnyVal {
 
   final def contentTypeAsScala: Option[String] = Option(self.contentType) // String
 
-  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // Instant
+  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // java.time.Instant
 
   final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl) // String
 
@@ -211,9 +211,10 @@ final class PutObjectRequestOps(val self: PutObjectRequest) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala.toMap
   } // Map[String, String]
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
   final def websiteRedirectLocationAsScala: Option[String] = Option(self.websiteRedirectLocation) // String
 
@@ -225,17 +226,17 @@ final class PutObjectRequestOps(val self: PutObjectRequest) extends AnyVal {
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def taggingAsScala: Option[String] = Option(self.tagging) // String
 
-  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // String
+  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // ObjectLockMode
 
   final def objectLockRetainUntilDateAsScala: Option[java.time.Instant] =
-    Option(self.objectLockRetainUntilDate) // Instant
+    Option(self.objectLockRetainUntilDate) // java.time.Instant
 
   final def objectLockLegalHoldStatusAsScala: Option[ObjectLockLegalHoldStatus] =
-    Option(self.objectLockLegalHoldStatus) // String
+    Option(self.objectLockLegalHoldStatus) // ObjectLockLegalHoldStatus
 
 }
 

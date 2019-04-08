@@ -33,7 +33,7 @@ final class StackInstanceSummaryBuilderOps(val self: StackInstanceSummary.Builde
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // StackInstanceStatus
 
   final def statusReasonAsScala(value: Option[String]): StackInstanceSummary.Builder = {
     value.fold(self) { v =>
@@ -53,7 +53,7 @@ final class StackInstanceSummaryOps(val self: StackInstanceSummary) extends AnyV
 
   final def stackIdAsScala: Option[String] = Option(self.stackId) // String
 
-  final def statusAsScala: Option[StackInstanceStatus] = Option(self.status) // String
+  final def statusAsScala: Option[StackInstanceStatus] = Option(self.status) // StackInstanceStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 

@@ -14,7 +14,7 @@ final class ListStacksRequestBuilderOps(val self: ListStacksRequest.Builder) ext
   final def stackStatusFiltersAsScala(value: Option[Seq[StackStatus]]): ListStacksRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackStatusFilters(v.asJava)
-    } // Seq[String]
+    } // Seq[StackStatus]
   }
 
 }
@@ -25,7 +25,7 @@ final class ListStacksRequestOps(val self: ListStacksRequest) extends AnyVal {
 
   final def stackStatusFiltersAsScala: Option[Seq[StackStatus]] = Option(self.stackStatusFilters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[StackStatus]
 
 }
 

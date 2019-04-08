@@ -9,7 +9,7 @@ final class CreateBucketRequestBuilderOps(val self: CreateBucketRequest.Builder)
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // String
+  } // BucketCannedACL
 
   final def bucketAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
@@ -63,7 +63,7 @@ final class CreateBucketRequestBuilderOps(val self: CreateBucketRequest.Builder)
 
 final class CreateBucketRequestOps(val self: CreateBucketRequest) extends AnyVal {
 
-  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl) // String
+  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl) // BucketCannedACL
 
   final def bucketAsScala: Option[String] = Option(self.bucket) // String
 

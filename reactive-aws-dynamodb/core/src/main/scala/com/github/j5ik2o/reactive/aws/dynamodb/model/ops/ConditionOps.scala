@@ -15,7 +15,7 @@ final class ConditionBuilderOps(val self: Condition.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.comparisonOperator(v)
     }
-  } // String
+  } // ComparisonOperator
 
 }
 
@@ -25,7 +25,8 @@ final class ConditionOps(val self: Condition) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[AttributeValue]
 
-  final def comparisonOperatorAsScala: Option[ComparisonOperator] = Option(self.comparisonOperator) // String
+  final def comparisonOperatorAsScala: Option[ComparisonOperator] =
+    Option(self.comparisonOperator) // ComparisonOperator
 
 }
 

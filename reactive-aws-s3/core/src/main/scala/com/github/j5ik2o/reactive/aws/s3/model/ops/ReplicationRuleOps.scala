@@ -33,7 +33,7 @@ final class ReplicationRuleBuilderOps(val self: ReplicationRule.Builder) extends
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ReplicationRuleStatus
 
   final def sourceSelectionCriteriaAsScala(value: Option[SourceSelectionCriteria]): ReplicationRule.Builder = {
     value.fold(self) { v =>
@@ -65,7 +65,7 @@ final class ReplicationRuleOps(val self: ReplicationRule) extends AnyVal {
 
   final def filterAsScala: Option[ReplicationRuleFilter] = Option(self.filter) // ReplicationRuleFilter
 
-  final def statusAsScala: Option[ReplicationRuleStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ReplicationRuleStatus] = Option(self.status) // ReplicationRuleStatus
 
   final def sourceSelectionCriteriaAsScala: Option[SourceSelectionCriteria] =
     Option(self.sourceSelectionCriteria) // SourceSelectionCriteria

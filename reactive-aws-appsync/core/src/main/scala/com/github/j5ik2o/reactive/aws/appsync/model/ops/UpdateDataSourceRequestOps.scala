@@ -27,7 +27,7 @@ final class UpdateDataSourceRequestBuilderOps(val self: UpdateDataSourceRequest.
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // DataSourceType
 
   final def serviceRoleArnAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
@@ -79,7 +79,7 @@ final class UpdateDataSourceRequestOps(val self: UpdateDataSourceRequest) extend
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def typeAsScala: Option[DataSourceType] = Option(self.`type`) // String
+  final def typeAsScala: Option[DataSourceType] = Option(self.`type`) // DataSourceType
 
   final def serviceRoleArnAsScala: Option[String] = Option(self.serviceRoleArn) // String
 

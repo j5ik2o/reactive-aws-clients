@@ -15,7 +15,7 @@ final class InputSerializationBuilderOps(val self: InputSerialization.Builder) e
     value.fold(self) { v =>
       self.compressionType(v)
     }
-  } // String
+  } // CompressionType
 
   final def jsonAsScala(value: Option[JSONInput]): InputSerialization.Builder = {
     value.fold(self) { v =>
@@ -35,7 +35,7 @@ final class InputSerializationOps(val self: InputSerialization) extends AnyVal {
 
   final def csvAsScala: Option[CSVInput] = Option(self.csv) // CSVInput
 
-  final def compressionTypeAsScala: Option[CompressionType] = Option(self.compressionType) // String
+  final def compressionTypeAsScala: Option[CompressionType] = Option(self.compressionType) // CompressionType
 
   final def jsonAsScala: Option[JSONInput] = Option(self.json) // JSONInput
 

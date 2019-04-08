@@ -15,7 +15,7 @@ final class NoncurrentVersionTransitionBuilderOps(val self: NoncurrentVersionTra
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // TransitionStorageClass
 
 }
 
@@ -23,7 +23,7 @@ final class NoncurrentVersionTransitionOps(val self: NoncurrentVersionTransition
 
   final def noncurrentDaysAsScala: Option[Int] = Option(self.noncurrentDays) // Int
 
-  final def storageClassAsScala: Option[TransitionStorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[TransitionStorageClass] = Option(self.storageClass) // TransitionStorageClass
 
 }
 

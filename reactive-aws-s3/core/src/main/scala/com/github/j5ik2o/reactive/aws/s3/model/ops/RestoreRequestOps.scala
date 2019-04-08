@@ -21,13 +21,13 @@ final class RestoreRequestBuilderOps(val self: RestoreRequest.Builder) extends A
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // RestoreRequestType
 
   final def tierAsScala(value: Option[Tier]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.tier(v)
     }
-  } // String
+  } // Tier
 
   final def descriptionAsScala(value: Option[String]): RestoreRequest.Builder = {
     value.fold(self) { v =>
@@ -56,9 +56,9 @@ final class RestoreRequestOps(val self: RestoreRequest) extends AnyVal {
   final def glacierJobParametersAsScala: Option[GlacierJobParameters] =
     Option(self.glacierJobParameters) // GlacierJobParameters
 
-  final def typeAsScala: Option[RestoreRequestType] = Option(self.`type`) // String
+  final def typeAsScala: Option[RestoreRequestType] = Option(self.`type`) // RestoreRequestType
 
-  final def tierAsScala: Option[Tier] = Option(self.tier) // String
+  final def tierAsScala: Option[Tier] = Option(self.tier) // Tier
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 

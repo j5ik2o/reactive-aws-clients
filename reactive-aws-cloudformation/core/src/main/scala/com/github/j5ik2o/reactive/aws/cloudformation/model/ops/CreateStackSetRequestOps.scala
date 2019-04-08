@@ -38,7 +38,7 @@ final class CreateStackSetRequestBuilderOps(val self: CreateStackSetRequest.Buil
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): CreateStackSetRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): CreateStackSetRequest.Builder = {
@@ -83,7 +83,7 @@ final class CreateStackSetRequestOps(val self: CreateStackSetRequest) extends An
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala

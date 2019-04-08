@@ -15,7 +15,7 @@ final class StopStreamEncryptionRequestBuilderOps(val self: StopStreamEncryption
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  } // EncryptionType
 
   final def keyIdAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
@@ -29,7 +29,7 @@ final class StopStreamEncryptionRequestOps(val self: StopStreamEncryptionRequest
 
   final def streamNameAsScala: Option[String] = Option(self.streamName) // String
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // EncryptionType
 
   final def keyIdAsScala: Option[String] = Option(self.keyId) // String
 

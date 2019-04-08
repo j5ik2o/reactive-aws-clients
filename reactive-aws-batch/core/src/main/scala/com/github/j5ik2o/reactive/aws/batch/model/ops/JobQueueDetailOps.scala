@@ -21,13 +21,13 @@ final class JobQueueDetailBuilderOps(val self: JobQueueDetail.Builder) extends A
     value.fold(self) { v =>
       self.state(v)
     }
-  } // String
+  } // JQState
 
   final def statusAsScala(value: Option[JQStatus]): JobQueueDetail.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // JQStatus
 
   final def statusReasonAsScala(value: Option[String]): JobQueueDetail.Builder = {
     value.fold(self) { v =>
@@ -55,9 +55,9 @@ final class JobQueueDetailOps(val self: JobQueueDetail) extends AnyVal {
 
   final def jobQueueArnAsScala: Option[String] = Option(self.jobQueueArn) // String
 
-  final def stateAsScala: Option[JQState] = Option(self.state) // String
+  final def stateAsScala: Option[JQState] = Option(self.state) // JQState
 
-  final def statusAsScala: Option[JQStatus] = Option(self.status) // String
+  final def statusAsScala: Option[JQStatus] = Option(self.status) // JQStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 

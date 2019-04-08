@@ -9,7 +9,7 @@ final class EnvironmentInfoDescriptionBuilderOps(val self: EnvironmentInfoDescri
     value.fold(self) { v =>
       self.infoType(v)
     }
-  } // String
+  } // EnvironmentInfoType
 
   final def ec2InstanceIdAsScala(value: Option[String]): EnvironmentInfoDescription.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class EnvironmentInfoDescriptionBuilderOps(val self: EnvironmentInfoDescri
     value.fold(self) { v =>
       self.sampleTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def messageAsScala(value: Option[String]): EnvironmentInfoDescription.Builder = {
     value.fold(self) { v =>
@@ -33,11 +33,11 @@ final class EnvironmentInfoDescriptionBuilderOps(val self: EnvironmentInfoDescri
 
 final class EnvironmentInfoDescriptionOps(val self: EnvironmentInfoDescription) extends AnyVal {
 
-  final def infoTypeAsScala: Option[EnvironmentInfoType] = Option(self.infoType) // String
+  final def infoTypeAsScala: Option[EnvironmentInfoType] = Option(self.infoType) // EnvironmentInfoType
 
   final def ec2InstanceIdAsScala: Option[String] = Option(self.ec2InstanceId) // String
 
-  final def sampleTimestampAsScala: Option[java.time.Instant] = Option(self.sampleTimestamp) // Instant
+  final def sampleTimestampAsScala: Option[java.time.Instant] = Option(self.sampleTimestamp) // java.time.Instant
 
   final def messageAsScala: Option[String] = Option(self.message) // String
 

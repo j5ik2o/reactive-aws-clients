@@ -27,7 +27,7 @@ final class GranteeBuilderOps(val self: Grantee.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // Type
 
   final def uriAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class GranteeOps(val self: Grantee) extends AnyVal {
 
   final def idAsScala: Option[String] = Option(self.id) // String
 
-  final def typeAsScala: Option[Type] = Option(self.`type`) // String
+  final def typeAsScala: Option[Type] = Option(self.`type`) // Type
 
   final def uriAsScala: Option[String] = Option(self.uri) // String
 

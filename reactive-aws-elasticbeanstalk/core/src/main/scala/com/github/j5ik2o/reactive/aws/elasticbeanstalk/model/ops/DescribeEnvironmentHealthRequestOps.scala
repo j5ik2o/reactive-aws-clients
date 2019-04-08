@@ -23,7 +23,7 @@ final class DescribeEnvironmentHealthRequestBuilderOps(val self: DescribeEnviron
   ): DescribeEnvironmentHealthRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeNames(v.asJava)
-    } // Seq[String]
+    } // Seq[EnvironmentHealthAttribute]
   }
 
 }
@@ -36,7 +36,7 @@ final class DescribeEnvironmentHealthRequestOps(val self: DescribeEnvironmentHea
 
   final def attributeNamesAsScala: Option[Seq[EnvironmentHealthAttribute]] = Option(self.attributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[EnvironmentHealthAttribute]
 
 }
 

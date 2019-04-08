@@ -21,13 +21,13 @@ final class MultipartUploadBuilderOps(val self: MultipartUpload.Builder) extends
     value.fold(self) { v =>
       self.initiated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def storageClassAsScala(value: Option[StorageClass]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
   final def ownerAsScala(value: Option[Owner]): MultipartUpload.Builder = {
     value.fold(self) { v =>
@@ -49,9 +49,9 @@ final class MultipartUploadOps(val self: MultipartUpload) extends AnyVal {
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
-  final def initiatedAsScala: Option[java.time.Instant] = Option(self.initiated) // Instant
+  final def initiatedAsScala: Option[java.time.Instant] = Option(self.initiated) // java.time.Instant
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
   final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
 

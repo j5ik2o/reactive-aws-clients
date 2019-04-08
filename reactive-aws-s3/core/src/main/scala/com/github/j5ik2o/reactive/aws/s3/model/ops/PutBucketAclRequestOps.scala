@@ -9,7 +9,7 @@ final class PutBucketAclRequestBuilderOps(val self: PutBucketAclRequest.Builder)
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // String
+  } // BucketCannedACL
 
   final def accessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutBucketAclRequest.Builder = {
     value.fold(self) { v =>
@@ -63,7 +63,7 @@ final class PutBucketAclRequestBuilderOps(val self: PutBucketAclRequest.Builder)
 
 final class PutBucketAclRequestOps(val self: PutBucketAclRequest) extends AnyVal {
 
-  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl) // String
+  final def aclAsScala: Option[BucketCannedACL] = Option(self.acl) // BucketCannedACL
 
   final def accessControlPolicyAsScala: Option[AccessControlPolicy] =
     Option(self.accessControlPolicy) // AccessControlPolicy

@@ -27,7 +27,7 @@ final class PutObjectRetentionRequestBuilderOps(val self: PutObjectRetentionRequ
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def versionIdAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
@@ -57,7 +57,7 @@ final class PutObjectRetentionRequestOps(val self: PutObjectRetentionRequest) ex
 
   final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention) // ObjectLockRetention
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 

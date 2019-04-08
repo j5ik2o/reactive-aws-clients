@@ -44,7 +44,7 @@ final class GetLayerVersionResponseBuilderOps(val self: GetLayerVersionResponse.
   final def compatibleRuntimesAsScala(value: Option[Seq[Runtime]]): GetLayerVersionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.compatibleRuntimes(v.asJava)
-    } // Seq[String]
+    } // Seq[Runtime]
   }
 
   final def licenseInfoAsScala(value: Option[String]): GetLayerVersionResponse.Builder = {
@@ -71,7 +71,7 @@ final class GetLayerVersionResponseOps(val self: GetLayerVersionResponse) extend
 
   final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Runtime]
 
   final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo) // String
 

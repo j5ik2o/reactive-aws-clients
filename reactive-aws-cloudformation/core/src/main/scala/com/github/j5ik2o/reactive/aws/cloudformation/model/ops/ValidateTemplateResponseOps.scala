@@ -20,7 +20,7 @@ final class ValidateTemplateResponseBuilderOps(val self: ValidateTemplateRespons
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): ValidateTemplateResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def capabilitiesReasonAsScala(value: Option[String]): ValidateTemplateResponse.Builder = {
@@ -47,7 +47,7 @@ final class ValidateTemplateResponseOps(val self: ValidateTemplateResponse) exte
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason) // String
 

@@ -21,7 +21,7 @@ final class MetricDatumBuilderOps(val self: MetricDatum.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def valueAsScala(value: Option[Double]): MetricDatum.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class MetricDatumBuilderOps(val self: MetricDatum.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // String
+  } // StandardUnit
 
   final def storageResolutionAsScala(value: Option[Int]): MetricDatum.Builder = {
     value.fold(self) { v =>
@@ -69,7 +69,7 @@ final class MetricDatumOps(val self: MetricDatum) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[Dimension]
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
 
   final def valueAsScala: Option[Double] = Option(self.value) // Double
 
@@ -83,7 +83,7 @@ final class MetricDatumOps(val self: MetricDatum) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala.map(_.doubleValue())
   } // Seq[Double]
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // String
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
 
   final def storageResolutionAsScala: Option[Int] = Option(self.storageResolution) // Int
 

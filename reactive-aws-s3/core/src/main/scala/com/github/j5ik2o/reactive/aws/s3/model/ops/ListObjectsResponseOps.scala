@@ -63,7 +63,7 @@ final class ListObjectsResponseBuilderOps(val self: ListObjectsResponse.Builder)
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  } // EncodingType
 
 }
 
@@ -91,7 +91,7 @@ final class ListObjectsResponseOps(val self: ListObjectsResponse) extends AnyVal
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[CommonPrefix]
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // EncodingType
 
 }
 

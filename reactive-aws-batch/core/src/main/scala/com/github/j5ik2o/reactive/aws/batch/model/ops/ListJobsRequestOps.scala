@@ -27,7 +27,7 @@ final class ListJobsRequestBuilderOps(val self: ListJobsRequest.Builder) extends
     value.fold(self) { v =>
       self.jobStatus(v)
     }
-  } // String
+  } // JobStatus
 
   final def maxResultsAsScala(value: Option[Int]): ListJobsRequest.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class ListJobsRequestOps(val self: ListJobsRequest) extends AnyVal {
 
   final def multiNodeJobIdAsScala: Option[String] = Option(self.multiNodeJobId) // String
 
-  final def jobStatusAsScala: Option[JobStatus] = Option(self.jobStatus) // String
+  final def jobStatusAsScala: Option[JobStatus] = Option(self.jobStatus) // JobStatus
 
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
 

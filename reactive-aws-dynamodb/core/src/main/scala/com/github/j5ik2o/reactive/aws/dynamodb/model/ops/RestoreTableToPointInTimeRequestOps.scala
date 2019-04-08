@@ -28,7 +28,7 @@ final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToP
     value.fold(self) { v =>
       self.restoreDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -40,7 +40,7 @@ final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInT
 
   final def useLatestRestorableTimeAsScala: Option[Boolean] = Option(self.useLatestRestorableTime) // Boolean
 
-  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // Instant
+  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // java.time.Instant
 
 }
 

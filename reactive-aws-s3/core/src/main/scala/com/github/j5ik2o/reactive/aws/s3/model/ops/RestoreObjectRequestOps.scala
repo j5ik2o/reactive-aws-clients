@@ -33,7 +33,7 @@ final class RestoreObjectRequestBuilderOps(val self: RestoreObjectRequest.Builde
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -47,7 +47,7 @@ final class RestoreObjectRequestOps(val self: RestoreObjectRequest) extends AnyV
 
   final def restoreRequestAsScala: Option[RestoreRequest] = Option(self.restoreRequest) // RestoreRequest
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

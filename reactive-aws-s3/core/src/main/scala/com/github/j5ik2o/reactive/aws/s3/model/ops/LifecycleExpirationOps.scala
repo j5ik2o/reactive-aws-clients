@@ -9,7 +9,7 @@ final class LifecycleExpirationBuilderOps(val self: LifecycleExpiration.Builder)
     value.fold(self) { v =>
       self.date(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def daysAsScala(value: Option[Int]): LifecycleExpiration.Builder = {
     value.fold(self) { v =>
@@ -27,7 +27,7 @@ final class LifecycleExpirationBuilderOps(val self: LifecycleExpiration.Builder)
 
 final class LifecycleExpirationOps(val self: LifecycleExpiration) extends AnyVal {
 
-  final def dateAsScala: Option[java.time.Instant] = Option(self.date) // Instant
+  final def dateAsScala: Option[java.time.Instant] = Option(self.date) // java.time.Instant
 
   final def daysAsScala: Option[Int] = Option(self.days) // Int
 

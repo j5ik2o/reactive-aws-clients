@@ -10,13 +10,13 @@ final class ProvisionedThroughputDescriptionBuilderOps(val self: ProvisionedThro
     value.fold(self) { v =>
       self.lastIncreaseDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def lastDecreaseDateTimeAsScala(value: Option[java.time.Instant]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.lastDecreaseDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def numberOfDecreasesTodayAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
@@ -40,9 +40,11 @@ final class ProvisionedThroughputDescriptionBuilderOps(val self: ProvisionedThro
 
 final class ProvisionedThroughputDescriptionOps(val self: ProvisionedThroughputDescription) extends AnyVal {
 
-  final def lastIncreaseDateTimeAsScala: Option[java.time.Instant] = Option(self.lastIncreaseDateTime) // Instant
+  final def lastIncreaseDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.lastIncreaseDateTime) // java.time.Instant
 
-  final def lastDecreaseDateTimeAsScala: Option[java.time.Instant] = Option(self.lastDecreaseDateTime) // Instant
+  final def lastDecreaseDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.lastDecreaseDateTime) // java.time.Instant
 
   final def numberOfDecreasesTodayAsScala: Option[Long] = Option(self.numberOfDecreasesToday) // Long
 

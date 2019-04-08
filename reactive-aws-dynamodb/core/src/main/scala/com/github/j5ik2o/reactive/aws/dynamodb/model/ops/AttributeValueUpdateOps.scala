@@ -15,7 +15,7 @@ final class AttributeValueUpdateBuilderOps(val self: AttributeValueUpdate.Builde
     value.fold(self) { v =>
       self.action(v)
     }
-  } // String
+  } // AttributeAction
 
 }
 
@@ -23,7 +23,7 @@ final class AttributeValueUpdateOps(val self: AttributeValueUpdate) extends AnyV
 
   final def valueAsScala: Option[AttributeValue] = Option(self.value) // AttributeValue
 
-  final def actionAsScala: Option[AttributeAction] = Option(self.action) // String
+  final def actionAsScala: Option[AttributeAction] = Option(self.action) // AttributeAction
 
 }
 

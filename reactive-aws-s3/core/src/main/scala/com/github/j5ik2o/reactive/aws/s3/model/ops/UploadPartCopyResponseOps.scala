@@ -21,7 +21,7 @@ final class UploadPartCopyResponseBuilderOps(val self: UploadPartCopyResponse.Bu
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class UploadPartCopyResponseBuilderOps(val self: UploadPartCopyResponse.Bu
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
@@ -55,7 +55,8 @@ final class UploadPartCopyResponseOps(val self: UploadPartCopyResponse) extends 
 
   final def copyPartResultAsScala: Option[CopyPartResult] = Option(self.copyPartResult) // CopyPartResult
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
   final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
 
@@ -63,7 +64,7 @@ final class UploadPartCopyResponseOps(val self: UploadPartCopyResponse) extends 
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

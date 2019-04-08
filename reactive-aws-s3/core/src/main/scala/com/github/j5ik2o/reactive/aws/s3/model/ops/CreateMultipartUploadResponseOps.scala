@@ -9,7 +9,7 @@ final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUpl
     value.fold(self) { v =>
       self.abortDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def abortRuleIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
@@ -39,7 +39,7 @@ final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUpl
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
@@ -63,13 +63,13 @@ final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUpl
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
 final class CreateMultipartUploadResponseOps(val self: CreateMultipartUploadResponse) extends AnyVal {
 
-  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate) // Instant
+  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate) // java.time.Instant
 
   final def abortRuleIdAsScala: Option[String] = Option(self.abortRuleId) // String
 
@@ -79,7 +79,8 @@ final class CreateMultipartUploadResponseOps(val self: CreateMultipartUploadResp
 
   final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
   final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
 
@@ -87,7 +88,7 @@ final class CreateMultipartUploadResponseOps(val self: CreateMultipartUploadResp
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

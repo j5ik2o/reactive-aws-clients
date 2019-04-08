@@ -32,7 +32,7 @@ final class LayerVersionsListItemBuilderOps(val self: LayerVersionsListItem.Buil
   final def compatibleRuntimesAsScala(value: Option[Seq[Runtime]]): LayerVersionsListItem.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.compatibleRuntimes(v.asJava)
-    } // Seq[String]
+    } // Seq[Runtime]
   }
 
   final def licenseInfoAsScala(value: Option[String]): LayerVersionsListItem.Builder = {
@@ -55,7 +55,7 @@ final class LayerVersionsListItemOps(val self: LayerVersionsListItem) extends An
 
   final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Runtime]
 
   final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo) // String
 

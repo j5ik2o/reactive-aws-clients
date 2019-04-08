@@ -28,7 +28,7 @@ final class GlobalSecondaryIndexDescriptionBuilderOps(val self: GlobalSecondaryI
     value.fold(self) { v =>
       self.indexStatus(v)
     }
-  } // String
+  } // IndexStatus
 
   final def backfillingAsScala(value: Option[Boolean]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
@@ -74,7 +74,7 @@ final class GlobalSecondaryIndexDescriptionOps(val self: GlobalSecondaryIndexDes
 
   final def projectionAsScala: Option[Projection] = Option(self.projection) // Projection
 
-  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus) // String
+  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus) // IndexStatus
 
   final def backfillingAsScala: Option[Boolean] = Option(self.backfilling) // Boolean
 

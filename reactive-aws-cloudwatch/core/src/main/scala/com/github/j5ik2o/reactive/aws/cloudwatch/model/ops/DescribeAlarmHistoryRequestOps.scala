@@ -15,19 +15,19 @@ final class DescribeAlarmHistoryRequestBuilderOps(val self: DescribeAlarmHistory
     value.fold(self) { v =>
       self.historyItemType(v)
     }
-  } // String
+  } // HistoryItemType
 
   final def startDateAsScala(value: Option[java.time.Instant]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.startDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def endDateAsScala(value: Option[java.time.Instant]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.endDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def maxRecordsAsScala(value: Option[Int]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
@@ -47,11 +47,11 @@ final class DescribeAlarmHistoryRequestOps(val self: DescribeAlarmHistoryRequest
 
   final def alarmNameAsScala: Option[String] = Option(self.alarmName) // String
 
-  final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType) // String
+  final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType) // HistoryItemType
 
-  final def startDateAsScala: Option[java.time.Instant] = Option(self.startDate) // Instant
+  final def startDateAsScala: Option[java.time.Instant] = Option(self.startDate) // java.time.Instant
 
-  final def endDateAsScala: Option[java.time.Instant] = Option(self.endDate) // Instant
+  final def endDateAsScala: Option[java.time.Instant] = Option(self.endDate) // java.time.Instant
 
   final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords) // Int
 

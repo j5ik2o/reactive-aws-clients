@@ -15,7 +15,7 @@ final class UpdateJobQueueRequestBuilderOps(val self: UpdateJobQueueRequest.Buil
     value.fold(self) { v =>
       self.state(v)
     }
-  } // String
+  } // JQState
 
   final def priorityAsScala(value: Option[Int]): UpdateJobQueueRequest.Builder = {
     value.fold(self) { v =>
@@ -37,7 +37,7 @@ final class UpdateJobQueueRequestOps(val self: UpdateJobQueueRequest) extends An
 
   final def jobQueueAsScala: Option[String] = Option(self.jobQueue) // String
 
-  final def stateAsScala: Option[JQState] = Option(self.state) // String
+  final def stateAsScala: Option[JQState] = Option(self.state) // JQState
 
   final def priorityAsScala: Option[Int] = Option(self.priority) // Int
 

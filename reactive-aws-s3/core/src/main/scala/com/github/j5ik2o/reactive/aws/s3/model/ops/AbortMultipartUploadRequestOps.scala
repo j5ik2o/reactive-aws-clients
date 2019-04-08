@@ -27,7 +27,7 @@ final class AbortMultipartUploadRequestBuilderOps(val self: AbortMultipartUpload
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -39,7 +39,7 @@ final class AbortMultipartUploadRequestOps(val self: AbortMultipartUploadRequest
 
   final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

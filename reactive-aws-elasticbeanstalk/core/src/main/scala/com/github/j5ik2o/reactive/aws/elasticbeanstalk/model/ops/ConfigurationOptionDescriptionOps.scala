@@ -39,7 +39,7 @@ final class ConfigurationOptionDescriptionBuilderOps(val self: ConfigurationOpti
     value.fold(self) { v =>
       self.valueType(v)
     }
-  } // String
+  } // ConfigurationOptionValueType
 
   final def valueOptionsAsScala(value: Option[Seq[String]]): ConfigurationOptionDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -85,7 +85,8 @@ final class ConfigurationOptionDescriptionOps(val self: ConfigurationOptionDescr
 
   final def userDefinedAsScala: Option[Boolean] = Option(self.userDefined) // Boolean
 
-  final def valueTypeAsScala: Option[ConfigurationOptionValueType] = Option(self.valueType) // String
+  final def valueTypeAsScala: Option[ConfigurationOptionValueType] =
+    Option(self.valueType) // ConfigurationOptionValueType
 
   final def valueOptionsAsScala: Option[Seq[String]] = Option(self.valueOptions).map { v =>
     import scala.collection.JavaConverters._; v.asScala

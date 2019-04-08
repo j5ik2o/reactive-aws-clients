@@ -21,7 +21,7 @@ final class ListObjectsV2RequestBuilderOps(val self: ListObjectsV2Request.Builde
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  } // EncodingType
 
   final def maxKeysAsScala(value: Option[Int]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
@@ -57,7 +57,7 @@ final class ListObjectsV2RequestBuilderOps(val self: ListObjectsV2Request.Builde
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -67,7 +67,7 @@ final class ListObjectsV2RequestOps(val self: ListObjectsV2Request) extends AnyV
 
   final def delimiterAsScala: Option[String] = Option(self.delimiter) // String
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // EncodingType
 
   final def maxKeysAsScala: Option[Int] = Option(self.maxKeys) // Int
 
@@ -79,7 +79,7 @@ final class ListObjectsV2RequestOps(val self: ListObjectsV2Request) extends AnyV
 
   final def startAfterAsScala: Option[String] = Option(self.startAfter) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

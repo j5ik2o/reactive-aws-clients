@@ -41,7 +41,7 @@ final class ConditionCheckBuilderOps(val self: ConditionCheck.Builder) extends A
     value.fold(self) { v =>
       self.returnValuesOnConditionCheckFailure(v)
     }
-  } // String
+  } // ReturnValuesOnConditionCheckFailure
 
 }
 
@@ -66,7 +66,7 @@ final class ConditionCheckOps(val self: ConditionCheck) extends AnyVal {
     } // Map[String, AttributeValue]
 
   final def returnValuesOnConditionCheckFailureAsScala: Option[ReturnValuesOnConditionCheckFailure] =
-    Option(self.returnValuesOnConditionCheckFailure) // String
+    Option(self.returnValuesOnConditionCheckFailure) // ReturnValuesOnConditionCheckFailure
 
 }
 

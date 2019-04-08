@@ -9,13 +9,13 @@ final class SseKmsEncryptedObjectsBuilderOps(val self: SseKmsEncryptedObjects.Bu
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // SseKmsEncryptedObjectsStatus
 
 }
 
 final class SseKmsEncryptedObjectsOps(val self: SseKmsEncryptedObjects) extends AnyVal {
 
-  final def statusAsScala: Option[SseKmsEncryptedObjectsStatus] = Option(self.status) // String
+  final def statusAsScala: Option[SseKmsEncryptedObjectsStatus] = Option(self.status) // SseKmsEncryptedObjectsStatus
 
 }
 

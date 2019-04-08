@@ -21,7 +21,7 @@ final class NodeBuilderOps(val self: Node.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.nodeCreateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def availabilityZoneAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
@@ -49,7 +49,7 @@ final class NodeOps(val self: Node) extends AnyVal {
 
   final def endpointAsScala: Option[Endpoint] = Option(self.endpoint) // Endpoint
 
-  final def nodeCreateTimeAsScala: Option[java.time.Instant] = Option(self.nodeCreateTime) // Instant
+  final def nodeCreateTimeAsScala: Option[java.time.Instant] = Option(self.nodeCreateTime) // java.time.Instant
 
   final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone) // String
 

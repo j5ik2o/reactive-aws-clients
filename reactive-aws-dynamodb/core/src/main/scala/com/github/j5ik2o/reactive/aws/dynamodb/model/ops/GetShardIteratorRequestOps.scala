@@ -21,7 +21,7 @@ final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.
     value.fold(self) { v =>
       self.shardIteratorType(v)
     }
-  } // String
+  } // ShardIteratorType
 
   final def sequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
@@ -37,7 +37,7 @@ final class GetShardIteratorRequestOps(val self: GetShardIteratorRequest) extend
 
   final def shardIdAsScala: Option[String] = Option(self.shardId) // String
 
-  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType) // String
+  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType) // ShardIteratorType
 
   final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
 

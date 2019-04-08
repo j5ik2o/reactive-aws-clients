@@ -15,7 +15,7 @@ final class TransactGetItemsRequestBuilderOps(val self: TransactGetItemsRequest.
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
 }
 
@@ -26,7 +26,7 @@ final class TransactGetItemsRequestOps(val self: TransactGetItemsRequest) extend
   } // Seq[TransactGetItem]
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
 }
 

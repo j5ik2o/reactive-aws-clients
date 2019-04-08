@@ -24,7 +24,7 @@ final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockC
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def tokenAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
@@ -47,7 +47,7 @@ final class PutObjectLockConfigurationRequestOps(val self: PutObjectLockConfigur
   final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] =
     Option(self.objectLockConfiguration) // ObjectLockConfiguration
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def tokenAsScala: Option[String] = Option(self.token) // String
 

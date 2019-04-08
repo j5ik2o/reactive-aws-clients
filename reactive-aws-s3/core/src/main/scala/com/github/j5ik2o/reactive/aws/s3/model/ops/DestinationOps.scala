@@ -21,7 +21,7 @@ final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
   final def accessControlTranslationAsScala(value: Option[AccessControlTranslation]): Destination.Builder = {
     value.fold(self) { v =>
@@ -43,7 +43,7 @@ final class DestinationOps(val self: Destination) extends AnyVal {
 
   final def accountAsScala: Option[String] = Option(self.account) // String
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
   final def accessControlTranslationAsScala: Option[AccessControlTranslation] =
     Option(self.accessControlTranslation) // AccessControlTranslation

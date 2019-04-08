@@ -9,13 +9,13 @@ final class OptionStatusBuilderOps(val self: OptionStatus.Builder) extends AnyVa
     value.fold(self) { v =>
       self.creationDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def updateDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
     value.fold(self) { v =>
       self.updateDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def updateVersionAsScala(value: Option[Int]): OptionStatus.Builder = {
     value.fold(self) { v =>
@@ -27,7 +27,7 @@ final class OptionStatusBuilderOps(val self: OptionStatus.Builder) extends AnyVa
     value.fold(self) { v =>
       self.state(v)
     }
-  } // String
+  } // OptionState
 
   final def pendingDeletionAsScala(value: Option[Boolean]): OptionStatus.Builder = {
     value.fold(self) { v =>
@@ -39,13 +39,13 @@ final class OptionStatusBuilderOps(val self: OptionStatus.Builder) extends AnyVa
 
 final class OptionStatusOps(val self: OptionStatus) extends AnyVal {
 
-  final def creationDateAsScala: Option[java.time.Instant] = Option(self.creationDate) // Instant
+  final def creationDateAsScala: Option[java.time.Instant] = Option(self.creationDate) // java.time.Instant
 
-  final def updateDateAsScala: Option[java.time.Instant] = Option(self.updateDate) // Instant
+  final def updateDateAsScala: Option[java.time.Instant] = Option(self.updateDate) // java.time.Instant
 
   final def updateVersionAsScala: Option[Int] = Option(self.updateVersion) // Int
 
-  final def stateAsScala: Option[OptionState] = Option(self.state) // String
+  final def stateAsScala: Option[OptionState] = Option(self.state) // OptionState
 
   final def pendingDeletionAsScala: Option[Boolean] = Option(self.pendingDeletion) // Boolean
 

@@ -27,25 +27,25 @@ final class StackSummaryBuilderOps(val self: StackSummary.Builder) extends AnyVa
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def lastUpdatedTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.lastUpdatedTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def deletionTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.deletionTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def stackStatusAsScala(value: Option[StackStatus]): StackSummary.Builder = {
     value.fold(self) { v =>
       self.stackStatus(v)
     }
-  } // String
+  } // StackStatus
 
   final def stackStatusReasonAsScala(value: Option[String]): StackSummary.Builder = {
     value.fold(self) { v =>
@@ -81,13 +81,13 @@ final class StackSummaryOps(val self: StackSummary) extends AnyVal {
 
   final def templateDescriptionAsScala: Option[String] = Option(self.templateDescription) // String
 
-  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // Instant
+  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // java.time.Instant
 
-  final def lastUpdatedTimeAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTime) // Instant
+  final def lastUpdatedTimeAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTime) // java.time.Instant
 
-  final def deletionTimeAsScala: Option[java.time.Instant] = Option(self.deletionTime) // Instant
+  final def deletionTimeAsScala: Option[java.time.Instant] = Option(self.deletionTime) // java.time.Instant
 
-  final def stackStatusAsScala: Option[StackStatus] = Option(self.stackStatus) // String
+  final def stackStatusAsScala: Option[StackStatus] = Option(self.stackStatus) // StackStatus
 
   final def stackStatusReasonAsScala: Option[String] = Option(self.stackStatusReason) // String
 

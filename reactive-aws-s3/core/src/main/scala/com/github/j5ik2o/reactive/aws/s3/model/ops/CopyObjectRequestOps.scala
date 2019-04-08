@@ -9,7 +9,7 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // String
+  } // ObjectCannedACL
 
   final def bucketAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -63,7 +63,7 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.copySourceIfModifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def copySourceIfNoneMatchAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -75,13 +75,13 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.copySourceIfUnmodifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def expiresAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def grantFullControlAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -123,25 +123,25 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.metadataDirective(v)
     }
-  } // String
+  } // MetadataDirective
 
   final def taggingDirectiveAsScala(value: Option[TaggingDirective]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.taggingDirective(v)
     }
-  } // String
+  } // TaggingDirective
 
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def storageClassAsScala(value: Option[StorageClass]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
   final def websiteRedirectLocationAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -195,7 +195,7 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def taggingAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -207,25 +207,25 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
-  } // String
+  } // ObjectLockMode
 
   final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }
-  } // String
+  } // ObjectLockLegalHoldStatus
 
 }
 
 final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
 
-  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // String
+  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // ObjectCannedACL
 
   final def bucketAsScala: Option[String] = Option(self.bucket) // String
 
@@ -244,14 +244,14 @@ final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
   final def copySourceIfMatchAsScala: Option[String] = Option(self.copySourceIfMatch) // String
 
   final def copySourceIfModifiedSinceAsScala: Option[java.time.Instant] =
-    Option(self.copySourceIfModifiedSince) // Instant
+    Option(self.copySourceIfModifiedSince) // java.time.Instant
 
   final def copySourceIfNoneMatchAsScala: Option[String] = Option(self.copySourceIfNoneMatch) // String
 
   final def copySourceIfUnmodifiedSinceAsScala: Option[java.time.Instant] =
-    Option(self.copySourceIfUnmodifiedSince) // Instant
+    Option(self.copySourceIfUnmodifiedSince) // java.time.Instant
 
-  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // Instant
+  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // java.time.Instant
 
   final def grantFullControlAsScala: Option[String] = Option(self.grantFullControl) // String
 
@@ -267,13 +267,14 @@ final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala.toMap
   } // Map[String, String]
 
-  final def metadataDirectiveAsScala: Option[MetadataDirective] = Option(self.metadataDirective) // String
+  final def metadataDirectiveAsScala: Option[MetadataDirective] = Option(self.metadataDirective) // MetadataDirective
 
-  final def taggingDirectiveAsScala: Option[TaggingDirective] = Option(self.taggingDirective) // String
+  final def taggingDirectiveAsScala: Option[TaggingDirective] = Option(self.taggingDirective) // TaggingDirective
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
   final def websiteRedirectLocationAsScala: Option[String] = Option(self.websiteRedirectLocation) // String
 
@@ -292,17 +293,17 @@ final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
 
   final def copySourceSSECustomerKeyMD5AsScala: Option[String] = Option(self.copySourceSSECustomerKeyMD5) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def taggingAsScala: Option[String] = Option(self.tagging) // String
 
-  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // String
+  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // ObjectLockMode
 
   final def objectLockRetainUntilDateAsScala: Option[java.time.Instant] =
-    Option(self.objectLockRetainUntilDate) // Instant
+    Option(self.objectLockRetainUntilDate) // java.time.Instant
 
   final def objectLockLegalHoldStatusAsScala: Option[ObjectLockLegalHoldStatus] =
-    Option(self.objectLockLegalHoldStatus) // String
+    Option(self.objectLockLegalHoldStatus) // ObjectLockLegalHoldStatus
 
 }
 

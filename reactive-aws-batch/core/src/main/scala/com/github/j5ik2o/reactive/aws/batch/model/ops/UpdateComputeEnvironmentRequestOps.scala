@@ -16,7 +16,7 @@ final class UpdateComputeEnvironmentRequestBuilderOps(val self: UpdateComputeEnv
     value.fold(self) { v =>
       self.state(v)
     }
-  } // String
+  } // CEState
 
   final def computeResourcesAsScala(value: Option[ComputeResourceUpdate]): UpdateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
@@ -36,7 +36,7 @@ final class UpdateComputeEnvironmentRequestOps(val self: UpdateComputeEnvironmen
 
   final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment) // String
 
-  final def stateAsScala: Option[CEState] = Option(self.state) // String
+  final def stateAsScala: Option[CEState] = Option(self.state) // CEState
 
   final def computeResourcesAsScala: Option[ComputeResourceUpdate] =
     Option(self.computeResources) // ComputeResourceUpdate

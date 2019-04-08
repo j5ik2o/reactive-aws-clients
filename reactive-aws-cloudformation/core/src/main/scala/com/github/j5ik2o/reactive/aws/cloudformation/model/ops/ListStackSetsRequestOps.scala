@@ -21,7 +21,7 @@ final class ListStackSetsRequestBuilderOps(val self: ListStackSetsRequest.Builde
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // StackSetStatus
 
 }
 
@@ -31,7 +31,7 @@ final class ListStackSetsRequestOps(val self: ListStackSetsRequest) extends AnyV
 
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
 
-  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // String
+  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // StackSetStatus
 
 }
 

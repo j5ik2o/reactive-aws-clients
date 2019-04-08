@@ -45,7 +45,7 @@ final class UpdateResolverRequestBuilderOps(val self: UpdateResolverRequest.Buil
     value.fold(self) { v =>
       self.kind(v)
     }
-  } // String
+  } // ResolverKind
 
   final def pipelineConfigAsScala(value: Option[PipelineConfig]): UpdateResolverRequest.Builder = {
     value.fold(self) { v =>
@@ -69,7 +69,7 @@ final class UpdateResolverRequestOps(val self: UpdateResolverRequest) extends An
 
   final def responseMappingTemplateAsScala: Option[String] = Option(self.responseMappingTemplate) // String
 
-  final def kindAsScala: Option[ResolverKind] = Option(self.kind) // String
+  final def kindAsScala: Option[ResolverKind] = Option(self.kind) // ResolverKind
 
   final def pipelineConfigAsScala: Option[PipelineConfig] = Option(self.pipelineConfig) // PipelineConfig
 

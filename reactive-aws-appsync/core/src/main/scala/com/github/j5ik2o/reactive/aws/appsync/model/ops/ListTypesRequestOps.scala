@@ -15,7 +15,7 @@ final class ListTypesRequestBuilderOps(val self: ListTypesRequest.Builder) exten
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  } // TypeDefinitionFormat
 
   final def nextTokenAsScala(value: Option[String]): ListTypesRequest.Builder = {
     value.fold(self) { v =>
@@ -35,7 +35,7 @@ final class ListTypesRequestOps(val self: ListTypesRequest) extends AnyVal {
 
   final def apiIdAsScala: Option[String] = Option(self.apiId) // String
 
-  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // String
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // TypeDefinitionFormat
 
   final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
 

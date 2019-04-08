@@ -51,7 +51,7 @@ final class ListObjectsV2ResponseBuilderOps(val self: ListObjectsV2Response.Buil
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  } // EncodingType
 
   final def keyCountAsScala(value: Option[Int]): ListObjectsV2Response.Builder = {
     value.fold(self) { v =>
@@ -99,7 +99,7 @@ final class ListObjectsV2ResponseOps(val self: ListObjectsV2Response) extends An
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[CommonPrefix]
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // EncodingType
 
   final def keyCountAsScala: Option[Int] = Option(self.keyCount) // Int
 

@@ -27,25 +27,25 @@ final class BackupDetailsBuilderOps(val self: BackupDetails.Builder) extends Any
     value.fold(self) { v =>
       self.backupStatus(v)
     }
-  } // String
+  } // BackupStatus
 
   final def backupTypeAsScala(value: Option[BackupType]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupType(v)
     }
-  } // String
+  } // BackupType
 
   final def backupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupCreationDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def backupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupExpiryDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -57,13 +57,15 @@ final class BackupDetailsOps(val self: BackupDetails) extends AnyVal {
 
   final def backupSizeBytesAsScala: Option[Long] = Option(self.backupSizeBytes) // Long
 
-  final def backupStatusAsScala: Option[BackupStatus] = Option(self.backupStatus) // String
+  final def backupStatusAsScala: Option[BackupStatus] = Option(self.backupStatus) // BackupStatus
 
-  final def backupTypeAsScala: Option[BackupType] = Option(self.backupType) // String
+  final def backupTypeAsScala: Option[BackupType] = Option(self.backupType) // BackupType
 
-  final def backupCreationDateTimeAsScala: Option[java.time.Instant] = Option(self.backupCreationDateTime) // Instant
+  final def backupCreationDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.backupCreationDateTime) // java.time.Instant
 
-  final def backupExpiryDateTimeAsScala: Option[java.time.Instant] = Option(self.backupExpiryDateTime) // Instant
+  final def backupExpiryDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.backupExpiryDateTime) // java.time.Instant
 
 }
 

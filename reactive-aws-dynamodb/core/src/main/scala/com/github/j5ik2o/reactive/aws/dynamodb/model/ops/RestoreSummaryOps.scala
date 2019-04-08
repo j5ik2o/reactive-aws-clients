@@ -21,7 +21,7 @@ final class RestoreSummaryBuilderOps(val self: RestoreSummary.Builder) extends A
     value.fold(self) { v =>
       self.restoreDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def restoreInProgressAsScala(value: Option[Boolean]): RestoreSummary.Builder = {
     value.fold(self) { v =>
@@ -37,7 +37,7 @@ final class RestoreSummaryOps(val self: RestoreSummary) extends AnyVal {
 
   final def sourceTableArnAsScala: Option[String] = Option(self.sourceTableArn) // String
 
-  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // Instant
+  final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime) // java.time.Instant
 
   final def restoreInProgressAsScala: Option[Boolean] = Option(self.restoreInProgress) // Boolean
 

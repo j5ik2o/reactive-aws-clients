@@ -39,7 +39,7 @@ final class DescribeEnvironmentsRequestBuilderOps(val self: DescribeEnvironments
     value.fold(self) { v =>
       self.includedDeletedBackTo(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def maxRecordsAsScala(value: Option[Int]): DescribeEnvironmentsRequest.Builder = {
     value.fold(self) { v =>
@@ -71,7 +71,8 @@ final class DescribeEnvironmentsRequestOps(val self: DescribeEnvironmentsRequest
 
   final def includeDeletedAsScala: Option[Boolean] = Option(self.includeDeleted) // Boolean
 
-  final def includedDeletedBackToAsScala: Option[java.time.Instant] = Option(self.includedDeletedBackTo) // Instant
+  final def includedDeletedBackToAsScala: Option[java.time.Instant] =
+    Option(self.includedDeletedBackTo) // java.time.Instant
 
   final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords) // Int
 

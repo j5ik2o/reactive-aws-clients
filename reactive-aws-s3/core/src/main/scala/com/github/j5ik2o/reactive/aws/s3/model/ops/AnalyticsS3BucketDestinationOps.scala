@@ -9,7 +9,7 @@ final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDe
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  } // AnalyticsS3ExportFileFormat
 
   final def bucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDe
 
 final class AnalyticsS3BucketDestinationOps(val self: AnalyticsS3BucketDestination) extends AnyVal {
 
-  final def formatAsScala: Option[AnalyticsS3ExportFileFormat] = Option(self.format) // String
+  final def formatAsScala: Option[AnalyticsS3ExportFileFormat] = Option(self.format) // AnalyticsS3ExportFileFormat
 
   final def bucketAccountIdAsScala: Option[String] = Option(self.bucketAccountId) // String
 

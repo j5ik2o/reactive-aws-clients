@@ -17,7 +17,7 @@ final class DescribeStackResourceDriftsRequestBuilderOps(val self: DescribeStack
   ): DescribeStackResourceDriftsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stackResourceDriftStatusFilters(v.asJava)
-    } // Seq[String]
+    } // Seq[StackResourceDriftStatus]
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeStackResourceDriftsRequest.Builder = {
@@ -41,7 +41,7 @@ final class DescribeStackResourceDriftsRequestOps(val self: DescribeStackResourc
   final def stackResourceDriftStatusFiltersAsScala: Option[Seq[StackResourceDriftStatus]] =
     Option(self.stackResourceDriftStatusFilters).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[String]
+    } // Seq[StackResourceDriftStatus]
 
   final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
 

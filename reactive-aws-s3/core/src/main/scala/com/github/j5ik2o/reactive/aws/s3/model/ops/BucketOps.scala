@@ -15,7 +15,7 @@ final class BucketBuilderOps(val self: Bucket.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.creationDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -23,7 +23,7 @@ final class BucketOps(val self: Bucket) extends AnyVal {
 
   final def nameAsScala: Option[String] = Option(self.name) // String
 
-  final def creationDateAsScala: Option[java.time.Instant] = Option(self.creationDate) // Instant
+  final def creationDateAsScala: Option[java.time.Instant] = Option(self.creationDate) // java.time.Instant
 
 }
 

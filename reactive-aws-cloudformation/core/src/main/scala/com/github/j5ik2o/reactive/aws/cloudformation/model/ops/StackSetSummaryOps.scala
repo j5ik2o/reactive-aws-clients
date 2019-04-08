@@ -27,7 +27,7 @@ final class StackSetSummaryBuilderOps(val self: StackSetSummary.Builder) extends
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // StackSetStatus
 
 }
 
@@ -39,7 +39,7 @@ final class StackSetSummaryOps(val self: StackSetSummary) extends AnyVal {
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // String
+  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // StackSetStatus
 
 }
 

@@ -20,7 +20,7 @@ final class ReservedElasticsearchInstanceOfferingBuilderOps(val self: ReservedEl
     value.fold(self) { v =>
       self.elasticsearchInstanceType(v)
     }
-  } // String
+  } // ESPartitionInstanceType
 
   final def durationAsScala(value: Option[Int]): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
@@ -52,7 +52,7 @@ final class ReservedElasticsearchInstanceOfferingBuilderOps(val self: ReservedEl
     value.fold(self) { v =>
       self.paymentOption(v)
     }
-  } // String
+  } // ReservedElasticsearchInstancePaymentOption
 
   final def recurringChargesAsScala(
       value: Option[Seq[RecurringCharge]]
@@ -70,7 +70,7 @@ final class ReservedElasticsearchInstanceOfferingOps(val self: ReservedElasticse
     Option(self.reservedElasticsearchInstanceOfferingId) // String
 
   final def elasticsearchInstanceTypeAsScala: Option[ESPartitionInstanceType] =
-    Option(self.elasticsearchInstanceType) // String
+    Option(self.elasticsearchInstanceType) // ESPartitionInstanceType
 
   final def durationAsScala: Option[Int] = Option(self.duration) // Int
 
@@ -81,7 +81,7 @@ final class ReservedElasticsearchInstanceOfferingOps(val self: ReservedElasticse
   final def currencyCodeAsScala: Option[String] = Option(self.currencyCode) // String
 
   final def paymentOptionAsScala: Option[ReservedElasticsearchInstancePaymentOption] =
-    Option(self.paymentOption) // String
+    Option(self.paymentOption) // ReservedElasticsearchInstancePaymentOption
 
   final def recurringChargesAsScala: Option[Seq[RecurringCharge]] = Option(self.recurringCharges).map { v =>
     import scala.collection.JavaConverters._; v.asScala

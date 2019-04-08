@@ -33,7 +33,7 @@ final class GetItemRequestBuilderOps(val self: GetItemRequest.Builder) extends A
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
   final def projectionExpressionAsScala(value: Option[String]): GetItemRequest.Builder = {
     value.fold(self) { v =>
@@ -64,7 +64,7 @@ final class GetItemRequestOps(val self: GetItemRequest) extends AnyVal {
   final def consistentReadAsScala: Option[Boolean] = Option(self.consistentRead) // Boolean
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
   final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression) // String
 

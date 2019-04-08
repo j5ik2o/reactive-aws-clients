@@ -21,7 +21,7 @@ final class QueryRequestBuilderOps(val self: QueryRequest.Builder) extends AnyVa
     value.fold(self) { v =>
       self.select(v)
     }
-  } // String
+  } // Select
 
   final def attributesToGetAsScala(value: Option[Seq[String]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -57,7 +57,7 @@ final class QueryRequestBuilderOps(val self: QueryRequest.Builder) extends AnyVa
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
-  } // String
+  } // ConditionalOperator
 
   final def scanIndexForwardAsScala(value: Option[Boolean]): QueryRequest.Builder = {
     value.fold(self) { v =>
@@ -75,7 +75,7 @@ final class QueryRequestBuilderOps(val self: QueryRequest.Builder) extends AnyVa
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
   final def projectionExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
     value.fold(self) { v =>
@@ -115,7 +115,7 @@ final class QueryRequestOps(val self: QueryRequest) extends AnyVal {
 
   final def indexNameAsScala: Option[String] = Option(self.indexName) // String
 
-  final def selectAsScala: Option[Select] = Option(self.select) // String
+  final def selectAsScala: Option[Select] = Option(self.select) // Select
 
   final def attributesToGetAsScala: Option[Seq[String]] = Option(self.attributesToGet).map { v =>
     import scala.collection.JavaConverters._; v.asScala
@@ -133,7 +133,8 @@ final class QueryRequestOps(val self: QueryRequest) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala.toMap
   } // Map[String, Condition]
 
-  final def conditionalOperatorAsScala: Option[ConditionalOperator] = Option(self.conditionalOperator) // String
+  final def conditionalOperatorAsScala: Option[ConditionalOperator] =
+    Option(self.conditionalOperator) // ConditionalOperator
 
   final def scanIndexForwardAsScala: Option[Boolean] = Option(self.scanIndexForward) // Boolean
 
@@ -142,7 +143,7 @@ final class QueryRequestOps(val self: QueryRequest) extends AnyVal {
   } // Map[String, AttributeValue]
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
   final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression) // String
 

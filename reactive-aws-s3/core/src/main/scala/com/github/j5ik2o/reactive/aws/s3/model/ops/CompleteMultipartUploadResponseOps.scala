@@ -42,7 +42,7 @@ final class CompleteMultipartUploadResponseBuilderOps(val self: CompleteMultipar
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def versionIdAsScala(value: Option[String]): CompleteMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
@@ -60,7 +60,7 @@ final class CompleteMultipartUploadResponseBuilderOps(val self: CompleteMultipar
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
@@ -76,13 +76,14 @@ final class CompleteMultipartUploadResponseOps(val self: CompleteMultipartUpload
 
   final def eTagAsScala: Option[String] = Option(self.eTag) // String
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

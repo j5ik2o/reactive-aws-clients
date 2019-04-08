@@ -33,7 +33,7 @@ final class GetEventSourceMappingResponseBuilderOps(val self: GetEventSourceMapp
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def lastProcessingResultAsScala(value: Option[String]): GetEventSourceMappingResponse.Builder = {
     value.fold(self) { v =>
@@ -65,7 +65,7 @@ final class GetEventSourceMappingResponseOps(val self: GetEventSourceMappingResp
 
   final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
 
   final def lastProcessingResultAsScala: Option[String] = Option(self.lastProcessingResult) // String
 

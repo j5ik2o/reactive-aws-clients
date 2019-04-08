@@ -21,7 +21,7 @@ final class UpdateFunctionCodeResponseBuilderOps(val self: UpdateFunctionCodeRes
     value.fold(self) { v =>
       self.runtime(v)
     }
-  } // String
+  } // Runtime
 
   final def roleAsScala(value: Option[String]): UpdateFunctionCodeResponse.Builder = {
     value.fold(self) { v =>
@@ -133,7 +133,7 @@ final class UpdateFunctionCodeResponseOps(val self: UpdateFunctionCodeResponse) 
 
   final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
 
-  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // String
+  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // Runtime
 
   final def roleAsScala: Option[String] = Option(self.role) // String
 

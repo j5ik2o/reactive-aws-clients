@@ -39,7 +39,7 @@ final class CreateTableRequestBuilderOps(val self: CreateTableRequest.Builder) e
     value.fold(self) { v =>
       self.billingMode(v)
     }
-  } // String
+  } // BillingMode
 
   final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): CreateTableRequest.Builder = {
     value.fold(self) { v =>
@@ -83,7 +83,7 @@ final class CreateTableRequestOps(val self: CreateTableRequest) extends AnyVal {
       import scala.collection.JavaConverters._; v.asScala
   } // Seq[GlobalSecondaryIndex]
 
-  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // String
+  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // BillingMode
 
   final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
     Option(self.provisionedThroughput) // ProvisionedThroughput

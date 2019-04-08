@@ -27,7 +27,7 @@ final class JobDetailBuilderOps(val self: JobDetail.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // JobStatus
 
   final def attemptsAsScala(value: Option[Seq[AttemptDetail]]): JobDetail.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -123,7 +123,7 @@ final class JobDetailOps(val self: JobDetail) extends AnyVal {
 
   final def jobQueueAsScala: Option[String] = Option(self.jobQueue) // String
 
-  final def statusAsScala: Option[JobStatus] = Option(self.status) // String
+  final def statusAsScala: Option[JobStatus] = Option(self.status) // JobStatus
 
   final def attemptsAsScala: Option[Seq[AttemptDetail]] = Option(self.attempts).map { v =>
     import scala.collection.JavaConverters._; v.asScala

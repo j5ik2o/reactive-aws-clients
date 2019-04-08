@@ -11,7 +11,7 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     value.fold(self) { v =>
       self.pointInTimeRecoveryStatus(v)
     }
-  } // String
+  } // PointInTimeRecoveryStatus
 
   final def earliestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
@@ -19,7 +19,7 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     value.fold(self) { v =>
       self.earliestRestorableDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def latestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
@@ -27,20 +27,20 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     value.fold(self) { v =>
       self.latestRestorableDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
 final class PointInTimeRecoveryDescriptionOps(val self: PointInTimeRecoveryDescription) extends AnyVal {
 
   final def pointInTimeRecoveryStatusAsScala: Option[PointInTimeRecoveryStatus] =
-    Option(self.pointInTimeRecoveryStatus) // String
+    Option(self.pointInTimeRecoveryStatus) // PointInTimeRecoveryStatus
 
   final def earliestRestorableDateTimeAsScala: Option[java.time.Instant] =
-    Option(self.earliestRestorableDateTime) // Instant
+    Option(self.earliestRestorableDateTime) // java.time.Instant
 
   final def latestRestorableDateTimeAsScala: Option[java.time.Instant] =
-    Option(self.latestRestorableDateTime) // Instant
+    Option(self.latestRestorableDateTime) // java.time.Instant
 
 }
 

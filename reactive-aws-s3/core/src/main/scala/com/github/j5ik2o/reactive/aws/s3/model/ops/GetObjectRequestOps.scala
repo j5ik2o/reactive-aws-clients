@@ -21,7 +21,7 @@ final class GetObjectRequestBuilderOps(val self: GetObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.ifModifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def ifNoneMatchAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class GetObjectRequestBuilderOps(val self: GetObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.ifUnmodifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def keyAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -81,7 +81,7 @@ final class GetObjectRequestBuilderOps(val self: GetObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.responseExpires(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def versionIdAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -111,7 +111,7 @@ final class GetObjectRequestBuilderOps(val self: GetObjectRequest.Builder) exten
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def partNumberAsScala(value: Option[Int]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -127,11 +127,11 @@ final class GetObjectRequestOps(val self: GetObjectRequest) extends AnyVal {
 
   final def ifMatchAsScala: Option[String] = Option(self.ifMatch) // String
 
-  final def ifModifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifModifiedSince) // Instant
+  final def ifModifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifModifiedSince) // java.time.Instant
 
   final def ifNoneMatchAsScala: Option[String] = Option(self.ifNoneMatch) // String
 
-  final def ifUnmodifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifUnmodifiedSince) // Instant
+  final def ifUnmodifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifUnmodifiedSince) // java.time.Instant
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
@@ -147,7 +147,7 @@ final class GetObjectRequestOps(val self: GetObjectRequest) extends AnyVal {
 
   final def responseContentTypeAsScala: Option[String] = Option(self.responseContentType) // String
 
-  final def responseExpiresAsScala: Option[java.time.Instant] = Option(self.responseExpires) // Instant
+  final def responseExpiresAsScala: Option[java.time.Instant] = Option(self.responseExpires) // java.time.Instant
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 
@@ -157,7 +157,7 @@ final class GetObjectRequestOps(val self: GetObjectRequest) extends AnyVal {
 
   final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
 

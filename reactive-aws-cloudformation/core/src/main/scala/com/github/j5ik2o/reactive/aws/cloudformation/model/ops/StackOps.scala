@@ -39,19 +39,19 @@ final class StackBuilderOps(val self: Stack.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def deletionTimeAsScala(value: Option[java.time.Instant]): Stack.Builder = {
     value.fold(self) { v =>
       self.deletionTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def lastUpdatedTimeAsScala(value: Option[java.time.Instant]): Stack.Builder = {
     value.fold(self) { v =>
       self.lastUpdatedTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def rollbackConfigurationAsScala(value: Option[RollbackConfiguration]): Stack.Builder = {
     value.fold(self) { v =>
@@ -63,7 +63,7 @@ final class StackBuilderOps(val self: Stack.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.stackStatus(v)
     }
-  } // String
+  } // StackStatus
 
   final def stackStatusReasonAsScala(value: Option[String]): Stack.Builder = {
     value.fold(self) { v =>
@@ -92,7 +92,7 @@ final class StackBuilderOps(val self: Stack.Builder) extends AnyVal {
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): Stack.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def outputsAsScala(value: Option[Seq[Output]]): Stack.Builder = {
@@ -153,16 +153,16 @@ final class StackOps(val self: Stack) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[Parameter]
 
-  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // Instant
+  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // java.time.Instant
 
-  final def deletionTimeAsScala: Option[java.time.Instant] = Option(self.deletionTime) // Instant
+  final def deletionTimeAsScala: Option[java.time.Instant] = Option(self.deletionTime) // java.time.Instant
 
-  final def lastUpdatedTimeAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTime) // Instant
+  final def lastUpdatedTimeAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTime) // java.time.Instant
 
   final def rollbackConfigurationAsScala: Option[RollbackConfiguration] =
     Option(self.rollbackConfiguration) // RollbackConfiguration
 
-  final def stackStatusAsScala: Option[StackStatus] = Option(self.stackStatus) // String
+  final def stackStatusAsScala: Option[StackStatus] = Option(self.stackStatus) // StackStatus
 
   final def stackStatusReasonAsScala: Option[String] = Option(self.stackStatusReason) // String
 
@@ -176,7 +176,7 @@ final class StackOps(val self: Stack) extends AnyVal {
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def outputsAsScala: Option[Seq[Output]] = Option(self.outputs).map { v =>
     import scala.collection.JavaConverters._; v.asScala

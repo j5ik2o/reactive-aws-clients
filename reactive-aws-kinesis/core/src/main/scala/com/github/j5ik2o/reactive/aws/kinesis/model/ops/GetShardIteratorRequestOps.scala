@@ -21,7 +21,7 @@ final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.
     value.fold(self) { v =>
       self.shardIteratorType(v)
     }
-  } // String
+  } // ShardIteratorType
 
   final def startingSequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -43,11 +43,11 @@ final class GetShardIteratorRequestOps(val self: GetShardIteratorRequest) extend
 
   final def shardIdAsScala: Option[String] = Option(self.shardId) // String
 
-  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType) // String
+  final def shardIteratorTypeAsScala: Option[ShardIteratorType] = Option(self.shardIteratorType) // ShardIteratorType
 
   final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber) // String
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
 
 }
 

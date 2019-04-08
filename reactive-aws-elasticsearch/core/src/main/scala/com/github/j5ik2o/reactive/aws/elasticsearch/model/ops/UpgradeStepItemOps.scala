@@ -9,13 +9,13 @@ final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends
     value.fold(self) { v =>
       self.upgradeStep(v)
     }
-  } // String
+  } // UpgradeStep
 
   final def upgradeStepStatusAsScala(value: Option[UpgradeStatus]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.upgradeStepStatus(v)
     }
-  } // String
+  } // UpgradeStatus
 
   final def issuesAsScala(value: Option[Seq[String]]): UpgradeStepItem.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -33,9 +33,9 @@ final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends
 
 final class UpgradeStepItemOps(val self: UpgradeStepItem) extends AnyVal {
 
-  final def upgradeStepAsScala: Option[UpgradeStep] = Option(self.upgradeStep) // String
+  final def upgradeStepAsScala: Option[UpgradeStep] = Option(self.upgradeStep) // UpgradeStep
 
-  final def upgradeStepStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStepStatus) // String
+  final def upgradeStepStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStepStatus) // UpgradeStatus
 
   final def issuesAsScala: Option[Seq[String]] = Option(self.issues).map { v =>
     import scala.collection.JavaConverters._; v.asScala

@@ -21,7 +21,7 @@ final class ListObjectVersionsRequestBuilderOps(val self: ListObjectVersionsRequ
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  } // EncodingType
 
   final def keyMarkerAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
@@ -55,7 +55,7 @@ final class ListObjectVersionsRequestOps(val self: ListObjectVersionsRequest) ex
 
   final def delimiterAsScala: Option[String] = Option(self.delimiter) // String
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // EncodingType
 
   final def keyMarkerAsScala: Option[String] = Option(self.keyMarker) // String
 

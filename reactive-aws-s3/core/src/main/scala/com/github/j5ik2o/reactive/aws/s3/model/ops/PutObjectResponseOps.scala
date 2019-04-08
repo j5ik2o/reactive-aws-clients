@@ -21,7 +21,7 @@ final class PutObjectResponseBuilderOps(val self: PutObjectResponse.Builder) ext
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def versionIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class PutObjectResponseBuilderOps(val self: PutObjectResponse.Builder) ext
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
@@ -61,7 +61,8 @@ final class PutObjectResponseOps(val self: PutObjectResponse) extends AnyVal {
 
   final def eTagAsScala: Option[String] = Option(self.eTag) // String
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 
@@ -71,7 +72,7 @@ final class PutObjectResponseOps(val self: PutObjectResponse) extends AnyVal {
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

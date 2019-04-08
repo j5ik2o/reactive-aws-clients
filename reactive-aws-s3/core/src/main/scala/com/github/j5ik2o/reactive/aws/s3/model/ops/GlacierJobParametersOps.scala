@@ -9,13 +9,13 @@ final class GlacierJobParametersBuilderOps(val self: GlacierJobParameters.Builde
     value.fold(self) { v =>
       self.tier(v)
     }
-  } // String
+  } // Tier
 
 }
 
 final class GlacierJobParametersOps(val self: GlacierJobParameters) extends AnyVal {
 
-  final def tierAsScala: Option[Tier] = Option(self.tier) // String
+  final def tierAsScala: Option[Tier] = Option(self.tier) // Tier
 
 }
 

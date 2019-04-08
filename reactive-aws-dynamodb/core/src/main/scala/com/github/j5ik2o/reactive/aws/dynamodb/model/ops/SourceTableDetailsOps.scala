@@ -39,7 +39,7 @@ final class SourceTableDetailsBuilderOps(val self: SourceTableDetails.Builder) e
     value.fold(self) { v =>
       self.tableCreationDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
@@ -57,7 +57,7 @@ final class SourceTableDetailsBuilderOps(val self: SourceTableDetails.Builder) e
     value.fold(self) { v =>
       self.billingMode(v)
     }
-  } // String
+  } // BillingMode
 
 }
 
@@ -75,14 +75,15 @@ final class SourceTableDetailsOps(val self: SourceTableDetails) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[KeySchemaElement]
 
-  final def tableCreationDateTimeAsScala: Option[java.time.Instant] = Option(self.tableCreationDateTime) // Instant
+  final def tableCreationDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.tableCreationDateTime) // java.time.Instant
 
   final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
     Option(self.provisionedThroughput) // ProvisionedThroughput
 
   final def itemCountAsScala: Option[Long] = Option(self.itemCount) // Long
 
-  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // String
+  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // BillingMode
 
 }
 

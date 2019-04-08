@@ -21,7 +21,7 @@ final class RetrieveEnvironmentInfoRequestBuilderOps(val self: RetrieveEnvironme
     value.fold(self) { v =>
       self.infoType(v)
     }
-  } // String
+  } // EnvironmentInfoType
 
 }
 
@@ -31,7 +31,7 @@ final class RetrieveEnvironmentInfoRequestOps(val self: RetrieveEnvironmentInfoR
 
   final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
 
-  final def infoTypeAsScala: Option[EnvironmentInfoType] = Option(self.infoType) // String
+  final def infoTypeAsScala: Option[EnvironmentInfoType] = Option(self.infoType) // EnvironmentInfoType
 
 }
 

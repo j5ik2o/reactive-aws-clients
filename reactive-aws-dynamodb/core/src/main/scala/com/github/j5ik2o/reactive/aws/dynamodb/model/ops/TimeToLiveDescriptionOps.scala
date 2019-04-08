@@ -9,7 +9,7 @@ final class TimeToLiveDescriptionBuilderOps(val self: TimeToLiveDescription.Buil
     value.fold(self) { v =>
       self.timeToLiveStatus(v)
     }
-  } // String
+  } // TimeToLiveStatus
 
   final def attributeNameAsScala(value: Option[String]): TimeToLiveDescription.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class TimeToLiveDescriptionBuilderOps(val self: TimeToLiveDescription.Buil
 
 final class TimeToLiveDescriptionOps(val self: TimeToLiveDescription) extends AnyVal {
 
-  final def timeToLiveStatusAsScala: Option[TimeToLiveStatus] = Option(self.timeToLiveStatus) // String
+  final def timeToLiveStatusAsScala: Option[TimeToLiveStatus] = Option(self.timeToLiveStatus) // TimeToLiveStatus
 
   final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
 

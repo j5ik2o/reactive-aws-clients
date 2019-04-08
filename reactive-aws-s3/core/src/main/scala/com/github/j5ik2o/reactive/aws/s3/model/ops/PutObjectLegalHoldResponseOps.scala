@@ -9,13 +9,13 @@ final class PutObjectLegalHoldResponseBuilderOps(val self: PutObjectLegalHoldRes
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
 final class PutObjectLegalHoldResponseOps(val self: PutObjectLegalHoldResponse) extends AnyVal {
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

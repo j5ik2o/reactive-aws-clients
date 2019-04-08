@@ -9,7 +9,7 @@ final class EventDescriptionBuilderOps(val self: EventDescription.Builder) exten
     value.fold(self) { v =>
       self.eventDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def messageAsScala(value: Option[String]): EventDescription.Builder = {
     value.fold(self) { v =>
@@ -57,13 +57,13 @@ final class EventDescriptionBuilderOps(val self: EventDescription.Builder) exten
     value.fold(self) { v =>
       self.severity(v)
     }
-  } // String
+  } // EventSeverity
 
 }
 
 final class EventDescriptionOps(val self: EventDescription) extends AnyVal {
 
-  final def eventDateAsScala: Option[java.time.Instant] = Option(self.eventDate) // Instant
+  final def eventDateAsScala: Option[java.time.Instant] = Option(self.eventDate) // java.time.Instant
 
   final def messageAsScala: Option[String] = Option(self.message) // String
 
@@ -79,7 +79,7 @@ final class EventDescriptionOps(val self: EventDescription) extends AnyVal {
 
   final def requestIdAsScala: Option[String] = Option(self.requestId) // String
 
-  final def severityAsScala: Option[EventSeverity] = Option(self.severity) // String
+  final def severityAsScala: Option[EventSeverity] = Option(self.severity) // EventSeverity
 
 }
 

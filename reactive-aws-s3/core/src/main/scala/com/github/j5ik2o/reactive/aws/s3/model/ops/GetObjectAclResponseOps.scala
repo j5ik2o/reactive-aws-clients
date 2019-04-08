@@ -21,7 +21,7 @@ final class GetObjectAclResponseBuilderOps(val self: GetObjectAclResponse.Builde
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
@@ -33,7 +33,7 @@ final class GetObjectAclResponseOps(val self: GetObjectAclResponse) extends AnyV
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[Grant]
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

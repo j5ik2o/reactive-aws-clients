@@ -15,7 +15,7 @@ final class UpdateFunctionCodeRequestBuilderOps(val self: UpdateFunctionCodeRequ
     value.fold(self) { v =>
       self.zipFile(v)
     }
-  } // SdkBytes
+  } // software.amazon.awssdk.core.SdkBytes
 
   final def s3BucketAsScala(value: Option[String]): UpdateFunctionCodeRequest.Builder = {
     value.fold(self) { v =>
@@ -59,7 +59,8 @@ final class UpdateFunctionCodeRequestOps(val self: UpdateFunctionCodeRequest) ex
 
   final def functionNameAsScala: Option[String] = Option(self.functionName) // String
 
-  final def zipFileAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.zipFile) // SdkBytes
+  final def zipFileAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
+    Option(self.zipFile) // software.amazon.awssdk.core.SdkBytes
 
   final def s3BucketAsScala: Option[String] = Option(self.s3Bucket) // String
 

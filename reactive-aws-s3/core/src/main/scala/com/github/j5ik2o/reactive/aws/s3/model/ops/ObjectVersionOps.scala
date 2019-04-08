@@ -21,7 +21,7 @@ final class ObjectVersionBuilderOps(val self: ObjectVersion.Builder) extends Any
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // ObjectVersionStorageClass
 
   final def keyAsScala(value: Option[String]): ObjectVersion.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class ObjectVersionBuilderOps(val self: ObjectVersion.Builder) extends Any
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def ownerAsScala(value: Option[Owner]): ObjectVersion.Builder = {
     value.fold(self) { v =>
@@ -61,7 +61,8 @@ final class ObjectVersionOps(val self: ObjectVersion) extends AnyVal {
 
   final def sizeAsScala: Option[Int] = Option(self.size) // Int
 
-  final def storageClassAsScala: Option[ObjectVersionStorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[ObjectVersionStorageClass] =
+    Option(self.storageClass) // ObjectVersionStorageClass
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
@@ -69,7 +70,7 @@ final class ObjectVersionOps(val self: ObjectVersion) extends AnyVal {
 
   final def isLatestAsScala: Option[Boolean] = Option(self.isLatest) // Boolean
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
 
   final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
 

@@ -21,7 +21,7 @@ final class GraphqlApiBuilderOps(val self: GraphqlApi.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.authenticationType(v)
     }
-  } // String
+  } // AuthenticationType
 
   final def logConfigAsScala(value: Option[LogConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
@@ -61,7 +61,8 @@ final class GraphqlApiOps(val self: GraphqlApi) extends AnyVal {
 
   final def apiIdAsScala: Option[String] = Option(self.apiId) // String
 
-  final def authenticationTypeAsScala: Option[AuthenticationType] = Option(self.authenticationType) // String
+  final def authenticationTypeAsScala: Option[AuthenticationType] =
+    Option(self.authenticationType) // AuthenticationType
 
   final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig) // LogConfig
 

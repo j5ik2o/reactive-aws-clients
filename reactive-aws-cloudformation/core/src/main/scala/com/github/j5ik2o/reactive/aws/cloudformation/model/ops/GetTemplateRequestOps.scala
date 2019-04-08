@@ -21,7 +21,7 @@ final class GetTemplateRequestBuilderOps(val self: GetTemplateRequest.Builder) e
     value.fold(self) { v =>
       self.templateStage(v)
     }
-  } // String
+  } // TemplateStage
 
 }
 
@@ -31,7 +31,7 @@ final class GetTemplateRequestOps(val self: GetTemplateRequest) extends AnyVal {
 
   final def changeSetNameAsScala: Option[String] = Option(self.changeSetName) // String
 
-  final def templateStageAsScala: Option[TemplateStage] = Option(self.templateStage) // String
+  final def templateStageAsScala: Option[TemplateStage] = Option(self.templateStage) // TemplateStage
 
 }
 

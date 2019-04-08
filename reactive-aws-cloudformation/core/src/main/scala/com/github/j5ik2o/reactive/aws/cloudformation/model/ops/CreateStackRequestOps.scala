@@ -56,7 +56,7 @@ final class CreateStackRequestBuilderOps(val self: CreateStackRequest.Builder) e
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): CreateStackRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def resourceTypesAsScala(value: Option[Seq[String]]): CreateStackRequest.Builder = {
@@ -75,7 +75,7 @@ final class CreateStackRequestBuilderOps(val self: CreateStackRequest.Builder) e
     value.fold(self) { v =>
       self.onFailure(v)
     }
-  } // String
+  } // OnFailure
 
   final def stackPolicyBodyAsScala(value: Option[String]): CreateStackRequest.Builder = {
     value.fold(self) { v =>
@@ -134,7 +134,7 @@ final class CreateStackRequestOps(val self: CreateStackRequest) extends AnyVal {
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
@@ -142,7 +142,7 @@ final class CreateStackRequestOps(val self: CreateStackRequest) extends AnyVal {
 
   final def roleARNAsScala: Option[String] = Option(self.roleARN) // String
 
-  final def onFailureAsScala: Option[OnFailure] = Option(self.onFailure) // String
+  final def onFailureAsScala: Option[OnFailure] = Option(self.onFailure) // OnFailure
 
   final def stackPolicyBodyAsScala: Option[String] = Option(self.stackPolicyBody) // String
 

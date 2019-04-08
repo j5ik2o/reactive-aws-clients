@@ -45,19 +45,19 @@ final class DescribeChangeSetResponseBuilderOps(val self: DescribeChangeSetRespo
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def executionStatusAsScala(value: Option[ExecutionStatus]): DescribeChangeSetResponse.Builder = {
     value.fold(self) { v =>
       self.executionStatus(v)
     }
-  } // String
+  } // ExecutionStatus
 
   final def statusAsScala(value: Option[ChangeSetStatus]): DescribeChangeSetResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ChangeSetStatus
 
   final def statusReasonAsScala(value: Option[String]): DescribeChangeSetResponse.Builder = {
     value.fold(self) { v =>
@@ -80,7 +80,7 @@ final class DescribeChangeSetResponseBuilderOps(val self: DescribeChangeSetRespo
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): DescribeChangeSetResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): DescribeChangeSetResponse.Builder = {
@@ -119,11 +119,11 @@ final class DescribeChangeSetResponseOps(val self: DescribeChangeSetResponse) ex
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[Parameter]
 
-  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // Instant
+  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // java.time.Instant
 
-  final def executionStatusAsScala: Option[ExecutionStatus] = Option(self.executionStatus) // String
+  final def executionStatusAsScala: Option[ExecutionStatus] = Option(self.executionStatus) // ExecutionStatus
 
-  final def statusAsScala: Option[ChangeSetStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ChangeSetStatus] = Option(self.status) // ChangeSetStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 
@@ -136,7 +136,7 @@ final class DescribeChangeSetResponseOps(val self: DescribeChangeSetResponse) ex
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala

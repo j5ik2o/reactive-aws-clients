@@ -9,13 +9,13 @@ final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends A
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // SSEStatus
 
 }
 
 final class SSEDescriptionOps(val self: SSEDescription) extends AnyVal {
 
-  final def statusAsScala: Option[SSEStatus] = Option(self.status) // String
+  final def statusAsScala: Option[SSEStatus] = Option(self.status) // SSEStatus
 
 }
 

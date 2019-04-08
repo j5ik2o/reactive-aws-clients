@@ -15,7 +15,7 @@ final class SetAlarmStateRequestBuilderOps(val self: SetAlarmStateRequest.Builde
     value.fold(self) { v =>
       self.stateValue(v)
     }
-  } // String
+  } // StateValue
 
   final def stateReasonAsScala(value: Option[String]): SetAlarmStateRequest.Builder = {
     value.fold(self) { v =>
@@ -35,7 +35,7 @@ final class SetAlarmStateRequestOps(val self: SetAlarmStateRequest) extends AnyV
 
   final def alarmNameAsScala: Option[String] = Option(self.alarmName) // String
 
-  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // String
+  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // StateValue
 
   final def stateReasonAsScala: Option[String] = Option(self.stateReason) // String
 

@@ -47,7 +47,7 @@ final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.returnValuesOnConditionCheckFailure(v)
     }
-  } // String
+  } // ReturnValuesOnConditionCheckFailure
 
 }
 
@@ -74,7 +74,7 @@ final class UpdateOps(val self: Update) extends AnyVal {
     } // Map[String, AttributeValue]
 
   final def returnValuesOnConditionCheckFailureAsScala: Option[ReturnValuesOnConditionCheckFailure] =
-    Option(self.returnValuesOnConditionCheckFailure) // String
+    Option(self.returnValuesOnConditionCheckFailure) // ReturnValuesOnConditionCheckFailure
 
 }
 

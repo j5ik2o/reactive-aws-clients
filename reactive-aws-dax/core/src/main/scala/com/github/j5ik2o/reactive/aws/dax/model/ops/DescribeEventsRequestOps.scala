@@ -15,19 +15,19 @@ final class DescribeEventsRequestBuilderOps(val self: DescribeEventsRequest.Buil
     value.fold(self) { v =>
       self.sourceType(v)
     }
-  } // String
+  } // SourceType
 
   final def startTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def endTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def durationAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
@@ -53,11 +53,11 @@ final class DescribeEventsRequestOps(val self: DescribeEventsRequest) extends An
 
   final def sourceNameAsScala: Option[String] = Option(self.sourceName) // String
 
-  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // String
+  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // SourceType
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // java.time.Instant
 
   final def durationAsScala: Option[Int] = Option(self.duration) // Int
 

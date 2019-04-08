@@ -15,7 +15,7 @@ final class ValidationMessageBuilderOps(val self: ValidationMessage.Builder) ext
     value.fold(self) { v =>
       self.severity(v)
     }
-  } // String
+  } // ValidationSeverity
 
   final def namespaceAsScala(value: Option[String]): ValidationMessage.Builder = {
     value.fold(self) { v =>
@@ -35,7 +35,7 @@ final class ValidationMessageOps(val self: ValidationMessage) extends AnyVal {
 
   final def messageAsScala: Option[String] = Option(self.message) // String
 
-  final def severityAsScala: Option[ValidationSeverity] = Option(self.severity) // String
+  final def severityAsScala: Option[ValidationSeverity] = Option(self.severity) // ValidationSeverity
 
   final def namespaceAsScala: Option[String] = Option(self.namespace) // String
 

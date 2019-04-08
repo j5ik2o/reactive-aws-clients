@@ -11,7 +11,7 @@ final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDe
     value.fold(self) { v =>
       self.continuousBackupsStatus(v)
     }
-  } // String
+  } // ContinuousBackupsStatus
 
   final def pointInTimeRecoveryDescriptionAsScala(
       value: Option[PointInTimeRecoveryDescription]
@@ -26,7 +26,7 @@ final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDe
 final class ContinuousBackupsDescriptionOps(val self: ContinuousBackupsDescription) extends AnyVal {
 
   final def continuousBackupsStatusAsScala: Option[ContinuousBackupsStatus] =
-    Option(self.continuousBackupsStatus) // String
+    Option(self.continuousBackupsStatus) // ContinuousBackupsStatus
 
   final def pointInTimeRecoveryDescriptionAsScala: Option[PointInTimeRecoveryDescription] =
     Option(self.pointInTimeRecoveryDescription) // PointInTimeRecoveryDescription

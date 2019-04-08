@@ -21,7 +21,7 @@ final class DescribeAlarmsForMetricRequestBuilderOps(val self: DescribeAlarmsFor
     value.fold(self) { v =>
       self.statistic(v)
     }
-  } // String
+  } // Statistic
 
   final def extendedStatisticAsScala(value: Option[String]): DescribeAlarmsForMetricRequest.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class DescribeAlarmsForMetricRequestBuilderOps(val self: DescribeAlarmsFor
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // String
+  } // StandardUnit
 
 }
 
@@ -55,7 +55,7 @@ final class DescribeAlarmsForMetricRequestOps(val self: DescribeAlarmsForMetricR
 
   final def namespaceAsScala: Option[String] = Option(self.namespace) // String
 
-  final def statisticAsScala: Option[Statistic] = Option(self.statistic) // String
+  final def statisticAsScala: Option[Statistic] = Option(self.statistic) // Statistic
 
   final def extendedStatisticAsScala: Option[String] = Option(self.extendedStatistic) // String
 
@@ -65,7 +65,7 @@ final class DescribeAlarmsForMetricRequestOps(val self: DescribeAlarmsForMetricR
 
   final def periodAsScala: Option[Int] = Option(self.period) // Int
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // String
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
 
 }
 

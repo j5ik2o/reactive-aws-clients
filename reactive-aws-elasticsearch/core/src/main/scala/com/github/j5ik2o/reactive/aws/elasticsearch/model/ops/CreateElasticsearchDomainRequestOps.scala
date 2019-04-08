@@ -83,7 +83,7 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
   ): CreateElasticsearchDomainRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logPublishingOptions(v.asJava)
-    } // Map[String, LogPublishingOption]
+    } // Map[LogType, LogPublishingOption]
   }
 
 }
@@ -120,7 +120,7 @@ final class CreateElasticsearchDomainRequestOps(val self: CreateElasticsearchDom
   final def logPublishingOptionsAsScala: Option[Map[LogType, LogPublishingOption]] =
     Option(self.logPublishingOptions).map { v =>
       import scala.collection.JavaConverters._; v.asScala.toMap
-    } // Map[String, LogPublishingOption]
+    } // Map[LogType, LogPublishingOption]
 
 }
 

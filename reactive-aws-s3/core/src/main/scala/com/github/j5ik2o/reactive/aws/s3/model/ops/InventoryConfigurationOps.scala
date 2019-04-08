@@ -35,12 +35,12 @@ final class InventoryConfigurationBuilderOps(val self: InventoryConfiguration.Bu
     value.fold(self) { v =>
       self.includedObjectVersions(v)
     }
-  } // String
+  } // InventoryIncludedObjectVersions
 
   final def optionalFieldsAsScala(value: Option[Seq[InventoryOptionalField]]): InventoryConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.optionalFields(v.asJava)
-    } // Seq[String]
+    } // Seq[InventoryOptionalField]
   }
 
   final def scheduleAsScala(value: Option[InventorySchedule]): InventoryConfiguration.Builder = {
@@ -62,11 +62,11 @@ final class InventoryConfigurationOps(val self: InventoryConfiguration) extends 
   final def idAsScala: Option[String] = Option(self.id) // String
 
   final def includedObjectVersionsAsScala: Option[InventoryIncludedObjectVersions] =
-    Option(self.includedObjectVersions) // String
+    Option(self.includedObjectVersions) // InventoryIncludedObjectVersions
 
   final def optionalFieldsAsScala: Option[Seq[InventoryOptionalField]] = Option(self.optionalFields).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[InventoryOptionalField]
 
   final def scheduleAsScala: Option[InventorySchedule] = Option(self.schedule) // InventorySchedule
 

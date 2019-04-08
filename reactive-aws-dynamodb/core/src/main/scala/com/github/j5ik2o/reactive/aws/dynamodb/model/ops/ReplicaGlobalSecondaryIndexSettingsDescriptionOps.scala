@@ -17,7 +17,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     value.fold(self) { v =>
       self.indexStatus(v)
     }
-  } // String
+  } // IndexStatus
 
   final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
@@ -58,7 +58,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionOps(val self: ReplicaG
 
   final def indexNameAsScala: Option[String] = Option(self.indexName) // String
 
-  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus) // String
+  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus) // IndexStatus
 
   final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits) // Long
 

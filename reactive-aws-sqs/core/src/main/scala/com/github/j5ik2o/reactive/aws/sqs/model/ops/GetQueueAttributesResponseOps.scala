@@ -8,7 +8,7 @@ final class GetQueueAttributesResponseBuilderOps(val self: GetQueueAttributesRes
   final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): GetQueueAttributesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
-    } // Map[String, String]
+    } // Map[QueueAttributeName, String]
   }
 
 }
@@ -17,7 +17,7 @@ final class GetQueueAttributesResponseOps(val self: GetQueueAttributesResponse) 
 
   final def attributesAsScala: Option[Map[QueueAttributeName, String]] = Option(self.attributes).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  } // Map[QueueAttributeName, String]
 
 }
 

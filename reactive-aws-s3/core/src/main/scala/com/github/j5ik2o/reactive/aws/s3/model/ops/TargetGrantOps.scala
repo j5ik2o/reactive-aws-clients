@@ -15,7 +15,7 @@ final class TargetGrantBuilderOps(val self: TargetGrant.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.permission(v)
     }
-  } // String
+  } // BucketLogsPermission
 
 }
 
@@ -23,7 +23,7 @@ final class TargetGrantOps(val self: TargetGrant) extends AnyVal {
 
   final def granteeAsScala: Option[Grantee] = Option(self.grantee) // Grantee
 
-  final def permissionAsScala: Option[BucketLogsPermission] = Option(self.permission) // String
+  final def permissionAsScala: Option[BucketLogsPermission] = Option(self.permission) // BucketLogsPermission
 
 }
 

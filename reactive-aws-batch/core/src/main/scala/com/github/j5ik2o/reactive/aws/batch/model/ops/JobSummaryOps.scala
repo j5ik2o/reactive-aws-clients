@@ -27,7 +27,7 @@ final class JobSummaryBuilderOps(val self: JobSummary.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // JobStatus
 
   final def statusReasonAsScala(value: Option[String]): JobSummary.Builder = {
     value.fold(self) { v =>
@@ -75,7 +75,7 @@ final class JobSummaryOps(val self: JobSummary) extends AnyVal {
 
   final def createdAtAsScala: Option[Long] = Option(self.createdAt) // Long
 
-  final def statusAsScala: Option[JobStatus] = Option(self.status) // String
+  final def statusAsScala: Option[JobStatus] = Option(self.status) // JobStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 

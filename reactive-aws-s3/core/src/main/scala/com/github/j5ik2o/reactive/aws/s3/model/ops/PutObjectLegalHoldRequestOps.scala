@@ -27,7 +27,7 @@ final class PutObjectLegalHoldRequestBuilderOps(val self: PutObjectLegalHoldRequ
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def versionIdAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class PutObjectLegalHoldRequestOps(val self: PutObjectLegalHoldRequest) ex
 
   final def legalHoldAsScala: Option[ObjectLockLegalHold] = Option(self.legalHold) // ObjectLockLegalHold
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 

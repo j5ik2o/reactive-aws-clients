@@ -9,21 +9,21 @@ final class StackDriftInformationSummaryBuilderOps(val self: StackDriftInformati
     value.fold(self) { v =>
       self.stackDriftStatus(v)
     }
-  } // String
+  } // StackDriftStatus
 
   final def lastCheckTimestampAsScala(value: Option[java.time.Instant]): StackDriftInformationSummary.Builder = {
     value.fold(self) { v =>
       self.lastCheckTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
 final class StackDriftInformationSummaryOps(val self: StackDriftInformationSummary) extends AnyVal {
 
-  final def stackDriftStatusAsScala: Option[StackDriftStatus] = Option(self.stackDriftStatus) // String
+  final def stackDriftStatusAsScala: Option[StackDriftStatus] = Option(self.stackDriftStatus) // StackDriftStatus
 
-  final def lastCheckTimestampAsScala: Option[java.time.Instant] = Option(self.lastCheckTimestamp) // Instant
+  final def lastCheckTimestampAsScala: Option[java.time.Instant] = Option(self.lastCheckTimestamp) // java.time.Instant
 
 }
 

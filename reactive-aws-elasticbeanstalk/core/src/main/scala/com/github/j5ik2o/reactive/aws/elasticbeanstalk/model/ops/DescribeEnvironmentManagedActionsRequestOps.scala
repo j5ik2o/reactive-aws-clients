@@ -23,7 +23,7 @@ final class DescribeEnvironmentManagedActionsRequestBuilderOps(
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ActionStatus
 
 }
 
@@ -34,7 +34,7 @@ final class DescribeEnvironmentManagedActionsRequestOps(val self: DescribeEnviro
 
   final def environmentIdAsScala: Option[String] = Option(self.environmentId) // String
 
-  final def statusAsScala: Option[ActionStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ActionStatus] = Option(self.status) // ActionStatus
 
 }
 

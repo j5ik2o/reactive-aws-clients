@@ -15,7 +15,7 @@ final class CreateFunctionRequestBuilderOps(val self: CreateFunctionRequest.Buil
     value.fold(self) { v =>
       self.runtime(v)
     }
-  } // String
+  } // Runtime
 
   final def roleAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
@@ -107,7 +107,7 @@ final class CreateFunctionRequestOps(val self: CreateFunctionRequest) extends An
 
   final def functionNameAsScala: Option[String] = Option(self.functionName) // String
 
-  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // String
+  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // Runtime
 
   final def roleAsScala: Option[String] = Option(self.role) // String
 

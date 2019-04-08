@@ -15,7 +15,7 @@ final class BatchGetItemRequestBuilderOps(val self: BatchGetItemRequest.Builder)
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
 }
 
@@ -26,7 +26,7 @@ final class BatchGetItemRequestOps(val self: BatchGetItemRequest) extends AnyVal
   } // Map[String, KeysAndAttributes]
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
 }
 

@@ -21,7 +21,7 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
     value.fold(self) { v =>
       self.streamStatus(v)
     }
-  } // String
+  } // StreamStatus
 
   final def shardsAsScala(value: Option[Seq[Shard]]): StreamDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -45,7 +45,7 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def enhancedMonitoringAsScala(value: Option[Seq[EnhancedMetrics]]): StreamDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -57,7 +57,7 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  } // EncryptionType
 
   final def keyIdAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
@@ -73,7 +73,7 @@ final class StreamDescriptionOps(val self: StreamDescription) extends AnyVal {
 
   final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
 
-  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // String
+  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // StreamStatus
 
   final def shardsAsScala: Option[Seq[Shard]] = Option(self.shards).map { v =>
     import scala.collection.JavaConverters._; v.asScala
@@ -83,13 +83,14 @@ final class StreamDescriptionOps(val self: StreamDescription) extends AnyVal {
 
   final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours) // Int
 
-  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp) // Instant
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] =
+    Option(self.streamCreationTimestamp) // java.time.Instant
 
   final def enhancedMonitoringAsScala: Option[Seq[EnhancedMetrics]] = Option(self.enhancedMonitoring).map { v =>
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[EnhancedMetrics]
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // EncryptionType
 
   final def keyIdAsScala: Option[String] = Option(self.keyId) // String
 

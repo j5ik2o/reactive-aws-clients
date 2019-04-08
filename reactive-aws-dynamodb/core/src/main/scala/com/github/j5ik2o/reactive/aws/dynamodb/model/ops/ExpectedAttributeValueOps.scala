@@ -21,7 +21,7 @@ final class ExpectedAttributeValueBuilderOps(val self: ExpectedAttributeValue.Bu
     value.fold(self) { v =>
       self.comparisonOperator(v)
     }
-  } // String
+  } // ComparisonOperator
 
   final def attributeValueListAsScala(value: Option[Seq[AttributeValue]]): ExpectedAttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -37,7 +37,8 @@ final class ExpectedAttributeValueOps(val self: ExpectedAttributeValue) extends 
 
   final def existsAsScala: Option[Boolean] = Option(self.exists) // Boolean
 
-  final def comparisonOperatorAsScala: Option[ComparisonOperator] = Option(self.comparisonOperator) // String
+  final def comparisonOperatorAsScala: Option[ComparisonOperator] =
+    Option(self.comparisonOperator) // ComparisonOperator
 
   final def attributeValueListAsScala: Option[Seq[AttributeValue]] = Option(self.attributeValueList).map { v =>
     import scala.collection.JavaConverters._; v.asScala

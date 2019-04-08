@@ -59,13 +59,13 @@ final class StackResourceDriftBuilderOps(val self: StackResourceDrift.Builder) e
     value.fold(self) { v =>
       self.stackResourceDriftStatus(v)
     }
-  } // String
+  } // StackResourceDriftStatus
 
   final def timestampAsScala(value: Option[java.time.Instant]): StackResourceDrift.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -93,9 +93,9 @@ final class StackResourceDriftOps(val self: StackResourceDrift) extends AnyVal {
   } // Seq[PropertyDifference]
 
   final def stackResourceDriftStatusAsScala: Option[StackResourceDriftStatus] =
-    Option(self.stackResourceDriftStatus) // String
+    Option(self.stackResourceDriftStatus) // StackResourceDriftStatus
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
 
 }
 

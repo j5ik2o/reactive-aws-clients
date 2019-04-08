@@ -9,7 +9,7 @@ final class StreamRecordBuilderOps(val self: StreamRecord.Builder) extends AnyVa
     value.fold(self) { v =>
       self.approximateCreationDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def keysAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -45,14 +45,14 @@ final class StreamRecordBuilderOps(val self: StreamRecord.Builder) extends AnyVa
     value.fold(self) { v =>
       self.streamViewType(v)
     }
-  } // String
+  } // StreamViewType
 
 }
 
 final class StreamRecordOps(val self: StreamRecord) extends AnyVal {
 
   final def approximateCreationDateTimeAsScala: Option[java.time.Instant] =
-    Option(self.approximateCreationDateTime) // Instant
+    Option(self.approximateCreationDateTime) // java.time.Instant
 
   final def keysAsScala: Option[Map[String, AttributeValue]] = Option(self.keys).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
@@ -70,7 +70,7 @@ final class StreamRecordOps(val self: StreamRecord) extends AnyVal {
 
   final def sizeBytesAsScala: Option[Long] = Option(self.sizeBytes) // Long
 
-  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // String
+  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // StreamViewType
 
 }
 

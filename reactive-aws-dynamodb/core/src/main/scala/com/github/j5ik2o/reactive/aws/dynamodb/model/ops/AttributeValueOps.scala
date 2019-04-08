@@ -21,7 +21,7 @@ final class AttributeValueBuilderOps(val self: AttributeValue.Builder) extends A
     value.fold(self) { v =>
       self.b(v)
     }
-  } // SdkBytes
+  } // software.amazon.awssdk.core.SdkBytes
 
   final def ssAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -38,7 +38,7 @@ final class AttributeValueBuilderOps(val self: AttributeValue.Builder) extends A
   final def bsAsScala(value: Option[Seq[software.amazon.awssdk.core.SdkBytes]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.bs(v.asJava)
-    } // Seq[SdkBytes]
+    } // Seq[software.amazon.awssdk.core.SdkBytes]
   }
 
   final def mAsScala(value: Option[Map[String, AttributeValue]]): AttributeValue.Builder = {
@@ -73,7 +73,8 @@ final class AttributeValueOps(val self: AttributeValue) extends AnyVal {
 
   final def nAsScala: Option[String] = Option(self.n) // String
 
-  final def bAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.b) // SdkBytes
+  final def bAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
+    Option(self.b) // software.amazon.awssdk.core.SdkBytes
 
   final def ssAsScala: Option[Seq[String]] = Option(self.ss).map { v =>
     import scala.collection.JavaConverters._; v.asScala
@@ -85,7 +86,7 @@ final class AttributeValueOps(val self: AttributeValue) extends AnyVal {
 
   final def bsAsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.bs).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[SdkBytes]
+  } // Seq[software.amazon.awssdk.core.SdkBytes]
 
   final def mAsScala: Option[Map[String, AttributeValue]] = Option(self.m).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap

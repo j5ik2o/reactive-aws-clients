@@ -15,7 +15,7 @@ final class RegisterJobDefinitionRequestBuilderOps(val self: RegisterJobDefiniti
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // JobDefinitionType
 
   final def parametersAsScala(value: Option[Map[String, String]]): RegisterJobDefinitionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -53,7 +53,7 @@ final class RegisterJobDefinitionRequestOps(val self: RegisterJobDefinitionReque
 
   final def jobDefinitionNameAsScala: Option[String] = Option(self.jobDefinitionName) // String
 
-  final def typeAsScala: Option[JobDefinitionType] = Option(self.`type`) // String
+  final def typeAsScala: Option[JobDefinitionType] = Option(self.`type`) // JobDefinitionType
 
   final def parametersAsScala: Option[Map[String, String]] = Option(self.parameters).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap

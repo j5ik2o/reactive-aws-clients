@@ -22,7 +22,7 @@ final class GetFunctionConfigurationResponseBuilderOps(val self: GetFunctionConf
     value.fold(self) { v =>
       self.runtime(v)
     }
-  } // String
+  } // Runtime
 
   final def roleAsScala(value: Option[String]): GetFunctionConfigurationResponse.Builder = {
     value.fold(self) { v =>
@@ -134,7 +134,7 @@ final class GetFunctionConfigurationResponseOps(val self: GetFunctionConfigurati
 
   final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
 
-  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // String
+  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // Runtime
 
   final def roleAsScala: Option[String] = Option(self.role) // String
 

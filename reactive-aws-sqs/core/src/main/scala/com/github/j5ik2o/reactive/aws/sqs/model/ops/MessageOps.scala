@@ -32,7 +32,7 @@ final class MessageBuilderOps(val self: Message.Builder) extends AnyVal {
   final def attributesAsScala(value: Option[Map[MessageSystemAttributeName, String]]): Message.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
-    } // Map[String, String]
+    } // Map[MessageSystemAttributeName, String]
   }
 
   final def md5OfMessageAttributesAsScala(value: Option[String]): Message.Builder = {
@@ -61,7 +61,7 @@ final class MessageOps(val self: Message) extends AnyVal {
 
   final def attributesAsScala: Option[Map[MessageSystemAttributeName, String]] = Option(self.attributes).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  } // Map[MessageSystemAttributeName, String]
 
   final def md5OfMessageAttributesAsScala: Option[String] = Option(self.md5OfMessageAttributes) // String
 

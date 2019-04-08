@@ -27,7 +27,7 @@ final class SignalResourceRequestBuilderOps(val self: SignalResourceRequest.Buil
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ResourceSignalStatus
 
 }
 
@@ -39,7 +39,7 @@ final class SignalResourceRequestOps(val self: SignalResourceRequest) extends An
 
   final def uniqueIdAsScala: Option[String] = Option(self.uniqueId) // String
 
-  final def statusAsScala: Option[ResourceSignalStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ResourceSignalStatus] = Option(self.status) // ResourceSignalStatus
 
 }
 

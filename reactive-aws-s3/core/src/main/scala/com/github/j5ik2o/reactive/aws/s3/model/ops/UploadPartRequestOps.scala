@@ -63,7 +63,7 @@ final class UploadPartRequestBuilderOps(val self: UploadPartRequest.Builder) ext
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -87,7 +87,7 @@ final class UploadPartRequestOps(val self: UploadPartRequest) extends AnyVal {
 
   final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

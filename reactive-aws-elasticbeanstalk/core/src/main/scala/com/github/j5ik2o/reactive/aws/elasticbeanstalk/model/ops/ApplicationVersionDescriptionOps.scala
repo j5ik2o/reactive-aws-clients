@@ -53,19 +53,19 @@ final class ApplicationVersionDescriptionBuilderOps(val self: ApplicationVersion
     value.fold(self) { v =>
       self.dateCreated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): ApplicationVersionDescription.Builder = {
     value.fold(self) { v =>
       self.dateUpdated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def statusAsScala(value: Option[ApplicationVersionStatus]): ApplicationVersionDescription.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ApplicationVersionStatus
 
 }
 
@@ -86,11 +86,11 @@ final class ApplicationVersionDescriptionOps(val self: ApplicationVersionDescrip
 
   final def sourceBundleAsScala: Option[S3Location] = Option(self.sourceBundle) // S3Location
 
-  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // Instant
+  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // java.time.Instant
 
-  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // Instant
+  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // java.time.Instant
 
-  final def statusAsScala: Option[ApplicationVersionStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ApplicationVersionStatus] = Option(self.status) // ApplicationVersionStatus
 
 }
 

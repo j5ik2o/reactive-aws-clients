@@ -21,19 +21,19 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
     value.fold(self) { v =>
       self.streamStatus(v)
     }
-  } // String
+  } // StreamStatus
 
   final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamViewType(v)
     }
-  } // String
+  } // StreamViewType
 
   final def creationRequestDateTimeAsScala(value: Option[java.time.Instant]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.creationRequestDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def tableNameAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
@@ -67,11 +67,12 @@ final class StreamDescriptionOps(val self: StreamDescription) extends AnyVal {
 
   final def streamLabelAsScala: Option[String] = Option(self.streamLabel) // String
 
-  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // String
+  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // StreamStatus
 
-  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // String
+  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // StreamViewType
 
-  final def creationRequestDateTimeAsScala: Option[java.time.Instant] = Option(self.creationRequestDateTime) // Instant
+  final def creationRequestDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.creationRequestDateTime) // java.time.Instant
 
   final def tableNameAsScala: Option[String] = Option(self.tableName) // String
 

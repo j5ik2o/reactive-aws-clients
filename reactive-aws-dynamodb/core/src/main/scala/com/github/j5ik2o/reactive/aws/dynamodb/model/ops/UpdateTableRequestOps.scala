@@ -21,7 +21,7 @@ final class UpdateTableRequestBuilderOps(val self: UpdateTableRequest.Builder) e
     value.fold(self) { v =>
       self.billingMode(v)
     }
-  } // String
+  } // BillingMode
 
   final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): UpdateTableRequest.Builder = {
     value.fold(self) { v =>
@@ -59,7 +59,7 @@ final class UpdateTableRequestOps(val self: UpdateTableRequest) extends AnyVal {
 
   final def tableNameAsScala: Option[String] = Option(self.tableName) // String
 
-  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // String
+  final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode) // BillingMode
 
   final def provisionedThroughputAsScala: Option[ProvisionedThroughput] =
     Option(self.provisionedThroughput) // ProvisionedThroughput

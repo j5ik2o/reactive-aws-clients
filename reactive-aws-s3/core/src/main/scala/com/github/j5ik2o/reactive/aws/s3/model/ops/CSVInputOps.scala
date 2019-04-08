@@ -9,7 +9,7 @@ final class CSVInputBuilderOps(val self: CSVInput.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.fileHeaderInfo(v)
     }
-  } // String
+  } // FileHeaderInfo
 
   final def commentsAsScala(value: Option[String]): CSVInput.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class CSVInputBuilderOps(val self: CSVInput.Builder) extends AnyVal {
 
 final class CSVInputOps(val self: CSVInput) extends AnyVal {
 
-  final def fileHeaderInfoAsScala: Option[FileHeaderInfo] = Option(self.fileHeaderInfo) // String
+  final def fileHeaderInfoAsScala: Option[FileHeaderInfo] = Option(self.fileHeaderInfo) // FileHeaderInfo
 
   final def commentsAsScala: Option[String] = Option(self.comments) // String
 

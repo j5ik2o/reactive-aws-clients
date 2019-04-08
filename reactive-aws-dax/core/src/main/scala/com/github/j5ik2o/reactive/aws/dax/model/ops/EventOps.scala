@@ -15,7 +15,7 @@ final class EventBuilderOps(val self: Event.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.sourceType(v)
     }
-  } // String
+  } // SourceType
 
   final def messageAsScala(value: Option[String]): Event.Builder = {
     value.fold(self) { v =>
@@ -27,7 +27,7 @@ final class EventBuilderOps(val self: Event.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.date(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -35,11 +35,11 @@ final class EventOps(val self: Event) extends AnyVal {
 
   final def sourceNameAsScala: Option[String] = Option(self.sourceName) // String
 
-  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // String
+  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // SourceType
 
   final def messageAsScala: Option[String] = Option(self.message) // String
 
-  final def dateAsScala: Option[java.time.Instant] = Option(self.date) // Instant
+  final def dateAsScala: Option[java.time.Instant] = Option(self.date) // java.time.Instant
 
 }
 

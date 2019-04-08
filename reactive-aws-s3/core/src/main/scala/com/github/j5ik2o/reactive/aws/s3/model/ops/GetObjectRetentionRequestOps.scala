@@ -27,7 +27,7 @@ final class GetObjectRetentionRequestBuilderOps(val self: GetObjectRetentionRequ
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -39,7 +39,7 @@ final class GetObjectRetentionRequestOps(val self: GetObjectRetentionRequest) ex
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

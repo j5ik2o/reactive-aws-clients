@@ -9,7 +9,7 @@ final class CSVOutputBuilderOps(val self: CSVOutput.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.quoteFields(v)
     }
-  } // String
+  } // QuoteFields
 
   final def quoteEscapeCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
@@ -39,7 +39,7 @@ final class CSVOutputBuilderOps(val self: CSVOutput.Builder) extends AnyVal {
 
 final class CSVOutputOps(val self: CSVOutput) extends AnyVal {
 
-  final def quoteFieldsAsScala: Option[QuoteFields] = Option(self.quoteFields) // String
+  final def quoteFieldsAsScala: Option[QuoteFields] = Option(self.quoteFields) // QuoteFields
 
   final def quoteEscapeCharacterAsScala: Option[String] = Option(self.quoteEscapeCharacter) // String
 

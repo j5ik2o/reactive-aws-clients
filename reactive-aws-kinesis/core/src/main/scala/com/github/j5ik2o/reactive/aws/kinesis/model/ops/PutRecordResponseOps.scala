@@ -21,7 +21,7 @@ final class PutRecordResponseBuilderOps(val self: PutRecordResponse.Builder) ext
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  } // EncryptionType
 
 }
 
@@ -31,7 +31,7 @@ final class PutRecordResponseOps(val self: PutRecordResponse) extends AnyVal {
 
   final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber) // String
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // EncryptionType
 
 }
 

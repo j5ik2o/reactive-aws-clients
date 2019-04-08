@@ -21,7 +21,7 @@ final class RedirectBuilderOps(val self: Redirect.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.protocol(v)
     }
-  } // String
+  } // Protocol
 
   final def replaceKeyPrefixWithAsScala(value: Option[String]): Redirect.Builder = {
     value.fold(self) { v =>
@@ -43,7 +43,7 @@ final class RedirectOps(val self: Redirect) extends AnyVal {
 
   final def httpRedirectCodeAsScala: Option[String] = Option(self.httpRedirectCode) // String
 
-  final def protocolAsScala: Option[Protocol] = Option(self.protocol) // String
+  final def protocolAsScala: Option[Protocol] = Option(self.protocol) // Protocol
 
   final def replaceKeyPrefixWithAsScala: Option[String] = Option(self.replaceKeyPrefixWith) // String
 

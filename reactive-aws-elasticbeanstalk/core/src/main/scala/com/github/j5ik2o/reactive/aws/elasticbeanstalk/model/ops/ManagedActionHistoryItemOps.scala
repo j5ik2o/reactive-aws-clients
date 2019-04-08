@@ -15,7 +15,7 @@ final class ManagedActionHistoryItemBuilderOps(val self: ManagedActionHistoryIte
     value.fold(self) { v =>
       self.actionType(v)
     }
-  } // String
+  } // ActionType
 
   final def actionDescriptionAsScala(value: Option[String]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
@@ -27,13 +27,13 @@ final class ManagedActionHistoryItemBuilderOps(val self: ManagedActionHistoryIte
     value.fold(self) { v =>
       self.failureType(v)
     }
-  } // String
+  } // FailureType
 
   final def statusAsScala(value: Option[ActionHistoryStatus]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ActionHistoryStatus
 
   final def failureDescriptionAsScala(value: Option[String]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
@@ -45,13 +45,13 @@ final class ManagedActionHistoryItemBuilderOps(val self: ManagedActionHistoryIte
     value.fold(self) { v =>
       self.executedTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def finishedTimeAsScala(value: Option[java.time.Instant]): ManagedActionHistoryItem.Builder = {
     value.fold(self) { v =>
       self.finishedTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -59,19 +59,19 @@ final class ManagedActionHistoryItemOps(val self: ManagedActionHistoryItem) exte
 
   final def actionIdAsScala: Option[String] = Option(self.actionId) // String
 
-  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // String
+  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // ActionType
 
   final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription) // String
 
-  final def failureTypeAsScala: Option[FailureType] = Option(self.failureType) // String
+  final def failureTypeAsScala: Option[FailureType] = Option(self.failureType) // FailureType
 
-  final def statusAsScala: Option[ActionHistoryStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ActionHistoryStatus] = Option(self.status) // ActionHistoryStatus
 
   final def failureDescriptionAsScala: Option[String] = Option(self.failureDescription) // String
 
-  final def executedTimeAsScala: Option[java.time.Instant] = Option(self.executedTime) // Instant
+  final def executedTimeAsScala: Option[java.time.Instant] = Option(self.executedTime) // java.time.Instant
 
-  final def finishedTimeAsScala: Option[java.time.Instant] = Option(self.finishedTime) // Instant
+  final def finishedTimeAsScala: Option[java.time.Instant] = Option(self.finishedTime) // java.time.Instant
 
 }
 

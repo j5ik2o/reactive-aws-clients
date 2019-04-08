@@ -39,13 +39,13 @@ final class StackResourceDetailBuilderOps(val self: StackResourceDetail.Builder)
     value.fold(self) { v =>
       self.lastUpdatedTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def resourceStatusAsScala(value: Option[ResourceStatus]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
       self.resourceStatus(v)
     }
-  } // String
+  } // ResourceStatus
 
   final def resourceStatusReasonAsScala(value: Option[String]): StackResourceDetail.Builder = {
     value.fold(self) { v =>
@@ -85,9 +85,10 @@ final class StackResourceDetailOps(val self: StackResourceDetail) extends AnyVal
 
   final def resourceTypeAsScala: Option[String] = Option(self.resourceType) // String
 
-  final def lastUpdatedTimestampAsScala: Option[java.time.Instant] = Option(self.lastUpdatedTimestamp) // Instant
+  final def lastUpdatedTimestampAsScala: Option[java.time.Instant] =
+    Option(self.lastUpdatedTimestamp) // java.time.Instant
 
-  final def resourceStatusAsScala: Option[ResourceStatus] = Option(self.resourceStatus) // String
+  final def resourceStatusAsScala: Option[ResourceStatus] = Option(self.resourceStatus) // ResourceStatus
 
   final def resourceStatusReasonAsScala: Option[String] = Option(self.resourceStatusReason) // String
 

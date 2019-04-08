@@ -15,7 +15,7 @@ final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescri
     value.fold(self) { v =>
       self.replicaStatus(v)
     }
-  } // String
+  } // ReplicaStatus
 
   final def replicaBillingModeSummaryAsScala(value: Option[BillingModeSummary]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
@@ -65,7 +65,7 @@ final class ReplicaSettingsDescriptionOps(val self: ReplicaSettingsDescription) 
 
   final def regionNameAsScala: Option[String] = Option(self.regionName) // String
 
-  final def replicaStatusAsScala: Option[ReplicaStatus] = Option(self.replicaStatus) // String
+  final def replicaStatusAsScala: Option[ReplicaStatus] = Option(self.replicaStatus) // ReplicaStatus
 
   final def replicaBillingModeSummaryAsScala: Option[BillingModeSummary] =
     Option(self.replicaBillingModeSummary) // BillingModeSummary

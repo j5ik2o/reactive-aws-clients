@@ -15,7 +15,7 @@ final class EnableEnhancedMonitoringRequestBuilderOps(val self: EnableEnhancedMo
   final def shardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): EnableEnhancedMonitoringRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shardLevelMetrics(v.asJava)
-    } // Seq[String]
+    } // Seq[MetricsName]
   }
 
 }
@@ -26,7 +26,7 @@ final class EnableEnhancedMonitoringRequestOps(val self: EnableEnhancedMonitorin
 
   final def shardLevelMetricsAsScala: Option[Seq[MetricsName]] = Option(self.shardLevelMetrics).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[MetricsName]
 
 }
 

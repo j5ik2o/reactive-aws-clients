@@ -27,7 +27,7 @@ final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.cannedACL(v)
     }
-  } // String
+  } // ObjectCannedACL
 
   final def accessControlListAsScala(value: Option[Seq[Grant]]): S3Location.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -51,7 +51,7 @@ final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
 }
 
@@ -63,7 +63,7 @@ final class S3LocationOps(val self: S3Location) extends AnyVal {
 
   final def encryptionAsScala: Option[Encryption] = Option(self.encryption) // Encryption
 
-  final def cannedACLAsScala: Option[ObjectCannedACL] = Option(self.cannedACL) // String
+  final def cannedACLAsScala: Option[ObjectCannedACL] = Option(self.cannedACL) // ObjectCannedACL
 
   final def accessControlListAsScala: Option[Seq[Grant]] = Option(self.accessControlList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
@@ -75,7 +75,7 @@ final class S3LocationOps(val self: S3Location) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[MetadataEntry]
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
 }
 

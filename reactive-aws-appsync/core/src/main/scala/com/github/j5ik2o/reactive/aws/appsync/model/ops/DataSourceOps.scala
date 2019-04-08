@@ -27,7 +27,7 @@ final class DataSourceBuilderOps(val self: DataSource.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // DataSourceType
 
   final def serviceRoleArnAsScala(value: Option[String]): DataSource.Builder = {
     value.fold(self) { v =>
@@ -75,7 +75,7 @@ final class DataSourceOps(val self: DataSource) extends AnyVal {
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def typeAsScala: Option[DataSourceType] = Option(self.`type`) // String
+  final def typeAsScala: Option[DataSourceType] = Option(self.`type`) // DataSourceType
 
   final def serviceRoleArnAsScala: Option[String] = Option(self.serviceRoleArn) // String
 

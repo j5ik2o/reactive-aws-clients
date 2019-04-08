@@ -17,7 +17,7 @@ final class StartSchemaCreationRequestBuilderOps(val self: StartSchemaCreationRe
     value.fold(self) { v =>
       self.definition(v)
     }
-  } // SdkBytes
+  } // software.amazon.awssdk.core.SdkBytes
 
 }
 
@@ -25,7 +25,8 @@ final class StartSchemaCreationRequestOps(val self: StartSchemaCreationRequest) 
 
   final def apiIdAsScala: Option[String] = Option(self.apiId) // String
 
-  final def definitionAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.definition) // SdkBytes
+  final def definitionAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
+    Option(self.definition) // software.amazon.awssdk.core.SdkBytes
 
 }
 

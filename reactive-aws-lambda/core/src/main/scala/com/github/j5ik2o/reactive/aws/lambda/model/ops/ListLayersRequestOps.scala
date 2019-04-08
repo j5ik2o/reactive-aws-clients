@@ -9,7 +9,7 @@ final class ListLayersRequestBuilderOps(val self: ListLayersRequest.Builder) ext
     value.fold(self) { v =>
       self.compatibleRuntime(v)
     }
-  } // String
+  } // Runtime
 
   final def markerAsScala(value: Option[String]): ListLayersRequest.Builder = {
     value.fold(self) { v =>
@@ -27,7 +27,7 @@ final class ListLayersRequestBuilderOps(val self: ListLayersRequest.Builder) ext
 
 final class ListLayersRequestOps(val self: ListLayersRequest) extends AnyVal {
 
-  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime) // String
+  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime) // Runtime
 
   final def markerAsScala: Option[String] = Option(self.marker) // String
 

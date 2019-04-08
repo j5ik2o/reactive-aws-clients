@@ -27,7 +27,7 @@ final class PropertyDifferenceBuilderOps(val self: PropertyDifference.Builder) e
     value.fold(self) { v =>
       self.differenceType(v)
     }
-  } // String
+  } // DifferenceType
 
 }
 
@@ -39,7 +39,7 @@ final class PropertyDifferenceOps(val self: PropertyDifference) extends AnyVal {
 
   final def actualValueAsScala: Option[String] = Option(self.actualValue) // String
 
-  final def differenceTypeAsScala: Option[DifferenceType] = Option(self.differenceType) // String
+  final def differenceTypeAsScala: Option[DifferenceType] = Option(self.differenceType) // DifferenceType
 
 }
 

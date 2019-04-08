@@ -27,7 +27,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.alarmConfigurationUpdatedTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def actionsEnabledAsScala(value: Option[Boolean]): MetricAlarm.Builder = {
     value.fold(self) { v =>
@@ -57,7 +57,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.stateValue(v)
     }
-  } // String
+  } // StateValue
 
   final def stateReasonAsScala(value: Option[String]): MetricAlarm.Builder = {
     value.fold(self) { v =>
@@ -75,7 +75,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.stateUpdatedTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def metricNameAsScala(value: Option[String]): MetricAlarm.Builder = {
     value.fold(self) { v =>
@@ -93,7 +93,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.statistic(v)
     }
-  } // String
+  } // Statistic
 
   final def extendedStatisticAsScala(value: Option[String]): MetricAlarm.Builder = {
     value.fold(self) { v =>
@@ -117,7 +117,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // String
+  } // StandardUnit
 
   final def evaluationPeriodsAsScala(value: Option[Int]): MetricAlarm.Builder = {
     value.fold(self) { v =>
@@ -141,7 +141,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.comparisonOperator(v)
     }
-  } // String
+  } // ComparisonOperator
 
   final def treatMissingDataAsScala(value: Option[String]): MetricAlarm.Builder = {
     value.fold(self) { v =>
@@ -172,7 +172,7 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
   final def alarmDescriptionAsScala: Option[String] = Option(self.alarmDescription) // String
 
   final def alarmConfigurationUpdatedTimestampAsScala: Option[java.time.Instant] =
-    Option(self.alarmConfigurationUpdatedTimestamp) // Instant
+    Option(self.alarmConfigurationUpdatedTimestamp) // java.time.Instant
 
   final def actionsEnabledAsScala: Option[Boolean] = Option(self.actionsEnabled) // Boolean
 
@@ -188,19 +188,20 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[String]
 
-  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // String
+  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // StateValue
 
   final def stateReasonAsScala: Option[String] = Option(self.stateReason) // String
 
   final def stateReasonDataAsScala: Option[String] = Option(self.stateReasonData) // String
 
-  final def stateUpdatedTimestampAsScala: Option[java.time.Instant] = Option(self.stateUpdatedTimestamp) // Instant
+  final def stateUpdatedTimestampAsScala: Option[java.time.Instant] =
+    Option(self.stateUpdatedTimestamp) // java.time.Instant
 
   final def metricNameAsScala: Option[String] = Option(self.metricName) // String
 
   final def namespaceAsScala: Option[String] = Option(self.namespace) // String
 
-  final def statisticAsScala: Option[Statistic] = Option(self.statistic) // String
+  final def statisticAsScala: Option[Statistic] = Option(self.statistic) // Statistic
 
   final def extendedStatisticAsScala: Option[String] = Option(self.extendedStatistic) // String
 
@@ -210,7 +211,7 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
 
   final def periodAsScala: Option[Int] = Option(self.period) // Int
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // String
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
 
   final def evaluationPeriodsAsScala: Option[Int] = Option(self.evaluationPeriods) // Int
 
@@ -218,7 +219,8 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
 
   final def thresholdAsScala: Option[Double] = Option(self.threshold) // Double
 
-  final def comparisonOperatorAsScala: Option[ComparisonOperator] = Option(self.comparisonOperator) // String
+  final def comparisonOperatorAsScala: Option[ComparisonOperator] =
+    Option(self.comparisonOperator) // ComparisonOperator
 
   final def treatMissingDataAsScala: Option[String] = Option(self.treatMissingData) // String
 

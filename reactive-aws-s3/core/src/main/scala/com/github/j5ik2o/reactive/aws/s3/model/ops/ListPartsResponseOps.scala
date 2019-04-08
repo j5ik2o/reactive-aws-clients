@@ -9,7 +9,7 @@ final class ListPartsResponseBuilderOps(val self: ListPartsResponse.Builder) ext
     value.fold(self) { v =>
       self.abortDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def abortRuleIdAsScala(value: Option[String]): ListPartsResponse.Builder = {
     value.fold(self) { v =>
@@ -81,19 +81,19 @@ final class ListPartsResponseBuilderOps(val self: ListPartsResponse.Builder) ext
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
   final def requestChargedAsScala(value: Option[RequestCharged]): ListPartsResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
 final class ListPartsResponseOps(val self: ListPartsResponse) extends AnyVal {
 
-  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate) // Instant
+  final def abortDateAsScala: Option[java.time.Instant] = Option(self.abortDate) // java.time.Instant
 
   final def abortRuleIdAsScala: Option[String] = Option(self.abortRuleId) // String
 
@@ -119,9 +119,9 @@ final class ListPartsResponseOps(val self: ListPartsResponse) extends AnyVal {
 
   final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

@@ -39,13 +39,13 @@ final class StackResourceBuilderOps(val self: StackResource.Builder) extends Any
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def resourceStatusAsScala(value: Option[ResourceStatus]): StackResource.Builder = {
     value.fold(self) { v =>
       self.resourceStatus(v)
     }
-  } // String
+  } // ResourceStatus
 
   final def resourceStatusReasonAsScala(value: Option[String]): StackResource.Builder = {
     value.fold(self) { v =>
@@ -79,9 +79,9 @@ final class StackResourceOps(val self: StackResource) extends AnyVal {
 
   final def resourceTypeAsScala: Option[String] = Option(self.resourceType) // String
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
 
-  final def resourceStatusAsScala: Option[ResourceStatus] = Option(self.resourceStatus) // String
+  final def resourceStatusAsScala: Option[ResourceStatus] = Option(self.resourceStatus) // ResourceStatus
 
   final def resourceStatusReasonAsScala: Option[String] = Option(self.resourceStatusReason) // String
 

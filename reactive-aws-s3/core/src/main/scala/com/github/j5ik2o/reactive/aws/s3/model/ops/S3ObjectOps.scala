@@ -15,7 +15,7 @@ final class S3ObjectBuilderOps(val self: S3Object.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def eTagAsScala(value: Option[String]): S3Object.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class S3ObjectBuilderOps(val self: S3Object.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // ObjectStorageClass
 
   final def ownerAsScala(value: Option[Owner]): S3Object.Builder = {
     value.fold(self) { v =>
@@ -47,13 +47,13 @@ final class S3ObjectOps(val self: S3Object) extends AnyVal {
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
 
   final def eTagAsScala: Option[String] = Option(self.eTag) // String
 
   final def sizeAsScala: Option[Long] = Option(self.size) // Long
 
-  final def storageClassAsScala: Option[ObjectStorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[ObjectStorageClass] = Option(self.storageClass) // ObjectStorageClass
 
   final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
 

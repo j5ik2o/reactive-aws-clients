@@ -21,7 +21,7 @@ final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.
     value.fold(self) { v =>
       self.authenticationType(v)
     }
-  } // String
+  } // AuthenticationType
 
   final def userPoolConfigAsScala(value: Option[UserPoolConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
@@ -43,7 +43,8 @@ final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extend
 
   final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig) // LogConfig
 
-  final def authenticationTypeAsScala: Option[AuthenticationType] = Option(self.authenticationType) // String
+  final def authenticationTypeAsScala: Option[AuthenticationType] =
+    Option(self.authenticationType) // AuthenticationType
 
   final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig) // UserPoolConfig
 

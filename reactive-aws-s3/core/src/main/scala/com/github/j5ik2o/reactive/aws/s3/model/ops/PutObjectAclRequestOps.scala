@@ -9,7 +9,7 @@ final class PutObjectAclRequestBuilderOps(val self: PutObjectAclRequest.Builder)
     value.fold(self) { v =>
       self.acl(v)
     }
-  } // String
+  } // ObjectCannedACL
 
   final def accessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
@@ -69,7 +69,7 @@ final class PutObjectAclRequestBuilderOps(val self: PutObjectAclRequest.Builder)
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def versionIdAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
@@ -81,7 +81,7 @@ final class PutObjectAclRequestBuilderOps(val self: PutObjectAclRequest.Builder)
 
 final class PutObjectAclRequestOps(val self: PutObjectAclRequest) extends AnyVal {
 
-  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // String
+  final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl) // ObjectCannedACL
 
   final def accessControlPolicyAsScala: Option[AccessControlPolicy] =
     Option(self.accessControlPolicy) // AccessControlPolicy
@@ -102,7 +102,7 @@ final class PutObjectAclRequestOps(val self: PutObjectAclRequest) extends AnyVal
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 

@@ -33,7 +33,7 @@ final class ServiceSoftwareOptionsBuilderOps(val self: ServiceSoftwareOptions.Bu
     value.fold(self) { v =>
       self.updateStatus(v)
     }
-  } // String
+  } // DeploymentStatus
 
   final def descriptionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class ServiceSoftwareOptionsBuilderOps(val self: ServiceSoftwareOptions.Bu
     value.fold(self) { v =>
       self.automatedUpdateDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -59,11 +59,12 @@ final class ServiceSoftwareOptionsOps(val self: ServiceSoftwareOptions) extends 
 
   final def cancellableAsScala: Option[Boolean] = Option(self.cancellable) // Boolean
 
-  final def updateStatusAsScala: Option[DeploymentStatus] = Option(self.updateStatus) // String
+  final def updateStatusAsScala: Option[DeploymentStatus] = Option(self.updateStatus) // DeploymentStatus
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def automatedUpdateDateAsScala: Option[java.time.Instant] = Option(self.automatedUpdateDate) // Instant
+  final def automatedUpdateDateAsScala: Option[java.time.Instant] =
+    Option(self.automatedUpdateDate) // java.time.Instant
 
 }
 

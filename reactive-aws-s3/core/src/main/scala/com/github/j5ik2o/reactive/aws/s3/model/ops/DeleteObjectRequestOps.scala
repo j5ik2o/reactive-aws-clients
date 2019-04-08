@@ -33,7 +33,7 @@ final class DeleteObjectRequestBuilderOps(val self: DeleteObjectRequest.Builder)
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -53,7 +53,7 @@ final class DeleteObjectRequestOps(val self: DeleteObjectRequest) extends AnyVal
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention) // Boolean
 

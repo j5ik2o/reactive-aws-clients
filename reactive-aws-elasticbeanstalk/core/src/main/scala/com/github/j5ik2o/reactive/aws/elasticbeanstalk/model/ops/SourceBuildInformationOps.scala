@@ -9,13 +9,13 @@ final class SourceBuildInformationBuilderOps(val self: SourceBuildInformation.Bu
     value.fold(self) { v =>
       self.sourceType(v)
     }
-  } // String
+  } // SourceType
 
   final def sourceRepositoryAsScala(value: Option[SourceRepository]): SourceBuildInformation.Builder = {
     value.fold(self) { v =>
       self.sourceRepository(v)
     }
-  } // String
+  } // SourceRepository
 
   final def sourceLocationAsScala(value: Option[String]): SourceBuildInformation.Builder = {
     value.fold(self) { v =>
@@ -27,9 +27,9 @@ final class SourceBuildInformationBuilderOps(val self: SourceBuildInformation.Bu
 
 final class SourceBuildInformationOps(val self: SourceBuildInformation) extends AnyVal {
 
-  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // String
+  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // SourceType
 
-  final def sourceRepositoryAsScala: Option[SourceRepository] = Option(self.sourceRepository) // String
+  final def sourceRepositoryAsScala: Option[SourceRepository] = Option(self.sourceRepository) // SourceRepository
 
   final def sourceLocationAsScala: Option[String] = Option(self.sourceLocation) // String
 

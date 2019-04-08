@@ -27,13 +27,13 @@ final class GetMetricStatisticsRequestBuilderOps(val self: GetMetricStatisticsRe
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def endTimeAsScala(value: Option[java.time.Instant]): GetMetricStatisticsRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def periodAsScala(value: Option[Int]): GetMetricStatisticsRequest.Builder = {
     value.fold(self) { v =>
@@ -44,7 +44,7 @@ final class GetMetricStatisticsRequestBuilderOps(val self: GetMetricStatisticsRe
   final def statisticsAsScala(value: Option[Seq[Statistic]]): GetMetricStatisticsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.statistics(v.asJava)
-    } // Seq[String]
+    } // Seq[Statistic]
   }
 
   final def extendedStatisticsAsScala(value: Option[Seq[String]]): GetMetricStatisticsRequest.Builder = {
@@ -57,7 +57,7 @@ final class GetMetricStatisticsRequestBuilderOps(val self: GetMetricStatisticsRe
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // String
+  } // StandardUnit
 
 }
 
@@ -71,21 +71,21 @@ final class GetMetricStatisticsRequestOps(val self: GetMetricStatisticsRequest) 
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[Dimension]
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // java.time.Instant
 
   final def periodAsScala: Option[Int] = Option(self.period) // Int
 
   final def statisticsAsScala: Option[Seq[Statistic]] = Option(self.statistics).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Statistic]
 
   final def extendedStatisticsAsScala: Option[Seq[String]] = Option(self.extendedStatistics).map { v =>
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[String]
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // String
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
 
 }
 

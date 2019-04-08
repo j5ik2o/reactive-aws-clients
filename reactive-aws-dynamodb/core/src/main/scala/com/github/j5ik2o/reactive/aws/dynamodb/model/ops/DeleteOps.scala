@@ -41,7 +41,7 @@ final class DeleteBuilderOps(val self: Delete.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.returnValuesOnConditionCheckFailure(v)
     }
-  } // String
+  } // ReturnValuesOnConditionCheckFailure
 
 }
 
@@ -66,7 +66,7 @@ final class DeleteOps(val self: Delete) extends AnyVal {
     } // Map[String, AttributeValue]
 
   final def returnValuesOnConditionCheckFailureAsScala: Option[ReturnValuesOnConditionCheckFailure] =
-    Option(self.returnValuesOnConditionCheckFailure) // String
+    Option(self.returnValuesOnConditionCheckFailure) // ReturnValuesOnConditionCheckFailure
 
 }
 

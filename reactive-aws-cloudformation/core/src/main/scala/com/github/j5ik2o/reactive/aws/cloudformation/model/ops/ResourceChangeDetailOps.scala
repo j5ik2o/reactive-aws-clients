@@ -15,13 +15,13 @@ final class ResourceChangeDetailBuilderOps(val self: ResourceChangeDetail.Builde
     value.fold(self) { v =>
       self.evaluation(v)
     }
-  } // String
+  } // EvaluationType
 
   final def changeSourceAsScala(value: Option[ChangeSource]): ResourceChangeDetail.Builder = {
     value.fold(self) { v =>
       self.changeSource(v)
     }
-  } // String
+  } // ChangeSource
 
   final def causingEntityAsScala(value: Option[String]): ResourceChangeDetail.Builder = {
     value.fold(self) { v =>
@@ -35,9 +35,9 @@ final class ResourceChangeDetailOps(val self: ResourceChangeDetail) extends AnyV
 
   final def targetAsScala: Option[ResourceTargetDefinition] = Option(self.target) // ResourceTargetDefinition
 
-  final def evaluationAsScala: Option[EvaluationType] = Option(self.evaluation) // String
+  final def evaluationAsScala: Option[EvaluationType] = Option(self.evaluation) // EvaluationType
 
-  final def changeSourceAsScala: Option[ChangeSource] = Option(self.changeSource) // String
+  final def changeSourceAsScala: Option[ChangeSource] = Option(self.changeSource) // ChangeSource
 
   final def causingEntityAsScala: Option[String] = Option(self.causingEntity) // String
 

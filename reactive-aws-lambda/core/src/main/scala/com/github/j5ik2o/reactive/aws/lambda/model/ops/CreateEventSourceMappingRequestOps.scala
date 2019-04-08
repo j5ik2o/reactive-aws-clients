@@ -34,7 +34,7 @@ final class CreateEventSourceMappingRequestBuilderOps(val self: CreateEventSourc
     value.fold(self) { v =>
       self.startingPosition(v)
     }
-  } // String
+  } // EventSourcePosition
 
   final def startingPositionTimestampAsScala(
       value: Option[java.time.Instant]
@@ -42,7 +42,7 @@ final class CreateEventSourceMappingRequestBuilderOps(val self: CreateEventSourc
     value.fold(self) { v =>
       self.startingPositionTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -56,10 +56,10 @@ final class CreateEventSourceMappingRequestOps(val self: CreateEventSourceMappin
 
   final def batchSizeAsScala: Option[Int] = Option(self.batchSize) // Int
 
-  final def startingPositionAsScala: Option[EventSourcePosition] = Option(self.startingPosition) // String
+  final def startingPositionAsScala: Option[EventSourcePosition] = Option(self.startingPosition) // EventSourcePosition
 
   final def startingPositionTimestampAsScala: Option[java.time.Instant] =
-    Option(self.startingPositionTimestamp) // Instant
+    Option(self.startingPositionTimestamp) // java.time.Instant
 
 }
 

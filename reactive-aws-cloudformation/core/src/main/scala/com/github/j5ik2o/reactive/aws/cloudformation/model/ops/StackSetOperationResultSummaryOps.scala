@@ -21,7 +21,7 @@ final class StackSetOperationResultSummaryBuilderOps(val self: StackSetOperation
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // StackSetOperationResultStatus
 
   final def statusReasonAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
     value.fold(self) { v =>
@@ -43,7 +43,7 @@ final class StackSetOperationResultSummaryOps(val self: StackSetOperationResultS
 
   final def regionAsScala: Option[String] = Option(self.region) // String
 
-  final def statusAsScala: Option[StackSetOperationResultStatus] = Option(self.status) // String
+  final def statusAsScala: Option[StackSetOperationResultStatus] = Option(self.status) // StackSetOperationResultStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 

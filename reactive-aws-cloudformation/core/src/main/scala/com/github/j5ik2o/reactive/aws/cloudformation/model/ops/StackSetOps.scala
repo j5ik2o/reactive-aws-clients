@@ -27,7 +27,7 @@ final class StackSetBuilderOps(val self: StackSet.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // StackSetStatus
 
   final def templateBodyAsScala(value: Option[String]): StackSet.Builder = {
     value.fold(self) { v =>
@@ -44,7 +44,7 @@ final class StackSetBuilderOps(val self: StackSet.Builder) extends AnyVal {
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): StackSet.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): StackSet.Builder = {
@@ -81,7 +81,7 @@ final class StackSetOps(val self: StackSet) extends AnyVal {
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // String
+  final def statusAsScala: Option[StackSetStatus] = Option(self.status) // StackSetStatus
 
   final def templateBodyAsScala: Option[String] = Option(self.templateBody) // String
 
@@ -91,7 +91,7 @@ final class StackSetOps(val self: StackSet) extends AnyVal {
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala

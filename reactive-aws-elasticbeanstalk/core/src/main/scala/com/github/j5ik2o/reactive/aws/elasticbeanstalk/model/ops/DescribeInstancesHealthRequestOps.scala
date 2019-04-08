@@ -22,7 +22,7 @@ final class DescribeInstancesHealthRequestBuilderOps(val self: DescribeInstances
   ): DescribeInstancesHealthRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeNames(v.asJava)
-    } // Seq[String]
+    } // Seq[InstancesHealthAttribute]
   }
 
   final def nextTokenAsScala(value: Option[String]): DescribeInstancesHealthRequest.Builder = {
@@ -41,7 +41,7 @@ final class DescribeInstancesHealthRequestOps(val self: DescribeInstancesHealthR
 
   final def attributeNamesAsScala: Option[Seq[InstancesHealthAttribute]] = Option(self.attributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[InstancesHealthAttribute]
 
   final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
 

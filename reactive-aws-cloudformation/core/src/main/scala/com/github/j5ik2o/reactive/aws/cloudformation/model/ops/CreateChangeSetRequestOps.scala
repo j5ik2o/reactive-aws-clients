@@ -38,7 +38,7 @@ final class CreateChangeSetRequestBuilderOps(val self: CreateChangeSetRequest.Bu
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): CreateChangeSetRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def resourceTypesAsScala(value: Option[Seq[String]]): CreateChangeSetRequest.Builder = {
@@ -93,7 +93,7 @@ final class CreateChangeSetRequestBuilderOps(val self: CreateChangeSetRequest.Bu
     value.fold(self) { v =>
       self.changeSetType(v)
     }
-  } // String
+  } // ChangeSetType
 
 }
 
@@ -113,7 +113,7 @@ final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends 
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
@@ -138,7 +138,7 @@ final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends 
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def changeSetTypeAsScala: Option[ChangeSetType] = Option(self.changeSetType) // String
+  final def changeSetTypeAsScala: Option[ChangeSetType] = Option(self.changeSetType) // ChangeSetType
 
 }
 

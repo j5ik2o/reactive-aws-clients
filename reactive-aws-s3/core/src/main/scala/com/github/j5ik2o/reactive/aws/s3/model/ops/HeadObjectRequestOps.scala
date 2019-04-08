@@ -21,7 +21,7 @@ final class HeadObjectRequestBuilderOps(val self: HeadObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.ifModifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def ifNoneMatchAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class HeadObjectRequestBuilderOps(val self: HeadObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.ifUnmodifiedSince(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def keyAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -75,7 +75,7 @@ final class HeadObjectRequestBuilderOps(val self: HeadObjectRequest.Builder) ext
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
   final def partNumberAsScala(value: Option[Int]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
@@ -91,11 +91,11 @@ final class HeadObjectRequestOps(val self: HeadObjectRequest) extends AnyVal {
 
   final def ifMatchAsScala: Option[String] = Option(self.ifMatch) // String
 
-  final def ifModifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifModifiedSince) // Instant
+  final def ifModifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifModifiedSince) // java.time.Instant
 
   final def ifNoneMatchAsScala: Option[String] = Option(self.ifNoneMatch) // String
 
-  final def ifUnmodifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifUnmodifiedSince) // Instant
+  final def ifUnmodifiedSinceAsScala: Option[java.time.Instant] = Option(self.ifUnmodifiedSince) // java.time.Instant
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
@@ -109,7 +109,7 @@ final class HeadObjectRequestOps(val self: HeadObjectRequest) extends AnyVal {
 
   final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
   final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
 

@@ -15,7 +15,7 @@ final class RecordBuilderOps(val self: Record.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.eventName(v)
     }
-  } // String
+  } // OperationType
 
   final def eventVersionAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
@@ -53,7 +53,7 @@ final class RecordOps(val self: Record) extends AnyVal {
 
   final def eventIDAsScala: Option[String] = Option(self.eventID) // String
 
-  final def eventNameAsScala: Option[OperationType] = Option(self.eventName) // String
+  final def eventNameAsScala: Option[OperationType] = Option(self.eventName) // OperationType
 
   final def eventVersionAsScala: Option[String] = Option(self.eventVersion) // String
 

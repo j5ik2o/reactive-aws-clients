@@ -75,7 +75,7 @@ final class ListMultipartUploadsResponseBuilderOps(val self: ListMultipartUpload
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  } // EncodingType
 
 }
 
@@ -107,7 +107,7 @@ final class ListMultipartUploadsResponseOps(val self: ListMultipartUploadsRespon
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[CommonPrefix]
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // EncodingType
 
 }
 

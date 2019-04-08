@@ -15,7 +15,7 @@ final class SelectParametersBuilderOps(val self: SelectParameters.Builder) exten
     value.fold(self) { v =>
       self.expressionType(v)
     }
-  } // String
+  } // ExpressionType
 
   final def expressionAsScala(value: Option[String]): SelectParameters.Builder = {
     value.fold(self) { v =>
@@ -36,7 +36,7 @@ final class SelectParametersOps(val self: SelectParameters) extends AnyVal {
   final def inputSerializationAsScala: Option[InputSerialization] =
     Option(self.inputSerialization) // InputSerialization
 
-  final def expressionTypeAsScala: Option[ExpressionType] = Option(self.expressionType) // String
+  final def expressionTypeAsScala: Option[ExpressionType] = Option(self.expressionType) // ExpressionType
 
   final def expressionAsScala: Option[String] = Option(self.expression) // String
 

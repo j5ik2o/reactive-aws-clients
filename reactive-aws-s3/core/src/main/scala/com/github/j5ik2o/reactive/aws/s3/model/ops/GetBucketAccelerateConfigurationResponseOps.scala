@@ -11,14 +11,14 @@ final class GetBucketAccelerateConfigurationResponseBuilderOps(
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // BucketAccelerateStatus
 
 }
 
 final class GetBucketAccelerateConfigurationResponseOps(val self: GetBucketAccelerateConfigurationResponse)
     extends AnyVal {
 
-  final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status) // String
+  final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status) // BucketAccelerateStatus
 
 }
 

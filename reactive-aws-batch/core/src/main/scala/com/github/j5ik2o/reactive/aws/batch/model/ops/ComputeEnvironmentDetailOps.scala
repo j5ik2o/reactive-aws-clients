@@ -27,19 +27,19 @@ final class ComputeEnvironmentDetailBuilderOps(val self: ComputeEnvironmentDetai
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // CEType
 
   final def stateAsScala(value: Option[CEState]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
-  } // String
+  } // CEState
 
   final def statusAsScala(value: Option[CEStatus]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // CEStatus
 
   final def statusReasonAsScala(value: Option[String]): ComputeEnvironmentDetail.Builder = {
     value.fold(self) { v =>
@@ -69,11 +69,11 @@ final class ComputeEnvironmentDetailOps(val self: ComputeEnvironmentDetail) exte
 
   final def ecsClusterArnAsScala: Option[String] = Option(self.ecsClusterArn) // String
 
-  final def typeAsScala: Option[CEType] = Option(self.`type`) // String
+  final def typeAsScala: Option[CEType] = Option(self.`type`) // CEType
 
-  final def stateAsScala: Option[CEState] = Option(self.state) // String
+  final def stateAsScala: Option[CEState] = Option(self.state) // CEState
 
-  final def statusAsScala: Option[CEStatus] = Option(self.status) // String
+  final def statusAsScala: Option[CEStatus] = Option(self.status) // CEStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 

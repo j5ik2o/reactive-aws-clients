@@ -21,7 +21,7 @@ final class DescribeAlarmsRequestBuilderOps(val self: DescribeAlarmsRequest.Buil
     value.fold(self) { v =>
       self.stateValue(v)
     }
-  } // String
+  } // StateValue
 
   final def actionPrefixAsScala(value: Option[String]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class DescribeAlarmsRequestOps(val self: DescribeAlarmsRequest) extends An
 
   final def alarmNamePrefixAsScala: Option[String] = Option(self.alarmNamePrefix) // String
 
-  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // String
+  final def stateValueAsScala: Option[StateValue] = Option(self.stateValue) // StateValue
 
   final def actionPrefixAsScala: Option[String] = Option(self.actionPrefix) // String
 

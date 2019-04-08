@@ -9,7 +9,7 @@ final class DatapointBuilderOps(val self: Datapoint.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def sampleCountAsScala(value: Option[Double]): Datapoint.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class DatapointBuilderOps(val self: Datapoint.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // String
+  } // StandardUnit
 
   final def extendedStatisticsAsScala(value: Option[Map[String, Double]]): Datapoint.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Double])).fold(self) { v =>
@@ -57,7 +57,7 @@ final class DatapointBuilderOps(val self: Datapoint.Builder) extends AnyVal {
 
 final class DatapointOps(val self: Datapoint) extends AnyVal {
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
 
   final def sampleCountAsScala: Option[Double] = Option(self.sampleCount) // Double
 
@@ -69,7 +69,7 @@ final class DatapointOps(val self: Datapoint) extends AnyVal {
 
   final def maximumAsScala: Option[Double] = Option(self.maximum) // Double
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // String
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
 
   final def extendedStatisticsAsScala: Option[Map[String, Double]] = Option(self.extendedStatistics).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.doubleValue())

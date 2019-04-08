@@ -9,7 +9,7 @@ final class UploadPartResponseBuilderOps(val self: UploadPartResponse.Builder) e
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def eTagAsScala(value: Option[String]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
@@ -39,13 +39,14 @@ final class UploadPartResponseBuilderOps(val self: UploadPartResponse.Builder) e
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
 final class UploadPartResponseOps(val self: UploadPartResponse) extends AnyVal {
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
   final def eTagAsScala: Option[String] = Option(self.eTag) // String
 
@@ -55,7 +56,7 @@ final class UploadPartResponseOps(val self: UploadPartResponse) extends AnyVal {
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

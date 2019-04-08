@@ -27,25 +27,25 @@ final class PutItemRequestBuilderOps(val self: PutItemRequest.Builder) extends A
     value.fold(self) { v =>
       self.returnValues(v)
     }
-  } // String
+  } // ReturnValue
 
   final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
   final def returnItemCollectionMetricsAsScala(value: Option[ReturnItemCollectionMetrics]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnItemCollectionMetrics(v)
     }
-  } // String
+  } // ReturnItemCollectionMetrics
 
   final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
-  } // String
+  } // ConditionalOperator
 
   final def conditionExpressionAsScala(value: Option[String]): PutItemRequest.Builder = {
     value.fold(self) { v =>
@@ -79,15 +79,16 @@ final class PutItemRequestOps(val self: PutItemRequest) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala.toMap
   } // Map[String, ExpectedAttributeValue]
 
-  final def returnValuesAsScala: Option[ReturnValue] = Option(self.returnValues) // String
+  final def returnValuesAsScala: Option[ReturnValue] = Option(self.returnValues) // ReturnValue
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
   final def returnItemCollectionMetricsAsScala: Option[ReturnItemCollectionMetrics] =
-    Option(self.returnItemCollectionMetrics) // String
+    Option(self.returnItemCollectionMetrics) // ReturnItemCollectionMetrics
 
-  final def conditionalOperatorAsScala: Option[ConditionalOperator] = Option(self.conditionalOperator) // String
+  final def conditionalOperatorAsScala: Option[ConditionalOperator] =
+    Option(self.conditionalOperator) // ConditionalOperator
 
   final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression) // String
 

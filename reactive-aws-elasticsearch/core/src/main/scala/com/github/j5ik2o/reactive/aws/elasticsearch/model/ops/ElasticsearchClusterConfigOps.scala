@@ -9,7 +9,7 @@ final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterC
     value.fold(self) { v =>
       self.instanceType(v)
     }
-  } // String
+  } // ESPartitionInstanceType
 
   final def instanceCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
@@ -39,7 +39,7 @@ final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterC
     value.fold(self) { v =>
       self.dedicatedMasterType(v)
     }
-  } // String
+  } // ESPartitionInstanceType
 
   final def dedicatedMasterCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterC
 
 final class ElasticsearchClusterConfigOps(val self: ElasticsearchClusterConfig) extends AnyVal {
 
-  final def instanceTypeAsScala: Option[ESPartitionInstanceType] = Option(self.instanceType) // String
+  final def instanceTypeAsScala: Option[ESPartitionInstanceType] = Option(self.instanceType) // ESPartitionInstanceType
 
   final def instanceCountAsScala: Option[Int] = Option(self.instanceCount) // Int
 
@@ -62,7 +62,8 @@ final class ElasticsearchClusterConfigOps(val self: ElasticsearchClusterConfig) 
   final def zoneAwarenessConfigAsScala: Option[ZoneAwarenessConfig] =
     Option(self.zoneAwarenessConfig) // ZoneAwarenessConfig
 
-  final def dedicatedMasterTypeAsScala: Option[ESPartitionInstanceType] = Option(self.dedicatedMasterType) // String
+  final def dedicatedMasterTypeAsScala: Option[ESPartitionInstanceType] =
+    Option(self.dedicatedMasterType) // ESPartitionInstanceType
 
   final def dedicatedMasterCountAsScala: Option[Int] = Option(self.dedicatedMasterCount) // Int
 

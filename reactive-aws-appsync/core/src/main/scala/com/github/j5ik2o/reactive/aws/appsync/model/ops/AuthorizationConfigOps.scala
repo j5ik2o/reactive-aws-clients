@@ -9,7 +9,7 @@ final class AuthorizationConfigBuilderOps(val self: AuthorizationConfig.Builder)
     value.fold(self) { v =>
       self.authorizationType(v)
     }
-  } // String
+  } // AuthorizationType
 
   final def awsIamConfigAsScala(value: Option[AwsIamConfig]): AuthorizationConfig.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class AuthorizationConfigBuilderOps(val self: AuthorizationConfig.Builder)
 
 final class AuthorizationConfigOps(val self: AuthorizationConfig) extends AnyVal {
 
-  final def authorizationTypeAsScala: Option[AuthorizationType] = Option(self.authorizationType) // String
+  final def authorizationTypeAsScala: Option[AuthorizationType] = Option(self.authorizationType) // AuthorizationType
 
   final def awsIamConfigAsScala: Option[AwsIamConfig] = Option(self.awsIamConfig) // AwsIamConfig
 

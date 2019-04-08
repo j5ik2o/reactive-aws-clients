@@ -33,7 +33,7 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def contentLengthAsScala(value: Option[Long]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
@@ -93,7 +93,7 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
     value.fold(self) { v =>
       self.expires(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def websiteRedirectLocationAsScala(value: Option[String]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
@@ -105,7 +105,7 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  } // ServerSideEncryption
 
   final def metadataAsScala(value: Option[Map[String, String]]): HeadObjectResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -135,19 +135,19 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  } // StorageClass
 
   final def requestChargedAsScala(value: Option[RequestCharged]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
   final def replicationStatusAsScala(value: Option[ReplicationStatus]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
       self.replicationStatus(v)
     }
-  } // String
+  } // ReplicationStatus
 
   final def partsCountAsScala(value: Option[Int]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
@@ -159,19 +159,19 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
-  } // String
+  } // ObjectLockMode
 
   final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): HeadObjectResponse.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }
-  } // String
+  } // ObjectLockLegalHoldStatus
 
 }
 
@@ -185,7 +185,7 @@ final class HeadObjectResponseOps(val self: HeadObjectResponse) extends AnyVal {
 
   final def restoreAsScala: Option[String] = Option(self.restore) // String
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
 
   final def contentLengthAsScala: Option[Long] = Option(self.contentLength) // Long
 
@@ -205,11 +205,12 @@ final class HeadObjectResponseOps(val self: HeadObjectResponse) extends AnyVal {
 
   final def contentTypeAsScala: Option[String] = Option(self.contentType) // String
 
-  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // Instant
+  final def expiresAsScala: Option[java.time.Instant] = Option(self.expires) // java.time.Instant
 
   final def websiteRedirectLocationAsScala: Option[String] = Option(self.websiteRedirectLocation) // String
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] =
+    Option(self.serverSideEncryption) // ServerSideEncryption
 
   final def metadataAsScala: Option[Map[String, String]] = Option(self.metadata).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
@@ -221,21 +222,21 @@ final class HeadObjectResponseOps(val self: HeadObjectResponse) extends AnyVal {
 
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
 
-  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass) // StorageClass
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
-  final def replicationStatusAsScala: Option[ReplicationStatus] = Option(self.replicationStatus) // String
+  final def replicationStatusAsScala: Option[ReplicationStatus] = Option(self.replicationStatus) // ReplicationStatus
 
   final def partsCountAsScala: Option[Int] = Option(self.partsCount) // Int
 
-  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // String
+  final def objectLockModeAsScala: Option[ObjectLockMode] = Option(self.objectLockMode) // ObjectLockMode
 
   final def objectLockRetainUntilDateAsScala: Option[java.time.Instant] =
-    Option(self.objectLockRetainUntilDate) // Instant
+    Option(self.objectLockRetainUntilDate) // java.time.Instant
 
   final def objectLockLegalHoldStatusAsScala: Option[ObjectLockLegalHoldStatus] =
-    Option(self.objectLockLegalHoldStatus) // String
+    Option(self.objectLockLegalHoldStatus) // ObjectLockLegalHoldStatus
 
 }
 

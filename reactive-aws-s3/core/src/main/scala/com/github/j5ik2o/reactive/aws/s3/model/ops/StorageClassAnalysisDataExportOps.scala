@@ -11,7 +11,7 @@ final class StorageClassAnalysisDataExportBuilderOps(val self: StorageClassAnaly
     value.fold(self) { v =>
       self.outputSchemaVersion(v)
     }
-  } // String
+  } // StorageClassAnalysisSchemaVersion
 
   final def destinationAsScala(value: Option[AnalyticsExportDestination]): StorageClassAnalysisDataExport.Builder = {
     value.fold(self) { v =>
@@ -24,7 +24,7 @@ final class StorageClassAnalysisDataExportBuilderOps(val self: StorageClassAnaly
 final class StorageClassAnalysisDataExportOps(val self: StorageClassAnalysisDataExport) extends AnyVal {
 
   final def outputSchemaVersionAsScala: Option[StorageClassAnalysisSchemaVersion] =
-    Option(self.outputSchemaVersion) // String
+    Option(self.outputSchemaVersion) // StorageClassAnalysisSchemaVersion
 
   final def destinationAsScala: Option[AnalyticsExportDestination] =
     Option(self.destination) // AnalyticsExportDestination

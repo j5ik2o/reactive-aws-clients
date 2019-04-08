@@ -15,13 +15,13 @@ final class GetMetricDataRequestBuilderOps(val self: GetMetricDataRequest.Builde
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def endTimeAsScala(value: Option[java.time.Instant]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def nextTokenAsScala(value: Option[String]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class GetMetricDataRequestBuilderOps(val self: GetMetricDataRequest.Builde
     value.fold(self) { v =>
       self.scanBy(v)
     }
-  } // String
+  } // ScanBy
 
   final def maxDatapointsAsScala(value: Option[Int]): GetMetricDataRequest.Builder = {
     value.fold(self) { v =>
@@ -49,13 +49,13 @@ final class GetMetricDataRequestOps(val self: GetMetricDataRequest) extends AnyV
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[MetricDataQuery]
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // java.time.Instant
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // java.time.Instant
 
   final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
 
-  final def scanByAsScala: Option[ScanBy] = Option(self.scanBy) // String
+  final def scanByAsScala: Option[ScanBy] = Option(self.scanBy) // ScanBy
 
   final def maxDatapointsAsScala: Option[Int] = Option(self.maxDatapoints) // Int
 

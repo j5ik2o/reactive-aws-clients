@@ -33,7 +33,7 @@ final class SingleInstanceHealthBuilderOps(val self: SingleInstanceHealth.Builde
     value.fold(self) { v =>
       self.launchedAt(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def applicationMetricsAsScala(value: Option[ApplicationMetrics]): SingleInstanceHealth.Builder = {
     value.fold(self) { v =>
@@ -79,7 +79,7 @@ final class SingleInstanceHealthOps(val self: SingleInstanceHealth) extends AnyV
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[String]
 
-  final def launchedAtAsScala: Option[java.time.Instant] = Option(self.launchedAt) // Instant
+  final def launchedAtAsScala: Option[java.time.Instant] = Option(self.launchedAt) // java.time.Instant
 
   final def applicationMetricsAsScala: Option[ApplicationMetrics] =
     Option(self.applicationMetrics) // ApplicationMetrics

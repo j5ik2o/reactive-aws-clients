@@ -21,19 +21,19 @@ final class ManagedActionBuilderOps(val self: ManagedAction.Builder) extends Any
     value.fold(self) { v =>
       self.actionType(v)
     }
-  } // String
+  } // ActionType
 
   final def statusAsScala(value: Option[ActionStatus]): ManagedAction.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ActionStatus
 
   final def windowStartTimeAsScala(value: Option[java.time.Instant]): ManagedAction.Builder = {
     value.fold(self) { v =>
       self.windowStartTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -43,11 +43,11 @@ final class ManagedActionOps(val self: ManagedAction) extends AnyVal {
 
   final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription) // String
 
-  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // String
+  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // ActionType
 
-  final def statusAsScala: Option[ActionStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ActionStatus] = Option(self.status) // ActionStatus
 
-  final def windowStartTimeAsScala: Option[java.time.Instant] = Option(self.windowStartTime) // Instant
+  final def windowStartTimeAsScala: Option[java.time.Instant] = Option(self.windowStartTime) // java.time.Instant
 
 }
 

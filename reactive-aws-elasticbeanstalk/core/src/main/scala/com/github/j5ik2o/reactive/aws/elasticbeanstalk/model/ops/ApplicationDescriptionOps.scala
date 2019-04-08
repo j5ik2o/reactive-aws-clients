@@ -27,13 +27,13 @@ final class ApplicationDescriptionBuilderOps(val self: ApplicationDescription.Bu
     value.fold(self) { v =>
       self.dateCreated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): ApplicationDescription.Builder = {
     value.fold(self) { v =>
       self.dateUpdated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def versionsAsScala(value: Option[Seq[String]]): ApplicationDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -65,9 +65,9 @@ final class ApplicationDescriptionOps(val self: ApplicationDescription) extends 
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 
-  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // Instant
+  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // java.time.Instant
 
-  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // Instant
+  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // java.time.Instant
 
   final def versionsAsScala: Option[Seq[String]] = Option(self.versions).map { v =>
     import scala.collection.JavaConverters._; v.asScala

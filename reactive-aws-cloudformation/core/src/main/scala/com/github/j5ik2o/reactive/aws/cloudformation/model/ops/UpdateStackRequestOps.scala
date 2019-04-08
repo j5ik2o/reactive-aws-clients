@@ -50,7 +50,7 @@ final class UpdateStackRequestBuilderOps(val self: UpdateStackRequest.Builder) e
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): UpdateStackRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def resourceTypesAsScala(value: Option[Seq[String]]): UpdateStackRequest.Builder = {
@@ -123,7 +123,7 @@ final class UpdateStackRequestOps(val self: UpdateStackRequest) extends AnyVal {
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
     import scala.collection.JavaConverters._; v.asScala

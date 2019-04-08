@@ -15,7 +15,7 @@ final class PutRecordRequestBuilderOps(val self: PutRecordRequest.Builder) exten
     value.fold(self) { v =>
       self.data(v)
     }
-  } // SdkBytes
+  } // software.amazon.awssdk.core.SdkBytes
 
   final def partitionKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
@@ -41,7 +41,8 @@ final class PutRecordRequestOps(val self: PutRecordRequest) extends AnyVal {
 
   final def streamNameAsScala: Option[String] = Option(self.streamName) // String
 
-  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.data) // SdkBytes
+  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
+    Option(self.data) // software.amazon.awssdk.core.SdkBytes
 
   final def partitionKeyAsScala: Option[String] = Option(self.partitionKey) // String
 

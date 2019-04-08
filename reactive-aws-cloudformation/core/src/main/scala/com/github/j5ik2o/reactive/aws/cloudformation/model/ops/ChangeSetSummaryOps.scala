@@ -33,13 +33,13 @@ final class ChangeSetSummaryBuilderOps(val self: ChangeSetSummary.Builder) exten
     value.fold(self) { v =>
       self.executionStatus(v)
     }
-  } // String
+  } // ExecutionStatus
 
   final def statusAsScala(value: Option[ChangeSetStatus]): ChangeSetSummary.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ChangeSetStatus
 
   final def statusReasonAsScala(value: Option[String]): ChangeSetSummary.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class ChangeSetSummaryBuilderOps(val self: ChangeSetSummary.Builder) exten
     value.fold(self) { v =>
       self.creationTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def descriptionAsScala(value: Option[String]): ChangeSetSummary.Builder = {
     value.fold(self) { v =>
@@ -71,13 +71,13 @@ final class ChangeSetSummaryOps(val self: ChangeSetSummary) extends AnyVal {
 
   final def changeSetNameAsScala: Option[String] = Option(self.changeSetName) // String
 
-  final def executionStatusAsScala: Option[ExecutionStatus] = Option(self.executionStatus) // String
+  final def executionStatusAsScala: Option[ExecutionStatus] = Option(self.executionStatus) // ExecutionStatus
 
-  final def statusAsScala: Option[ChangeSetStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ChangeSetStatus] = Option(self.status) // ChangeSetStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 
-  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // Instant
+  final def creationTimeAsScala: Option[java.time.Instant] = Option(self.creationTime) // java.time.Instant
 
   final def descriptionAsScala: Option[String] = Option(self.description) // String
 

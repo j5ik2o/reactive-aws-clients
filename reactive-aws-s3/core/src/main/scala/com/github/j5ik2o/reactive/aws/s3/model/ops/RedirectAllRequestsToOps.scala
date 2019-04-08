@@ -15,7 +15,7 @@ final class RedirectAllRequestsToBuilderOps(val self: RedirectAllRequestsTo.Buil
     value.fold(self) { v =>
       self.protocol(v)
     }
-  } // String
+  } // Protocol
 
 }
 
@@ -23,7 +23,7 @@ final class RedirectAllRequestsToOps(val self: RedirectAllRequestsTo) extends An
 
   final def hostNameAsScala: Option[String] = Option(self.hostName) // String
 
-  final def protocolAsScala: Option[Protocol] = Option(self.protocol) // String
+  final def protocolAsScala: Option[Protocol] = Option(self.protocol) // Protocol
 
 }
 

@@ -9,7 +9,7 @@ final class ObjectLockConfigurationBuilderOps(val self: ObjectLockConfiguration.
     value.fold(self) { v =>
       self.objectLockEnabled(v)
     }
-  } // String
+  } // ObjectLockEnabled
 
   final def ruleAsScala(value: Option[ObjectLockRule]): ObjectLockConfiguration.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class ObjectLockConfigurationBuilderOps(val self: ObjectLockConfiguration.
 
 final class ObjectLockConfigurationOps(val self: ObjectLockConfiguration) extends AnyVal {
 
-  final def objectLockEnabledAsScala: Option[ObjectLockEnabled] = Option(self.objectLockEnabled) // String
+  final def objectLockEnabledAsScala: Option[ObjectLockEnabled] = Option(self.objectLockEnabled) // ObjectLockEnabled
 
   final def ruleAsScala: Option[ObjectLockRule] = Option(self.rule) // ObjectLockRule
 

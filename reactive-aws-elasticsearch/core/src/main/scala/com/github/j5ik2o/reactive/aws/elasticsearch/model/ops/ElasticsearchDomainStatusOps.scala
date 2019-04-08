@@ -130,7 +130,7 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
   ): ElasticsearchDomainStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logPublishingOptions(v.asJava)
-    } // Map[String, LogPublishingOption]
+    } // Map[LogType, LogPublishingOption]
   }
 
   final def serviceSoftwareOptionsAsScala(value: Option[ServiceSoftwareOptions]): ElasticsearchDomainStatus.Builder = {
@@ -191,7 +191,7 @@ final class ElasticsearchDomainStatusOps(val self: ElasticsearchDomainStatus) ex
   final def logPublishingOptionsAsScala: Option[Map[LogType, LogPublishingOption]] =
     Option(self.logPublishingOptions).map { v =>
       import scala.collection.JavaConverters._; v.asScala.toMap
-    } // Map[String, LogPublishingOption]
+    } // Map[LogType, LogPublishingOption]
 
   final def serviceSoftwareOptionsAsScala: Option[ServiceSoftwareOptions] =
     Option(self.serviceSoftwareOptions) // ServiceSoftwareOptions

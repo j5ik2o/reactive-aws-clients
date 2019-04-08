@@ -21,7 +21,7 @@ final class CreateTypeRequestBuilderOps(val self: CreateTypeRequest.Builder) ext
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  } // TypeDefinitionFormat
 
 }
 
@@ -31,7 +31,7 @@ final class CreateTypeRequestOps(val self: CreateTypeRequest) extends AnyVal {
 
   final def definitionAsScala: Option[String] = Option(self.definition) // String
 
-  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // String
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // TypeDefinitionFormat
 
 }
 

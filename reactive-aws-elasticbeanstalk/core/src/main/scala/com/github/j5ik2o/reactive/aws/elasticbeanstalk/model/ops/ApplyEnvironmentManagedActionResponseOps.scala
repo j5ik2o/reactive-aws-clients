@@ -22,7 +22,7 @@ final class ApplyEnvironmentManagedActionResponseBuilderOps(val self: ApplyEnvir
     value.fold(self) { v =>
       self.actionType(v)
     }
-  } // String
+  } // ActionType
 
   final def statusAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
@@ -38,7 +38,7 @@ final class ApplyEnvironmentManagedActionResponseOps(val self: ApplyEnvironmentM
 
   final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription) // String
 
-  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // String
+  final def actionTypeAsScala: Option[ActionType] = Option(self.actionType) // ActionType
 
   final def statusAsScala: Option[String] = Option(self.status) // String
 

@@ -14,7 +14,7 @@ final class ReceiveMessageRequestBuilderOps(val self: ReceiveMessageRequest.Buil
   final def attributeNamesAsScala(value: Option[Seq[QueueAttributeName]]): ReceiveMessageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeNames(v.asJava)
-    } // Seq[String]
+    } // Seq[QueueAttributeName]
   }
 
   final def messageAttributeNamesAsScala(value: Option[Seq[String]]): ReceiveMessageRequest.Builder = {
@@ -55,7 +55,7 @@ final class ReceiveMessageRequestOps(val self: ReceiveMessageRequest) extends An
 
   final def attributeNamesAsScala: Option[Seq[QueueAttributeName]] = Option(self.attributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[QueueAttributeName]
 
   final def messageAttributeNamesAsScala: Option[Seq[String]] = Option(self.messageAttributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala

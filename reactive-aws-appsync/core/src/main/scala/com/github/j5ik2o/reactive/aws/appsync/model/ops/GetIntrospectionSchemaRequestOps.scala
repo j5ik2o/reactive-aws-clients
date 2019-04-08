@@ -15,7 +15,7 @@ final class GetIntrospectionSchemaRequestBuilderOps(val self: GetIntrospectionSc
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  } // OutputType
 
 }
 
@@ -23,7 +23,7 @@ final class GetIntrospectionSchemaRequestOps(val self: GetIntrospectionSchemaReq
 
   final def apiIdAsScala: Option[String] = Option(self.apiId) // String
 
-  final def formatAsScala: Option[OutputType] = Option(self.format) // String
+  final def formatAsScala: Option[OutputType] = Option(self.format) // OutputType
 
 }
 

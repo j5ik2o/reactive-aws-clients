@@ -44,7 +44,7 @@ final class PublishLayerVersionResponseBuilderOps(val self: PublishLayerVersionR
   final def compatibleRuntimesAsScala(value: Option[Seq[Runtime]]): PublishLayerVersionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.compatibleRuntimes(v.asJava)
-    } // Seq[String]
+    } // Seq[Runtime]
   }
 
   final def licenseInfoAsScala(value: Option[String]): PublishLayerVersionResponse.Builder = {
@@ -71,7 +71,7 @@ final class PublishLayerVersionResponseOps(val self: PublishLayerVersionResponse
 
   final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Runtime]
 
   final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo) // String
 

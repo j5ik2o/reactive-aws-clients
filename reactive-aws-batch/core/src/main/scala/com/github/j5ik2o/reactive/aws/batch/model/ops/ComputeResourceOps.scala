@@ -9,7 +9,7 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // CRType
 
   final def minvCpusAsScala(value: Option[Int]): ComputeResource.Builder = {
     value.fold(self) { v =>
@@ -99,7 +99,7 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
 
 final class ComputeResourceOps(val self: ComputeResource) extends AnyVal {
 
-  final def typeAsScala: Option[CRType] = Option(self.`type`) // String
+  final def typeAsScala: Option[CRType] = Option(self.`type`) // CRType
 
   final def minvCpusAsScala: Option[Int] = Option(self.minvCpus) // Int
 

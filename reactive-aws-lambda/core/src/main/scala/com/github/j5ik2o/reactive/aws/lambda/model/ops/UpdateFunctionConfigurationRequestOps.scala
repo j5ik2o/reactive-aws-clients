@@ -58,7 +58,7 @@ final class UpdateFunctionConfigurationRequestBuilderOps(val self: UpdateFunctio
     value.fold(self) { v =>
       self.runtime(v)
     }
-  } // String
+  } // Runtime
 
   final def deadLetterConfigAsScala(value: Option[DeadLetterConfig]): UpdateFunctionConfigurationRequest.Builder = {
     value.fold(self) { v =>
@@ -110,7 +110,7 @@ final class UpdateFunctionConfigurationRequestOps(val self: UpdateFunctionConfig
 
   final def environmentAsScala: Option[Environment] = Option(self.environment) // Environment
 
-  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // String
+  final def runtimeAsScala: Option[Runtime] = Option(self.runtime) // Runtime
 
   final def deadLetterConfigAsScala: Option[DeadLetterConfig] = Option(self.deadLetterConfig) // DeadLetterConfig
 

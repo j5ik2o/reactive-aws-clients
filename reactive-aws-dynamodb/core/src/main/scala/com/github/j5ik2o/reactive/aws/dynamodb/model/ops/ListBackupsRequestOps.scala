@@ -21,13 +21,13 @@ final class ListBackupsRequestBuilderOps(val self: ListBackupsRequest.Builder) e
     value.fold(self) { v =>
       self.timeRangeLowerBound(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def timeRangeUpperBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.timeRangeUpperBound(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def exclusiveStartBackupArnAsScala(value: Option[String]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
@@ -39,7 +39,7 @@ final class ListBackupsRequestBuilderOps(val self: ListBackupsRequest.Builder) e
     value.fold(self) { v =>
       self.backupType(v)
     }
-  } // String
+  } // BackupTypeFilter
 
 }
 
@@ -49,13 +49,15 @@ final class ListBackupsRequestOps(val self: ListBackupsRequest) extends AnyVal {
 
   final def limitAsScala: Option[Int] = Option(self.limit) // Int
 
-  final def timeRangeLowerBoundAsScala: Option[java.time.Instant] = Option(self.timeRangeLowerBound) // Instant
+  final def timeRangeLowerBoundAsScala: Option[java.time.Instant] =
+    Option(self.timeRangeLowerBound) // java.time.Instant
 
-  final def timeRangeUpperBoundAsScala: Option[java.time.Instant] = Option(self.timeRangeUpperBound) // Instant
+  final def timeRangeUpperBoundAsScala: Option[java.time.Instant] =
+    Option(self.timeRangeUpperBound) // java.time.Instant
 
   final def exclusiveStartBackupArnAsScala: Option[String] = Option(self.exclusiveStartBackupArn) // String
 
-  final def backupTypeAsScala: Option[BackupTypeFilter] = Option(self.backupType) // String
+  final def backupTypeAsScala: Option[BackupTypeFilter] = Option(self.backupType) // BackupTypeFilter
 
 }
 

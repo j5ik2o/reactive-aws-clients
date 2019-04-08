@@ -22,7 +22,7 @@ final class DescribeEnvironmentHealthResponseBuilderOps(val self: DescribeEnviro
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // EnvironmentHealth
 
   final def colorAsScala(value: Option[String]): DescribeEnvironmentHealthResponse.Builder = {
     value.fold(self) { v =>
@@ -52,7 +52,7 @@ final class DescribeEnvironmentHealthResponseBuilderOps(val self: DescribeEnviro
     value.fold(self) { v =>
       self.refreshedAt(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -62,7 +62,7 @@ final class DescribeEnvironmentHealthResponseOps(val self: DescribeEnvironmentHe
 
   final def healthStatusAsScala: Option[String] = Option(self.healthStatus) // String
 
-  final def statusAsScala: Option[EnvironmentHealth] = Option(self.status) // String
+  final def statusAsScala: Option[EnvironmentHealth] = Option(self.status) // EnvironmentHealth
 
   final def colorAsScala: Option[String] = Option(self.color) // String
 
@@ -76,7 +76,7 @@ final class DescribeEnvironmentHealthResponseOps(val self: DescribeEnvironmentHe
   final def instancesHealthAsScala: Option[InstanceHealthSummary] =
     Option(self.instancesHealth) // InstanceHealthSummary
 
-  final def refreshedAtAsScala: Option[java.time.Instant] = Option(self.refreshedAt) // Instant
+  final def refreshedAtAsScala: Option[java.time.Instant] = Option(self.refreshedAt) // java.time.Instant
 
 }
 

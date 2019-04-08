@@ -25,7 +25,7 @@ final class DescribeStackDriftDetectionStatusResponseBuilderOps(
     value.fold(self) { v =>
       self.stackDriftStatus(v)
     }
-  } // String
+  } // StackDriftStatus
 
   final def detectionStatusAsScala(
       value: Option[StackDriftDetectionStatus]
@@ -33,7 +33,7 @@ final class DescribeStackDriftDetectionStatusResponseBuilderOps(
     value.fold(self) { v =>
       self.detectionStatus(v)
     }
-  } // String
+  } // StackDriftDetectionStatus
 
   final def detectionStatusReasonAsScala(value: Option[String]): DescribeStackDriftDetectionStatusResponse.Builder = {
     value.fold(self) { v =>
@@ -51,7 +51,7 @@ final class DescribeStackDriftDetectionStatusResponseBuilderOps(
     value.fold(self) { v =>
       self.timestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -62,15 +62,16 @@ final class DescribeStackDriftDetectionStatusResponseOps(val self: DescribeStack
 
   final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId) // String
 
-  final def stackDriftStatusAsScala: Option[StackDriftStatus] = Option(self.stackDriftStatus) // String
+  final def stackDriftStatusAsScala: Option[StackDriftStatus] = Option(self.stackDriftStatus) // StackDriftStatus
 
-  final def detectionStatusAsScala: Option[StackDriftDetectionStatus] = Option(self.detectionStatus) // String
+  final def detectionStatusAsScala: Option[StackDriftDetectionStatus] =
+    Option(self.detectionStatus) // StackDriftDetectionStatus
 
   final def detectionStatusReasonAsScala: Option[String] = Option(self.detectionStatusReason) // String
 
   final def driftedStackResourceCountAsScala: Option[Int] = Option(self.driftedStackResourceCount) // Int
 
-  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // Instant
+  final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp) // java.time.Instant
 
 }
 

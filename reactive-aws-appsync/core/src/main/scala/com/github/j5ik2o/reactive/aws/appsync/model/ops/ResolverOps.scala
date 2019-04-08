@@ -45,7 +45,7 @@ final class ResolverBuilderOps(val self: Resolver.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.kind(v)
     }
-  } // String
+  } // ResolverKind
 
   final def pipelineConfigAsScala(value: Option[PipelineConfig]): Resolver.Builder = {
     value.fold(self) { v =>
@@ -69,7 +69,7 @@ final class ResolverOps(val self: Resolver) extends AnyVal {
 
   final def responseMappingTemplateAsScala: Option[String] = Option(self.responseMappingTemplate) // String
 
-  final def kindAsScala: Option[ResolverKind] = Option(self.kind) // String
+  final def kindAsScala: Option[ResolverKind] = Option(self.kind) // ResolverKind
 
   final def pipelineConfigAsScala: Option[PipelineConfig] = Option(self.pipelineConfig) // PipelineConfig
 

@@ -33,7 +33,7 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.select(v)
     }
-  } // String
+  } // Select
 
   final def scanFilterAsScala(value: Option[Map[String, Condition]]): ScanRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -45,7 +45,7 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
-  } // String
+  } // ConditionalOperator
 
   final def exclusiveStartKeyAsScala(value: Option[Map[String, AttributeValue]]): ScanRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -57,7 +57,7 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
-  } // String
+  } // ReturnConsumedCapacity
 
   final def totalSegmentsAsScala(value: Option[Int]): ScanRequest.Builder = {
     value.fold(self) { v =>
@@ -115,20 +115,21 @@ final class ScanRequestOps(val self: ScanRequest) extends AnyVal {
 
   final def limitAsScala: Option[Int] = Option(self.limit) // Int
 
-  final def selectAsScala: Option[Select] = Option(self.select) // String
+  final def selectAsScala: Option[Select] = Option(self.select) // Select
 
   final def scanFilterAsScala: Option[Map[String, Condition]] = Option(self.scanFilter).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
   } // Map[String, Condition]
 
-  final def conditionalOperatorAsScala: Option[ConditionalOperator] = Option(self.conditionalOperator) // String
+  final def conditionalOperatorAsScala: Option[ConditionalOperator] =
+    Option(self.conditionalOperator) // ConditionalOperator
 
   final def exclusiveStartKeyAsScala: Option[Map[String, AttributeValue]] = Option(self.exclusiveStartKey).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
   } // Map[String, AttributeValue]
 
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] =
-    Option(self.returnConsumedCapacity) // String
+    Option(self.returnConsumedCapacity) // ReturnConsumedCapacity
 
   final def totalSegmentsAsScala: Option[Int] = Option(self.totalSegments) // Int
 

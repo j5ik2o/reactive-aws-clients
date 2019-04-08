@@ -34,7 +34,7 @@ final class UpdateEventSourceMappingResponseBuilderOps(val self: UpdateEventSour
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def lastProcessingResultAsScala(value: Option[String]): UpdateEventSourceMappingResponse.Builder = {
     value.fold(self) { v =>
@@ -66,7 +66,7 @@ final class UpdateEventSourceMappingResponseOps(val self: UpdateEventSourceMappi
 
   final def functionArnAsScala: Option[String] = Option(self.functionArn) // String
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
 
   final def lastProcessingResultAsScala: Option[String] = Option(self.lastProcessingResult) // String
 

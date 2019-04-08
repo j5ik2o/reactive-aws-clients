@@ -39,7 +39,7 @@ final class StackInstanceBuilderOps(val self: StackInstance.Builder) extends Any
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // StackInstanceStatus
 
   final def statusReasonAsScala(value: Option[String]): StackInstance.Builder = {
     value.fold(self) { v =>
@@ -63,7 +63,7 @@ final class StackInstanceOps(val self: StackInstance) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[Parameter]
 
-  final def statusAsScala: Option[StackInstanceStatus] = Option(self.status) // String
+  final def statusAsScala: Option[StackInstanceStatus] = Option(self.status) // StackInstanceStatus
 
   final def statusReasonAsScala: Option[String] = Option(self.statusReason) // String
 

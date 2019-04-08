@@ -15,7 +15,7 @@ final class DeleteObjectsResponseBuilderOps(val self: DeleteObjectsResponse.Buil
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
   final def errorsAsScala(value: Option[Seq[S3Error]]): DeleteObjectsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -31,7 +31,7 @@ final class DeleteObjectsResponseOps(val self: DeleteObjectsResponse) extends An
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[DeletedObject]
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
   final def errorsAsScala: Option[Seq[S3Error]] = Option(self.errors).map { v =>
     import scala.collection.JavaConverters._; v.asScala

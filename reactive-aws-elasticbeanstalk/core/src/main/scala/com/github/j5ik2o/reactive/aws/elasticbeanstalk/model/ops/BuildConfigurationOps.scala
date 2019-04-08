@@ -21,7 +21,7 @@ final class BuildConfigurationBuilderOps(val self: BuildConfiguration.Builder) e
     value.fold(self) { v =>
       self.computeType(v)
     }
-  } // String
+  } // ComputeType
 
   final def imageAsScala(value: Option[String]): BuildConfiguration.Builder = {
     value.fold(self) { v =>
@@ -43,7 +43,7 @@ final class BuildConfigurationOps(val self: BuildConfiguration) extends AnyVal {
 
   final def codeBuildServiceRoleAsScala: Option[String] = Option(self.codeBuildServiceRole) // String
 
-  final def computeTypeAsScala: Option[ComputeType] = Option(self.computeType) // String
+  final def computeTypeAsScala: Option[ComputeType] = Option(self.computeType) // ComputeType
 
   final def imageAsScala: Option[String] = Option(self.image) // String
 

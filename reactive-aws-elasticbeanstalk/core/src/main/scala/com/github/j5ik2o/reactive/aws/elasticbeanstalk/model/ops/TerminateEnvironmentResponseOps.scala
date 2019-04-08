@@ -69,19 +69,19 @@ final class TerminateEnvironmentResponseBuilderOps(val self: TerminateEnvironmen
     value.fold(self) { v =>
       self.dateCreated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): TerminateEnvironmentResponse.Builder = {
     value.fold(self) { v =>
       self.dateUpdated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def statusAsScala(value: Option[EnvironmentStatus]): TerminateEnvironmentResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // EnvironmentStatus
 
   final def abortableOperationInProgressAsScala(value: Option[Boolean]): TerminateEnvironmentResponse.Builder = {
     value.fold(self) { v =>
@@ -93,13 +93,13 @@ final class TerminateEnvironmentResponseBuilderOps(val self: TerminateEnvironmen
     value.fold(self) { v =>
       self.health(v)
     }
-  } // String
+  } // EnvironmentHealth
 
   final def healthStatusAsScala(value: Option[EnvironmentHealthStatus]): TerminateEnvironmentResponse.Builder = {
     value.fold(self) { v =>
       self.healthStatus(v)
     }
-  } // String
+  } // EnvironmentHealthStatus
 
   final def resourcesAsScala(value: Option[EnvironmentResourcesDescription]): TerminateEnvironmentResponse.Builder = {
     value.fold(self) { v =>
@@ -149,17 +149,17 @@ final class TerminateEnvironmentResponseOps(val self: TerminateEnvironmentRespon
 
   final def cnameAsScala: Option[String] = Option(self.cname) // String
 
-  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // Instant
+  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // java.time.Instant
 
-  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // Instant
+  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // java.time.Instant
 
-  final def statusAsScala: Option[EnvironmentStatus] = Option(self.status) // String
+  final def statusAsScala: Option[EnvironmentStatus] = Option(self.status) // EnvironmentStatus
 
   final def abortableOperationInProgressAsScala: Option[Boolean] = Option(self.abortableOperationInProgress) // Boolean
 
-  final def healthAsScala: Option[EnvironmentHealth] = Option(self.health) // String
+  final def healthAsScala: Option[EnvironmentHealth] = Option(self.health) // EnvironmentHealth
 
-  final def healthStatusAsScala: Option[EnvironmentHealthStatus] = Option(self.healthStatus) // String
+  final def healthStatusAsScala: Option[EnvironmentHealthStatus] = Option(self.healthStatus) // EnvironmentHealthStatus
 
   final def resourcesAsScala: Option[EnvironmentResourcesDescription] =
     Option(self.resources) // EnvironmentResourcesDescription

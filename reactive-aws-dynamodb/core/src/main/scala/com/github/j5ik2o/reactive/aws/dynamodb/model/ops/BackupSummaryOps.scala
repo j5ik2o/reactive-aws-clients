@@ -39,25 +39,25 @@ final class BackupSummaryBuilderOps(val self: BackupSummary.Builder) extends Any
     value.fold(self) { v =>
       self.backupCreationDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def backupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupExpiryDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def backupStatusAsScala(value: Option[BackupStatus]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupStatus(v)
     }
-  } // String
+  } // BackupStatus
 
   final def backupTypeAsScala(value: Option[BackupType]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupType(v)
     }
-  } // String
+  } // BackupType
 
   final def backupSizeBytesAsScala(value: Option[Long]): BackupSummary.Builder = {
     value.fold(self) { v =>
@@ -79,13 +79,15 @@ final class BackupSummaryOps(val self: BackupSummary) extends AnyVal {
 
   final def backupNameAsScala: Option[String] = Option(self.backupName) // String
 
-  final def backupCreationDateTimeAsScala: Option[java.time.Instant] = Option(self.backupCreationDateTime) // Instant
+  final def backupCreationDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.backupCreationDateTime) // java.time.Instant
 
-  final def backupExpiryDateTimeAsScala: Option[java.time.Instant] = Option(self.backupExpiryDateTime) // Instant
+  final def backupExpiryDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.backupExpiryDateTime) // java.time.Instant
 
-  final def backupStatusAsScala: Option[BackupStatus] = Option(self.backupStatus) // String
+  final def backupStatusAsScala: Option[BackupStatus] = Option(self.backupStatus) // BackupStatus
 
-  final def backupTypeAsScala: Option[BackupType] = Option(self.backupType) // String
+  final def backupTypeAsScala: Option[BackupType] = Option(self.backupType) // BackupType
 
   final def backupSizeBytesAsScala: Option[Long] = Option(self.backupSizeBytes) // Long
 

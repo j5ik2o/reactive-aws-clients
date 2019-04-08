@@ -20,7 +20,7 @@ final class TopicConfigurationBuilderOps(val self: TopicConfiguration.Builder) e
   final def eventsAsScala(value: Option[Seq[Event]]): TopicConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
-    } // Seq[String]
+    } // Seq[Event]
   }
 
   final def filterAsScala(value: Option[NotificationConfigurationFilter]): TopicConfiguration.Builder = {
@@ -39,7 +39,7 @@ final class TopicConfigurationOps(val self: TopicConfiguration) extends AnyVal {
 
   final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Event]
 
   final def filterAsScala: Option[NotificationConfigurationFilter] =
     Option(self.filter) // NotificationConfigurationFilter

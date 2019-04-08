@@ -9,7 +9,7 @@ final class ListLayerVersionsRequestBuilderOps(val self: ListLayerVersionsReques
     value.fold(self) { v =>
       self.compatibleRuntime(v)
     }
-  } // String
+  } // Runtime
 
   final def layerNameAsScala(value: Option[String]): ListLayerVersionsRequest.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class ListLayerVersionsRequestBuilderOps(val self: ListLayerVersionsReques
 
 final class ListLayerVersionsRequestOps(val self: ListLayerVersionsRequest) extends AnyVal {
 
-  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime) // String
+  final def compatibleRuntimeAsScala: Option[Runtime] = Option(self.compatibleRuntime) // Runtime
 
   final def layerNameAsScala: Option[String] = Option(self.layerName) // String
 

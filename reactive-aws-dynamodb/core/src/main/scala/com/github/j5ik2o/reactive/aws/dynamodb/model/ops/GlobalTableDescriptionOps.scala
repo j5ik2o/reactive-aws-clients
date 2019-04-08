@@ -21,13 +21,13 @@ final class GlobalTableDescriptionBuilderOps(val self: GlobalTableDescription.Bu
     value.fold(self) { v =>
       self.creationDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def globalTableStatusAsScala(value: Option[GlobalTableStatus]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableStatus(v)
     }
-  } // String
+  } // GlobalTableStatus
 
   final def globalTableNameAsScala(value: Option[String]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
@@ -45,9 +45,9 @@ final class GlobalTableDescriptionOps(val self: GlobalTableDescription) extends 
 
   final def globalTableArnAsScala: Option[String] = Option(self.globalTableArn) // String
 
-  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // Instant
+  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // java.time.Instant
 
-  final def globalTableStatusAsScala: Option[GlobalTableStatus] = Option(self.globalTableStatus) // String
+  final def globalTableStatusAsScala: Option[GlobalTableStatus] = Option(self.globalTableStatus) // GlobalTableStatus
 
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
 

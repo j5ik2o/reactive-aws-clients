@@ -27,7 +27,7 @@ final class MetricStatBuilderOps(val self: MetricStat.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.unit(v)
     }
-  } // String
+  } // StandardUnit
 
 }
 
@@ -39,7 +39,7 @@ final class MetricStatOps(val self: MetricStat) extends AnyVal {
 
   final def statAsScala: Option[String] = Option(self.stat) // String
 
-  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // String
+  final def unitAsScala: Option[StandardUnit] = Option(self.unit) // StandardUnit
 
 }
 

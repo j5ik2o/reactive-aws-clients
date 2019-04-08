@@ -33,7 +33,7 @@ final class DeleteMarkerEntryBuilderOps(val self: DeleteMarkerEntry.Builder) ext
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -47,7 +47,7 @@ final class DeleteMarkerEntryOps(val self: DeleteMarkerEntry) extends AnyVal {
 
   final def isLatestAsScala: Option[Boolean] = Option(self.isLatest) // Boolean
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // java.time.Instant
 
 }
 

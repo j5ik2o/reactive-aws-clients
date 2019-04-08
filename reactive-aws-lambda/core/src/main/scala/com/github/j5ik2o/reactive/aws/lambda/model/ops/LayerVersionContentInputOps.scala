@@ -27,7 +27,7 @@ final class LayerVersionContentInputBuilderOps(val self: LayerVersionContentInpu
     value.fold(self) { v =>
       self.zipFile(v)
     }
-  } // SdkBytes
+  } // software.amazon.awssdk.core.SdkBytes
 
 }
 
@@ -39,7 +39,8 @@ final class LayerVersionContentInputOps(val self: LayerVersionContentInput) exte
 
   final def s3ObjectVersionAsScala: Option[String] = Option(self.s3ObjectVersion) // String
 
-  final def zipFileAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.zipFile) // SdkBytes
+  final def zipFileAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
+    Option(self.zipFile) // software.amazon.awssdk.core.SdkBytes
 
 }
 

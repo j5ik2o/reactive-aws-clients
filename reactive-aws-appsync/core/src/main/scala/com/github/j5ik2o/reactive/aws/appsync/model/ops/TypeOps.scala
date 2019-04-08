@@ -33,7 +33,7 @@ final class TypeBuilderOps(val self: Type.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  } // TypeDefinitionFormat
 
 }
 
@@ -47,7 +47,7 @@ final class TypeOps(val self: Type) extends AnyVal {
 
   final def definitionAsScala: Option[String] = Option(self.definition) // String
 
-  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // String
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // TypeDefinitionFormat
 
 }
 

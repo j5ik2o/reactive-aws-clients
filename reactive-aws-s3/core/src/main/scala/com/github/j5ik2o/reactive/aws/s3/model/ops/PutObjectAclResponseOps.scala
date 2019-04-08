@@ -9,13 +9,13 @@ final class PutObjectAclResponseBuilderOps(val self: PutObjectAclResponse.Builde
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
 final class PutObjectAclResponseOps(val self: PutObjectAclResponse) extends AnyVal {
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

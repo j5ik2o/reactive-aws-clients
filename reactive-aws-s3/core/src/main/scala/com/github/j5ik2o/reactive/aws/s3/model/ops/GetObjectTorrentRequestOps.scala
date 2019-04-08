@@ -21,7 +21,7 @@ final class GetObjectTorrentRequestBuilderOps(val self: GetObjectTorrentRequest.
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -31,7 +31,7 @@ final class GetObjectTorrentRequestOps(val self: GetObjectTorrentRequest) extend
 
   final def keyAsScala: Option[String] = Option(self.key) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

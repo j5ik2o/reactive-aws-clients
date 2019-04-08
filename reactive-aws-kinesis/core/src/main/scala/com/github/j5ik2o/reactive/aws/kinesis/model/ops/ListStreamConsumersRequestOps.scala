@@ -27,7 +27,7 @@ final class ListStreamConsumersRequestBuilderOps(val self: ListStreamConsumersRe
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
 }
 
@@ -39,7 +39,8 @@ final class ListStreamConsumersRequestOps(val self: ListStreamConsumersRequest) 
 
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
 
-  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp) // Instant
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] =
+    Option(self.streamCreationTimestamp) // java.time.Instant
 
 }
 

@@ -21,7 +21,7 @@ final class ListObjectsRequestBuilderOps(val self: ListObjectsRequest.Builder) e
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  } // EncodingType
 
   final def markerAsScala(value: Option[String]): ListObjectsRequest.Builder = {
     value.fold(self) { v =>
@@ -45,7 +45,7 @@ final class ListObjectsRequestBuilderOps(val self: ListObjectsRequest.Builder) e
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  } // RequestPayer
 
 }
 
@@ -55,7 +55,7 @@ final class ListObjectsRequestOps(val self: ListObjectsRequest) extends AnyVal {
 
   final def delimiterAsScala: Option[String] = Option(self.delimiter) // String
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // EncodingType
 
   final def markerAsScala: Option[String] = Option(self.marker) // String
 
@@ -63,7 +63,7 @@ final class ListObjectsRequestOps(val self: ListObjectsRequest) extends AnyVal {
 
   final def prefixAsScala: Option[String] = Option(self.prefix) // String
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // RequestPayer
 
 }
 

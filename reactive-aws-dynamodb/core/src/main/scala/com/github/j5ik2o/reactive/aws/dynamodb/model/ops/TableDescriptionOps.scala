@@ -27,13 +27,13 @@ final class TableDescriptionBuilderOps(val self: TableDescription.Builder) exten
     value.fold(self) { v =>
       self.tableStatus(v)
     }
-  } // String
+  } // TableStatus
 
   final def creationDateTimeAsScala(value: Option[java.time.Instant]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.creationDateTime(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def provisionedThroughputAsScala(value: Option[ProvisionedThroughputDescription]): TableDescription.Builder = {
     value.fold(self) { v =>
@@ -131,9 +131,9 @@ final class TableDescriptionOps(val self: TableDescription) extends AnyVal {
     import scala.collection.JavaConverters._; v.asScala
   } // Seq[KeySchemaElement]
 
-  final def tableStatusAsScala: Option[TableStatus] = Option(self.tableStatus) // String
+  final def tableStatusAsScala: Option[TableStatus] = Option(self.tableStatus) // TableStatus
 
-  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // Instant
+  final def creationDateTimeAsScala: Option[java.time.Instant] = Option(self.creationDateTime) // java.time.Instant
 
   final def provisionedThroughputAsScala: Option[ProvisionedThroughputDescription] =
     Option(self.provisionedThroughput) // ProvisionedThroughputDescription

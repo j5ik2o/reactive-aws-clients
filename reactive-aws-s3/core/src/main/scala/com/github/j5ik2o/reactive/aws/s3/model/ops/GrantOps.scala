@@ -15,7 +15,7 @@ final class GrantBuilderOps(val self: Grant.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.permission(v)
     }
-  } // String
+  } // Permission
 
 }
 
@@ -23,7 +23,7 @@ final class GrantOps(val self: Grant) extends AnyVal {
 
   final def granteeAsScala: Option[Grantee] = Option(self.grantee) // Grantee
 
-  final def permissionAsScala: Option[Permission] = Option(self.permission) // String
+  final def permissionAsScala: Option[Permission] = Option(self.permission) // Permission
 
 }
 

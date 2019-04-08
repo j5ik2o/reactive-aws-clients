@@ -16,7 +16,7 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     value.fold(self) { v =>
       self.globalTableBillingMode(v)
     }
-  } // String
+  } // BillingMode
 
   final def globalTableProvisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
@@ -56,7 +56,7 @@ final class UpdateGlobalTableSettingsRequestOps(val self: UpdateGlobalTableSetti
 
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
 
-  final def globalTableBillingModeAsScala: Option[BillingMode] = Option(self.globalTableBillingMode) // String
+  final def globalTableBillingModeAsScala: Option[BillingMode] = Option(self.globalTableBillingMode) // BillingMode
 
   final def globalTableProvisionedWriteCapacityUnitsAsScala: Option[Long] =
     Option(self.globalTableProvisionedWriteCapacityUnits) // Long

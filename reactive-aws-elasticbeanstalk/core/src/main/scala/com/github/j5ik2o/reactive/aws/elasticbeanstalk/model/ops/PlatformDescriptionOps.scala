@@ -39,19 +39,19 @@ final class PlatformDescriptionBuilderOps(val self: PlatformDescription.Builder)
     value.fold(self) { v =>
       self.platformStatus(v)
     }
-  } // String
+  } // PlatformStatus
 
   final def dateCreatedAsScala(value: Option[java.time.Instant]): PlatformDescription.Builder = {
     value.fold(self) { v =>
       self.dateCreated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): PlatformDescription.Builder = {
     value.fold(self) { v =>
       self.dateUpdated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def platformCategoryAsScala(value: Option[String]): PlatformDescription.Builder = {
     value.fold(self) { v =>
@@ -129,11 +129,11 @@ final class PlatformDescriptionOps(val self: PlatformDescription) extends AnyVal
 
   final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName) // String
 
-  final def platformStatusAsScala: Option[PlatformStatus] = Option(self.platformStatus) // String
+  final def platformStatusAsScala: Option[PlatformStatus] = Option(self.platformStatus) // PlatformStatus
 
-  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // Instant
+  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // java.time.Instant
 
-  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // Instant
+  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // java.time.Instant
 
   final def platformCategoryAsScala: Option[String] = Option(self.platformCategory) // String
 

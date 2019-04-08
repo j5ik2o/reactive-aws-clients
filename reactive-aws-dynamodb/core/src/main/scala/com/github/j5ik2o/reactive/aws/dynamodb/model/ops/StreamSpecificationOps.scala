@@ -15,7 +15,7 @@ final class StreamSpecificationBuilderOps(val self: StreamSpecification.Builder)
     value.fold(self) { v =>
       self.streamViewType(v)
     }
-  } // String
+  } // StreamViewType
 
 }
 
@@ -23,7 +23,7 @@ final class StreamSpecificationOps(val self: StreamSpecification) extends AnyVal
 
   final def streamEnabledAsScala: Option[Boolean] = Option(self.streamEnabled) // Boolean
 
-  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // String
+  final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType) // StreamViewType
 
 }
 

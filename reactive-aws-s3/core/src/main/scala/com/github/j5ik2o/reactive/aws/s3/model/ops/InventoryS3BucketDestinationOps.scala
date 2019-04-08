@@ -21,7 +21,7 @@ final class InventoryS3BucketDestinationBuilderOps(val self: InventoryS3BucketDe
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  } // InventoryFormat
 
   final def prefixAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
     value.fold(self) { v =>
@@ -43,7 +43,7 @@ final class InventoryS3BucketDestinationOps(val self: InventoryS3BucketDestinati
 
   final def bucketAsScala: Option[String] = Option(self.bucket) // String
 
-  final def formatAsScala: Option[InventoryFormat] = Option(self.format) // String
+  final def formatAsScala: Option[InventoryFormat] = Option(self.format) // InventoryFormat
 
   final def prefixAsScala: Option[String] = Option(self.prefix) // String
 

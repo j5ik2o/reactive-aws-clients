@@ -63,7 +63,7 @@ final class UpdateElasticsearchDomainConfigRequestBuilderOps(val self: UpdateEla
   ): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.logPublishingOptions(v.asJava)
-    } // Map[String, LogPublishingOption]
+    } // Map[LogType, LogPublishingOption]
   }
 
 }
@@ -92,7 +92,7 @@ final class UpdateElasticsearchDomainConfigRequestOps(val self: UpdateElasticsea
   final def logPublishingOptionsAsScala: Option[Map[LogType, LogPublishingOption]] =
     Option(self.logPublishingOptions).map { v =>
       import scala.collection.JavaConverters._; v.asScala.toMap
-    } // Map[String, LogPublishingOption]
+    } // Map[LogType, LogPublishingOption]
 
 }
 

@@ -15,13 +15,13 @@ final class InvokeRequestBuilderOps(val self: InvokeRequest.Builder) extends Any
     value.fold(self) { v =>
       self.invocationType(v)
     }
-  } // String
+  } // InvocationType
 
   final def logTypeAsScala(value: Option[LogType]): InvokeRequest.Builder = {
     value.fold(self) { v =>
       self.logType(v)
     }
-  } // String
+  } // LogType
 
   final def clientContextAsScala(value: Option[String]): InvokeRequest.Builder = {
     value.fold(self) { v =>
@@ -33,7 +33,7 @@ final class InvokeRequestBuilderOps(val self: InvokeRequest.Builder) extends Any
     value.fold(self) { v =>
       self.payload(v)
     }
-  } // SdkBytes
+  } // software.amazon.awssdk.core.SdkBytes
 
   final def qualifierAsScala(value: Option[String]): InvokeRequest.Builder = {
     value.fold(self) { v =>
@@ -47,13 +47,14 @@ final class InvokeRequestOps(val self: InvokeRequest) extends AnyVal {
 
   final def functionNameAsScala: Option[String] = Option(self.functionName) // String
 
-  final def invocationTypeAsScala: Option[InvocationType] = Option(self.invocationType) // String
+  final def invocationTypeAsScala: Option[InvocationType] = Option(self.invocationType) // InvocationType
 
-  final def logTypeAsScala: Option[LogType] = Option(self.logType) // String
+  final def logTypeAsScala: Option[LogType] = Option(self.logType) // LogType
 
   final def clientContextAsScala: Option[String] = Option(self.clientContext) // String
 
-  final def payloadAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.payload) // SdkBytes
+  final def payloadAsScala: Option[software.amazon.awssdk.core.SdkBytes] =
+    Option(self.payload) // software.amazon.awssdk.core.SdkBytes
 
   final def qualifierAsScala: Option[String] = Option(self.qualifier) // String
 

@@ -20,7 +20,7 @@ final class MetricDataResultBuilderOps(val self: MetricDataResult.Builder) exten
   final def timestampsAsScala(value: Option[Seq[java.time.Instant]]): MetricDataResult.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.timestamps(v.asJava)
-    } // Seq[Instant]
+    } // Seq[java.time.Instant]
   }
 
   final def valuesAsScala(value: Option[Seq[Double]]): MetricDataResult.Builder = {
@@ -33,7 +33,7 @@ final class MetricDataResultBuilderOps(val self: MetricDataResult.Builder) exten
     value.fold(self) { v =>
       self.statusCode(v)
     }
-  } // String
+  } // StatusCode
 
   final def messagesAsScala(value: Option[Seq[MessageData]]): MetricDataResult.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -51,13 +51,13 @@ final class MetricDataResultOps(val self: MetricDataResult) extends AnyVal {
 
   final def timestampsAsScala: Option[Seq[java.time.Instant]] = Option(self.timestamps).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Instant]
+  } // Seq[java.time.Instant]
 
   final def valuesAsScala: Option[Seq[Double]] = Option(self.values).map { v =>
     import scala.collection.JavaConverters._; v.asScala.map(_.doubleValue())
   } // Seq[Double]
 
-  final def statusCodeAsScala: Option[StatusCode] = Option(self.statusCode) // String
+  final def statusCodeAsScala: Option[StatusCode] = Option(self.statusCode) // StatusCode
 
   final def messagesAsScala: Option[Seq[MessageData]] = Option(self.messages).map { v =>
     import scala.collection.JavaConverters._; v.asScala

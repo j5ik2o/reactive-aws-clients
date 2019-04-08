@@ -9,13 +9,13 @@ final class DeleteMarkerReplicationBuilderOps(val self: DeleteMarkerReplication.
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // DeleteMarkerReplicationStatus
 
 }
 
 final class DeleteMarkerReplicationOps(val self: DeleteMarkerReplication) extends AnyVal {
 
-  final def statusAsScala: Option[DeleteMarkerReplicationStatus] = Option(self.status) // String
+  final def statusAsScala: Option[DeleteMarkerReplicationStatus] = Option(self.status) // DeleteMarkerReplicationStatus
 
 }
 

@@ -9,7 +9,7 @@ final class ResourceChangeBuilderOps(val self: ResourceChange.Builder) extends A
     value.fold(self) { v =>
       self.action(v)
     }
-  } // String
+  } // ChangeAction
 
   final def logicalResourceIdAsScala(value: Option[String]): ResourceChange.Builder = {
     value.fold(self) { v =>
@@ -33,12 +33,12 @@ final class ResourceChangeBuilderOps(val self: ResourceChange.Builder) extends A
     value.fold(self) { v =>
       self.replacement(v)
     }
-  } // String
+  } // Replacement
 
   final def scopeAsScala(value: Option[Seq[ResourceAttribute]]): ResourceChange.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.scope(v.asJava)
-    } // Seq[String]
+    } // Seq[ResourceAttribute]
   }
 
   final def detailsAsScala(value: Option[Seq[ResourceChangeDetail]]): ResourceChange.Builder = {
@@ -51,7 +51,7 @@ final class ResourceChangeBuilderOps(val self: ResourceChange.Builder) extends A
 
 final class ResourceChangeOps(val self: ResourceChange) extends AnyVal {
 
-  final def actionAsScala: Option[ChangeAction] = Option(self.action) // String
+  final def actionAsScala: Option[ChangeAction] = Option(self.action) // ChangeAction
 
   final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId) // String
 
@@ -59,11 +59,11 @@ final class ResourceChangeOps(val self: ResourceChange) extends AnyVal {
 
   final def resourceTypeAsScala: Option[String] = Option(self.resourceType) // String
 
-  final def replacementAsScala: Option[Replacement] = Option(self.replacement) // String
+  final def replacementAsScala: Option[Replacement] = Option(self.replacement) // Replacement
 
   final def scopeAsScala: Option[Seq[ResourceAttribute]] = Option(self.scope).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[ResourceAttribute]
 
   final def detailsAsScala: Option[Seq[ResourceChangeDetail]] = Option(self.details).map { v =>
     import scala.collection.JavaConverters._; v.asScala

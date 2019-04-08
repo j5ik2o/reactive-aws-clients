@@ -21,7 +21,7 @@ final class PlatformSummaryBuilderOps(val self: PlatformSummary.Builder) extends
     value.fold(self) { v =>
       self.platformStatus(v)
     }
-  } // String
+  } // PlatformStatus
 
   final def platformCategoryAsScala(value: Option[String]): PlatformSummary.Builder = {
     value.fold(self) { v =>
@@ -61,7 +61,7 @@ final class PlatformSummaryOps(val self: PlatformSummary) extends AnyVal {
 
   final def platformOwnerAsScala: Option[String] = Option(self.platformOwner) // String
 
-  final def platformStatusAsScala: Option[PlatformStatus] = Option(self.platformStatus) // String
+  final def platformStatusAsScala: Option[PlatformStatus] = Option(self.platformStatus) // PlatformStatus
 
   final def platformCategoryAsScala: Option[String] = Option(self.platformCategory) // String
 

@@ -9,7 +9,7 @@ final class ResourceTargetDefinitionBuilderOps(val self: ResourceTargetDefinitio
     value.fold(self) { v =>
       self.attribute(v)
     }
-  } // String
+  } // ResourceAttribute
 
   final def nameAsScala(value: Option[String]): ResourceTargetDefinition.Builder = {
     value.fold(self) { v =>
@@ -21,17 +21,18 @@ final class ResourceTargetDefinitionBuilderOps(val self: ResourceTargetDefinitio
     value.fold(self) { v =>
       self.requiresRecreation(v)
     }
-  } // String
+  } // RequiresRecreation
 
 }
 
 final class ResourceTargetDefinitionOps(val self: ResourceTargetDefinition) extends AnyVal {
 
-  final def attributeAsScala: Option[ResourceAttribute] = Option(self.attribute) // String
+  final def attributeAsScala: Option[ResourceAttribute] = Option(self.attribute) // ResourceAttribute
 
   final def nameAsScala: Option[String] = Option(self.name) // String
 
-  final def requiresRecreationAsScala: Option[RequiresRecreation] = Option(self.requiresRecreation) // String
+  final def requiresRecreationAsScala: Option[RequiresRecreation] =
+    Option(self.requiresRecreation) // RequiresRecreation
 
 }
 

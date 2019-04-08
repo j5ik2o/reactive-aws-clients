@@ -15,7 +15,7 @@ final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) exten
     value.fold(self) { v =>
       self.sseType(v)
     }
-  } // String
+  } // SSEType
 
   final def kmsMasterKeyIdAsScala(value: Option[String]): SSESpecification.Builder = {
     value.fold(self) { v =>
@@ -29,7 +29,7 @@ final class SSESpecificationOps(val self: SSESpecification) extends AnyVal {
 
   final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
 
-  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType) // String
+  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType) // SSEType
 
   final def kmsMasterKeyIdAsScala: Option[String] = Option(self.kmsMasterKeyId) // String
 

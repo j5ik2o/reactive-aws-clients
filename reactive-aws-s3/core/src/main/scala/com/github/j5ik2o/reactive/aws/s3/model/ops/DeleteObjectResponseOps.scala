@@ -21,7 +21,7 @@ final class DeleteObjectResponseBuilderOps(val self: DeleteObjectResponse.Builde
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  } // RequestCharged
 
 }
 
@@ -31,7 +31,7 @@ final class DeleteObjectResponseOps(val self: DeleteObjectResponse) extends AnyV
 
   final def versionIdAsScala: Option[String] = Option(self.versionId) // String
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // RequestCharged
 
 }
 

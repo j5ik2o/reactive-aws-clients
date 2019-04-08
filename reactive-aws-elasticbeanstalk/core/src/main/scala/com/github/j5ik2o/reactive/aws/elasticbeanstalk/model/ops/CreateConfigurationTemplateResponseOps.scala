@@ -48,19 +48,19 @@ final class CreateConfigurationTemplateResponseBuilderOps(val self: CreateConfig
     value.fold(self) { v =>
       self.deploymentStatus(v)
     }
-  } // String
+  } // ConfigurationDeploymentStatus
 
   final def dateCreatedAsScala(value: Option[java.time.Instant]): CreateConfigurationTemplateResponse.Builder = {
     value.fold(self) { v =>
       self.dateCreated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): CreateConfigurationTemplateResponse.Builder = {
     value.fold(self) { v =>
       self.dateUpdated(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def optionSettingsAsScala(
       value: Option[Seq[ConfigurationOptionSetting]]
@@ -86,11 +86,12 @@ final class CreateConfigurationTemplateResponseOps(val self: CreateConfiguration
 
   final def environmentNameAsScala: Option[String] = Option(self.environmentName) // String
 
-  final def deploymentStatusAsScala: Option[ConfigurationDeploymentStatus] = Option(self.deploymentStatus) // String
+  final def deploymentStatusAsScala: Option[ConfigurationDeploymentStatus] =
+    Option(self.deploymentStatus) // ConfigurationDeploymentStatus
 
-  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // Instant
+  final def dateCreatedAsScala: Option[java.time.Instant] = Option(self.dateCreated) // java.time.Instant
 
-  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // Instant
+  final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated) // java.time.Instant
 
   final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
     import scala.collection.JavaConverters._; v.asScala

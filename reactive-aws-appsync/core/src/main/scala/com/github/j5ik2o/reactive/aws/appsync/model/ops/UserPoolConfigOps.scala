@@ -21,7 +21,7 @@ final class UserPoolConfigBuilderOps(val self: UserPoolConfig.Builder) extends A
     value.fold(self) { v =>
       self.defaultAction(v)
     }
-  } // String
+  } // DefaultAction
 
   final def appIdClientRegexAsScala(value: Option[String]): UserPoolConfig.Builder = {
     value.fold(self) { v =>
@@ -37,7 +37,7 @@ final class UserPoolConfigOps(val self: UserPoolConfig) extends AnyVal {
 
   final def awsRegionAsScala: Option[String] = Option(self.awsRegion) // String
 
-  final def defaultActionAsScala: Option[DefaultAction] = Option(self.defaultAction) // String
+  final def defaultActionAsScala: Option[DefaultAction] = Option(self.defaultAction) // DefaultAction
 
   final def appIdClientRegexAsScala: Option[String] = Option(self.appIdClientRegex) // String
 

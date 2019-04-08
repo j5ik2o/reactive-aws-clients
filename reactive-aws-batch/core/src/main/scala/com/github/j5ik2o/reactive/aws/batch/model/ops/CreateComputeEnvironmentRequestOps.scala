@@ -16,13 +16,13 @@ final class CreateComputeEnvironmentRequestBuilderOps(val self: CreateComputeEnv
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  } // CEType
 
   final def stateAsScala(value: Option[CEState]): CreateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
-  } // String
+  } // CEState
 
   final def computeResourcesAsScala(value: Option[ComputeResource]): CreateComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
@@ -42,9 +42,9 @@ final class CreateComputeEnvironmentRequestOps(val self: CreateComputeEnvironmen
 
   final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName) // String
 
-  final def typeAsScala: Option[CEType] = Option(self.`type`) // String
+  final def typeAsScala: Option[CEType] = Option(self.`type`) // CEType
 
-  final def stateAsScala: Option[CEState] = Option(self.state) // String
+  final def stateAsScala: Option[CEState] = Option(self.state) // CEState
 
   final def computeResourcesAsScala: Option[ComputeResource] = Option(self.computeResources) // ComputeResource
 

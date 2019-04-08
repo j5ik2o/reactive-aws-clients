@@ -15,13 +15,13 @@ final class UpgradeHistoryBuilderOps(val self: UpgradeHistory.Builder) extends A
     value.fold(self) { v =>
       self.startTimestamp(v)
     }
-  } // Instant
+  } // java.time.Instant
 
   final def upgradeStatusAsScala(value: Option[UpgradeStatus]): UpgradeHistory.Builder = {
     value.fold(self) { v =>
       self.upgradeStatus(v)
     }
-  } // String
+  } // UpgradeStatus
 
   final def stepsListAsScala(value: Option[Seq[UpgradeStepItem]]): UpgradeHistory.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -35,9 +35,9 @@ final class UpgradeHistoryOps(val self: UpgradeHistory) extends AnyVal {
 
   final def upgradeNameAsScala: Option[String] = Option(self.upgradeName) // String
 
-  final def startTimestampAsScala: Option[java.time.Instant] = Option(self.startTimestamp) // Instant
+  final def startTimestampAsScala: Option[java.time.Instant] = Option(self.startTimestamp) // java.time.Instant
 
-  final def upgradeStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStatus) // String
+  final def upgradeStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStatus) // UpgradeStatus
 
   final def stepsListAsScala: Option[Seq[UpgradeStepItem]] = Option(self.stepsList).map { v =>
     import scala.collection.JavaConverters._; v.asScala

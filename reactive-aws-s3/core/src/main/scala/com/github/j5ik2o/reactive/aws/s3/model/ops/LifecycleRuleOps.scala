@@ -33,7 +33,7 @@ final class LifecycleRuleBuilderOps(val self: LifecycleRule.Builder) extends Any
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ExpirationStatus
 
   final def transitionsAsScala(value: Option[Seq[Transition]]): LifecycleRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -75,7 +75,7 @@ final class LifecycleRuleOps(val self: LifecycleRule) extends AnyVal {
 
   final def filterAsScala: Option[LifecycleRuleFilter] = Option(self.filter) // LifecycleRuleFilter
 
-  final def statusAsScala: Option[ExpirationStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ExpirationStatus] = Option(self.status) // ExpirationStatus
 
   final def transitionsAsScala: Option[Seq[Transition]] = Option(self.transitions).map { v =>
     import scala.collection.JavaConverters._; v.asScala

@@ -20,7 +20,7 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
   final def capabilitiesAsScala(value: Option[Seq[Capability]]): GetTemplateSummaryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.capabilities(v.asJava)
-    } // Seq[String]
+    } // Seq[Capability]
   }
 
   final def capabilitiesReasonAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
@@ -65,7 +65,7 @@ final class GetTemplateSummaryResponseOps(val self: GetTemplateSummaryResponse) 
 
   final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  } // Seq[Capability]
 
   final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason) // String
 

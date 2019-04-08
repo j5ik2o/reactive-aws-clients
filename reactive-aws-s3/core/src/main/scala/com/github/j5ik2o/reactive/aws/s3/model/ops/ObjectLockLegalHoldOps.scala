@@ -9,13 +9,13 @@ final class ObjectLockLegalHoldBuilderOps(val self: ObjectLockLegalHold.Builder)
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  } // ObjectLockLegalHoldStatus
 
 }
 
 final class ObjectLockLegalHoldOps(val self: ObjectLockLegalHold) extends AnyVal {
 
-  final def statusAsScala: Option[ObjectLockLegalHoldStatus] = Option(self.status) // String
+  final def statusAsScala: Option[ObjectLockLegalHoldStatus] = Option(self.status) // ObjectLockLegalHoldStatus
 
 }
 
