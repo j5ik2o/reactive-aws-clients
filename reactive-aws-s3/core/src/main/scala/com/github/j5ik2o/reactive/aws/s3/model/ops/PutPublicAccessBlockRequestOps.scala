@@ -9,13 +9,13 @@ final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlock
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def publicAccessBlockConfigurationAsScala(
       value: Option[PublicAccessBlockConfiguration]
@@ -23,18 +23,18 @@ final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlock
     value.fold(self) { v =>
       self.publicAccessBlockConfiguration(v)
     }
-  } // PublicAccessBlockConfiguration
+  }
 
 }
 
 final class PutPublicAccessBlockRequestOps(val self: PutPublicAccessBlockRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
   final def publicAccessBlockConfigurationAsScala: Option[PublicAccessBlockConfiguration] =
-    Option(self.publicAccessBlockConfiguration) // PublicAccessBlockConfiguration
+    Option(self.publicAccessBlockConfiguration)
 
 }
 

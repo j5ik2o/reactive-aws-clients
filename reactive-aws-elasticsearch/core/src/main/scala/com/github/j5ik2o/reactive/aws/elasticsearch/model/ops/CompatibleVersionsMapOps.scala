@@ -9,23 +9,23 @@ final class CompatibleVersionsMapBuilderOps(val self: CompatibleVersionsMap.Buil
     value.fold(self) { v =>
       self.sourceVersion(v)
     }
-  } // String
+  }
 
   final def targetVersionsAsScala(value: Option[Seq[String]]): CompatibleVersionsMap.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.targetVersions(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class CompatibleVersionsMapOps(val self: CompatibleVersionsMap) extends AnyVal {
 
-  final def sourceVersionAsScala: Option[String] = Option(self.sourceVersion) // String
+  final def sourceVersionAsScala: Option[String] = Option(self.sourceVersion)
 
   final def targetVersionsAsScala: Option[Seq[String]] = Option(self.targetVersions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

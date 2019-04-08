@@ -9,43 +9,43 @@ final class VPCDerivedInfoBuilderOps(val self: VPCDerivedInfo.Builder) extends A
     value.fold(self) { v =>
       self.vpcId(v)
     }
-  } // String
+  }
 
   final def subnetIdsAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def availabilityZonesAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def securityGroupIdsAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class VPCDerivedInfoOps(val self: VPCDerivedInfo) extends AnyVal {
 
-  final def vpcIdAsScala: Option[String] = Option(self.vpcId) // String
+  final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
   final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def availabilityZonesAsScala: Option[Seq[String]] = Option(self.availabilityZones).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

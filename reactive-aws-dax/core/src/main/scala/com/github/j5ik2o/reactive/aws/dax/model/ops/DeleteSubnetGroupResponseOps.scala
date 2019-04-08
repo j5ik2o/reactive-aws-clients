@@ -9,13 +9,13 @@ final class DeleteSubnetGroupResponseBuilderOps(val self: DeleteSubnetGroupRespo
     value.fold(self) { v =>
       self.deletionMessage(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteSubnetGroupResponseOps(val self: DeleteSubnetGroupResponse) extends AnyVal {
 
-  final def deletionMessageAsScala: Option[String] = Option(self.deletionMessage) // String
+  final def deletionMessageAsScala: Option[String] = Option(self.deletionMessage)
 
 }
 

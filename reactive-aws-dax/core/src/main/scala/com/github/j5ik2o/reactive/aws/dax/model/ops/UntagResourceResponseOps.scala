@@ -8,7 +8,7 @@ final class UntagResourceResponseBuilderOps(val self: UntagResourceResponse.Buil
   final def tagsAsScala(value: Option[Seq[Tag]]): UntagResourceResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class UntagResourceResponseOps(val self: UntagResourceResponse) extends An
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

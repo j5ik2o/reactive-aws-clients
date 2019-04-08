@@ -10,13 +10,13 @@ final class PointInTimeRecoverySpecificationBuilderOps(val self: PointInTimeReco
     value.fold(self) { v =>
       self.pointInTimeRecoveryEnabled(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class PointInTimeRecoverySpecificationOps(val self: PointInTimeRecoverySpecification) extends AnyVal {
 
-  final def pointInTimeRecoveryEnabledAsScala: Option[Boolean] = Option(self.pointInTimeRecoveryEnabled) // Boolean
+  final def pointInTimeRecoveryEnabledAsScala: Option[Boolean] = Option(self.pointInTimeRecoveryEnabled)
 
 }
 

@@ -8,7 +8,7 @@ final class DescribeEndpointsResponseBuilderOps(val self: DescribeEndpointsRespo
   final def endpointsAsScala(value: Option[Seq[Endpoint]]): DescribeEndpointsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.endpoints(v.asJava)
-    } // Seq[Endpoint]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class DescribeEndpointsResponseOps(val self: DescribeEndpointsResponse) ex
 
   final def endpointsAsScala: Option[Seq[Endpoint]] = Option(self.endpoints).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Endpoint]
+  }
 
 }
 

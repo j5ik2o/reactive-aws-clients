@@ -9,23 +9,23 @@ final class RemoveTagsFromStreamRequestBuilderOps(val self: RemoveTagsFromStream
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def tagKeysAsScala(value: Option[Seq[String]]): RemoveTagsFromStreamRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class RemoveTagsFromStreamRequestOps(val self: RemoveTagsFromStreamRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
   final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

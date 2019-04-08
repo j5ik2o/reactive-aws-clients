@@ -9,13 +9,13 @@ final class GetBucketLoggingResponseBuilderOps(val self: GetBucketLoggingRespons
     value.fold(self) { v =>
       self.loggingEnabled(v)
     }
-  } // LoggingEnabled
+  }
 
 }
 
 final class GetBucketLoggingResponseOps(val self: GetBucketLoggingResponse) extends AnyVal {
 
-  final def loggingEnabledAsScala: Option[LoggingEnabled] = Option(self.loggingEnabled) // LoggingEnabled
+  final def loggingEnabledAsScala: Option[LoggingEnabled] = Option(self.loggingEnabled)
 
 }
 

@@ -9,85 +9,85 @@ final class UploadPartRequestBuilderOps(val self: UploadPartRequest.Builder) ext
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentLengthAsScala(value: Option[Long]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.contentLength(v)
     }
-  } // Long
+  }
 
   final def contentMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def partNumberAsScala(value: Option[Int]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }
-  } // Int
+  }
 
   final def uploadIdAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
-  } // String
+  }
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  }
 
 }
 
 final class UploadPartRequestOps(val self: UploadPartRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentLengthAsScala: Option[Long] = Option(self.contentLength) // Long
+  final def contentLengthAsScala: Option[Long] = Option(self.contentLength)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def partNumberAsScala: Option[Int] = Option(self.partNumber) // Int
+  final def partNumberAsScala: Option[Int] = Option(self.partNumber)
 
-  final def uploadIdAsScala: Option[String] = Option(self.uploadId) // String
+  final def uploadIdAsScala: Option[String] = Option(self.uploadId)
 
-  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm)
 
-  final def sseCustomerKeyAsScala: Option[String] = Option(self.sseCustomerKey) // String
+  final def sseCustomerKeyAsScala: Option[String] = Option(self.sseCustomerKey)
 
-  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
 }
 

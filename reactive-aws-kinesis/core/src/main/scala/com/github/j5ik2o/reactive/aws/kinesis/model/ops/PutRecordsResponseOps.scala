@@ -9,31 +9,31 @@ final class PutRecordsResponseBuilderOps(val self: PutRecordsResponse.Builder) e
     value.fold(self) { v =>
       self.failedRecordCount(v)
     }
-  } // Int
+  }
 
   final def recordsAsScala(value: Option[Seq[PutRecordsResultEntry]]): PutRecordsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
-    } // Seq[PutRecordsResultEntry]
+    }
   }
 
   final def encryptionTypeAsScala(value: Option[EncryptionType]): PutRecordsResponse.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  }
 
 }
 
 final class PutRecordsResponseOps(val self: PutRecordsResponse) extends AnyVal {
 
-  final def failedRecordCountAsScala: Option[Int] = Option(self.failedRecordCount) // Int
+  final def failedRecordCountAsScala: Option[Int] = Option(self.failedRecordCount)
 
   final def recordsAsScala: Option[Seq[PutRecordsResultEntry]] = Option(self.records).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[PutRecordsResultEntry]
+  }
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType)
 
 }
 

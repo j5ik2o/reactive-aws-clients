@@ -8,13 +8,13 @@ final class DeleteMessageBatchResponseBuilderOps(val self: DeleteMessageBatchRes
   final def successfulAsScala(value: Option[Seq[DeleteMessageBatchResultEntry]]): DeleteMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.successful(v.asJava)
-    } // Seq[DeleteMessageBatchResultEntry]
+    }
   }
 
   final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): DeleteMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.failed(v.asJava)
-    } // Seq[BatchResultErrorEntry]
+    }
   }
 
 }
@@ -23,11 +23,11 @@ final class DeleteMessageBatchResponseOps(val self: DeleteMessageBatchResponse) 
 
   final def successfulAsScala: Option[Seq[DeleteMessageBatchResultEntry]] = Option(self.successful).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[DeleteMessageBatchResultEntry]
+  }
 
   final def failedAsScala: Option[Seq[BatchResultErrorEntry]] = Option(self.failed).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[BatchResultErrorEntry]
+  }
 
 }
 

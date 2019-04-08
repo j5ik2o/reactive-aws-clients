@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.appsync.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToApiKeyOps
+    extends ToOptionSupport
+    with ToApiKeyOps
     with ToAuthorizationConfigOps
     with ToAwsIamConfigOps
     with ToCreateApiKeyRequestOps
@@ -18,17 +21,11 @@ trait ToAllOps
     with ToCreateTypeResponseOps
     with ToDataSourceOps
     with ToDeleteApiKeyRequestOps
-    with ToDeleteApiKeyResponseOps
     with ToDeleteDataSourceRequestOps
-    with ToDeleteDataSourceResponseOps
     with ToDeleteFunctionRequestOps
-    with ToDeleteFunctionResponseOps
     with ToDeleteGraphqlApiRequestOps
-    with ToDeleteGraphqlApiResponseOps
     with ToDeleteResolverRequestOps
-    with ToDeleteResolverResponseOps
     with ToDeleteTypeRequestOps
-    with ToDeleteTypeResponseOps
     with ToDynamodbDataSourceConfigOps
     with ToElasticsearchDataSourceConfigOps
     with ToFunctionConfigurationOps

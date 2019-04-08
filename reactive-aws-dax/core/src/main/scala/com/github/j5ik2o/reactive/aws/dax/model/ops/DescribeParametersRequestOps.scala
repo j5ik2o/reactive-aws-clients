@@ -9,37 +9,37 @@ final class DescribeParametersRequestBuilderOps(val self: DescribeParametersRequ
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
-  } // String
+  }
 
   final def sourceAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.source(v)
     }
-  } // String
+  }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeParametersRequestOps(val self: DescribeParametersRequest) extends AnyVal {
 
-  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName) // String
+  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
-  final def sourceAsScala: Option[String] = Option(self.source) // String
+  final def sourceAsScala: Option[String] = Option(self.source)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

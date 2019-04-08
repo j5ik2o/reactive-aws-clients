@@ -12,14 +12,13 @@ final class GetObjectLockConfigurationResponseBuilderOps(val self: GetObjectLock
     value.fold(self) { v =>
       self.objectLockConfiguration(v)
     }
-  } // ObjectLockConfiguration
+  }
 
 }
 
 final class GetObjectLockConfigurationResponseOps(val self: GetObjectLockConfigurationResponse) extends AnyVal {
 
-  final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] =
-    Option(self.objectLockConfiguration) // ObjectLockConfiguration
+  final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] = Option(self.objectLockConfiguration)
 
 }
 

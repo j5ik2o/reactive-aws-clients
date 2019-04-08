@@ -11,13 +11,13 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     value.fold(self) { v =>
       self.indexName(v)
     }
-  } // String
+  }
 
   final def indexStatusAsScala(value: Option[IndexStatus]): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.indexStatus(v)
     }
-  } // String
+  }
 
   final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
@@ -25,7 +25,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     value.fold(self) { v =>
       self.provisionedReadCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def provisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
@@ -33,7 +33,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     value.fold(self) { v =>
       self.provisionedReadCapacityAutoScalingSettings(v)
     }
-  } // AutoScalingSettingsDescription
+  }
 
   final def provisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
@@ -41,7 +41,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     value.fold(self) { v =>
       self.provisionedWriteCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def provisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
@@ -49,26 +49,26 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     value.fold(self) { v =>
       self.provisionedWriteCapacityAutoScalingSettings(v)
     }
-  } // AutoScalingSettingsDescription
+  }
 
 }
 
 final class ReplicaGlobalSecondaryIndexSettingsDescriptionOps(val self: ReplicaGlobalSecondaryIndexSettingsDescription)
     extends AnyVal {
 
-  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
 
-  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus) // String
+  final def indexStatusAsScala: Option[IndexStatus] = Option(self.indexStatus)
 
-  final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits) // Long
+  final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits)
 
   final def provisionedReadCapacityAutoScalingSettingsAsScala: Option[AutoScalingSettingsDescription] =
-    Option(self.provisionedReadCapacityAutoScalingSettings) // AutoScalingSettingsDescription
+    Option(self.provisionedReadCapacityAutoScalingSettings)
 
-  final def provisionedWriteCapacityUnitsAsScala: Option[Long] = Option(self.provisionedWriteCapacityUnits) // Long
+  final def provisionedWriteCapacityUnitsAsScala: Option[Long] = Option(self.provisionedWriteCapacityUnits)
 
   final def provisionedWriteCapacityAutoScalingSettingsAsScala: Option[AutoScalingSettingsDescription] =
-    Option(self.provisionedWriteCapacityAutoScalingSettings) // AutoScalingSettingsDescription
+    Option(self.provisionedWriteCapacityAutoScalingSettings)
 
 }
 

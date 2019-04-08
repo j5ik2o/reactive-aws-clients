@@ -9,23 +9,23 @@ final class CreateGlobalTableRequestBuilderOps(val self: CreateGlobalTableReques
     value.fold(self) { v =>
       self.globalTableName(v)
     }
-  } // String
+  }
 
   final def replicationGroupAsScala(value: Option[Seq[Replica]]): CreateGlobalTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicationGroup(v.asJava)
-    } // Seq[Replica]
+    }
   }
 
 }
 
 final class CreateGlobalTableRequestOps(val self: CreateGlobalTableRequest) extends AnyVal {
 
-  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
   final def replicationGroupAsScala: Option[Seq[Replica]] = Option(self.replicationGroup).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Replica]
+  }
 
 }
 

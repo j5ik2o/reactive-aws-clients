@@ -9,13 +9,13 @@ final class CreateQueueResponseBuilderOps(val self: CreateQueueResponse.Builder)
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateQueueResponseOps(val self: CreateQueueResponse) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }
 

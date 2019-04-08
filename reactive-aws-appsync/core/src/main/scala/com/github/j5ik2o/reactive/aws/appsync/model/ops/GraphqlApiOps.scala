@@ -9,72 +9,71 @@ final class GraphqlApiBuilderOps(val self: GraphqlApi.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def apiIdAsScala(value: Option[String]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def authenticationTypeAsScala(value: Option[AuthenticationType]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.authenticationType(v)
     }
-  } // String
+  }
 
   final def logConfigAsScala(value: Option[LogConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.logConfig(v)
     }
-  } // LogConfig
+  }
 
   final def userPoolConfigAsScala(value: Option[UserPoolConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.userPoolConfig(v)
     }
-  } // UserPoolConfig
+  }
 
   final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.openIDConnectConfig(v)
     }
-  } // OpenIDConnectConfig
+  }
 
   final def arnAsScala(value: Option[String]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def urisAsScala(value: Option[Map[String, String]]): GraphqlApi.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.uris(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
 
 final class GraphqlApiOps(val self: GraphqlApi) extends AnyVal {
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def authenticationTypeAsScala: Option[AuthenticationType] = Option(self.authenticationType) // String
+  final def authenticationTypeAsScala: Option[AuthenticationType] = Option(self.authenticationType)
 
-  final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig) // LogConfig
+  final def logConfigAsScala: Option[LogConfig] = Option(self.logConfig)
 
-  final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig) // UserPoolConfig
+  final def userPoolConfigAsScala: Option[UserPoolConfig] = Option(self.userPoolConfig)
 
-  final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] =
-    Option(self.openIDConnectConfig) // OpenIDConnectConfig
+  final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] = Option(self.openIDConnectConfig)
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
   final def urisAsScala: Option[Map[String, String]] = Option(self.uris).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

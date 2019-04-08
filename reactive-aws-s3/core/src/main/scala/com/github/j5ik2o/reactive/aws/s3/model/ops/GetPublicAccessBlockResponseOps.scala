@@ -11,14 +11,14 @@ final class GetPublicAccessBlockResponseBuilderOps(val self: GetPublicAccessBloc
     value.fold(self) { v =>
       self.publicAccessBlockConfiguration(v)
     }
-  } // PublicAccessBlockConfiguration
+  }
 
 }
 
 final class GetPublicAccessBlockResponseOps(val self: GetPublicAccessBlockResponse) extends AnyVal {
 
   final def publicAccessBlockConfigurationAsScala: Option[PublicAccessBlockConfiguration] =
-    Option(self.publicAccessBlockConfiguration) // PublicAccessBlockConfiguration
+    Option(self.publicAccessBlockConfiguration)
 
 }
 

@@ -9,7 +9,7 @@ final class AutoScalingPolicyDescriptionBuilderOps(val self: AutoScalingPolicyDe
     value.fold(self) { v =>
       self.policyName(v)
     }
-  } // String
+  }
 
   final def targetTrackingScalingPolicyConfigurationAsScala(
       value: Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription]
@@ -17,17 +17,17 @@ final class AutoScalingPolicyDescriptionBuilderOps(val self: AutoScalingPolicyDe
     value.fold(self) { v =>
       self.targetTrackingScalingPolicyConfiguration(v)
     }
-  } // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+  }
 
 }
 
 final class AutoScalingPolicyDescriptionOps(val self: AutoScalingPolicyDescription) extends AnyVal {
 
-  final def policyNameAsScala: Option[String] = Option(self.policyName) // String
+  final def policyNameAsScala: Option[String] = Option(self.policyName)
 
   final def targetTrackingScalingPolicyConfigurationAsScala
     : Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription] =
-    Option(self.targetTrackingScalingPolicyConfiguration) // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    Option(self.targetTrackingScalingPolicyConfiguration)
 
 }
 

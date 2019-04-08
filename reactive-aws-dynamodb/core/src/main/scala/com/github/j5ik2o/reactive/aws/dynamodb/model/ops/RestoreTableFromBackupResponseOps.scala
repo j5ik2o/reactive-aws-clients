@@ -9,13 +9,13 @@ final class RestoreTableFromBackupResponseBuilderOps(val self: RestoreTableFromB
     value.fold(self) { v =>
       self.tableDescription(v)
     }
-  } // TableDescription
+  }
 
 }
 
 final class RestoreTableFromBackupResponseOps(val self: RestoreTableFromBackupResponse) extends AnyVal {
 
-  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription) // TableDescription
+  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription)
 
 }
 

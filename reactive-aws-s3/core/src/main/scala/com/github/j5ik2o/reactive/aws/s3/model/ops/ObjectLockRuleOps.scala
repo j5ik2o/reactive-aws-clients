@@ -9,13 +9,13 @@ final class ObjectLockRuleBuilderOps(val self: ObjectLockRule.Builder) extends A
     value.fold(self) { v =>
       self.defaultRetention(v)
     }
-  } // DefaultRetention
+  }
 
 }
 
 final class ObjectLockRuleOps(val self: ObjectLockRule) extends AnyVal {
 
-  final def defaultRetentionAsScala: Option[DefaultRetention] = Option(self.defaultRetention) // DefaultRetention
+  final def defaultRetentionAsScala: Option[DefaultRetention] = Option(self.defaultRetention)
 
 }
 

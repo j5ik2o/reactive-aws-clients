@@ -9,21 +9,21 @@ final class RegisterStreamConsumerRequestBuilderOps(val self: RegisterStreamCons
     value.fold(self) { v =>
       self.streamARN(v)
     }
-  } // String
+  }
 
   final def consumerNameAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.consumerName(v)
     }
-  } // String
+  }
 
 }
 
 final class RegisterStreamConsumerRequestOps(val self: RegisterStreamConsumerRequest) extends AnyVal {
 
-  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+  final def streamARNAsScala: Option[String] = Option(self.streamARN)
 
-  final def consumerNameAsScala: Option[String] = Option(self.consumerName) // String
+  final def consumerNameAsScala: Option[String] = Option(self.consumerName)
 
 }
 

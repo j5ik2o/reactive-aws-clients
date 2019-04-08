@@ -9,21 +9,21 @@ final class DeleteStreamRequestBuilderOps(val self: DeleteStreamRequest.Builder)
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def enforceConsumerDeletionAsScala(value: Option[Boolean]): DeleteStreamRequest.Builder = {
     value.fold(self) { v =>
       self.enforceConsumerDeletion(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class DeleteStreamRequestOps(val self: DeleteStreamRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def enforceConsumerDeletionAsScala: Option[Boolean] = Option(self.enforceConsumerDeletion) // Boolean
+  final def enforceConsumerDeletionAsScala: Option[Boolean] = Option(self.enforceConsumerDeletion)
 
 }
 

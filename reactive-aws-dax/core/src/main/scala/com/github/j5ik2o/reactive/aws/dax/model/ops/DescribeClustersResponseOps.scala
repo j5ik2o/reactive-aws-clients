@@ -9,23 +9,23 @@ final class DescribeClustersResponseBuilderOps(val self: DescribeClustersRespons
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def clustersAsScala(value: Option[Seq[Cluster]]): DescribeClustersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.clusters(v.asJava)
-    } // Seq[Cluster]
+    }
   }
 
 }
 
 final class DescribeClustersResponseOps(val self: DescribeClustersResponse) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   final def clustersAsScala: Option[Seq[Cluster]] = Option(self.clusters).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Cluster]
+  }
 
 }
 

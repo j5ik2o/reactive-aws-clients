@@ -9,13 +9,13 @@ final class PutObjectTaggingResponseBuilderOps(val self: PutObjectTaggingRespons
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
 }
 
 final class PutObjectTaggingResponseOps(val self: PutObjectTaggingResponse) extends AnyVal {
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }
 

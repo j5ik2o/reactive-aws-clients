@@ -9,21 +9,21 @@ final class ProvisionedThroughputBuilderOps(val self: ProvisionedThroughput.Buil
     value.fold(self) { v =>
       self.readCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def writeCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
     value.fold(self) { v =>
       self.writeCapacityUnits(v)
     }
-  } // Long
+  }
 
 }
 
 final class ProvisionedThroughputOps(val self: ProvisionedThroughput) extends AnyVal {
 
-  final def readCapacityUnitsAsScala: Option[Long] = Option(self.readCapacityUnits) // Long
+  final def readCapacityUnitsAsScala: Option[Long] = Option(self.readCapacityUnits)
 
-  final def writeCapacityUnitsAsScala: Option[Long] = Option(self.writeCapacityUnits) // Long
+  final def writeCapacityUnitsAsScala: Option[Long] = Option(self.writeCapacityUnits)
 
 }
 

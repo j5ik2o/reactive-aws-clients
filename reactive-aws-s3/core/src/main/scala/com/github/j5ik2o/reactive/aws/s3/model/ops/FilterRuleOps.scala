@@ -9,21 +9,21 @@ final class FilterRuleBuilderOps(val self: FilterRule.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): FilterRule.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class FilterRuleOps(val self: FilterRule) extends AnyVal {
 
-  final def nameAsScala: Option[FilterRuleName] = Option(self.name) // String
+  final def nameAsScala: Option[FilterRuleName] = Option(self.name)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

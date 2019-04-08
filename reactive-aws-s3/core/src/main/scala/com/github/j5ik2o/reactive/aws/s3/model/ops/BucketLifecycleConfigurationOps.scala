@@ -8,7 +8,7 @@ final class BucketLifecycleConfigurationBuilderOps(val self: BucketLifecycleConf
   final def rulesAsScala(value: Option[Seq[LifecycleRule]]): BucketLifecycleConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
-    } // Seq[LifecycleRule]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class BucketLifecycleConfigurationOps(val self: BucketLifecycleConfigurati
 
   final def rulesAsScala: Option[Seq[LifecycleRule]] = Option(self.rules).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[LifecycleRule]
+  }
 
 }
 

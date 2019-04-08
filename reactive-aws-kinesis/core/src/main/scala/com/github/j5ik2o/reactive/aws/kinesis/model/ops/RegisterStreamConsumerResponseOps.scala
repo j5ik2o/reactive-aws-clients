@@ -9,13 +9,13 @@ final class RegisterStreamConsumerResponseBuilderOps(val self: RegisterStreamCon
     value.fold(self) { v =>
       self.consumer(v)
     }
-  } // Consumer
+  }
 
 }
 
 final class RegisterStreamConsumerResponseOps(val self: RegisterStreamConsumerResponse) extends AnyVal {
 
-  final def consumerAsScala: Option[Consumer] = Option(self.consumer) // Consumer
+  final def consumerAsScala: Option[Consumer] = Option(self.consumer)
 
 }
 

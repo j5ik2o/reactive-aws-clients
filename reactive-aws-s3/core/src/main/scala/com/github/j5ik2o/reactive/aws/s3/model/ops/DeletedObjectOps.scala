@@ -9,37 +9,37 @@ final class DeletedObjectBuilderOps(val self: DeletedObject.Builder) extends Any
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def deleteMarkerAsScala(value: Option[Boolean]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.deleteMarker(v)
     }
-  } // Boolean
+  }
 
   final def deleteMarkerVersionIdAsScala(value: Option[String]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.deleteMarkerVersionId(v)
     }
-  } // String
+  }
 
 }
 
 final class DeletedObjectOps(val self: DeletedObject) extends AnyVal {
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def deleteMarkerAsScala: Option[Boolean] = Option(self.deleteMarker) // Boolean
+  final def deleteMarkerAsScala: Option[Boolean] = Option(self.deleteMarker)
 
-  final def deleteMarkerVersionIdAsScala: Option[String] = Option(self.deleteMarkerVersionId) // String
+  final def deleteMarkerVersionIdAsScala: Option[String] = Option(self.deleteMarkerVersionId)
 
 }
 

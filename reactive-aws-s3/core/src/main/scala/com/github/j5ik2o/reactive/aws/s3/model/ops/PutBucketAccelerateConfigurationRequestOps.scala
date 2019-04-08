@@ -10,7 +10,7 @@ final class PutBucketAccelerateConfigurationRequestBuilderOps(val self: PutBucke
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def accelerateConfigurationAsScala(
       value: Option[AccelerateConfiguration]
@@ -18,17 +18,16 @@ final class PutBucketAccelerateConfigurationRequestBuilderOps(val self: PutBucke
     value.fold(self) { v =>
       self.accelerateConfiguration(v)
     }
-  } // AccelerateConfiguration
+  }
 
 }
 
 final class PutBucketAccelerateConfigurationRequestOps(val self: PutBucketAccelerateConfigurationRequest)
     extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def accelerateConfigurationAsScala: Option[AccelerateConfiguration] =
-    Option(self.accelerateConfiguration) // AccelerateConfiguration
+  final def accelerateConfigurationAsScala: Option[AccelerateConfiguration] = Option(self.accelerateConfiguration)
 
 }
 

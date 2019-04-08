@@ -9,53 +9,53 @@ final class NodeBuilderOps(val self: Node.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.nodeId(v)
     }
-  } // String
+  }
 
   final def endpointAsScala(value: Option[Endpoint]): Node.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
-  } // Endpoint
+  }
 
   final def nodeCreateTimeAsScala(value: Option[java.time.Instant]): Node.Builder = {
     value.fold(self) { v =>
       self.nodeCreateTime(v)
     }
-  } // Instant
+  }
 
   final def availabilityZoneAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.availabilityZone(v)
     }
-  } // String
+  }
 
   final def nodeStatusAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.nodeStatus(v)
     }
-  } // String
+  }
 
   final def parameterGroupStatusAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.parameterGroupStatus(v)
     }
-  } // String
+  }
 
 }
 
 final class NodeOps(val self: Node) extends AnyVal {
 
-  final def nodeIdAsScala: Option[String] = Option(self.nodeId) // String
+  final def nodeIdAsScala: Option[String] = Option(self.nodeId)
 
-  final def endpointAsScala: Option[Endpoint] = Option(self.endpoint) // Endpoint
+  final def endpointAsScala: Option[Endpoint] = Option(self.endpoint)
 
-  final def nodeCreateTimeAsScala: Option[java.time.Instant] = Option(self.nodeCreateTime) // Instant
+  final def nodeCreateTimeAsScala: Option[java.time.Instant] = Option(self.nodeCreateTime)
 
-  final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone) // String
+  final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone)
 
-  final def nodeStatusAsScala: Option[String] = Option(self.nodeStatus) // String
+  final def nodeStatusAsScala: Option[String] = Option(self.nodeStatus)
 
-  final def parameterGroupStatusAsScala: Option[String] = Option(self.parameterGroupStatus) // String
+  final def parameterGroupStatusAsScala: Option[String] = Option(self.parameterGroupStatus)
 
 }
 

@@ -9,13 +9,13 @@ final class NodeToNodeEncryptionOptionsBuilderOps(val self: NodeToNodeEncryption
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class NodeToNodeEncryptionOptionsOps(val self: NodeToNodeEncryptionOptions) extends AnyVal {
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }
 

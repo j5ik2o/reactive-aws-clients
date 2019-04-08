@@ -1,0 +1,32 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.ec2.model.ops
+
+import software.amazon.awssdk.services.ec2.model._
+
+final class ElasticInferenceAcceleratorBuilderOps(val self: ElasticInferenceAccelerator.Builder) extends AnyVal {
+
+  final def typeAsScala(value: Option[String]): ElasticInferenceAccelerator.Builder = {
+    value.fold(self) { v =>
+      self.`type`(v)
+    }
+  }
+
+}
+
+final class ElasticInferenceAcceleratorOps(val self: ElasticInferenceAccelerator) extends AnyVal {
+
+  final def typeAsScala: Option[String] = Option(self.`type`)
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToElasticInferenceAcceleratorOps {
+
+  implicit def toElasticInferenceAcceleratorBuilderOps(
+      v: ElasticInferenceAccelerator.Builder
+  ): ElasticInferenceAcceleratorBuilderOps = new ElasticInferenceAcceleratorBuilderOps(v)
+
+  implicit def toElasticInferenceAcceleratorOps(v: ElasticInferenceAccelerator): ElasticInferenceAcceleratorOps =
+    new ElasticInferenceAcceleratorOps(v)
+
+}

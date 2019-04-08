@@ -9,14 +9,13 @@ final class UpdateGlobalTableResponseBuilderOps(val self: UpdateGlobalTableRespo
     value.fold(self) { v =>
       self.globalTableDescription(v)
     }
-  } // GlobalTableDescription
+  }
 
 }
 
 final class UpdateGlobalTableResponseOps(val self: UpdateGlobalTableResponse) extends AnyVal {
 
-  final def globalTableDescriptionAsScala: Option[GlobalTableDescription] =
-    Option(self.globalTableDescription) // GlobalTableDescription
+  final def globalTableDescriptionAsScala: Option[GlobalTableDescription] = Option(self.globalTableDescription)
 
 }
 

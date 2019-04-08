@@ -9,65 +9,65 @@ final class ReceiveMessageRequestBuilderOps(val self: ReceiveMessageRequest.Buil
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def attributeNamesAsScala(value: Option[Seq[QueueAttributeName]]): ReceiveMessageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def messageAttributeNamesAsScala(value: Option[Seq[String]]): ReceiveMessageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messageAttributeNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def maxNumberOfMessagesAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.maxNumberOfMessages(v)
     }
-  } // Int
+  }
 
   final def visibilityTimeoutAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.visibilityTimeout(v)
     }
-  } // Int
+  }
 
   final def waitTimeSecondsAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.waitTimeSeconds(v)
     }
-  } // Int
+  }
 
   final def receiveRequestAttemptIdAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.receiveRequestAttemptId(v)
     }
-  } // String
+  }
 
 }
 
 final class ReceiveMessageRequestOps(val self: ReceiveMessageRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   final def attributeNamesAsScala: Option[Seq[QueueAttributeName]] = Option(self.attributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def messageAttributeNamesAsScala: Option[Seq[String]] = Option(self.messageAttributeNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def maxNumberOfMessagesAsScala: Option[Int] = Option(self.maxNumberOfMessages) // Int
+  final def maxNumberOfMessagesAsScala: Option[Int] = Option(self.maxNumberOfMessages)
 
-  final def visibilityTimeoutAsScala: Option[Int] = Option(self.visibilityTimeout) // Int
+  final def visibilityTimeoutAsScala: Option[Int] = Option(self.visibilityTimeout)
 
-  final def waitTimeSecondsAsScala: Option[Int] = Option(self.waitTimeSeconds) // Int
+  final def waitTimeSecondsAsScala: Option[Int] = Option(self.waitTimeSeconds)
 
-  final def receiveRequestAttemptIdAsScala: Option[String] = Option(self.receiveRequestAttemptId) // String
+  final def receiveRequestAttemptIdAsScala: Option[String] = Option(self.receiveRequestAttemptId)
 
 }
 

@@ -11,14 +11,14 @@ final class ListElasticsearchInstanceTypesResponseBuilderOps(val self: ListElast
   ): ListElasticsearchInstanceTypesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.elasticsearchInstanceTypes(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListElasticsearchInstanceTypesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -27,9 +27,9 @@ final class ListElasticsearchInstanceTypesResponseOps(val self: ListElasticsearc
   final def elasticsearchInstanceTypesAsScala: Option[Seq[ESPartitionInstanceType]] =
     Option(self.elasticsearchInstanceTypes).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[String]
+    }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

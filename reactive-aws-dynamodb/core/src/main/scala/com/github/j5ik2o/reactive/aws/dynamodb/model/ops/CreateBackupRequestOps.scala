@@ -9,21 +9,21 @@ final class CreateBackupRequestBuilderOps(val self: CreateBackupRequest.Builder)
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
   final def backupNameAsScala(value: Option[String]): CreateBackupRequest.Builder = {
     value.fold(self) { v =>
       self.backupName(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateBackupRequestOps(val self: CreateBackupRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
-  final def backupNameAsScala: Option[String] = Option(self.backupName) // String
+  final def backupNameAsScala: Option[String] = Option(self.backupName)
 
 }
 

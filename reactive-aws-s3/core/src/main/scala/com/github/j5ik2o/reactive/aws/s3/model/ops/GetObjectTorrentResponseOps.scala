@@ -9,13 +9,13 @@ final class GetObjectTorrentResponseBuilderOps(val self: GetObjectTorrentRespons
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  }
 
 }
 
 final class GetObjectTorrentResponseOps(val self: GetObjectTorrentResponse) extends AnyVal {
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

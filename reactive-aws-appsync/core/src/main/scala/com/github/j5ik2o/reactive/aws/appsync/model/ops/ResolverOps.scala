@@ -9,69 +9,69 @@ final class ResolverBuilderOps(val self: Resolver.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.typeName(v)
     }
-  } // String
+  }
 
   final def fieldNameAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.fieldName(v)
     }
-  } // String
+  }
 
   final def dataSourceNameAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.dataSourceName(v)
     }
-  } // String
+  }
 
   final def resolverArnAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.resolverArn(v)
     }
-  } // String
+  }
 
   final def requestMappingTemplateAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.requestMappingTemplate(v)
     }
-  } // String
+  }
 
   final def responseMappingTemplateAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.responseMappingTemplate(v)
     }
-  } // String
+  }
 
   final def kindAsScala(value: Option[ResolverKind]): Resolver.Builder = {
     value.fold(self) { v =>
       self.kind(v)
     }
-  } // String
+  }
 
   final def pipelineConfigAsScala(value: Option[PipelineConfig]): Resolver.Builder = {
     value.fold(self) { v =>
       self.pipelineConfig(v)
     }
-  } // PipelineConfig
+  }
 
 }
 
 final class ResolverOps(val self: Resolver) extends AnyVal {
 
-  final def typeNameAsScala: Option[String] = Option(self.typeName) // String
+  final def typeNameAsScala: Option[String] = Option(self.typeName)
 
-  final def fieldNameAsScala: Option[String] = Option(self.fieldName) // String
+  final def fieldNameAsScala: Option[String] = Option(self.fieldName)
 
-  final def dataSourceNameAsScala: Option[String] = Option(self.dataSourceName) // String
+  final def dataSourceNameAsScala: Option[String] = Option(self.dataSourceName)
 
-  final def resolverArnAsScala: Option[String] = Option(self.resolverArn) // String
+  final def resolverArnAsScala: Option[String] = Option(self.resolverArn)
 
-  final def requestMappingTemplateAsScala: Option[String] = Option(self.requestMappingTemplate) // String
+  final def requestMappingTemplateAsScala: Option[String] = Option(self.requestMappingTemplate)
 
-  final def responseMappingTemplateAsScala: Option[String] = Option(self.responseMappingTemplate) // String
+  final def responseMappingTemplateAsScala: Option[String] = Option(self.responseMappingTemplate)
 
-  final def kindAsScala: Option[ResolverKind] = Option(self.kind) // String
+  final def kindAsScala: Option[ResolverKind] = Option(self.kind)
 
-  final def pipelineConfigAsScala: Option[PipelineConfig] = Option(self.pipelineConfig) // PipelineConfig
+  final def pipelineConfigAsScala: Option[PipelineConfig] = Option(self.pipelineConfig)
 
 }
 

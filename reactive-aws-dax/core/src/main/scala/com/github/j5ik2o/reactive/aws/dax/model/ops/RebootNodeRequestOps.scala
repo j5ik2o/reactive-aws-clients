@@ -9,21 +9,21 @@ final class RebootNodeRequestBuilderOps(val self: RebootNodeRequest.Builder) ext
     value.fold(self) { v =>
       self.clusterName(v)
     }
-  } // String
+  }
 
   final def nodeIdAsScala(value: Option[String]): RebootNodeRequest.Builder = {
     value.fold(self) { v =>
       self.nodeId(v)
     }
-  } // String
+  }
 
 }
 
 final class RebootNodeRequestOps(val self: RebootNodeRequest) extends AnyVal {
 
-  final def clusterNameAsScala: Option[String] = Option(self.clusterName) // String
+  final def clusterNameAsScala: Option[String] = Option(self.clusterName)
 
-  final def nodeIdAsScala: Option[String] = Option(self.nodeId) // String
+  final def nodeIdAsScala: Option[String] = Option(self.nodeId)
 
 }
 

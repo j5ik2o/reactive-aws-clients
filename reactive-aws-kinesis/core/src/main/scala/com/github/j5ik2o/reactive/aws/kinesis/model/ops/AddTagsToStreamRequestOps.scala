@@ -9,23 +9,23 @@ final class AddTagsToStreamRequestBuilderOps(val self: AddTagsToStreamRequest.Bu
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Map[String, String]]): AddTagsToStreamRequest.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
 
 final class AddTagsToStreamRequestOps(val self: AddTagsToStreamRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

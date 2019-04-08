@@ -9,61 +9,61 @@ final class ListMultipartUploadsRequestBuilderOps(val self: ListMultipartUploads
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def delimiterAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
-  } // String
+  }
 
   final def encodingTypeAsScala(value: Option[EncodingType]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }
-  } // String
+  }
 
   final def keyMarkerAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.keyMarker(v)
     }
-  } // String
+  }
 
   final def maxUploadsAsScala(value: Option[Int]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.maxUploads(v)
     }
-  } // Int
+  }
 
   final def prefixAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def uploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.uploadIdMarker(v)
     }
-  } // String
+  }
 
 }
 
 final class ListMultipartUploadsRequestOps(val self: ListMultipartUploadsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def delimiterAsScala: Option[String] = Option(self.delimiter) // String
+  final def delimiterAsScala: Option[String] = Option(self.delimiter)
 
-  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType) // String
+  final def encodingTypeAsScala: Option[EncodingType] = Option(self.encodingType)
 
-  final def keyMarkerAsScala: Option[String] = Option(self.keyMarker) // String
+  final def keyMarkerAsScala: Option[String] = Option(self.keyMarker)
 
-  final def maxUploadsAsScala: Option[Int] = Option(self.maxUploads) // Int
+  final def maxUploadsAsScala: Option[Int] = Option(self.maxUploads)
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
-  final def uploadIdMarkerAsScala: Option[String] = Option(self.uploadIdMarker) // String
+  final def uploadIdMarkerAsScala: Option[String] = Option(self.uploadIdMarker)
 
 }
 

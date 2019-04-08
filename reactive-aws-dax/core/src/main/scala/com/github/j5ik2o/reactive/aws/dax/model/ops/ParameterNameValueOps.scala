@@ -9,21 +9,21 @@ final class ParameterNameValueBuilderOps(val self: ParameterNameValue.Builder) e
     value.fold(self) { v =>
       self.parameterName(v)
     }
-  } // String
+  }
 
   final def parameterValueAsScala(value: Option[String]): ParameterNameValue.Builder = {
     value.fold(self) { v =>
       self.parameterValue(v)
     }
-  } // String
+  }
 
 }
 
 final class ParameterNameValueOps(val self: ParameterNameValue) extends AnyVal {
 
-  final def parameterNameAsScala: Option[String] = Option(self.parameterName) // String
+  final def parameterNameAsScala: Option[String] = Option(self.parameterName)
 
-  final def parameterValueAsScala: Option[String] = Option(self.parameterValue) // String
+  final def parameterValueAsScala: Option[String] = Option(self.parameterValue)
 
 }
 

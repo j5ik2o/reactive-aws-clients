@@ -11,14 +11,14 @@ final class ServerSideEncryptionRuleBuilderOps(val self: ServerSideEncryptionRul
     value.fold(self) { v =>
       self.applyServerSideEncryptionByDefault(v)
     }
-  } // ServerSideEncryptionByDefault
+  }
 
 }
 
 final class ServerSideEncryptionRuleOps(val self: ServerSideEncryptionRule) extends AnyVal {
 
   final def applyServerSideEncryptionByDefaultAsScala: Option[ServerSideEncryptionByDefault] =
-    Option(self.applyServerSideEncryptionByDefault) // ServerSideEncryptionByDefault
+    Option(self.applyServerSideEncryptionByDefault)
 
 }
 

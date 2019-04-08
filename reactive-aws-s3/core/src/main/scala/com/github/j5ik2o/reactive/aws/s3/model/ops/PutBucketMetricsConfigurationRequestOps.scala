@@ -10,13 +10,13 @@ final class PutBucketMetricsConfigurationRequestBuilderOps(val self: PutBucketMe
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def metricsConfigurationAsScala(
       value: Option[MetricsConfiguration]
@@ -24,18 +24,17 @@ final class PutBucketMetricsConfigurationRequestBuilderOps(val self: PutBucketMe
     value.fold(self) { v =>
       self.metricsConfiguration(v)
     }
-  } // MetricsConfiguration
+  }
 
 }
 
 final class PutBucketMetricsConfigurationRequestOps(val self: PutBucketMetricsConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def metricsConfigurationAsScala: Option[MetricsConfiguration] =
-    Option(self.metricsConfiguration) // MetricsConfiguration
+  final def metricsConfigurationAsScala: Option[MetricsConfiguration] = Option(self.metricsConfiguration)
 
 }
 

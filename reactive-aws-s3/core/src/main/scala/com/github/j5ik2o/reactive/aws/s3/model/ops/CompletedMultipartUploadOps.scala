@@ -8,7 +8,7 @@ final class CompletedMultipartUploadBuilderOps(val self: CompletedMultipartUploa
   final def partsAsScala(value: Option[Seq[CompletedPart]]): CompletedMultipartUpload.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parts(v.asJava)
-    } // Seq[CompletedPart]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class CompletedMultipartUploadOps(val self: CompletedMultipartUpload) exte
 
   final def partsAsScala: Option[Seq[CompletedPart]] = Option(self.parts).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[CompletedPart]
+  }
 
 }
 

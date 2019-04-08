@@ -8,7 +8,7 @@ final class PipelineConfigBuilderOps(val self: PipelineConfig.Builder) extends A
   final def functionsAsScala(value: Option[Seq[String]]): PipelineConfig.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.functions(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class PipelineConfigOps(val self: PipelineConfig) extends AnyVal {
 
   final def functionsAsScala: Option[Seq[String]] = Option(self.functions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

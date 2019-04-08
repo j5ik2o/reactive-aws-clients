@@ -9,14 +9,13 @@ final class SourceSelectionCriteriaBuilderOps(val self: SourceSelectionCriteria.
     value.fold(self) { v =>
       self.sseKmsEncryptedObjects(v)
     }
-  } // SseKmsEncryptedObjects
+  }
 
 }
 
 final class SourceSelectionCriteriaOps(val self: SourceSelectionCriteria) extends AnyVal {
 
-  final def sseKmsEncryptedObjectsAsScala: Option[SseKmsEncryptedObjects] =
-    Option(self.sseKmsEncryptedObjects) // SseKmsEncryptedObjects
+  final def sseKmsEncryptedObjectsAsScala: Option[SseKmsEncryptedObjects] = Option(self.sseKmsEncryptedObjects)
 
 }
 

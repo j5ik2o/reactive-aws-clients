@@ -9,13 +9,13 @@ final class DeleteGraphqlApiRequestBuilderOps(val self: DeleteGraphqlApiRequest.
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteGraphqlApiRequestOps(val self: DeleteGraphqlApiRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
 }
 

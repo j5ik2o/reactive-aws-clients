@@ -8,31 +8,31 @@ final class KeysAndAttributesBuilderOps(val self: KeysAndAttributes.Builder) ext
   final def keysAsScala(value: Option[Seq[Map[String, AttributeValue]]]): KeysAndAttributes.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keys(v.map(_.asJava).asJava)
-    } // Seq[Map[String, AttributeValue]]
+    }
   }
 
   final def attributesToGetAsScala(value: Option[Seq[String]]): KeysAndAttributes.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributesToGet(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def consistentReadAsScala(value: Option[Boolean]): KeysAndAttributes.Builder = {
     value.fold(self) { v =>
       self.consistentRead(v)
     }
-  } // Boolean
+  }
 
   final def projectionExpressionAsScala(value: Option[String]): KeysAndAttributes.Builder = {
     value.fold(self) { v =>
       self.projectionExpression(v)
     }
-  } // String
+  }
 
   final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): KeysAndAttributes.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
+    value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
-    } // Map[String, String]
+    }
   }
 
 }
@@ -41,20 +41,20 @@ final class KeysAndAttributesOps(val self: KeysAndAttributes) extends AnyVal {
 
   final def keysAsScala: Option[Seq[Map[String, AttributeValue]]] = Option(self.keys).map { v =>
     import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap)
-  } // Seq[Map[String, AttributeValue]]
+  }
 
   final def attributesToGetAsScala: Option[Seq[String]] = Option(self.attributesToGet).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def consistentReadAsScala: Option[Boolean] = Option(self.consistentRead) // Boolean
+  final def consistentReadAsScala: Option[Boolean] = Option(self.consistentRead)
 
-  final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression) // String
+  final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression)
 
   final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, String]
+  }
 
 }
 

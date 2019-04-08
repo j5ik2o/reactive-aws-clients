@@ -9,13 +9,13 @@ final class ListQueuesRequestBuilderOps(val self: ListQueuesRequest.Builder) ext
     value.fold(self) { v =>
       self.queueNamePrefix(v)
     }
-  } // String
+  }
 
 }
 
 final class ListQueuesRequestOps(val self: ListQueuesRequest) extends AnyVal {
 
-  final def queueNamePrefixAsScala: Option[String] = Option(self.queueNamePrefix) // String
+  final def queueNamePrefixAsScala: Option[String] = Option(self.queueNamePrefix)
 
 }
 

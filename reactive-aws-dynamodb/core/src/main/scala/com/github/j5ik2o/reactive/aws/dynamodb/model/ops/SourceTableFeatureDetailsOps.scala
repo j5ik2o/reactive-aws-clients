@@ -10,7 +10,7 @@ final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDeta
   ): SourceTableFeatureDetails.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.localSecondaryIndexes(v.asJava)
-    } // Seq[LocalSecondaryIndexInfo]
+    }
   }
 
   final def globalSecondaryIndexesAsScala(
@@ -18,26 +18,26 @@ final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDeta
   ): SourceTableFeatureDetails.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.globalSecondaryIndexes(v.asJava)
-    } // Seq[GlobalSecondaryIndexInfo]
+    }
   }
 
   final def streamDescriptionAsScala(value: Option[StreamSpecification]): SourceTableFeatureDetails.Builder = {
     value.fold(self) { v =>
       self.streamDescription(v)
     }
-  } // StreamSpecification
+  }
 
   final def timeToLiveDescriptionAsScala(value: Option[TimeToLiveDescription]): SourceTableFeatureDetails.Builder = {
     value.fold(self) { v =>
       self.timeToLiveDescription(v)
     }
-  } // TimeToLiveDescription
+  }
 
   final def sseDescriptionAsScala(value: Option[SSEDescription]): SourceTableFeatureDetails.Builder = {
     value.fold(self) { v =>
       self.sseDescription(v)
     }
-  } // SSEDescription
+  }
 
 }
 
@@ -46,20 +46,18 @@ final class SourceTableFeatureDetailsOps(val self: SourceTableFeatureDetails) ex
   final def localSecondaryIndexesAsScala: Option[Seq[LocalSecondaryIndexInfo]] =
     Option(self.localSecondaryIndexes).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[LocalSecondaryIndexInfo]
+    }
 
   final def globalSecondaryIndexesAsScala: Option[Seq[GlobalSecondaryIndexInfo]] =
     Option(self.globalSecondaryIndexes).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[GlobalSecondaryIndexInfo]
+    }
 
-  final def streamDescriptionAsScala: Option[StreamSpecification] =
-    Option(self.streamDescription) // StreamSpecification
+  final def streamDescriptionAsScala: Option[StreamSpecification] = Option(self.streamDescription)
 
-  final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] =
-    Option(self.timeToLiveDescription) // TimeToLiveDescription
+  final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] = Option(self.timeToLiveDescription)
 
-  final def sseDescriptionAsScala: Option[SSEDescription] = Option(self.sseDescription) // SSEDescription
+  final def sseDescriptionAsScala: Option[SSEDescription] = Option(self.sseDescription)
 
 }
 

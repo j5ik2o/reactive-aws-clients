@@ -9,13 +9,13 @@ final class RequestPaymentConfigurationBuilderOps(val self: RequestPaymentConfig
     value.fold(self) { v =>
       self.payer(v)
     }
-  } // String
+  }
 
 }
 
 final class RequestPaymentConfigurationOps(val self: RequestPaymentConfiguration) extends AnyVal {
 
-  final def payerAsScala: Option[Payer] = Option(self.payer) // String
+  final def payerAsScala: Option[Payer] = Option(self.payer)
 
 }
 

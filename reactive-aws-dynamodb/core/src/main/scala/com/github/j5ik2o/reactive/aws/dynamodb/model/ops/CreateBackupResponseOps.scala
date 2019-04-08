@@ -9,13 +9,13 @@ final class CreateBackupResponseBuilderOps(val self: CreateBackupResponse.Builde
     value.fold(self) { v =>
       self.backupDetails(v)
     }
-  } // BackupDetails
+  }
 
 }
 
 final class CreateBackupResponseOps(val self: CreateBackupResponse) extends AnyVal {
 
-  final def backupDetailsAsScala: Option[BackupDetails] = Option(self.backupDetails) // BackupDetails
+  final def backupDetailsAsScala: Option[BackupDetails] = Option(self.backupDetails)
 
 }
 

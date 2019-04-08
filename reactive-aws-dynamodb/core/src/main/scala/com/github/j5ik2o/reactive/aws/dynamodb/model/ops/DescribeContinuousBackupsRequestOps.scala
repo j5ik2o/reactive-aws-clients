@@ -10,13 +10,13 @@ final class DescribeContinuousBackupsRequestBuilderOps(val self: DescribeContinu
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeContinuousBackupsRequestOps(val self: DescribeContinuousBackupsRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
 }
 

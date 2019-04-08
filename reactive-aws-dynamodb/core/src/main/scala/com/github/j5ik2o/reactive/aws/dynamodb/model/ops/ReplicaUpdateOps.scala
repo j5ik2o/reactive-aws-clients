@@ -9,21 +9,21 @@ final class ReplicaUpdateBuilderOps(val self: ReplicaUpdate.Builder) extends Any
     value.fold(self) { v =>
       self.create(v)
     }
-  } // CreateReplicaAction
+  }
 
   final def deleteAsScala(value: Option[DeleteReplicaAction]): ReplicaUpdate.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }
-  } // DeleteReplicaAction
+  }
 
 }
 
 final class ReplicaUpdateOps(val self: ReplicaUpdate) extends AnyVal {
 
-  final def createAsScala: Option[CreateReplicaAction] = Option(self.create) // CreateReplicaAction
+  final def createAsScala: Option[CreateReplicaAction] = Option(self.create)
 
-  final def deleteAsScala: Option[DeleteReplicaAction] = Option(self.delete) // DeleteReplicaAction
+  final def deleteAsScala: Option[DeleteReplicaAction] = Option(self.delete)
 
 }
 

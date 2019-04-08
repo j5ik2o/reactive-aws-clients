@@ -9,37 +9,37 @@ final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDe
     value.fold(self) { v =>
       self.format(v)
     }
-  } // String
+  }
 
   final def bucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucketAccountId(v)
     }
-  } // String
+  }
 
   final def bucketAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def prefixAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
 }
 
 final class AnalyticsS3BucketDestinationOps(val self: AnalyticsS3BucketDestination) extends AnyVal {
 
-  final def formatAsScala: Option[AnalyticsS3ExportFileFormat] = Option(self.format) // String
+  final def formatAsScala: Option[AnalyticsS3ExportFileFormat] = Option(self.format)
 
-  final def bucketAccountIdAsScala: Option[String] = Option(self.bucketAccountId) // String
+  final def bucketAccountIdAsScala: Option[String] = Option(self.bucketAccountId)
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
 }
 

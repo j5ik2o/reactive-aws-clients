@@ -11,14 +11,14 @@ final class DescribeElasticsearchDomainConfigRequestBuilderOps(
     value.fold(self) { v =>
       self.domainName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeElasticsearchDomainConfigRequestOps(val self: DescribeElasticsearchDomainConfigRequest)
     extends AnyVal {
 
-  final def domainNameAsScala: Option[String] = Option(self.domainName) // String
+  final def domainNameAsScala: Option[String] = Option(self.domainName)
 
 }
 

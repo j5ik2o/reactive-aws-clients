@@ -9,21 +9,21 @@ final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Bu
     value.fold(self) { v =>
       self.shardLimit(v)
     }
-  } // Int
+  }
 
   final def openShardCountAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.openShardCount(v)
     }
-  } // Int
+  }
 
 }
 
 final class DescribeLimitsResponseOps(val self: DescribeLimitsResponse) extends AnyVal {
 
-  final def shardLimitAsScala: Option[Int] = Option(self.shardLimit) // Int
+  final def shardLimitAsScala: Option[Int] = Option(self.shardLimit)
 
-  final def openShardCountAsScala: Option[Int] = Option(self.openShardCount) // Int
+  final def openShardCountAsScala: Option[Int] = Option(self.openShardCount)
 
 }
 

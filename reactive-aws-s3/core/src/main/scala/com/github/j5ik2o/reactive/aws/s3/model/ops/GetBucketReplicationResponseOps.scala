@@ -11,14 +11,13 @@ final class GetBucketReplicationResponseBuilderOps(val self: GetBucketReplicatio
     value.fold(self) { v =>
       self.replicationConfiguration(v)
     }
-  } // ReplicationConfiguration
+  }
 
 }
 
 final class GetBucketReplicationResponseOps(val self: GetBucketReplicationResponse) extends AnyVal {
 
-  final def replicationConfigurationAsScala: Option[ReplicationConfiguration] =
-    Option(self.replicationConfiguration) // ReplicationConfiguration
+  final def replicationConfigurationAsScala: Option[ReplicationConfiguration] = Option(self.replicationConfiguration)
 
 }
 

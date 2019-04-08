@@ -8,7 +8,7 @@ final class ItemResponseBuilderOps(val self: ItemResponse.Builder) extends AnyVa
   final def itemAsScala(value: Option[Map[String, AttributeValue]]): ItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
-    } // Map[String, AttributeValue]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ItemResponseOps(val self: ItemResponse) extends AnyVal {
 
   final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, AttributeValue]
+  }
 
 }
 

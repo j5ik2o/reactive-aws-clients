@@ -9,13 +9,13 @@ final class DeleteMessageBatchResultEntryBuilderOps(val self: DeleteMessageBatch
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteMessageBatchResultEntryOps(val self: DeleteMessageBatchResultEntry) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

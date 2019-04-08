@@ -9,23 +9,23 @@ final class GetObjectTaggingResponseBuilderOps(val self: GetObjectTaggingRespons
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def tagSetAsScala(value: Option[Seq[Tag]]): GetObjectTaggingResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagSet(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
 
 final class GetObjectTaggingResponseOps(val self: GetObjectTaggingResponse) extends AnyVal {
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
   final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

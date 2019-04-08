@@ -8,20 +8,20 @@ final class DescribeParameterGroupsRequestBuilderOps(val self: DescribeParameter
   final def parameterGroupNamesAsScala(value: Option[Seq[String]]): DescribeParameterGroupsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameterGroupNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeParameterGroupsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeParameterGroupsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -29,11 +29,11 @@ final class DescribeParameterGroupsRequestOps(val self: DescribeParameterGroupsR
 
   final def parameterGroupNamesAsScala: Option[Seq[String]] = Option(self.parameterGroupNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

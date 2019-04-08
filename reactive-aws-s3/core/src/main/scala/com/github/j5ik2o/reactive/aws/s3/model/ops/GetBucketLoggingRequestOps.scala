@@ -9,13 +9,13 @@ final class GetBucketLoggingRequestBuilderOps(val self: GetBucketLoggingRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketLoggingRequestOps(val self: GetBucketLoggingRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

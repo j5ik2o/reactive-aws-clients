@@ -9,29 +9,29 @@ final class MetricsFilterBuilderOps(val self: MetricsFilter.Builder) extends Any
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def tagAsScala(value: Option[Tag]): MetricsFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
-  } // Tag
+  }
 
   final def andAsScala(value: Option[MetricsAndOperator]): MetricsFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }
-  } // MetricsAndOperator
+  }
 
 }
 
 final class MetricsFilterOps(val self: MetricsFilter) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
-  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+  final def tagAsScala: Option[Tag] = Option(self.tag)
 
-  final def andAsScala: Option[MetricsAndOperator] = Option(self.and) // MetricsAndOperator
+  final def andAsScala: Option[MetricsAndOperator] = Option(self.and)
 
 }
 

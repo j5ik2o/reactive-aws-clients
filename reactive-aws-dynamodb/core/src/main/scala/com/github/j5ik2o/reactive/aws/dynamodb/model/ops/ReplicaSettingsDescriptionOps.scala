@@ -9,25 +9,25 @@ final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescri
     value.fold(self) { v =>
       self.regionName(v)
     }
-  } // String
+  }
 
   final def replicaStatusAsScala(value: Option[ReplicaStatus]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaStatus(v)
     }
-  } // String
+  }
 
   final def replicaBillingModeSummaryAsScala(value: Option[BillingModeSummary]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaBillingModeSummary(v)
     }
-  } // BillingModeSummary
+  }
 
   final def replicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def replicaProvisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
@@ -35,13 +35,13 @@ final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescri
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityAutoScalingSettings(v)
     }
-  } // AutoScalingSettingsDescription
+  }
 
   final def replicaProvisionedWriteCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedWriteCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def replicaProvisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
@@ -49,43 +49,41 @@ final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescri
     value.fold(self) { v =>
       self.replicaProvisionedWriteCapacityAutoScalingSettings(v)
     }
-  } // AutoScalingSettingsDescription
+  }
 
   final def replicaGlobalSecondaryIndexSettingsAsScala(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsDescription]]
   ): ReplicaSettingsDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicaGlobalSecondaryIndexSettings(v.asJava)
-    } // Seq[ReplicaGlobalSecondaryIndexSettingsDescription]
+    }
   }
 
 }
 
 final class ReplicaSettingsDescriptionOps(val self: ReplicaSettingsDescription) extends AnyVal {
 
-  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+  final def regionNameAsScala: Option[String] = Option(self.regionName)
 
-  final def replicaStatusAsScala: Option[ReplicaStatus] = Option(self.replicaStatus) // String
+  final def replicaStatusAsScala: Option[ReplicaStatus] = Option(self.replicaStatus)
 
-  final def replicaBillingModeSummaryAsScala: Option[BillingModeSummary] =
-    Option(self.replicaBillingModeSummary) // BillingModeSummary
+  final def replicaBillingModeSummaryAsScala: Option[BillingModeSummary] = Option(self.replicaBillingModeSummary)
 
-  final def replicaProvisionedReadCapacityUnitsAsScala: Option[Long] =
-    Option(self.replicaProvisionedReadCapacityUnits) // Long
+  final def replicaProvisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.replicaProvisionedReadCapacityUnits)
 
   final def replicaProvisionedReadCapacityAutoScalingSettingsAsScala: Option[AutoScalingSettingsDescription] =
-    Option(self.replicaProvisionedReadCapacityAutoScalingSettings) // AutoScalingSettingsDescription
+    Option(self.replicaProvisionedReadCapacityAutoScalingSettings)
 
   final def replicaProvisionedWriteCapacityUnitsAsScala: Option[Long] =
-    Option(self.replicaProvisionedWriteCapacityUnits) // Long
+    Option(self.replicaProvisionedWriteCapacityUnits)
 
   final def replicaProvisionedWriteCapacityAutoScalingSettingsAsScala: Option[AutoScalingSettingsDescription] =
-    Option(self.replicaProvisionedWriteCapacityAutoScalingSettings) // AutoScalingSettingsDescription
+    Option(self.replicaProvisionedWriteCapacityAutoScalingSettings)
 
   final def replicaGlobalSecondaryIndexSettingsAsScala: Option[Seq[ReplicaGlobalSecondaryIndexSettingsDescription]] =
     Option(self.replicaGlobalSecondaryIndexSettings).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ReplicaGlobalSecondaryIndexSettingsDescription]
+    }
 
 }
 

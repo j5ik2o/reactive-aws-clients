@@ -9,45 +9,45 @@ final class GranteeBuilderOps(val self: Grantee.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.displayName(v)
     }
-  } // String
+  }
 
   final def emailAddressAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.emailAddress(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def typeAsScala(value: Option[Type]): Grantee.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
-  } // String
+  }
 
   final def uriAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.uri(v)
     }
-  } // String
+  }
 
 }
 
 final class GranteeOps(val self: Grantee) extends AnyVal {
 
-  final def displayNameAsScala: Option[String] = Option(self.displayName) // String
+  final def displayNameAsScala: Option[String] = Option(self.displayName)
 
-  final def emailAddressAsScala: Option[String] = Option(self.emailAddress) // String
+  final def emailAddressAsScala: Option[String] = Option(self.emailAddress)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def typeAsScala: Option[Type] = Option(self.`type`) // String
+  final def typeAsScala: Option[Type] = Option(self.`type`)
 
-  final def uriAsScala: Option[String] = Option(self.uri) // String
+  final def uriAsScala: Option[String] = Option(self.uri)
 
 }
 

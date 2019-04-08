@@ -9,13 +9,13 @@ final class EncryptionConfigurationBuilderOps(val self: EncryptionConfiguration.
     value.fold(self) { v =>
       self.replicaKmsKeyID(v)
     }
-  } // String
+  }
 
 }
 
 final class EncryptionConfigurationOps(val self: EncryptionConfiguration) extends AnyVal {
 
-  final def replicaKmsKeyIDAsScala: Option[String] = Option(self.replicaKmsKeyID) // String
+  final def replicaKmsKeyIDAsScala: Option[String] = Option(self.replicaKmsKeyID)
 
 }
 

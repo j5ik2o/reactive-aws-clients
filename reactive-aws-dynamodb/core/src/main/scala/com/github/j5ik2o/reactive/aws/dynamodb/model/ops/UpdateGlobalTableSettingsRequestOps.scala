@@ -10,13 +10,13 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     value.fold(self) { v =>
       self.globalTableName(v)
     }
-  } // String
+  }
 
   final def globalTableBillingModeAsScala(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableBillingMode(v)
     }
-  } // String
+  }
 
   final def globalTableProvisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
@@ -24,7 +24,7 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     value.fold(self) { v =>
       self.globalTableProvisionedWriteCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
@@ -32,14 +32,14 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     value.fold(self) { v =>
       self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(v)
     }
-  } // AutoScalingSettingsUpdate
+  }
 
   final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala(
       value: Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.globalTableGlobalSecondaryIndexSettingsUpdate(v.asJava)
-    } // Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]
+    }
   }
 
   final def replicaSettingsUpdateAsScala(
@@ -47,33 +47,33 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicaSettingsUpdate(v.asJava)
-    } // Seq[ReplicaSettingsUpdate]
+    }
   }
 
 }
 
 final class UpdateGlobalTableSettingsRequestOps(val self: UpdateGlobalTableSettingsRequest) extends AnyVal {
 
-  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
-  final def globalTableBillingModeAsScala: Option[BillingMode] = Option(self.globalTableBillingMode) // String
+  final def globalTableBillingModeAsScala: Option[BillingMode] = Option(self.globalTableBillingMode)
 
   final def globalTableProvisionedWriteCapacityUnitsAsScala: Option[Long] =
-    Option(self.globalTableProvisionedWriteCapacityUnits) // Long
+    Option(self.globalTableProvisionedWriteCapacityUnits)
 
   final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
-    Option(self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+    Option(self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate)
 
   final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala
     : Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]] =
     Option(self.globalTableGlobalSecondaryIndexSettingsUpdate).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]
+    }
 
   final def replicaSettingsUpdateAsScala: Option[Seq[ReplicaSettingsUpdate]] = Option(self.replicaSettingsUpdate).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ReplicaSettingsUpdate]
+  }
 
 }
 

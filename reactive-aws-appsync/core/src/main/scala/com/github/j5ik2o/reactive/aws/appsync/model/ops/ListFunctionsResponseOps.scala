@@ -8,14 +8,14 @@ final class ListFunctionsResponseBuilderOps(val self: ListFunctionsResponse.Buil
   final def functionsAsScala(value: Option[Seq[FunctionConfiguration]]): ListFunctionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.functions(v.asJava)
-    } // Seq[FunctionConfiguration]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListFunctionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListFunctionsResponseOps(val self: ListFunctionsResponse) extends An
 
   final def functionsAsScala: Option[Seq[FunctionConfiguration]] = Option(self.functions).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[FunctionConfiguration]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

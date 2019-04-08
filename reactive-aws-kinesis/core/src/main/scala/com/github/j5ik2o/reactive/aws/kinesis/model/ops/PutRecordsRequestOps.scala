@@ -8,14 +8,14 @@ final class PutRecordsRequestBuilderOps(val self: PutRecordsRequest.Builder) ext
   final def recordsAsScala(value: Option[Seq[PutRecordsRequestEntry]]): PutRecordsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
-    } // Seq[PutRecordsRequestEntry]
+    }
   }
 
   final def streamNameAsScala(value: Option[String]): PutRecordsRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class PutRecordsRequestOps(val self: PutRecordsRequest) extends AnyVal {
 
   final def recordsAsScala: Option[Seq[PutRecordsRequestEntry]] = Option(self.records).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[PutRecordsRequestEntry]
+  }
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
 }
 

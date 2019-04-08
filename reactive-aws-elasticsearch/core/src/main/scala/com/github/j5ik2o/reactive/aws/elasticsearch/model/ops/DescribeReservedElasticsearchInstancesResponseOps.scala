@@ -11,14 +11,14 @@ final class DescribeReservedElasticsearchInstancesResponseBuilderOps(
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def reservedElasticsearchInstancesAsScala(
       value: Option[Seq[ReservedElasticsearchInstance]]
   ): DescribeReservedElasticsearchInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.reservedElasticsearchInstances(v.asJava)
-    } // Seq[ReservedElasticsearchInstance]
+    }
   }
 
 }
@@ -26,12 +26,12 @@ final class DescribeReservedElasticsearchInstancesResponseBuilderOps(
 final class DescribeReservedElasticsearchInstancesResponseOps(val self: DescribeReservedElasticsearchInstancesResponse)
     extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   final def reservedElasticsearchInstancesAsScala: Option[Seq[ReservedElasticsearchInstance]] =
     Option(self.reservedElasticsearchInstances).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[ReservedElasticsearchInstance]
+    }
 
 }
 

@@ -9,29 +9,29 @@ final class EncryptionBuilderOps(val self: Encryption.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  }
 
   final def kmsKeyIdAsScala(value: Option[String]): Encryption.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
-  } // String
+  }
 
   final def kmsContextAsScala(value: Option[String]): Encryption.Builder = {
     value.fold(self) { v =>
       self.kmsContext(v)
     }
-  } // String
+  }
 
 }
 
 final class EncryptionOps(val self: Encryption) extends AnyVal {
 
-  final def encryptionTypeAsScala: Option[ServerSideEncryption] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[ServerSideEncryption] = Option(self.encryptionType)
 
-  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId) // String
+  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
-  final def kmsContextAsScala: Option[String] = Option(self.kmsContext) // String
+  final def kmsContextAsScala: Option[String] = Option(self.kmsContext)
 
 }
 

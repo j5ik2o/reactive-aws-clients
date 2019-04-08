@@ -9,23 +9,23 @@ final class RemoveTagsRequestBuilderOps(val self: RemoveTagsRequest.Builder) ext
     value.fold(self) { v =>
       self.arn(v)
     }
-  } // String
+  }
 
   final def tagKeysAsScala(value: Option[Seq[String]]): RemoveTagsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class RemoveTagsRequestOps(val self: RemoveTagsRequest) extends AnyVal {
 
-  final def arnAsScala: Option[String] = Option(self.arn) // String
+  final def arnAsScala: Option[String] = Option(self.arn)
 
   final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

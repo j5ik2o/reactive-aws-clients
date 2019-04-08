@@ -9,21 +9,21 @@ final class GetDataSourceRequestBuilderOps(val self: GetDataSourceRequest.Builde
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def nameAsScala(value: Option[String]): GetDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
-  } // String
+  }
 
 }
 
 final class GetDataSourceRequestOps(val self: GetDataSourceRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def nameAsScala: Option[String] = Option(self.name) // String
+  final def nameAsScala: Option[String] = Option(self.name)
 
 }
 

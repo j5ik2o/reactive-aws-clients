@@ -9,29 +9,29 @@ final class ChangeMessageVisibilityRequestBuilderOps(val self: ChangeMessageVisi
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def receiptHandleAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }
-  } // String
+  }
 
   final def visibilityTimeoutAsScala(value: Option[Int]): ChangeMessageVisibilityRequest.Builder = {
     value.fold(self) { v =>
       self.visibilityTimeout(v)
     }
-  } // Int
+  }
 
 }
 
 final class ChangeMessageVisibilityRequestOps(val self: ChangeMessageVisibilityRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
-  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle) // String
+  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle)
 
-  final def visibilityTimeoutAsScala: Option[Int] = Option(self.visibilityTimeout) // Int
+  final def visibilityTimeoutAsScala: Option[Int] = Option(self.visibilityTimeout)
 
 }
 

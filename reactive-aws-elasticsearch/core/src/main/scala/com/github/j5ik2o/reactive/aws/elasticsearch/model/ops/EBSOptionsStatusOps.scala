@@ -9,21 +9,21 @@ final class EBSOptionsStatusBuilderOps(val self: EBSOptionsStatus.Builder) exten
     value.fold(self) { v =>
       self.options(v)
     }
-  } // EBSOptions
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): EBSOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class EBSOptionsStatusOps(val self: EBSOptionsStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[EBSOptions] = Option(self.options) // EBSOptions
+  final def optionsAsScala: Option[EBSOptions] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

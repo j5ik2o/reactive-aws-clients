@@ -10,21 +10,21 @@ final class GetBucketInventoryConfigurationRequestBuilderOps(val self: GetBucket
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): GetBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketInventoryConfigurationRequestOps(val self: GetBucketInventoryConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

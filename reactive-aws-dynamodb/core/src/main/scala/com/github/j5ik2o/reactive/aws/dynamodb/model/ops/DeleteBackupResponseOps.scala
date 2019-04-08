@@ -9,13 +9,13 @@ final class DeleteBackupResponseBuilderOps(val self: DeleteBackupResponse.Builde
     value.fold(self) { v =>
       self.backupDescription(v)
     }
-  } // BackupDescription
+  }
 
 }
 
 final class DeleteBackupResponseOps(val self: DeleteBackupResponse) extends AnyVal {
 
-  final def backupDescriptionAsScala: Option[BackupDescription] = Option(self.backupDescription) // BackupDescription
+  final def backupDescriptionAsScala: Option[BackupDescription] = Option(self.backupDescription)
 
 }
 

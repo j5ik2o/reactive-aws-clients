@@ -18,6 +18,9 @@ override val underlying: Java${baseName}AsyncClient = javaClient
 
 }
 
+/**
+* @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/${baseName?lower_case}/${simpleTypeName}.html
+*/
 trait ${baseName}AsyncClient extends ${baseName}Client[Future] {
 
 val underlying: Java${baseName}AsyncClient

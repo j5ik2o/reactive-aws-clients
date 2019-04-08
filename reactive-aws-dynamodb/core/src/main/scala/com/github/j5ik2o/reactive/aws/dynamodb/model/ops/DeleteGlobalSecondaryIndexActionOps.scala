@@ -10,13 +10,13 @@ final class DeleteGlobalSecondaryIndexActionBuilderOps(val self: DeleteGlobalSec
     value.fold(self) { v =>
       self.indexName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteGlobalSecondaryIndexActionOps(val self: DeleteGlobalSecondaryIndexAction) extends AnyVal {
 
-  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
 
 }
 

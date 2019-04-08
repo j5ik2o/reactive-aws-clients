@@ -9,13 +9,13 @@ final class DeleteBackupRequestBuilderOps(val self: DeleteBackupRequest.Builder)
     value.fold(self) { v =>
       self.backupArn(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteBackupRequestOps(val self: DeleteBackupRequest) extends AnyVal {
 
-  final def backupArnAsScala: Option[String] = Option(self.backupArn) // String
+  final def backupArnAsScala: Option[String] = Option(self.backupArn)
 
 }
 

@@ -9,21 +9,21 @@ final class ListTablesRequestBuilderOps(val self: ListTablesRequest.Builder) ext
     value.fold(self) { v =>
       self.exclusiveStartTableName(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): ListTablesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class ListTablesRequestOps(val self: ListTablesRequest) extends AnyVal {
 
-  final def exclusiveStartTableNameAsScala: Option[String] = Option(self.exclusiveStartTableName) // String
+  final def exclusiveStartTableNameAsScala: Option[String] = Option(self.exclusiveStartTableName)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

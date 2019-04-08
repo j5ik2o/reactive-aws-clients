@@ -13,7 +13,7 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
     value.fold(self) { v =>
       self.reservedElasticsearchInstanceOfferingId(v)
     }
-  } // String
+  }
 
   final def reservationNameAsScala(
       value: Option[String]
@@ -21,13 +21,13 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
     value.fold(self) { v =>
       self.reservationName(v)
     }
-  } // String
+  }
 
   final def instanceCountAsScala(value: Option[Int]): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
-  } // Int
+  }
 
 }
 
@@ -36,11 +36,11 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestOps(
 ) extends AnyVal {
 
   final def reservedElasticsearchInstanceOfferingIdAsScala: Option[String] =
-    Option(self.reservedElasticsearchInstanceOfferingId) // String
+    Option(self.reservedElasticsearchInstanceOfferingId)
 
-  final def reservationNameAsScala: Option[String] = Option(self.reservationName) // String
+  final def reservationNameAsScala: Option[String] = Option(self.reservationName)
 
-  final def instanceCountAsScala: Option[Int] = Option(self.instanceCount) // Int
+  final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
 }
 

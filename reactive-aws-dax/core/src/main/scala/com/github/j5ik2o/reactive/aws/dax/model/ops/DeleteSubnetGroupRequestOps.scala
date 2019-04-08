@@ -9,13 +9,13 @@ final class DeleteSubnetGroupRequestBuilderOps(val self: DeleteSubnetGroupReques
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteSubnetGroupRequestOps(val self: DeleteSubnetGroupRequest) extends AnyVal {
 
-  final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName) // String
+  final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName)
 
 }
 

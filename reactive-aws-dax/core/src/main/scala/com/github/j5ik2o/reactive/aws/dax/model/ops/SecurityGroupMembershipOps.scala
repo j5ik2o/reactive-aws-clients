@@ -9,21 +9,21 @@ final class SecurityGroupMembershipBuilderOps(val self: SecurityGroupMembership.
     value.fold(self) { v =>
       self.securityGroupIdentifier(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  }
 
 }
 
 final class SecurityGroupMembershipOps(val self: SecurityGroupMembership) extends AnyVal {
 
-  final def securityGroupIdentifierAsScala: Option[String] = Option(self.securityGroupIdentifier) // String
+  final def securityGroupIdentifierAsScala: Option[String] = Option(self.securityGroupIdentifier)
 
-  final def statusAsScala: Option[String] = Option(self.status) // String
+  final def statusAsScala: Option[String] = Option(self.status)
 
 }
 

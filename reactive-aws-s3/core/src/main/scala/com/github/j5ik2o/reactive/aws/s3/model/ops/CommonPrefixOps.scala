@@ -9,13 +9,13 @@ final class CommonPrefixBuilderOps(val self: CommonPrefix.Builder) extends AnyVa
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
 }
 
 final class CommonPrefixOps(val self: CommonPrefix) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
 }
 

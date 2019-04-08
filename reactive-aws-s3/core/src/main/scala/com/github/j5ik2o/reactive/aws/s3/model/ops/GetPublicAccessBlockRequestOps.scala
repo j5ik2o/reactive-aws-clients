@@ -9,13 +9,13 @@ final class GetPublicAccessBlockRequestBuilderOps(val self: GetPublicAccessBlock
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetPublicAccessBlockRequestOps(val self: GetPublicAccessBlockRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

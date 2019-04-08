@@ -9,39 +9,39 @@ final class SubnetGroupBuilderOps(val self: SubnetGroup.Builder) extends AnyVal 
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): SubnetGroup.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def vpcIdAsScala(value: Option[String]): SubnetGroup.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
     }
-  } // String
+  }
 
   final def subnetsAsScala(value: Option[Seq[Subnet]]): SubnetGroup.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnets(v.asJava)
-    } // Seq[Subnet]
+    }
   }
 
 }
 
 final class SubnetGroupOps(val self: SubnetGroup) extends AnyVal {
 
-  final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName) // String
+  final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def vpcIdAsScala: Option[String] = Option(self.vpcId) // String
+  final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
   final def subnetsAsScala: Option[Seq[Subnet]] = Option(self.subnets).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Subnet]
+  }
 
 }
 

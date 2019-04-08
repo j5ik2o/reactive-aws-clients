@@ -9,23 +9,23 @@ final class StorageTypeLimitBuilderOps(val self: StorageTypeLimit.Builder) exten
     value.fold(self) { v =>
       self.limitName(v)
     }
-  } // String
+  }
 
   final def limitValuesAsScala(value: Option[Seq[String]]): StorageTypeLimit.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.limitValues(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class StorageTypeLimitOps(val self: StorageTypeLimit) extends AnyVal {
 
-  final def limitNameAsScala: Option[String] = Option(self.limitName) // String
+  final def limitNameAsScala: Option[String] = Option(self.limitName)
 
   final def limitValuesAsScala: Option[Seq[String]] = Option(self.limitValues).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

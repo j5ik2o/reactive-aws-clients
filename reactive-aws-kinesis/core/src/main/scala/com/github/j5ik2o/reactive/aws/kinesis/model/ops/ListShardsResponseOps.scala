@@ -8,14 +8,14 @@ final class ListShardsResponseBuilderOps(val self: ListShardsResponse.Builder) e
   final def shardsAsScala(value: Option[Seq[Shard]]): ListShardsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shards(v.asJava)
-    } // Seq[Shard]
+    }
   }
 
   final def nextTokenAsScala(value: Option[String]): ListShardsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListShardsResponseOps(val self: ListShardsResponse) extends AnyVal {
 
   final def shardsAsScala: Option[Seq[Shard]] = Option(self.shards).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Shard]
+  }
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

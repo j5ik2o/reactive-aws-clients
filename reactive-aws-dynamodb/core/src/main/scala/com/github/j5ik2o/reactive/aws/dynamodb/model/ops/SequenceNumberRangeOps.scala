@@ -9,21 +9,21 @@ final class SequenceNumberRangeBuilderOps(val self: SequenceNumberRange.Builder)
     value.fold(self) { v =>
       self.startingSequenceNumber(v)
     }
-  } // String
+  }
 
   final def endingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
     value.fold(self) { v =>
       self.endingSequenceNumber(v)
     }
-  } // String
+  }
 
 }
 
 final class SequenceNumberRangeOps(val self: SequenceNumberRange) extends AnyVal {
 
-  final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber) // String
+  final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber)
 
-  final def endingSequenceNumberAsScala: Option[String] = Option(self.endingSequenceNumber) // String
+  final def endingSequenceNumberAsScala: Option[String] = Option(self.endingSequenceNumber)
 
 }
 

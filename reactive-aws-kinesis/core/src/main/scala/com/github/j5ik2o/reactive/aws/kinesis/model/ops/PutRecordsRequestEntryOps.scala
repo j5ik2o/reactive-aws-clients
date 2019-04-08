@@ -9,29 +9,29 @@ final class PutRecordsRequestEntryBuilderOps(val self: PutRecordsRequestEntry.Bu
     value.fold(self) { v =>
       self.data(v)
     }
-  } // SdkBytes
+  }
 
   final def explicitHashKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
     value.fold(self) { v =>
       self.explicitHashKey(v)
     }
-  } // String
+  }
 
   final def partitionKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
     value.fold(self) { v =>
       self.partitionKey(v)
     }
-  } // String
+  }
 
 }
 
 final class PutRecordsRequestEntryOps(val self: PutRecordsRequestEntry) extends AnyVal {
 
-  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.data) // SdkBytes
+  final def dataAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.data)
 
-  final def explicitHashKeyAsScala: Option[String] = Option(self.explicitHashKey) // String
+  final def explicitHashKeyAsScala: Option[String] = Option(self.explicitHashKey)
 
-  final def partitionKeyAsScala: Option[String] = Option(self.partitionKey) // String
+  final def partitionKeyAsScala: Option[String] = Option(self.partitionKey)
 
 }
 

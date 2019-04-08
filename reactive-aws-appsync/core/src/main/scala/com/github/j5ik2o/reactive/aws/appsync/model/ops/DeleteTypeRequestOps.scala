@@ -9,21 +9,21 @@ final class DeleteTypeRequestBuilderOps(val self: DeleteTypeRequest.Builder) ext
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def typeNameAsScala(value: Option[String]): DeleteTypeRequest.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteTypeRequestOps(val self: DeleteTypeRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def typeNameAsScala: Option[String] = Option(self.typeName) // String
+  final def typeNameAsScala: Option[String] = Option(self.typeName)
 
 }
 

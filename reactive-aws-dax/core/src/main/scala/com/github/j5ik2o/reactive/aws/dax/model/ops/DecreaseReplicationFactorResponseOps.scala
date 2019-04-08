@@ -10,13 +10,13 @@ final class DecreaseReplicationFactorResponseBuilderOps(val self: DecreaseReplic
     value.fold(self) { v =>
       self.cluster(v)
     }
-  } // Cluster
+  }
 
 }
 
 final class DecreaseReplicationFactorResponseOps(val self: DecreaseReplicationFactorResponse) extends AnyVal {
 
-  final def clusterAsScala: Option[Cluster] = Option(self.cluster) // Cluster
+  final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }
 

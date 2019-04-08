@@ -10,21 +10,21 @@ final class ListBucketMetricsConfigurationsRequestBuilderOps(val self: ListBucke
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def continuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListBucketMetricsConfigurationsRequestOps(val self: ListBucketMetricsConfigurationsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken) // String
+  final def continuationTokenAsScala: Option[String] = Option(self.continuationToken)
 
 }
 

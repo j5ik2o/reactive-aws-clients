@@ -9,69 +9,69 @@ final class ObjectVersionBuilderOps(val self: ObjectVersion.Builder) extends Any
     value.fold(self) { v =>
       self.eTag(v)
     }
-  } // String
+  }
 
   final def sizeAsScala(value: Option[Int]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
-  } // Int
+  }
 
   final def storageClassAsScala(value: Option[ObjectVersionStorageClass]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def isLatestAsScala(value: Option[Boolean]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.isLatest(v)
     }
-  } // Boolean
+  }
 
   final def lastModifiedAsScala(value: Option[java.time.Instant]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
-  } // Instant
+  }
 
   final def ownerAsScala(value: Option[Owner]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
-  } // Owner
+  }
 
 }
 
 final class ObjectVersionOps(val self: ObjectVersion) extends AnyVal {
 
-  final def eTagAsScala: Option[String] = Option(self.eTag) // String
+  final def eTagAsScala: Option[String] = Option(self.eTag)
 
-  final def sizeAsScala: Option[Int] = Option(self.size) // Int
+  final def sizeAsScala: Option[Int] = Option(self.size)
 
-  final def storageClassAsScala: Option[ObjectVersionStorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[ObjectVersionStorageClass] = Option(self.storageClass)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def isLatestAsScala: Option[Boolean] = Option(self.isLatest) // Boolean
+  final def isLatestAsScala: Option[Boolean] = Option(self.isLatest)
 
-  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified) // Instant
+  final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified)
 
-  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+  final def ownerAsScala: Option[Owner] = Option(self.owner)
 
 }
 

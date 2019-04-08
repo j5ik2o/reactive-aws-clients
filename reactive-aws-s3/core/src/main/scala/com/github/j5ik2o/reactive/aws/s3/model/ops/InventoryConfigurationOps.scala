@@ -9,25 +9,25 @@ final class InventoryConfigurationBuilderOps(val self: InventoryConfiguration.Bu
     value.fold(self) { v =>
       self.destination(v)
     }
-  } // InventoryDestination
+  }
 
   final def isEnabledAsScala(value: Option[Boolean]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.isEnabled(v)
     }
-  } // Boolean
+  }
 
   final def filterAsScala(value: Option[InventoryFilter]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
-  } // InventoryFilter
+  }
 
   final def idAsScala(value: Option[String]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def includedObjectVersionsAsScala(
       value: Option[InventoryIncludedObjectVersions]
@@ -35,40 +35,39 @@ final class InventoryConfigurationBuilderOps(val self: InventoryConfiguration.Bu
     value.fold(self) { v =>
       self.includedObjectVersions(v)
     }
-  } // String
+  }
 
   final def optionalFieldsAsScala(value: Option[Seq[InventoryOptionalField]]): InventoryConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.optionalFields(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def scheduleAsScala(value: Option[InventorySchedule]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.schedule(v)
     }
-  } // InventorySchedule
+  }
 
 }
 
 final class InventoryConfigurationOps(val self: InventoryConfiguration) extends AnyVal {
 
-  final def destinationAsScala: Option[InventoryDestination] = Option(self.destination) // InventoryDestination
+  final def destinationAsScala: Option[InventoryDestination] = Option(self.destination)
 
-  final def isEnabledAsScala: Option[Boolean] = Option(self.isEnabled) // Boolean
+  final def isEnabledAsScala: Option[Boolean] = Option(self.isEnabled)
 
-  final def filterAsScala: Option[InventoryFilter] = Option(self.filter) // InventoryFilter
+  final def filterAsScala: Option[InventoryFilter] = Option(self.filter)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def includedObjectVersionsAsScala: Option[InventoryIncludedObjectVersions] =
-    Option(self.includedObjectVersions) // String
+  final def includedObjectVersionsAsScala: Option[InventoryIncludedObjectVersions] = Option(self.includedObjectVersions)
 
   final def optionalFieldsAsScala: Option[Seq[InventoryOptionalField]] = Option(self.optionalFields).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def scheduleAsScala: Option[InventorySchedule] = Option(self.schedule) // InventorySchedule
+  final def scheduleAsScala: Option[InventorySchedule] = Option(self.schedule)
 
 }
 

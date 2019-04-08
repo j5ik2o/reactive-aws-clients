@@ -10,7 +10,7 @@ final class PutBucketLifecycleConfigurationRequestBuilderOps(val self: PutBucket
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def lifecycleConfigurationAsScala(
       value: Option[BucketLifecycleConfiguration]
@@ -18,16 +18,15 @@ final class PutBucketLifecycleConfigurationRequestBuilderOps(val self: PutBucket
     value.fold(self) { v =>
       self.lifecycleConfiguration(v)
     }
-  } // BucketLifecycleConfiguration
+  }
 
 }
 
 final class PutBucketLifecycleConfigurationRequestOps(val self: PutBucketLifecycleConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def lifecycleConfigurationAsScala: Option[BucketLifecycleConfiguration] =
-    Option(self.lifecycleConfiguration) // BucketLifecycleConfiguration
+  final def lifecycleConfigurationAsScala: Option[BucketLifecycleConfiguration] = Option(self.lifecycleConfiguration)
 
 }
 

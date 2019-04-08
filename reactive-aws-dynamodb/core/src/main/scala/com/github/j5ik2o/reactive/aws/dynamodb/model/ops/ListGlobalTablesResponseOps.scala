@@ -8,14 +8,14 @@ final class ListGlobalTablesResponseBuilderOps(val self: ListGlobalTablesRespons
   final def globalTablesAsScala(value: Option[Seq[GlobalTable]]): ListGlobalTablesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.globalTables(v.asJava)
-    } // Seq[GlobalTable]
+    }
   }
 
   final def lastEvaluatedGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedGlobalTableName(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class ListGlobalTablesResponseOps(val self: ListGlobalTablesResponse) exte
 
   final def globalTablesAsScala: Option[Seq[GlobalTable]] = Option(self.globalTables).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[GlobalTable]
+  }
 
-  final def lastEvaluatedGlobalTableNameAsScala: Option[String] = Option(self.lastEvaluatedGlobalTableName) // String
+  final def lastEvaluatedGlobalTableNameAsScala: Option[String] = Option(self.lastEvaluatedGlobalTableName)
 
 }
 

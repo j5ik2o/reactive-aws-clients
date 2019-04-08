@@ -11,13 +11,13 @@ final class GetIntrospectionSchemaResponseBuilderOps(val self: GetIntrospectionS
     value.fold(self) { v =>
       self.schema(v)
     }
-  } // SdkBytes
+  }
 
 }
 
 final class GetIntrospectionSchemaResponseOps(val self: GetIntrospectionSchemaResponse) extends AnyVal {
 
-  final def schemaAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.schema) // SdkBytes
+  final def schemaAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.schema)
 
 }
 

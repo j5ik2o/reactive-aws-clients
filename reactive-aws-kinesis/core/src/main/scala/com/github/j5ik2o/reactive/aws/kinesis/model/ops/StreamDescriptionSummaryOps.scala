@@ -9,87 +9,87 @@ final class StreamDescriptionSummaryBuilderOps(val self: StreamDescriptionSummar
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def streamARNAsScala(value: Option[String]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
-  } // String
+  }
 
   final def streamStatusAsScala(value: Option[StreamStatus]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.streamStatus(v)
     }
-  } // String
+  }
 
   final def retentionPeriodHoursAsScala(value: Option[Int]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.retentionPeriodHours(v)
     }
-  } // Int
+  }
 
   final def streamCreationTimestampAsScala(value: Option[java.time.Instant]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
-  } // Instant
+  }
 
   final def enhancedMonitoringAsScala(value: Option[Seq[EnhancedMetrics]]): StreamDescriptionSummary.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.enhancedMonitoring(v.asJava)
-    } // Seq[EnhancedMetrics]
+    }
   }
 
   final def encryptionTypeAsScala(value: Option[EncryptionType]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
-  } // String
+  }
 
   final def keyIdAsScala(value: Option[String]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }
-  } // String
+  }
 
   final def openShardCountAsScala(value: Option[Int]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.openShardCount(v)
     }
-  } // Int
+  }
 
   final def consumerCountAsScala(value: Option[Int]): StreamDescriptionSummary.Builder = {
     value.fold(self) { v =>
       self.consumerCount(v)
     }
-  } // Int
+  }
 
 }
 
 final class StreamDescriptionSummaryOps(val self: StreamDescriptionSummary) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def streamARNAsScala: Option[String] = Option(self.streamARN) // String
+  final def streamARNAsScala: Option[String] = Option(self.streamARN)
 
-  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus) // String
+  final def streamStatusAsScala: Option[StreamStatus] = Option(self.streamStatus)
 
-  final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours) // Int
+  final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours)
 
-  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp) // Instant
+  final def streamCreationTimestampAsScala: Option[java.time.Instant] = Option(self.streamCreationTimestamp)
 
   final def enhancedMonitoringAsScala: Option[Seq[EnhancedMetrics]] = Option(self.enhancedMonitoring).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[EnhancedMetrics]
+  }
 
-  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType) // String
+  final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType)
 
-  final def keyIdAsScala: Option[String] = Option(self.keyId) // String
+  final def keyIdAsScala: Option[String] = Option(self.keyId)
 
-  final def openShardCountAsScala: Option[Int] = Option(self.openShardCount) // Int
+  final def openShardCountAsScala: Option[Int] = Option(self.openShardCount)
 
-  final def consumerCountAsScala: Option[Int] = Option(self.consumerCount) // Int
+  final def consumerCountAsScala: Option[Int] = Option(self.consumerCount)
 
 }
 

@@ -9,29 +9,29 @@ final class SubscribeToShardRequestBuilderOps(val self: SubscribeToShardRequest.
     value.fold(self) { v =>
       self.consumerARN(v)
     }
-  } // String
+  }
 
   final def shardIdAsScala(value: Option[String]): SubscribeToShardRequest.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
-  } // String
+  }
 
   final def startingPositionAsScala(value: Option[StartingPosition]): SubscribeToShardRequest.Builder = {
     value.fold(self) { v =>
       self.startingPosition(v)
     }
-  } // StartingPosition
+  }
 
 }
 
 final class SubscribeToShardRequestOps(val self: SubscribeToShardRequest) extends AnyVal {
 
-  final def consumerARNAsScala: Option[String] = Option(self.consumerARN) // String
+  final def consumerARNAsScala: Option[String] = Option(self.consumerARN)
 
-  final def shardIdAsScala: Option[String] = Option(self.shardId) // String
+  final def shardIdAsScala: Option[String] = Option(self.shardId)
 
-  final def startingPositionAsScala: Option[StartingPosition] = Option(self.startingPosition) // StartingPosition
+  final def startingPositionAsScala: Option[StartingPosition] = Option(self.startingPosition)
 
 }
 

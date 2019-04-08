@@ -9,61 +9,61 @@ final class DescribeEventsRequestBuilderOps(val self: DescribeEventsRequest.Buil
     value.fold(self) { v =>
       self.sourceName(v)
     }
-  } // String
+  }
 
   final def sourceTypeAsScala(value: Option[SourceType]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.sourceType(v)
     }
-  } // String
+  }
 
   final def startTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
-  } // Instant
+  }
 
   final def endTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
-  } // Instant
+  }
 
   final def durationAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.duration(v)
     }
-  } // Int
+  }
 
   final def maxResultsAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeEventsRequestOps(val self: DescribeEventsRequest) extends AnyVal {
 
-  final def sourceNameAsScala: Option[String] = Option(self.sourceName) // String
+  final def sourceNameAsScala: Option[String] = Option(self.sourceName)
 
-  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType) // String
+  final def sourceTypeAsScala: Option[SourceType] = Option(self.sourceType)
 
-  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime) // Instant
+  final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime)
 
-  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime) // Instant
+  final def endTimeAsScala: Option[java.time.Instant] = Option(self.endTime)
 
-  final def durationAsScala: Option[Int] = Option(self.duration) // Int
+  final def durationAsScala: Option[Int] = Option(self.duration)
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

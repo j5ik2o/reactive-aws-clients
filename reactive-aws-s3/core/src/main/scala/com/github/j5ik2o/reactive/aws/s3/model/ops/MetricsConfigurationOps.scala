@@ -9,21 +9,21 @@ final class MetricsConfigurationBuilderOps(val self: MetricsConfiguration.Builde
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def filterAsScala(value: Option[MetricsFilter]): MetricsConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
-  } // MetricsFilter
+  }
 
 }
 
 final class MetricsConfigurationOps(val self: MetricsConfiguration) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def filterAsScala: Option[MetricsFilter] = Option(self.filter) // MetricsFilter
+  final def filterAsScala: Option[MetricsFilter] = Option(self.filter)
 
 }
 

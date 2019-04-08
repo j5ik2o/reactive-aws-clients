@@ -9,13 +9,13 @@ final class GetBucketReplicationRequestBuilderOps(val self: GetBucketReplication
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketReplicationRequestOps(val self: GetBucketReplicationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

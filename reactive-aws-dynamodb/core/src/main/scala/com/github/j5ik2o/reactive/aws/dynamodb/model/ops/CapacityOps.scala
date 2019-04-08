@@ -9,29 +9,29 @@ final class CapacityBuilderOps(val self: Capacity.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.readCapacityUnits(v)
     }
-  } // Double
+  }
 
   final def writeCapacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
     value.fold(self) { v =>
       self.writeCapacityUnits(v)
     }
-  } // Double
+  }
 
   final def capacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
     value.fold(self) { v =>
       self.capacityUnits(v)
     }
-  } // Double
+  }
 
 }
 
 final class CapacityOps(val self: Capacity) extends AnyVal {
 
-  final def readCapacityUnitsAsScala: Option[Double] = Option(self.readCapacityUnits) // Double
+  final def readCapacityUnitsAsScala: Option[Double] = Option(self.readCapacityUnits)
 
-  final def writeCapacityUnitsAsScala: Option[Double] = Option(self.writeCapacityUnits) // Double
+  final def writeCapacityUnitsAsScala: Option[Double] = Option(self.writeCapacityUnits)
 
-  final def capacityUnitsAsScala: Option[Double] = Option(self.capacityUnits) // Double
+  final def capacityUnitsAsScala: Option[Double] = Option(self.capacityUnits)
 
 }
 

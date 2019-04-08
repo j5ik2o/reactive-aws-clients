@@ -11,30 +11,30 @@ final class ChangeMessageVisibilityBatchRequestEntryBuilderOps(
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def receiptHandleAsScala(value: Option[String]): ChangeMessageVisibilityBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }
-  } // String
+  }
 
   final def visibilityTimeoutAsScala(value: Option[Int]): ChangeMessageVisibilityBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.visibilityTimeout(v)
     }
-  } // Int
+  }
 
 }
 
 final class ChangeMessageVisibilityBatchRequestEntryOps(val self: ChangeMessageVisibilityBatchRequestEntry)
     extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle) // String
+  final def receiptHandleAsScala: Option[String] = Option(self.receiptHandle)
 
-  final def visibilityTimeoutAsScala: Option[Int] = Option(self.visibilityTimeout) // Int
+  final def visibilityTimeoutAsScala: Option[Int] = Option(self.visibilityTimeout)
 
 }
 

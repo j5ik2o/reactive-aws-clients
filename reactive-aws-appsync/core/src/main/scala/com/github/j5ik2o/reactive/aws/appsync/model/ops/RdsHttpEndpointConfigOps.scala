@@ -9,45 +9,45 @@ final class RdsHttpEndpointConfigBuilderOps(val self: RdsHttpEndpointConfig.Buil
     value.fold(self) { v =>
       self.awsRegion(v)
     }
-  } // String
+  }
 
   final def dbClusterIdentifierAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.dbClusterIdentifier(v)
     }
-  } // String
+  }
 
   final def databaseNameAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.databaseName(v)
     }
-  } // String
+  }
 
   final def schemaAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.schema(v)
     }
-  } // String
+  }
 
   final def awsSecretStoreArnAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.awsSecretStoreArn(v)
     }
-  } // String
+  }
 
 }
 
 final class RdsHttpEndpointConfigOps(val self: RdsHttpEndpointConfig) extends AnyVal {
 
-  final def awsRegionAsScala: Option[String] = Option(self.awsRegion) // String
+  final def awsRegionAsScala: Option[String] = Option(self.awsRegion)
 
-  final def dbClusterIdentifierAsScala: Option[String] = Option(self.dbClusterIdentifier) // String
+  final def dbClusterIdentifierAsScala: Option[String] = Option(self.dbClusterIdentifier)
 
-  final def databaseNameAsScala: Option[String] = Option(self.databaseName) // String
+  final def databaseNameAsScala: Option[String] = Option(self.databaseName)
 
-  final def schemaAsScala: Option[String] = Option(self.schema) // String
+  final def schemaAsScala: Option[String] = Option(self.schema)
 
-  final def awsSecretStoreArnAsScala: Option[String] = Option(self.awsSecretStoreArn) // String
+  final def awsSecretStoreArnAsScala: Option[String] = Option(self.awsSecretStoreArn)
 
 }
 

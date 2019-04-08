@@ -9,13 +9,13 @@ final class ReplicaBuilderOps(val self: Replica.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.regionName(v)
     }
-  } // String
+  }
 
 }
 
 final class ReplicaOps(val self: Replica) extends AnyVal {
 
-  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+  final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }
 

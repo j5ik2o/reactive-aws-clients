@@ -15,6 +15,9 @@ object SqsAsyncClient {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/sqs/SqsAsyncClient.html
+  */
 trait SqsAsyncClient extends SqsClient[Future] {
   val underlying: JavaSqsAsyncClient
 

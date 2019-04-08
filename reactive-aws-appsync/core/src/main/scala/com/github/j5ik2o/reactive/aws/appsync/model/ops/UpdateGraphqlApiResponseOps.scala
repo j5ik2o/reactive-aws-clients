@@ -9,13 +9,13 @@ final class UpdateGraphqlApiResponseBuilderOps(val self: UpdateGraphqlApiRespons
     value.fold(self) { v =>
       self.graphqlApi(v)
     }
-  } // GraphqlApi
+  }
 
 }
 
 final class UpdateGraphqlApiResponseOps(val self: UpdateGraphqlApiResponse) extends AnyVal {
 
-  final def graphqlApiAsScala: Option[GraphqlApi] = Option(self.graphqlApi) // GraphqlApi
+  final def graphqlApiAsScala: Option[GraphqlApi] = Option(self.graphqlApi)
 
 }
 

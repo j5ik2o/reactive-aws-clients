@@ -9,14 +9,13 @@ final class UpdateFunctionResponseBuilderOps(val self: UpdateFunctionResponse.Bu
     value.fold(self) { v =>
       self.functionConfiguration(v)
     }
-  } // FunctionConfiguration
+  }
 
 }
 
 final class UpdateFunctionResponseOps(val self: UpdateFunctionResponse) extends AnyVal {
 
-  final def functionConfigurationAsScala: Option[FunctionConfiguration] =
-    Option(self.functionConfiguration) // FunctionConfiguration
+  final def functionConfigurationAsScala: Option[FunctionConfiguration] = Option(self.functionConfiguration)
 
 }
 

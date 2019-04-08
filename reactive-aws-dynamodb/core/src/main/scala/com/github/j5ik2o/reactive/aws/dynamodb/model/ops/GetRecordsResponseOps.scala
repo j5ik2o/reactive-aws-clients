@@ -8,14 +8,14 @@ final class GetRecordsResponseBuilderOps(val self: GetRecordsResponse.Builder) e
   final def recordsAsScala(value: Option[Seq[Record]]): GetRecordsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
-    } // Seq[Record]
+    }
   }
 
   final def nextShardIteratorAsScala(value: Option[String]): GetRecordsResponse.Builder = {
     value.fold(self) { v =>
       self.nextShardIterator(v)
     }
-  } // String
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class GetRecordsResponseOps(val self: GetRecordsResponse) extends AnyVal {
 
   final def recordsAsScala: Option[Seq[Record]] = Option(self.records).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Record]
+  }
 
-  final def nextShardIteratorAsScala: Option[String] = Option(self.nextShardIterator) // String
+  final def nextShardIteratorAsScala: Option[String] = Option(self.nextShardIterator)
 
 }
 

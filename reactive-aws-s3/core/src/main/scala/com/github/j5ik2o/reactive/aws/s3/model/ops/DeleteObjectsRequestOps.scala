@@ -9,45 +9,45 @@ final class DeleteObjectsRequestBuilderOps(val self: DeleteObjectsRequest.Builde
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def deleteAsScala(value: Option[Delete]): DeleteObjectsRequest.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }
-  } // Delete
+  }
 
   final def mfaAsScala(value: Option[String]): DeleteObjectsRequest.Builder = {
     value.fold(self) { v =>
       self.mfa(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): DeleteObjectsRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  }
 
   final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): DeleteObjectsRequest.Builder = {
     value.fold(self) { v =>
       self.bypassGovernanceRetention(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class DeleteObjectsRequestOps(val self: DeleteObjectsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def deleteAsScala: Option[Delete] = Option(self.delete) // Delete
+  final def deleteAsScala: Option[Delete] = Option(self.delete)
 
-  final def mfaAsScala: Option[String] = Option(self.mfa) // String
+  final def mfaAsScala: Option[String] = Option(self.mfa)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
-  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention) // Boolean
+  final def bypassGovernanceRetentionAsScala: Option[Boolean] = Option(self.bypassGovernanceRetention)
 
 }
 

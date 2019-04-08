@@ -9,23 +9,23 @@ final class DescribeEventsResponseBuilderOps(val self: DescribeEventsResponse.Bu
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def eventsAsScala(value: Option[Seq[Event]]): DescribeEventsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
-    } // Seq[Event]
+    }
   }
 
 }
 
 final class DescribeEventsResponseOps(val self: DescribeEventsResponse) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   final def eventsAsScala: Option[Seq[Event]] = Option(self.events).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Event]
+  }
 
 }
 

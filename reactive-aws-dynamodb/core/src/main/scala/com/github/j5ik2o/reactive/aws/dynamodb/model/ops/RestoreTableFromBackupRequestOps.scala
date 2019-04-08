@@ -9,21 +9,21 @@ final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBa
     value.fold(self) { v =>
       self.targetTableName(v)
     }
-  } // String
+  }
 
   final def backupArnAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
     value.fold(self) { v =>
       self.backupArn(v)
     }
-  } // String
+  }
 
 }
 
 final class RestoreTableFromBackupRequestOps(val self: RestoreTableFromBackupRequest) extends AnyVal {
 
-  final def targetTableNameAsScala: Option[String] = Option(self.targetTableName) // String
+  final def targetTableNameAsScala: Option[String] = Option(self.targetTableName)
 
-  final def backupArnAsScala: Option[String] = Option(self.backupArn) // String
+  final def backupArnAsScala: Option[String] = Option(self.backupArn)
 
 }
 

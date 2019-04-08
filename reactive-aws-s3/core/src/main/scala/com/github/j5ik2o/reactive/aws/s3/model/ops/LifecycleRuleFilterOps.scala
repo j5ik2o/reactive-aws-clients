@@ -9,29 +9,29 @@ final class LifecycleRuleFilterBuilderOps(val self: LifecycleRuleFilter.Builder)
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def tagAsScala(value: Option[Tag]): LifecycleRuleFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
-  } // Tag
+  }
 
   final def andAsScala(value: Option[LifecycleRuleAndOperator]): LifecycleRuleFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }
-  } // LifecycleRuleAndOperator
+  }
 
 }
 
 final class LifecycleRuleFilterOps(val self: LifecycleRuleFilter) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
-  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+  final def tagAsScala: Option[Tag] = Option(self.tag)
 
-  final def andAsScala: Option[LifecycleRuleAndOperator] = Option(self.and) // LifecycleRuleAndOperator
+  final def andAsScala: Option[LifecycleRuleAndOperator] = Option(self.and)
 
 }
 

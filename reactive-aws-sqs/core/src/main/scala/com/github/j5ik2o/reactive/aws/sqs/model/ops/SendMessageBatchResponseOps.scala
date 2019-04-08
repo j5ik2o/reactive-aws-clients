@@ -8,13 +8,13 @@ final class SendMessageBatchResponseBuilderOps(val self: SendMessageBatchRespons
   final def successfulAsScala(value: Option[Seq[SendMessageBatchResultEntry]]): SendMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.successful(v.asJava)
-    } // Seq[SendMessageBatchResultEntry]
+    }
   }
 
   final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): SendMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.failed(v.asJava)
-    } // Seq[BatchResultErrorEntry]
+    }
   }
 
 }
@@ -23,11 +23,11 @@ final class SendMessageBatchResponseOps(val self: SendMessageBatchResponse) exte
 
   final def successfulAsScala: Option[Seq[SendMessageBatchResultEntry]] = Option(self.successful).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[SendMessageBatchResultEntry]
+  }
 
   final def failedAsScala: Option[Seq[BatchResultErrorEntry]] = Option(self.failed).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[BatchResultErrorEntry]
+  }
 
 }
 

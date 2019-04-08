@@ -9,88 +9,88 @@ final class ParameterBuilderOps(val self: Parameter.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.parameterName(v)
     }
-  } // String
+  }
 
   final def parameterTypeAsScala(value: Option[ParameterType]): Parameter.Builder = {
     value.fold(self) { v =>
       self.parameterType(v)
     }
-  } // String
+  }
 
   final def parameterValueAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.parameterValue(v)
     }
-  } // String
+  }
 
   final def nodeTypeSpecificValuesAsScala(value: Option[Seq[NodeTypeSpecificValue]]): Parameter.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeTypeSpecificValues(v.asJava)
-    } // Seq[NodeTypeSpecificValue]
+    }
   }
 
   final def descriptionAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def sourceAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.source(v)
     }
-  } // String
+  }
 
   final def dataTypeAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.dataType(v)
     }
-  } // String
+  }
 
   final def allowedValuesAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.allowedValues(v)
     }
-  } // String
+  }
 
   final def isModifiableAsScala(value: Option[IsModifiable]): Parameter.Builder = {
     value.fold(self) { v =>
       self.isModifiable(v)
     }
-  } // String
+  }
 
   final def changeTypeAsScala(value: Option[ChangeType]): Parameter.Builder = {
     value.fold(self) { v =>
       self.changeType(v)
     }
-  } // String
+  }
 
 }
 
 final class ParameterOps(val self: Parameter) extends AnyVal {
 
-  final def parameterNameAsScala: Option[String] = Option(self.parameterName) // String
+  final def parameterNameAsScala: Option[String] = Option(self.parameterName)
 
-  final def parameterTypeAsScala: Option[ParameterType] = Option(self.parameterType) // String
+  final def parameterTypeAsScala: Option[ParameterType] = Option(self.parameterType)
 
-  final def parameterValueAsScala: Option[String] = Option(self.parameterValue) // String
+  final def parameterValueAsScala: Option[String] = Option(self.parameterValue)
 
   final def nodeTypeSpecificValuesAsScala: Option[Seq[NodeTypeSpecificValue]] =
     Option(self.nodeTypeSpecificValues).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[NodeTypeSpecificValue]
+    }
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def sourceAsScala: Option[String] = Option(self.source) // String
+  final def sourceAsScala: Option[String] = Option(self.source)
 
-  final def dataTypeAsScala: Option[String] = Option(self.dataType) // String
+  final def dataTypeAsScala: Option[String] = Option(self.dataType)
 
-  final def allowedValuesAsScala: Option[String] = Option(self.allowedValues) // String
+  final def allowedValuesAsScala: Option[String] = Option(self.allowedValues)
 
-  final def isModifiableAsScala: Option[IsModifiable] = Option(self.isModifiable) // String
+  final def isModifiableAsScala: Option[IsModifiable] = Option(self.isModifiable)
 
-  final def changeTypeAsScala: Option[ChangeType] = Option(self.changeType) // String
+  final def changeTypeAsScala: Option[ChangeType] = Option(self.changeType)
 
 }
 

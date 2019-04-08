@@ -134,6 +134,22 @@ object Settings {
     }
   )
 
+  def hasTargetMethods(cd:ClassDesc): Boolean = {
+    cd.methods.exists{ m =>
+      ! m.static && !m.name.endsWith("AsString") && !m.name.endsWith("AsStrings") && m.parameterTypeDescs.isEmpty && (
+        m.name match {
+          case "builder" => false
+          case "serializableBuilderClass" => false
+          case "toBuilder" => false
+          case "hashCode" => false
+          case "toString" => false
+          case "sdkFields" => false
+          case _ => true
+        }
+      )
+    }
+  }
+
   lazy val scalaWrapperGenCoreSettings = {
     Seq(
       inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / s"aws-sdk-src/aws-sdk-java-v2/services/${sdkBaseName.value.toLowerCase}/target/generated-sources/sdk/software/amazon/awssdk/services/${sdkBaseName.value.toLowerCase}",
@@ -160,7 +176,7 @@ object Settings {
         case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")                                        => false
         case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")                                        => false
         case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
-        case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract => true
+        case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract && hasTargetMethods(cd) => true
         case _ =>
           false
       },

@@ -16,6 +16,9 @@ object KinesisAsyncClient {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kinesis/KinesisAsyncClient.html
+  */
 trait KinesisAsyncClient extends KinesisClient[Future] {
 
   val underlying: JavaKinesisAsyncClient

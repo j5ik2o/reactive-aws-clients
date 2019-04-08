@@ -9,7 +9,7 @@ final class DescribeElasticsearchDomainsRequestBuilderOps(val self: DescribeElas
   final def domainNamesAsScala(value: Option[Seq[String]]): DescribeElasticsearchDomainsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.domainNames(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class DescribeElasticsearchDomainsRequestOps(val self: DescribeElasticsear
 
   final def domainNamesAsScala: Option[Seq[String]] = Option(self.domainNames).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

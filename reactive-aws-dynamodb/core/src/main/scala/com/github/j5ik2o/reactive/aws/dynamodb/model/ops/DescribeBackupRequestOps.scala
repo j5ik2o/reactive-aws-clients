@@ -9,13 +9,13 @@ final class DescribeBackupRequestBuilderOps(val self: DescribeBackupRequest.Buil
     value.fold(self) { v =>
       self.backupArn(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeBackupRequestOps(val self: DescribeBackupRequest) extends AnyVal {
 
-  final def backupArnAsScala: Option[String] = Option(self.backupArn) // String
+  final def backupArnAsScala: Option[String] = Option(self.backupArn)
 
 }
 

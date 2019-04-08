@@ -10,31 +10,31 @@ final class IncreaseReplicationFactorRequestBuilderOps(val self: IncreaseReplica
     value.fold(self) { v =>
       self.clusterName(v)
     }
-  } // String
+  }
 
   final def newReplicationFactorAsScala(value: Option[Int]): IncreaseReplicationFactorRequest.Builder = {
     value.fold(self) { v =>
       self.newReplicationFactor(v)
     }
-  } // Int
+  }
 
   final def availabilityZonesAsScala(value: Option[Seq[String]]): IncreaseReplicationFactorRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
 
 final class IncreaseReplicationFactorRequestOps(val self: IncreaseReplicationFactorRequest) extends AnyVal {
 
-  final def clusterNameAsScala: Option[String] = Option(self.clusterName) // String
+  final def clusterNameAsScala: Option[String] = Option(self.clusterName)
 
-  final def newReplicationFactorAsScala: Option[Int] = Option(self.newReplicationFactor) // Int
+  final def newReplicationFactorAsScala: Option[Int] = Option(self.newReplicationFactor)
 
   final def availabilityZonesAsScala: Option[Seq[String]] = Option(self.availabilityZones).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

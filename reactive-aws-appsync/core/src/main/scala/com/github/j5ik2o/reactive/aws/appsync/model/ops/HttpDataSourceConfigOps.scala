@@ -9,22 +9,21 @@ final class HttpDataSourceConfigBuilderOps(val self: HttpDataSourceConfig.Builde
     value.fold(self) { v =>
       self.endpoint(v)
     }
-  } // String
+  }
 
   final def authorizationConfigAsScala(value: Option[AuthorizationConfig]): HttpDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.authorizationConfig(v)
     }
-  } // AuthorizationConfig
+  }
 
 }
 
 final class HttpDataSourceConfigOps(val self: HttpDataSourceConfig) extends AnyVal {
 
-  final def endpointAsScala: Option[String] = Option(self.endpoint) // String
+  final def endpointAsScala: Option[String] = Option(self.endpoint)
 
-  final def authorizationConfigAsScala: Option[AuthorizationConfig] =
-    Option(self.authorizationConfig) // AuthorizationConfig
+  final def authorizationConfigAsScala: Option[AuthorizationConfig] = Option(self.authorizationConfig)
 
 }
 

@@ -9,21 +9,21 @@ final class CreateStreamRequestBuilderOps(val self: CreateStreamRequest.Builder)
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def shardCountAsScala(value: Option[Int]): CreateStreamRequest.Builder = {
     value.fold(self) { v =>
       self.shardCount(v)
     }
-  } // Int
+  }
 
 }
 
 final class CreateStreamRequestOps(val self: CreateStreamRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def shardCountAsScala: Option[Int] = Option(self.shardCount) // Int
+  final def shardCountAsScala: Option[Int] = Option(self.shardCount)
 
 }
 

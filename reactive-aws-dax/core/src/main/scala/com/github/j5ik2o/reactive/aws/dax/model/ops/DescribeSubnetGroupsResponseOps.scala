@@ -9,23 +9,23 @@ final class DescribeSubnetGroupsResponseBuilderOps(val self: DescribeSubnetGroup
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
   final def subnetGroupsAsScala(value: Option[Seq[SubnetGroup]]): DescribeSubnetGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetGroups(v.asJava)
-    } // Seq[SubnetGroup]
+    }
   }
 
 }
 
 final class DescribeSubnetGroupsResponseOps(val self: DescribeSubnetGroupsResponse) extends AnyVal {
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   final def subnetGroupsAsScala: Option[Seq[SubnetGroup]] = Option(self.subnetGroups).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[SubnetGroup]
+  }
 
 }
 

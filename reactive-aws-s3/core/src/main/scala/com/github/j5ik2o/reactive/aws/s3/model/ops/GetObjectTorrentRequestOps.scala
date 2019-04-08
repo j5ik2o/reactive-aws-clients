@@ -9,29 +9,29 @@ final class GetObjectTorrentRequestBuilderOps(val self: GetObjectTorrentRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  }
 
 }
 
 final class GetObjectTorrentRequestOps(val self: GetObjectTorrentRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
 }
 

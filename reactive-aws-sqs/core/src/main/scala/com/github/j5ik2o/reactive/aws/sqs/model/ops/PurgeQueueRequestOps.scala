@@ -9,13 +9,13 @@ final class PurgeQueueRequestBuilderOps(val self: PurgeQueueRequest.Builder) ext
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
 }
 
 final class PurgeQueueRequestOps(val self: PurgeQueueRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }
 

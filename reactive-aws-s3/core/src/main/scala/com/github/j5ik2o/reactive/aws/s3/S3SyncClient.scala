@@ -14,6 +14,9 @@ object S3SyncClient extends ToEitherSupport {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html
+  */
 trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
   val underlying: JavaS3SyncClient
 

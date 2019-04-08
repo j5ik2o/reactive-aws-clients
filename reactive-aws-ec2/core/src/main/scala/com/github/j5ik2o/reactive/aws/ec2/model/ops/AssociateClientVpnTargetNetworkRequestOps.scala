@@ -1,0 +1,42 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.ec2.model.ops
+
+import software.amazon.awssdk.services.ec2.model._
+
+final class AssociateClientVpnTargetNetworkRequestBuilderOps(val self: AssociateClientVpnTargetNetworkRequest.Builder)
+    extends AnyVal {
+
+  final def clientVpnEndpointIdAsScala(value: Option[String]): AssociateClientVpnTargetNetworkRequest.Builder = {
+    value.fold(self) { v =>
+      self.clientVpnEndpointId(v)
+    }
+  }
+
+  final def subnetIdAsScala(value: Option[String]): AssociateClientVpnTargetNetworkRequest.Builder = {
+    value.fold(self) { v =>
+      self.subnetId(v)
+    }
+  }
+
+}
+
+final class AssociateClientVpnTargetNetworkRequestOps(val self: AssociateClientVpnTargetNetworkRequest) extends AnyVal {
+
+  final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
+
+  final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToAssociateClientVpnTargetNetworkRequestOps {
+
+  implicit def toAssociateClientVpnTargetNetworkRequestBuilderOps(
+      v: AssociateClientVpnTargetNetworkRequest.Builder
+  ): AssociateClientVpnTargetNetworkRequestBuilderOps = new AssociateClientVpnTargetNetworkRequestBuilderOps(v)
+
+  implicit def toAssociateClientVpnTargetNetworkRequestOps(
+      v: AssociateClientVpnTargetNetworkRequest
+  ): AssociateClientVpnTargetNetworkRequestOps = new AssociateClientVpnTargetNetworkRequestOps(v)
+
+}

@@ -9,29 +9,29 @@ final class GetUpgradeStatusResponseBuilderOps(val self: GetUpgradeStatusRespons
     value.fold(self) { v =>
       self.upgradeStep(v)
     }
-  } // String
+  }
 
   final def stepStatusAsScala(value: Option[UpgradeStatus]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.stepStatus(v)
     }
-  } // String
+  }
 
   final def upgradeNameAsScala(value: Option[String]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.upgradeName(v)
     }
-  } // String
+  }
 
 }
 
 final class GetUpgradeStatusResponseOps(val self: GetUpgradeStatusResponse) extends AnyVal {
 
-  final def upgradeStepAsScala: Option[UpgradeStep] = Option(self.upgradeStep) // String
+  final def upgradeStepAsScala: Option[UpgradeStep] = Option(self.upgradeStep)
 
-  final def stepStatusAsScala: Option[UpgradeStatus] = Option(self.stepStatus) // String
+  final def stepStatusAsScala: Option[UpgradeStatus] = Option(self.stepStatus)
 
-  final def upgradeNameAsScala: Option[String] = Option(self.upgradeName) // String
+  final def upgradeNameAsScala: Option[String] = Option(self.upgradeName)
 
 }
 

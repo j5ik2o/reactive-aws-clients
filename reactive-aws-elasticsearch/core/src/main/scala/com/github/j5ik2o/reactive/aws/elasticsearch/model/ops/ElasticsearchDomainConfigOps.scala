@@ -11,7 +11,7 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     value.fold(self) { v =>
       self.elasticsearchVersion(v)
     }
-  } // ElasticsearchVersionStatus
+  }
 
   final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfigStatus]
@@ -19,37 +19,37 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     value.fold(self) { v =>
       self.elasticsearchClusterConfig(v)
     }
-  } // ElasticsearchClusterConfigStatus
+  }
 
   final def ebsOptionsAsScala(value: Option[EBSOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.ebsOptions(v)
     }
-  } // EBSOptionsStatus
+  }
 
   final def accessPoliciesAsScala(value: Option[AccessPoliciesStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.accessPolicies(v)
     }
-  } // AccessPoliciesStatus
+  }
 
   final def snapshotOptionsAsScala(value: Option[SnapshotOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.snapshotOptions(v)
     }
-  } // SnapshotOptionsStatus
+  }
 
   final def vpcOptionsAsScala(value: Option[VPCDerivedInfoStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.vpcOptions(v)
     }
-  } // VPCDerivedInfoStatus
+  }
 
   final def cognitoOptionsAsScala(value: Option[CognitoOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.cognitoOptions(v)
     }
-  } // CognitoOptionsStatus
+  }
 
   final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptionsStatus]
@@ -57,7 +57,7 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     value.fold(self) { v =>
       self.encryptionAtRestOptions(v)
     }
-  } // EncryptionAtRestOptionsStatus
+  }
 
   final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptionsStatus]
@@ -65,13 +65,13 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     value.fold(self) { v =>
       self.nodeToNodeEncryptionOptions(v)
     }
-  } // NodeToNodeEncryptionOptionsStatus
+  }
 
   final def advancedOptionsAsScala(value: Option[AdvancedOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.advancedOptions(v)
     }
-  } // AdvancedOptionsStatus
+  }
 
   final def logPublishingOptionsAsScala(
       value: Option[LogPublishingOptionsStatus]
@@ -79,40 +79,35 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     value.fold(self) { v =>
       self.logPublishingOptions(v)
     }
-  } // LogPublishingOptionsStatus
+  }
 
 }
 
 final class ElasticsearchDomainConfigOps(val self: ElasticsearchDomainConfig) extends AnyVal {
 
-  final def elasticsearchVersionAsScala: Option[ElasticsearchVersionStatus] =
-    Option(self.elasticsearchVersion) // ElasticsearchVersionStatus
+  final def elasticsearchVersionAsScala: Option[ElasticsearchVersionStatus] = Option(self.elasticsearchVersion)
 
   final def elasticsearchClusterConfigAsScala: Option[ElasticsearchClusterConfigStatus] =
-    Option(self.elasticsearchClusterConfig) // ElasticsearchClusterConfigStatus
+    Option(self.elasticsearchClusterConfig)
 
-  final def ebsOptionsAsScala: Option[EBSOptionsStatus] = Option(self.ebsOptions) // EBSOptionsStatus
+  final def ebsOptionsAsScala: Option[EBSOptionsStatus] = Option(self.ebsOptions)
 
-  final def accessPoliciesAsScala: Option[AccessPoliciesStatus] = Option(self.accessPolicies) // AccessPoliciesStatus
+  final def accessPoliciesAsScala: Option[AccessPoliciesStatus] = Option(self.accessPolicies)
 
-  final def snapshotOptionsAsScala: Option[SnapshotOptionsStatus] =
-    Option(self.snapshotOptions) // SnapshotOptionsStatus
+  final def snapshotOptionsAsScala: Option[SnapshotOptionsStatus] = Option(self.snapshotOptions)
 
-  final def vpcOptionsAsScala: Option[VPCDerivedInfoStatus] = Option(self.vpcOptions) // VPCDerivedInfoStatus
+  final def vpcOptionsAsScala: Option[VPCDerivedInfoStatus] = Option(self.vpcOptions)
 
-  final def cognitoOptionsAsScala: Option[CognitoOptionsStatus] = Option(self.cognitoOptions) // CognitoOptionsStatus
+  final def cognitoOptionsAsScala: Option[CognitoOptionsStatus] = Option(self.cognitoOptions)
 
-  final def encryptionAtRestOptionsAsScala: Option[EncryptionAtRestOptionsStatus] =
-    Option(self.encryptionAtRestOptions) // EncryptionAtRestOptionsStatus
+  final def encryptionAtRestOptionsAsScala: Option[EncryptionAtRestOptionsStatus] = Option(self.encryptionAtRestOptions)
 
   final def nodeToNodeEncryptionOptionsAsScala: Option[NodeToNodeEncryptionOptionsStatus] =
-    Option(self.nodeToNodeEncryptionOptions) // NodeToNodeEncryptionOptionsStatus
+    Option(self.nodeToNodeEncryptionOptions)
 
-  final def advancedOptionsAsScala: Option[AdvancedOptionsStatus] =
-    Option(self.advancedOptions) // AdvancedOptionsStatus
+  final def advancedOptionsAsScala: Option[AdvancedOptionsStatus] = Option(self.advancedOptions)
 
-  final def logPublishingOptionsAsScala: Option[LogPublishingOptionsStatus] =
-    Option(self.logPublishingOptions) // LogPublishingOptionsStatus
+  final def logPublishingOptionsAsScala: Option[LogPublishingOptionsStatus] = Option(self.logPublishingOptions)
 
 }
 

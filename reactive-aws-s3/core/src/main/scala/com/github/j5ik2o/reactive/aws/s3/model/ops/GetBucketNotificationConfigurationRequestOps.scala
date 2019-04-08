@@ -11,14 +11,14 @@ final class GetBucketNotificationConfigurationRequestBuilderOps(
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class GetBucketNotificationConfigurationRequestOps(val self: GetBucketNotificationConfigurationRequest)
     extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

@@ -8,7 +8,7 @@ final class EnhancedMetricsBuilderOps(val self: EnhancedMetrics.Builder) extends
   final def shardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): EnhancedMetrics.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shardLevelMetrics(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class EnhancedMetricsOps(val self: EnhancedMetrics) extends AnyVal {
 
   final def shardLevelMetricsAsScala: Option[Seq[MetricsName]] = Option(self.shardLevelMetrics).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

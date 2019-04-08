@@ -9,37 +9,37 @@ final class UpdateApiKeyRequestBuilderOps(val self: UpdateApiKeyRequest.Builder)
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): UpdateApiKeyRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): UpdateApiKeyRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def expiresAsScala(value: Option[Long]): UpdateApiKeyRequest.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
-  } // Long
+  }
 
 }
 
 final class UpdateApiKeyRequestOps(val self: UpdateApiKeyRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def expiresAsScala: Option[Long] = Option(self.expires) // Long
+  final def expiresAsScala: Option[Long] = Option(self.expires)
 
 }
 

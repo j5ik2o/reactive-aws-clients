@@ -12,14 +12,13 @@ final class GetBucketMetricsConfigurationResponseBuilderOps(val self: GetBucketM
     value.fold(self) { v =>
       self.metricsConfiguration(v)
     }
-  } // MetricsConfiguration
+  }
 
 }
 
 final class GetBucketMetricsConfigurationResponseOps(val self: GetBucketMetricsConfigurationResponse) extends AnyVal {
 
-  final def metricsConfigurationAsScala: Option[MetricsConfiguration] =
-    Option(self.metricsConfiguration) // MetricsConfiguration
+  final def metricsConfigurationAsScala: Option[MetricsConfiguration] = Option(self.metricsConfiguration)
 
 }
 

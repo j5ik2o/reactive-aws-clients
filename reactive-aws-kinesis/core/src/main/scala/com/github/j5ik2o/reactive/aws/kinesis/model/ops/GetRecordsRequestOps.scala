@@ -9,21 +9,21 @@ final class GetRecordsRequestBuilderOps(val self: GetRecordsRequest.Builder) ext
     value.fold(self) { v =>
       self.shardIterator(v)
     }
-  } // String
+  }
 
   final def limitAsScala(value: Option[Int]): GetRecordsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
-  } // Int
+  }
 
 }
 
 final class GetRecordsRequestOps(val self: GetRecordsRequest) extends AnyVal {
 
-  final def shardIteratorAsScala: Option[String] = Option(self.shardIterator) // String
+  final def shardIteratorAsScala: Option[String] = Option(self.shardIterator)
 
-  final def limitAsScala: Option[Int] = Option(self.limit) // Int
+  final def limitAsScala: Option[Int] = Option(self.limit)
 
 }
 

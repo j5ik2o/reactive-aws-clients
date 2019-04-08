@@ -9,13 +9,13 @@ final class IndexDocumentBuilderOps(val self: IndexDocument.Builder) extends Any
     value.fold(self) { v =>
       self.suffix(v)
     }
-  } // String
+  }
 
 }
 
 final class IndexDocumentOps(val self: IndexDocument) extends AnyVal {
 
-  final def suffixAsScala: Option[String] = Option(self.suffix) // String
+  final def suffixAsScala: Option[String] = Option(self.suffix)
 
 }
 

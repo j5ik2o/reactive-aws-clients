@@ -10,7 +10,7 @@ final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockC
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def objectLockConfigurationAsScala(
       value: Option[ObjectLockConfiguration]
@@ -18,40 +18,39 @@ final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockC
     value.fold(self) { v =>
       self.objectLockConfiguration(v)
     }
-  } // ObjectLockConfiguration
+  }
 
   final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
-  } // String
+  }
 
   final def tokenAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.token(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
 }
 
 final class PutObjectLockConfigurationRequestOps(val self: PutObjectLockConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] =
-    Option(self.objectLockConfiguration) // ObjectLockConfiguration
+  final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] = Option(self.objectLockConfiguration)
 
-  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer) // String
+  final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
-  final def tokenAsScala: Option[String] = Option(self.token) // String
+  final def tokenAsScala: Option[String] = Option(self.token)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
 }
 

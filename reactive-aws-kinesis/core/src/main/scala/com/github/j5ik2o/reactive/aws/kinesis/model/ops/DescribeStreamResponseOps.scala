@@ -9,13 +9,13 @@ final class DescribeStreamResponseBuilderOps(val self: DescribeStreamResponse.Bu
     value.fold(self) { v =>
       self.streamDescription(v)
     }
-  } // StreamDescription
+  }
 
 }
 
 final class DescribeStreamResponseOps(val self: DescribeStreamResponse) extends AnyVal {
 
-  final def streamDescriptionAsScala: Option[StreamDescription] = Option(self.streamDescription) // StreamDescription
+  final def streamDescriptionAsScala: Option[StreamDescription] = Option(self.streamDescription)
 
 }
 

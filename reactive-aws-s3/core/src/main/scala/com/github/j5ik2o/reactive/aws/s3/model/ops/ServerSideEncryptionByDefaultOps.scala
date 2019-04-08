@@ -9,21 +9,21 @@ final class ServerSideEncryptionByDefaultBuilderOps(val self: ServerSideEncrypti
     value.fold(self) { v =>
       self.sseAlgorithm(v)
     }
-  } // String
+  }
 
   final def kmsMasterKeyIDAsScala(value: Option[String]): ServerSideEncryptionByDefault.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyID(v)
     }
-  } // String
+  }
 
 }
 
 final class ServerSideEncryptionByDefaultOps(val self: ServerSideEncryptionByDefault) extends AnyVal {
 
-  final def sseAlgorithmAsScala: Option[ServerSideEncryption] = Option(self.sseAlgorithm) // String
+  final def sseAlgorithmAsScala: Option[ServerSideEncryption] = Option(self.sseAlgorithm)
 
-  final def kmsMasterKeyIDAsScala: Option[String] = Option(self.kmsMasterKeyID) // String
+  final def kmsMasterKeyIDAsScala: Option[String] = Option(self.kmsMasterKeyID)
 
 }
 

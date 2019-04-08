@@ -11,7 +11,7 @@ final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
     value.fold(self) { v =>
       self.indexName(v)
     }
-  } // String
+  }
 
   final def provisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
@@ -19,7 +19,7 @@ final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
     value.fold(self) { v =>
       self.provisionedWriteCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def provisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
@@ -27,19 +27,19 @@ final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
     value.fold(self) { v =>
       self.provisionedWriteCapacityAutoScalingSettingsUpdate(v)
     }
-  } // AutoScalingSettingsUpdate
+  }
 
 }
 
 final class GlobalTableGlobalSecondaryIndexSettingsUpdateOps(val self: GlobalTableGlobalSecondaryIndexSettingsUpdate)
     extends AnyVal {
 
-  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
 
-  final def provisionedWriteCapacityUnitsAsScala: Option[Long] = Option(self.provisionedWriteCapacityUnits) // Long
+  final def provisionedWriteCapacityUnitsAsScala: Option[Long] = Option(self.provisionedWriteCapacityUnits)
 
   final def provisionedWriteCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
-    Option(self.provisionedWriteCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+    Option(self.provisionedWriteCapacityAutoScalingSettingsUpdate)
 
 }
 

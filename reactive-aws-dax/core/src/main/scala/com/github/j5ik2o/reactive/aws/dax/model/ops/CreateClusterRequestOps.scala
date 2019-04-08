@@ -9,115 +9,115 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
     value.fold(self) { v =>
       self.clusterName(v)
     }
-  } // String
+  }
 
   final def nodeTypeAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.nodeType(v)
     }
-  } // String
+  }
 
   final def descriptionAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
-  } // String
+  }
 
   final def replicationFactorAsScala(value: Option[Int]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.replicationFactor(v)
     }
-  } // Int
+  }
 
   final def availabilityZonesAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def subnetGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }
-  } // String
+  }
 
   final def securityGroupIdsAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def preferredMaintenanceWindowAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.preferredMaintenanceWindow(v)
     }
-  } // String
+  }
 
   final def notificationTopicArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.notificationTopicArn(v)
     }
-  } // String
+  }
 
   final def iamRoleArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.iamRoleArn(v)
     }
-  } // String
+  }
 
   final def parameterGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): CreateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
   final def sseSpecificationAsScala(value: Option[SSESpecification]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.sseSpecification(v)
     }
-  } // SSESpecification
+  }
 
 }
 
 final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyVal {
 
-  final def clusterNameAsScala: Option[String] = Option(self.clusterName) // String
+  final def clusterNameAsScala: Option[String] = Option(self.clusterName)
 
-  final def nodeTypeAsScala: Option[String] = Option(self.nodeType) // String
+  final def nodeTypeAsScala: Option[String] = Option(self.nodeType)
 
-  final def descriptionAsScala: Option[String] = Option(self.description) // String
+  final def descriptionAsScala: Option[String] = Option(self.description)
 
-  final def replicationFactorAsScala: Option[Int] = Option(self.replicationFactor) // Int
+  final def replicationFactorAsScala: Option[Int] = Option(self.replicationFactor)
 
   final def availabilityZonesAsScala: Option[Seq[String]] = Option(self.availabilityZones).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName) // String
+  final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName)
 
   final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def preferredMaintenanceWindowAsScala: Option[String] = Option(self.preferredMaintenanceWindow) // String
+  final def preferredMaintenanceWindowAsScala: Option[String] = Option(self.preferredMaintenanceWindow)
 
-  final def notificationTopicArnAsScala: Option[String] = Option(self.notificationTopicArn) // String
+  final def notificationTopicArnAsScala: Option[String] = Option(self.notificationTopicArn)
 
-  final def iamRoleArnAsScala: Option[String] = Option(self.iamRoleArn) // String
+  final def iamRoleArnAsScala: Option[String] = Option(self.iamRoleArn)
 
-  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName) // String
+  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
-  final def sseSpecificationAsScala: Option[SSESpecification] = Option(self.sseSpecification) // SSESpecification
+  final def sseSpecificationAsScala: Option[SSESpecification] = Option(self.sseSpecification)
 
 }
 

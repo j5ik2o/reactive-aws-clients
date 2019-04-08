@@ -9,13 +9,13 @@ final class DeleteClusterResponseBuilderOps(val self: DeleteClusterResponse.Buil
     value.fold(self) { v =>
       self.cluster(v)
     }
-  } // Cluster
+  }
 
 }
 
 final class DeleteClusterResponseOps(val self: DeleteClusterResponse) extends AnyVal {
 
-  final def clusterAsScala: Option[Cluster] = Option(self.cluster) // Cluster
+  final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }
 

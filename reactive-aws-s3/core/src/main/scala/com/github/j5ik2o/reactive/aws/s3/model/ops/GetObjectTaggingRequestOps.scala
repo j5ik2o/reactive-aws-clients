@@ -9,29 +9,29 @@ final class GetObjectTaggingRequestBuilderOps(val self: GetObjectTaggingRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def keyAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetObjectTaggingRequestOps(val self: GetObjectTaggingRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }
 

@@ -9,13 +9,13 @@ final class CreateBucketResponseBuilderOps(val self: CreateBucketResponse.Builde
     value.fold(self) { v =>
       self.location(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateBucketResponseOps(val self: CreateBucketResponse) extends AnyVal {
 
-  final def locationAsScala: Option[String] = Option(self.location) // String
+  final def locationAsScala: Option[String] = Option(self.location)
 
 }
 

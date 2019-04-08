@@ -10,21 +10,21 @@ final class ListElasticsearchVersionsRequestBuilderOps(val self: ListElasticsear
     value.fold(self) { v =>
       self.maxResults(v)
     }
-  } // Int
+  }
 
   final def nextTokenAsScala(value: Option[String]): ListElasticsearchVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
-  } // String
+  }
 
 }
 
 final class ListElasticsearchVersionsRequestOps(val self: ListElasticsearchVersionsRequest) extends AnyVal {
 
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults) // Int
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken) // String
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -9,13 +9,13 @@ final class AccelerateConfigurationBuilderOps(val self: AccelerateConfiguration.
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  }
 
 }
 
 final class AccelerateConfigurationOps(val self: AccelerateConfiguration) extends AnyVal {
 
-  final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status) // String
+  final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status)
 
 }
 

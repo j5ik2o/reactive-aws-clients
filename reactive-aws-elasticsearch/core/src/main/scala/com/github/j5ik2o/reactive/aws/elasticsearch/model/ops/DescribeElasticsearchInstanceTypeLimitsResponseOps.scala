@@ -12,7 +12,7 @@ final class DescribeElasticsearchInstanceTypeLimitsResponseBuilderOps(
   ): DescribeElasticsearchInstanceTypeLimitsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.limitsByRole(v.asJava)
-    } // Map[String, Limits]
+    }
   }
 
 }
@@ -23,7 +23,7 @@ final class DescribeElasticsearchInstanceTypeLimitsResponseOps(
 
   final def limitsByRoleAsScala: Option[Map[String, Limits]] = Option(self.limitsByRole).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, Limits]
+  }
 
 }
 

@@ -9,21 +9,21 @@ final class VersioningConfigurationBuilderOps(val self: VersioningConfiguration.
     value.fold(self) { v =>
       self.mfaDelete(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[BucketVersioningStatus]): VersioningConfiguration.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // String
+  }
 
 }
 
 final class VersioningConfigurationOps(val self: VersioningConfiguration) extends AnyVal {
 
-  final def mfaDeleteAsScala: Option[MFADelete] = Option(self.mfaDelete) // String
+  final def mfaDeleteAsScala: Option[MFADelete] = Option(self.mfaDelete)
 
-  final def statusAsScala: Option[BucketVersioningStatus] = Option(self.status) // String
+  final def statusAsScala: Option[BucketVersioningStatus] = Option(self.status)
 
 }
 

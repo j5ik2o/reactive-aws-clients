@@ -9,13 +9,13 @@ final class PutBucketRequestPaymentRequestBuilderOps(val self: PutBucketRequestP
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def requestPaymentConfigurationAsScala(
       value: Option[RequestPaymentConfiguration]
@@ -23,18 +23,18 @@ final class PutBucketRequestPaymentRequestBuilderOps(val self: PutBucketRequestP
     value.fold(self) { v =>
       self.requestPaymentConfiguration(v)
     }
-  } // RequestPaymentConfiguration
+  }
 
 }
 
 final class PutBucketRequestPaymentRequestOps(val self: PutBucketRequestPaymentRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
   final def requestPaymentConfigurationAsScala: Option[RequestPaymentConfiguration] =
-    Option(self.requestPaymentConfiguration) // RequestPaymentConfiguration
+    Option(self.requestPaymentConfiguration)
 
 }
 

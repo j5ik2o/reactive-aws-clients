@@ -9,31 +9,29 @@ final class BackupDescriptionBuilderOps(val self: BackupDescription.Builder) ext
     value.fold(self) { v =>
       self.backupDetails(v)
     }
-  } // BackupDetails
+  }
 
   final def sourceTableDetailsAsScala(value: Option[SourceTableDetails]): BackupDescription.Builder = {
     value.fold(self) { v =>
       self.sourceTableDetails(v)
     }
-  } // SourceTableDetails
+  }
 
   final def sourceTableFeatureDetailsAsScala(value: Option[SourceTableFeatureDetails]): BackupDescription.Builder = {
     value.fold(self) { v =>
       self.sourceTableFeatureDetails(v)
     }
-  } // SourceTableFeatureDetails
+  }
 
 }
 
 final class BackupDescriptionOps(val self: BackupDescription) extends AnyVal {
 
-  final def backupDetailsAsScala: Option[BackupDetails] = Option(self.backupDetails) // BackupDetails
+  final def backupDetailsAsScala: Option[BackupDetails] = Option(self.backupDetails)
 
-  final def sourceTableDetailsAsScala: Option[SourceTableDetails] =
-    Option(self.sourceTableDetails) // SourceTableDetails
+  final def sourceTableDetailsAsScala: Option[SourceTableDetails] = Option(self.sourceTableDetails)
 
-  final def sourceTableFeatureDetailsAsScala: Option[SourceTableFeatureDetails] =
-    Option(self.sourceTableFeatureDetails) // SourceTableFeatureDetails
+  final def sourceTableFeatureDetailsAsScala: Option[SourceTableFeatureDetails] = Option(self.sourceTableFeatureDetails)
 
 }
 

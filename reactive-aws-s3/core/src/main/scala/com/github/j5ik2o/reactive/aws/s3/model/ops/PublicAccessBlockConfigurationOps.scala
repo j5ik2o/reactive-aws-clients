@@ -9,37 +9,37 @@ final class PublicAccessBlockConfigurationBuilderOps(val self: PublicAccessBlock
     value.fold(self) { v =>
       self.blockPublicAcls(v)
     }
-  } // Boolean
+  }
 
   final def ignorePublicAclsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.ignorePublicAcls(v)
     }
-  } // Boolean
+  }
 
   final def blockPublicPolicyAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.blockPublicPolicy(v)
     }
-  } // Boolean
+  }
 
   final def restrictPublicBucketsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.restrictPublicBuckets(v)
     }
-  } // Boolean
+  }
 
 }
 
 final class PublicAccessBlockConfigurationOps(val self: PublicAccessBlockConfiguration) extends AnyVal {
 
-  final def blockPublicAclsAsScala: Option[Boolean] = Option(self.blockPublicAcls) // Boolean
+  final def blockPublicAclsAsScala: Option[Boolean] = Option(self.blockPublicAcls)
 
-  final def ignorePublicAclsAsScala: Option[Boolean] = Option(self.ignorePublicAcls) // Boolean
+  final def ignorePublicAclsAsScala: Option[Boolean] = Option(self.ignorePublicAcls)
 
-  final def blockPublicPolicyAsScala: Option[Boolean] = Option(self.blockPublicPolicy) // Boolean
+  final def blockPublicPolicyAsScala: Option[Boolean] = Option(self.blockPublicPolicy)
 
-  final def restrictPublicBucketsAsScala: Option[Boolean] = Option(self.restrictPublicBuckets) // Boolean
+  final def restrictPublicBucketsAsScala: Option[Boolean] = Option(self.restrictPublicBuckets)
 
 }
 

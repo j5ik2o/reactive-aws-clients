@@ -9,13 +9,13 @@ final class CreateReplicaActionBuilderOps(val self: CreateReplicaAction.Builder)
     value.fold(self) { v =>
       self.regionName(v)
     }
-  } // String
+  }
 
 }
 
 final class CreateReplicaActionOps(val self: CreateReplicaAction) extends AnyVal {
 
-  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+  final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }
 

@@ -11,13 +11,13 @@ final class ChangeMessageVisibilityBatchResponseBuilderOps(val self: ChangeMessa
   ): ChangeMessageVisibilityBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.successful(v.asJava)
-    } // Seq[ChangeMessageVisibilityBatchResultEntry]
+    }
   }
 
   final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): ChangeMessageVisibilityBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.failed(v.asJava)
-    } // Seq[BatchResultErrorEntry]
+    }
   }
 
 }
@@ -26,11 +26,11 @@ final class ChangeMessageVisibilityBatchResponseOps(val self: ChangeMessageVisib
 
   final def successfulAsScala: Option[Seq[ChangeMessageVisibilityBatchResultEntry]] = Option(self.successful).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ChangeMessageVisibilityBatchResultEntry]
+  }
 
   final def failedAsScala: Option[Seq[BatchResultErrorEntry]] = Option(self.failed).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[BatchResultErrorEntry]
+  }
 
 }
 

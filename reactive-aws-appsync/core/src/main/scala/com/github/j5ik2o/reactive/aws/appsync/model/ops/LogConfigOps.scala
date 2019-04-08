@@ -9,21 +9,21 @@ final class LogConfigBuilderOps(val self: LogConfig.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.fieldLogLevel(v)
     }
-  } // String
+  }
 
   final def cloudWatchLogsRoleArnAsScala(value: Option[String]): LogConfig.Builder = {
     value.fold(self) { v =>
       self.cloudWatchLogsRoleArn(v)
     }
-  } // String
+  }
 
 }
 
 final class LogConfigOps(val self: LogConfig) extends AnyVal {
 
-  final def fieldLogLevelAsScala: Option[FieldLogLevel] = Option(self.fieldLogLevel) // String
+  final def fieldLogLevelAsScala: Option[FieldLogLevel] = Option(self.fieldLogLevel)
 
-  final def cloudWatchLogsRoleArnAsScala: Option[String] = Option(self.cloudWatchLogsRoleArn) // String
+  final def cloudWatchLogsRoleArnAsScala: Option[String] = Option(self.cloudWatchLogsRoleArn)
 
 }
 

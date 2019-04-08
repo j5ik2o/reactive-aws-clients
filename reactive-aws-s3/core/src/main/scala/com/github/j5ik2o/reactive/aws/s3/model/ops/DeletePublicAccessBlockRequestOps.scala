@@ -9,13 +9,13 @@ final class DeletePublicAccessBlockRequestBuilderOps(val self: DeletePublicAcces
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
 }
 
 final class DeletePublicAccessBlockRequestOps(val self: DeletePublicAccessBlockRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }
 

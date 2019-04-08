@@ -9,38 +9,37 @@ final class PutBucketPolicyRequestBuilderOps(val self: PutBucketPolicyRequest.Bu
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def confirmRemoveSelfBucketAccessAsScala(value: Option[Boolean]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.confirmRemoveSelfBucketAccess(v)
     }
-  } // Boolean
+  }
 
   final def policyAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policy(v)
     }
-  } // String
+  }
 
 }
 
 final class PutBucketPolicyRequestOps(val self: PutBucketPolicyRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def confirmRemoveSelfBucketAccessAsScala: Option[Boolean] =
-    Option(self.confirmRemoveSelfBucketAccess) // Boolean
+  final def confirmRemoveSelfBucketAccessAsScala: Option[Boolean] = Option(self.confirmRemoveSelfBucketAccess)
 
-  final def policyAsScala: Option[String] = Option(self.policy) // String
+  final def policyAsScala: Option[String] = Option(self.policy)
 
 }
 

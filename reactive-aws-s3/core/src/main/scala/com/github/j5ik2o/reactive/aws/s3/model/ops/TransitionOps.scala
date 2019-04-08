@@ -9,29 +9,29 @@ final class TransitionBuilderOps(val self: Transition.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.date(v)
     }
-  } // Instant
+  }
 
   final def daysAsScala(value: Option[Int]): Transition.Builder = {
     value.fold(self) { v =>
       self.days(v)
     }
-  } // Int
+  }
 
   final def storageClassAsScala(value: Option[TransitionStorageClass]): Transition.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
-  } // String
+  }
 
 }
 
 final class TransitionOps(val self: Transition) extends AnyVal {
 
-  final def dateAsScala: Option[java.time.Instant] = Option(self.date) // Instant
+  final def dateAsScala: Option[java.time.Instant] = Option(self.date)
 
-  final def daysAsScala: Option[Int] = Option(self.days) // Int
+  final def daysAsScala: Option[Int] = Option(self.days)
 
-  final def storageClassAsScala: Option[TransitionStorageClass] = Option(self.storageClass) // String
+  final def storageClassAsScala: Option[TransitionStorageClass] = Option(self.storageClass)
 
 }
 

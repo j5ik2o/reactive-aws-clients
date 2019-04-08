@@ -9,21 +9,21 @@ final class ElasticsearchDataSourceConfigBuilderOps(val self: ElasticsearchDataS
     value.fold(self) { v =>
       self.endpoint(v)
     }
-  } // String
+  }
 
   final def awsRegionAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
     }
-  } // String
+  }
 
 }
 
 final class ElasticsearchDataSourceConfigOps(val self: ElasticsearchDataSourceConfig) extends AnyVal {
 
-  final def endpointAsScala: Option[String] = Option(self.endpoint) // String
+  final def endpointAsScala: Option[String] = Option(self.endpoint)
 
-  final def awsRegionAsScala: Option[String] = Option(self.awsRegion) // String
+  final def awsRegionAsScala: Option[String] = Option(self.awsRegion)
 
 }
 

@@ -8,13 +8,13 @@ final class NotificationConfigurationBuilderOps(val self: NotificationConfigurat
   final def topicConfigurationsAsScala(value: Option[Seq[TopicConfiguration]]): NotificationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.topicConfigurations(v.asJava)
-    } // Seq[TopicConfiguration]
+    }
   }
 
   final def queueConfigurationsAsScala(value: Option[Seq[QueueConfiguration]]): NotificationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queueConfigurations(v.asJava)
-    } // Seq[QueueConfiguration]
+    }
   }
 
   final def lambdaFunctionConfigurationsAsScala(
@@ -22,7 +22,7 @@ final class NotificationConfigurationBuilderOps(val self: NotificationConfigurat
   ): NotificationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.lambdaFunctionConfigurations(v.asJava)
-    } // Seq[LambdaFunctionConfiguration]
+    }
   }
 
 }
@@ -31,16 +31,16 @@ final class NotificationConfigurationOps(val self: NotificationConfiguration) ex
 
   final def topicConfigurationsAsScala: Option[Seq[TopicConfiguration]] = Option(self.topicConfigurations).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[TopicConfiguration]
+  }
 
   final def queueConfigurationsAsScala: Option[Seq[QueueConfiguration]] = Option(self.queueConfigurations).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[QueueConfiguration]
+  }
 
   final def lambdaFunctionConfigurationsAsScala: Option[Seq[LambdaFunctionConfiguration]] =
     Option(self.lambdaFunctionConfigurations).map { v =>
       import scala.collection.JavaConverters._; v.asScala
-    } // Seq[LambdaFunctionConfiguration]
+    }
 
 }
 

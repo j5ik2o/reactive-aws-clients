@@ -9,21 +9,21 @@ final class GetQueueUrlRequestBuilderOps(val self: GetQueueUrlRequest.Builder) e
     value.fold(self) { v =>
       self.queueName(v)
     }
-  } // String
+  }
 
   final def queueOwnerAWSAccountIdAsScala(value: Option[String]): GetQueueUrlRequest.Builder = {
     value.fold(self) { v =>
       self.queueOwnerAWSAccountId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetQueueUrlRequestOps(val self: GetQueueUrlRequest) extends AnyVal {
 
-  final def queueNameAsScala: Option[String] = Option(self.queueName) // String
+  final def queueNameAsScala: Option[String] = Option(self.queueName)
 
-  final def queueOwnerAWSAccountIdAsScala: Option[String] = Option(self.queueOwnerAWSAccountId) // String
+  final def queueOwnerAWSAccountIdAsScala: Option[String] = Option(self.queueOwnerAWSAccountId)
 
 }
 

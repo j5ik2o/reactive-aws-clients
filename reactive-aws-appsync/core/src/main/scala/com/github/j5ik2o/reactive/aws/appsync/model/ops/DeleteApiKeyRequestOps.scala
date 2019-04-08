@@ -9,21 +9,21 @@ final class DeleteApiKeyRequestBuilderOps(val self: DeleteApiKeyRequest.Builder)
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteApiKeyRequestOps(val self: DeleteApiKeyRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
 }
 

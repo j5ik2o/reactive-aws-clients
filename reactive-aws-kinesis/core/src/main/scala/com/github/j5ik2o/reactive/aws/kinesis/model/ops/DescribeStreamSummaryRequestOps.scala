@@ -9,13 +9,13 @@ final class DescribeStreamSummaryRequestBuilderOps(val self: DescribeStreamSumma
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeStreamSummaryRequestOps(val self: DescribeStreamSummaryRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
 }
 

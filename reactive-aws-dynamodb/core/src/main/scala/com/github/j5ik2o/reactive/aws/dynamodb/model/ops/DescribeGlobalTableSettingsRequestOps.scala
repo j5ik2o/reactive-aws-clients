@@ -10,13 +10,13 @@ final class DescribeGlobalTableSettingsRequestBuilderOps(val self: DescribeGloba
     value.fold(self) { v =>
       self.globalTableName(v)
     }
-  } // String
+  }
 
 }
 
 final class DescribeGlobalTableSettingsRequestOps(val self: DescribeGlobalTableSettingsRequest) extends AnyVal {
 
-  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName) // String
+  final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
 }
 

@@ -8,14 +8,14 @@ final class GetItemResponseBuilderOps(val self: GetItemResponse.Builder) extends
   final def itemAsScala(value: Option[Map[String, AttributeValue]]): GetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
-    } // Map[String, AttributeValue]
+    }
   }
 
   final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): GetItemResponse.Builder = {
     value.fold(self) { v =>
       self.consumedCapacity(v)
     }
-  } // ConsumedCapacity
+  }
 
 }
 
@@ -23,9 +23,9 @@ final class GetItemResponseOps(val self: GetItemResponse) extends AnyVal {
 
   final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
     import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, AttributeValue]
+  }
 
-  final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity) // ConsumedCapacity
+  final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity)
 
 }
 

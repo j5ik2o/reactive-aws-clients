@@ -9,13 +9,13 @@ final class DeleteTableRequestBuilderOps(val self: DeleteTableRequest.Builder) e
     value.fold(self) { v =>
       self.tableName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteTableRequestOps(val self: DeleteTableRequest) extends AnyVal {
 
-  final def tableNameAsScala: Option[String] = Option(self.tableName) // String
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
 
 }
 

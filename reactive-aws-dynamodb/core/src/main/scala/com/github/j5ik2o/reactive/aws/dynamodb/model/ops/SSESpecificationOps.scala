@@ -9,29 +9,29 @@ final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) exten
     value.fold(self) { v =>
       self.enabled(v)
     }
-  } // Boolean
+  }
 
   final def sseTypeAsScala(value: Option[SSEType]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.sseType(v)
     }
-  } // String
+  }
 
   final def kmsMasterKeyIdAsScala(value: Option[String]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyId(v)
     }
-  } // String
+  }
 
 }
 
 final class SSESpecificationOps(val self: SSESpecification) extends AnyVal {
 
-  final def enabledAsScala: Option[Boolean] = Option(self.enabled) // Boolean
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
-  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType) // String
+  final def sseTypeAsScala: Option[SSEType] = Option(self.sseType)
 
-  final def kmsMasterKeyIdAsScala: Option[String] = Option(self.kmsMasterKeyId) // String
+  final def kmsMasterKeyIdAsScala: Option[String] = Option(self.kmsMasterKeyId)
 
 }
 

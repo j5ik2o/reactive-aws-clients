@@ -10,21 +10,21 @@ final class DecreaseStreamRetentionPeriodRequestBuilderOps(val self: DecreaseStr
     value.fold(self) { v =>
       self.streamName(v)
     }
-  } // String
+  }
 
   final def retentionPeriodHoursAsScala(value: Option[Int]): DecreaseStreamRetentionPeriodRequest.Builder = {
     value.fold(self) { v =>
       self.retentionPeriodHours(v)
     }
-  } // Int
+  }
 
 }
 
 final class DecreaseStreamRetentionPeriodRequestOps(val self: DecreaseStreamRetentionPeriodRequest) extends AnyVal {
 
-  final def streamNameAsScala: Option[String] = Option(self.streamName) // String
+  final def streamNameAsScala: Option[String] = Option(self.streamName)
 
-  final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours) // Int
+  final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours)
 
 }
 

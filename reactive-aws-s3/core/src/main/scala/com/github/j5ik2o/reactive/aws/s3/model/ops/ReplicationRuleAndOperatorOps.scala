@@ -9,23 +9,23 @@ final class ReplicationRuleAndOperatorBuilderOps(val self: ReplicationRuleAndOpe
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def tagsAsScala(value: Option[Seq[Tag]]): ReplicationRuleAndOperator.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
 
 final class ReplicationRuleAndOperatorOps(val self: ReplicationRuleAndOperator) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

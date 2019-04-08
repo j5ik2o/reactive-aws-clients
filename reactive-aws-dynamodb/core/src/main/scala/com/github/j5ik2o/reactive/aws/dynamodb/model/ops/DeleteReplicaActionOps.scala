@@ -9,13 +9,13 @@ final class DeleteReplicaActionBuilderOps(val self: DeleteReplicaAction.Builder)
     value.fold(self) { v =>
       self.regionName(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteReplicaActionOps(val self: DeleteReplicaAction) extends AnyVal {
 
-  final def regionNameAsScala: Option[String] = Option(self.regionName) // String
+  final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }
 

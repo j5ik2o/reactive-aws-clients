@@ -9,31 +9,31 @@ final class GetObjectAclResponseBuilderOps(val self: GetObjectAclResponse.Builde
     value.fold(self) { v =>
       self.owner(v)
     }
-  } // Owner
+  }
 
   final def grantsAsScala(value: Option[Seq[Grant]]): GetObjectAclResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.grants(v.asJava)
-    } // Seq[Grant]
+    }
   }
 
   final def requestChargedAsScala(value: Option[RequestCharged]): GetObjectAclResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  }
 
 }
 
 final class GetObjectAclResponseOps(val self: GetObjectAclResponse) extends AnyVal {
 
-  final def ownerAsScala: Option[Owner] = Option(self.owner) // Owner
+  final def ownerAsScala: Option[Owner] = Option(self.owner)
 
   final def grantsAsScala: Option[Seq[Grant]] = Option(self.grants).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Grant]
+  }
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

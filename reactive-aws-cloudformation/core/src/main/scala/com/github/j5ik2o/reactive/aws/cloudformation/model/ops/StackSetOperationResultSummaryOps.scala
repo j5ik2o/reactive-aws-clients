@@ -1,0 +1,65 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.cloudformation.model.ops
+
+import software.amazon.awssdk.services.cloudformation.model._
+
+final class StackSetOperationResultSummaryBuilderOps(val self: StackSetOperationResultSummary.Builder) extends AnyVal {
+
+  final def accountAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
+    value.fold(self) { v =>
+      self.account(v)
+    }
+  }
+
+  final def regionAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
+    value.fold(self) { v =>
+      self.region(v)
+    }
+  }
+
+  final def statusAsScala(value: Option[StackSetOperationResultStatus]): StackSetOperationResultSummary.Builder = {
+    value.fold(self) { v =>
+      self.status(v)
+    }
+  }
+
+  final def statusReasonAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
+    value.fold(self) { v =>
+      self.statusReason(v)
+    }
+  }
+
+  final def accountGateResultAsScala(value: Option[AccountGateResult]): StackSetOperationResultSummary.Builder = {
+    value.fold(self) { v =>
+      self.accountGateResult(v)
+    }
+  }
+
+}
+
+final class StackSetOperationResultSummaryOps(val self: StackSetOperationResultSummary) extends AnyVal {
+
+  final def accountAsScala: Option[String] = Option(self.account)
+
+  final def regionAsScala: Option[String] = Option(self.region)
+
+  final def statusAsScala: Option[StackSetOperationResultStatus] = Option(self.status)
+
+  final def statusReasonAsScala: Option[String] = Option(self.statusReason)
+
+  final def accountGateResultAsScala: Option[AccountGateResult] = Option(self.accountGateResult)
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToStackSetOperationResultSummaryOps {
+
+  implicit def toStackSetOperationResultSummaryBuilderOps(
+      v: StackSetOperationResultSummary.Builder
+  ): StackSetOperationResultSummaryBuilderOps = new StackSetOperationResultSummaryBuilderOps(v)
+
+  implicit def toStackSetOperationResultSummaryOps(
+      v: StackSetOperationResultSummary
+  ): StackSetOperationResultSummaryOps = new StackSetOperationResultSummaryOps(v)
+
+}

@@ -9,29 +9,29 @@ final class PutBucketTaggingRequestBuilderOps(val self: PutBucketTaggingRequest.
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
   final def taggingAsScala(value: Option[Tagging]): PutBucketTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }
-  } // Tagging
+  }
 
 }
 
 final class PutBucketTaggingRequestOps(val self: PutBucketTaggingRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
-  final def taggingAsScala: Option[Tagging] = Option(self.tagging) // Tagging
+  final def taggingAsScala: Option[Tagging] = Option(self.tagging)
 
 }
 

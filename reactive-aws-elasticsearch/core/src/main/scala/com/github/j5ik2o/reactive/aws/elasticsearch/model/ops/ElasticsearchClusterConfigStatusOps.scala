@@ -10,21 +10,21 @@ final class ElasticsearchClusterConfigStatusBuilderOps(val self: ElasticsearchCl
     value.fold(self) { v =>
       self.options(v)
     }
-  } // ElasticsearchClusterConfig
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): ElasticsearchClusterConfigStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class ElasticsearchClusterConfigStatusOps(val self: ElasticsearchClusterConfigStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[ElasticsearchClusterConfig] = Option(self.options) // ElasticsearchClusterConfig
+  final def optionsAsScala: Option[ElasticsearchClusterConfig] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

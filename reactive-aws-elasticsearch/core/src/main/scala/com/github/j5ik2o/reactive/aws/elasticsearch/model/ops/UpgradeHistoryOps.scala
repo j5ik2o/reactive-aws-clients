@@ -9,39 +9,39 @@ final class UpgradeHistoryBuilderOps(val self: UpgradeHistory.Builder) extends A
     value.fold(self) { v =>
       self.upgradeName(v)
     }
-  } // String
+  }
 
   final def startTimestampAsScala(value: Option[java.time.Instant]): UpgradeHistory.Builder = {
     value.fold(self) { v =>
       self.startTimestamp(v)
     }
-  } // Instant
+  }
 
   final def upgradeStatusAsScala(value: Option[UpgradeStatus]): UpgradeHistory.Builder = {
     value.fold(self) { v =>
       self.upgradeStatus(v)
     }
-  } // String
+  }
 
   final def stepsListAsScala(value: Option[Seq[UpgradeStepItem]]): UpgradeHistory.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stepsList(v.asJava)
-    } // Seq[UpgradeStepItem]
+    }
   }
 
 }
 
 final class UpgradeHistoryOps(val self: UpgradeHistory) extends AnyVal {
 
-  final def upgradeNameAsScala: Option[String] = Option(self.upgradeName) // String
+  final def upgradeNameAsScala: Option[String] = Option(self.upgradeName)
 
-  final def startTimestampAsScala: Option[java.time.Instant] = Option(self.startTimestamp) // Instant
+  final def startTimestampAsScala: Option[java.time.Instant] = Option(self.startTimestamp)
 
-  final def upgradeStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStatus) // String
+  final def upgradeStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStatus)
 
   final def stepsListAsScala: Option[Seq[UpgradeStepItem]] = Option(self.stepsList).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[UpgradeStepItem]
+  }
 
 }
 

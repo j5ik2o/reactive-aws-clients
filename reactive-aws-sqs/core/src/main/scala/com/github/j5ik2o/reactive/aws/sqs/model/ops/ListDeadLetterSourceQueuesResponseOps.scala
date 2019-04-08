@@ -9,7 +9,7 @@ final class ListDeadLetterSourceQueuesResponseBuilderOps(val self: ListDeadLette
   final def queueUrlsAsScala(value: Option[Seq[String]]): ListDeadLetterSourceQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queueUrls(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -18,7 +18,7 @@ final class ListDeadLetterSourceQueuesResponseOps(val self: ListDeadLetterSource
 
   final def queueUrlsAsScala: Option[Seq[String]] = Option(self.queueUrls).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

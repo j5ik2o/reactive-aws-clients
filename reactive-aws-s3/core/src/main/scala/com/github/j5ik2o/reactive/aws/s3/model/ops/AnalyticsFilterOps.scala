@@ -9,29 +9,29 @@ final class AnalyticsFilterBuilderOps(val self: AnalyticsFilter.Builder) extends
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def tagAsScala(value: Option[Tag]): AnalyticsFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
-  } // Tag
+  }
 
   final def andAsScala(value: Option[AnalyticsAndOperator]): AnalyticsFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }
-  } // AnalyticsAndOperator
+  }
 
 }
 
 final class AnalyticsFilterOps(val self: AnalyticsFilter) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
-  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+  final def tagAsScala: Option[Tag] = Option(self.tag)
 
-  final def andAsScala: Option[AnalyticsAndOperator] = Option(self.and) // AnalyticsAndOperator
+  final def andAsScala: Option[AnalyticsAndOperator] = Option(self.and)
 
 }
 

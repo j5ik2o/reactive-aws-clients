@@ -12,15 +12,14 @@ final class GetBucketInventoryConfigurationResponseBuilderOps(val self: GetBucke
     value.fold(self) { v =>
       self.inventoryConfiguration(v)
     }
-  } // InventoryConfiguration
+  }
 
 }
 
 final class GetBucketInventoryConfigurationResponseOps(val self: GetBucketInventoryConfigurationResponse)
     extends AnyVal {
 
-  final def inventoryConfigurationAsScala: Option[InventoryConfiguration] =
-    Option(self.inventoryConfiguration) // InventoryConfiguration
+  final def inventoryConfigurationAsScala: Option[InventoryConfiguration] = Option(self.inventoryConfiguration)
 
 }
 

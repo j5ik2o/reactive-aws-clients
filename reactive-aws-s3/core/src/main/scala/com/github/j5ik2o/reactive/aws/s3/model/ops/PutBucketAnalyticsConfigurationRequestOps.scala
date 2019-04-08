@@ -10,13 +10,13 @@ final class PutBucketAnalyticsConfigurationRequestBuilderOps(val self: PutBucket
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def idAsScala(value: Option[String]): PutBucketAnalyticsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def analyticsConfigurationAsScala(
       value: Option[AnalyticsConfiguration]
@@ -24,18 +24,17 @@ final class PutBucketAnalyticsConfigurationRequestBuilderOps(val self: PutBucket
     value.fold(self) { v =>
       self.analyticsConfiguration(v)
     }
-  } // AnalyticsConfiguration
+  }
 
 }
 
 final class PutBucketAnalyticsConfigurationRequestOps(val self: PutBucketAnalyticsConfigurationRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] =
-    Option(self.analyticsConfiguration) // AnalyticsConfiguration
+  final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] = Option(self.analyticsConfiguration)
 
 }
 

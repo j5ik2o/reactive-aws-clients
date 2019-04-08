@@ -12,15 +12,14 @@ final class GetBucketAnalyticsConfigurationResponseBuilderOps(val self: GetBucke
     value.fold(self) { v =>
       self.analyticsConfiguration(v)
     }
-  } // AnalyticsConfiguration
+  }
 
 }
 
 final class GetBucketAnalyticsConfigurationResponseOps(val self: GetBucketAnalyticsConfigurationResponse)
     extends AnyVal {
 
-  final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] =
-    Option(self.analyticsConfiguration) // AnalyticsConfiguration
+  final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] = Option(self.analyticsConfiguration)
 
 }
 

@@ -9,23 +9,23 @@ final class UpdateParameterGroupRequestBuilderOps(val self: UpdateParameterGroup
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
-  } // String
+  }
 
   final def parameterNameValuesAsScala(value: Option[Seq[ParameterNameValue]]): UpdateParameterGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameterNameValues(v.asJava)
-    } // Seq[ParameterNameValue]
+    }
   }
 
 }
 
 final class UpdateParameterGroupRequestOps(val self: UpdateParameterGroupRequest) extends AnyVal {
 
-  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName) // String
+  final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
   final def parameterNameValuesAsScala: Option[Seq[ParameterNameValue]] = Option(self.parameterNameValues).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ParameterNameValue]
+  }
 
 }
 

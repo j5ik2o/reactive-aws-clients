@@ -10,25 +10,25 @@ final class ChangeMessageVisibilityBatchRequestBuilderOps(val self: ChangeMessag
     value.fold(self) { v =>
       self.queueUrl(v)
     }
-  } // String
+  }
 
   final def entriesAsScala(
       value: Option[Seq[ChangeMessageVisibilityBatchRequestEntry]]
   ): ChangeMessageVisibilityBatchRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.entries(v.asJava)
-    } // Seq[ChangeMessageVisibilityBatchRequestEntry]
+    }
   }
 
 }
 
 final class ChangeMessageVisibilityBatchRequestOps(val self: ChangeMessageVisibilityBatchRequest) extends AnyVal {
 
-  final def queueUrlAsScala: Option[String] = Option(self.queueUrl) // String
+  final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   final def entriesAsScala: Option[Seq[ChangeMessageVisibilityBatchRequestEntry]] = Option(self.entries).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[ChangeMessageVisibilityBatchRequestEntry]
+  }
 
 }
 

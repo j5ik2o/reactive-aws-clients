@@ -9,21 +9,21 @@ final class ElasticsearchVersionStatusBuilderOps(val self: ElasticsearchVersionS
     value.fold(self) { v =>
       self.options(v)
     }
-  } // String
+  }
 
   final def statusAsScala(value: Option[OptionStatus]): ElasticsearchVersionStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
-  } // OptionStatus
+  }
 
 }
 
 final class ElasticsearchVersionStatusOps(val self: ElasticsearchVersionStatus) extends AnyVal {
 
-  final def optionsAsScala: Option[String] = Option(self.options) // String
+  final def optionsAsScala: Option[String] = Option(self.options)
 
-  final def statusAsScala: Option[OptionStatus] = Option(self.status) // OptionStatus
+  final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }
 

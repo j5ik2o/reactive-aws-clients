@@ -9,21 +9,21 @@ final class KeySchemaElementBuilderOps(val self: KeySchemaElement.Builder) exten
     value.fold(self) { v =>
       self.attributeName(v)
     }
-  } // String
+  }
 
   final def keyTypeAsScala(value: Option[KeyType]): KeySchemaElement.Builder = {
     value.fold(self) { v =>
       self.keyType(v)
     }
-  } // String
+  }
 
 }
 
 final class KeySchemaElementOps(val self: KeySchemaElement) extends AnyVal {
 
-  final def attributeNameAsScala: Option[String] = Option(self.attributeName) // String
+  final def attributeNameAsScala: Option[String] = Option(self.attributeName)
 
-  final def keyTypeAsScala: Option[KeyType] = Option(self.keyType) // String
+  final def keyTypeAsScala: Option[KeyType] = Option(self.keyType)
 
 }
 

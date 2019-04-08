@@ -9,21 +9,21 @@ final class DeleteFunctionRequestBuilderOps(val self: DeleteFunctionRequest.Buil
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def functionIdAsScala(value: Option[String]): DeleteFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionId(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteFunctionRequestOps(val self: DeleteFunctionRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def functionIdAsScala: Option[String] = Option(self.functionId) // String
+  final def functionIdAsScala: Option[String] = Option(self.functionId)
 
 }
 

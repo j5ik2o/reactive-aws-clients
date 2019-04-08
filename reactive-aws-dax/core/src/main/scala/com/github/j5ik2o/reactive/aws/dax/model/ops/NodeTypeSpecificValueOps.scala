@@ -9,21 +9,21 @@ final class NodeTypeSpecificValueBuilderOps(val self: NodeTypeSpecificValue.Buil
     value.fold(self) { v =>
       self.nodeType(v)
     }
-  } // String
+  }
 
   final def valueAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
-  } // String
+  }
 
 }
 
 final class NodeTypeSpecificValueOps(val self: NodeTypeSpecificValue) extends AnyVal {
 
-  final def nodeTypeAsScala: Option[String] = Option(self.nodeType) // String
+  final def nodeTypeAsScala: Option[String] = Option(self.nodeType)
 
-  final def valueAsScala: Option[String] = Option(self.value) // String
+  final def valueAsScala: Option[String] = Option(self.value)
 
 }
 

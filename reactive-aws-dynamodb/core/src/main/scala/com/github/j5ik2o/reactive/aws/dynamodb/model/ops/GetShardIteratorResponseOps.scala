@@ -9,13 +9,13 @@ final class GetShardIteratorResponseBuilderOps(val self: GetShardIteratorRespons
     value.fold(self) { v =>
       self.shardIterator(v)
     }
-  } // String
+  }
 
 }
 
 final class GetShardIteratorResponseOps(val self: GetShardIteratorResponse) extends AnyVal {
 
-  final def shardIteratorAsScala: Option[String] = Option(self.shardIterator) // String
+  final def shardIteratorAsScala: Option[String] = Option(self.shardIterator)
 
 }
 

@@ -9,58 +9,58 @@ final class SendMessageBatchRequestEntryBuilderOps(val self: SendMessageBatchReq
     value.fold(self) { v =>
       self.id(v)
     }
-  } // String
+  }
 
   final def messageBodyAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.messageBody(v)
     }
-  } // String
+  }
 
   final def delaySecondsAsScala(value: Option[Int]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.delaySeconds(v)
     }
-  } // Int
+  }
 
   final def messageAttributesAsScala(
       value: Option[Map[String, MessageAttributeValue]]
   ): SendMessageBatchRequestEntry.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messageAttributes(v.asJava)
-    } // Map[String, MessageAttributeValue]
+    }
   }
 
   final def messageDeduplicationIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.messageDeduplicationId(v)
     }
-  } // String
+  }
 
   final def messageGroupIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.messageGroupId(v)
     }
-  } // String
+  }
 
 }
 
 final class SendMessageBatchRequestEntryOps(val self: SendMessageBatchRequestEntry) extends AnyVal {
 
-  final def idAsScala: Option[String] = Option(self.id) // String
+  final def idAsScala: Option[String] = Option(self.id)
 
-  final def messageBodyAsScala: Option[String] = Option(self.messageBody) // String
+  final def messageBodyAsScala: Option[String] = Option(self.messageBody)
 
-  final def delaySecondsAsScala: Option[Int] = Option(self.delaySeconds) // Int
+  final def delaySecondsAsScala: Option[Int] = Option(self.delaySeconds)
 
   final def messageAttributesAsScala: Option[Map[String, MessageAttributeValue]] = Option(self.messageAttributes).map {
     v =>
       import scala.collection.JavaConverters._; v.asScala.toMap
-  } // Map[String, MessageAttributeValue]
+  }
 
-  final def messageDeduplicationIdAsScala: Option[String] = Option(self.messageDeduplicationId) // String
+  final def messageDeduplicationIdAsScala: Option[String] = Option(self.messageDeduplicationId)
 
-  final def messageGroupIdAsScala: Option[String] = Option(self.messageGroupId) // String
+  final def messageGroupIdAsScala: Option[String] = Option(self.messageGroupId)
 
 }
 

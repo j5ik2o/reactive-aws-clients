@@ -9,37 +9,37 @@ final class S3ErrorBuilderOps(val self: S3Error.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.key(v)
     }
-  } // String
+  }
 
   final def versionIdAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
   final def codeAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
-  } // String
+  }
 
   final def messageAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
-  } // String
+  }
 
 }
 
 final class S3ErrorOps(val self: S3Error) extends AnyVal {
 
-  final def keyAsScala: Option[String] = Option(self.key) // String
+  final def keyAsScala: Option[String] = Option(self.key)
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
-  final def codeAsScala: Option[String] = Option(self.code) // String
+  final def codeAsScala: Option[String] = Option(self.code)
 
-  final def messageAsScala: Option[String] = Option(self.message) // String
+  final def messageAsScala: Option[String] = Option(self.message)
 
 }
 

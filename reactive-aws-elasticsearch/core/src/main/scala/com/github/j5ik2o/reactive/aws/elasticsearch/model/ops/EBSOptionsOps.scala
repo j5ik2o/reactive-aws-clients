@@ -9,37 +9,37 @@ final class EBSOptionsBuilderOps(val self: EBSOptions.Builder) extends AnyVal {
     value.fold(self) { v =>
       self.ebsEnabled(v)
     }
-  } // Boolean
+  }
 
   final def volumeTypeAsScala(value: Option[VolumeType]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.volumeType(v)
     }
-  } // String
+  }
 
   final def volumeSizeAsScala(value: Option[Int]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.volumeSize(v)
     }
-  } // Int
+  }
 
   final def iopsAsScala(value: Option[Int]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.iops(v)
     }
-  } // Int
+  }
 
 }
 
 final class EBSOptionsOps(val self: EBSOptions) extends AnyVal {
 
-  final def ebsEnabledAsScala: Option[Boolean] = Option(self.ebsEnabled) // Boolean
+  final def ebsEnabledAsScala: Option[Boolean] = Option(self.ebsEnabled)
 
-  final def volumeTypeAsScala: Option[VolumeType] = Option(self.volumeType) // String
+  final def volumeTypeAsScala: Option[VolumeType] = Option(self.volumeType)
 
-  final def volumeSizeAsScala: Option[Int] = Option(self.volumeSize) // Int
+  final def volumeSizeAsScala: Option[Int] = Option(self.volumeSize)
 
-  final def iopsAsScala: Option[Int] = Option(self.iops) // Int
+  final def iopsAsScala: Option[Int] = Option(self.iops)
 
 }
 

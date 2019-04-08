@@ -9,21 +9,21 @@ final class RestoreObjectResponseBuilderOps(val self: RestoreObjectResponse.Buil
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  }
 
   final def restoreOutputPathAsScala(value: Option[String]): RestoreObjectResponse.Builder = {
     value.fold(self) { v =>
       self.restoreOutputPath(v)
     }
-  } // String
+  }
 
 }
 
 final class RestoreObjectResponseOps(val self: RestoreObjectResponse) extends AnyVal {
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
-  final def restoreOutputPathAsScala: Option[String] = Option(self.restoreOutputPath) // String
+  final def restoreOutputPathAsScala: Option[String] = Option(self.restoreOutputPath)
 
 }
 

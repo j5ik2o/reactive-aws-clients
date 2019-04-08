@@ -11,7 +11,7 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     value.fold(self) { v =>
       self.indexName(v)
     }
-  } // String
+  }
 
   final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
@@ -19,7 +19,7 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     value.fold(self) { v =>
       self.provisionedReadCapacityUnits(v)
     }
-  } // Long
+  }
 
   final def provisionedReadCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
@@ -27,19 +27,19 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     value.fold(self) { v =>
       self.provisionedReadCapacityAutoScalingSettingsUpdate(v)
     }
-  } // AutoScalingSettingsUpdate
+  }
 
 }
 
 final class ReplicaGlobalSecondaryIndexSettingsUpdateOps(val self: ReplicaGlobalSecondaryIndexSettingsUpdate)
     extends AnyVal {
 
-  final def indexNameAsScala: Option[String] = Option(self.indexName) // String
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
 
-  final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits) // Long
+  final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits)
 
   final def provisionedReadCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
-    Option(self.provisionedReadCapacityAutoScalingSettingsUpdate) // AutoScalingSettingsUpdate
+    Option(self.provisionedReadCapacityAutoScalingSettingsUpdate)
 
 }
 

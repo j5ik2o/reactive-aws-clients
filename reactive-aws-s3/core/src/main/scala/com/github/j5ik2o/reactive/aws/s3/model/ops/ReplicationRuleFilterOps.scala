@@ -9,29 +9,29 @@ final class ReplicationRuleFilterBuilderOps(val self: ReplicationRuleFilter.Buil
     value.fold(self) { v =>
       self.prefix(v)
     }
-  } // String
+  }
 
   final def tagAsScala(value: Option[Tag]): ReplicationRuleFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
-  } // Tag
+  }
 
   final def andAsScala(value: Option[ReplicationRuleAndOperator]): ReplicationRuleFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }
-  } // ReplicationRuleAndOperator
+  }
 
 }
 
 final class ReplicationRuleFilterOps(val self: ReplicationRuleFilter) extends AnyVal {
 
-  final def prefixAsScala: Option[String] = Option(self.prefix) // String
+  final def prefixAsScala: Option[String] = Option(self.prefix)
 
-  final def tagAsScala: Option[Tag] = Option(self.tag) // Tag
+  final def tagAsScala: Option[Tag] = Option(self.tag)
 
-  final def andAsScala: Option[ReplicationRuleAndOperator] = Option(self.and) // ReplicationRuleAndOperator
+  final def andAsScala: Option[ReplicationRuleAndOperator] = Option(self.and)
 
 }
 

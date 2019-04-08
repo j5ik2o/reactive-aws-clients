@@ -8,7 +8,7 @@ final class ListQueuesResponseBuilderOps(val self: ListQueuesResponse.Builder) e
   final def queueUrlsAsScala(value: Option[Seq[String]]): ListQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queueUrls(v.asJava)
-    } // Seq[String]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ListQueuesResponseOps(val self: ListQueuesResponse) extends AnyVal {
 
   final def queueUrlsAsScala: Option[Seq[String]] = Option(self.queueUrls).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
 }
 

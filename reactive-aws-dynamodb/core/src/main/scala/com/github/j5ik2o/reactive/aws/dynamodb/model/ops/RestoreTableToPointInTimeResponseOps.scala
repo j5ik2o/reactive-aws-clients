@@ -10,13 +10,13 @@ final class RestoreTableToPointInTimeResponseBuilderOps(val self: RestoreTableTo
     value.fold(self) { v =>
       self.tableDescription(v)
     }
-  } // TableDescription
+  }
 
 }
 
 final class RestoreTableToPointInTimeResponseOps(val self: RestoreTableToPointInTimeResponse) extends AnyVal {
 
-  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription) // TableDescription
+  final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription)
 
 }
 

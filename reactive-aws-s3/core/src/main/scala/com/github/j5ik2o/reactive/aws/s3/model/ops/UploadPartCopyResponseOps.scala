@@ -9,61 +9,61 @@ final class UploadPartCopyResponseBuilderOps(val self: UploadPartCopyResponse.Bu
     value.fold(self) { v =>
       self.copySourceVersionId(v)
     }
-  } // String
+  }
 
   final def copyPartResultAsScala(value: Option[CopyPartResult]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.copyPartResult(v)
     }
-  } // CopyPartResult
+  }
 
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
-  } // String
+  }
 
   final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
-  } // String
+  }
 
   final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
-  } // String
+  }
 
   final def ssekmsKeyIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
-  } // String
+  }
 
   final def requestChargedAsScala(value: Option[RequestCharged]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
-  } // String
+  }
 
 }
 
 final class UploadPartCopyResponseOps(val self: UploadPartCopyResponse) extends AnyVal {
 
-  final def copySourceVersionIdAsScala: Option[String] = Option(self.copySourceVersionId) // String
+  final def copySourceVersionIdAsScala: Option[String] = Option(self.copySourceVersionId)
 
-  final def copyPartResultAsScala: Option[CopyPartResult] = Option(self.copyPartResult) // CopyPartResult
+  final def copyPartResultAsScala: Option[CopyPartResult] = Option(self.copyPartResult)
 
-  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption) // String
+  final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption)
 
-  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm) // String
+  final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm)
 
-  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5) // String
+  final def sseCustomerKeyMD5AsScala: Option[String] = Option(self.sseCustomerKeyMD5)
 
-  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId) // String
+  final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
 
-  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged) // String
+  final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }
 

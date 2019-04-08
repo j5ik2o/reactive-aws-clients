@@ -16,6 +16,9 @@ object S3AsyncClient {
 
 }
 
+/**
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3AsyncClient.html
+  */
 trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
   val underlying: JavaS3AsyncClient
 

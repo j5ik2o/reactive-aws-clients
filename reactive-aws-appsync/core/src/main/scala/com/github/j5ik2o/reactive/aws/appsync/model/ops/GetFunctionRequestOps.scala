@@ -9,21 +9,21 @@ final class GetFunctionRequestBuilderOps(val self: GetFunctionRequest.Builder) e
     value.fold(self) { v =>
       self.apiId(v)
     }
-  } // String
+  }
 
   final def functionIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionId(v)
     }
-  } // String
+  }
 
 }
 
 final class GetFunctionRequestOps(val self: GetFunctionRequest) extends AnyVal {
 
-  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+  final def apiIdAsScala: Option[String] = Option(self.apiId)
 
-  final def functionIdAsScala: Option[String] = Option(self.functionId) // String
+  final def functionIdAsScala: Option[String] = Option(self.functionId)
 
 }
 

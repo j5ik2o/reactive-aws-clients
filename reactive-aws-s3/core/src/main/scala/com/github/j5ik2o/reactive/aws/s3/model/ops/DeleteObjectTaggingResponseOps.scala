@@ -9,13 +9,13 @@ final class DeleteObjectTaggingResponseBuilderOps(val self: DeleteObjectTaggingR
     value.fold(self) { v =>
       self.versionId(v)
     }
-  } // String
+  }
 
 }
 
 final class DeleteObjectTaggingResponseOps(val self: DeleteObjectTaggingResponse) extends AnyVal {
 
-  final def versionIdAsScala: Option[String] = Option(self.versionId) // String
+  final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }
 

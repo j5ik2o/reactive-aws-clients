@@ -8,7 +8,7 @@ final class GetBucketTaggingResponseBuilderOps(val self: GetBucketTaggingRespons
   final def tagSetAsScala(value: Option[Seq[Tag]]): GetBucketTaggingResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagSet(v.asJava)
-    } // Seq[Tag]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class GetBucketTaggingResponseOps(val self: GetBucketTaggingResponse) exte
 
   final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Tag]
+  }
 
 }
 

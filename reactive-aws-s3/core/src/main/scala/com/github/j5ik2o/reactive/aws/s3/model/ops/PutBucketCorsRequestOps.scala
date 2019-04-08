@@ -9,29 +9,29 @@ final class PutBucketCorsRequestBuilderOps(val self: PutBucketCorsRequest.Builde
     value.fold(self) { v =>
       self.bucket(v)
     }
-  } // String
+  }
 
   final def corsConfigurationAsScala(value: Option[CORSConfiguration]): PutBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.corsConfiguration(v)
     }
-  } // CORSConfiguration
+  }
 
   final def contentMD5AsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
-  } // String
+  }
 
 }
 
 final class PutBucketCorsRequestOps(val self: PutBucketCorsRequest) extends AnyVal {
 
-  final def bucketAsScala: Option[String] = Option(self.bucket) // String
+  final def bucketAsScala: Option[String] = Option(self.bucket)
 
-  final def corsConfigurationAsScala: Option[CORSConfiguration] = Option(self.corsConfiguration) // CORSConfiguration
+  final def corsConfigurationAsScala: Option[CORSConfiguration] = Option(self.corsConfiguration)
 
-  final def contentMD5AsScala: Option[String] = Option(self.contentMD5) // String
+  final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
 }
 

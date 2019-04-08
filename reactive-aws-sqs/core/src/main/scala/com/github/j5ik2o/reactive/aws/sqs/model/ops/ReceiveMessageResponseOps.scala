@@ -8,7 +8,7 @@ final class ReceiveMessageResponseBuilderOps(val self: ReceiveMessageResponse.Bu
   final def messagesAsScala(value: Option[Seq[Message]]): ReceiveMessageResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messages(v.asJava)
-    } // Seq[Message]
+    }
   }
 
 }
@@ -17,7 +17,7 @@ final class ReceiveMessageResponseOps(val self: ReceiveMessageResponse) extends 
 
   final def messagesAsScala: Option[Seq[Message]] = Option(self.messages).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[Message]
+  }
 
 }
 

@@ -8,32 +8,32 @@ final class CORSRuleBuilderOps(val self: CORSRule.Builder) extends AnyVal {
   final def allowedHeadersAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedHeaders(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def allowedMethodsAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedMethods(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def allowedOriginsAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedOrigins(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def exposeHeadersAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.exposeHeaders(v.asJava)
-    } // Seq[String]
+    }
   }
 
   final def maxAgeSecondsAsScala(value: Option[Int]): CORSRule.Builder = {
     value.fold(self) { v =>
       self.maxAgeSeconds(v)
     }
-  } // Int
+  }
 
 }
 
@@ -41,21 +41,21 @@ final class CORSRuleOps(val self: CORSRule) extends AnyVal {
 
   final def allowedHeadersAsScala: Option[Seq[String]] = Option(self.allowedHeaders).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def allowedMethodsAsScala: Option[Seq[String]] = Option(self.allowedMethods).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def allowedOriginsAsScala: Option[Seq[String]] = Option(self.allowedOrigins).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
   final def exposeHeadersAsScala: Option[Seq[String]] = Option(self.exposeHeaders).map { v =>
     import scala.collection.JavaConverters._; v.asScala
-  } // Seq[String]
+  }
 
-  final def maxAgeSecondsAsScala: Option[Int] = Option(self.maxAgeSeconds) // Int
+  final def maxAgeSecondsAsScala: Option[Int] = Option(self.maxAgeSeconds)
 
 }
 
