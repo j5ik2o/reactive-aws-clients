@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamSummaryRequestBuilderOps(val self: DescribeStreamSummaryRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): DescribeStreamSummaryRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): DescribeStreamSummaryRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }

@@ -7,13 +7,13 @@ final class DescribeElasticsearchInstanceTypeLimitsRequestBuilderOps(
     val self: DescribeElasticsearchInstanceTypeLimitsRequest.Builder
 ) extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   } // String
 
-  final def withInstanceTypeAsScala(
+  final def instanceTypeAsScala(
       value: Option[ESPartitionInstanceType]
   ): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class DescribeElasticsearchInstanceTypeLimitsRequestBuilderOps(
     }
   } // String
 
-  final def withElasticsearchVersionAsScala(
+  final def elasticsearchVersionAsScala(
       value: Option[String]
   ): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
     value.fold(self) { v =>

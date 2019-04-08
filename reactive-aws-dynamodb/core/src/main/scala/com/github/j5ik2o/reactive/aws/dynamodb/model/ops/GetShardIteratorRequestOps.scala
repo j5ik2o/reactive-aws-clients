@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.Builder) extends AnyVal {
 
-  final def withStreamArnAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+  final def streamArnAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.streamArn(v)
     }
   } // String
 
-  final def withShardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+  final def shardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
   } // String
 
-  final def withShardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
+  final def shardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.shardIteratorType(v)
     }
   } // String
 
-  final def withSequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }

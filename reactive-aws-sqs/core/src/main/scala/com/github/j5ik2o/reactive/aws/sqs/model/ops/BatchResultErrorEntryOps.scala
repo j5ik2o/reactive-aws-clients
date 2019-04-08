@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class BatchResultErrorEntryBuilderOps(val self: BatchResultErrorEntry.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
+  final def idAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withSenderFaultAsScala(value: Option[Boolean]): BatchResultErrorEntry.Builder = {
+  final def senderFaultAsScala(value: Option[Boolean]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.senderFault(v)
     }
   } // Boolean
 
-  final def withCodeAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
+  final def codeAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   } // String
 
-  final def withMessageAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
+  final def messageAsScala(value: Option[String]): BatchResultErrorEntry.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }

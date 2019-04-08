@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class LambdaDataSourceConfigBuilderOps(val self: LambdaDataSourceConfig.Builder) extends AnyVal {
 
-  final def withLambdaFunctionArnAsScala(value: Option[String]): LambdaDataSourceConfig.Builder = {
+  final def lambdaFunctionArnAsScala(value: Option[String]): LambdaDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.lambdaFunctionArn(v)
     }

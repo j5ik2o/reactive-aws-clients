@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class TagQueueRequestBuilderOps(val self: TagQueueRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): TagQueueRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): TagQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withTagsAsScala(value: Option[Map[String, String]]): TagQueueRequest.Builder = {
+  final def tagsAsScala(value: Option[Map[String, String]]): TagQueueRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Map[String, String]

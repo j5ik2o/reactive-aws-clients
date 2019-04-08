@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class RebootNodeRequestBuilderOps(val self: RebootNodeRequest.Builder) extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): RebootNodeRequest.Builder = {
+  final def clusterNameAsScala(value: Option[String]): RebootNodeRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   } // String
 
-  final def withNodeIdAsScala(value: Option[String]): RebootNodeRequest.Builder = {
+  final def nodeIdAsScala(value: Option[String]): RebootNodeRequest.Builder = {
     value.fold(self) { v =>
       self.nodeId(v)
     }

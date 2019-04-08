@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class AuthorizationConfigBuilderOps(val self: AuthorizationConfig.Builder) extends AnyVal {
 
-  final def withAuthorizationTypeAsScala(value: Option[AuthorizationType]): AuthorizationConfig.Builder = {
+  final def authorizationTypeAsScala(value: Option[AuthorizationType]): AuthorizationConfig.Builder = {
     value.fold(self) { v =>
       self.authorizationType(v)
     }
   } // String
 
-  final def withAwsIamConfigAsScala(value: Option[AwsIamConfig]): AuthorizationConfig.Builder = {
+  final def awsIamConfigAsScala(value: Option[AwsIamConfig]): AuthorizationConfig.Builder = {
     value.fold(self) { v =>
       self.awsIamConfig(v)
     }

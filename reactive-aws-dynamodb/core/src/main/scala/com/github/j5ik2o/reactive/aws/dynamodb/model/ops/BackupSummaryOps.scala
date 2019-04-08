@@ -5,61 +5,61 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BackupSummaryBuilderOps(val self: BackupSummary.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): BackupSummary.Builder = {
+  final def tableNameAsScala(value: Option[String]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withTableIdAsScala(value: Option[String]): BackupSummary.Builder = {
+  final def tableIdAsScala(value: Option[String]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.tableId(v)
     }
   } // String
 
-  final def withTableArnAsScala(value: Option[String]): BackupSummary.Builder = {
+  final def tableArnAsScala(value: Option[String]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.tableArn(v)
     }
   } // String
 
-  final def withBackupArnAsScala(value: Option[String]): BackupSummary.Builder = {
+  final def backupArnAsScala(value: Option[String]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupArn(v)
     }
   } // String
 
-  final def withBackupNameAsScala(value: Option[String]): BackupSummary.Builder = {
+  final def backupNameAsScala(value: Option[String]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupName(v)
     }
   } // String
 
-  final def withBackupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
+  final def backupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupCreationDateTime(v)
     }
   } // Instant
 
-  final def withBackupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
+  final def backupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupExpiryDateTime(v)
     }
   } // Instant
 
-  final def withBackupStatusAsScala(value: Option[BackupStatus]): BackupSummary.Builder = {
+  final def backupStatusAsScala(value: Option[BackupStatus]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupStatus(v)
     }
   } // String
 
-  final def withBackupTypeAsScala(value: Option[BackupType]): BackupSummary.Builder = {
+  final def backupTypeAsScala(value: Option[BackupType]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupType(v)
     }
   } // String
 
-  final def withBackupSizeBytesAsScala(value: Option[Long]): BackupSummary.Builder = {
+  final def backupSizeBytesAsScala(value: Option[Long]): BackupSummary.Builder = {
     value.fold(self) { v =>
       self.backupSizeBytes(v)
     }

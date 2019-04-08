@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RegisterStreamConsumerRequestBuilderOps(val self: RegisterStreamConsumerRequest.Builder) extends AnyVal {
 
-  final def withStreamARNAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
+  final def streamARNAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
   } // String
 
-  final def withConsumerNameAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
+  final def consumerNameAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.consumerName(v)
     }

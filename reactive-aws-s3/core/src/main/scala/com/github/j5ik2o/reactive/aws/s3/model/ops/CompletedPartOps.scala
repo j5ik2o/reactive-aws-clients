@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CompletedPartBuilderOps(val self: CompletedPart.Builder) extends AnyVal {
 
-  final def withETagAsScala(value: Option[String]): CompletedPart.Builder = {
+  final def eTagAsScala(value: Option[String]): CompletedPart.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withPartNumberAsScala(value: Option[Int]): CompletedPart.Builder = {
+  final def partNumberAsScala(value: Option[Int]): CompletedPart.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }

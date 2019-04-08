@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class PurgeQueueRequestBuilderOps(val self: PurgeQueueRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): PurgeQueueRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): PurgeQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }

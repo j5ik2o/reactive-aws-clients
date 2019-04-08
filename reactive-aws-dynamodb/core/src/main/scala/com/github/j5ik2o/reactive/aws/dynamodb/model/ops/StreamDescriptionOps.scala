@@ -5,55 +5,55 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) extends AnyVal {
 
-  final def withStreamArnAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def streamArnAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamArn(v)
     }
   } // String
 
-  final def withStreamLabelAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def streamLabelAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamLabel(v)
     }
   } // String
 
-  final def withStreamStatusAsScala(value: Option[StreamStatus]): StreamDescription.Builder = {
+  final def streamStatusAsScala(value: Option[StreamStatus]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamStatus(v)
     }
   } // String
 
-  final def withStreamViewTypeAsScala(value: Option[StreamViewType]): StreamDescription.Builder = {
+  final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamViewType(v)
     }
   } // String
 
-  final def withCreationRequestDateTimeAsScala(value: Option[java.time.Instant]): StreamDescription.Builder = {
+  final def creationRequestDateTimeAsScala(value: Option[java.time.Instant]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.creationRequestDateTime(v)
     }
   } // Instant
 
-  final def withTableNameAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def tableNameAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): StreamDescription.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): StreamDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withShardsAsScala(value: Option[Seq[Shard]]): StreamDescription.Builder = {
+  final def shardsAsScala(value: Option[Seq[Shard]]): StreamDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shards(v.asJava)
     } // Seq[Shard]
   }
 
-  final def withLastEvaluatedShardIdAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def lastEvaluatedShardIdAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedShardId(v)
     }

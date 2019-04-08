@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetIntrospectionSchemaRequestBuilderOps(val self: GetIntrospectionSchemaRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): GetIntrospectionSchemaRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): GetIntrospectionSchemaRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withFormatAsScala(value: Option[OutputType]): GetIntrospectionSchemaRequest.Builder = {
+  final def formatAsScala(value: Option[OutputType]): GetIntrospectionSchemaRequest.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }

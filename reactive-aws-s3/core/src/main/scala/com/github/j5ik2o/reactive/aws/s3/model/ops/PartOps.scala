@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PartBuilderOps(val self: Part.Builder) extends AnyVal {
 
-  final def withPartNumberAsScala(value: Option[Int]): Part.Builder = {
+  final def partNumberAsScala(value: Option[Int]): Part.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }
   } // Int
 
-  final def withLastModifiedAsScala(value: Option[java.time.Instant]): Part.Builder = {
+  final def lastModifiedAsScala(value: Option[java.time.Instant]): Part.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
   } // Instant
 
-  final def withETagAsScala(value: Option[String]): Part.Builder = {
+  final def eTagAsScala(value: Option[String]): Part.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withSizeAsScala(value: Option[Int]): Part.Builder = {
+  final def sizeAsScala(value: Option[Int]): Part.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }

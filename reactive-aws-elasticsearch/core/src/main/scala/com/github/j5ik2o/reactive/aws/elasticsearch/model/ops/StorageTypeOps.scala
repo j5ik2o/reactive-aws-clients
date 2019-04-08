@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class StorageTypeBuilderOps(val self: StorageType.Builder) extends AnyVal {
 
-  final def withStorageTypeNameAsScala(value: Option[String]): StorageType.Builder = {
+  final def storageTypeNameAsScala(value: Option[String]): StorageType.Builder = {
     value.fold(self) { v =>
       self.storageTypeName(v)
     }
   } // String
 
-  final def withStorageSubTypeNameAsScala(value: Option[String]): StorageType.Builder = {
+  final def storageSubTypeNameAsScala(value: Option[String]): StorageType.Builder = {
     value.fold(self) { v =>
       self.storageSubTypeName(v)
     }
   } // String
 
-  final def withStorageTypeLimitsAsScala(value: Option[Seq[StorageTypeLimit]]): StorageType.Builder = {
+  final def storageTypeLimitsAsScala(value: Option[Seq[StorageTypeLimit]]): StorageType.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.storageTypeLimits(v.asJava)
     } // Seq[StorageTypeLimit]

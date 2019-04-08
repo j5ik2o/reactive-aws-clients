@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class EBSOptionsStatusBuilderOps(val self: EBSOptionsStatus.Builder) extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[EBSOptions]): EBSOptionsStatus.Builder = {
+  final def optionsAsScala(value: Option[EBSOptions]): EBSOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // EBSOptions
 
-  final def withStatusAsScala(value: Option[OptionStatus]): EBSOptionsStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): EBSOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

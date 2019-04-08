@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListStreamsRequestBuilderOps(val self: ListStreamsRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withLimitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   } // Int
 
-  final def withExclusiveStartStreamArnAsScala(value: Option[String]): ListStreamsRequest.Builder = {
+  final def exclusiveStartStreamArnAsScala(value: Option[String]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartStreamArn(v)
     }

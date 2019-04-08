@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketWebsiteResponseBuilderOps(val self: GetBucketWebsiteResponse.Builder) extends AnyVal {
 
-  final def withRedirectAllRequestsToAsScala(value: Option[RedirectAllRequestsTo]): GetBucketWebsiteResponse.Builder = {
+  final def redirectAllRequestsToAsScala(value: Option[RedirectAllRequestsTo]): GetBucketWebsiteResponse.Builder = {
     value.fold(self) { v =>
       self.redirectAllRequestsTo(v)
     }
   } // RedirectAllRequestsTo
 
-  final def withIndexDocumentAsScala(value: Option[IndexDocument]): GetBucketWebsiteResponse.Builder = {
+  final def indexDocumentAsScala(value: Option[IndexDocument]): GetBucketWebsiteResponse.Builder = {
     value.fold(self) { v =>
       self.indexDocument(v)
     }
   } // IndexDocument
 
-  final def withErrorDocumentAsScala(value: Option[ErrorDocument]): GetBucketWebsiteResponse.Builder = {
+  final def errorDocumentAsScala(value: Option[ErrorDocument]): GetBucketWebsiteResponse.Builder = {
     value.fold(self) { v =>
       self.errorDocument(v)
     }
   } // ErrorDocument
 
-  final def withRoutingRulesAsScala(value: Option[Seq[RoutingRule]]): GetBucketWebsiteResponse.Builder = {
+  final def routingRulesAsScala(value: Option[Seq[RoutingRule]]): GetBucketWebsiteResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.routingRules(v.asJava)
     } // Seq[RoutingRule]

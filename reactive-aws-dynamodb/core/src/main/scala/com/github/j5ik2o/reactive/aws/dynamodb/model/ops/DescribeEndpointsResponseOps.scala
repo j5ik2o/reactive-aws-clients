@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeEndpointsResponseBuilderOps(val self: DescribeEndpointsResponse.Builder) extends AnyVal {
 
-  final def withEndpointsAsScala(value: Option[Seq[Endpoint]]): DescribeEndpointsResponse.Builder = {
+  final def endpointsAsScala(value: Option[Seq[Endpoint]]): DescribeEndpointsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.endpoints(v.asJava)
     } // Seq[Endpoint]

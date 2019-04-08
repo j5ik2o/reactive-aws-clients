@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class ListElasticsearchInstanceTypesResponseBuilderOps(val self: ListElasticsearchInstanceTypesResponse.Builder)
     extends AnyVal {
 
-  final def withElasticsearchInstanceTypesAsScala(
+  final def elasticsearchInstanceTypesAsScala(
       value: Option[Seq[ESPartitionInstanceType]]
   ): ListElasticsearchInstanceTypesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -14,7 +14,7 @@ final class ListElasticsearchInstanceTypesResponseBuilderOps(val self: ListElast
     } // Seq[String]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListElasticsearchInstanceTypesResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListElasticsearchInstanceTypesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

@@ -5,103 +5,103 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): Cluster.Builder = {
+  final def clusterNameAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): Cluster.Builder = {
+  final def descriptionAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withClusterArnAsScala(value: Option[String]): Cluster.Builder = {
+  final def clusterArnAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.clusterArn(v)
     }
   } // String
 
-  final def withTotalNodesAsScala(value: Option[Int]): Cluster.Builder = {
+  final def totalNodesAsScala(value: Option[Int]): Cluster.Builder = {
     value.fold(self) { v =>
       self.totalNodes(v)
     }
   } // Int
 
-  final def withActiveNodesAsScala(value: Option[Int]): Cluster.Builder = {
+  final def activeNodesAsScala(value: Option[Int]): Cluster.Builder = {
     value.fold(self) { v =>
       self.activeNodes(v)
     }
   } // Int
 
-  final def withNodeTypeAsScala(value: Option[String]): Cluster.Builder = {
+  final def nodeTypeAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.nodeType(v)
     }
   } // String
 
-  final def withStatusAsScala(value: Option[String]): Cluster.Builder = {
+  final def statusAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
   } // String
 
-  final def withClusterDiscoveryEndpointAsScala(value: Option[Endpoint]): Cluster.Builder = {
+  final def clusterDiscoveryEndpointAsScala(value: Option[Endpoint]): Cluster.Builder = {
     value.fold(self) { v =>
       self.clusterDiscoveryEndpoint(v)
     }
   } // Endpoint
 
-  final def withNodeIdsToRemoveAsScala(value: Option[Seq[String]]): Cluster.Builder = {
+  final def nodeIdsToRemoveAsScala(value: Option[Seq[String]]): Cluster.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeIdsToRemove(v.asJava)
     } // Seq[String]
   }
 
-  final def withNodesAsScala(value: Option[Seq[Node]]): Cluster.Builder = {
+  final def nodesAsScala(value: Option[Seq[Node]]): Cluster.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodes(v.asJava)
     } // Seq[Node]
   }
 
-  final def withPreferredMaintenanceWindowAsScala(value: Option[String]): Cluster.Builder = {
+  final def preferredMaintenanceWindowAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.preferredMaintenanceWindow(v)
     }
   } // String
 
-  final def withNotificationConfigurationAsScala(value: Option[NotificationConfiguration]): Cluster.Builder = {
+  final def notificationConfigurationAsScala(value: Option[NotificationConfiguration]): Cluster.Builder = {
     value.fold(self) { v =>
       self.notificationConfiguration(v)
     }
   } // NotificationConfiguration
 
-  final def withSubnetGroupAsScala(value: Option[String]): Cluster.Builder = {
+  final def subnetGroupAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.subnetGroup(v)
     }
   } // String
 
-  final def withSecurityGroupsAsScala(value: Option[Seq[SecurityGroupMembership]]): Cluster.Builder = {
+  final def securityGroupsAsScala(value: Option[Seq[SecurityGroupMembership]]): Cluster.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroups(v.asJava)
     } // Seq[SecurityGroupMembership]
   }
 
-  final def withIamRoleArnAsScala(value: Option[String]): Cluster.Builder = {
+  final def iamRoleArnAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.iamRoleArn(v)
     }
   } // String
 
-  final def withParameterGroupAsScala(value: Option[ParameterGroupStatus]): Cluster.Builder = {
+  final def parameterGroupAsScala(value: Option[ParameterGroupStatus]): Cluster.Builder = {
     value.fold(self) { v =>
       self.parameterGroup(v)
     }
   } // ParameterGroupStatus
 
-  final def withSseDescriptionAsScala(value: Option[SSEDescription]): Cluster.Builder = {
+  final def sseDescriptionAsScala(value: Option[SSEDescription]): Cluster.Builder = {
     value.fold(self) { v =>
       self.sseDescription(v)
     }

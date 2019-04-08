@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetTypeResponseBuilderOps(val self: GetTypeResponse.Builder) extends AnyVal {
 
-  final def withTypeAsScala(value: Option[Type]): GetTypeResponse.Builder = {
+  final def typeAsScala(value: Option[Type]): GetTypeResponse.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }

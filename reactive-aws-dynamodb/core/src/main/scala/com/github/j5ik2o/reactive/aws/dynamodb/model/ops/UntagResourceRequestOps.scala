@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UntagResourceRequestBuilderOps(val self: UntagResourceRequest.Builder) extends AnyVal {
 
-  final def withResourceArnAsScala(value: Option[String]): UntagResourceRequest.Builder = {
+  final def resourceArnAsScala(value: Option[String]): UntagResourceRequest.Builder = {
     value.fold(self) { v =>
       self.resourceArn(v)
     }
   } // String
 
-  final def withTagKeysAsScala(value: Option[Seq[String]]): UntagResourceRequest.Builder = {
+  final def tagKeysAsScala(value: Option[Seq[String]]): UntagResourceRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
     } // Seq[String]

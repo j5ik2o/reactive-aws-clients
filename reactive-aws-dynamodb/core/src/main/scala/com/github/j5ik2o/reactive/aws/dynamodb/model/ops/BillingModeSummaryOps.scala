@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BillingModeSummaryBuilderOps(val self: BillingModeSummary.Builder) extends AnyVal {
 
-  final def withBillingModeAsScala(value: Option[BillingMode]): BillingModeSummary.Builder = {
+  final def billingModeAsScala(value: Option[BillingMode]): BillingModeSummary.Builder = {
     value.fold(self) { v =>
       self.billingMode(v)
     }
   } // String
 
-  final def withLastUpdateToPayPerRequestDateTimeAsScala(
-      value: Option[java.time.Instant]
-  ): BillingModeSummary.Builder = {
+  final def lastUpdateToPayPerRequestDateTimeAsScala(value: Option[java.time.Instant]): BillingModeSummary.Builder = {
     value.fold(self) { v =>
       self.lastUpdateToPayPerRequestDateTime(v)
     }

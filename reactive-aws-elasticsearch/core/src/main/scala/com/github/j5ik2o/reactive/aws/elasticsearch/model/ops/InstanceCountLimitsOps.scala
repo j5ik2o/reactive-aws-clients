@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class InstanceCountLimitsBuilderOps(val self: InstanceCountLimits.Builder) extends AnyVal {
 
-  final def withMinimumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
+  final def minimumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
     value.fold(self) { v =>
       self.minimumInstanceCount(v)
     }
   } // Int
 
-  final def withMaximumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
+  final def maximumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
     value.fold(self) { v =>
       self.maximumInstanceCount(v)
     }

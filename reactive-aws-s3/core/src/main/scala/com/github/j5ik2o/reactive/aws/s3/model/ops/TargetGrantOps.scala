@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class TargetGrantBuilderOps(val self: TargetGrant.Builder) extends AnyVal {
 
-  final def withGranteeAsScala(value: Option[Grantee]): TargetGrant.Builder = {
+  final def granteeAsScala(value: Option[Grantee]): TargetGrant.Builder = {
     value.fold(self) { v =>
       self.grantee(v)
     }
   } // Grantee
 
-  final def withPermissionAsScala(value: Option[BucketLogsPermission]): TargetGrant.Builder = {
+  final def permissionAsScala(value: Option[BucketLogsPermission]): TargetGrant.Builder = {
     value.fold(self) { v =>
       self.permission(v)
     }

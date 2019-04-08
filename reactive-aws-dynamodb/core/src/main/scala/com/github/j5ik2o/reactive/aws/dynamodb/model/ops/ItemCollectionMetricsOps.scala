@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ItemCollectionMetricsBuilderOps(val self: ItemCollectionMetrics.Builder) extends AnyVal {
 
-  final def withItemCollectionKeyAsScala(value: Option[Map[String, AttributeValue]]): ItemCollectionMetrics.Builder = {
+  final def itemCollectionKeyAsScala(value: Option[Map[String, AttributeValue]]): ItemCollectionMetrics.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.itemCollectionKey(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withSizeEstimateRangeGBAsScala(value: Option[Seq[Double]]): ItemCollectionMetrics.Builder = {
+  final def sizeEstimateRangeGBAsScala(value: Option[Seq[Double]]): ItemCollectionMetrics.Builder = {
     value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Double])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.sizeEstimateRangeGB(v.asJava)
     } // Seq[Double]

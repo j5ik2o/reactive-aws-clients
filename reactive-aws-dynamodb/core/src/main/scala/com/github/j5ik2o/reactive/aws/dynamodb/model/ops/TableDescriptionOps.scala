@@ -5,75 +5,73 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TableDescriptionBuilderOps(val self: TableDescription.Builder) extends AnyVal {
 
-  final def withAttributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): TableDescription.Builder = {
+  final def attributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): TableDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeDefinitions(v.asJava)
     } // Seq[AttributeDefinition]
   }
 
-  final def withTableNameAsScala(value: Option[String]): TableDescription.Builder = {
+  final def tableNameAsScala(value: Option[String]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): TableDescription.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): TableDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withTableStatusAsScala(value: Option[TableStatus]): TableDescription.Builder = {
+  final def tableStatusAsScala(value: Option[TableStatus]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.tableStatus(v)
     }
   } // String
 
-  final def withCreationDateTimeAsScala(value: Option[java.time.Instant]): TableDescription.Builder = {
+  final def creationDateTimeAsScala(value: Option[java.time.Instant]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.creationDateTime(v)
     }
   } // Instant
 
-  final def withProvisionedThroughputAsScala(
-      value: Option[ProvisionedThroughputDescription]
-  ): TableDescription.Builder = {
+  final def provisionedThroughputAsScala(value: Option[ProvisionedThroughputDescription]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }
   } // ProvisionedThroughputDescription
 
-  final def withTableSizeBytesAsScala(value: Option[Long]): TableDescription.Builder = {
+  final def tableSizeBytesAsScala(value: Option[Long]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.tableSizeBytes(v)
     }
   } // Long
 
-  final def withItemCountAsScala(value: Option[Long]): TableDescription.Builder = {
+  final def itemCountAsScala(value: Option[Long]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.itemCount(v)
     }
   } // Long
 
-  final def withTableArnAsScala(value: Option[String]): TableDescription.Builder = {
+  final def tableArnAsScala(value: Option[String]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.tableArn(v)
     }
   } // String
 
-  final def withTableIdAsScala(value: Option[String]): TableDescription.Builder = {
+  final def tableIdAsScala(value: Option[String]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.tableId(v)
     }
   } // String
 
-  final def withBillingModeSummaryAsScala(value: Option[BillingModeSummary]): TableDescription.Builder = {
+  final def billingModeSummaryAsScala(value: Option[BillingModeSummary]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.billingModeSummary(v)
     }
   } // BillingModeSummary
 
-  final def withLocalSecondaryIndexesAsScala(
+  final def localSecondaryIndexesAsScala(
       value: Option[Seq[LocalSecondaryIndexDescription]]
   ): TableDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -81,7 +79,7 @@ final class TableDescriptionBuilderOps(val self: TableDescription.Builder) exten
     } // Seq[LocalSecondaryIndexDescription]
   }
 
-  final def withGlobalSecondaryIndexesAsScala(
+  final def globalSecondaryIndexesAsScala(
       value: Option[Seq[GlobalSecondaryIndexDescription]]
   ): TableDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -89,31 +87,31 @@ final class TableDescriptionBuilderOps(val self: TableDescription.Builder) exten
     } // Seq[GlobalSecondaryIndexDescription]
   }
 
-  final def withStreamSpecificationAsScala(value: Option[StreamSpecification]): TableDescription.Builder = {
+  final def streamSpecificationAsScala(value: Option[StreamSpecification]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.streamSpecification(v)
     }
   } // StreamSpecification
 
-  final def withLatestStreamLabelAsScala(value: Option[String]): TableDescription.Builder = {
+  final def latestStreamLabelAsScala(value: Option[String]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.latestStreamLabel(v)
     }
   } // String
 
-  final def withLatestStreamArnAsScala(value: Option[String]): TableDescription.Builder = {
+  final def latestStreamArnAsScala(value: Option[String]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.latestStreamArn(v)
     }
   } // String
 
-  final def withRestoreSummaryAsScala(value: Option[RestoreSummary]): TableDescription.Builder = {
+  final def restoreSummaryAsScala(value: Option[RestoreSummary]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.restoreSummary(v)
     }
   } // RestoreSummary
 
-  final def withSseDescriptionAsScala(value: Option[SSEDescription]): TableDescription.Builder = {
+  final def sseDescriptionAsScala(value: Option[SSEDescription]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.sseDescription(v)
     }

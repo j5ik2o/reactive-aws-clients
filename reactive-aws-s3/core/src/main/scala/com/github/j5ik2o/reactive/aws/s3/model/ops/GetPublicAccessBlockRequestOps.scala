@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetPublicAccessBlockRequestBuilderOps(val self: GetPublicAccessBlockRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetPublicAccessBlockRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

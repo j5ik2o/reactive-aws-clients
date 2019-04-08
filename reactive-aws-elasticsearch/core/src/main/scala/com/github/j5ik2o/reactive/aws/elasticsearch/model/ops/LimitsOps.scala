@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class LimitsBuilderOps(val self: Limits.Builder) extends AnyVal {
 
-  final def withStorageTypesAsScala(value: Option[Seq[StorageType]]): Limits.Builder = {
+  final def storageTypesAsScala(value: Option[Seq[StorageType]]): Limits.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.storageTypes(v.asJava)
     } // Seq[StorageType]
   }
 
-  final def withInstanceLimitsAsScala(value: Option[InstanceLimits]): Limits.Builder = {
+  final def instanceLimitsAsScala(value: Option[InstanceLimits]): Limits.Builder = {
     value.fold(self) { v =>
       self.instanceLimits(v)
     }
   } // InstanceLimits
 
-  final def withAdditionalLimitsAsScala(value: Option[Seq[AdditionalLimit]]): Limits.Builder = {
+  final def additionalLimitsAsScala(value: Option[Seq[AdditionalLimit]]): Limits.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.additionalLimits(v.asJava)
     } // Seq[AdditionalLimit]

@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketReplicationRequestBuilderOps(val self: PutBucketReplicationRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketReplicationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketReplicationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketReplicationRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketReplicationRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withReplicationConfigurationAsScala(
+  final def replicationConfigurationAsScala(
       value: Option[ReplicationConfiguration]
   ): PutBucketReplicationRequest.Builder = {
     value.fold(self) { v =>

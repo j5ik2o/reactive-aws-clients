@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AttributeValueUpdateBuilderOps(val self: AttributeValueUpdate.Builder) extends AnyVal {
 
-  final def withValueAsScala(value: Option[AttributeValue]): AttributeValueUpdate.Builder = {
+  final def valueAsScala(value: Option[AttributeValue]): AttributeValueUpdate.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
   } // AttributeValue
 
-  final def withActionAsScala(value: Option[AttributeAction]): AttributeValueUpdate.Builder = {
+  final def actionAsScala(value: Option[AttributeAction]): AttributeValueUpdate.Builder = {
     value.fold(self) { v =>
       self.action(v)
     }

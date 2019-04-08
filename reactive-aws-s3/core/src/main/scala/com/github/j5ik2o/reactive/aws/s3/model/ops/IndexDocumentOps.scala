@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class IndexDocumentBuilderOps(val self: IndexDocument.Builder) extends AnyVal {
 
-  final def withSuffixAsScala(value: Option[String]): IndexDocument.Builder = {
+  final def suffixAsScala(value: Option[String]): IndexDocument.Builder = {
     value.fold(self) { v =>
       self.suffix(v)
     }

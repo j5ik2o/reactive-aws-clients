@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AccelerateConfigurationBuilderOps(val self: AccelerateConfiguration.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[BucketAccelerateStatus]): AccelerateConfiguration.Builder = {
+  final def statusAsScala(value: Option[BucketAccelerateStatus]): AccelerateConfiguration.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

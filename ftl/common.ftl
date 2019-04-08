@@ -78,7 +78,7 @@
     <#local typeName=getGetterSimpleTypeName(methods, field.name, field.fieldTypeDesc.simpleTypeName)/>
     <#switch typeName>
         <#case "Seq">
-            final def with${field.name?cap_first}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
+            final def ${field.name}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
             <#local valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if valueTypeName == "SdkBytes">
                 value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
@@ -102,7 +102,7 @@
             }
             <#break >
         <#case "Map">
-            final def with${field.name?cap_first}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
+            final def ${field.name}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
             <#assign valueTypeName=getGetterValueTypeName(methods, field.name, field.fieldTypeDesc.valueTypeDesc.simpleTypeName)>
             <#if isDefined(valueTypeName)>
                 value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } // ${field.fieldTypeDesc.fullTypeName}
@@ -122,7 +122,7 @@
             }
             <#break >
         <#default >
-            final def with${field.name?cap_first}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
+            final def ${field.name}AsScala(value: Option[${getGetterFullTypeName(field.name, field.fieldTypeDesc.fullTypeName)}]): ${simpleTypeName}.Builder = {
             value.fold(self){ v => self.${methodName}(v) }
             } // ${field.fieldTypeDesc.fullTypeName}
             <#break >

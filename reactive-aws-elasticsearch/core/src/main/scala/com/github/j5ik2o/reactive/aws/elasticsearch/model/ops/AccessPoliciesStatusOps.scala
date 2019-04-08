@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class AccessPoliciesStatusBuilderOps(val self: AccessPoliciesStatus.Builder) extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[String]): AccessPoliciesStatus.Builder = {
+  final def optionsAsScala(value: Option[String]): AccessPoliciesStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // String
 
-  final def withStatusAsScala(value: Option[OptionStatus]): AccessPoliciesStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): AccessPoliciesStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

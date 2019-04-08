@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeBackupRequestBuilderOps(val self: DescribeBackupRequest.Builder) extends AnyVal {
 
-  final def withBackupArnAsScala(value: Option[String]): DescribeBackupRequest.Builder = {
+  final def backupArnAsScala(value: Option[String]): DescribeBackupRequest.Builder = {
     value.fold(self) { v =>
       self.backupArn(v)
     }

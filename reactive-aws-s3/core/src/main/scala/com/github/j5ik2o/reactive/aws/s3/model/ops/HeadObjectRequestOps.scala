@@ -5,79 +5,79 @@ import software.amazon.awssdk.services.s3.model._
 
 final class HeadObjectRequestBuilderOps(val self: HeadObjectRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIfMatchAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def ifMatchAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifMatch(v)
     }
   } // String
 
-  final def withIfModifiedSinceAsScala(value: Option[java.time.Instant]): HeadObjectRequest.Builder = {
+  final def ifModifiedSinceAsScala(value: Option[java.time.Instant]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifModifiedSince(v)
     }
   } // Instant
 
-  final def withIfNoneMatchAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def ifNoneMatchAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifNoneMatch(v)
     }
   } // String
 
-  final def withIfUnmodifiedSinceAsScala(value: Option[java.time.Instant]): HeadObjectRequest.Builder = {
+  final def ifUnmodifiedSinceAsScala(value: Option[java.time.Instant]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifUnmodifiedSince(v)
     }
   } // Instant
 
-  final def withKeyAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def keyAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withRangeAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def rangeAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.range(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): HeadObjectRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): HeadObjectRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withPartNumberAsScala(value: Option[Int]): HeadObjectRequest.Builder = {
+  final def partNumberAsScala(value: Option[Int]): HeadObjectRequest.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }

@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class UpgradeElasticsearchDomainResponseBuilderOps(val self: UpgradeElasticsearchDomainResponse.Builder)
     extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): UpgradeElasticsearchDomainResponse.Builder = {
+  final def domainNameAsScala(value: Option[String]): UpgradeElasticsearchDomainResponse.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   } // String
 
-  final def withTargetVersionAsScala(value: Option[String]): UpgradeElasticsearchDomainResponse.Builder = {
+  final def targetVersionAsScala(value: Option[String]): UpgradeElasticsearchDomainResponse.Builder = {
     value.fold(self) { v =>
       self.targetVersion(v)
     }
   } // String
 
-  final def withPerformCheckOnlyAsScala(value: Option[Boolean]): UpgradeElasticsearchDomainResponse.Builder = {
+  final def performCheckOnlyAsScala(value: Option[Boolean]): UpgradeElasticsearchDomainResponse.Builder = {
     value.fold(self) { v =>
       self.performCheckOnly(v)
     }

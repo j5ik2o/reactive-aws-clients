@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListStreamConsumersResponseBuilderOps(val self: ListStreamConsumersResponse.Builder) extends AnyVal {
 
-  final def withConsumersAsScala(value: Option[Seq[Consumer]]): ListStreamConsumersResponse.Builder = {
+  final def consumersAsScala(value: Option[Seq[Consumer]]): ListStreamConsumersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumers(v.asJava)
     } // Seq[Consumer]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListStreamConsumersResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListStreamConsumersResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

@@ -5,169 +5,169 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectRequestBuilderOps(val self: PutObjectRequest.Builder) extends AnyVal {
 
-  final def withAclAsScala(value: Option[ObjectCannedACL]): PutObjectRequest.Builder = {
+  final def aclAsScala(value: Option[ObjectCannedACL]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.acl(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withCacheControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def cacheControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.cacheControl(v)
     }
   } // String
 
-  final def withContentDispositionAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def contentDispositionAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentDisposition(v)
     }
   } // String
 
-  final def withContentEncodingAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def contentEncodingAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentEncoding(v)
     }
   } // String
 
-  final def withContentLanguageAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def contentLanguageAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentLanguage(v)
     }
   } // String
 
-  final def withContentLengthAsScala(value: Option[Long]): PutObjectRequest.Builder = {
+  final def contentLengthAsScala(value: Option[Long]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentLength(v)
     }
   } // Long
 
-  final def withContentMD5AsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withContentTypeAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def contentTypeAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentType(v)
     }
   } // String
 
-  final def withExpiresAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
+  final def expiresAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
   } // Instant
 
-  final def withGrantFullControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def grantFullControlAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
   } // String
 
-  final def withGrantReadAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def grantReadAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
   } // String
 
-  final def withGrantReadACPAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def grantReadACPAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
   } // String
 
-  final def withGrantWriteACPAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def grantWriteACPAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def keyAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withMetadataAsScala(value: Option[Map[String, String]]): PutObjectRequest.Builder = {
+  final def metadataAsScala(value: Option[Map[String, String]]): PutObjectRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): PutObjectRequest.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): PutObjectRequest.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withWebsiteRedirectLocationAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def websiteRedirectLocationAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.websiteRedirectLocation(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): PutObjectRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withTaggingAsScala(value: Option[String]): PutObjectRequest.Builder = {
+  final def taggingAsScala(value: Option[String]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }
   } // String
 
-  final def withObjectLockModeAsScala(value: Option[ObjectLockMode]): PutObjectRequest.Builder = {
+  final def objectLockModeAsScala(value: Option[ObjectLockMode]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
   } // String
 
-  final def withObjectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
+  final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
   } // Instant
 
-  final def withObjectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): PutObjectRequest.Builder = {
+  final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): PutObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }

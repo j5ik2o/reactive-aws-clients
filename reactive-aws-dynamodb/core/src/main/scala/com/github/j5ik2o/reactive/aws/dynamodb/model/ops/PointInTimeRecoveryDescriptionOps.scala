@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecoveryDescription.Builder) extends AnyVal {
 
-  final def withPointInTimeRecoveryStatusAsScala(
+  final def pointInTimeRecoveryStatusAsScala(
       value: Option[PointInTimeRecoveryStatus]
   ): PointInTimeRecoveryDescription.Builder = {
     value.fold(self) { v =>
@@ -13,7 +13,7 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     }
   } // String
 
-  final def withEarliestRestorableDateTimeAsScala(
+  final def earliestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
   ): PointInTimeRecoveryDescription.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     }
   } // Instant
 
-  final def withLatestRestorableDateTimeAsScala(
+  final def latestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
   ): PointInTimeRecoveryDescription.Builder = {
     value.fold(self) { v =>

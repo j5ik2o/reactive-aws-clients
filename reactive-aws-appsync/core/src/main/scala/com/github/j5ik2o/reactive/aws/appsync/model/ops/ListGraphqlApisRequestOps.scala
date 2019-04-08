@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListGraphqlApisRequestBuilderOps(val self: ListGraphqlApisRequest.Builder) extends AnyVal {
 
-  final def withNextTokenAsScala(value: Option[String]): ListGraphqlApisRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListGraphqlApisRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): ListGraphqlApisRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): ListGraphqlApisRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }

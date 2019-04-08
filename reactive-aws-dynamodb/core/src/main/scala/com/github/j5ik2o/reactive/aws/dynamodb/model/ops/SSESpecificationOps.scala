@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) extends AnyVal {
 
-  final def withEnabledAsScala(value: Option[Boolean]): SSESpecification.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
   } // Boolean
 
-  final def withSseTypeAsScala(value: Option[SSEType]): SSESpecification.Builder = {
+  final def sseTypeAsScala(value: Option[SSEType]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.sseType(v)
     }
   } // String
 
-  final def withKmsMasterKeyIdAsScala(value: Option[String]): SSESpecification.Builder = {
+  final def kmsMasterKeyIdAsScala(value: Option[String]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyId(v)
     }

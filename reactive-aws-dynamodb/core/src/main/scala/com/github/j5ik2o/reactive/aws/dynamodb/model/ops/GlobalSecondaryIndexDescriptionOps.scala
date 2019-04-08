@@ -6,37 +6,37 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class GlobalSecondaryIndexDescriptionBuilderOps(val self: GlobalSecondaryIndexDescription.Builder)
     extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): GlobalSecondaryIndexDescription.Builder = {
+  final def indexNameAsScala(value: Option[String]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexDescription.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withProjectionAsScala(value: Option[Projection]): GlobalSecondaryIndexDescription.Builder = {
+  final def projectionAsScala(value: Option[Projection]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }
   } // Projection
 
-  final def withIndexStatusAsScala(value: Option[IndexStatus]): GlobalSecondaryIndexDescription.Builder = {
+  final def indexStatusAsScala(value: Option[IndexStatus]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexStatus(v)
     }
   } // String
 
-  final def withBackfillingAsScala(value: Option[Boolean]): GlobalSecondaryIndexDescription.Builder = {
+  final def backfillingAsScala(value: Option[Boolean]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.backfilling(v)
     }
   } // Boolean
 
-  final def withProvisionedThroughputAsScala(
+  final def provisionedThroughputAsScala(
       value: Option[ProvisionedThroughputDescription]
   ): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
@@ -44,19 +44,19 @@ final class GlobalSecondaryIndexDescriptionBuilderOps(val self: GlobalSecondaryI
     }
   } // ProvisionedThroughputDescription
 
-  final def withIndexSizeBytesAsScala(value: Option[Long]): GlobalSecondaryIndexDescription.Builder = {
+  final def indexSizeBytesAsScala(value: Option[Long]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexSizeBytes(v)
     }
   } // Long
 
-  final def withItemCountAsScala(value: Option[Long]): GlobalSecondaryIndexDescription.Builder = {
+  final def itemCountAsScala(value: Option[Long]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.itemCount(v)
     }
   } // Long
 
-  final def withIndexArnAsScala(value: Option[String]): GlobalSecondaryIndexDescription.Builder = {
+  final def indexArnAsScala(value: Option[String]): GlobalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexArn(v)
     }

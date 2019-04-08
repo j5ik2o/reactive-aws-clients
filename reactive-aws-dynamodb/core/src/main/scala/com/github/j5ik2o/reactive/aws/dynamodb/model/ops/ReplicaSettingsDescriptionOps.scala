@@ -5,33 +5,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescription.Builder) extends AnyVal {
 
-  final def withRegionNameAsScala(value: Option[String]): ReplicaSettingsDescription.Builder = {
+  final def regionNameAsScala(value: Option[String]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }
   } // String
 
-  final def withReplicaStatusAsScala(value: Option[ReplicaStatus]): ReplicaSettingsDescription.Builder = {
+  final def replicaStatusAsScala(value: Option[ReplicaStatus]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaStatus(v)
     }
   } // String
 
-  final def withReplicaBillingModeSummaryAsScala(
-      value: Option[BillingModeSummary]
-  ): ReplicaSettingsDescription.Builder = {
+  final def replicaBillingModeSummaryAsScala(value: Option[BillingModeSummary]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaBillingModeSummary(v)
     }
   } // BillingModeSummary
 
-  final def withReplicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsDescription.Builder = {
+  final def replicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityUnits(v)
     }
   } // Long
 
-  final def withReplicaProvisionedReadCapacityAutoScalingSettingsAsScala(
+  final def replicaProvisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
@@ -39,13 +37,13 @@ final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescri
     }
   } // AutoScalingSettingsDescription
 
-  final def withReplicaProvisionedWriteCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsDescription.Builder = {
+  final def replicaProvisionedWriteCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedWriteCapacityUnits(v)
     }
   } // Long
 
-  final def withReplicaProvisionedWriteCapacityAutoScalingSettingsAsScala(
+  final def replicaProvisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaSettingsDescription.Builder = {
     value.fold(self) { v =>
@@ -53,7 +51,7 @@ final class ReplicaSettingsDescriptionBuilderOps(val self: ReplicaSettingsDescri
     }
   } // AutoScalingSettingsDescription
 
-  final def withReplicaGlobalSecondaryIndexSettingsAsScala(
+  final def replicaGlobalSecondaryIndexSettingsAsScala(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsDescription]]
   ): ReplicaSettingsDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GraphqlApiBuilderOps(val self: GraphqlApi.Builder) extends AnyVal {
 
-  final def withNameAsScala(value: Option[String]): GraphqlApi.Builder = {
+  final def nameAsScala(value: Option[String]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withApiIdAsScala(value: Option[String]): GraphqlApi.Builder = {
+  final def apiIdAsScala(value: Option[String]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withAuthenticationTypeAsScala(value: Option[AuthenticationType]): GraphqlApi.Builder = {
+  final def authenticationTypeAsScala(value: Option[AuthenticationType]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.authenticationType(v)
     }
   } // String
 
-  final def withLogConfigAsScala(value: Option[LogConfig]): GraphqlApi.Builder = {
+  final def logConfigAsScala(value: Option[LogConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.logConfig(v)
     }
   } // LogConfig
 
-  final def withUserPoolConfigAsScala(value: Option[UserPoolConfig]): GraphqlApi.Builder = {
+  final def userPoolConfigAsScala(value: Option[UserPoolConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.userPoolConfig(v)
     }
   } // UserPoolConfig
 
-  final def withOpenIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): GraphqlApi.Builder = {
+  final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.openIDConnectConfig(v)
     }
   } // OpenIDConnectConfig
 
-  final def withArnAsScala(value: Option[String]): GraphqlApi.Builder = {
+  final def arnAsScala(value: Option[String]): GraphqlApi.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   } // String
 
-  final def withUrisAsScala(value: Option[Map[String, String]]): GraphqlApi.Builder = {
+  final def urisAsScala(value: Option[Map[String, String]]): GraphqlApi.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.uris(v.asJava)
     } // Map[String, String]

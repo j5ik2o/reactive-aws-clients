@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteRequestBuilderOps(val self: DeleteRequest.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): DeleteRequest.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): DeleteRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]

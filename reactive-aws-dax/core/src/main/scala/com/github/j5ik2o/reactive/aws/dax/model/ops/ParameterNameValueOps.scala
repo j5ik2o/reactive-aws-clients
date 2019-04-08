@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ParameterNameValueBuilderOps(val self: ParameterNameValue.Builder) extends AnyVal {
 
-  final def withParameterNameAsScala(value: Option[String]): ParameterNameValue.Builder = {
+  final def parameterNameAsScala(value: Option[String]): ParameterNameValue.Builder = {
     value.fold(self) { v =>
       self.parameterName(v)
     }
   } // String
 
-  final def withParameterValueAsScala(value: Option[String]): ParameterNameValue.Builder = {
+  final def parameterValueAsScala(value: Option[String]): ParameterNameValue.Builder = {
     value.fold(self) { v =>
       self.parameterValue(v)
     }

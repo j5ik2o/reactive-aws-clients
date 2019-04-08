@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class JSONOutputBuilderOps(val self: JSONOutput.Builder) extends AnyVal {
 
-  final def withRecordDelimiterAsScala(value: Option[String]): JSONOutput.Builder = {
+  final def recordDelimiterAsScala(value: Option[String]): JSONOutput.Builder = {
     value.fold(self) { v =>
       self.recordDelimiter(v)
     }

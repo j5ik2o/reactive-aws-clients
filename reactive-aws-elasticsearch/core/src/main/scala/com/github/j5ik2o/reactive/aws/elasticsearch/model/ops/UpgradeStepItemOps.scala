@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends AnyVal {
 
-  final def withUpgradeStepAsScala(value: Option[UpgradeStep]): UpgradeStepItem.Builder = {
+  final def upgradeStepAsScala(value: Option[UpgradeStep]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.upgradeStep(v)
     }
   } // String
 
-  final def withUpgradeStepStatusAsScala(value: Option[UpgradeStatus]): UpgradeStepItem.Builder = {
+  final def upgradeStepStatusAsScala(value: Option[UpgradeStatus]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.upgradeStepStatus(v)
     }
   } // String
 
-  final def withIssuesAsScala(value: Option[Seq[String]]): UpgradeStepItem.Builder = {
+  final def issuesAsScala(value: Option[Seq[String]]): UpgradeStepItem.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.issues(v.asJava)
     } // Seq[String]
   }
 
-  final def withProgressPercentAsScala(value: Option[Double]): UpgradeStepItem.Builder = {
+  final def progressPercentAsScala(value: Option[Double]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.progressPercent(v)
     }

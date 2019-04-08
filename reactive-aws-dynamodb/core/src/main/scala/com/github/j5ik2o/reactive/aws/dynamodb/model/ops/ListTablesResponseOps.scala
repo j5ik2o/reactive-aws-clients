@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListTablesResponseBuilderOps(val self: ListTablesResponse.Builder) extends AnyVal {
 
-  final def withTableNamesAsScala(value: Option[Seq[String]]): ListTablesResponse.Builder = {
+  final def tableNamesAsScala(value: Option[Seq[String]]): ListTablesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tableNames(v.asJava)
     } // Seq[String]
   }
 
-  final def withLastEvaluatedTableNameAsScala(value: Option[String]): ListTablesResponse.Builder = {
+  final def lastEvaluatedTableNameAsScala(value: Option[String]): ListTablesResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedTableName(v)
     }

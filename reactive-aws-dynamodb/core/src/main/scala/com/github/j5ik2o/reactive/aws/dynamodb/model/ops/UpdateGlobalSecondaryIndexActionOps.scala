@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class UpdateGlobalSecondaryIndexActionBuilderOps(val self: UpdateGlobalSecondaryIndexAction.Builder)
     extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): UpdateGlobalSecondaryIndexAction.Builder = {
+  final def indexNameAsScala(value: Option[String]): UpdateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withProvisionedThroughputAsScala(
+  final def provisionedThroughputAsScala(
       value: Option[ProvisionedThroughput]
   ): UpdateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>

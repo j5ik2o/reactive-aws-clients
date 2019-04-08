@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageBatchRequestBuilderOps(val self: DeleteMessageBatchRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): DeleteMessageBatchRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): DeleteMessageBatchRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withEntriesAsScala(
-      value: Option[Seq[DeleteMessageBatchRequestEntry]]
-  ): DeleteMessageBatchRequest.Builder = {
+  final def entriesAsScala(value: Option[Seq[DeleteMessageBatchRequestEntry]]): DeleteMessageBatchRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.entries(v.asJava)
     } // Seq[DeleteMessageBatchRequestEntry]

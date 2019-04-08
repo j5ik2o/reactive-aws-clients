@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class ListElasticsearchVersionsRequestBuilderOps(val self: ListElasticsearchVersionsRequest.Builder)
     extends AnyVal {
 
-  final def withMaxResultsAsScala(value: Option[Int]): ListElasticsearchVersionsRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): ListElasticsearchVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withNextTokenAsScala(value: Option[String]): ListElasticsearchVersionsRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListElasticsearchVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

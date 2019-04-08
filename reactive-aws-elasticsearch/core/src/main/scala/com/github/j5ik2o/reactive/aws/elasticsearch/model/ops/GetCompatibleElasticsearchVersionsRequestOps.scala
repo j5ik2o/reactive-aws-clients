@@ -7,7 +7,7 @@ final class GetCompatibleElasticsearchVersionsRequestBuilderOps(
     val self: GetCompatibleElasticsearchVersionsRequest.Builder
 ) extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): GetCompatibleElasticsearchVersionsRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): GetCompatibleElasticsearchVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }

@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateTypeRequestBuilderOps(val self: UpdateTypeRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withTypeNameAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
+  final def typeNameAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
   } // String
 
-  final def withDefinitionAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
+  final def definitionAsScala(value: Option[String]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.definition(v)
     }
   } // String
 
-  final def withFormatAsScala(value: Option[TypeDefinitionFormat]): UpdateTypeRequest.Builder = {
+  final def formatAsScala(value: Option[TypeDefinitionFormat]): UpdateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }

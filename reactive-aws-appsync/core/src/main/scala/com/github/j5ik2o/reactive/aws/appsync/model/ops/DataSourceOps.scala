@@ -5,63 +5,61 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class DataSourceBuilderOps(val self: DataSource.Builder) extends AnyVal {
 
-  final def withDataSourceArnAsScala(value: Option[String]): DataSource.Builder = {
+  final def dataSourceArnAsScala(value: Option[String]): DataSource.Builder = {
     value.fold(self) { v =>
       self.dataSourceArn(v)
     }
   } // String
 
-  final def withNameAsScala(value: Option[String]): DataSource.Builder = {
+  final def nameAsScala(value: Option[String]): DataSource.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): DataSource.Builder = {
+  final def descriptionAsScala(value: Option[String]): DataSource.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withTypeAsScala(value: Option[DataSourceType]): DataSource.Builder = {
+  final def typeAsScala(value: Option[DataSourceType]): DataSource.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   } // String
 
-  final def withServiceRoleArnAsScala(value: Option[String]): DataSource.Builder = {
+  final def serviceRoleArnAsScala(value: Option[String]): DataSource.Builder = {
     value.fold(self) { v =>
       self.serviceRoleArn(v)
     }
   } // String
 
-  final def withDynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): DataSource.Builder = {
+  final def dynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): DataSource.Builder = {
     value.fold(self) { v =>
       self.dynamodbConfig(v)
     }
   } // DynamodbDataSourceConfig
 
-  final def withLambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): DataSource.Builder = {
+  final def lambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): DataSource.Builder = {
     value.fold(self) { v =>
       self.lambdaConfig(v)
     }
   } // LambdaDataSourceConfig
 
-  final def withElasticsearchConfigAsScala(value: Option[ElasticsearchDataSourceConfig]): DataSource.Builder = {
+  final def elasticsearchConfigAsScala(value: Option[ElasticsearchDataSourceConfig]): DataSource.Builder = {
     value.fold(self) { v =>
       self.elasticsearchConfig(v)
     }
   } // ElasticsearchDataSourceConfig
 
-  final def withHttpConfigAsScala(value: Option[HttpDataSourceConfig]): DataSource.Builder = {
+  final def httpConfigAsScala(value: Option[HttpDataSourceConfig]): DataSource.Builder = {
     value.fold(self) { v =>
       self.httpConfig(v)
     }
   } // HttpDataSourceConfig
 
-  final def withRelationalDatabaseConfigAsScala(
-      value: Option[RelationalDatabaseDataSourceConfig]
-  ): DataSource.Builder = {
+  final def relationalDatabaseConfigAsScala(value: Option[RelationalDatabaseDataSourceConfig]): DataSource.Builder = {
     value.fold(self) { v =>
       self.relationalDatabaseConfig(v)
     }

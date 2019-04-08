@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class BucketLoggingStatusBuilderOps(val self: BucketLoggingStatus.Builder) extends AnyVal {
 
-  final def withLoggingEnabledAsScala(value: Option[LoggingEnabled]): BucketLoggingStatus.Builder = {
+  final def loggingEnabledAsScala(value: Option[LoggingEnabled]): BucketLoggingStatus.Builder = {
     value.fold(self) { v =>
       self.loggingEnabled(v)
     }

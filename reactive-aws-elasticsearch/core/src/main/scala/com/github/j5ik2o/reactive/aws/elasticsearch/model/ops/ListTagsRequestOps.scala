@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends AnyVal {
 
-  final def withArnAsScala(value: Option[String]): ListTagsRequest.Builder = {
+  final def arnAsScala(value: Option[String]): ListTagsRequest.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }

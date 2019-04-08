@@ -7,7 +7,7 @@ final class StartElasticsearchServiceSoftwareUpdateResponseBuilderOps(
     val self: StartElasticsearchServiceSoftwareUpdateResponse.Builder
 ) extends AnyVal {
 
-  final def withServiceSoftwareOptionsAsScala(
+  final def serviceSoftwareOptionsAsScala(
       value: Option[ServiceSoftwareOptions]
   ): StartElasticsearchServiceSoftwareUpdateResponse.Builder = {
     value.fold(self) { v =>

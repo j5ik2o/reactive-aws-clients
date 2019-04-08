@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UserPoolConfigBuilderOps(val self: UserPoolConfig.Builder) extends AnyVal {
 
-  final def withUserPoolIdAsScala(value: Option[String]): UserPoolConfig.Builder = {
+  final def userPoolIdAsScala(value: Option[String]): UserPoolConfig.Builder = {
     value.fold(self) { v =>
       self.userPoolId(v)
     }
   } // String
 
-  final def withAwsRegionAsScala(value: Option[String]): UserPoolConfig.Builder = {
+  final def awsRegionAsScala(value: Option[String]): UserPoolConfig.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
     }
   } // String
 
-  final def withDefaultActionAsScala(value: Option[DefaultAction]): UserPoolConfig.Builder = {
+  final def defaultActionAsScala(value: Option[DefaultAction]): UserPoolConfig.Builder = {
     value.fold(self) { v =>
       self.defaultAction(v)
     }
   } // String
 
-  final def withAppIdClientRegexAsScala(value: Option[String]): UserPoolConfig.Builder = {
+  final def appIdClientRegexAsScala(value: Option[String]): UserPoolConfig.Builder = {
     value.fold(self) { v =>
       self.appIdClientRegex(v)
     }

@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.kinesis.model._
 final class DisableEnhancedMonitoringResponseBuilderOps(val self: DisableEnhancedMonitoringResponse.Builder)
     extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): DisableEnhancedMonitoringResponse.Builder = {
+  final def streamNameAsScala(value: Option[String]): DisableEnhancedMonitoringResponse.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withCurrentShardLevelMetricsAsScala(
+  final def currentShardLevelMetricsAsScala(
       value: Option[Seq[MetricsName]]
   ): DisableEnhancedMonitoringResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -20,7 +20,7 @@ final class DisableEnhancedMonitoringResponseBuilderOps(val self: DisableEnhance
     } // Seq[String]
   }
 
-  final def withDesiredShardLevelMetricsAsScala(
+  final def desiredShardLevelMetricsAsScala(
       value: Option[Seq[MetricsName]]
   ): DisableEnhancedMonitoringResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

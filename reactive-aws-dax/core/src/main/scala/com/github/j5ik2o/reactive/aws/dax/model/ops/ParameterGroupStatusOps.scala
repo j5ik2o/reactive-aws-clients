@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ParameterGroupStatusBuilderOps(val self: ParameterGroupStatus.Builder) extends AnyVal {
 
-  final def withParameterGroupNameAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   } // String
 
-  final def withParameterApplyStatusAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
+  final def parameterApplyStatusAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
     value.fold(self) { v =>
       self.parameterApplyStatus(v)
     }
   } // String
 
-  final def withNodeIdsToRebootAsScala(value: Option[Seq[String]]): ParameterGroupStatus.Builder = {
+  final def nodeIdsToRebootAsScala(value: Option[Seq[String]]): ParameterGroupStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeIdsToReboot(v.asJava)
     } // Seq[String]

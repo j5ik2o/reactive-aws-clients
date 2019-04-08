@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PolicyStatusBuilderOps(val self: PolicyStatus.Builder) extends AnyVal {
 
-  final def withIsPublicAsScala(value: Option[Boolean]): PolicyStatus.Builder = {
+  final def isPublicAsScala(value: Option[Boolean]): PolicyStatus.Builder = {
     value.fold(self) { v =>
       self.isPublic(v)
     }

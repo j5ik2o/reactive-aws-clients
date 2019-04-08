@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteSubnetGroupResponseBuilderOps(val self: DeleteSubnetGroupResponse.Builder) extends AnyVal {
 
-  final def withDeletionMessageAsScala(value: Option[String]): DeleteSubnetGroupResponse.Builder = {
+  final def deletionMessageAsScala(value: Option[String]): DeleteSubnetGroupResponse.Builder = {
     value.fold(self) { v =>
       self.deletionMessage(v)
     }

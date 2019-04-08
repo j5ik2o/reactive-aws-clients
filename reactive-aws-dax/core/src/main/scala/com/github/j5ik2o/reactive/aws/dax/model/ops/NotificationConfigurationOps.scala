@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class NotificationConfigurationBuilderOps(val self: NotificationConfiguration.Builder) extends AnyVal {
 
-  final def withTopicArnAsScala(value: Option[String]): NotificationConfiguration.Builder = {
+  final def topicArnAsScala(value: Option[String]): NotificationConfiguration.Builder = {
     value.fold(self) { v =>
       self.topicArn(v)
     }
   } // String
 
-  final def withTopicStatusAsScala(value: Option[String]): NotificationConfiguration.Builder = {
+  final def topicStatusAsScala(value: Option[String]): NotificationConfiguration.Builder = {
     value.fold(self) { v =>
       self.topicStatus(v)
     }

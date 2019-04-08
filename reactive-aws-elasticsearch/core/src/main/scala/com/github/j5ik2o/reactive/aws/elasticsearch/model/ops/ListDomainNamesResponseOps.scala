@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ListDomainNamesResponseBuilderOps(val self: ListDomainNamesResponse.Builder) extends AnyVal {
 
-  final def withDomainNamesAsScala(value: Option[Seq[DomainInfo]]): ListDomainNamesResponse.Builder = {
+  final def domainNamesAsScala(value: Option[Seq[DomainInfo]]): ListDomainNamesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.domainNames(v.asJava)
     } // Seq[DomainInfo]

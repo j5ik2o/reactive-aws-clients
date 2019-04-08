@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListStreamsResponseBuilderOps(val self: ListStreamsResponse.Builder) extends AnyVal {
 
-  final def withStreamNamesAsScala(value: Option[Seq[String]]): ListStreamsResponse.Builder = {
+  final def streamNamesAsScala(value: Option[Seq[String]]): ListStreamsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.streamNames(v.asJava)
     } // Seq[String]
   }
 
-  final def withHasMoreStreamsAsScala(value: Option[Boolean]): ListStreamsResponse.Builder = {
+  final def hasMoreStreamsAsScala(value: Option[Boolean]): ListStreamsResponse.Builder = {
     value.fold(self) { v =>
       self.hasMoreStreams(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteClusterRequestBuilderOps(val self: DeleteClusterRequest.Builder) extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): DeleteClusterRequest.Builder = {
+  final def clusterNameAsScala(value: Option[String]): DeleteClusterRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteParameterGroupResponseBuilderOps(val self: DeleteParameterGroupResponse.Builder) extends AnyVal {
 
-  final def withDeletionMessageAsScala(value: Option[String]): DeleteParameterGroupResponse.Builder = {
+  final def deletionMessageAsScala(value: Option[String]): DeleteParameterGroupResponse.Builder = {
     value.fold(self) { v =>
       self.deletionMessage(v)
     }

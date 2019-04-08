@@ -7,7 +7,7 @@ final class GetBucketNotificationConfigurationResponseBuilderOps(
     val self: GetBucketNotificationConfigurationResponse.Builder
 ) extends AnyVal {
 
-  final def withTopicConfigurationsAsScala(
+  final def topicConfigurationsAsScala(
       value: Option[Seq[TopicConfiguration]]
   ): GetBucketNotificationConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -15,7 +15,7 @@ final class GetBucketNotificationConfigurationResponseBuilderOps(
     } // Seq[TopicConfiguration]
   }
 
-  final def withQueueConfigurationsAsScala(
+  final def queueConfigurationsAsScala(
       value: Option[Seq[QueueConfiguration]]
   ): GetBucketNotificationConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -23,7 +23,7 @@ final class GetBucketNotificationConfigurationResponseBuilderOps(
     } // Seq[QueueConfiguration]
   }
 
-  final def withLambdaFunctionConfigurationsAsScala(
+  final def lambdaFunctionConfigurationsAsScala(
       value: Option[Seq[LambdaFunctionConfiguration]]
   ): GetBucketNotificationConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

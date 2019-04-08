@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ServiceSoftwareOptionsBuilderOps(val self: ServiceSoftwareOptions.Builder) extends AnyVal {
 
-  final def withCurrentVersionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
+  final def currentVersionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.currentVersion(v)
     }
   } // String
 
-  final def withNewVersionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
+  final def newVersionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.newVersion(v)
     }
   } // String
 
-  final def withUpdateAvailableAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
+  final def updateAvailableAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.updateAvailable(v)
     }
   } // Boolean
 
-  final def withCancellableAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
+  final def cancellableAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.cancellable(v)
     }
   } // Boolean
 
-  final def withUpdateStatusAsScala(value: Option[DeploymentStatus]): ServiceSoftwareOptions.Builder = {
+  final def updateStatusAsScala(value: Option[DeploymentStatus]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.updateStatus(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
+  final def descriptionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withAutomatedUpdateDateAsScala(value: Option[java.time.Instant]): ServiceSoftwareOptions.Builder = {
+  final def automatedUpdateDateAsScala(value: Option[java.time.Instant]): ServiceSoftwareOptions.Builder = {
     value.fold(self) { v =>
       self.automatedUpdateDate(v)
     }

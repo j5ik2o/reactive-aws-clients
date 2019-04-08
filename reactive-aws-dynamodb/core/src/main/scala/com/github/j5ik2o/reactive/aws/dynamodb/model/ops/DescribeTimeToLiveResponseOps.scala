@@ -5,9 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeTimeToLiveResponseBuilderOps(val self: DescribeTimeToLiveResponse.Builder) extends AnyVal {
 
-  final def withTimeToLiveDescriptionAsScala(
-      value: Option[TimeToLiveDescription]
-  ): DescribeTimeToLiveResponse.Builder = {
+  final def timeToLiveDescriptionAsScala(value: Option[TimeToLiveDescription]): DescribeTimeToLiveResponse.Builder = {
     value.fold(self) { v =>
       self.timeToLiveDescription(v)
     }

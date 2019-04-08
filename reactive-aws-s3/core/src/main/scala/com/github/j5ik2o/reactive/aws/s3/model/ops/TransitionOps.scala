@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class TransitionBuilderOps(val self: Transition.Builder) extends AnyVal {
 
-  final def withDateAsScala(value: Option[java.time.Instant]): Transition.Builder = {
+  final def dateAsScala(value: Option[java.time.Instant]): Transition.Builder = {
     value.fold(self) { v =>
       self.date(v)
     }
   } // Instant
 
-  final def withDaysAsScala(value: Option[Int]): Transition.Builder = {
+  final def daysAsScala(value: Option[Int]): Transition.Builder = {
     value.fold(self) { v =>
       self.days(v)
     }
   } // Int
 
-  final def withStorageClassAsScala(value: Option[TransitionStorageClass]): Transition.Builder = {
+  final def storageClassAsScala(value: Option[TransitionStorageClass]): Transition.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }

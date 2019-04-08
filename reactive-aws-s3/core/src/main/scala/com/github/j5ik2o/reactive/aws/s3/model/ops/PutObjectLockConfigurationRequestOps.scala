@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.s3.model._
 final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withObjectLockConfigurationAsScala(
+  final def objectLockConfigurationAsScala(
       value: Option[ObjectLockConfiguration]
   ): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
@@ -20,19 +20,19 @@ final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockC
     }
   } // ObjectLockConfiguration
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): PutObjectLockConfigurationRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withTokenAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
+  final def tokenAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.token(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }

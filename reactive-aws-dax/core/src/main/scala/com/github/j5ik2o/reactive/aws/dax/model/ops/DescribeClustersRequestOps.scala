@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DescribeClustersRequestBuilderOps(val self: DescribeClustersRequest.Builder) extends AnyVal {
 
-  final def withClusterNamesAsScala(value: Option[Seq[String]]): DescribeClustersRequest.Builder = {
+  final def clusterNamesAsScala(value: Option[Seq[String]]): DescribeClustersRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.clusterNames(v.asJava)
     } // Seq[String]
   }
 
-  final def withMaxResultsAsScala(value: Option[Int]): DescribeClustersRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): DescribeClustersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeClustersRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeClustersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

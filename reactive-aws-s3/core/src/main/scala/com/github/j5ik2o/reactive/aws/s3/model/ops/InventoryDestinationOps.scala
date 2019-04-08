@@ -5,9 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryDestinationBuilderOps(val self: InventoryDestination.Builder) extends AnyVal {
 
-  final def withS3BucketDestinationAsScala(
-      value: Option[InventoryS3BucketDestination]
-  ): InventoryDestination.Builder = {
+  final def s3BucketDestinationAsScala(value: Option[InventoryS3BucketDestination]): InventoryDestination.Builder = {
     value.fold(self) { v =>
       self.s3BucketDestination(v)
     }

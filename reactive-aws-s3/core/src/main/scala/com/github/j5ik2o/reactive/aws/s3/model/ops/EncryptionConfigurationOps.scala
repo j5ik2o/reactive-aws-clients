@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class EncryptionConfigurationBuilderOps(val self: EncryptionConfiguration.Builder) extends AnyVal {
 
-  final def withReplicaKmsKeyIDAsScala(value: Option[String]): EncryptionConfiguration.Builder = {
+  final def replicaKmsKeyIDAsScala(value: Option[String]): EncryptionConfiguration.Builder = {
     value.fold(self) { v =>
       self.replicaKmsKeyID(v)
     }

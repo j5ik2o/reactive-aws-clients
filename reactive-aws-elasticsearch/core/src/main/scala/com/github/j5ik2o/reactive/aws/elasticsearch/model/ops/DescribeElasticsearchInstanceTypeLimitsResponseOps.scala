@@ -7,7 +7,7 @@ final class DescribeElasticsearchInstanceTypeLimitsResponseBuilderOps(
     val self: DescribeElasticsearchInstanceTypeLimitsResponse.Builder
 ) extends AnyVal {
 
-  final def withLimitsByRoleAsScala(
+  final def limitsByRoleAsScala(
       value: Option[Map[String, Limits]]
   ): DescribeElasticsearchInstanceTypeLimitsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

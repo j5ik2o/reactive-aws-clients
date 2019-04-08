@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectResponseBuilderOps(val self: PutObjectResponse.Builder) extends AnyVal {
 
-  final def withExpirationAsScala(value: Option[String]): PutObjectResponse.Builder = {
+  final def expirationAsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.expiration(v)
     }
   } // String
 
-  final def withETagAsScala(value: Option[String]): PutObjectResponse.Builder = {
+  final def eTagAsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): PutObjectResponse.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): PutObjectResponse.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): PutObjectResponse.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): PutObjectResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

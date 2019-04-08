@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateTimeToLiveRequestBuilderOps(val self: UpdateTimeToLiveRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): UpdateTimeToLiveRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): UpdateTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withTimeToLiveSpecificationAsScala(
-      value: Option[TimeToLiveSpecification]
-  ): UpdateTimeToLiveRequest.Builder = {
+  final def timeToLiveSpecificationAsScala(value: Option[TimeToLiveSpecification]): UpdateTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.timeToLiveSpecification(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InitiatorBuilderOps(val self: Initiator.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): Initiator.Builder = {
+  final def idAsScala(value: Option[String]): Initiator.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withDisplayNameAsScala(value: Option[String]): Initiator.Builder = {
+  final def displayNameAsScala(value: Option[String]): Initiator.Builder = {
     value.fold(self) { v =>
       self.displayName(v)
     }

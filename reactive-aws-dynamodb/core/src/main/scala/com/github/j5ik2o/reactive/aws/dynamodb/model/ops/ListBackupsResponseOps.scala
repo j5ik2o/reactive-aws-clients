@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListBackupsResponseBuilderOps(val self: ListBackupsResponse.Builder) extends AnyVal {
 
-  final def withBackupSummariesAsScala(value: Option[Seq[BackupSummary]]): ListBackupsResponse.Builder = {
+  final def backupSummariesAsScala(value: Option[Seq[BackupSummary]]): ListBackupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.backupSummaries(v.asJava)
     } // Seq[BackupSummary]
   }
 
-  final def withLastEvaluatedBackupArnAsScala(value: Option[String]): ListBackupsResponse.Builder = {
+  final def lastEvaluatedBackupArnAsScala(value: Option[String]): ListBackupsResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedBackupArn(v)
     }

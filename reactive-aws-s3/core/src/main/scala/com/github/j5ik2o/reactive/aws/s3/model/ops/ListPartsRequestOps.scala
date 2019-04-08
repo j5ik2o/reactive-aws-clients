@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListPartsRequestBuilderOps(val self: ListPartsRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListPartsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): ListPartsRequest.Builder = {
+  final def keyAsScala(value: Option[String]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withMaxPartsAsScala(value: Option[Int]): ListPartsRequest.Builder = {
+  final def maxPartsAsScala(value: Option[Int]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.maxParts(v)
     }
   } // Int
 
-  final def withPartNumberMarkerAsScala(value: Option[Int]): ListPartsRequest.Builder = {
+  final def partNumberMarkerAsScala(value: Option[Int]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.partNumberMarker(v)
     }
   } // Int
 
-  final def withUploadIdAsScala(value: Option[String]): ListPartsRequest.Builder = {
+  final def uploadIdAsScala(value: Option[String]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): ListPartsRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): ListPartsRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

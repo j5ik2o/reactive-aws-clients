@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class SplitShardRequestBuilderOps(val self: SplitShardRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): SplitShardRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): SplitShardRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withShardToSplitAsScala(value: Option[String]): SplitShardRequest.Builder = {
+  final def shardToSplitAsScala(value: Option[String]): SplitShardRequest.Builder = {
     value.fold(self) { v =>
       self.shardToSplit(v)
     }
   } // String
 
-  final def withNewStartingHashKeyAsScala(value: Option[String]): SplitShardRequest.Builder = {
+  final def newStartingHashKeyAsScala(value: Option[String]): SplitShardRequest.Builder = {
     value.fold(self) { v =>
       self.newStartingHashKey(v)
     }

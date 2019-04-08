@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class DeleteResolverRequestBuilderOps(val self: DeleteResolverRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withTypeNameAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
+  final def typeNameAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
   } // String
 
-  final def withFieldNameAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
+  final def fieldNameAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
     value.fold(self) { v =>
       self.fieldName(v)
     }

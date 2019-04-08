@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class CognitoOptionsBuilderOps(val self: CognitoOptions.Builder) extends AnyVal {
 
-  final def withEnabledAsScala(value: Option[Boolean]): CognitoOptions.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): CognitoOptions.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
   } // Boolean
 
-  final def withUserPoolIdAsScala(value: Option[String]): CognitoOptions.Builder = {
+  final def userPoolIdAsScala(value: Option[String]): CognitoOptions.Builder = {
     value.fold(self) { v =>
       self.userPoolId(v)
     }
   } // String
 
-  final def withIdentityPoolIdAsScala(value: Option[String]): CognitoOptions.Builder = {
+  final def identityPoolIdAsScala(value: Option[String]): CognitoOptions.Builder = {
     value.fold(self) { v =>
       self.identityPoolId(v)
     }
   } // String
 
-  final def withRoleArnAsScala(value: Option[String]): CognitoOptions.Builder = {
+  final def roleArnAsScala(value: Option[String]): CognitoOptions.Builder = {
     value.fold(self) { v =>
       self.roleArn(v)
     }

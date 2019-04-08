@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetItemResponseBuilderOps(val self: GetItemResponse.Builder) extends AnyVal {
 
-  final def withItemAsScala(value: Option[Map[String, AttributeValue]]): GetItemResponse.Builder = {
+  final def itemAsScala(value: Option[Map[String, AttributeValue]]): GetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withConsumedCapacityAsScala(value: Option[ConsumedCapacity]): GetItemResponse.Builder = {
+  final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): GetItemResponse.Builder = {
     value.fold(self) { v =>
       self.consumedCapacity(v)
     }

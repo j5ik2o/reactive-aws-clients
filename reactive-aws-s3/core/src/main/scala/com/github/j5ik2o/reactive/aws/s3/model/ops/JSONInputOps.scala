@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class JSONInputBuilderOps(val self: JSONInput.Builder) extends AnyVal {
 
-  final def withTypeAsScala(value: Option[JSONType]): JSONInput.Builder = {
+  final def typeAsScala(value: Option[JSONType]): JSONInput.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class SecurityGroupMembershipBuilderOps(val self: SecurityGroupMembership.Builder) extends AnyVal {
 
-  final def withSecurityGroupIdentifierAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
+  final def securityGroupIdentifierAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
     value.fold(self) { v =>
       self.securityGroupIdentifier(v)
     }
   } // String
 
-  final def withStatusAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
+  final def statusAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

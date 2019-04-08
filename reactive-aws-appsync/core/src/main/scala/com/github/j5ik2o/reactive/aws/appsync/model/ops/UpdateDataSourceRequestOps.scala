@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateDataSourceRequestBuilderOps(val self: UpdateDataSourceRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withNameAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
+  final def nameAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withTypeAsScala(value: Option[DataSourceType]): UpdateDataSourceRequest.Builder = {
+  final def typeAsScala(value: Option[DataSourceType]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   } // String
 
-  final def withServiceRoleArnAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
+  final def serviceRoleArnAsScala(value: Option[String]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.serviceRoleArn(v)
     }
   } // String
 
-  final def withDynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): UpdateDataSourceRequest.Builder = {
+  final def dynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.dynamodbConfig(v)
     }
   } // DynamodbDataSourceConfig
 
-  final def withLambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): UpdateDataSourceRequest.Builder = {
+  final def lambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.lambdaConfig(v)
     }
   } // LambdaDataSourceConfig
 
-  final def withElasticsearchConfigAsScala(
+  final def elasticsearchConfigAsScala(
       value: Option[ElasticsearchDataSourceConfig]
   ): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
@@ -55,13 +55,13 @@ final class UpdateDataSourceRequestBuilderOps(val self: UpdateDataSourceRequest.
     }
   } // ElasticsearchDataSourceConfig
 
-  final def withHttpConfigAsScala(value: Option[HttpDataSourceConfig]): UpdateDataSourceRequest.Builder = {
+  final def httpConfigAsScala(value: Option[HttpDataSourceConfig]): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.httpConfig(v)
     }
   } // HttpDataSourceConfig
 
-  final def withRelationalDatabaseConfigAsScala(
+  final def relationalDatabaseConfigAsScala(
       value: Option[RelationalDatabaseDataSourceConfig]
   ): UpdateDataSourceRequest.Builder = {
     value.fold(self) { v =>

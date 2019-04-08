@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.sqs.model._
 final class ChangeMessageVisibilityBatchRequestBuilderOps(val self: ChangeMessageVisibilityBatchRequest.Builder)
     extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): ChangeMessageVisibilityBatchRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): ChangeMessageVisibilityBatchRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withEntriesAsScala(
+  final def entriesAsScala(
       value: Option[Seq[ChangeMessageVisibilityBatchRequestEntry]]
   ): ChangeMessageVisibilityBatchRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

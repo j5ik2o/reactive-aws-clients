@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class SubnetBuilderOps(val self: Subnet.Builder) extends AnyVal {
 
-  final def withSubnetIdentifierAsScala(value: Option[String]): Subnet.Builder = {
+  final def subnetIdentifierAsScala(value: Option[String]): Subnet.Builder = {
     value.fold(self) { v =>
       self.subnetIdentifier(v)
     }
   } // String
 
-  final def withSubnetAvailabilityZoneAsScala(value: Option[String]): Subnet.Builder = {
+  final def subnetAvailabilityZoneAsScala(value: Option[String]): Subnet.Builder = {
     value.fold(self) { v =>
       self.subnetAvailabilityZone(v)
     }

@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketEncryptionRequestBuilderOps(val self: PutBucketEncryptionRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withServerSideEncryptionConfigurationAsScala(
+  final def serverSideEncryptionConfigurationAsScala(
       value: Option[ServerSideEncryptionConfiguration]
   ): PutBucketEncryptionRequest.Builder = {
     value.fold(self) { v =>

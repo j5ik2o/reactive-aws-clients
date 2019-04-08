@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteClusterResponseBuilderOps(val self: DeleteClusterResponse.Builder) extends AnyVal {
 
-  final def withClusterAsScala(value: Option[Cluster]): DeleteClusterResponse.Builder = {
+  final def clusterAsScala(value: Option[Cluster]): DeleteClusterResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
     }

@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ReservedElasticsearchInstanceBuilderOps(val self: ReservedElasticsearchInstance.Builder) extends AnyVal {
 
-  final def withReservationNameAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
+  final def reservationNameAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.reservationName(v)
     }
   } // String
 
-  final def withReservedElasticsearchInstanceIdAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
+  final def reservedElasticsearchInstanceIdAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.reservedElasticsearchInstanceId(v)
     }
   } // String
 
-  final def withReservedElasticsearchInstanceOfferingIdAsScala(
+  final def reservedElasticsearchInstanceOfferingIdAsScala(
       value: Option[String]
   ): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
@@ -25,7 +25,7 @@ final class ReservedElasticsearchInstanceBuilderOps(val self: ReservedElasticsea
     }
   } // String
 
-  final def withElasticsearchInstanceTypeAsScala(
+  final def elasticsearchInstanceTypeAsScala(
       value: Option[ESPartitionInstanceType]
   ): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
@@ -33,49 +33,49 @@ final class ReservedElasticsearchInstanceBuilderOps(val self: ReservedElasticsea
     }
   } // String
 
-  final def withStartTimeAsScala(value: Option[java.time.Instant]): ReservedElasticsearchInstance.Builder = {
+  final def startTimeAsScala(value: Option[java.time.Instant]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
   } // Instant
 
-  final def withDurationAsScala(value: Option[Int]): ReservedElasticsearchInstance.Builder = {
+  final def durationAsScala(value: Option[Int]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.duration(v)
     }
   } // Int
 
-  final def withFixedPriceAsScala(value: Option[Double]): ReservedElasticsearchInstance.Builder = {
+  final def fixedPriceAsScala(value: Option[Double]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.fixedPrice(v)
     }
   } // Double
 
-  final def withUsagePriceAsScala(value: Option[Double]): ReservedElasticsearchInstance.Builder = {
+  final def usagePriceAsScala(value: Option[Double]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.usagePrice(v)
     }
   } // Double
 
-  final def withCurrencyCodeAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
+  final def currencyCodeAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.currencyCode(v)
     }
   } // String
 
-  final def withElasticsearchInstanceCountAsScala(value: Option[Int]): ReservedElasticsearchInstance.Builder = {
+  final def elasticsearchInstanceCountAsScala(value: Option[Int]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.elasticsearchInstanceCount(v)
     }
   } // Int
 
-  final def withStateAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
+  final def stateAsScala(value: Option[String]): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   } // String
 
-  final def withPaymentOptionAsScala(
+  final def paymentOptionAsScala(
       value: Option[ReservedElasticsearchInstancePaymentOption]
   ): ReservedElasticsearchInstance.Builder = {
     value.fold(self) { v =>
@@ -83,7 +83,7 @@ final class ReservedElasticsearchInstanceBuilderOps(val self: ReservedElasticsea
     }
   } // String
 
-  final def withRecurringChargesAsScala(value: Option[Seq[RecurringCharge]]): ReservedElasticsearchInstance.Builder = {
+  final def recurringChargesAsScala(value: Option[Seq[RecurringCharge]]): ReservedElasticsearchInstance.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.recurringCharges(v.asJava)
     } // Seq[RecurringCharge]

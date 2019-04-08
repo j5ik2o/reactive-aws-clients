@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class EndpointBuilderOps(val self: Endpoint.Builder) extends AnyVal {
 
-  final def withAddressAsScala(value: Option[String]): Endpoint.Builder = {
+  final def addressAsScala(value: Option[String]): Endpoint.Builder = {
     value.fold(self) { v =>
       self.address(v)
     }
   } // String
 
-  final def withPortAsScala(value: Option[Int]): Endpoint.Builder = {
+  final def portAsScala(value: Option[Int]): Endpoint.Builder = {
     value.fold(self) { v =>
       self.port(v)
     }

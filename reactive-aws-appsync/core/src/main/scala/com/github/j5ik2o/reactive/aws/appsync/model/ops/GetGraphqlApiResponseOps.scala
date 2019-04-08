@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetGraphqlApiResponseBuilderOps(val self: GetGraphqlApiResponse.Builder) extends AnyVal {
 
-  final def withGraphqlApiAsScala(value: Option[GraphqlApi]): GetGraphqlApiResponse.Builder = {
+  final def graphqlApiAsScala(value: Option[GraphqlApi]): GetGraphqlApiResponse.Builder = {
     value.fold(self) { v =>
       self.graphqlApi(v)
     }

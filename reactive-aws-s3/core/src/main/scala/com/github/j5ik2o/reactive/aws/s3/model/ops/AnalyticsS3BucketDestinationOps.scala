@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDestination.Builder) extends AnyVal {
 
-  final def withFormatAsScala(value: Option[AnalyticsS3ExportFileFormat]): AnalyticsS3BucketDestination.Builder = {
+  final def formatAsScala(value: Option[AnalyticsS3ExportFileFormat]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }
   } // String
 
-  final def withBucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
+  final def bucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucketAccountId(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
+  final def bucketAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
+  final def prefixAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AbortIncompleteMultipartUploadBuilderOps(val self: AbortIncompleteMultipartUpload.Builder) extends AnyVal {
 
-  final def withDaysAfterInitiationAsScala(value: Option[Int]): AbortIncompleteMultipartUpload.Builder = {
+  final def daysAfterInitiationAsScala(value: Option[Int]): AbortIncompleteMultipartUpload.Builder = {
     value.fold(self) { v =>
       self.daysAfterInitiation(v)
     }

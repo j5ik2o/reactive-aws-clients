@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AutoScalingPolicyUpdateBuilderOps(val self: AutoScalingPolicyUpdate.Builder) extends AnyVal {
 
-  final def withPolicyNameAsScala(value: Option[String]): AutoScalingPolicyUpdate.Builder = {
+  final def policyNameAsScala(value: Option[String]): AutoScalingPolicyUpdate.Builder = {
     value.fold(self) { v =>
       self.policyName(v)
     }
   } // String
 
-  final def withTargetTrackingScalingPolicyConfigurationAsScala(
+  final def targetTrackingScalingPolicyConfigurationAsScala(
       value: Option[AutoScalingTargetTrackingScalingPolicyConfigurationUpdate]
   ): AutoScalingPolicyUpdate.Builder = {
     value.fold(self) { v =>

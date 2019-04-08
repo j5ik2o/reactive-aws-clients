@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateResolverRequestBuilderOps(val self: CreateResolverRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): CreateResolverRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withTypeNameAsScala(value: Option[String]): CreateResolverRequest.Builder = {
+  final def typeNameAsScala(value: Option[String]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
   } // String
 
-  final def withFieldNameAsScala(value: Option[String]): CreateResolverRequest.Builder = {
+  final def fieldNameAsScala(value: Option[String]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.fieldName(v)
     }
   } // String
 
-  final def withDataSourceNameAsScala(value: Option[String]): CreateResolverRequest.Builder = {
+  final def dataSourceNameAsScala(value: Option[String]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.dataSourceName(v)
     }
   } // String
 
-  final def withRequestMappingTemplateAsScala(value: Option[String]): CreateResolverRequest.Builder = {
+  final def requestMappingTemplateAsScala(value: Option[String]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.requestMappingTemplate(v)
     }
   } // String
 
-  final def withResponseMappingTemplateAsScala(value: Option[String]): CreateResolverRequest.Builder = {
+  final def responseMappingTemplateAsScala(value: Option[String]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.responseMappingTemplate(v)
     }
   } // String
 
-  final def withKindAsScala(value: Option[ResolverKind]): CreateResolverRequest.Builder = {
+  final def kindAsScala(value: Option[ResolverKind]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.kind(v)
     }
   } // String
 
-  final def withPipelineConfigAsScala(value: Option[PipelineConfig]): CreateResolverRequest.Builder = {
+  final def pipelineConfigAsScala(value: Option[PipelineConfig]): CreateResolverRequest.Builder = {
     value.fold(self) { v =>
       self.pipelineConfig(v)
     }

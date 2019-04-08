@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
+  final def statusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

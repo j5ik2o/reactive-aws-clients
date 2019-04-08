@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AbortMultipartUploadRequestBuilderOps(val self: AbortMultipartUploadRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
+  final def keyAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withUploadIdAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
+  final def uploadIdAsScala(value: Option[String]): AbortMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): AbortMultipartUploadRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): AbortMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

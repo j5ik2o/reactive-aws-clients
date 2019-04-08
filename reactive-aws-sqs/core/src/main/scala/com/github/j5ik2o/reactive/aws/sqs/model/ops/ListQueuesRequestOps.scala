@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class ListQueuesRequestBuilderOps(val self: ListQueuesRequest.Builder) extends AnyVal {
 
-  final def withQueueNamePrefixAsScala(value: Option[String]): ListQueuesRequest.Builder = {
+  final def queueNamePrefixAsScala(value: Option[String]): ListQueuesRequest.Builder = {
     value.fold(self) { v =>
       self.queueNamePrefix(v)
     }

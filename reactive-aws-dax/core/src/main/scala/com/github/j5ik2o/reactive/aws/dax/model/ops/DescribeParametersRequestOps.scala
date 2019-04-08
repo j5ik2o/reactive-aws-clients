@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DescribeParametersRequestBuilderOps(val self: DescribeParametersRequest.Builder) extends AnyVal {
 
-  final def withParameterGroupNameAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   } // String
 
-  final def withSourceAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
+  final def sourceAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.source(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): DescribeParametersRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

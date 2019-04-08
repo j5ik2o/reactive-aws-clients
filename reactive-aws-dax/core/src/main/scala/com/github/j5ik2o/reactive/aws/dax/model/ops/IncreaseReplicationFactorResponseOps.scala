@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.dax.model._
 final class IncreaseReplicationFactorResponseBuilderOps(val self: IncreaseReplicationFactorResponse.Builder)
     extends AnyVal {
 
-  final def withClusterAsScala(value: Option[Cluster]): IncreaseReplicationFactorResponse.Builder = {
+  final def clusterAsScala(value: Option[Cluster]): IncreaseReplicationFactorResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
     }

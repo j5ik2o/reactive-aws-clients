@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketEncryptionRequestBuilderOps(val self: DeleteBucketEncryptionRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketEncryptionRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

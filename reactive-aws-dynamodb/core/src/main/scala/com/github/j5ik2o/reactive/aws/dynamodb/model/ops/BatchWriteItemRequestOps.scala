@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BatchWriteItemRequestBuilderOps(val self: BatchWriteItemRequest.Builder) extends AnyVal {
 
-  final def withRequestItemsAsScala(value: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemRequest.Builder = {
+  final def requestItemsAsScala(value: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.requestItems(v.mapValues(_.asJava).asJava)
     } // Map[String, Seq[WriteRequest]]
   }
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchWriteItemRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchWriteItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withReturnItemCollectionMetricsAsScala(
+  final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
   ): BatchWriteItemRequest.Builder = {
     value.fold(self) { v =>

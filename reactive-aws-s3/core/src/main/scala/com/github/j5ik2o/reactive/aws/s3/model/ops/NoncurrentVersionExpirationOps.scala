@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class NoncurrentVersionExpirationBuilderOps(val self: NoncurrentVersionExpiration.Builder) extends AnyVal {
 
-  final def withNoncurrentDaysAsScala(value: Option[Int]): NoncurrentVersionExpiration.Builder = {
+  final def noncurrentDaysAsScala(value: Option[Int]): NoncurrentVersionExpiration.Builder = {
     value.fold(self) { v =>
       self.noncurrentDays(v)
     }

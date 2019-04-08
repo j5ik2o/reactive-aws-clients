@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class MessageBuilderOps(val self: Message.Builder) extends AnyVal {
 
-  final def withMessageIdAsScala(value: Option[String]): Message.Builder = {
+  final def messageIdAsScala(value: Option[String]): Message.Builder = {
     value.fold(self) { v =>
       self.messageId(v)
     }
   } // String
 
-  final def withReceiptHandleAsScala(value: Option[String]): Message.Builder = {
+  final def receiptHandleAsScala(value: Option[String]): Message.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }
   } // String
 
-  final def withMd5OfBodyAsScala(value: Option[String]): Message.Builder = {
+  final def md5OfBodyAsScala(value: Option[String]): Message.Builder = {
     value.fold(self) { v =>
       self.md5OfBody(v)
     }
   } // String
 
-  final def withBodyAsScala(value: Option[String]): Message.Builder = {
+  final def bodyAsScala(value: Option[String]): Message.Builder = {
     value.fold(self) { v =>
       self.body(v)
     }
   } // String
 
-  final def withAttributesAsScala(value: Option[Map[MessageSystemAttributeName, String]]): Message.Builder = {
+  final def attributesAsScala(value: Option[Map[MessageSystemAttributeName, String]]): Message.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, String]
   }
 
-  final def withMd5OfMessageAttributesAsScala(value: Option[String]): Message.Builder = {
+  final def md5OfMessageAttributesAsScala(value: Option[String]): Message.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageAttributes(v)
     }
   } // String
 
-  final def withMessageAttributesAsScala(value: Option[Map[String, MessageAttributeValue]]): Message.Builder = {
+  final def messageAttributesAsScala(value: Option[Map[String, MessageAttributeValue]]): Message.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messageAttributes(v.asJava)
     } // Map[String, MessageAttributeValue]

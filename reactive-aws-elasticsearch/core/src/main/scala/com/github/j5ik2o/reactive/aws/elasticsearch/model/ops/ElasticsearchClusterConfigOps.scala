@@ -5,45 +5,43 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterConfig.Builder) extends AnyVal {
 
-  final def withInstanceTypeAsScala(value: Option[ESPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
+  final def instanceTypeAsScala(value: Option[ESPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.instanceType(v)
     }
   } // String
 
-  final def withInstanceCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
+  final def instanceCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
   } // Int
 
-  final def withDedicatedMasterEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
+  final def dedicatedMasterEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.dedicatedMasterEnabled(v)
     }
   } // Boolean
 
-  final def withZoneAwarenessEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
+  final def zoneAwarenessEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.zoneAwarenessEnabled(v)
     }
   } // Boolean
 
-  final def withZoneAwarenessConfigAsScala(value: Option[ZoneAwarenessConfig]): ElasticsearchClusterConfig.Builder = {
+  final def zoneAwarenessConfigAsScala(value: Option[ZoneAwarenessConfig]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.zoneAwarenessConfig(v)
     }
   } // ZoneAwarenessConfig
 
-  final def withDedicatedMasterTypeAsScala(
-      value: Option[ESPartitionInstanceType]
-  ): ElasticsearchClusterConfig.Builder = {
+  final def dedicatedMasterTypeAsScala(value: Option[ESPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.dedicatedMasterType(v)
     }
   } // String
 
-  final def withDedicatedMasterCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
+  final def dedicatedMasterCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
     value.fold(self) { v =>
       self.dedicatedMasterCount(v)
     }

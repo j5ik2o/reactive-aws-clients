@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class PutRecordsResultEntryBuilderOps(val self: PutRecordsResultEntry.Builder) extends AnyVal {
 
-  final def withSequenceNumberAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
   } // String
 
-  final def withShardIdAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
+  final def shardIdAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
   } // String
 
-  final def withErrorCodeAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
+  final def errorCodeAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.errorCode(v)
     }
   } // String
 
-  final def withErrorMessageAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
+  final def errorMessageAsScala(value: Option[String]): PutRecordsResultEntry.Builder = {
     value.fold(self) { v =>
       self.errorMessage(v)
     }

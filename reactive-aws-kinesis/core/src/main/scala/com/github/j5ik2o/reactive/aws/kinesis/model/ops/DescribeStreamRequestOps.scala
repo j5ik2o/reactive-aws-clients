@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamRequestBuilderOps(val self: DescribeStreamRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withLimitAsScala(value: Option[Int]): DescribeStreamRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): DescribeStreamRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   } // Int
 
-  final def withExclusiveStartShardIdAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
+  final def exclusiveStartShardIdAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartShardId(v)
     }

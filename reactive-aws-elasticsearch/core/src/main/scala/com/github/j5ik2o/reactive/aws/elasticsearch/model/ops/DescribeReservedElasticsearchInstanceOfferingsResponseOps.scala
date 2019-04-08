@@ -7,15 +7,13 @@ final class DescribeReservedElasticsearchInstanceOfferingsResponseBuilderOps(
     val self: DescribeReservedElasticsearchInstanceOfferingsResponse.Builder
 ) extends AnyVal {
 
-  final def withNextTokenAsScala(
-      value: Option[String]
-  ): DescribeReservedElasticsearchInstanceOfferingsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeReservedElasticsearchInstanceOfferingsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withReservedElasticsearchInstanceOfferingsAsScala(
+  final def reservedElasticsearchInstanceOfferingsAsScala(
       value: Option[Seq[ReservedElasticsearchInstanceOffering]]
   ): DescribeReservedElasticsearchInstanceOfferingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class AddPermissionRequestBuilderOps(val self: AddPermissionRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): AddPermissionRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withLabelAsScala(value: Option[String]): AddPermissionRequest.Builder = {
+  final def labelAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.label(v)
     }
   } // String
 
-  final def withAwsAccountIdsAsScala(value: Option[Seq[String]]): AddPermissionRequest.Builder = {
+  final def awsAccountIdsAsScala(value: Option[Seq[String]]): AddPermissionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.awsAccountIds(v.asJava)
     } // Seq[String]
   }
 
-  final def withActionsAsScala(value: Option[Seq[String]]): AddPermissionRequest.Builder = {
+  final def actionsAsScala(value: Option[Seq[String]]): AddPermissionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.actions(v.asJava)
     } // Seq[String]

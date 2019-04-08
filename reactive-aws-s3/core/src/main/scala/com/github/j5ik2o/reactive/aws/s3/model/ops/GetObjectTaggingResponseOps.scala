@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectTaggingResponseBuilderOps(val self: GetObjectTaggingResponse.Builder) extends AnyVal {
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectTaggingResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectTaggingResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withTagSetAsScala(value: Option[Seq[Tag]]): GetObjectTaggingResponse.Builder = {
+  final def tagSetAsScala(value: Option[Seq[Tag]]): GetObjectTaggingResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagSet(v.asJava)
     } // Seq[Tag]

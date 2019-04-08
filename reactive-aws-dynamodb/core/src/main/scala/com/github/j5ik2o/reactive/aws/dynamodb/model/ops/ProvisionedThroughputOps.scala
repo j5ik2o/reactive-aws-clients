@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ProvisionedThroughputBuilderOps(val self: ProvisionedThroughput.Builder) extends AnyVal {
 
-  final def withReadCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
+  final def readCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
     value.fold(self) { v =>
       self.readCapacityUnits(v)
     }
   } // Long
 
-  final def withWriteCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
+  final def writeCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
     value.fold(self) { v =>
       self.writeCapacityUnits(v)
     }

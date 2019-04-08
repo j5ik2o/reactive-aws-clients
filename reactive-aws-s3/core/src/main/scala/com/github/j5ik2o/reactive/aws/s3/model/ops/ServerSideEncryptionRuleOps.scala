@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ServerSideEncryptionRuleBuilderOps(val self: ServerSideEncryptionRule.Builder) extends AnyVal {
 
-  final def withApplyServerSideEncryptionByDefaultAsScala(
+  final def applyServerSideEncryptionByDefaultAsScala(
       value: Option[ServerSideEncryptionByDefault]
   ): ServerSideEncryptionRule.Builder = {
     value.fold(self) { v =>

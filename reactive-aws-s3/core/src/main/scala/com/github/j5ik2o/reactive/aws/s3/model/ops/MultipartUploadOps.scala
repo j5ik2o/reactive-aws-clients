@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.s3.model._
 
 final class MultipartUploadBuilderOps(val self: MultipartUpload.Builder) extends AnyVal {
 
-  final def withUploadIdAsScala(value: Option[String]): MultipartUpload.Builder = {
+  final def uploadIdAsScala(value: Option[String]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): MultipartUpload.Builder = {
+  final def keyAsScala(value: Option[String]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withInitiatedAsScala(value: Option[java.time.Instant]): MultipartUpload.Builder = {
+  final def initiatedAsScala(value: Option[java.time.Instant]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.initiated(v)
     }
   } // Instant
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): MultipartUpload.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withOwnerAsScala(value: Option[Owner]): MultipartUpload.Builder = {
+  final def ownerAsScala(value: Option[Owner]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
   } // Owner
 
-  final def withInitiatorAsScala(value: Option[Initiator]): MultipartUpload.Builder = {
+  final def initiatorAsScala(value: Option[Initiator]): MultipartUpload.Builder = {
     value.fold(self) { v =>
       self.initiator(v)
     }

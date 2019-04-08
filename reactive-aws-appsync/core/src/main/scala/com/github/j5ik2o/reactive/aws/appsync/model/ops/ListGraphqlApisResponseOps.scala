@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListGraphqlApisResponseBuilderOps(val self: ListGraphqlApisResponse.Builder) extends AnyVal {
 
-  final def withGraphqlApisAsScala(value: Option[Seq[GraphqlApi]]): ListGraphqlApisResponse.Builder = {
+  final def graphqlApisAsScala(value: Option[Seq[GraphqlApi]]): ListGraphqlApisResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.graphqlApis(v.asJava)
     } // Seq[GraphqlApi]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListGraphqlApisResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListGraphqlApisResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

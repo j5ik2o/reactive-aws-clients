@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class StartSchemaCreationResponseBuilderOps(val self: StartSchemaCreationResponse.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[SchemaStatus]): StartSchemaCreationResponse.Builder = {
+  final def statusAsScala(value: Option[SchemaStatus]): StartSchemaCreationResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

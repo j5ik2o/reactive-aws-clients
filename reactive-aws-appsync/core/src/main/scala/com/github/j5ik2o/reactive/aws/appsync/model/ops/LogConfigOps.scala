@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class LogConfigBuilderOps(val self: LogConfig.Builder) extends AnyVal {
 
-  final def withFieldLogLevelAsScala(value: Option[FieldLogLevel]): LogConfig.Builder = {
+  final def fieldLogLevelAsScala(value: Option[FieldLogLevel]): LogConfig.Builder = {
     value.fold(self) { v =>
       self.fieldLogLevel(v)
     }
   } // String
 
-  final def withCloudWatchLogsRoleArnAsScala(value: Option[String]): LogConfig.Builder = {
+  final def cloudWatchLogsRoleArnAsScala(value: Option[String]): LogConfig.Builder = {
     value.fold(self) { v =>
       self.cloudWatchLogsRoleArn(v)
     }

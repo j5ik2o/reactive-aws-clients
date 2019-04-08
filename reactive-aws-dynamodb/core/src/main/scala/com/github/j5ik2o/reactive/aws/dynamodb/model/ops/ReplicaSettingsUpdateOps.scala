@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Builder) extends AnyVal {
 
-  final def withRegionNameAsScala(value: Option[String]): ReplicaSettingsUpdate.Builder = {
+  final def regionNameAsScala(value: Option[String]): ReplicaSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }
   } // String
 
-  final def withReplicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsUpdate.Builder = {
+  final def replicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityUnits(v)
     }
   } // Long
 
-  final def withReplicaProvisionedReadCapacityAutoScalingSettingsUpdateAsScala(
+  final def replicaProvisionedReadCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): ReplicaSettingsUpdate.Builder = {
     value.fold(self) { v =>
@@ -25,7 +25,7 @@ final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Buil
     }
   } // AutoScalingSettingsUpdate
 
-  final def withReplicaGlobalSecondaryIndexSettingsUpdateAsScala(
+  final def replicaGlobalSecondaryIndexSettingsUpdateAsScala(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]]
   ): ReplicaSettingsUpdate.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

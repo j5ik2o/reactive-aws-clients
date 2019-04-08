@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InputSerializationBuilderOps(val self: InputSerialization.Builder) extends AnyVal {
 
-  final def withCsvAsScala(value: Option[CSVInput]): InputSerialization.Builder = {
+  final def csvAsScala(value: Option[CSVInput]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.csv(v)
     }
   } // CSVInput
 
-  final def withCompressionTypeAsScala(value: Option[CompressionType]): InputSerialization.Builder = {
+  final def compressionTypeAsScala(value: Option[CompressionType]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.compressionType(v)
     }
   } // String
 
-  final def withJsonAsScala(value: Option[JSONInput]): InputSerialization.Builder = {
+  final def jsonAsScala(value: Option[JSONInput]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.json(v)
     }
   } // JSONInput
 
-  final def withParquetAsScala(value: Option[ParquetInput]): InputSerialization.Builder = {
+  final def parquetAsScala(value: Option[ParquetInput]): InputSerialization.Builder = {
     value.fold(self) { v =>
       self.parquet(v)
     }

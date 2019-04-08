@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GlobalSecondaryIndexUpdateBuilderOps(val self: GlobalSecondaryIndexUpdate.Builder) extends AnyVal {
 
-  final def withUpdateAsScala(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
+  final def updateAsScala(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.update(v)
     }
   } // UpdateGlobalSecondaryIndexAction
 
-  final def withCreateAsScala(value: Option[CreateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
+  final def createAsScala(value: Option[CreateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.create(v)
     }
   } // CreateGlobalSecondaryIndexAction
 
-  final def withDeleteAsScala(value: Option[DeleteGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
+  final def deleteAsScala(value: Option[DeleteGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }

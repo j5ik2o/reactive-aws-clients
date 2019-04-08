@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class CreateParameterGroupRequestBuilderOps(val self: CreateParameterGroupRequest.Builder) extends AnyVal {
 
-  final def withParameterGroupNameAsScala(value: Option[String]): CreateParameterGroupRequest.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): CreateParameterGroupRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): CreateParameterGroupRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): CreateParameterGroupRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }

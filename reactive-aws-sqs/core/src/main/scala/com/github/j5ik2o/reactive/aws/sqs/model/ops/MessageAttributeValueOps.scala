@@ -5,27 +5,25 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class MessageAttributeValueBuilderOps(val self: MessageAttributeValue.Builder) extends AnyVal {
 
-  final def withStringValueAsScala(value: Option[String]): MessageAttributeValue.Builder = {
+  final def stringValueAsScala(value: Option[String]): MessageAttributeValue.Builder = {
     value.fold(self) { v =>
       self.stringValue(v)
     }
   } // String
 
-  final def withBinaryValueAsScala(
-      value: Option[software.amazon.awssdk.core.SdkBytes]
-  ): MessageAttributeValue.Builder = {
+  final def binaryValueAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): MessageAttributeValue.Builder = {
     value.fold(self) { v =>
       self.binaryValue(v)
     }
   } // SdkBytes
 
-  final def withStringListValuesAsScala(value: Option[Seq[String]]): MessageAttributeValue.Builder = {
+  final def stringListValuesAsScala(value: Option[Seq[String]]): MessageAttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stringListValues(v.asJava)
     } // Seq[String]
   }
 
-  final def withBinaryListValuesAsScala(
+  final def binaryListValuesAsScala(
       value: Option[Seq[software.amazon.awssdk.core.SdkBytes]]
   ): MessageAttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -33,7 +31,7 @@ final class MessageAttributeValueBuilderOps(val self: MessageAttributeValue.Buil
     } // Seq[SdkBytes]
   }
 
-  final def withDataTypeAsScala(value: Option[String]): MessageAttributeValue.Builder = {
+  final def dataTypeAsScala(value: Option[String]): MessageAttributeValue.Builder = {
     value.fold(self) { v =>
       self.dataType(v)
     }

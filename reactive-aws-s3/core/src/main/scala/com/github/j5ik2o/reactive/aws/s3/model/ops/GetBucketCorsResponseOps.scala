@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketCorsResponseBuilderOps(val self: GetBucketCorsResponse.Builder) extends AnyVal {
 
-  final def withCorsRulesAsScala(value: Option[Seq[CORSRule]]): GetBucketCorsResponse.Builder = {
+  final def corsRulesAsScala(value: Option[Seq[CORSRule]]): GetBucketCorsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.corsRules(v.asJava)
     } // Seq[CORSRule]

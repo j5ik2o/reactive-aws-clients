@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketAccelerateConfigurationRequestBuilderOps(val self: PutBucketAccelerateConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketAccelerateConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketAccelerateConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withAccelerateConfigurationAsScala(
+  final def accelerateConfigurationAsScala(
       value: Option[AccelerateConfiguration]
   ): PutBucketAccelerateConfigurationRequest.Builder = {
     value.fold(self) { v =>

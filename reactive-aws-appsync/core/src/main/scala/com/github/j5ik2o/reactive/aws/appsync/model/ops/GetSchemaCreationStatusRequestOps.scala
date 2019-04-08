@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetSchemaCreationStatusRequestBuilderOps(val self: GetSchemaCreationStatusRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): GetSchemaCreationStatusRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): GetSchemaCreationStatusRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ReplicaUpdateBuilderOps(val self: ReplicaUpdate.Builder) extends AnyVal {
 
-  final def withCreateAsScala(value: Option[CreateReplicaAction]): ReplicaUpdate.Builder = {
+  final def createAsScala(value: Option[CreateReplicaAction]): ReplicaUpdate.Builder = {
     value.fold(self) { v =>
       self.create(v)
     }
   } // CreateReplicaAction
 
-  final def withDeleteAsScala(value: Option[DeleteReplicaAction]): ReplicaUpdate.Builder = {
+  final def deleteAsScala(value: Option[DeleteReplicaAction]): ReplicaUpdate.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListStreamsRequestBuilderOps(val self: ListStreamsRequest.Builder) extends AnyVal {
 
-  final def withLimitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   } // Int
 
-  final def withExclusiveStartStreamNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
+  final def exclusiveStartStreamNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartStreamName(v)
     }

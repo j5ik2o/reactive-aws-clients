@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeletedObjectBuilderOps(val self: DeletedObject.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[String]): DeletedObject.Builder = {
+  final def keyAsScala(value: Option[String]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): DeletedObject.Builder = {
+  final def versionIdAsScala(value: Option[String]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withDeleteMarkerAsScala(value: Option[Boolean]): DeletedObject.Builder = {
+  final def deleteMarkerAsScala(value: Option[Boolean]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.deleteMarker(v)
     }
   } // Boolean
 
-  final def withDeleteMarkerVersionIdAsScala(value: Option[String]): DeletedObject.Builder = {
+  final def deleteMarkerVersionIdAsScala(value: Option[String]): DeletedObject.Builder = {
     value.fold(self) { v =>
       self.deleteMarkerVersionId(v)
     }

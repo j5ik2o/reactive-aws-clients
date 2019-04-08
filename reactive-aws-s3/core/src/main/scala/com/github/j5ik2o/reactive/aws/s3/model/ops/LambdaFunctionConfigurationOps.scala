@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LambdaFunctionConfigurationBuilderOps(val self: LambdaFunctionConfiguration.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): LambdaFunctionConfiguration.Builder = {
+  final def idAsScala(value: Option[String]): LambdaFunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withLambdaFunctionArnAsScala(value: Option[String]): LambdaFunctionConfiguration.Builder = {
+  final def lambdaFunctionArnAsScala(value: Option[String]): LambdaFunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.lambdaFunctionArn(v)
     }
   } // String
 
-  final def withEventsAsScala(value: Option[Seq[Event]]): LambdaFunctionConfiguration.Builder = {
+  final def eventsAsScala(value: Option[Seq[Event]]): LambdaFunctionConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
     } // Seq[String]
   }
 
-  final def withFilterAsScala(value: Option[NotificationConfigurationFilter]): LambdaFunctionConfiguration.Builder = {
+  final def filterAsScala(value: Option[NotificationConfigurationFilter]): LambdaFunctionConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }

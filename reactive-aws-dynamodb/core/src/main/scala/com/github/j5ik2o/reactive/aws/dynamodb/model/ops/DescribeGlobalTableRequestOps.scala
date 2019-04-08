@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeGlobalTableRequestBuilderOps(val self: DescribeGlobalTableRequest.Builder) extends AnyVal {
 
-  final def withGlobalTableNameAsScala(value: Option[String]): DescribeGlobalTableRequest.Builder = {
+  final def globalTableNameAsScala(value: Option[String]): DescribeGlobalTableRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteParameterGroupRequestBuilderOps(val self: DeleteParameterGroupRequest.Builder) extends AnyVal {
 
-  final def withParameterGroupNameAsScala(value: Option[String]): DeleteParameterGroupRequest.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): DeleteParameterGroupRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }

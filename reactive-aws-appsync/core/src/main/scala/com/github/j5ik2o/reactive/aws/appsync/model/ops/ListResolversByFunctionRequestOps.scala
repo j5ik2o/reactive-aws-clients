@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListResolversByFunctionRequestBuilderOps(val self: ListResolversByFunctionRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withFunctionIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
+  final def functionIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionId(v)
     }
   } // String
 
-  final def withNextTokenAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): ListResolversByFunctionRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): ListResolversByFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }

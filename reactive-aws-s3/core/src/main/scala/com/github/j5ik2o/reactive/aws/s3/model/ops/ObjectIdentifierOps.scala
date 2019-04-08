@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectIdentifierBuilderOps(val self: ObjectIdentifier.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[String]): ObjectIdentifier.Builder = {
+  final def keyAsScala(value: Option[String]): ObjectIdentifier.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): ObjectIdentifier.Builder = {
+  final def versionIdAsScala(value: Option[String]): ObjectIdentifier.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }

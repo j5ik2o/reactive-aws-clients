@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DescribeClustersResponseBuilderOps(val self: DescribeClustersResponse.Builder) extends AnyVal {
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeClustersResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeClustersResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withClustersAsScala(value: Option[Seq[Cluster]]): DescribeClustersResponse.Builder = {
+  final def clustersAsScala(value: Option[Seq[Cluster]]): DescribeClustersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.clusters(v.asJava)
     } // Seq[Cluster]

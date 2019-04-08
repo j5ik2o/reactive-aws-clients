@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class CreateQueueRequestBuilderOps(val self: CreateQueueRequest.Builder) extends AnyVal {
 
-  final def withQueueNameAsScala(value: Option[String]): CreateQueueRequest.Builder = {
+  final def queueNameAsScala(value: Option[String]): CreateQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueName(v)
     }
   } // String
 
-  final def withAttributesAsScala(value: Option[Map[QueueAttributeName, String]]): CreateQueueRequest.Builder = {
+  final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): CreateQueueRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, String]

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class CreateSubnetGroupResponseBuilderOps(val self: CreateSubnetGroupResponse.Builder) extends AnyVal {
 
-  final def withSubnetGroupAsScala(value: Option[SubnetGroup]): CreateSubnetGroupResponse.Builder = {
+  final def subnetGroupAsScala(value: Option[SubnetGroup]): CreateSubnetGroupResponse.Builder = {
     value.fold(self) { v =>
       self.subnetGroup(v)
     }

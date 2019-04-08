@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GlacierJobParametersBuilderOps(val self: GlacierJobParameters.Builder) extends AnyVal {
 
-  final def withTierAsScala(value: Option[Tier]): GlacierJobParameters.Builder = {
+  final def tierAsScala(value: Option[Tier]): GlacierJobParameters.Builder = {
     value.fold(self) { v =>
       self.tier(v)
     }

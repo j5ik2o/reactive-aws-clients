@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class RdsHttpEndpointConfigBuilderOps(val self: RdsHttpEndpointConfig.Builder) extends AnyVal {
 
-  final def withAwsRegionAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
+  final def awsRegionAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
     }
   } // String
 
-  final def withDbClusterIdentifierAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
+  final def dbClusterIdentifierAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.dbClusterIdentifier(v)
     }
   } // String
 
-  final def withDatabaseNameAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
+  final def databaseNameAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.databaseName(v)
     }
   } // String
 
-  final def withSchemaAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
+  final def schemaAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.schema(v)
     }
   } // String
 
-  final def withAwsSecretStoreArnAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
+  final def awsSecretStoreArnAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
     value.fold(self) { v =>
       self.awsSecretStoreArn(v)
     }

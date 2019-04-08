@@ -7,7 +7,7 @@ final class CancelElasticsearchServiceSoftwareUpdateRequestBuilderOps(
     val self: CancelElasticsearchServiceSoftwareUpdateRequest.Builder
 ) extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): CancelElasticsearchServiceSoftwareUpdateRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): CancelElasticsearchServiceSoftwareUpdateRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }

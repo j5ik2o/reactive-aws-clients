@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class ListElasticsearchVersionsResponseBuilderOps(val self: ListElasticsearchVersionsResponse.Builder)
     extends AnyVal {
 
-  final def withElasticsearchVersionsAsScala(value: Option[Seq[String]]): ListElasticsearchVersionsResponse.Builder = {
+  final def elasticsearchVersionsAsScala(value: Option[Seq[String]]): ListElasticsearchVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.elasticsearchVersions(v.asJava)
     } // Seq[String]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListElasticsearchVersionsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListElasticsearchVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

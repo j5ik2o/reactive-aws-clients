@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class RebootNodeResponseBuilderOps(val self: RebootNodeResponse.Builder) extends AnyVal {
 
-  final def withClusterAsScala(value: Option[Cluster]): RebootNodeResponse.Builder = {
+  final def clusterAsScala(value: Option[Cluster]): RebootNodeResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
     }

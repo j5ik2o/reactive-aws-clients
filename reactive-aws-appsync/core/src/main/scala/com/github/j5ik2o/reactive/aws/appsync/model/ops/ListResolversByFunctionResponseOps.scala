@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.appsync.model._
 final class ListResolversByFunctionResponseBuilderOps(val self: ListResolversByFunctionResponse.Builder)
     extends AnyVal {
 
-  final def withResolversAsScala(value: Option[Seq[Resolver]]): ListResolversByFunctionResponse.Builder = {
+  final def resolversAsScala(value: Option[Seq[Resolver]]): ListResolversByFunctionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.resolvers(v.asJava)
     } // Seq[Resolver]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListResolversByFunctionResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListResolversByFunctionResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

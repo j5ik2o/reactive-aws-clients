@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class RecurringChargeBuilderOps(val self: RecurringCharge.Builder) extends AnyVal {
 
-  final def withRecurringChargeAmountAsScala(value: Option[Double]): RecurringCharge.Builder = {
+  final def recurringChargeAmountAsScala(value: Option[Double]): RecurringCharge.Builder = {
     value.fold(self) { v =>
       self.recurringChargeAmount(v)
     }
   } // Double
 
-  final def withRecurringChargeFrequencyAsScala(value: Option[String]): RecurringCharge.Builder = {
+  final def recurringChargeFrequencyAsScala(value: Option[String]): RecurringCharge.Builder = {
     value.fold(self) { v =>
       self.recurringChargeFrequency(v)
     }

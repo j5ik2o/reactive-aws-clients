@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class StorageTypeLimitBuilderOps(val self: StorageTypeLimit.Builder) extends AnyVal {
 
-  final def withLimitNameAsScala(value: Option[String]): StorageTypeLimit.Builder = {
+  final def limitNameAsScala(value: Option[String]): StorageTypeLimit.Builder = {
     value.fold(self) { v =>
       self.limitName(v)
     }
   } // String
 
-  final def withLimitValuesAsScala(value: Option[Seq[String]]): StorageTypeLimit.Builder = {
+  final def limitValuesAsScala(value: Option[Seq[String]]): StorageTypeLimit.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.limitValues(v.asJava)
     } // Seq[String]

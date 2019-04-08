@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class RestoreTableFromBackupResponseBuilderOps(val self: RestoreTableFromBackupResponse.Builder) extends AnyVal {
 
-  final def withTableDescriptionAsScala(value: Option[TableDescription]): RestoreTableFromBackupResponse.Builder = {
+  final def tableDescriptionAsScala(value: Option[TableDescription]): RestoreTableFromBackupResponse.Builder = {
     value.fold(self) { v =>
       self.tableDescription(v)
     }

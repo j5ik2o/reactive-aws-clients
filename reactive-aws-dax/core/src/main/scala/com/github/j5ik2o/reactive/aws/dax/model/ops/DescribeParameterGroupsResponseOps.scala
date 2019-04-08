@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.dax.model._
 final class DescribeParameterGroupsResponseBuilderOps(val self: DescribeParameterGroupsResponse.Builder)
     extends AnyVal {
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeParameterGroupsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeParameterGroupsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withParameterGroupsAsScala(value: Option[Seq[ParameterGroup]]): DescribeParameterGroupsResponse.Builder = {
+  final def parameterGroupsAsScala(value: Option[Seq[ParameterGroup]]): DescribeParameterGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameterGroups(v.asJava)
     } // Seq[ParameterGroup]

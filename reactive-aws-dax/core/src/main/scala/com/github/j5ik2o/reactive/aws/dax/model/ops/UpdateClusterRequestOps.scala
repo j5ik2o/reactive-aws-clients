@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UpdateClusterRequestBuilderOps(val self: UpdateClusterRequest.Builder) extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
+  final def clusterNameAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withPreferredMaintenanceWindowAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
+  final def preferredMaintenanceWindowAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.preferredMaintenanceWindow(v)
     }
   } // String
 
-  final def withNotificationTopicArnAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
+  final def notificationTopicArnAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.notificationTopicArn(v)
     }
   } // String
 
-  final def withNotificationTopicStatusAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
+  final def notificationTopicStatusAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.notificationTopicStatus(v)
     }
   } // String
 
-  final def withParameterGroupNameAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   } // String
 
-  final def withSecurityGroupIdsAsScala(value: Option[Seq[String]]): UpdateClusterRequest.Builder = {
+  final def securityGroupIdsAsScala(value: Option[Seq[String]]): UpdateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
     } // Seq[String]

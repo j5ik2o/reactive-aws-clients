@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.s3.model._
 
 final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
 
-  final def withBucketNameAsScala(value: Option[String]): S3Location.Builder = {
+  final def bucketNameAsScala(value: Option[String]): S3Location.Builder = {
     value.fold(self) { v =>
       self.bucketName(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): S3Location.Builder = {
+  final def prefixAsScala(value: Option[String]): S3Location.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withEncryptionAsScala(value: Option[Encryption]): S3Location.Builder = {
+  final def encryptionAsScala(value: Option[Encryption]): S3Location.Builder = {
     value.fold(self) { v =>
       self.encryption(v)
     }
   } // Encryption
 
-  final def withCannedACLAsScala(value: Option[ObjectCannedACL]): S3Location.Builder = {
+  final def cannedACLAsScala(value: Option[ObjectCannedACL]): S3Location.Builder = {
     value.fold(self) { v =>
       self.cannedACL(v)
     }
   } // String
 
-  final def withAccessControlListAsScala(value: Option[Seq[Grant]]): S3Location.Builder = {
+  final def accessControlListAsScala(value: Option[Seq[Grant]]): S3Location.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.accessControlList(v.asJava)
     } // Seq[Grant]
   }
 
-  final def withTaggingAsScala(value: Option[Tagging]): S3Location.Builder = {
+  final def taggingAsScala(value: Option[Tagging]): S3Location.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }
   } // Tagging
 
-  final def withUserMetadataAsScala(value: Option[Seq[MetadataEntry]]): S3Location.Builder = {
+  final def userMetadataAsScala(value: Option[Seq[MetadataEntry]]): S3Location.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.userMetadata(v.asJava)
     } // Seq[MetadataEntry]
   }
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): S3Location.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): S3Location.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }

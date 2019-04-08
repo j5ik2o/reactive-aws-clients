@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class CognitoOptionsStatusBuilderOps(val self: CognitoOptionsStatus.Builder) extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[CognitoOptions]): CognitoOptionsStatus.Builder = {
+  final def optionsAsScala(value: Option[CognitoOptions]): CognitoOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // CognitoOptions
 
-  final def withStatusAsScala(value: Option[OptionStatus]): CognitoOptionsStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): CognitoOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

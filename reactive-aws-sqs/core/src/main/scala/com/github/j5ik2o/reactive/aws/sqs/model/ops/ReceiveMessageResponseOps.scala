@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class ReceiveMessageResponseBuilderOps(val self: ReceiveMessageResponse.Builder) extends AnyVal {
 
-  final def withMessagesAsScala(value: Option[Seq[Message]]): ReceiveMessageResponse.Builder = {
+  final def messagesAsScala(value: Option[Seq[Message]]): ReceiveMessageResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messages(v.asJava)
     } // Seq[Message]

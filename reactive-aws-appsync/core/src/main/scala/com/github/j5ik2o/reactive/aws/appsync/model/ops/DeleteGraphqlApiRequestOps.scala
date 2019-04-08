@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class DeleteGraphqlApiRequestBuilderOps(val self: DeleteGraphqlApiRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): DeleteGraphqlApiRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): DeleteGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }

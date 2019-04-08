@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LifecycleRuleBuilderOps(val self: LifecycleRule.Builder) extends AnyVal {
 
-  final def withExpirationAsScala(value: Option[LifecycleExpiration]): LifecycleRule.Builder = {
+  final def expirationAsScala(value: Option[LifecycleExpiration]): LifecycleRule.Builder = {
     value.fold(self) { v =>
       self.expiration(v)
     }
   } // LifecycleExpiration
 
-  final def withIdAsScala(value: Option[String]): LifecycleRule.Builder = {
+  final def idAsScala(value: Option[String]): LifecycleRule.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): LifecycleRule.Builder = {
+  final def prefixAsScala(value: Option[String]): LifecycleRule.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withFilterAsScala(value: Option[LifecycleRuleFilter]): LifecycleRule.Builder = {
+  final def filterAsScala(value: Option[LifecycleRuleFilter]): LifecycleRule.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
   } // LifecycleRuleFilter
 
-  final def withStatusAsScala(value: Option[ExpirationStatus]): LifecycleRule.Builder = {
+  final def statusAsScala(value: Option[ExpirationStatus]): LifecycleRule.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
   } // String
 
-  final def withTransitionsAsScala(value: Option[Seq[Transition]]): LifecycleRule.Builder = {
+  final def transitionsAsScala(value: Option[Seq[Transition]]): LifecycleRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.transitions(v.asJava)
     } // Seq[Transition]
   }
 
-  final def withNoncurrentVersionTransitionsAsScala(
+  final def noncurrentVersionTransitionsAsScala(
       value: Option[Seq[NoncurrentVersionTransition]]
   ): LifecycleRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -49,15 +49,13 @@ final class LifecycleRuleBuilderOps(val self: LifecycleRule.Builder) extends Any
     } // Seq[NoncurrentVersionTransition]
   }
 
-  final def withNoncurrentVersionExpirationAsScala(
-      value: Option[NoncurrentVersionExpiration]
-  ): LifecycleRule.Builder = {
+  final def noncurrentVersionExpirationAsScala(value: Option[NoncurrentVersionExpiration]): LifecycleRule.Builder = {
     value.fold(self) { v =>
       self.noncurrentVersionExpiration(v)
     }
   } // NoncurrentVersionExpiration
 
-  final def withAbortIncompleteMultipartUploadAsScala(
+  final def abortIncompleteMultipartUploadAsScala(
       value: Option[AbortIncompleteMultipartUpload]
   ): LifecycleRule.Builder = {
     value.fold(self) { v =>

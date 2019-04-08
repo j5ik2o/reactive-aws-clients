@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectTaggingResponseBuilderOps(val self: PutObjectTaggingResponse.Builder) extends AnyVal {
 
-  final def withVersionIdAsScala(value: Option[String]): PutObjectTaggingResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): PutObjectTaggingResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }

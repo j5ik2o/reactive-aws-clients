@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DescribeEventsRequestBuilderOps(val self: DescribeEventsRequest.Builder) extends AnyVal {
 
-  final def withSourceNameAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
+  final def sourceNameAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.sourceName(v)
     }
   } // String
 
-  final def withSourceTypeAsScala(value: Option[SourceType]): DescribeEventsRequest.Builder = {
+  final def sourceTypeAsScala(value: Option[SourceType]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.sourceType(v)
     }
   } // String
 
-  final def withStartTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
+  final def startTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.startTime(v)
     }
   } // Instant
 
-  final def withEndTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
+  final def endTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.endTime(v)
     }
   } // Instant
 
-  final def withDurationAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
+  final def durationAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.duration(v)
     }
   } // Int
 
-  final def withMaxResultsAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

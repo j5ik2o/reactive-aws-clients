@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListObjectVersionsRequestBuilderOps(val self: ListObjectVersionsRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withDelimiterAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
+  final def delimiterAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
   } // String
 
-  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListObjectVersionsRequest.Builder = {
+  final def encodingTypeAsScala(value: Option[EncodingType]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }
   } // String
 
-  final def withKeyMarkerAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
+  final def keyMarkerAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.keyMarker(v)
     }
   } // String
 
-  final def withMaxKeysAsScala(value: Option[Int]): ListObjectVersionsRequest.Builder = {
+  final def maxKeysAsScala(value: Option[Int]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.maxKeys(v)
     }
   } // Int
 
-  final def withPrefixAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
+  final def prefixAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withVersionIdMarkerAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
+  final def versionIdMarkerAsScala(value: Option[String]): ListObjectVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.versionIdMarker(v)
     }

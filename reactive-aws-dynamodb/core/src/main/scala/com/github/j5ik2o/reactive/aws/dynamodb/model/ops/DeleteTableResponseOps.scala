@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteTableResponseBuilderOps(val self: DeleteTableResponse.Builder) extends AnyVal {
 
-  final def withTableDescriptionAsScala(value: Option[TableDescription]): DeleteTableResponse.Builder = {
+  final def tableDescriptionAsScala(value: Option[TableDescription]): DeleteTableResponse.Builder = {
     value.fold(self) { v =>
       self.tableDescription(v)
     }

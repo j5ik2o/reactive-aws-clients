@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UntagResourceResponseBuilderOps(val self: UntagResourceResponse.Builder) extends AnyVal {
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): UntagResourceResponse.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): UntagResourceResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]

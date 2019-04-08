@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class VersioningConfigurationBuilderOps(val self: VersioningConfiguration.Builder) extends AnyVal {
 
-  final def withMfaDeleteAsScala(value: Option[MFADelete]): VersioningConfiguration.Builder = {
+  final def mfaDeleteAsScala(value: Option[MFADelete]): VersioningConfiguration.Builder = {
     value.fold(self) { v =>
       self.mfaDelete(v)
     }
   } // String
 
-  final def withStatusAsScala(value: Option[BucketVersioningStatus]): VersioningConfiguration.Builder = {
+  final def statusAsScala(value: Option[BucketVersioningStatus]): VersioningConfiguration.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

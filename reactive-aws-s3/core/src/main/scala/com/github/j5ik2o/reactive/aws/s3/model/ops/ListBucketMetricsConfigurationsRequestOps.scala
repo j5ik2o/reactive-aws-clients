@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.s3.model._
 final class ListBucketMetricsConfigurationsRequestBuilderOps(val self: ListBucketMetricsConfigurationsRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
+  final def continuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }

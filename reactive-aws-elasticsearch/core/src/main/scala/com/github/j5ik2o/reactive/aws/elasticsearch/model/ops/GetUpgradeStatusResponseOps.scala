@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class GetUpgradeStatusResponseBuilderOps(val self: GetUpgradeStatusResponse.Builder) extends AnyVal {
 
-  final def withUpgradeStepAsScala(value: Option[UpgradeStep]): GetUpgradeStatusResponse.Builder = {
+  final def upgradeStepAsScala(value: Option[UpgradeStep]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.upgradeStep(v)
     }
   } // String
 
-  final def withStepStatusAsScala(value: Option[UpgradeStatus]): GetUpgradeStatusResponse.Builder = {
+  final def stepStatusAsScala(value: Option[UpgradeStatus]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.stepStatus(v)
     }
   } // String
 
-  final def withUpgradeNameAsScala(value: Option[String]): GetUpgradeStatusResponse.Builder = {
+  final def upgradeNameAsScala(value: Option[String]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.upgradeName(v)
     }

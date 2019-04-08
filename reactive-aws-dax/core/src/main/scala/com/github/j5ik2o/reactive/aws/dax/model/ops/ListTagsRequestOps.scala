@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends AnyVal {
 
-  final def withResourceNameAsScala(value: Option[String]): ListTagsRequest.Builder = {
+  final def resourceNameAsScala(value: Option[String]): ListTagsRequest.Builder = {
     value.fold(self) { v =>
       self.resourceName(v)
     }
   } // String
 
-  final def withNextTokenAsScala(value: Option[String]): ListTagsRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListTagsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

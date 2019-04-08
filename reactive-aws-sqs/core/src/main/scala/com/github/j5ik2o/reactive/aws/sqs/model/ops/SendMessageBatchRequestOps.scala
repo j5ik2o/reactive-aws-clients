@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SendMessageBatchRequestBuilderOps(val self: SendMessageBatchRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): SendMessageBatchRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): SendMessageBatchRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withEntriesAsScala(value: Option[Seq[SendMessageBatchRequestEntry]]): SendMessageBatchRequest.Builder = {
+  final def entriesAsScala(value: Option[Seq[SendMessageBatchRequestEntry]]): SendMessageBatchRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.entries(v.asJava)
     } // Seq[SendMessageBatchRequestEntry]

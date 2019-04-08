@@ -5,103 +5,103 @@ import software.amazon.awssdk.services.s3.model._
 
 final class UploadPartCopyRequestBuilderOps(val self: UploadPartCopyRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withCopySourceAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySource(v)
     }
   } // String
 
-  final def withCopySourceIfMatchAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceIfMatchAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfMatch(v)
     }
   } // String
 
-  final def withCopySourceIfModifiedSinceAsScala(value: Option[java.time.Instant]): UploadPartCopyRequest.Builder = {
+  final def copySourceIfModifiedSinceAsScala(value: Option[java.time.Instant]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfModifiedSince(v)
     }
   } // Instant
 
-  final def withCopySourceIfNoneMatchAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceIfNoneMatchAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfNoneMatch(v)
     }
   } // String
 
-  final def withCopySourceIfUnmodifiedSinceAsScala(value: Option[java.time.Instant]): UploadPartCopyRequest.Builder = {
+  final def copySourceIfUnmodifiedSinceAsScala(value: Option[java.time.Instant]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfUnmodifiedSince(v)
     }
   } // Instant
 
-  final def withCopySourceRangeAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceRangeAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceRange(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def keyAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withPartNumberAsScala(value: Option[Int]): UploadPartCopyRequest.Builder = {
+  final def partNumberAsScala(value: Option[Int]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }
   } // Int
 
-  final def withUploadIdAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def uploadIdAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withCopySourceSSECustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceSSECustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerAlgorithm(v)
     }
   } // String
 
-  final def withCopySourceSSECustomerKeyAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceSSECustomerKeyAsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerKey(v)
     }
   } // String
 
-  final def withCopySourceSSECustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
+  final def copySourceSSECustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerKeyMD5(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): UploadPartCopyRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): UploadPartCopyRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

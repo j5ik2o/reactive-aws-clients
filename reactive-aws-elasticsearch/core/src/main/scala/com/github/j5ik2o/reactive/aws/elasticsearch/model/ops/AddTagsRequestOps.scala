@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class AddTagsRequestBuilderOps(val self: AddTagsRequest.Builder) extends AnyVal {
 
-  final def withArnAsScala(value: Option[String]): AddTagsRequest.Builder = {
+  final def arnAsScala(value: Option[String]): AddTagsRequest.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   } // String
 
-  final def withTagListAsScala(value: Option[Seq[Tag]]): AddTagsRequest.Builder = {
+  final def tagListAsScala(value: Option[Seq[Tag]]): AddTagsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagList(v.asJava)
     } // Seq[Tag]

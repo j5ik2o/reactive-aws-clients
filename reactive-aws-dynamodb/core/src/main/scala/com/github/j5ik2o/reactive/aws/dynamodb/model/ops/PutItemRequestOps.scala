@@ -5,63 +5,61 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class PutItemRequestBuilderOps(val self: PutItemRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): PutItemRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withItemAsScala(value: Option[Map[String, AttributeValue]]): PutItemRequest.Builder = {
+  final def itemAsScala(value: Option[Map[String, AttributeValue]]): PutItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withExpectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): PutItemRequest.Builder = {
+  final def expectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): PutItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expected(v.asJava)
     } // Map[String, ExpectedAttributeValue]
   }
 
-  final def withReturnValuesAsScala(value: Option[ReturnValue]): PutItemRequest.Builder = {
+  final def returnValuesAsScala(value: Option[ReturnValue]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnValues(v)
     }
   } // String
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): PutItemRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withReturnItemCollectionMetricsAsScala(
-      value: Option[ReturnItemCollectionMetrics]
-  ): PutItemRequest.Builder = {
+  final def returnItemCollectionMetricsAsScala(value: Option[ReturnItemCollectionMetrics]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnItemCollectionMetrics(v)
     }
   } // String
 
-  final def withConditionalOperatorAsScala(value: Option[ConditionalOperator]): PutItemRequest.Builder = {
+  final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
   } // String
 
-  final def withConditionExpressionAsScala(value: Option[String]): PutItemRequest.Builder = {
+  final def conditionExpressionAsScala(value: Option[String]): PutItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): PutItemRequest.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): PutItemRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): PutItemRequest.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): PutItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]

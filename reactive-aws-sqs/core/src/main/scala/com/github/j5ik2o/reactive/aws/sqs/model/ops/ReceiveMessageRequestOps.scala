@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class ReceiveMessageRequestBuilderOps(val self: ReceiveMessageRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withAttributeNamesAsScala(value: Option[Seq[QueueAttributeName]]): ReceiveMessageRequest.Builder = {
+  final def attributeNamesAsScala(value: Option[Seq[QueueAttributeName]]): ReceiveMessageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeNames(v.asJava)
     } // Seq[String]
   }
 
-  final def withMessageAttributeNamesAsScala(value: Option[Seq[String]]): ReceiveMessageRequest.Builder = {
+  final def messageAttributeNamesAsScala(value: Option[Seq[String]]): ReceiveMessageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messageAttributeNames(v.asJava)
     } // Seq[String]
   }
 
-  final def withMaxNumberOfMessagesAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
+  final def maxNumberOfMessagesAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.maxNumberOfMessages(v)
     }
   } // Int
 
-  final def withVisibilityTimeoutAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
+  final def visibilityTimeoutAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.visibilityTimeout(v)
     }
   } // Int
 
-  final def withWaitTimeSecondsAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
+  final def waitTimeSecondsAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.waitTimeSeconds(v)
     }
   } // Int
 
-  final def withReceiveRequestAttemptIdAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
+  final def receiveRequestAttemptIdAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
     value.fold(self) { v =>
       self.receiveRequestAttemptId(v)
     }

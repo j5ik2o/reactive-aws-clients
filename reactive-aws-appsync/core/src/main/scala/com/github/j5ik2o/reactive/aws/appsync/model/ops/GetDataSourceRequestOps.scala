@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetDataSourceRequestBuilderOps(val self: GetDataSourceRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): GetDataSourceRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): GetDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withNameAsScala(value: Option[String]): GetDataSourceRequest.Builder = {
+  final def nameAsScala(value: Option[String]): GetDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }

@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectLegalHoldRequestBuilderOps(val self: GetObjectLegalHoldRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
+  final def keyAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectLegalHoldRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class CreateStreamRequestBuilderOps(val self: CreateStreamRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): CreateStreamRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): CreateStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withShardCountAsScala(value: Option[Int]): CreateStreamRequest.Builder = {
+  final def shardCountAsScala(value: Option[Int]): CreateStreamRequest.Builder = {
     value.fold(self) { v =>
       self.shardCount(v)
     }

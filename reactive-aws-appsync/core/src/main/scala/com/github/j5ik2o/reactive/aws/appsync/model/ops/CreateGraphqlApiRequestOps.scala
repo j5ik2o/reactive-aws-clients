@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.Builder) extends AnyVal {
 
-  final def withNameAsScala(value: Option[String]): CreateGraphqlApiRequest.Builder = {
+  final def nameAsScala(value: Option[String]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withLogConfigAsScala(value: Option[LogConfig]): CreateGraphqlApiRequest.Builder = {
+  final def logConfigAsScala(value: Option[LogConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.logConfig(v)
     }
   } // LogConfig
 
-  final def withAuthenticationTypeAsScala(value: Option[AuthenticationType]): CreateGraphqlApiRequest.Builder = {
+  final def authenticationTypeAsScala(value: Option[AuthenticationType]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.authenticationType(v)
     }
   } // String
 
-  final def withUserPoolConfigAsScala(value: Option[UserPoolConfig]): CreateGraphqlApiRequest.Builder = {
+  final def userPoolConfigAsScala(value: Option[UserPoolConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.userPoolConfig(v)
     }
   } // UserPoolConfig
 
-  final def withOpenIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): CreateGraphqlApiRequest.Builder = {
+  final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): CreateGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.openIDConnectConfig(v)
     }

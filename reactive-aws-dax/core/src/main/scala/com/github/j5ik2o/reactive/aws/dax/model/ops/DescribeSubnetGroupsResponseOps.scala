@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DescribeSubnetGroupsResponseBuilderOps(val self: DescribeSubnetGroupsResponse.Builder) extends AnyVal {
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeSubnetGroupsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeSubnetGroupsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withSubnetGroupsAsScala(value: Option[Seq[SubnetGroup]]): DescribeSubnetGroupsResponse.Builder = {
+  final def subnetGroupsAsScala(value: Option[Seq[SubnetGroup]]): DescribeSubnetGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetGroups(v.asJava)
     } // Seq[SubnetGroup]

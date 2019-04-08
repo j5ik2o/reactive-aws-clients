@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListStreamConsumersRequestBuilderOps(val self: ListStreamConsumersRequest.Builder) extends AnyVal {
 
-  final def withStreamARNAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
+  final def streamARNAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
   } // String
 
-  final def withNextTokenAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): ListStreamConsumersRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withStreamCreationTimestampAsScala(value: Option[java.time.Instant]): ListStreamConsumersRequest.Builder = {
+  final def streamCreationTimestampAsScala(value: Option[java.time.Instant]): ListStreamConsumersRequest.Builder = {
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }

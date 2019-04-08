@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class SnapshotOptionsBuilderOps(val self: SnapshotOptions.Builder) extends AnyVal {
 
-  final def withAutomatedSnapshotStartHourAsScala(value: Option[Int]): SnapshotOptions.Builder = {
+  final def automatedSnapshotStartHourAsScala(value: Option[Int]): SnapshotOptions.Builder = {
     value.fold(self) { v =>
       self.automatedSnapshotStartHour(v)
     }

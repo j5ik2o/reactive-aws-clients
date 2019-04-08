@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CSVOutputBuilderOps(val self: CSVOutput.Builder) extends AnyVal {
 
-  final def withQuoteFieldsAsScala(value: Option[QuoteFields]): CSVOutput.Builder = {
+  final def quoteFieldsAsScala(value: Option[QuoteFields]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.quoteFields(v)
     }
   } // String
 
-  final def withQuoteEscapeCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
+  final def quoteEscapeCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.quoteEscapeCharacter(v)
     }
   } // String
 
-  final def withRecordDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
+  final def recordDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.recordDelimiter(v)
     }
   } // String
 
-  final def withFieldDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
+  final def fieldDelimiterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.fieldDelimiter(v)
     }
   } // String
 
-  final def withQuoteCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
+  final def quoteCharacterAsScala(value: Option[String]): CSVOutput.Builder = {
     value.fold(self) { v =>
       self.quoteCharacter(v)
     }

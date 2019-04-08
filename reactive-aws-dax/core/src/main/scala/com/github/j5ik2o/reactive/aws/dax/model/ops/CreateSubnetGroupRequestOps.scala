@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dax.model._
 
 final class CreateSubnetGroupRequestBuilderOps(val self: CreateSubnetGroupRequest.Builder) extends AnyVal {
 
-  final def withSubnetGroupNameAsScala(value: Option[String]): CreateSubnetGroupRequest.Builder = {
+  final def subnetGroupNameAsScala(value: Option[String]): CreateSubnetGroupRequest.Builder = {
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): CreateSubnetGroupRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): CreateSubnetGroupRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withSubnetIdsAsScala(value: Option[Seq[String]]): CreateSubnetGroupRequest.Builder = {
+  final def subnetIdsAsScala(value: Option[Seq[String]]): CreateSubnetGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
     } // Seq[String]

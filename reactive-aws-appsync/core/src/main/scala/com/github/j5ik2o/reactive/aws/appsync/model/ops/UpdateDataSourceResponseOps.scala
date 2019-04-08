@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateDataSourceResponseBuilderOps(val self: UpdateDataSourceResponse.Builder) extends AnyVal {
 
-  final def withDataSourceAsScala(value: Option[DataSource]): UpdateDataSourceResponse.Builder = {
+  final def dataSourceAsScala(value: Option[DataSource]): UpdateDataSourceResponse.Builder = {
     value.fold(self) { v =>
       self.dataSource(v)
     }

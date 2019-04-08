@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class StartSchemaCreationRequestBuilderOps(val self: StartSchemaCreationRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): StartSchemaCreationRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): StartSchemaCreationRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withDefinitionAsScala(
+  final def definitionAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): StartSchemaCreationRequest.Builder = {
     value.fold(self) { v =>

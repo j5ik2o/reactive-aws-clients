@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class VPCDerivedInfoStatusBuilderOps(val self: VPCDerivedInfoStatus.Builder) extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[VPCDerivedInfo]): VPCDerivedInfoStatus.Builder = {
+  final def optionsAsScala(value: Option[VPCDerivedInfo]): VPCDerivedInfoStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // VPCDerivedInfo
 
-  final def withStatusAsScala(value: Option[OptionStatus]): VPCDerivedInfoStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): VPCDerivedInfoStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

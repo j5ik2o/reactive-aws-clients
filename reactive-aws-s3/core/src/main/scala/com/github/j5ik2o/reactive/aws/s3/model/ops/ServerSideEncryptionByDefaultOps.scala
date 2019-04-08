@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ServerSideEncryptionByDefaultBuilderOps(val self: ServerSideEncryptionByDefault.Builder) extends AnyVal {
 
-  final def withSseAlgorithmAsScala(value: Option[ServerSideEncryption]): ServerSideEncryptionByDefault.Builder = {
+  final def sseAlgorithmAsScala(value: Option[ServerSideEncryption]): ServerSideEncryptionByDefault.Builder = {
     value.fold(self) { v =>
       self.sseAlgorithm(v)
     }
   } // String
 
-  final def withKmsMasterKeyIDAsScala(value: Option[String]): ServerSideEncryptionByDefault.Builder = {
+  final def kmsMasterKeyIDAsScala(value: Option[String]): ServerSideEncryptionByDefault.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyID(v)
     }

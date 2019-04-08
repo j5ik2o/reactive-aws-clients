@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class AwsIamConfigBuilderOps(val self: AwsIamConfig.Builder) extends AnyVal {
 
-  final def withSigningRegionAsScala(value: Option[String]): AwsIamConfig.Builder = {
+  final def signingRegionAsScala(value: Option[String]): AwsIamConfig.Builder = {
     value.fold(self) { v =>
       self.signingRegion(v)
     }
   } // String
 
-  final def withSigningServiceNameAsScala(value: Option[String]): AwsIamConfig.Builder = {
+  final def signingServiceNameAsScala(value: Option[String]): AwsIamConfig.Builder = {
     value.fold(self) { v =>
       self.signingServiceName(v)
     }

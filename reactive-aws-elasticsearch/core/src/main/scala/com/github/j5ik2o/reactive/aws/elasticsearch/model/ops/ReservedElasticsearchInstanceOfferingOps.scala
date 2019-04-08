@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class ReservedElasticsearchInstanceOfferingBuilderOps(val self: ReservedElasticsearchInstanceOffering.Builder)
     extends AnyVal {
 
-  final def withReservedElasticsearchInstanceOfferingIdAsScala(
+  final def reservedElasticsearchInstanceOfferingIdAsScala(
       value: Option[String]
   ): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
@@ -14,7 +14,7 @@ final class ReservedElasticsearchInstanceOfferingBuilderOps(val self: ReservedEl
     }
   } // String
 
-  final def withElasticsearchInstanceTypeAsScala(
+  final def elasticsearchInstanceTypeAsScala(
       value: Option[ESPartitionInstanceType]
   ): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
@@ -22,31 +22,31 @@ final class ReservedElasticsearchInstanceOfferingBuilderOps(val self: ReservedEl
     }
   } // String
 
-  final def withDurationAsScala(value: Option[Int]): ReservedElasticsearchInstanceOffering.Builder = {
+  final def durationAsScala(value: Option[Int]): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
       self.duration(v)
     }
   } // Int
 
-  final def withFixedPriceAsScala(value: Option[Double]): ReservedElasticsearchInstanceOffering.Builder = {
+  final def fixedPriceAsScala(value: Option[Double]): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
       self.fixedPrice(v)
     }
   } // Double
 
-  final def withUsagePriceAsScala(value: Option[Double]): ReservedElasticsearchInstanceOffering.Builder = {
+  final def usagePriceAsScala(value: Option[Double]): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
       self.usagePrice(v)
     }
   } // Double
 
-  final def withCurrencyCodeAsScala(value: Option[String]): ReservedElasticsearchInstanceOffering.Builder = {
+  final def currencyCodeAsScala(value: Option[String]): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
       self.currencyCode(v)
     }
   } // String
 
-  final def withPaymentOptionAsScala(
+  final def paymentOptionAsScala(
       value: Option[ReservedElasticsearchInstancePaymentOption]
   ): ReservedElasticsearchInstanceOffering.Builder = {
     value.fold(self) { v =>
@@ -54,7 +54,7 @@ final class ReservedElasticsearchInstanceOfferingBuilderOps(val self: ReservedEl
     }
   } // String
 
-  final def withRecurringChargesAsScala(
+  final def recurringChargesAsScala(
       value: Option[Seq[RecurringCharge]]
   ): ReservedElasticsearchInstanceOffering.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

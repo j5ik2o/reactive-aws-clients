@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketPolicyRequestBuilderOps(val self: DeleteBucketPolicyRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketPolicyRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

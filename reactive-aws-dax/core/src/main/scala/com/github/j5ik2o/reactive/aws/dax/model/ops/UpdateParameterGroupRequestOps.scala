@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UpdateParameterGroupRequestBuilderOps(val self: UpdateParameterGroupRequest.Builder) extends AnyVal {
 
-  final def withParameterGroupNameAsScala(value: Option[String]): UpdateParameterGroupRequest.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): UpdateParameterGroupRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   } // String
 
-  final def withParameterNameValuesAsScala(
-      value: Option[Seq[ParameterNameValue]]
-  ): UpdateParameterGroupRequest.Builder = {
+  final def parameterNameValuesAsScala(value: Option[Seq[ParameterNameValue]]): UpdateParameterGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameterNameValues(v.asJava)
     } // Seq[ParameterNameValue]

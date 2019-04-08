@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetIntrospectionSchemaResponseBuilderOps(val self: GetIntrospectionSchemaResponse.Builder) extends AnyVal {
 
-  final def withSchemaAsScala(
+  final def schemaAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetIntrospectionSchemaResponse.Builder = {
     value.fold(self) { v =>

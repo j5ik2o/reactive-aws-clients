@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dax.model._
 
 final class EventBuilderOps(val self: Event.Builder) extends AnyVal {
 
-  final def withSourceNameAsScala(value: Option[String]): Event.Builder = {
+  final def sourceNameAsScala(value: Option[String]): Event.Builder = {
     value.fold(self) { v =>
       self.sourceName(v)
     }
   } // String
 
-  final def withSourceTypeAsScala(value: Option[SourceType]): Event.Builder = {
+  final def sourceTypeAsScala(value: Option[SourceType]): Event.Builder = {
     value.fold(self) { v =>
       self.sourceType(v)
     }
   } // String
 
-  final def withMessageAsScala(value: Option[String]): Event.Builder = {
+  final def messageAsScala(value: Option[String]): Event.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }
   } // String
 
-  final def withDateAsScala(value: Option[java.time.Instant]): Event.Builder = {
+  final def dateAsScala(value: Option[java.time.Instant]): Event.Builder = {
     value.fold(self) { v =>
       self.date(v)
     }

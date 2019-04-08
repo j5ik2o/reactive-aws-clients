@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class UpdateElasticsearchDomainConfigRequestBuilderOps(val self: UpdateElasticsearchDomainConfigRequest.Builder)
     extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): UpdateElasticsearchDomainConfigRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   } // String
 
-  final def withElasticsearchClusterConfigAsScala(
+  final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfig]
   ): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
@@ -20,33 +20,31 @@ final class UpdateElasticsearchDomainConfigRequestBuilderOps(val self: UpdateEla
     }
   } // ElasticsearchClusterConfig
 
-  final def withEbsOptionsAsScala(value: Option[EBSOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
+  final def ebsOptionsAsScala(value: Option[EBSOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
       self.ebsOptions(v)
     }
   } // EBSOptions
 
-  final def withSnapshotOptionsAsScala(
-      value: Option[SnapshotOptions]
-  ): UpdateElasticsearchDomainConfigRequest.Builder = {
+  final def snapshotOptionsAsScala(value: Option[SnapshotOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
       self.snapshotOptions(v)
     }
   } // SnapshotOptions
 
-  final def withVpcOptionsAsScala(value: Option[VPCOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
+  final def vpcOptionsAsScala(value: Option[VPCOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
       self.vpcOptions(v)
     }
   } // VPCOptions
 
-  final def withCognitoOptionsAsScala(value: Option[CognitoOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
+  final def cognitoOptionsAsScala(value: Option[CognitoOptions]): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
       self.cognitoOptions(v)
     }
   } // CognitoOptions
 
-  final def withAdvancedOptionsAsScala(
+  final def advancedOptionsAsScala(
       value: Option[Map[String, String]]
   ): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
@@ -54,13 +52,13 @@ final class UpdateElasticsearchDomainConfigRequestBuilderOps(val self: UpdateEla
     } // Map[String, String]
   }
 
-  final def withAccessPoliciesAsScala(value: Option[String]): UpdateElasticsearchDomainConfigRequest.Builder = {
+  final def accessPoliciesAsScala(value: Option[String]): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.fold(self) { v =>
       self.accessPolicies(v)
     }
   } // String
 
-  final def withLogPublishingOptionsAsScala(
+  final def logPublishingOptionsAsScala(
       value: Option[Map[LogType, LogPublishingOption]]
   ): UpdateElasticsearchDomainConfigRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

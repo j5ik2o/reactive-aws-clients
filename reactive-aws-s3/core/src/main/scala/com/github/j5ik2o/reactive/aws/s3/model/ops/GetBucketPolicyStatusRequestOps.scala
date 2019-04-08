@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketPolicyStatusRequestBuilderOps(val self: GetBucketPolicyStatusRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetBucketPolicyStatusRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetBucketPolicyStatusRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

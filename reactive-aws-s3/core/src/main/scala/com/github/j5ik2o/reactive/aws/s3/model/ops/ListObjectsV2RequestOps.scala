@@ -5,55 +5,55 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListObjectsV2RequestBuilderOps(val self: ListObjectsV2Request.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
+  final def bucketAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withDelimiterAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
+  final def delimiterAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
   } // String
 
-  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListObjectsV2Request.Builder = {
+  final def encodingTypeAsScala(value: Option[EncodingType]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }
   } // String
 
-  final def withMaxKeysAsScala(value: Option[Int]): ListObjectsV2Request.Builder = {
+  final def maxKeysAsScala(value: Option[Int]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.maxKeys(v)
     }
   } // Int
 
-  final def withPrefixAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
+  final def prefixAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withContinuationTokenAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
+  final def continuationTokenAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }
   } // String
 
-  final def withFetchOwnerAsScala(value: Option[Boolean]): ListObjectsV2Request.Builder = {
+  final def fetchOwnerAsScala(value: Option[Boolean]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.fetchOwner(v)
     }
   } // Boolean
 
-  final def withStartAfterAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
+  final def startAfterAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.startAfter(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): ListObjectsV2Request.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): ListObjectsV2Request.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

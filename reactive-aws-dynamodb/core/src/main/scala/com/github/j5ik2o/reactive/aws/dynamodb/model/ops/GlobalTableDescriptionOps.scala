@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GlobalTableDescriptionBuilderOps(val self: GlobalTableDescription.Builder) extends AnyVal {
 
-  final def withReplicationGroupAsScala(value: Option[Seq[ReplicaDescription]]): GlobalTableDescription.Builder = {
+  final def replicationGroupAsScala(value: Option[Seq[ReplicaDescription]]): GlobalTableDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicationGroup(v.asJava)
     } // Seq[ReplicaDescription]
   }
 
-  final def withGlobalTableArnAsScala(value: Option[String]): GlobalTableDescription.Builder = {
+  final def globalTableArnAsScala(value: Option[String]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableArn(v)
     }
   } // String
 
-  final def withCreationDateTimeAsScala(value: Option[java.time.Instant]): GlobalTableDescription.Builder = {
+  final def creationDateTimeAsScala(value: Option[java.time.Instant]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.creationDateTime(v)
     }
   } // Instant
 
-  final def withGlobalTableStatusAsScala(value: Option[GlobalTableStatus]): GlobalTableDescription.Builder = {
+  final def globalTableStatusAsScala(value: Option[GlobalTableStatus]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableStatus(v)
     }
   } // String
 
-  final def withGlobalTableNameAsScala(value: Option[String]): GlobalTableDescription.Builder = {
+  final def globalTableNameAsScala(value: Option[String]): GlobalTableDescription.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }

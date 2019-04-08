@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) extends AnyVal {
 
-  final def withEnabledAsScala(value: Option[Boolean]): SSESpecification.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }

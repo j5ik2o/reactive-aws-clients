@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.appsync.model._
 final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDatabaseDataSourceConfig.Builder)
     extends AnyVal {
 
-  final def withRelationalDatabaseSourceTypeAsScala(
+  final def relationalDatabaseSourceTypeAsScala(
       value: Option[RelationalDatabaseSourceType]
   ): RelationalDatabaseDataSourceConfig.Builder = {
     value.fold(self) { v =>
@@ -14,7 +14,7 @@ final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDat
     }
   } // String
 
-  final def withRdsHttpEndpointConfigAsScala(
+  final def rdsHttpEndpointConfigAsScala(
       value: Option[RdsHttpEndpointConfig]
   ): RelationalDatabaseDataSourceConfig.Builder = {
     value.fold(self) { v =>

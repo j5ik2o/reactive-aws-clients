@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class VPCDerivedInfoBuilderOps(val self: VPCDerivedInfo.Builder) extends AnyVal {
 
-  final def withVpcIdAsScala(value: Option[String]): VPCDerivedInfo.Builder = {
+  final def vpcIdAsScala(value: Option[String]): VPCDerivedInfo.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
     }
   } // String
 
-  final def withSubnetIdsAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
+  final def subnetIdsAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
     } // Seq[String]
   }
 
-  final def withAvailabilityZonesAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
+  final def availabilityZonesAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
     } // Seq[String]
   }
 
-  final def withSecurityGroupIdsAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
+  final def securityGroupIdsAsScala(value: Option[Seq[String]]): VPCDerivedInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
     } // Seq[String]

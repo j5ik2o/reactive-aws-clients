@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ApiKeyBuilderOps(val self: ApiKey.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): ApiKey.Builder = {
+  final def idAsScala(value: Option[String]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): ApiKey.Builder = {
+  final def descriptionAsScala(value: Option[String]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withExpiresAsScala(value: Option[Long]): ApiKey.Builder = {
+  final def expiresAsScala(value: Option[Long]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }

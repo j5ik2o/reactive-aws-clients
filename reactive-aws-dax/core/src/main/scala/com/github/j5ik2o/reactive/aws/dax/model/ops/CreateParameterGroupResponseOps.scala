@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class CreateParameterGroupResponseBuilderOps(val self: CreateParameterGroupResponse.Builder) extends AnyVal {
 
-  final def withParameterGroupAsScala(value: Option[ParameterGroup]): CreateParameterGroupResponse.Builder = {
+  final def parameterGroupAsScala(value: Option[ParameterGroup]): CreateParameterGroupResponse.Builder = {
     value.fold(self) { v =>
       self.parameterGroup(v)
     }

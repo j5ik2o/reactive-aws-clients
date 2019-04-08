@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class DescribeElasticsearchDomainsResponseBuilderOps(val self: DescribeElasticsearchDomainsResponse.Builder)
     extends AnyVal {
 
-  final def withDomainStatusListAsScala(
+  final def domainStatusListAsScala(
       value: Option[Seq[ElasticsearchDomainStatus]]
   ): DescribeElasticsearchDomainsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

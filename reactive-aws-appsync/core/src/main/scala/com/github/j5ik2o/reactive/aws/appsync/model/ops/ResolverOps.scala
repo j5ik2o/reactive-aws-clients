@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ResolverBuilderOps(val self: Resolver.Builder) extends AnyVal {
 
-  final def withTypeNameAsScala(value: Option[String]): Resolver.Builder = {
+  final def typeNameAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
   } // String
 
-  final def withFieldNameAsScala(value: Option[String]): Resolver.Builder = {
+  final def fieldNameAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.fieldName(v)
     }
   } // String
 
-  final def withDataSourceNameAsScala(value: Option[String]): Resolver.Builder = {
+  final def dataSourceNameAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.dataSourceName(v)
     }
   } // String
 
-  final def withResolverArnAsScala(value: Option[String]): Resolver.Builder = {
+  final def resolverArnAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.resolverArn(v)
     }
   } // String
 
-  final def withRequestMappingTemplateAsScala(value: Option[String]): Resolver.Builder = {
+  final def requestMappingTemplateAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.requestMappingTemplate(v)
     }
   } // String
 
-  final def withResponseMappingTemplateAsScala(value: Option[String]): Resolver.Builder = {
+  final def responseMappingTemplateAsScala(value: Option[String]): Resolver.Builder = {
     value.fold(self) { v =>
       self.responseMappingTemplate(v)
     }
   } // String
 
-  final def withKindAsScala(value: Option[ResolverKind]): Resolver.Builder = {
+  final def kindAsScala(value: Option[ResolverKind]): Resolver.Builder = {
     value.fold(self) { v =>
       self.kind(v)
     }
   } // String
 
-  final def withPipelineConfigAsScala(value: Option[PipelineConfig]): Resolver.Builder = {
+  final def pipelineConfigAsScala(value: Option[PipelineConfig]): Resolver.Builder = {
     value.fold(self) { v =>
       self.pipelineConfig(v)
     }

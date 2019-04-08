@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class LogPublishingOptionBuilderOps(val self: LogPublishingOption.Builder) extends AnyVal {
 
-  final def withCloudWatchLogsLogGroupArnAsScala(value: Option[String]): LogPublishingOption.Builder = {
+  final def cloudWatchLogsLogGroupArnAsScala(value: Option[String]): LogPublishingOption.Builder = {
     value.fold(self) { v =>
       self.cloudWatchLogsLogGroupArn(v)
     }
   } // String
 
-  final def withEnabledAsScala(value: Option[Boolean]): LogPublishingOption.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): LogPublishingOption.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }

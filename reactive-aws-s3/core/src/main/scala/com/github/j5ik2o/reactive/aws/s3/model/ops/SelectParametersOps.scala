@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SelectParametersBuilderOps(val self: SelectParameters.Builder) extends AnyVal {
 
-  final def withInputSerializationAsScala(value: Option[InputSerialization]): SelectParameters.Builder = {
+  final def inputSerializationAsScala(value: Option[InputSerialization]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.inputSerialization(v)
     }
   } // InputSerialization
 
-  final def withExpressionTypeAsScala(value: Option[ExpressionType]): SelectParameters.Builder = {
+  final def expressionTypeAsScala(value: Option[ExpressionType]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.expressionType(v)
     }
   } // String
 
-  final def withExpressionAsScala(value: Option[String]): SelectParameters.Builder = {
+  final def expressionAsScala(value: Option[String]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.expression(v)
     }
   } // String
 
-  final def withOutputSerializationAsScala(value: Option[OutputSerialization]): SelectParameters.Builder = {
+  final def outputSerializationAsScala(value: Option[OutputSerialization]): SelectParameters.Builder = {
     value.fold(self) { v =>
       self.outputSerialization(v)
     }

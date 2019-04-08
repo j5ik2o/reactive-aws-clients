@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.dax.model._
 final class IncreaseReplicationFactorRequestBuilderOps(val self: IncreaseReplicationFactorRequest.Builder)
     extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): IncreaseReplicationFactorRequest.Builder = {
+  final def clusterNameAsScala(value: Option[String]): IncreaseReplicationFactorRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   } // String
 
-  final def withNewReplicationFactorAsScala(value: Option[Int]): IncreaseReplicationFactorRequest.Builder = {
+  final def newReplicationFactorAsScala(value: Option[Int]): IncreaseReplicationFactorRequest.Builder = {
     value.fold(self) { v =>
       self.newReplicationFactor(v)
     }
   } // Int
 
-  final def withAvailabilityZonesAsScala(value: Option[Seq[String]]): IncreaseReplicationFactorRequest.Builder = {
+  final def availabilityZonesAsScala(value: Option[Seq[String]]): IncreaseReplicationFactorRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
     } // Seq[String]

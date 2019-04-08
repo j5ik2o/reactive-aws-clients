@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.sqs.model._
 final class ChangeMessageVisibilityBatchResponseBuilderOps(val self: ChangeMessageVisibilityBatchResponse.Builder)
     extends AnyVal {
 
-  final def withSuccessfulAsScala(
+  final def successfulAsScala(
       value: Option[Seq[ChangeMessageVisibilityBatchResultEntry]]
   ): ChangeMessageVisibilityBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -14,9 +14,7 @@ final class ChangeMessageVisibilityBatchResponseBuilderOps(val self: ChangeMessa
     } // Seq[ChangeMessageVisibilityBatchResultEntry]
   }
 
-  final def withFailedAsScala(
-      value: Option[Seq[BatchResultErrorEntry]]
-  ): ChangeMessageVisibilityBatchResponse.Builder = {
+  final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): ChangeMessageVisibilityBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.failed(v.asJava)
     } // Seq[BatchResultErrorEntry]

@@ -5,63 +5,61 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUploadResponse.Builder) extends AnyVal {
 
-  final def withAbortDateAsScala(value: Option[java.time.Instant]): CreateMultipartUploadResponse.Builder = {
+  final def abortDateAsScala(value: Option[java.time.Instant]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.abortDate(v)
     }
   } // Instant
 
-  final def withAbortRuleIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def abortRuleIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.abortRuleId(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def bucketAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def keyAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withUploadIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def uploadIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withServerSideEncryptionAsScala(
-      value: Option[ServerSideEncryption]
-  ): CreateMultipartUploadResponse.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): CreateMultipartUploadResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

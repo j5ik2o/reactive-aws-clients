@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryConfigurationBuilderOps(val self: InventoryConfiguration.Builder) extends AnyVal {
 
-  final def withDestinationAsScala(value: Option[InventoryDestination]): InventoryConfiguration.Builder = {
+  final def destinationAsScala(value: Option[InventoryDestination]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.destination(v)
     }
   } // InventoryDestination
 
-  final def withIsEnabledAsScala(value: Option[Boolean]): InventoryConfiguration.Builder = {
+  final def isEnabledAsScala(value: Option[Boolean]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.isEnabled(v)
     }
   } // Boolean
 
-  final def withFilterAsScala(value: Option[InventoryFilter]): InventoryConfiguration.Builder = {
+  final def filterAsScala(value: Option[InventoryFilter]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
   } // InventoryFilter
 
-  final def withIdAsScala(value: Option[String]): InventoryConfiguration.Builder = {
+  final def idAsScala(value: Option[String]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withIncludedObjectVersionsAsScala(
+  final def includedObjectVersionsAsScala(
       value: Option[InventoryIncludedObjectVersions]
   ): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
@@ -37,13 +37,13 @@ final class InventoryConfigurationBuilderOps(val self: InventoryConfiguration.Bu
     }
   } // String
 
-  final def withOptionalFieldsAsScala(value: Option[Seq[InventoryOptionalField]]): InventoryConfiguration.Builder = {
+  final def optionalFieldsAsScala(value: Option[Seq[InventoryOptionalField]]): InventoryConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.optionalFields(v.asJava)
     } // Seq[String]
   }
 
-  final def withScheduleAsScala(value: Option[InventorySchedule]): InventoryConfiguration.Builder = {
+  final def scheduleAsScala(value: Option[InventorySchedule]): InventoryConfiguration.Builder = {
     value.fold(self) { v =>
       self.schedule(v)
     }

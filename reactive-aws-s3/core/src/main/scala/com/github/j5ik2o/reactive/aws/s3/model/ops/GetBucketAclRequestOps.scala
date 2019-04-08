@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketAclRequestBuilderOps(val self: GetBucketAclRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetBucketAclRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetBucketAclRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

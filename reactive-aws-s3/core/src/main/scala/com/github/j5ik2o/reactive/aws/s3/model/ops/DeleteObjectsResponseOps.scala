@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteObjectsResponseBuilderOps(val self: DeleteObjectsResponse.Builder) extends AnyVal {
 
-  final def withDeletedAsScala(value: Option[Seq[DeletedObject]]): DeleteObjectsResponse.Builder = {
+  final def deletedAsScala(value: Option[Seq[DeletedObject]]): DeleteObjectsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.deleted(v.asJava)
     } // Seq[DeletedObject]
   }
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): DeleteObjectsResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): DeleteObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
   } // String
 
-  final def withErrorsAsScala(value: Option[Seq[S3Error]]): DeleteObjectsResponse.Builder = {
+  final def errorsAsScala(value: Option[Seq[S3Error]]): DeleteObjectsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.errors(v.asJava)
     } // Seq[S3Error]

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class GetUpgradeHistoryResponseBuilderOps(val self: GetUpgradeHistoryResponse.Builder) extends AnyVal {
 
-  final def withUpgradeHistoriesAsScala(value: Option[Seq[UpgradeHistory]]): GetUpgradeHistoryResponse.Builder = {
+  final def upgradeHistoriesAsScala(value: Option[Seq[UpgradeHistory]]): GetUpgradeHistoryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.upgradeHistories(v.asJava)
     } // Seq[UpgradeHistory]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): GetUpgradeHistoryResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): GetUpgradeHistoryResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

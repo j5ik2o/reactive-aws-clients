@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ListTagsResponseBuilderOps(val self: ListTagsResponse.Builder) extends AnyVal {
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): ListTagsResponse.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): ListTagsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListTagsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListTagsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

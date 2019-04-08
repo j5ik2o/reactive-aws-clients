@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class HttpDataSourceConfigBuilderOps(val self: HttpDataSourceConfig.Builder) extends AnyVal {
 
-  final def withEndpointAsScala(value: Option[String]): HttpDataSourceConfig.Builder = {
+  final def endpointAsScala(value: Option[String]): HttpDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
   } // String
 
-  final def withAuthorizationConfigAsScala(value: Option[AuthorizationConfig]): HttpDataSourceConfig.Builder = {
+  final def authorizationConfigAsScala(value: Option[AuthorizationConfig]): HttpDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.authorizationConfig(v)
     }

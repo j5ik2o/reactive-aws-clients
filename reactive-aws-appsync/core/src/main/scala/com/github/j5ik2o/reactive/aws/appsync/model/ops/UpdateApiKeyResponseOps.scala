@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateApiKeyResponseBuilderOps(val self: UpdateApiKeyResponse.Builder) extends AnyVal {
 
-  final def withApiKeyAsScala(value: Option[ApiKey]): UpdateApiKeyResponse.Builder = {
+  final def apiKeyAsScala(value: Option[ApiKey]): UpdateApiKeyResponse.Builder = {
     value.fold(self) { v =>
       self.apiKey(v)
     }

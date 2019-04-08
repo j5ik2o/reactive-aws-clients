@@ -5,9 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CreateBucketConfigurationBuilderOps(val self: CreateBucketConfiguration.Builder) extends AnyVal {
 
-  final def withLocationConstraintAsScala(
-      value: Option[BucketLocationConstraint]
-  ): CreateBucketConfiguration.Builder = {
+  final def locationConstraintAsScala(value: Option[BucketLocationConstraint]): CreateBucketConfiguration.Builder = {
     value.fold(self) { v =>
       self.locationConstraint(v)
     }

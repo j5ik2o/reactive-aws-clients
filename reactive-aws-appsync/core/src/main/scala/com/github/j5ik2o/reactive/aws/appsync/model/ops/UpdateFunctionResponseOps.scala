@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateFunctionResponseBuilderOps(val self: UpdateFunctionResponse.Builder) extends AnyVal {
 
-  final def withFunctionConfigurationAsScala(value: Option[FunctionConfiguration]): UpdateFunctionResponse.Builder = {
+  final def functionConfigurationAsScala(value: Option[FunctionConfiguration]): UpdateFunctionResponse.Builder = {
     value.fold(self) { v =>
       self.functionConfiguration(v)
     }

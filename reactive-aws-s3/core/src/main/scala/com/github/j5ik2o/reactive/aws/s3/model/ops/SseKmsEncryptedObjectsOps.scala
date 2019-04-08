@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SseKmsEncryptedObjectsBuilderOps(val self: SseKmsEncryptedObjects.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[SseKmsEncryptedObjectsStatus]): SseKmsEncryptedObjects.Builder = {
+  final def statusAsScala(value: Option[SseKmsEncryptedObjectsStatus]): SseKmsEncryptedObjects.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

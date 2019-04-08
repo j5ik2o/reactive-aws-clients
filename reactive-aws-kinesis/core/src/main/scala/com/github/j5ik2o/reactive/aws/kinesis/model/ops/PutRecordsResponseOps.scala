@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class PutRecordsResponseBuilderOps(val self: PutRecordsResponse.Builder) extends AnyVal {
 
-  final def withFailedRecordCountAsScala(value: Option[Int]): PutRecordsResponse.Builder = {
+  final def failedRecordCountAsScala(value: Option[Int]): PutRecordsResponse.Builder = {
     value.fold(self) { v =>
       self.failedRecordCount(v)
     }
   } // Int
 
-  final def withRecordsAsScala(value: Option[Seq[PutRecordsResultEntry]]): PutRecordsResponse.Builder = {
+  final def recordsAsScala(value: Option[Seq[PutRecordsResultEntry]]): PutRecordsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
     } // Seq[PutRecordsResultEntry]
   }
 
-  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): PutRecordsResponse.Builder = {
+  final def encryptionTypeAsScala(value: Option[EncryptionType]): PutRecordsResponse.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }

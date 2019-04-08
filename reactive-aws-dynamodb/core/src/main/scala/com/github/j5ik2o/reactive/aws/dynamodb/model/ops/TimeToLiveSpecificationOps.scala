@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TimeToLiveSpecificationBuilderOps(val self: TimeToLiveSpecification.Builder) extends AnyVal {
 
-  final def withEnabledAsScala(value: Option[Boolean]): TimeToLiveSpecification.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): TimeToLiveSpecification.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
   } // Boolean
 
-  final def withAttributeNameAsScala(value: Option[String]): TimeToLiveSpecification.Builder = {
+  final def attributeNameAsScala(value: Option[String]): TimeToLiveSpecification.Builder = {
     value.fold(self) { v =>
       self.attributeName(v)
     }

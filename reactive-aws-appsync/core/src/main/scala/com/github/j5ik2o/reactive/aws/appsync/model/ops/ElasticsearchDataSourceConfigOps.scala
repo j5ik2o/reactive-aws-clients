@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ElasticsearchDataSourceConfigBuilderOps(val self: ElasticsearchDataSourceConfig.Builder) extends AnyVal {
 
-  final def withEndpointAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
+  final def endpointAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
   } // String
 
-  final def withAwsRegionAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
+  final def awsRegionAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
     }

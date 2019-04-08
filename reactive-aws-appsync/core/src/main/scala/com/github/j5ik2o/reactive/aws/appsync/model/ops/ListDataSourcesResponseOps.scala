@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListDataSourcesResponseBuilderOps(val self: ListDataSourcesResponse.Builder) extends AnyVal {
 
-  final def withDataSourcesAsScala(value: Option[Seq[DataSource]]): ListDataSourcesResponse.Builder = {
+  final def dataSourcesAsScala(value: Option[Seq[DataSource]]): ListDataSourcesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.dataSources(v.asJava)
     } // Seq[DataSource]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListDataSourcesResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListDataSourcesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

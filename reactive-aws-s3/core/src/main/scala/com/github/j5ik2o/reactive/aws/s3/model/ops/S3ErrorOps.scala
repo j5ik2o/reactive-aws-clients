@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class S3ErrorBuilderOps(val self: S3Error.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[String]): S3Error.Builder = {
+  final def keyAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): S3Error.Builder = {
+  final def versionIdAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withCodeAsScala(value: Option[String]): S3Error.Builder = {
+  final def codeAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   } // String
 
-  final def withMessageAsScala(value: Option[String]): S3Error.Builder = {
+  final def messageAsScala(value: Option[String]): S3Error.Builder = {
     value.fold(self) { v =>
       self.message(v)
     }

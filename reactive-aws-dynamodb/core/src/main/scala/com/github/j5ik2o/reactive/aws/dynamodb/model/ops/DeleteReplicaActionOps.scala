@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteReplicaActionBuilderOps(val self: DeleteReplicaAction.Builder) extends AnyVal {
 
-  final def withRegionNameAsScala(value: Option[String]): DeleteReplicaAction.Builder = {
+  final def regionNameAsScala(value: Option[String]): DeleteReplicaAction.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }

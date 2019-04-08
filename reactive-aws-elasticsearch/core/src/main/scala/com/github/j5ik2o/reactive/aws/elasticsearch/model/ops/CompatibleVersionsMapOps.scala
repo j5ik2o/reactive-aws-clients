@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class CompatibleVersionsMapBuilderOps(val self: CompatibleVersionsMap.Builder) extends AnyVal {
 
-  final def withSourceVersionAsScala(value: Option[String]): CompatibleVersionsMap.Builder = {
+  final def sourceVersionAsScala(value: Option[String]): CompatibleVersionsMap.Builder = {
     value.fold(self) { v =>
       self.sourceVersion(v)
     }
   } // String
 
-  final def withTargetVersionsAsScala(value: Option[Seq[String]]): CompatibleVersionsMap.Builder = {
+  final def targetVersionsAsScala(value: Option[Seq[String]]): CompatibleVersionsMap.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.targetVersions(v.asJava)
     } // Seq[String]

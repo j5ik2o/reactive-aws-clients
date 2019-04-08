@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class OptionStatusBuilderOps(val self: OptionStatus.Builder) extends AnyVal {
 
-  final def withCreationDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
+  final def creationDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
     value.fold(self) { v =>
       self.creationDate(v)
     }
   } // Instant
 
-  final def withUpdateDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
+  final def updateDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
     value.fold(self) { v =>
       self.updateDate(v)
     }
   } // Instant
 
-  final def withUpdateVersionAsScala(value: Option[Int]): OptionStatus.Builder = {
+  final def updateVersionAsScala(value: Option[Int]): OptionStatus.Builder = {
     value.fold(self) { v =>
       self.updateVersion(v)
     }
   } // Int
 
-  final def withStateAsScala(value: Option[OptionState]): OptionStatus.Builder = {
+  final def stateAsScala(value: Option[OptionState]): OptionStatus.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   } // String
 
-  final def withPendingDeletionAsScala(value: Option[Boolean]): OptionStatus.Builder = {
+  final def pendingDeletionAsScala(value: Option[Boolean]): OptionStatus.Builder = {
     value.fold(self) { v =>
       self.pendingDeletion(v)
     }

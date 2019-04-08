@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListGlobalTablesRequestBuilderOps(val self: ListGlobalTablesRequest.Builder) extends AnyVal {
 
-  final def withExclusiveStartGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
+  final def exclusiveStartGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartGlobalTableName(v)
     }
   } // String
 
-  final def withLimitAsScala(value: Option[Int]): ListGlobalTablesRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   } // Int
 
-  final def withRegionNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
+  final def regionNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }

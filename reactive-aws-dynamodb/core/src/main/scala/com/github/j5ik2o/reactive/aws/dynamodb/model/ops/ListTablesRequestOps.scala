@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListTablesRequestBuilderOps(val self: ListTablesRequest.Builder) extends AnyVal {
 
-  final def withExclusiveStartTableNameAsScala(value: Option[String]): ListTablesRequest.Builder = {
+  final def exclusiveStartTableNameAsScala(value: Option[String]): ListTablesRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartTableName(v)
     }
   } // String
 
-  final def withLimitAsScala(value: Option[Int]): ListTablesRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): ListTablesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }

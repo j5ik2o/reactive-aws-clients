@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteObjectRequestBuilderOps(val self: DeleteObjectRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
+  final def keyAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withMfaAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
+  final def mfaAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.mfa(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): DeleteObjectRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withBypassGovernanceRetentionAsScala(value: Option[Boolean]): DeleteObjectRequest.Builder = {
+  final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): DeleteObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bypassGovernanceRetention(v)
     }

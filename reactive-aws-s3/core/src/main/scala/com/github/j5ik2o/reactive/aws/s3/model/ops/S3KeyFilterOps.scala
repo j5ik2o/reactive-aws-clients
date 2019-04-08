@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class S3KeyFilterBuilderOps(val self: S3KeyFilter.Builder) extends AnyVal {
 
-  final def withFilterRulesAsScala(value: Option[Seq[FilterRule]]): S3KeyFilter.Builder = {
+  final def filterRulesAsScala(value: Option[Seq[FilterRule]]): S3KeyFilter.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.filterRules(v.asJava)
     } // Seq[FilterRule]

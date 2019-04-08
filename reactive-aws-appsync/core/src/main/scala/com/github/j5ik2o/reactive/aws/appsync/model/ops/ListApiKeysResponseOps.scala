@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListApiKeysResponseBuilderOps(val self: ListApiKeysResponse.Builder) extends AnyVal {
 
-  final def withApiKeysAsScala(value: Option[Seq[ApiKey]]): ListApiKeysResponse.Builder = {
+  final def apiKeysAsScala(value: Option[Seq[ApiKey]]): ListApiKeysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.apiKeys(v.asJava)
     } // Seq[ApiKey]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListApiKeysResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListApiKeysResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

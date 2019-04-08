@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DescribeParametersResponseBuilderOps(val self: DescribeParametersResponse.Builder) extends AnyVal {
 
-  final def withNextTokenAsScala(value: Option[String]): DescribeParametersResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeParametersResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withParametersAsScala(value: Option[Seq[Parameter]]): DescribeParametersResponse.Builder = {
+  final def parametersAsScala(value: Option[Seq[Parameter]]): DescribeParametersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parameters(v.asJava)
     } // Seq[Parameter]

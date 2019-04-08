@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticsearchDomainRequest.Builder)
     extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   } // String
 
-  final def withElasticsearchVersionAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
+  final def elasticsearchVersionAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.elasticsearchVersion(v)
     }
   } // String
 
-  final def withElasticsearchClusterConfigAsScala(
+  final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfig]
   ): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
@@ -26,37 +26,37 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
     }
   } // ElasticsearchClusterConfig
 
-  final def withEbsOptionsAsScala(value: Option[EBSOptions]): CreateElasticsearchDomainRequest.Builder = {
+  final def ebsOptionsAsScala(value: Option[EBSOptions]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.ebsOptions(v)
     }
   } // EBSOptions
 
-  final def withAccessPoliciesAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
+  final def accessPoliciesAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.accessPolicies(v)
     }
   } // String
 
-  final def withSnapshotOptionsAsScala(value: Option[SnapshotOptions]): CreateElasticsearchDomainRequest.Builder = {
+  final def snapshotOptionsAsScala(value: Option[SnapshotOptions]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.snapshotOptions(v)
     }
   } // SnapshotOptions
 
-  final def withVpcOptionsAsScala(value: Option[VPCOptions]): CreateElasticsearchDomainRequest.Builder = {
+  final def vpcOptionsAsScala(value: Option[VPCOptions]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.vpcOptions(v)
     }
   } // VPCOptions
 
-  final def withCognitoOptionsAsScala(value: Option[CognitoOptions]): CreateElasticsearchDomainRequest.Builder = {
+  final def cognitoOptionsAsScala(value: Option[CognitoOptions]): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.cognitoOptions(v)
     }
   } // CognitoOptions
 
-  final def withEncryptionAtRestOptionsAsScala(
+  final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptions]
   ): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
@@ -64,7 +64,7 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
     }
   } // EncryptionAtRestOptions
 
-  final def withNodeToNodeEncryptionOptionsAsScala(
+  final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptions]
   ): CreateElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
@@ -72,13 +72,13 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
     }
   } // NodeToNodeEncryptionOptions
 
-  final def withAdvancedOptionsAsScala(value: Option[Map[String, String]]): CreateElasticsearchDomainRequest.Builder = {
+  final def advancedOptionsAsScala(value: Option[Map[String, String]]): CreateElasticsearchDomainRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.advancedOptions(v.asJava)
     } // Map[String, String]
   }
 
-  final def withLogPublishingOptionsAsScala(
+  final def logPublishingOptionsAsScala(
       value: Option[Map[LogType, LogPublishingOption]]
   ): CreateElasticsearchDomainRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

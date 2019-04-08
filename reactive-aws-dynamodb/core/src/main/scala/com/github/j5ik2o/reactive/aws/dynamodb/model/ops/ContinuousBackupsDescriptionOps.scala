@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDescription.Builder) extends AnyVal {
 
-  final def withContinuousBackupsStatusAsScala(
+  final def continuousBackupsStatusAsScala(
       value: Option[ContinuousBackupsStatus]
   ): ContinuousBackupsDescription.Builder = {
     value.fold(self) { v =>
@@ -13,7 +13,7 @@ final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDe
     }
   } // String
 
-  final def withPointInTimeRecoveryDescriptionAsScala(
+  final def pointInTimeRecoveryDescriptionAsScala(
       value: Option[PointInTimeRecoveryDescription]
   ): ContinuousBackupsDescription.Builder = {
     value.fold(self) { v =>

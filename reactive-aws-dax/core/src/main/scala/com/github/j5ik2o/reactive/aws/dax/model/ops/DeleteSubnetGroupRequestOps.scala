@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteSubnetGroupRequestBuilderOps(val self: DeleteSubnetGroupRequest.Builder) extends AnyVal {
 
-  final def withSubnetGroupNameAsScala(value: Option[String]): DeleteSubnetGroupRequest.Builder = {
+  final def subnetGroupNameAsScala(value: Option[String]): DeleteSubnetGroupRequest.Builder = {
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }

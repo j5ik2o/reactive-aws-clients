@@ -7,7 +7,7 @@ final class DescribeReservedElasticsearchInstanceOfferingsRequestBuilderOps(
     val self: DescribeReservedElasticsearchInstanceOfferingsRequest.Builder
 ) extends AnyVal {
 
-  final def withReservedElasticsearchInstanceOfferingIdAsScala(
+  final def reservedElasticsearchInstanceOfferingIdAsScala(
       value: Option[String]
   ): DescribeReservedElasticsearchInstanceOfferingsRequest.Builder = {
     value.fold(self) { v =>
@@ -15,15 +15,13 @@ final class DescribeReservedElasticsearchInstanceOfferingsRequestBuilderOps(
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): DescribeReservedElasticsearchInstanceOfferingsRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): DescribeReservedElasticsearchInstanceOfferingsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withNextTokenAsScala(
-      value: Option[String]
-  ): DescribeReservedElasticsearchInstanceOfferingsRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): DescribeReservedElasticsearchInstanceOfferingsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

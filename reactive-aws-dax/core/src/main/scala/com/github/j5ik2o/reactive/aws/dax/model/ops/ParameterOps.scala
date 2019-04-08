@@ -5,61 +5,61 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ParameterBuilderOps(val self: Parameter.Builder) extends AnyVal {
 
-  final def withParameterNameAsScala(value: Option[String]): Parameter.Builder = {
+  final def parameterNameAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.parameterName(v)
     }
   } // String
 
-  final def withParameterTypeAsScala(value: Option[ParameterType]): Parameter.Builder = {
+  final def parameterTypeAsScala(value: Option[ParameterType]): Parameter.Builder = {
     value.fold(self) { v =>
       self.parameterType(v)
     }
   } // String
 
-  final def withParameterValueAsScala(value: Option[String]): Parameter.Builder = {
+  final def parameterValueAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.parameterValue(v)
     }
   } // String
 
-  final def withNodeTypeSpecificValuesAsScala(value: Option[Seq[NodeTypeSpecificValue]]): Parameter.Builder = {
+  final def nodeTypeSpecificValuesAsScala(value: Option[Seq[NodeTypeSpecificValue]]): Parameter.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeTypeSpecificValues(v.asJava)
     } // Seq[NodeTypeSpecificValue]
   }
 
-  final def withDescriptionAsScala(value: Option[String]): Parameter.Builder = {
+  final def descriptionAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withSourceAsScala(value: Option[String]): Parameter.Builder = {
+  final def sourceAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.source(v)
     }
   } // String
 
-  final def withDataTypeAsScala(value: Option[String]): Parameter.Builder = {
+  final def dataTypeAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.dataType(v)
     }
   } // String
 
-  final def withAllowedValuesAsScala(value: Option[String]): Parameter.Builder = {
+  final def allowedValuesAsScala(value: Option[String]): Parameter.Builder = {
     value.fold(self) { v =>
       self.allowedValues(v)
     }
   } // String
 
-  final def withIsModifiableAsScala(value: Option[IsModifiable]): Parameter.Builder = {
+  final def isModifiableAsScala(value: Option[IsModifiable]): Parameter.Builder = {
     value.fold(self) { v =>
       self.isModifiable(v)
     }
   } // String
 
-  final def withChangeTypeAsScala(value: Option[ChangeType]): Parameter.Builder = {
+  final def changeTypeAsScala(value: Option[ChangeType]): Parameter.Builder = {
     value.fold(self) { v =>
       self.changeType(v)
     }

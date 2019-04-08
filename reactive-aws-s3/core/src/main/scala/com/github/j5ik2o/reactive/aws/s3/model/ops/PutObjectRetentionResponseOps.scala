@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectRetentionResponseBuilderOps(val self: PutObjectRetentionResponse.Builder) extends AnyVal {
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): PutObjectRetentionResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectRetentionResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

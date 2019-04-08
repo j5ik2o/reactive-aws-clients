@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListResolversRequestBuilderOps(val self: ListResolversRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): ListResolversRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): ListResolversRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withTypeNameAsScala(value: Option[String]): ListResolversRequest.Builder = {
+  final def typeNameAsScala(value: Option[String]): ListResolversRequest.Builder = {
     value.fold(self) { v =>
       self.typeName(v)
     }
   } // String
 
-  final def withNextTokenAsScala(value: Option[String]): ListResolversRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListResolversRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): ListResolversRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): ListResolversRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }

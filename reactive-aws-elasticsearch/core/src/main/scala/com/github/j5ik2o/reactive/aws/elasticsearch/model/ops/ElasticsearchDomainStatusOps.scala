@@ -5,67 +5,67 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainStatus.Builder) extends AnyVal {
 
-  final def withDomainIdAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
+  final def domainIdAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.domainId(v)
     }
   } // String
 
-  final def withDomainNameAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
+  final def domainNameAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   } // String
 
-  final def withArnAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
+  final def arnAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   } // String
 
-  final def withCreatedAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
+  final def createdAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.created(v)
     }
   } // Boolean
 
-  final def withDeletedAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
+  final def deletedAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.deleted(v)
     }
   } // Boolean
 
-  final def withEndpointAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
+  final def endpointAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
   } // String
 
-  final def withEndpointsAsScala(value: Option[Map[String, String]]): ElasticsearchDomainStatus.Builder = {
+  final def endpointsAsScala(value: Option[Map[String, String]]): ElasticsearchDomainStatus.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.endpoints(v.asJava)
     } // Map[String, String]
   }
 
-  final def withProcessingAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
+  final def processingAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.processing(v)
     }
   } // Boolean
 
-  final def withUpgradeProcessingAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
+  final def upgradeProcessingAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.upgradeProcessing(v)
     }
   } // Boolean
 
-  final def withElasticsearchVersionAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
+  final def elasticsearchVersionAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.elasticsearchVersion(v)
     }
   } // String
 
-  final def withElasticsearchClusterConfigAsScala(
+  final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfig]
   ): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
@@ -73,37 +73,37 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
     }
   } // ElasticsearchClusterConfig
 
-  final def withEbsOptionsAsScala(value: Option[EBSOptions]): ElasticsearchDomainStatus.Builder = {
+  final def ebsOptionsAsScala(value: Option[EBSOptions]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.ebsOptions(v)
     }
   } // EBSOptions
 
-  final def withAccessPoliciesAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
+  final def accessPoliciesAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.accessPolicies(v)
     }
   } // String
 
-  final def withSnapshotOptionsAsScala(value: Option[SnapshotOptions]): ElasticsearchDomainStatus.Builder = {
+  final def snapshotOptionsAsScala(value: Option[SnapshotOptions]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.snapshotOptions(v)
     }
   } // SnapshotOptions
 
-  final def withVpcOptionsAsScala(value: Option[VPCDerivedInfo]): ElasticsearchDomainStatus.Builder = {
+  final def vpcOptionsAsScala(value: Option[VPCDerivedInfo]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.vpcOptions(v)
     }
   } // VPCDerivedInfo
 
-  final def withCognitoOptionsAsScala(value: Option[CognitoOptions]): ElasticsearchDomainStatus.Builder = {
+  final def cognitoOptionsAsScala(value: Option[CognitoOptions]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.cognitoOptions(v)
     }
   } // CognitoOptions
 
-  final def withEncryptionAtRestOptionsAsScala(
+  final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptions]
   ): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
@@ -111,7 +111,7 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
     }
   } // EncryptionAtRestOptions
 
-  final def withNodeToNodeEncryptionOptionsAsScala(
+  final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptions]
   ): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
@@ -119,13 +119,13 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
     }
   } // NodeToNodeEncryptionOptions
 
-  final def withAdvancedOptionsAsScala(value: Option[Map[String, String]]): ElasticsearchDomainStatus.Builder = {
+  final def advancedOptionsAsScala(value: Option[Map[String, String]]): ElasticsearchDomainStatus.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.advancedOptions(v.asJava)
     } // Map[String, String]
   }
 
-  final def withLogPublishingOptionsAsScala(
+  final def logPublishingOptionsAsScala(
       value: Option[Map[LogType, LogPublishingOption]]
   ): ElasticsearchDomainStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -133,9 +133,7 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
     } // Map[String, LogPublishingOption]
   }
 
-  final def withServiceSoftwareOptionsAsScala(
-      value: Option[ServiceSoftwareOptions]
-  ): ElasticsearchDomainStatus.Builder = {
+  final def serviceSoftwareOptionsAsScala(value: Option[ServiceSoftwareOptions]): ElasticsearchDomainStatus.Builder = {
     value.fold(self) { v =>
       self.serviceSoftwareOptions(v)
     }

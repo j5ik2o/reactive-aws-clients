@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class TagResourceRequestBuilderOps(val self: TagResourceRequest.Builder) extends AnyVal {
 
-  final def withResourceNameAsScala(value: Option[String]): TagResourceRequest.Builder = {
+  final def resourceNameAsScala(value: Option[String]): TagResourceRequest.Builder = {
     value.fold(self) { v =>
       self.resourceName(v)
     }
   } // String
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): TagResourceRequest.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): TagResourceRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]

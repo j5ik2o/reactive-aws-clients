@@ -5,55 +5,55 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class CreateTableRequestBuilderOps(val self: CreateTableRequest.Builder) extends AnyVal {
 
-  final def withAttributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): CreateTableRequest.Builder = {
+  final def attributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): CreateTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeDefinitions(v.asJava)
     } // Seq[AttributeDefinition]
   }
 
-  final def withTableNameAsScala(value: Option[String]): CreateTableRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): CreateTableRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): CreateTableRequest.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): CreateTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withLocalSecondaryIndexesAsScala(value: Option[Seq[LocalSecondaryIndex]]): CreateTableRequest.Builder = {
+  final def localSecondaryIndexesAsScala(value: Option[Seq[LocalSecondaryIndex]]): CreateTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.localSecondaryIndexes(v.asJava)
     } // Seq[LocalSecondaryIndex]
   }
 
-  final def withGlobalSecondaryIndexesAsScala(value: Option[Seq[GlobalSecondaryIndex]]): CreateTableRequest.Builder = {
+  final def globalSecondaryIndexesAsScala(value: Option[Seq[GlobalSecondaryIndex]]): CreateTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.globalSecondaryIndexes(v.asJava)
     } // Seq[GlobalSecondaryIndex]
   }
 
-  final def withBillingModeAsScala(value: Option[BillingMode]): CreateTableRequest.Builder = {
+  final def billingModeAsScala(value: Option[BillingMode]): CreateTableRequest.Builder = {
     value.fold(self) { v =>
       self.billingMode(v)
     }
   } // String
 
-  final def withProvisionedThroughputAsScala(value: Option[ProvisionedThroughput]): CreateTableRequest.Builder = {
+  final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): CreateTableRequest.Builder = {
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }
   } // ProvisionedThroughput
 
-  final def withStreamSpecificationAsScala(value: Option[StreamSpecification]): CreateTableRequest.Builder = {
+  final def streamSpecificationAsScala(value: Option[StreamSpecification]): CreateTableRequest.Builder = {
     value.fold(self) { v =>
       self.streamSpecification(v)
     }
   } // StreamSpecification
 
-  final def withSseSpecificationAsScala(value: Option[SSESpecification]): CreateTableRequest.Builder = {
+  final def sseSpecificationAsScala(value: Option[SSESpecification]): CreateTableRequest.Builder = {
     value.fold(self) { v =>
       self.sseSpecification(v)
     }

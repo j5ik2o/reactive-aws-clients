@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ProjectionBuilderOps(val self: Projection.Builder) extends AnyVal {
 
-  final def withProjectionTypeAsScala(value: Option[ProjectionType]): Projection.Builder = {
+  final def projectionTypeAsScala(value: Option[ProjectionType]): Projection.Builder = {
     value.fold(self) { v =>
       self.projectionType(v)
     }
   } // String
 
-  final def withNonKeyAttributesAsScala(value: Option[Seq[String]]): Projection.Builder = {
+  final def nonKeyAttributesAsScala(value: Option[Seq[String]]): Projection.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nonKeyAttributes(v.asJava)
     } // Seq[String]

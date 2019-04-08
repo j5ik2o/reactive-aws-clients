@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketTaggingResponseBuilderOps(val self: GetBucketTaggingResponse.Builder) extends AnyVal {
 
-  final def withTagSetAsScala(value: Option[Seq[Tag]]): GetBucketTaggingResponse.Builder = {
+  final def tagSetAsScala(value: Option[Seq[Tag]]): GetBucketTaggingResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagSet(v.asJava)
     } // Seq[Tag]

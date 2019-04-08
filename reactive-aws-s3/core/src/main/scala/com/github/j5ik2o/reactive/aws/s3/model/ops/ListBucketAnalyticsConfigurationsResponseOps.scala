@@ -7,27 +7,25 @@ final class ListBucketAnalyticsConfigurationsResponseBuilderOps(
     val self: ListBucketAnalyticsConfigurationsResponse.Builder
 ) extends AnyVal {
 
-  final def withIsTruncatedAsScala(value: Option[Boolean]): ListBucketAnalyticsConfigurationsResponse.Builder = {
+  final def isTruncatedAsScala(value: Option[Boolean]): ListBucketAnalyticsConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   } // Boolean
 
-  final def withContinuationTokenAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsResponse.Builder = {
+  final def continuationTokenAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }
   } // String
 
-  final def withNextContinuationTokenAsScala(
-      value: Option[String]
-  ): ListBucketAnalyticsConfigurationsResponse.Builder = {
+  final def nextContinuationTokenAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextContinuationToken(v)
     }
   } // String
 
-  final def withAnalyticsConfigurationListAsScala(
+  final def analyticsConfigurationListAsScala(
       value: Option[Seq[AnalyticsConfiguration]]
   ): ListBucketAnalyticsConfigurationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

@@ -6,25 +6,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class CreateGlobalSecondaryIndexActionBuilderOps(val self: CreateGlobalSecondaryIndexAction.Builder)
     extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): CreateGlobalSecondaryIndexAction.Builder = {
+  final def indexNameAsScala(value: Option[String]): CreateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): CreateGlobalSecondaryIndexAction.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): CreateGlobalSecondaryIndexAction.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withProjectionAsScala(value: Option[Projection]): CreateGlobalSecondaryIndexAction.Builder = {
+  final def projectionAsScala(value: Option[Projection]): CreateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }
   } // Projection
 
-  final def withProvisionedThroughputAsScala(
+  final def provisionedThroughputAsScala(
       value: Option[ProvisionedThroughput]
   ): CreateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>

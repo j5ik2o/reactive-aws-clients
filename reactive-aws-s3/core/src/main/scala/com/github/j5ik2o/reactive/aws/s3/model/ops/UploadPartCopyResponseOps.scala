@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class UploadPartCopyResponseBuilderOps(val self: UploadPartCopyResponse.Builder) extends AnyVal {
 
-  final def withCopySourceVersionIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+  final def copySourceVersionIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.copySourceVersionId(v)
     }
   } // String
 
-  final def withCopyPartResultAsScala(value: Option[CopyPartResult]): UploadPartCopyResponse.Builder = {
+  final def copyPartResultAsScala(value: Option[CopyPartResult]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.copyPartResult(v)
     }
   } // CopyPartResult
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartCopyResponse.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): UploadPartCopyResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): UploadPartCopyResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

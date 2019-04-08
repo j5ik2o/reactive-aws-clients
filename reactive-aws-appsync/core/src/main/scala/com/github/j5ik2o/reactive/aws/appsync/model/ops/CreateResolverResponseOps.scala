@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateResolverResponseBuilderOps(val self: CreateResolverResponse.Builder) extends AnyVal {
 
-  final def withResolverAsScala(value: Option[Resolver]): CreateResolverResponse.Builder = {
+  final def resolverAsScala(value: Option[Resolver]): CreateResolverResponse.Builder = {
     value.fold(self) { v =>
       self.resolver(v)
     }

@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateFunctionRequestBuilderOps(val self: CreateFunctionRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withNameAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def nameAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withDataSourceNameAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def dataSourceNameAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.dataSourceName(v)
     }
   } // String
 
-  final def withRequestMappingTemplateAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def requestMappingTemplateAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.requestMappingTemplate(v)
     }
   } // String
 
-  final def withResponseMappingTemplateAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def responseMappingTemplateAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.responseMappingTemplate(v)
     }
   } // String
 
-  final def withFunctionVersionAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
+  final def functionVersionAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionVersion(v)
     }

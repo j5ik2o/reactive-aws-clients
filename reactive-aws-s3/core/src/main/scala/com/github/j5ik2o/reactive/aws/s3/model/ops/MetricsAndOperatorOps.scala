@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class MetricsAndOperatorBuilderOps(val self: MetricsAndOperator.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): MetricsAndOperator.Builder = {
+  final def prefixAsScala(value: Option[String]): MetricsAndOperator.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): MetricsAndOperator.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): MetricsAndOperator.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]

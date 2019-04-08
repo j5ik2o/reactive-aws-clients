@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class MetadataEntryBuilderOps(val self: MetadataEntry.Builder) extends AnyVal {
 
-  final def withNameAsScala(value: Option[String]): MetadataEntry.Builder = {
+  final def nameAsScala(value: Option[String]): MetadataEntry.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withValueAsScala(value: Option[String]): MetadataEntry.Builder = {
+  final def valueAsScala(value: Option[String]): MetadataEntry.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }

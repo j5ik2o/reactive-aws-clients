@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBackupRequest.Builder) extends AnyVal {
 
-  final def withTargetTableNameAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
+  final def targetTableNameAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
     value.fold(self) { v =>
       self.targetTableName(v)
     }
   } // String
 
-  final def withBackupArnAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
+  final def backupArnAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
     value.fold(self) { v =>
       self.backupArn(v)
     }

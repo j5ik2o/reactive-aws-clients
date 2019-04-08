@@ -7,7 +7,7 @@ final class PurchaseReservedElasticsearchInstanceOfferingResponseBuilderOps(
     val self: PurchaseReservedElasticsearchInstanceOfferingResponse.Builder
 ) extends AnyVal {
 
-  final def withReservedElasticsearchInstanceIdAsScala(
+  final def reservedElasticsearchInstanceIdAsScala(
       value: Option[String]
   ): PurchaseReservedElasticsearchInstanceOfferingResponse.Builder = {
     value.fold(self) { v =>
@@ -15,7 +15,7 @@ final class PurchaseReservedElasticsearchInstanceOfferingResponseBuilderOps(
     }
   } // String
 
-  final def withReservationNameAsScala(
+  final def reservationNameAsScala(
       value: Option[String]
   ): PurchaseReservedElasticsearchInstanceOfferingResponse.Builder = {
     value.fold(self) { v =>

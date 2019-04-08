@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteItemRequestBuilderOps(val self: DeleteItemRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): DeleteItemRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): DeleteItemRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): DeleteItemRequest.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): DeleteItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withExpectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): DeleteItemRequest.Builder = {
+  final def expectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): DeleteItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expected(v.asJava)
     } // Map[String, ExpectedAttributeValue]
   }
 
-  final def withConditionalOperatorAsScala(value: Option[ConditionalOperator]): DeleteItemRequest.Builder = {
+  final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): DeleteItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
   } // String
 
-  final def withReturnValuesAsScala(value: Option[ReturnValue]): DeleteItemRequest.Builder = {
+  final def returnValuesAsScala(value: Option[ReturnValue]): DeleteItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnValues(v)
     }
   } // String
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): DeleteItemRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): DeleteItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withReturnItemCollectionMetricsAsScala(
+  final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
   ): DeleteItemRequest.Builder = {
     value.fold(self) { v =>
@@ -49,21 +49,19 @@ final class DeleteItemRequestBuilderOps(val self: DeleteItemRequest.Builder) ext
     }
   } // String
 
-  final def withConditionExpressionAsScala(value: Option[String]): DeleteItemRequest.Builder = {
+  final def conditionExpressionAsScala(value: Option[String]): DeleteItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): DeleteItemRequest.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): DeleteItemRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(
-      value: Option[Map[String, AttributeValue]]
-  ): DeleteItemRequest.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): DeleteItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]

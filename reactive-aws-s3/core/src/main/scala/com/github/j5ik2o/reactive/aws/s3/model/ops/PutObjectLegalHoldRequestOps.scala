@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectLegalHoldRequestBuilderOps(val self: PutObjectLegalHoldRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
+  final def keyAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withLegalHoldAsScala(value: Option[ObjectLockLegalHold]): PutObjectLegalHoldRequest.Builder = {
+  final def legalHoldAsScala(value: Option[ObjectLockLegalHold]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.legalHold(v)
     }
   } // ObjectLockLegalHold
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): PutObjectLegalHoldRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutObjectLegalHoldRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }

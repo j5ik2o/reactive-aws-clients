@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.dax.model._
 
 final class NodeBuilderOps(val self: Node.Builder) extends AnyVal {
 
-  final def withNodeIdAsScala(value: Option[String]): Node.Builder = {
+  final def nodeIdAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.nodeId(v)
     }
   } // String
 
-  final def withEndpointAsScala(value: Option[Endpoint]): Node.Builder = {
+  final def endpointAsScala(value: Option[Endpoint]): Node.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
   } // Endpoint
 
-  final def withNodeCreateTimeAsScala(value: Option[java.time.Instant]): Node.Builder = {
+  final def nodeCreateTimeAsScala(value: Option[java.time.Instant]): Node.Builder = {
     value.fold(self) { v =>
       self.nodeCreateTime(v)
     }
   } // Instant
 
-  final def withAvailabilityZoneAsScala(value: Option[String]): Node.Builder = {
+  final def availabilityZoneAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.availabilityZone(v)
     }
   } // String
 
-  final def withNodeStatusAsScala(value: Option[String]): Node.Builder = {
+  final def nodeStatusAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.nodeStatus(v)
     }
   } // String
 
-  final def withParameterGroupStatusAsScala(value: Option[String]): Node.Builder = {
+  final def parameterGroupStatusAsScala(value: Option[String]): Node.Builder = {
     value.fold(self) { v =>
       self.parameterGroupStatus(v)
     }

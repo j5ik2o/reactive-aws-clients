@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainConfig.Builder) extends AnyVal {
 
-  final def withElasticsearchVersionAsScala(
+  final def elasticsearchVersionAsScala(
       value: Option[ElasticsearchVersionStatus]
   ): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
@@ -13,7 +13,7 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     }
   } // ElasticsearchVersionStatus
 
-  final def withElasticsearchClusterConfigAsScala(
+  final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfigStatus]
   ): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
@@ -21,37 +21,37 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     }
   } // ElasticsearchClusterConfigStatus
 
-  final def withEbsOptionsAsScala(value: Option[EBSOptionsStatus]): ElasticsearchDomainConfig.Builder = {
+  final def ebsOptionsAsScala(value: Option[EBSOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.ebsOptions(v)
     }
   } // EBSOptionsStatus
 
-  final def withAccessPoliciesAsScala(value: Option[AccessPoliciesStatus]): ElasticsearchDomainConfig.Builder = {
+  final def accessPoliciesAsScala(value: Option[AccessPoliciesStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.accessPolicies(v)
     }
   } // AccessPoliciesStatus
 
-  final def withSnapshotOptionsAsScala(value: Option[SnapshotOptionsStatus]): ElasticsearchDomainConfig.Builder = {
+  final def snapshotOptionsAsScala(value: Option[SnapshotOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.snapshotOptions(v)
     }
   } // SnapshotOptionsStatus
 
-  final def withVpcOptionsAsScala(value: Option[VPCDerivedInfoStatus]): ElasticsearchDomainConfig.Builder = {
+  final def vpcOptionsAsScala(value: Option[VPCDerivedInfoStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.vpcOptions(v)
     }
   } // VPCDerivedInfoStatus
 
-  final def withCognitoOptionsAsScala(value: Option[CognitoOptionsStatus]): ElasticsearchDomainConfig.Builder = {
+  final def cognitoOptionsAsScala(value: Option[CognitoOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.cognitoOptions(v)
     }
   } // CognitoOptionsStatus
 
-  final def withEncryptionAtRestOptionsAsScala(
+  final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
@@ -59,7 +59,7 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     }
   } // EncryptionAtRestOptionsStatus
 
-  final def withNodeToNodeEncryptionOptionsAsScala(
+  final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
@@ -67,13 +67,13 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     }
   } // NodeToNodeEncryptionOptionsStatus
 
-  final def withAdvancedOptionsAsScala(value: Option[AdvancedOptionsStatus]): ElasticsearchDomainConfig.Builder = {
+  final def advancedOptionsAsScala(value: Option[AdvancedOptionsStatus]): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>
       self.advancedOptions(v)
     }
   } // AdvancedOptionsStatus
 
-  final def withLogPublishingOptionsAsScala(
+  final def logPublishingOptionsAsScala(
       value: Option[LogPublishingOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
     value.fold(self) { v =>

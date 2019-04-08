@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class StreamRecordBuilderOps(val self: StreamRecord.Builder) extends AnyVal {
 
-  final def withApproximateCreationDateTimeAsScala(value: Option[java.time.Instant]): StreamRecord.Builder = {
+  final def approximateCreationDateTimeAsScala(value: Option[java.time.Instant]): StreamRecord.Builder = {
     value.fold(self) { v =>
       self.approximateCreationDateTime(v)
     }
   } // Instant
 
-  final def withKeysAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
+  final def keysAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keys(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withNewImageAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
+  final def newImageAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.newImage(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withOldImageAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
+  final def oldImageAsScala(value: Option[Map[String, AttributeValue]]): StreamRecord.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.oldImage(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withSequenceNumberAsScala(value: Option[String]): StreamRecord.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): StreamRecord.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
   } // String
 
-  final def withSizeBytesAsScala(value: Option[Long]): StreamRecord.Builder = {
+  final def sizeBytesAsScala(value: Option[Long]): StreamRecord.Builder = {
     value.fold(self) { v =>
       self.sizeBytes(v)
     }
   } // Long
 
-  final def withStreamViewTypeAsScala(value: Option[StreamViewType]): StreamRecord.Builder = {
+  final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamRecord.Builder = {
     value.fold(self) { v =>
       self.streamViewType(v)
     }

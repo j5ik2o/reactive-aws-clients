@@ -6,9 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class DeleteElasticsearchDomainResponseBuilderOps(val self: DeleteElasticsearchDomainResponse.Builder)
     extends AnyVal {
 
-  final def withDomainStatusAsScala(
-      value: Option[ElasticsearchDomainStatus]
-  ): DeleteElasticsearchDomainResponse.Builder = {
+  final def domainStatusAsScala(value: Option[ElasticsearchDomainStatus]): DeleteElasticsearchDomainResponse.Builder = {
     value.fold(self) { v =>
       self.domainStatus(v)
     }

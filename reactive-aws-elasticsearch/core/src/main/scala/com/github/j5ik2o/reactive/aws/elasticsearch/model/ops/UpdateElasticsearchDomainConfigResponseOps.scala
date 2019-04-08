@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class UpdateElasticsearchDomainConfigResponseBuilderOps(val self: UpdateElasticsearchDomainConfigResponse.Builder)
     extends AnyVal {
 
-  final def withDomainConfigAsScala(
+  final def domainConfigAsScala(
       value: Option[ElasticsearchDomainConfig]
   ): UpdateElasticsearchDomainConfigResponse.Builder = {
     value.fold(self) { v =>

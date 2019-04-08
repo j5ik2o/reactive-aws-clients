@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketPolicyRequestBuilderOps(val self: PutBucketPolicyRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withConfirmRemoveSelfBucketAccessAsScala(value: Option[Boolean]): PutBucketPolicyRequest.Builder = {
+  final def confirmRemoveSelfBucketAccessAsScala(value: Option[Boolean]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.confirmRemoveSelfBucketAccess(v)
     }
   } // Boolean
 
-  final def withPolicyAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
+  final def policyAsScala(value: Option[String]): PutBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policy(v)
     }

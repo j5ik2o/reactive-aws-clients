@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetItemRequestBuilderOps(val self: GetItemRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): GetItemRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): GetItemRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): GetItemRequest.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): GetItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withAttributesToGetAsScala(value: Option[Seq[String]]): GetItemRequest.Builder = {
+  final def attributesToGetAsScala(value: Option[Seq[String]]): GetItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributesToGet(v.asJava)
     } // Seq[String]
   }
 
-  final def withConsistentReadAsScala(value: Option[Boolean]): GetItemRequest.Builder = {
+  final def consistentReadAsScala(value: Option[Boolean]): GetItemRequest.Builder = {
     value.fold(self) { v =>
       self.consistentRead(v)
     }
   } // Boolean
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): GetItemRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): GetItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withProjectionExpressionAsScala(value: Option[String]): GetItemRequest.Builder = {
+  final def projectionExpressionAsScala(value: Option[String]): GetItemRequest.Builder = {
     value.fold(self) { v =>
       self.projectionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): GetItemRequest.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): GetItemRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]

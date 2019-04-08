@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BatchWriteItemResponseBuilderOps(val self: BatchWriteItemResponse.Builder) extends AnyVal {
 
-  final def withUnprocessedItemsAsScala(
-      value: Option[Map[String, Seq[WriteRequest]]]
-  ): BatchWriteItemResponse.Builder = {
+  final def unprocessedItemsAsScala(value: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.unprocessedItems(v.mapValues(_.asJava).asJava)
     } // Map[String, Seq[WriteRequest]]
   }
 
-  final def withItemCollectionMetricsAsScala(
+  final def itemCollectionMetricsAsScala(
       value: Option[Map[String, Seq[ItemCollectionMetrics]]]
   ): BatchWriteItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -21,7 +19,7 @@ final class BatchWriteItemResponseBuilderOps(val self: BatchWriteItemResponse.Bu
     } // Map[String, Seq[ItemCollectionMetrics]]
   }
 
-  final def withConsumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): BatchWriteItemResponse.Builder = {
+  final def consumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): BatchWriteItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
     } // Seq[ConsumedCapacity]

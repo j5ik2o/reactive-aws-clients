@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListGlobalTablesResponseBuilderOps(val self: ListGlobalTablesResponse.Builder) extends AnyVal {
 
-  final def withGlobalTablesAsScala(value: Option[Seq[GlobalTable]]): ListGlobalTablesResponse.Builder = {
+  final def globalTablesAsScala(value: Option[Seq[GlobalTable]]): ListGlobalTablesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.globalTables(v.asJava)
     } // Seq[GlobalTable]
   }
 
-  final def withLastEvaluatedGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesResponse.Builder = {
+  final def lastEvaluatedGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedGlobalTableName(v)
     }

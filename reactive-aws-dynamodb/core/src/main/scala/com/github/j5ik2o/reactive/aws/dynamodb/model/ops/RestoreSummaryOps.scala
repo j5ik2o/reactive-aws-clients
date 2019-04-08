@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class RestoreSummaryBuilderOps(val self: RestoreSummary.Builder) extends AnyVal {
 
-  final def withSourceBackupArnAsScala(value: Option[String]): RestoreSummary.Builder = {
+  final def sourceBackupArnAsScala(value: Option[String]): RestoreSummary.Builder = {
     value.fold(self) { v =>
       self.sourceBackupArn(v)
     }
   } // String
 
-  final def withSourceTableArnAsScala(value: Option[String]): RestoreSummary.Builder = {
+  final def sourceTableArnAsScala(value: Option[String]): RestoreSummary.Builder = {
     value.fold(self) { v =>
       self.sourceTableArn(v)
     }
   } // String
 
-  final def withRestoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreSummary.Builder = {
+  final def restoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreSummary.Builder = {
     value.fold(self) { v =>
       self.restoreDateTime(v)
     }
   } // Instant
 
-  final def withRestoreInProgressAsScala(value: Option[Boolean]): RestoreSummary.Builder = {
+  final def restoreInProgressAsScala(value: Option[Boolean]): RestoreSummary.Builder = {
     value.fold(self) { v =>
       self.restoreInProgress(v)
     }

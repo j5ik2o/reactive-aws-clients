@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class TypeBuilderOps(val self: Type.Builder) extends AnyVal {
 
-  final def withNameAsScala(value: Option[String]): Type.Builder = {
+  final def nameAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): Type.Builder = {
+  final def descriptionAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withArnAsScala(value: Option[String]): Type.Builder = {
+  final def arnAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   } // String
 
-  final def withDefinitionAsScala(value: Option[String]): Type.Builder = {
+  final def definitionAsScala(value: Option[String]): Type.Builder = {
     value.fold(self) { v =>
       self.definition(v)
     }
   } // String
 
-  final def withFormatAsScala(value: Option[TypeDefinitionFormat]): Type.Builder = {
+  final def formatAsScala(value: Option[TypeDefinitionFormat]): Type.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }

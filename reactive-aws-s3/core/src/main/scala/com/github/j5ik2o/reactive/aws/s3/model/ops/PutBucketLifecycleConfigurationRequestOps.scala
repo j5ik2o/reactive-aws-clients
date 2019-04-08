@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketLifecycleConfigurationRequestBuilderOps(val self: PutBucketLifecycleConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketLifecycleConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketLifecycleConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withLifecycleConfigurationAsScala(
+  final def lifecycleConfigurationAsScala(
       value: Option[BucketLifecycleConfiguration]
   ): PutBucketLifecycleConfigurationRequest.Builder = {
     value.fold(self) { v =>

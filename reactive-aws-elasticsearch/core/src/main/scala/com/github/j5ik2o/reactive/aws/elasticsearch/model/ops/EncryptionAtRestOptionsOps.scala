@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class EncryptionAtRestOptionsBuilderOps(val self: EncryptionAtRestOptions.Builder) extends AnyVal {
 
-  final def withEnabledAsScala(value: Option[Boolean]): EncryptionAtRestOptions.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): EncryptionAtRestOptions.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
   } // Boolean
 
-  final def withKmsKeyIdAsScala(value: Option[String]): EncryptionAtRestOptions.Builder = {
+  final def kmsKeyIdAsScala(value: Option[String]): EncryptionAtRestOptions.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }

@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class OpenIDConnectConfigBuilderOps(val self: OpenIDConnectConfig.Builder) extends AnyVal {
 
-  final def withIssuerAsScala(value: Option[String]): OpenIDConnectConfig.Builder = {
+  final def issuerAsScala(value: Option[String]): OpenIDConnectConfig.Builder = {
     value.fold(self) { v =>
       self.issuer(v)
     }
   } // String
 
-  final def withClientIdAsScala(value: Option[String]): OpenIDConnectConfig.Builder = {
+  final def clientIdAsScala(value: Option[String]): OpenIDConnectConfig.Builder = {
     value.fold(self) { v =>
       self.clientId(v)
     }
   } // String
 
-  final def withIatTTLAsScala(value: Option[Long]): OpenIDConnectConfig.Builder = {
+  final def iatTTLAsScala(value: Option[Long]): OpenIDConnectConfig.Builder = {
     value.fold(self) { v =>
       self.iatTTL(v)
     }
   } // Long
 
-  final def withAuthTTLAsScala(value: Option[Long]): OpenIDConnectConfig.Builder = {
+  final def authTTLAsScala(value: Option[Long]): OpenIDConnectConfig.Builder = {
     value.fold(self) { v =>
       self.authTTL(v)
     }

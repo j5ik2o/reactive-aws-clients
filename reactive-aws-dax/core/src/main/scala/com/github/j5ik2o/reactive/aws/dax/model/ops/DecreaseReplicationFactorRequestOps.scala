@@ -6,25 +6,25 @@ import software.amazon.awssdk.services.dax.model._
 final class DecreaseReplicationFactorRequestBuilderOps(val self: DecreaseReplicationFactorRequest.Builder)
     extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): DecreaseReplicationFactorRequest.Builder = {
+  final def clusterNameAsScala(value: Option[String]): DecreaseReplicationFactorRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   } // String
 
-  final def withNewReplicationFactorAsScala(value: Option[Int]): DecreaseReplicationFactorRequest.Builder = {
+  final def newReplicationFactorAsScala(value: Option[Int]): DecreaseReplicationFactorRequest.Builder = {
     value.fold(self) { v =>
       self.newReplicationFactor(v)
     }
   } // Int
 
-  final def withAvailabilityZonesAsScala(value: Option[Seq[String]]): DecreaseReplicationFactorRequest.Builder = {
+  final def availabilityZonesAsScala(value: Option[Seq[String]]): DecreaseReplicationFactorRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
     } // Seq[String]
   }
 
-  final def withNodeIdsToRemoveAsScala(value: Option[Seq[String]]): DecreaseReplicationFactorRequest.Builder = {
+  final def nodeIdsToRemoveAsScala(value: Option[Seq[String]]): DecreaseReplicationFactorRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.nodeIdsToRemove(v.asJava)
     } // Seq[String]

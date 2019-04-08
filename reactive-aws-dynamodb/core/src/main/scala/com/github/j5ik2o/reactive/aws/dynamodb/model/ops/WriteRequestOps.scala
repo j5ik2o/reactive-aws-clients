@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class WriteRequestBuilderOps(val self: WriteRequest.Builder) extends AnyVal {
 
-  final def withPutRequestAsScala(value: Option[PutRequest]): WriteRequest.Builder = {
+  final def putRequestAsScala(value: Option[PutRequest]): WriteRequest.Builder = {
     value.fold(self) { v =>
       self.putRequest(v)
     }
   } // PutRequest
 
-  final def withDeleteRequestAsScala(value: Option[DeleteRequest]): WriteRequest.Builder = {
+  final def deleteRequestAsScala(value: Option[DeleteRequest]): WriteRequest.Builder = {
     value.fold(self) { v =>
       self.deleteRequest(v)
     }

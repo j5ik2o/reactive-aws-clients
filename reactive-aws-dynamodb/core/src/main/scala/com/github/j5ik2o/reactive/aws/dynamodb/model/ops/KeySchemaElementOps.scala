@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class KeySchemaElementBuilderOps(val self: KeySchemaElement.Builder) extends AnyVal {
 
-  final def withAttributeNameAsScala(value: Option[String]): KeySchemaElement.Builder = {
+  final def attributeNameAsScala(value: Option[String]): KeySchemaElement.Builder = {
     value.fold(self) { v =>
       self.attributeName(v)
     }
   } // String
 
-  final def withKeyTypeAsScala(value: Option[KeyType]): KeySchemaElement.Builder = {
+  final def keyTypeAsScala(value: Option[KeyType]): KeySchemaElement.Builder = {
     value.fold(self) { v =>
       self.keyType(v)
     }

@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateFunctionRequestBuilderOps(val self: UpdateFunctionRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withNameAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def nameAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withFunctionIdAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def functionIdAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionId(v)
     }
   } // String
 
-  final def withDataSourceNameAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def dataSourceNameAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.dataSourceName(v)
     }
   } // String
 
-  final def withRequestMappingTemplateAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def requestMappingTemplateAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.requestMappingTemplate(v)
     }
   } // String
 
-  final def withResponseMappingTemplateAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def responseMappingTemplateAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.responseMappingTemplate(v)
     }
   } // String
 
-  final def withFunctionVersionAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
+  final def functionVersionAsScala(value: Option[String]): UpdateFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionVersion(v)
     }

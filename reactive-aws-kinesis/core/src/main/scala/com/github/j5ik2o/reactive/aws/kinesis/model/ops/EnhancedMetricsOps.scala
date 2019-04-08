@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class EnhancedMetricsBuilderOps(val self: EnhancedMetrics.Builder) extends AnyVal {
 
-  final def withShardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): EnhancedMetrics.Builder = {
+  final def shardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): EnhancedMetrics.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shardLevelMetrics(v.asJava)
     } // Seq[String]

@@ -5,79 +5,79 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListObjectVersionsResponseBuilderOps(val self: ListObjectVersionsResponse.Builder) extends AnyVal {
 
-  final def withIsTruncatedAsScala(value: Option[Boolean]): ListObjectVersionsResponse.Builder = {
+  final def isTruncatedAsScala(value: Option[Boolean]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   } // Boolean
 
-  final def withKeyMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def keyMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.keyMarker(v)
     }
   } // String
 
-  final def withVersionIdMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def versionIdMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.versionIdMarker(v)
     }
   } // String
 
-  final def withNextKeyMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def nextKeyMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextKeyMarker(v)
     }
   } // String
 
-  final def withNextVersionIdMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def nextVersionIdMarkerAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextVersionIdMarker(v)
     }
   } // String
 
-  final def withVersionsAsScala(value: Option[Seq[ObjectVersion]]): ListObjectVersionsResponse.Builder = {
+  final def versionsAsScala(value: Option[Seq[ObjectVersion]]): ListObjectVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.versions(v.asJava)
     } // Seq[ObjectVersion]
   }
 
-  final def withDeleteMarkersAsScala(value: Option[Seq[DeleteMarkerEntry]]): ListObjectVersionsResponse.Builder = {
+  final def deleteMarkersAsScala(value: Option[Seq[DeleteMarkerEntry]]): ListObjectVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.deleteMarkers(v.asJava)
     } // Seq[DeleteMarkerEntry]
   }
 
-  final def withNameAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def nameAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def prefixAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withDelimiterAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
+  final def delimiterAsScala(value: Option[String]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
   } // String
 
-  final def withMaxKeysAsScala(value: Option[Int]): ListObjectVersionsResponse.Builder = {
+  final def maxKeysAsScala(value: Option[Int]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.maxKeys(v)
     }
   } // Int
 
-  final def withCommonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListObjectVersionsResponse.Builder = {
+  final def commonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListObjectVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.commonPrefixes(v.asJava)
     } // Seq[CommonPrefix]
   }
 
-  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListObjectVersionsResponse.Builder = {
+  final def encodingTypeAsScala(value: Option[EncodingType]): ListObjectVersionsResponse.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }

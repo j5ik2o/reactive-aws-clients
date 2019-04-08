@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class NodeToNodeEncryptionOptionsBuilderOps(val self: NodeToNodeEncryptionOptions.Builder) extends AnyVal {
 
-  final def withEnabledAsScala(value: Option[Boolean]): NodeToNodeEncryptionOptions.Builder = {
+  final def enabledAsScala(value: Option[Boolean]): NodeToNodeEncryptionOptions.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }

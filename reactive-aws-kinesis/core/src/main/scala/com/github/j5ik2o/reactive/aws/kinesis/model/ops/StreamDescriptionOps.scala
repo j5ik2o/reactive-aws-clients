@@ -5,61 +5,61 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def streamNameAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withStreamARNAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def streamARNAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
   } // String
 
-  final def withStreamStatusAsScala(value: Option[StreamStatus]): StreamDescription.Builder = {
+  final def streamStatusAsScala(value: Option[StreamStatus]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamStatus(v)
     }
   } // String
 
-  final def withShardsAsScala(value: Option[Seq[Shard]]): StreamDescription.Builder = {
+  final def shardsAsScala(value: Option[Seq[Shard]]): StreamDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shards(v.asJava)
     } // Seq[Shard]
   }
 
-  final def withHasMoreShardsAsScala(value: Option[Boolean]): StreamDescription.Builder = {
+  final def hasMoreShardsAsScala(value: Option[Boolean]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.hasMoreShards(v)
     }
   } // Boolean
 
-  final def withRetentionPeriodHoursAsScala(value: Option[Int]): StreamDescription.Builder = {
+  final def retentionPeriodHoursAsScala(value: Option[Int]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.retentionPeriodHours(v)
     }
   } // Int
 
-  final def withStreamCreationTimestampAsScala(value: Option[java.time.Instant]): StreamDescription.Builder = {
+  final def streamCreationTimestampAsScala(value: Option[java.time.Instant]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }
   } // Instant
 
-  final def withEnhancedMonitoringAsScala(value: Option[Seq[EnhancedMetrics]]): StreamDescription.Builder = {
+  final def enhancedMonitoringAsScala(value: Option[Seq[EnhancedMetrics]]): StreamDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.enhancedMonitoring(v.asJava)
     } // Seq[EnhancedMetrics]
   }
 
-  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): StreamDescription.Builder = {
+  final def encryptionTypeAsScala(value: Option[EncryptionType]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
   } // String
 
-  final def withKeyIdAsScala(value: Option[String]): StreamDescription.Builder = {
+  final def keyIdAsScala(value: Option[String]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }

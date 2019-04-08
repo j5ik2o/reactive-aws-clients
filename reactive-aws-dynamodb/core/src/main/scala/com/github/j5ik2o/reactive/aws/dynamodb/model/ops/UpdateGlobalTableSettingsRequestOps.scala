@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTableSettingsRequest.Builder)
     extends AnyVal {
 
-  final def withGlobalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsRequest.Builder = {
+  final def globalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }
   } // String
 
-  final def withGlobalTableBillingModeAsScala(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest.Builder = {
+  final def globalTableBillingModeAsScala(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableBillingMode(v)
     }
   } // String
 
-  final def withGlobalTableProvisionedWriteCapacityUnitsAsScala(
+  final def globalTableProvisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
@@ -26,7 +26,7 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     }
   } // Long
 
-  final def withGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
+  final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
@@ -34,7 +34,7 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     }
   } // AutoScalingSettingsUpdate
 
-  final def withGlobalTableGlobalSecondaryIndexSettingsUpdateAsScala(
+  final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala(
       value: Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -42,7 +42,7 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     } // Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]
   }
 
-  final def withReplicaSettingsUpdateAsScala(
+  final def replicaSettingsUpdateAsScala(
       value: Option[Seq[ReplicaSettingsUpdate]]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketLifecycleRequestBuilderOps(val self: DeleteBucketLifecycleRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketLifecycleRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketLifecycleRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

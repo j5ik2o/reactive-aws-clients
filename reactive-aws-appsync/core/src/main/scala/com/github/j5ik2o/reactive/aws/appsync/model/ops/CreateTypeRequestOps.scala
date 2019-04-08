@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateTypeRequestBuilderOps(val self: CreateTypeRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): CreateTypeRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): CreateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withDefinitionAsScala(value: Option[String]): CreateTypeRequest.Builder = {
+  final def definitionAsScala(value: Option[String]): CreateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.definition(v)
     }
   } // String
 
-  final def withFormatAsScala(value: Option[TypeDefinitionFormat]): CreateTypeRequest.Builder = {
+  final def formatAsScala(value: Option[TypeDefinitionFormat]): CreateTypeRequest.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }

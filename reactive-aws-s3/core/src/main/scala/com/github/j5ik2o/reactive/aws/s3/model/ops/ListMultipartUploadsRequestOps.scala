@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListMultipartUploadsRequestBuilderOps(val self: ListMultipartUploadsRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withDelimiterAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
+  final def delimiterAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
   } // String
 
-  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListMultipartUploadsRequest.Builder = {
+  final def encodingTypeAsScala(value: Option[EncodingType]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }
   } // String
 
-  final def withKeyMarkerAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
+  final def keyMarkerAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.keyMarker(v)
     }
   } // String
 
-  final def withMaxUploadsAsScala(value: Option[Int]): ListMultipartUploadsRequest.Builder = {
+  final def maxUploadsAsScala(value: Option[Int]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.maxUploads(v)
     }
   } // Int
 
-  final def withPrefixAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
+  final def prefixAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withUploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
+  final def uploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsRequest.Builder = {
     value.fold(self) { v =>
       self.uploadIdMarker(v)
     }

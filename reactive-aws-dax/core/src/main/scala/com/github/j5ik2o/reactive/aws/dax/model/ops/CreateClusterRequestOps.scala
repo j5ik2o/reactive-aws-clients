@@ -5,79 +5,79 @@ import software.amazon.awssdk.services.dax.model._
 
 final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builder) extends AnyVal {
 
-  final def withClusterNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def clusterNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   } // String
 
-  final def withNodeTypeAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def nodeTypeAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.nodeType(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withReplicationFactorAsScala(value: Option[Int]): CreateClusterRequest.Builder = {
+  final def replicationFactorAsScala(value: Option[Int]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.replicationFactor(v)
     }
   } // Int
 
-  final def withAvailabilityZonesAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
+  final def availabilityZonesAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
     } // Seq[String]
   }
 
-  final def withSubnetGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def subnetGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }
   } // String
 
-  final def withSecurityGroupIdsAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
+  final def securityGroupIdsAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
     } // Seq[String]
   }
 
-  final def withPreferredMaintenanceWindowAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def preferredMaintenanceWindowAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.preferredMaintenanceWindow(v)
     }
   } // String
 
-  final def withNotificationTopicArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def notificationTopicArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.notificationTopicArn(v)
     }
   } // String
 
-  final def withIamRoleArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def iamRoleArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.iamRoleArn(v)
     }
   } // String
 
-  final def withParameterGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
+  final def parameterGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   } // String
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): CreateClusterRequest.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): CreateClusterRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]
   }
 
-  final def withSseSpecificationAsScala(value: Option[SSESpecification]): CreateClusterRequest.Builder = {
+  final def sseSpecificationAsScala(value: Option[SSESpecification]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.sseSpecification(v)
     }

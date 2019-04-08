@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AnalyticsConfigurationBuilderOps(val self: AnalyticsConfiguration.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): AnalyticsConfiguration.Builder = {
+  final def idAsScala(value: Option[String]): AnalyticsConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withFilterAsScala(value: Option[AnalyticsFilter]): AnalyticsConfiguration.Builder = {
+  final def filterAsScala(value: Option[AnalyticsFilter]): AnalyticsConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
   } // AnalyticsFilter
 
-  final def withStorageClassAnalysisAsScala(value: Option[StorageClassAnalysis]): AnalyticsConfiguration.Builder = {
+  final def storageClassAnalysisAsScala(value: Option[StorageClassAnalysis]): AnalyticsConfiguration.Builder = {
     value.fold(self) { v =>
       self.storageClassAnalysis(v)
     }

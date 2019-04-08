@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SendMessageBatchResultEntryBuilderOps(val self: SendMessageBatchResultEntry.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
+  final def idAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withMessageIdAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
+  final def messageIdAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.messageId(v)
     }
   } // String
 
-  final def withMd5OfMessageBodyAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
+  final def md5OfMessageBodyAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageBody(v)
     }
   } // String
 
-  final def withMd5OfMessageAttributesAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
+  final def md5OfMessageAttributesAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageAttributes(v)
     }
   } // String
 
-  final def withSequenceNumberAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }

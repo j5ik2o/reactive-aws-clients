@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class GetUpgradeHistoryRequestBuilderOps(val self: GetUpgradeHistoryRequest.Builder) extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): GetUpgradeHistoryRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): GetUpgradeHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): GetUpgradeHistoryRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): GetUpgradeHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withNextTokenAsScala(value: Option[String]): GetUpgradeHistoryRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): GetUpgradeHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

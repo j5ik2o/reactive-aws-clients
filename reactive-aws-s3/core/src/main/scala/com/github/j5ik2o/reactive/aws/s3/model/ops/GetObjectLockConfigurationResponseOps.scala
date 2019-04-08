@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetObjectLockConfigurationResponseBuilderOps(val self: GetObjectLockConfigurationResponse.Builder)
     extends AnyVal {
 
-  final def withObjectLockConfigurationAsScala(
+  final def objectLockConfigurationAsScala(
       value: Option[ObjectLockConfiguration]
   ): GetObjectLockConfigurationResponse.Builder = {
     value.fold(self) { v =>

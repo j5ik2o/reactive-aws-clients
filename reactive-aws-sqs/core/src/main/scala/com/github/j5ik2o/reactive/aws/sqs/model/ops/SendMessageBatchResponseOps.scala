@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SendMessageBatchResponseBuilderOps(val self: SendMessageBatchResponse.Builder) extends AnyVal {
 
-  final def withSuccessfulAsScala(value: Option[Seq[SendMessageBatchResultEntry]]): SendMessageBatchResponse.Builder = {
+  final def successfulAsScala(value: Option[Seq[SendMessageBatchResultEntry]]): SendMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.successful(v.asJava)
     } // Seq[SendMessageBatchResultEntry]
   }
 
-  final def withFailedAsScala(value: Option[Seq[BatchResultErrorEntry]]): SendMessageBatchResponse.Builder = {
+  final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): SendMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.failed(v.asJava)
     } // Seq[BatchResultErrorEntry]

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class GetUpgradeStatusRequestBuilderOps(val self: GetUpgradeStatusRequest.Builder) extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): GetUpgradeStatusRequest.Builder = {
+  final def domainNameAsScala(value: Option[String]): GetUpgradeStatusRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }

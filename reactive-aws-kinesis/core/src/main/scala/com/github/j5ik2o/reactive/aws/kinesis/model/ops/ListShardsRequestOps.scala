@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListShardsRequestBuilderOps(val self: ListShardsRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): ListShardsRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withNextTokenAsScala(value: Option[String]): ListShardsRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   } // String
 
-  final def withExclusiveStartShardIdAsScala(value: Option[String]): ListShardsRequest.Builder = {
+  final def exclusiveStartShardIdAsScala(value: Option[String]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartShardId(v)
     }
   } // String
 
-  final def withMaxResultsAsScala(value: Option[Int]): ListShardsRequest.Builder = {
+  final def maxResultsAsScala(value: Option[Int]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   } // Int
 
-  final def withStreamCreationTimestampAsScala(value: Option[java.time.Instant]): ListShardsRequest.Builder = {
+  final def streamCreationTimestampAsScala(value: Option[java.time.Instant]): ListShardsRequest.Builder = {
     value.fold(self) { v =>
       self.streamCreationTimestamp(v)
     }

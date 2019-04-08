@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ListTagsResponseBuilderOps(val self: ListTagsResponse.Builder) extends AnyVal {
 
-  final def withTagListAsScala(value: Option[Seq[Tag]]): ListTagsResponse.Builder = {
+  final def tagListAsScala(value: Option[Seq[Tag]]): ListTagsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagList(v.asJava)
     } // Seq[Tag]

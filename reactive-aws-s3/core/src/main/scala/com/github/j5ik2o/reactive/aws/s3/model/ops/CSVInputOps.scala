@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CSVInputBuilderOps(val self: CSVInput.Builder) extends AnyVal {
 
-  final def withFileHeaderInfoAsScala(value: Option[FileHeaderInfo]): CSVInput.Builder = {
+  final def fileHeaderInfoAsScala(value: Option[FileHeaderInfo]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.fileHeaderInfo(v)
     }
   } // String
 
-  final def withCommentsAsScala(value: Option[String]): CSVInput.Builder = {
+  final def commentsAsScala(value: Option[String]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.comments(v)
     }
   } // String
 
-  final def withQuoteEscapeCharacterAsScala(value: Option[String]): CSVInput.Builder = {
+  final def quoteEscapeCharacterAsScala(value: Option[String]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.quoteEscapeCharacter(v)
     }
   } // String
 
-  final def withRecordDelimiterAsScala(value: Option[String]): CSVInput.Builder = {
+  final def recordDelimiterAsScala(value: Option[String]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.recordDelimiter(v)
     }
   } // String
 
-  final def withFieldDelimiterAsScala(value: Option[String]): CSVInput.Builder = {
+  final def fieldDelimiterAsScala(value: Option[String]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.fieldDelimiter(v)
     }
   } // String
 
-  final def withQuoteCharacterAsScala(value: Option[String]): CSVInput.Builder = {
+  final def quoteCharacterAsScala(value: Option[String]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.quoteCharacter(v)
     }
   } // String
 
-  final def withAllowQuotedRecordDelimiterAsScala(value: Option[Boolean]): CSVInput.Builder = {
+  final def allowQuotedRecordDelimiterAsScala(value: Option[Boolean]): CSVInput.Builder = {
     value.fold(self) { v =>
       self.allowQuotedRecordDelimiter(v)
     }

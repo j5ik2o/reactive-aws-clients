@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketInventoryConfigurationResponseBuilderOps(val self: GetBucketInventoryConfigurationResponse.Builder)
     extends AnyVal {
 
-  final def withInventoryConfigurationAsScala(
+  final def inventoryConfigurationAsScala(
       value: Option[InventoryConfiguration]
   ): GetBucketInventoryConfigurationResponse.Builder = {
     value.fold(self) { v =>

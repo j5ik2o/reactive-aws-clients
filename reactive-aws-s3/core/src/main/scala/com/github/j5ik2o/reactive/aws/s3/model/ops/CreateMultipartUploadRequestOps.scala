@@ -5,161 +5,157 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CreateMultipartUploadRequestBuilderOps(val self: CreateMultipartUploadRequest.Builder) extends AnyVal {
 
-  final def withAclAsScala(value: Option[ObjectCannedACL]): CreateMultipartUploadRequest.Builder = {
+  final def aclAsScala(value: Option[ObjectCannedACL]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.acl(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withCacheControlAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def cacheControlAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.cacheControl(v)
     }
   } // String
 
-  final def withContentDispositionAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def contentDispositionAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.contentDisposition(v)
     }
   } // String
 
-  final def withContentEncodingAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def contentEncodingAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.contentEncoding(v)
     }
   } // String
 
-  final def withContentLanguageAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def contentLanguageAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.contentLanguage(v)
     }
   } // String
 
-  final def withContentTypeAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def contentTypeAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.contentType(v)
     }
   } // String
 
-  final def withExpiresAsScala(value: Option[java.time.Instant]): CreateMultipartUploadRequest.Builder = {
+  final def expiresAsScala(value: Option[java.time.Instant]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
   } // Instant
 
-  final def withGrantFullControlAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def grantFullControlAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
   } // String
 
-  final def withGrantReadAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def grantReadAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
   } // String
 
-  final def withGrantReadACPAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def grantReadACPAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
   } // String
 
-  final def withGrantWriteACPAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def grantWriteACPAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def keyAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withMetadataAsScala(value: Option[Map[String, String]]): CreateMultipartUploadRequest.Builder = {
+  final def metadataAsScala(value: Option[Map[String, String]]): CreateMultipartUploadRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }
 
-  final def withServerSideEncryptionAsScala(
-      value: Option[ServerSideEncryption]
-  ): CreateMultipartUploadRequest.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): CreateMultipartUploadRequest.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withWebsiteRedirectLocationAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def websiteRedirectLocationAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.websiteRedirectLocation(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): CreateMultipartUploadRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withTaggingAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
+  final def taggingAsScala(value: Option[String]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }
   } // String
 
-  final def withObjectLockModeAsScala(value: Option[ObjectLockMode]): CreateMultipartUploadRequest.Builder = {
+  final def objectLockModeAsScala(value: Option[ObjectLockMode]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
   } // String
 
-  final def withObjectLockRetainUntilDateAsScala(
-      value: Option[java.time.Instant]
-  ): CreateMultipartUploadRequest.Builder = {
+  final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
   } // Instant
 
-  final def withObjectLockLegalHoldStatusAsScala(
+  final def objectLockLegalHoldStatusAsScala(
       value: Option[ObjectLockLegalHoldStatus]
   ): CreateMultipartUploadRequest.Builder = {
     value.fold(self) { v =>

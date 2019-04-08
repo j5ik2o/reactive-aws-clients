@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TransactGetItemsRequestBuilderOps(val self: TransactGetItemsRequest.Builder) extends AnyVal {
 
-  final def withTransactItemsAsScala(value: Option[Seq[TransactGetItem]]): TransactGetItemsRequest.Builder = {
+  final def transactItemsAsScala(value: Option[Seq[TransactGetItem]]): TransactGetItemsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.transactItems(v.asJava)
     } // Seq[TransactGetItem]
   }
 
-  final def withReturnConsumedCapacityAsScala(
-      value: Option[ReturnConsumedCapacity]
-  ): TransactGetItemsRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): TransactGetItemsRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }

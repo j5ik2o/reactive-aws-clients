@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class ElasticsearchClusterConfigStatusBuilderOps(val self: ElasticsearchClusterConfigStatus.Builder)
     extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[ElasticsearchClusterConfig]): ElasticsearchClusterConfigStatus.Builder = {
+  final def optionsAsScala(value: Option[ElasticsearchClusterConfig]): ElasticsearchClusterConfigStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // ElasticsearchClusterConfig
 
-  final def withStatusAsScala(value: Option[OptionStatus]): ElasticsearchClusterConfigStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): ElasticsearchClusterConfigStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

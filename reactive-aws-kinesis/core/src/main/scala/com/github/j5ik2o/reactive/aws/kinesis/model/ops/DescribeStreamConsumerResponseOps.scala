@@ -5,9 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamConsumerResponseBuilderOps(val self: DescribeStreamConsumerResponse.Builder) extends AnyVal {
 
-  final def withConsumerDescriptionAsScala(
-      value: Option[ConsumerDescription]
-  ): DescribeStreamConsumerResponse.Builder = {
+  final def consumerDescriptionAsScala(value: Option[ConsumerDescription]): DescribeStreamConsumerResponse.Builder = {
     value.fold(self) { v =>
       self.consumerDescription(v)
     }

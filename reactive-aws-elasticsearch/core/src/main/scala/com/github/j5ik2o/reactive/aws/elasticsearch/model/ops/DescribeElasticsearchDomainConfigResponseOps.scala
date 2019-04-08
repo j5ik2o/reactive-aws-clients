@@ -7,7 +7,7 @@ final class DescribeElasticsearchDomainConfigResponseBuilderOps(
     val self: DescribeElasticsearchDomainConfigResponse.Builder
 ) extends AnyVal {
 
-  final def withDomainConfigAsScala(
+  final def domainConfigAsScala(
       value: Option[ElasticsearchDomainConfig]
   ): DescribeElasticsearchDomainConfigResponse.Builder = {
     value.fold(self) { v =>

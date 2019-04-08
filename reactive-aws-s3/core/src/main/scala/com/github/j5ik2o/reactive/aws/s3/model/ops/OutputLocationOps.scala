@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class OutputLocationBuilderOps(val self: OutputLocation.Builder) extends AnyVal {
 
-  final def withS3AsScala(value: Option[S3Location]): OutputLocation.Builder = {
+  final def s3AsScala(value: Option[S3Location]): OutputLocation.Builder = {
     value.fold(self) { v =>
       self.s3(v)
     }

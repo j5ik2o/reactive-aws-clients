@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RegisterStreamConsumerResponseBuilderOps(val self: RegisterStreamConsumerResponse.Builder) extends AnyVal {
 
-  final def withConsumerAsScala(value: Option[Consumer]): RegisterStreamConsumerResponse.Builder = {
+  final def consumerAsScala(value: Option[Consumer]): RegisterStreamConsumerResponse.Builder = {
     value.fold(self) { v =>
       self.consumer(v)
     }

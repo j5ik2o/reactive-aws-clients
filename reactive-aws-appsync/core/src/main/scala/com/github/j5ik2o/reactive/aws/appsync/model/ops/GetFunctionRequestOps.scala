@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetFunctionRequestBuilderOps(val self: GetFunctionRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withFunctionIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
+  final def functionIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionId(v)
     }

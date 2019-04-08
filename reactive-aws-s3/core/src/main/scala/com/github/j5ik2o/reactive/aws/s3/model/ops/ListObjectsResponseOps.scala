@@ -5,61 +5,61 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListObjectsResponseBuilderOps(val self: ListObjectsResponse.Builder) extends AnyVal {
 
-  final def withIsTruncatedAsScala(value: Option[Boolean]): ListObjectsResponse.Builder = {
+  final def isTruncatedAsScala(value: Option[Boolean]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   } // Boolean
 
-  final def withMarkerAsScala(value: Option[String]): ListObjectsResponse.Builder = {
+  final def markerAsScala(value: Option[String]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.marker(v)
     }
   } // String
 
-  final def withNextMarkerAsScala(value: Option[String]): ListObjectsResponse.Builder = {
+  final def nextMarkerAsScala(value: Option[String]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.nextMarker(v)
     }
   } // String
 
-  final def withContentsAsScala(value: Option[Seq[S3Object]]): ListObjectsResponse.Builder = {
+  final def contentsAsScala(value: Option[Seq[S3Object]]): ListObjectsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.contents(v.asJava)
     } // Seq[S3Object]
   }
 
-  final def withNameAsScala(value: Option[String]): ListObjectsResponse.Builder = {
+  final def nameAsScala(value: Option[String]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): ListObjectsResponse.Builder = {
+  final def prefixAsScala(value: Option[String]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withDelimiterAsScala(value: Option[String]): ListObjectsResponse.Builder = {
+  final def delimiterAsScala(value: Option[String]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
   } // String
 
-  final def withMaxKeysAsScala(value: Option[Int]): ListObjectsResponse.Builder = {
+  final def maxKeysAsScala(value: Option[Int]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.maxKeys(v)
     }
   } // Int
 
-  final def withCommonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListObjectsResponse.Builder = {
+  final def commonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListObjectsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.commonPrefixes(v.asJava)
     } // Seq[CommonPrefix]
   }
 
-  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListObjectsResponse.Builder = {
+  final def encodingTypeAsScala(value: Option[EncodingType]): ListObjectsResponse.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }

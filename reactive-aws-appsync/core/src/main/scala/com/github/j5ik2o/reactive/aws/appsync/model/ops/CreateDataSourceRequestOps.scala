@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateDataSourceRequestBuilderOps(val self: CreateDataSourceRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withNameAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
+  final def nameAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withTypeAsScala(value: Option[DataSourceType]): CreateDataSourceRequest.Builder = {
+  final def typeAsScala(value: Option[DataSourceType]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   } // String
 
-  final def withServiceRoleArnAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
+  final def serviceRoleArnAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.serviceRoleArn(v)
     }
   } // String
 
-  final def withDynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): CreateDataSourceRequest.Builder = {
+  final def dynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.dynamodbConfig(v)
     }
   } // DynamodbDataSourceConfig
 
-  final def withLambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): CreateDataSourceRequest.Builder = {
+  final def lambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.lambdaConfig(v)
     }
   } // LambdaDataSourceConfig
 
-  final def withElasticsearchConfigAsScala(
+  final def elasticsearchConfigAsScala(
       value: Option[ElasticsearchDataSourceConfig]
   ): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
@@ -55,13 +55,13 @@ final class CreateDataSourceRequestBuilderOps(val self: CreateDataSourceRequest.
     }
   } // ElasticsearchDataSourceConfig
 
-  final def withHttpConfigAsScala(value: Option[HttpDataSourceConfig]): CreateDataSourceRequest.Builder = {
+  final def httpConfigAsScala(value: Option[HttpDataSourceConfig]): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>
       self.httpConfig(v)
     }
   } // HttpDataSourceConfig
 
-  final def withRelationalDatabaseConfigAsScala(
+  final def relationalDatabaseConfigAsScala(
       value: Option[RelationalDatabaseDataSourceConfig]
   ): CreateDataSourceRequest.Builder = {
     value.fold(self) { v =>

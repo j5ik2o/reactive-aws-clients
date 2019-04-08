@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListTagsForStreamRequestBuilderOps(val self: ListTagsForStreamRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): ListTagsForStreamRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): ListTagsForStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withExclusiveStartTagKeyAsScala(value: Option[String]): ListTagsForStreamRequest.Builder = {
+  final def exclusiveStartTagKeyAsScala(value: Option[String]): ListTagsForStreamRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartTagKey(v)
     }
   } // String
 
-  final def withLimitAsScala(value: Option[Int]): ListTagsForStreamRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): ListTagsForStreamRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }

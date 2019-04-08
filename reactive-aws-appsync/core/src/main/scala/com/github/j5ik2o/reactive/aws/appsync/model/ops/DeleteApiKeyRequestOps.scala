@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class DeleteApiKeyRequestBuilderOps(val self: DeleteApiKeyRequest.Builder) extends AnyVal {
 
-  final def withApiIdAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
+  final def apiIdAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
+  final def idAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

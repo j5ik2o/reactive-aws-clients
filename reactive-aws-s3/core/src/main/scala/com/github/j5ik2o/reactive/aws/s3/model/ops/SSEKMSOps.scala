@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SSEKMSBuilderOps(val self: SSEKMS.Builder) extends AnyVal {
 
-  final def withKeyIdAsScala(value: Option[String]): SSEKMS.Builder = {
+  final def keyIdAsScala(value: Option[String]): SSEKMS.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }

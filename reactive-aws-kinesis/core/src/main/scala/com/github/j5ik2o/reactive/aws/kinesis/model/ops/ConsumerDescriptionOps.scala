@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ConsumerDescriptionBuilderOps(val self: ConsumerDescription.Builder) extends AnyVal {
 
-  final def withConsumerNameAsScala(value: Option[String]): ConsumerDescription.Builder = {
+  final def consumerNameAsScala(value: Option[String]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerName(v)
     }
   } // String
 
-  final def withConsumerARNAsScala(value: Option[String]): ConsumerDescription.Builder = {
+  final def consumerARNAsScala(value: Option[String]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerARN(v)
     }
   } // String
 
-  final def withConsumerStatusAsScala(value: Option[ConsumerStatus]): ConsumerDescription.Builder = {
+  final def consumerStatusAsScala(value: Option[ConsumerStatus]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerStatus(v)
     }
   } // String
 
-  final def withConsumerCreationTimestampAsScala(value: Option[java.time.Instant]): ConsumerDescription.Builder = {
+  final def consumerCreationTimestampAsScala(value: Option[java.time.Instant]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.consumerCreationTimestamp(v)
     }
   } // Instant
 
-  final def withStreamARNAsScala(value: Option[String]): ConsumerDescription.Builder = {
+  final def streamARNAsScala(value: Option[String]): ConsumerDescription.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }

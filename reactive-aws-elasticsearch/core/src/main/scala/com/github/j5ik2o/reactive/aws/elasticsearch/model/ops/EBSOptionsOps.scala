@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class EBSOptionsBuilderOps(val self: EBSOptions.Builder) extends AnyVal {
 
-  final def withEbsEnabledAsScala(value: Option[Boolean]): EBSOptions.Builder = {
+  final def ebsEnabledAsScala(value: Option[Boolean]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.ebsEnabled(v)
     }
   } // Boolean
 
-  final def withVolumeTypeAsScala(value: Option[VolumeType]): EBSOptions.Builder = {
+  final def volumeTypeAsScala(value: Option[VolumeType]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.volumeType(v)
     }
   } // String
 
-  final def withVolumeSizeAsScala(value: Option[Int]): EBSOptions.Builder = {
+  final def volumeSizeAsScala(value: Option[Int]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.volumeSize(v)
     }
   } // Int
 
-  final def withIopsAsScala(value: Option[Int]): EBSOptions.Builder = {
+  final def iopsAsScala(value: Option[Int]): EBSOptions.Builder = {
     value.fold(self) { v =>
       self.iops(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CommonPrefixBuilderOps(val self: CommonPrefix.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): CommonPrefix.Builder = {
+  final def prefixAsScala(value: Option[String]): CommonPrefix.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }

@@ -7,7 +7,7 @@ final class GetCompatibleElasticsearchVersionsResponseBuilderOps(
     val self: GetCompatibleElasticsearchVersionsResponse.Builder
 ) extends AnyVal {
 
-  final def withCompatibleElasticsearchVersionsAsScala(
+  final def compatibleElasticsearchVersionsAsScala(
       value: Option[Seq[CompatibleVersionsMap]]
   ): GetCompatibleElasticsearchVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

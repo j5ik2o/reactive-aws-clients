@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class PutRecordResponseBuilderOps(val self: PutRecordResponse.Builder) extends AnyVal {
 
-  final def withShardIdAsScala(value: Option[String]): PutRecordResponse.Builder = {
+  final def shardIdAsScala(value: Option[String]): PutRecordResponse.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
   } // String
 
-  final def withSequenceNumberAsScala(value: Option[String]): PutRecordResponse.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): PutRecordResponse.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
   } // String
 
-  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): PutRecordResponse.Builder = {
+  final def encryptionTypeAsScala(value: Option[EncryptionType]): PutRecordResponse.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }

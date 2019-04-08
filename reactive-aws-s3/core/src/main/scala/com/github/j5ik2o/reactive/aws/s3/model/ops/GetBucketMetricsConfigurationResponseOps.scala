@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketMetricsConfigurationResponseBuilderOps(val self: GetBucketMetricsConfigurationResponse.Builder)
     extends AnyVal {
 
-  final def withMetricsConfigurationAsScala(
+  final def metricsConfigurationAsScala(
       value: Option[MetricsConfiguration]
   ): GetBucketMetricsConfigurationResponse.Builder = {
     value.fold(self) { v =>

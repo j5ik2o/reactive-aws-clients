@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class PipelineConfigBuilderOps(val self: PipelineConfig.Builder) extends AnyVal {
 
-  final def withFunctionsAsScala(value: Option[Seq[String]]): PipelineConfig.Builder = {
+  final def functionsAsScala(value: Option[Seq[String]]): PipelineConfig.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.functions(v.asJava)
     } // Seq[String]

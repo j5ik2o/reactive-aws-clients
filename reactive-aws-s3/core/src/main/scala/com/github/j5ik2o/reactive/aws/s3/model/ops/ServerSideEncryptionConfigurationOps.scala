@@ -6,9 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class ServerSideEncryptionConfigurationBuilderOps(val self: ServerSideEncryptionConfiguration.Builder)
     extends AnyVal {
 
-  final def withRulesAsScala(
-      value: Option[Seq[ServerSideEncryptionRule]]
-  ): ServerSideEncryptionConfiguration.Builder = {
+  final def rulesAsScala(value: Option[Seq[ServerSideEncryptionRule]]): ServerSideEncryptionConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
     } // Seq[ServerSideEncryptionRule]

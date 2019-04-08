@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class UpgradeHistoryBuilderOps(val self: UpgradeHistory.Builder) extends AnyVal {
 
-  final def withUpgradeNameAsScala(value: Option[String]): UpgradeHistory.Builder = {
+  final def upgradeNameAsScala(value: Option[String]): UpgradeHistory.Builder = {
     value.fold(self) { v =>
       self.upgradeName(v)
     }
   } // String
 
-  final def withStartTimestampAsScala(value: Option[java.time.Instant]): UpgradeHistory.Builder = {
+  final def startTimestampAsScala(value: Option[java.time.Instant]): UpgradeHistory.Builder = {
     value.fold(self) { v =>
       self.startTimestamp(v)
     }
   } // Instant
 
-  final def withUpgradeStatusAsScala(value: Option[UpgradeStatus]): UpgradeHistory.Builder = {
+  final def upgradeStatusAsScala(value: Option[UpgradeStatus]): UpgradeHistory.Builder = {
     value.fold(self) { v =>
       self.upgradeStatus(v)
     }
   } // String
 
-  final def withStepsListAsScala(value: Option[Seq[UpgradeStepItem]]): UpgradeHistory.Builder = {
+  final def stepsListAsScala(value: Option[Seq[UpgradeStepItem]]): UpgradeHistory.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.stepsList(v.asJava)
     } // Seq[UpgradeStepItem]

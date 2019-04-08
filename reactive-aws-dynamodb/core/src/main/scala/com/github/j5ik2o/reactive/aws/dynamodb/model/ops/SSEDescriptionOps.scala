@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
+  final def statusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
   } // String
 
-  final def withSseTypeAsScala(value: Option[SSEType]): SSEDescription.Builder = {
+  final def sseTypeAsScala(value: Option[SSEType]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.sseType(v)
     }
   } // String
 
-  final def withKmsMasterKeyArnAsScala(value: Option[String]): SSEDescription.Builder = {
+  final def kmsMasterKeyArnAsScala(value: Option[String]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyArn(v)
     }

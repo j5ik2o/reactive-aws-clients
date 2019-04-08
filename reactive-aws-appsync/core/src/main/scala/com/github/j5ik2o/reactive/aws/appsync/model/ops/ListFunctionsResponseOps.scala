@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListFunctionsResponseBuilderOps(val self: ListFunctionsResponse.Builder) extends AnyVal {
 
-  final def withFunctionsAsScala(value: Option[Seq[FunctionConfiguration]]): ListFunctionsResponse.Builder = {
+  final def functionsAsScala(value: Option[Seq[FunctionConfiguration]]): ListFunctionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.functions(v.asJava)
     } // Seq[FunctionConfiguration]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListFunctionsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListFunctionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

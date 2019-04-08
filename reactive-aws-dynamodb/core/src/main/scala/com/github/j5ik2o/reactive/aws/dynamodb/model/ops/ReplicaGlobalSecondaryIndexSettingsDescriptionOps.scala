@@ -7,21 +7,19 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     val self: ReplicaGlobalSecondaryIndexSettingsDescription.Builder
 ) extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
+  final def indexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withIndexStatusAsScala(
-      value: Option[IndexStatus]
-  ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
+  final def indexStatusAsScala(value: Option[IndexStatus]): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.indexStatus(v)
     }
   } // String
 
-  final def withProvisionedReadCapacityUnitsAsScala(
+  final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>
@@ -29,7 +27,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     }
   } // Long
 
-  final def withProvisionedReadCapacityAutoScalingSettingsAsScala(
+  final def provisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>
@@ -37,7 +35,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     }
   } // AutoScalingSettingsDescription
 
-  final def withProvisionedWriteCapacityUnitsAsScala(
+  final def provisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>
@@ -45,7 +43,7 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
     }
   } // Long
 
-  final def withProvisionedWriteCapacityAutoScalingSettingsAsScala(
+  final def provisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
     value.fold(self) { v =>

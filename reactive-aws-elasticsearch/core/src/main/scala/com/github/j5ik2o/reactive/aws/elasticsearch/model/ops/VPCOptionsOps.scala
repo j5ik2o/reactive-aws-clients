@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class VPCOptionsBuilderOps(val self: VPCOptions.Builder) extends AnyVal {
 
-  final def withSubnetIdsAsScala(value: Option[Seq[String]]): VPCOptions.Builder = {
+  final def subnetIdsAsScala(value: Option[Seq[String]]): VPCOptions.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
     } // Seq[String]
   }
 
-  final def withSecurityGroupIdsAsScala(value: Option[Seq[String]]): VPCOptions.Builder = {
+  final def securityGroupIdsAsScala(value: Option[Seq[String]]): VPCOptions.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
     } // Seq[String]

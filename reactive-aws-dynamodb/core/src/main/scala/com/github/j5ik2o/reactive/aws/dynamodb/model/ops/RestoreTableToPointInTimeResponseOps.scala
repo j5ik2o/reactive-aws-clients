@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class RestoreTableToPointInTimeResponseBuilderOps(val self: RestoreTableToPointInTimeResponse.Builder)
     extends AnyVal {
 
-  final def withTableDescriptionAsScala(value: Option[TableDescription]): RestoreTableToPointInTimeResponse.Builder = {
+  final def tableDescriptionAsScala(value: Option[TableDescription]): RestoreTableToPointInTimeResponse.Builder = {
     value.fold(self) { v =>
       self.tableDescription(v)
     }

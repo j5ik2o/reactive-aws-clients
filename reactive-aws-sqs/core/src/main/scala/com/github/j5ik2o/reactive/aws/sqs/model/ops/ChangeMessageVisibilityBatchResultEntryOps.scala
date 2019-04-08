@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.sqs.model._
 final class ChangeMessageVisibilityBatchResultEntryBuilderOps(val self: ChangeMessageVisibilityBatchResultEntry.Builder)
     extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): ChangeMessageVisibilityBatchResultEntry.Builder = {
+  final def idAsScala(value: Option[String]): ChangeMessageVisibilityBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

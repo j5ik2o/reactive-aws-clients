@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ElasticsearchVersionStatusBuilderOps(val self: ElasticsearchVersionStatus.Builder) extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[String]): ElasticsearchVersionStatus.Builder = {
+  final def optionsAsScala(value: Option[String]): ElasticsearchVersionStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // String
 
-  final def withStatusAsScala(value: Option[OptionStatus]): ElasticsearchVersionStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): ElasticsearchVersionStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

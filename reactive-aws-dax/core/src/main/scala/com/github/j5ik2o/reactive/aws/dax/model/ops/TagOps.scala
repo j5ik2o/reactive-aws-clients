@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class TagBuilderOps(val self: Tag.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[String]): Tag.Builder = {
+  final def keyAsScala(value: Option[String]): Tag.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withValueAsScala(value: Option[String]): Tag.Builder = {
+  final def valueAsScala(value: Option[String]): Tag.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }

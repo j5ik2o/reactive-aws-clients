@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class DomainInfoBuilderOps(val self: DomainInfo.Builder) extends AnyVal {
 
-  final def withDomainNameAsScala(value: Option[String]): DomainInfo.Builder = {
+  final def domainNameAsScala(value: Option[String]): DomainInfo.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }

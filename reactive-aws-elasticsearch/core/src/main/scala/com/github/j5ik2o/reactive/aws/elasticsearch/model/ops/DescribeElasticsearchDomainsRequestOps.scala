@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class DescribeElasticsearchDomainsRequestBuilderOps(val self: DescribeElasticsearchDomainsRequest.Builder)
     extends AnyVal {
 
-  final def withDomainNamesAsScala(value: Option[Seq[String]]): DescribeElasticsearchDomainsRequest.Builder = {
+  final def domainNamesAsScala(value: Option[Seq[String]]): DescribeElasticsearchDomainsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.domainNames(v.asJava)
     } // Seq[String]

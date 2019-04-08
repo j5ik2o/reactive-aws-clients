@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dax.model._
 
 final class NodeTypeSpecificValueBuilderOps(val self: NodeTypeSpecificValue.Builder) extends AnyVal {
 
-  final def withNodeTypeAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
+  final def nodeTypeAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
     value.fold(self) { v =>
       self.nodeType(v)
     }
   } // String
 
-  final def withValueAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
+  final def valueAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }

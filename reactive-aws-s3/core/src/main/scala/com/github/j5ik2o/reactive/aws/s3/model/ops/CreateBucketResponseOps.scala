@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CreateBucketResponseBuilderOps(val self: CreateBucketResponse.Builder) extends AnyVal {
 
-  final def withLocationAsScala(value: Option[String]): CreateBucketResponse.Builder = {
+  final def locationAsScala(value: Option[String]): CreateBucketResponse.Builder = {
     value.fold(self) { v =>
       self.location(v)
     }

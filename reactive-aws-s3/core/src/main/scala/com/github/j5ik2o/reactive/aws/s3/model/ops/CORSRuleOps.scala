@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CORSRuleBuilderOps(val self: CORSRule.Builder) extends AnyVal {
 
-  final def withAllowedHeadersAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
+  final def allowedHeadersAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedHeaders(v.asJava)
     } // Seq[String]
   }
 
-  final def withAllowedMethodsAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
+  final def allowedMethodsAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedMethods(v.asJava)
     } // Seq[String]
   }
 
-  final def withAllowedOriginsAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
+  final def allowedOriginsAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.allowedOrigins(v.asJava)
     } // Seq[String]
   }
 
-  final def withExposeHeadersAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
+  final def exposeHeadersAsScala(value: Option[Seq[String]]): CORSRule.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.exposeHeaders(v.asJava)
     } // Seq[String]
   }
 
-  final def withMaxAgeSecondsAsScala(value: Option[Int]): CORSRule.Builder = {
+  final def maxAgeSecondsAsScala(value: Option[Int]): CORSRule.Builder = {
     value.fold(self) { v =>
       self.maxAgeSeconds(v)
     }

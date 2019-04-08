@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ReplicaDescriptionBuilderOps(val self: ReplicaDescription.Builder) extends AnyVal {
 
-  final def withRegionNameAsScala(value: Option[String]): ReplicaDescription.Builder = {
+  final def regionNameAsScala(value: Option[String]): ReplicaDescription.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }

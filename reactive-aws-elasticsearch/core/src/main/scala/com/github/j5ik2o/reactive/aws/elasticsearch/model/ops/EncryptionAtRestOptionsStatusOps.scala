@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class EncryptionAtRestOptionsStatusBuilderOps(val self: EncryptionAtRestOptionsStatus.Builder) extends AnyVal {
 
-  final def withOptionsAsScala(value: Option[EncryptionAtRestOptions]): EncryptionAtRestOptionsStatus.Builder = {
+  final def optionsAsScala(value: Option[EncryptionAtRestOptions]): EncryptionAtRestOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   } // EncryptionAtRestOptions
 
-  final def withStatusAsScala(value: Option[OptionStatus]): EncryptionAtRestOptionsStatus.Builder = {
+  final def statusAsScala(value: Option[OptionStatus]): EncryptionAtRestOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

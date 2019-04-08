@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class DynamodbDataSourceConfigBuilderOps(val self: DynamodbDataSourceConfig.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): DynamodbDataSourceConfig.Builder = {
+  final def tableNameAsScala(value: Option[String]): DynamodbDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withAwsRegionAsScala(value: Option[String]): DynamodbDataSourceConfig.Builder = {
+  final def awsRegionAsScala(value: Option[String]): DynamodbDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
     }
   } // String
 
-  final def withUseCallerCredentialsAsScala(value: Option[Boolean]): DynamodbDataSourceConfig.Builder = {
+  final def useCallerCredentialsAsScala(value: Option[Boolean]): DynamodbDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.useCallerCredentials(v)
     }
