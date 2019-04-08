@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AttributeDefinitionBuilderOps(val self: AttributeDefinition.Builder) extends AnyVal {
 
-  final def withAttributeNameAsScala(value: Option[String]): AttributeDefinition.Builder = {
+  final def attributeNameAsScala(value: Option[String]): AttributeDefinition.Builder = {
     value.fold(self) { v =>
       self.attributeName(v)
     }
   } // String
 
-  final def withAttributeTypeAsScala(value: Option[ScalarAttributeType]): AttributeDefinition.Builder = {
+  final def attributeTypeAsScala(value: Option[ScalarAttributeType]): AttributeDefinition.Builder = {
     value.fold(self) { v =>
       self.attributeType(v)
     }

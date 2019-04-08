@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.kinesis.model._
 final class DisableEnhancedMonitoringRequestBuilderOps(val self: DisableEnhancedMonitoringRequest.Builder)
     extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): DisableEnhancedMonitoringRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): DisableEnhancedMonitoringRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withShardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): DisableEnhancedMonitoringRequest.Builder = {
+  final def shardLevelMetricsAsScala(value: Option[Seq[MetricsName]]): DisableEnhancedMonitoringRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shardLevelMetrics(v.asJava)
     } // Seq[String]

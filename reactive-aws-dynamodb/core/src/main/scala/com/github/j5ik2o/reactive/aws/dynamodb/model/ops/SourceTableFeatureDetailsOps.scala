@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDetails.Builder) extends AnyVal {
 
-  final def withLocalSecondaryIndexesAsScala(
+  final def localSecondaryIndexesAsScala(
       value: Option[Seq[LocalSecondaryIndexInfo]]
   ): SourceTableFeatureDetails.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -13,7 +13,7 @@ final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDeta
     } // Seq[LocalSecondaryIndexInfo]
   }
 
-  final def withGlobalSecondaryIndexesAsScala(
+  final def globalSecondaryIndexesAsScala(
       value: Option[Seq[GlobalSecondaryIndexInfo]]
   ): SourceTableFeatureDetails.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -21,21 +21,19 @@ final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDeta
     } // Seq[GlobalSecondaryIndexInfo]
   }
 
-  final def withStreamDescriptionAsScala(value: Option[StreamSpecification]): SourceTableFeatureDetails.Builder = {
+  final def streamDescriptionAsScala(value: Option[StreamSpecification]): SourceTableFeatureDetails.Builder = {
     value.fold(self) { v =>
       self.streamDescription(v)
     }
   } // StreamSpecification
 
-  final def withTimeToLiveDescriptionAsScala(
-      value: Option[TimeToLiveDescription]
-  ): SourceTableFeatureDetails.Builder = {
+  final def timeToLiveDescriptionAsScala(value: Option[TimeToLiveDescription]): SourceTableFeatureDetails.Builder = {
     value.fold(self) { v =>
       self.timeToLiveDescription(v)
     }
   } // TimeToLiveDescription
 
-  final def withSseDescriptionAsScala(value: Option[SSEDescription]): SourceTableFeatureDetails.Builder = {
+  final def sseDescriptionAsScala(value: Option[SSEDescription]): SourceTableFeatureDetails.Builder = {
     value.fold(self) { v =>
       self.sseDescription(v)
     }

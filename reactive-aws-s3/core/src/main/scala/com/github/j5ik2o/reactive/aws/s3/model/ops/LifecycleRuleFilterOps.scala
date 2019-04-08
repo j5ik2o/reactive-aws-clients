@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LifecycleRuleFilterBuilderOps(val self: LifecycleRuleFilter.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): LifecycleRuleFilter.Builder = {
+  final def prefixAsScala(value: Option[String]): LifecycleRuleFilter.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withTagAsScala(value: Option[Tag]): LifecycleRuleFilter.Builder = {
+  final def tagAsScala(value: Option[Tag]): LifecycleRuleFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
   } // Tag
 
-  final def withAndAsScala(value: Option[LifecycleRuleAndOperator]): LifecycleRuleFilter.Builder = {
+  final def andAsScala(value: Option[LifecycleRuleAndOperator]): LifecycleRuleFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }

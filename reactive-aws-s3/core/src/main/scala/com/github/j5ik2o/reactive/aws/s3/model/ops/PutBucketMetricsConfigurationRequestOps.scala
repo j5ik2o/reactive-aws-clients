@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketMetricsConfigurationRequestBuilderOps(val self: PutBucketMetricsConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
+  final def idAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withMetricsConfigurationAsScala(
+  final def metricsConfigurationAsScala(
       value: Option[MetricsConfiguration]
   ): PutBucketMetricsConfigurationRequest.Builder = {
     value.fold(self) { v =>

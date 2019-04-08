@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TransactGetItemsResponseBuilderOps(val self: TransactGetItemsResponse.Builder) extends AnyVal {
 
-  final def withConsumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): TransactGetItemsResponse.Builder = {
+  final def consumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): TransactGetItemsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
     } // Seq[ConsumedCapacity]
   }
 
-  final def withResponsesAsScala(value: Option[Seq[ItemResponse]]): TransactGetItemsResponse.Builder = {
+  final def responsesAsScala(value: Option[Seq[ItemResponse]]): TransactGetItemsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.responses(v.asJava)
     } // Seq[ItemResponse]

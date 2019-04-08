@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LoggingEnabledBuilderOps(val self: LoggingEnabled.Builder) extends AnyVal {
 
-  final def withTargetBucketAsScala(value: Option[String]): LoggingEnabled.Builder = {
+  final def targetBucketAsScala(value: Option[String]): LoggingEnabled.Builder = {
     value.fold(self) { v =>
       self.targetBucket(v)
     }
   } // String
 
-  final def withTargetGrantsAsScala(value: Option[Seq[TargetGrant]]): LoggingEnabled.Builder = {
+  final def targetGrantsAsScala(value: Option[Seq[TargetGrant]]): LoggingEnabled.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.targetGrants(v.asJava)
     } // Seq[TargetGrant]
   }
 
-  final def withTargetPrefixAsScala(value: Option[String]): LoggingEnabled.Builder = {
+  final def targetPrefixAsScala(value: Option[String]): LoggingEnabled.Builder = {
     value.fold(self) { v =>
       self.targetPrefix(v)
     }

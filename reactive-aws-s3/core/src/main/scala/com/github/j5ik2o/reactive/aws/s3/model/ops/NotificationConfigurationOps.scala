@@ -5,23 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class NotificationConfigurationBuilderOps(val self: NotificationConfiguration.Builder) extends AnyVal {
 
-  final def withTopicConfigurationsAsScala(
-      value: Option[Seq[TopicConfiguration]]
-  ): NotificationConfiguration.Builder = {
+  final def topicConfigurationsAsScala(value: Option[Seq[TopicConfiguration]]): NotificationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.topicConfigurations(v.asJava)
     } // Seq[TopicConfiguration]
   }
 
-  final def withQueueConfigurationsAsScala(
-      value: Option[Seq[QueueConfiguration]]
-  ): NotificationConfiguration.Builder = {
+  final def queueConfigurationsAsScala(value: Option[Seq[QueueConfiguration]]): NotificationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queueConfigurations(v.asJava)
     } // Seq[QueueConfiguration]
   }
 
-  final def withLambdaFunctionConfigurationsAsScala(
+  final def lambdaFunctionConfigurationsAsScala(
       value: Option[Seq[LambdaFunctionConfiguration]]
   ): NotificationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteItemResponseBuilderOps(val self: DeleteItemResponse.Builder) extends AnyVal {
 
-  final def withAttributesAsScala(value: Option[Map[String, AttributeValue]]): DeleteItemResponse.Builder = {
+  final def attributesAsScala(value: Option[Map[String, AttributeValue]]): DeleteItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withConsumedCapacityAsScala(value: Option[ConsumedCapacity]): DeleteItemResponse.Builder = {
+  final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): DeleteItemResponse.Builder = {
     value.fold(self) { v =>
       self.consumedCapacity(v)
     }
   } // ConsumedCapacity
 
-  final def withItemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): DeleteItemResponse.Builder = {
+  final def itemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): DeleteItemResponse.Builder = {
     value.fold(self) { v =>
       self.itemCollectionMetrics(v)
     }

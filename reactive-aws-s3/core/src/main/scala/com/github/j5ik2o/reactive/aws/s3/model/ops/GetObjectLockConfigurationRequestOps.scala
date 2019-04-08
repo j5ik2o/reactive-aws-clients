@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetObjectLockConfigurationRequestBuilderOps(val self: GetObjectLockConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectLockConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class RecordBuilderOps(val self: Record.Builder) extends AnyVal {
 
-  final def withEventIDAsScala(value: Option[String]): Record.Builder = {
+  final def eventIDAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
       self.eventID(v)
     }
   } // String
 
-  final def withEventNameAsScala(value: Option[OperationType]): Record.Builder = {
+  final def eventNameAsScala(value: Option[OperationType]): Record.Builder = {
     value.fold(self) { v =>
       self.eventName(v)
     }
   } // String
 
-  final def withEventVersionAsScala(value: Option[String]): Record.Builder = {
+  final def eventVersionAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
       self.eventVersion(v)
     }
   } // String
 
-  final def withEventSourceAsScala(value: Option[String]): Record.Builder = {
+  final def eventSourceAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
       self.eventSource(v)
     }
   } // String
 
-  final def withAwsRegionAsScala(value: Option[String]): Record.Builder = {
+  final def awsRegionAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
     }
   } // String
 
-  final def withDynamodbAsScala(value: Option[StreamRecord]): Record.Builder = {
+  final def dynamodbAsScala(value: Option[StreamRecord]): Record.Builder = {
     value.fold(self) { v =>
       self.dynamodb(v)
     }
   } // StreamRecord
 
-  final def withUserIdentityAsScala(value: Option[Identity]): Record.Builder = {
+  final def userIdentityAsScala(value: Option[Identity]): Record.Builder = {
     value.fold(self) { v =>
       self.userIdentity(v)
     }

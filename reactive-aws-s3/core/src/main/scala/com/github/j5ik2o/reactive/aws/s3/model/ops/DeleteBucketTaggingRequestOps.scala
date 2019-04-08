@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketTaggingRequestBuilderOps(val self: DeleteBucketTaggingRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketTaggingRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

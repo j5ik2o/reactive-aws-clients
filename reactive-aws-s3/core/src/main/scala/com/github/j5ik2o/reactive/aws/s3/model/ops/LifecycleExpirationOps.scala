@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LifecycleExpirationBuilderOps(val self: LifecycleExpiration.Builder) extends AnyVal {
 
-  final def withDateAsScala(value: Option[java.time.Instant]): LifecycleExpiration.Builder = {
+  final def dateAsScala(value: Option[java.time.Instant]): LifecycleExpiration.Builder = {
     value.fold(self) { v =>
       self.date(v)
     }
   } // Instant
 
-  final def withDaysAsScala(value: Option[Int]): LifecycleExpiration.Builder = {
+  final def daysAsScala(value: Option[Int]): LifecycleExpiration.Builder = {
     value.fold(self) { v =>
       self.days(v)
     }
   } // Int
 
-  final def withExpiredObjectDeleteMarkerAsScala(value: Option[Boolean]): LifecycleExpiration.Builder = {
+  final def expiredObjectDeleteMarkerAsScala(value: Option[Boolean]): LifecycleExpiration.Builder = {
     value.fold(self) { v =>
       self.expiredObjectDeleteMarker(v)
     }

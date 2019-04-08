@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListTagsOfResourceRequestBuilderOps(val self: ListTagsOfResourceRequest.Builder) extends AnyVal {
 
-  final def withResourceArnAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
+  final def resourceArnAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
     value.fold(self) { v =>
       self.resourceArn(v)
     }
   } // String
 
-  final def withNextTokenAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

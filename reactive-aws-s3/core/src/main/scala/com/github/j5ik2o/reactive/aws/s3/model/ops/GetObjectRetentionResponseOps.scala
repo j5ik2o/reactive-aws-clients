@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectRetentionResponseBuilderOps(val self: GetObjectRetentionResponse.Builder) extends AnyVal {
 
-  final def withRetentionAsScala(value: Option[ObjectLockRetention]): GetObjectRetentionResponse.Builder = {
+  final def retentionAsScala(value: Option[ObjectLockRetention]): GetObjectRetentionResponse.Builder = {
     value.fold(self) { v =>
       self.retention(v)
     }

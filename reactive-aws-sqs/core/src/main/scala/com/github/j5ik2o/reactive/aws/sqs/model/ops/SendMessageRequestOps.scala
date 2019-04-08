@@ -5,39 +5,37 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SendMessageRequestBuilderOps(val self: SendMessageRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): SendMessageRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): SendMessageRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withMessageBodyAsScala(value: Option[String]): SendMessageRequest.Builder = {
+  final def messageBodyAsScala(value: Option[String]): SendMessageRequest.Builder = {
     value.fold(self) { v =>
       self.messageBody(v)
     }
   } // String
 
-  final def withDelaySecondsAsScala(value: Option[Int]): SendMessageRequest.Builder = {
+  final def delaySecondsAsScala(value: Option[Int]): SendMessageRequest.Builder = {
     value.fold(self) { v =>
       self.delaySeconds(v)
     }
   } // Int
 
-  final def withMessageAttributesAsScala(
-      value: Option[Map[String, MessageAttributeValue]]
-  ): SendMessageRequest.Builder = {
+  final def messageAttributesAsScala(value: Option[Map[String, MessageAttributeValue]]): SendMessageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.messageAttributes(v.asJava)
     } // Map[String, MessageAttributeValue]
   }
 
-  final def withMessageDeduplicationIdAsScala(value: Option[String]): SendMessageRequest.Builder = {
+  final def messageDeduplicationIdAsScala(value: Option[String]): SendMessageRequest.Builder = {
     value.fold(self) { v =>
       self.messageDeduplicationId(v)
     }
   } // String
 
-  final def withMessageGroupIdAsScala(value: Option[String]): SendMessageRequest.Builder = {
+  final def messageGroupIdAsScala(value: Option[String]): SendMessageRequest.Builder = {
     value.fold(self) { v =>
       self.messageGroupId(v)
     }

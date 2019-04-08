@@ -7,13 +7,13 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     val self: ReplicaGlobalSecondaryIndexSettingsUpdate.Builder
 ) extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
+  final def indexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withProvisionedReadCapacityUnitsAsScala(
+  final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
   ): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     }
   } // Long
 
-  final def withProvisionedReadCapacityAutoScalingSettingsUpdateAsScala(
+  final def provisionedReadCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>

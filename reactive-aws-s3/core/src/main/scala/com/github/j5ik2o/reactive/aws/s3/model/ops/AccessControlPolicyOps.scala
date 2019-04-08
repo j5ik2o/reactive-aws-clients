@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AccessControlPolicyBuilderOps(val self: AccessControlPolicy.Builder) extends AnyVal {
 
-  final def withGrantsAsScala(value: Option[Seq[Grant]]): AccessControlPolicy.Builder = {
+  final def grantsAsScala(value: Option[Seq[Grant]]): AccessControlPolicy.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.grants(v.asJava)
     } // Seq[Grant]
   }
 
-  final def withOwnerAsScala(value: Option[Owner]): AccessControlPolicy.Builder = {
+  final def ownerAsScala(value: Option[Owner]): AccessControlPolicy.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }

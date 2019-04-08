@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketRequestPaymentRequestBuilderOps(val self: PutBucketRequestPaymentRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withRequestPaymentConfigurationAsScala(
+  final def requestPaymentConfigurationAsScala(
       value: Option[RequestPaymentConfiguration]
   ): PutBucketRequestPaymentRequest.Builder = {
     value.fold(self) { v =>

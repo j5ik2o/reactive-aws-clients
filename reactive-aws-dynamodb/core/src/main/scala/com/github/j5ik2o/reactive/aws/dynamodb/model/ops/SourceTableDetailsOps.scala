@@ -5,55 +5,55 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SourceTableDetailsBuilderOps(val self: SourceTableDetails.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): SourceTableDetails.Builder = {
+  final def tableNameAsScala(value: Option[String]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withTableIdAsScala(value: Option[String]): SourceTableDetails.Builder = {
+  final def tableIdAsScala(value: Option[String]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.tableId(v)
     }
   } // String
 
-  final def withTableArnAsScala(value: Option[String]): SourceTableDetails.Builder = {
+  final def tableArnAsScala(value: Option[String]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.tableArn(v)
     }
   } // String
 
-  final def withTableSizeBytesAsScala(value: Option[Long]): SourceTableDetails.Builder = {
+  final def tableSizeBytesAsScala(value: Option[Long]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.tableSizeBytes(v)
     }
   } // Long
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): SourceTableDetails.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): SourceTableDetails.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withTableCreationDateTimeAsScala(value: Option[java.time.Instant]): SourceTableDetails.Builder = {
+  final def tableCreationDateTimeAsScala(value: Option[java.time.Instant]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.tableCreationDateTime(v)
     }
   } // Instant
 
-  final def withProvisionedThroughputAsScala(value: Option[ProvisionedThroughput]): SourceTableDetails.Builder = {
+  final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }
   } // ProvisionedThroughput
 
-  final def withItemCountAsScala(value: Option[Long]): SourceTableDetails.Builder = {
+  final def itemCountAsScala(value: Option[Long]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.itemCount(v)
     }
   } // Long
 
-  final def withBillingModeAsScala(value: Option[BillingMode]): SourceTableDetails.Builder = {
+  final def billingModeAsScala(value: Option[BillingMode]): SourceTableDetails.Builder = {
     value.fold(self) { v =>
       self.billingMode(v)
     }

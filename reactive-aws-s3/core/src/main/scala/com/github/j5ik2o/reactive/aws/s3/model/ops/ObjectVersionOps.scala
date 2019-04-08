@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectVersionBuilderOps(val self: ObjectVersion.Builder) extends AnyVal {
 
-  final def withETagAsScala(value: Option[String]): ObjectVersion.Builder = {
+  final def eTagAsScala(value: Option[String]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withSizeAsScala(value: Option[Int]): ObjectVersion.Builder = {
+  final def sizeAsScala(value: Option[Int]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
   } // Int
 
-  final def withStorageClassAsScala(value: Option[ObjectVersionStorageClass]): ObjectVersion.Builder = {
+  final def storageClassAsScala(value: Option[ObjectVersionStorageClass]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): ObjectVersion.Builder = {
+  final def keyAsScala(value: Option[String]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): ObjectVersion.Builder = {
+  final def versionIdAsScala(value: Option[String]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withIsLatestAsScala(value: Option[Boolean]): ObjectVersion.Builder = {
+  final def isLatestAsScala(value: Option[Boolean]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.isLatest(v)
     }
   } // Boolean
 
-  final def withLastModifiedAsScala(value: Option[java.time.Instant]): ObjectVersion.Builder = {
+  final def lastModifiedAsScala(value: Option[java.time.Instant]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
   } // Instant
 
-  final def withOwnerAsScala(value: Option[Owner]): ObjectVersion.Builder = {
+  final def ownerAsScala(value: Option[Owner]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }

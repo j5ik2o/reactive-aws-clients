@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectTaggingRequestBuilderOps(val self: GetObjectTaggingRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
+  final def keyAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }

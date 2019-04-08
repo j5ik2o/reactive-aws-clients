@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class PutItemResponseBuilderOps(val self: PutItemResponse.Builder) extends AnyVal {
 
-  final def withAttributesAsScala(value: Option[Map[String, AttributeValue]]): PutItemResponse.Builder = {
+  final def attributesAsScala(value: Option[Map[String, AttributeValue]]): PutItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withConsumedCapacityAsScala(value: Option[ConsumedCapacity]): PutItemResponse.Builder = {
+  final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): PutItemResponse.Builder = {
     value.fold(self) { v =>
       self.consumedCapacity(v)
     }
   } // ConsumedCapacity
 
-  final def withItemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): PutItemResponse.Builder = {
+  final def itemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): PutItemResponse.Builder = {
     value.fold(self) { v =>
       self.itemCollectionMetrics(v)
     }

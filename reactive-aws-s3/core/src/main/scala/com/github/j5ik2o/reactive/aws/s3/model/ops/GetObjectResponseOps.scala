@@ -5,183 +5,181 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectResponseBuilderOps(val self: GetObjectResponse.Builder) extends AnyVal {
 
-  final def withDeleteMarkerAsScala(value: Option[Boolean]): GetObjectResponse.Builder = {
+  final def deleteMarkerAsScala(value: Option[Boolean]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.deleteMarker(v)
     }
   } // Boolean
 
-  final def withAcceptRangesAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def acceptRangesAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.acceptRanges(v)
     }
   } // String
 
-  final def withExpirationAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def expirationAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.expiration(v)
     }
   } // String
 
-  final def withRestoreAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def restoreAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.restore(v)
     }
   } // String
 
-  final def withLastModifiedAsScala(value: Option[java.time.Instant]): GetObjectResponse.Builder = {
+  final def lastModifiedAsScala(value: Option[java.time.Instant]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
   } // Instant
 
-  final def withContentLengthAsScala(value: Option[Long]): GetObjectResponse.Builder = {
+  final def contentLengthAsScala(value: Option[Long]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.contentLength(v)
     }
   } // Long
 
-  final def withETagAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def eTagAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withMissingMetaAsScala(value: Option[Int]): GetObjectResponse.Builder = {
+  final def missingMetaAsScala(value: Option[Int]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.missingMeta(v)
     }
   } // Int
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withCacheControlAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def cacheControlAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.cacheControl(v)
     }
   } // String
 
-  final def withContentDispositionAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def contentDispositionAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.contentDisposition(v)
     }
   } // String
 
-  final def withContentEncodingAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def contentEncodingAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.contentEncoding(v)
     }
   } // String
 
-  final def withContentLanguageAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def contentLanguageAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.contentLanguage(v)
     }
   } // String
 
-  final def withContentRangeAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def contentRangeAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.contentRange(v)
     }
   } // String
 
-  final def withContentTypeAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def contentTypeAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.contentType(v)
     }
   } // String
 
-  final def withExpiresAsScala(value: Option[java.time.Instant]): GetObjectResponse.Builder = {
+  final def expiresAsScala(value: Option[java.time.Instant]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
   } // Instant
 
-  final def withWebsiteRedirectLocationAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def websiteRedirectLocationAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.websiteRedirectLocation(v)
     }
   } // String
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): GetObjectResponse.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withMetadataAsScala(value: Option[Map[String, String]]): GetObjectResponse.Builder = {
+  final def metadataAsScala(value: Option[Map[String, String]]): GetObjectResponse.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): GetObjectResponse.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): GetObjectResponse.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): GetObjectResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
   } // String
 
-  final def withReplicationStatusAsScala(value: Option[ReplicationStatus]): GetObjectResponse.Builder = {
+  final def replicationStatusAsScala(value: Option[ReplicationStatus]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.replicationStatus(v)
     }
   } // String
 
-  final def withPartsCountAsScala(value: Option[Int]): GetObjectResponse.Builder = {
+  final def partsCountAsScala(value: Option[Int]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.partsCount(v)
     }
   } // Int
 
-  final def withTagCountAsScala(value: Option[Int]): GetObjectResponse.Builder = {
+  final def tagCountAsScala(value: Option[Int]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.tagCount(v)
     }
   } // Int
 
-  final def withObjectLockModeAsScala(value: Option[ObjectLockMode]): GetObjectResponse.Builder = {
+  final def objectLockModeAsScala(value: Option[ObjectLockMode]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
   } // String
 
-  final def withObjectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): GetObjectResponse.Builder = {
+  final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
   } // Instant
 
-  final def withObjectLockLegalHoldStatusAsScala(
-      value: Option[ObjectLockLegalHoldStatus]
-  ): GetObjectResponse.Builder = {
+  final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): GetObjectResponse.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }

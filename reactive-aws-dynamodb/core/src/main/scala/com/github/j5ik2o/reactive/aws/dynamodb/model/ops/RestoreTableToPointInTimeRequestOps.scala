@@ -6,25 +6,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToPointInTimeRequest.Builder)
     extends AnyVal {
 
-  final def withSourceTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
+  final def sourceTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.sourceTableName(v)
     }
   } // String
 
-  final def withTargetTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
+  final def targetTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.targetTableName(v)
     }
   } // String
 
-  final def withUseLatestRestorableTimeAsScala(value: Option[Boolean]): RestoreTableToPointInTimeRequest.Builder = {
+  final def useLatestRestorableTimeAsScala(value: Option[Boolean]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.useLatestRestorableTime(v)
     }
   } // Boolean
 
-  final def withRestoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreTableToPointInTimeRequest.Builder = {
+  final def restoreDateTimeAsScala(value: Option[java.time.Instant]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.restoreDateTime(v)
     }

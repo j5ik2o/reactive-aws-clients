@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class CreateBackupResponseBuilderOps(val self: CreateBackupResponse.Builder) extends AnyVal {
 
-  final def withBackupDetailsAsScala(value: Option[BackupDetails]): CreateBackupResponse.Builder = {
+  final def backupDetailsAsScala(value: Option[BackupDetails]): CreateBackupResponse.Builder = {
     value.fold(self) { v =>
       self.backupDetails(v)
     }

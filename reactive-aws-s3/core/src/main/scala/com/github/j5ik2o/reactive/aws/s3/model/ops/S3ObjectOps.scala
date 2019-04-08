@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.s3.model._
 
 final class S3ObjectBuilderOps(val self: S3Object.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[String]): S3Object.Builder = {
+  final def keyAsScala(value: Option[String]): S3Object.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withLastModifiedAsScala(value: Option[java.time.Instant]): S3Object.Builder = {
+  final def lastModifiedAsScala(value: Option[java.time.Instant]): S3Object.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }
   } // Instant
 
-  final def withETagAsScala(value: Option[String]): S3Object.Builder = {
+  final def eTagAsScala(value: Option[String]): S3Object.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withSizeAsScala(value: Option[Long]): S3Object.Builder = {
+  final def sizeAsScala(value: Option[Long]): S3Object.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
   } // Long
 
-  final def withStorageClassAsScala(value: Option[ObjectStorageClass]): S3Object.Builder = {
+  final def storageClassAsScala(value: Option[ObjectStorageClass]): S3Object.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withOwnerAsScala(value: Option[Owner]): S3Object.Builder = {
+  final def ownerAsScala(value: Option[Owner]): S3Object.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }

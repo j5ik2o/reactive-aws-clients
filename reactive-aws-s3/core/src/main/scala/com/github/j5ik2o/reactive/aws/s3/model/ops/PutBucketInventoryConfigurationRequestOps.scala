@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketInventoryConfigurationRequestBuilderOps(val self: PutBucketInventoryConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
+  final def idAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withInventoryConfigurationAsScala(
+  final def inventoryConfigurationAsScala(
       value: Option[InventoryConfiguration]
   ): PutBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>

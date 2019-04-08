@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ItemResponseBuilderOps(val self: ItemResponse.Builder) extends AnyVal {
 
-  final def withItemAsScala(value: Option[Map[String, AttributeValue]]): ItemResponse.Builder = {
+  final def itemAsScala(value: Option[Map[String, AttributeValue]]): ItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
     } // Map[String, AttributeValue]

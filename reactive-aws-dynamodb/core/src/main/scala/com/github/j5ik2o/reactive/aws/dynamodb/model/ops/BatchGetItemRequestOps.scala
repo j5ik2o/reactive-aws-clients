@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BatchGetItemRequestBuilderOps(val self: BatchGetItemRequest.Builder) extends AnyVal {
 
-  final def withRequestItemsAsScala(value: Option[Map[String, KeysAndAttributes]]): BatchGetItemRequest.Builder = {
+  final def requestItemsAsScala(value: Option[Map[String, KeysAndAttributes]]): BatchGetItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.requestItems(v.asJava)
     } // Map[String, KeysAndAttributes]
   }
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchGetItemRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchGetItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }

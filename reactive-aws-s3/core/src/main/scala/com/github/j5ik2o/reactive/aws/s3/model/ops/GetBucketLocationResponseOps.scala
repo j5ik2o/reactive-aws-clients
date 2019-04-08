@@ -5,9 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketLocationResponseBuilderOps(val self: GetBucketLocationResponse.Builder) extends AnyVal {
 
-  final def withLocationConstraintAsScala(
-      value: Option[BucketLocationConstraint]
-  ): GetBucketLocationResponse.Builder = {
+  final def locationConstraintAsScala(value: Option[BucketLocationConstraint]): GetBucketLocationResponse.Builder = {
     value.fold(self) { v =>
       self.locationConstraint(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class StorageClassAnalysisBuilderOps(val self: StorageClassAnalysis.Builder) extends AnyVal {
 
-  final def withDataExportAsScala(value: Option[StorageClassAnalysisDataExport]): StorageClassAnalysis.Builder = {
+  final def dataExportAsScala(value: Option[StorageClassAnalysisDataExport]): StorageClassAnalysis.Builder = {
     value.fold(self) { v =>
       self.dataExport(v)
     }

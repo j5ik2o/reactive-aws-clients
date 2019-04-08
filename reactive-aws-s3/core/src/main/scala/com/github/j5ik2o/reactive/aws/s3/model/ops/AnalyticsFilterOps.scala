@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AnalyticsFilterBuilderOps(val self: AnalyticsFilter.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): AnalyticsFilter.Builder = {
+  final def prefixAsScala(value: Option[String]): AnalyticsFilter.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withTagAsScala(value: Option[Tag]): AnalyticsFilter.Builder = {
+  final def tagAsScala(value: Option[Tag]): AnalyticsFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
   } // Tag
 
-  final def withAndAsScala(value: Option[AnalyticsAndOperator]): AnalyticsFilter.Builder = {
+  final def andAsScala(value: Option[AnalyticsAndOperator]): AnalyticsFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }

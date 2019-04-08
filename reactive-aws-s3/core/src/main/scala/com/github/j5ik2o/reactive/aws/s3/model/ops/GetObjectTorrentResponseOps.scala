@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectTorrentResponseBuilderOps(val self: GetObjectTorrentResponse.Builder) extends AnyVal {
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): GetObjectTorrentResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): GetObjectTorrentResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

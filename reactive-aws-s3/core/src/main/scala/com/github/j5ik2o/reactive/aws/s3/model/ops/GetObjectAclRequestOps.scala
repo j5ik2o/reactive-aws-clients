@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectAclRequestBuilderOps(val self: GetObjectAclRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
+  final def keyAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectAclRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

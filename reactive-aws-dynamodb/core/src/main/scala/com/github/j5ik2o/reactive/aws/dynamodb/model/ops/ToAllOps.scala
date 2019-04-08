@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToAttributeDefinitionOps
+    extends ToOptionSupport
+    with ToAttributeDefinitionOps
     with ToAttributeValueOps
     with ToAttributeValueUpdateOps
     with ToAutoScalingPolicyDescriptionOps

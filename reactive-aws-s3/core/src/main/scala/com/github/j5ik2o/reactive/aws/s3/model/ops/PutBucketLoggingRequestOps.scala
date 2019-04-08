@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketLoggingRequestBuilderOps(val self: PutBucketLoggingRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketLoggingRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketLoggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withBucketLoggingStatusAsScala(value: Option[BucketLoggingStatus]): PutBucketLoggingRequest.Builder = {
+  final def bucketLoggingStatusAsScala(value: Option[BucketLoggingStatus]): PutBucketLoggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucketLoggingStatus(v)
     }
   } // BucketLoggingStatus
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketLoggingRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketLoggingRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }

@@ -1,38 +1,31 @@
+<#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.kinesis.monix
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.monix
 
-import software.amazon.awssdk.services.kinesis.model._
-import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
 import monix.eval.Task
 import monix.reactive.Observable
 
-object KinesisMonixClient {
+object ${baseName}MonixClient {
 
-def apply(underlying: KinesisAsyncClient): KinesisMonixClient = new KinesisMonixClientImpl(underlying)
+def apply(asyncClient: ${baseName}AsyncClient): ${baseName}MonixClient = new ${baseName}MonixClient {
+override val underlying: ${baseName}AsyncClient = asyncClient
+}
 
 }
 
-trait KinesisMonixClient extends KinesisClient[Task] {
+trait ${baseName}MonixClient extends ${baseName}Client[Task] {
 
-val underlying: KinesisAsyncClient
+val underlying: ${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#assign requestParameterName=method.parameterTypeDescs[0].name>
-        <#assign requestTypeName=method.parameterTypeDescs[0].parameterTypeDesc.simpleTypeName>
-        <#if method.name?ends_with("Paginator")>
-            <#assign responseTypeName=requestTypeName?replace("Request", "Response")>
-            def ${method.name}(${requestParameterName}: ${requestTypeName}): Observable[${responseTypeName}] =
-              Observable.fromReactivePublisher(underlying.${method.name}(${requestParameterName}))
-        <#else>
-            <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def  ${method.name}(${requestParameterName}: ${requestTypeName}): Task[${responseTypeName}] = Task.deferFuture {
-              underlying.${method.name}(${requestParameterName})
-            }
-        </#if>
+        <@defMonixMethod method/>
 
-    </#if></#list>
-
+    </#if>
+</#list>
 }
 
 <#function targetMethod methodDesc>

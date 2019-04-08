@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteObjectResponseBuilderOps(val self: DeleteObjectResponse.Builder) extends AnyVal {
 
-  final def withDeleteMarkerAsScala(value: Option[Boolean]): DeleteObjectResponse.Builder = {
+  final def deleteMarkerAsScala(value: Option[Boolean]): DeleteObjectResponse.Builder = {
     value.fold(self) { v =>
       self.deleteMarker(v)
     }
   } // Boolean
 
-  final def withVersionIdAsScala(value: Option[String]): DeleteObjectResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): DeleteObjectResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): DeleteObjectResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): DeleteObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

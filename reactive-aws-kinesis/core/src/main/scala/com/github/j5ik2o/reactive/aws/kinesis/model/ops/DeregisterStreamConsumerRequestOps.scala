@@ -6,19 +6,19 @@ import software.amazon.awssdk.services.kinesis.model._
 final class DeregisterStreamConsumerRequestBuilderOps(val self: DeregisterStreamConsumerRequest.Builder)
     extends AnyVal {
 
-  final def withStreamARNAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
+  final def streamARNAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
   } // String
 
-  final def withConsumerNameAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
+  final def consumerNameAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.consumerName(v)
     }
   } // String
 
-  final def withConsumerARNAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
+  final def consumerARNAsScala(value: Option[String]): DeregisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.consumerARN(v)
     }

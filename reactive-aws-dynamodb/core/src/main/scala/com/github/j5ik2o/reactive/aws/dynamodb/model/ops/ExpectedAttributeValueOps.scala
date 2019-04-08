@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ExpectedAttributeValueBuilderOps(val self: ExpectedAttributeValue.Builder) extends AnyVal {
 
-  final def withValueAsScala(value: Option[AttributeValue]): ExpectedAttributeValue.Builder = {
+  final def valueAsScala(value: Option[AttributeValue]): ExpectedAttributeValue.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
   } // AttributeValue
 
-  final def withExistsAsScala(value: Option[Boolean]): ExpectedAttributeValue.Builder = {
+  final def existsAsScala(value: Option[Boolean]): ExpectedAttributeValue.Builder = {
     value.fold(self) { v =>
       self.exists(v)
     }
   } // Boolean
 
-  final def withComparisonOperatorAsScala(value: Option[ComparisonOperator]): ExpectedAttributeValue.Builder = {
+  final def comparisonOperatorAsScala(value: Option[ComparisonOperator]): ExpectedAttributeValue.Builder = {
     value.fold(self) { v =>
       self.comparisonOperator(v)
     }
   } // String
 
-  final def withAttributeValueListAsScala(value: Option[Seq[AttributeValue]]): ExpectedAttributeValue.Builder = {
+  final def attributeValueListAsScala(value: Option[Seq[AttributeValue]]): ExpectedAttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeValueList(v.asJava)
     } // Seq[AttributeValue]

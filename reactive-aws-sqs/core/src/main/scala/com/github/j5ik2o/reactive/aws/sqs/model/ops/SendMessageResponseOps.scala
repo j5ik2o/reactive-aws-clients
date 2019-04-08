@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SendMessageResponseBuilderOps(val self: SendMessageResponse.Builder) extends AnyVal {
 
-  final def withMd5OfMessageBodyAsScala(value: Option[String]): SendMessageResponse.Builder = {
+  final def md5OfMessageBodyAsScala(value: Option[String]): SendMessageResponse.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageBody(v)
     }
   } // String
 
-  final def withMd5OfMessageAttributesAsScala(value: Option[String]): SendMessageResponse.Builder = {
+  final def md5OfMessageAttributesAsScala(value: Option[String]): SendMessageResponse.Builder = {
     value.fold(self) { v =>
       self.md5OfMessageAttributes(v)
     }
   } // String
 
-  final def withMessageIdAsScala(value: Option[String]): SendMessageResponse.Builder = {
+  final def messageIdAsScala(value: Option[String]): SendMessageResponse.Builder = {
     value.fold(self) { v =>
       self.messageId(v)
     }
   } // String
 
-  final def withSequenceNumberAsScala(value: Option[String]): SendMessageResponse.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): SendMessageResponse.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }

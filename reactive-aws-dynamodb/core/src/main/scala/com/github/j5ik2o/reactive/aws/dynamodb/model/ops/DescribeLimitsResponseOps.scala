@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Builder) extends AnyVal {
 
-  final def withAccountMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
+  final def accountMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.accountMaxReadCapacityUnits(v)
     }
   } // Long
 
-  final def withAccountMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
+  final def accountMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.accountMaxWriteCapacityUnits(v)
     }
   } // Long
 
-  final def withTableMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
+  final def tableMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.tableMaxReadCapacityUnits(v)
     }
   } // Long
 
-  final def withTableMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
+  final def tableMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.tableMaxWriteCapacityUnits(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetRecordsResponseBuilderOps(val self: GetRecordsResponse.Builder) extends AnyVal {
 
-  final def withRecordsAsScala(value: Option[Seq[Record]]): GetRecordsResponse.Builder = {
+  final def recordsAsScala(value: Option[Seq[Record]]): GetRecordsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
     } // Seq[Record]
   }
 
-  final def withNextShardIteratorAsScala(value: Option[String]): GetRecordsResponse.Builder = {
+  final def nextShardIteratorAsScala(value: Option[String]): GetRecordsResponse.Builder = {
     value.fold(self) { v =>
       self.nextShardIterator(v)
     }

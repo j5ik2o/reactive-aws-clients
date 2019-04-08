@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class DeleteGlobalSecondaryIndexActionBuilderOps(val self: DeleteGlobalSecondaryIndexAction.Builder)
     extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): DeleteGlobalSecondaryIndexAction.Builder = {
+  final def indexNameAsScala(value: Option[String]): DeleteGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }

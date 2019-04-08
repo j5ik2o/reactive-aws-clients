@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class FilterRuleBuilderOps(val self: FilterRule.Builder) extends AnyVal {
 
-  final def withNameAsScala(value: Option[FilterRuleName]): FilterRule.Builder = {
+  final def nameAsScala(value: Option[FilterRuleName]): FilterRule.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withValueAsScala(value: Option[String]): FilterRule.Builder = {
+  final def valueAsScala(value: Option[String]): FilterRule.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }

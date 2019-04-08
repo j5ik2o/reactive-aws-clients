@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetShardIteratorResponseBuilderOps(val self: GetShardIteratorResponse.Builder) extends AnyVal {
 
-  final def withShardIteratorAsScala(value: Option[String]): GetShardIteratorResponse.Builder = {
+  final def shardIteratorAsScala(value: Option[String]): GetShardIteratorResponse.Builder = {
     value.fold(self) { v =>
       self.shardIterator(v)
     }

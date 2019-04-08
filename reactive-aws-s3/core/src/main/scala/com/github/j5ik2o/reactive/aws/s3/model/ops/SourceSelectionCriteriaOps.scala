@@ -5,9 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SourceSelectionCriteriaBuilderOps(val self: SourceSelectionCriteria.Builder) extends AnyVal {
 
-  final def withSseKmsEncryptedObjectsAsScala(
-      value: Option[SseKmsEncryptedObjects]
-  ): SourceSelectionCriteria.Builder = {
+  final def sseKmsEncryptedObjectsAsScala(value: Option[SseKmsEncryptedObjects]): SourceSelectionCriteria.Builder = {
     value.fold(self) { v =>
       self.sseKmsEncryptedObjects(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class RemovePermissionRequestBuilderOps(val self: RemovePermissionRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withLabelAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
+  final def labelAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.label(v)
     }

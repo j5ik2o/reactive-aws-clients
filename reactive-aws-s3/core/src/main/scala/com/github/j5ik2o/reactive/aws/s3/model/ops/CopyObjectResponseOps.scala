@@ -5,55 +5,55 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CopyObjectResponseBuilderOps(val self: CopyObjectResponse.Builder) extends AnyVal {
 
-  final def withCopyObjectResultAsScala(value: Option[CopyObjectResult]): CopyObjectResponse.Builder = {
+  final def copyObjectResultAsScala(value: Option[CopyObjectResult]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.copyObjectResult(v)
     }
   } // CopyObjectResult
 
-  final def withExpirationAsScala(value: Option[String]): CopyObjectResponse.Builder = {
+  final def expirationAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.expiration(v)
     }
   } // String
 
-  final def withCopySourceVersionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
+  final def copySourceVersionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.copySourceVersionId(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectResponse.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): CopyObjectResponse.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): CopyObjectResponse.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): CopyObjectResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

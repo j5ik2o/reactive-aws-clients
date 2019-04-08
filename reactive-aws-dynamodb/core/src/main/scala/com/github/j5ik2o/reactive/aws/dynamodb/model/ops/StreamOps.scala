@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class StreamBuilderOps(val self: Stream.Builder) extends AnyVal {
 
-  final def withStreamArnAsScala(value: Option[String]): Stream.Builder = {
+  final def streamArnAsScala(value: Option[String]): Stream.Builder = {
     value.fold(self) { v =>
       self.streamArn(v)
     }
   } // String
 
-  final def withTableNameAsScala(value: Option[String]): Stream.Builder = {
+  final def tableNameAsScala(value: Option[String]): Stream.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withStreamLabelAsScala(value: Option[String]): Stream.Builder = {
+  final def streamLabelAsScala(value: Option[String]): Stream.Builder = {
     value.fold(self) { v =>
       self.streamLabel(v)
     }

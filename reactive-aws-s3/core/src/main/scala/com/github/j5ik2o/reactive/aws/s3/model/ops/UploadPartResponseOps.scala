@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.s3.model._
 
 final class UploadPartResponseBuilderOps(val self: UploadPartResponse.Builder) extends AnyVal {
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartResponse.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withETagAsScala(value: Option[String]): UploadPartResponse.Builder = {
+  final def eTagAsScala(value: Option[String]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartResponse.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartResponse.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): UploadPartResponse.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): UploadPartResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): UploadPartResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

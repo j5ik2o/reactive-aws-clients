@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AbortMultipartUploadResponseBuilderOps(val self: AbortMultipartUploadResponse.Builder) extends AnyVal {
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): AbortMultipartUploadResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): AbortMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

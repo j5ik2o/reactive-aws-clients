@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GlobalSecondaryIndexInfoBuilderOps(val self: GlobalSecondaryIndexInfo.Builder) extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): GlobalSecondaryIndexInfo.Builder = {
+  final def indexNameAsScala(value: Option[String]): GlobalSecondaryIndexInfo.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexInfo.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndexInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withProjectionAsScala(value: Option[Projection]): GlobalSecondaryIndexInfo.Builder = {
+  final def projectionAsScala(value: Option[Projection]): GlobalSecondaryIndexInfo.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }
   } // Projection
 
-  final def withProvisionedThroughputAsScala(value: Option[ProvisionedThroughput]): GlobalSecondaryIndexInfo.Builder = {
+  final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): GlobalSecondaryIndexInfo.Builder = {
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }

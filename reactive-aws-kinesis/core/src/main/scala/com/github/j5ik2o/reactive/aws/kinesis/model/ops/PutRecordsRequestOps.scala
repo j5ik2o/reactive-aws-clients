@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class PutRecordsRequestBuilderOps(val self: PutRecordsRequest.Builder) extends AnyVal {
 
-  final def withRecordsAsScala(value: Option[Seq[PutRecordsRequestEntry]]): PutRecordsRequest.Builder = {
+  final def recordsAsScala(value: Option[Seq[PutRecordsRequestEntry]]): PutRecordsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
     } // Seq[PutRecordsRequestEntry]
   }
 
-  final def withStreamNameAsScala(value: Option[String]): PutRecordsRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): PutRecordsRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }

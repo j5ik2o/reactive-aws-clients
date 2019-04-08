@@ -2,8 +2,10 @@ import Settings._
 
 coreSettings
 
-name := "reactive-aws-kinesis-test"
+sdkBaseName := "Kinesis"
+
+name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-test"
 
 libraryDependencies ++= Seq(
-  "com.amazonaws" % "aws-java-sdk-kinesis" % awsSdk1Version
+  "software.amazon.awssdk" % sdkBaseName.value.toLowerCase % awsSdk2Version
 )

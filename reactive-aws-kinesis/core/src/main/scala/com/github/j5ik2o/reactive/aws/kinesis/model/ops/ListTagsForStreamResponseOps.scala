@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListTagsForStreamResponseBuilderOps(val self: ListTagsForStreamResponse.Builder) extends AnyVal {
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): ListTagsForStreamResponse.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): ListTagsForStreamResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]
   }
 
-  final def withHasMoreTagsAsScala(value: Option[Boolean]): ListTagsForStreamResponse.Builder = {
+  final def hasMoreTagsAsScala(value: Option[Boolean]): ListTagsForStreamResponse.Builder = {
     value.fold(self) { v =>
       self.hasMoreTags(v)
     }

@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class StopStreamEncryptionRequestBuilderOps(val self: StopStreamEncryptionRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): StopStreamEncryptionRequest.Builder = {
+  final def encryptionTypeAsScala(value: Option[EncryptionType]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
   } // String
 
-  final def withKeyIdAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
+  final def keyIdAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }

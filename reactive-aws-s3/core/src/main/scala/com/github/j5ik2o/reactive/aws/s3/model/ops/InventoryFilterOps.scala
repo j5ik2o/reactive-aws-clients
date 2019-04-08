@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryFilterBuilderOps(val self: InventoryFilter.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): InventoryFilter.Builder = {
+  final def prefixAsScala(value: Option[String]): InventoryFilter.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }

@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AccessControlTranslationBuilderOps(val self: AccessControlTranslation.Builder) extends AnyVal {
 
-  final def withOwnerAsScala(value: Option[OwnerOverride]): AccessControlTranslation.Builder = {
+  final def ownerAsScala(value: Option[OwnerOverride]): AccessControlTranslation.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }

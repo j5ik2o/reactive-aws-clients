@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class QueryResponseBuilderOps(val self: QueryResponse.Builder) extends AnyVal {
 
-  final def withItemsAsScala(value: Option[Seq[Map[String, AttributeValue]]]): QueryResponse.Builder = {
+  final def itemsAsScala(value: Option[Seq[Map[String, AttributeValue]]]): QueryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.items(v.map(_.asJava).asJava)
     } // Seq[Map[String, AttributeValue]]
   }
 
-  final def withCountAsScala(value: Option[Int]): QueryResponse.Builder = {
+  final def countAsScala(value: Option[Int]): QueryResponse.Builder = {
     value.fold(self) { v =>
       self.count(v)
     }
   } // Int
 
-  final def withScannedCountAsScala(value: Option[Int]): QueryResponse.Builder = {
+  final def scannedCountAsScala(value: Option[Int]): QueryResponse.Builder = {
     value.fold(self) { v =>
       self.scannedCount(v)
     }
   } // Int
 
-  final def withLastEvaluatedKeyAsScala(value: Option[Map[String, AttributeValue]]): QueryResponse.Builder = {
+  final def lastEvaluatedKeyAsScala(value: Option[Map[String, AttributeValue]]): QueryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.lastEvaluatedKey(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withConsumedCapacityAsScala(value: Option[ConsumedCapacity]): QueryResponse.Builder = {
+  final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): QueryResponse.Builder = {
     value.fold(self) { v =>
       self.consumedCapacity(v)
     }

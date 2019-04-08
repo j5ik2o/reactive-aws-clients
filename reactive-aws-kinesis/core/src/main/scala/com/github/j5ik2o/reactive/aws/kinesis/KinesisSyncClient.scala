@@ -8,7 +8,9 @@ import software.amazon.awssdk.services.kinesis.{ KinesisClient => JavaKinesisSyn
 
 object KinesisSyncClient extends ToEitherSupport {
 
-  def apply(underlying: JavaKinesisSyncClient): KinesisSyncClient = new KinesisSyncClientImpl(underlying)
+  def apply(javaClient: JavaKinesisSyncClient): KinesisSyncClient = new KinesisSyncClient {
+    override val underlying: JavaKinesisSyncClient = javaClient
+  }
 
 }
 
@@ -18,160 +20,126 @@ trait KinesisSyncClient extends KinesisClient[Either[Throwable, ?]] {
 
   override def addTagsToStream(
       addTagsToStreamRequest: AddTagsToStreamRequest
-  ): Either[Throwable, AddTagsToStreamResponse] = {
+  ): Either[Throwable, AddTagsToStreamResponse] =
     underlying.addTagsToStream(addTagsToStreamRequest).toEither
-  }
 
-  override def createStream(createStreamRequest: CreateStreamRequest): Either[Throwable, CreateStreamResponse] = {
+  override def createStream(createStreamRequest: CreateStreamRequest): Either[Throwable, CreateStreamResponse] =
     underlying.createStream(createStreamRequest).toEither
-  }
 
   override def decreaseStreamRetentionPeriod(
       decreaseStreamRetentionPeriodRequest: DecreaseStreamRetentionPeriodRequest
-  ): Either[Throwable, DecreaseStreamRetentionPeriodResponse] = {
+  ): Either[Throwable, DecreaseStreamRetentionPeriodResponse] =
     underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest).toEither
-  }
 
-  override def deleteStream(deleteStreamRequest: DeleteStreamRequest): Either[Throwable, DeleteStreamResponse] = {
+  override def deleteStream(deleteStreamRequest: DeleteStreamRequest): Either[Throwable, DeleteStreamResponse] =
     underlying.deleteStream(deleteStreamRequest).toEither
-  }
 
   override def deregisterStreamConsumer(
       deregisterStreamConsumerRequest: DeregisterStreamConsumerRequest
-  ): Either[Throwable, DeregisterStreamConsumerResponse] = {
+  ): Either[Throwable, DeregisterStreamConsumerResponse] =
     underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest).toEither
-  }
 
-  override def describeLimits(): Either[Throwable, DescribeLimitsResponse] = {
+  override def describeLimits(): Either[Throwable, DescribeLimitsResponse] =
     underlying.describeLimits().toEither
-  }
 
-  override def describeLimits(
-      describeLimitsRequest: DescribeLimitsRequest
-  ): Either[Throwable, DescribeLimitsResponse] = {
+  override def describeLimits(describeLimitsRequest: DescribeLimitsRequest): Either[Throwable, DescribeLimitsResponse] =
     underlying.describeLimits(describeLimitsRequest).toEither
-  }
 
-  override def describeStream(
-      describeStreamRequest: DescribeStreamRequest
-  ): Either[Throwable, DescribeStreamResponse] = {
+  override def describeStream(describeStreamRequest: DescribeStreamRequest): Either[Throwable, DescribeStreamResponse] =
     underlying.describeStream(describeStreamRequest).toEither
-  }
 
   override def describeStreamConsumer(
       describeStreamConsumerRequest: DescribeStreamConsumerRequest
-  ): Either[Throwable, DescribeStreamConsumerResponse] = {
+  ): Either[Throwable, DescribeStreamConsumerResponse] =
     underlying.describeStreamConsumer(describeStreamConsumerRequest).toEither
-  }
 
   override def describeStreamSummary(
       describeStreamSummaryRequest: DescribeStreamSummaryRequest
-  ): Either[Throwable, DescribeStreamSummaryResponse] = {
+  ): Either[Throwable, DescribeStreamSummaryResponse] =
     underlying.describeStreamSummary(describeStreamSummaryRequest).toEither
-  }
 
   override def disableEnhancedMonitoring(
       disableEnhancedMonitoringRequest: DisableEnhancedMonitoringRequest
-  ): Either[Throwable, DisableEnhancedMonitoringResponse] = {
+  ): Either[Throwable, DisableEnhancedMonitoringResponse] =
     underlying.disableEnhancedMonitoring(disableEnhancedMonitoringRequest).toEither
-  }
 
   override def enableEnhancedMonitoring(
       enableEnhancedMonitoringRequest: EnableEnhancedMonitoringRequest
-  ): Either[Throwable, EnableEnhancedMonitoringResponse] = {
+  ): Either[Throwable, EnableEnhancedMonitoringResponse] =
     underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest).toEither
-  }
 
-  override def getRecords(getRecordsRequest: GetRecordsRequest): Either[Throwable, GetRecordsResponse] = {
+  override def getRecords(getRecordsRequest: GetRecordsRequest): Either[Throwable, GetRecordsResponse] =
     underlying.getRecords(getRecordsRequest).toEither
-  }
 
   override def getShardIterator(
       getShardIteratorRequest: GetShardIteratorRequest
-  ): Either[Throwable, GetShardIteratorResponse] = {
+  ): Either[Throwable, GetShardIteratorResponse] =
     underlying.getShardIterator(getShardIteratorRequest).toEither
-  }
 
   override def increaseStreamRetentionPeriod(
       increaseStreamRetentionPeriodRequest: IncreaseStreamRetentionPeriodRequest
-  ): Either[Throwable, IncreaseStreamRetentionPeriodResponse] = {
+  ): Either[Throwable, IncreaseStreamRetentionPeriodResponse] =
     underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest).toEither
-  }
 
-  override def listShards(listShardsRequest: ListShardsRequest): Either[Throwable, ListShardsResponse] = {
+  override def listShards(listShardsRequest: ListShardsRequest): Either[Throwable, ListShardsResponse] =
     underlying.listShards(listShardsRequest).toEither
-  }
 
   override def listStreamConsumers(
       listStreamConsumersRequest: ListStreamConsumersRequest
-  ): Either[Throwable, ListStreamConsumersResponse] = {
+  ): Either[Throwable, ListStreamConsumersResponse] =
     underlying.listStreamConsumers(listStreamConsumersRequest).toEither
-  }
 
   def listStreamConsumersPaginator(
       listStreamConsumersRequest: ListStreamConsumersRequest
-  ): ListStreamConsumersIterable = {
+  ): ListStreamConsumersIterable =
     underlying.listStreamConsumersPaginator(listStreamConsumersRequest)
-  }
 
-  override def listStreams(): Either[Throwable, ListStreamsResponse] = {
+  override def listStreams(): Either[Throwable, ListStreamsResponse] =
     underlying.listStreams().toEither
-  }
 
-  override def listStreams(listStreamsRequest: ListStreamsRequest): Either[Throwable, ListStreamsResponse] = {
+  override def listStreams(listStreamsRequest: ListStreamsRequest): Either[Throwable, ListStreamsResponse] =
     underlying.listStreams(listStreamsRequest).toEither
-  }
 
   override def listTagsForStream(
       listTagsForStreamRequest: ListTagsForStreamRequest
-  ): Either[Throwable, ListTagsForStreamResponse] = {
+  ): Either[Throwable, ListTagsForStreamResponse] =
     underlying.listTagsForStream(listTagsForStreamRequest).toEither
-  }
 
-  override def mergeShards(mergeShardsRequest: MergeShardsRequest): Either[Throwable, MergeShardsResponse] = {
+  override def mergeShards(mergeShardsRequest: MergeShardsRequest): Either[Throwable, MergeShardsResponse] =
     underlying.mergeShards(mergeShardsRequest).toEither
-  }
 
-  override def putRecord(putRecordRequest: PutRecordRequest): Either[Throwable, PutRecordResponse] = {
+  override def putRecord(putRecordRequest: PutRecordRequest): Either[Throwable, PutRecordResponse] =
     underlying.putRecord(putRecordRequest).toEither
-  }
 
-  override def putRecords(putRecordsRequest: PutRecordsRequest): Either[Throwable, PutRecordsResponse] = {
+  override def putRecords(putRecordsRequest: PutRecordsRequest): Either[Throwable, PutRecordsResponse] =
     underlying.putRecords(putRecordsRequest).toEither
-  }
 
   override def registerStreamConsumer(
       registerStreamConsumerRequest: RegisterStreamConsumerRequest
-  ): Either[Throwable, RegisterStreamConsumerResponse] = {
+  ): Either[Throwable, RegisterStreamConsumerResponse] =
     underlying.registerStreamConsumer(registerStreamConsumerRequest).toEither
-  }
 
   override def removeTagsFromStream(
       removeTagsFromStreamRequest: RemoveTagsFromStreamRequest
-  ): Either[Throwable, RemoveTagsFromStreamResponse] = {
+  ): Either[Throwable, RemoveTagsFromStreamResponse] =
     underlying.removeTagsFromStream(removeTagsFromStreamRequest).toEither
-  }
 
-  override def splitShard(splitShardRequest: SplitShardRequest): Either[Throwable, SplitShardResponse] = {
+  override def splitShard(splitShardRequest: SplitShardRequest): Either[Throwable, SplitShardResponse] =
     underlying.splitShard(splitShardRequest).toEither
-  }
 
   override def startStreamEncryption(
       startStreamEncryptionRequest: StartStreamEncryptionRequest
-  ): Either[Throwable, StartStreamEncryptionResponse] = {
+  ): Either[Throwable, StartStreamEncryptionResponse] =
     underlying.startStreamEncryption(startStreamEncryptionRequest).toEither
-  }
 
   override def stopStreamEncryption(
       stopStreamEncryptionRequest: StopStreamEncryptionRequest
-  ): Either[Throwable, StopStreamEncryptionResponse] = {
+  ): Either[Throwable, StopStreamEncryptionResponse] =
     underlying.stopStreamEncryption(stopStreamEncryptionRequest).toEither
-  }
 
   override def updateShardCount(
       updateShardCountRequest: UpdateShardCountRequest
-  ): Either[Throwable, UpdateShardCountResponse] = {
+  ): Either[Throwable, UpdateShardCountResponse] =
     underlying.updateShardCount(updateShardCountRequest).toEither
-  }
 
 }

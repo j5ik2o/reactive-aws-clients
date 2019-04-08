@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ShardBuilderOps(val self: Shard.Builder) extends AnyVal {
 
-  final def withShardIdAsScala(value: Option[String]): Shard.Builder = {
+  final def shardIdAsScala(value: Option[String]): Shard.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
   } // String
 
-  final def withSequenceNumberRangeAsScala(value: Option[SequenceNumberRange]): Shard.Builder = {
+  final def sequenceNumberRangeAsScala(value: Option[SequenceNumberRange]): Shard.Builder = {
     value.fold(self) { v =>
       self.sequenceNumberRange(v)
     }
   } // SequenceNumberRange
 
-  final def withParentShardIdAsScala(value: Option[String]): Shard.Builder = {
+  final def parentShardIdAsScala(value: Option[String]): Shard.Builder = {
     value.fold(self) { v =>
       self.parentShardId(v)
     }

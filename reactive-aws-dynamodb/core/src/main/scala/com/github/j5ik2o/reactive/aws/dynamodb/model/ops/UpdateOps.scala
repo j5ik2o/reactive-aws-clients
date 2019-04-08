@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): Update.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): Update.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withUpdateExpressionAsScala(value: Option[String]): Update.Builder = {
+  final def updateExpressionAsScala(value: Option[String]): Update.Builder = {
     value.fold(self) { v =>
       self.updateExpression(v)
     }
   } // String
 
-  final def withTableNameAsScala(value: Option[String]): Update.Builder = {
+  final def tableNameAsScala(value: Option[String]): Update.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withConditionExpressionAsScala(value: Option[String]): Update.Builder = {
+  final def conditionExpressionAsScala(value: Option[String]): Update.Builder = {
     value.fold(self) { v =>
       self.conditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): Update.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): Update.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Update.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Update.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withReturnValuesOnConditionCheckFailureAsScala(
+  final def returnValuesOnConditionCheckFailureAsScala(
       value: Option[ReturnValuesOnConditionCheckFailure]
   ): Update.Builder = {
     value.fold(self) { v =>

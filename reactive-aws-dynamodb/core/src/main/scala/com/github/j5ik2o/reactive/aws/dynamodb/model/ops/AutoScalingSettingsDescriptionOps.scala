@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AutoScalingSettingsDescriptionBuilderOps(val self: AutoScalingSettingsDescription.Builder) extends AnyVal {
 
-  final def withMinimumUnitsAsScala(value: Option[Long]): AutoScalingSettingsDescription.Builder = {
+  final def minimumUnitsAsScala(value: Option[Long]): AutoScalingSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.minimumUnits(v)
     }
   } // Long
 
-  final def withMaximumUnitsAsScala(value: Option[Long]): AutoScalingSettingsDescription.Builder = {
+  final def maximumUnitsAsScala(value: Option[Long]): AutoScalingSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.maximumUnits(v)
     }
   } // Long
 
-  final def withAutoScalingDisabledAsScala(value: Option[Boolean]): AutoScalingSettingsDescription.Builder = {
+  final def autoScalingDisabledAsScala(value: Option[Boolean]): AutoScalingSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.autoScalingDisabled(v)
     }
   } // Boolean
 
-  final def withAutoScalingRoleArnAsScala(value: Option[String]): AutoScalingSettingsDescription.Builder = {
+  final def autoScalingRoleArnAsScala(value: Option[String]): AutoScalingSettingsDescription.Builder = {
     value.fold(self) { v =>
       self.autoScalingRoleArn(v)
     }
   } // String
 
-  final def withScalingPoliciesAsScala(
+  final def scalingPoliciesAsScala(
       value: Option[Seq[AutoScalingPolicyDescription]]
   ): AutoScalingSettingsDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

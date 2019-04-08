@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RequestPaymentConfigurationBuilderOps(val self: RequestPaymentConfiguration.Builder) extends AnyVal {
 
-  final def withPayerAsScala(value: Option[Payer]): RequestPaymentConfiguration.Builder = {
+  final def payerAsScala(value: Option[Payer]): RequestPaymentConfiguration.Builder = {
     value.fold(self) { v =>
       self.payer(v)
     }

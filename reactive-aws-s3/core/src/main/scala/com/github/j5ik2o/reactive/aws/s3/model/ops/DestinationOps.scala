@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): Destination.Builder = {
+  final def bucketAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withAccountAsScala(value: Option[String]): Destination.Builder = {
+  final def accountAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.account(v)
     }
   } // String
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): Destination.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): Destination.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withAccessControlTranslationAsScala(value: Option[AccessControlTranslation]): Destination.Builder = {
+  final def accessControlTranslationAsScala(value: Option[AccessControlTranslation]): Destination.Builder = {
     value.fold(self) { v =>
       self.accessControlTranslation(v)
     }
   } // AccessControlTranslation
 
-  final def withEncryptionConfigurationAsScala(value: Option[EncryptionConfiguration]): Destination.Builder = {
+  final def encryptionConfigurationAsScala(value: Option[EncryptionConfiguration]): Destination.Builder = {
     value.fold(self) { v =>
       self.encryptionConfiguration(v)
     }

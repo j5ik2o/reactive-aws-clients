@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectLockRetentionBuilderOps(val self: ObjectLockRetention.Builder) extends AnyVal {
 
-  final def withModeAsScala(value: Option[ObjectLockRetentionMode]): ObjectLockRetention.Builder = {
+  final def modeAsScala(value: Option[ObjectLockRetentionMode]): ObjectLockRetention.Builder = {
     value.fold(self) { v =>
       self.mode(v)
     }
   } // String
 
-  final def withRetainUntilDateAsScala(value: Option[java.time.Instant]): ObjectLockRetention.Builder = {
+  final def retainUntilDateAsScala(value: Option[java.time.Instant]): ObjectLockRetention.Builder = {
     value.fold(self) { v =>
       self.retainUntilDate(v)
     }

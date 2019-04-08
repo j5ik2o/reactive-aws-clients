@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketAnalyticsConfigurationResponseBuilderOps(val self: GetBucketAnalyticsConfigurationResponse.Builder)
     extends AnyVal {
 
-  final def withAnalyticsConfigurationAsScala(
+  final def analyticsConfigurationAsScala(
       value: Option[AnalyticsConfiguration]
   ): GetBucketAnalyticsConfigurationResponse.Builder = {
     value.fold(self) { v =>

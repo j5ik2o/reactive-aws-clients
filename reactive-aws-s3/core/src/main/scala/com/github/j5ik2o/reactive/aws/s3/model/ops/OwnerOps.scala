@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class OwnerBuilderOps(val self: Owner.Builder) extends AnyVal {
 
-  final def withDisplayNameAsScala(value: Option[String]): Owner.Builder = {
+  final def displayNameAsScala(value: Option[String]): Owner.Builder = {
     value.fold(self) { v =>
       self.displayName(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): Owner.Builder = {
+  final def idAsScala(value: Option[String]): Owner.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

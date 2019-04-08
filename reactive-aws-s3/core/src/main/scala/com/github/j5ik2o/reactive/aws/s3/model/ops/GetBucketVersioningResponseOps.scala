@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketVersioningResponseBuilderOps(val self: GetBucketVersioningResponse.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[BucketVersioningStatus]): GetBucketVersioningResponse.Builder = {
+  final def statusAsScala(value: Option[BucketVersioningStatus]): GetBucketVersioningResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
   } // String
 
-  final def withMfaDeleteAsScala(value: Option[MFADeleteStatus]): GetBucketVersioningResponse.Builder = {
+  final def mfaDeleteAsScala(value: Option[MFADeleteStatus]): GetBucketVersioningResponse.Builder = {
     value.fold(self) { v =>
       self.mfaDelete(v)
     }

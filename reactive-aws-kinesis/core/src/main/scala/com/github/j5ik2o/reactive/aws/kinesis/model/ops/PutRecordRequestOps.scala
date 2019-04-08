@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class PutRecordRequestBuilderOps(val self: PutRecordRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): PutRecordRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withDataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordRequest.Builder = {
+  final def dataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.data(v)
     }
   } // SdkBytes
 
-  final def withPartitionKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
+  final def partitionKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.partitionKey(v)
     }
   } // String
 
-  final def withExplicitHashKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
+  final def explicitHashKeyAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.explicitHashKey(v)
     }
   } // String
 
-  final def withSequenceNumberForOrderingAsScala(value: Option[String]): PutRecordRequest.Builder = {
+  final def sequenceNumberForOrderingAsScala(value: Option[String]): PutRecordRequest.Builder = {
     value.fold(self) { v =>
       self.sequenceNumberForOrdering(v)
     }

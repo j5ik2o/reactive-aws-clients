@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketEncryptionResponseBuilderOps(val self: GetBucketEncryptionResponse.Builder) extends AnyVal {
 
-  final def withServerSideEncryptionConfigurationAsScala(
+  final def serverSideEncryptionConfigurationAsScala(
       value: Option[ServerSideEncryptionConfiguration]
   ): GetBucketEncryptionResponse.Builder = {
     value.fold(self) { v =>

@@ -5,15 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageBatchResponseBuilderOps(val self: DeleteMessageBatchResponse.Builder) extends AnyVal {
 
-  final def withSuccessfulAsScala(
-      value: Option[Seq[DeleteMessageBatchResultEntry]]
-  ): DeleteMessageBatchResponse.Builder = {
+  final def successfulAsScala(value: Option[Seq[DeleteMessageBatchResultEntry]]): DeleteMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.successful(v.asJava)
     } // Seq[DeleteMessageBatchResultEntry]
   }
 
-  final def withFailedAsScala(value: Option[Seq[BatchResultErrorEntry]]): DeleteMessageBatchResponse.Builder = {
+  final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): DeleteMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.failed(v.asJava)
     } // Seq[BatchResultErrorEntry]

@@ -5,21 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BackupDescriptionBuilderOps(val self: BackupDescription.Builder) extends AnyVal {
 
-  final def withBackupDetailsAsScala(value: Option[BackupDetails]): BackupDescription.Builder = {
+  final def backupDetailsAsScala(value: Option[BackupDetails]): BackupDescription.Builder = {
     value.fold(self) { v =>
       self.backupDetails(v)
     }
   } // BackupDetails
 
-  final def withSourceTableDetailsAsScala(value: Option[SourceTableDetails]): BackupDescription.Builder = {
+  final def sourceTableDetailsAsScala(value: Option[SourceTableDetails]): BackupDescription.Builder = {
     value.fold(self) { v =>
       self.sourceTableDetails(v)
     }
   } // SourceTableDetails
 
-  final def withSourceTableFeatureDetailsAsScala(
-      value: Option[SourceTableFeatureDetails]
-  ): BackupDescription.Builder = {
+  final def sourceTableFeatureDetailsAsScala(value: Option[SourceTableFeatureDetails]): BackupDescription.Builder = {
     value.fold(self) { v =>
       self.sourceTableFeatureDetails(v)
     }

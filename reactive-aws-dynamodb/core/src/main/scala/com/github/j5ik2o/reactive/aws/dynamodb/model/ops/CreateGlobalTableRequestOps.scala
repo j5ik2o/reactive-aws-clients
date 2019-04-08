@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class CreateGlobalTableRequestBuilderOps(val self: CreateGlobalTableRequest.Builder) extends AnyVal {
 
-  final def withGlobalTableNameAsScala(value: Option[String]): CreateGlobalTableRequest.Builder = {
+  final def globalTableNameAsScala(value: Option[String]): CreateGlobalTableRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }
   } // String
 
-  final def withReplicationGroupAsScala(value: Option[Seq[Replica]]): CreateGlobalTableRequest.Builder = {
+  final def replicationGroupAsScala(value: Option[Seq[Replica]]): CreateGlobalTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.replicationGroup(v.asJava)
     } // Seq[Replica]

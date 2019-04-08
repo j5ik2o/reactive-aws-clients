@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class KeysAndAttributesBuilderOps(val self: KeysAndAttributes.Builder) extends AnyVal {
 
-  final def withKeysAsScala(value: Option[Seq[Map[String, AttributeValue]]]): KeysAndAttributes.Builder = {
+  final def keysAsScala(value: Option[Seq[Map[String, AttributeValue]]]): KeysAndAttributes.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keys(v.map(_.asJava).asJava)
     } // Seq[Map[String, AttributeValue]]
   }
 
-  final def withAttributesToGetAsScala(value: Option[Seq[String]]): KeysAndAttributes.Builder = {
+  final def attributesToGetAsScala(value: Option[Seq[String]]): KeysAndAttributes.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributesToGet(v.asJava)
     } // Seq[String]
   }
 
-  final def withConsistentReadAsScala(value: Option[Boolean]): KeysAndAttributes.Builder = {
+  final def consistentReadAsScala(value: Option[Boolean]): KeysAndAttributes.Builder = {
     value.fold(self) { v =>
       self.consistentRead(v)
     }
   } // Boolean
 
-  final def withProjectionExpressionAsScala(value: Option[String]): KeysAndAttributes.Builder = {
+  final def projectionExpressionAsScala(value: Option[String]): KeysAndAttributes.Builder = {
     value.fold(self) { v =>
       self.projectionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): KeysAndAttributes.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): KeysAndAttributes.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]

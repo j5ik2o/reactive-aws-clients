@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class SubscribeToShardRequestBuilderOps(val self: SubscribeToShardRequest.Builder) extends AnyVal {
 
-  final def withConsumerARNAsScala(value: Option[String]): SubscribeToShardRequest.Builder = {
+  final def consumerARNAsScala(value: Option[String]): SubscribeToShardRequest.Builder = {
     value.fold(self) { v =>
       self.consumerARN(v)
     }
   } // String
 
-  final def withShardIdAsScala(value: Option[String]): SubscribeToShardRequest.Builder = {
+  final def shardIdAsScala(value: Option[String]): SubscribeToShardRequest.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
   } // String
 
-  final def withStartingPositionAsScala(value: Option[StartingPosition]): SubscribeToShardRequest.Builder = {
+  final def startingPositionAsScala(value: Option[StartingPosition]): SubscribeToShardRequest.Builder = {
     value.fold(self) { v =>
       self.startingPosition(v)
     }

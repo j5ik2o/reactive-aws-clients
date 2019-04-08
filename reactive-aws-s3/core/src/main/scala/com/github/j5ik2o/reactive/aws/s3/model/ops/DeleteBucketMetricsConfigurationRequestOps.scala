@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.s3.model._
 final class DeleteBucketMetricsConfigurationRequestBuilderOps(val self: DeleteBucketMetricsConfigurationRequest.Builder)
     extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketMetricsConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketMetricsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): DeleteBucketMetricsConfigurationRequest.Builder = {
+  final def idAsScala(value: Option[String]): DeleteBucketMetricsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

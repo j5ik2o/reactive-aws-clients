@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class ChangeMessageVisibilityRequestBuilderOps(val self: ChangeMessageVisibilityRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withReceiptHandleAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
+  final def receiptHandleAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }
   } // String
 
-  final def withVisibilityTimeoutAsScala(value: Option[Int]): ChangeMessageVisibilityRequest.Builder = {
+  final def visibilityTimeoutAsScala(value: Option[Int]): ChangeMessageVisibilityRequest.Builder = {
     value.fold(self) { v =>
       self.visibilityTimeout(v)
     }

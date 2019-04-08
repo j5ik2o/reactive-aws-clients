@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class LocalSecondaryIndexBuilderOps(val self: LocalSecondaryIndex.Builder) extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): LocalSecondaryIndex.Builder = {
+  final def indexNameAsScala(value: Option[String]): LocalSecondaryIndex.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndex.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndex.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withProjectionAsScala(value: Option[Projection]): LocalSecondaryIndex.Builder = {
+  final def projectionAsScala(value: Option[Projection]): LocalSecondaryIndex.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }

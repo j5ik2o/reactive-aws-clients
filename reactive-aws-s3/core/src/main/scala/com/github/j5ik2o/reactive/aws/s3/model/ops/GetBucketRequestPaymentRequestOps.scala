@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketRequestPaymentRequestBuilderOps(val self: GetBucketRequestPaymentRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetBucketRequestPaymentRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetBucketRequestPaymentRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class LocalSecondaryIndexDescriptionBuilderOps(val self: LocalSecondaryIndexDescription.Builder) extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
+  final def indexNameAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withKeySchemaAsScala(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndexDescription.Builder = {
+  final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndexDescription.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keySchema(v.asJava)
     } // Seq[KeySchemaElement]
   }
 
-  final def withProjectionAsScala(value: Option[Projection]): LocalSecondaryIndexDescription.Builder = {
+  final def projectionAsScala(value: Option[Projection]): LocalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }
   } // Projection
 
-  final def withIndexSizeBytesAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
+  final def indexSizeBytesAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexSizeBytes(v)
     }
   } // Long
 
-  final def withItemCountAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
+  final def itemCountAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.itemCount(v)
     }
   } // Long
 
-  final def withIndexArnAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
+  final def indexArnAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
     value.fold(self) { v =>
       self.indexArn(v)
     }

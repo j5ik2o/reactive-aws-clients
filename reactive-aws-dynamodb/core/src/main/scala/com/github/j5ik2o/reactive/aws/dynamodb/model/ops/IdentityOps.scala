@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class IdentityBuilderOps(val self: Identity.Builder) extends AnyVal {
 
-  final def withPrincipalIdAsScala(value: Option[String]): Identity.Builder = {
+  final def principalIdAsScala(value: Option[String]): Identity.Builder = {
     value.fold(self) { v =>
       self.principalId(v)
     }
   } // String
 
-  final def withTypeAsScala(value: Option[String]): Identity.Builder = {
+  final def typeAsScala(value: Option[String]): Identity.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }

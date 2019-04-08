@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class UntagQueueRequestBuilderOps(val self: UntagQueueRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): UntagQueueRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): UntagQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withTagKeysAsScala(value: Option[Seq[String]]): UntagQueueRequest.Builder = {
+  final def tagKeysAsScala(value: Option[Seq[String]]): UntagQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
     } // Seq[String]

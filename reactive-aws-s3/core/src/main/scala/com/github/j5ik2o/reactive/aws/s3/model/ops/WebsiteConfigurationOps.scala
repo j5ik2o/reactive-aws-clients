@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class WebsiteConfigurationBuilderOps(val self: WebsiteConfiguration.Builder) extends AnyVal {
 
-  final def withErrorDocumentAsScala(value: Option[ErrorDocument]): WebsiteConfiguration.Builder = {
+  final def errorDocumentAsScala(value: Option[ErrorDocument]): WebsiteConfiguration.Builder = {
     value.fold(self) { v =>
       self.errorDocument(v)
     }
   } // ErrorDocument
 
-  final def withIndexDocumentAsScala(value: Option[IndexDocument]): WebsiteConfiguration.Builder = {
+  final def indexDocumentAsScala(value: Option[IndexDocument]): WebsiteConfiguration.Builder = {
     value.fold(self) { v =>
       self.indexDocument(v)
     }
   } // IndexDocument
 
-  final def withRedirectAllRequestsToAsScala(value: Option[RedirectAllRequestsTo]): WebsiteConfiguration.Builder = {
+  final def redirectAllRequestsToAsScala(value: Option[RedirectAllRequestsTo]): WebsiteConfiguration.Builder = {
     value.fold(self) { v =>
       self.redirectAllRequestsTo(v)
     }
   } // RedirectAllRequestsTo
 
-  final def withRoutingRulesAsScala(value: Option[Seq[RoutingRule]]): WebsiteConfiguration.Builder = {
+  final def routingRulesAsScala(value: Option[Seq[RoutingRule]]): WebsiteConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.routingRules(v.asJava)
     } // Seq[RoutingRule]

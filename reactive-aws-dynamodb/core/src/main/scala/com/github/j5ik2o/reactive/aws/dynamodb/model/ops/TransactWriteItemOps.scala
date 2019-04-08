@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TransactWriteItemBuilderOps(val self: TransactWriteItem.Builder) extends AnyVal {
 
-  final def withConditionCheckAsScala(value: Option[ConditionCheck]): TransactWriteItem.Builder = {
+  final def conditionCheckAsScala(value: Option[ConditionCheck]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.conditionCheck(v)
     }
   } // ConditionCheck
 
-  final def withPutAsScala(value: Option[Put]): TransactWriteItem.Builder = {
+  final def putAsScala(value: Option[Put]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.put(v)
     }
   } // Put
 
-  final def withDeleteAsScala(value: Option[Delete]): TransactWriteItem.Builder = {
+  final def deleteAsScala(value: Option[Delete]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.delete(v)
     }
   } // Delete
 
-  final def withUpdateAsScala(value: Option[Update]): TransactWriteItem.Builder = {
+  final def updateAsScala(value: Option[Update]): TransactWriteItem.Builder = {
     value.fold(self) { v =>
       self.update(v)
     }

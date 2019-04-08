@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class UpdateGlobalTableSettingsResponseBuilderOps(val self: UpdateGlobalTableSettingsResponse.Builder)
     extends AnyVal {
 
-  final def withGlobalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsResponse.Builder = {
+  final def globalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsResponse.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }
   } // String
 
-  final def withReplicaSettingsAsScala(
+  final def replicaSettingsAsScala(
       value: Option[Seq[ReplicaSettingsDescription]]
   ): UpdateGlobalTableSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

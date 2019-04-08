@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DefaultRetentionBuilderOps(val self: DefaultRetention.Builder) extends AnyVal {
 
-  final def withModeAsScala(value: Option[ObjectLockRetentionMode]): DefaultRetention.Builder = {
+  final def modeAsScala(value: Option[ObjectLockRetentionMode]): DefaultRetention.Builder = {
     value.fold(self) { v =>
       self.mode(v)
     }
   } // String
 
-  final def withDaysAsScala(value: Option[Int]): DefaultRetention.Builder = {
+  final def daysAsScala(value: Option[Int]): DefaultRetention.Builder = {
     value.fold(self) { v =>
       self.days(v)
     }
   } // Int
 
-  final def withYearsAsScala(value: Option[Int]): DefaultRetention.Builder = {
+  final def yearsAsScala(value: Option[Int]): DefaultRetention.Builder = {
     value.fold(self) { v =>
       self.years(v)
     }

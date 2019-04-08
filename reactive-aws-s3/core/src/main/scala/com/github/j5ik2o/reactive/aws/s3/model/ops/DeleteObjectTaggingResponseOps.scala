@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteObjectTaggingResponseBuilderOps(val self: DeleteObjectTaggingResponse.Builder) extends AnyVal {
 
-  final def withVersionIdAsScala(value: Option[String]): DeleteObjectTaggingResponse.Builder = {
+  final def versionIdAsScala(value: Option[String]): DeleteObjectTaggingResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }

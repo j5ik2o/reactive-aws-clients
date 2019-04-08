@@ -5,21 +5,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TransactWriteItemsRequestBuilderOps(val self: TransactWriteItemsRequest.Builder) extends AnyVal {
 
-  final def withTransactItemsAsScala(value: Option[Seq[TransactWriteItem]]): TransactWriteItemsRequest.Builder = {
+  final def transactItemsAsScala(value: Option[Seq[TransactWriteItem]]): TransactWriteItemsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.transactItems(v.asJava)
     } // Seq[TransactWriteItem]
   }
 
-  final def withReturnConsumedCapacityAsScala(
-      value: Option[ReturnConsumedCapacity]
-  ): TransactWriteItemsRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): TransactWriteItemsRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withReturnItemCollectionMetricsAsScala(
+  final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
   ): TransactWriteItemsRequest.Builder = {
     value.fold(self) { v =>
@@ -27,7 +25,7 @@ final class TransactWriteItemsRequestBuilderOps(val self: TransactWriteItemsRequ
     }
   } // String
 
-  final def withClientRequestTokenAsScala(value: Option[String]): TransactWriteItemsRequest.Builder = {
+  final def clientRequestTokenAsScala(value: Option[String]): TransactWriteItemsRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
     }

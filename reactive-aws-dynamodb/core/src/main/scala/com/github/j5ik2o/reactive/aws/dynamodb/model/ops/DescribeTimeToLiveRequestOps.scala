@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeTimeToLiveRequestBuilderOps(val self: DescribeTimeToLiveRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): DescribeTimeToLiveRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): DescribeTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }

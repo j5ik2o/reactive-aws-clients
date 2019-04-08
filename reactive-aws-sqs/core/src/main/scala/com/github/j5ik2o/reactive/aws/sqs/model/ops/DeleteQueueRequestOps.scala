@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteQueueRequestBuilderOps(val self: DeleteQueueRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): DeleteQueueRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): DeleteQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }

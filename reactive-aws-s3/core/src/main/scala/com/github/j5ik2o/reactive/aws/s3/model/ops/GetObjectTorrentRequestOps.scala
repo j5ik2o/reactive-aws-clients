@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectTorrentRequestBuilderOps(val self: GetObjectTorrentRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
+  final def keyAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectTorrentRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

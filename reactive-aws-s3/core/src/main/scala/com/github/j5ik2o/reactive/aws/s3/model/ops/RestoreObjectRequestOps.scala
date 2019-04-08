@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RestoreObjectRequestBuilderOps(val self: RestoreObjectRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): RestoreObjectRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): RestoreObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): RestoreObjectRequest.Builder = {
+  final def keyAsScala(value: Option[String]): RestoreObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): RestoreObjectRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): RestoreObjectRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withRestoreRequestAsScala(value: Option[RestoreRequest]): RestoreObjectRequest.Builder = {
+  final def restoreRequestAsScala(value: Option[RestoreRequest]): RestoreObjectRequest.Builder = {
     value.fold(self) { v =>
       self.restoreRequest(v)
     }
   } // RestoreRequest
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): RestoreObjectRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): RestoreObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

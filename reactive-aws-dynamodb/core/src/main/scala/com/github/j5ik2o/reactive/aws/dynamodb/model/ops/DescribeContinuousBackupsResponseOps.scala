@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class DescribeContinuousBackupsResponseBuilderOps(val self: DescribeContinuousBackupsResponse.Builder)
     extends AnyVal {
 
-  final def withContinuousBackupsDescriptionAsScala(
+  final def continuousBackupsDescriptionAsScala(
       value: Option[ContinuousBackupsDescription]
   ): DescribeContinuousBackupsResponse.Builder = {
     value.fold(self) { v =>

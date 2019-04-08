@@ -7,13 +7,13 @@ final class DeleteBucketInventoryConfigurationRequestBuilderOps(
     val self: DeleteBucketInventoryConfigurationRequest.Builder
 ) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
+  final def idAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

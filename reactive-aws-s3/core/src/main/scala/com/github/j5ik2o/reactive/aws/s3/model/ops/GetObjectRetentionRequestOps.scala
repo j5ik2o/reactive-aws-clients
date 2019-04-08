@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectRetentionRequestBuilderOps(val self: GetObjectRetentionRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectRetentionRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): GetObjectRetentionRequest.Builder = {
+  final def keyAsScala(value: Option[String]): GetObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectRetentionRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectRetentionRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

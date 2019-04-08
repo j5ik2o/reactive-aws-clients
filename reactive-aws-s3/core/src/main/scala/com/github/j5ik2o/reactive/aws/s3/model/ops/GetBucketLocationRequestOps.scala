@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketLocationRequestBuilderOps(val self: GetBucketLocationRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetBucketLocationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetBucketLocationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

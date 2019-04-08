@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectLockRuleBuilderOps(val self: ObjectLockRule.Builder) extends AnyVal {
 
-  final def withDefaultRetentionAsScala(value: Option[DefaultRetention]): ObjectLockRule.Builder = {
+  final def defaultRetentionAsScala(value: Option[DefaultRetention]): ObjectLockRule.Builder = {
     value.fold(self) { v =>
       self.defaultRetention(v)
     }

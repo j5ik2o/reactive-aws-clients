@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RedirectBuilderOps(val self: Redirect.Builder) extends AnyVal {
 
-  final def withHostNameAsScala(value: Option[String]): Redirect.Builder = {
+  final def hostNameAsScala(value: Option[String]): Redirect.Builder = {
     value.fold(self) { v =>
       self.hostName(v)
     }
   } // String
 
-  final def withHttpRedirectCodeAsScala(value: Option[String]): Redirect.Builder = {
+  final def httpRedirectCodeAsScala(value: Option[String]): Redirect.Builder = {
     value.fold(self) { v =>
       self.httpRedirectCode(v)
     }
   } // String
 
-  final def withProtocolAsScala(value: Option[Protocol]): Redirect.Builder = {
+  final def protocolAsScala(value: Option[Protocol]): Redirect.Builder = {
     value.fold(self) { v =>
       self.protocol(v)
     }
   } // String
 
-  final def withReplaceKeyPrefixWithAsScala(value: Option[String]): Redirect.Builder = {
+  final def replaceKeyPrefixWithAsScala(value: Option[String]): Redirect.Builder = {
     value.fold(self) { v =>
       self.replaceKeyPrefixWith(v)
     }
   } // String
 
-  final def withReplaceKeyWithAsScala(value: Option[String]): Redirect.Builder = {
+  final def replaceKeyWithAsScala(value: Option[String]): Redirect.Builder = {
     value.fold(self) { v =>
       self.replaceKeyWith(v)
     }

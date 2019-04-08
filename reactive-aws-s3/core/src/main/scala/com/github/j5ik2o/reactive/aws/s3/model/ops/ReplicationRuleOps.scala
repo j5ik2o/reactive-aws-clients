@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ReplicationRuleBuilderOps(val self: ReplicationRule.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): ReplicationRule.Builder = {
+  final def idAsScala(value: Option[String]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withPriorityAsScala(value: Option[Int]): ReplicationRule.Builder = {
+  final def priorityAsScala(value: Option[Int]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.priority(v)
     }
   } // Int
 
-  final def withPrefixAsScala(value: Option[String]): ReplicationRule.Builder = {
+  final def prefixAsScala(value: Option[String]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withFilterAsScala(value: Option[ReplicationRuleFilter]): ReplicationRule.Builder = {
+  final def filterAsScala(value: Option[ReplicationRuleFilter]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }
   } // ReplicationRuleFilter
 
-  final def withStatusAsScala(value: Option[ReplicationRuleStatus]): ReplicationRule.Builder = {
+  final def statusAsScala(value: Option[ReplicationRuleStatus]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
   } // String
 
-  final def withSourceSelectionCriteriaAsScala(value: Option[SourceSelectionCriteria]): ReplicationRule.Builder = {
+  final def sourceSelectionCriteriaAsScala(value: Option[SourceSelectionCriteria]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.sourceSelectionCriteria(v)
     }
   } // SourceSelectionCriteria
 
-  final def withDestinationAsScala(value: Option[Destination]): ReplicationRule.Builder = {
+  final def destinationAsScala(value: Option[Destination]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.destination(v)
     }
   } // Destination
 
-  final def withDeleteMarkerReplicationAsScala(value: Option[DeleteMarkerReplication]): ReplicationRule.Builder = {
+  final def deleteMarkerReplicationAsScala(value: Option[DeleteMarkerReplication]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.deleteMarkerReplication(v)
     }

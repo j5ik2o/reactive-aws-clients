@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class MergeShardsRequestBuilderOps(val self: MergeShardsRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): MergeShardsRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withShardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
+  final def shardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.shardToMerge(v)
     }
   } // String
 
-  final def withAdjacentShardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
+  final def adjacentShardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.adjacentShardToMerge(v)
     }

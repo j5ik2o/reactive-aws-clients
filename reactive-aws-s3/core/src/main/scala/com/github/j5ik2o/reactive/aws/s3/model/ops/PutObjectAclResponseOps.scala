@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectAclResponseBuilderOps(val self: PutObjectAclResponse.Builder) extends AnyVal {
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): PutObjectAclResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectAclResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }

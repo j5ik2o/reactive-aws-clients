@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AnalyticsExportDestinationBuilderOps(val self: AnalyticsExportDestination.Builder) extends AnyVal {
 
-  final def withS3BucketDestinationAsScala(
+  final def s3BucketDestinationAsScala(
       value: Option[AnalyticsS3BucketDestination]
   ): AnalyticsExportDestination.Builder = {
     value.fold(self) { v =>

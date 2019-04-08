@@ -5,73 +5,73 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectAclRequestBuilderOps(val self: PutObjectAclRequest.Builder) extends AnyVal {
 
-  final def withAclAsScala(value: Option[ObjectCannedACL]): PutObjectAclRequest.Builder = {
+  final def aclAsScala(value: Option[ObjectCannedACL]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.acl(v)
     }
   } // String
 
-  final def withAccessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutObjectAclRequest.Builder = {
+  final def accessControlPolicyAsScala(value: Option[AccessControlPolicy]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.accessControlPolicy(v)
     }
   } // AccessControlPolicy
 
-  final def withBucketAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withGrantFullControlAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def grantFullControlAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
   } // String
 
-  final def withGrantReadAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def grantReadAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
   } // String
 
-  final def withGrantReadACPAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def grantReadACPAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
   } // String
 
-  final def withGrantWriteAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def grantWriteAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantWrite(v)
     }
   } // String
 
-  final def withGrantWriteACPAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def grantWriteACPAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def keyAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): PutObjectAclRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): PutObjectAclRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }

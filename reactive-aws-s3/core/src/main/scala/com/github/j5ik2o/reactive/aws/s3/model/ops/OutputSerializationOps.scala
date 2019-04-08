@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class OutputSerializationBuilderOps(val self: OutputSerialization.Builder) extends AnyVal {
 
-  final def withCsvAsScala(value: Option[CSVOutput]): OutputSerialization.Builder = {
+  final def csvAsScala(value: Option[CSVOutput]): OutputSerialization.Builder = {
     value.fold(self) { v =>
       self.csv(v)
     }
   } // CSVOutput
 
-  final def withJsonAsScala(value: Option[JSONOutput]): OutputSerialization.Builder = {
+  final def jsonAsScala(value: Option[JSONOutput]): OutputSerialization.Builder = {
     value.fold(self) { v =>
       self.json(v)
     }

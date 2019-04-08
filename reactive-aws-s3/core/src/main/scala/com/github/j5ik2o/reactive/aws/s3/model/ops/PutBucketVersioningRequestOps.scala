@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketVersioningRequestBuilderOps(val self: PutBucketVersioningRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withMfaAsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
+  final def mfaAsScala(value: Option[String]): PutBucketVersioningRequest.Builder = {
     value.fold(self) { v =>
       self.mfa(v)
     }
   } // String
 
-  final def withVersioningConfigurationAsScala(
+  final def versioningConfigurationAsScala(
       value: Option[VersioningConfiguration]
   ): PutBucketVersioningRequest.Builder = {
     value.fold(self) { v =>

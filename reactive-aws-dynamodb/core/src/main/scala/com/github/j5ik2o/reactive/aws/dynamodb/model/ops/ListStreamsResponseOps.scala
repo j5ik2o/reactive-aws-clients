@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListStreamsResponseBuilderOps(val self: ListStreamsResponse.Builder) extends AnyVal {
 
-  final def withStreamsAsScala(value: Option[Seq[Stream]]): ListStreamsResponse.Builder = {
+  final def streamsAsScala(value: Option[Seq[Stream]]): ListStreamsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.streams(v.asJava)
     } // Seq[Stream]
   }
 
-  final def withLastEvaluatedStreamArnAsScala(value: Option[String]): ListStreamsResponse.Builder = {
+  final def lastEvaluatedStreamArnAsScala(value: Option[String]): ListStreamsResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedStreamArn(v)
     }

@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteMarkerEntryBuilderOps(val self: DeleteMarkerEntry.Builder) extends AnyVal {
 
-  final def withOwnerAsScala(value: Option[Owner]): DeleteMarkerEntry.Builder = {
+  final def ownerAsScala(value: Option[Owner]): DeleteMarkerEntry.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
   } // Owner
 
-  final def withKeyAsScala(value: Option[String]): DeleteMarkerEntry.Builder = {
+  final def keyAsScala(value: Option[String]): DeleteMarkerEntry.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): DeleteMarkerEntry.Builder = {
+  final def versionIdAsScala(value: Option[String]): DeleteMarkerEntry.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withIsLatestAsScala(value: Option[Boolean]): DeleteMarkerEntry.Builder = {
+  final def isLatestAsScala(value: Option[Boolean]): DeleteMarkerEntry.Builder = {
     value.fold(self) { v =>
       self.isLatest(v)
     }
   } // Boolean
 
-  final def withLastModifiedAsScala(value: Option[java.time.Instant]): DeleteMarkerEntry.Builder = {
+  final def lastModifiedAsScala(value: Option[java.time.Instant]): DeleteMarkerEntry.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }

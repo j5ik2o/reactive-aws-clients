@@ -7,13 +7,13 @@ final class ListBucketAnalyticsConfigurationsRequestBuilderOps(
     val self: ListBucketAnalyticsConfigurationsRequest.Builder
 ) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContinuationTokenAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsRequest.Builder = {
+  final def continuationTokenAsScala(value: Option[String]): ListBucketAnalyticsConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }

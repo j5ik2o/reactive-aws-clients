@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DeleteStreamRequestBuilderOps(val self: DeleteStreamRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): DeleteStreamRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): DeleteStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withEnforceConsumerDeletionAsScala(value: Option[Boolean]): DeleteStreamRequest.Builder = {
+  final def enforceConsumerDeletionAsScala(value: Option[Boolean]): DeleteStreamRequest.Builder = {
     value.fold(self) { v =>
       self.enforceConsumerDeletion(v)
     }

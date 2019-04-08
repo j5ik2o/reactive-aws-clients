@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketAclResponseBuilderOps(val self: GetBucketAclResponse.Builder) extends AnyVal {
 
-  final def withOwnerAsScala(value: Option[Owner]): GetBucketAclResponse.Builder = {
+  final def ownerAsScala(value: Option[Owner]): GetBucketAclResponse.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
   } // Owner
 
-  final def withGrantsAsScala(value: Option[Seq[Grant]]): GetBucketAclResponse.Builder = {
+  final def grantsAsScala(value: Option[Seq[Grant]]): GetBucketAclResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.grants(v.asJava)
     } // Seq[Grant]

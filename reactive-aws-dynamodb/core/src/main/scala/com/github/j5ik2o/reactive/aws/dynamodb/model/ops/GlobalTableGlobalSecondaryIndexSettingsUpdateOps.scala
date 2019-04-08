@@ -7,13 +7,13 @@ final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
     val self: GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder
 ) extends AnyVal {
 
-  final def withIndexNameAsScala(value: Option[String]): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
+  final def indexNameAsScala(value: Option[String]): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withProvisionedWriteCapacityUnitsAsScala(
+  final def provisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>
@@ -21,7 +21,7 @@ final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
     }
   } // Long
 
-  final def withProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
+  final def provisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>

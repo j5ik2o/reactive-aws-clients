@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectLockLegalHoldBuilderOps(val self: ObjectLockLegalHold.Builder) extends AnyVal {
 
-  final def withStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): ObjectLockLegalHold.Builder = {
+  final def statusAsScala(value: Option[ObjectLockLegalHoldStatus]): ObjectLockLegalHold.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }

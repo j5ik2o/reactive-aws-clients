@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.sqs.model._
 final class ListDeadLetterSourceQueuesResponseBuilderOps(val self: ListDeadLetterSourceQueuesResponse.Builder)
     extends AnyVal {
 
-  final def withQueueUrlsAsScala(value: Option[Seq[String]]): ListDeadLetterSourceQueuesResponse.Builder = {
+  final def queueUrlsAsScala(value: Option[Seq[String]]): ListDeadLetterSourceQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queueUrls(v.asJava)
     } // Seq[String]

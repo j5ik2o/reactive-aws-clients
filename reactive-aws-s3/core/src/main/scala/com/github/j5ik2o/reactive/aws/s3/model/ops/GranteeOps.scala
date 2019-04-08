@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GranteeBuilderOps(val self: Grantee.Builder) extends AnyVal {
 
-  final def withDisplayNameAsScala(value: Option[String]): Grantee.Builder = {
+  final def displayNameAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.displayName(v)
     }
   } // String
 
-  final def withEmailAddressAsScala(value: Option[String]): Grantee.Builder = {
+  final def emailAddressAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.emailAddress(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): Grantee.Builder = {
+  final def idAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withTypeAsScala(value: Option[Type]): Grantee.Builder = {
+  final def typeAsScala(value: Option[Type]): Grantee.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   } // String
 
-  final def withUriAsScala(value: Option[String]): Grantee.Builder = {
+  final def uriAsScala(value: Option[String]): Grantee.Builder = {
     value.fold(self) { v =>
       self.uri(v)
     }

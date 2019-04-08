@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RestoreRequestBuilderOps(val self: RestoreRequest.Builder) extends AnyVal {
 
-  final def withDaysAsScala(value: Option[Int]): RestoreRequest.Builder = {
+  final def daysAsScala(value: Option[Int]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.days(v)
     }
   } // Int
 
-  final def withGlacierJobParametersAsScala(value: Option[GlacierJobParameters]): RestoreRequest.Builder = {
+  final def glacierJobParametersAsScala(value: Option[GlacierJobParameters]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.glacierJobParameters(v)
     }
   } // GlacierJobParameters
 
-  final def withTypeAsScala(value: Option[RestoreRequestType]): RestoreRequest.Builder = {
+  final def typeAsScala(value: Option[RestoreRequestType]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   } // String
 
-  final def withTierAsScala(value: Option[Tier]): RestoreRequest.Builder = {
+  final def tierAsScala(value: Option[Tier]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.tier(v)
     }
   } // String
 
-  final def withDescriptionAsScala(value: Option[String]): RestoreRequest.Builder = {
+  final def descriptionAsScala(value: Option[String]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   } // String
 
-  final def withSelectParametersAsScala(value: Option[SelectParameters]): RestoreRequest.Builder = {
+  final def selectParametersAsScala(value: Option[SelectParameters]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.selectParameters(v)
     }
   } // SelectParameters
 
-  final def withOutputLocationAsScala(value: Option[OutputLocation]): RestoreRequest.Builder = {
+  final def outputLocationAsScala(value: Option[OutputLocation]): RestoreRequest.Builder = {
     value.fold(self) { v =>
       self.outputLocation(v)
     }

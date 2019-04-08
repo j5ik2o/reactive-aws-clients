@@ -5,61 +5,61 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AttributeValueBuilderOps(val self: AttributeValue.Builder) extends AnyVal {
 
-  final def withSAsScala(value: Option[String]): AttributeValue.Builder = {
+  final def sAsScala(value: Option[String]): AttributeValue.Builder = {
     value.fold(self) { v =>
       self.s(v)
     }
   } // String
 
-  final def withNAsScala(value: Option[String]): AttributeValue.Builder = {
+  final def nAsScala(value: Option[String]): AttributeValue.Builder = {
     value.fold(self) { v =>
       self.n(v)
     }
   } // String
 
-  final def withBAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): AttributeValue.Builder = {
+  final def bAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): AttributeValue.Builder = {
     value.fold(self) { v =>
       self.b(v)
     }
   } // SdkBytes
 
-  final def withSsAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
+  final def ssAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.ss(v.asJava)
     } // Seq[String]
   }
 
-  final def withNsAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
+  final def nsAsScala(value: Option[Seq[String]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.ns(v.asJava)
     } // Seq[String]
   }
 
-  final def withBsAsScala(value: Option[Seq[software.amazon.awssdk.core.SdkBytes]]): AttributeValue.Builder = {
+  final def bsAsScala(value: Option[Seq[software.amazon.awssdk.core.SdkBytes]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.bs(v.asJava)
     } // Seq[SdkBytes]
   }
 
-  final def withMAsScala(value: Option[Map[String, AttributeValue]]): AttributeValue.Builder = {
+  final def mAsScala(value: Option[Map[String, AttributeValue]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.m(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withLAsScala(value: Option[Seq[AttributeValue]]): AttributeValue.Builder = {
+  final def lAsScala(value: Option[Seq[AttributeValue]]): AttributeValue.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.l(v.asJava)
     } // Seq[AttributeValue]
   }
 
-  final def withBoolAsScala(value: Option[Boolean]): AttributeValue.Builder = {
+  final def boolAsScala(value: Option[Boolean]): AttributeValue.Builder = {
     value.fold(self) { v =>
       self.bool(v)
     }
   } // Boolean
 
-  final def withNulAsScala(value: Option[Boolean]): AttributeValue.Builder = {
+  final def nulAsScala(value: Option[Boolean]): AttributeValue.Builder = {
     value.fold(self) { v =>
       self.nul(v)
     }

@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectTaggingRequestBuilderOps(val self: PutObjectTaggingRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
+  final def keyAsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withTaggingAsScala(value: Option[Tagging]): PutObjectTaggingRequest.Builder = {
+  final def taggingAsScala(value: Option[Tagging]): PutObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }

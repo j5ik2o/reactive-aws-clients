@@ -5,57 +5,55 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CreateBucketRequestBuilderOps(val self: CreateBucketRequest.Builder) extends AnyVal {
 
-  final def withAclAsScala(value: Option[BucketCannedACL]): CreateBucketRequest.Builder = {
+  final def aclAsScala(value: Option[BucketCannedACL]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.acl(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): CreateBucketRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withCreateBucketConfigurationAsScala(
-      value: Option[CreateBucketConfiguration]
-  ): CreateBucketRequest.Builder = {
+  final def createBucketConfigurationAsScala(value: Option[CreateBucketConfiguration]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.createBucketConfiguration(v)
     }
   } // CreateBucketConfiguration
 
-  final def withGrantFullControlAsScala(value: Option[String]): CreateBucketRequest.Builder = {
+  final def grantFullControlAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
   } // String
 
-  final def withGrantReadAsScala(value: Option[String]): CreateBucketRequest.Builder = {
+  final def grantReadAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
   } // String
 
-  final def withGrantReadACPAsScala(value: Option[String]): CreateBucketRequest.Builder = {
+  final def grantReadACPAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
   } // String
 
-  final def withGrantWriteAsScala(value: Option[String]): CreateBucketRequest.Builder = {
+  final def grantWriteAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.grantWrite(v)
     }
   } // String
 
-  final def withGrantWriteACPAsScala(value: Option[String]): CreateBucketRequest.Builder = {
+  final def grantWriteACPAsScala(value: Option[String]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
   } // String
 
-  final def withObjectLockEnabledForBucketAsScala(value: Option[Boolean]): CreateBucketRequest.Builder = {
+  final def objectLockEnabledForBucketAsScala(value: Option[Boolean]): CreateBucketRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockEnabledForBucket(v)
     }

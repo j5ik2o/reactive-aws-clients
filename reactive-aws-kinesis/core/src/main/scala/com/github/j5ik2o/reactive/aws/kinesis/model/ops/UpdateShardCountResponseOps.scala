@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class UpdateShardCountResponseBuilderOps(val self: UpdateShardCountResponse.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): UpdateShardCountResponse.Builder = {
+  final def streamNameAsScala(value: Option[String]): UpdateShardCountResponse.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withCurrentShardCountAsScala(value: Option[Int]): UpdateShardCountResponse.Builder = {
+  final def currentShardCountAsScala(value: Option[Int]): UpdateShardCountResponse.Builder = {
     value.fold(self) { v =>
       self.currentShardCount(v)
     }
   } // Int
 
-  final def withTargetShardCountAsScala(value: Option[Int]): UpdateShardCountResponse.Builder = {
+  final def targetShardCountAsScala(value: Option[Int]): UpdateShardCountResponse.Builder = {
     value.fold(self) { v =>
       self.targetShardCount(v)
     }

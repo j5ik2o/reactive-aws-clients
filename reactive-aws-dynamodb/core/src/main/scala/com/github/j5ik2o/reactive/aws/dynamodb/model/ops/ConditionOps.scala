@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ConditionBuilderOps(val self: Condition.Builder) extends AnyVal {
 
-  final def withAttributeValueListAsScala(value: Option[Seq[AttributeValue]]): Condition.Builder = {
+  final def attributeValueListAsScala(value: Option[Seq[AttributeValue]]): Condition.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeValueList(v.asJava)
     } // Seq[AttributeValue]
   }
 
-  final def withComparisonOperatorAsScala(value: Option[ComparisonOperator]): Condition.Builder = {
+  final def comparisonOperatorAsScala(value: Option[ComparisonOperator]): Condition.Builder = {
     value.fold(self) { v =>
       self.comparisonOperator(v)
     }

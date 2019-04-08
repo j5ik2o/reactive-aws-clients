@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ConditionBuilderOps(val self: Condition.Builder) extends AnyVal {
 
-  final def withHttpErrorCodeReturnedEqualsAsScala(value: Option[String]): Condition.Builder = {
+  final def httpErrorCodeReturnedEqualsAsScala(value: Option[String]): Condition.Builder = {
     value.fold(self) { v =>
       self.httpErrorCodeReturnedEquals(v)
     }
   } // String
 
-  final def withKeyPrefixEqualsAsScala(value: Option[String]): Condition.Builder = {
+  final def keyPrefixEqualsAsScala(value: Option[String]): Condition.Builder = {
     value.fold(self) { v =>
       self.keyPrefixEquals(v)
     }

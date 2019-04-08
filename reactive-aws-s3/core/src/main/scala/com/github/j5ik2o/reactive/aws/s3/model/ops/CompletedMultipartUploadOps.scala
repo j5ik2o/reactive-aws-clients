@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CompletedMultipartUploadBuilderOps(val self: CompletedMultipartUpload.Builder) extends AnyVal {
 
-  final def withPartsAsScala(value: Option[Seq[CompletedPart]]): CompletedMultipartUpload.Builder = {
+  final def partsAsScala(value: Option[Seq[CompletedPart]]): CompletedMultipartUpload.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.parts(v.asJava)
     } // Seq[CompletedPart]

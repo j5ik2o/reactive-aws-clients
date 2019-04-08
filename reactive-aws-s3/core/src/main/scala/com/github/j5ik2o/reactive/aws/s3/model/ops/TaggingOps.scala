@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class TaggingBuilderOps(val self: Tagging.Builder) extends AnyVal {
 
-  final def withTagSetAsScala(value: Option[Seq[Tag]]): Tagging.Builder = {
+  final def tagSetAsScala(value: Option[Seq[Tag]]): Tagging.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagSet(v.asJava)
     } // Seq[Tag]

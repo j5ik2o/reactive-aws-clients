@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousBackupsRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): UpdateContinuousBackupsRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): UpdateContinuousBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withPointInTimeRecoverySpecificationAsScala(
+  final def pointInTimeRecoverySpecificationAsScala(
       value: Option[PointInTimeRecoverySpecification]
   ): UpdateContinuousBackupsRequest.Builder = {
     value.fold(self) { v =>

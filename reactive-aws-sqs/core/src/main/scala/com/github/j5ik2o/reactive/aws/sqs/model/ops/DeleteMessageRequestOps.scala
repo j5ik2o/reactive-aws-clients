@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageRequestBuilderOps(val self: DeleteMessageRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): DeleteMessageRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): DeleteMessageRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withReceiptHandleAsScala(value: Option[String]): DeleteMessageRequest.Builder = {
+  final def receiptHandleAsScala(value: Option[String]): DeleteMessageRequest.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }

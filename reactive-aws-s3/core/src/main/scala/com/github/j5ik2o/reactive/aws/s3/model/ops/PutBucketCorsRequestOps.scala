@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketCorsRequestBuilderOps(val self: PutBucketCorsRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withCorsConfigurationAsScala(value: Option[CORSConfiguration]): PutBucketCorsRequest.Builder = {
+  final def corsConfigurationAsScala(value: Option[CORSConfiguration]): PutBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.corsConfiguration(v)
     }
   } // CORSConfiguration
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }

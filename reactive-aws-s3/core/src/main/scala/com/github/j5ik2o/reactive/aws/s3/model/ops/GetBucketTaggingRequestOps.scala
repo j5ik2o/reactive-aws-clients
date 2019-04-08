@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketTaggingRequestBuilderOps(val self: GetBucketTaggingRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetBucketTaggingRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetBucketTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

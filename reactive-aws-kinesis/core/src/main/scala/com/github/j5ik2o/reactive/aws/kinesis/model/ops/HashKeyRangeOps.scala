@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class HashKeyRangeBuilderOps(val self: HashKeyRange.Builder) extends AnyVal {
 
-  final def withStartingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
+  final def startingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
     value.fold(self) { v =>
       self.startingHashKey(v)
     }
   } // String
 
-  final def withEndingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
+  final def endingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
     value.fold(self) { v =>
       self.endingHashKey(v)
     }

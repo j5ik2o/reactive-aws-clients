@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Builder) extends AnyVal {
 
-  final def withShardLimitAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
+  final def shardLimitAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.shardLimit(v)
     }
   } // Int
 
-  final def withOpenShardCountAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
+  final def openShardCountAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.openShardCount(v)
     }

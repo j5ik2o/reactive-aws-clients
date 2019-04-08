@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class MetricsFilterBuilderOps(val self: MetricsFilter.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): MetricsFilter.Builder = {
+  final def prefixAsScala(value: Option[String]): MetricsFilter.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withTagAsScala(value: Option[Tag]): MetricsFilter.Builder = {
+  final def tagAsScala(value: Option[Tag]): MetricsFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
   } // Tag
 
-  final def withAndAsScala(value: Option[MetricsAndOperator]): MetricsFilter.Builder = {
+  final def andAsScala(value: Option[MetricsAndOperator]): MetricsFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }

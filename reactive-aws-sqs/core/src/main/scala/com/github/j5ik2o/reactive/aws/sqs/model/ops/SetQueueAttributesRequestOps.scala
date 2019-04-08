@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SetQueueAttributesRequestBuilderOps(val self: SetQueueAttributesRequest.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): SetQueueAttributesRequest.Builder = {
+  final def queueUrlAsScala(value: Option[String]): SetQueueAttributesRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   } // String
 
-  final def withAttributesAsScala(value: Option[Map[QueueAttributeName, String]]): SetQueueAttributesRequest.Builder = {
+  final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): SetQueueAttributesRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributes(v.asJava)
     } // Map[String, String]

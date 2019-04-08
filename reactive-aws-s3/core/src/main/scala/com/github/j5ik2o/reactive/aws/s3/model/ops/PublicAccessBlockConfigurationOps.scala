@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PublicAccessBlockConfigurationBuilderOps(val self: PublicAccessBlockConfiguration.Builder) extends AnyVal {
 
-  final def withBlockPublicAclsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
+  final def blockPublicAclsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.blockPublicAcls(v)
     }
   } // Boolean
 
-  final def withIgnorePublicAclsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
+  final def ignorePublicAclsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.ignorePublicAcls(v)
     }
   } // Boolean
 
-  final def withBlockPublicPolicyAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
+  final def blockPublicPolicyAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.blockPublicPolicy(v)
     }
   } // Boolean
 
-  final def withRestrictPublicBucketsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
+  final def restrictPublicBucketsAsScala(value: Option[Boolean]): PublicAccessBlockConfiguration.Builder = {
     value.fold(self) { v =>
       self.restrictPublicBuckets(v)
     }

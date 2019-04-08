@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class PointInTimeRecoverySpecificationBuilderOps(val self: PointInTimeRecoverySpecification.Builder)
     extends AnyVal {
 
-  final def withPointInTimeRecoveryEnabledAsScala(value: Option[Boolean]): PointInTimeRecoverySpecification.Builder = {
+  final def pointInTimeRecoveryEnabledAsScala(value: Option[Boolean]): PointInTimeRecoverySpecification.Builder = {
     value.fold(self) { v =>
       self.pointInTimeRecoveryEnabled(v)
     }

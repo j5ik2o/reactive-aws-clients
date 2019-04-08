@@ -6,35 +6,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class ProvisionedThroughputDescriptionBuilderOps(val self: ProvisionedThroughputDescription.Builder)
     extends AnyVal {
 
-  final def withLastIncreaseDateTimeAsScala(
-      value: Option[java.time.Instant]
-  ): ProvisionedThroughputDescription.Builder = {
+  final def lastIncreaseDateTimeAsScala(value: Option[java.time.Instant]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.lastIncreaseDateTime(v)
     }
   } // Instant
 
-  final def withLastDecreaseDateTimeAsScala(
-      value: Option[java.time.Instant]
-  ): ProvisionedThroughputDescription.Builder = {
+  final def lastDecreaseDateTimeAsScala(value: Option[java.time.Instant]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.lastDecreaseDateTime(v)
     }
   } // Instant
 
-  final def withNumberOfDecreasesTodayAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
+  final def numberOfDecreasesTodayAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.numberOfDecreasesToday(v)
     }
   } // Long
 
-  final def withReadCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
+  final def readCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.readCapacityUnits(v)
     }
   } // Long
 
-  final def withWriteCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
+  final def writeCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
     value.fold(self) { v =>
       self.writeCapacityUnits(v)
     }

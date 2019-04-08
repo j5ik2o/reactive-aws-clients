@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetBuilderOps(val self: Get.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): Get.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): Get.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withTableNameAsScala(value: Option[String]): Get.Builder = {
+  final def tableNameAsScala(value: Option[String]): Get.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withProjectionExpressionAsScala(value: Option[String]): Get.Builder = {
+  final def projectionExpressionAsScala(value: Option[String]): Get.Builder = {
     value.fold(self) { v =>
       self.projectionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): Get.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): Get.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]

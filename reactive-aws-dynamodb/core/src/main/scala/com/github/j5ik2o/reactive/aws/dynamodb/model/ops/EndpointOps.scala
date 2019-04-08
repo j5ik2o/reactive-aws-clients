@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class EndpointBuilderOps(val self: Endpoint.Builder) extends AnyVal {
 
-  final def withAddressAsScala(value: Option[String]): Endpoint.Builder = {
+  final def addressAsScala(value: Option[String]): Endpoint.Builder = {
     value.fold(self) { v =>
       self.address(v)
     }
   } // String
 
-  final def withCachePeriodInMinutesAsScala(value: Option[Long]): Endpoint.Builder = {
+  final def cachePeriodInMinutesAsScala(value: Option[Long]): Endpoint.Builder = {
     value.fold(self) { v =>
       self.cachePeriodInMinutes(v)
     }

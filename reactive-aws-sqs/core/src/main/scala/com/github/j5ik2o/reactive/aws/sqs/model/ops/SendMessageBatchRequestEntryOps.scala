@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class SendMessageBatchRequestEntryBuilderOps(val self: SendMessageBatchRequestEntry.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
+  final def idAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withMessageBodyAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
+  final def messageBodyAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.messageBody(v)
     }
   } // String
 
-  final def withDelaySecondsAsScala(value: Option[Int]): SendMessageBatchRequestEntry.Builder = {
+  final def delaySecondsAsScala(value: Option[Int]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.delaySeconds(v)
     }
   } // Int
 
-  final def withMessageAttributesAsScala(
+  final def messageAttributesAsScala(
       value: Option[Map[String, MessageAttributeValue]]
   ): SendMessageBatchRequestEntry.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -31,13 +31,13 @@ final class SendMessageBatchRequestEntryBuilderOps(val self: SendMessageBatchReq
     } // Map[String, MessageAttributeValue]
   }
 
-  final def withMessageDeduplicationIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
+  final def messageDeduplicationIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.messageDeduplicationId(v)
     }
   } // String
 
-  final def withMessageGroupIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
+  final def messageGroupIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.messageGroupId(v)
     }

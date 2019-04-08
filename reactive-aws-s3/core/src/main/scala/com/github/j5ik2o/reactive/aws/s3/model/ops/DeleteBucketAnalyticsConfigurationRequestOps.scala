@@ -7,13 +7,13 @@ final class DeleteBucketAnalyticsConfigurationRequestBuilderOps(
     val self: DeleteBucketAnalyticsConfigurationRequest.Builder
 ) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketAnalyticsConfigurationRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketAnalyticsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIdAsScala(value: Option[String]): DeleteBucketAnalyticsConfigurationRequest.Builder = {
+  final def idAsScala(value: Option[String]): DeleteBucketAnalyticsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

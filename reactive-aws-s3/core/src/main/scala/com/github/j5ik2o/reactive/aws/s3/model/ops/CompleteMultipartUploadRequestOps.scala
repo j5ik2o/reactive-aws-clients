@@ -5,33 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CompleteMultipartUploadRequestBuilderOps(val self: CompleteMultipartUploadRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
+  final def keyAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withMultipartUploadAsScala(
-      value: Option[CompletedMultipartUpload]
-  ): CompleteMultipartUploadRequest.Builder = {
+  final def multipartUploadAsScala(value: Option[CompletedMultipartUpload]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.multipartUpload(v)
     }
   } // CompletedMultipartUpload
 
-  final def withUploadIdAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
+  final def uploadIdAsScala(value: Option[String]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): CompleteMultipartUploadRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): CompleteMultipartUploadRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

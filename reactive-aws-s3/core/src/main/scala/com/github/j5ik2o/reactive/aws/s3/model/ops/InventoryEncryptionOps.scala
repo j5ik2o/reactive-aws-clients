@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryEncryptionBuilderOps(val self: InventoryEncryption.Builder) extends AnyVal {
 
-  final def withSses3AsScala(value: Option[SSES3]): InventoryEncryption.Builder = {
+  final def sses3AsScala(value: Option[SSES3]): InventoryEncryption.Builder = {
     value.fold(self) { v =>
       self.sses3(v)
     }
   } // SSES3
 
-  final def withSsekmsAsScala(value: Option[SSEKMS]): InventoryEncryption.Builder = {
+  final def ssekmsAsScala(value: Option[SSEKMS]): InventoryEncryption.Builder = {
     value.fold(self) { v =>
       self.ssekms(v)
     }

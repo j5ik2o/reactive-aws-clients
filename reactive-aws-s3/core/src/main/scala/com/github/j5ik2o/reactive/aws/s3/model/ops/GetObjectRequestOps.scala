@@ -5,115 +5,115 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectRequestBuilderOps(val self: GetObjectRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withIfMatchAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def ifMatchAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifMatch(v)
     }
   } // String
 
-  final def withIfModifiedSinceAsScala(value: Option[java.time.Instant]): GetObjectRequest.Builder = {
+  final def ifModifiedSinceAsScala(value: Option[java.time.Instant]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifModifiedSince(v)
     }
   } // Instant
 
-  final def withIfNoneMatchAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def ifNoneMatchAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifNoneMatch(v)
     }
   } // String
 
-  final def withIfUnmodifiedSinceAsScala(value: Option[java.time.Instant]): GetObjectRequest.Builder = {
+  final def ifUnmodifiedSinceAsScala(value: Option[java.time.Instant]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ifUnmodifiedSince(v)
     }
   } // Instant
 
-  final def withKeyAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def keyAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withRangeAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def rangeAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.range(v)
     }
   } // String
 
-  final def withResponseCacheControlAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def responseCacheControlAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.responseCacheControl(v)
     }
   } // String
 
-  final def withResponseContentDispositionAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def responseContentDispositionAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.responseContentDisposition(v)
     }
   } // String
 
-  final def withResponseContentEncodingAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def responseContentEncodingAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.responseContentEncoding(v)
     }
   } // String
 
-  final def withResponseContentLanguageAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def responseContentLanguageAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.responseContentLanguage(v)
     }
   } // String
 
-  final def withResponseContentTypeAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def responseContentTypeAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.responseContentType(v)
     }
   } // String
 
-  final def withResponseExpiresAsScala(value: Option[java.time.Instant]): GetObjectRequest.Builder = {
+  final def responseExpiresAsScala(value: Option[java.time.Instant]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.responseExpires(v)
     }
   } // Instant
 
-  final def withVersionIdAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): GetObjectRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): GetObjectRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withPartNumberAsScala(value: Option[Int]): GetObjectRequest.Builder = {
+  final def partNumberAsScala(value: Option[Int]): GetObjectRequest.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }

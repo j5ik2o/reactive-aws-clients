@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListShardsResponseBuilderOps(val self: ListShardsResponse.Builder) extends AnyVal {
 
-  final def withShardsAsScala(value: Option[Seq[Shard]]): ListShardsResponse.Builder = {
+  final def shardsAsScala(value: Option[Seq[Shard]]): ListShardsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.shards(v.asJava)
     } // Seq[Shard]
   }
 
-  final def withNextTokenAsScala(value: Option[String]): ListShardsResponse.Builder = {
+  final def nextTokenAsScala(value: Option[String]): ListShardsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }

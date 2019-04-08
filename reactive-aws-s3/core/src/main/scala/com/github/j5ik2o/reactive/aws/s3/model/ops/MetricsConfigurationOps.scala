@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class MetricsConfigurationBuilderOps(val self: MetricsConfiguration.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): MetricsConfiguration.Builder = {
+  final def idAsScala(value: Option[String]): MetricsConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withFilterAsScala(value: Option[MetricsFilter]): MetricsConfiguration.Builder = {
+  final def filterAsScala(value: Option[MetricsFilter]): MetricsConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }

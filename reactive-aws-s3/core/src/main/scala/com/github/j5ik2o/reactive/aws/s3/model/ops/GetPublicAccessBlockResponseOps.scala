@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetPublicAccessBlockResponseBuilderOps(val self: GetPublicAccessBlockResponse.Builder) extends AnyVal {
 
-  final def withPublicAccessBlockConfigurationAsScala(
+  final def publicAccessBlockConfigurationAsScala(
       value: Option[PublicAccessBlockConfiguration]
   ): GetPublicAccessBlockResponse.Builder = {
     value.fold(self) { v =>

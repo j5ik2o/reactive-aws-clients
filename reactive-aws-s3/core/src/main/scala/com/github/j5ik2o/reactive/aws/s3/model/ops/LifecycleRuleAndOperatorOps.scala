@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LifecycleRuleAndOperatorBuilderOps(val self: LifecycleRuleAndOperator.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): LifecycleRuleAndOperator.Builder = {
+  final def prefixAsScala(value: Option[String]): LifecycleRuleAndOperator.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withTagsAsScala(value: Option[Seq[Tag]]): LifecycleRuleAndOperator.Builder = {
+  final def tagsAsScala(value: Option[Seq[Tag]]): LifecycleRuleAndOperator.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Seq[Tag]

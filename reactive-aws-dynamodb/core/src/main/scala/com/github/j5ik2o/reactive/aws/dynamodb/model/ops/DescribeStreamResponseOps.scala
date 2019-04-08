@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeStreamResponseBuilderOps(val self: DescribeStreamResponse.Builder) extends AnyVal {
 
-  final def withStreamDescriptionAsScala(value: Option[StreamDescription]): DescribeStreamResponse.Builder = {
+  final def streamDescriptionAsScala(value: Option[StreamDescription]): DescribeStreamResponse.Builder = {
     value.fold(self) { v =>
       self.streamDescription(v)
     }

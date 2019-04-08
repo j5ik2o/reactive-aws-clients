@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RecordBuilderOps(val self: Record.Builder) extends AnyVal {
 
-  final def withSequenceNumberAsScala(value: Option[String]): Record.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
   } // String
 
-  final def withApproximateArrivalTimestampAsScala(value: Option[java.time.Instant]): Record.Builder = {
+  final def approximateArrivalTimestampAsScala(value: Option[java.time.Instant]): Record.Builder = {
     value.fold(self) { v =>
       self.approximateArrivalTimestamp(v)
     }
   } // Instant
 
-  final def withDataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): Record.Builder = {
+  final def dataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): Record.Builder = {
     value.fold(self) { v =>
       self.data(v)
     }
   } // SdkBytes
 
-  final def withPartitionKeyAsScala(value: Option[String]): Record.Builder = {
+  final def partitionKeyAsScala(value: Option[String]): Record.Builder = {
     value.fold(self) { v =>
       self.partitionKey(v)
     }
   } // String
 
-  final def withEncryptionTypeAsScala(value: Option[EncryptionType]): Record.Builder = {
+  final def encryptionTypeAsScala(value: Option[EncryptionType]): Record.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }

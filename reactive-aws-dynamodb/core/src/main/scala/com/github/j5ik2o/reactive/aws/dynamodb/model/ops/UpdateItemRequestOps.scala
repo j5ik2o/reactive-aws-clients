@@ -5,49 +5,49 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateItemRequestBuilderOps(val self: UpdateItemRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): UpdateItemRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): UpdateItemRequest.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): UpdateItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withAttributeUpdatesAsScala(value: Option[Map[String, AttributeValueUpdate]]): UpdateItemRequest.Builder = {
+  final def attributeUpdatesAsScala(value: Option[Map[String, AttributeValueUpdate]]): UpdateItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeUpdates(v.asJava)
     } // Map[String, AttributeValueUpdate]
   }
 
-  final def withExpectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): UpdateItemRequest.Builder = {
+  final def expectedAsScala(value: Option[Map[String, ExpectedAttributeValue]]): UpdateItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expected(v.asJava)
     } // Map[String, ExpectedAttributeValue]
   }
 
-  final def withConditionalOperatorAsScala(value: Option[ConditionalOperator]): UpdateItemRequest.Builder = {
+  final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
   } // String
 
-  final def withReturnValuesAsScala(value: Option[ReturnValue]): UpdateItemRequest.Builder = {
+  final def returnValuesAsScala(value: Option[ReturnValue]): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnValues(v)
     }
   } // String
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): UpdateItemRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withReturnItemCollectionMetricsAsScala(
+  final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
   ): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
@@ -55,27 +55,25 @@ final class UpdateItemRequestBuilderOps(val self: UpdateItemRequest.Builder) ext
     }
   } // String
 
-  final def withUpdateExpressionAsScala(value: Option[String]): UpdateItemRequest.Builder = {
+  final def updateExpressionAsScala(value: Option[String]): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
       self.updateExpression(v)
     }
   } // String
 
-  final def withConditionExpressionAsScala(value: Option[String]): UpdateItemRequest.Builder = {
+  final def conditionExpressionAsScala(value: Option[String]): UpdateItemRequest.Builder = {
     value.fold(self) { v =>
       self.conditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): UpdateItemRequest.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): UpdateItemRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(
-      value: Option[Map[String, AttributeValue]]
-  ): UpdateItemRequest.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): UpdateItemRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]

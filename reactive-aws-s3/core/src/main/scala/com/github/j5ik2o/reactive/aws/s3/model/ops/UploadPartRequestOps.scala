@@ -5,61 +5,61 @@ import software.amazon.awssdk.services.s3.model._
 
 final class UploadPartRequestBuilderOps(val self: UploadPartRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentLengthAsScala(value: Option[Long]): UploadPartRequest.Builder = {
+  final def contentLengthAsScala(value: Option[Long]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.contentLength(v)
     }
   } // Long
 
-  final def withContentMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def keyAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withPartNumberAsScala(value: Option[Int]): UploadPartRequest.Builder = {
+  final def partNumberAsScala(value: Option[Int]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.partNumber(v)
     }
   } // Int
 
-  final def withUploadIdAsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def uploadIdAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.uploadId(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): UploadPartRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): UploadPartRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }

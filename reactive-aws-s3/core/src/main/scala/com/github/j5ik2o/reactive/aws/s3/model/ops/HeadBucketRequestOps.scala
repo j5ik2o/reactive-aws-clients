@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class HeadBucketRequestBuilderOps(val self: HeadBucketRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): HeadBucketRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): HeadBucketRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

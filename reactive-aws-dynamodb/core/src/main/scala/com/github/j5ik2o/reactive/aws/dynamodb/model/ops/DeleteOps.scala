@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteBuilderOps(val self: Delete.Builder) extends AnyVal {
 
-  final def withKeyAsScala(value: Option[Map[String, AttributeValue]]): Delete.Builder = {
+  final def keyAsScala(value: Option[Map[String, AttributeValue]]): Delete.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.key(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withTableNameAsScala(value: Option[String]): Delete.Builder = {
+  final def tableNameAsScala(value: Option[String]): Delete.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withConditionExpressionAsScala(value: Option[String]): Delete.Builder = {
+  final def conditionExpressionAsScala(value: Option[String]): Delete.Builder = {
     value.fold(self) { v =>
       self.conditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): Delete.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): Delete.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Delete.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Delete.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withReturnValuesOnConditionCheckFailureAsScala(
+  final def returnValuesOnConditionCheckFailureAsScala(
       value: Option[ReturnValuesOnConditionCheckFailure]
   ): Delete.Builder = {
     value.fold(self) { v =>

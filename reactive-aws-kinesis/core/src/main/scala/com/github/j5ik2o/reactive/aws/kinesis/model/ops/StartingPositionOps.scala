@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class StartingPositionBuilderOps(val self: StartingPosition.Builder) extends AnyVal {
 
-  final def withTypeAsScala(value: Option[ShardIteratorType]): StartingPosition.Builder = {
+  final def typeAsScala(value: Option[ShardIteratorType]): StartingPosition.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   } // String
 
-  final def withSequenceNumberAsScala(value: Option[String]): StartingPosition.Builder = {
+  final def sequenceNumberAsScala(value: Option[String]): StartingPosition.Builder = {
     value.fold(self) { v =>
       self.sequenceNumber(v)
     }
   } // String
 
-  final def withTimestampAsScala(value: Option[java.time.Instant]): StartingPosition.Builder = {
+  final def timestampAsScala(value: Option[java.time.Instant]): StartingPosition.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }

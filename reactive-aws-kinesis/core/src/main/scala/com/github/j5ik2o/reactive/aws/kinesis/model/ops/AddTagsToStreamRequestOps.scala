@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class AddTagsToStreamRequestBuilderOps(val self: AddTagsToStreamRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): AddTagsToStreamRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): AddTagsToStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withTagsAsScala(value: Option[Map[String, String]]): AddTagsToStreamRequest.Builder = {
+  final def tagsAsScala(value: Option[Map[String, String]]): AddTagsToStreamRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tags(v.asJava)
     } // Map[String, String]

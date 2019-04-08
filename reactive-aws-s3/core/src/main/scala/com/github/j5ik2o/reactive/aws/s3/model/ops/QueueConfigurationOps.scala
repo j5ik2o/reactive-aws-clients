@@ -5,25 +5,25 @@ import software.amazon.awssdk.services.s3.model._
 
 final class QueueConfigurationBuilderOps(val self: QueueConfiguration.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): QueueConfiguration.Builder = {
+  final def idAsScala(value: Option[String]): QueueConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withQueueArnAsScala(value: Option[String]): QueueConfiguration.Builder = {
+  final def queueArnAsScala(value: Option[String]): QueueConfiguration.Builder = {
     value.fold(self) { v =>
       self.queueArn(v)
     }
   } // String
 
-  final def withEventsAsScala(value: Option[Seq[Event]]): QueueConfiguration.Builder = {
+  final def eventsAsScala(value: Option[Seq[Event]]): QueueConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.events(v.asJava)
     } // Seq[String]
   }
 
-  final def withFilterAsScala(value: Option[NotificationConfigurationFilter]): QueueConfiguration.Builder = {
+  final def filterAsScala(value: Option[NotificationConfigurationFilter]): QueueConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class BucketBuilderOps(val self: Bucket.Builder) extends AnyVal {
 
-  final def withNameAsScala(value: Option[String]): Bucket.Builder = {
+  final def nameAsScala(value: Option[String]): Bucket.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   } // String
 
-  final def withCreationDateAsScala(value: Option[java.time.Instant]): Bucket.Builder = {
+  final def creationDateAsScala(value: Option[java.time.Instant]): Bucket.Builder = {
     value.fold(self) { v =>
       self.creationDate(v)
     }

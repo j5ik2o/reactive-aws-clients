@@ -6,25 +6,25 @@ import software.amazon.awssdk.services.s3.model._
 final class ListBucketMetricsConfigurationsResponseBuilderOps(val self: ListBucketMetricsConfigurationsResponse.Builder)
     extends AnyVal {
 
-  final def withIsTruncatedAsScala(value: Option[Boolean]): ListBucketMetricsConfigurationsResponse.Builder = {
+  final def isTruncatedAsScala(value: Option[Boolean]): ListBucketMetricsConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   } // Boolean
 
-  final def withContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsResponse.Builder = {
+  final def continuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }
   } // String
 
-  final def withNextContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsResponse.Builder = {
+  final def nextContinuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextContinuationToken(v)
     }
   } // String
 
-  final def withMetricsConfigurationListAsScala(
+  final def metricsConfigurationListAsScala(
       value: Option[Seq[MetricsConfiguration]]
   ): ListBucketMetricsConfigurationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>

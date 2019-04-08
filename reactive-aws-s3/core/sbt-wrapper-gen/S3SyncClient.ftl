@@ -1,31 +1,29 @@
+<#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("Client", "")/>
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
 import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
-import software.amazon.awssdk.services.s3.model._
-import software.amazon.awssdk.services.s3.paginators._
-import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}Client => Java${baseName}SyncClient }
 
-object S3SyncClient extends ToEitherSupport {
+object ${baseName}SyncClient extends ToEitherSupport {
 
-def apply(underlying: JavaS3SyncClient): S3SyncClient = new S3SyncClientImpl(underlying)
+def apply(javaClient: Java${baseName}SyncClient): ${baseName}SyncClient = new ${baseName}SyncClient {
+override val underlying: Java${baseName}SyncClient = javaClient
+}
 
 }
 
-trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
-val underlying: JavaS3SyncClient
+trait ${baseName}SyncClient extends ${baseName}Client[Either[Throwable, ?]] with ${baseName}SyncClientSupport {
+val underlying: Java${baseName}SyncClient
 
-import S3SyncClient._
+import ${baseName}SyncClient._
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Either[Throwable, ${method.returnTypeDesc.simpleTypeName}]</#if> = {
-        <#if method.name?ends_with("Paginator")>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-        <#else>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toEither
-        </#if>
-        }
+        <@defScalaEitherMethod method/>
 
     </#if>
 </#list>

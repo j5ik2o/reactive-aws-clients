@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RoutingRuleBuilderOps(val self: RoutingRule.Builder) extends AnyVal {
 
-  final def withConditionAsScala(value: Option[Condition]): RoutingRule.Builder = {
+  final def conditionAsScala(value: Option[Condition]): RoutingRule.Builder = {
     value.fold(self) { v =>
       self.condition(v)
     }
   } // Condition
 
-  final def withRedirectAsScala(value: Option[Redirect]): RoutingRule.Builder = {
+  final def redirectAsScala(value: Option[Redirect]): RoutingRule.Builder = {
     value.fold(self) { v =>
       self.redirect(v)
     }

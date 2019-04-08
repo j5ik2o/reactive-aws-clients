@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class NotificationConfigurationFilterBuilderOps(val self: NotificationConfigurationFilter.Builder)
     extends AnyVal {
 
-  final def withKeyAsScala(value: Option[S3KeyFilter]): NotificationConfigurationFilter.Builder = {
+  final def keyAsScala(value: Option[S3KeyFilter]): NotificationConfigurationFilter.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }

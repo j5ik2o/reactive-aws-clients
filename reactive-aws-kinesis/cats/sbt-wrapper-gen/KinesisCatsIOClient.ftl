@@ -1,36 +1,30 @@
+<#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.kinesis.cats
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.cats
 
 import cats.effect.IO
-import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
-import software.amazon.awssdk.services.kinesis.model._
-import software.amazon.awssdk.services.kinesis.paginators._
+import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
-object KinesisCatsIOClient {
+object ${baseName}CatsIOClient {
 
-  def apply(underlying: KinesisAsyncClient): KinesisCatsIOClient =
-    new KinesisCatsIOClientImpl(underlying)
+  def apply(asyncClient: ${baseName}AsyncClient): ${baseName}CatsIOClient = new ${baseName}CatsIOClient {
+override val underlying: ${baseName}AsyncClient = asyncClient
+}
 
 }
 
-trait KinesisCatsIOClient extends KinesisClient[IO] {
+trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
 
-  val underlying: KinesisAsyncClient
+  val underlying: ${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetMethod(method)>
-        <#if method.name?ends_with("Paginator")>
-            def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): ${method.returnTypeDesc.simpleTypeName} =
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-        <#else>
-            <#assign responseTypeName=method.returnTypeDesc.valueTypeDesc.simpleTypeName>
-            override def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): IO[${responseTypeName}] =
-            IO.fromFuture{
-              IO(underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>))
-            }
-        </#if>
+        <@defCatsMethod method />
 
     </#if>
 </#list>

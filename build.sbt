@@ -134,10 +134,10 @@ lazy val `reactive-aws-sqs-cats` = (project in file("reactive-aws-sqs/cats"))
   .dependsOn(`reactive-aws-common-cats`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
 
 lazy val `reactive-aws-sqs-monix` = (project in file("reactive-aws-sqs/monix"))
-  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-sqs-core`, `reactive-aws-s3-test` % "test")
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
 
 lazy val `reactive-aws-sqs-akka` = (project in file("reactive-aws-sqs/akka"))
-  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-sqs-core`, `reactive-aws-s3-test` % "test")
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-sqs-core`, `reactive-aws-sqs-test` % "test")
 
 lazy val `reactive-aws-sqs-root`: Project = (project in file("reactive-aws-sqs"))
   .settings(coreSettings)
@@ -152,13 +152,151 @@ lazy val `reactive-aws-sqs-root`: Project = (project in file("reactive-aws-sqs")
     `reactive-aws-sqs-monix`
   )
 
+// --- appsync
+
+lazy val `reactive-aws-appsync-test` = (project in file("reactive-aws-appsync/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-appsync-core` =
+  (project in file("reactive-aws-appsync/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-cats` = (project in file("reactive-aws-appsync/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-appsync-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-monix` = (project in file("reactive-aws-appsync/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-appsync-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-akka` = (project in file("reactive-aws-appsync/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-appsync-core`, `reactive-aws-appsync-test` % "test")
+
+lazy val `reactive-aws-appsync-root`: Project = (project in file("reactive-aws-appsync"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-appsync-project"
+  )
+  .aggregate(
+    `reactive-aws-appsync-core`,
+    `reactive-aws-appsync-test`,
+    `reactive-aws-appsync-akka`,
+    `reactive-aws-appsync-cats`,
+    `reactive-aws-appsync-monix`
+  )
+
+// --- dax
+
+lazy val `reactive-aws-dax-test` = (project in file("reactive-aws-dax/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-dax-core` =
+  (project in file("reactive-aws-dax/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-cats` = (project in file("reactive-aws-dax/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-dax-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-monix` = (project in file("reactive-aws-dax/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-dax-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-akka` = (project in file("reactive-aws-dax/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-dax-core`, `reactive-aws-dax-test` % "test")
+
+lazy val `reactive-aws-dax-root`: Project = (project in file("reactive-aws-dax"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-dax-project"
+  )
+  .aggregate(
+    `reactive-aws-dax-core`,
+    `reactive-aws-dax-test`,
+    `reactive-aws-dax-akka`,
+    `reactive-aws-dax-cats`,
+    `reactive-aws-dax-monix`
+  )
+
+// --- elasticsearch
+
+lazy val `reactive-aws-elasticsearch-test` = (project in file("reactive-aws-elasticsearch/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-elasticsearch-core` =
+  (project in file("reactive-aws-elasticsearch/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
+                                                     `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-cats` = (project in file("reactive-aws-elasticsearch/cats"))
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-elasticsearch-core`, `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-monix` = (project in file("reactive-aws-elasticsearch/monix"))
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-elasticsearch-core`, `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-akka` = (project in file("reactive-aws-elasticsearch/akka"))
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-elasticsearch-core`, `reactive-aws-elasticsearch-test` % "test")
+
+lazy val `reactive-aws-elasticsearch-root`: Project = (project in file("reactive-aws-elasticsearch"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-elasticsearch-project"
+  )
+  .aggregate(
+    `reactive-aws-elasticsearch-core`,
+    `reactive-aws-elasticsearch-test`,
+    `reactive-aws-elasticsearch-akka`,
+    `reactive-aws-elasticsearch-cats`,
+    `reactive-aws-elasticsearch-monix`
+  )
+
+// --- elasticbeanstalk
+
+lazy val `reactive-aws-elasticbeanstalk-test` = (project in file("reactive-aws-elasticbeanstalk/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-elasticbeanstalk-core` =
+  (project in file("reactive-aws-elasticbeanstalk/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
+                                                     `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-cats` = (project in file("reactive-aws-elasticbeanstalk/cats"))
+  .dependsOn(`reactive-aws-common-cats`,
+             `reactive-aws-elasticbeanstalk-core`,
+             `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-monix` = (project in file("reactive-aws-elasticbeanstalk/monix"))
+  .dependsOn(`reactive-aws-common-monix`,
+             `reactive-aws-elasticbeanstalk-core`,
+             `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-akka` = (project in file("reactive-aws-elasticbeanstalk/akka"))
+  .dependsOn(`reactive-aws-common-akka`,
+             `reactive-aws-elasticbeanstalk-core`,
+             `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-root`: Project = (project in file("reactive-aws-elasticbeanstalk"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-elasticbeanstalk-project"
+  )
+  .aggregate(
+    `reactive-aws-elasticbeanstalk-core`,
+    `reactive-aws-elasticbeanstalk-test`,
+    `reactive-aws-elasticbeanstalk-akka`,
+    `reactive-aws-elasticbeanstalk-cats`,
+    `reactive-aws-elasticbeanstalk-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
     name := "reactive-aws-client-project"
   )
-  .aggregate(`reactive-aws-common-root`,
-             `reactive-aws-dynamodb-root`,
-             `reactive-aws-kinesis-root`,
-             `reactive-aws-s3-root`,
-             `reactive-aws-sqs-root`)
+  .aggregate(
+    `reactive-aws-common-root`,
+    `reactive-aws-dynamodb-root`,
+    `reactive-aws-dax-root`,
+    `reactive-aws-kinesis-root`,
+    `reactive-aws-s3-root`,
+    `reactive-aws-sqs-root`,
+    `reactive-aws-appsync-root`,
+    `reactive-aws-elasticsearch-root`,
+    `reactive-aws-elasticbeanstalk-root`
+  )

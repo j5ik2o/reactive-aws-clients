@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BackupDetailsBuilderOps(val self: BackupDetails.Builder) extends AnyVal {
 
-  final def withBackupArnAsScala(value: Option[String]): BackupDetails.Builder = {
+  final def backupArnAsScala(value: Option[String]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupArn(v)
     }
   } // String
 
-  final def withBackupNameAsScala(value: Option[String]): BackupDetails.Builder = {
+  final def backupNameAsScala(value: Option[String]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupName(v)
     }
   } // String
 
-  final def withBackupSizeBytesAsScala(value: Option[Long]): BackupDetails.Builder = {
+  final def backupSizeBytesAsScala(value: Option[Long]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupSizeBytes(v)
     }
   } // Long
 
-  final def withBackupStatusAsScala(value: Option[BackupStatus]): BackupDetails.Builder = {
+  final def backupStatusAsScala(value: Option[BackupStatus]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupStatus(v)
     }
   } // String
 
-  final def withBackupTypeAsScala(value: Option[BackupType]): BackupDetails.Builder = {
+  final def backupTypeAsScala(value: Option[BackupType]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupType(v)
     }
   } // String
 
-  final def withBackupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
+  final def backupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupCreationDateTime(v)
     }
   } // Instant
 
-  final def withBackupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
+  final def backupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
     value.fold(self) { v =>
       self.backupExpiryDateTime(v)
     }

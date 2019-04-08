@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageBatchResultEntryBuilderOps(val self: DeleteMessageBatchResultEntry.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): DeleteMessageBatchResultEntry.Builder = {
+  final def idAsScala(value: Option[String]): DeleteMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }

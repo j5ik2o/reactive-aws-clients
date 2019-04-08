@@ -7,7 +7,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     val self: AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder
 ) extends AnyVal {
 
-  final def withDisableScaleInAsScala(
+  final def disableScaleInAsScala(
       value: Option[Boolean]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
     value.fold(self) { v =>
@@ -15,7 +15,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     }
   } // Boolean
 
-  final def withScaleInCooldownAsScala(
+  final def scaleInCooldownAsScala(
       value: Option[Int]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
     value.fold(self) { v =>
@@ -23,7 +23,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     }
   } // Int
 
-  final def withScaleOutCooldownAsScala(
+  final def scaleOutCooldownAsScala(
       value: Option[Int]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
     value.fold(self) { v =>
@@ -31,7 +31,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     }
   } // Int
 
-  final def withTargetValueAsScala(
+  final def targetValueAsScala(
       value: Option[Double]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
     value.fold(self) { v =>

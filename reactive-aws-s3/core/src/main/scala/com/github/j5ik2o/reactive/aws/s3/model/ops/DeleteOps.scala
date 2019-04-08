@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBuilderOps(val self: Delete.Builder) extends AnyVal {
 
-  final def withObjectsAsScala(value: Option[Seq[ObjectIdentifier]]): Delete.Builder = {
+  final def objectsAsScala(value: Option[Seq[ObjectIdentifier]]): Delete.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.objects(v.asJava)
     } // Seq[ObjectIdentifier]
   }
 
-  final def withQuietAsScala(value: Option[Boolean]): Delete.Builder = {
+  final def quietAsScala(value: Option[Boolean]): Delete.Builder = {
     value.fold(self) { v =>
       self.quiet(v)
     }

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RedirectAllRequestsToBuilderOps(val self: RedirectAllRequestsTo.Builder) extends AnyVal {
 
-  final def withHostNameAsScala(value: Option[String]): RedirectAllRequestsTo.Builder = {
+  final def hostNameAsScala(value: Option[String]): RedirectAllRequestsTo.Builder = {
     value.fold(self) { v =>
       self.hostName(v)
     }
   } // String
 
-  final def withProtocolAsScala(value: Option[Protocol]): RedirectAllRequestsTo.Builder = {
+  final def protocolAsScala(value: Option[Protocol]): RedirectAllRequestsTo.Builder = {
     value.fold(self) { v =>
       self.protocol(v)
     }

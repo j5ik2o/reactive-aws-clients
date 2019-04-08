@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ReplicationConfigurationBuilderOps(val self: ReplicationConfiguration.Builder) extends AnyVal {
 
-  final def withRoleAsScala(value: Option[String]): ReplicationConfiguration.Builder = {
+  final def roleAsScala(value: Option[String]): ReplicationConfiguration.Builder = {
     value.fold(self) { v =>
       self.role(v)
     }
   } // String
 
-  final def withRulesAsScala(value: Option[Seq[ReplicationRule]]): ReplicationConfiguration.Builder = {
+  final def rulesAsScala(value: Option[Seq[ReplicationRule]]): ReplicationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
     } // Seq[ReplicationRule]

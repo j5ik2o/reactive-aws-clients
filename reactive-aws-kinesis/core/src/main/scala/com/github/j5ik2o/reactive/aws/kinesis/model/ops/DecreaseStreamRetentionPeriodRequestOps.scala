@@ -6,13 +6,13 @@ import software.amazon.awssdk.services.kinesis.model._
 final class DecreaseStreamRetentionPeriodRequestBuilderOps(val self: DecreaseStreamRetentionPeriodRequest.Builder)
     extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): DecreaseStreamRetentionPeriodRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): DecreaseStreamRetentionPeriodRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withRetentionPeriodHoursAsScala(value: Option[Int]): DecreaseStreamRetentionPeriodRequest.Builder = {
+  final def retentionPeriodHoursAsScala(value: Option[Int]): DecreaseStreamRetentionPeriodRequest.Builder = {
     value.fold(self) { v =>
       self.retentionPeriodHours(v)
     }

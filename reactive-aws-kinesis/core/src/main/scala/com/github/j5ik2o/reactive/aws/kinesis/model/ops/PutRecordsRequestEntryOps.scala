@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class PutRecordsRequestEntryBuilderOps(val self: PutRecordsRequestEntry.Builder) extends AnyVal {
 
-  final def withDataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordsRequestEntry.Builder = {
+  final def dataAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): PutRecordsRequestEntry.Builder = {
     value.fold(self) { v =>
       self.data(v)
     }
   } // SdkBytes
 
-  final def withExplicitHashKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
+  final def explicitHashKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
     value.fold(self) { v =>
       self.explicitHashKey(v)
     }
   } // String
 
-  final def withPartitionKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
+  final def partitionKeyAsScala(value: Option[String]): PutRecordsRequestEntry.Builder = {
     value.fold(self) { v =>
       self.partitionKey(v)
     }

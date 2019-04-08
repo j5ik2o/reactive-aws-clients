@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class CreateQueueResponseBuilderOps(val self: CreateQueueResponse.Builder) extends AnyVal {
 
-  final def withQueueUrlAsScala(value: Option[String]): CreateQueueResponse.Builder = {
+  final def queueUrlAsScala(value: Option[String]): CreateQueueResponse.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }

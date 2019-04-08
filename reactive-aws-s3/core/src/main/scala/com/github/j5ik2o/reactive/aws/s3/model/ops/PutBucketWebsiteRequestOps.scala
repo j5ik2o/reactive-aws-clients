@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutBucketWebsiteRequestBuilderOps(val self: PutBucketWebsiteRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutBucketWebsiteRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withWebsiteConfigurationAsScala(value: Option[WebsiteConfiguration]): PutBucketWebsiteRequest.Builder = {
+  final def websiteConfigurationAsScala(value: Option[WebsiteConfiguration]): PutBucketWebsiteRequest.Builder = {
     value.fold(self) { v =>
       self.websiteConfiguration(v)
     }

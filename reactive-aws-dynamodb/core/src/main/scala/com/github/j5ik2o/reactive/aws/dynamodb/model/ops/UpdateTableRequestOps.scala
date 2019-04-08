@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateTableRequestBuilderOps(val self: UpdateTableRequest.Builder) extends AnyVal {
 
-  final def withAttributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): UpdateTableRequest.Builder = {
+  final def attributeDefinitionsAsScala(value: Option[Seq[AttributeDefinition]]): UpdateTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributeDefinitions(v.asJava)
     } // Seq[AttributeDefinition]
   }
 
-  final def withTableNameAsScala(value: Option[String]): UpdateTableRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): UpdateTableRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withBillingModeAsScala(value: Option[BillingMode]): UpdateTableRequest.Builder = {
+  final def billingModeAsScala(value: Option[BillingMode]): UpdateTableRequest.Builder = {
     value.fold(self) { v =>
       self.billingMode(v)
     }
   } // String
 
-  final def withProvisionedThroughputAsScala(value: Option[ProvisionedThroughput]): UpdateTableRequest.Builder = {
+  final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): UpdateTableRequest.Builder = {
     value.fold(self) { v =>
       self.provisionedThroughput(v)
     }
   } // ProvisionedThroughput
 
-  final def withGlobalSecondaryIndexUpdatesAsScala(
+  final def globalSecondaryIndexUpdatesAsScala(
       value: Option[Seq[GlobalSecondaryIndexUpdate]]
   ): UpdateTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -37,13 +37,13 @@ final class UpdateTableRequestBuilderOps(val self: UpdateTableRequest.Builder) e
     } // Seq[GlobalSecondaryIndexUpdate]
   }
 
-  final def withStreamSpecificationAsScala(value: Option[StreamSpecification]): UpdateTableRequest.Builder = {
+  final def streamSpecificationAsScala(value: Option[StreamSpecification]): UpdateTableRequest.Builder = {
     value.fold(self) { v =>
       self.streamSpecification(v)
     }
   } // StreamSpecification
 
-  final def withSseSpecificationAsScala(value: Option[SSESpecification]): UpdateTableRequest.Builder = {
+  final def sseSpecificationAsScala(value: Option[SSESpecification]): UpdateTableRequest.Builder = {
     value.fold(self) { v =>
       self.sseSpecification(v)
     }

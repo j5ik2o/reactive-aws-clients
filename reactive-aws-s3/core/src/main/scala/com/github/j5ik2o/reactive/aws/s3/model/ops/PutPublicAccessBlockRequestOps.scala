@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlockRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withContentMD5AsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   } // String
 
-  final def withPublicAccessBlockConfigurationAsScala(
+  final def publicAccessBlockConfigurationAsScala(
       value: Option[PublicAccessBlockConfiguration]
   ): PutPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>

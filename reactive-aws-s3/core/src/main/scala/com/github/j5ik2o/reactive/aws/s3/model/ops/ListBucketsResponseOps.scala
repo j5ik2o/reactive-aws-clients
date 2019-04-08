@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListBucketsResponseBuilderOps(val self: ListBucketsResponse.Builder) extends AnyVal {
 
-  final def withBucketsAsScala(value: Option[Seq[Bucket]]): ListBucketsResponse.Builder = {
+  final def bucketsAsScala(value: Option[Seq[Bucket]]): ListBucketsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.buckets(v.asJava)
     } // Seq[Bucket]
   }
 
-  final def withOwnerAsScala(value: Option[Owner]): ListBucketsResponse.Builder = {
+  final def ownerAsScala(value: Option[Owner]): ListBucketsResponse.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }

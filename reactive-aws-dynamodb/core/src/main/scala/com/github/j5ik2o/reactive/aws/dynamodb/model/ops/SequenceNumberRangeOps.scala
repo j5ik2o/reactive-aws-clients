@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SequenceNumberRangeBuilderOps(val self: SequenceNumberRange.Builder) extends AnyVal {
 
-  final def withStartingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
+  final def startingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
     value.fold(self) { v =>
       self.startingSequenceNumber(v)
     }
   } // String
 
-  final def withEndingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
+  final def endingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
     value.fold(self) { v =>
       self.endingSequenceNumber(v)
     }

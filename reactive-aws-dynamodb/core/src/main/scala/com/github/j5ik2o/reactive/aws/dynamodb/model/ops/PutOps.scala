@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class PutBuilderOps(val self: Put.Builder) extends AnyVal {
 
-  final def withItemAsScala(value: Option[Map[String, AttributeValue]]): Put.Builder = {
+  final def itemAsScala(value: Option[Map[String, AttributeValue]]): Put.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.item(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withTableNameAsScala(value: Option[String]): Put.Builder = {
+  final def tableNameAsScala(value: Option[String]): Put.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withConditionExpressionAsScala(value: Option[String]): Put.Builder = {
+  final def conditionExpressionAsScala(value: Option[String]): Put.Builder = {
     value.fold(self) { v =>
       self.conditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): Put.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): Put.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Put.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): Put.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withReturnValuesOnConditionCheckFailureAsScala(
+  final def returnValuesOnConditionCheckFailureAsScala(
       value: Option[ReturnValuesOnConditionCheckFailure]
   ): Put.Builder = {
     value.fold(self) { v =>

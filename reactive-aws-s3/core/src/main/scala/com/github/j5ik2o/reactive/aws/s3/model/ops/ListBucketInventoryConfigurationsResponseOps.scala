@@ -7,13 +7,13 @@ final class ListBucketInventoryConfigurationsResponseBuilderOps(
     val self: ListBucketInventoryConfigurationsResponse.Builder
 ) extends AnyVal {
 
-  final def withContinuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsResponse.Builder = {
+  final def continuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }
   } // String
 
-  final def withInventoryConfigurationListAsScala(
+  final def inventoryConfigurationListAsScala(
       value: Option[Seq[InventoryConfiguration]]
   ): ListBucketInventoryConfigurationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
@@ -21,15 +21,13 @@ final class ListBucketInventoryConfigurationsResponseBuilderOps(
     } // Seq[InventoryConfiguration]
   }
 
-  final def withIsTruncatedAsScala(value: Option[Boolean]): ListBucketInventoryConfigurationsResponse.Builder = {
+  final def isTruncatedAsScala(value: Option[Boolean]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   } // Boolean
 
-  final def withNextContinuationTokenAsScala(
-      value: Option[String]
-  ): ListBucketInventoryConfigurationsResponse.Builder = {
+  final def nextContinuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextContinuationToken(v)
     }

@@ -5,73 +5,73 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListMultipartUploadsResponseBuilderOps(val self: ListMultipartUploadsResponse.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def bucketAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def keyMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.keyMarker(v)
     }
   } // String
 
-  final def withUploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def uploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.uploadIdMarker(v)
     }
   } // String
 
-  final def withNextKeyMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def nextKeyMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.nextKeyMarker(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def prefixAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withDelimiterAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def delimiterAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.delimiter(v)
     }
   } // String
 
-  final def withNextUploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
+  final def nextUploadIdMarkerAsScala(value: Option[String]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.nextUploadIdMarker(v)
     }
   } // String
 
-  final def withMaxUploadsAsScala(value: Option[Int]): ListMultipartUploadsResponse.Builder = {
+  final def maxUploadsAsScala(value: Option[Int]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.maxUploads(v)
     }
   } // Int
 
-  final def withIsTruncatedAsScala(value: Option[Boolean]): ListMultipartUploadsResponse.Builder = {
+  final def isTruncatedAsScala(value: Option[Boolean]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   } // Boolean
 
-  final def withUploadsAsScala(value: Option[Seq[MultipartUpload]]): ListMultipartUploadsResponse.Builder = {
+  final def uploadsAsScala(value: Option[Seq[MultipartUpload]]): ListMultipartUploadsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.uploads(v.asJava)
     } // Seq[MultipartUpload]
   }
 
-  final def withCommonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListMultipartUploadsResponse.Builder = {
+  final def commonPrefixesAsScala(value: Option[Seq[CommonPrefix]]): ListMultipartUploadsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.commonPrefixes(v.asJava)
     } // Seq[CommonPrefix]
   }
 
-  final def withEncodingTypeAsScala(value: Option[EncodingType]): ListMultipartUploadsResponse.Builder = {
+  final def encodingTypeAsScala(value: Option[EncodingType]): ListMultipartUploadsResponse.Builder = {
     value.fold(self) { v =>
       self.encodingType(v)
     }

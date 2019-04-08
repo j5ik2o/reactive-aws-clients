@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RestoreObjectResponseBuilderOps(val self: RestoreObjectResponse.Builder) extends AnyVal {
 
-  final def withRequestChargedAsScala(value: Option[RequestCharged]): RestoreObjectResponse.Builder = {
+  final def requestChargedAsScala(value: Option[RequestCharged]): RestoreObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
   } // String
 
-  final def withRestoreOutputPathAsScala(value: Option[String]): RestoreObjectResponse.Builder = {
+  final def restoreOutputPathAsScala(value: Option[String]): RestoreObjectResponse.Builder = {
     value.fold(self) { v =>
       self.restoreOutputPath(v)
     }

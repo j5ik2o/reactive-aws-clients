@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class StreamSpecificationBuilderOps(val self: StreamSpecification.Builder) extends AnyVal {
 
-  final def withStreamEnabledAsScala(value: Option[Boolean]): StreamSpecification.Builder = {
+  final def streamEnabledAsScala(value: Option[Boolean]): StreamSpecification.Builder = {
     value.fold(self) { v =>
       self.streamEnabled(v)
     }
   } // Boolean
 
-  final def withStreamViewTypeAsScala(value: Option[StreamViewType]): StreamSpecification.Builder = {
+  final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamSpecification.Builder = {
     value.fold(self) { v =>
       self.streamViewType(v)
     }

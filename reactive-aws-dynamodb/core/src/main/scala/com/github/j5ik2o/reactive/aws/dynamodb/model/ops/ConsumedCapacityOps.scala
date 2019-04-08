@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ConsumedCapacityBuilderOps(val self: ConsumedCapacity.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): ConsumedCapacity.Builder = {
+  final def tableNameAsScala(value: Option[String]): ConsumedCapacity.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
+  final def capacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
     value.fold(self) { v =>
       self.capacityUnits(v)
     }
   } // Double
 
-  final def withReadCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
+  final def readCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
     value.fold(self) { v =>
       self.readCapacityUnits(v)
     }
   } // Double
 
-  final def withWriteCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
+  final def writeCapacityUnitsAsScala(value: Option[Double]): ConsumedCapacity.Builder = {
     value.fold(self) { v =>
       self.writeCapacityUnits(v)
     }
   } // Double
 
-  final def withTableAsScala(value: Option[Capacity]): ConsumedCapacity.Builder = {
+  final def tableAsScala(value: Option[Capacity]): ConsumedCapacity.Builder = {
     value.fold(self) { v =>
       self.table(v)
     }
   } // Capacity
 
-  final def withLocalSecondaryIndexesAsScala(value: Option[Map[String, Capacity]]): ConsumedCapacity.Builder = {
+  final def localSecondaryIndexesAsScala(value: Option[Map[String, Capacity]]): ConsumedCapacity.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.localSecondaryIndexes(v.asJava)
     } // Map[String, Capacity]
   }
 
-  final def withGlobalSecondaryIndexesAsScala(value: Option[Map[String, Capacity]]): ConsumedCapacity.Builder = {
+  final def globalSecondaryIndexesAsScala(value: Option[Map[String, Capacity]]): ConsumedCapacity.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.globalSecondaryIndexes(v.asJava)
     } // Map[String, Capacity]

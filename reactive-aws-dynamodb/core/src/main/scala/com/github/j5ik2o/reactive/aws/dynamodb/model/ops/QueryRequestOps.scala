@@ -5,103 +5,103 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class QueryRequestBuilderOps(val self: QueryRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): QueryRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withIndexNameAsScala(value: Option[String]): QueryRequest.Builder = {
+  final def indexNameAsScala(value: Option[String]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   } // String
 
-  final def withSelectAsScala(value: Option[Select]): QueryRequest.Builder = {
+  final def selectAsScala(value: Option[Select]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.select(v)
     }
   } // String
 
-  final def withAttributesToGetAsScala(value: Option[Seq[String]]): QueryRequest.Builder = {
+  final def attributesToGetAsScala(value: Option[Seq[String]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.attributesToGet(v.asJava)
     } // Seq[String]
   }
 
-  final def withLimitAsScala(value: Option[Int]): QueryRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   } // Int
 
-  final def withConsistentReadAsScala(value: Option[Boolean]): QueryRequest.Builder = {
+  final def consistentReadAsScala(value: Option[Boolean]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.consistentRead(v)
     }
   } // Boolean
 
-  final def withKeyConditionsAsScala(value: Option[Map[String, Condition]]): QueryRequest.Builder = {
+  final def keyConditionsAsScala(value: Option[Map[String, Condition]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.keyConditions(v.asJava)
     } // Map[String, Condition]
   }
 
-  final def withQueryFilterAsScala(value: Option[Map[String, Condition]]): QueryRequest.Builder = {
+  final def queryFilterAsScala(value: Option[Map[String, Condition]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.queryFilter(v.asJava)
     } // Map[String, Condition]
   }
 
-  final def withConditionalOperatorAsScala(value: Option[ConditionalOperator]): QueryRequest.Builder = {
+  final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.conditionalOperator(v)
     }
   } // String
 
-  final def withScanIndexForwardAsScala(value: Option[Boolean]): QueryRequest.Builder = {
+  final def scanIndexForwardAsScala(value: Option[Boolean]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.scanIndexForward(v)
     }
   } // Boolean
 
-  final def withExclusiveStartKeyAsScala(value: Option[Map[String, AttributeValue]]): QueryRequest.Builder = {
+  final def exclusiveStartKeyAsScala(value: Option[Map[String, AttributeValue]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.exclusiveStartKey(v.asJava)
     } // Map[String, AttributeValue]
   }
 
-  final def withReturnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): QueryRequest.Builder = {
+  final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
     }
   } // String
 
-  final def withProjectionExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
+  final def projectionExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.projectionExpression(v)
     }
   } // String
 
-  final def withFilterExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
+  final def filterExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.filterExpression(v)
     }
   } // String
 
-  final def withKeyConditionExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
+  final def keyConditionExpressionAsScala(value: Option[String]): QueryRequest.Builder = {
     value.fold(self) { v =>
       self.keyConditionExpression(v)
     }
   } // String
 
-  final def withExpressionAttributeNamesAsScala(value: Option[Map[String, String]]): QueryRequest.Builder = {
+  final def expressionAttributeNamesAsScala(value: Option[Map[String, String]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeNames(v.asJava)
     } // Map[String, String]
   }
 
-  final def withExpressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): QueryRequest.Builder = {
+  final def expressionAttributeValuesAsScala(value: Option[Map[String, AttributeValue]]): QueryRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.expressionAttributeValues(v.asJava)
     } // Map[String, AttributeValue]

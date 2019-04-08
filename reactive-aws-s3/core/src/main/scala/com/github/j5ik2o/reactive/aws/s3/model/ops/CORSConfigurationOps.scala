@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CORSConfigurationBuilderOps(val self: CORSConfiguration.Builder) extends AnyVal {
 
-  final def withCorsRulesAsScala(value: Option[Seq[CORSRule]]): CORSConfiguration.Builder = {
+  final def corsRulesAsScala(value: Option[Seq[CORSRule]]): CORSConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.corsRules(v.asJava)
     } // Seq[CORSRule]

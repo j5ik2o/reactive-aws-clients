@@ -1,31 +1,29 @@
+<#include "common.ftl"/>
+<#assign baseName=simpleTypeName?replace("AsyncClient", "")/>
 // Auto-Generated
-package com.github.j5ik2o.reactive.aws.s3
+package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}
 
-import software.amazon.awssdk.services.s3.model._
-import software.amazon.awssdk.services.s3.paginators._
-import software.amazon.awssdk.services.s3.{ S3AsyncClient => JavaS3AsyncClient }
+import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
+import software.amazon.awssdk.services.${baseName?lower_case}.{ ${baseName}AsyncClient => Java${baseName}AsyncClient }
 
 import scala.compat.java8.FutureConverters._
 import scala.concurrent.Future
 
-object S3AsyncClient {
+object ${baseName}AsyncClient {
 
-def apply(underlying: JavaS3AsyncClient): S3AsyncClient =
-new S3AsyncClientImpl(underlying)
+def apply(asyncClient: Java${baseName}AsyncClient): ${baseName}AsyncClient = new ${baseName}AsyncClient {
+override val underlying: Java${baseName}AsyncClient = asyncClient
+}
 
 }
 
-trait S3AsyncClient extends S3Client[Future] with S3AsyncClientSupport {
-val underlying: JavaS3AsyncClient
+trait ${baseName}AsyncClient extends ${baseName}Client[Future] with ${baseName}AsyncClientSupport {
+val underlying: Java${baseName}AsyncClient
 
 <#list methods as method>
     <#if targetAsyncMethod(method)>
-        <#if !method.name?ends_with("Paginator")>override</#if> def ${method.name}(<#list method.parameterTypeDescs as p>${p.name}: ${p.parameterTypeDesc.fullTypeName}<#if p_has_next>,</#if></#list>): <#if method.name?ends_with("Paginator")>${method.returnTypeDesc.simpleTypeName}<#else>Future[${method.returnTypeDesc.valueTypeDesc.simpleTypeName}]</#if> =
-        <#if method.name?ends_with("Paginator")>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>)
-        <#else>
-            underlying.${method.name}(<#list method.parameterTypeDescs as p>${p.name}<#if p_has_next>,</#if></#list>).toScala
-        </#if>
+        <@defScalaFutureMethod method/>
 
     </#if>
 </#list>

@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RemoveTagsFromStreamRequestBuilderOps(val self: RemoveTagsFromStreamRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): RemoveTagsFromStreamRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): RemoveTagsFromStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withTagKeysAsScala(value: Option[Seq[String]]): RemoveTagsFromStreamRequest.Builder = {
+  final def tagKeysAsScala(value: Option[Seq[String]]): RemoveTagsFromStreamRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
     } // Seq[String]

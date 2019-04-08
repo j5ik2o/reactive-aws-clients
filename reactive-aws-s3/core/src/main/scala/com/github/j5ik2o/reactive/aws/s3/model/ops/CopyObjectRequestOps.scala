@@ -5,219 +5,217 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) extends AnyVal {
 
-  final def withAclAsScala(value: Option[ObjectCannedACL]): CopyObjectRequest.Builder = {
+  final def aclAsScala(value: Option[ObjectCannedACL]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.acl(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withCacheControlAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def cacheControlAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.cacheControl(v)
     }
   } // String
 
-  final def withContentDispositionAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def contentDispositionAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentDisposition(v)
     }
   } // String
 
-  final def withContentEncodingAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def contentEncodingAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentEncoding(v)
     }
   } // String
 
-  final def withContentLanguageAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def contentLanguageAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentLanguage(v)
     }
   } // String
 
-  final def withContentTypeAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def contentTypeAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.contentType(v)
     }
   } // String
 
-  final def withCopySourceAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def copySourceAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySource(v)
     }
   } // String
 
-  final def withCopySourceIfMatchAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def copySourceIfMatchAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfMatch(v)
     }
   } // String
 
-  final def withCopySourceIfModifiedSinceAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
+  final def copySourceIfModifiedSinceAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfModifiedSince(v)
     }
   } // Instant
 
-  final def withCopySourceIfNoneMatchAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def copySourceIfNoneMatchAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfNoneMatch(v)
     }
   } // String
 
-  final def withCopySourceIfUnmodifiedSinceAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
+  final def copySourceIfUnmodifiedSinceAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceIfUnmodifiedSince(v)
     }
   } // Instant
 
-  final def withExpiresAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
+  final def expiresAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.expires(v)
     }
   } // Instant
 
-  final def withGrantFullControlAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def grantFullControlAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantFullControl(v)
     }
   } // String
 
-  final def withGrantReadAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def grantReadAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantRead(v)
     }
   } // String
 
-  final def withGrantReadACPAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def grantReadACPAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantReadACP(v)
     }
   } // String
 
-  final def withGrantWriteACPAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def grantWriteACPAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def keyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withMetadataAsScala(value: Option[Map[String, String]]): CopyObjectRequest.Builder = {
+  final def metadataAsScala(value: Option[Map[String, String]]): CopyObjectRequest.Builder = {
     value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.String])).fold(self) { v =>
       import scala.collection.JavaConverters._; self.metadata(v.asJava)
     } // Map[String, String]
   }
 
-  final def withMetadataDirectiveAsScala(value: Option[MetadataDirective]): CopyObjectRequest.Builder = {
+  final def metadataDirectiveAsScala(value: Option[MetadataDirective]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.metadataDirective(v)
     }
   } // String
 
-  final def withTaggingDirectiveAsScala(value: Option[TaggingDirective]): CopyObjectRequest.Builder = {
+  final def taggingDirectiveAsScala(value: Option[TaggingDirective]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.taggingDirective(v)
     }
   } // String
 
-  final def withServerSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectRequest.Builder = {
+  final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.serverSideEncryption(v)
     }
   } // String
 
-  final def withStorageClassAsScala(value: Option[StorageClass]): CopyObjectRequest.Builder = {
+  final def storageClassAsScala(value: Option[StorageClass]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   } // String
 
-  final def withWebsiteRedirectLocationAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def websiteRedirectLocationAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.websiteRedirectLocation(v)
     }
   } // String
 
-  final def withSseCustomerAlgorithmAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def sseCustomerAlgorithmAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerAlgorithm(v)
     }
   } // String
 
-  final def withSseCustomerKeyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def sseCustomerKeyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKey(v)
     }
   } // String
 
-  final def withSseCustomerKeyMD5AsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def sseCustomerKeyMD5AsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.sseCustomerKeyMD5(v)
     }
   } // String
 
-  final def withSsekmsKeyIdAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def ssekmsKeyIdAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.ssekmsKeyId(v)
     }
   } // String
 
-  final def withCopySourceSSECustomerAlgorithmAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def copySourceSSECustomerAlgorithmAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerAlgorithm(v)
     }
   } // String
 
-  final def withCopySourceSSECustomerKeyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def copySourceSSECustomerKeyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerKey(v)
     }
   } // String
 
-  final def withCopySourceSSECustomerKeyMD5AsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def copySourceSSECustomerKeyMD5AsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerKeyMD5(v)
     }
   } // String
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): CopyObjectRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withTaggingAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+  final def taggingAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.tagging(v)
     }
   } // String
 
-  final def withObjectLockModeAsScala(value: Option[ObjectLockMode]): CopyObjectRequest.Builder = {
+  final def objectLockModeAsScala(value: Option[ObjectLockMode]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockMode(v)
     }
   } // String
 
-  final def withObjectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
+  final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockRetainUntilDate(v)
     }
   } // Instant
 
-  final def withObjectLockLegalHoldStatusAsScala(
-      value: Option[ObjectLockLegalHoldStatus]
-  ): CopyObjectRequest.Builder = {
+  final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.objectLockLegalHoldStatus(v)
     }

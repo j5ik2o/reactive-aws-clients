@@ -4,23 +4,23 @@ import java.util.function.Consumer
 
 import com.github.j5ik2o.reactive.aws.dynamodb.metrics.JavaSyncClientMetricsInterceptor
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient
+import software.amazon.awssdk.services.dynamodb.{ DynamoDbClient => JavaDynamoDbClient }
 import software.amazon.awssdk.services.dynamodb.model._
 
 object JavaSyncClientDecorator {
 
-  def ofMetricsCollector(underlying: DynamoDbClient, _reporter: MetricsReporter): JavaSyncClientDecorator =
+  def ofMetricsCollector(underlying: JavaDynamoDbClient, _reporter: MetricsReporter): JavaSyncClientDecorator =
     new JavaSyncClientDecoratorImpl(underlying) with JavaSyncClientMetricsInterceptor {
       override protected val reporter: MetricsReporter = _reporter
     }
 
-  class JavaSyncClientDecoratorImpl(override val underlying: DynamoDbClient) extends JavaSyncClientDecorator
+  class JavaSyncClientDecoratorImpl(override val underlying: JavaDynamoDbClient) extends JavaSyncClientDecorator
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.Equals", "org.wartremover.warts.ToString"))
-trait JavaSyncClientDecorator extends DynamoDbClient {
-  val underlying: DynamoDbClient
+trait JavaSyncClientDecorator extends JavaDynamoDbClient {
+  val underlying: JavaDynamoDbClient
 
   override def serviceName(): String = underlying.serviceName()
 

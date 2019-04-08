@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class SubscribeToShardEventBuilderOps(val self: SubscribeToShardEvent.Builder) extends AnyVal {
 
-  final def withRecordsAsScala(value: Option[Seq[Record]]): SubscribeToShardEvent.Builder = {
+  final def recordsAsScala(value: Option[Seq[Record]]): SubscribeToShardEvent.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.records(v.asJava)
     } // Seq[Record]
   }
 
-  final def withContinuationSequenceNumberAsScala(value: Option[String]): SubscribeToShardEvent.Builder = {
+  final def continuationSequenceNumberAsScala(value: Option[String]): SubscribeToShardEvent.Builder = {
     value.fold(self) { v =>
       self.continuationSequenceNumber(v)
     }
   } // String
 
-  final def withMillisBehindLatestAsScala(value: Option[Long]): SubscribeToShardEvent.Builder = {
+  final def millisBehindLatestAsScala(value: Option[Long]): SubscribeToShardEvent.Builder = {
     value.fold(self) { v =>
       self.millisBehindLatest(v)
     }

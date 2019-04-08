@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class EncryptionBuilderOps(val self: Encryption.Builder) extends AnyVal {
 
-  final def withEncryptionTypeAsScala(value: Option[ServerSideEncryption]): Encryption.Builder = {
+  final def encryptionTypeAsScala(value: Option[ServerSideEncryption]): Encryption.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
   } // String
 
-  final def withKmsKeyIdAsScala(value: Option[String]): Encryption.Builder = {
+  final def kmsKeyIdAsScala(value: Option[String]): Encryption.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
   } // String
 
-  final def withKmsContextAsScala(value: Option[String]): Encryption.Builder = {
+  final def kmsContextAsScala(value: Option[String]): Encryption.Builder = {
     value.fold(self) { v =>
       self.kmsContext(v)
     }

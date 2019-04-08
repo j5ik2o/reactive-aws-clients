@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class BucketLifecycleConfigurationBuilderOps(val self: BucketLifecycleConfiguration.Builder) extends AnyVal {
 
-  final def withRulesAsScala(value: Option[Seq[LifecycleRule]]): BucketLifecycleConfiguration.Builder = {
+  final def rulesAsScala(value: Option[Seq[LifecycleRule]]): BucketLifecycleConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import scala.collection.JavaConverters._; self.rules(v.asJava)
     } // Seq[LifecycleRule]

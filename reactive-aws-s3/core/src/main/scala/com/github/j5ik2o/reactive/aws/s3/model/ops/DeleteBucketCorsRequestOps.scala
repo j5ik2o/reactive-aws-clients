@@ -5,7 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketCorsRequestBuilderOps(val self: DeleteBucketCorsRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteBucketCorsRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }

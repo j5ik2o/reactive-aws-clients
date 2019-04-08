@@ -1,0 +1,46 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.appsync.model.ops
+
+import software.amazon.awssdk.services.appsync.model._
+
+final class GetTypeRequestBuilderOps(val self: GetTypeRequest.Builder) extends AnyVal {
+
+  final def apiIdAsScala(value: Option[String]): GetTypeRequest.Builder = {
+    value.fold(self) { v =>
+      self.apiId(v)
+    }
+  } // String
+
+  final def typeNameAsScala(value: Option[String]): GetTypeRequest.Builder = {
+    value.fold(self) { v =>
+      self.typeName(v)
+    }
+  } // String
+
+  final def formatAsScala(value: Option[TypeDefinitionFormat]): GetTypeRequest.Builder = {
+    value.fold(self) { v =>
+      self.format(v)
+    }
+  } // String
+
+}
+
+final class GetTypeRequestOps(val self: GetTypeRequest) extends AnyVal {
+
+  final def apiIdAsScala: Option[String] = Option(self.apiId) // String
+
+  final def typeNameAsScala: Option[String] = Option(self.typeName) // String
+
+  final def formatAsScala: Option[TypeDefinitionFormat] = Option(self.format) // String
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToGetTypeRequestOps {
+
+  implicit def toGetTypeRequestBuilderOps(v: GetTypeRequest.Builder): GetTypeRequestBuilderOps =
+    new GetTypeRequestBuilderOps(v)
+
+  implicit def toGetTypeRequestOps(v: GetTypeRequest): GetTypeRequestOps = new GetTypeRequestOps(v)
+
+}

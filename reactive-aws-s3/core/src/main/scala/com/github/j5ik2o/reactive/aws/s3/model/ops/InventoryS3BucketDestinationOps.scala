@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryS3BucketDestinationBuilderOps(val self: InventoryS3BucketDestination.Builder) extends AnyVal {
 
-  final def withAccountIdAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
+  final def accountIdAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.accountId(v)
     }
   } // String
 
-  final def withBucketAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
+  final def bucketAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withFormatAsScala(value: Option[InventoryFormat]): InventoryS3BucketDestination.Builder = {
+  final def formatAsScala(value: Option[InventoryFormat]): InventoryS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }
   } // String
 
-  final def withPrefixAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
+  final def prefixAsScala(value: Option[String]): InventoryS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withEncryptionAsScala(value: Option[InventoryEncryption]): InventoryS3BucketDestination.Builder = {
+  final def encryptionAsScala(value: Option[InventoryEncryption]): InventoryS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.encryption(v)
     }

@@ -5,37 +5,37 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListBackupsRequestBuilderOps(val self: ListBackupsRequest.Builder) extends AnyVal {
 
-  final def withTableNameAsScala(value: Option[String]): ListBackupsRequest.Builder = {
+  final def tableNameAsScala(value: Option[String]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   } // String
 
-  final def withLimitAsScala(value: Option[Int]): ListBackupsRequest.Builder = {
+  final def limitAsScala(value: Option[Int]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   } // Int
 
-  final def withTimeRangeLowerBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
+  final def timeRangeLowerBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.timeRangeLowerBound(v)
     }
   } // Instant
 
-  final def withTimeRangeUpperBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
+  final def timeRangeUpperBoundAsScala(value: Option[java.time.Instant]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.timeRangeUpperBound(v)
     }
   } // Instant
 
-  final def withExclusiveStartBackupArnAsScala(value: Option[String]): ListBackupsRequest.Builder = {
+  final def exclusiveStartBackupArnAsScala(value: Option[String]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartBackupArn(v)
     }
   } // String
 
-  final def withBackupTypeAsScala(value: Option[BackupTypeFilter]): ListBackupsRequest.Builder = {
+  final def backupTypeAsScala(value: Option[BackupTypeFilter]): ListBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.backupType(v)
     }

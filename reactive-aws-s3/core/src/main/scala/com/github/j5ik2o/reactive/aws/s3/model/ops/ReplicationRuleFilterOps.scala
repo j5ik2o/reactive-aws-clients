@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ReplicationRuleFilterBuilderOps(val self: ReplicationRuleFilter.Builder) extends AnyVal {
 
-  final def withPrefixAsScala(value: Option[String]): ReplicationRuleFilter.Builder = {
+  final def prefixAsScala(value: Option[String]): ReplicationRuleFilter.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
     }
   } // String
 
-  final def withTagAsScala(value: Option[Tag]): ReplicationRuleFilter.Builder = {
+  final def tagAsScala(value: Option[Tag]): ReplicationRuleFilter.Builder = {
     value.fold(self) { v =>
       self.tag(v)
     }
   } // Tag
 
-  final def withAndAsScala(value: Option[ReplicationRuleAndOperator]): ReplicationRuleFilter.Builder = {
+  final def andAsScala(value: Option[ReplicationRuleAndOperator]): ReplicationRuleFilter.Builder = {
     value.fold(self) { v =>
       self.and(v)
     }

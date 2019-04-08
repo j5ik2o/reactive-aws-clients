@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageBatchRequestEntryBuilderOps(val self: DeleteMessageBatchRequestEntry.Builder) extends AnyVal {
 
-  final def withIdAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
+  final def idAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   } // String
 
-  final def withReceiptHandleAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
+  final def receiptHandleAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
     value.fold(self) { v =>
       self.receiptHandle(v)
     }

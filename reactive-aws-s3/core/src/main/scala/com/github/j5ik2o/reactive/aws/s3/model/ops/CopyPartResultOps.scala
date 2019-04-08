@@ -5,13 +5,13 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CopyPartResultBuilderOps(val self: CopyPartResult.Builder) extends AnyVal {
 
-  final def withETagAsScala(value: Option[String]): CopyPartResult.Builder = {
+  final def eTagAsScala(value: Option[String]): CopyPartResult.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   } // String
 
-  final def withLastModifiedAsScala(value: Option[java.time.Instant]): CopyPartResult.Builder = {
+  final def lastModifiedAsScala(value: Option[java.time.Instant]): CopyPartResult.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
     }

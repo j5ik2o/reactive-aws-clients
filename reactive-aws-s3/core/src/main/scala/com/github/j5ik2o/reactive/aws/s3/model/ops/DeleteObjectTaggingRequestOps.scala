@@ -5,19 +5,19 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteObjectTaggingRequestBuilderOps(val self: DeleteObjectTaggingRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
+  final def keyAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): DeleteObjectTaggingRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }

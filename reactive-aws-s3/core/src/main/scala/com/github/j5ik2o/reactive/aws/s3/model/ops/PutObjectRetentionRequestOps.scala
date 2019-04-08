@@ -5,43 +5,43 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectRetentionRequestBuilderOps(val self: PutObjectRetentionRequest.Builder) extends AnyVal {
 
-  final def withBucketAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
+  final def bucketAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   } // String
 
-  final def withKeyAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
+  final def keyAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   } // String
 
-  final def withRetentionAsScala(value: Option[ObjectLockRetention]): PutObjectRetentionRequest.Builder = {
+  final def retentionAsScala(value: Option[ObjectLockRetention]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.retention(v)
     }
   } // ObjectLockRetention
 
-  final def withRequestPayerAsScala(value: Option[RequestPayer]): PutObjectRetentionRequest.Builder = {
+  final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   } // String
 
-  final def withVersionIdAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
+  final def versionIdAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
     }
   } // String
 
-  final def withBypassGovernanceRetentionAsScala(value: Option[Boolean]): PutObjectRetentionRequest.Builder = {
+  final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.bypassGovernanceRetention(v)
     }
   } // Boolean
 
-  final def withContentMD5AsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
+  final def contentMD5AsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }

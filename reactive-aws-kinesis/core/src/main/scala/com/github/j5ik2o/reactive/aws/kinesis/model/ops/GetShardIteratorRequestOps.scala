@@ -5,31 +5,31 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.Builder) extends AnyVal {
 
-  final def withStreamNameAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+  final def streamNameAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   } // String
 
-  final def withShardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+  final def shardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.shardId(v)
     }
   } // String
 
-  final def withShardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
+  final def shardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.shardIteratorType(v)
     }
   } // String
 
-  final def withStartingSequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
+  final def startingSequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.startingSequenceNumber(v)
     }
   } // String
 
-  final def withTimestampAsScala(value: Option[java.time.Instant]): GetShardIteratorRequest.Builder = {
+  final def timestampAsScala(value: Option[java.time.Instant]): GetShardIteratorRequest.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
