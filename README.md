@@ -1,4 +1,4 @@
-# reactive-aws-client
+# reactive-aws-clients
 
 [![CircleCI](https://circleci.com/gh/j5ik2o/reactive-aws-client/tree/master.svg?style=shield&circle-token=ca08b2c115d354a7abff35d195b9bebe4bf960d0)](https://circleci.com/gh/j5ik2o/reactive-aws-client/tree/master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.j5ik2o/reactive-aws-common-core_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.j5ik2o/reactive-aws-common-core_2.12)
