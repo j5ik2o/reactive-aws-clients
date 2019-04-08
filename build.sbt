@@ -246,6 +246,44 @@ lazy val `reactive-aws-elasticsearch-root`: Project = (project in file("reactive
     `reactive-aws-elasticsearch-monix`
   )
 
+// --- elasticbeanstalk
+
+lazy val `reactive-aws-elasticbeanstalk-test` = (project in file("reactive-aws-elasticbeanstalk/test"))
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-elasticbeanstalk-core` =
+  (project in file("reactive-aws-elasticbeanstalk/core"))
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
+                                                     `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-cats` = (project in file("reactive-aws-elasticbeanstalk/cats"))
+  .dependsOn(`reactive-aws-common-cats`,
+             `reactive-aws-elasticbeanstalk-core`,
+             `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-monix` = (project in file("reactive-aws-elasticbeanstalk/monix"))
+  .dependsOn(`reactive-aws-common-monix`,
+             `reactive-aws-elasticbeanstalk-core`,
+             `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-akka` = (project in file("reactive-aws-elasticbeanstalk/akka"))
+  .dependsOn(`reactive-aws-common-akka`,
+             `reactive-aws-elasticbeanstalk-core`,
+             `reactive-aws-elasticbeanstalk-test` % "test")
+
+lazy val `reactive-aws-elasticbeanstalk-root`: Project = (project in file("reactive-aws-elasticbeanstalk"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-elasticbeanstalk-project"
+  )
+  .aggregate(
+    `reactive-aws-elasticbeanstalk-core`,
+    `reactive-aws-elasticbeanstalk-test`,
+    `reactive-aws-elasticbeanstalk-akka`,
+    `reactive-aws-elasticbeanstalk-cats`,
+    `reactive-aws-elasticbeanstalk-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -259,5 +297,6 @@ lazy val `root`: Project = (project in file("."))
     `reactive-aws-s3-root`,
     `reactive-aws-sqs-root`,
     `reactive-aws-appsync-root`,
-    `reactive-aws-elasticsearch-root`
+    `reactive-aws-elasticsearch-root`,
+    `reactive-aws-elasticbeanstalk-root`
   )

@@ -3,7 +3,7 @@ import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 
 coreSettings
 
-scalaWrapperGenBaseSettings()
+scalaWrapperGenCoreSettings
 
 val baseName = "DynamoDb"
 
