@@ -6,8 +6,6 @@ import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model._
 
-import scala.concurrent.Future
-
 object DynamoDbAkkaClient {
 
   def apply(asyncClient: DynamoDbAsyncClient): DynamoDbAkkaClient = new DynamoDbAkkaClient {
