@@ -35,7 +35,7 @@ val result = Awat.result(resultFuture, Duration.Inf)
 - monix: monix.eval.Task
 
 ```scala
-val client = DynamoDbTaskClient(underlying)
+val client = DynamoDbMonixClient(underlying)
 val resultFuture = (for {
   _ <- client.putItem(putRequest)
   result <- client.getItem(getRequest)
