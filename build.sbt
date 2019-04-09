@@ -17,7 +17,8 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
     )
   )
 
-lazy val `reactive-aws-common-core` = (project in file("reactive-aws-common/core")).settings(coreWithTestSettings)
+lazy val `reactive-aws-common-core` = (project in file("reactive-aws-common/core"))
+  .settings(coreWithTestSettings)
 
 lazy val `reactive-aws-common-cats` =
   (project in file("reactive-aws-common/cats")).settings(coreWithTestSettings).dependsOn(`reactive-aws-common-core`)
