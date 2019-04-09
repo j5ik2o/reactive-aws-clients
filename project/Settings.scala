@@ -91,7 +91,7 @@ object Settings {
       Resolver.sonatypeRepo("releases"),
       "DynamoDB Local Repository" at "https://s3-ap-northeast-1.amazonaws.com/dynamodb-local-tokyo/release"
     ),
-    addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.7"),
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.0"),
     libraryDependencies ++= Seq(
       "com.beachape"           %% "enumeratum"         % "1.5.13",
       "org.slf4j"              % "slf4j-api"           % "1.7.25",
