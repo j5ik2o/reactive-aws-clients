@@ -43,15 +43,14 @@ val resultFuture = (for {
 val result = Awat.result(resultFuture, Duration.Inf)
 ```
 
-- cats: cats.data.ReaderT
+- cats: cats.effect.IO
 
 ```scala
-val ec: ExecutionContext = ...
-val client = DynamoDbAsyncClient(underlying)
+val client = DynamoDbCatsIOClient(underlying)
 val resultFuture = (for{
   _ <- client.putItem(putRequest)
   result <- client.getItem(getRequest)
-} yield result).run(ec)
+} yield result).unsafeToFuture()
 val result = Awat.result(resultFuture, Duration.Inf)
 ```
 
