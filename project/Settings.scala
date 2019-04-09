@@ -80,8 +80,17 @@ object Settings {
     },
     publishTo in ThisBuild := sonatypePublishTo.value,
     credentials := {
-      val ivyCredentials = (baseDirectory in LocalRootProject).value / ".credentials"
-      Credentials(ivyCredentials) :: Nil
+      (sys.env.get("CREDENTIALS_REALM"),
+       sys.env.get("CREDENTIALS_HOST"),
+       sys.env.get("CREDENTIALS_USER_NAME"),
+       sys.env.get("CREDENTIALS_PASSWORD")) match {
+        case (Some(r), Some(h), Some(u), Some(p)) =>
+          Credentials(r, h, u, p) :: Nil
+        case _ =>
+          val ivyCredentials = (baseDirectory in LocalRootProject).value / ".credentials"
+          Credentials(ivyCredentials) :: Nil
+      }
+
     },
     scalafmtOnCompile in ThisBuild := true,
     resolvers ++= Seq(
