@@ -7,6 +7,8 @@ AWS Client libraries for Scala
 [![Scaladoc](http://javadoc-badge.appspot.com/com.github.j5ik2o/reactive-aws-common-core_2.12.svg?label=scaladoc)](http://javadoc-badge.appspot.com/com.github.j5ik2o/reactive-aws-common-core_2.12/com/github/j5ik2o/reactive-aws-clients/index.html?javadocio=true)
 [![License: MIT](http://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
 
+[日本語README](README.ja.md)
+
 ## Features
 
 - AWS SDK for Java V2 Support
