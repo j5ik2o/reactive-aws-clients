@@ -27,6 +27,14 @@ object Settings {
   //    .value
   //)
 
+  val testSettings = Seq(
+    libraryDependencies ++= Seq(
+      "org.scalatest"  %% "scalatest"      % "3.0.5"  % Test,
+      "org.scalacheck" %% "scalacheck"     % "1.14.0" % Test,
+      "ch.qos.logback" % "logback-classic" % "1.2.3"  % Test
+    )
+  )
+
   val coreSettings = Seq(
     sonatypeProfileName := "com.github.j5ik2o",
     organization := "com.github.j5ik2o",
@@ -88,9 +96,6 @@ object Settings {
       "com.beachape"           %% "enumeratum"         % "1.5.13",
       "org.slf4j"              % "slf4j-api"           % "1.7.25",
       "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0",
-      "org.scalatest"          %% "scalatest"          % "3.0.5" % Test,
-      "org.scalacheck"         %% "scalacheck"         % "1.14.0" % Test,
-      "ch.qos.logback"         % "logback-classic"     % "1.2.3" % Test
     ),
     parallelExecution in Test := false,
     wartremoverErrors ++= Warts.allBut(
@@ -107,6 +112,8 @@ object Settings {
     ),
     wartremoverExcluded += baseDirectory.value / "src" / "test" / "scala"
   ) // ++ scalaStyleSettings
+
+  val coreWithTestSettings = coreSettings ++ testSettings
 
   val dynamoDBLocalVersion = "1.11.477"
   val sqlite4javaVersion   = "1.0.392"
@@ -134,17 +141,17 @@ object Settings {
     }
   )
 
-  def hasTargetMethods(cd:ClassDesc): Boolean = {
-    cd.methods.exists{ m =>
-      ! m.static && !m.name.endsWith("AsString") && !m.name.endsWith("AsStrings") && m.parameterTypeDescs.isEmpty && (
+  def hasTargetMethods(cd: ClassDesc): Boolean = {
+    cd.methods.exists { m =>
+      !m.static && !m.name.endsWith("AsString") && !m.name.endsWith("AsStrings") && m.parameterTypeDescs.isEmpty && (
         m.name match {
-          case "builder" => false
+          case "builder"                  => false
           case "serializableBuilderClass" => false
-          case "toBuilder" => false
-          case "hashCode" => false
-          case "toString" => false
-          case "sdkFields" => false
-          case _ => true
+          case "toBuilder"                => false
+          case "hashCode"                 => false
+          case "toString"                 => false
+          case "sdkFields"                => false
+          case _                          => true
         }
       )
     }
@@ -168,15 +175,17 @@ object Settings {
           s.replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")
       },
       typeDescFilter in scalaWrapperGen := {
-        case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient"                                 => true
-        case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client"                                      => true
-        case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")                                      => false
-        case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")                                      => false
-        case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")                                         => false
-        case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")                                        => false
-        case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")                                        => false
-        case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata")                               => false
-        case cd: ClassDesc if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract && hasTargetMethods(cd) => true
+        case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient"   => true
+        case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client"        => true
+        case cd: ClassDesc if cd.simpleTypeName.startsWith("Default")        => false
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("Exception")        => false
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("Copier")           => false
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("Builder")          => false
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("Handler")          => false
+        case cd: ClassDesc if cd.simpleTypeName.endsWith("ResponseMetadata") => false
+        case cd: ClassDesc
+            if cd.packageName.exists(_.endsWith("model")) && !cd.isStatic && !cd.isAbstract && hasTargetMethods(cd) =>
+          true
         case _ =>
           false
       },

@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 sdkBaseName := "Dax"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-test"

@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 scalaWrapperGenCoreSettings
 
 sdkBaseName := "Dax"

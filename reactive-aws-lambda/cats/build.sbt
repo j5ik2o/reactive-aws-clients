@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 scalaWrapperGenBaseSettings("CatsIO", "cats")
 
 sdkBaseName := "Lambda"

@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 sdkBaseName := "S3"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-core"

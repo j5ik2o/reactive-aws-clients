@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 sdkBaseName := "AppSync"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-test"

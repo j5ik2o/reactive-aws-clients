@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 scalaWrapperGenBaseSettings("Monix", "monix")
 
 sdkBaseName := "CloudFormation"

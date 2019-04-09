@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 scalaWrapperGenBaseSettings(typeName = "Akka", packageName = "akka")
 
 sdkBaseName := "AppSync"

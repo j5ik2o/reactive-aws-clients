@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 sdkBaseName := "DynamoDb"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-test"

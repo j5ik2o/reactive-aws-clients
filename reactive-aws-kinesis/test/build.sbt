@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 sdkBaseName := "Kinesis"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-test"

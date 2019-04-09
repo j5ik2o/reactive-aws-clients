@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 scalaWrapperGenBaseSettings("Akka", "akka")
 
 sdkBaseName := "Elasticsearch"

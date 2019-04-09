@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 sdkBaseName := "Ec2"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-core"

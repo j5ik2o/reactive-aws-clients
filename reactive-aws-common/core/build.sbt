@@ -1,7 +1,5 @@
 import Settings._
 
-coreSettings
-
 name := "reactive-aws-common-core"
 
 libraryDependencies ++= Seq(
