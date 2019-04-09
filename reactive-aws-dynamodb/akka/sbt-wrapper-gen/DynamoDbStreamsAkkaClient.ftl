@@ -9,8 +9,6 @@ import akka.stream.scaladsl.{Flow, Source}
 import com.github.j5ik2o.reactive.aws.${packageBaseName}.streams.${baseName}AsyncClient
 import software.amazon.awssdk.services.${packageBaseName}.model._
 
-import scala.concurrent.Future
-
 object ${baseName}AkkaClient {
 
 def apply(asyncClient: ${baseName}AsyncClient): ${baseName}AkkaClient = new ${baseName}AkkaClient {

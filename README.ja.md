@@ -1,20 +1,20 @@
 # reactive-aws-clients
 
-AWS Client libraries for Scala
+ScalaのためのAWSクライアントライブラリ。
 
 [![CircleCI](https://circleci.com/gh/j5ik2o/reactive-aws-clients/tree/master.svg?style=shield&circle-token=ca08b2c115d354a7abff35d195b9bebe4bf960d0)](https://circleci.com/gh/j5ik2o/reactive-aws-clients/tree/master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.j5ik2o/reactive-aws-common-core_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.j5ik2o/reactive-aws-common-core_2.12)
 [![Scaladoc](http://javadoc-badge.appspot.com/com.github.j5ik2o/reactive-aws-common-core_2.12.svg?label=scaladoc)](http://javadoc-badge.appspot.com/com.github.j5ik2o/reactive-aws-common-core_2.12/com/github/j5ik2o/reactive-aws-clients/index.html?javadocio=true)
 [![License: MIT](http://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
 
-## Features
+## 特徴
 
-- AWS SDK for Java V2 Support
-- Scala wrapper auto generation from Java sources of AWS 
-    - Support all java methods via Scala wrapper(but methods which Consumer type has can't used)
-- Enrich Java model classes
-    - Support Java model classes, add methods(`AsScala` suffix) for Scala by enriching the Java model class
-- Support concurrent types
+- AWS SDK for Java V2 対応
+- AWS ClientのソースコードからScalaラッパーを自動生成
+    - Java SDKで使えるメソッドはすべて使うことができます(ただし、Consumer型の引数を使うメソッドは使えません)
+- Javaモデルクラスのエンリッチ
+    - モデルクラスなどはJavaの既存の型を利用します。これらのモデルクラスをエンリッチすることでScala用メソッド(`AsScala`サフィックス)を追加できます
+- Scalaの非同期型に対応
     - core
         - `scala.concurrent.Future`
     - monix
@@ -26,16 +26,16 @@ AWS Client libraries for Scala
         - `akka.stream.scaladsl.Source`
         - `akka.stream.scaladsl.Flow`
     
-## Support environments
-
+## 動作環境
+ 
 - Java SE 8
 - Scala
     - 2.11.x
     - 2.12.x
 
-## Installation
+## インストール
 
-Add dependencies to `build.sbt`.
+`build.sbt`に依存関係を追加してください。
 
 ```scala
 val libraryName = "..." // e.g.) dynamodb
@@ -49,13 +49,13 @@ libraryDependencies += Seq(
 )
 ```
 
-## Usage
+## 使い方
 
-The following is an example of dynamodb. The usage is almost the same as other libraries.
+以下はdynamodbの例です。他のライブラリを使う場合もほとんど同じです。
 
 ```scala
 import com.github.j5ik2o.reactive.aws.dynamodb._
-import com.github.j5ik2o.reactive.aws.dynamodb.implicits._ // import for enrich
+import com.github.j5ik2o.reactive.aws.dynamodb.implicits._ // エンリッチのためのインポート
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.{ DynamoDbAsyncClient => JavaDynamoDbAsyncClient }
 
@@ -63,8 +63,8 @@ val underlying = JavaDynamoDbAsyncClient
   .builder()
   // ...
   .build()
-val client = DynamoDbAsyncClient(underlying) // Pass the Java client instance to the constructor
-val putItemRequest = PutItemRequest // Java types can be used as is
+val client = DynamoDbAsyncClient(underlying) // Javaクライントのインスタンスをコンストラクタに渡す
+val putItemRequest = PutItemRequest // Javaの型をそのまま利用可能
   .builder()
   .tableName(tableName)
   .itemAsScala(
@@ -72,13 +72,13 @@ val putItemRequest = PutItemRequest // Java types can be used as is
       "Id"   -> AttributeValue.builder().s("abc").build(),
       "Name" -> AttributeValue.builder().s("xyz").build()
     )
-  ) // use the enriched Scala method
+  ) // エンリッチされたScala用メソッドが使える
   .build()
 val putItemResponseFuture = client.putItem(putItemRequest)
 
 ```
 
-## How to build
+## ビルド方法
 
 ```sh
 $ sh ./build-aws-sdk.sh
