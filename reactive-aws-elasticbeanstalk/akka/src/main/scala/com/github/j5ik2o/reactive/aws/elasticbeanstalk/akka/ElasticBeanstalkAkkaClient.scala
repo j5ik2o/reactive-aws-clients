@@ -48,8 +48,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.applyEnvironmentManagedAction(applyEnvironmentManagedActionRequest)
     }
 
-  def checkDNSAvailabilitySource(checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CheckDnsAvailabilityResponse, NotUsed] =
+  def checkDNSAvailabilitySource(
+      checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CheckDnsAvailabilityResponse, NotUsed] =
     Source.single(checkDnsAvailabilityRequest).via(checkDNSAvailabilityFlow(parallelism))
 
   def checkDNSAvailabilityFlow(
@@ -59,8 +61,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.checkDNSAvailability(checkDnsAvailabilityRequest)
     }
 
-  def composeEnvironmentsSource(composeEnvironmentsRequest: ComposeEnvironmentsRequest,
-                                parallelism: Int = DefaultParallelism): Source[ComposeEnvironmentsResponse, NotUsed] =
+  def composeEnvironmentsSource(
+      composeEnvironmentsRequest: ComposeEnvironmentsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ComposeEnvironmentsResponse, NotUsed] =
     Source.single(composeEnvironmentsRequest).via(composeEnvironmentsFlow(parallelism))
 
   def composeEnvironmentsFlow(
@@ -70,8 +74,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.composeEnvironments(composeEnvironmentsRequest)
     }
 
-  def createApplicationSource(createApplicationRequest: CreateApplicationRequest,
-                              parallelism: Int = DefaultParallelism): Source[CreateApplicationResponse, NotUsed] =
+  def createApplicationSource(
+      createApplicationRequest: CreateApplicationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateApplicationResponse, NotUsed] =
     Source.single(createApplicationRequest).via(createApplicationFlow(parallelism))
 
   def createApplicationFlow(
@@ -107,8 +113,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.createConfigurationTemplate(createConfigurationTemplateRequest)
     }
 
-  def createEnvironmentSource(createEnvironmentRequest: CreateEnvironmentRequest,
-                              parallelism: Int = DefaultParallelism): Source[CreateEnvironmentResponse, NotUsed] =
+  def createEnvironmentSource(
+      createEnvironmentRequest: CreateEnvironmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateEnvironmentResponse, NotUsed] =
     Source.single(createEnvironmentRequest).via(createEnvironmentFlow(parallelism))
 
   def createEnvironmentFlow(
@@ -147,8 +155,10 @@ trait ElasticBeanstalkAkkaClient {
   def createStorageLocationSource(): Source[CreateStorageLocationResponse, NotUsed] =
     Source.fromFuture(underlying.createStorageLocation())
 
-  def deleteApplicationSource(deleteApplicationRequest: DeleteApplicationRequest,
-                              parallelism: Int = DefaultParallelism): Source[DeleteApplicationResponse, NotUsed] =
+  def deleteApplicationSource(
+      deleteApplicationRequest: DeleteApplicationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteApplicationResponse, NotUsed] =
     Source.single(deleteApplicationRequest).via(deleteApplicationFlow(parallelism))
 
   def deleteApplicationFlow(
@@ -242,8 +252,10 @@ trait ElasticBeanstalkAkkaClient {
   def describeApplicationVersionsSource(): Source[DescribeApplicationVersionsResponse, NotUsed] =
     Source.fromFuture(underlying.describeApplicationVersions())
 
-  def describeApplicationsSource(describeApplicationsRequest: DescribeApplicationsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeApplicationsResponse, NotUsed] =
+  def describeApplicationsSource(
+      describeApplicationsRequest: DescribeApplicationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeApplicationsResponse, NotUsed] =
     Source.single(describeApplicationsRequest).via(describeApplicationsFlow(parallelism))
 
   def describeApplicationsFlow(
@@ -338,8 +350,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.describeEnvironmentResources(describeEnvironmentResourcesRequest)
     }
 
-  def describeEnvironmentsSource(describeEnvironmentsRequest: DescribeEnvironmentsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeEnvironmentsResponse, NotUsed] =
+  def describeEnvironmentsSource(
+      describeEnvironmentsRequest: DescribeEnvironmentsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeEnvironmentsResponse, NotUsed] =
     Source.single(describeEnvironmentsRequest).via(describeEnvironmentsFlow(parallelism))
 
   def describeEnvironmentsFlow(
@@ -352,8 +366,10 @@ trait ElasticBeanstalkAkkaClient {
   def describeEnvironmentsSource(): Source[DescribeEnvironmentsResponse, NotUsed] =
     Source.fromFuture(underlying.describeEnvironments())
 
-  def describeEventsSource(describeEventsRequest: DescribeEventsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeEventsResponse, NotUsed] =
+  def describeEventsSource(
+      describeEventsRequest: DescribeEventsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeEventsResponse, NotUsed] =
     Source.single(describeEventsRequest).via(describeEventsFlow(parallelism))
 
   def describeEventsFlow(
@@ -416,8 +432,10 @@ trait ElasticBeanstalkAkkaClient {
   def listAvailableSolutionStacksSource(): Source[ListAvailableSolutionStacksResponse, NotUsed] =
     Source.fromFuture(underlying.listAvailableSolutionStacks())
 
-  def listPlatformVersionsSource(listPlatformVersionsRequest: ListPlatformVersionsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[ListPlatformVersionsResponse, NotUsed] =
+  def listPlatformVersionsSource(
+      listPlatformVersionsRequest: ListPlatformVersionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListPlatformVersionsResponse, NotUsed] =
     Source.single(listPlatformVersionsRequest).via(listPlatformVersionsFlow(parallelism))
 
   def listPlatformVersionsFlow(
@@ -430,8 +448,10 @@ trait ElasticBeanstalkAkkaClient {
   def listPlatformVersionsSource(): Source[ListPlatformVersionsResponse, NotUsed] =
     Source.fromFuture(underlying.listPlatformVersions())
 
-  def listTagsForResourceSource(listTagsForResourceRequest: ListTagsForResourceRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListTagsForResourceResponse, NotUsed] =
+  def listTagsForResourceSource(
+      listTagsForResourceRequest: ListTagsForResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForResourceResponse, NotUsed] =
     Source.single(listTagsForResourceRequest).via(listTagsForResourceFlow(parallelism))
 
   def listTagsForResourceFlow(
@@ -441,8 +461,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.listTagsForResource(listTagsForResourceRequest)
     }
 
-  def rebuildEnvironmentSource(rebuildEnvironmentRequest: RebuildEnvironmentRequest,
-                               parallelism: Int = DefaultParallelism): Source[RebuildEnvironmentResponse, NotUsed] =
+  def rebuildEnvironmentSource(
+      rebuildEnvironmentRequest: RebuildEnvironmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RebuildEnvironmentResponse, NotUsed] =
     Source.single(rebuildEnvironmentRequest).via(rebuildEnvironmentFlow(parallelism))
 
   def rebuildEnvironmentFlow(
@@ -465,8 +487,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.requestEnvironmentInfo(requestEnvironmentInfoRequest)
     }
 
-  def restartAppServerSource(restartAppServerRequest: RestartAppServerRequest,
-                             parallelism: Int = DefaultParallelism): Source[RestartAppServerResponse, NotUsed] =
+  def restartAppServerSource(
+      restartAppServerRequest: RestartAppServerRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RestartAppServerResponse, NotUsed] =
     Source.single(restartAppServerRequest).via(restartAppServerFlow(parallelism))
 
   def restartAppServerFlow(
@@ -502,8 +526,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.swapEnvironmentCNAMEs(swapEnvironmentCnamEsRequest)
     }
 
-  def terminateEnvironmentSource(terminateEnvironmentRequest: TerminateEnvironmentRequest,
-                                 parallelism: Int = DefaultParallelism): Source[TerminateEnvironmentResponse, NotUsed] =
+  def terminateEnvironmentSource(
+      terminateEnvironmentRequest: TerminateEnvironmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TerminateEnvironmentResponse, NotUsed] =
     Source.single(terminateEnvironmentRequest).via(terminateEnvironmentFlow(parallelism))
 
   def terminateEnvironmentFlow(
@@ -513,8 +539,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.terminateEnvironment(terminateEnvironmentRequest)
     }
 
-  def updateApplicationSource(updateApplicationRequest: UpdateApplicationRequest,
-                              parallelism: Int = DefaultParallelism): Source[UpdateApplicationResponse, NotUsed] =
+  def updateApplicationSource(
+      updateApplicationRequest: UpdateApplicationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateApplicationResponse, NotUsed] =
     Source.single(updateApplicationRequest).via(updateApplicationFlow(parallelism))
 
   def updateApplicationFlow(
@@ -563,8 +591,10 @@ trait ElasticBeanstalkAkkaClient {
       underlying.updateConfigurationTemplate(updateConfigurationTemplateRequest)
     }
 
-  def updateEnvironmentSource(updateEnvironmentRequest: UpdateEnvironmentRequest,
-                              parallelism: Int = DefaultParallelism): Source[UpdateEnvironmentResponse, NotUsed] =
+  def updateEnvironmentSource(
+      updateEnvironmentRequest: UpdateEnvironmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateEnvironmentResponse, NotUsed] =
     Source.single(updateEnvironmentRequest).via(updateEnvironmentFlow(parallelism))
 
   def updateEnvironmentFlow(

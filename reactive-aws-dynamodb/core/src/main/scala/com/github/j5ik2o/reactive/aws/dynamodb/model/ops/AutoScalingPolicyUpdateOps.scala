@@ -26,7 +26,7 @@ final class AutoScalingPolicyUpdateOps(val self: AutoScalingPolicyUpdate) extend
   final def policyNameAsScala: Option[String] = Option(self.policyName)
 
   final def targetTrackingScalingPolicyConfigurationAsScala
-    : Option[AutoScalingTargetTrackingScalingPolicyConfigurationUpdate] =
+      : Option[AutoScalingTargetTrackingScalingPolicyConfigurationUpdate] =
     Option(self.targetTrackingScalingPolicyConfiguration)
 
 }

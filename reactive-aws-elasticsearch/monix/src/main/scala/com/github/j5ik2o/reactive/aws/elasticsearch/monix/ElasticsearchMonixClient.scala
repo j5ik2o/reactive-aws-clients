@@ -92,13 +92,13 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
     }
 
   override def describeReservedElasticsearchInstanceOfferings()
-    : Task[DescribeReservedElasticsearchInstanceOfferingsResponse] =
+      : Task[DescribeReservedElasticsearchInstanceOfferingsResponse] =
     Task.deferFuture {
       underlying.describeReservedElasticsearchInstanceOfferings()
     }
 
   def describeReservedElasticsearchInstanceOfferingsPaginator()
-    : Observable[DescribeReservedElasticsearchInstanceOfferingsResponse] =
+      : Observable[DescribeReservedElasticsearchInstanceOfferingsResponse] =
     Observable.fromReactivePublisher(underlying.describeReservedElasticsearchInstanceOfferingsPaginator())
 
   def describeReservedElasticsearchInstanceOfferingsPaginator(

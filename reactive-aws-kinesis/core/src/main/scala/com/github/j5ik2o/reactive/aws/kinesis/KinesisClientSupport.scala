@@ -34,9 +34,11 @@ trait KinesisClientSupport[M[_]] { this: KinesisClient[M] =>
         .limit(limit)
         .exclusiveStartShardId(exclusiveStartShardId).build()
     )
-  def getShardIterator(streamName: String,
-                       shardId: String,
-                       shardIteratorType: ShardIteratorType): M[GetShardIteratorResponse] =
+  def getShardIterator(
+      streamName: String,
+      shardId: String,
+      shardIteratorType: ShardIteratorType
+  ): M[GetShardIteratorResponse] =
     getShardIterator(
       GetShardIteratorRequest
         .builder()
@@ -71,10 +73,12 @@ trait KinesisClientSupport[M[_]] { this: KinesisClient[M] =>
       PutRecordRequest.builder().streamName(streamName).data(data).partitionKey(partitionKey).build()
     )
 
-  def putRecord(streamName: String,
-                data: SdkBytes,
-                partitionKey: String,
-                sequenceNumberForOrdering: String): M[PutRecordResponse] =
+  def putRecord(
+      streamName: String,
+      data: SdkBytes,
+      partitionKey: String,
+      sequenceNumberForOrdering: String
+  ): M[PutRecordResponse] =
     putRecord(
       PutRecordRequest
         .builder()

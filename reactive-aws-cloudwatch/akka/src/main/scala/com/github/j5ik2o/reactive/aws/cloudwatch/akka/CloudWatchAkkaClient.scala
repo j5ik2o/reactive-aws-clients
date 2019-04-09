@@ -22,8 +22,10 @@ trait CloudWatchAkkaClient {
 
   val underlying: CloudWatchAsyncClient
 
-  def deleteAlarmsSource(deleteAlarmsRequest: DeleteAlarmsRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteAlarmsResponse, NotUsed] =
+  def deleteAlarmsSource(
+      deleteAlarmsRequest: DeleteAlarmsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteAlarmsResponse, NotUsed] =
     Source.single(deleteAlarmsRequest).via(deleteAlarmsFlow(parallelism))
 
   def deleteAlarmsFlow(
@@ -33,8 +35,10 @@ trait CloudWatchAkkaClient {
       underlying.deleteAlarms(deleteAlarmsRequest)
     }
 
-  def deleteDashboardsSource(deleteDashboardsRequest: DeleteDashboardsRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteDashboardsResponse, NotUsed] =
+  def deleteDashboardsSource(
+      deleteDashboardsRequest: DeleteDashboardsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteDashboardsResponse, NotUsed] =
     Source.single(deleteDashboardsRequest).via(deleteDashboardsFlow(parallelism))
 
   def deleteDashboardsFlow(
@@ -44,8 +48,10 @@ trait CloudWatchAkkaClient {
       underlying.deleteDashboards(deleteDashboardsRequest)
     }
 
-  def describeAlarmHistorySource(describeAlarmHistoryRequest: DescribeAlarmHistoryRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeAlarmHistoryResponse, NotUsed] =
+  def describeAlarmHistorySource(
+      describeAlarmHistoryRequest: DescribeAlarmHistoryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeAlarmHistoryResponse, NotUsed] =
     Source.single(describeAlarmHistoryRequest).via(describeAlarmHistoryFlow(parallelism))
 
   def describeAlarmHistoryFlow(
@@ -66,8 +72,10 @@ trait CloudWatchAkkaClient {
       Source.fromPublisher(underlying.describeAlarmHistoryPaginator(request))
     }
 
-  def describeAlarmsSource(describeAlarmsRequest: DescribeAlarmsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeAlarmsResponse, NotUsed] =
+  def describeAlarmsSource(
+      describeAlarmsRequest: DescribeAlarmsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeAlarmsResponse, NotUsed] =
     Source.single(describeAlarmsRequest).via(describeAlarmsFlow(parallelism))
 
   def describeAlarmsFlow(
@@ -101,8 +109,10 @@ trait CloudWatchAkkaClient {
       Source.fromPublisher(underlying.describeAlarmsPaginator(request))
     }
 
-  def disableAlarmActionsSource(disableAlarmActionsRequest: DisableAlarmActionsRequest,
-                                parallelism: Int = DefaultParallelism): Source[DisableAlarmActionsResponse, NotUsed] =
+  def disableAlarmActionsSource(
+      disableAlarmActionsRequest: DisableAlarmActionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisableAlarmActionsResponse, NotUsed] =
     Source.single(disableAlarmActionsRequest).via(disableAlarmActionsFlow(parallelism))
 
   def disableAlarmActionsFlow(
@@ -112,8 +122,10 @@ trait CloudWatchAkkaClient {
       underlying.disableAlarmActions(disableAlarmActionsRequest)
     }
 
-  def enableAlarmActionsSource(enableAlarmActionsRequest: EnableAlarmActionsRequest,
-                               parallelism: Int = DefaultParallelism): Source[EnableAlarmActionsResponse, NotUsed] =
+  def enableAlarmActionsSource(
+      enableAlarmActionsRequest: EnableAlarmActionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableAlarmActionsResponse, NotUsed] =
     Source.single(enableAlarmActionsRequest).via(enableAlarmActionsFlow(parallelism))
 
   def enableAlarmActionsFlow(
@@ -123,8 +135,10 @@ trait CloudWatchAkkaClient {
       underlying.enableAlarmActions(enableAlarmActionsRequest)
     }
 
-  def getDashboardSource(getDashboardRequest: GetDashboardRequest,
-                         parallelism: Int = DefaultParallelism): Source[GetDashboardResponse, NotUsed] =
+  def getDashboardSource(
+      getDashboardRequest: GetDashboardRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetDashboardResponse, NotUsed] =
     Source.single(getDashboardRequest).via(getDashboardFlow(parallelism))
 
   def getDashboardFlow(
@@ -134,8 +148,10 @@ trait CloudWatchAkkaClient {
       underlying.getDashboard(getDashboardRequest)
     }
 
-  def getMetricDataSource(getMetricDataRequest: GetMetricDataRequest,
-                          parallelism: Int = DefaultParallelism): Source[GetMetricDataResponse, NotUsed] =
+  def getMetricDataSource(
+      getMetricDataRequest: GetMetricDataRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetMetricDataResponse, NotUsed] =
     Source.single(getMetricDataRequest).via(getMetricDataFlow(parallelism))
 
   def getMetricDataFlow(
@@ -145,8 +161,10 @@ trait CloudWatchAkkaClient {
       underlying.getMetricData(getMetricDataRequest)
     }
 
-  def getMetricStatisticsSource(getMetricStatisticsRequest: GetMetricStatisticsRequest,
-                                parallelism: Int = DefaultParallelism): Source[GetMetricStatisticsResponse, NotUsed] =
+  def getMetricStatisticsSource(
+      getMetricStatisticsRequest: GetMetricStatisticsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetMetricStatisticsResponse, NotUsed] =
     Source.single(getMetricStatisticsRequest).via(getMetricStatisticsFlow(parallelism))
 
   def getMetricStatisticsFlow(
@@ -156,8 +174,10 @@ trait CloudWatchAkkaClient {
       underlying.getMetricStatistics(getMetricStatisticsRequest)
     }
 
-  def getMetricWidgetImageSource(getMetricWidgetImageRequest: GetMetricWidgetImageRequest,
-                                 parallelism: Int = DefaultParallelism): Source[GetMetricWidgetImageResponse, NotUsed] =
+  def getMetricWidgetImageSource(
+      getMetricWidgetImageRequest: GetMetricWidgetImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetMetricWidgetImageResponse, NotUsed] =
     Source.single(getMetricWidgetImageRequest).via(getMetricWidgetImageFlow(parallelism))
 
   def getMetricWidgetImageFlow(
@@ -167,8 +187,10 @@ trait CloudWatchAkkaClient {
       underlying.getMetricWidgetImage(getMetricWidgetImageRequest)
     }
 
-  def listDashboardsSource(listDashboardsRequest: ListDashboardsRequest,
-                           parallelism: Int = DefaultParallelism): Source[ListDashboardsResponse, NotUsed] =
+  def listDashboardsSource(
+      listDashboardsRequest: ListDashboardsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListDashboardsResponse, NotUsed] =
     Source.single(listDashboardsRequest).via(listDashboardsFlow(parallelism))
 
   def listDashboardsFlow(
@@ -181,8 +203,10 @@ trait CloudWatchAkkaClient {
   def listDashboardsSource(): Source[ListDashboardsResponse, NotUsed] =
     Source.fromFuture(underlying.listDashboards())
 
-  def listMetricsSource(listMetricsRequest: ListMetricsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListMetricsResponse, NotUsed] =
+  def listMetricsSource(
+      listMetricsRequest: ListMetricsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListMetricsResponse, NotUsed] =
     Source.single(listMetricsRequest).via(listMetricsFlow(parallelism))
 
   def listMetricsFlow(parallelism: Int = DefaultParallelism): Flow[ListMetricsRequest, ListMetricsResponse, NotUsed] =
@@ -201,8 +225,10 @@ trait CloudWatchAkkaClient {
       Source.fromPublisher(underlying.listMetricsPaginator(request))
     }
 
-  def putDashboardSource(putDashboardRequest: PutDashboardRequest,
-                         parallelism: Int = DefaultParallelism): Source[PutDashboardResponse, NotUsed] =
+  def putDashboardSource(
+      putDashboardRequest: PutDashboardRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutDashboardResponse, NotUsed] =
     Source.single(putDashboardRequest).via(putDashboardFlow(parallelism))
 
   def putDashboardFlow(
@@ -212,8 +238,10 @@ trait CloudWatchAkkaClient {
       underlying.putDashboard(putDashboardRequest)
     }
 
-  def putMetricAlarmSource(putMetricAlarmRequest: PutMetricAlarmRequest,
-                           parallelism: Int = DefaultParallelism): Source[PutMetricAlarmResponse, NotUsed] =
+  def putMetricAlarmSource(
+      putMetricAlarmRequest: PutMetricAlarmRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutMetricAlarmResponse, NotUsed] =
     Source.single(putMetricAlarmRequest).via(putMetricAlarmFlow(parallelism))
 
   def putMetricAlarmFlow(
@@ -223,8 +251,10 @@ trait CloudWatchAkkaClient {
       underlying.putMetricAlarm(putMetricAlarmRequest)
     }
 
-  def putMetricDataSource(putMetricDataRequest: PutMetricDataRequest,
-                          parallelism: Int = DefaultParallelism): Source[PutMetricDataResponse, NotUsed] =
+  def putMetricDataSource(
+      putMetricDataRequest: PutMetricDataRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutMetricDataResponse, NotUsed] =
     Source.single(putMetricDataRequest).via(putMetricDataFlow(parallelism))
 
   def putMetricDataFlow(
@@ -234,8 +264,10 @@ trait CloudWatchAkkaClient {
       underlying.putMetricData(putMetricDataRequest)
     }
 
-  def setAlarmStateSource(setAlarmStateRequest: SetAlarmStateRequest,
-                          parallelism: Int = DefaultParallelism): Source[SetAlarmStateResponse, NotUsed] =
+  def setAlarmStateSource(
+      setAlarmStateRequest: SetAlarmStateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SetAlarmStateResponse, NotUsed] =
     Source.single(setAlarmStateRequest).via(setAlarmStateFlow(parallelism))
 
   def setAlarmStateFlow(

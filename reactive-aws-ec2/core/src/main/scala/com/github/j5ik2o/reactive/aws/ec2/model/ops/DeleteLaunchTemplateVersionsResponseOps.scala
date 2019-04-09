@@ -27,13 +27,13 @@ final class DeleteLaunchTemplateVersionsResponseBuilderOps(val self: DeleteLaunc
 final class DeleteLaunchTemplateVersionsResponseOps(val self: DeleteLaunchTemplateVersionsResponse) extends AnyVal {
 
   final def successfullyDeletedLaunchTemplateVersionsAsScala
-    : Option[Seq[DeleteLaunchTemplateVersionsResponseSuccessItem]] =
+      : Option[Seq[DeleteLaunchTemplateVersionsResponseSuccessItem]] =
     Option(self.successfullyDeletedLaunchTemplateVersions).map { v =>
       import scala.collection.JavaConverters._; v.asScala
     }
 
   final def unsuccessfullyDeletedLaunchTemplateVersionsAsScala
-    : Option[Seq[DeleteLaunchTemplateVersionsResponseErrorItem]] =
+      : Option[Seq[DeleteLaunchTemplateVersionsResponseErrorItem]] =
     Option(self.unsuccessfullyDeletedLaunchTemplateVersions).map { v =>
       import scala.collection.JavaConverters._; v.asScala
     }

@@ -22,8 +22,10 @@ trait CloudWatchLogsAkkaClient {
 
   val underlying: CloudWatchLogsAsyncClient
 
-  def associateKmsKeySource(associateKmsKeyRequest: AssociateKmsKeyRequest,
-                            parallelism: Int = DefaultParallelism): Source[AssociateKmsKeyResponse, NotUsed] =
+  def associateKmsKeySource(
+      associateKmsKeyRequest: AssociateKmsKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociateKmsKeyResponse, NotUsed] =
     Source.single(associateKmsKeyRequest).via(associateKmsKeyFlow(parallelism))
 
   def associateKmsKeyFlow(
@@ -33,8 +35,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.associateKmsKey(associateKmsKeyRequest)
     }
 
-  def cancelExportTaskSource(cancelExportTaskRequest: CancelExportTaskRequest,
-                             parallelism: Int = DefaultParallelism): Source[CancelExportTaskResponse, NotUsed] =
+  def cancelExportTaskSource(
+      cancelExportTaskRequest: CancelExportTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelExportTaskResponse, NotUsed] =
     Source.single(cancelExportTaskRequest).via(cancelExportTaskFlow(parallelism))
 
   def cancelExportTaskFlow(
@@ -44,8 +48,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.cancelExportTask(cancelExportTaskRequest)
     }
 
-  def createExportTaskSource(createExportTaskRequest: CreateExportTaskRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateExportTaskResponse, NotUsed] =
+  def createExportTaskSource(
+      createExportTaskRequest: CreateExportTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateExportTaskResponse, NotUsed] =
     Source.single(createExportTaskRequest).via(createExportTaskFlow(parallelism))
 
   def createExportTaskFlow(
@@ -55,8 +61,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.createExportTask(createExportTaskRequest)
     }
 
-  def createLogGroupSource(createLogGroupRequest: CreateLogGroupRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateLogGroupResponse, NotUsed] =
+  def createLogGroupSource(
+      createLogGroupRequest: CreateLogGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateLogGroupResponse, NotUsed] =
     Source.single(createLogGroupRequest).via(createLogGroupFlow(parallelism))
 
   def createLogGroupFlow(
@@ -66,8 +74,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.createLogGroup(createLogGroupRequest)
     }
 
-  def createLogStreamSource(createLogStreamRequest: CreateLogStreamRequest,
-                            parallelism: Int = DefaultParallelism): Source[CreateLogStreamResponse, NotUsed] =
+  def createLogStreamSource(
+      createLogStreamRequest: CreateLogStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateLogStreamResponse, NotUsed] =
     Source.single(createLogStreamRequest).via(createLogStreamFlow(parallelism))
 
   def createLogStreamFlow(
@@ -77,8 +87,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.createLogStream(createLogStreamRequest)
     }
 
-  def deleteDestinationSource(deleteDestinationRequest: DeleteDestinationRequest,
-                              parallelism: Int = DefaultParallelism): Source[DeleteDestinationResponse, NotUsed] =
+  def deleteDestinationSource(
+      deleteDestinationRequest: DeleteDestinationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteDestinationResponse, NotUsed] =
     Source.single(deleteDestinationRequest).via(deleteDestinationFlow(parallelism))
 
   def deleteDestinationFlow(
@@ -88,8 +100,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.deleteDestination(deleteDestinationRequest)
     }
 
-  def deleteLogGroupSource(deleteLogGroupRequest: DeleteLogGroupRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteLogGroupResponse, NotUsed] =
+  def deleteLogGroupSource(
+      deleteLogGroupRequest: DeleteLogGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteLogGroupResponse, NotUsed] =
     Source.single(deleteLogGroupRequest).via(deleteLogGroupFlow(parallelism))
 
   def deleteLogGroupFlow(
@@ -99,8 +113,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.deleteLogGroup(deleteLogGroupRequest)
     }
 
-  def deleteLogStreamSource(deleteLogStreamRequest: DeleteLogStreamRequest,
-                            parallelism: Int = DefaultParallelism): Source[DeleteLogStreamResponse, NotUsed] =
+  def deleteLogStreamSource(
+      deleteLogStreamRequest: DeleteLogStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteLogStreamResponse, NotUsed] =
     Source.single(deleteLogStreamRequest).via(deleteLogStreamFlow(parallelism))
 
   def deleteLogStreamFlow(
@@ -110,8 +126,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.deleteLogStream(deleteLogStreamRequest)
     }
 
-  def deleteMetricFilterSource(deleteMetricFilterRequest: DeleteMetricFilterRequest,
-                               parallelism: Int = DefaultParallelism): Source[DeleteMetricFilterResponse, NotUsed] =
+  def deleteMetricFilterSource(
+      deleteMetricFilterRequest: DeleteMetricFilterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteMetricFilterResponse, NotUsed] =
     Source.single(deleteMetricFilterRequest).via(deleteMetricFilterFlow(parallelism))
 
   def deleteMetricFilterFlow(
@@ -121,8 +139,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.deleteMetricFilter(deleteMetricFilterRequest)
     }
 
-  def deleteResourcePolicySource(deleteResourcePolicyRequest: DeleteResourcePolicyRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteResourcePolicyResponse, NotUsed] =
+  def deleteResourcePolicySource(
+      deleteResourcePolicyRequest: DeleteResourcePolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteResourcePolicyResponse, NotUsed] =
     Source.single(deleteResourcePolicyRequest).via(deleteResourcePolicyFlow(parallelism))
 
   def deleteResourcePolicyFlow(
@@ -158,8 +178,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.deleteSubscriptionFilter(deleteSubscriptionFilterRequest)
     }
 
-  def describeDestinationsSource(describeDestinationsRequest: DescribeDestinationsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeDestinationsResponse, NotUsed] =
+  def describeDestinationsSource(
+      describeDestinationsRequest: DescribeDestinationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeDestinationsResponse, NotUsed] =
     Source.single(describeDestinationsRequest).via(describeDestinationsFlow(parallelism))
 
   def describeDestinationsFlow(
@@ -180,8 +202,10 @@ trait CloudWatchLogsAkkaClient {
       Source.fromPublisher(underlying.describeDestinationsPaginator(request))
     }
 
-  def describeExportTasksSource(describeExportTasksRequest: DescribeExportTasksRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeExportTasksResponse, NotUsed] =
+  def describeExportTasksSource(
+      describeExportTasksRequest: DescribeExportTasksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeExportTasksResponse, NotUsed] =
     Source.single(describeExportTasksRequest).via(describeExportTasksFlow(parallelism))
 
   def describeExportTasksFlow(
@@ -194,8 +218,10 @@ trait CloudWatchLogsAkkaClient {
   def describeExportTasksSource(): Source[DescribeExportTasksResponse, NotUsed] =
     Source.fromFuture(underlying.describeExportTasks())
 
-  def describeLogGroupsSource(describeLogGroupsRequest: DescribeLogGroupsRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeLogGroupsResponse, NotUsed] =
+  def describeLogGroupsSource(
+      describeLogGroupsRequest: DescribeLogGroupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLogGroupsResponse, NotUsed] =
     Source.single(describeLogGroupsRequest).via(describeLogGroupsFlow(parallelism))
 
   def describeLogGroupsFlow(
@@ -216,8 +242,10 @@ trait CloudWatchLogsAkkaClient {
       Source.fromPublisher(underlying.describeLogGroupsPaginator(request))
     }
 
-  def describeLogStreamsSource(describeLogStreamsRequest: DescribeLogStreamsRequest,
-                               parallelism: Int = DefaultParallelism): Source[DescribeLogStreamsResponse, NotUsed] =
+  def describeLogStreamsSource(
+      describeLogStreamsRequest: DescribeLogStreamsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLogStreamsResponse, NotUsed] =
     Source.single(describeLogStreamsRequest).via(describeLogStreamsFlow(parallelism))
 
   def describeLogStreamsFlow(
@@ -256,8 +284,10 @@ trait CloudWatchLogsAkkaClient {
       Source.fromPublisher(underlying.describeMetricFiltersPaginator(request))
     }
 
-  def describeQueriesSource(describeQueriesRequest: DescribeQueriesRequest,
-                            parallelism: Int = DefaultParallelism): Source[DescribeQueriesResponse, NotUsed] =
+  def describeQueriesSource(
+      describeQueriesRequest: DescribeQueriesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeQueriesResponse, NotUsed] =
     Source.single(describeQueriesRequest).via(describeQueriesFlow(parallelism))
 
   def describeQueriesFlow(
@@ -300,13 +330,15 @@ trait CloudWatchLogsAkkaClient {
     }
 
   def describeSubscriptionFiltersPaginatorFlow
-    : Flow[DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse, NotUsed] =
+      : Flow[DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse, NotUsed] =
     Flow[DescribeSubscriptionFiltersRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeSubscriptionFiltersPaginator(request))
     }
 
-  def disassociateKmsKeySource(disassociateKmsKeyRequest: DisassociateKmsKeyRequest,
-                               parallelism: Int = DefaultParallelism): Source[DisassociateKmsKeyResponse, NotUsed] =
+  def disassociateKmsKeySource(
+      disassociateKmsKeyRequest: DisassociateKmsKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisassociateKmsKeyResponse, NotUsed] =
     Source.single(disassociateKmsKeyRequest).via(disassociateKmsKeyFlow(parallelism))
 
   def disassociateKmsKeyFlow(
@@ -316,8 +348,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.disassociateKmsKey(disassociateKmsKeyRequest)
     }
 
-  def filterLogEventsSource(filterLogEventsRequest: FilterLogEventsRequest,
-                            parallelism: Int = DefaultParallelism): Source[FilterLogEventsResponse, NotUsed] =
+  def filterLogEventsSource(
+      filterLogEventsRequest: FilterLogEventsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[FilterLogEventsResponse, NotUsed] =
     Source.single(filterLogEventsRequest).via(filterLogEventsFlow(parallelism))
 
   def filterLogEventsFlow(
@@ -332,8 +366,10 @@ trait CloudWatchLogsAkkaClient {
       Source.fromPublisher(underlying.filterLogEventsPaginator(request))
     }
 
-  def getLogEventsSource(getLogEventsRequest: GetLogEventsRequest,
-                         parallelism: Int = DefaultParallelism): Source[GetLogEventsResponse, NotUsed] =
+  def getLogEventsSource(
+      getLogEventsRequest: GetLogEventsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetLogEventsResponse, NotUsed] =
     Source.single(getLogEventsRequest).via(getLogEventsFlow(parallelism))
 
   def getLogEventsFlow(
@@ -348,8 +384,10 @@ trait CloudWatchLogsAkkaClient {
       Source.fromPublisher(underlying.getLogEventsPaginator(request))
     }
 
-  def getLogGroupFieldsSource(getLogGroupFieldsRequest: GetLogGroupFieldsRequest,
-                              parallelism: Int = DefaultParallelism): Source[GetLogGroupFieldsResponse, NotUsed] =
+  def getLogGroupFieldsSource(
+      getLogGroupFieldsRequest: GetLogGroupFieldsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetLogGroupFieldsResponse, NotUsed] =
     Source.single(getLogGroupFieldsRequest).via(getLogGroupFieldsFlow(parallelism))
 
   def getLogGroupFieldsFlow(
@@ -359,8 +397,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.getLogGroupFields(getLogGroupFieldsRequest)
     }
 
-  def getLogRecordSource(getLogRecordRequest: GetLogRecordRequest,
-                         parallelism: Int = DefaultParallelism): Source[GetLogRecordResponse, NotUsed] =
+  def getLogRecordSource(
+      getLogRecordRequest: GetLogRecordRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetLogRecordResponse, NotUsed] =
     Source.single(getLogRecordRequest).via(getLogRecordFlow(parallelism))
 
   def getLogRecordFlow(
@@ -370,8 +410,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.getLogRecord(getLogRecordRequest)
     }
 
-  def getQueryResultsSource(getQueryResultsRequest: GetQueryResultsRequest,
-                            parallelism: Int = DefaultParallelism): Source[GetQueryResultsResponse, NotUsed] =
+  def getQueryResultsSource(
+      getQueryResultsRequest: GetQueryResultsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetQueryResultsResponse, NotUsed] =
     Source.single(getQueryResultsRequest).via(getQueryResultsFlow(parallelism))
 
   def getQueryResultsFlow(
@@ -381,8 +423,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.getQueryResults(getQueryResultsRequest)
     }
 
-  def listTagsLogGroupSource(listTagsLogGroupRequest: ListTagsLogGroupRequest,
-                             parallelism: Int = DefaultParallelism): Source[ListTagsLogGroupResponse, NotUsed] =
+  def listTagsLogGroupSource(
+      listTagsLogGroupRequest: ListTagsLogGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsLogGroupResponse, NotUsed] =
     Source.single(listTagsLogGroupRequest).via(listTagsLogGroupFlow(parallelism))
 
   def listTagsLogGroupFlow(
@@ -392,8 +436,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.listTagsLogGroup(listTagsLogGroupRequest)
     }
 
-  def putDestinationSource(putDestinationRequest: PutDestinationRequest,
-                           parallelism: Int = DefaultParallelism): Source[PutDestinationResponse, NotUsed] =
+  def putDestinationSource(
+      putDestinationRequest: PutDestinationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutDestinationResponse, NotUsed] =
     Source.single(putDestinationRequest).via(putDestinationFlow(parallelism))
 
   def putDestinationFlow(
@@ -403,8 +449,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.putDestination(putDestinationRequest)
     }
 
-  def putDestinationPolicySource(putDestinationPolicyRequest: PutDestinationPolicyRequest,
-                                 parallelism: Int = DefaultParallelism): Source[PutDestinationPolicyResponse, NotUsed] =
+  def putDestinationPolicySource(
+      putDestinationPolicyRequest: PutDestinationPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutDestinationPolicyResponse, NotUsed] =
     Source.single(putDestinationPolicyRequest).via(putDestinationPolicyFlow(parallelism))
 
   def putDestinationPolicyFlow(
@@ -414,8 +462,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.putDestinationPolicy(putDestinationPolicyRequest)
     }
 
-  def putLogEventsSource(putLogEventsRequest: PutLogEventsRequest,
-                         parallelism: Int = DefaultParallelism): Source[PutLogEventsResponse, NotUsed] =
+  def putLogEventsSource(
+      putLogEventsRequest: PutLogEventsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutLogEventsResponse, NotUsed] =
     Source.single(putLogEventsRequest).via(putLogEventsFlow(parallelism))
 
   def putLogEventsFlow(
@@ -425,8 +475,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.putLogEvents(putLogEventsRequest)
     }
 
-  def putMetricFilterSource(putMetricFilterRequest: PutMetricFilterRequest,
-                            parallelism: Int = DefaultParallelism): Source[PutMetricFilterResponse, NotUsed] =
+  def putMetricFilterSource(
+      putMetricFilterRequest: PutMetricFilterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutMetricFilterResponse, NotUsed] =
     Source.single(putMetricFilterRequest).via(putMetricFilterFlow(parallelism))
 
   def putMetricFilterFlow(
@@ -436,8 +488,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.putMetricFilter(putMetricFilterRequest)
     }
 
-  def putResourcePolicySource(putResourcePolicyRequest: PutResourcePolicyRequest,
-                              parallelism: Int = DefaultParallelism): Source[PutResourcePolicyResponse, NotUsed] =
+  def putResourcePolicySource(
+      putResourcePolicyRequest: PutResourcePolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutResourcePolicyResponse, NotUsed] =
     Source.single(putResourcePolicyRequest).via(putResourcePolicyFlow(parallelism))
 
   def putResourcePolicyFlow(
@@ -447,8 +501,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.putResourcePolicy(putResourcePolicyRequest)
     }
 
-  def putRetentionPolicySource(putRetentionPolicyRequest: PutRetentionPolicyRequest,
-                               parallelism: Int = DefaultParallelism): Source[PutRetentionPolicyResponse, NotUsed] =
+  def putRetentionPolicySource(
+      putRetentionPolicyRequest: PutRetentionPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutRetentionPolicyResponse, NotUsed] =
     Source.single(putRetentionPolicyRequest).via(putRetentionPolicyFlow(parallelism))
 
   def putRetentionPolicyFlow(
@@ -471,8 +527,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.putSubscriptionFilter(putSubscriptionFilterRequest)
     }
 
-  def startQuerySource(startQueryRequest: StartQueryRequest,
-                       parallelism: Int = DefaultParallelism): Source[StartQueryResponse, NotUsed] =
+  def startQuerySource(
+      startQueryRequest: StartQueryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartQueryResponse, NotUsed] =
     Source.single(startQueryRequest).via(startQueryFlow(parallelism))
 
   def startQueryFlow(parallelism: Int = DefaultParallelism): Flow[StartQueryRequest, StartQueryResponse, NotUsed] =
@@ -480,8 +538,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.startQuery(startQueryRequest)
     }
 
-  def stopQuerySource(stopQueryRequest: StopQueryRequest,
-                      parallelism: Int = DefaultParallelism): Source[StopQueryResponse, NotUsed] =
+  def stopQuerySource(
+      stopQueryRequest: StopQueryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StopQueryResponse, NotUsed] =
     Source.single(stopQueryRequest).via(stopQueryFlow(parallelism))
 
   def stopQueryFlow(parallelism: Int = DefaultParallelism): Flow[StopQueryRequest, StopQueryResponse, NotUsed] =
@@ -489,8 +549,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.stopQuery(stopQueryRequest)
     }
 
-  def tagLogGroupSource(tagLogGroupRequest: TagLogGroupRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagLogGroupResponse, NotUsed] =
+  def tagLogGroupSource(
+      tagLogGroupRequest: TagLogGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagLogGroupResponse, NotUsed] =
     Source.single(tagLogGroupRequest).via(tagLogGroupFlow(parallelism))
 
   def tagLogGroupFlow(parallelism: Int = DefaultParallelism): Flow[TagLogGroupRequest, TagLogGroupResponse, NotUsed] =
@@ -498,8 +560,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.tagLogGroup(tagLogGroupRequest)
     }
 
-  def testMetricFilterSource(testMetricFilterRequest: TestMetricFilterRequest,
-                             parallelism: Int = DefaultParallelism): Source[TestMetricFilterResponse, NotUsed] =
+  def testMetricFilterSource(
+      testMetricFilterRequest: TestMetricFilterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TestMetricFilterResponse, NotUsed] =
     Source.single(testMetricFilterRequest).via(testMetricFilterFlow(parallelism))
 
   def testMetricFilterFlow(
@@ -509,8 +573,10 @@ trait CloudWatchLogsAkkaClient {
       underlying.testMetricFilter(testMetricFilterRequest)
     }
 
-  def untagLogGroupSource(untagLogGroupRequest: UntagLogGroupRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagLogGroupResponse, NotUsed] =
+  def untagLogGroupSource(
+      untagLogGroupRequest: UntagLogGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagLogGroupResponse, NotUsed] =
     Source.single(untagLogGroupRequest).via(untagLogGroupFlow(parallelism))
 
   def untagLogGroupFlow(

@@ -29,9 +29,11 @@ trait S3AkkaClientSupport {
   ): Flow[GetObjectRequest, ResponseBytes[GetObjectResponse], NotUsed] =
     Flow[GetObjectRequest].mapAsync(parallelism)(underlying.getObjectAsBytes)
 
-  def getObjectToFileSource(getObjectRequest: GetObjectRequest,
-                            file: File,
-                            parallelism: Int = DefaultParallelism): Source[GetObjectResponse, NotUsed] =
+  def getObjectToFileSource(
+      getObjectRequest: GetObjectRequest,
+      file: File,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectResponse, NotUsed] =
     Source.single((getObjectRequest, file)).via(getObjectToFileFlow(parallelism))
 
   def getObjectToFileFlow(
@@ -42,9 +44,11 @@ trait S3AkkaClientSupport {
         underlying.getObjectToFile(getObjectRequest, file)
     }
 
-  def getObjectToPathSource(getObjectRequest: GetObjectRequest,
-                            path: Path,
-                            parallelism: Int = DefaultParallelism): Source[GetObjectResponse, NotUsed] =
+  def getObjectToPathSource(
+      getObjectRequest: GetObjectRequest,
+      path: Path,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectResponse, NotUsed] =
     Source.single((getObjectRequest, path)).via(getObjectToPathFlow(parallelism))
 
   def getObjectToPathFlow(
@@ -55,9 +59,11 @@ trait S3AkkaClientSupport {
         underlying.getObjectToPath(getObjectRequest, destinationPath)
     }
 
-  def getObjectSource[A](getObjectRequest: GetObjectRequest,
-                         asyncResponseTransformer: AsyncResponseTransformer[GetObjectResponse, A],
-                         parallelism: Int = DefaultParallelism): Source[A, NotUsed] =
+  def getObjectSource[A](
+      getObjectRequest: GetObjectRequest,
+      asyncResponseTransformer: AsyncResponseTransformer[GetObjectResponse, A],
+      parallelism: Int = DefaultParallelism
+  ): Source[A, NotUsed] =
     Source.single((getObjectRequest, asyncResponseTransformer)).via(getObjectFlow(parallelism))
 
   def getObjectFlow[A](
@@ -79,9 +85,11 @@ trait S3AkkaClientSupport {
   ): Flow[GetObjectTorrentRequest, ResponseBytes[GetObjectTorrentResponse], NotUsed] =
     Flow[GetObjectTorrentRequest].mapAsync(parallelism)(underlying.getObjectTorrentAsBytes)
 
-  def getObjectTorrentToFileSource(getObjectTorrentRequest: GetObjectTorrentRequest,
-                                   file: File,
-                                   parallelism: Int = DefaultParallelism): Source[GetObjectTorrentResponse, NotUsed] =
+  def getObjectTorrentToFileSource(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      file: File,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectTorrentResponse, NotUsed] =
     Source.single((getObjectTorrentRequest, file)).via(getObjectTorrentToFileFlow(parallelism))
 
   def getObjectTorrentToFileFlow(
@@ -92,9 +100,11 @@ trait S3AkkaClientSupport {
         underlying.getObjectTorrentToFile(getObjectRequest, file)
     }
 
-  def getObjectTorrentToPathSource(getObjectTorrentRequest: GetObjectTorrentRequest,
-                                   path: Path,
-                                   parallelism: Int = DefaultParallelism): Source[GetObjectTorrentResponse, NotUsed] =
+  def getObjectTorrentToPathSource(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      path: Path,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectTorrentResponse, NotUsed] =
     Source.single((getObjectTorrentRequest, path)).via(getObjectTorrentToPathFlow(parallelism))
 
   def getObjectTorrentToPathFlow(
@@ -105,9 +115,11 @@ trait S3AkkaClientSupport {
         underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath)
     }
 
-  def getObjectTorrentSource[A](getObjectTorrentRequest: GetObjectTorrentRequest,
-                                asyncResponseTransformer: AsyncResponseTransformer[GetObjectTorrentResponse, A],
-                                parallelism: Int = DefaultParallelism): Source[A, NotUsed] =
+  def getObjectTorrentSource[A](
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      asyncResponseTransformer: AsyncResponseTransformer[GetObjectTorrentResponse, A],
+      parallelism: Int = DefaultParallelism
+  ): Source[A, NotUsed] =
     Source.single((getObjectTorrentRequest, asyncResponseTransformer)).via(getObjectTorrentFlow(parallelism))
 
   def getObjectTorrentFlow[A](
@@ -118,9 +130,11 @@ trait S3AkkaClientSupport {
         underlying.getObjectTorrent(getObjectTorrentRequest, responseTransformer)
     }
 
-  def putObjectSource(putObjectRequest: PutObjectRequest,
-                      requestBody: AsyncRequestBody,
-                      parallelism: Int = DefaultParallelism): Source[PutObjectResponse, NotUsed] =
+  def putObjectSource(
+      putObjectRequest: PutObjectRequest,
+      requestBody: AsyncRequestBody,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectResponse, NotUsed] =
     Source.single((putObjectRequest, requestBody)).via(putObjectFlow(parallelism))
 
   def putObjectFlow(
@@ -131,9 +145,11 @@ trait S3AkkaClientSupport {
         underlying.putObject(putObjectRequest, requestBody)
     }
 
-  def putObjectFromPathSource(putObjectRequest: PutObjectRequest,
-                              path: Path,
-                              parallelism: Int = DefaultParallelism): Source[PutObjectResponse, NotUsed] =
+  def putObjectFromPathSource(
+      putObjectRequest: PutObjectRequest,
+      path: Path,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectResponse, NotUsed] =
     Source.single((putObjectRequest, path)).via(putObjectFromPathFlow(parallelism))
 
   def putObjectFromPathFlow(
@@ -144,9 +160,11 @@ trait S3AkkaClientSupport {
         underlying.putObjectFromPath(putObjectRequest, sourcePath)
     }
 
-  def putObjectFromFileSource(putObjectRequest: PutObjectRequest,
-                              sourceFile: File,
-                              parallelism: Int = DefaultParallelism): Source[PutObjectResponse, NotUsed] =
+  def putObjectFromFileSource(
+      putObjectRequest: PutObjectRequest,
+      sourceFile: File,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectResponse, NotUsed] =
     Source.single((putObjectRequest, sourceFile)).via(putObjectFromFileFlow(parallelism))
 
   def putObjectFromFileFlow(
@@ -157,9 +175,11 @@ trait S3AkkaClientSupport {
         underlying.putObjectFromFile(putObjectRequest, sourceFile)
     }
 
-  def uploadPartSource(uploadPartRequest: UploadPartRequest,
-                       asyncRequestBody: AsyncRequestBody,
-                       parallelism: Int = DefaultParallelism): Source[UploadPartResponse, NotUsed] =
+  def uploadPartSource(
+      uploadPartRequest: UploadPartRequest,
+      asyncRequestBody: AsyncRequestBody,
+      parallelism: Int = DefaultParallelism
+  ): Source[UploadPartResponse, NotUsed] =
     Source.single((uploadPartRequest, asyncRequestBody)).via(uploadPartFlow(parallelism))
 
   def uploadPartFlow(
@@ -170,9 +190,11 @@ trait S3AkkaClientSupport {
         underlying.uploadPart(uploadPartRequest, requestBody)
     }
 
-  def uploadPartFromPathSource(uploadPartRequest: UploadPartRequest,
-                               path: Path,
-                               parallelism: Int = DefaultParallelism): Source[UploadPartResponse, NotUsed] =
+  def uploadPartFromPathSource(
+      uploadPartRequest: UploadPartRequest,
+      path: Path,
+      parallelism: Int = DefaultParallelism
+  ): Source[UploadPartResponse, NotUsed] =
     Source.single((uploadPartRequest, path)).via(uploadPartFromPathFlow(parallelism))
 
   def uploadPartFromPathFlow(
@@ -183,9 +205,11 @@ trait S3AkkaClientSupport {
         underlying.uploadPartFromPath(uploadPartRequest, sourcePath)
     }
 
-  def uploadPartFromFileSource(uploadPartRequest: UploadPartRequest,
-                               sourceFile: File,
-                               parallelism: Int = DefaultParallelism): Source[UploadPartResponse, NotUsed] =
+  def uploadPartFromFileSource(
+      uploadPartRequest: UploadPartRequest,
+      sourceFile: File,
+      parallelism: Int = DefaultParallelism
+  ): Source[UploadPartResponse, NotUsed] =
     Source.single((uploadPartRequest, sourceFile)).via(uploadPartFromFileFlow(parallelism))
 
   def uploadPartFromFileFlow(

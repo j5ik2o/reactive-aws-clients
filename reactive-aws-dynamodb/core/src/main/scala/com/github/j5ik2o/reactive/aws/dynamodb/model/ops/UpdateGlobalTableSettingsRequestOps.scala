@@ -65,7 +65,7 @@ final class UpdateGlobalTableSettingsRequestOps(val self: UpdateGlobalTableSetti
     Option(self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate)
 
   final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala
-    : Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]] =
+      : Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]] =
     Option(self.globalTableGlobalSecondaryIndexSettingsUpdate).map { v =>
       import scala.collection.JavaConverters._; v.asScala
     }

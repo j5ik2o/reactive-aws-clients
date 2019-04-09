@@ -35,8 +35,10 @@ trait EcrAkkaClient {
       underlying.batchCheckLayerAvailability(batchCheckLayerAvailabilityRequest)
     }
 
-  def batchDeleteImageSource(batchDeleteImageRequest: BatchDeleteImageRequest,
-                             parallelism: Int = DefaultParallelism): Source[BatchDeleteImageResponse, NotUsed] =
+  def batchDeleteImageSource(
+      batchDeleteImageRequest: BatchDeleteImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[BatchDeleteImageResponse, NotUsed] =
     Source.single(batchDeleteImageRequest).via(batchDeleteImageFlow(parallelism))
 
   def batchDeleteImageFlow(
@@ -46,8 +48,10 @@ trait EcrAkkaClient {
       underlying.batchDeleteImage(batchDeleteImageRequest)
     }
 
-  def batchGetImageSource(batchGetImageRequest: BatchGetImageRequest,
-                          parallelism: Int = DefaultParallelism): Source[BatchGetImageResponse, NotUsed] =
+  def batchGetImageSource(
+      batchGetImageRequest: BatchGetImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[BatchGetImageResponse, NotUsed] =
     Source.single(batchGetImageRequest).via(batchGetImageFlow(parallelism))
 
   def batchGetImageFlow(
@@ -57,8 +61,10 @@ trait EcrAkkaClient {
       underlying.batchGetImage(batchGetImageRequest)
     }
 
-  def completeLayerUploadSource(completeLayerUploadRequest: CompleteLayerUploadRequest,
-                                parallelism: Int = DefaultParallelism): Source[CompleteLayerUploadResponse, NotUsed] =
+  def completeLayerUploadSource(
+      completeLayerUploadRequest: CompleteLayerUploadRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CompleteLayerUploadResponse, NotUsed] =
     Source.single(completeLayerUploadRequest).via(completeLayerUploadFlow(parallelism))
 
   def completeLayerUploadFlow(
@@ -68,8 +74,10 @@ trait EcrAkkaClient {
       underlying.completeLayerUpload(completeLayerUploadRequest)
     }
 
-  def createRepositorySource(createRepositoryRequest: CreateRepositoryRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateRepositoryResponse, NotUsed] =
+  def createRepositorySource(
+      createRepositoryRequest: CreateRepositoryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateRepositoryResponse, NotUsed] =
     Source.single(createRepositoryRequest).via(createRepositoryFlow(parallelism))
 
   def createRepositoryFlow(
@@ -92,8 +100,10 @@ trait EcrAkkaClient {
       underlying.deleteLifecyclePolicy(deleteLifecyclePolicyRequest)
     }
 
-  def deleteRepositorySource(deleteRepositoryRequest: DeleteRepositoryRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteRepositoryResponse, NotUsed] =
+  def deleteRepositorySource(
+      deleteRepositoryRequest: DeleteRepositoryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteRepositoryResponse, NotUsed] =
     Source.single(deleteRepositoryRequest).via(deleteRepositoryFlow(parallelism))
 
   def deleteRepositoryFlow(
@@ -116,8 +126,10 @@ trait EcrAkkaClient {
       underlying.deleteRepositoryPolicy(deleteRepositoryPolicyRequest)
     }
 
-  def describeImagesSource(describeImagesRequest: DescribeImagesRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeImagesResponse, NotUsed] =
+  def describeImagesSource(
+      describeImagesRequest: DescribeImagesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeImagesResponse, NotUsed] =
     Source.single(describeImagesRequest).via(describeImagesFlow(parallelism))
 
   def describeImagesFlow(
@@ -132,8 +144,10 @@ trait EcrAkkaClient {
       Source.fromPublisher(underlying.describeImagesPaginator(request))
     }
 
-  def describeRepositoriesSource(describeRepositoriesRequest: DescribeRepositoriesRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeRepositoriesResponse, NotUsed] =
+  def describeRepositoriesSource(
+      describeRepositoriesRequest: DescribeRepositoriesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeRepositoriesResponse, NotUsed] =
     Source.single(describeRepositoriesRequest).via(describeRepositoriesFlow(parallelism))
 
   def describeRepositoriesFlow(
@@ -183,8 +197,10 @@ trait EcrAkkaClient {
       underlying.getDownloadUrlForLayer(getDownloadUrlForLayerRequest)
     }
 
-  def getLifecyclePolicySource(getLifecyclePolicyRequest: GetLifecyclePolicyRequest,
-                               parallelism: Int = DefaultParallelism): Source[GetLifecyclePolicyResponse, NotUsed] =
+  def getLifecyclePolicySource(
+      getLifecyclePolicyRequest: GetLifecyclePolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetLifecyclePolicyResponse, NotUsed] =
     Source.single(getLifecyclePolicyRequest).via(getLifecyclePolicyFlow(parallelism))
 
   def getLifecyclePolicyFlow(
@@ -207,8 +223,10 @@ trait EcrAkkaClient {
       underlying.getLifecyclePolicyPreview(getLifecyclePolicyPreviewRequest)
     }
 
-  def getRepositoryPolicySource(getRepositoryPolicyRequest: GetRepositoryPolicyRequest,
-                                parallelism: Int = DefaultParallelism): Source[GetRepositoryPolicyResponse, NotUsed] =
+  def getRepositoryPolicySource(
+      getRepositoryPolicyRequest: GetRepositoryPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetRepositoryPolicyResponse, NotUsed] =
     Source.single(getRepositoryPolicyRequest).via(getRepositoryPolicyFlow(parallelism))
 
   def getRepositoryPolicyFlow(
@@ -218,8 +236,10 @@ trait EcrAkkaClient {
       underlying.getRepositoryPolicy(getRepositoryPolicyRequest)
     }
 
-  def initiateLayerUploadSource(initiateLayerUploadRequest: InitiateLayerUploadRequest,
-                                parallelism: Int = DefaultParallelism): Source[InitiateLayerUploadResponse, NotUsed] =
+  def initiateLayerUploadSource(
+      initiateLayerUploadRequest: InitiateLayerUploadRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[InitiateLayerUploadResponse, NotUsed] =
     Source.single(initiateLayerUploadRequest).via(initiateLayerUploadFlow(parallelism))
 
   def initiateLayerUploadFlow(
@@ -229,8 +249,10 @@ trait EcrAkkaClient {
       underlying.initiateLayerUpload(initiateLayerUploadRequest)
     }
 
-  def listImagesSource(listImagesRequest: ListImagesRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListImagesResponse, NotUsed] =
+  def listImagesSource(
+      listImagesRequest: ListImagesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListImagesResponse, NotUsed] =
     Source.single(listImagesRequest).via(listImagesFlow(parallelism))
 
   def listImagesFlow(parallelism: Int = DefaultParallelism): Flow[ListImagesRequest, ListImagesResponse, NotUsed] =
@@ -243,8 +265,10 @@ trait EcrAkkaClient {
       Source.fromPublisher(underlying.listImagesPaginator(request))
     }
 
-  def listTagsForResourceSource(listTagsForResourceRequest: ListTagsForResourceRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListTagsForResourceResponse, NotUsed] =
+  def listTagsForResourceSource(
+      listTagsForResourceRequest: ListTagsForResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForResourceResponse, NotUsed] =
     Source.single(listTagsForResourceRequest).via(listTagsForResourceFlow(parallelism))
 
   def listTagsForResourceFlow(
@@ -254,8 +278,10 @@ trait EcrAkkaClient {
       underlying.listTagsForResource(listTagsForResourceRequest)
     }
 
-  def putImageSource(putImageRequest: PutImageRequest,
-                     parallelism: Int = DefaultParallelism): Source[PutImageResponse, NotUsed] =
+  def putImageSource(
+      putImageRequest: PutImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutImageResponse, NotUsed] =
     Source.single(putImageRequest).via(putImageFlow(parallelism))
 
   def putImageFlow(parallelism: Int = DefaultParallelism): Flow[PutImageRequest, PutImageResponse, NotUsed] =
@@ -263,8 +289,10 @@ trait EcrAkkaClient {
       underlying.putImage(putImageRequest)
     }
 
-  def putLifecyclePolicySource(putLifecyclePolicyRequest: PutLifecyclePolicyRequest,
-                               parallelism: Int = DefaultParallelism): Source[PutLifecyclePolicyResponse, NotUsed] =
+  def putLifecyclePolicySource(
+      putLifecyclePolicyRequest: PutLifecyclePolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutLifecyclePolicyResponse, NotUsed] =
     Source.single(putLifecyclePolicyRequest).via(putLifecyclePolicyFlow(parallelism))
 
   def putLifecyclePolicyFlow(
@@ -274,8 +302,10 @@ trait EcrAkkaClient {
       underlying.putLifecyclePolicy(putLifecyclePolicyRequest)
     }
 
-  def setRepositoryPolicySource(setRepositoryPolicyRequest: SetRepositoryPolicyRequest,
-                                parallelism: Int = DefaultParallelism): Source[SetRepositoryPolicyResponse, NotUsed] =
+  def setRepositoryPolicySource(
+      setRepositoryPolicyRequest: SetRepositoryPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SetRepositoryPolicyResponse, NotUsed] =
     Source.single(setRepositoryPolicyRequest).via(setRepositoryPolicyFlow(parallelism))
 
   def setRepositoryPolicyFlow(
@@ -298,8 +328,10 @@ trait EcrAkkaClient {
       underlying.startLifecyclePolicyPreview(startLifecyclePolicyPreviewRequest)
     }
 
-  def tagResourceSource(tagResourceRequest: TagResourceRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
@@ -307,8 +339,10 @@ trait EcrAkkaClient {
       underlying.tagResource(tagResourceRequest)
     }
 
-  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
     Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
 
   def untagResourceFlow(
@@ -318,8 +352,10 @@ trait EcrAkkaClient {
       underlying.untagResource(untagResourceRequest)
     }
 
-  def uploadLayerPartSource(uploadLayerPartRequest: UploadLayerPartRequest,
-                            parallelism: Int = DefaultParallelism): Source[UploadLayerPartResponse, NotUsed] =
+  def uploadLayerPartSource(
+      uploadLayerPartRequest: UploadLayerPartRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UploadLayerPartResponse, NotUsed] =
     Source.single(uploadLayerPartRequest).via(uploadLayerPartFlow(parallelism))
 
   def uploadLayerPartFlow(

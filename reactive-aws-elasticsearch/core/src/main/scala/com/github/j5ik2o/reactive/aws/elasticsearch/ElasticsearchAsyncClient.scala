@@ -76,11 +76,11 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
       .describeReservedElasticsearchInstanceOfferings(describeReservedElasticsearchInstanceOfferingsRequest).toScala
 
   override def describeReservedElasticsearchInstanceOfferings()
-    : Future[DescribeReservedElasticsearchInstanceOfferingsResponse] =
+      : Future[DescribeReservedElasticsearchInstanceOfferingsResponse] =
     underlying.describeReservedElasticsearchInstanceOfferings().toScala
 
   def describeReservedElasticsearchInstanceOfferingsPaginator()
-    : DescribeReservedElasticsearchInstanceOfferingsPublisher =
+      : DescribeReservedElasticsearchInstanceOfferingsPublisher =
     underlying.describeReservedElasticsearchInstanceOfferingsPaginator()
 
   def describeReservedElasticsearchInstanceOfferingsPaginator(

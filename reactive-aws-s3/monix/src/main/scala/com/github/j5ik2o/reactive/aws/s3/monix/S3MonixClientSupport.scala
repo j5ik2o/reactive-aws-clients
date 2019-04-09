@@ -31,8 +31,10 @@ trait S3MonixClientSupport { this: S3MonixClient =>
       underlying.getObjectToPath(getObjectRequest, destinationPath)
     }
 
-  override def getObject[A](getObjectRequest: GetObjectRequest,
-                            responseTransformer: AsyncResponseTransformer[GetObjectResponse, A]): Task[A] =
+  override def getObject[A](
+      getObjectRequest: GetObjectRequest,
+      responseTransformer: AsyncResponseTransformer[GetObjectResponse, A]
+  ): Task[A] =
     Task.deferFuture {
       underlying.getObject(getObjectRequest, responseTransformer)
     }
@@ -43,13 +45,17 @@ trait S3MonixClientSupport { this: S3MonixClient =>
     underlying.getObjectTorrentAsBytes(getObjectRequest)
   }
 
-  override def getObjectTorrentToFile(getObjectRequest: GetObjectTorrentRequest,
-                                      file: File): Task[GetObjectTorrentResponse] = Task.deferFuture {
+  override def getObjectTorrentToFile(
+      getObjectRequest: GetObjectTorrentRequest,
+      file: File
+  ): Task[GetObjectTorrentResponse] = Task.deferFuture {
     underlying.getObjectTorrentToFile(getObjectRequest, file)
   }
 
-  override def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
-                                      destinationPath: Path): Task[GetObjectTorrentResponse] = Task.deferFuture {
+  override def getObjectTorrentToPath(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      destinationPath: Path
+  ): Task[GetObjectTorrentResponse] = Task.deferFuture {
     underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath)
   }
 
@@ -75,8 +81,10 @@ trait S3MonixClientSupport { this: S3MonixClient =>
       underlying.putObjectFromFile(putObjectRequest, sourceFile)
     }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest,
-                          requestBody: AsyncRequestBody): Task[UploadPartResponse] = Task.deferFuture {
+  override def uploadPart(
+      uploadPartRequest: UploadPartRequest,
+      requestBody: AsyncRequestBody
+  ): Task[UploadPartResponse] = Task.deferFuture {
     underlying.uploadPart(uploadPartRequest, requestBody)
   }
 

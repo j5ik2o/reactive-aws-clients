@@ -24,8 +24,10 @@ trait DaxAkkaClient {
 
   val underlying: DaxAsyncClient
 
-  def createClusterSource(createClusterRequest: CreateClusterRequest,
-                          parallelism: Int = DefaultParallelism): Source[CreateClusterResponse, NotUsed] =
+  def createClusterSource(
+      createClusterRequest: CreateClusterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateClusterResponse, NotUsed] =
     Source.single(createClusterRequest).via(createClusterFlow(parallelism))
 
   def createClusterFlow(
@@ -35,8 +37,10 @@ trait DaxAkkaClient {
       underlying.createCluster(createClusterRequest)
     }
 
-  def createParameterGroupSource(createParameterGroupRequest: CreateParameterGroupRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreateParameterGroupResponse, NotUsed] =
+  def createParameterGroupSource(
+      createParameterGroupRequest: CreateParameterGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateParameterGroupResponse, NotUsed] =
     Source.single(createParameterGroupRequest).via(createParameterGroupFlow(parallelism))
 
   def createParameterGroupFlow(
@@ -46,8 +50,10 @@ trait DaxAkkaClient {
       underlying.createParameterGroup(createParameterGroupRequest)
     }
 
-  def createSubnetGroupSource(createSubnetGroupRequest: CreateSubnetGroupRequest,
-                              parallelism: Int = DefaultParallelism): Source[CreateSubnetGroupResponse, NotUsed] =
+  def createSubnetGroupSource(
+      createSubnetGroupRequest: CreateSubnetGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateSubnetGroupResponse, NotUsed] =
     Source.single(createSubnetGroupRequest).via(createSubnetGroupFlow(parallelism))
 
   def createSubnetGroupFlow(
@@ -70,8 +76,10 @@ trait DaxAkkaClient {
       underlying.decreaseReplicationFactor(decreaseReplicationFactorRequest)
     }
 
-  def deleteClusterSource(deleteClusterRequest: DeleteClusterRequest,
-                          parallelism: Int = DefaultParallelism): Source[DeleteClusterResponse, NotUsed] =
+  def deleteClusterSource(
+      deleteClusterRequest: DeleteClusterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteClusterResponse, NotUsed] =
     Source.single(deleteClusterRequest).via(deleteClusterFlow(parallelism))
 
   def deleteClusterFlow(
@@ -81,8 +89,10 @@ trait DaxAkkaClient {
       underlying.deleteCluster(deleteClusterRequest)
     }
 
-  def deleteParameterGroupSource(deleteParameterGroupRequest: DeleteParameterGroupRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteParameterGroupResponse, NotUsed] =
+  def deleteParameterGroupSource(
+      deleteParameterGroupRequest: DeleteParameterGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteParameterGroupResponse, NotUsed] =
     Source.single(deleteParameterGroupRequest).via(deleteParameterGroupFlow(parallelism))
 
   def deleteParameterGroupFlow(
@@ -92,8 +102,10 @@ trait DaxAkkaClient {
       underlying.deleteParameterGroup(deleteParameterGroupRequest)
     }
 
-  def deleteSubnetGroupSource(deleteSubnetGroupRequest: DeleteSubnetGroupRequest,
-                              parallelism: Int = DefaultParallelism): Source[DeleteSubnetGroupResponse, NotUsed] =
+  def deleteSubnetGroupSource(
+      deleteSubnetGroupRequest: DeleteSubnetGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteSubnetGroupResponse, NotUsed] =
     Source.single(deleteSubnetGroupRequest).via(deleteSubnetGroupFlow(parallelism))
 
   def deleteSubnetGroupFlow(
@@ -103,8 +115,10 @@ trait DaxAkkaClient {
       underlying.deleteSubnetGroup(deleteSubnetGroupRequest)
     }
 
-  def describeClustersSource(describeClustersRequest: DescribeClustersRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeClustersResponse, NotUsed] =
+  def describeClustersSource(
+      describeClustersRequest: DescribeClustersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeClustersResponse, NotUsed] =
     Source.single(describeClustersRequest).via(describeClustersFlow(parallelism))
 
   def describeClustersFlow(
@@ -133,8 +147,10 @@ trait DaxAkkaClient {
   def describeDefaultParametersSource(): Source[DescribeDefaultParametersResponse, NotUsed] =
     Source.fromFuture(underlying.describeDefaultParameters())
 
-  def describeEventsSource(describeEventsRequest: DescribeEventsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeEventsResponse, NotUsed] =
+  def describeEventsSource(
+      describeEventsRequest: DescribeEventsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeEventsResponse, NotUsed] =
     Source.single(describeEventsRequest).via(describeEventsFlow(parallelism))
 
   def describeEventsFlow(
@@ -163,8 +179,10 @@ trait DaxAkkaClient {
   def describeParameterGroupsSource(): Source[DescribeParameterGroupsResponse, NotUsed] =
     Source.fromFuture(underlying.describeParameterGroups())
 
-  def describeParametersSource(describeParametersRequest: DescribeParametersRequest,
-                               parallelism: Int = DefaultParallelism): Source[DescribeParametersResponse, NotUsed] =
+  def describeParametersSource(
+      describeParametersRequest: DescribeParametersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeParametersResponse, NotUsed] =
     Source.single(describeParametersRequest).via(describeParametersFlow(parallelism))
 
   def describeParametersFlow(
@@ -174,8 +192,10 @@ trait DaxAkkaClient {
       underlying.describeParameters(describeParametersRequest)
     }
 
-  def describeSubnetGroupsSource(describeSubnetGroupsRequest: DescribeSubnetGroupsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeSubnetGroupsResponse, NotUsed] =
+  def describeSubnetGroupsSource(
+      describeSubnetGroupsRequest: DescribeSubnetGroupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeSubnetGroupsResponse, NotUsed] =
     Source.single(describeSubnetGroupsRequest).via(describeSubnetGroupsFlow(parallelism))
 
   def describeSubnetGroupsFlow(
@@ -201,8 +221,10 @@ trait DaxAkkaClient {
       underlying.increaseReplicationFactor(increaseReplicationFactorRequest)
     }
 
-  def listTagsSource(listTagsRequest: ListTagsRequest,
-                     parallelism: Int = DefaultParallelism): Source[ListTagsResponse, NotUsed] =
+  def listTagsSource(
+      listTagsRequest: ListTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsResponse, NotUsed] =
     Source.single(listTagsRequest).via(listTagsFlow(parallelism))
 
   def listTagsFlow(parallelism: Int = DefaultParallelism): Flow[ListTagsRequest, ListTagsResponse, NotUsed] =
@@ -210,8 +232,10 @@ trait DaxAkkaClient {
       underlying.listTags(listTagsRequest)
     }
 
-  def rebootNodeSource(rebootNodeRequest: RebootNodeRequest,
-                       parallelism: Int = DefaultParallelism): Source[RebootNodeResponse, NotUsed] =
+  def rebootNodeSource(
+      rebootNodeRequest: RebootNodeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RebootNodeResponse, NotUsed] =
     Source.single(rebootNodeRequest).via(rebootNodeFlow(parallelism))
 
   def rebootNodeFlow(parallelism: Int = DefaultParallelism): Flow[RebootNodeRequest, RebootNodeResponse, NotUsed] =
@@ -219,8 +243,10 @@ trait DaxAkkaClient {
       underlying.rebootNode(rebootNodeRequest)
     }
 
-  def tagResourceSource(tagResourceRequest: TagResourceRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
@@ -228,8 +254,10 @@ trait DaxAkkaClient {
       underlying.tagResource(tagResourceRequest)
     }
 
-  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
     Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
 
   def untagResourceFlow(
@@ -239,8 +267,10 @@ trait DaxAkkaClient {
       underlying.untagResource(untagResourceRequest)
     }
 
-  def updateClusterSource(updateClusterRequest: UpdateClusterRequest,
-                          parallelism: Int = DefaultParallelism): Source[UpdateClusterResponse, NotUsed] =
+  def updateClusterSource(
+      updateClusterRequest: UpdateClusterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateClusterResponse, NotUsed] =
     Source.single(updateClusterRequest).via(updateClusterFlow(parallelism))
 
   def updateClusterFlow(
@@ -250,8 +280,10 @@ trait DaxAkkaClient {
       underlying.updateCluster(updateClusterRequest)
     }
 
-  def updateParameterGroupSource(updateParameterGroupRequest: UpdateParameterGroupRequest,
-                                 parallelism: Int = DefaultParallelism): Source[UpdateParameterGroupResponse, NotUsed] =
+  def updateParameterGroupSource(
+      updateParameterGroupRequest: UpdateParameterGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateParameterGroupResponse, NotUsed] =
     Source.single(updateParameterGroupRequest).via(updateParameterGroupFlow(parallelism))
 
   def updateParameterGroupFlow(
@@ -261,8 +293,10 @@ trait DaxAkkaClient {
       underlying.updateParameterGroup(updateParameterGroupRequest)
     }
 
-  def updateSubnetGroupSource(updateSubnetGroupRequest: UpdateSubnetGroupRequest,
-                              parallelism: Int = DefaultParallelism): Source[UpdateSubnetGroupResponse, NotUsed] =
+  def updateSubnetGroupSource(
+      updateSubnetGroupRequest: UpdateSubnetGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateSubnetGroupResponse, NotUsed] =
     Source.single(updateSubnetGroupRequest).via(updateSubnetGroupFlow(parallelism))
 
   def updateSubnetGroupFlow(

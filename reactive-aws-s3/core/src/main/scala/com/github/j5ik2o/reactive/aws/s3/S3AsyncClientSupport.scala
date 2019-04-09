@@ -27,8 +27,10 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
   override def getObjectToPath(getObjectRequest: GetObjectRequest, destinationPath: Path): Future[GetObjectResponse] = {
     getObject(getObjectRequest, AsyncResponseTransformer.toFile[GetObjectResponse](destinationPath))
   }
-  override def getObject[A](getObjectRequest: GetObjectRequest,
-                            asyncResponseTransformer: AsyncResponseTransformer[GetObjectResponse, A]): Future[A] = {
+  override def getObject[A](
+      getObjectRequest: GetObjectRequest,
+      asyncResponseTransformer: AsyncResponseTransformer[GetObjectResponse, A]
+  ): Future[A] = {
     underlying
       .getObject(
         getObjectRequest,
@@ -42,8 +44,10 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
     getObjectTorrent(getObjectRequest, AsyncResponseTransformer.toBytes[GetObjectTorrentResponse])
   }
 
-  override def getObjectTorrentToFile(getObjectRequest: GetObjectTorrentRequest,
-                                      file: File): Future[GetObjectTorrentResponse] = {
+  override def getObjectTorrentToFile(
+      getObjectRequest: GetObjectTorrentRequest,
+      file: File
+  ): Future[GetObjectTorrentResponse] = {
     getObjectTorrent(getObjectRequest, AsyncResponseTransformer.toFile[GetObjectTorrentResponse](file))
   }
 
@@ -58,14 +62,18 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       ).toScala
   }
 
-  override def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
-                                      destinationPath: Path): Future[GetObjectTorrentResponse] = {
+  override def getObjectTorrentToPath(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      destinationPath: Path
+  ): Future[GetObjectTorrentResponse] = {
     underlying
       .getObjectTorrent(getObjectTorrentRequest, destinationPath).toScala
   }
 
-  override def putObject(putObjectRequest: PutObjectRequest,
-                         requestBody: AsyncRequestBody): Future[PutObjectResponse] = {
+  override def putObject(
+      putObjectRequest: PutObjectRequest,
+      requestBody: AsyncRequestBody
+  ): Future[PutObjectResponse] = {
     underlying
       .putObject(
         putObjectRequest,
@@ -81,8 +89,10 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
     underlying.putObject(putObjectRequest, sourceFile.toPath).toScala
   }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest,
-                          requestBody: AsyncRequestBody): Future[UploadPartResponse] = {
+  override def uploadPart(
+      uploadPartRequest: UploadPartRequest,
+      requestBody: AsyncRequestBody
+  ): Future[UploadPartResponse] = {
     underlying
       .uploadPart(
         uploadPartRequest,
@@ -90,13 +100,17 @@ trait S3AsyncClientSupport extends S3ClientSupport[Future] {
       ).toScala
   }
 
-  override def uploadPartFromPath(uploadPartRequest: UploadPartRequest,
-                                  sourcePath: Path): Future[UploadPartResponse] = {
+  override def uploadPartFromPath(
+      uploadPartRequest: UploadPartRequest,
+      sourcePath: Path
+  ): Future[UploadPartResponse] = {
     underlying.uploadPart(uploadPartRequest, sourcePath).toScala
   }
 
-  override def uploadPartFromFile(uploadPartRequest: UploadPartRequest,
-                                  sourceFile: File): Future[UploadPartResponse] = {
+  override def uploadPartFromFile(
+      uploadPartRequest: UploadPartRequest,
+      sourceFile: File
+  ): Future[UploadPartResponse] = {
     underlying.uploadPart(uploadPartRequest, sourceFile.toPath).toScala
   }
 

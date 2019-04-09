@@ -22,8 +22,10 @@ trait BatchAkkaClient {
 
   val underlying: BatchAsyncClient
 
-  def cancelJobSource(cancelJobRequest: CancelJobRequest,
-                      parallelism: Int = DefaultParallelism): Source[CancelJobResponse, NotUsed] =
+  def cancelJobSource(
+      cancelJobRequest: CancelJobRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelJobResponse, NotUsed] =
     Source.single(cancelJobRequest).via(cancelJobFlow(parallelism))
 
   def cancelJobFlow(parallelism: Int = DefaultParallelism): Flow[CancelJobRequest, CancelJobResponse, NotUsed] =
@@ -44,8 +46,10 @@ trait BatchAkkaClient {
       underlying.createComputeEnvironment(createComputeEnvironmentRequest)
     }
 
-  def createJobQueueSource(createJobQueueRequest: CreateJobQueueRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateJobQueueResponse, NotUsed] =
+  def createJobQueueSource(
+      createJobQueueRequest: CreateJobQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateJobQueueResponse, NotUsed] =
     Source.single(createJobQueueRequest).via(createJobQueueFlow(parallelism))
 
   def createJobQueueFlow(
@@ -68,8 +72,10 @@ trait BatchAkkaClient {
       underlying.deleteComputeEnvironment(deleteComputeEnvironmentRequest)
     }
 
-  def deleteJobQueueSource(deleteJobQueueRequest: DeleteJobQueueRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteJobQueueResponse, NotUsed] =
+  def deleteJobQueueSource(
+      deleteJobQueueRequest: DeleteJobQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteJobQueueResponse, NotUsed] =
     Source.single(deleteJobQueueRequest).via(deleteJobQueueFlow(parallelism))
 
   def deleteJobQueueFlow(
@@ -124,8 +130,10 @@ trait BatchAkkaClient {
   def describeJobDefinitionsSource(): Source[DescribeJobDefinitionsResponse, NotUsed] =
     Source.fromFuture(underlying.describeJobDefinitions())
 
-  def describeJobQueuesSource(describeJobQueuesRequest: DescribeJobQueuesRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeJobQueuesResponse, NotUsed] =
+  def describeJobQueuesSource(
+      describeJobQueuesRequest: DescribeJobQueuesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeJobQueuesResponse, NotUsed] =
     Source.single(describeJobQueuesRequest).via(describeJobQueuesFlow(parallelism))
 
   def describeJobQueuesFlow(
@@ -138,8 +146,10 @@ trait BatchAkkaClient {
   def describeJobQueuesSource(): Source[DescribeJobQueuesResponse, NotUsed] =
     Source.fromFuture(underlying.describeJobQueues())
 
-  def describeJobsSource(describeJobsRequest: DescribeJobsRequest,
-                         parallelism: Int = DefaultParallelism): Source[DescribeJobsResponse, NotUsed] =
+  def describeJobsSource(
+      describeJobsRequest: DescribeJobsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeJobsResponse, NotUsed] =
     Source.single(describeJobsRequest).via(describeJobsFlow(parallelism))
 
   def describeJobsFlow(
@@ -149,8 +159,10 @@ trait BatchAkkaClient {
       underlying.describeJobs(describeJobsRequest)
     }
 
-  def listJobsSource(listJobsRequest: ListJobsRequest,
-                     parallelism: Int = DefaultParallelism): Source[ListJobsResponse, NotUsed] =
+  def listJobsSource(
+      listJobsRequest: ListJobsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListJobsResponse, NotUsed] =
     Source.single(listJobsRequest).via(listJobsFlow(parallelism))
 
   def listJobsFlow(parallelism: Int = DefaultParallelism): Flow[ListJobsRequest, ListJobsResponse, NotUsed] =
@@ -171,8 +183,10 @@ trait BatchAkkaClient {
       underlying.registerJobDefinition(registerJobDefinitionRequest)
     }
 
-  def submitJobSource(submitJobRequest: SubmitJobRequest,
-                      parallelism: Int = DefaultParallelism): Source[SubmitJobResponse, NotUsed] =
+  def submitJobSource(
+      submitJobRequest: SubmitJobRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SubmitJobResponse, NotUsed] =
     Source.single(submitJobRequest).via(submitJobFlow(parallelism))
 
   def submitJobFlow(parallelism: Int = DefaultParallelism): Flow[SubmitJobRequest, SubmitJobResponse, NotUsed] =
@@ -180,8 +194,10 @@ trait BatchAkkaClient {
       underlying.submitJob(submitJobRequest)
     }
 
-  def terminateJobSource(terminateJobRequest: TerminateJobRequest,
-                         parallelism: Int = DefaultParallelism): Source[TerminateJobResponse, NotUsed] =
+  def terminateJobSource(
+      terminateJobRequest: TerminateJobRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TerminateJobResponse, NotUsed] =
     Source.single(terminateJobRequest).via(terminateJobFlow(parallelism))
 
   def terminateJobFlow(
@@ -204,8 +220,10 @@ trait BatchAkkaClient {
       underlying.updateComputeEnvironment(updateComputeEnvironmentRequest)
     }
 
-  def updateJobQueueSource(updateJobQueueRequest: UpdateJobQueueRequest,
-                           parallelism: Int = DefaultParallelism): Source[UpdateJobQueueResponse, NotUsed] =
+  def updateJobQueueSource(
+      updateJobQueueRequest: UpdateJobQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateJobQueueResponse, NotUsed] =
     Source.single(updateJobQueueRequest).via(updateJobQueueFlow(parallelism))
 
   def updateJobQueueFlow(

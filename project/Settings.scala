@@ -1,10 +1,10 @@
 import com.github.j5ik2o.sbt.wrapper.gen.SbtWrapperGenPlugin.autoImport._
-import com.github.j5ik2o.sbt.wrapper.gen.model.{ ClassDesc, TypeDesc }
-import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.{ scalafmtOnCompile, scalafmtTestOnCompile }
-import sbt.{ Classpaths, Credentials, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
+import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 import sbt.Keys._
+import sbt.{ Classpaths, Credentials, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
 import wartremover.WartRemover.autoImport.{ wartremoverErrors, wartremoverExcluded, Wart, Warts }
 import xerial.sbt.Sonatype.autoImport.{ sonatypeProfileName, sonatypePublishTo }
+import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
 
 object Settings {
   val sdkBaseName     = settingKey[String]("sdk base name")
@@ -38,7 +38,7 @@ object Settings {
   val coreSettings = Seq(
     sonatypeProfileName := "com.github.j5ik2o",
     organization := "com.github.j5ik2o",
-    scalaVersion := scalaVersion212,
+    scalaVersion := scalaVersion211,
     crossScalaVersions ++= Seq(scalaVersion211, scalaVersion212),
     scalacOptions ++= {
       Seq(
@@ -84,7 +84,6 @@ object Settings {
       Credentials(ivyCredentials) :: Nil
     },
     scalafmtOnCompile in ThisBuild := true,
-    scalafmtTestOnCompile in ThisBuild := true,
     resolvers ++= Seq(
       Resolver.bintrayRepo("danslapman", "maven"),
       "Seasar Repository" at "http://maven.seasar.org/maven2/",
@@ -97,27 +96,30 @@ object Settings {
       "org.slf4j"              % "slf4j-api"           % "1.7.25",
       "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0",
     ),
-    dependencyOverrides ++= Seq(
-      "org.scalatest"               %% "scalatest"                  % "3.0.5",
-      "org.slf4j"                   % "slf4j-api"                   % "1.7.25",
-      "org.scala-lang"              % "scala-reflect"               % "2.12.8",
-      "org.scala-lang"              % "scala-library"               % "2.12.8",
-      "org.scala-lang.modules"      %% "scala-java8-compat"         % "0.9.0",
-      "org.apache.httpcomponents"   % "httpcore"                    % "4.5.6",
-      "org.apache.httpcomponents"   % "httpclient"                  % "4.5.6",
-      "com.fasterxml.jackson.core"  % "jackson-core"                % "2.9.8",
-      "com.fasterxml.jackson.core"  % "jackson-databind"            % "2.9.8",
-      "com.fasterxml.jackson.core"  % "jackson-annotations"         % "2.9.8",
-      "com.fasterxml.jackson.jaxrs" % "jackson-jaxrs-json-provider" % "2.9.8",
-      "com.fasterxml.jackson.jaxrs" % "jackson-jaxrs-base"          % "2.9.8",
-      "commons-codec"               % "commons-codec"               % "1.10",
-      "commons-io"                  % "commons-io"                  % "2.6",
-      "org.reactivestreams"         % "reactive-streams"            % "1.0.2",
-      "io.netty"                    % "netty-codec-http"            % "4.1.33.Final",
-      "io.netty"                    % "netty-handler"               % "4.1.33.Final",
-      "com.google.code.findbugs"    % "jsr305"                      % "3.0.2",
-      "com.google.guava"            % "guava"                       % "25.1-jre"
-    ),
+    dependencyOverrides ++= {
+      Seq(
+        "org.scalatest"               %% "scalatest"                  % "3.0.5",
+        "org.slf4j"                   % "slf4j-api"                   % "1.7.25",
+        "org.scala-lang.modules"      %% "scala-java8-compat"         % "0.9.0",
+        "org.apache.httpcomponents"   % "httpcore"                    % "4.4.11",
+        "org.apache.httpcomponents"   % "httpclient"                  % "4.5.6",
+        "com.fasterxml.jackson.core"  % "jackson-core"                % "2.9.8",
+        "com.fasterxml.jackson.core"  % "jackson-databind"            % "2.9.8",
+        "com.fasterxml.jackson.core"  % "jackson-annotations"         % "2.9.8",
+        "com.fasterxml.jackson.jaxrs" % "jackson-jaxrs-json-provider" % "2.9.8",
+        "com.fasterxml.jackson.jaxrs" % "jackson-jaxrs-base"          % "2.9.8",
+        "commons-codec"               % "commons-codec"               % "1.10",
+        "commons-io"                  % "commons-io"                  % "2.6",
+        "org.reactivestreams"         % "reactive-streams"            % "1.0.2",
+        "io.netty"                    % "netty-codec-http"            % "4.1.33.Final",
+        "io.netty"                    % "netty-handler"               % "4.1.33.Final",
+        "com.google.code.findbugs"    % "jsr305"                      % "3.0.2",
+        "com.google.guava"            % "guava"                       % "25.1-jre",
+        "commons-logging"             % "commons-logging"             % "1.2",
+        "org.scala-lang"              % "scala-reflect"               % scalaVersion.value,
+        "org.scala-lang"              % "scala-library"               % scalaVersion.value
+      )
+    },
     parallelExecution in Test := false,
     wartremoverErrors ++= Warts.allBut(
       Wart.ArrayEquals,

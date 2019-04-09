@@ -22,8 +22,10 @@ trait CloudFormationAkkaClient {
 
   val underlying: CloudFormationAsyncClient
 
-  def cancelUpdateStackSource(cancelUpdateStackRequest: CancelUpdateStackRequest,
-                              parallelism: Int = DefaultParallelism): Source[CancelUpdateStackResponse, NotUsed] =
+  def cancelUpdateStackSource(
+      cancelUpdateStackRequest: CancelUpdateStackRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelUpdateStackResponse, NotUsed] =
     Source.single(cancelUpdateStackRequest).via(cancelUpdateStackFlow(parallelism))
 
   def cancelUpdateStackFlow(
@@ -46,8 +48,10 @@ trait CloudFormationAkkaClient {
       underlying.continueUpdateRollback(continueUpdateRollbackRequest)
     }
 
-  def createChangeSetSource(createChangeSetRequest: CreateChangeSetRequest,
-                            parallelism: Int = DefaultParallelism): Source[CreateChangeSetResponse, NotUsed] =
+  def createChangeSetSource(
+      createChangeSetRequest: CreateChangeSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateChangeSetResponse, NotUsed] =
     Source.single(createChangeSetRequest).via(createChangeSetFlow(parallelism))
 
   def createChangeSetFlow(
@@ -57,8 +61,10 @@ trait CloudFormationAkkaClient {
       underlying.createChangeSet(createChangeSetRequest)
     }
 
-  def createStackSource(createStackRequest: CreateStackRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateStackResponse, NotUsed] =
+  def createStackSource(
+      createStackRequest: CreateStackRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateStackResponse, NotUsed] =
     Source.single(createStackRequest).via(createStackFlow(parallelism))
 
   def createStackFlow(parallelism: Int = DefaultParallelism): Flow[CreateStackRequest, CreateStackResponse, NotUsed] =
@@ -66,8 +72,10 @@ trait CloudFormationAkkaClient {
       underlying.createStack(createStackRequest)
     }
 
-  def createStackInstancesSource(createStackInstancesRequest: CreateStackInstancesRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreateStackInstancesResponse, NotUsed] =
+  def createStackInstancesSource(
+      createStackInstancesRequest: CreateStackInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateStackInstancesResponse, NotUsed] =
     Source.single(createStackInstancesRequest).via(createStackInstancesFlow(parallelism))
 
   def createStackInstancesFlow(
@@ -77,8 +85,10 @@ trait CloudFormationAkkaClient {
       underlying.createStackInstances(createStackInstancesRequest)
     }
 
-  def createStackSetSource(createStackSetRequest: CreateStackSetRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateStackSetResponse, NotUsed] =
+  def createStackSetSource(
+      createStackSetRequest: CreateStackSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateStackSetResponse, NotUsed] =
     Source.single(createStackSetRequest).via(createStackSetFlow(parallelism))
 
   def createStackSetFlow(
@@ -88,8 +98,10 @@ trait CloudFormationAkkaClient {
       underlying.createStackSet(createStackSetRequest)
     }
 
-  def deleteChangeSetSource(deleteChangeSetRequest: DeleteChangeSetRequest,
-                            parallelism: Int = DefaultParallelism): Source[DeleteChangeSetResponse, NotUsed] =
+  def deleteChangeSetSource(
+      deleteChangeSetRequest: DeleteChangeSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteChangeSetResponse, NotUsed] =
     Source.single(deleteChangeSetRequest).via(deleteChangeSetFlow(parallelism))
 
   def deleteChangeSetFlow(
@@ -99,8 +111,10 @@ trait CloudFormationAkkaClient {
       underlying.deleteChangeSet(deleteChangeSetRequest)
     }
 
-  def deleteStackSource(deleteStackRequest: DeleteStackRequest,
-                        parallelism: Int = DefaultParallelism): Source[DeleteStackResponse, NotUsed] =
+  def deleteStackSource(
+      deleteStackRequest: DeleteStackRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteStackResponse, NotUsed] =
     Source.single(deleteStackRequest).via(deleteStackFlow(parallelism))
 
   def deleteStackFlow(parallelism: Int = DefaultParallelism): Flow[DeleteStackRequest, DeleteStackResponse, NotUsed] =
@@ -108,8 +122,10 @@ trait CloudFormationAkkaClient {
       underlying.deleteStack(deleteStackRequest)
     }
 
-  def deleteStackInstancesSource(deleteStackInstancesRequest: DeleteStackInstancesRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteStackInstancesResponse, NotUsed] =
+  def deleteStackInstancesSource(
+      deleteStackInstancesRequest: DeleteStackInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteStackInstancesResponse, NotUsed] =
     Source.single(deleteStackInstancesRequest).via(deleteStackInstancesFlow(parallelism))
 
   def deleteStackInstancesFlow(
@@ -119,8 +135,10 @@ trait CloudFormationAkkaClient {
       underlying.deleteStackInstances(deleteStackInstancesRequest)
     }
 
-  def deleteStackSetSource(deleteStackSetRequest: DeleteStackSetRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteStackSetResponse, NotUsed] =
+  def deleteStackSetSource(
+      deleteStackSetRequest: DeleteStackSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteStackSetResponse, NotUsed] =
     Source.single(deleteStackSetRequest).via(deleteStackSetFlow(parallelism))
 
   def deleteStackSetFlow(
@@ -146,8 +164,10 @@ trait CloudFormationAkkaClient {
   def describeAccountLimitsSource(): Source[DescribeAccountLimitsResponse, NotUsed] =
     Source.fromFuture(underlying.describeAccountLimits())
 
-  def describeChangeSetSource(describeChangeSetRequest: DescribeChangeSetRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeChangeSetResponse, NotUsed] =
+  def describeChangeSetSource(
+      describeChangeSetRequest: DescribeChangeSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeChangeSetResponse, NotUsed] =
     Source.single(describeChangeSetRequest).via(describeChangeSetFlow(parallelism))
 
   def describeChangeSetFlow(
@@ -170,8 +190,10 @@ trait CloudFormationAkkaClient {
       underlying.describeStackDriftDetectionStatus(describeStackDriftDetectionStatusRequest)
     }
 
-  def describeStackEventsSource(describeStackEventsRequest: DescribeStackEventsRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeStackEventsResponse, NotUsed] =
+  def describeStackEventsSource(
+      describeStackEventsRequest: DescribeStackEventsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeStackEventsResponse, NotUsed] =
     Source.single(describeStackEventsRequest).via(describeStackEventsFlow(parallelism))
 
   def describeStackEventsFlow(
@@ -226,7 +248,7 @@ trait CloudFormationAkkaClient {
     }
 
   def describeStackResourceDriftsPaginatorFlow
-    : Flow[DescribeStackResourceDriftsRequest, DescribeStackResourceDriftsResponse, NotUsed] =
+      : Flow[DescribeStackResourceDriftsRequest, DescribeStackResourceDriftsResponse, NotUsed] =
     Flow[DescribeStackResourceDriftsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeStackResourceDriftsPaginator(request))
     }
@@ -244,8 +266,10 @@ trait CloudFormationAkkaClient {
       underlying.describeStackResources(describeStackResourcesRequest)
     }
 
-  def describeStackSetSource(describeStackSetRequest: DescribeStackSetRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeStackSetResponse, NotUsed] =
+  def describeStackSetSource(
+      describeStackSetRequest: DescribeStackSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeStackSetResponse, NotUsed] =
     Source.single(describeStackSetRequest).via(describeStackSetFlow(parallelism))
 
   def describeStackSetFlow(
@@ -268,8 +292,10 @@ trait CloudFormationAkkaClient {
       underlying.describeStackSetOperation(describeStackSetOperationRequest)
     }
 
-  def describeStacksSource(describeStacksRequest: DescribeStacksRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeStacksResponse, NotUsed] =
+  def describeStacksSource(
+      describeStacksRequest: DescribeStacksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeStacksResponse, NotUsed] =
     Source.single(describeStacksRequest).via(describeStacksFlow(parallelism))
 
   def describeStacksFlow(
@@ -290,8 +316,10 @@ trait CloudFormationAkkaClient {
       Source.fromPublisher(underlying.describeStacksPaginator(request))
     }
 
-  def detectStackDriftSource(detectStackDriftRequest: DetectStackDriftRequest,
-                             parallelism: Int = DefaultParallelism): Source[DetectStackDriftResponse, NotUsed] =
+  def detectStackDriftSource(
+      detectStackDriftRequest: DetectStackDriftRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DetectStackDriftResponse, NotUsed] =
     Source.single(detectStackDriftRequest).via(detectStackDriftFlow(parallelism))
 
   def detectStackDriftFlow(
@@ -314,8 +342,10 @@ trait CloudFormationAkkaClient {
       underlying.detectStackResourceDrift(detectStackResourceDriftRequest)
     }
 
-  def estimateTemplateCostSource(estimateTemplateCostRequest: EstimateTemplateCostRequest,
-                                 parallelism: Int = DefaultParallelism): Source[EstimateTemplateCostResponse, NotUsed] =
+  def estimateTemplateCostSource(
+      estimateTemplateCostRequest: EstimateTemplateCostRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EstimateTemplateCostResponse, NotUsed] =
     Source.single(estimateTemplateCostRequest).via(estimateTemplateCostFlow(parallelism))
 
   def estimateTemplateCostFlow(
@@ -325,8 +355,10 @@ trait CloudFormationAkkaClient {
       underlying.estimateTemplateCost(estimateTemplateCostRequest)
     }
 
-  def executeChangeSetSource(executeChangeSetRequest: ExecuteChangeSetRequest,
-                             parallelism: Int = DefaultParallelism): Source[ExecuteChangeSetResponse, NotUsed] =
+  def executeChangeSetSource(
+      executeChangeSetRequest: ExecuteChangeSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ExecuteChangeSetResponse, NotUsed] =
     Source.single(executeChangeSetRequest).via(executeChangeSetFlow(parallelism))
 
   def executeChangeSetFlow(
@@ -336,8 +368,10 @@ trait CloudFormationAkkaClient {
       underlying.executeChangeSet(executeChangeSetRequest)
     }
 
-  def getStackPolicySource(getStackPolicyRequest: GetStackPolicyRequest,
-                           parallelism: Int = DefaultParallelism): Source[GetStackPolicyResponse, NotUsed] =
+  def getStackPolicySource(
+      getStackPolicyRequest: GetStackPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetStackPolicyResponse, NotUsed] =
     Source.single(getStackPolicyRequest).via(getStackPolicyFlow(parallelism))
 
   def getStackPolicyFlow(
@@ -347,8 +381,10 @@ trait CloudFormationAkkaClient {
       underlying.getStackPolicy(getStackPolicyRequest)
     }
 
-  def getTemplateSource(getTemplateRequest: GetTemplateRequest,
-                        parallelism: Int = DefaultParallelism): Source[GetTemplateResponse, NotUsed] =
+  def getTemplateSource(
+      getTemplateRequest: GetTemplateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetTemplateResponse, NotUsed] =
     Source.single(getTemplateRequest).via(getTemplateFlow(parallelism))
 
   def getTemplateFlow(parallelism: Int = DefaultParallelism): Flow[GetTemplateRequest, GetTemplateResponse, NotUsed] =
@@ -356,8 +392,10 @@ trait CloudFormationAkkaClient {
       underlying.getTemplate(getTemplateRequest)
     }
 
-  def getTemplateSummarySource(getTemplateSummaryRequest: GetTemplateSummaryRequest,
-                               parallelism: Int = DefaultParallelism): Source[GetTemplateSummaryResponse, NotUsed] =
+  def getTemplateSummarySource(
+      getTemplateSummaryRequest: GetTemplateSummaryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetTemplateSummaryResponse, NotUsed] =
     Source.single(getTemplateSummaryRequest).via(getTemplateSummaryFlow(parallelism))
 
   def getTemplateSummaryFlow(
@@ -367,8 +405,10 @@ trait CloudFormationAkkaClient {
       underlying.getTemplateSummary(getTemplateSummaryRequest)
     }
 
-  def listChangeSetsSource(listChangeSetsRequest: ListChangeSetsRequest,
-                           parallelism: Int = DefaultParallelism): Source[ListChangeSetsResponse, NotUsed] =
+  def listChangeSetsSource(
+      listChangeSetsRequest: ListChangeSetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListChangeSetsResponse, NotUsed] =
     Source.single(listChangeSetsRequest).via(listChangeSetsFlow(parallelism))
 
   def listChangeSetsFlow(
@@ -378,8 +418,10 @@ trait CloudFormationAkkaClient {
       underlying.listChangeSets(listChangeSetsRequest)
     }
 
-  def listExportsSource(listExportsRequest: ListExportsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListExportsResponse, NotUsed] =
+  def listExportsSource(
+      listExportsRequest: ListExportsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListExportsResponse, NotUsed] =
     Source.single(listExportsRequest).via(listExportsFlow(parallelism))
 
   def listExportsFlow(parallelism: Int = DefaultParallelism): Flow[ListExportsRequest, ListExportsResponse, NotUsed] =
@@ -398,8 +440,10 @@ trait CloudFormationAkkaClient {
       Source.fromPublisher(underlying.listExportsPaginator(request))
     }
 
-  def listImportsSource(listImportsRequest: ListImportsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListImportsResponse, NotUsed] =
+  def listImportsSource(
+      listImportsRequest: ListImportsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListImportsResponse, NotUsed] =
     Source.single(listImportsRequest).via(listImportsFlow(parallelism))
 
   def listImportsFlow(parallelism: Int = DefaultParallelism): Flow[ListImportsRequest, ListImportsResponse, NotUsed] =
@@ -412,8 +456,10 @@ trait CloudFormationAkkaClient {
       Source.fromPublisher(underlying.listImportsPaginator(request))
     }
 
-  def listStackInstancesSource(listStackInstancesRequest: ListStackInstancesRequest,
-                               parallelism: Int = DefaultParallelism): Source[ListStackInstancesResponse, NotUsed] =
+  def listStackInstancesSource(
+      listStackInstancesRequest: ListStackInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStackInstancesResponse, NotUsed] =
     Source.single(listStackInstancesRequest).via(listStackInstancesFlow(parallelism))
 
   def listStackInstancesFlow(
@@ -423,8 +469,10 @@ trait CloudFormationAkkaClient {
       underlying.listStackInstances(listStackInstancesRequest)
     }
 
-  def listStackResourcesSource(listStackResourcesRequest: ListStackResourcesRequest,
-                               parallelism: Int = DefaultParallelism): Source[ListStackResourcesResponse, NotUsed] =
+  def listStackResourcesSource(
+      listStackResourcesRequest: ListStackResourcesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStackResourcesResponse, NotUsed] =
     Source.single(listStackResourcesRequest).via(listStackResourcesFlow(parallelism))
 
   def listStackResourcesFlow(
@@ -465,8 +513,10 @@ trait CloudFormationAkkaClient {
       underlying.listStackSetOperations(listStackSetOperationsRequest)
     }
 
-  def listStackSetsSource(listStackSetsRequest: ListStackSetsRequest,
-                          parallelism: Int = DefaultParallelism): Source[ListStackSetsResponse, NotUsed] =
+  def listStackSetsSource(
+      listStackSetsRequest: ListStackSetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStackSetsResponse, NotUsed] =
     Source.single(listStackSetsRequest).via(listStackSetsFlow(parallelism))
 
   def listStackSetsFlow(
@@ -479,8 +529,10 @@ trait CloudFormationAkkaClient {
   def listStackSetsSource(): Source[ListStackSetsResponse, NotUsed] =
     Source.fromFuture(underlying.listStackSets())
 
-  def listStacksSource(listStacksRequest: ListStacksRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListStacksResponse, NotUsed] =
+  def listStacksSource(
+      listStacksRequest: ListStacksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStacksResponse, NotUsed] =
     Source.single(listStacksRequest).via(listStacksFlow(parallelism))
 
   def listStacksFlow(parallelism: Int = DefaultParallelism): Flow[ListStacksRequest, ListStacksResponse, NotUsed] =
@@ -499,8 +551,10 @@ trait CloudFormationAkkaClient {
       Source.fromPublisher(underlying.listStacksPaginator(request))
     }
 
-  def setStackPolicySource(setStackPolicyRequest: SetStackPolicyRequest,
-                           parallelism: Int = DefaultParallelism): Source[SetStackPolicyResponse, NotUsed] =
+  def setStackPolicySource(
+      setStackPolicyRequest: SetStackPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SetStackPolicyResponse, NotUsed] =
     Source.single(setStackPolicyRequest).via(setStackPolicyFlow(parallelism))
 
   def setStackPolicyFlow(
@@ -510,8 +564,10 @@ trait CloudFormationAkkaClient {
       underlying.setStackPolicy(setStackPolicyRequest)
     }
 
-  def signalResourceSource(signalResourceRequest: SignalResourceRequest,
-                           parallelism: Int = DefaultParallelism): Source[SignalResourceResponse, NotUsed] =
+  def signalResourceSource(
+      signalResourceRequest: SignalResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SignalResourceResponse, NotUsed] =
     Source.single(signalResourceRequest).via(signalResourceFlow(parallelism))
 
   def signalResourceFlow(
@@ -534,8 +590,10 @@ trait CloudFormationAkkaClient {
       underlying.stopStackSetOperation(stopStackSetOperationRequest)
     }
 
-  def updateStackSource(updateStackRequest: UpdateStackRequest,
-                        parallelism: Int = DefaultParallelism): Source[UpdateStackResponse, NotUsed] =
+  def updateStackSource(
+      updateStackRequest: UpdateStackRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateStackResponse, NotUsed] =
     Source.single(updateStackRequest).via(updateStackFlow(parallelism))
 
   def updateStackFlow(parallelism: Int = DefaultParallelism): Flow[UpdateStackRequest, UpdateStackResponse, NotUsed] =
@@ -543,8 +601,10 @@ trait CloudFormationAkkaClient {
       underlying.updateStack(updateStackRequest)
     }
 
-  def updateStackInstancesSource(updateStackInstancesRequest: UpdateStackInstancesRequest,
-                                 parallelism: Int = DefaultParallelism): Source[UpdateStackInstancesResponse, NotUsed] =
+  def updateStackInstancesSource(
+      updateStackInstancesRequest: UpdateStackInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateStackInstancesResponse, NotUsed] =
     Source.single(updateStackInstancesRequest).via(updateStackInstancesFlow(parallelism))
 
   def updateStackInstancesFlow(
@@ -554,8 +614,10 @@ trait CloudFormationAkkaClient {
       underlying.updateStackInstances(updateStackInstancesRequest)
     }
 
-  def updateStackSetSource(updateStackSetRequest: UpdateStackSetRequest,
-                           parallelism: Int = DefaultParallelism): Source[UpdateStackSetResponse, NotUsed] =
+  def updateStackSetSource(
+      updateStackSetRequest: UpdateStackSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateStackSetResponse, NotUsed] =
     Source.single(updateStackSetRequest).via(updateStackSetFlow(parallelism))
 
   def updateStackSetFlow(
@@ -578,8 +640,10 @@ trait CloudFormationAkkaClient {
       underlying.updateTerminationProtection(updateTerminationProtectionRequest)
     }
 
-  def validateTemplateSource(validateTemplateRequest: ValidateTemplateRequest,
-                             parallelism: Int = DefaultParallelism): Source[ValidateTemplateResponse, NotUsed] =
+  def validateTemplateSource(
+      validateTemplateRequest: ValidateTemplateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ValidateTemplateResponse, NotUsed] =
     Source.single(validateTemplateRequest).via(validateTemplateFlow(parallelism))
 
   def validateTemplateFlow(

@@ -5,8 +5,10 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 private[dynamodb] trait DynamoDbClientSupport[M[_]] { this: DynamoDbClient[M] =>
 
-  def batchGetItem(requestItems: Map[String, KeysAndAttributes],
-                   returnConsumedCapacity: ReturnConsumedCapacity): M[BatchGetItemResponse] = {
+  def batchGetItem(
+      requestItems: Map[String, KeysAndAttributes],
+      returnConsumedCapacity: ReturnConsumedCapacity
+  ): M[BatchGetItemResponse] = {
     batchGetItem(
       BatchGetItemRequest
         .builder()
@@ -23,10 +25,12 @@ private[dynamodb] trait DynamoDbClientSupport[M[_]] { this: DynamoDbClient[M] =>
     batchWriteItem(BatchWriteItemRequest.builder().requestItemsAsScala(requestItems).build())
   }
 
-  def createTable(attributeDefinitions: Seq[AttributeDefinition],
-                  tableName: String,
-                  keySchema: Seq[KeySchemaElement],
-                  provisionedThroughput: ProvisionedThroughput): M[CreateTableResponse] = {
+  def createTable(
+      attributeDefinitions: Seq[AttributeDefinition],
+      tableName: String,
+      keySchema: Seq[KeySchemaElement],
+      provisionedThroughput: ProvisionedThroughput
+  ): M[CreateTableResponse] = {
     createTable(
       CreateTableRequest
         .builder()
@@ -57,9 +61,11 @@ private[dynamodb] trait DynamoDbClientSupport[M[_]] { this: DynamoDbClient[M] =>
     deleteItem(DeleteItemRequest.builder().tableName(tableName).keyAsScala(key).build())
   }
 
-  def deleteItem(tableName: String,
-                 key: Map[String, AttributeValue],
-                 returnValues: ReturnValue): M[DeleteItemResponse] = {
+  def deleteItem(
+      tableName: String,
+      key: Map[String, AttributeValue],
+      returnValues: ReturnValue
+  ): M[DeleteItemResponse] = {
     deleteItem(
       DeleteItemRequest
         .builder().tableName(tableName).keyAsScala(key)
@@ -135,9 +141,11 @@ private[dynamodb] trait DynamoDbClientSupport[M[_]] { this: DynamoDbClient[M] =>
     )
   }
 
-  def updateItem(tableName: String,
-                 key: Map[String, AttributeValue],
-                 attributeUpdates: Map[String, AttributeValueUpdate]): M[UpdateItemResponse] = {
+  def updateItem(
+      tableName: String,
+      key: Map[String, AttributeValue],
+      attributeUpdates: Map[String, AttributeValueUpdate]
+  ): M[UpdateItemResponse] = {
     updateItem(
       UpdateItemRequest
         .builder().tableName(tableName)
@@ -146,10 +154,12 @@ private[dynamodb] trait DynamoDbClientSupport[M[_]] { this: DynamoDbClient[M] =>
     )
   }
 
-  def updateItem(tableName: String,
-                 key: Map[String, AttributeValue],
-                 attributeUpdates: Map[String, AttributeValueUpdate],
-                 returnValues: ReturnValue): M[UpdateItemResponse] = {
+  def updateItem(
+      tableName: String,
+      key: Map[String, AttributeValue],
+      attributeUpdates: Map[String, AttributeValueUpdate],
+      returnValues: ReturnValue
+  ): M[UpdateItemResponse] = {
     updateItem(
       UpdateItemRequest
         .builder()
