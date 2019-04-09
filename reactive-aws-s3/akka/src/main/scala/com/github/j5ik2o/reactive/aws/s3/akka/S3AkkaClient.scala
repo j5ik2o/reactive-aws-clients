@@ -22,8 +22,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
 
   val underlying: S3AsyncClient
 
-  def abortMultipartUploadSource(abortMultipartUploadRequest: AbortMultipartUploadRequest,
-                                 parallelism: Int = DefaultParallelism): Source[AbortMultipartUploadResponse, NotUsed] =
+  def abortMultipartUploadSource(
+      abortMultipartUploadRequest: AbortMultipartUploadRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AbortMultipartUploadResponse, NotUsed] =
     Source.single(abortMultipartUploadRequest).via(abortMultipartUploadFlow(parallelism))
 
   def abortMultipartUploadFlow(
@@ -46,8 +48,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.completeMultipartUpload(completeMultipartUploadRequest)
     }
 
-  def copyObjectSource(copyObjectRequest: CopyObjectRequest,
-                       parallelism: Int = DefaultParallelism): Source[CopyObjectResponse, NotUsed] =
+  def copyObjectSource(
+      copyObjectRequest: CopyObjectRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CopyObjectResponse, NotUsed] =
     Source.single(copyObjectRequest).via(copyObjectFlow(parallelism))
 
   def copyObjectFlow(parallelism: Int = DefaultParallelism): Flow[CopyObjectRequest, CopyObjectResponse, NotUsed] =
@@ -55,8 +59,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.copyObject(copyObjectRequest)
     }
 
-  def createBucketSource(createBucketRequest: CreateBucketRequest,
-                         parallelism: Int = DefaultParallelism): Source[CreateBucketResponse, NotUsed] =
+  def createBucketSource(
+      createBucketRequest: CreateBucketRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateBucketResponse, NotUsed] =
     Source.single(createBucketRequest).via(createBucketFlow(parallelism))
 
   def createBucketFlow(
@@ -79,8 +85,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.createMultipartUpload(createMultipartUploadRequest)
     }
 
-  def deleteBucketSource(deleteBucketRequest: DeleteBucketRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteBucketResponse, NotUsed] =
+  def deleteBucketSource(
+      deleteBucketRequest: DeleteBucketRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteBucketResponse, NotUsed] =
     Source.single(deleteBucketRequest).via(deleteBucketFlow(parallelism))
 
   def deleteBucketFlow(
@@ -103,8 +111,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest)
     }
 
-  def deleteBucketCorsSource(deleteBucketCorsRequest: DeleteBucketCorsRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteBucketCorsResponse, NotUsed] =
+  def deleteBucketCorsSource(
+      deleteBucketCorsRequest: DeleteBucketCorsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteBucketCorsResponse, NotUsed] =
     Source.single(deleteBucketCorsRequest).via(deleteBucketCorsFlow(parallelism))
 
   def deleteBucketCorsFlow(
@@ -166,8 +176,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest)
     }
 
-  def deleteBucketPolicySource(deleteBucketPolicyRequest: DeleteBucketPolicyRequest,
-                               parallelism: Int = DefaultParallelism): Source[DeleteBucketPolicyResponse, NotUsed] =
+  def deleteBucketPolicySource(
+      deleteBucketPolicyRequest: DeleteBucketPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteBucketPolicyResponse, NotUsed] =
     Source.single(deleteBucketPolicyRequest).via(deleteBucketPolicyFlow(parallelism))
 
   def deleteBucketPolicyFlow(
@@ -190,8 +202,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteBucketReplication(deleteBucketReplicationRequest)
     }
 
-  def deleteBucketTaggingSource(deleteBucketTaggingRequest: DeleteBucketTaggingRequest,
-                                parallelism: Int = DefaultParallelism): Source[DeleteBucketTaggingResponse, NotUsed] =
+  def deleteBucketTaggingSource(
+      deleteBucketTaggingRequest: DeleteBucketTaggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteBucketTaggingResponse, NotUsed] =
     Source.single(deleteBucketTaggingRequest).via(deleteBucketTaggingFlow(parallelism))
 
   def deleteBucketTaggingFlow(
@@ -201,8 +215,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteBucketTagging(deleteBucketTaggingRequest)
     }
 
-  def deleteBucketWebsiteSource(deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest,
-                                parallelism: Int = DefaultParallelism): Source[DeleteBucketWebsiteResponse, NotUsed] =
+  def deleteBucketWebsiteSource(
+      deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteBucketWebsiteResponse, NotUsed] =
     Source.single(deleteBucketWebsiteRequest).via(deleteBucketWebsiteFlow(parallelism))
 
   def deleteBucketWebsiteFlow(
@@ -212,8 +228,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteBucketWebsite(deleteBucketWebsiteRequest)
     }
 
-  def deleteObjectSource(deleteObjectRequest: DeleteObjectRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteObjectResponse, NotUsed] =
+  def deleteObjectSource(
+      deleteObjectRequest: DeleteObjectRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteObjectResponse, NotUsed] =
     Source.single(deleteObjectRequest).via(deleteObjectFlow(parallelism))
 
   def deleteObjectFlow(
@@ -223,8 +241,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteObject(deleteObjectRequest)
     }
 
-  def deleteObjectTaggingSource(deleteObjectTaggingRequest: DeleteObjectTaggingRequest,
-                                parallelism: Int = DefaultParallelism): Source[DeleteObjectTaggingResponse, NotUsed] =
+  def deleteObjectTaggingSource(
+      deleteObjectTaggingRequest: DeleteObjectTaggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteObjectTaggingResponse, NotUsed] =
     Source.single(deleteObjectTaggingRequest).via(deleteObjectTaggingFlow(parallelism))
 
   def deleteObjectTaggingFlow(
@@ -234,8 +254,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.deleteObjectTagging(deleteObjectTaggingRequest)
     }
 
-  def deleteObjectsSource(deleteObjectsRequest: DeleteObjectsRequest,
-                          parallelism: Int = DefaultParallelism): Source[DeleteObjectsResponse, NotUsed] =
+  def deleteObjectsSource(
+      deleteObjectsRequest: DeleteObjectsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteObjectsResponse, NotUsed] =
     Source.single(deleteObjectsRequest).via(deleteObjectsFlow(parallelism))
 
   def deleteObjectsFlow(
@@ -271,8 +293,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest)
     }
 
-  def getBucketAclSource(getBucketAclRequest: GetBucketAclRequest,
-                         parallelism: Int = DefaultParallelism): Source[GetBucketAclResponse, NotUsed] =
+  def getBucketAclSource(
+      getBucketAclRequest: GetBucketAclRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketAclResponse, NotUsed] =
     Source.single(getBucketAclRequest).via(getBucketAclFlow(parallelism))
 
   def getBucketAclFlow(
@@ -295,8 +319,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest)
     }
 
-  def getBucketCorsSource(getBucketCorsRequest: GetBucketCorsRequest,
-                          parallelism: Int = DefaultParallelism): Source[GetBucketCorsResponse, NotUsed] =
+  def getBucketCorsSource(
+      getBucketCorsRequest: GetBucketCorsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketCorsResponse, NotUsed] =
     Source.single(getBucketCorsRequest).via(getBucketCorsFlow(parallelism))
 
   def getBucketCorsFlow(
@@ -306,8 +332,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketCors(getBucketCorsRequest)
     }
 
-  def getBucketEncryptionSource(getBucketEncryptionRequest: GetBucketEncryptionRequest,
-                                parallelism: Int = DefaultParallelism): Source[GetBucketEncryptionResponse, NotUsed] =
+  def getBucketEncryptionSource(
+      getBucketEncryptionRequest: GetBucketEncryptionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketEncryptionResponse, NotUsed] =
     Source.single(getBucketEncryptionRequest).via(getBucketEncryptionFlow(parallelism))
 
   def getBucketEncryptionFlow(
@@ -343,8 +371,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest)
     }
 
-  def getBucketLocationSource(getBucketLocationRequest: GetBucketLocationRequest,
-                              parallelism: Int = DefaultParallelism): Source[GetBucketLocationResponse, NotUsed] =
+  def getBucketLocationSource(
+      getBucketLocationRequest: GetBucketLocationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketLocationResponse, NotUsed] =
     Source.single(getBucketLocationRequest).via(getBucketLocationFlow(parallelism))
 
   def getBucketLocationFlow(
@@ -354,8 +384,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketLocation(getBucketLocationRequest)
     }
 
-  def getBucketLoggingSource(getBucketLoggingRequest: GetBucketLoggingRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetBucketLoggingResponse, NotUsed] =
+  def getBucketLoggingSource(
+      getBucketLoggingRequest: GetBucketLoggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketLoggingResponse, NotUsed] =
     Source.single(getBucketLoggingRequest).via(getBucketLoggingFlow(parallelism))
 
   def getBucketLoggingFlow(
@@ -391,8 +423,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest)
     }
 
-  def getBucketPolicySource(getBucketPolicyRequest: GetBucketPolicyRequest,
-                            parallelism: Int = DefaultParallelism): Source[GetBucketPolicyResponse, NotUsed] =
+  def getBucketPolicySource(
+      getBucketPolicyRequest: GetBucketPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketPolicyResponse, NotUsed] =
     Source.single(getBucketPolicyRequest).via(getBucketPolicyFlow(parallelism))
 
   def getBucketPolicyFlow(
@@ -415,8 +449,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketPolicyStatus(getBucketPolicyStatusRequest)
     }
 
-  def getBucketReplicationSource(getBucketReplicationRequest: GetBucketReplicationRequest,
-                                 parallelism: Int = DefaultParallelism): Source[GetBucketReplicationResponse, NotUsed] =
+  def getBucketReplicationSource(
+      getBucketReplicationRequest: GetBucketReplicationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketReplicationResponse, NotUsed] =
     Source.single(getBucketReplicationRequest).via(getBucketReplicationFlow(parallelism))
 
   def getBucketReplicationFlow(
@@ -439,8 +475,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketRequestPayment(getBucketRequestPaymentRequest)
     }
 
-  def getBucketTaggingSource(getBucketTaggingRequest: GetBucketTaggingRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetBucketTaggingResponse, NotUsed] =
+  def getBucketTaggingSource(
+      getBucketTaggingRequest: GetBucketTaggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketTaggingResponse, NotUsed] =
     Source.single(getBucketTaggingRequest).via(getBucketTaggingFlow(parallelism))
 
   def getBucketTaggingFlow(
@@ -450,8 +488,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketTagging(getBucketTaggingRequest)
     }
 
-  def getBucketVersioningSource(getBucketVersioningRequest: GetBucketVersioningRequest,
-                                parallelism: Int = DefaultParallelism): Source[GetBucketVersioningResponse, NotUsed] =
+  def getBucketVersioningSource(
+      getBucketVersioningRequest: GetBucketVersioningRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketVersioningResponse, NotUsed] =
     Source.single(getBucketVersioningRequest).via(getBucketVersioningFlow(parallelism))
 
   def getBucketVersioningFlow(
@@ -461,8 +501,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketVersioning(getBucketVersioningRequest)
     }
 
-  def getBucketWebsiteSource(getBucketWebsiteRequest: GetBucketWebsiteRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetBucketWebsiteResponse, NotUsed] =
+  def getBucketWebsiteSource(
+      getBucketWebsiteRequest: GetBucketWebsiteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetBucketWebsiteResponse, NotUsed] =
     Source.single(getBucketWebsiteRequest).via(getBucketWebsiteFlow(parallelism))
 
   def getBucketWebsiteFlow(
@@ -472,8 +514,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getBucketWebsite(getBucketWebsiteRequest)
     }
 
-  def getObjectAclSource(getObjectAclRequest: GetObjectAclRequest,
-                         parallelism: Int = DefaultParallelism): Source[GetObjectAclResponse, NotUsed] =
+  def getObjectAclSource(
+      getObjectAclRequest: GetObjectAclRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectAclResponse, NotUsed] =
     Source.single(getObjectAclRequest).via(getObjectAclFlow(parallelism))
 
   def getObjectAclFlow(
@@ -483,8 +527,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getObjectAcl(getObjectAclRequest)
     }
 
-  def getObjectLegalHoldSource(getObjectLegalHoldRequest: GetObjectLegalHoldRequest,
-                               parallelism: Int = DefaultParallelism): Source[GetObjectLegalHoldResponse, NotUsed] =
+  def getObjectLegalHoldSource(
+      getObjectLegalHoldRequest: GetObjectLegalHoldRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectLegalHoldResponse, NotUsed] =
     Source.single(getObjectLegalHoldRequest).via(getObjectLegalHoldFlow(parallelism))
 
   def getObjectLegalHoldFlow(
@@ -507,8 +553,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getObjectLockConfiguration(getObjectLockConfigurationRequest)
     }
 
-  def getObjectRetentionSource(getObjectRetentionRequest: GetObjectRetentionRequest,
-                               parallelism: Int = DefaultParallelism): Source[GetObjectRetentionResponse, NotUsed] =
+  def getObjectRetentionSource(
+      getObjectRetentionRequest: GetObjectRetentionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectRetentionResponse, NotUsed] =
     Source.single(getObjectRetentionRequest).via(getObjectRetentionFlow(parallelism))
 
   def getObjectRetentionFlow(
@@ -518,8 +566,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getObjectRetention(getObjectRetentionRequest)
     }
 
-  def getObjectTaggingSource(getObjectTaggingRequest: GetObjectTaggingRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetObjectTaggingResponse, NotUsed] =
+  def getObjectTaggingSource(
+      getObjectTaggingRequest: GetObjectTaggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetObjectTaggingResponse, NotUsed] =
     Source.single(getObjectTaggingRequest).via(getObjectTaggingFlow(parallelism))
 
   def getObjectTaggingFlow(
@@ -529,8 +579,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getObjectTagging(getObjectTaggingRequest)
     }
 
-  def getPublicAccessBlockSource(getPublicAccessBlockRequest: GetPublicAccessBlockRequest,
-                                 parallelism: Int = DefaultParallelism): Source[GetPublicAccessBlockResponse, NotUsed] =
+  def getPublicAccessBlockSource(
+      getPublicAccessBlockRequest: GetPublicAccessBlockRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetPublicAccessBlockResponse, NotUsed] =
     Source.single(getPublicAccessBlockRequest).via(getPublicAccessBlockFlow(parallelism))
 
   def getPublicAccessBlockFlow(
@@ -540,8 +592,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.getPublicAccessBlock(getPublicAccessBlockRequest)
     }
 
-  def headBucketSource(headBucketRequest: HeadBucketRequest,
-                       parallelism: Int = DefaultParallelism): Source[HeadBucketResponse, NotUsed] =
+  def headBucketSource(
+      headBucketRequest: HeadBucketRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[HeadBucketResponse, NotUsed] =
     Source.single(headBucketRequest).via(headBucketFlow(parallelism))
 
   def headBucketFlow(parallelism: Int = DefaultParallelism): Flow[HeadBucketRequest, HeadBucketResponse, NotUsed] =
@@ -549,8 +603,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.headBucket(headBucketRequest)
     }
 
-  def headObjectSource(headObjectRequest: HeadObjectRequest,
-                       parallelism: Int = DefaultParallelism): Source[HeadObjectResponse, NotUsed] =
+  def headObjectSource(
+      headObjectRequest: HeadObjectRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[HeadObjectResponse, NotUsed] =
     Source.single(headObjectRequest).via(headObjectFlow(parallelism))
 
   def headObjectFlow(parallelism: Int = DefaultParallelism): Flow[HeadObjectRequest, HeadObjectResponse, NotUsed] =
@@ -597,8 +653,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest)
     }
 
-  def listMultipartUploadsSource(listMultipartUploadsRequest: ListMultipartUploadsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[ListMultipartUploadsResponse, NotUsed] =
+  def listMultipartUploadsSource(
+      listMultipartUploadsRequest: ListMultipartUploadsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListMultipartUploadsResponse, NotUsed] =
     Source.single(listMultipartUploadsRequest).via(listMultipartUploadsFlow(parallelism))
 
   def listMultipartUploadsFlow(
@@ -613,8 +671,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       Source.fromPublisher(underlying.listMultipartUploadsPaginator(request))
     }
 
-  def listObjectVersionsSource(listObjectVersionsRequest: ListObjectVersionsRequest,
-                               parallelism: Int = DefaultParallelism): Source[ListObjectVersionsResponse, NotUsed] =
+  def listObjectVersionsSource(
+      listObjectVersionsRequest: ListObjectVersionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListObjectVersionsResponse, NotUsed] =
     Source.single(listObjectVersionsRequest).via(listObjectVersionsFlow(parallelism))
 
   def listObjectVersionsFlow(
@@ -629,8 +689,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       Source.fromPublisher(underlying.listObjectVersionsPaginator(request))
     }
 
-  def listObjectsSource(listObjectsRequest: ListObjectsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListObjectsResponse, NotUsed] =
+  def listObjectsSource(
+      listObjectsRequest: ListObjectsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListObjectsResponse, NotUsed] =
     Source.single(listObjectsRequest).via(listObjectsFlow(parallelism))
 
   def listObjectsFlow(parallelism: Int = DefaultParallelism): Flow[ListObjectsRequest, ListObjectsResponse, NotUsed] =
@@ -638,8 +700,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.listObjects(listObjectsRequest)
     }
 
-  def listObjectsV2Source(listObjectsV2Request: ListObjectsV2Request,
-                          parallelism: Int = DefaultParallelism): Source[ListObjectsV2Response, NotUsed] =
+  def listObjectsV2Source(
+      listObjectsV2Request: ListObjectsV2Request,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListObjectsV2Response, NotUsed] =
     Source.single(listObjectsV2Request).via(listObjectsV2Flow(parallelism))
 
   def listObjectsV2Flow(
@@ -654,8 +718,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       Source.fromPublisher(underlying.listObjectsV2Paginator(request))
     }
 
-  def listPartsSource(listPartsRequest: ListPartsRequest,
-                      parallelism: Int = DefaultParallelism): Source[ListPartsResponse, NotUsed] =
+  def listPartsSource(
+      listPartsRequest: ListPartsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListPartsResponse, NotUsed] =
     Source.single(listPartsRequest).via(listPartsFlow(parallelism))
 
   def listPartsFlow(parallelism: Int = DefaultParallelism): Flow[ListPartsRequest, ListPartsResponse, NotUsed] =
@@ -681,8 +747,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest)
     }
 
-  def putBucketAclSource(putBucketAclRequest: PutBucketAclRequest,
-                         parallelism: Int = DefaultParallelism): Source[PutBucketAclResponse, NotUsed] =
+  def putBucketAclSource(
+      putBucketAclRequest: PutBucketAclRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketAclResponse, NotUsed] =
     Source.single(putBucketAclRequest).via(putBucketAclFlow(parallelism))
 
   def putBucketAclFlow(
@@ -705,8 +773,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest)
     }
 
-  def putBucketCorsSource(putBucketCorsRequest: PutBucketCorsRequest,
-                          parallelism: Int = DefaultParallelism): Source[PutBucketCorsResponse, NotUsed] =
+  def putBucketCorsSource(
+      putBucketCorsRequest: PutBucketCorsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketCorsResponse, NotUsed] =
     Source.single(putBucketCorsRequest).via(putBucketCorsFlow(parallelism))
 
   def putBucketCorsFlow(
@@ -716,8 +786,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketCors(putBucketCorsRequest)
     }
 
-  def putBucketEncryptionSource(putBucketEncryptionRequest: PutBucketEncryptionRequest,
-                                parallelism: Int = DefaultParallelism): Source[PutBucketEncryptionResponse, NotUsed] =
+  def putBucketEncryptionSource(
+      putBucketEncryptionRequest: PutBucketEncryptionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketEncryptionResponse, NotUsed] =
     Source.single(putBucketEncryptionRequest).via(putBucketEncryptionFlow(parallelism))
 
   def putBucketEncryptionFlow(
@@ -753,8 +825,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest)
     }
 
-  def putBucketLoggingSource(putBucketLoggingRequest: PutBucketLoggingRequest,
-                             parallelism: Int = DefaultParallelism): Source[PutBucketLoggingResponse, NotUsed] =
+  def putBucketLoggingSource(
+      putBucketLoggingRequest: PutBucketLoggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketLoggingResponse, NotUsed] =
     Source.single(putBucketLoggingRequest).via(putBucketLoggingFlow(parallelism))
 
   def putBucketLoggingFlow(
@@ -790,8 +864,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest)
     }
 
-  def putBucketPolicySource(putBucketPolicyRequest: PutBucketPolicyRequest,
-                            parallelism: Int = DefaultParallelism): Source[PutBucketPolicyResponse, NotUsed] =
+  def putBucketPolicySource(
+      putBucketPolicyRequest: PutBucketPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketPolicyResponse, NotUsed] =
     Source.single(putBucketPolicyRequest).via(putBucketPolicyFlow(parallelism))
 
   def putBucketPolicyFlow(
@@ -801,8 +877,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketPolicy(putBucketPolicyRequest)
     }
 
-  def putBucketReplicationSource(putBucketReplicationRequest: PutBucketReplicationRequest,
-                                 parallelism: Int = DefaultParallelism): Source[PutBucketReplicationResponse, NotUsed] =
+  def putBucketReplicationSource(
+      putBucketReplicationRequest: PutBucketReplicationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketReplicationResponse, NotUsed] =
     Source.single(putBucketReplicationRequest).via(putBucketReplicationFlow(parallelism))
 
   def putBucketReplicationFlow(
@@ -825,8 +903,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketRequestPayment(putBucketRequestPaymentRequest)
     }
 
-  def putBucketTaggingSource(putBucketTaggingRequest: PutBucketTaggingRequest,
-                             parallelism: Int = DefaultParallelism): Source[PutBucketTaggingResponse, NotUsed] =
+  def putBucketTaggingSource(
+      putBucketTaggingRequest: PutBucketTaggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketTaggingResponse, NotUsed] =
     Source.single(putBucketTaggingRequest).via(putBucketTaggingFlow(parallelism))
 
   def putBucketTaggingFlow(
@@ -836,8 +916,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketTagging(putBucketTaggingRequest)
     }
 
-  def putBucketVersioningSource(putBucketVersioningRequest: PutBucketVersioningRequest,
-                                parallelism: Int = DefaultParallelism): Source[PutBucketVersioningResponse, NotUsed] =
+  def putBucketVersioningSource(
+      putBucketVersioningRequest: PutBucketVersioningRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketVersioningResponse, NotUsed] =
     Source.single(putBucketVersioningRequest).via(putBucketVersioningFlow(parallelism))
 
   def putBucketVersioningFlow(
@@ -847,8 +929,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketVersioning(putBucketVersioningRequest)
     }
 
-  def putBucketWebsiteSource(putBucketWebsiteRequest: PutBucketWebsiteRequest,
-                             parallelism: Int = DefaultParallelism): Source[PutBucketWebsiteResponse, NotUsed] =
+  def putBucketWebsiteSource(
+      putBucketWebsiteRequest: PutBucketWebsiteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutBucketWebsiteResponse, NotUsed] =
     Source.single(putBucketWebsiteRequest).via(putBucketWebsiteFlow(parallelism))
 
   def putBucketWebsiteFlow(
@@ -858,8 +942,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putBucketWebsite(putBucketWebsiteRequest)
     }
 
-  def putObjectAclSource(putObjectAclRequest: PutObjectAclRequest,
-                         parallelism: Int = DefaultParallelism): Source[PutObjectAclResponse, NotUsed] =
+  def putObjectAclSource(
+      putObjectAclRequest: PutObjectAclRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectAclResponse, NotUsed] =
     Source.single(putObjectAclRequest).via(putObjectAclFlow(parallelism))
 
   def putObjectAclFlow(
@@ -869,8 +955,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putObjectAcl(putObjectAclRequest)
     }
 
-  def putObjectLegalHoldSource(putObjectLegalHoldRequest: PutObjectLegalHoldRequest,
-                               parallelism: Int = DefaultParallelism): Source[PutObjectLegalHoldResponse, NotUsed] =
+  def putObjectLegalHoldSource(
+      putObjectLegalHoldRequest: PutObjectLegalHoldRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectLegalHoldResponse, NotUsed] =
     Source.single(putObjectLegalHoldRequest).via(putObjectLegalHoldFlow(parallelism))
 
   def putObjectLegalHoldFlow(
@@ -893,8 +981,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putObjectLockConfiguration(putObjectLockConfigurationRequest)
     }
 
-  def putObjectRetentionSource(putObjectRetentionRequest: PutObjectRetentionRequest,
-                               parallelism: Int = DefaultParallelism): Source[PutObjectRetentionResponse, NotUsed] =
+  def putObjectRetentionSource(
+      putObjectRetentionRequest: PutObjectRetentionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectRetentionResponse, NotUsed] =
     Source.single(putObjectRetentionRequest).via(putObjectRetentionFlow(parallelism))
 
   def putObjectRetentionFlow(
@@ -904,8 +994,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putObjectRetention(putObjectRetentionRequest)
     }
 
-  def putObjectTaggingSource(putObjectTaggingRequest: PutObjectTaggingRequest,
-                             parallelism: Int = DefaultParallelism): Source[PutObjectTaggingResponse, NotUsed] =
+  def putObjectTaggingSource(
+      putObjectTaggingRequest: PutObjectTaggingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutObjectTaggingResponse, NotUsed] =
     Source.single(putObjectTaggingRequest).via(putObjectTaggingFlow(parallelism))
 
   def putObjectTaggingFlow(
@@ -915,8 +1007,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putObjectTagging(putObjectTaggingRequest)
     }
 
-  def putPublicAccessBlockSource(putPublicAccessBlockRequest: PutPublicAccessBlockRequest,
-                                 parallelism: Int = DefaultParallelism): Source[PutPublicAccessBlockResponse, NotUsed] =
+  def putPublicAccessBlockSource(
+      putPublicAccessBlockRequest: PutPublicAccessBlockRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutPublicAccessBlockResponse, NotUsed] =
     Source.single(putPublicAccessBlockRequest).via(putPublicAccessBlockFlow(parallelism))
 
   def putPublicAccessBlockFlow(
@@ -926,8 +1020,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.putPublicAccessBlock(putPublicAccessBlockRequest)
     }
 
-  def restoreObjectSource(restoreObjectRequest: RestoreObjectRequest,
-                          parallelism: Int = DefaultParallelism): Source[RestoreObjectResponse, NotUsed] =
+  def restoreObjectSource(
+      restoreObjectRequest: RestoreObjectRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RestoreObjectResponse, NotUsed] =
     Source.single(restoreObjectRequest).via(restoreObjectFlow(parallelism))
 
   def restoreObjectFlow(
@@ -937,8 +1033,10 @@ trait S3AkkaClient extends S3AkkaClientSupport {
       underlying.restoreObject(restoreObjectRequest)
     }
 
-  def uploadPartCopySource(uploadPartCopyRequest: UploadPartCopyRequest,
-                           parallelism: Int = DefaultParallelism): Source[UploadPartCopyResponse, NotUsed] =
+  def uploadPartCopySource(
+      uploadPartCopyRequest: UploadPartCopyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UploadPartCopyResponse, NotUsed] =
     Source.single(uploadPartCopyRequest).via(uploadPartCopyFlow(parallelism))
 
   def uploadPartCopyFlow(

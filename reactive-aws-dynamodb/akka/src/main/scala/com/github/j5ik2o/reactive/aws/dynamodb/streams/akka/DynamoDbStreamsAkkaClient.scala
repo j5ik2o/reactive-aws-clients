@@ -22,8 +22,10 @@ trait DynamoDbStreamsAkkaClient {
 
   val underlying: DynamoDbStreamsAsyncClient
 
-  def describeStreamSource(describeStreamRequest: DescribeStreamRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeStreamResponse, NotUsed] =
+  def describeStreamSource(
+      describeStreamRequest: DescribeStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeStreamResponse, NotUsed] =
     Source.single(describeStreamRequest).via(describeStreamFlow(parallelism))
 
   def describeStreamFlow(
@@ -38,8 +40,10 @@ trait DynamoDbStreamsAkkaClient {
       Source.fromPublisher(underlying.describeStreamPaginator(request))
     }
 
-  def getRecordsSource(getRecordsRequest: GetRecordsRequest,
-                       parallelism: Int = DefaultParallelism): Source[GetRecordsResponse, NotUsed] =
+  def getRecordsSource(
+      getRecordsRequest: GetRecordsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetRecordsResponse, NotUsed] =
     Source.single(getRecordsRequest).via(getRecordsFlow(parallelism))
 
   def getRecordsFlow(parallelism: Int = DefaultParallelism): Flow[GetRecordsRequest, GetRecordsResponse, NotUsed] =
@@ -47,8 +51,10 @@ trait DynamoDbStreamsAkkaClient {
       underlying.getRecords(getRecordsRequest)
     }
 
-  def getShardIteratorSource(getShardIteratorRequest: GetShardIteratorRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetShardIteratorResponse, NotUsed] =
+  def getShardIteratorSource(
+      getShardIteratorRequest: GetShardIteratorRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetShardIteratorResponse, NotUsed] =
     Source.single(getShardIteratorRequest).via(getShardIteratorFlow(parallelism))
 
   def getShardIteratorFlow(
@@ -58,8 +64,10 @@ trait DynamoDbStreamsAkkaClient {
       underlying.getShardIterator(getShardIteratorRequest)
     }
 
-  def listStreamsSource(listStreamsRequest: ListStreamsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListStreamsResponse, NotUsed] =
+  def listStreamsSource(
+      listStreamsRequest: ListStreamsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStreamsResponse, NotUsed] =
     Source.single(listStreamsRequest).via(listStreamsFlow(parallelism))
 
   def listStreamsFlow(parallelism: Int = DefaultParallelism): Flow[ListStreamsRequest, ListStreamsResponse, NotUsed] =

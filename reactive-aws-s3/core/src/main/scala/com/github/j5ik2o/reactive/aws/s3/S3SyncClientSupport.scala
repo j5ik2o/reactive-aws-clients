@@ -26,8 +26,10 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
     getObject(getObjectRequest, ResponseTransformer.toFile(file))
   }
 
-  override def getObjectToPath(getObjectRequest: GetObjectRequest,
-                               destinationPath: Path): Either[Throwable, GetObjectResponse] = {
+  override def getObjectToPath(
+      getObjectRequest: GetObjectRequest,
+      destinationPath: Path
+  ): Either[Throwable, GetObjectResponse] = {
     getObject(getObjectRequest, ResponseTransformer.toFile(destinationPath))
   }
 
@@ -48,12 +50,16 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
   ): Either[Throwable, ResponseBytes[GetObjectTorrentResponse]] =
     getObjectTorrent(getObjectTorrentRequest, ResponseTransformer.toBytes())
 
-  override def getObjectTorrentToFile(getObjectRequest: GetObjectTorrentRequest,
-                                      file: File): Either[Throwable, GetObjectTorrentResponse] =
+  override def getObjectTorrentToFile(
+      getObjectRequest: GetObjectTorrentRequest,
+      file: File
+  ): Either[Throwable, GetObjectTorrentResponse] =
     getObjectTorrent(getObjectRequest, ResponseTransformer.toFile(file))
 
-  override def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
-                                      destinationPath: Path): Either[Throwable, GetObjectTorrentResponse] =
+  override def getObjectTorrentToPath(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      destinationPath: Path
+  ): Either[Throwable, GetObjectTorrentResponse] =
     getObjectTorrent(getObjectTorrentRequest, ResponseTransformer.toFile(destinationPath))
 
   override def getObjectTorrent[A](
@@ -68,33 +74,45 @@ trait S3SyncClientSupport extends S3ClientSupport[Either[Throwable, ?]] {
 
   }
 
-  override def putObject(putObjectRequest: PutObjectRequest,
-                         requestBody: RequestBody): Either[Throwable, PutObjectResponse] = {
+  override def putObject(
+      putObjectRequest: PutObjectRequest,
+      requestBody: RequestBody
+  ): Either[Throwable, PutObjectResponse] = {
     underlying.putObject(putObjectRequest, requestBody).toEither
   }
 
-  override def putObjectFromPath(putObjectRequest: PutObjectRequest,
-                                 sourcePath: Path): Either[Throwable, PutObjectResponse] = {
+  override def putObjectFromPath(
+      putObjectRequest: PutObjectRequest,
+      sourcePath: Path
+  ): Either[Throwable, PutObjectResponse] = {
     putObject(putObjectRequest, RequestBody.fromFile(sourcePath))
   }
 
-  override def putObjectFromFile(putObjectRequest: PutObjectRequest,
-                                 sourceFile: File): Either[Throwable, PutObjectResponse] = {
+  override def putObjectFromFile(
+      putObjectRequest: PutObjectRequest,
+      sourceFile: File
+  ): Either[Throwable, PutObjectResponse] = {
     putObject(putObjectRequest, RequestBody.fromFile(sourceFile))
   }
 
-  override def uploadPart(uploadPartRequest: UploadPartRequest,
-                          requestBody: RequestBody): Either[Throwable, UploadPartResponse] = {
+  override def uploadPart(
+      uploadPartRequest: UploadPartRequest,
+      requestBody: RequestBody
+  ): Either[Throwable, UploadPartResponse] = {
     underlying.uploadPart(uploadPartRequest, requestBody).toEither
   }
 
-  override def uploadPartFromPath(uploadPartRequest: UploadPartRequest,
-                                  sourcePath: Path): Either[Throwable, UploadPartResponse] = {
+  override def uploadPartFromPath(
+      uploadPartRequest: UploadPartRequest,
+      sourcePath: Path
+  ): Either[Throwable, UploadPartResponse] = {
     uploadPart(uploadPartRequest, RequestBody.fromFile(sourcePath))
   }
 
-  override def uploadPartFromFile(uploadPartRequest: UploadPartRequest,
-                                  sourceFile: File): Either[Throwable, UploadPartResponse] = {
+  override def uploadPartFromFile(
+      uploadPartRequest: UploadPartRequest,
+      sourceFile: File
+  ): Either[Throwable, UploadPartResponse] = {
     uploadPart(uploadPartRequest, RequestBody.fromFile(sourceFile))
   }
 

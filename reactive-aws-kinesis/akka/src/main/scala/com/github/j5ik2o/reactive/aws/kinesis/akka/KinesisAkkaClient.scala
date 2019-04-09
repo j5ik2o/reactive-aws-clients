@@ -22,8 +22,10 @@ trait KinesisAkkaClient {
 
   val underlying: KinesisAsyncClient
 
-  def addTagsToStreamSource(addTagsToStreamRequest: AddTagsToStreamRequest,
-                            parallelism: Int = DefaultParallelism): Source[AddTagsToStreamResponse, NotUsed] =
+  def addTagsToStreamSource(
+      addTagsToStreamRequest: AddTagsToStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AddTagsToStreamResponse, NotUsed] =
     Source.single(addTagsToStreamRequest).via(addTagsToStreamFlow(parallelism))
 
   def addTagsToStreamFlow(
@@ -33,8 +35,10 @@ trait KinesisAkkaClient {
       underlying.addTagsToStream(addTagsToStreamRequest)
     }
 
-  def createStreamSource(createStreamRequest: CreateStreamRequest,
-                         parallelism: Int = DefaultParallelism): Source[CreateStreamResponse, NotUsed] =
+  def createStreamSource(
+      createStreamRequest: CreateStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateStreamResponse, NotUsed] =
     Source.single(createStreamRequest).via(createStreamFlow(parallelism))
 
   def createStreamFlow(
@@ -57,8 +61,10 @@ trait KinesisAkkaClient {
       underlying.decreaseStreamRetentionPeriod(decreaseStreamRetentionPeriodRequest)
     }
 
-  def deleteStreamSource(deleteStreamRequest: DeleteStreamRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteStreamResponse, NotUsed] =
+  def deleteStreamSource(
+      deleteStreamRequest: DeleteStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteStreamResponse, NotUsed] =
     Source.single(deleteStreamRequest).via(deleteStreamFlow(parallelism))
 
   def deleteStreamFlow(
@@ -81,8 +87,10 @@ trait KinesisAkkaClient {
       underlying.deregisterStreamConsumer(deregisterStreamConsumerRequest)
     }
 
-  def describeLimitsSource(describeLimitsRequest: DescribeLimitsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeLimitsResponse, NotUsed] =
+  def describeLimitsSource(
+      describeLimitsRequest: DescribeLimitsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLimitsResponse, NotUsed] =
     Source.single(describeLimitsRequest).via(describeLimitsFlow(parallelism))
 
   def describeLimitsFlow(
@@ -95,8 +103,10 @@ trait KinesisAkkaClient {
   def describeLimitsSource(): Source[DescribeLimitsResponse, NotUsed] =
     Source.fromFuture(underlying.describeLimits())
 
-  def describeStreamSource(describeStreamRequest: DescribeStreamRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeStreamResponse, NotUsed] =
+  def describeStreamSource(
+      describeStreamRequest: DescribeStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeStreamResponse, NotUsed] =
     Source.single(describeStreamRequest).via(describeStreamFlow(parallelism))
 
   def describeStreamFlow(
@@ -158,8 +168,10 @@ trait KinesisAkkaClient {
       underlying.enableEnhancedMonitoring(enableEnhancedMonitoringRequest)
     }
 
-  def getRecordsSource(getRecordsRequest: GetRecordsRequest,
-                       parallelism: Int = DefaultParallelism): Source[GetRecordsResponse, NotUsed] =
+  def getRecordsSource(
+      getRecordsRequest: GetRecordsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetRecordsResponse, NotUsed] =
     Source.single(getRecordsRequest).via(getRecordsFlow(parallelism))
 
   def getRecordsFlow(parallelism: Int = DefaultParallelism): Flow[GetRecordsRequest, GetRecordsResponse, NotUsed] =
@@ -167,8 +179,10 @@ trait KinesisAkkaClient {
       underlying.getRecords(getRecordsRequest)
     }
 
-  def getShardIteratorSource(getShardIteratorRequest: GetShardIteratorRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetShardIteratorResponse, NotUsed] =
+  def getShardIteratorSource(
+      getShardIteratorRequest: GetShardIteratorRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetShardIteratorResponse, NotUsed] =
     Source.single(getShardIteratorRequest).via(getShardIteratorFlow(parallelism))
 
   def getShardIteratorFlow(
@@ -191,8 +205,10 @@ trait KinesisAkkaClient {
       underlying.increaseStreamRetentionPeriod(increaseStreamRetentionPeriodRequest)
     }
 
-  def listShardsSource(listShardsRequest: ListShardsRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListShardsResponse, NotUsed] =
+  def listShardsSource(
+      listShardsRequest: ListShardsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListShardsResponse, NotUsed] =
     Source.single(listShardsRequest).via(listShardsFlow(parallelism))
 
   def listShardsFlow(parallelism: Int = DefaultParallelism): Flow[ListShardsRequest, ListShardsResponse, NotUsed] =
@@ -200,8 +216,10 @@ trait KinesisAkkaClient {
       underlying.listShards(listShardsRequest)
     }
 
-  def listStreamConsumersSource(listStreamConsumersRequest: ListStreamConsumersRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListStreamConsumersResponse, NotUsed] =
+  def listStreamConsumersSource(
+      listStreamConsumersRequest: ListStreamConsumersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStreamConsumersResponse, NotUsed] =
     Source.single(listStreamConsumersRequest).via(listStreamConsumersFlow(parallelism))
 
   def listStreamConsumersFlow(
@@ -216,8 +234,10 @@ trait KinesisAkkaClient {
       Source.fromPublisher(underlying.listStreamConsumersPaginator(request))
     }
 
-  def listStreamsSource(listStreamsRequest: ListStreamsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListStreamsResponse, NotUsed] =
+  def listStreamsSource(
+      listStreamsRequest: ListStreamsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListStreamsResponse, NotUsed] =
     Source.single(listStreamsRequest).via(listStreamsFlow(parallelism))
 
   def listStreamsFlow(parallelism: Int = DefaultParallelism): Flow[ListStreamsRequest, ListStreamsResponse, NotUsed] =
@@ -228,8 +248,10 @@ trait KinesisAkkaClient {
   def listStreamsSource(): Source[ListStreamsResponse, NotUsed] =
     Source.fromFuture(underlying.listStreams())
 
-  def listTagsForStreamSource(listTagsForStreamRequest: ListTagsForStreamRequest,
-                              parallelism: Int = DefaultParallelism): Source[ListTagsForStreamResponse, NotUsed] =
+  def listTagsForStreamSource(
+      listTagsForStreamRequest: ListTagsForStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForStreamResponse, NotUsed] =
     Source.single(listTagsForStreamRequest).via(listTagsForStreamFlow(parallelism))
 
   def listTagsForStreamFlow(
@@ -239,8 +261,10 @@ trait KinesisAkkaClient {
       underlying.listTagsForStream(listTagsForStreamRequest)
     }
 
-  def mergeShardsSource(mergeShardsRequest: MergeShardsRequest,
-                        parallelism: Int = DefaultParallelism): Source[MergeShardsResponse, NotUsed] =
+  def mergeShardsSource(
+      mergeShardsRequest: MergeShardsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[MergeShardsResponse, NotUsed] =
     Source.single(mergeShardsRequest).via(mergeShardsFlow(parallelism))
 
   def mergeShardsFlow(parallelism: Int = DefaultParallelism): Flow[MergeShardsRequest, MergeShardsResponse, NotUsed] =
@@ -248,8 +272,10 @@ trait KinesisAkkaClient {
       underlying.mergeShards(mergeShardsRequest)
     }
 
-  def putRecordSource(putRecordRequest: PutRecordRequest,
-                      parallelism: Int = DefaultParallelism): Source[PutRecordResponse, NotUsed] =
+  def putRecordSource(
+      putRecordRequest: PutRecordRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutRecordResponse, NotUsed] =
     Source.single(putRecordRequest).via(putRecordFlow(parallelism))
 
   def putRecordFlow(parallelism: Int = DefaultParallelism): Flow[PutRecordRequest, PutRecordResponse, NotUsed] =
@@ -257,8 +283,10 @@ trait KinesisAkkaClient {
       underlying.putRecord(putRecordRequest)
     }
 
-  def putRecordsSource(putRecordsRequest: PutRecordsRequest,
-                       parallelism: Int = DefaultParallelism): Source[PutRecordsResponse, NotUsed] =
+  def putRecordsSource(
+      putRecordsRequest: PutRecordsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutRecordsResponse, NotUsed] =
     Source.single(putRecordsRequest).via(putRecordsFlow(parallelism))
 
   def putRecordsFlow(parallelism: Int = DefaultParallelism): Flow[PutRecordsRequest, PutRecordsResponse, NotUsed] =
@@ -279,8 +307,10 @@ trait KinesisAkkaClient {
       underlying.registerStreamConsumer(registerStreamConsumerRequest)
     }
 
-  def removeTagsFromStreamSource(removeTagsFromStreamRequest: RemoveTagsFromStreamRequest,
-                                 parallelism: Int = DefaultParallelism): Source[RemoveTagsFromStreamResponse, NotUsed] =
+  def removeTagsFromStreamSource(
+      removeTagsFromStreamRequest: RemoveTagsFromStreamRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RemoveTagsFromStreamResponse, NotUsed] =
     Source.single(removeTagsFromStreamRequest).via(removeTagsFromStreamFlow(parallelism))
 
   def removeTagsFromStreamFlow(
@@ -290,8 +320,10 @@ trait KinesisAkkaClient {
       underlying.removeTagsFromStream(removeTagsFromStreamRequest)
     }
 
-  def splitShardSource(splitShardRequest: SplitShardRequest,
-                       parallelism: Int = DefaultParallelism): Source[SplitShardResponse, NotUsed] =
+  def splitShardSource(
+      splitShardRequest: SplitShardRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SplitShardResponse, NotUsed] =
     Source.single(splitShardRequest).via(splitShardFlow(parallelism))
 
   def splitShardFlow(parallelism: Int = DefaultParallelism): Flow[SplitShardRequest, SplitShardResponse, NotUsed] =
@@ -312,8 +344,10 @@ trait KinesisAkkaClient {
       underlying.startStreamEncryption(startStreamEncryptionRequest)
     }
 
-  def stopStreamEncryptionSource(stopStreamEncryptionRequest: StopStreamEncryptionRequest,
-                                 parallelism: Int = DefaultParallelism): Source[StopStreamEncryptionResponse, NotUsed] =
+  def stopStreamEncryptionSource(
+      stopStreamEncryptionRequest: StopStreamEncryptionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StopStreamEncryptionResponse, NotUsed] =
     Source.single(stopStreamEncryptionRequest).via(stopStreamEncryptionFlow(parallelism))
 
   def stopStreamEncryptionFlow(
@@ -323,9 +357,11 @@ trait KinesisAkkaClient {
       underlying.stopStreamEncryption(stopStreamEncryptionRequest)
     }
 
-  def subscribeToShardSource(subscribeToShardRequest: SubscribeToShardRequest,
-                             asyncResponseHandler: SubscribeToShardResponseHandler,
-                             parallelism: Int = DefaultParallelism): Source[Unit, NotUsed] =
+  def subscribeToShardSource(
+      subscribeToShardRequest: SubscribeToShardRequest,
+      asyncResponseHandler: SubscribeToShardResponseHandler,
+      parallelism: Int = DefaultParallelism
+  ): Source[Unit, NotUsed] =
     Source.single((subscribeToShardRequest, asyncResponseHandler)).via(subscribeToShardFlow(parallelism))
 
   def subscribeToShardFlow(
@@ -336,8 +372,10 @@ trait KinesisAkkaClient {
         underlying.subscribeToShard(subscribeToShardRequest, asyncResponseHandler)
     }
 
-  def updateShardCountSource(updateShardCountRequest: UpdateShardCountRequest,
-                             parallelism: Int = DefaultParallelism): Source[UpdateShardCountResponse, NotUsed] =
+  def updateShardCountSource(
+      updateShardCountRequest: UpdateShardCountRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateShardCountResponse, NotUsed] =
     Source.single(updateShardCountRequest).via(updateShardCountFlow(parallelism))
 
   def updateShardCountFlow(

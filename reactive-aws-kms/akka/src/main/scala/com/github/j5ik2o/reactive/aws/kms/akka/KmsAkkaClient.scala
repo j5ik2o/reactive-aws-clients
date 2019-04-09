@@ -22,8 +22,10 @@ trait KmsAkkaClient {
 
   val underlying: KmsAsyncClient
 
-  def cancelKeyDeletionSource(cancelKeyDeletionRequest: CancelKeyDeletionRequest,
-                              parallelism: Int = DefaultParallelism): Source[CancelKeyDeletionResponse, NotUsed] =
+  def cancelKeyDeletionSource(
+      cancelKeyDeletionRequest: CancelKeyDeletionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelKeyDeletionResponse, NotUsed] =
     Source.single(cancelKeyDeletionRequest).via(cancelKeyDeletionFlow(parallelism))
 
   def cancelKeyDeletionFlow(
@@ -46,8 +48,10 @@ trait KmsAkkaClient {
       underlying.connectCustomKeyStore(connectCustomKeyStoreRequest)
     }
 
-  def createAliasSource(createAliasRequest: CreateAliasRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateAliasResponse, NotUsed] =
+  def createAliasSource(
+      createAliasRequest: CreateAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateAliasResponse, NotUsed] =
     Source.single(createAliasRequest).via(createAliasFlow(parallelism))
 
   def createAliasFlow(parallelism: Int = DefaultParallelism): Flow[CreateAliasRequest, CreateAliasResponse, NotUsed] =
@@ -55,8 +59,10 @@ trait KmsAkkaClient {
       underlying.createAlias(createAliasRequest)
     }
 
-  def createCustomKeyStoreSource(createCustomKeyStoreRequest: CreateCustomKeyStoreRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreateCustomKeyStoreResponse, NotUsed] =
+  def createCustomKeyStoreSource(
+      createCustomKeyStoreRequest: CreateCustomKeyStoreRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateCustomKeyStoreResponse, NotUsed] =
     Source.single(createCustomKeyStoreRequest).via(createCustomKeyStoreFlow(parallelism))
 
   def createCustomKeyStoreFlow(
@@ -66,8 +72,10 @@ trait KmsAkkaClient {
       underlying.createCustomKeyStore(createCustomKeyStoreRequest)
     }
 
-  def createGrantSource(createGrantRequest: CreateGrantRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateGrantResponse, NotUsed] =
+  def createGrantSource(
+      createGrantRequest: CreateGrantRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateGrantResponse, NotUsed] =
     Source.single(createGrantRequest).via(createGrantFlow(parallelism))
 
   def createGrantFlow(parallelism: Int = DefaultParallelism): Flow[CreateGrantRequest, CreateGrantResponse, NotUsed] =
@@ -75,8 +83,10 @@ trait KmsAkkaClient {
       underlying.createGrant(createGrantRequest)
     }
 
-  def createKeySource(createKeyRequest: CreateKeyRequest,
-                      parallelism: Int = DefaultParallelism): Source[CreateKeyResponse, NotUsed] =
+  def createKeySource(
+      createKeyRequest: CreateKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateKeyResponse, NotUsed] =
     Source.single(createKeyRequest).via(createKeyFlow(parallelism))
 
   def createKeyFlow(parallelism: Int = DefaultParallelism): Flow[CreateKeyRequest, CreateKeyResponse, NotUsed] =
@@ -87,8 +97,10 @@ trait KmsAkkaClient {
   def createKeySource(): Source[CreateKeyResponse, NotUsed] =
     Source.fromFuture(underlying.createKey())
 
-  def decryptSource(decryptRequest: DecryptRequest,
-                    parallelism: Int = DefaultParallelism): Source[DecryptResponse, NotUsed] =
+  def decryptSource(
+      decryptRequest: DecryptRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DecryptResponse, NotUsed] =
     Source.single(decryptRequest).via(decryptFlow(parallelism))
 
   def decryptFlow(parallelism: Int = DefaultParallelism): Flow[DecryptRequest, DecryptResponse, NotUsed] =
@@ -96,8 +108,10 @@ trait KmsAkkaClient {
       underlying.decrypt(decryptRequest)
     }
 
-  def deleteAliasSource(deleteAliasRequest: DeleteAliasRequest,
-                        parallelism: Int = DefaultParallelism): Source[DeleteAliasResponse, NotUsed] =
+  def deleteAliasSource(
+      deleteAliasRequest: DeleteAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteAliasResponse, NotUsed] =
     Source.single(deleteAliasRequest).via(deleteAliasFlow(parallelism))
 
   def deleteAliasFlow(parallelism: Int = DefaultParallelism): Flow[DeleteAliasRequest, DeleteAliasResponse, NotUsed] =
@@ -105,8 +119,10 @@ trait KmsAkkaClient {
       underlying.deleteAlias(deleteAliasRequest)
     }
 
-  def deleteCustomKeyStoreSource(deleteCustomKeyStoreRequest: DeleteCustomKeyStoreRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteCustomKeyStoreResponse, NotUsed] =
+  def deleteCustomKeyStoreSource(
+      deleteCustomKeyStoreRequest: DeleteCustomKeyStoreRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteCustomKeyStoreResponse, NotUsed] =
     Source.single(deleteCustomKeyStoreRequest).via(deleteCustomKeyStoreFlow(parallelism))
 
   def deleteCustomKeyStoreFlow(
@@ -145,8 +161,10 @@ trait KmsAkkaClient {
   def describeCustomKeyStoresSource(): Source[DescribeCustomKeyStoresResponse, NotUsed] =
     Source.fromFuture(underlying.describeCustomKeyStores())
 
-  def describeKeySource(describeKeyRequest: DescribeKeyRequest,
-                        parallelism: Int = DefaultParallelism): Source[DescribeKeyResponse, NotUsed] =
+  def describeKeySource(
+      describeKeyRequest: DescribeKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeKeyResponse, NotUsed] =
     Source.single(describeKeyRequest).via(describeKeyFlow(parallelism))
 
   def describeKeyFlow(parallelism: Int = DefaultParallelism): Flow[DescribeKeyRequest, DescribeKeyResponse, NotUsed] =
@@ -154,8 +172,10 @@ trait KmsAkkaClient {
       underlying.describeKey(describeKeyRequest)
     }
 
-  def disableKeySource(disableKeyRequest: DisableKeyRequest,
-                       parallelism: Int = DefaultParallelism): Source[DisableKeyResponse, NotUsed] =
+  def disableKeySource(
+      disableKeyRequest: DisableKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisableKeyResponse, NotUsed] =
     Source.single(disableKeyRequest).via(disableKeyFlow(parallelism))
 
   def disableKeyFlow(parallelism: Int = DefaultParallelism): Flow[DisableKeyRequest, DisableKeyResponse, NotUsed] =
@@ -163,8 +183,10 @@ trait KmsAkkaClient {
       underlying.disableKey(disableKeyRequest)
     }
 
-  def disableKeyRotationSource(disableKeyRotationRequest: DisableKeyRotationRequest,
-                               parallelism: Int = DefaultParallelism): Source[DisableKeyRotationResponse, NotUsed] =
+  def disableKeyRotationSource(
+      disableKeyRotationRequest: DisableKeyRotationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisableKeyRotationResponse, NotUsed] =
     Source.single(disableKeyRotationRequest).via(disableKeyRotationFlow(parallelism))
 
   def disableKeyRotationFlow(
@@ -187,8 +209,10 @@ trait KmsAkkaClient {
       underlying.disconnectCustomKeyStore(disconnectCustomKeyStoreRequest)
     }
 
-  def enableKeySource(enableKeyRequest: EnableKeyRequest,
-                      parallelism: Int = DefaultParallelism): Source[EnableKeyResponse, NotUsed] =
+  def enableKeySource(
+      enableKeyRequest: EnableKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableKeyResponse, NotUsed] =
     Source.single(enableKeyRequest).via(enableKeyFlow(parallelism))
 
   def enableKeyFlow(parallelism: Int = DefaultParallelism): Flow[EnableKeyRequest, EnableKeyResponse, NotUsed] =
@@ -196,8 +220,10 @@ trait KmsAkkaClient {
       underlying.enableKey(enableKeyRequest)
     }
 
-  def enableKeyRotationSource(enableKeyRotationRequest: EnableKeyRotationRequest,
-                              parallelism: Int = DefaultParallelism): Source[EnableKeyRotationResponse, NotUsed] =
+  def enableKeyRotationSource(
+      enableKeyRotationRequest: EnableKeyRotationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableKeyRotationResponse, NotUsed] =
     Source.single(enableKeyRotationRequest).via(enableKeyRotationFlow(parallelism))
 
   def enableKeyRotationFlow(
@@ -207,8 +233,10 @@ trait KmsAkkaClient {
       underlying.enableKeyRotation(enableKeyRotationRequest)
     }
 
-  def encryptSource(encryptRequest: EncryptRequest,
-                    parallelism: Int = DefaultParallelism): Source[EncryptResponse, NotUsed] =
+  def encryptSource(
+      encryptRequest: EncryptRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EncryptResponse, NotUsed] =
     Source.single(encryptRequest).via(encryptFlow(parallelism))
 
   def encryptFlow(parallelism: Int = DefaultParallelism): Flow[EncryptRequest, EncryptResponse, NotUsed] =
@@ -216,8 +244,10 @@ trait KmsAkkaClient {
       underlying.encrypt(encryptRequest)
     }
 
-  def generateDataKeySource(generateDataKeyRequest: GenerateDataKeyRequest,
-                            parallelism: Int = DefaultParallelism): Source[GenerateDataKeyResponse, NotUsed] =
+  def generateDataKeySource(
+      generateDataKeyRequest: GenerateDataKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GenerateDataKeyResponse, NotUsed] =
     Source.single(generateDataKeyRequest).via(generateDataKeyFlow(parallelism))
 
   def generateDataKeyFlow(
@@ -240,8 +270,10 @@ trait KmsAkkaClient {
       underlying.generateDataKeyWithoutPlaintext(generateDataKeyWithoutPlaintextRequest)
     }
 
-  def generateRandomSource(generateRandomRequest: GenerateRandomRequest,
-                           parallelism: Int = DefaultParallelism): Source[GenerateRandomResponse, NotUsed] =
+  def generateRandomSource(
+      generateRandomRequest: GenerateRandomRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GenerateRandomResponse, NotUsed] =
     Source.single(generateRandomRequest).via(generateRandomFlow(parallelism))
 
   def generateRandomFlow(
@@ -254,8 +286,10 @@ trait KmsAkkaClient {
   def generateRandomSource(): Source[GenerateRandomResponse, NotUsed] =
     Source.fromFuture(underlying.generateRandom())
 
-  def getKeyPolicySource(getKeyPolicyRequest: GetKeyPolicyRequest,
-                         parallelism: Int = DefaultParallelism): Source[GetKeyPolicyResponse, NotUsed] =
+  def getKeyPolicySource(
+      getKeyPolicyRequest: GetKeyPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetKeyPolicyResponse, NotUsed] =
     Source.single(getKeyPolicyRequest).via(getKeyPolicyFlow(parallelism))
 
   def getKeyPolicyFlow(
@@ -265,8 +299,10 @@ trait KmsAkkaClient {
       underlying.getKeyPolicy(getKeyPolicyRequest)
     }
 
-  def getKeyRotationStatusSource(getKeyRotationStatusRequest: GetKeyRotationStatusRequest,
-                                 parallelism: Int = DefaultParallelism): Source[GetKeyRotationStatusResponse, NotUsed] =
+  def getKeyRotationStatusSource(
+      getKeyRotationStatusRequest: GetKeyRotationStatusRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetKeyRotationStatusResponse, NotUsed] =
     Source.single(getKeyRotationStatusRequest).via(getKeyRotationStatusFlow(parallelism))
 
   def getKeyRotationStatusFlow(
@@ -289,8 +325,10 @@ trait KmsAkkaClient {
       underlying.getParametersForImport(getParametersForImportRequest)
     }
 
-  def importKeyMaterialSource(importKeyMaterialRequest: ImportKeyMaterialRequest,
-                              parallelism: Int = DefaultParallelism): Source[ImportKeyMaterialResponse, NotUsed] =
+  def importKeyMaterialSource(
+      importKeyMaterialRequest: ImportKeyMaterialRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ImportKeyMaterialResponse, NotUsed] =
     Source.single(importKeyMaterialRequest).via(importKeyMaterialFlow(parallelism))
 
   def importKeyMaterialFlow(
@@ -300,8 +338,10 @@ trait KmsAkkaClient {
       underlying.importKeyMaterial(importKeyMaterialRequest)
     }
 
-  def listAliasesSource(listAliasesRequest: ListAliasesRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListAliasesResponse, NotUsed] =
+  def listAliasesSource(
+      listAliasesRequest: ListAliasesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListAliasesResponse, NotUsed] =
     Source.single(listAliasesRequest).via(listAliasesFlow(parallelism))
 
   def listAliasesFlow(parallelism: Int = DefaultParallelism): Flow[ListAliasesRequest, ListAliasesResponse, NotUsed] =
@@ -320,8 +360,10 @@ trait KmsAkkaClient {
       Source.fromPublisher(underlying.listAliasesPaginator(request))
     }
 
-  def listGrantsSource(listGrantsRequest: ListGrantsRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListGrantsResponse, NotUsed] =
+  def listGrantsSource(
+      listGrantsRequest: ListGrantsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListGrantsResponse, NotUsed] =
     Source.single(listGrantsRequest).via(listGrantsFlow(parallelism))
 
   def listGrantsFlow(parallelism: Int = DefaultParallelism): Flow[ListGrantsRequest, ListGrantsResponse, NotUsed] =
@@ -334,8 +376,10 @@ trait KmsAkkaClient {
       Source.fromPublisher(underlying.listGrantsPaginator(request))
     }
 
-  def listKeyPoliciesSource(listKeyPoliciesRequest: ListKeyPoliciesRequest,
-                            parallelism: Int = DefaultParallelism): Source[ListKeyPoliciesResponse, NotUsed] =
+  def listKeyPoliciesSource(
+      listKeyPoliciesRequest: ListKeyPoliciesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListKeyPoliciesResponse, NotUsed] =
     Source.single(listKeyPoliciesRequest).via(listKeyPoliciesFlow(parallelism))
 
   def listKeyPoliciesFlow(
@@ -350,8 +394,10 @@ trait KmsAkkaClient {
       Source.fromPublisher(underlying.listKeyPoliciesPaginator(request))
     }
 
-  def listKeysSource(listKeysRequest: ListKeysRequest,
-                     parallelism: Int = DefaultParallelism): Source[ListKeysResponse, NotUsed] =
+  def listKeysSource(
+      listKeysRequest: ListKeysRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListKeysResponse, NotUsed] =
     Source.single(listKeysRequest).via(listKeysFlow(parallelism))
 
   def listKeysFlow(parallelism: Int = DefaultParallelism): Flow[ListKeysRequest, ListKeysResponse, NotUsed] =
@@ -370,8 +416,10 @@ trait KmsAkkaClient {
       Source.fromPublisher(underlying.listKeysPaginator(request))
   }
 
-  def listResourceTagsSource(listResourceTagsRequest: ListResourceTagsRequest,
-                             parallelism: Int = DefaultParallelism): Source[ListResourceTagsResponse, NotUsed] =
+  def listResourceTagsSource(
+      listResourceTagsRequest: ListResourceTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListResourceTagsResponse, NotUsed] =
     Source.single(listResourceTagsRequest).via(listResourceTagsFlow(parallelism))
 
   def listResourceTagsFlow(
@@ -381,8 +429,10 @@ trait KmsAkkaClient {
       underlying.listResourceTags(listResourceTagsRequest)
     }
 
-  def listRetirableGrantsSource(listRetirableGrantsRequest: ListRetirableGrantsRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListRetirableGrantsResponse, NotUsed] =
+  def listRetirableGrantsSource(
+      listRetirableGrantsRequest: ListRetirableGrantsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListRetirableGrantsResponse, NotUsed] =
     Source.single(listRetirableGrantsRequest).via(listRetirableGrantsFlow(parallelism))
 
   def listRetirableGrantsFlow(
@@ -392,8 +442,10 @@ trait KmsAkkaClient {
       underlying.listRetirableGrants(listRetirableGrantsRequest)
     }
 
-  def putKeyPolicySource(putKeyPolicyRequest: PutKeyPolicyRequest,
-                         parallelism: Int = DefaultParallelism): Source[PutKeyPolicyResponse, NotUsed] =
+  def putKeyPolicySource(
+      putKeyPolicyRequest: PutKeyPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutKeyPolicyResponse, NotUsed] =
     Source.single(putKeyPolicyRequest).via(putKeyPolicyFlow(parallelism))
 
   def putKeyPolicyFlow(
@@ -403,8 +455,10 @@ trait KmsAkkaClient {
       underlying.putKeyPolicy(putKeyPolicyRequest)
     }
 
-  def reEncryptSource(reEncryptRequest: ReEncryptRequest,
-                      parallelism: Int = DefaultParallelism): Source[ReEncryptResponse, NotUsed] =
+  def reEncryptSource(
+      reEncryptRequest: ReEncryptRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ReEncryptResponse, NotUsed] =
     Source.single(reEncryptRequest).via(reEncryptFlow(parallelism))
 
   def reEncryptFlow(parallelism: Int = DefaultParallelism): Flow[ReEncryptRequest, ReEncryptResponse, NotUsed] =
@@ -412,8 +466,10 @@ trait KmsAkkaClient {
       underlying.reEncrypt(reEncryptRequest)
     }
 
-  def retireGrantSource(retireGrantRequest: RetireGrantRequest,
-                        parallelism: Int = DefaultParallelism): Source[RetireGrantResponse, NotUsed] =
+  def retireGrantSource(
+      retireGrantRequest: RetireGrantRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RetireGrantResponse, NotUsed] =
     Source.single(retireGrantRequest).via(retireGrantFlow(parallelism))
 
   def retireGrantFlow(parallelism: Int = DefaultParallelism): Flow[RetireGrantRequest, RetireGrantResponse, NotUsed] =
@@ -424,8 +480,10 @@ trait KmsAkkaClient {
   def retireGrantSource(): Source[RetireGrantResponse, NotUsed] =
     Source.fromFuture(underlying.retireGrant())
 
-  def revokeGrantSource(revokeGrantRequest: RevokeGrantRequest,
-                        parallelism: Int = DefaultParallelism): Source[RevokeGrantResponse, NotUsed] =
+  def revokeGrantSource(
+      revokeGrantRequest: RevokeGrantRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RevokeGrantResponse, NotUsed] =
     Source.single(revokeGrantRequest).via(revokeGrantFlow(parallelism))
 
   def revokeGrantFlow(parallelism: Int = DefaultParallelism): Flow[RevokeGrantRequest, RevokeGrantResponse, NotUsed] =
@@ -433,8 +491,10 @@ trait KmsAkkaClient {
       underlying.revokeGrant(revokeGrantRequest)
     }
 
-  def scheduleKeyDeletionSource(scheduleKeyDeletionRequest: ScheduleKeyDeletionRequest,
-                                parallelism: Int = DefaultParallelism): Source[ScheduleKeyDeletionResponse, NotUsed] =
+  def scheduleKeyDeletionSource(
+      scheduleKeyDeletionRequest: ScheduleKeyDeletionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ScheduleKeyDeletionResponse, NotUsed] =
     Source.single(scheduleKeyDeletionRequest).via(scheduleKeyDeletionFlow(parallelism))
 
   def scheduleKeyDeletionFlow(
@@ -444,8 +504,10 @@ trait KmsAkkaClient {
       underlying.scheduleKeyDeletion(scheduleKeyDeletionRequest)
     }
 
-  def tagResourceSource(tagResourceRequest: TagResourceRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
@@ -453,8 +515,10 @@ trait KmsAkkaClient {
       underlying.tagResource(tagResourceRequest)
     }
 
-  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
     Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
 
   def untagResourceFlow(
@@ -464,8 +528,10 @@ trait KmsAkkaClient {
       underlying.untagResource(untagResourceRequest)
     }
 
-  def updateAliasSource(updateAliasRequest: UpdateAliasRequest,
-                        parallelism: Int = DefaultParallelism): Source[UpdateAliasResponse, NotUsed] =
+  def updateAliasSource(
+      updateAliasRequest: UpdateAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateAliasResponse, NotUsed] =
     Source.single(updateAliasRequest).via(updateAliasFlow(parallelism))
 
   def updateAliasFlow(parallelism: Int = DefaultParallelism): Flow[UpdateAliasRequest, UpdateAliasResponse, NotUsed] =
@@ -473,8 +539,10 @@ trait KmsAkkaClient {
       underlying.updateAlias(updateAliasRequest)
     }
 
-  def updateCustomKeyStoreSource(updateCustomKeyStoreRequest: UpdateCustomKeyStoreRequest,
-                                 parallelism: Int = DefaultParallelism): Source[UpdateCustomKeyStoreResponse, NotUsed] =
+  def updateCustomKeyStoreSource(
+      updateCustomKeyStoreRequest: UpdateCustomKeyStoreRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateCustomKeyStoreResponse, NotUsed] =
     Source.single(updateCustomKeyStoreRequest).via(updateCustomKeyStoreFlow(parallelism))
 
   def updateCustomKeyStoreFlow(
@@ -484,8 +552,10 @@ trait KmsAkkaClient {
       underlying.updateCustomKeyStore(updateCustomKeyStoreRequest)
     }
 
-  def updateKeyDescriptionSource(updateKeyDescriptionRequest: UpdateKeyDescriptionRequest,
-                                 parallelism: Int = DefaultParallelism): Source[UpdateKeyDescriptionResponse, NotUsed] =
+  def updateKeyDescriptionSource(
+      updateKeyDescriptionRequest: UpdateKeyDescriptionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateKeyDescriptionResponse, NotUsed] =
     Source.single(updateKeyDescriptionRequest).via(updateKeyDescriptionFlow(parallelism))
 
   def updateKeyDescriptionFlow(

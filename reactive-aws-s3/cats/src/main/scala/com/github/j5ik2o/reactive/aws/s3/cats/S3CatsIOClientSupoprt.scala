@@ -32,8 +32,10 @@ trait S3CatsIOClientSupoprt { this: S3CatsIOClient =>
       IO(underlying.getObjectToPath(getObjectRequest, destinationPath))
     }
 
-  override def getObject[A](getObjectRequest: GetObjectRequest,
-                            responseTransformer: AsyncResponseTransformer[GetObjectResponse, A]): IO[A] =
+  override def getObject[A](
+      getObjectRequest: GetObjectRequest,
+      responseTransformer: AsyncResponseTransformer[GetObjectResponse, A]
+  ): IO[A] =
     IO.fromFuture {
       IO(underlying.getObject(getObjectRequest, responseTransformer))
     }
@@ -44,18 +46,24 @@ trait S3CatsIOClientSupoprt { this: S3CatsIOClient =>
     IO(underlying.getObjectTorrentAsBytes(getObjectRequest))
   }
 
-  override def getObjectTorrentToFile(getObjectRequest: GetObjectTorrentRequest,
-                                      file: File): IO[GetObjectTorrentResponse] = IO.fromFuture {
+  override def getObjectTorrentToFile(
+      getObjectRequest: GetObjectTorrentRequest,
+      file: File
+  ): IO[GetObjectTorrentResponse] = IO.fromFuture {
     IO(underlying.getObjectTorrentToFile(getObjectRequest, file))
   }
 
-  override def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
-                                      destinationPath: Path): IO[GetObjectTorrentResponse] = IO.fromFuture {
+  override def getObjectTorrentToPath(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      destinationPath: Path
+  ): IO[GetObjectTorrentResponse] = IO.fromFuture {
     IO(underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath))
   }
 
-  override def getObjectTorrent[A](getObjectTorrentRequest: GetObjectTorrentRequest,
-                                   responseTransformer: AsyncResponseTransformer[GetObjectTorrentResponse, A]): IO[A] =
+  override def getObjectTorrent[A](
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      responseTransformer: AsyncResponseTransformer[GetObjectTorrentResponse, A]
+  ): IO[A] =
     IO.fromFuture {
       IO(underlying.getObjectTorrent(getObjectTorrentRequest, responseTransformer))
     }

@@ -1277,7 +1277,7 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
     underlying.describeVpcEndpointConnectionNotifications(describeVpcEndpointConnectionNotificationsRequest).toScala
 
   override def describeVpcEndpointConnectionNotifications()
-    : Future[DescribeVpcEndpointConnectionNotificationsResponse] =
+      : Future[DescribeVpcEndpointConnectionNotificationsResponse] =
     underlying.describeVpcEndpointConnectionNotifications().toScala
 
   override def describeVpcEndpointConnections(

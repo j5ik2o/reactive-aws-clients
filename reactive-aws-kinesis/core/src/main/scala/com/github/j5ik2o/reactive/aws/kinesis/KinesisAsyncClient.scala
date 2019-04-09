@@ -139,8 +139,10 @@ trait KinesisAsyncClient extends KinesisClient[Future] {
     underlying.stopStreamEncryption(stopStreamEncryptionRequest).toScala
 
   @SuppressWarnings(Array("org.wartremover.warts.Equals"))
-  def subscribeToShard(subscribeToShardRequest: SubscribeToShardRequest,
-                       asyncResponseHandler: SubscribeToShardResponseHandler): Future[Unit] = {
+  def subscribeToShard(
+      subscribeToShardRequest: SubscribeToShardRequest,
+      asyncResponseHandler: SubscribeToShardResponseHandler
+  ): Future[Unit] = {
     val p = scala.concurrent.Promise[Unit]()
     underlying
       .subscribeToShard(subscribeToShardRequest, asyncResponseHandler).whenCompleteAsync(

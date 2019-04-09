@@ -802,7 +802,7 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
     underlying.describeHosts(describeHostsRequest).toEither
 
   override def describeIamInstanceProfileAssociations()
-    : Either[Throwable, DescribeIamInstanceProfileAssociationsResponse] =
+      : Either[Throwable, DescribeIamInstanceProfileAssociationsResponse] =
     underlying.describeIamInstanceProfileAssociations().toEither
 
   override def describeIamInstanceProfileAssociations(
@@ -1040,7 +1040,7 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
     underlying.describeReservedInstancesListings(describeReservedInstancesListingsRequest).toEither
 
   override def describeReservedInstancesModifications()
-    : Either[Throwable, DescribeReservedInstancesModificationsResponse] =
+      : Either[Throwable, DescribeReservedInstancesModificationsResponse] =
     underlying.describeReservedInstancesModifications().toEither
 
   override def describeReservedInstancesModifications(
@@ -1321,7 +1321,7 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
     underlying.describeVpcClassicLinkDnsSupport(describeVpcClassicLinkDnsSupportRequest).toEither
 
   override def describeVpcEndpointConnectionNotifications()
-    : Either[Throwable, DescribeVpcEndpointConnectionNotificationsResponse] =
+      : Either[Throwable, DescribeVpcEndpointConnectionNotificationsResponse] =
     underlying.describeVpcEndpointConnectionNotifications().toEither
 
   override def describeVpcEndpointConnectionNotifications(
@@ -1338,7 +1338,7 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
     underlying.describeVpcEndpointConnections(describeVpcEndpointConnectionsRequest).toEither
 
   override def describeVpcEndpointServiceConfigurations()
-    : Either[Throwable, DescribeVpcEndpointServiceConfigurationsResponse] =
+      : Either[Throwable, DescribeVpcEndpointServiceConfigurationsResponse] =
     underlying.describeVpcEndpointServiceConfigurations().toEither
 
   override def describeVpcEndpointServiceConfigurations(

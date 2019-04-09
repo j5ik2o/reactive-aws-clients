@@ -22,8 +22,10 @@ trait AppSyncAkkaClient {
 
   val underlying: AppSyncAsyncClient
 
-  def createApiKeySource(createApiKeyRequest: CreateApiKeyRequest,
-                         parallelism: Int = DefaultParallelism): Source[CreateApiKeyResponse, NotUsed] =
+  def createApiKeySource(
+      createApiKeyRequest: CreateApiKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateApiKeyResponse, NotUsed] =
     Source.single(createApiKeyRequest).via(createApiKeyFlow(parallelism))
 
   def createApiKeyFlow(
@@ -33,8 +35,10 @@ trait AppSyncAkkaClient {
       underlying.createApiKey(createApiKeyRequest)
     }
 
-  def createDataSourceSource(createDataSourceRequest: CreateDataSourceRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateDataSourceResponse, NotUsed] =
+  def createDataSourceSource(
+      createDataSourceRequest: CreateDataSourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateDataSourceResponse, NotUsed] =
     Source.single(createDataSourceRequest).via(createDataSourceFlow(parallelism))
 
   def createDataSourceFlow(
@@ -44,8 +48,10 @@ trait AppSyncAkkaClient {
       underlying.createDataSource(createDataSourceRequest)
     }
 
-  def createFunctionSource(createFunctionRequest: CreateFunctionRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateFunctionResponse, NotUsed] =
+  def createFunctionSource(
+      createFunctionRequest: CreateFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateFunctionResponse, NotUsed] =
     Source.single(createFunctionRequest).via(createFunctionFlow(parallelism))
 
   def createFunctionFlow(
@@ -55,8 +61,10 @@ trait AppSyncAkkaClient {
       underlying.createFunction(createFunctionRequest)
     }
 
-  def createGraphqlApiSource(createGraphqlApiRequest: CreateGraphqlApiRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateGraphqlApiResponse, NotUsed] =
+  def createGraphqlApiSource(
+      createGraphqlApiRequest: CreateGraphqlApiRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateGraphqlApiResponse, NotUsed] =
     Source.single(createGraphqlApiRequest).via(createGraphqlApiFlow(parallelism))
 
   def createGraphqlApiFlow(
@@ -66,8 +74,10 @@ trait AppSyncAkkaClient {
       underlying.createGraphqlApi(createGraphqlApiRequest)
     }
 
-  def createResolverSource(createResolverRequest: CreateResolverRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateResolverResponse, NotUsed] =
+  def createResolverSource(
+      createResolverRequest: CreateResolverRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateResolverResponse, NotUsed] =
     Source.single(createResolverRequest).via(createResolverFlow(parallelism))
 
   def createResolverFlow(
@@ -77,8 +87,10 @@ trait AppSyncAkkaClient {
       underlying.createResolver(createResolverRequest)
     }
 
-  def createTypeSource(createTypeRequest: CreateTypeRequest,
-                       parallelism: Int = DefaultParallelism): Source[CreateTypeResponse, NotUsed] =
+  def createTypeSource(
+      createTypeRequest: CreateTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTypeResponse, NotUsed] =
     Source.single(createTypeRequest).via(createTypeFlow(parallelism))
 
   def createTypeFlow(parallelism: Int = DefaultParallelism): Flow[CreateTypeRequest, CreateTypeResponse, NotUsed] =
@@ -86,8 +98,10 @@ trait AppSyncAkkaClient {
       underlying.createType(createTypeRequest)
     }
 
-  def deleteApiKeySource(deleteApiKeyRequest: DeleteApiKeyRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteApiKeyResponse, NotUsed] =
+  def deleteApiKeySource(
+      deleteApiKeyRequest: DeleteApiKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteApiKeyResponse, NotUsed] =
     Source.single(deleteApiKeyRequest).via(deleteApiKeyFlow(parallelism))
 
   def deleteApiKeyFlow(
@@ -97,8 +111,10 @@ trait AppSyncAkkaClient {
       underlying.deleteApiKey(deleteApiKeyRequest)
     }
 
-  def deleteDataSourceSource(deleteDataSourceRequest: DeleteDataSourceRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteDataSourceResponse, NotUsed] =
+  def deleteDataSourceSource(
+      deleteDataSourceRequest: DeleteDataSourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteDataSourceResponse, NotUsed] =
     Source.single(deleteDataSourceRequest).via(deleteDataSourceFlow(parallelism))
 
   def deleteDataSourceFlow(
@@ -108,8 +124,10 @@ trait AppSyncAkkaClient {
       underlying.deleteDataSource(deleteDataSourceRequest)
     }
 
-  def deleteFunctionSource(deleteFunctionRequest: DeleteFunctionRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteFunctionResponse, NotUsed] =
+  def deleteFunctionSource(
+      deleteFunctionRequest: DeleteFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFunctionResponse, NotUsed] =
     Source.single(deleteFunctionRequest).via(deleteFunctionFlow(parallelism))
 
   def deleteFunctionFlow(
@@ -119,8 +137,10 @@ trait AppSyncAkkaClient {
       underlying.deleteFunction(deleteFunctionRequest)
     }
 
-  def deleteGraphqlApiSource(deleteGraphqlApiRequest: DeleteGraphqlApiRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteGraphqlApiResponse, NotUsed] =
+  def deleteGraphqlApiSource(
+      deleteGraphqlApiRequest: DeleteGraphqlApiRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteGraphqlApiResponse, NotUsed] =
     Source.single(deleteGraphqlApiRequest).via(deleteGraphqlApiFlow(parallelism))
 
   def deleteGraphqlApiFlow(
@@ -130,8 +150,10 @@ trait AppSyncAkkaClient {
       underlying.deleteGraphqlApi(deleteGraphqlApiRequest)
     }
 
-  def deleteResolverSource(deleteResolverRequest: DeleteResolverRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteResolverResponse, NotUsed] =
+  def deleteResolverSource(
+      deleteResolverRequest: DeleteResolverRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteResolverResponse, NotUsed] =
     Source.single(deleteResolverRequest).via(deleteResolverFlow(parallelism))
 
   def deleteResolverFlow(
@@ -141,8 +163,10 @@ trait AppSyncAkkaClient {
       underlying.deleteResolver(deleteResolverRequest)
     }
 
-  def deleteTypeSource(deleteTypeRequest: DeleteTypeRequest,
-                       parallelism: Int = DefaultParallelism): Source[DeleteTypeResponse, NotUsed] =
+  def deleteTypeSource(
+      deleteTypeRequest: DeleteTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTypeResponse, NotUsed] =
     Source.single(deleteTypeRequest).via(deleteTypeFlow(parallelism))
 
   def deleteTypeFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTypeRequest, DeleteTypeResponse, NotUsed] =
@@ -150,8 +174,10 @@ trait AppSyncAkkaClient {
       underlying.deleteType(deleteTypeRequest)
     }
 
-  def getDataSourceSource(getDataSourceRequest: GetDataSourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[GetDataSourceResponse, NotUsed] =
+  def getDataSourceSource(
+      getDataSourceRequest: GetDataSourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetDataSourceResponse, NotUsed] =
     Source.single(getDataSourceRequest).via(getDataSourceFlow(parallelism))
 
   def getDataSourceFlow(
@@ -161,8 +187,10 @@ trait AppSyncAkkaClient {
       underlying.getDataSource(getDataSourceRequest)
     }
 
-  def getFunctionSource(getFunctionRequest: GetFunctionRequest,
-                        parallelism: Int = DefaultParallelism): Source[GetFunctionResponse, NotUsed] =
+  def getFunctionSource(
+      getFunctionRequest: GetFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetFunctionResponse, NotUsed] =
     Source.single(getFunctionRequest).via(getFunctionFlow(parallelism))
 
   def getFunctionFlow(parallelism: Int = DefaultParallelism): Flow[GetFunctionRequest, GetFunctionResponse, NotUsed] =
@@ -170,8 +198,10 @@ trait AppSyncAkkaClient {
       underlying.getFunction(getFunctionRequest)
     }
 
-  def getGraphqlApiSource(getGraphqlApiRequest: GetGraphqlApiRequest,
-                          parallelism: Int = DefaultParallelism): Source[GetGraphqlApiResponse, NotUsed] =
+  def getGraphqlApiSource(
+      getGraphqlApiRequest: GetGraphqlApiRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetGraphqlApiResponse, NotUsed] =
     Source.single(getGraphqlApiRequest).via(getGraphqlApiFlow(parallelism))
 
   def getGraphqlApiFlow(
@@ -194,8 +224,10 @@ trait AppSyncAkkaClient {
       underlying.getIntrospectionSchema(getIntrospectionSchemaRequest)
     }
 
-  def getResolverSource(getResolverRequest: GetResolverRequest,
-                        parallelism: Int = DefaultParallelism): Source[GetResolverResponse, NotUsed] =
+  def getResolverSource(
+      getResolverRequest: GetResolverRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetResolverResponse, NotUsed] =
     Source.single(getResolverRequest).via(getResolverFlow(parallelism))
 
   def getResolverFlow(parallelism: Int = DefaultParallelism): Flow[GetResolverRequest, GetResolverResponse, NotUsed] =
@@ -216,8 +248,10 @@ trait AppSyncAkkaClient {
       underlying.getSchemaCreationStatus(getSchemaCreationStatusRequest)
     }
 
-  def getTypeSource(getTypeRequest: GetTypeRequest,
-                    parallelism: Int = DefaultParallelism): Source[GetTypeResponse, NotUsed] =
+  def getTypeSource(
+      getTypeRequest: GetTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetTypeResponse, NotUsed] =
     Source.single(getTypeRequest).via(getTypeFlow(parallelism))
 
   def getTypeFlow(parallelism: Int = DefaultParallelism): Flow[GetTypeRequest, GetTypeResponse, NotUsed] =
@@ -225,8 +259,10 @@ trait AppSyncAkkaClient {
       underlying.getType(getTypeRequest)
     }
 
-  def listApiKeysSource(listApiKeysRequest: ListApiKeysRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListApiKeysResponse, NotUsed] =
+  def listApiKeysSource(
+      listApiKeysRequest: ListApiKeysRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListApiKeysResponse, NotUsed] =
     Source.single(listApiKeysRequest).via(listApiKeysFlow(parallelism))
 
   def listApiKeysFlow(parallelism: Int = DefaultParallelism): Flow[ListApiKeysRequest, ListApiKeysResponse, NotUsed] =
@@ -234,8 +270,10 @@ trait AppSyncAkkaClient {
       underlying.listApiKeys(listApiKeysRequest)
     }
 
-  def listDataSourcesSource(listDataSourcesRequest: ListDataSourcesRequest,
-                            parallelism: Int = DefaultParallelism): Source[ListDataSourcesResponse, NotUsed] =
+  def listDataSourcesSource(
+      listDataSourcesRequest: ListDataSourcesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListDataSourcesResponse, NotUsed] =
     Source.single(listDataSourcesRequest).via(listDataSourcesFlow(parallelism))
 
   def listDataSourcesFlow(
@@ -245,8 +283,10 @@ trait AppSyncAkkaClient {
       underlying.listDataSources(listDataSourcesRequest)
     }
 
-  def listFunctionsSource(listFunctionsRequest: ListFunctionsRequest,
-                          parallelism: Int = DefaultParallelism): Source[ListFunctionsResponse, NotUsed] =
+  def listFunctionsSource(
+      listFunctionsRequest: ListFunctionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListFunctionsResponse, NotUsed] =
     Source.single(listFunctionsRequest).via(listFunctionsFlow(parallelism))
 
   def listFunctionsFlow(
@@ -256,8 +296,10 @@ trait AppSyncAkkaClient {
       underlying.listFunctions(listFunctionsRequest)
     }
 
-  def listGraphqlApisSource(listGraphqlApisRequest: ListGraphqlApisRequest,
-                            parallelism: Int = DefaultParallelism): Source[ListGraphqlApisResponse, NotUsed] =
+  def listGraphqlApisSource(
+      listGraphqlApisRequest: ListGraphqlApisRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListGraphqlApisResponse, NotUsed] =
     Source.single(listGraphqlApisRequest).via(listGraphqlApisFlow(parallelism))
 
   def listGraphqlApisFlow(
@@ -270,8 +312,10 @@ trait AppSyncAkkaClient {
   def listGraphqlApisSource(): Source[ListGraphqlApisResponse, NotUsed] =
     Source.fromFuture(underlying.listGraphqlApis())
 
-  def listResolversSource(listResolversRequest: ListResolversRequest,
-                          parallelism: Int = DefaultParallelism): Source[ListResolversResponse, NotUsed] =
+  def listResolversSource(
+      listResolversRequest: ListResolversRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListResolversResponse, NotUsed] =
     Source.single(listResolversRequest).via(listResolversFlow(parallelism))
 
   def listResolversFlow(
@@ -294,8 +338,10 @@ trait AppSyncAkkaClient {
       underlying.listResolversByFunction(listResolversByFunctionRequest)
     }
 
-  def listTypesSource(listTypesRequest: ListTypesRequest,
-                      parallelism: Int = DefaultParallelism): Source[ListTypesResponse, NotUsed] =
+  def listTypesSource(
+      listTypesRequest: ListTypesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTypesResponse, NotUsed] =
     Source.single(listTypesRequest).via(listTypesFlow(parallelism))
 
   def listTypesFlow(parallelism: Int = DefaultParallelism): Flow[ListTypesRequest, ListTypesResponse, NotUsed] =
@@ -303,8 +349,10 @@ trait AppSyncAkkaClient {
       underlying.listTypes(listTypesRequest)
     }
 
-  def startSchemaCreationSource(startSchemaCreationRequest: StartSchemaCreationRequest,
-                                parallelism: Int = DefaultParallelism): Source[StartSchemaCreationResponse, NotUsed] =
+  def startSchemaCreationSource(
+      startSchemaCreationRequest: StartSchemaCreationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartSchemaCreationResponse, NotUsed] =
     Source.single(startSchemaCreationRequest).via(startSchemaCreationFlow(parallelism))
 
   def startSchemaCreationFlow(
@@ -314,8 +362,10 @@ trait AppSyncAkkaClient {
       underlying.startSchemaCreation(startSchemaCreationRequest)
     }
 
-  def updateApiKeySource(updateApiKeyRequest: UpdateApiKeyRequest,
-                         parallelism: Int = DefaultParallelism): Source[UpdateApiKeyResponse, NotUsed] =
+  def updateApiKeySource(
+      updateApiKeyRequest: UpdateApiKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateApiKeyResponse, NotUsed] =
     Source.single(updateApiKeyRequest).via(updateApiKeyFlow(parallelism))
 
   def updateApiKeyFlow(
@@ -325,8 +375,10 @@ trait AppSyncAkkaClient {
       underlying.updateApiKey(updateApiKeyRequest)
     }
 
-  def updateDataSourceSource(updateDataSourceRequest: UpdateDataSourceRequest,
-                             parallelism: Int = DefaultParallelism): Source[UpdateDataSourceResponse, NotUsed] =
+  def updateDataSourceSource(
+      updateDataSourceRequest: UpdateDataSourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateDataSourceResponse, NotUsed] =
     Source.single(updateDataSourceRequest).via(updateDataSourceFlow(parallelism))
 
   def updateDataSourceFlow(
@@ -336,8 +388,10 @@ trait AppSyncAkkaClient {
       underlying.updateDataSource(updateDataSourceRequest)
     }
 
-  def updateFunctionSource(updateFunctionRequest: UpdateFunctionRequest,
-                           parallelism: Int = DefaultParallelism): Source[UpdateFunctionResponse, NotUsed] =
+  def updateFunctionSource(
+      updateFunctionRequest: UpdateFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateFunctionResponse, NotUsed] =
     Source.single(updateFunctionRequest).via(updateFunctionFlow(parallelism))
 
   def updateFunctionFlow(
@@ -347,8 +401,10 @@ trait AppSyncAkkaClient {
       underlying.updateFunction(updateFunctionRequest)
     }
 
-  def updateGraphqlApiSource(updateGraphqlApiRequest: UpdateGraphqlApiRequest,
-                             parallelism: Int = DefaultParallelism): Source[UpdateGraphqlApiResponse, NotUsed] =
+  def updateGraphqlApiSource(
+      updateGraphqlApiRequest: UpdateGraphqlApiRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateGraphqlApiResponse, NotUsed] =
     Source.single(updateGraphqlApiRequest).via(updateGraphqlApiFlow(parallelism))
 
   def updateGraphqlApiFlow(
@@ -358,8 +414,10 @@ trait AppSyncAkkaClient {
       underlying.updateGraphqlApi(updateGraphqlApiRequest)
     }
 
-  def updateResolverSource(updateResolverRequest: UpdateResolverRequest,
-                           parallelism: Int = DefaultParallelism): Source[UpdateResolverResponse, NotUsed] =
+  def updateResolverSource(
+      updateResolverRequest: UpdateResolverRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateResolverResponse, NotUsed] =
     Source.single(updateResolverRequest).via(updateResolverFlow(parallelism))
 
   def updateResolverFlow(
@@ -369,8 +427,10 @@ trait AppSyncAkkaClient {
       underlying.updateResolver(updateResolverRequest)
     }
 
-  def updateTypeSource(updateTypeRequest: UpdateTypeRequest,
-                       parallelism: Int = DefaultParallelism): Source[UpdateTypeResponse, NotUsed] =
+  def updateTypeSource(
+      updateTypeRequest: UpdateTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateTypeResponse, NotUsed] =
     Source.single(updateTypeRequest).via(updateTypeFlow(parallelism))
 
   def updateTypeFlow(parallelism: Int = DefaultParallelism): Flow[UpdateTypeRequest, UpdateTypeResponse, NotUsed] =

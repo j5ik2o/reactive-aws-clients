@@ -96,13 +96,13 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
     }
 
   override def describeReservedElasticsearchInstanceOfferings()
-    : IO[DescribeReservedElasticsearchInstanceOfferingsResponse] =
+      : IO[DescribeReservedElasticsearchInstanceOfferingsResponse] =
     IO.fromFuture {
       IO(underlying.describeReservedElasticsearchInstanceOfferings())
     }
 
   def describeReservedElasticsearchInstanceOfferingsPaginator()
-    : DescribeReservedElasticsearchInstanceOfferingsPublisher =
+      : DescribeReservedElasticsearchInstanceOfferingsPublisher =
     underlying.describeReservedElasticsearchInstanceOfferingsPaginator()
 
   def describeReservedElasticsearchInstanceOfferingsPaginator(

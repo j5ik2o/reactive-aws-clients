@@ -69,7 +69,7 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
     underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest).toEither
 
   override def describeReservedElasticsearchInstanceOfferings()
-    : Either[Throwable, DescribeReservedElasticsearchInstanceOfferingsResponse] =
+      : Either[Throwable, DescribeReservedElasticsearchInstanceOfferingsResponse] =
     underlying.describeReservedElasticsearchInstanceOfferings().toEither
 
   override def describeReservedElasticsearchInstanceOfferings(
@@ -79,7 +79,7 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       .describeReservedElasticsearchInstanceOfferings(describeReservedElasticsearchInstanceOfferingsRequest).toEither
 
   def describeReservedElasticsearchInstanceOfferingsPaginator()
-    : DescribeReservedElasticsearchInstanceOfferingsIterable =
+      : DescribeReservedElasticsearchInstanceOfferingsIterable =
     underlying.describeReservedElasticsearchInstanceOfferingsPaginator()
 
   def describeReservedElasticsearchInstanceOfferingsPaginator(
@@ -90,7 +90,7 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
     )
 
   override def describeReservedElasticsearchInstances()
-    : Either[Throwable, DescribeReservedElasticsearchInstancesResponse] =
+      : Either[Throwable, DescribeReservedElasticsearchInstancesResponse] =
     underlying.describeReservedElasticsearchInstances().toEither
 
   override def describeReservedElasticsearchInstances(

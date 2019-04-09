@@ -22,8 +22,10 @@ trait DynamoDbAkkaClient {
 
   val underlying: DynamoDbAsyncClient
 
-  def batchGetItemSource(batchGetItemRequest: BatchGetItemRequest,
-                         parallelism: Int = DefaultParallelism): Source[BatchGetItemResponse, NotUsed] =
+  def batchGetItemSource(
+      batchGetItemRequest: BatchGetItemRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[BatchGetItemResponse, NotUsed] =
     Source.single(batchGetItemRequest).via(batchGetItemFlow(parallelism))
 
   def batchGetItemFlow(
@@ -38,8 +40,10 @@ trait DynamoDbAkkaClient {
       Source.fromPublisher(underlying.batchGetItemPaginator(request))
     }
 
-  def batchWriteItemSource(batchWriteItemRequest: BatchWriteItemRequest,
-                           parallelism: Int = DefaultParallelism): Source[BatchWriteItemResponse, NotUsed] =
+  def batchWriteItemSource(
+      batchWriteItemRequest: BatchWriteItemRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[BatchWriteItemResponse, NotUsed] =
     Source.single(batchWriteItemRequest).via(batchWriteItemFlow(parallelism))
 
   def batchWriteItemFlow(
@@ -49,8 +53,10 @@ trait DynamoDbAkkaClient {
       underlying.batchWriteItem(batchWriteItemRequest)
     }
 
-  def createBackupSource(createBackupRequest: CreateBackupRequest,
-                         parallelism: Int = DefaultParallelism): Source[CreateBackupResponse, NotUsed] =
+  def createBackupSource(
+      createBackupRequest: CreateBackupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateBackupResponse, NotUsed] =
     Source.single(createBackupRequest).via(createBackupFlow(parallelism))
 
   def createBackupFlow(
@@ -60,8 +66,10 @@ trait DynamoDbAkkaClient {
       underlying.createBackup(createBackupRequest)
     }
 
-  def createGlobalTableSource(createGlobalTableRequest: CreateGlobalTableRequest,
-                              parallelism: Int = DefaultParallelism): Source[CreateGlobalTableResponse, NotUsed] =
+  def createGlobalTableSource(
+      createGlobalTableRequest: CreateGlobalTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateGlobalTableResponse, NotUsed] =
     Source.single(createGlobalTableRequest).via(createGlobalTableFlow(parallelism))
 
   def createGlobalTableFlow(
@@ -71,8 +79,10 @@ trait DynamoDbAkkaClient {
       underlying.createGlobalTable(createGlobalTableRequest)
     }
 
-  def createTableSource(createTableRequest: CreateTableRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateTableResponse, NotUsed] =
+  def createTableSource(
+      createTableRequest: CreateTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTableResponse, NotUsed] =
     Source.single(createTableRequest).via(createTableFlow(parallelism))
 
   def createTableFlow(parallelism: Int = DefaultParallelism): Flow[CreateTableRequest, CreateTableResponse, NotUsed] =
@@ -80,8 +90,10 @@ trait DynamoDbAkkaClient {
       underlying.createTable(createTableRequest)
     }
 
-  def deleteBackupSource(deleteBackupRequest: DeleteBackupRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteBackupResponse, NotUsed] =
+  def deleteBackupSource(
+      deleteBackupRequest: DeleteBackupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteBackupResponse, NotUsed] =
     Source.single(deleteBackupRequest).via(deleteBackupFlow(parallelism))
 
   def deleteBackupFlow(
@@ -91,8 +103,10 @@ trait DynamoDbAkkaClient {
       underlying.deleteBackup(deleteBackupRequest)
     }
 
-  def deleteItemSource(deleteItemRequest: DeleteItemRequest,
-                       parallelism: Int = DefaultParallelism): Source[DeleteItemResponse, NotUsed] =
+  def deleteItemSource(
+      deleteItemRequest: DeleteItemRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteItemResponse, NotUsed] =
     Source.single(deleteItemRequest).via(deleteItemFlow(parallelism))
 
   def deleteItemFlow(parallelism: Int = DefaultParallelism): Flow[DeleteItemRequest, DeleteItemResponse, NotUsed] =
@@ -100,8 +114,10 @@ trait DynamoDbAkkaClient {
       underlying.deleteItem(deleteItemRequest)
     }
 
-  def deleteTableSource(deleteTableRequest: DeleteTableRequest,
-                        parallelism: Int = DefaultParallelism): Source[DeleteTableResponse, NotUsed] =
+  def deleteTableSource(
+      deleteTableRequest: DeleteTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTableResponse, NotUsed] =
     Source.single(deleteTableRequest).via(deleteTableFlow(parallelism))
 
   def deleteTableFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTableRequest, DeleteTableResponse, NotUsed] =
@@ -109,8 +125,10 @@ trait DynamoDbAkkaClient {
       underlying.deleteTable(deleteTableRequest)
     }
 
-  def describeBackupSource(describeBackupRequest: DescribeBackupRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeBackupResponse, NotUsed] =
+  def describeBackupSource(
+      describeBackupRequest: DescribeBackupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeBackupResponse, NotUsed] =
     Source.single(describeBackupRequest).via(describeBackupFlow(parallelism))
 
   def describeBackupFlow(
@@ -133,8 +151,10 @@ trait DynamoDbAkkaClient {
       underlying.describeContinuousBackups(describeContinuousBackupsRequest)
     }
 
-  def describeEndpointsSource(describeEndpointsRequest: DescribeEndpointsRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeEndpointsResponse, NotUsed] =
+  def describeEndpointsSource(
+      describeEndpointsRequest: DescribeEndpointsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeEndpointsResponse, NotUsed] =
     Source.single(describeEndpointsRequest).via(describeEndpointsFlow(parallelism))
 
   def describeEndpointsFlow(
@@ -147,8 +167,10 @@ trait DynamoDbAkkaClient {
   def describeEndpointsSource(): Source[DescribeEndpointsResponse, NotUsed] =
     Source.fromFuture(underlying.describeEndpoints())
 
-  def describeGlobalTableSource(describeGlobalTableRequest: DescribeGlobalTableRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeGlobalTableResponse, NotUsed] =
+  def describeGlobalTableSource(
+      describeGlobalTableRequest: DescribeGlobalTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeGlobalTableResponse, NotUsed] =
     Source.single(describeGlobalTableRequest).via(describeGlobalTableFlow(parallelism))
 
   def describeGlobalTableFlow(
@@ -171,8 +193,10 @@ trait DynamoDbAkkaClient {
       underlying.describeGlobalTableSettings(describeGlobalTableSettingsRequest)
     }
 
-  def describeLimitsSource(describeLimitsRequest: DescribeLimitsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeLimitsResponse, NotUsed] =
+  def describeLimitsSource(
+      describeLimitsRequest: DescribeLimitsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLimitsResponse, NotUsed] =
     Source.single(describeLimitsRequest).via(describeLimitsFlow(parallelism))
 
   def describeLimitsFlow(
@@ -185,8 +209,10 @@ trait DynamoDbAkkaClient {
   def describeLimitsSource(): Source[DescribeLimitsResponse, NotUsed] =
     Source.fromFuture(underlying.describeLimits())
 
-  def describeTableSource(describeTableRequest: DescribeTableRequest,
-                          parallelism: Int = DefaultParallelism): Source[DescribeTableResponse, NotUsed] =
+  def describeTableSource(
+      describeTableRequest: DescribeTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTableResponse, NotUsed] =
     Source.single(describeTableRequest).via(describeTableFlow(parallelism))
 
   def describeTableFlow(
@@ -196,8 +222,10 @@ trait DynamoDbAkkaClient {
       underlying.describeTable(describeTableRequest)
     }
 
-  def describeTimeToLiveSource(describeTimeToLiveRequest: DescribeTimeToLiveRequest,
-                               parallelism: Int = DefaultParallelism): Source[DescribeTimeToLiveResponse, NotUsed] =
+  def describeTimeToLiveSource(
+      describeTimeToLiveRequest: DescribeTimeToLiveRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTimeToLiveResponse, NotUsed] =
     Source.single(describeTimeToLiveRequest).via(describeTimeToLiveFlow(parallelism))
 
   def describeTimeToLiveFlow(
@@ -207,8 +235,10 @@ trait DynamoDbAkkaClient {
       underlying.describeTimeToLive(describeTimeToLiveRequest)
     }
 
-  def getItemSource(getItemRequest: GetItemRequest,
-                    parallelism: Int = DefaultParallelism): Source[GetItemResponse, NotUsed] =
+  def getItemSource(
+      getItemRequest: GetItemRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetItemResponse, NotUsed] =
     Source.single(getItemRequest).via(getItemFlow(parallelism))
 
   def getItemFlow(parallelism: Int = DefaultParallelism): Flow[GetItemRequest, GetItemResponse, NotUsed] =
@@ -216,8 +246,10 @@ trait DynamoDbAkkaClient {
       underlying.getItem(getItemRequest)
     }
 
-  def listBackupsSource(listBackupsRequest: ListBackupsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListBackupsResponse, NotUsed] =
+  def listBackupsSource(
+      listBackupsRequest: ListBackupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListBackupsResponse, NotUsed] =
     Source.single(listBackupsRequest).via(listBackupsFlow(parallelism))
 
   def listBackupsFlow(parallelism: Int = DefaultParallelism): Flow[ListBackupsRequest, ListBackupsResponse, NotUsed] =
@@ -228,8 +260,10 @@ trait DynamoDbAkkaClient {
   def listBackupsSource(): Source[ListBackupsResponse, NotUsed] =
     Source.fromFuture(underlying.listBackups())
 
-  def listGlobalTablesSource(listGlobalTablesRequest: ListGlobalTablesRequest,
-                             parallelism: Int = DefaultParallelism): Source[ListGlobalTablesResponse, NotUsed] =
+  def listGlobalTablesSource(
+      listGlobalTablesRequest: ListGlobalTablesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListGlobalTablesResponse, NotUsed] =
     Source.single(listGlobalTablesRequest).via(listGlobalTablesFlow(parallelism))
 
   def listGlobalTablesFlow(
@@ -242,8 +276,10 @@ trait DynamoDbAkkaClient {
   def listGlobalTablesSource(): Source[ListGlobalTablesResponse, NotUsed] =
     Source.fromFuture(underlying.listGlobalTables())
 
-  def listTablesSource(listTablesRequest: ListTablesRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListTablesResponse, NotUsed] =
+  def listTablesSource(
+      listTablesRequest: ListTablesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTablesResponse, NotUsed] =
     Source.single(listTablesRequest).via(listTablesFlow(parallelism))
 
   def listTablesFlow(parallelism: Int = DefaultParallelism): Flow[ListTablesRequest, ListTablesResponse, NotUsed] =
@@ -262,8 +298,10 @@ trait DynamoDbAkkaClient {
       Source.fromPublisher(underlying.listTablesPaginator(request))
     }
 
-  def listTagsOfResourceSource(listTagsOfResourceRequest: ListTagsOfResourceRequest,
-                               parallelism: Int = DefaultParallelism): Source[ListTagsOfResourceResponse, NotUsed] =
+  def listTagsOfResourceSource(
+      listTagsOfResourceRequest: ListTagsOfResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsOfResourceResponse, NotUsed] =
     Source.single(listTagsOfResourceRequest).via(listTagsOfResourceFlow(parallelism))
 
   def listTagsOfResourceFlow(
@@ -273,8 +311,10 @@ trait DynamoDbAkkaClient {
       underlying.listTagsOfResource(listTagsOfResourceRequest)
     }
 
-  def putItemSource(putItemRequest: PutItemRequest,
-                    parallelism: Int = DefaultParallelism): Source[PutItemResponse, NotUsed] =
+  def putItemSource(
+      putItemRequest: PutItemRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutItemResponse, NotUsed] =
     Source.single(putItemRequest).via(putItemFlow(parallelism))
 
   def putItemFlow(parallelism: Int = DefaultParallelism): Flow[PutItemRequest, PutItemResponse, NotUsed] =
@@ -332,8 +372,10 @@ trait DynamoDbAkkaClient {
     Source.fromPublisher(underlying.scanPaginator(request))
   }
 
-  def tagResourceSource(tagResourceRequest: TagResourceRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
@@ -341,8 +383,10 @@ trait DynamoDbAkkaClient {
       underlying.tagResource(tagResourceRequest)
     }
 
-  def transactGetItemsSource(transactGetItemsRequest: TransactGetItemsRequest,
-                             parallelism: Int = DefaultParallelism): Source[TransactGetItemsResponse, NotUsed] =
+  def transactGetItemsSource(
+      transactGetItemsRequest: TransactGetItemsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TransactGetItemsResponse, NotUsed] =
     Source.single(transactGetItemsRequest).via(transactGetItemsFlow(parallelism))
 
   def transactGetItemsFlow(
@@ -352,8 +396,10 @@ trait DynamoDbAkkaClient {
       underlying.transactGetItems(transactGetItemsRequest)
     }
 
-  def transactWriteItemsSource(transactWriteItemsRequest: TransactWriteItemsRequest,
-                               parallelism: Int = DefaultParallelism): Source[TransactWriteItemsResponse, NotUsed] =
+  def transactWriteItemsSource(
+      transactWriteItemsRequest: TransactWriteItemsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TransactWriteItemsResponse, NotUsed] =
     Source.single(transactWriteItemsRequest).via(transactWriteItemsFlow(parallelism))
 
   def transactWriteItemsFlow(
@@ -363,8 +409,10 @@ trait DynamoDbAkkaClient {
       underlying.transactWriteItems(transactWriteItemsRequest)
     }
 
-  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
     Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
 
   def untagResourceFlow(
@@ -387,8 +435,10 @@ trait DynamoDbAkkaClient {
       underlying.updateContinuousBackups(updateContinuousBackupsRequest)
     }
 
-  def updateGlobalTableSource(updateGlobalTableRequest: UpdateGlobalTableRequest,
-                              parallelism: Int = DefaultParallelism): Source[UpdateGlobalTableResponse, NotUsed] =
+  def updateGlobalTableSource(
+      updateGlobalTableRequest: UpdateGlobalTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateGlobalTableResponse, NotUsed] =
     Source.single(updateGlobalTableRequest).via(updateGlobalTableFlow(parallelism))
 
   def updateGlobalTableFlow(
@@ -411,8 +461,10 @@ trait DynamoDbAkkaClient {
       underlying.updateGlobalTableSettings(updateGlobalTableSettingsRequest)
     }
 
-  def updateItemSource(updateItemRequest: UpdateItemRequest,
-                       parallelism: Int = DefaultParallelism): Source[UpdateItemResponse, NotUsed] =
+  def updateItemSource(
+      updateItemRequest: UpdateItemRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateItemResponse, NotUsed] =
     Source.single(updateItemRequest).via(updateItemFlow(parallelism))
 
   def updateItemFlow(parallelism: Int = DefaultParallelism): Flow[UpdateItemRequest, UpdateItemResponse, NotUsed] =
@@ -420,8 +472,10 @@ trait DynamoDbAkkaClient {
       underlying.updateItem(updateItemRequest)
     }
 
-  def updateTableSource(updateTableRequest: UpdateTableRequest,
-                        parallelism: Int = DefaultParallelism): Source[UpdateTableResponse, NotUsed] =
+  def updateTableSource(
+      updateTableRequest: UpdateTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateTableResponse, NotUsed] =
     Source.single(updateTableRequest).via(updateTableFlow(parallelism))
 
   def updateTableFlow(parallelism: Int = DefaultParallelism): Flow[UpdateTableRequest, UpdateTableResponse, NotUsed] =
@@ -429,8 +483,10 @@ trait DynamoDbAkkaClient {
       underlying.updateTable(updateTableRequest)
     }
 
-  def updateTimeToLiveSource(updateTimeToLiveRequest: UpdateTimeToLiveRequest,
-                             parallelism: Int = DefaultParallelism): Source[UpdateTimeToLiveResponse, NotUsed] =
+  def updateTimeToLiveSource(
+      updateTimeToLiveRequest: UpdateTimeToLiveRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateTimeToLiveResponse, NotUsed] =
     Source.single(updateTimeToLiveRequest).via(updateTimeToLiveFlow(parallelism))
 
   def updateTimeToLiveFlow(

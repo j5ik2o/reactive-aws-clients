@@ -22,8 +22,10 @@ trait ElasticsearchAkkaClient {
 
   val underlying: ElasticsearchAsyncClient
 
-  def addTagsSource(addTagsRequest: AddTagsRequest,
-                    parallelism: Int = DefaultParallelism): Source[AddTagsResponse, NotUsed] =
+  def addTagsSource(
+      addTagsRequest: AddTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AddTagsResponse, NotUsed] =
     Source.single(addTagsRequest).via(addTagsFlow(parallelism))
 
   def addTagsFlow(parallelism: Int = DefaultParallelism): Flow[AddTagsRequest, AddTagsResponse, NotUsed] =
@@ -155,28 +157,29 @@ trait ElasticsearchAkkaClient {
         describeReservedElasticsearchInstanceOfferingsFlow(parallelism)
       )
 
-  def describeReservedElasticsearchInstanceOfferingsFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[DescribeReservedElasticsearchInstanceOfferingsRequest,
-          DescribeReservedElasticsearchInstanceOfferingsResponse,
-          NotUsed] =
+  def describeReservedElasticsearchInstanceOfferingsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeReservedElasticsearchInstanceOfferingsRequest,
+    DescribeReservedElasticsearchInstanceOfferingsResponse,
+    NotUsed
+  ] =
     Flow[DescribeReservedElasticsearchInstanceOfferingsRequest].mapAsync(parallelism) {
       describeReservedElasticsearchInstanceOfferingsRequest =>
         underlying.describeReservedElasticsearchInstanceOfferings(describeReservedElasticsearchInstanceOfferingsRequest)
     }
 
   def describeReservedElasticsearchInstanceOfferingsSource()
-    : Source[DescribeReservedElasticsearchInstanceOfferingsResponse, NotUsed] =
+      : Source[DescribeReservedElasticsearchInstanceOfferingsResponse, NotUsed] =
     Source.fromFuture(underlying.describeReservedElasticsearchInstanceOfferings())
 
   def describeReservedElasticsearchInstanceOfferingsPaginatorSource
-    : Source[DescribeReservedElasticsearchInstanceOfferingsResponse, NotUsed] =
+      : Source[DescribeReservedElasticsearchInstanceOfferingsResponse, NotUsed] =
     Source.fromPublisher(underlying.describeReservedElasticsearchInstanceOfferingsPaginator())
 
-  def describeReservedElasticsearchInstanceOfferingsPaginatorFlow
-    : Flow[DescribeReservedElasticsearchInstanceOfferingsRequest,
-           DescribeReservedElasticsearchInstanceOfferingsResponse,
-           NotUsed] = Flow[DescribeReservedElasticsearchInstanceOfferingsRequest].flatMapConcat { request =>
+  def describeReservedElasticsearchInstanceOfferingsPaginatorFlow: Flow[
+    DescribeReservedElasticsearchInstanceOfferingsRequest,
+    DescribeReservedElasticsearchInstanceOfferingsResponse,
+    NotUsed
+  ] = Flow[DescribeReservedElasticsearchInstanceOfferingsRequest].flatMapConcat { request =>
     Source.fromPublisher(underlying.describeReservedElasticsearchInstanceOfferingsPaginator(request))
   }
 
@@ -201,11 +204,11 @@ trait ElasticsearchAkkaClient {
     Source.fromFuture(underlying.describeReservedElasticsearchInstances())
 
   def describeReservedElasticsearchInstancesPaginatorSource
-    : Source[DescribeReservedElasticsearchInstancesResponse, NotUsed] =
+      : Source[DescribeReservedElasticsearchInstancesResponse, NotUsed] =
     Source.fromPublisher(underlying.describeReservedElasticsearchInstancesPaginator())
 
   def describeReservedElasticsearchInstancesPaginatorFlow
-    : Flow[DescribeReservedElasticsearchInstancesRequest, DescribeReservedElasticsearchInstancesResponse, NotUsed] =
+      : Flow[DescribeReservedElasticsearchInstancesRequest, DescribeReservedElasticsearchInstancesResponse, NotUsed] =
     Flow[DescribeReservedElasticsearchInstancesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeReservedElasticsearchInstancesPaginator(request))
     }
@@ -226,8 +229,10 @@ trait ElasticsearchAkkaClient {
   def getCompatibleElasticsearchVersionsSource(): Source[GetCompatibleElasticsearchVersionsResponse, NotUsed] =
     Source.fromFuture(underlying.getCompatibleElasticsearchVersions())
 
-  def getUpgradeHistorySource(getUpgradeHistoryRequest: GetUpgradeHistoryRequest,
-                              parallelism: Int = DefaultParallelism): Source[GetUpgradeHistoryResponse, NotUsed] =
+  def getUpgradeHistorySource(
+      getUpgradeHistoryRequest: GetUpgradeHistoryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetUpgradeHistoryResponse, NotUsed] =
     Source.single(getUpgradeHistoryRequest).via(getUpgradeHistoryFlow(parallelism))
 
   def getUpgradeHistoryFlow(
@@ -242,8 +247,10 @@ trait ElasticsearchAkkaClient {
       Source.fromPublisher(underlying.getUpgradeHistoryPaginator(request))
     }
 
-  def getUpgradeStatusSource(getUpgradeStatusRequest: GetUpgradeStatusRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetUpgradeStatusResponse, NotUsed] =
+  def getUpgradeStatusSource(
+      getUpgradeStatusRequest: GetUpgradeStatusRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetUpgradeStatusResponse, NotUsed] =
     Source.single(getUpgradeStatusRequest).via(getUpgradeStatusFlow(parallelism))
 
   def getUpgradeStatusFlow(
@@ -253,8 +260,10 @@ trait ElasticsearchAkkaClient {
       underlying.getUpgradeStatus(getUpgradeStatusRequest)
     }
 
-  def listDomainNamesSource(listDomainNamesRequest: ListDomainNamesRequest,
-                            parallelism: Int = DefaultParallelism): Source[ListDomainNamesResponse, NotUsed] =
+  def listDomainNamesSource(
+      listDomainNamesRequest: ListDomainNamesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListDomainNamesResponse, NotUsed] =
     Source.single(listDomainNamesRequest).via(listDomainNamesFlow(parallelism))
 
   def listDomainNamesFlow(
@@ -281,7 +290,7 @@ trait ElasticsearchAkkaClient {
     }
 
   def listElasticsearchInstanceTypesPaginatorFlow
-    : Flow[ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse, NotUsed] =
+      : Flow[ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse, NotUsed] =
     Flow[ListElasticsearchInstanceTypesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listElasticsearchInstanceTypesPaginator(request))
     }
@@ -306,13 +315,15 @@ trait ElasticsearchAkkaClient {
     Source.fromPublisher(underlying.listElasticsearchVersionsPaginator())
 
   def listElasticsearchVersionsPaginatorFlow
-    : Flow[ListElasticsearchVersionsRequest, ListElasticsearchVersionsResponse, NotUsed] =
+      : Flow[ListElasticsearchVersionsRequest, ListElasticsearchVersionsResponse, NotUsed] =
     Flow[ListElasticsearchVersionsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listElasticsearchVersionsPaginator(request))
     }
 
-  def listTagsSource(listTagsRequest: ListTagsRequest,
-                     parallelism: Int = DefaultParallelism): Source[ListTagsResponse, NotUsed] =
+  def listTagsSource(
+      listTagsRequest: ListTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsResponse, NotUsed] =
     Source.single(listTagsRequest).via(listTagsFlow(parallelism))
 
   def listTagsFlow(parallelism: Int = DefaultParallelism): Flow[ListTagsRequest, ListTagsResponse, NotUsed] =
@@ -329,18 +340,20 @@ trait ElasticsearchAkkaClient {
         purchaseReservedElasticsearchInstanceOfferingFlow(parallelism)
       )
 
-  def purchaseReservedElasticsearchInstanceOfferingFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[PurchaseReservedElasticsearchInstanceOfferingRequest,
-          PurchaseReservedElasticsearchInstanceOfferingResponse,
-          NotUsed] =
+  def purchaseReservedElasticsearchInstanceOfferingFlow(parallelism: Int = DefaultParallelism): Flow[
+    PurchaseReservedElasticsearchInstanceOfferingRequest,
+    PurchaseReservedElasticsearchInstanceOfferingResponse,
+    NotUsed
+  ] =
     Flow[PurchaseReservedElasticsearchInstanceOfferingRequest].mapAsync(parallelism) {
       purchaseReservedElasticsearchInstanceOfferingRequest =>
         underlying.purchaseReservedElasticsearchInstanceOffering(purchaseReservedElasticsearchInstanceOfferingRequest)
     }
 
-  def removeTagsSource(removeTagsRequest: RemoveTagsRequest,
-                       parallelism: Int = DefaultParallelism): Source[RemoveTagsResponse, NotUsed] =
+  def removeTagsSource(
+      removeTagsRequest: RemoveTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RemoveTagsResponse, NotUsed] =
     Source.single(removeTagsRequest).via(removeTagsFlow(parallelism))
 
   def removeTagsFlow(parallelism: Int = DefaultParallelism): Flow[RemoveTagsRequest, RemoveTagsResponse, NotUsed] =

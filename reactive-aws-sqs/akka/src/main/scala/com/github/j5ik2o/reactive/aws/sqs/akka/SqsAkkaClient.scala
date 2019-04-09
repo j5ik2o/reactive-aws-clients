@@ -22,8 +22,10 @@ trait SqsAkkaClient {
 
   val underlying: SqsAsyncClient
 
-  def addPermissionSource(addPermissionRequest: AddPermissionRequest,
-                          parallelism: Int = DefaultParallelism): Source[AddPermissionResponse, NotUsed] =
+  def addPermissionSource(
+      addPermissionRequest: AddPermissionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AddPermissionResponse, NotUsed] =
     Source.single(addPermissionRequest).via(addPermissionFlow(parallelism))
 
   def addPermissionFlow(
@@ -59,8 +61,10 @@ trait SqsAkkaClient {
       underlying.changeMessageVisibilityBatch(changeMessageVisibilityBatchRequest)
     }
 
-  def createQueueSource(createQueueRequest: CreateQueueRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateQueueResponse, NotUsed] =
+  def createQueueSource(
+      createQueueRequest: CreateQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateQueueResponse, NotUsed] =
     Source.single(createQueueRequest).via(createQueueFlow(parallelism))
 
   def createQueueFlow(parallelism: Int = DefaultParallelism): Flow[CreateQueueRequest, CreateQueueResponse, NotUsed] =
@@ -68,8 +72,10 @@ trait SqsAkkaClient {
       underlying.createQueue(createQueueRequest)
     }
 
-  def deleteMessageSource(deleteMessageRequest: DeleteMessageRequest,
-                          parallelism: Int = DefaultParallelism): Source[DeleteMessageResponse, NotUsed] =
+  def deleteMessageSource(
+      deleteMessageRequest: DeleteMessageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteMessageResponse, NotUsed] =
     Source.single(deleteMessageRequest).via(deleteMessageFlow(parallelism))
 
   def deleteMessageFlow(
@@ -79,8 +85,10 @@ trait SqsAkkaClient {
       underlying.deleteMessage(deleteMessageRequest)
     }
 
-  def deleteMessageBatchSource(deleteMessageBatchRequest: DeleteMessageBatchRequest,
-                               parallelism: Int = DefaultParallelism): Source[DeleteMessageBatchResponse, NotUsed] =
+  def deleteMessageBatchSource(
+      deleteMessageBatchRequest: DeleteMessageBatchRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteMessageBatchResponse, NotUsed] =
     Source.single(deleteMessageBatchRequest).via(deleteMessageBatchFlow(parallelism))
 
   def deleteMessageBatchFlow(
@@ -90,8 +98,10 @@ trait SqsAkkaClient {
       underlying.deleteMessageBatch(deleteMessageBatchRequest)
     }
 
-  def deleteQueueSource(deleteQueueRequest: DeleteQueueRequest,
-                        parallelism: Int = DefaultParallelism): Source[DeleteQueueResponse, NotUsed] =
+  def deleteQueueSource(
+      deleteQueueRequest: DeleteQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteQueueResponse, NotUsed] =
     Source.single(deleteQueueRequest).via(deleteQueueFlow(parallelism))
 
   def deleteQueueFlow(parallelism: Int = DefaultParallelism): Flow[DeleteQueueRequest, DeleteQueueResponse, NotUsed] =
@@ -99,8 +109,10 @@ trait SqsAkkaClient {
       underlying.deleteQueue(deleteQueueRequest)
     }
 
-  def getQueueAttributesSource(getQueueAttributesRequest: GetQueueAttributesRequest,
-                               parallelism: Int = DefaultParallelism): Source[GetQueueAttributesResponse, NotUsed] =
+  def getQueueAttributesSource(
+      getQueueAttributesRequest: GetQueueAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetQueueAttributesResponse, NotUsed] =
     Source.single(getQueueAttributesRequest).via(getQueueAttributesFlow(parallelism))
 
   def getQueueAttributesFlow(
@@ -110,8 +122,10 @@ trait SqsAkkaClient {
       underlying.getQueueAttributes(getQueueAttributesRequest)
     }
 
-  def getQueueUrlSource(getQueueUrlRequest: GetQueueUrlRequest,
-                        parallelism: Int = DefaultParallelism): Source[GetQueueUrlResponse, NotUsed] =
+  def getQueueUrlSource(
+      getQueueUrlRequest: GetQueueUrlRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetQueueUrlResponse, NotUsed] =
     Source.single(getQueueUrlRequest).via(getQueueUrlFlow(parallelism))
 
   def getQueueUrlFlow(parallelism: Int = DefaultParallelism): Flow[GetQueueUrlRequest, GetQueueUrlResponse, NotUsed] =
@@ -132,8 +146,10 @@ trait SqsAkkaClient {
       underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest)
     }
 
-  def listQueueTagsSource(listQueueTagsRequest: ListQueueTagsRequest,
-                          parallelism: Int = DefaultParallelism): Source[ListQueueTagsResponse, NotUsed] =
+  def listQueueTagsSource(
+      listQueueTagsRequest: ListQueueTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListQueueTagsResponse, NotUsed] =
     Source.single(listQueueTagsRequest).via(listQueueTagsFlow(parallelism))
 
   def listQueueTagsFlow(
@@ -143,8 +159,10 @@ trait SqsAkkaClient {
       underlying.listQueueTags(listQueueTagsRequest)
     }
 
-  def listQueuesSource(listQueuesRequest: ListQueuesRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListQueuesResponse, NotUsed] =
+  def listQueuesSource(
+      listQueuesRequest: ListQueuesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListQueuesResponse, NotUsed] =
     Source.single(listQueuesRequest).via(listQueuesFlow(parallelism))
 
   def listQueuesFlow(parallelism: Int = DefaultParallelism): Flow[ListQueuesRequest, ListQueuesResponse, NotUsed] =
@@ -155,8 +173,10 @@ trait SqsAkkaClient {
   def listQueuesSource(): Source[ListQueuesResponse, NotUsed] =
     Source.fromFuture(underlying.listQueues())
 
-  def purgeQueueSource(purgeQueueRequest: PurgeQueueRequest,
-                       parallelism: Int = DefaultParallelism): Source[PurgeQueueResponse, NotUsed] =
+  def purgeQueueSource(
+      purgeQueueRequest: PurgeQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PurgeQueueResponse, NotUsed] =
     Source.single(purgeQueueRequest).via(purgeQueueFlow(parallelism))
 
   def purgeQueueFlow(parallelism: Int = DefaultParallelism): Flow[PurgeQueueRequest, PurgeQueueResponse, NotUsed] =
@@ -164,8 +184,10 @@ trait SqsAkkaClient {
       underlying.purgeQueue(purgeQueueRequest)
     }
 
-  def receiveMessageSource(receiveMessageRequest: ReceiveMessageRequest,
-                           parallelism: Int = DefaultParallelism): Source[ReceiveMessageResponse, NotUsed] =
+  def receiveMessageSource(
+      receiveMessageRequest: ReceiveMessageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ReceiveMessageResponse, NotUsed] =
     Source.single(receiveMessageRequest).via(receiveMessageFlow(parallelism))
 
   def receiveMessageFlow(
@@ -175,8 +197,10 @@ trait SqsAkkaClient {
       underlying.receiveMessage(receiveMessageRequest)
     }
 
-  def removePermissionSource(removePermissionRequest: RemovePermissionRequest,
-                             parallelism: Int = DefaultParallelism): Source[RemovePermissionResponse, NotUsed] =
+  def removePermissionSource(
+      removePermissionRequest: RemovePermissionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RemovePermissionResponse, NotUsed] =
     Source.single(removePermissionRequest).via(removePermissionFlow(parallelism))
 
   def removePermissionFlow(
@@ -186,8 +210,10 @@ trait SqsAkkaClient {
       underlying.removePermission(removePermissionRequest)
     }
 
-  def sendMessageSource(sendMessageRequest: SendMessageRequest,
-                        parallelism: Int = DefaultParallelism): Source[SendMessageResponse, NotUsed] =
+  def sendMessageSource(
+      sendMessageRequest: SendMessageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SendMessageResponse, NotUsed] =
     Source.single(sendMessageRequest).via(sendMessageFlow(parallelism))
 
   def sendMessageFlow(parallelism: Int = DefaultParallelism): Flow[SendMessageRequest, SendMessageResponse, NotUsed] =
@@ -195,8 +221,10 @@ trait SqsAkkaClient {
       underlying.sendMessage(sendMessageRequest)
     }
 
-  def sendMessageBatchSource(sendMessageBatchRequest: SendMessageBatchRequest,
-                             parallelism: Int = DefaultParallelism): Source[SendMessageBatchResponse, NotUsed] =
+  def sendMessageBatchSource(
+      sendMessageBatchRequest: SendMessageBatchRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SendMessageBatchResponse, NotUsed] =
     Source.single(sendMessageBatchRequest).via(sendMessageBatchFlow(parallelism))
 
   def sendMessageBatchFlow(
@@ -206,8 +234,10 @@ trait SqsAkkaClient {
       underlying.sendMessageBatch(sendMessageBatchRequest)
     }
 
-  def setQueueAttributesSource(setQueueAttributesRequest: SetQueueAttributesRequest,
-                               parallelism: Int = DefaultParallelism): Source[SetQueueAttributesResponse, NotUsed] =
+  def setQueueAttributesSource(
+      setQueueAttributesRequest: SetQueueAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SetQueueAttributesResponse, NotUsed] =
     Source.single(setQueueAttributesRequest).via(setQueueAttributesFlow(parallelism))
 
   def setQueueAttributesFlow(
@@ -217,8 +247,10 @@ trait SqsAkkaClient {
       underlying.setQueueAttributes(setQueueAttributesRequest)
     }
 
-  def tagQueueSource(tagQueueRequest: TagQueueRequest,
-                     parallelism: Int = DefaultParallelism): Source[TagQueueResponse, NotUsed] =
+  def tagQueueSource(
+      tagQueueRequest: TagQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagQueueResponse, NotUsed] =
     Source.single(tagQueueRequest).via(tagQueueFlow(parallelism))
 
   def tagQueueFlow(parallelism: Int = DefaultParallelism): Flow[TagQueueRequest, TagQueueResponse, NotUsed] =
@@ -226,8 +258,10 @@ trait SqsAkkaClient {
       underlying.tagQueue(tagQueueRequest)
     }
 
-  def untagQueueSource(untagQueueRequest: UntagQueueRequest,
-                       parallelism: Int = DefaultParallelism): Source[UntagQueueResponse, NotUsed] =
+  def untagQueueSource(
+      untagQueueRequest: UntagQueueRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagQueueResponse, NotUsed] =
     Source.single(untagQueueRequest).via(untagQueueFlow(parallelism))
 
   def untagQueueFlow(parallelism: Int = DefaultParallelism): Flow[UntagQueueRequest, UntagQueueResponse, NotUsed] =

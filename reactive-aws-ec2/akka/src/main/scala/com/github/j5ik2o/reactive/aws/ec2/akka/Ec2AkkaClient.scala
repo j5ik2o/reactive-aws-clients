@@ -76,8 +76,10 @@ trait Ec2AkkaClient {
       underlying.acceptVpcPeeringConnection(acceptVpcPeeringConnectionRequest)
     }
 
-  def advertiseByoipCidrSource(advertiseByoipCidrRequest: AdvertiseByoipCidrRequest,
-                               parallelism: Int = DefaultParallelism): Source[AdvertiseByoipCidrResponse, NotUsed] =
+  def advertiseByoipCidrSource(
+      advertiseByoipCidrRequest: AdvertiseByoipCidrRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AdvertiseByoipCidrResponse, NotUsed] =
     Source.single(advertiseByoipCidrRequest).via(advertiseByoipCidrFlow(parallelism))
 
   def advertiseByoipCidrFlow(
@@ -87,8 +89,10 @@ trait Ec2AkkaClient {
       underlying.advertiseByoipCidr(advertiseByoipCidrRequest)
     }
 
-  def allocateAddressSource(allocateAddressRequest: AllocateAddressRequest,
-                            parallelism: Int = DefaultParallelism): Source[AllocateAddressResponse, NotUsed] =
+  def allocateAddressSource(
+      allocateAddressRequest: AllocateAddressRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AllocateAddressResponse, NotUsed] =
     Source.single(allocateAddressRequest).via(allocateAddressFlow(parallelism))
 
   def allocateAddressFlow(
@@ -101,8 +105,10 @@ trait Ec2AkkaClient {
   def allocateAddressSource(): Source[AllocateAddressResponse, NotUsed] =
     Source.fromFuture(underlying.allocateAddress())
 
-  def allocateHostsSource(allocateHostsRequest: AllocateHostsRequest,
-                          parallelism: Int = DefaultParallelism): Source[AllocateHostsResponse, NotUsed] =
+  def allocateHostsSource(
+      allocateHostsRequest: AllocateHostsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AllocateHostsResponse, NotUsed] =
     Source.single(allocateHostsRequest).via(allocateHostsFlow(parallelism))
 
   def allocateHostsFlow(
@@ -121,18 +127,20 @@ trait Ec2AkkaClient {
         applySecurityGroupsToClientVpnTargetNetworkFlow(parallelism)
       )
 
-  def applySecurityGroupsToClientVpnTargetNetworkFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[ApplySecurityGroupsToClientVpnTargetNetworkRequest,
-          ApplySecurityGroupsToClientVpnTargetNetworkResponse,
-          NotUsed] =
+  def applySecurityGroupsToClientVpnTargetNetworkFlow(parallelism: Int = DefaultParallelism): Flow[
+    ApplySecurityGroupsToClientVpnTargetNetworkRequest,
+    ApplySecurityGroupsToClientVpnTargetNetworkResponse,
+    NotUsed
+  ] =
     Flow[ApplySecurityGroupsToClientVpnTargetNetworkRequest].mapAsync(parallelism) {
       applySecurityGroupsToClientVpnTargetNetworkRequest =>
         underlying.applySecurityGroupsToClientVpnTargetNetwork(applySecurityGroupsToClientVpnTargetNetworkRequest)
     }
 
-  def assignIpv6AddressesSource(assignIpv6AddressesRequest: AssignIpv6AddressesRequest,
-                                parallelism: Int = DefaultParallelism): Source[AssignIpv6AddressesResponse, NotUsed] =
+  def assignIpv6AddressesSource(
+      assignIpv6AddressesRequest: AssignIpv6AddressesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssignIpv6AddressesResponse, NotUsed] =
     Source.single(assignIpv6AddressesRequest).via(assignIpv6AddressesFlow(parallelism))
 
   def assignIpv6AddressesFlow(
@@ -155,8 +163,10 @@ trait Ec2AkkaClient {
       underlying.assignPrivateIpAddresses(assignPrivateIpAddressesRequest)
     }
 
-  def associateAddressSource(associateAddressRequest: AssociateAddressRequest,
-                             parallelism: Int = DefaultParallelism): Source[AssociateAddressResponse, NotUsed] =
+  def associateAddressSource(
+      associateAddressRequest: AssociateAddressRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociateAddressResponse, NotUsed] =
     Source.single(associateAddressRequest).via(associateAddressFlow(parallelism))
 
   def associateAddressFlow(
@@ -182,8 +192,10 @@ trait Ec2AkkaClient {
       underlying.associateClientVpnTargetNetwork(associateClientVpnTargetNetworkRequest)
     }
 
-  def associateDhcpOptionsSource(associateDhcpOptionsRequest: AssociateDhcpOptionsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[AssociateDhcpOptionsResponse, NotUsed] =
+  def associateDhcpOptionsSource(
+      associateDhcpOptionsRequest: AssociateDhcpOptionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociateDhcpOptionsResponse, NotUsed] =
     Source.single(associateDhcpOptionsRequest).via(associateDhcpOptionsFlow(parallelism))
 
   def associateDhcpOptionsFlow(
@@ -206,8 +218,10 @@ trait Ec2AkkaClient {
       underlying.associateIamInstanceProfile(associateIamInstanceProfileRequest)
     }
 
-  def associateRouteTableSource(associateRouteTableRequest: AssociateRouteTableRequest,
-                                parallelism: Int = DefaultParallelism): Source[AssociateRouteTableResponse, NotUsed] =
+  def associateRouteTableSource(
+      associateRouteTableRequest: AssociateRouteTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociateRouteTableResponse, NotUsed] =
     Source.single(associateRouteTableRequest).via(associateRouteTableFlow(parallelism))
 
   def associateRouteTableFlow(
@@ -256,8 +270,10 @@ trait Ec2AkkaClient {
       underlying.associateVpcCidrBlock(associateVpcCidrBlockRequest)
     }
 
-  def attachClassicLinkVpcSource(attachClassicLinkVpcRequest: AttachClassicLinkVpcRequest,
-                                 parallelism: Int = DefaultParallelism): Source[AttachClassicLinkVpcResponse, NotUsed] =
+  def attachClassicLinkVpcSource(
+      attachClassicLinkVpcRequest: AttachClassicLinkVpcRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AttachClassicLinkVpcResponse, NotUsed] =
     Source.single(attachClassicLinkVpcRequest).via(attachClassicLinkVpcFlow(parallelism))
 
   def attachClassicLinkVpcFlow(
@@ -293,8 +309,10 @@ trait Ec2AkkaClient {
       underlying.attachNetworkInterface(attachNetworkInterfaceRequest)
     }
 
-  def attachVolumeSource(attachVolumeRequest: AttachVolumeRequest,
-                         parallelism: Int = DefaultParallelism): Source[AttachVolumeResponse, NotUsed] =
+  def attachVolumeSource(
+      attachVolumeRequest: AttachVolumeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AttachVolumeResponse, NotUsed] =
     Source.single(attachVolumeRequest).via(attachVolumeFlow(parallelism))
 
   def attachVolumeFlow(
@@ -304,8 +322,10 @@ trait Ec2AkkaClient {
       underlying.attachVolume(attachVolumeRequest)
     }
 
-  def attachVpnGatewaySource(attachVpnGatewayRequest: AttachVpnGatewayRequest,
-                             parallelism: Int = DefaultParallelism): Source[AttachVpnGatewayResponse, NotUsed] =
+  def attachVpnGatewaySource(
+      attachVpnGatewayRequest: AttachVpnGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AttachVpnGatewayResponse, NotUsed] =
     Source.single(attachVpnGatewayRequest).via(attachVpnGatewayFlow(parallelism))
 
   def attachVpnGatewayFlow(
@@ -354,8 +374,10 @@ trait Ec2AkkaClient {
       underlying.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest)
     }
 
-  def bundleInstanceSource(bundleInstanceRequest: BundleInstanceRequest,
-                           parallelism: Int = DefaultParallelism): Source[BundleInstanceResponse, NotUsed] =
+  def bundleInstanceSource(
+      bundleInstanceRequest: BundleInstanceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[BundleInstanceResponse, NotUsed] =
     Source.single(bundleInstanceRequest).via(bundleInstanceFlow(parallelism))
 
   def bundleInstanceFlow(
@@ -365,8 +387,10 @@ trait Ec2AkkaClient {
       underlying.bundleInstance(bundleInstanceRequest)
     }
 
-  def cancelBundleTaskSource(cancelBundleTaskRequest: CancelBundleTaskRequest,
-                             parallelism: Int = DefaultParallelism): Source[CancelBundleTaskResponse, NotUsed] =
+  def cancelBundleTaskSource(
+      cancelBundleTaskRequest: CancelBundleTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelBundleTaskResponse, NotUsed] =
     Source.single(cancelBundleTaskRequest).via(cancelBundleTaskFlow(parallelism))
 
   def cancelBundleTaskFlow(
@@ -389,8 +413,10 @@ trait Ec2AkkaClient {
       underlying.cancelCapacityReservation(cancelCapacityReservationRequest)
     }
 
-  def cancelConversionTaskSource(cancelConversionTaskRequest: CancelConversionTaskRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CancelConversionTaskResponse, NotUsed] =
+  def cancelConversionTaskSource(
+      cancelConversionTaskRequest: CancelConversionTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelConversionTaskResponse, NotUsed] =
     Source.single(cancelConversionTaskRequest).via(cancelConversionTaskFlow(parallelism))
 
   def cancelConversionTaskFlow(
@@ -400,8 +426,10 @@ trait Ec2AkkaClient {
       underlying.cancelConversionTask(cancelConversionTaskRequest)
     }
 
-  def cancelExportTaskSource(cancelExportTaskRequest: CancelExportTaskRequest,
-                             parallelism: Int = DefaultParallelism): Source[CancelExportTaskResponse, NotUsed] =
+  def cancelExportTaskSource(
+      cancelExportTaskRequest: CancelExportTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelExportTaskResponse, NotUsed] =
     Source.single(cancelExportTaskRequest).via(cancelExportTaskFlow(parallelism))
 
   def cancelExportTaskFlow(
@@ -411,8 +439,10 @@ trait Ec2AkkaClient {
       underlying.cancelExportTask(cancelExportTaskRequest)
     }
 
-  def cancelImportTaskSource(cancelImportTaskRequest: CancelImportTaskRequest,
-                             parallelism: Int = DefaultParallelism): Source[CancelImportTaskResponse, NotUsed] =
+  def cancelImportTaskSource(
+      cancelImportTaskRequest: CancelImportTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CancelImportTaskResponse, NotUsed] =
     Source.single(cancelImportTaskRequest).via(cancelImportTaskFlow(parallelism))
 
   def cancelImportTaskFlow(
@@ -474,8 +504,10 @@ trait Ec2AkkaClient {
       underlying.confirmProductInstance(confirmProductInstanceRequest)
     }
 
-  def copyFpgaImageSource(copyFpgaImageRequest: CopyFpgaImageRequest,
-                          parallelism: Int = DefaultParallelism): Source[CopyFpgaImageResponse, NotUsed] =
+  def copyFpgaImageSource(
+      copyFpgaImageRequest: CopyFpgaImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CopyFpgaImageResponse, NotUsed] =
     Source.single(copyFpgaImageRequest).via(copyFpgaImageFlow(parallelism))
 
   def copyFpgaImageFlow(
@@ -485,8 +517,10 @@ trait Ec2AkkaClient {
       underlying.copyFpgaImage(copyFpgaImageRequest)
     }
 
-  def copyImageSource(copyImageRequest: CopyImageRequest,
-                      parallelism: Int = DefaultParallelism): Source[CopyImageResponse, NotUsed] =
+  def copyImageSource(
+      copyImageRequest: CopyImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CopyImageResponse, NotUsed] =
     Source.single(copyImageRequest).via(copyImageFlow(parallelism))
 
   def copyImageFlow(parallelism: Int = DefaultParallelism): Flow[CopyImageRequest, CopyImageResponse, NotUsed] =
@@ -494,8 +528,10 @@ trait Ec2AkkaClient {
       underlying.copyImage(copyImageRequest)
     }
 
-  def copySnapshotSource(copySnapshotRequest: CopySnapshotRequest,
-                         parallelism: Int = DefaultParallelism): Source[CopySnapshotResponse, NotUsed] =
+  def copySnapshotSource(
+      copySnapshotRequest: CopySnapshotRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CopySnapshotResponse, NotUsed] =
     Source.single(copySnapshotRequest).via(copySnapshotFlow(parallelism))
 
   def copySnapshotFlow(
@@ -531,8 +567,10 @@ trait Ec2AkkaClient {
       underlying.createClientVpnEndpoint(createClientVpnEndpointRequest)
     }
 
-  def createClientVpnRouteSource(createClientVpnRouteRequest: CreateClientVpnRouteRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreateClientVpnRouteResponse, NotUsed] =
+  def createClientVpnRouteSource(
+      createClientVpnRouteRequest: CreateClientVpnRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateClientVpnRouteResponse, NotUsed] =
     Source.single(createClientVpnRouteRequest).via(createClientVpnRouteFlow(parallelism))
 
   def createClientVpnRouteFlow(
@@ -555,8 +593,10 @@ trait Ec2AkkaClient {
       underlying.createCustomerGateway(createCustomerGatewayRequest)
     }
 
-  def createDefaultSubnetSource(createDefaultSubnetRequest: CreateDefaultSubnetRequest,
-                                parallelism: Int = DefaultParallelism): Source[CreateDefaultSubnetResponse, NotUsed] =
+  def createDefaultSubnetSource(
+      createDefaultSubnetRequest: CreateDefaultSubnetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateDefaultSubnetResponse, NotUsed] =
     Source.single(createDefaultSubnetRequest).via(createDefaultSubnetFlow(parallelism))
 
   def createDefaultSubnetFlow(
@@ -566,8 +606,10 @@ trait Ec2AkkaClient {
       underlying.createDefaultSubnet(createDefaultSubnetRequest)
     }
 
-  def createDefaultVpcSource(createDefaultVpcRequest: CreateDefaultVpcRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateDefaultVpcResponse, NotUsed] =
+  def createDefaultVpcSource(
+      createDefaultVpcRequest: CreateDefaultVpcRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateDefaultVpcResponse, NotUsed] =
     Source.single(createDefaultVpcRequest).via(createDefaultVpcFlow(parallelism))
 
   def createDefaultVpcFlow(
@@ -580,8 +622,10 @@ trait Ec2AkkaClient {
   def createDefaultVpcSource(): Source[CreateDefaultVpcResponse, NotUsed] =
     Source.fromFuture(underlying.createDefaultVpc())
 
-  def createDhcpOptionsSource(createDhcpOptionsRequest: CreateDhcpOptionsRequest,
-                              parallelism: Int = DefaultParallelism): Source[CreateDhcpOptionsResponse, NotUsed] =
+  def createDhcpOptionsSource(
+      createDhcpOptionsRequest: CreateDhcpOptionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateDhcpOptionsResponse, NotUsed] =
     Source.single(createDhcpOptionsRequest).via(createDhcpOptionsFlow(parallelism))
 
   def createDhcpOptionsFlow(
@@ -604,8 +648,10 @@ trait Ec2AkkaClient {
       underlying.createEgressOnlyInternetGateway(createEgressOnlyInternetGatewayRequest)
     }
 
-  def createFleetSource(createFleetRequest: CreateFleetRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateFleetResponse, NotUsed] =
+  def createFleetSource(
+      createFleetRequest: CreateFleetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateFleetResponse, NotUsed] =
     Source.single(createFleetRequest).via(createFleetFlow(parallelism))
 
   def createFleetFlow(parallelism: Int = DefaultParallelism): Flow[CreateFleetRequest, CreateFleetResponse, NotUsed] =
@@ -613,8 +659,10 @@ trait Ec2AkkaClient {
       underlying.createFleet(createFleetRequest)
     }
 
-  def createFlowLogsSource(createFlowLogsRequest: CreateFlowLogsRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateFlowLogsResponse, NotUsed] =
+  def createFlowLogsSource(
+      createFlowLogsRequest: CreateFlowLogsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateFlowLogsResponse, NotUsed] =
     Source.single(createFlowLogsRequest).via(createFlowLogsFlow(parallelism))
 
   def createFlowLogsFlow(
@@ -624,8 +672,10 @@ trait Ec2AkkaClient {
       underlying.createFlowLogs(createFlowLogsRequest)
     }
 
-  def createFpgaImageSource(createFpgaImageRequest: CreateFpgaImageRequest,
-                            parallelism: Int = DefaultParallelism): Source[CreateFpgaImageResponse, NotUsed] =
+  def createFpgaImageSource(
+      createFpgaImageRequest: CreateFpgaImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateFpgaImageResponse, NotUsed] =
     Source.single(createFpgaImageRequest).via(createFpgaImageFlow(parallelism))
 
   def createFpgaImageFlow(
@@ -635,8 +685,10 @@ trait Ec2AkkaClient {
       underlying.createFpgaImage(createFpgaImageRequest)
     }
 
-  def createImageSource(createImageRequest: CreateImageRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateImageResponse, NotUsed] =
+  def createImageSource(
+      createImageRequest: CreateImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateImageResponse, NotUsed] =
     Source.single(createImageRequest).via(createImageFlow(parallelism))
 
   def createImageFlow(parallelism: Int = DefaultParallelism): Flow[CreateImageRequest, CreateImageResponse, NotUsed] =
@@ -673,8 +725,10 @@ trait Ec2AkkaClient {
   def createInternetGatewaySource(): Source[CreateInternetGatewayResponse, NotUsed] =
     Source.fromFuture(underlying.createInternetGateway())
 
-  def createKeyPairSource(createKeyPairRequest: CreateKeyPairRequest,
-                          parallelism: Int = DefaultParallelism): Source[CreateKeyPairResponse, NotUsed] =
+  def createKeyPairSource(
+      createKeyPairRequest: CreateKeyPairRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateKeyPairResponse, NotUsed] =
     Source.single(createKeyPairRequest).via(createKeyPairFlow(parallelism))
 
   def createKeyPairFlow(
@@ -684,8 +738,10 @@ trait Ec2AkkaClient {
       underlying.createKeyPair(createKeyPairRequest)
     }
 
-  def createLaunchTemplateSource(createLaunchTemplateRequest: CreateLaunchTemplateRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreateLaunchTemplateResponse, NotUsed] =
+  def createLaunchTemplateSource(
+      createLaunchTemplateRequest: CreateLaunchTemplateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateLaunchTemplateResponse, NotUsed] =
     Source.single(createLaunchTemplateRequest).via(createLaunchTemplateFlow(parallelism))
 
   def createLaunchTemplateFlow(
@@ -708,8 +764,10 @@ trait Ec2AkkaClient {
       underlying.createLaunchTemplateVersion(createLaunchTemplateVersionRequest)
     }
 
-  def createNatGatewaySource(createNatGatewayRequest: CreateNatGatewayRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateNatGatewayResponse, NotUsed] =
+  def createNatGatewaySource(
+      createNatGatewayRequest: CreateNatGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateNatGatewayResponse, NotUsed] =
     Source.single(createNatGatewayRequest).via(createNatGatewayFlow(parallelism))
 
   def createNatGatewayFlow(
@@ -719,8 +777,10 @@ trait Ec2AkkaClient {
       underlying.createNatGateway(createNatGatewayRequest)
     }
 
-  def createNetworkAclSource(createNetworkAclRequest: CreateNetworkAclRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateNetworkAclResponse, NotUsed] =
+  def createNetworkAclSource(
+      createNetworkAclRequest: CreateNetworkAclRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateNetworkAclResponse, NotUsed] =
     Source.single(createNetworkAclRequest).via(createNetworkAclFlow(parallelism))
 
   def createNetworkAclFlow(
@@ -769,8 +829,10 @@ trait Ec2AkkaClient {
       underlying.createNetworkInterfacePermission(createNetworkInterfacePermissionRequest)
     }
 
-  def createPlacementGroupSource(createPlacementGroupRequest: CreatePlacementGroupRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreatePlacementGroupResponse, NotUsed] =
+  def createPlacementGroupSource(
+      createPlacementGroupRequest: CreatePlacementGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreatePlacementGroupResponse, NotUsed] =
     Source.single(createPlacementGroupRequest).via(createPlacementGroupFlow(parallelism))
 
   def createPlacementGroupFlow(
@@ -793,8 +855,10 @@ trait Ec2AkkaClient {
       underlying.createReservedInstancesListing(createReservedInstancesListingRequest)
     }
 
-  def createRouteSource(createRouteRequest: CreateRouteRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateRouteResponse, NotUsed] =
+  def createRouteSource(
+      createRouteRequest: CreateRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateRouteResponse, NotUsed] =
     Source.single(createRouteRequest).via(createRouteFlow(parallelism))
 
   def createRouteFlow(parallelism: Int = DefaultParallelism): Flow[CreateRouteRequest, CreateRouteResponse, NotUsed] =
@@ -802,8 +866,10 @@ trait Ec2AkkaClient {
       underlying.createRoute(createRouteRequest)
     }
 
-  def createRouteTableSource(createRouteTableRequest: CreateRouteTableRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateRouteTableResponse, NotUsed] =
+  def createRouteTableSource(
+      createRouteTableRequest: CreateRouteTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateRouteTableResponse, NotUsed] =
     Source.single(createRouteTableRequest).via(createRouteTableFlow(parallelism))
 
   def createRouteTableFlow(
@@ -813,8 +879,10 @@ trait Ec2AkkaClient {
       underlying.createRouteTable(createRouteTableRequest)
     }
 
-  def createSecurityGroupSource(createSecurityGroupRequest: CreateSecurityGroupRequest,
-                                parallelism: Int = DefaultParallelism): Source[CreateSecurityGroupResponse, NotUsed] =
+  def createSecurityGroupSource(
+      createSecurityGroupRequest: CreateSecurityGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateSecurityGroupResponse, NotUsed] =
     Source.single(createSecurityGroupRequest).via(createSecurityGroupFlow(parallelism))
 
   def createSecurityGroupFlow(
@@ -824,8 +892,10 @@ trait Ec2AkkaClient {
       underlying.createSecurityGroup(createSecurityGroupRequest)
     }
 
-  def createSnapshotSource(createSnapshotRequest: CreateSnapshotRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateSnapshotResponse, NotUsed] =
+  def createSnapshotSource(
+      createSnapshotRequest: CreateSnapshotRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateSnapshotResponse, NotUsed] =
     Source.single(createSnapshotRequest).via(createSnapshotFlow(parallelism))
 
   def createSnapshotFlow(
@@ -848,8 +918,10 @@ trait Ec2AkkaClient {
       underlying.createSpotDatafeedSubscription(createSpotDatafeedSubscriptionRequest)
     }
 
-  def createSubnetSource(createSubnetRequest: CreateSubnetRequest,
-                         parallelism: Int = DefaultParallelism): Source[CreateSubnetResponse, NotUsed] =
+  def createSubnetSource(
+      createSubnetRequest: CreateSubnetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateSubnetResponse, NotUsed] =
     Source.single(createSubnetRequest).via(createSubnetFlow(parallelism))
 
   def createSubnetFlow(
@@ -859,8 +931,10 @@ trait Ec2AkkaClient {
       underlying.createSubnet(createSubnetRequest)
     }
 
-  def createTagsSource(createTagsRequest: CreateTagsRequest,
-                       parallelism: Int = DefaultParallelism): Source[CreateTagsResponse, NotUsed] =
+  def createTagsSource(
+      createTagsRequest: CreateTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTagsResponse, NotUsed] =
     Source.single(createTagsRequest).via(createTagsFlow(parallelism))
 
   def createTagsFlow(parallelism: Int = DefaultParallelism): Flow[CreateTagsRequest, CreateTagsResponse, NotUsed] =
@@ -868,8 +942,10 @@ trait Ec2AkkaClient {
       underlying.createTags(createTagsRequest)
     }
 
-  def createTransitGatewaySource(createTransitGatewayRequest: CreateTransitGatewayRequest,
-                                 parallelism: Int = DefaultParallelism): Source[CreateTransitGatewayResponse, NotUsed] =
+  def createTransitGatewaySource(
+      createTransitGatewayRequest: CreateTransitGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTransitGatewayResponse, NotUsed] =
     Source.single(createTransitGatewayRequest).via(createTransitGatewayFlow(parallelism))
 
   def createTransitGatewayFlow(
@@ -921,8 +997,10 @@ trait Ec2AkkaClient {
       underlying.createTransitGatewayVpcAttachment(createTransitGatewayVpcAttachmentRequest)
     }
 
-  def createVolumeSource(createVolumeRequest: CreateVolumeRequest,
-                         parallelism: Int = DefaultParallelism): Source[CreateVolumeResponse, NotUsed] =
+  def createVolumeSource(
+      createVolumeRequest: CreateVolumeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateVolumeResponse, NotUsed] =
     Source.single(createVolumeRequest).via(createVolumeFlow(parallelism))
 
   def createVolumeFlow(
@@ -932,8 +1010,10 @@ trait Ec2AkkaClient {
       underlying.createVolume(createVolumeRequest)
     }
 
-  def createVpcSource(createVpcRequest: CreateVpcRequest,
-                      parallelism: Int = DefaultParallelism): Source[CreateVpcResponse, NotUsed] =
+  def createVpcSource(
+      createVpcRequest: CreateVpcRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateVpcResponse, NotUsed] =
     Source.single(createVpcRequest).via(createVpcFlow(parallelism))
 
   def createVpcFlow(parallelism: Int = DefaultParallelism): Flow[CreateVpcRequest, CreateVpcResponse, NotUsed] =
@@ -941,8 +1021,10 @@ trait Ec2AkkaClient {
       underlying.createVpc(createVpcRequest)
     }
 
-  def createVpcEndpointSource(createVpcEndpointRequest: CreateVpcEndpointRequest,
-                              parallelism: Int = DefaultParallelism): Source[CreateVpcEndpointResponse, NotUsed] =
+  def createVpcEndpointSource(
+      createVpcEndpointRequest: CreateVpcEndpointRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateVpcEndpointResponse, NotUsed] =
     Source.single(createVpcEndpointRequest).via(createVpcEndpointFlow(parallelism))
 
   def createVpcEndpointFlow(
@@ -997,8 +1079,10 @@ trait Ec2AkkaClient {
       underlying.createVpcPeeringConnection(createVpcPeeringConnectionRequest)
     }
 
-  def createVpnConnectionSource(createVpnConnectionRequest: CreateVpnConnectionRequest,
-                                parallelism: Int = DefaultParallelism): Source[CreateVpnConnectionResponse, NotUsed] =
+  def createVpnConnectionSource(
+      createVpnConnectionRequest: CreateVpnConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateVpnConnectionResponse, NotUsed] =
     Source.single(createVpnConnectionRequest).via(createVpnConnectionFlow(parallelism))
 
   def createVpnConnectionFlow(
@@ -1021,8 +1105,10 @@ trait Ec2AkkaClient {
       underlying.createVpnConnectionRoute(createVpnConnectionRouteRequest)
     }
 
-  def createVpnGatewaySource(createVpnGatewayRequest: CreateVpnGatewayRequest,
-                             parallelism: Int = DefaultParallelism): Source[CreateVpnGatewayResponse, NotUsed] =
+  def createVpnGatewaySource(
+      createVpnGatewayRequest: CreateVpnGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateVpnGatewayResponse, NotUsed] =
     Source.single(createVpnGatewayRequest).via(createVpnGatewayFlow(parallelism))
 
   def createVpnGatewayFlow(
@@ -1045,8 +1131,10 @@ trait Ec2AkkaClient {
       underlying.deleteClientVpnEndpoint(deleteClientVpnEndpointRequest)
     }
 
-  def deleteClientVpnRouteSource(deleteClientVpnRouteRequest: DeleteClientVpnRouteRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteClientVpnRouteResponse, NotUsed] =
+  def deleteClientVpnRouteSource(
+      deleteClientVpnRouteRequest: DeleteClientVpnRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteClientVpnRouteResponse, NotUsed] =
     Source.single(deleteClientVpnRouteRequest).via(deleteClientVpnRouteFlow(parallelism))
 
   def deleteClientVpnRouteFlow(
@@ -1069,8 +1157,10 @@ trait Ec2AkkaClient {
       underlying.deleteCustomerGateway(deleteCustomerGatewayRequest)
     }
 
-  def deleteDhcpOptionsSource(deleteDhcpOptionsRequest: DeleteDhcpOptionsRequest,
-                              parallelism: Int = DefaultParallelism): Source[DeleteDhcpOptionsResponse, NotUsed] =
+  def deleteDhcpOptionsSource(
+      deleteDhcpOptionsRequest: DeleteDhcpOptionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteDhcpOptionsResponse, NotUsed] =
     Source.single(deleteDhcpOptionsRequest).via(deleteDhcpOptionsFlow(parallelism))
 
   def deleteDhcpOptionsFlow(
@@ -1093,8 +1183,10 @@ trait Ec2AkkaClient {
       underlying.deleteEgressOnlyInternetGateway(deleteEgressOnlyInternetGatewayRequest)
     }
 
-  def deleteFleetsSource(deleteFleetsRequest: DeleteFleetsRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteFleetsResponse, NotUsed] =
+  def deleteFleetsSource(
+      deleteFleetsRequest: DeleteFleetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFleetsResponse, NotUsed] =
     Source.single(deleteFleetsRequest).via(deleteFleetsFlow(parallelism))
 
   def deleteFleetsFlow(
@@ -1104,8 +1196,10 @@ trait Ec2AkkaClient {
       underlying.deleteFleets(deleteFleetsRequest)
     }
 
-  def deleteFlowLogsSource(deleteFlowLogsRequest: DeleteFlowLogsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteFlowLogsResponse, NotUsed] =
+  def deleteFlowLogsSource(
+      deleteFlowLogsRequest: DeleteFlowLogsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFlowLogsResponse, NotUsed] =
     Source.single(deleteFlowLogsRequest).via(deleteFlowLogsFlow(parallelism))
 
   def deleteFlowLogsFlow(
@@ -1115,8 +1209,10 @@ trait Ec2AkkaClient {
       underlying.deleteFlowLogs(deleteFlowLogsRequest)
     }
 
-  def deleteFpgaImageSource(deleteFpgaImageRequest: DeleteFpgaImageRequest,
-                            parallelism: Int = DefaultParallelism): Source[DeleteFpgaImageResponse, NotUsed] =
+  def deleteFpgaImageSource(
+      deleteFpgaImageRequest: DeleteFpgaImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFpgaImageResponse, NotUsed] =
     Source.single(deleteFpgaImageRequest).via(deleteFpgaImageFlow(parallelism))
 
   def deleteFpgaImageFlow(
@@ -1139,8 +1235,10 @@ trait Ec2AkkaClient {
       underlying.deleteInternetGateway(deleteInternetGatewayRequest)
     }
 
-  def deleteKeyPairSource(deleteKeyPairRequest: DeleteKeyPairRequest,
-                          parallelism: Int = DefaultParallelism): Source[DeleteKeyPairResponse, NotUsed] =
+  def deleteKeyPairSource(
+      deleteKeyPairRequest: DeleteKeyPairRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteKeyPairResponse, NotUsed] =
     Source.single(deleteKeyPairRequest).via(deleteKeyPairFlow(parallelism))
 
   def deleteKeyPairFlow(
@@ -1150,8 +1248,10 @@ trait Ec2AkkaClient {
       underlying.deleteKeyPair(deleteKeyPairRequest)
     }
 
-  def deleteLaunchTemplateSource(deleteLaunchTemplateRequest: DeleteLaunchTemplateRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteLaunchTemplateResponse, NotUsed] =
+  def deleteLaunchTemplateSource(
+      deleteLaunchTemplateRequest: DeleteLaunchTemplateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteLaunchTemplateResponse, NotUsed] =
     Source.single(deleteLaunchTemplateRequest).via(deleteLaunchTemplateFlow(parallelism))
 
   def deleteLaunchTemplateFlow(
@@ -1174,8 +1274,10 @@ trait Ec2AkkaClient {
       underlying.deleteLaunchTemplateVersions(deleteLaunchTemplateVersionsRequest)
     }
 
-  def deleteNatGatewaySource(deleteNatGatewayRequest: DeleteNatGatewayRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteNatGatewayResponse, NotUsed] =
+  def deleteNatGatewaySource(
+      deleteNatGatewayRequest: DeleteNatGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteNatGatewayResponse, NotUsed] =
     Source.single(deleteNatGatewayRequest).via(deleteNatGatewayFlow(parallelism))
 
   def deleteNatGatewayFlow(
@@ -1185,8 +1287,10 @@ trait Ec2AkkaClient {
       underlying.deleteNatGateway(deleteNatGatewayRequest)
     }
 
-  def deleteNetworkAclSource(deleteNetworkAclRequest: DeleteNetworkAclRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteNetworkAclResponse, NotUsed] =
+  def deleteNetworkAclSource(
+      deleteNetworkAclRequest: DeleteNetworkAclRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteNetworkAclResponse, NotUsed] =
     Source.single(deleteNetworkAclRequest).via(deleteNetworkAclFlow(parallelism))
 
   def deleteNetworkAclFlow(
@@ -1235,8 +1339,10 @@ trait Ec2AkkaClient {
       underlying.deleteNetworkInterfacePermission(deleteNetworkInterfacePermissionRequest)
     }
 
-  def deletePlacementGroupSource(deletePlacementGroupRequest: DeletePlacementGroupRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeletePlacementGroupResponse, NotUsed] =
+  def deletePlacementGroupSource(
+      deletePlacementGroupRequest: DeletePlacementGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeletePlacementGroupResponse, NotUsed] =
     Source.single(deletePlacementGroupRequest).via(deletePlacementGroupFlow(parallelism))
 
   def deletePlacementGroupFlow(
@@ -1246,8 +1352,10 @@ trait Ec2AkkaClient {
       underlying.deletePlacementGroup(deletePlacementGroupRequest)
     }
 
-  def deleteRouteSource(deleteRouteRequest: DeleteRouteRequest,
-                        parallelism: Int = DefaultParallelism): Source[DeleteRouteResponse, NotUsed] =
+  def deleteRouteSource(
+      deleteRouteRequest: DeleteRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteRouteResponse, NotUsed] =
     Source.single(deleteRouteRequest).via(deleteRouteFlow(parallelism))
 
   def deleteRouteFlow(parallelism: Int = DefaultParallelism): Flow[DeleteRouteRequest, DeleteRouteResponse, NotUsed] =
@@ -1255,8 +1363,10 @@ trait Ec2AkkaClient {
       underlying.deleteRoute(deleteRouteRequest)
     }
 
-  def deleteRouteTableSource(deleteRouteTableRequest: DeleteRouteTableRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteRouteTableResponse, NotUsed] =
+  def deleteRouteTableSource(
+      deleteRouteTableRequest: DeleteRouteTableRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteRouteTableResponse, NotUsed] =
     Source.single(deleteRouteTableRequest).via(deleteRouteTableFlow(parallelism))
 
   def deleteRouteTableFlow(
@@ -1266,8 +1376,10 @@ trait Ec2AkkaClient {
       underlying.deleteRouteTable(deleteRouteTableRequest)
     }
 
-  def deleteSecurityGroupSource(deleteSecurityGroupRequest: DeleteSecurityGroupRequest,
-                                parallelism: Int = DefaultParallelism): Source[DeleteSecurityGroupResponse, NotUsed] =
+  def deleteSecurityGroupSource(
+      deleteSecurityGroupRequest: DeleteSecurityGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteSecurityGroupResponse, NotUsed] =
     Source.single(deleteSecurityGroupRequest).via(deleteSecurityGroupFlow(parallelism))
 
   def deleteSecurityGroupFlow(
@@ -1277,8 +1389,10 @@ trait Ec2AkkaClient {
       underlying.deleteSecurityGroup(deleteSecurityGroupRequest)
     }
 
-  def deleteSnapshotSource(deleteSnapshotRequest: DeleteSnapshotRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteSnapshotResponse, NotUsed] =
+  def deleteSnapshotSource(
+      deleteSnapshotRequest: DeleteSnapshotRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteSnapshotResponse, NotUsed] =
     Source.single(deleteSnapshotRequest).via(deleteSnapshotFlow(parallelism))
 
   def deleteSnapshotFlow(
@@ -1304,8 +1418,10 @@ trait Ec2AkkaClient {
   def deleteSpotDatafeedSubscriptionSource(): Source[DeleteSpotDatafeedSubscriptionResponse, NotUsed] =
     Source.fromFuture(underlying.deleteSpotDatafeedSubscription())
 
-  def deleteSubnetSource(deleteSubnetRequest: DeleteSubnetRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteSubnetResponse, NotUsed] =
+  def deleteSubnetSource(
+      deleteSubnetRequest: DeleteSubnetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteSubnetResponse, NotUsed] =
     Source.single(deleteSubnetRequest).via(deleteSubnetFlow(parallelism))
 
   def deleteSubnetFlow(
@@ -1315,8 +1431,10 @@ trait Ec2AkkaClient {
       underlying.deleteSubnet(deleteSubnetRequest)
     }
 
-  def deleteTagsSource(deleteTagsRequest: DeleteTagsRequest,
-                       parallelism: Int = DefaultParallelism): Source[DeleteTagsResponse, NotUsed] =
+  def deleteTagsSource(
+      deleteTagsRequest: DeleteTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTagsResponse, NotUsed] =
     Source.single(deleteTagsRequest).via(deleteTagsFlow(parallelism))
 
   def deleteTagsFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTagsRequest, DeleteTagsResponse, NotUsed] =
@@ -1324,8 +1442,10 @@ trait Ec2AkkaClient {
       underlying.deleteTags(deleteTagsRequest)
     }
 
-  def deleteTransitGatewaySource(deleteTransitGatewayRequest: DeleteTransitGatewayRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteTransitGatewayResponse, NotUsed] =
+  def deleteTransitGatewaySource(
+      deleteTransitGatewayRequest: DeleteTransitGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTransitGatewayResponse, NotUsed] =
     Source.single(deleteTransitGatewayRequest).via(deleteTransitGatewayFlow(parallelism))
 
   def deleteTransitGatewayFlow(
@@ -1374,8 +1494,10 @@ trait Ec2AkkaClient {
       underlying.deleteTransitGatewayVpcAttachment(deleteTransitGatewayVpcAttachmentRequest)
     }
 
-  def deleteVolumeSource(deleteVolumeRequest: DeleteVolumeRequest,
-                         parallelism: Int = DefaultParallelism): Source[DeleteVolumeResponse, NotUsed] =
+  def deleteVolumeSource(
+      deleteVolumeRequest: DeleteVolumeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteVolumeResponse, NotUsed] =
     Source.single(deleteVolumeRequest).via(deleteVolumeFlow(parallelism))
 
   def deleteVolumeFlow(
@@ -1385,8 +1507,10 @@ trait Ec2AkkaClient {
       underlying.deleteVolume(deleteVolumeRequest)
     }
 
-  def deleteVpcSource(deleteVpcRequest: DeleteVpcRequest,
-                      parallelism: Int = DefaultParallelism): Source[DeleteVpcResponse, NotUsed] =
+  def deleteVpcSource(
+      deleteVpcRequest: DeleteVpcRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteVpcResponse, NotUsed] =
     Source.single(deleteVpcRequest).via(deleteVpcFlow(parallelism))
 
   def deleteVpcFlow(parallelism: Int = DefaultParallelism): Flow[DeleteVpcRequest, DeleteVpcResponse, NotUsed] =
@@ -1428,8 +1552,10 @@ trait Ec2AkkaClient {
         underlying.deleteVpcEndpointServiceConfigurations(deleteVpcEndpointServiceConfigurationsRequest)
     }
 
-  def deleteVpcEndpointsSource(deleteVpcEndpointsRequest: DeleteVpcEndpointsRequest,
-                               parallelism: Int = DefaultParallelism): Source[DeleteVpcEndpointsResponse, NotUsed] =
+  def deleteVpcEndpointsSource(
+      deleteVpcEndpointsRequest: DeleteVpcEndpointsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteVpcEndpointsResponse, NotUsed] =
     Source.single(deleteVpcEndpointsRequest).via(deleteVpcEndpointsFlow(parallelism))
 
   def deleteVpcEndpointsFlow(
@@ -1452,8 +1578,10 @@ trait Ec2AkkaClient {
       underlying.deleteVpcPeeringConnection(deleteVpcPeeringConnectionRequest)
     }
 
-  def deleteVpnConnectionSource(deleteVpnConnectionRequest: DeleteVpnConnectionRequest,
-                                parallelism: Int = DefaultParallelism): Source[DeleteVpnConnectionResponse, NotUsed] =
+  def deleteVpnConnectionSource(
+      deleteVpnConnectionRequest: DeleteVpnConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteVpnConnectionResponse, NotUsed] =
     Source.single(deleteVpnConnectionRequest).via(deleteVpnConnectionFlow(parallelism))
 
   def deleteVpnConnectionFlow(
@@ -1476,8 +1604,10 @@ trait Ec2AkkaClient {
       underlying.deleteVpnConnectionRoute(deleteVpnConnectionRouteRequest)
     }
 
-  def deleteVpnGatewaySource(deleteVpnGatewayRequest: DeleteVpnGatewayRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteVpnGatewayResponse, NotUsed] =
+  def deleteVpnGatewaySource(
+      deleteVpnGatewayRequest: DeleteVpnGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteVpnGatewayResponse, NotUsed] =
     Source.single(deleteVpnGatewayRequest).via(deleteVpnGatewayFlow(parallelism))
 
   def deleteVpnGatewayFlow(
@@ -1487,8 +1617,10 @@ trait Ec2AkkaClient {
       underlying.deleteVpnGateway(deleteVpnGatewayRequest)
     }
 
-  def deprovisionByoipCidrSource(deprovisionByoipCidrRequest: DeprovisionByoipCidrRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeprovisionByoipCidrResponse, NotUsed] =
+  def deprovisionByoipCidrSource(
+      deprovisionByoipCidrRequest: DeprovisionByoipCidrRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeprovisionByoipCidrResponse, NotUsed] =
     Source.single(deprovisionByoipCidrRequest).via(deprovisionByoipCidrFlow(parallelism))
 
   def deprovisionByoipCidrFlow(
@@ -1498,8 +1630,10 @@ trait Ec2AkkaClient {
       underlying.deprovisionByoipCidr(deprovisionByoipCidrRequest)
     }
 
-  def deregisterImageSource(deregisterImageRequest: DeregisterImageRequest,
-                            parallelism: Int = DefaultParallelism): Source[DeregisterImageResponse, NotUsed] =
+  def deregisterImageSource(
+      deregisterImageRequest: DeregisterImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeregisterImageResponse, NotUsed] =
     Source.single(deregisterImageRequest).via(deregisterImageFlow(parallelism))
 
   def deregisterImageFlow(
@@ -1525,8 +1659,10 @@ trait Ec2AkkaClient {
   def describeAccountAttributesSource(): Source[DescribeAccountAttributesResponse, NotUsed] =
     Source.fromFuture(underlying.describeAccountAttributes())
 
-  def describeAddressesSource(describeAddressesRequest: DescribeAddressesRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeAddressesResponse, NotUsed] =
+  def describeAddressesSource(
+      describeAddressesRequest: DescribeAddressesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeAddressesResponse, NotUsed] =
     Source.single(describeAddressesRequest).via(describeAddressesFlow(parallelism))
 
   def describeAddressesFlow(
@@ -1571,8 +1707,10 @@ trait Ec2AkkaClient {
   def describeAvailabilityZonesSource(): Source[DescribeAvailabilityZonesResponse, NotUsed] =
     Source.fromFuture(underlying.describeAvailabilityZones())
 
-  def describeBundleTasksSource(describeBundleTasksRequest: DescribeBundleTasksRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeBundleTasksResponse, NotUsed] =
+  def describeBundleTasksSource(
+      describeBundleTasksRequest: DescribeBundleTasksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeBundleTasksResponse, NotUsed] =
     Source.single(describeBundleTasksRequest).via(describeBundleTasksFlow(parallelism))
 
   def describeBundleTasksFlow(
@@ -1585,8 +1723,10 @@ trait Ec2AkkaClient {
   def describeBundleTasksSource(): Source[DescribeBundleTasksResponse, NotUsed] =
     Source.fromFuture(underlying.describeBundleTasks())
 
-  def describeByoipCidrsSource(describeByoipCidrsRequest: DescribeByoipCidrsRequest,
-                               parallelism: Int = DefaultParallelism): Source[DescribeByoipCidrsResponse, NotUsed] =
+  def describeByoipCidrsSource(
+      describeByoipCidrsRequest: DescribeByoipCidrsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeByoipCidrsResponse, NotUsed] =
     Source.single(describeByoipCidrsRequest).via(describeByoipCidrsFlow(parallelism))
 
   def describeByoipCidrsFlow(
@@ -1729,8 +1869,10 @@ trait Ec2AkkaClient {
   def describeCustomerGatewaysSource(): Source[DescribeCustomerGatewaysResponse, NotUsed] =
     Source.fromFuture(underlying.describeCustomerGateways())
 
-  def describeDhcpOptionsSource(describeDhcpOptionsRequest: DescribeDhcpOptionsRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeDhcpOptionsResponse, NotUsed] =
+  def describeDhcpOptionsSource(
+      describeDhcpOptionsRequest: DescribeDhcpOptionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeDhcpOptionsResponse, NotUsed] =
     Source.single(describeDhcpOptionsRequest).via(describeDhcpOptionsFlow(parallelism))
 
   def describeDhcpOptionsFlow(
@@ -1759,8 +1901,10 @@ trait Ec2AkkaClient {
   def describeEgressOnlyInternetGatewaysSource(): Source[DescribeEgressOnlyInternetGatewaysResponse, NotUsed] =
     Source.fromFuture(underlying.describeEgressOnlyInternetGateways())
 
-  def describeElasticGpusSource(describeElasticGpusRequest: DescribeElasticGpusRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeElasticGpusResponse, NotUsed] =
+  def describeElasticGpusSource(
+      describeElasticGpusRequest: DescribeElasticGpusRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeElasticGpusResponse, NotUsed] =
     Source.single(describeElasticGpusRequest).via(describeElasticGpusFlow(parallelism))
 
   def describeElasticGpusFlow(
@@ -1773,8 +1917,10 @@ trait Ec2AkkaClient {
   def describeElasticGpusSource(): Source[DescribeElasticGpusResponse, NotUsed] =
     Source.fromFuture(underlying.describeElasticGpus())
 
-  def describeExportTasksSource(describeExportTasksRequest: DescribeExportTasksRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeExportTasksResponse, NotUsed] =
+  def describeExportTasksSource(
+      describeExportTasksRequest: DescribeExportTasksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeExportTasksResponse, NotUsed] =
     Source.single(describeExportTasksRequest).via(describeExportTasksFlow(parallelism))
 
   def describeExportTasksFlow(
@@ -1787,8 +1933,10 @@ trait Ec2AkkaClient {
   def describeExportTasksSource(): Source[DescribeExportTasksResponse, NotUsed] =
     Source.fromFuture(underlying.describeExportTasks())
 
-  def describeFleetHistorySource(describeFleetHistoryRequest: DescribeFleetHistoryRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeFleetHistoryResponse, NotUsed] =
+  def describeFleetHistorySource(
+      describeFleetHistoryRequest: DescribeFleetHistoryRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeFleetHistoryResponse, NotUsed] =
     Source.single(describeFleetHistoryRequest).via(describeFleetHistoryFlow(parallelism))
 
   def describeFleetHistoryFlow(
@@ -1811,8 +1959,10 @@ trait Ec2AkkaClient {
       underlying.describeFleetInstances(describeFleetInstancesRequest)
     }
 
-  def describeFleetsSource(describeFleetsRequest: DescribeFleetsRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeFleetsResponse, NotUsed] =
+  def describeFleetsSource(
+      describeFleetsRequest: DescribeFleetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeFleetsResponse, NotUsed] =
     Source.single(describeFleetsRequest).via(describeFleetsFlow(parallelism))
 
   def describeFleetsFlow(
@@ -1825,8 +1975,10 @@ trait Ec2AkkaClient {
   def describeFleetsSource(): Source[DescribeFleetsResponse, NotUsed] =
     Source.fromFuture(underlying.describeFleets())
 
-  def describeFlowLogsSource(describeFlowLogsRequest: DescribeFlowLogsRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeFlowLogsResponse, NotUsed] =
+  def describeFlowLogsSource(
+      describeFlowLogsRequest: DescribeFlowLogsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeFlowLogsResponse, NotUsed] =
     Source.single(describeFlowLogsRequest).via(describeFlowLogsFlow(parallelism))
 
   def describeFlowLogsFlow(
@@ -1852,8 +2004,10 @@ trait Ec2AkkaClient {
       underlying.describeFpgaImageAttribute(describeFpgaImageAttributeRequest)
     }
 
-  def describeFpgaImagesSource(describeFpgaImagesRequest: DescribeFpgaImagesRequest,
-                               parallelism: Int = DefaultParallelism): Source[DescribeFpgaImagesResponse, NotUsed] =
+  def describeFpgaImagesSource(
+      describeFpgaImagesRequest: DescribeFpgaImagesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeFpgaImagesResponse, NotUsed] =
     Source.single(describeFpgaImagesRequest).via(describeFpgaImagesFlow(parallelism))
 
   def describeFpgaImagesFlow(
@@ -1898,8 +2052,10 @@ trait Ec2AkkaClient {
   def describeHostReservationsSource(): Source[DescribeHostReservationsResponse, NotUsed] =
     Source.fromFuture(underlying.describeHostReservations())
 
-  def describeHostsSource(describeHostsRequest: DescribeHostsRequest,
-                          parallelism: Int = DefaultParallelism): Source[DescribeHostsResponse, NotUsed] =
+  def describeHostsSource(
+      describeHostsRequest: DescribeHostsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeHostsResponse, NotUsed] =
     Source.single(describeHostsRequest).via(describeHostsFlow(parallelism))
 
   def describeHostsFlow(
@@ -1932,8 +2088,10 @@ trait Ec2AkkaClient {
   def describeIamInstanceProfileAssociationsSource(): Source[DescribeIamInstanceProfileAssociationsResponse, NotUsed] =
     Source.fromFuture(underlying.describeIamInstanceProfileAssociations())
 
-  def describeIdFormatSource(describeIdFormatRequest: DescribeIdFormatRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeIdFormatResponse, NotUsed] =
+  def describeIdFormatSource(
+      describeIdFormatRequest: DescribeIdFormatRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeIdFormatResponse, NotUsed] =
     Source.single(describeIdFormatRequest).via(describeIdFormatFlow(parallelism))
 
   def describeIdFormatFlow(
@@ -1972,8 +2130,10 @@ trait Ec2AkkaClient {
       underlying.describeImageAttribute(describeImageAttributeRequest)
     }
 
-  def describeImagesSource(describeImagesRequest: DescribeImagesRequest,
-                           parallelism: Int = DefaultParallelism): Source[DescribeImagesResponse, NotUsed] =
+  def describeImagesSource(
+      describeImagesRequest: DescribeImagesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeImagesResponse, NotUsed] =
     Source.single(describeImagesRequest).via(describeImagesFlow(parallelism))
 
   def describeImagesFlow(
@@ -2069,13 +2229,15 @@ trait Ec2AkkaClient {
     Source.fromPublisher(underlying.describeInstanceStatusPaginator())
 
   def describeInstanceStatusPaginatorFlow
-    : Flow[DescribeInstanceStatusRequest, DescribeInstanceStatusResponse, NotUsed] =
+      : Flow[DescribeInstanceStatusRequest, DescribeInstanceStatusResponse, NotUsed] =
     Flow[DescribeInstanceStatusRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeInstanceStatusPaginator(request))
     }
 
-  def describeInstancesSource(describeInstancesRequest: DescribeInstancesRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeInstancesResponse, NotUsed] =
+  def describeInstancesSource(
+      describeInstancesRequest: DescribeInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeInstancesResponse, NotUsed] =
     Source.single(describeInstancesRequest).via(describeInstancesFlow(parallelism))
 
   def describeInstancesFlow(
@@ -2112,8 +2274,10 @@ trait Ec2AkkaClient {
   def describeInternetGatewaysSource(): Source[DescribeInternetGatewaysResponse, NotUsed] =
     Source.fromFuture(underlying.describeInternetGateways())
 
-  def describeKeyPairsSource(describeKeyPairsRequest: DescribeKeyPairsRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeKeyPairsResponse, NotUsed] =
+  def describeKeyPairsSource(
+      describeKeyPairsRequest: DescribeKeyPairsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeKeyPairsResponse, NotUsed] =
     Source.single(describeKeyPairsRequest).via(describeKeyPairsFlow(parallelism))
 
   def describeKeyPairsFlow(
@@ -2171,8 +2335,10 @@ trait Ec2AkkaClient {
   def describeMovingAddressesSource(): Source[DescribeMovingAddressesResponse, NotUsed] =
     Source.fromFuture(underlying.describeMovingAddresses())
 
-  def describeNatGatewaysSource(describeNatGatewaysRequest: DescribeNatGatewaysRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeNatGatewaysResponse, NotUsed] =
+  def describeNatGatewaysSource(
+      describeNatGatewaysRequest: DescribeNatGatewaysRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeNatGatewaysResponse, NotUsed] =
     Source.single(describeNatGatewaysRequest).via(describeNatGatewaysFlow(parallelism))
 
   def describeNatGatewaysFlow(
@@ -2193,8 +2359,10 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeNatGatewaysPaginator(request))
     }
 
-  def describeNetworkAclsSource(describeNetworkAclsRequest: DescribeNetworkAclsRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeNetworkAclsResponse, NotUsed] =
+  def describeNetworkAclsSource(
+      describeNetworkAclsRequest: DescribeNetworkAclsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeNetworkAclsResponse, NotUsed] =
     Source.single(describeNetworkAclsRequest).via(describeNetworkAclsFlow(parallelism))
 
   def describeNetworkAclsFlow(
@@ -2257,7 +2425,7 @@ trait Ec2AkkaClient {
     Source.fromPublisher(underlying.describeNetworkInterfacesPaginator())
 
   def describeNetworkInterfacesPaginatorFlow
-    : Flow[DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResponse, NotUsed] =
+      : Flow[DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResponse, NotUsed] =
     Flow[DescribeNetworkInterfacesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeNetworkInterfacesPaginator(request))
     }
@@ -2278,8 +2446,10 @@ trait Ec2AkkaClient {
   def describePlacementGroupsSource(): Source[DescribePlacementGroupsResponse, NotUsed] =
     Source.fromFuture(underlying.describePlacementGroups())
 
-  def describePrefixListsSource(describePrefixListsRequest: DescribePrefixListsRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribePrefixListsResponse, NotUsed] =
+  def describePrefixListsSource(
+      describePrefixListsRequest: DescribePrefixListsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribePrefixListsResponse, NotUsed] =
     Source.single(describePrefixListsRequest).via(describePrefixListsFlow(parallelism))
 
   def describePrefixListsFlow(
@@ -2324,8 +2494,10 @@ trait Ec2AkkaClient {
   def describePublicIpv4PoolsSource(): Source[DescribePublicIpv4PoolsResponse, NotUsed] =
     Source.fromFuture(underlying.describePublicIpv4Pools())
 
-  def describeRegionsSource(describeRegionsRequest: DescribeRegionsRequest,
-                            parallelism: Int = DefaultParallelism): Source[DescribeRegionsResponse, NotUsed] =
+  def describeRegionsSource(
+      describeRegionsRequest: DescribeRegionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeRegionsResponse, NotUsed] =
     Source.single(describeRegionsRequest).via(describeRegionsFlow(parallelism))
 
   def describeRegionsFlow(
@@ -2391,11 +2563,11 @@ trait Ec2AkkaClient {
     Source.fromFuture(underlying.describeReservedInstancesModifications())
 
   def describeReservedInstancesModificationsPaginatorSource
-    : Source[DescribeReservedInstancesModificationsResponse, NotUsed] =
+      : Source[DescribeReservedInstancesModificationsResponse, NotUsed] =
     Source.fromPublisher(underlying.describeReservedInstancesModificationsPaginator())
 
   def describeReservedInstancesModificationsPaginatorFlow
-    : Flow[DescribeReservedInstancesModificationsRequest, DescribeReservedInstancesModificationsResponse, NotUsed] =
+      : Flow[DescribeReservedInstancesModificationsRequest, DescribeReservedInstancesModificationsResponse, NotUsed] =
     Flow[DescribeReservedInstancesModificationsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeReservedInstancesModificationsPaginator(request))
     }
@@ -2420,13 +2592,15 @@ trait Ec2AkkaClient {
     Source.fromPublisher(underlying.describeReservedInstancesOfferingsPaginator())
 
   def describeReservedInstancesOfferingsPaginatorFlow
-    : Flow[DescribeReservedInstancesOfferingsRequest, DescribeReservedInstancesOfferingsResponse, NotUsed] =
+      : Flow[DescribeReservedInstancesOfferingsRequest, DescribeReservedInstancesOfferingsResponse, NotUsed] =
     Flow[DescribeReservedInstancesOfferingsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeReservedInstancesOfferingsPaginator(request))
     }
 
-  def describeRouteTablesSource(describeRouteTablesRequest: DescribeRouteTablesRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeRouteTablesResponse, NotUsed] =
+  def describeRouteTablesSource(
+      describeRouteTablesRequest: DescribeRouteTablesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeRouteTablesResponse, NotUsed] =
     Source.single(describeRouteTablesRequest).via(describeRouteTablesFlow(parallelism))
 
   def describeRouteTablesFlow(
@@ -2511,7 +2685,7 @@ trait Ec2AkkaClient {
     Source.fromPublisher(underlying.describeSecurityGroupsPaginator())
 
   def describeSecurityGroupsPaginatorFlow
-    : Flow[DescribeSecurityGroupsRequest, DescribeSecurityGroupsResponse, NotUsed] =
+      : Flow[DescribeSecurityGroupsRequest, DescribeSecurityGroupsResponse, NotUsed] =
     Flow[DescribeSecurityGroupsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeSecurityGroupsPaginator(request))
     }
@@ -2529,8 +2703,10 @@ trait Ec2AkkaClient {
       underlying.describeSnapshotAttribute(describeSnapshotAttributeRequest)
     }
 
-  def describeSnapshotsSource(describeSnapshotsRequest: DescribeSnapshotsRequest,
-                              parallelism: Int = DefaultParallelism): Source[DescribeSnapshotsResponse, NotUsed] =
+  def describeSnapshotsSource(
+      describeSnapshotsRequest: DescribeSnapshotsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeSnapshotsResponse, NotUsed] =
     Source.single(describeSnapshotsRequest).via(describeSnapshotsFlow(parallelism))
 
   def describeSnapshotsFlow(
@@ -2613,7 +2789,7 @@ trait Ec2AkkaClient {
     Source.fromPublisher(underlying.describeSpotFleetRequestsPaginator())
 
   def describeSpotFleetRequestsPaginatorFlow
-    : Flow[DescribeSpotFleetRequestsRequest, DescribeSpotFleetRequestsResponse, NotUsed] =
+      : Flow[DescribeSpotFleetRequestsRequest, DescribeSpotFleetRequestsResponse, NotUsed] =
     Flow[DescribeSpotFleetRequestsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeSpotFleetRequestsPaginator(request))
     }
@@ -2654,7 +2830,7 @@ trait Ec2AkkaClient {
     Source.fromPublisher(underlying.describeSpotPriceHistoryPaginator())
 
   def describeSpotPriceHistoryPaginatorFlow
-    : Flow[DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResponse, NotUsed] =
+      : Flow[DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResponse, NotUsed] =
     Flow[DescribeSpotPriceHistoryRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeSpotPriceHistoryPaginator(request))
     }
@@ -2672,8 +2848,10 @@ trait Ec2AkkaClient {
       underlying.describeStaleSecurityGroups(describeStaleSecurityGroupsRequest)
     }
 
-  def describeSubnetsSource(describeSubnetsRequest: DescribeSubnetsRequest,
-                            parallelism: Int = DefaultParallelism): Source[DescribeSubnetsResponse, NotUsed] =
+  def describeSubnetsSource(
+      describeSubnetsRequest: DescribeSubnetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeSubnetsResponse, NotUsed] =
     Source.single(describeSubnetsRequest).via(describeSubnetsFlow(parallelism))
 
   def describeSubnetsFlow(
@@ -2686,8 +2864,10 @@ trait Ec2AkkaClient {
   def describeSubnetsSource(): Source[DescribeSubnetsResponse, NotUsed] =
     Source.fromFuture(underlying.describeSubnets())
 
-  def describeTagsSource(describeTagsRequest: DescribeTagsRequest,
-                         parallelism: Int = DefaultParallelism): Source[DescribeTagsResponse, NotUsed] =
+  def describeTagsSource(
+      describeTagsRequest: DescribeTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTagsResponse, NotUsed] =
     Source.single(describeTagsRequest).via(describeTagsFlow(parallelism))
 
   def describeTagsFlow(
@@ -2787,8 +2967,10 @@ trait Ec2AkkaClient {
       underlying.describeVolumeAttribute(describeVolumeAttributeRequest)
     }
 
-  def describeVolumeStatusSource(describeVolumeStatusRequest: DescribeVolumeStatusRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeVolumeStatusResponse, NotUsed] =
+  def describeVolumeStatusSource(
+      describeVolumeStatusRequest: DescribeVolumeStatusRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeVolumeStatusResponse, NotUsed] =
     Source.single(describeVolumeStatusRequest).via(describeVolumeStatusFlow(parallelism))
 
   def describeVolumeStatusFlow(
@@ -2809,8 +2991,10 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeVolumeStatusPaginator(request))
     }
 
-  def describeVolumesSource(describeVolumesRequest: DescribeVolumesRequest,
-                            parallelism: Int = DefaultParallelism): Source[DescribeVolumesResponse, NotUsed] =
+  def describeVolumesSource(
+      describeVolumesRequest: DescribeVolumesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeVolumesResponse, NotUsed] =
     Source.single(describeVolumesRequest).via(describeVolumesFlow(parallelism))
 
   def describeVolumesFlow(
@@ -2847,8 +3031,10 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeVolumesPaginator(request))
     }
 
-  def describeVpcAttributeSource(describeVpcAttributeRequest: DescribeVpcAttributeRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeVpcAttributeResponse, NotUsed] =
+  def describeVpcAttributeSource(
+      describeVpcAttributeRequest: DescribeVpcAttributeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeVpcAttributeResponse, NotUsed] =
     Source.single(describeVpcAttributeRequest).via(describeVpcAttributeFlow(parallelism))
 
   def describeVpcAttributeFlow(
@@ -2899,18 +3085,18 @@ trait Ec2AkkaClient {
         describeVpcEndpointConnectionNotificationsFlow(parallelism)
       )
 
-  def describeVpcEndpointConnectionNotificationsFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[DescribeVpcEndpointConnectionNotificationsRequest,
-          DescribeVpcEndpointConnectionNotificationsResponse,
-          NotUsed] =
+  def describeVpcEndpointConnectionNotificationsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeVpcEndpointConnectionNotificationsRequest,
+    DescribeVpcEndpointConnectionNotificationsResponse,
+    NotUsed
+  ] =
     Flow[DescribeVpcEndpointConnectionNotificationsRequest].mapAsync(parallelism) {
       describeVpcEndpointConnectionNotificationsRequest =>
         underlying.describeVpcEndpointConnectionNotifications(describeVpcEndpointConnectionNotificationsRequest)
     }
 
   def describeVpcEndpointConnectionNotificationsSource()
-    : Source[DescribeVpcEndpointConnectionNotificationsResponse, NotUsed] =
+      : Source[DescribeVpcEndpointConnectionNotificationsResponse, NotUsed] =
     Source.fromFuture(underlying.describeVpcEndpointConnectionNotifications())
 
   def describeVpcEndpointConnectionsSource(
@@ -2947,7 +3133,7 @@ trait Ec2AkkaClient {
     }
 
   def describeVpcEndpointServiceConfigurationsSource()
-    : Source[DescribeVpcEndpointServiceConfigurationsResponse, NotUsed] =
+      : Source[DescribeVpcEndpointServiceConfigurationsResponse, NotUsed] =
     Source.fromFuture(underlying.describeVpcEndpointServiceConfigurations())
 
   def describeVpcEndpointServicePermissionsSource(
@@ -2981,8 +3167,10 @@ trait Ec2AkkaClient {
   def describeVpcEndpointServicesSource(): Source[DescribeVpcEndpointServicesResponse, NotUsed] =
     Source.fromFuture(underlying.describeVpcEndpointServices())
 
-  def describeVpcEndpointsSource(describeVpcEndpointsRequest: DescribeVpcEndpointsRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DescribeVpcEndpointsResponse, NotUsed] =
+  def describeVpcEndpointsSource(
+      describeVpcEndpointsRequest: DescribeVpcEndpointsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeVpcEndpointsResponse, NotUsed] =
     Source.single(describeVpcEndpointsRequest).via(describeVpcEndpointsFlow(parallelism))
 
   def describeVpcEndpointsFlow(
@@ -3011,8 +3199,10 @@ trait Ec2AkkaClient {
   def describeVpcPeeringConnectionsSource(): Source[DescribeVpcPeeringConnectionsResponse, NotUsed] =
     Source.fromFuture(underlying.describeVpcPeeringConnections())
 
-  def describeVpcsSource(describeVpcsRequest: DescribeVpcsRequest,
-                         parallelism: Int = DefaultParallelism): Source[DescribeVpcsResponse, NotUsed] =
+  def describeVpcsSource(
+      describeVpcsRequest: DescribeVpcsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeVpcsResponse, NotUsed] =
     Source.single(describeVpcsRequest).via(describeVpcsFlow(parallelism))
 
   def describeVpcsFlow(
@@ -3041,8 +3231,10 @@ trait Ec2AkkaClient {
   def describeVpnConnectionsSource(): Source[DescribeVpnConnectionsResponse, NotUsed] =
     Source.fromFuture(underlying.describeVpnConnections())
 
-  def describeVpnGatewaysSource(describeVpnGatewaysRequest: DescribeVpnGatewaysRequest,
-                                parallelism: Int = DefaultParallelism): Source[DescribeVpnGatewaysResponse, NotUsed] =
+  def describeVpnGatewaysSource(
+      describeVpnGatewaysRequest: DescribeVpnGatewaysRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeVpnGatewaysResponse, NotUsed] =
     Source.single(describeVpnGatewaysRequest).via(describeVpnGatewaysFlow(parallelism))
 
   def describeVpnGatewaysFlow(
@@ -3055,8 +3247,10 @@ trait Ec2AkkaClient {
   def describeVpnGatewaysSource(): Source[DescribeVpnGatewaysResponse, NotUsed] =
     Source.fromFuture(underlying.describeVpnGateways())
 
-  def detachClassicLinkVpcSource(detachClassicLinkVpcRequest: DetachClassicLinkVpcRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DetachClassicLinkVpcResponse, NotUsed] =
+  def detachClassicLinkVpcSource(
+      detachClassicLinkVpcRequest: DetachClassicLinkVpcRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DetachClassicLinkVpcResponse, NotUsed] =
     Source.single(detachClassicLinkVpcRequest).via(detachClassicLinkVpcFlow(parallelism))
 
   def detachClassicLinkVpcFlow(
@@ -3092,8 +3286,10 @@ trait Ec2AkkaClient {
       underlying.detachNetworkInterface(detachNetworkInterfaceRequest)
     }
 
-  def detachVolumeSource(detachVolumeRequest: DetachVolumeRequest,
-                         parallelism: Int = DefaultParallelism): Source[DetachVolumeResponse, NotUsed] =
+  def detachVolumeSource(
+      detachVolumeRequest: DetachVolumeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DetachVolumeResponse, NotUsed] =
     Source.single(detachVolumeRequest).via(detachVolumeFlow(parallelism))
 
   def detachVolumeFlow(
@@ -3103,8 +3299,10 @@ trait Ec2AkkaClient {
       underlying.detachVolume(detachVolumeRequest)
     }
 
-  def detachVpnGatewaySource(detachVpnGatewayRequest: DetachVpnGatewayRequest,
-                             parallelism: Int = DefaultParallelism): Source[DetachVpnGatewayResponse, NotUsed] =
+  def detachVpnGatewaySource(
+      detachVpnGatewayRequest: DetachVpnGatewayRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DetachVpnGatewayResponse, NotUsed] =
     Source.single(detachVpnGatewayRequest).via(detachVpnGatewayFlow(parallelism))
 
   def detachVpnGatewayFlow(
@@ -3123,11 +3321,11 @@ trait Ec2AkkaClient {
         disableTransitGatewayRouteTablePropagationFlow(parallelism)
       )
 
-  def disableTransitGatewayRouteTablePropagationFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[DisableTransitGatewayRouteTablePropagationRequest,
-          DisableTransitGatewayRouteTablePropagationResponse,
-          NotUsed] =
+  def disableTransitGatewayRouteTablePropagationFlow(parallelism: Int = DefaultParallelism): Flow[
+    DisableTransitGatewayRouteTablePropagationRequest,
+    DisableTransitGatewayRouteTablePropagationResponse,
+    NotUsed
+  ] =
     Flow[DisableTransitGatewayRouteTablePropagationRequest].mapAsync(parallelism) {
       disableTransitGatewayRouteTablePropagationRequest =>
         underlying.disableTransitGatewayRouteTablePropagation(disableTransitGatewayRouteTablePropagationRequest)
@@ -3172,8 +3370,10 @@ trait Ec2AkkaClient {
       underlying.disableVpcClassicLinkDnsSupport(disableVpcClassicLinkDnsSupportRequest)
     }
 
-  def disassociateAddressSource(disassociateAddressRequest: DisassociateAddressRequest,
-                                parallelism: Int = DefaultParallelism): Source[DisassociateAddressResponse, NotUsed] =
+  def disassociateAddressSource(
+      disassociateAddressRequest: DisassociateAddressRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisassociateAddressResponse, NotUsed] =
     Source.single(disassociateAddressRequest).via(disassociateAddressFlow(parallelism))
 
   def disassociateAddressFlow(
@@ -3272,11 +3472,11 @@ trait Ec2AkkaClient {
         enableTransitGatewayRouteTablePropagationFlow(parallelism)
       )
 
-  def enableTransitGatewayRouteTablePropagationFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[EnableTransitGatewayRouteTablePropagationRequest,
-          EnableTransitGatewayRouteTablePropagationResponse,
-          NotUsed] =
+  def enableTransitGatewayRouteTablePropagationFlow(parallelism: Int = DefaultParallelism): Flow[
+    EnableTransitGatewayRouteTablePropagationRequest,
+    EnableTransitGatewayRouteTablePropagationResponse,
+    NotUsed
+  ] =
     Flow[EnableTransitGatewayRouteTablePropagationRequest].mapAsync(parallelism) {
       enableTransitGatewayRouteTablePropagationRequest =>
         underlying.enableTransitGatewayRouteTablePropagation(enableTransitGatewayRouteTablePropagationRequest)
@@ -3295,8 +3495,10 @@ trait Ec2AkkaClient {
       underlying.enableVgwRoutePropagation(enableVgwRoutePropagationRequest)
     }
 
-  def enableVolumeIOSource(enableVolumeIoRequest: EnableVolumeIoRequest,
-                           parallelism: Int = DefaultParallelism): Source[EnableVolumeIOResponse, NotUsed] =
+  def enableVolumeIOSource(
+      enableVolumeIoRequest: EnableVolumeIoRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableVolumeIOResponse, NotUsed] =
     Source.single(enableVolumeIoRequest).via(enableVolumeIOFlow(parallelism))
 
   def enableVolumeIOFlow(
@@ -3306,8 +3508,10 @@ trait Ec2AkkaClient {
       underlying.enableVolumeIO(enableVolumeIoRequest)
     }
 
-  def enableVpcClassicLinkSource(enableVpcClassicLinkRequest: EnableVpcClassicLinkRequest,
-                                 parallelism: Int = DefaultParallelism): Source[EnableVpcClassicLinkResponse, NotUsed] =
+  def enableVpcClassicLinkSource(
+      enableVpcClassicLinkRequest: EnableVpcClassicLinkRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableVpcClassicLinkResponse, NotUsed] =
     Source.single(enableVpcClassicLinkRequest).via(enableVpcClassicLinkFlow(parallelism))
 
   def enableVpcClassicLinkFlow(
@@ -3339,11 +3543,11 @@ trait Ec2AkkaClient {
         exportClientVpnClientCertificateRevocationListFlow(parallelism)
       )
 
-  def exportClientVpnClientCertificateRevocationListFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[ExportClientVpnClientCertificateRevocationListRequest,
-          ExportClientVpnClientCertificateRevocationListResponse,
-          NotUsed] =
+  def exportClientVpnClientCertificateRevocationListFlow(parallelism: Int = DefaultParallelism): Flow[
+    ExportClientVpnClientCertificateRevocationListRequest,
+    ExportClientVpnClientCertificateRevocationListResponse,
+    NotUsed
+  ] =
     Flow[ExportClientVpnClientCertificateRevocationListRequest].mapAsync(parallelism) {
       exportClientVpnClientCertificateRevocationListRequest =>
         underlying.exportClientVpnClientCertificateRevocationList(exportClientVpnClientCertificateRevocationListRequest)
@@ -3375,8 +3579,10 @@ trait Ec2AkkaClient {
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
     }
 
-  def getConsoleOutputSource(getConsoleOutputRequest: GetConsoleOutputRequest,
-                             parallelism: Int = DefaultParallelism): Source[GetConsoleOutputResponse, NotUsed] =
+  def getConsoleOutputSource(
+      getConsoleOutputRequest: GetConsoleOutputRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetConsoleOutputResponse, NotUsed] =
     Source.single(getConsoleOutputRequest).via(getConsoleOutputFlow(parallelism))
 
   def getConsoleOutputFlow(
@@ -3386,8 +3592,10 @@ trait Ec2AkkaClient {
       underlying.getConsoleOutput(getConsoleOutputRequest)
     }
 
-  def getConsoleScreenshotSource(getConsoleScreenshotRequest: GetConsoleScreenshotRequest,
-                                 parallelism: Int = DefaultParallelism): Source[GetConsoleScreenshotResponse, NotUsed] =
+  def getConsoleScreenshotSource(
+      getConsoleScreenshotRequest: GetConsoleScreenshotRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetConsoleScreenshotResponse, NotUsed] =
     Source.single(getConsoleScreenshotRequest).via(getConsoleScreenshotFlow(parallelism))
 
   def getConsoleScreenshotFlow(
@@ -3423,8 +3631,10 @@ trait Ec2AkkaClient {
       underlying.getLaunchTemplateData(getLaunchTemplateDataRequest)
     }
 
-  def getPasswordDataSource(getPasswordDataRequest: GetPasswordDataRequest,
-                            parallelism: Int = DefaultParallelism): Source[GetPasswordDataResponse, NotUsed] =
+  def getPasswordDataSource(
+      getPasswordDataRequest: GetPasswordDataRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetPasswordDataResponse, NotUsed] =
     Source.single(getPasswordDataRequest).via(getPasswordDataFlow(parallelism))
 
   def getPasswordDataFlow(
@@ -3507,18 +3717,20 @@ trait Ec2AkkaClient {
         importClientVpnClientCertificateRevocationListFlow(parallelism)
       )
 
-  def importClientVpnClientCertificateRevocationListFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[ImportClientVpnClientCertificateRevocationListRequest,
-          ImportClientVpnClientCertificateRevocationListResponse,
-          NotUsed] =
+  def importClientVpnClientCertificateRevocationListFlow(parallelism: Int = DefaultParallelism): Flow[
+    ImportClientVpnClientCertificateRevocationListRequest,
+    ImportClientVpnClientCertificateRevocationListResponse,
+    NotUsed
+  ] =
     Flow[ImportClientVpnClientCertificateRevocationListRequest].mapAsync(parallelism) {
       importClientVpnClientCertificateRevocationListRequest =>
         underlying.importClientVpnClientCertificateRevocationList(importClientVpnClientCertificateRevocationListRequest)
     }
 
-  def importImageSource(importImageRequest: ImportImageRequest,
-                        parallelism: Int = DefaultParallelism): Source[ImportImageResponse, NotUsed] =
+  def importImageSource(
+      importImageRequest: ImportImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ImportImageResponse, NotUsed] =
     Source.single(importImageRequest).via(importImageFlow(parallelism))
 
   def importImageFlow(parallelism: Int = DefaultParallelism): Flow[ImportImageRequest, ImportImageResponse, NotUsed] =
@@ -3526,8 +3738,10 @@ trait Ec2AkkaClient {
       underlying.importImage(importImageRequest)
     }
 
-  def importInstanceSource(importInstanceRequest: ImportInstanceRequest,
-                           parallelism: Int = DefaultParallelism): Source[ImportInstanceResponse, NotUsed] =
+  def importInstanceSource(
+      importInstanceRequest: ImportInstanceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ImportInstanceResponse, NotUsed] =
     Source.single(importInstanceRequest).via(importInstanceFlow(parallelism))
 
   def importInstanceFlow(
@@ -3537,8 +3751,10 @@ trait Ec2AkkaClient {
       underlying.importInstance(importInstanceRequest)
     }
 
-  def importKeyPairSource(importKeyPairRequest: ImportKeyPairRequest,
-                          parallelism: Int = DefaultParallelism): Source[ImportKeyPairResponse, NotUsed] =
+  def importKeyPairSource(
+      importKeyPairRequest: ImportKeyPairRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ImportKeyPairResponse, NotUsed] =
     Source.single(importKeyPairRequest).via(importKeyPairFlow(parallelism))
 
   def importKeyPairFlow(
@@ -3548,8 +3764,10 @@ trait Ec2AkkaClient {
       underlying.importKeyPair(importKeyPairRequest)
     }
 
-  def importSnapshotSource(importSnapshotRequest: ImportSnapshotRequest,
-                           parallelism: Int = DefaultParallelism): Source[ImportSnapshotResponse, NotUsed] =
+  def importSnapshotSource(
+      importSnapshotRequest: ImportSnapshotRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ImportSnapshotResponse, NotUsed] =
     Source.single(importSnapshotRequest).via(importSnapshotFlow(parallelism))
 
   def importSnapshotFlow(
@@ -3559,8 +3777,10 @@ trait Ec2AkkaClient {
       underlying.importSnapshot(importSnapshotRequest)
     }
 
-  def importVolumeSource(importVolumeRequest: ImportVolumeRequest,
-                         parallelism: Int = DefaultParallelism): Source[ImportVolumeResponse, NotUsed] =
+  def importVolumeSource(
+      importVolumeRequest: ImportVolumeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ImportVolumeResponse, NotUsed] =
     Source.single(importVolumeRequest).via(importVolumeFlow(parallelism))
 
   def importVolumeFlow(
@@ -3596,8 +3816,10 @@ trait Ec2AkkaClient {
       underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest)
     }
 
-  def modifyFleetSource(modifyFleetRequest: ModifyFleetRequest,
-                        parallelism: Int = DefaultParallelism): Source[ModifyFleetResponse, NotUsed] =
+  def modifyFleetSource(
+      modifyFleetRequest: ModifyFleetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyFleetResponse, NotUsed] =
     Source.single(modifyFleetRequest).via(modifyFleetFlow(parallelism))
 
   def modifyFleetFlow(parallelism: Int = DefaultParallelism): Flow[ModifyFleetRequest, ModifyFleetResponse, NotUsed] =
@@ -3618,8 +3840,10 @@ trait Ec2AkkaClient {
       underlying.modifyFpgaImageAttribute(modifyFpgaImageAttributeRequest)
     }
 
-  def modifyHostsSource(modifyHostsRequest: ModifyHostsRequest,
-                        parallelism: Int = DefaultParallelism): Source[ModifyHostsResponse, NotUsed] =
+  def modifyHostsSource(
+      modifyHostsRequest: ModifyHostsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyHostsResponse, NotUsed] =
     Source.single(modifyHostsRequest).via(modifyHostsFlow(parallelism))
 
   def modifyHostsFlow(parallelism: Int = DefaultParallelism): Flow[ModifyHostsRequest, ModifyHostsResponse, NotUsed] =
@@ -3627,8 +3851,10 @@ trait Ec2AkkaClient {
       underlying.modifyHosts(modifyHostsRequest)
     }
 
-  def modifyIdFormatSource(modifyIdFormatRequest: ModifyIdFormatRequest,
-                           parallelism: Int = DefaultParallelism): Source[ModifyIdFormatResponse, NotUsed] =
+  def modifyIdFormatSource(
+      modifyIdFormatRequest: ModifyIdFormatRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyIdFormatResponse, NotUsed] =
     Source.single(modifyIdFormatRequest).via(modifyIdFormatFlow(parallelism))
 
   def modifyIdFormatFlow(
@@ -3651,8 +3877,10 @@ trait Ec2AkkaClient {
       underlying.modifyIdentityIdFormat(modifyIdentityIdFormatRequest)
     }
 
-  def modifyImageAttributeSource(modifyImageAttributeRequest: ModifyImageAttributeRequest,
-                                 parallelism: Int = DefaultParallelism): Source[ModifyImageAttributeResponse, NotUsed] =
+  def modifyImageAttributeSource(
+      modifyImageAttributeRequest: ModifyImageAttributeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyImageAttributeResponse, NotUsed] =
     Source.single(modifyImageAttributeRequest).via(modifyImageAttributeFlow(parallelism))
 
   def modifyImageAttributeFlow(
@@ -3684,11 +3912,11 @@ trait Ec2AkkaClient {
         modifyInstanceCapacityReservationAttributesFlow(parallelism)
       )
 
-  def modifyInstanceCapacityReservationAttributesFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[ModifyInstanceCapacityReservationAttributesRequest,
-          ModifyInstanceCapacityReservationAttributesResponse,
-          NotUsed] =
+  def modifyInstanceCapacityReservationAttributesFlow(parallelism: Int = DefaultParallelism): Flow[
+    ModifyInstanceCapacityReservationAttributesRequest,
+    ModifyInstanceCapacityReservationAttributesResponse,
+    NotUsed
+  ] =
     Flow[ModifyInstanceCapacityReservationAttributesRequest].mapAsync(parallelism) {
       modifyInstanceCapacityReservationAttributesRequest =>
         underlying.modifyInstanceCapacityReservationAttributes(modifyInstanceCapacityReservationAttributesRequest)
@@ -3733,8 +3961,10 @@ trait Ec2AkkaClient {
       underlying.modifyInstancePlacement(modifyInstancePlacementRequest)
     }
 
-  def modifyLaunchTemplateSource(modifyLaunchTemplateRequest: ModifyLaunchTemplateRequest,
-                                 parallelism: Int = DefaultParallelism): Source[ModifyLaunchTemplateResponse, NotUsed] =
+  def modifyLaunchTemplateSource(
+      modifyLaunchTemplateRequest: ModifyLaunchTemplateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyLaunchTemplateResponse, NotUsed] =
     Source.single(modifyLaunchTemplateRequest).via(modifyLaunchTemplateFlow(parallelism))
 
   def modifyLaunchTemplateFlow(
@@ -3822,8 +4052,10 @@ trait Ec2AkkaClient {
       underlying.modifyTransitGatewayVpcAttachment(modifyTransitGatewayVpcAttachmentRequest)
     }
 
-  def modifyVolumeSource(modifyVolumeRequest: ModifyVolumeRequest,
-                         parallelism: Int = DefaultParallelism): Source[ModifyVolumeResponse, NotUsed] =
+  def modifyVolumeSource(
+      modifyVolumeRequest: ModifyVolumeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyVolumeResponse, NotUsed] =
     Source.single(modifyVolumeRequest).via(modifyVolumeFlow(parallelism))
 
   def modifyVolumeFlow(
@@ -3846,8 +4078,10 @@ trait Ec2AkkaClient {
       underlying.modifyVolumeAttribute(modifyVolumeAttributeRequest)
     }
 
-  def modifyVpcAttributeSource(modifyVpcAttributeRequest: ModifyVpcAttributeRequest,
-                               parallelism: Int = DefaultParallelism): Source[ModifyVpcAttributeResponse, NotUsed] =
+  def modifyVpcAttributeSource(
+      modifyVpcAttributeRequest: ModifyVpcAttributeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyVpcAttributeResponse, NotUsed] =
     Source.single(modifyVpcAttributeRequest).via(modifyVpcAttributeFlow(parallelism))
 
   def modifyVpcAttributeFlow(
@@ -3857,8 +4091,10 @@ trait Ec2AkkaClient {
       underlying.modifyVpcAttribute(modifyVpcAttributeRequest)
     }
 
-  def modifyVpcEndpointSource(modifyVpcEndpointRequest: ModifyVpcEndpointRequest,
-                              parallelism: Int = DefaultParallelism): Source[ModifyVpcEndpointResponse, NotUsed] =
+  def modifyVpcEndpointSource(
+      modifyVpcEndpointRequest: ModifyVpcEndpointRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyVpcEndpointResponse, NotUsed] =
     Source.single(modifyVpcEndpointRequest).via(modifyVpcEndpointFlow(parallelism))
 
   def modifyVpcEndpointFlow(
@@ -3927,8 +4163,10 @@ trait Ec2AkkaClient {
       underlying.modifyVpcPeeringConnectionOptions(modifyVpcPeeringConnectionOptionsRequest)
     }
 
-  def modifyVpcTenancySource(modifyVpcTenancyRequest: ModifyVpcTenancyRequest,
-                             parallelism: Int = DefaultParallelism): Source[ModifyVpcTenancyResponse, NotUsed] =
+  def modifyVpcTenancySource(
+      modifyVpcTenancyRequest: ModifyVpcTenancyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyVpcTenancyResponse, NotUsed] =
     Source.single(modifyVpcTenancyRequest).via(modifyVpcTenancyFlow(parallelism))
 
   def modifyVpcTenancyFlow(
@@ -3938,8 +4176,10 @@ trait Ec2AkkaClient {
       underlying.modifyVpcTenancy(modifyVpcTenancyRequest)
     }
 
-  def monitorInstancesSource(monitorInstancesRequest: MonitorInstancesRequest,
-                             parallelism: Int = DefaultParallelism): Source[MonitorInstancesResponse, NotUsed] =
+  def monitorInstancesSource(
+      monitorInstancesRequest: MonitorInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[MonitorInstancesResponse, NotUsed] =
     Source.single(monitorInstancesRequest).via(monitorInstancesFlow(parallelism))
 
   def monitorInstancesFlow(
@@ -3949,8 +4189,10 @@ trait Ec2AkkaClient {
       underlying.monitorInstances(monitorInstancesRequest)
     }
 
-  def moveAddressToVpcSource(moveAddressToVpcRequest: MoveAddressToVpcRequest,
-                             parallelism: Int = DefaultParallelism): Source[MoveAddressToVpcResponse, NotUsed] =
+  def moveAddressToVpcSource(
+      moveAddressToVpcRequest: MoveAddressToVpcRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[MoveAddressToVpcResponse, NotUsed] =
     Source.single(moveAddressToVpcRequest).via(moveAddressToVpcFlow(parallelism))
 
   def moveAddressToVpcFlow(
@@ -3960,8 +4202,10 @@ trait Ec2AkkaClient {
       underlying.moveAddressToVpc(moveAddressToVpcRequest)
     }
 
-  def provisionByoipCidrSource(provisionByoipCidrRequest: ProvisionByoipCidrRequest,
-                               parallelism: Int = DefaultParallelism): Source[ProvisionByoipCidrResponse, NotUsed] =
+  def provisionByoipCidrSource(
+      provisionByoipCidrRequest: ProvisionByoipCidrRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ProvisionByoipCidrResponse, NotUsed] =
     Source.single(provisionByoipCidrRequest).via(provisionByoipCidrFlow(parallelism))
 
   def provisionByoipCidrFlow(
@@ -4010,8 +4254,10 @@ trait Ec2AkkaClient {
       underlying.purchaseScheduledInstances(purchaseScheduledInstancesRequest)
     }
 
-  def rebootInstancesSource(rebootInstancesRequest: RebootInstancesRequest,
-                            parallelism: Int = DefaultParallelism): Source[RebootInstancesResponse, NotUsed] =
+  def rebootInstancesSource(
+      rebootInstancesRequest: RebootInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RebootInstancesResponse, NotUsed] =
     Source.single(rebootInstancesRequest).via(rebootInstancesFlow(parallelism))
 
   def rebootInstancesFlow(
@@ -4021,8 +4267,10 @@ trait Ec2AkkaClient {
       underlying.rebootInstances(rebootInstancesRequest)
     }
 
-  def registerImageSource(registerImageRequest: RegisterImageRequest,
-                          parallelism: Int = DefaultParallelism): Source[RegisterImageResponse, NotUsed] =
+  def registerImageSource(
+      registerImageRequest: RegisterImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RegisterImageResponse, NotUsed] =
     Source.single(registerImageRequest).via(registerImageFlow(parallelism))
 
   def registerImageFlow(
@@ -4071,8 +4319,10 @@ trait Ec2AkkaClient {
       underlying.rejectVpcPeeringConnection(rejectVpcPeeringConnectionRequest)
     }
 
-  def releaseAddressSource(releaseAddressRequest: ReleaseAddressRequest,
-                           parallelism: Int = DefaultParallelism): Source[ReleaseAddressResponse, NotUsed] =
+  def releaseAddressSource(
+      releaseAddressRequest: ReleaseAddressRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ReleaseAddressResponse, NotUsed] =
     Source.single(releaseAddressRequest).via(releaseAddressFlow(parallelism))
 
   def releaseAddressFlow(
@@ -4082,8 +4332,10 @@ trait Ec2AkkaClient {
       underlying.releaseAddress(releaseAddressRequest)
     }
 
-  def releaseHostsSource(releaseHostsRequest: ReleaseHostsRequest,
-                         parallelism: Int = DefaultParallelism): Source[ReleaseHostsResponse, NotUsed] =
+  def releaseHostsSource(
+      releaseHostsRequest: ReleaseHostsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ReleaseHostsResponse, NotUsed] =
     Source.single(releaseHostsRequest).via(releaseHostsFlow(parallelism))
 
   def releaseHostsFlow(
@@ -4134,8 +4386,10 @@ trait Ec2AkkaClient {
       underlying.replaceNetworkAclEntry(replaceNetworkAclEntryRequest)
     }
 
-  def replaceRouteSource(replaceRouteRequest: ReplaceRouteRequest,
-                         parallelism: Int = DefaultParallelism): Source[ReplaceRouteResponse, NotUsed] =
+  def replaceRouteSource(
+      replaceRouteRequest: ReplaceRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ReplaceRouteResponse, NotUsed] =
     Source.single(replaceRouteRequest).via(replaceRouteFlow(parallelism))
 
   def replaceRouteFlow(
@@ -4171,8 +4425,10 @@ trait Ec2AkkaClient {
       underlying.replaceTransitGatewayRoute(replaceTransitGatewayRouteRequest)
     }
 
-  def reportInstanceStatusSource(reportInstanceStatusRequest: ReportInstanceStatusRequest,
-                                 parallelism: Int = DefaultParallelism): Source[ReportInstanceStatusResponse, NotUsed] =
+  def reportInstanceStatusSource(
+      reportInstanceStatusRequest: ReportInstanceStatusRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ReportInstanceStatusResponse, NotUsed] =
     Source.single(reportInstanceStatusRequest).via(reportInstanceStatusFlow(parallelism))
 
   def reportInstanceStatusFlow(
@@ -4182,8 +4438,10 @@ trait Ec2AkkaClient {
       underlying.reportInstanceStatus(reportInstanceStatusRequest)
     }
 
-  def requestSpotFleetSource(requestSpotFleetRequest: RequestSpotFleetRequest,
-                             parallelism: Int = DefaultParallelism): Source[RequestSpotFleetResponse, NotUsed] =
+  def requestSpotFleetSource(
+      requestSpotFleetRequest: RequestSpotFleetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RequestSpotFleetResponse, NotUsed] =
     Source.single(requestSpotFleetRequest).via(requestSpotFleetFlow(parallelism))
 
   def requestSpotFleetFlow(
@@ -4193,8 +4451,10 @@ trait Ec2AkkaClient {
       underlying.requestSpotFleet(requestSpotFleetRequest)
     }
 
-  def requestSpotInstancesSource(requestSpotInstancesRequest: RequestSpotInstancesRequest,
-                                 parallelism: Int = DefaultParallelism): Source[RequestSpotInstancesResponse, NotUsed] =
+  def requestSpotInstancesSource(
+      requestSpotInstancesRequest: RequestSpotInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RequestSpotInstancesResponse, NotUsed] =
     Source.single(requestSpotInstancesRequest).via(requestSpotInstancesFlow(parallelism))
 
   def requestSpotInstancesFlow(
@@ -4217,8 +4477,10 @@ trait Ec2AkkaClient {
       underlying.resetFpgaImageAttribute(resetFpgaImageAttributeRequest)
     }
 
-  def resetImageAttributeSource(resetImageAttributeRequest: ResetImageAttributeRequest,
-                                parallelism: Int = DefaultParallelism): Source[ResetImageAttributeResponse, NotUsed] =
+  def resetImageAttributeSource(
+      resetImageAttributeRequest: ResetImageAttributeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ResetImageAttributeResponse, NotUsed] =
     Source.single(resetImageAttributeRequest).via(resetImageAttributeFlow(parallelism))
 
   def resetImageAttributeFlow(
@@ -4319,8 +4581,10 @@ trait Ec2AkkaClient {
       underlying.revokeSecurityGroupIngress(revokeSecurityGroupIngressRequest)
     }
 
-  def runInstancesSource(runInstancesRequest: RunInstancesRequest,
-                         parallelism: Int = DefaultParallelism): Source[RunInstancesResponse, NotUsed] =
+  def runInstancesSource(
+      runInstancesRequest: RunInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RunInstancesResponse, NotUsed] =
     Source.single(runInstancesRequest).via(runInstancesFlow(parallelism))
 
   def runInstancesFlow(
@@ -4356,8 +4620,10 @@ trait Ec2AkkaClient {
       underlying.searchTransitGatewayRoutes(searchTransitGatewayRoutesRequest)
     }
 
-  def startInstancesSource(startInstancesRequest: StartInstancesRequest,
-                           parallelism: Int = DefaultParallelism): Source[StartInstancesResponse, NotUsed] =
+  def startInstancesSource(
+      startInstancesRequest: StartInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartInstancesResponse, NotUsed] =
     Source.single(startInstancesRequest).via(startInstancesFlow(parallelism))
 
   def startInstancesFlow(
@@ -4367,8 +4633,10 @@ trait Ec2AkkaClient {
       underlying.startInstances(startInstancesRequest)
     }
 
-  def stopInstancesSource(stopInstancesRequest: StopInstancesRequest,
-                          parallelism: Int = DefaultParallelism): Source[StopInstancesResponse, NotUsed] =
+  def stopInstancesSource(
+      stopInstancesRequest: StopInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StopInstancesResponse, NotUsed] =
     Source.single(stopInstancesRequest).via(stopInstancesFlow(parallelism))
 
   def stopInstancesFlow(
@@ -4391,8 +4659,10 @@ trait Ec2AkkaClient {
       underlying.terminateClientVpnConnections(terminateClientVpnConnectionsRequest)
     }
 
-  def terminateInstancesSource(terminateInstancesRequest: TerminateInstancesRequest,
-                               parallelism: Int = DefaultParallelism): Source[TerminateInstancesResponse, NotUsed] =
+  def terminateInstancesSource(
+      terminateInstancesRequest: TerminateInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TerminateInstancesResponse, NotUsed] =
     Source.single(terminateInstancesRequest).via(terminateInstancesFlow(parallelism))
 
   def terminateInstancesFlow(
@@ -4428,8 +4698,10 @@ trait Ec2AkkaClient {
       underlying.unassignPrivateIpAddresses(unassignPrivateIpAddressesRequest)
     }
 
-  def unmonitorInstancesSource(unmonitorInstancesRequest: UnmonitorInstancesRequest,
-                               parallelism: Int = DefaultParallelism): Source[UnmonitorInstancesResponse, NotUsed] =
+  def unmonitorInstancesSource(
+      unmonitorInstancesRequest: UnmonitorInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UnmonitorInstancesResponse, NotUsed] =
     Source.single(unmonitorInstancesRequest).via(unmonitorInstancesFlow(parallelism))
 
   def unmonitorInstancesFlow(
@@ -4448,11 +4720,11 @@ trait Ec2AkkaClient {
         updateSecurityGroupRuleDescriptionsEgressFlow(parallelism)
       )
 
-  def updateSecurityGroupRuleDescriptionsEgressFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[UpdateSecurityGroupRuleDescriptionsEgressRequest,
-          UpdateSecurityGroupRuleDescriptionsEgressResponse,
-          NotUsed] =
+  def updateSecurityGroupRuleDescriptionsEgressFlow(parallelism: Int = DefaultParallelism): Flow[
+    UpdateSecurityGroupRuleDescriptionsEgressRequest,
+    UpdateSecurityGroupRuleDescriptionsEgressResponse,
+    NotUsed
+  ] =
     Flow[UpdateSecurityGroupRuleDescriptionsEgressRequest].mapAsync(parallelism) {
       updateSecurityGroupRuleDescriptionsEgressRequest =>
         underlying.updateSecurityGroupRuleDescriptionsEgress(updateSecurityGroupRuleDescriptionsEgressRequest)
@@ -4467,18 +4739,20 @@ trait Ec2AkkaClient {
         updateSecurityGroupRuleDescriptionsIngressFlow(parallelism)
       )
 
-  def updateSecurityGroupRuleDescriptionsIngressFlow(
-      parallelism: Int = DefaultParallelism
-  ): Flow[UpdateSecurityGroupRuleDescriptionsIngressRequest,
-          UpdateSecurityGroupRuleDescriptionsIngressResponse,
-          NotUsed] =
+  def updateSecurityGroupRuleDescriptionsIngressFlow(parallelism: Int = DefaultParallelism): Flow[
+    UpdateSecurityGroupRuleDescriptionsIngressRequest,
+    UpdateSecurityGroupRuleDescriptionsIngressResponse,
+    NotUsed
+  ] =
     Flow[UpdateSecurityGroupRuleDescriptionsIngressRequest].mapAsync(parallelism) {
       updateSecurityGroupRuleDescriptionsIngressRequest =>
         underlying.updateSecurityGroupRuleDescriptionsIngress(updateSecurityGroupRuleDescriptionsIngressRequest)
     }
 
-  def withdrawByoipCidrSource(withdrawByoipCidrRequest: WithdrawByoipCidrRequest,
-                              parallelism: Int = DefaultParallelism): Source[WithdrawByoipCidrResponse, NotUsed] =
+  def withdrawByoipCidrSource(
+      withdrawByoipCidrRequest: WithdrawByoipCidrRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[WithdrawByoipCidrResponse, NotUsed] =
     Source.single(withdrawByoipCidrRequest).via(withdrawByoipCidrFlow(parallelism))
 
   def withdrawByoipCidrFlow(

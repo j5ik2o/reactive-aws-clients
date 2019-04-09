@@ -10,8 +10,9 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 trait JavaAsyncClientMetricsInterceptor extends DynamoDbAsyncClient with JavaClientMetricsInterceptor {
 
-  protected def collectCompletableFuture[A, B](name: String,
-                                               request: A)(f: A => CompletableFuture[B]): CompletableFuture[B] = {
+  protected def collectCompletableFuture[A, B](name: String, request: A)(
+      f: A => CompletableFuture[B]
+  ): CompletableFuture[B] = {
     val start = currentTime
     f(request).whenComplete(new BiConsumer[B, Throwable] {
       override def accept(t: B, u: Throwable): Unit = {

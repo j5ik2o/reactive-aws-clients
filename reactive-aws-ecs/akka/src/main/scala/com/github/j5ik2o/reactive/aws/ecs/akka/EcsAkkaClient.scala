@@ -22,8 +22,10 @@ trait EcsAkkaClient {
 
   val underlying: EcsAsyncClient
 
-  def createClusterSource(createClusterRequest: CreateClusterRequest,
-                          parallelism: Int = DefaultParallelism): Source[CreateClusterResponse, NotUsed] =
+  def createClusterSource(
+      createClusterRequest: CreateClusterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateClusterResponse, NotUsed] =
     Source.single(createClusterRequest).via(createClusterFlow(parallelism))
 
   def createClusterFlow(
@@ -36,8 +38,10 @@ trait EcsAkkaClient {
   def createClusterSource(): Source[CreateClusterResponse, NotUsed] =
     Source.fromFuture(underlying.createCluster())
 
-  def createServiceSource(createServiceRequest: CreateServiceRequest,
-                          parallelism: Int = DefaultParallelism): Source[CreateServiceResponse, NotUsed] =
+  def createServiceSource(
+      createServiceRequest: CreateServiceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateServiceResponse, NotUsed] =
     Source.single(createServiceRequest).via(createServiceFlow(parallelism))
 
   def createServiceFlow(
@@ -47,8 +51,10 @@ trait EcsAkkaClient {
       underlying.createService(createServiceRequest)
     }
 
-  def deleteAccountSettingSource(deleteAccountSettingRequest: DeleteAccountSettingRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DeleteAccountSettingResponse, NotUsed] =
+  def deleteAccountSettingSource(
+      deleteAccountSettingRequest: DeleteAccountSettingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteAccountSettingResponse, NotUsed] =
     Source.single(deleteAccountSettingRequest).via(deleteAccountSettingFlow(parallelism))
 
   def deleteAccountSettingFlow(
@@ -58,8 +64,10 @@ trait EcsAkkaClient {
       underlying.deleteAccountSetting(deleteAccountSettingRequest)
     }
 
-  def deleteAttributesSource(deleteAttributesRequest: DeleteAttributesRequest,
-                             parallelism: Int = DefaultParallelism): Source[DeleteAttributesResponse, NotUsed] =
+  def deleteAttributesSource(
+      deleteAttributesRequest: DeleteAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteAttributesResponse, NotUsed] =
     Source.single(deleteAttributesRequest).via(deleteAttributesFlow(parallelism))
 
   def deleteAttributesFlow(
@@ -69,8 +77,10 @@ trait EcsAkkaClient {
       underlying.deleteAttributes(deleteAttributesRequest)
     }
 
-  def deleteClusterSource(deleteClusterRequest: DeleteClusterRequest,
-                          parallelism: Int = DefaultParallelism): Source[DeleteClusterResponse, NotUsed] =
+  def deleteClusterSource(
+      deleteClusterRequest: DeleteClusterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteClusterResponse, NotUsed] =
     Source.single(deleteClusterRequest).via(deleteClusterFlow(parallelism))
 
   def deleteClusterFlow(
@@ -80,8 +90,10 @@ trait EcsAkkaClient {
       underlying.deleteCluster(deleteClusterRequest)
     }
 
-  def deleteServiceSource(deleteServiceRequest: DeleteServiceRequest,
-                          parallelism: Int = DefaultParallelism): Source[DeleteServiceResponse, NotUsed] =
+  def deleteServiceSource(
+      deleteServiceRequest: DeleteServiceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteServiceResponse, NotUsed] =
     Source.single(deleteServiceRequest).via(deleteServiceFlow(parallelism))
 
   def deleteServiceFlow(
@@ -117,8 +129,10 @@ trait EcsAkkaClient {
       underlying.deregisterTaskDefinition(deregisterTaskDefinitionRequest)
     }
 
-  def describeClustersSource(describeClustersRequest: DescribeClustersRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeClustersResponse, NotUsed] =
+  def describeClustersSource(
+      describeClustersRequest: DescribeClustersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeClustersResponse, NotUsed] =
     Source.single(describeClustersRequest).via(describeClustersFlow(parallelism))
 
   def describeClustersFlow(
@@ -144,8 +158,10 @@ trait EcsAkkaClient {
       underlying.describeContainerInstances(describeContainerInstancesRequest)
     }
 
-  def describeServicesSource(describeServicesRequest: DescribeServicesRequest,
-                             parallelism: Int = DefaultParallelism): Source[DescribeServicesResponse, NotUsed] =
+  def describeServicesSource(
+      describeServicesRequest: DescribeServicesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeServicesResponse, NotUsed] =
     Source.single(describeServicesRequest).via(describeServicesFlow(parallelism))
 
   def describeServicesFlow(
@@ -168,8 +184,10 @@ trait EcsAkkaClient {
       underlying.describeTaskDefinition(describeTaskDefinitionRequest)
     }
 
-  def describeTasksSource(describeTasksRequest: DescribeTasksRequest,
-                          parallelism: Int = DefaultParallelism): Source[DescribeTasksResponse, NotUsed] =
+  def describeTasksSource(
+      describeTasksRequest: DescribeTasksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTasksResponse, NotUsed] =
     Source.single(describeTasksRequest).via(describeTasksFlow(parallelism))
 
   def describeTasksFlow(
@@ -179,8 +197,10 @@ trait EcsAkkaClient {
       underlying.describeTasks(describeTasksRequest)
     }
 
-  def discoverPollEndpointSource(discoverPollEndpointRequest: DiscoverPollEndpointRequest,
-                                 parallelism: Int = DefaultParallelism): Source[DiscoverPollEndpointResponse, NotUsed] =
+  def discoverPollEndpointSource(
+      discoverPollEndpointRequest: DiscoverPollEndpointRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DiscoverPollEndpointResponse, NotUsed] =
     Source.single(discoverPollEndpointRequest).via(discoverPollEndpointFlow(parallelism))
 
   def discoverPollEndpointFlow(
@@ -190,8 +210,10 @@ trait EcsAkkaClient {
       underlying.discoverPollEndpoint(discoverPollEndpointRequest)
     }
 
-  def listAccountSettingsSource(listAccountSettingsRequest: ListAccountSettingsRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListAccountSettingsResponse, NotUsed] =
+  def listAccountSettingsSource(
+      listAccountSettingsRequest: ListAccountSettingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListAccountSettingsResponse, NotUsed] =
     Source.single(listAccountSettingsRequest).via(listAccountSettingsFlow(parallelism))
 
   def listAccountSettingsFlow(
@@ -204,8 +226,10 @@ trait EcsAkkaClient {
   def listAccountSettingsSource(): Source[ListAccountSettingsResponse, NotUsed] =
     Source.fromFuture(underlying.listAccountSettings())
 
-  def listAttributesSource(listAttributesRequest: ListAttributesRequest,
-                           parallelism: Int = DefaultParallelism): Source[ListAttributesResponse, NotUsed] =
+  def listAttributesSource(
+      listAttributesRequest: ListAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListAttributesResponse, NotUsed] =
     Source.single(listAttributesRequest).via(listAttributesFlow(parallelism))
 
   def listAttributesFlow(
@@ -215,8 +239,10 @@ trait EcsAkkaClient {
       underlying.listAttributes(listAttributesRequest)
     }
 
-  def listClustersSource(listClustersRequest: ListClustersRequest,
-                         parallelism: Int = DefaultParallelism): Source[ListClustersResponse, NotUsed] =
+  def listClustersSource(
+      listClustersRequest: ListClustersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListClustersResponse, NotUsed] =
     Source.single(listClustersRequest).via(listClustersFlow(parallelism))
 
   def listClustersFlow(
@@ -257,13 +283,15 @@ trait EcsAkkaClient {
     Source.fromPublisher(underlying.listContainerInstancesPaginator())
 
   def listContainerInstancesPaginatorFlow
-    : Flow[ListContainerInstancesRequest, ListContainerInstancesResponse, NotUsed] =
+      : Flow[ListContainerInstancesRequest, ListContainerInstancesResponse, NotUsed] =
     Flow[ListContainerInstancesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listContainerInstancesPaginator(request))
     }
 
-  def listServicesSource(listServicesRequest: ListServicesRequest,
-                         parallelism: Int = DefaultParallelism): Source[ListServicesResponse, NotUsed] =
+  def listServicesSource(
+      listServicesRequest: ListServicesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListServicesResponse, NotUsed] =
     Source.single(listServicesRequest).via(listServicesFlow(parallelism))
 
   def listServicesFlow(
@@ -284,8 +312,10 @@ trait EcsAkkaClient {
       Source.fromPublisher(underlying.listServicesPaginator(request))
     }
 
-  def listTagsForResourceSource(listTagsForResourceRequest: ListTagsForResourceRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListTagsForResourceResponse, NotUsed] =
+  def listTagsForResourceSource(
+      listTagsForResourceRequest: ListTagsForResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForResourceResponse, NotUsed] =
     Source.single(listTagsForResourceRequest).via(listTagsForResourceFlow(parallelism))
 
   def listTagsForResourceFlow(
@@ -315,13 +345,15 @@ trait EcsAkkaClient {
     Source.fromPublisher(underlying.listTaskDefinitionFamiliesPaginator())
 
   def listTaskDefinitionFamiliesPaginatorFlow
-    : Flow[ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse, NotUsed] =
+      : Flow[ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse, NotUsed] =
     Flow[ListTaskDefinitionFamiliesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listTaskDefinitionFamiliesPaginator(request))
     }
 
-  def listTaskDefinitionsSource(listTaskDefinitionsRequest: ListTaskDefinitionsRequest,
-                                parallelism: Int = DefaultParallelism): Source[ListTaskDefinitionsResponse, NotUsed] =
+  def listTaskDefinitionsSource(
+      listTaskDefinitionsRequest: ListTaskDefinitionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTaskDefinitionsResponse, NotUsed] =
     Source.single(listTaskDefinitionsRequest).via(listTaskDefinitionsFlow(parallelism))
 
   def listTaskDefinitionsFlow(
@@ -342,8 +374,10 @@ trait EcsAkkaClient {
       Source.fromPublisher(underlying.listTaskDefinitionsPaginator(request))
     }
 
-  def listTasksSource(listTasksRequest: ListTasksRequest,
-                      parallelism: Int = DefaultParallelism): Source[ListTasksResponse, NotUsed] =
+  def listTasksSource(
+      listTasksRequest: ListTasksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTasksResponse, NotUsed] =
     Source.single(listTasksRequest).via(listTasksFlow(parallelism))
 
   def listTasksFlow(parallelism: Int = DefaultParallelism): Flow[ListTasksRequest, ListTasksResponse, NotUsed] =
@@ -362,8 +396,10 @@ trait EcsAkkaClient {
       Source.fromPublisher(underlying.listTasksPaginator(request))
     }
 
-  def putAccountSettingSource(putAccountSettingRequest: PutAccountSettingRequest,
-                              parallelism: Int = DefaultParallelism): Source[PutAccountSettingResponse, NotUsed] =
+  def putAccountSettingSource(
+      putAccountSettingRequest: PutAccountSettingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutAccountSettingResponse, NotUsed] =
     Source.single(putAccountSettingRequest).via(putAccountSettingFlow(parallelism))
 
   def putAccountSettingFlow(
@@ -386,8 +422,10 @@ trait EcsAkkaClient {
       underlying.putAccountSettingDefault(putAccountSettingDefaultRequest)
     }
 
-  def putAttributesSource(putAttributesRequest: PutAttributesRequest,
-                          parallelism: Int = DefaultParallelism): Source[PutAttributesResponse, NotUsed] =
+  def putAttributesSource(
+      putAttributesRequest: PutAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutAttributesResponse, NotUsed] =
     Source.single(putAttributesRequest).via(putAttributesFlow(parallelism))
 
   def putAttributesFlow(
@@ -423,8 +461,10 @@ trait EcsAkkaClient {
       underlying.registerTaskDefinition(registerTaskDefinitionRequest)
     }
 
-  def runTaskSource(runTaskRequest: RunTaskRequest,
-                    parallelism: Int = DefaultParallelism): Source[RunTaskResponse, NotUsed] =
+  def runTaskSource(
+      runTaskRequest: RunTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RunTaskResponse, NotUsed] =
     Source.single(runTaskRequest).via(runTaskFlow(parallelism))
 
   def runTaskFlow(parallelism: Int = DefaultParallelism): Flow[RunTaskRequest, RunTaskResponse, NotUsed] =
@@ -432,8 +472,10 @@ trait EcsAkkaClient {
       underlying.runTask(runTaskRequest)
     }
 
-  def startTaskSource(startTaskRequest: StartTaskRequest,
-                      parallelism: Int = DefaultParallelism): Source[StartTaskResponse, NotUsed] =
+  def startTaskSource(
+      startTaskRequest: StartTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartTaskResponse, NotUsed] =
     Source.single(startTaskRequest).via(startTaskFlow(parallelism))
 
   def startTaskFlow(parallelism: Int = DefaultParallelism): Flow[StartTaskRequest, StartTaskResponse, NotUsed] =
@@ -441,8 +483,10 @@ trait EcsAkkaClient {
       underlying.startTask(startTaskRequest)
     }
 
-  def stopTaskSource(stopTaskRequest: StopTaskRequest,
-                     parallelism: Int = DefaultParallelism): Source[StopTaskResponse, NotUsed] =
+  def stopTaskSource(
+      stopTaskRequest: StopTaskRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StopTaskResponse, NotUsed] =
     Source.single(stopTaskRequest).via(stopTaskFlow(parallelism))
 
   def stopTaskFlow(parallelism: Int = DefaultParallelism): Flow[StopTaskRequest, StopTaskResponse, NotUsed] =
@@ -476,8 +520,10 @@ trait EcsAkkaClient {
       underlying.submitTaskStateChange(submitTaskStateChangeRequest)
     }
 
-  def tagResourceSource(tagResourceRequest: TagResourceRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
@@ -485,8 +531,10 @@ trait EcsAkkaClient {
       underlying.tagResource(tagResourceRequest)
     }
 
-  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
     Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
 
   def untagResourceFlow(
@@ -496,8 +544,10 @@ trait EcsAkkaClient {
       underlying.untagResource(untagResourceRequest)
     }
 
-  def updateContainerAgentSource(updateContainerAgentRequest: UpdateContainerAgentRequest,
-                                 parallelism: Int = DefaultParallelism): Source[UpdateContainerAgentResponse, NotUsed] =
+  def updateContainerAgentSource(
+      updateContainerAgentRequest: UpdateContainerAgentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateContainerAgentResponse, NotUsed] =
     Source.single(updateContainerAgentRequest).via(updateContainerAgentFlow(parallelism))
 
   def updateContainerAgentFlow(
@@ -520,8 +570,10 @@ trait EcsAkkaClient {
       underlying.updateContainerInstancesState(updateContainerInstancesStateRequest)
     }
 
-  def updateServiceSource(updateServiceRequest: UpdateServiceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UpdateServiceResponse, NotUsed] =
+  def updateServiceSource(
+      updateServiceRequest: UpdateServiceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateServiceResponse, NotUsed] =
     Source.single(updateServiceRequest).via(updateServiceFlow(parallelism))
 
   def updateServiceFlow(

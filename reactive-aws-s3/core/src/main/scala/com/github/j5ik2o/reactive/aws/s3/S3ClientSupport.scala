@@ -25,8 +25,10 @@ trait S3ClientSupport[M[_]] { this: S3Client[M] =>
 
   def getObjectTorrentToFile(getObjectRequest: GetObjectTorrentRequest, file: File): M[GetObjectTorrentResponse]
 
-  def getObjectTorrentToPath(getObjectTorrentRequest: GetObjectTorrentRequest,
-                             destinationPath: Path): M[GetObjectTorrentResponse]
+  def getObjectTorrentToPath(
+      getObjectTorrentRequest: GetObjectTorrentRequest,
+      destinationPath: Path
+  ): M[GetObjectTorrentResponse]
   def getObjectTorrent[A](
       getObjectTorrentRequest: GetObjectTorrentRequest,
       responseTransformer: RT[GetObjectTorrentResponse, A]

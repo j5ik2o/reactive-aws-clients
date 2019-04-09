@@ -35,8 +35,10 @@ trait LambdaAkkaClient {
       underlying.addLayerVersionPermission(addLayerVersionPermissionRequest)
     }
 
-  def addPermissionSource(addPermissionRequest: AddPermissionRequest,
-                          parallelism: Int = DefaultParallelism): Source[AddPermissionResponse, NotUsed] =
+  def addPermissionSource(
+      addPermissionRequest: AddPermissionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AddPermissionResponse, NotUsed] =
     Source.single(addPermissionRequest).via(addPermissionFlow(parallelism))
 
   def addPermissionFlow(
@@ -46,8 +48,10 @@ trait LambdaAkkaClient {
       underlying.addPermission(addPermissionRequest)
     }
 
-  def createAliasSource(createAliasRequest: CreateAliasRequest,
-                        parallelism: Int = DefaultParallelism): Source[CreateAliasResponse, NotUsed] =
+  def createAliasSource(
+      createAliasRequest: CreateAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateAliasResponse, NotUsed] =
     Source.single(createAliasRequest).via(createAliasFlow(parallelism))
 
   def createAliasFlow(parallelism: Int = DefaultParallelism): Flow[CreateAliasRequest, CreateAliasResponse, NotUsed] =
@@ -68,8 +72,10 @@ trait LambdaAkkaClient {
       underlying.createEventSourceMapping(createEventSourceMappingRequest)
     }
 
-  def createFunctionSource(createFunctionRequest: CreateFunctionRequest,
-                           parallelism: Int = DefaultParallelism): Source[CreateFunctionResponse, NotUsed] =
+  def createFunctionSource(
+      createFunctionRequest: CreateFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateFunctionResponse, NotUsed] =
     Source.single(createFunctionRequest).via(createFunctionFlow(parallelism))
 
   def createFunctionFlow(
@@ -79,8 +85,10 @@ trait LambdaAkkaClient {
       underlying.createFunction(createFunctionRequest)
     }
 
-  def deleteAliasSource(deleteAliasRequest: DeleteAliasRequest,
-                        parallelism: Int = DefaultParallelism): Source[DeleteAliasResponse, NotUsed] =
+  def deleteAliasSource(
+      deleteAliasRequest: DeleteAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteAliasResponse, NotUsed] =
     Source.single(deleteAliasRequest).via(deleteAliasFlow(parallelism))
 
   def deleteAliasFlow(parallelism: Int = DefaultParallelism): Flow[DeleteAliasRequest, DeleteAliasResponse, NotUsed] =
@@ -101,8 +109,10 @@ trait LambdaAkkaClient {
       underlying.deleteEventSourceMapping(deleteEventSourceMappingRequest)
     }
 
-  def deleteFunctionSource(deleteFunctionRequest: DeleteFunctionRequest,
-                           parallelism: Int = DefaultParallelism): Source[DeleteFunctionResponse, NotUsed] =
+  def deleteFunctionSource(
+      deleteFunctionRequest: DeleteFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFunctionResponse, NotUsed] =
     Source.single(deleteFunctionRequest).via(deleteFunctionFlow(parallelism))
 
   def deleteFunctionFlow(
@@ -125,8 +135,10 @@ trait LambdaAkkaClient {
       underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest)
     }
 
-  def deleteLayerVersionSource(deleteLayerVersionRequest: DeleteLayerVersionRequest,
-                               parallelism: Int = DefaultParallelism): Source[DeleteLayerVersionResponse, NotUsed] =
+  def deleteLayerVersionSource(
+      deleteLayerVersionRequest: DeleteLayerVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteLayerVersionResponse, NotUsed] =
     Source.single(deleteLayerVersionRequest).via(deleteLayerVersionFlow(parallelism))
 
   def deleteLayerVersionFlow(
@@ -136,8 +148,10 @@ trait LambdaAkkaClient {
       underlying.deleteLayerVersion(deleteLayerVersionRequest)
     }
 
-  def getAccountSettingsSource(getAccountSettingsRequest: GetAccountSettingsRequest,
-                               parallelism: Int = DefaultParallelism): Source[GetAccountSettingsResponse, NotUsed] =
+  def getAccountSettingsSource(
+      getAccountSettingsRequest: GetAccountSettingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetAccountSettingsResponse, NotUsed] =
     Source.single(getAccountSettingsRequest).via(getAccountSettingsFlow(parallelism))
 
   def getAccountSettingsFlow(
@@ -150,8 +164,10 @@ trait LambdaAkkaClient {
   def getAccountSettingsSource(): Source[GetAccountSettingsResponse, NotUsed] =
     Source.fromFuture(underlying.getAccountSettings())
 
-  def getAliasSource(getAliasRequest: GetAliasRequest,
-                     parallelism: Int = DefaultParallelism): Source[GetAliasResponse, NotUsed] =
+  def getAliasSource(
+      getAliasRequest: GetAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetAliasResponse, NotUsed] =
     Source.single(getAliasRequest).via(getAliasFlow(parallelism))
 
   def getAliasFlow(parallelism: Int = DefaultParallelism): Flow[GetAliasRequest, GetAliasResponse, NotUsed] =
@@ -172,8 +188,10 @@ trait LambdaAkkaClient {
       underlying.getEventSourceMapping(getEventSourceMappingRequest)
     }
 
-  def getFunctionSource(getFunctionRequest: GetFunctionRequest,
-                        parallelism: Int = DefaultParallelism): Source[GetFunctionResponse, NotUsed] =
+  def getFunctionSource(
+      getFunctionRequest: GetFunctionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetFunctionResponse, NotUsed] =
     Source.single(getFunctionRequest).via(getFunctionFlow(parallelism))
 
   def getFunctionFlow(parallelism: Int = DefaultParallelism): Flow[GetFunctionRequest, GetFunctionResponse, NotUsed] =
@@ -194,8 +212,10 @@ trait LambdaAkkaClient {
       underlying.getFunctionConfiguration(getFunctionConfigurationRequest)
     }
 
-  def getLayerVersionSource(getLayerVersionRequest: GetLayerVersionRequest,
-                            parallelism: Int = DefaultParallelism): Source[GetLayerVersionResponse, NotUsed] =
+  def getLayerVersionSource(
+      getLayerVersionRequest: GetLayerVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetLayerVersionResponse, NotUsed] =
     Source.single(getLayerVersionRequest).via(getLayerVersionFlow(parallelism))
 
   def getLayerVersionFlow(
@@ -218,8 +238,10 @@ trait LambdaAkkaClient {
       underlying.getLayerVersionPolicy(getLayerVersionPolicyRequest)
     }
 
-  def getPolicySource(getPolicyRequest: GetPolicyRequest,
-                      parallelism: Int = DefaultParallelism): Source[GetPolicyResponse, NotUsed] =
+  def getPolicySource(
+      getPolicyRequest: GetPolicyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetPolicyResponse, NotUsed] =
     Source.single(getPolicyRequest).via(getPolicyFlow(parallelism))
 
   def getPolicyFlow(parallelism: Int = DefaultParallelism): Flow[GetPolicyRequest, GetPolicyResponse, NotUsed] =
@@ -227,8 +249,10 @@ trait LambdaAkkaClient {
       underlying.getPolicy(getPolicyRequest)
     }
 
-  def invokeSource(invokeRequest: InvokeRequest,
-                   parallelism: Int = DefaultParallelism): Source[InvokeResponse, NotUsed] =
+  def invokeSource(
+      invokeRequest: InvokeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[InvokeResponse, NotUsed] =
     Source.single(invokeRequest).via(invokeFlow(parallelism))
 
   def invokeFlow(parallelism: Int = DefaultParallelism): Flow[InvokeRequest, InvokeResponse, NotUsed] =
@@ -236,8 +260,10 @@ trait LambdaAkkaClient {
       underlying.invoke(invokeRequest)
     }
 
-  def listAliasesSource(listAliasesRequest: ListAliasesRequest,
-                        parallelism: Int = DefaultParallelism): Source[ListAliasesResponse, NotUsed] =
+  def listAliasesSource(
+      listAliasesRequest: ListAliasesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListAliasesResponse, NotUsed] =
     Source.single(listAliasesRequest).via(listAliasesFlow(parallelism))
 
   def listAliasesFlow(parallelism: Int = DefaultParallelism): Flow[ListAliasesRequest, ListAliasesResponse, NotUsed] =
@@ -265,13 +291,15 @@ trait LambdaAkkaClient {
     Source.fromPublisher(underlying.listEventSourceMappingsPaginator())
 
   def listEventSourceMappingsPaginatorFlow
-    : Flow[ListEventSourceMappingsRequest, ListEventSourceMappingsResponse, NotUsed] =
+      : Flow[ListEventSourceMappingsRequest, ListEventSourceMappingsResponse, NotUsed] =
     Flow[ListEventSourceMappingsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listEventSourceMappingsPaginator(request))
     }
 
-  def listFunctionsSource(listFunctionsRequest: ListFunctionsRequest,
-                          parallelism: Int = DefaultParallelism): Source[ListFunctionsResponse, NotUsed] =
+  def listFunctionsSource(
+      listFunctionsRequest: ListFunctionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListFunctionsResponse, NotUsed] =
     Source.single(listFunctionsRequest).via(listFunctionsFlow(parallelism))
 
   def listFunctionsFlow(
@@ -292,8 +320,10 @@ trait LambdaAkkaClient {
       Source.fromPublisher(underlying.listFunctionsPaginator(request))
     }
 
-  def listLayerVersionsSource(listLayerVersionsRequest: ListLayerVersionsRequest,
-                              parallelism: Int = DefaultParallelism): Source[ListLayerVersionsResponse, NotUsed] =
+  def listLayerVersionsSource(
+      listLayerVersionsRequest: ListLayerVersionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListLayerVersionsResponse, NotUsed] =
     Source.single(listLayerVersionsRequest).via(listLayerVersionsFlow(parallelism))
 
   def listLayerVersionsFlow(
@@ -303,8 +333,10 @@ trait LambdaAkkaClient {
       underlying.listLayerVersions(listLayerVersionsRequest)
     }
 
-  def listLayersSource(listLayersRequest: ListLayersRequest,
-                       parallelism: Int = DefaultParallelism): Source[ListLayersResponse, NotUsed] =
+  def listLayersSource(
+      listLayersRequest: ListLayersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListLayersResponse, NotUsed] =
     Source.single(listLayersRequest).via(listLayersFlow(parallelism))
 
   def listLayersFlow(parallelism: Int = DefaultParallelism): Flow[ListLayersRequest, ListLayersResponse, NotUsed] =
@@ -315,8 +347,10 @@ trait LambdaAkkaClient {
   def listLayersSource(): Source[ListLayersResponse, NotUsed] =
     Source.fromFuture(underlying.listLayers())
 
-  def listTagsSource(listTagsRequest: ListTagsRequest,
-                     parallelism: Int = DefaultParallelism): Source[ListTagsResponse, NotUsed] =
+  def listTagsSource(
+      listTagsRequest: ListTagsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsResponse, NotUsed] =
     Source.single(listTagsRequest).via(listTagsFlow(parallelism))
 
   def listTagsFlow(parallelism: Int = DefaultParallelism): Flow[ListTagsRequest, ListTagsResponse, NotUsed] =
@@ -337,8 +371,10 @@ trait LambdaAkkaClient {
       underlying.listVersionsByFunction(listVersionsByFunctionRequest)
     }
 
-  def publishLayerVersionSource(publishLayerVersionRequest: PublishLayerVersionRequest,
-                                parallelism: Int = DefaultParallelism): Source[PublishLayerVersionResponse, NotUsed] =
+  def publishLayerVersionSource(
+      publishLayerVersionRequest: PublishLayerVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PublishLayerVersionResponse, NotUsed] =
     Source.single(publishLayerVersionRequest).via(publishLayerVersionFlow(parallelism))
 
   def publishLayerVersionFlow(
@@ -348,8 +384,10 @@ trait LambdaAkkaClient {
       underlying.publishLayerVersion(publishLayerVersionRequest)
     }
 
-  def publishVersionSource(publishVersionRequest: PublishVersionRequest,
-                           parallelism: Int = DefaultParallelism): Source[PublishVersionResponse, NotUsed] =
+  def publishVersionSource(
+      publishVersionRequest: PublishVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PublishVersionResponse, NotUsed] =
     Source.single(publishVersionRequest).via(publishVersionFlow(parallelism))
 
   def publishVersionFlow(
@@ -385,8 +423,10 @@ trait LambdaAkkaClient {
       underlying.removeLayerVersionPermission(removeLayerVersionPermissionRequest)
     }
 
-  def removePermissionSource(removePermissionRequest: RemovePermissionRequest,
-                             parallelism: Int = DefaultParallelism): Source[RemovePermissionResponse, NotUsed] =
+  def removePermissionSource(
+      removePermissionRequest: RemovePermissionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RemovePermissionResponse, NotUsed] =
     Source.single(removePermissionRequest).via(removePermissionFlow(parallelism))
 
   def removePermissionFlow(
@@ -396,8 +436,10 @@ trait LambdaAkkaClient {
       underlying.removePermission(removePermissionRequest)
     }
 
-  def tagResourceSource(tagResourceRequest: TagResourceRequest,
-                        parallelism: Int = DefaultParallelism): Source[TagResourceResponse, NotUsed] =
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
     Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
 
   def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
@@ -405,8 +447,10 @@ trait LambdaAkkaClient {
       underlying.tagResource(tagResourceRequest)
     }
 
-  def untagResourceSource(untagResourceRequest: UntagResourceRequest,
-                          parallelism: Int = DefaultParallelism): Source[UntagResourceResponse, NotUsed] =
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
     Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
 
   def untagResourceFlow(
@@ -416,8 +460,10 @@ trait LambdaAkkaClient {
       underlying.untagResource(untagResourceRequest)
     }
 
-  def updateAliasSource(updateAliasRequest: UpdateAliasRequest,
-                        parallelism: Int = DefaultParallelism): Source[UpdateAliasResponse, NotUsed] =
+  def updateAliasSource(
+      updateAliasRequest: UpdateAliasRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateAliasResponse, NotUsed] =
     Source.single(updateAliasRequest).via(updateAliasFlow(parallelism))
 
   def updateAliasFlow(parallelism: Int = DefaultParallelism): Flow[UpdateAliasRequest, UpdateAliasResponse, NotUsed] =
@@ -438,8 +484,10 @@ trait LambdaAkkaClient {
       underlying.updateEventSourceMapping(updateEventSourceMappingRequest)
     }
 
-  def updateFunctionCodeSource(updateFunctionCodeRequest: UpdateFunctionCodeRequest,
-                               parallelism: Int = DefaultParallelism): Source[UpdateFunctionCodeResponse, NotUsed] =
+  def updateFunctionCodeSource(
+      updateFunctionCodeRequest: UpdateFunctionCodeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateFunctionCodeResponse, NotUsed] =
     Source.single(updateFunctionCodeRequest).via(updateFunctionCodeFlow(parallelism))
 
   def updateFunctionCodeFlow(
