@@ -59,7 +59,7 @@ object Settings {
       false
     },
     pomExtra := {
-      <url>https://github.com/j5ik2o/reactive-aws-client</url>
+      <url>https://github.com/j5ik2o/reactive-aws-clients</url>
         <licenses>
           <license>
             <name>The MIT License</name>
@@ -67,9 +67,9 @@ object Settings {
           </license>
         </licenses>
         <scm>
-          <url>git@github.com:j5ik2o/reactive-aws-client.git</url>
-          <connection>scm:git:github.com/j5ik2o/reactive-aws-client</connection>
-          <developerConnection>scm:git:git@github.com:j5ik2o/reactive-aws-client.git</developerConnection>
+          <url>git@github.com:j5ik2o/reactive-aws-clients.git</url>
+          <connection>scm:git:github.com/j5ik2o/reactive-aws-clients</connection>
+          <developerConnection>scm:git:git@github.com:j5ik2o/reactive-aws-clients.git</developerConnection>
         </scm>
         <developers>
           <developer>
