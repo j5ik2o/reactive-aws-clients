@@ -40,7 +40,7 @@ AWS Client libraries for Scala
 Add dependencies to `build.sbt`.
 
 ```scala
-val libraryName = "ｓ3"
+val libraryName = ""
 val version = "1．1．0"
 
 libraryDependencies += Seq(
