@@ -40,8 +40,8 @@ AWS Client libraries for Scala
 Add dependencies to `build.sbt`.
 
 ```scala
-val libraryName = "..." // e.g.) dynamodb
-val version = "..."
+val libraryName = "ｓ3"
+val version = "1．1．0"
 
 libraryDependencies += Seq(
   "com.github.j5ik2o" %% s"reactive-aws-$libraryName-core" % version,
