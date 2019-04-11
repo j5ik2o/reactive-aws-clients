@@ -40,7 +40,7 @@ AWS Client libraries for Scala
 Add dependencies to `build.sbt`.
 
 ```scala
-val libraryName = ""
+val libraryName = "dynamodb"
 val version = "1．1．0"
 
 libraryDependencies += Seq(
