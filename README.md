@@ -87,5 +87,9 @@ $ sh ./build-aws-sdk.sh
 $ sbt compile
 ```
 
+## How to contribute
+
+If you need other SDK features, please create an issue or send a P-R.
+
 
 
