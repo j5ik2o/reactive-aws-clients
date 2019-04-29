@@ -2,7 +2,7 @@ import Settings._
 import scala.sys.process._
 // --- common
 
-lazy val mvnClean = taskKey[Unit]("Execute maven install scripts")
+lazy val mvnClean = taskKey[Unit]("Execute maven clean scripts")
 mvnClean := {
   val s: TaskStreams = streams.value
   s.log.info("maven clean ...")
