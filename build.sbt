@@ -1,6 +1,29 @@
 import Settings._
-
+import scala.sys.process._
 // --- common
+
+lazy val mvnClean = taskKey[Unit]("Execute maven install scripts")
+mvnClean := {
+  val s: TaskStreams = streams.value
+  s.log.info("maven clean ...")
+  if(((Seq("bash", "-c") :+ "cd aws-sdk-src/aws-sdk-java-v2 && mvn clean") !) == 0) {
+    s.log.success("maven clean successful!")
+  } else {
+    throw new IllegalStateException("frontend maven clean failed!")
+  }
+}
+
+
+lazy val mvnInstall = taskKey[Unit]("Execute maven install scripts")
+mvnInstall := {
+  val s: TaskStreams = streams.value
+  s.log.info("maven install ...")
+  if(((Seq("bash", "-c") :+ "cd aws-sdk-src/aws-sdk-java-v2 && mvn install -P quick") !) == 0) {
+    s.log.success("maven install successful!")
+  } else {
+    throw new IllegalStateException("frontend maven install failed!")
+  }
+}
 
 lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test"))
   .settings(coreSettings)
