@@ -2,7 +2,7 @@ import Settings._
 
 scalaWrapperGenBaseSettings("Akka", "akka")
 
-sdkBaseName := "Ecs"
+sdkBaseName := "Eks"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-akka"
 
