@@ -1,0 +1,24 @@
+package com.github.j5ik2o.reactive.aws.eks.model.ops
+
+trait ToAllOps
+    extends ToCertificateOps
+    with ToClusterOps
+    with ToCreateClusterRequestOps
+    with ToCreateClusterResponseOps
+    with ToDeleteClusterRequestOps
+    with ToDeleteClusterResponseOps
+    with ToDescribeClusterRequestOps
+    with ToDescribeClusterResponseOps
+    with ToDescribeUpdateRequestOps
+    with ToDescribeUpdateResponseOps
+    with ToErrorDetailOps
+    with ToListClustersRequestOps
+    with ToListClustersResponseOps
+    with ToListUpdatesRequestOps
+    with ToListUpdatesResponseOps
+    with ToUpdateClusterVersionRequestOps
+    with ToUpdateClusterVersionResponseOps
+    with ToUpdateOps
+    with ToUpdateParamOps
+    with ToVpcConfigRequestOps
+    with ToVpcConfigResponseOps
