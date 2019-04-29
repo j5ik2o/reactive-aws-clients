@@ -82,8 +82,10 @@ val putItemResponseFuture = client.putItem(putItemRequest)
 
 ## How to build
 
+Run the following commands (`Maven` is required to run `mvnInstall` or `mvnClean`)
+
 ```sh
-$ sbt mvnClean mvnInstall // at first time
+$ sbt mvnClean mvnInstall // first time only
 $ sbt compile
 ```
 
