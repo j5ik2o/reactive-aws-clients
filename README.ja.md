@@ -80,8 +80,10 @@ val putItemResponseFuture = client.putItem(putItemRequest)
 
 ## ビルド方法
 
+以下のコマンドを実行してください(mvnInstall の実行にはMavenが必要です)
+
 ```sh
-$ sh ./build-aws-sdk.sh
+$ sbt mvnClean mvnInstall // 初回のみ
 $ sbt compile
 ```
 
