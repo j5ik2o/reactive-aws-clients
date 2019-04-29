@@ -83,7 +83,7 @@ val putItemResponseFuture = client.putItem(putItemRequest)
 ## How to build
 
 ```sh
-$ sh ./build-aws-sdk.sh
+$ sbt mvnClean mvnInstall // at first time
 $ sbt compile
 ```
 
