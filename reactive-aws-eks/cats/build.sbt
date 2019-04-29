@@ -2,7 +2,7 @@ import Settings._
 
 scalaWrapperGenBaseSettings("CatsIO", "cats")
 
-sdkBaseName := "Ecs"
+sdkBaseName := "Eks"
 
 name := s"reactive-aws-${sdkBaseName.value.toLowerCase}-cats"
 
