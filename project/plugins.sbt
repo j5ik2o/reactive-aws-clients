@@ -18,4 +18,4 @@ addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.3.1")
 
 addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.4.0")
 
-addSbtPlugin("com.github.j5ik2o" % "sbt-wrapper-gen" % "1.0.8-SNAPSHOT")
+addSbtPlugin("com.github.j5ik2o" % "sbt-wrapper-gen" % "1.0.7")
