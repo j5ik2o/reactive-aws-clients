@@ -702,6 +702,42 @@ lazy val `reactive-aws-kms-root`: Project = (project in file("reactive-aws-kms")
     `reactive-aws-kms-monix`
   )
 
+// --- eks
+
+lazy val `reactive-aws-eks-test` = (project in file("reactive-aws-eks/test"))
+  .settings(coreSettings)
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-eks-core` =
+  (project in file("reactive-aws-eks/core"))
+    .settings(coreWithTestSettings)
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-eks-test` % "test")
+
+lazy val `reactive-aws-eks-cats` = (project in file("reactive-aws-eks/cats"))
+  .settings(coreWithTestSettings)
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-eks-core`, `reactive-aws-eks-test` % "test")
+
+lazy val `reactive-aws-eks-monix` = (project in file("reactive-aws-eks/monix"))
+  .settings(coreWithTestSettings)
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-eks-core`, `reactive-aws-eks-test` % "test")
+
+lazy val `reactive-aws-eks-akka` = (project in file("reactive-aws-eks/akka"))
+  .settings(coreWithTestSettings)
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-eks-core`, `reactive-aws-eks-test` % "test")
+
+lazy val `reactive-aws-eks-root`: Project = (project in file("reactive-aws-eks"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-eks-project"
+  )
+  .aggregate(
+    `reactive-aws-eks-core`,
+    `reactive-aws-eks-test`,
+    `reactive-aws-eks-akka`,
+    `reactive-aws-eks-cats`,
+    `reactive-aws-eks-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -725,5 +761,6 @@ lazy val `root`: Project = (project in file("."))
     `reactive-aws-ec2-root`,
     `reactive-aws-ecr-root`,
     `reactive-aws-ecs-root`,
+    `reactive-aws-eks-root`,
     `reactive-aws-kms-root`
   )

@@ -142,7 +142,8 @@ object Settings {
       Wart.StringPlusAny,
       Wart.Overloading
     ),
-    wartremoverExcluded += baseDirectory.value / "src" / "test" / "scala"
+    wartremoverExcluded += baseDirectory.value / "src" / "test" / "scala",
+    updateOptions := updateOptions.value.withCachedResolution(true)
   ) // ++ scalaStyleSettings
 
   val coreWithTestSettings = coreSettings ++ testSettings
