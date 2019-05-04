@@ -738,6 +738,42 @@ lazy val `reactive-aws-eks-root`: Project = (project in file("reactive-aws-eks")
     `reactive-aws-eks-monix`
   )
 
+// --- rekognition
+
+lazy val `reactive-aws-rekognition-test` = (project in file("reactive-aws-rekognition/test"))
+  .settings(coreSettings)
+  .dependsOn(`reactive-aws-common-test`)
+
+lazy val `reactive-aws-rekognition-core` =
+  (project in file("reactive-aws-rekognition/core"))
+    .settings(coreWithTestSettings)
+    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-rekognition-test` % "test")
+
+lazy val `reactive-aws-rekognition-cats` = (project in file("reactive-aws-rekognition/cats"))
+  .settings(coreWithTestSettings)
+  .dependsOn(`reactive-aws-common-cats`, `reactive-aws-rekognition-core`, `reactive-aws-rekognition-test` % "test")
+
+lazy val `reactive-aws-rekognition-monix` = (project in file("reactive-aws-rekognition/monix"))
+  .settings(coreWithTestSettings)
+  .dependsOn(`reactive-aws-common-monix`, `reactive-aws-rekognition-core`, `reactive-aws-rekognition-test` % "test")
+
+lazy val `reactive-aws-rekognition-akka` = (project in file("reactive-aws-rekognition/akka"))
+  .settings(coreWithTestSettings)
+  .dependsOn(`reactive-aws-common-akka`, `reactive-aws-rekognition-core`, `reactive-aws-rekognition-test` % "test")
+
+lazy val `reactive-aws-rekognition-root`: Project = (project in file("reactive-aws-rekognition"))
+  .settings(coreSettings)
+  .settings(
+    name := "reactive-aws-rekognition-project"
+  )
+  .aggregate(
+    `reactive-aws-rekognition-core`,
+    `reactive-aws-rekognition-test`,
+    `reactive-aws-rekognition-akka`,
+    `reactive-aws-rekognition-cats`,
+    `reactive-aws-rekognition-monix`
+  )
+
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
@@ -762,5 +798,6 @@ lazy val `root`: Project = (project in file("."))
     `reactive-aws-ecr-root`,
     `reactive-aws-ecs-root`,
     `reactive-aws-eks-root`,
-    `reactive-aws-kms-root`
+    `reactive-aws-kms-root`,
+    `reactive-aws-rekognition-root`
   )
