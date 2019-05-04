@@ -11,7 +11,7 @@ object Settings {
   val scalaVersion211 = "2.11.12"
   val scalaVersion212 = "2.12.8"
 
-  val awsSdk2Version = "2.5.11"
+  val awsSdk2Version = "2.5.37"
 
   val catsVersion  = "1.5.0"
   val monixVersion = "3.0.0-RC2"
