@@ -7,14 +7,16 @@ final class DescribeNetworkInterfacePermissionsResponseBuilderOps(
     val self: DescribeNetworkInterfacePermissionsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfacePermissionsAsScala(
       value: Option[Seq[NetworkInterfacePermission]]
   ): DescribeNetworkInterfacePermissionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.networkInterfacePermissions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.networkInterfacePermissions(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeNetworkInterfacePermissionsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -26,11 +28,13 @@ final class DescribeNetworkInterfacePermissionsResponseBuilderOps(
 final class DescribeNetworkInterfacePermissionsResponseOps(val self: DescribeNetworkInterfacePermissionsResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfacePermissionsAsScala: Option[Seq[NetworkInterfacePermission]] =
     Option(self.networkInterfacePermissions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class DeleteAliasRequestBuilderOps(val self: DeleteAliasRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala(value: Option[String]): DeleteAliasRequest.Builder = {
     value.fold(self) { v =>
       self.aliasName(v)
@@ -15,6 +16,7 @@ final class DeleteAliasRequestBuilderOps(val self: DeleteAliasRequest.Builder) e
 
 final class DeleteAliasRequestOps(val self: DeleteAliasRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala: Option[String] = Option(self.aliasName)
 
 }

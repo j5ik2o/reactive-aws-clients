@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CopyPartResultBuilderOps(val self: CopyPartResult.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eTagAsScala(value: Option[String]): CopyPartResult.Builder = {
     value.fold(self) { v =>
       self.eTag(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[java.time.Instant]): CopyPartResult.Builder = {
     value.fold(self) { v =>
       self.lastModified(v)
@@ -21,8 +23,10 @@ final class CopyPartResultBuilderOps(val self: CopyPartResult.Builder) extends A
 
 final class CopyPartResultOps(val self: CopyPartResult) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eTagAsScala: Option[String] = Option(self.eTag)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala: Option[java.time.Instant] = Option(self.lastModified)
 
 }

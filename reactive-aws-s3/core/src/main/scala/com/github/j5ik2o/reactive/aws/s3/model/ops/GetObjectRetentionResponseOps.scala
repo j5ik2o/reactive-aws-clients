@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectRetentionResponseBuilderOps(val self: GetObjectRetentionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionAsScala(value: Option[ObjectLockRetention]): GetObjectRetentionResponse.Builder = {
     value.fold(self) { v =>
       self.retention(v)
@@ -15,6 +16,7 @@ final class GetObjectRetentionResponseBuilderOps(val self: GetObjectRetentionRes
 
 final class GetObjectRetentionResponseOps(val self: GetObjectRetentionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionAsScala: Option[ObjectLockRetention] = Option(self.retention)
 
 }

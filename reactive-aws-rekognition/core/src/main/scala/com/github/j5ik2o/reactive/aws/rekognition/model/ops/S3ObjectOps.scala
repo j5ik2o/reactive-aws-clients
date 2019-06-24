@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class S3ObjectBuilderOps(val self: S3Object.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): S3Object.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): S3Object.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): S3Object.Builder = {
     value.fold(self) { v =>
       self.version(v)
@@ -27,10 +30,13 @@ final class S3ObjectBuilderOps(val self: S3Object.Builder) extends AnyVal {
 
 final class S3ObjectOps(val self: S3Object) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala: Option[String] = Option(self.version)
 
 }

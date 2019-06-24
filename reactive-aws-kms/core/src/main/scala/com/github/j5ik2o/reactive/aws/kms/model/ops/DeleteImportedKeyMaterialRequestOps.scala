@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.kms.model._
 final class DeleteImportedKeyMaterialRequestBuilderOps(val self: DeleteImportedKeyMaterialRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): DeleteImportedKeyMaterialRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -16,6 +17,7 @@ final class DeleteImportedKeyMaterialRequestBuilderOps(val self: DeleteImportedK
 
 final class DeleteImportedKeyMaterialRequestOps(val self: DeleteImportedKeyMaterialRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

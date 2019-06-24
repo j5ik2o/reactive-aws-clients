@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardLimitAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.shardLimit(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openShardCountAsScala(value: Option[Int]): DescribeLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.openShardCount(v)
@@ -21,8 +23,10 @@ final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Bu
 
 final class DescribeLimitsResponseOps(val self: DescribeLimitsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardLimitAsScala: Option[Int] = Option(self.shardLimit)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openShardCountAsScala: Option[Int] = Option(self.openShardCount)
 
 }

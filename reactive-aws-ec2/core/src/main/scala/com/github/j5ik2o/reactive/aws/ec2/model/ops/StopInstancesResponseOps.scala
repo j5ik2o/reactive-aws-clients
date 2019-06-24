@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class StopInstancesResponseBuilderOps(val self: StopInstancesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stoppingInstancesAsScala(value: Option[Seq[InstanceStateChange]]): StopInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.stoppingInstances(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.stoppingInstances(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class StopInstancesResponseBuilderOps(val self: StopInstancesResponse.Buil
 
 final class StopInstancesResponseOps(val self: StopInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stoppingInstancesAsScala: Option[Seq[InstanceStateChange]] = Option(self.stoppingInstances).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

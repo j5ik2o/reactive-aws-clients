@@ -6,14 +6,16 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeVolumesModificationsResponseBuilderOps(val self: DescribeVolumesModificationsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumesModificationsAsScala(
       value: Option[Seq[VolumeModification]]
   ): DescribeVolumesModificationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.volumesModifications(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.volumesModifications(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeVolumesModificationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -24,10 +26,12 @@ final class DescribeVolumesModificationsResponseBuilderOps(val self: DescribeVol
 
 final class DescribeVolumesModificationsResponseOps(val self: DescribeVolumesModificationsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumesModificationsAsScala: Option[Seq[VolumeModification]] = Option(self.volumesModifications).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

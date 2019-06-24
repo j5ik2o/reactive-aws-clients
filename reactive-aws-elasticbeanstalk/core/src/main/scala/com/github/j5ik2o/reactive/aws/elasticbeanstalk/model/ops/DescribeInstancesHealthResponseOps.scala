@@ -6,20 +6,23 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class DescribeInstancesHealthResponseBuilderOps(val self: DescribeInstancesHealthResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceHealthListAsScala(
       value: Option[Seq[SingleInstanceHealth]]
   ): DescribeInstancesHealthResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.instanceHealthList(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.instanceHealthList(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def refreshedAtAsScala(value: Option[java.time.Instant]): DescribeInstancesHealthResponse.Builder = {
     value.fold(self) { v =>
       self.refreshedAt(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeInstancesHealthResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -30,12 +33,15 @@ final class DescribeInstancesHealthResponseBuilderOps(val self: DescribeInstance
 
 final class DescribeInstancesHealthResponseOps(val self: DescribeInstancesHealthResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceHealthListAsScala: Option[Seq[SingleInstanceHealth]] = Option(self.instanceHealthList).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def refreshedAtAsScala: Option[java.time.Instant] = Option(self.refreshedAt)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

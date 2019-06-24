@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class DescribeContinuousBackupsResponseBuilderOps(val self: DescribeContinuousBackupsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuousBackupsDescriptionAsScala(
       value: Option[ContinuousBackupsDescription]
   ): DescribeContinuousBackupsResponse.Builder = {
@@ -18,6 +19,7 @@ final class DescribeContinuousBackupsResponseBuilderOps(val self: DescribeContin
 
 final class DescribeContinuousBackupsResponseOps(val self: DescribeContinuousBackupsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuousBackupsDescriptionAsScala: Option[ContinuousBackupsDescription] =
     Option(self.continuousBackupsDescription)
 

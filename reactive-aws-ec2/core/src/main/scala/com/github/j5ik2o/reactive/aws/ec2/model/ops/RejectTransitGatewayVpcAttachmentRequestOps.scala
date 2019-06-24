@@ -7,6 +7,7 @@ final class RejectTransitGatewayVpcAttachmentRequestBuilderOps(
     val self: RejectTransitGatewayVpcAttachmentRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala(
       value: Option[String]
   ): RejectTransitGatewayVpcAttachmentRequest.Builder = {
@@ -20,6 +21,7 @@ final class RejectTransitGatewayVpcAttachmentRequestBuilderOps(
 final class RejectTransitGatewayVpcAttachmentRequestOps(val self: RejectTransitGatewayVpcAttachmentRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId)
 
 }

@@ -1,22 +1,29 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDbAsyncClient, DynamoDbClient }
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.paginators._
 
+import scala.concurrent.{ ExecutionContext, Future }
+
 object DynamoDbCatsIOClient {
 
-  def apply(asyncClient: DynamoDbAsyncClient): DynamoDbCatsIOClient = new DynamoDbCatsIOClient {
-    override val underlying: DynamoDbAsyncClient = asyncClient
-  }
+  def apply(asyncClient: DynamoDbAsyncClient)(implicit ec: ExecutionContext): DynamoDbCatsIOClient =
+    new DynamoDbCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: DynamoDbAsyncClient    = asyncClient
+    }
 
 }
 
 trait DynamoDbCatsIOClient extends DynamoDbClient[IO] {
 
   val underlying: DynamoDbAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def batchGetItem(batchGetItemRequest: BatchGetItemRequest): IO[BatchGetItemResponse] =
     IO.fromFuture {

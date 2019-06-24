@@ -6,14 +6,16 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeClientVpnEndpointsResponseBuilderOps(val self: DescribeClientVpnEndpointsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointsAsScala(
       value: Option[Seq[ClientVpnEndpoint]]
   ): DescribeClientVpnEndpointsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.clientVpnEndpoints(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.clientVpnEndpoints(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeClientVpnEndpointsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -24,10 +26,12 @@ final class DescribeClientVpnEndpointsResponseBuilderOps(val self: DescribeClien
 
 final class DescribeClientVpnEndpointsResponseOps(val self: DescribeClientVpnEndpointsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointsAsScala: Option[Seq[ClientVpnEndpoint]] = Option(self.clientVpnEndpoints).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

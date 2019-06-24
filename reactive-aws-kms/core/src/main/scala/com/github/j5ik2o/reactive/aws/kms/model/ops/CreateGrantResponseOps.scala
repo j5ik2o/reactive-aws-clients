@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class CreateGrantResponseBuilderOps(val self: CreateGrantResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantTokenAsScala(value: Option[String]): CreateGrantResponse.Builder = {
     value.fold(self) { v =>
       self.grantToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantIdAsScala(value: Option[String]): CreateGrantResponse.Builder = {
     value.fold(self) { v =>
       self.grantId(v)
@@ -21,8 +23,10 @@ final class CreateGrantResponseBuilderOps(val self: CreateGrantResponse.Builder)
 
 final class CreateGrantResponseOps(val self: CreateGrantResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantTokenAsScala: Option[String] = Option(self.grantToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantIdAsScala: Option[String] = Option(self.grantId)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AccessControlTranslationBuilderOps(val self: AccessControlTranslation.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala(value: Option[OwnerOverride]): AccessControlTranslation.Builder = {
     value.fold(self) { v =>
       self.owner(v)
@@ -15,6 +16,7 @@ final class AccessControlTranslationBuilderOps(val self: AccessControlTranslatio
 
 final class AccessControlTranslationOps(val self: AccessControlTranslation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala: Option[OwnerOverride] = Option(self.owner)
 
 }

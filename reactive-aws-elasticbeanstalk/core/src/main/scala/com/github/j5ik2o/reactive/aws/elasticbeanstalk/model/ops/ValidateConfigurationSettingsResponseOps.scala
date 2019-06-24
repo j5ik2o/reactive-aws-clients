@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class ValidateConfigurationSettingsResponseBuilderOps(val self: ValidateConfigurationSettingsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messagesAsScala(value: Option[Seq[ValidationMessage]]): ValidateConfigurationSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.messages(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.messages(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class ValidateConfigurationSettingsResponseBuilderOps(val self: ValidateCo
 
 final class ValidateConfigurationSettingsResponseOps(val self: ValidateConfigurationSettingsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messagesAsScala: Option[Seq[ValidationMessage]] = Option(self.messages).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateDhcpOptionsResponseBuilderOps(val self: CreateDhcpOptionsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dhcpOptionsAsScala(value: Option[DhcpOptions]): CreateDhcpOptionsResponse.Builder = {
     value.fold(self) { v =>
       self.dhcpOptions(v)
@@ -15,6 +16,7 @@ final class CreateDhcpOptionsResponseBuilderOps(val self: CreateDhcpOptionsRespo
 
 final class CreateDhcpOptionsResponseOps(val self: CreateDhcpOptionsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dhcpOptionsAsScala: Option[DhcpOptions] = Option(self.dhcpOptions)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class PutFunctionConcurrencyResponseBuilderOps(val self: PutFunctionConcurrencyResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala(value: Option[Int]): PutFunctionConcurrencyResponse.Builder = {
     value.fold(self) { v =>
       self.reservedConcurrentExecutions(v)
@@ -15,6 +16,7 @@ final class PutFunctionConcurrencyResponseBuilderOps(val self: PutFunctionConcur
 
 final class PutFunctionConcurrencyResponseOps(val self: PutFunctionConcurrencyResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala: Option[Int] = Option(self.reservedConcurrentExecutions)
 
 }

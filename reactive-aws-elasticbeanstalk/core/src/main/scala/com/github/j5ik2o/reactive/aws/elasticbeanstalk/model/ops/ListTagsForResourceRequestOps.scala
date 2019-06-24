@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class ListTagsForResourceRequestBuilderOps(val self: ListTagsForResourceRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceArnAsScala(value: Option[String]): ListTagsForResourceRequest.Builder = {
     value.fold(self) { v =>
       self.resourceArn(v)
@@ -15,6 +16,7 @@ final class ListTagsForResourceRequestBuilderOps(val self: ListTagsForResourceRe
 
 final class ListTagsForResourceRequestOps(val self: ListTagsForResourceRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
 }

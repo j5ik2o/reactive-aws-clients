@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class GetKeyRotationStatusResponseBuilderOps(val self: GetKeyRotationStatusResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyRotationEnabledAsScala(value: Option[Boolean]): GetKeyRotationStatusResponse.Builder = {
     value.fold(self) { v =>
       self.keyRotationEnabled(v)
@@ -15,6 +16,7 @@ final class GetKeyRotationStatusResponseBuilderOps(val self: GetKeyRotationStatu
 
 final class GetKeyRotationStatusResponseOps(val self: GetKeyRotationStatusResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyRotationEnabledAsScala: Option[Boolean] = Option(self.keyRotationEnabled)
 
 }

@@ -5,14 +5,16 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class ListStackResourcesResponseBuilderOps(val self: ListStackResourcesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceSummariesAsScala(
       value: Option[Seq[StackResourceSummary]]
   ): ListStackResourcesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.stackResourceSummaries(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.stackResourceSummaries(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListStackResourcesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -23,11 +25,13 @@ final class ListStackResourcesResponseBuilderOps(val self: ListStackResourcesRes
 
 final class ListStackResourcesResponseOps(val self: ListStackResourcesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceSummariesAsScala: Option[Seq[StackResourceSummary]] = Option(self.stackResourceSummaries).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

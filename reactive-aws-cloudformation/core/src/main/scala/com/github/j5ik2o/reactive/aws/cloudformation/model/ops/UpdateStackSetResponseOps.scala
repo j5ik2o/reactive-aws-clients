@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class UpdateStackSetResponseBuilderOps(val self: UpdateStackSetResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): UpdateStackSetResponse.Builder = {
     value.fold(self) { v =>
       self.operationId(v)
@@ -15,6 +16,7 @@ final class UpdateStackSetResponseBuilderOps(val self: UpdateStackSetResponse.Bu
 
 final class UpdateStackSetResponseOps(val self: UpdateStackSetResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala: Option[String] = Option(self.operationId)
 
 }

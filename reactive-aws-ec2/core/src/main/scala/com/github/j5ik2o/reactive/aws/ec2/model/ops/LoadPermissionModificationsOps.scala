@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class LoadPermissionModificationsBuilderOps(val self: LoadPermissionModifications.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addAsScala(value: Option[Seq[LoadPermissionRequest]]): LoadPermissionModifications.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.add(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.add(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def removeAsScala(value: Option[Seq[LoadPermissionRequest]]): LoadPermissionModifications.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.remove(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.remove(v.asJava)
     }
   }
 
@@ -21,12 +23,14 @@ final class LoadPermissionModificationsBuilderOps(val self: LoadPermissionModifi
 
 final class LoadPermissionModificationsOps(val self: LoadPermissionModifications) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addAsScala: Option[Seq[LoadPermissionRequest]] = Option(self.add).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def removeAsScala: Option[Seq[LoadPermissionRequest]] = Option(self.remove).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ZoneAwarenessConfigBuilderOps(val self: ZoneAwarenessConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneCountAsScala(value: Option[Int]): ZoneAwarenessConfig.Builder = {
     value.fold(self) { v =>
       self.availabilityZoneCount(v)
@@ -15,6 +16,7 @@ final class ZoneAwarenessConfigBuilderOps(val self: ZoneAwarenessConfig.Builder)
 
 final class ZoneAwarenessConfigOps(val self: ZoneAwarenessConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneCountAsScala: Option[Int] = Option(self.availabilityZoneCount)
 
 }

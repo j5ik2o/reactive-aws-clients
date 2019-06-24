@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribePublicIpv4PoolsResponseBuilderOps(val self: DescribePublicIpv4PoolsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpv4PoolsAsScala(value: Option[Seq[PublicIpv4Pool]]): DescribePublicIpv4PoolsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.publicIpv4Pools(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.publicIpv4Pools(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribePublicIpv4PoolsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -22,10 +24,12 @@ final class DescribePublicIpv4PoolsResponseBuilderOps(val self: DescribePublicIp
 
 final class DescribePublicIpv4PoolsResponseOps(val self: DescribePublicIpv4PoolsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpv4PoolsAsScala: Option[Seq[PublicIpv4Pool]] = Option(self.publicIpv4Pools).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousBackupsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): UpdateContinuousBackupsRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoverySpecificationAsScala(
       value: Option[PointInTimeRecoverySpecification]
   ): UpdateContinuousBackupsRequest.Builder = {
@@ -23,8 +25,10 @@ final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousB
 
 final class UpdateContinuousBackupsRequestOps(val self: UpdateContinuousBackupsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoverySpecificationAsScala: Option[PointInTimeRecoverySpecification] =
     Option(self.pointInTimeRecoverySpecification)
 

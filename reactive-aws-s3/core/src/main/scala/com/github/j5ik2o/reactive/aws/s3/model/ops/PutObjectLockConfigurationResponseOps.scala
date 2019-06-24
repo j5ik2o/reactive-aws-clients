@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class PutObjectLockConfigurationResponseBuilderOps(val self: PutObjectLockConfigurationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectLockConfigurationResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -16,6 +17,7 @@ final class PutObjectLockConfigurationResponseBuilderOps(val self: PutObjectLock
 
 final class PutObjectLockConfigurationResponseOps(val self: PutObjectLockConfigurationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DescribeAccountLimitsResponseBuilderOps(val self: DescribeAccountLimitsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountLimitsAsScala(value: Option[Seq[AccountLimit]]): DescribeAccountLimitsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.accountLimits(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.accountLimits(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeAccountLimitsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,10 +23,12 @@ final class DescribeAccountLimitsResponseBuilderOps(val self: DescribeAccountLim
 
 final class DescribeAccountLimitsResponseOps(val self: DescribeAccountLimitsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountLimitsAsScala: Option[Seq[AccountLimit]] = Option(self.accountLimits).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

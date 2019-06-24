@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class VolumeStatusDetailsBuilderOps(val self: VolumeStatusDetails.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[VolumeStatusName]): VolumeStatusDetails.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): VolumeStatusDetails.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -21,8 +23,10 @@ final class VolumeStatusDetailsBuilderOps(val self: VolumeStatusDetails.Builder)
 
 final class VolumeStatusDetailsOps(val self: VolumeStatusDetails) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[VolumeStatusName] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)
 
 }

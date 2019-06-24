@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteFleetErrorBuilderOps(val self: DeleteFleetError.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[DeleteFleetErrorCode]): DeleteFleetError.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): DeleteFleetError.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class DeleteFleetErrorBuilderOps(val self: DeleteFleetError.Builder) exten
 
 final class DeleteFleetErrorOps(val self: DeleteFleetError) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[DeleteFleetErrorCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

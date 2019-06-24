@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ecs.model._
 final class DeregisterTaskDefinitionResponseBuilderOps(val self: DeregisterTaskDefinitionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala(value: Option[TaskDefinition]): DeregisterTaskDefinitionResponse.Builder = {
     value.fold(self) { v =>
       self.taskDefinition(v)
@@ -16,6 +17,7 @@ final class DeregisterTaskDefinitionResponseBuilderOps(val self: DeregisterTaskD
 
 final class DeregisterTaskDefinitionResponseOps(val self: DeregisterTaskDefinitionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala: Option[TaskDefinition] = Option(self.taskDefinition)
 
 }

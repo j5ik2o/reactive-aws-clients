@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class ListKeysRequestBuilderOps(val self: ListKeysRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListKeysRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListKeysRequest.Builder = {
     value.fold(self) { v =>
       self.marker(v)
@@ -21,8 +23,10 @@ final class ListKeysRequestBuilderOps(val self: ListKeysRequest.Builder) extends
 
 final class ListKeysRequestOps(val self: ListKeysRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala: Option[String] = Option(self.marker)
 
 }

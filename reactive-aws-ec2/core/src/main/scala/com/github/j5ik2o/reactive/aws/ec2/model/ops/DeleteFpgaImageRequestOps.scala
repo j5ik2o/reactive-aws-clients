@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteFpgaImageRequestBuilderOps(val self: DeleteFpgaImageRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala(value: Option[String]): DeleteFpgaImageRequest.Builder = {
     value.fold(self) { v =>
       self.fpgaImageId(v)
@@ -15,6 +16,7 @@ final class DeleteFpgaImageRequestBuilderOps(val self: DeleteFpgaImageRequest.Bu
 
 final class DeleteFpgaImageRequestOps(val self: DeleteFpgaImageRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala: Option[String] = Option(self.fpgaImageId)
 
 }

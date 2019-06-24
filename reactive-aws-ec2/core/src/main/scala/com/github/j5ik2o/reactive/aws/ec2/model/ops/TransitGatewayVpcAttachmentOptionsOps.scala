@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class TransitGatewayVpcAttachmentOptionsBuilderOps(val self: TransitGatewayVpcAttachmentOptions.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsSupportAsScala(value: Option[DnsSupportValue]): TransitGatewayVpcAttachmentOptions.Builder = {
     value.fold(self) { v =>
       self.dnsSupport(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6SupportAsScala(value: Option[Ipv6SupportValue]): TransitGatewayVpcAttachmentOptions.Builder = {
     value.fold(self) { v =>
       self.ipv6Support(v)
@@ -22,8 +24,10 @@ final class TransitGatewayVpcAttachmentOptionsBuilderOps(val self: TransitGatewa
 
 final class TransitGatewayVpcAttachmentOptionsOps(val self: TransitGatewayVpcAttachmentOptions) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsSupportAsScala: Option[DnsSupportValue] = Option(self.dnsSupport)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6SupportAsScala: Option[Ipv6SupportValue] = Option(self.ipv6Support)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CopyImageResponseBuilderOps(val self: CopyImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[String]): CopyImageResponse.Builder = {
     value.fold(self) { v =>
       self.imageId(v)
@@ -15,6 +16,7 @@ final class CopyImageResponseBuilderOps(val self: CopyImageResponse.Builder) ext
 
 final class CopyImageResponseOps(val self: CopyImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala: Option[String] = Option(self.imageId)
 
 }

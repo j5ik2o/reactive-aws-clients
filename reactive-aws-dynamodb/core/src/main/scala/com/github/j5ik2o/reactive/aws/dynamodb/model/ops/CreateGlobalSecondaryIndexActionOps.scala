@@ -6,24 +6,28 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class CreateGlobalSecondaryIndexActionBuilderOps(val self: CreateGlobalSecondaryIndexAction.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): CreateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keySchemaAsScala(value: Option[Seq[KeySchemaElement]]): CreateGlobalSecondaryIndexAction.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.keySchema(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.keySchema(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala(value: Option[Projection]): CreateGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.projection(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputAsScala(
       value: Option[ProvisionedThroughput]
   ): CreateGlobalSecondaryIndexAction.Builder = {
@@ -36,14 +40,18 @@ final class CreateGlobalSecondaryIndexActionBuilderOps(val self: CreateGlobalSec
 
 final class CreateGlobalSecondaryIndexActionOps(val self: CreateGlobalSecondaryIndexAction) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala: Option[Projection] = Option(self.projection)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputAsScala: Option[ProvisionedThroughput] = Option(self.provisionedThroughput)
 
 }

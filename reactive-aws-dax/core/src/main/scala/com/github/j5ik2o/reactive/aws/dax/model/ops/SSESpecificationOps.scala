@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): SSESpecification.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -15,6 +16,7 @@ final class SSESpecificationBuilderOps(val self: SSESpecification.Builder) exten
 
 final class SSESpecificationOps(val self: SSESpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

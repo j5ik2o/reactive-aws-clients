@@ -7,6 +7,7 @@ final class CreateVpcEndpointServiceConfigurationResponseBuilderOps(
     val self: CreateVpcEndpointServiceConfigurationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceConfigurationAsScala(
       value: Option[ServiceConfiguration]
   ): CreateVpcEndpointServiceConfigurationResponse.Builder = {
@@ -15,6 +16,7 @@ final class CreateVpcEndpointServiceConfigurationResponseBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateVpcEndpointServiceConfigurationResponse.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
@@ -26,8 +28,10 @@ final class CreateVpcEndpointServiceConfigurationResponseBuilderOps(
 final class CreateVpcEndpointServiceConfigurationResponseOps(val self: CreateVpcEndpointServiceConfigurationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceConfigurationAsScala: Option[ServiceConfiguration] = Option(self.serviceConfiguration)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
 }

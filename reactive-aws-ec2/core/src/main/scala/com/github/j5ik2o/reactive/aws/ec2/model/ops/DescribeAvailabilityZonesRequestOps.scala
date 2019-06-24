@@ -6,21 +6,24 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeAvailabilityZonesRequestBuilderOps(val self: DescribeAvailabilityZonesRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[Seq[Filter]]): DescribeAvailabilityZonesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filters(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneNamesAsScala(value: Option[Seq[String]]): DescribeAvailabilityZonesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.zoneNames(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.zoneNames(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneIdsAsScala(value: Option[Seq[String]]): DescribeAvailabilityZonesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.zoneIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.zoneIds(v.asJava)
     }
   }
 
@@ -28,16 +31,19 @@ final class DescribeAvailabilityZonesRequestBuilderOps(val self: DescribeAvailab
 
 final class DescribeAvailabilityZonesRequestOps(val self: DescribeAvailabilityZonesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneNamesAsScala: Option[Seq[String]] = Option(self.zoneNames).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneIdsAsScala: Option[Seq[String]] = Option(self.zoneIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

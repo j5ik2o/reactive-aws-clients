@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class CancelUpdateStackRequestBuilderOps(val self: CancelUpdateStackRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): CancelUpdateStackRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): CancelUpdateStackRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
@@ -21,8 +23,10 @@ final class CancelUpdateStackRequestBuilderOps(val self: CancelUpdateStackReques
 
 final class CancelUpdateStackRequestOps(val self: CancelUpdateStackRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala: Option[String] = Option(self.stackName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)
 
 }

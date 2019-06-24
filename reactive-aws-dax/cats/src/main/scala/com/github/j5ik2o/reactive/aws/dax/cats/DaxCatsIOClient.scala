@@ -1,14 +1,17 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dax.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.dax.{ DaxAsyncClient, DaxClient }
 import software.amazon.awssdk.services.dax.model._
 
+import scala.concurrent.{ ExecutionContext, Future }
+
 object DaxCatsIOClient {
 
-  def apply(asyncClient: DaxAsyncClient): DaxCatsIOClient = new DaxCatsIOClient {
-    override val underlying: DaxAsyncClient = asyncClient
+  def apply(asyncClient: DaxAsyncClient)(implicit ec: ExecutionContext): DaxCatsIOClient = new DaxCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: DaxAsyncClient         = asyncClient
   }
 
 }
@@ -16,6 +19,9 @@ object DaxCatsIOClient {
 trait DaxCatsIOClient extends DaxClient[IO] {
 
   val underlying: DaxAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def createCluster(createClusterRequest: CreateClusterRequest): IO[CreateClusterResponse] =
     IO.fromFuture {

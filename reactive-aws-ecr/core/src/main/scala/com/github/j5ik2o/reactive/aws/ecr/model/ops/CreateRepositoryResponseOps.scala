@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class CreateRepositoryResponseBuilderOps(val self: CreateRepositoryResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryAsScala(value: Option[Repository]): CreateRepositoryResponse.Builder = {
     value.fold(self) { v =>
       self.repository(v)
@@ -15,6 +16,7 @@ final class CreateRepositoryResponseBuilderOps(val self: CreateRepositoryRespons
 
 final class CreateRepositoryResponseOps(val self: CreateRepositoryResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryAsScala: Option[Repository] = Option(self.repository)
 
 }

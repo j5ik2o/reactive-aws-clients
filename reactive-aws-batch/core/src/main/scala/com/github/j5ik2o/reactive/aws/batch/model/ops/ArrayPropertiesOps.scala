@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.batch.model._
 
 final class ArrayPropertiesBuilderOps(val self: ArrayProperties.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): ArrayProperties.Builder = {
     value.fold(self) { v =>
       self.size(v)
@@ -15,6 +16,7 @@ final class ArrayPropertiesBuilderOps(val self: ArrayProperties.Builder) extends
 
 final class ArrayPropertiesOps(val self: ArrayProperties) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala: Option[Int] = Option(self.size)
 
 }

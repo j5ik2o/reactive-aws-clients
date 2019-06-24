@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateTableResponseBuilderOps(val self: UpdateTableResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala(value: Option[TableDescription]): UpdateTableResponse.Builder = {
     value.fold(self) { v =>
       self.tableDescription(v)
@@ -15,6 +16,7 @@ final class UpdateTableResponseBuilderOps(val self: UpdateTableResponse.Builder)
 
 final class UpdateTableResponseOps(val self: UpdateTableResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class ParameterConstraintsBuilderOps(val self: ParameterConstraints.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowedValuesAsScala(value: Option[Seq[String]]): ParameterConstraints.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.allowedValues(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.allowedValues(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class ParameterConstraintsBuilderOps(val self: ParameterConstraints.Builde
 
 final class ParameterConstraintsOps(val self: ParameterConstraints) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowedValuesAsScala: Option[Seq[String]] = Option(self.allowedValues).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

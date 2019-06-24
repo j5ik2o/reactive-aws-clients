@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class ListEventSourceMappingsRequestBuilderOps(val self: ListEventSourceMappingsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala(value: Option[String]): ListEventSourceMappingsRequest.Builder = {
     value.fold(self) { v =>
       self.eventSourceArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): ListEventSourceMappingsRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListEventSourceMappingsRequest.Builder = {
     value.fold(self) { v =>
       self.marker(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): ListEventSourceMappingsRequest.Builder = {
     value.fold(self) { v =>
       self.maxItems(v)
@@ -33,12 +37,16 @@ final class ListEventSourceMappingsRequestBuilderOps(val self: ListEventSourceMa
 
 final class ListEventSourceMappingsRequestOps(val self: ListEventSourceMappingsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala: Option[String] = Option(self.eventSourceArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala: Option[String] = Option(self.functionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala: Option[String] = Option(self.marker)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala: Option[Int] = Option(self.maxItems)
 
 }

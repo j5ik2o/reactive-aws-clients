@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CreateBucketConfigurationBuilderOps(val self: CreateBucketConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def locationConstraintAsScala(value: Option[BucketLocationConstraint]): CreateBucketConfiguration.Builder = {
     value.fold(self) { v =>
       self.locationConstraint(v)
@@ -15,6 +16,7 @@ final class CreateBucketConfigurationBuilderOps(val self: CreateBucketConfigurat
 
 final class CreateBucketConfigurationOps(val self: CreateBucketConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def locationConstraintAsScala: Option[BucketLocationConstraint] = Option(self.locationConstraint)
 
 }

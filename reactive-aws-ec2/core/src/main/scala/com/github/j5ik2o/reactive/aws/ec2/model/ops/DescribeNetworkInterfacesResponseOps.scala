@@ -6,14 +6,16 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeNetworkInterfacesResponseBuilderOps(val self: DescribeNetworkInterfacesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfacesAsScala(
       value: Option[Seq[NetworkInterface]]
   ): DescribeNetworkInterfacesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.networkInterfaces(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.networkInterfaces(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeNetworkInterfacesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -24,10 +26,12 @@ final class DescribeNetworkInterfacesResponseBuilderOps(val self: DescribeNetwor
 
 final class DescribeNetworkInterfacesResponseOps(val self: DescribeNetworkInterfacesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfacesAsScala: Option[Seq[NetworkInterface]] = Option(self.networkInterfaces).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

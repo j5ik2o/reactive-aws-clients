@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifyLaunchTemplateResponseBuilderOps(val self: ModifyLaunchTemplateResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateAsScala(value: Option[LaunchTemplate]): ModifyLaunchTemplateResponse.Builder = {
     value.fold(self) { v =>
       self.launchTemplate(v)
@@ -15,6 +16,7 @@ final class ModifyLaunchTemplateResponseBuilderOps(val self: ModifyLaunchTemplat
 
 final class ModifyLaunchTemplateResponseOps(val self: ModifyLaunchTemplateResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateAsScala: Option[LaunchTemplate] = Option(self.launchTemplate)
 
 }

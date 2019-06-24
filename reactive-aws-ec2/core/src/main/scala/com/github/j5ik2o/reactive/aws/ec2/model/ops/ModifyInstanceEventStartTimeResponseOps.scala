@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ModifyInstanceEventStartTimeResponseBuilderOps(val self: ModifyInstanceEventStartTimeResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventAsScala(value: Option[InstanceStatusEvent]): ModifyInstanceEventStartTimeResponse.Builder = {
     value.fold(self) { v =>
       self.event(v)
@@ -16,6 +17,7 @@ final class ModifyInstanceEventStartTimeResponseBuilderOps(val self: ModifyInsta
 
 final class ModifyInstanceEventStartTimeResponseOps(val self: ModifyInstanceEventStartTimeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventAsScala: Option[InstanceStatusEvent] = Option(self.event)
 
 }

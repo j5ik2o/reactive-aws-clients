@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RequestSpotFleetResponseBuilderOps(val self: RequestSpotFleetResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestIdAsScala(value: Option[String]): RequestSpotFleetResponse.Builder = {
     value.fold(self) { v =>
       self.spotFleetRequestId(v)
@@ -15,6 +16,7 @@ final class RequestSpotFleetResponseBuilderOps(val self: RequestSpotFleetRespons
 
 final class RequestSpotFleetResponseOps(val self: RequestSpotFleetResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestIdAsScala: Option[String] = Option(self.spotFleetRequestId)
 
 }

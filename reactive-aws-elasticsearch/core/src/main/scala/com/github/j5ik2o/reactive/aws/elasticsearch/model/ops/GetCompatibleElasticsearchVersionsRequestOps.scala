@@ -7,6 +7,7 @@ final class GetCompatibleElasticsearchVersionsRequestBuilderOps(
     val self: GetCompatibleElasticsearchVersionsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): GetCompatibleElasticsearchVersionsRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
@@ -18,6 +19,7 @@ final class GetCompatibleElasticsearchVersionsRequestBuilderOps(
 final class GetCompatibleElasticsearchVersionsRequestOps(val self: GetCompatibleElasticsearchVersionsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala: Option[String] = Option(self.domainName)
 
 }

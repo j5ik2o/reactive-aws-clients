@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ReservationValueBuilderOps(val self: ReservationValue.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hourlyPriceAsScala(value: Option[String]): ReservationValue.Builder = {
     value.fold(self) { v =>
       self.hourlyPrice(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remainingTotalValueAsScala(value: Option[String]): ReservationValue.Builder = {
     value.fold(self) { v =>
       self.remainingTotalValue(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remainingUpfrontValueAsScala(value: Option[String]): ReservationValue.Builder = {
     value.fold(self) { v =>
       self.remainingUpfrontValue(v)
@@ -27,10 +30,13 @@ final class ReservationValueBuilderOps(val self: ReservationValue.Builder) exten
 
 final class ReservationValueOps(val self: ReservationValue) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hourlyPriceAsScala: Option[String] = Option(self.hourlyPrice)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remainingTotalValueAsScala: Option[String] = Option(self.remainingTotalValue)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remainingUpfrontValueAsScala: Option[String] = Option(self.remainingUpfrontValue)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class NodeToNodeEncryptionOptionsBuilderOps(val self: NodeToNodeEncryptionOptions.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): NodeToNodeEncryptionOptions.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -15,6 +16,7 @@ final class NodeToNodeEncryptionOptionsBuilderOps(val self: NodeToNodeEncryption
 
 final class NodeToNodeEncryptionOptionsOps(val self: NodeToNodeEncryptionOptions) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

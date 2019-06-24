@@ -7,6 +7,7 @@ final class DeleteNetworkInterfacePermissionResponseBuilderOps(
     val self: DeleteNetworkInterfacePermissionResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): DeleteNetworkInterfacePermissionResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -18,6 +19,7 @@ final class DeleteNetworkInterfacePermissionResponseBuilderOps(
 final class DeleteNetworkInterfacePermissionResponseOps(val self: DeleteNetworkInterfacePermissionResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.batch.model._
 
 final class HostBuilderOps(val self: Host.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourcePathAsScala(value: Option[String]): Host.Builder = {
     value.fold(self) { v =>
       self.sourcePath(v)
@@ -15,6 +16,7 @@ final class HostBuilderOps(val self: Host.Builder) extends AnyVal {
 
 final class HostOps(val self: Host) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourcePathAsScala: Option[String] = Option(self.sourcePath)
 
 }

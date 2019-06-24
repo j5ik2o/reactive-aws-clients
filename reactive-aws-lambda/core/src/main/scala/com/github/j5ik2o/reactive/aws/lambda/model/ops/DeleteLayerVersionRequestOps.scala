@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class DeleteLayerVersionRequestBuilderOps(val self: DeleteLayerVersionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): DeleteLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.layerName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala(value: Option[Long]): DeleteLayerVersionRequest.Builder = {
     value.fold(self) { v =>
       self.versionNumber(v)
@@ -21,8 +23,10 @@ final class DeleteLayerVersionRequestBuilderOps(val self: DeleteLayerVersionRequ
 
 final class DeleteLayerVersionRequestOps(val self: DeleteLayerVersionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala: Option[String] = Option(self.layerName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala: Option[Long] = Option(self.versionNumber)
 
 }

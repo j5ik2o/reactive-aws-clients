@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class SunglassesBuilderOps(val self: Sunglasses.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[Boolean]): Sunglasses.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Sunglasses.Builder = {
     value.fold(self) { v =>
       self.confidence(v)
@@ -21,8 +23,10 @@ final class SunglassesBuilderOps(val self: Sunglasses.Builder) extends AnyVal {
 
 final class SunglassesOps(val self: Sunglasses) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[Boolean] = Option(self.value)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala: Option[Float] = Option(self.confidence)
 
 }

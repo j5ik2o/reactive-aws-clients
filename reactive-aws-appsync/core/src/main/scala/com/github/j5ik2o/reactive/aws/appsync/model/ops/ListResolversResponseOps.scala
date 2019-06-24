@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListResolversResponseBuilderOps(val self: ListResolversResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resolversAsScala(value: Option[Seq[Resolver]]): ListResolversResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.resolvers(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.resolvers(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListResolversResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,10 +23,12 @@ final class ListResolversResponseBuilderOps(val self: ListResolversResponse.Buil
 
 final class ListResolversResponseOps(val self: ListResolversResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resolversAsScala: Option[Seq[Resolver]] = Option(self.resolvers).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

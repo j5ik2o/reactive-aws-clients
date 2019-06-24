@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class ResetNetworkInterfaceAttributeRequestBuilderOps(val self: ResetNetworkInterfaceAttributeRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): ResetNetworkInterfaceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceDestCheckAsScala(value: Option[String]): ResetNetworkInterfaceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.sourceDestCheck(v)
@@ -22,8 +24,10 @@ final class ResetNetworkInterfaceAttributeRequestBuilderOps(val self: ResetNetwo
 
 final class ResetNetworkInterfaceAttributeRequestOps(val self: ResetNetworkInterfaceAttributeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceDestCheckAsScala: Option[String] = Option(self.sourceDestCheck)
 
 }

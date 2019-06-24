@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class HeadBucketRequestBuilderOps(val self: HeadBucketRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): HeadBucketRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class HeadBucketRequestBuilderOps(val self: HeadBucketRequest.Builder) ext
 
 final class HeadBucketRequestOps(val self: HeadBucketRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

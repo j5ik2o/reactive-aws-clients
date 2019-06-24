@@ -7,6 +7,7 @@ final class ReplaceIamInstanceProfileAssociationRequestBuilderOps(
     val self: ReplaceIamInstanceProfileAssociationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAsScala(
       value: Option[IamInstanceProfileSpecification]
   ): ReplaceIamInstanceProfileAssociationRequest.Builder = {
@@ -15,6 +16,7 @@ final class ReplaceIamInstanceProfileAssociationRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): ReplaceIamInstanceProfileAssociationRequest.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -26,8 +28,10 @@ final class ReplaceIamInstanceProfileAssociationRequestBuilderOps(
 final class ReplaceIamInstanceProfileAssociationRequestOps(val self: ReplaceIamInstanceProfileAssociationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAsScala: Option[IamInstanceProfileSpecification] = Option(self.iamInstanceProfile)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

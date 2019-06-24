@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class SpotFleetMonitoringBuilderOps(val self: SpotFleetMonitoring.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): SpotFleetMonitoring.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -15,6 +16,7 @@ final class SpotFleetMonitoringBuilderOps(val self: SpotFleetMonitoring.Builder)
 
 final class SpotFleetMonitoringOps(val self: SpotFleetMonitoring) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

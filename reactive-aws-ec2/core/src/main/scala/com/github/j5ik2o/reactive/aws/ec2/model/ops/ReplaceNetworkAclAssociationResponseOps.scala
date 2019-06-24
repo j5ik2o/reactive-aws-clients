@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ReplaceNetworkAclAssociationResponseBuilderOps(val self: ReplaceNetworkAclAssociationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def newAssociationIdAsScala(value: Option[String]): ReplaceNetworkAclAssociationResponse.Builder = {
     value.fold(self) { v =>
       self.newAssociationId(v)
@@ -16,6 +17,7 @@ final class ReplaceNetworkAclAssociationResponseBuilderOps(val self: ReplaceNetw
 
 final class ReplaceNetworkAclAssociationResponseOps(val self: ReplaceNetworkAclAssociationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def newAssociationIdAsScala: Option[String] = Option(self.newAssociationId)
 
 }

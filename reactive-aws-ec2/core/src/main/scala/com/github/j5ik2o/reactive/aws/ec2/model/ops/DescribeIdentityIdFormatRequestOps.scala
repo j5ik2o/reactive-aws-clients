@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeIdentityIdFormatRequestBuilderOps(val self: DescribeIdentityIdFormatRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala(value: Option[String]): DescribeIdentityIdFormatRequest.Builder = {
     value.fold(self) { v =>
       self.principalArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala(value: Option[String]): DescribeIdentityIdFormatRequest.Builder = {
     value.fold(self) { v =>
       self.resource(v)
@@ -22,8 +24,10 @@ final class DescribeIdentityIdFormatRequestBuilderOps(val self: DescribeIdentity
 
 final class DescribeIdentityIdFormatRequestOps(val self: DescribeIdentityIdFormatRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala: Option[String] = Option(self.principalArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala: Option[String] = Option(self.resource)
 
 }

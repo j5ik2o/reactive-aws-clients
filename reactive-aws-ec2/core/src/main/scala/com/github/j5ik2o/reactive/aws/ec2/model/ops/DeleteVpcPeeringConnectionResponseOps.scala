@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DeleteVpcPeeringConnectionResponseBuilderOps(val self: DeleteVpcPeeringConnectionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): DeleteVpcPeeringConnectionResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -16,6 +17,7 @@ final class DeleteVpcPeeringConnectionResponseBuilderOps(val self: DeleteVpcPeer
 
 final class DeleteVpcPeeringConnectionResponseOps(val self: DeleteVpcPeeringConnectionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

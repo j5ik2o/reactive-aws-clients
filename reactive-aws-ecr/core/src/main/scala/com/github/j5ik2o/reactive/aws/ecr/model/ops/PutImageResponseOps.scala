@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class PutImageResponseBuilderOps(val self: PutImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): PutImageResponse.Builder = {
     value.fold(self) { v =>
       self.image(v)
@@ -15,6 +16,7 @@ final class PutImageResponseBuilderOps(val self: PutImageResponse.Builder) exten
 
 final class PutImageResponseOps(val self: PutImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala: Option[Image] = Option(self.image)
 
 }

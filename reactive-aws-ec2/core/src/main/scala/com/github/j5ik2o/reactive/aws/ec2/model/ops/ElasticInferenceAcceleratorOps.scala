@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ElasticInferenceAcceleratorBuilderOps(val self: ElasticInferenceAccelerator.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): ElasticInferenceAccelerator.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -15,6 +16,7 @@ final class ElasticInferenceAcceleratorBuilderOps(val self: ElasticInferenceAcce
 
 final class ElasticInferenceAcceleratorOps(val self: ElasticInferenceAccelerator) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
 
 }

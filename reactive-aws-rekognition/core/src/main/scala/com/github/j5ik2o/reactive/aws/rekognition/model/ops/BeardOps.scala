@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class BeardBuilderOps(val self: Beard.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[Boolean]): Beard.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Beard.Builder = {
     value.fold(self) { v =>
       self.confidence(v)
@@ -21,8 +23,10 @@ final class BeardBuilderOps(val self: Beard.Builder) extends AnyVal {
 
 final class BeardOps(val self: Beard) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[Boolean] = Option(self.value)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala: Option[Float] = Option(self.confidence)
 
 }

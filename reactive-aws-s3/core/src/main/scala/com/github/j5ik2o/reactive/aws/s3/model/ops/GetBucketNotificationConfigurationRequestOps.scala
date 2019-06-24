@@ -7,6 +7,7 @@ final class GetBucketNotificationConfigurationRequestBuilderOps(
     val self: GetBucketNotificationConfigurationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketNotificationConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -18,6 +19,7 @@ final class GetBucketNotificationConfigurationRequestBuilderOps(
 final class GetBucketNotificationConfigurationRequestOps(val self: GetBucketNotificationConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

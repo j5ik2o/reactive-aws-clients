@@ -7,6 +7,7 @@ final class LaunchTemplateElasticInferenceAcceleratorResponseBuilderOps(
     val self: LaunchTemplateElasticInferenceAcceleratorResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): LaunchTemplateElasticInferenceAcceleratorResponse.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -19,6 +20,7 @@ final class LaunchTemplateElasticInferenceAcceleratorResponseOps(
     val self: LaunchTemplateElasticInferenceAcceleratorResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
 
 }

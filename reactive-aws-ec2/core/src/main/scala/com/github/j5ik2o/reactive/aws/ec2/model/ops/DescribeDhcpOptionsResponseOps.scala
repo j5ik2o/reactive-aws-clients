@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeDhcpOptionsResponseBuilderOps(val self: DescribeDhcpOptionsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dhcpOptionsAsScala(value: Option[Seq[DhcpOptions]]): DescribeDhcpOptionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.dhcpOptions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.dhcpOptions(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeDhcpOptionsResponseBuilderOps(val self: DescribeDhcpOptionsR
 
 final class DescribeDhcpOptionsResponseOps(val self: DescribeDhcpOptionsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dhcpOptionsAsScala: Option[Seq[DhcpOptions]] = Option(self.dhcpOptions).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

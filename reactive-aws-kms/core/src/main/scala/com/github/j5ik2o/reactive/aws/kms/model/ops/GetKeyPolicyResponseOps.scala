@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class GetKeyPolicyResponseBuilderOps(val self: GetKeyPolicyResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala(value: Option[String]): GetKeyPolicyResponse.Builder = {
     value.fold(self) { v =>
       self.policy(v)
@@ -15,6 +16,7 @@ final class GetKeyPolicyResponseBuilderOps(val self: GetKeyPolicyResponse.Builde
 
 final class GetKeyPolicyResponseOps(val self: GetKeyPolicyResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala: Option[String] = Option(self.policy)
 
 }

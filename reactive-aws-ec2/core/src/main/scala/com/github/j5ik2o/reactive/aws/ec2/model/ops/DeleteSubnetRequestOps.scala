@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteSubnetRequestBuilderOps(val self: DeleteSubnetRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): DeleteSubnetRequest.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -15,6 +16,7 @@ final class DeleteSubnetRequestBuilderOps(val self: DeleteSubnetRequest.Builder)
 
 final class DeleteSubnetRequestOps(val self: DeleteSubnetRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

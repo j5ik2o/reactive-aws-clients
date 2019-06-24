@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class MergeShardsRequestBuilderOps(val self: MergeShardsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.shardToMerge(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def adjacentShardToMergeAsScala(value: Option[String]): MergeShardsRequest.Builder = {
     value.fold(self) { v =>
       self.adjacentShardToMerge(v)
@@ -27,10 +30,13 @@ final class MergeShardsRequestBuilderOps(val self: MergeShardsRequest.Builder) e
 
 final class MergeShardsRequestOps(val self: MergeShardsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala: Option[String] = Option(self.streamName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardToMergeAsScala: Option[String] = Option(self.shardToMerge)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def adjacentShardToMergeAsScala: Option[String] = Option(self.adjacentShardToMerge)
 
 }

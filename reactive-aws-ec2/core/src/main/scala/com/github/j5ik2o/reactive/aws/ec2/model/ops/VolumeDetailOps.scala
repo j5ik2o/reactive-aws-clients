@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class VolumeDetailBuilderOps(val self: VolumeDetail.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Long]): VolumeDetail.Builder = {
     value.fold(self) { v =>
       self.size(v)
@@ -15,6 +16,7 @@ final class VolumeDetailBuilderOps(val self: VolumeDetail.Builder) extends AnyVa
 
 final class VolumeDetailOps(val self: VolumeDetail) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala: Option[Long] = Option(self.size)
 
 }

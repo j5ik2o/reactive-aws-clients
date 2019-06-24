@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class UnassignIpv6AddressesResponseBuilderOps(val self: UnassignIpv6AddressesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): UnassignIpv6AddressesResponse.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unassignedIpv6AddressesAsScala(value: Option[Seq[String]]): UnassignIpv6AddressesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.unassignedIpv6Addresses(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.unassignedIpv6Addresses(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class UnassignIpv6AddressesResponseBuilderOps(val self: UnassignIpv6Addres
 
 final class UnassignIpv6AddressesResponseOps(val self: UnassignIpv6AddressesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unassignedIpv6AddressesAsScala: Option[Seq[String]] = Option(self.unassignedIpv6Addresses).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

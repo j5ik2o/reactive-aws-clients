@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class OwnerBuilderOps(val self: Owner.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def displayNameAsScala(value: Option[String]): Owner.Builder = {
     value.fold(self) { v =>
       self.displayName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Owner.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -21,8 +23,10 @@ final class OwnerBuilderOps(val self: Owner.Builder) extends AnyVal {
 
 final class OwnerOps(val self: Owner) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def displayNameAsScala: Option[String] = Option(self.displayName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

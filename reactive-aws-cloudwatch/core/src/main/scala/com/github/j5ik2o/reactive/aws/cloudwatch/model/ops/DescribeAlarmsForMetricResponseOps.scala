@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.cloudwatch.model._
 final class DescribeAlarmsForMetricResponseBuilderOps(val self: DescribeAlarmsForMetricResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricAlarmsAsScala(value: Option[Seq[MetricAlarm]]): DescribeAlarmsForMetricResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.metricAlarms(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.metricAlarms(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class DescribeAlarmsForMetricResponseBuilderOps(val self: DescribeAlarmsFo
 
 final class DescribeAlarmsForMetricResponseOps(val self: DescribeAlarmsForMetricResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] = Option(self.metricAlarms).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

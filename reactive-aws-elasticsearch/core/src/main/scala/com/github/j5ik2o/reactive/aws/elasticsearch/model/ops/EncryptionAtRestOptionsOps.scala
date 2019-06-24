@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class EncryptionAtRestOptionsBuilderOps(val self: EncryptionAtRestOptions.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): EncryptionAtRestOptions.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): EncryptionAtRestOptions.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
@@ -21,8 +23,10 @@ final class EncryptionAtRestOptionsBuilderOps(val self: EncryptionAtRestOptions.
 
 final class EncryptionAtRestOptionsOps(val self: EncryptionAtRestOptions) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
 }

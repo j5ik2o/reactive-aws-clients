@@ -7,18 +7,21 @@ final class DescribeReservedInstancesListingsRequestBuilderOps(
     val self: DescribeReservedInstancesListingsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[Seq[Filter]]): DescribeReservedInstancesListingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filters(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesIdAsScala(value: Option[String]): DescribeReservedInstancesListingsRequest.Builder = {
     value.fold(self) { v =>
       self.reservedInstancesId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesListingIdAsScala(
       value: Option[String]
   ): DescribeReservedInstancesListingsRequest.Builder = {
@@ -32,12 +35,15 @@ final class DescribeReservedInstancesListingsRequestBuilderOps(
 final class DescribeReservedInstancesListingsRequestOps(val self: DescribeReservedInstancesListingsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesIdAsScala: Option[String] = Option(self.reservedInstancesId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesListingIdAsScala: Option[String] = Option(self.reservedInstancesListingId)
 
 }

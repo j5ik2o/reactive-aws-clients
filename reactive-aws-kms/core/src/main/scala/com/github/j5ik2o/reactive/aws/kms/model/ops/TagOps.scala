@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class TagBuilderOps(val self: Tag.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagKeyAsScala(value: Option[String]): Tag.Builder = {
     value.fold(self) { v =>
       self.tagKey(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagValueAsScala(value: Option[String]): Tag.Builder = {
     value.fold(self) { v =>
       self.tagValue(v)
@@ -21,8 +23,10 @@ final class TagBuilderOps(val self: Tag.Builder) extends AnyVal {
 
 final class TagOps(val self: Tag) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagKeyAsScala: Option[String] = Option(self.tagKey)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagValueAsScala: Option[String] = Option(self.tagValue)
 
 }

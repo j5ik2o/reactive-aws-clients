@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.cloudwatch.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.cloudwatch.{ CloudWatchAsyncClient, CloudWatchClient }
 import software.amazon.awssdk.services.cloudwatch.model._
 import software.amazon.awssdk.services.cloudwatch.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object CloudWatchCatsIOClient {
 
-  def apply(asyncClient: CloudWatchAsyncClient): CloudWatchCatsIOClient = new CloudWatchCatsIOClient {
-    override val underlying: CloudWatchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudWatchAsyncClient)(implicit ec: ExecutionContext): CloudWatchCatsIOClient =
+    new CloudWatchCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: CloudWatchAsyncClient  = asyncClient
+    }
 
 }
 
 trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
 
   val underlying: CloudWatchAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def deleteAlarms(deleteAlarmsRequest: DeleteAlarmsRequest): IO[DeleteAlarmsResponse] =
     IO.fromFuture {

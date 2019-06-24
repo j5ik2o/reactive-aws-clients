@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class StorageBuilderOps(val self: Storage.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3AsScala(value: Option[S3Storage]): Storage.Builder = {
     value.fold(self) { v =>
       self.s3(v)
@@ -15,6 +16,7 @@ final class StorageBuilderOps(val self: Storage.Builder) extends AnyVal {
 
 final class StorageOps(val self: Storage) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3AsScala: Option[S3Storage] = Option(self.s3)
 
 }

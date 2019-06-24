@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeHostReservationsResponseBuilderOps(val self: DescribeHostReservationsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostReservationSetAsScala(value: Option[Seq[HostReservation]]): DescribeHostReservationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.hostReservationSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.hostReservationSet(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeHostReservationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -22,10 +24,12 @@ final class DescribeHostReservationsResponseBuilderOps(val self: DescribeHostRes
 
 final class DescribeHostReservationsResponseOps(val self: DescribeHostReservationsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostReservationSetAsScala: Option[Seq[HostReservation]] = Option(self.hostReservationSet).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

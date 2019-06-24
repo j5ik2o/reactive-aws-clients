@@ -7,12 +7,14 @@ final class ScheduledInstancesPrivateIpAddressConfigBuilderOps(
     val self: ScheduledInstancesPrivateIpAddressConfig.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def primaryAsScala(value: Option[Boolean]): ScheduledInstancesPrivateIpAddressConfig.Builder = {
     value.fold(self) { v =>
       self.primary(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateIpAddressAsScala(value: Option[String]): ScheduledInstancesPrivateIpAddressConfig.Builder = {
     value.fold(self) { v =>
       self.privateIpAddress(v)
@@ -24,8 +26,10 @@ final class ScheduledInstancesPrivateIpAddressConfigBuilderOps(
 final class ScheduledInstancesPrivateIpAddressConfigOps(val self: ScheduledInstancesPrivateIpAddressConfig)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def primaryAsScala: Option[Boolean] = Option(self.primary)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateIpAddressAsScala: Option[String] = Option(self.privateIpAddress)
 
 }

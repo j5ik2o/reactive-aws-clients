@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateDefaultSubnetRequestBuilderOps(val self: CreateDefaultSubnetRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala(value: Option[String]): CreateDefaultSubnetRequest.Builder = {
     value.fold(self) { v =>
       self.availabilityZone(v)
@@ -15,6 +16,7 @@ final class CreateDefaultSubnetRequestBuilderOps(val self: CreateDefaultSubnetRe
 
 final class CreateDefaultSubnetRequestOps(val self: CreateDefaultSubnetRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone)
 
 }

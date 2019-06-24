@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class ReservedInstancesModificationResultBuilderOps(val self: ReservedInstancesModificationResult.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesIdAsScala(value: Option[String]): ReservedInstancesModificationResult.Builder = {
     value.fold(self) { v =>
       self.reservedInstancesId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetConfigurationAsScala(
       value: Option[ReservedInstancesConfiguration]
   ): ReservedInstancesModificationResult.Builder = {
@@ -24,8 +26,10 @@ final class ReservedInstancesModificationResultBuilderOps(val self: ReservedInst
 
 final class ReservedInstancesModificationResultOps(val self: ReservedInstancesModificationResult) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesIdAsScala: Option[String] = Option(self.reservedInstancesId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetConfigurationAsScala: Option[ReservedInstancesConfiguration] = Option(self.targetConfiguration)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketVersioningRequestBuilderOps(val self: GetBucketVersioningRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketVersioningRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class GetBucketVersioningRequestBuilderOps(val self: GetBucketVersioningRe
 
 final class GetBucketVersioningRequestOps(val self: GetBucketVersioningRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

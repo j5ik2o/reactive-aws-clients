@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StartContentModerationResponseBuilderOps(val self: StartContentModerationResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartContentModerationResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
@@ -15,6 +16,7 @@ final class StartContentModerationResponseBuilderOps(val self: StartContentModer
 
 final class StartContentModerationResponseOps(val self: StartContentModerationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }

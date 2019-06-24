@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class GenderBuilderOps(val self: Gender.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[GenderType]): Gender.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Gender.Builder = {
     value.fold(self) { v =>
       self.confidence(v)
@@ -21,8 +23,10 @@ final class GenderBuilderOps(val self: Gender.Builder) extends AnyVal {
 
 final class GenderOps(val self: Gender) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[GenderType] = Option(self.value)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala: Option[Float] = Option(self.confidence)
 
 }

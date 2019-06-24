@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class NetworkConfigurationBuilderOps(val self: NetworkConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsvpcConfigurationAsScala(value: Option[AwsVpcConfiguration]): NetworkConfiguration.Builder = {
     value.fold(self) { v =>
       self.awsvpcConfiguration(v)
@@ -15,6 +16,7 @@ final class NetworkConfigurationBuilderOps(val self: NetworkConfiguration.Builde
 
 final class NetworkConfigurationOps(val self: NetworkConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsvpcConfigurationAsScala: Option[AwsVpcConfiguration] = Option(self.awsvpcConfiguration)
 
 }

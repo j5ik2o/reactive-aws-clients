@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeIdFormatRequestBuilderOps(val self: DescribeIdFormatRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala(value: Option[String]): DescribeIdFormatRequest.Builder = {
     value.fold(self) { v =>
       self.resource(v)
@@ -15,6 +16,7 @@ final class DescribeIdFormatRequestBuilderOps(val self: DescribeIdFormatRequest.
 
 final class DescribeIdFormatRequestOps(val self: DescribeIdFormatRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala: Option[String] = Option(self.resource)
 
 }

@@ -7,6 +7,7 @@ final class ExportClientVpnClientConfigurationRequestBuilderOps(
     val self: ExportClientVpnClientConfigurationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala(value: Option[String]): ExportClientVpnClientConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.clientVpnEndpointId(v)
@@ -18,6 +19,7 @@ final class ExportClientVpnClientConfigurationRequestBuilderOps(
 final class ExportClientVpnClientConfigurationRequestOps(val self: ExportClientVpnClientConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
 
 }

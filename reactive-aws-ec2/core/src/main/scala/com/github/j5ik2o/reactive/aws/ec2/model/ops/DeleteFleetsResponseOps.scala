@@ -5,19 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteFleetsResponseBuilderOps(val self: DeleteFleetsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfulFleetDeletionsAsScala(
       value: Option[Seq[DeleteFleetSuccessItem]]
   ): DeleteFleetsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.successfulFleetDeletions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.successfulFleetDeletions(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfulFleetDeletionsAsScala(
       value: Option[Seq[DeleteFleetErrorItem]]
   ): DeleteFleetsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.unsuccessfulFleetDeletions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.unsuccessfulFleetDeletions(v.asJava)
     }
   }
 
@@ -25,14 +27,16 @@ final class DeleteFleetsResponseBuilderOps(val self: DeleteFleetsResponse.Builde
 
 final class DeleteFleetsResponseOps(val self: DeleteFleetsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfulFleetDeletionsAsScala: Option[Seq[DeleteFleetSuccessItem]] =
     Option(self.successfulFleetDeletions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfulFleetDeletionsAsScala: Option[Seq[DeleteFleetErrorItem]] =
     Option(self.unsuccessfulFleetDeletions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

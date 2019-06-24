@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ReplicationConfigurationBuilderOps(val self: ReplicationConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleAsScala(value: Option[String]): ReplicationConfiguration.Builder = {
     value.fold(self) { v =>
       self.role(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rulesAsScala(value: Option[Seq[ReplicationRule]]): ReplicationConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.rules(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.rules(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class ReplicationConfigurationBuilderOps(val self: ReplicationConfiguratio
 
 final class ReplicationConfigurationOps(val self: ReplicationConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleAsScala: Option[String] = Option(self.role)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rulesAsScala: Option[Seq[ReplicationRule]] = Option(self.rules).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

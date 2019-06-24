@@ -30,7 +30,7 @@ class DynamoDbCatsIOClientImplSpec
     .endpointOverride(URI.create(endpoint))
     .build()
 
-  val client = DynamoDbCatsIOClient(DynamoDbAsyncClient(underlying))
+  val client = DynamoDbCatsIOClient(DynamoDbAsyncClient(underlying))(executionContext)
 
   "DynamoDBAsyncClientV2ImplSpec" - {
     "createTable & listTables" in {

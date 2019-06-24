@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class AssociateIamInstanceProfileRequestBuilderOps(val self: AssociateIamInstanceProfileRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAsScala(
       value: Option[IamInstanceProfileSpecification]
   ): AssociateIamInstanceProfileRequest.Builder = {
@@ -14,6 +15,7 @@ final class AssociateIamInstanceProfileRequestBuilderOps(val self: AssociateIamI
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): AssociateIamInstanceProfileRequest.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
@@ -24,8 +26,10 @@ final class AssociateIamInstanceProfileRequestBuilderOps(val self: AssociateIamI
 
 final class AssociateIamInstanceProfileRequestOps(val self: AssociateIamInstanceProfileRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAsScala: Option[IamInstanceProfileSpecification] = Option(self.iamInstanceProfile)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
 }

@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class GetUpgradeStatusResponseBuilderOps(val self: GetUpgradeStatusResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepAsScala(value: Option[UpgradeStep]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.upgradeStep(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stepStatusAsScala(value: Option[UpgradeStatus]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.stepStatus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeNameAsScala(value: Option[String]): GetUpgradeStatusResponse.Builder = {
     value.fold(self) { v =>
       self.upgradeName(v)
@@ -27,10 +30,13 @@ final class GetUpgradeStatusResponseBuilderOps(val self: GetUpgradeStatusRespons
 
 final class GetUpgradeStatusResponseOps(val self: GetUpgradeStatusResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepAsScala: Option[UpgradeStep] = Option(self.upgradeStep)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stepStatusAsScala: Option[UpgradeStatus] = Option(self.stepStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeNameAsScala: Option[String] = Option(self.upgradeName)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ReservedInstanceLimitPriceBuilderOps(val self: ReservedInstanceLimitPrice.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amountAsScala(value: Option[Double]): ReservedInstanceLimitPrice.Builder = {
     value.fold(self) { v =>
       self.amount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currencyCodeAsScala(value: Option[CurrencyCodeValues]): ReservedInstanceLimitPrice.Builder = {
     value.fold(self) { v =>
       self.currencyCode(v)
@@ -21,8 +23,10 @@ final class ReservedInstanceLimitPriceBuilderOps(val self: ReservedInstanceLimit
 
 final class ReservedInstanceLimitPriceOps(val self: ReservedInstanceLimitPrice) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amountAsScala: Option[Double] = Option(self.amount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currencyCodeAsScala: Option[CurrencyCodeValues] = Option(self.currencyCode)
 
 }

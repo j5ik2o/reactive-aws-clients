@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class FailureBuilderOps(val self: Failure.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): Failure.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): Failure.Builder = {
     value.fold(self) { v =>
       self.reason(v)
@@ -21,8 +23,10 @@ final class FailureBuilderOps(val self: Failure.Builder) extends AnyVal {
 
 final class FailureOps(val self: Failure) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala: Option[String] = Option(self.reason)
 
 }

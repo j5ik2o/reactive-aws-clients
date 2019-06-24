@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class CompareFacesMatchBuilderOps(val self: CompareFacesMatch.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityAsScala(value: Option[Float]): CompareFacesMatch.Builder = {
     value.fold(self) { v =>
       self.similarity(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[ComparedFace]): CompareFacesMatch.Builder = {
     value.fold(self) { v =>
       self.face(v)
@@ -21,8 +23,10 @@ final class CompareFacesMatchBuilderOps(val self: CompareFacesMatch.Builder) ext
 
 final class CompareFacesMatchOps(val self: CompareFacesMatch) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityAsScala: Option[Float] = Option(self.similarity)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala: Option[ComparedFace] = Option(self.face)
 
 }

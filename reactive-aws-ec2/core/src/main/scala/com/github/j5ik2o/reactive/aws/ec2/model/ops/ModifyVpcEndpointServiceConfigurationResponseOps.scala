@@ -7,6 +7,7 @@ final class ModifyVpcEndpointServiceConfigurationResponseBuilderOps(
     val self: ModifyVpcEndpointServiceConfigurationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ModifyVpcEndpointServiceConfigurationResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -18,6 +19,7 @@ final class ModifyVpcEndpointServiceConfigurationResponseBuilderOps(
 final class ModifyVpcEndpointServiceConfigurationResponseOps(val self: ModifyVpcEndpointServiceConfigurationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

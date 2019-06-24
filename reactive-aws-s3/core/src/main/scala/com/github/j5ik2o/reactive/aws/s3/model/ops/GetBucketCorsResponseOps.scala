@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketCorsResponseBuilderOps(val self: GetBucketCorsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def corsRulesAsScala(value: Option[Seq[CORSRule]]): GetBucketCorsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.corsRules(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.corsRules(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class GetBucketCorsResponseBuilderOps(val self: GetBucketCorsResponse.Buil
 
 final class GetBucketCorsResponseOps(val self: GetBucketCorsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def corsRulesAsScala: Option[Seq[CORSRule]] = Option(self.corsRules).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

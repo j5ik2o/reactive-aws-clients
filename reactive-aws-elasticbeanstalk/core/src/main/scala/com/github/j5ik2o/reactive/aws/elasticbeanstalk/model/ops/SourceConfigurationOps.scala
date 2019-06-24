@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class SourceConfigurationBuilderOps(val self: SourceConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): SourceConfiguration.Builder = {
     value.fold(self) { v =>
       self.applicationName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): SourceConfiguration.Builder = {
     value.fold(self) { v =>
       self.templateName(v)
@@ -21,8 +23,10 @@ final class SourceConfigurationBuilderOps(val self: SourceConfiguration.Builder)
 
 final class SourceConfigurationOps(val self: SourceConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala: Option[String] = Option(self.templateName)
 
 }

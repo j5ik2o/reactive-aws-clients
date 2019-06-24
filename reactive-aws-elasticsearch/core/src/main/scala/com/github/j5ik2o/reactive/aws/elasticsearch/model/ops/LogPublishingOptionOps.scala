@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class LogPublishingOptionBuilderOps(val self: LogPublishingOption.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudWatchLogsLogGroupArnAsScala(value: Option[String]): LogPublishingOption.Builder = {
     value.fold(self) { v =>
       self.cloudWatchLogsLogGroupArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): LogPublishingOption.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -21,8 +23,10 @@ final class LogPublishingOptionBuilderOps(val self: LogPublishingOption.Builder)
 
 final class LogPublishingOptionOps(val self: LogPublishingOption) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudWatchLogsLogGroupArnAsScala: Option[String] = Option(self.cloudWatchLogsLogGroupArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

@@ -7,6 +7,7 @@ final class GetBucketAccelerateConfigurationResponseBuilderOps(
     val self: GetBucketAccelerateConfigurationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[BucketAccelerateStatus]): GetBucketAccelerateConfigurationResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -18,6 +19,7 @@ final class GetBucketAccelerateConfigurationResponseBuilderOps(
 final class GetBucketAccelerateConfigurationResponseOps(val self: GetBucketAccelerateConfigurationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class LogGroupFieldBuilderOps(val self: LogGroupField.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): LogGroupField.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def percentAsScala(value: Option[Int]): LogGroupField.Builder = {
     value.fold(self) { v =>
       self.percent(v)
@@ -21,8 +23,10 @@ final class LogGroupFieldBuilderOps(val self: LogGroupField.Builder) extends Any
 
 final class LogGroupFieldOps(val self: LogGroupField) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def percentAsScala: Option[Int] = Option(self.percent)
 
 }

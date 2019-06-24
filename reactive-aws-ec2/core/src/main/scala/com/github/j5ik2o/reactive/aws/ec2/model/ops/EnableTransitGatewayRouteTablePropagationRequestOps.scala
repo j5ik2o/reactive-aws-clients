@@ -7,6 +7,7 @@ final class EnableTransitGatewayRouteTablePropagationRequestBuilderOps(
     val self: EnableTransitGatewayRouteTablePropagationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableIdAsScala(
       value: Option[String]
   ): EnableTransitGatewayRouteTablePropagationRequest.Builder = {
@@ -15,6 +16,7 @@ final class EnableTransitGatewayRouteTablePropagationRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala(
       value: Option[String]
   ): EnableTransitGatewayRouteTablePropagationRequest.Builder = {
@@ -29,8 +31,10 @@ final class EnableTransitGatewayRouteTablePropagationRequestOps(
     val self: EnableTransitGatewayRouteTablePropagationRequest
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableIdAsScala: Option[String] = Option(self.transitGatewayRouteTableId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId)
 
 }

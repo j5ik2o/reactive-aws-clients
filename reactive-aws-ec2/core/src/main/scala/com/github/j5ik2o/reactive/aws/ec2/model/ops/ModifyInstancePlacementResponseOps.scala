@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ModifyInstancePlacementResponseBuilderOps(val self: ModifyInstancePlacementResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ModifyInstancePlacementResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -16,6 +17,7 @@ final class ModifyInstancePlacementResponseBuilderOps(val self: ModifyInstancePl
 
 final class ModifyInstancePlacementResponseOps(val self: ModifyInstancePlacementResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

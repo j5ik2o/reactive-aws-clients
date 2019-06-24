@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): ListTagsRequest.Builder = {
     value.fold(self) { v =>
       self.arn(v)
@@ -15,6 +16,7 @@ final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends
 
 final class ListTagsRequestOps(val self: ListTagsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)
 
 }

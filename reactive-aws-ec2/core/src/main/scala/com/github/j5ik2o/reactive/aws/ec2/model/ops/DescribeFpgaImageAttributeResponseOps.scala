@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeFpgaImageAttributeResponseBuilderOps(val self: DescribeFpgaImageAttributeResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageAttributeAsScala(value: Option[FpgaImageAttribute]): DescribeFpgaImageAttributeResponse.Builder = {
     value.fold(self) { v =>
       self.fpgaImageAttribute(v)
@@ -16,6 +17,7 @@ final class DescribeFpgaImageAttributeResponseBuilderOps(val self: DescribeFpgaI
 
 final class DescribeFpgaImageAttributeResponseOps(val self: DescribeFpgaImageAttributeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageAttributeAsScala: Option[FpgaImageAttribute] = Option(self.fpgaImageAttribute)
 
 }

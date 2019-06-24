@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class TagQueueRequestBuilderOps(val self: TagQueueRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): TagQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Map[String, String]]): TagQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tags(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class TagQueueRequestBuilderOps(val self: TagQueueRequest.Builder) extends
 
 final class TagQueueRequestOps(val self: TagQueueRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

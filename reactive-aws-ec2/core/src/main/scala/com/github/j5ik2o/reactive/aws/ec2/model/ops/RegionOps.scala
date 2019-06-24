@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RegionBuilderOps(val self: Region.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[String]): Region.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): Region.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
@@ -21,8 +23,10 @@ final class RegionBuilderOps(val self: Region.Builder) extends AnyVal {
 
 final class RegionOps(val self: Region) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala: Option[String] = Option(self.endpoint)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }

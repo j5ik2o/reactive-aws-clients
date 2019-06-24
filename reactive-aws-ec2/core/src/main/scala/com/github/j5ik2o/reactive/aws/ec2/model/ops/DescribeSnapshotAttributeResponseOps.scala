@@ -6,20 +6,23 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeSnapshotAttributeResponseBuilderOps(val self: DescribeSnapshotAttributeResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createVolumePermissionsAsScala(
       value: Option[Seq[CreateVolumePermission]]
   ): DescribeSnapshotAttributeResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.createVolumePermissions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.createVolumePermissions(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodesAsScala(value: Option[Seq[ProductCode]]): DescribeSnapshotAttributeResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.productCodes(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.productCodes(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala(value: Option[String]): DescribeSnapshotAttributeResponse.Builder = {
     value.fold(self) { v =>
       self.snapshotId(v)
@@ -30,15 +33,18 @@ final class DescribeSnapshotAttributeResponseBuilderOps(val self: DescribeSnapsh
 
 final class DescribeSnapshotAttributeResponseOps(val self: DescribeSnapshotAttributeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createVolumePermissionsAsScala: Option[Seq[CreateVolumePermission]] =
     Option(self.createVolumePermissions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodesAsScala: Option[Seq[ProductCode]] = Option(self.productCodes).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala: Option[String] = Option(self.snapshotId)
 
 }

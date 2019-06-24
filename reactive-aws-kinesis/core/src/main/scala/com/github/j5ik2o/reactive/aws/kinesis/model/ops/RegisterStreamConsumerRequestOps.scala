@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RegisterStreamConsumerRequestBuilderOps(val self: RegisterStreamConsumerRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamARNAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.streamARN(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumerNameAsScala(value: Option[String]): RegisterStreamConsumerRequest.Builder = {
     value.fold(self) { v =>
       self.consumerName(v)
@@ -21,8 +23,10 @@ final class RegisterStreamConsumerRequestBuilderOps(val self: RegisterStreamCons
 
 final class RegisterStreamConsumerRequestOps(val self: RegisterStreamConsumerRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamARNAsScala: Option[String] = Option(self.streamARN)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumerNameAsScala: Option[String] = Option(self.consumerName)
 
 }

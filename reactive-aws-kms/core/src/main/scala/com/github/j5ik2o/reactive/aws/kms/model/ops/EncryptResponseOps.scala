@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class EncryptResponseBuilderOps(val self: EncryptResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): EncryptResponse.Builder = {
     value.fold(self) { v =>
       self.ciphertextBlob(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): EncryptResponse.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -21,8 +23,10 @@ final class EncryptResponseBuilderOps(val self: EncryptResponse.Builder) extends
 
 final class EncryptResponseOps(val self: EncryptResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.ciphertextBlob)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

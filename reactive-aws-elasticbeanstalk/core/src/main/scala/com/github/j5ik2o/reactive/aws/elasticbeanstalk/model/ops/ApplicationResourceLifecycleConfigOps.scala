@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class ApplicationResourceLifecycleConfigBuilderOps(val self: ApplicationResourceLifecycleConfig.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceRoleAsScala(value: Option[String]): ApplicationResourceLifecycleConfig.Builder = {
     value.fold(self) { v =>
       self.serviceRole(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLifecycleConfigAsScala(
       value: Option[ApplicationVersionLifecycleConfig]
   ): ApplicationResourceLifecycleConfig.Builder = {
@@ -24,8 +26,10 @@ final class ApplicationResourceLifecycleConfigBuilderOps(val self: ApplicationRe
 
 final class ApplicationResourceLifecycleConfigOps(val self: ApplicationResourceLifecycleConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceRoleAsScala: Option[String] = Option(self.serviceRole)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLifecycleConfigAsScala: Option[ApplicationVersionLifecycleConfig] =
     Option(self.versionLifecycleConfig)
 

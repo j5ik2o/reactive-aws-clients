@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.batch.model._
 
 final class ComputeResourceUpdateBuilderOps(val self: ComputeResourceUpdate.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
     value.fold(self) { v =>
       self.minvCpus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
     value.fold(self) { v =>
       self.maxvCpus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def desiredvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
     value.fold(self) { v =>
       self.desiredvCpus(v)
@@ -27,10 +30,13 @@ final class ComputeResourceUpdateBuilderOps(val self: ComputeResourceUpdate.Buil
 
 final class ComputeResourceUpdateOps(val self: ComputeResourceUpdate) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minvCpusAsScala: Option[Int] = Option(self.minvCpus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxvCpusAsScala: Option[Int] = Option(self.maxvCpus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def desiredvCpusAsScala: Option[Int] = Option(self.desiredvCpus)
 
 }

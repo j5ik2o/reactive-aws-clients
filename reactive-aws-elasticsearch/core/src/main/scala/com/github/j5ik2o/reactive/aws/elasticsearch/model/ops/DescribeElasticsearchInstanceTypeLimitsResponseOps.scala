@@ -7,11 +7,12 @@ final class DescribeElasticsearchInstanceTypeLimitsResponseBuilderOps(
     val self: DescribeElasticsearchInstanceTypeLimitsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitsByRoleAsScala(
       value: Option[Map[String, Limits]]
   ): DescribeElasticsearchInstanceTypeLimitsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.limitsByRole(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.limitsByRole(v.asJava)
     }
   }
 
@@ -21,8 +22,9 @@ final class DescribeElasticsearchInstanceTypeLimitsResponseOps(
     val self: DescribeElasticsearchInstanceTypeLimitsResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitsByRoleAsScala: Option[Map[String, Limits]] = Option(self.limitsByRole).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

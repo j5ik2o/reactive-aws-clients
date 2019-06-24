@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketEncryptionResponseBuilderOps(val self: GetBucketEncryptionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serverSideEncryptionConfigurationAsScala(
       value: Option[ServerSideEncryptionConfiguration]
   ): GetBucketEncryptionResponse.Builder = {
@@ -17,6 +18,7 @@ final class GetBucketEncryptionResponseBuilderOps(val self: GetBucketEncryptionR
 
 final class GetBucketEncryptionResponseOps(val self: GetBucketEncryptionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serverSideEncryptionConfigurationAsScala: Option[ServerSideEncryptionConfiguration] =
     Option(self.serverSideEncryptionConfiguration)
 

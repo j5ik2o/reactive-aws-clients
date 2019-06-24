@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class DeleteRetentionPolicyRequestBuilderOps(val self: DeleteRetentionPolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteRetentionPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
@@ -15,6 +16,7 @@ final class DeleteRetentionPolicyRequestBuilderOps(val self: DeleteRetentionPoli
 
 final class DeleteRetentionPolicyRequestOps(val self: DeleteRetentionPolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }

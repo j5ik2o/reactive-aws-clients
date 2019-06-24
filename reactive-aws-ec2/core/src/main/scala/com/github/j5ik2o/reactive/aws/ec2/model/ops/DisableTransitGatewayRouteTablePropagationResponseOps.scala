@@ -7,6 +7,7 @@ final class DisableTransitGatewayRouteTablePropagationResponseBuilderOps(
     val self: DisableTransitGatewayRouteTablePropagationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def propagationAsScala(
       value: Option[TransitGatewayPropagation]
   ): DisableTransitGatewayRouteTablePropagationResponse.Builder = {
@@ -21,6 +22,7 @@ final class DisableTransitGatewayRouteTablePropagationResponseOps(
     val self: DisableTransitGatewayRouteTablePropagationResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def propagationAsScala: Option[TransitGatewayPropagation] = Option(self.propagation)
 
 }

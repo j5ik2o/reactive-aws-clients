@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeSnapshotAttributeRequestBuilderOps(val self: DescribeSnapshotAttributeRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala(value: Option[SnapshotAttributeName]): DescribeSnapshotAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.attribute(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala(value: Option[String]): DescribeSnapshotAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.snapshotId(v)
@@ -22,8 +24,10 @@ final class DescribeSnapshotAttributeRequestBuilderOps(val self: DescribeSnapsho
 
 final class DescribeSnapshotAttributeRequestOps(val self: DescribeSnapshotAttributeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala: Option[SnapshotAttributeName] = Option(self.attribute)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala: Option[String] = Option(self.snapshotId)
 
 }

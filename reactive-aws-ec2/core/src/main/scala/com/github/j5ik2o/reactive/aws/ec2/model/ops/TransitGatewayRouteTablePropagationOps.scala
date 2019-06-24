@@ -6,18 +6,21 @@ import software.amazon.awssdk.services.ec2.model._
 final class TransitGatewayRouteTablePropagationBuilderOps(val self: TransitGatewayRouteTablePropagation.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala(value: Option[String]): TransitGatewayRouteTablePropagation.Builder = {
     value.fold(self) { v =>
       self.transitGatewayAttachmentId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdAsScala(value: Option[String]): TransitGatewayRouteTablePropagation.Builder = {
     value.fold(self) { v =>
       self.resourceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(
       value: Option[TransitGatewayAttachmentResourceType]
   ): TransitGatewayRouteTablePropagation.Builder = {
@@ -26,6 +29,7 @@ final class TransitGatewayRouteTablePropagationBuilderOps(val self: TransitGatew
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[TransitGatewayPropagationState]): TransitGatewayRouteTablePropagation.Builder = {
     value.fold(self) { v =>
       self.state(v)
@@ -36,12 +40,16 @@ final class TransitGatewayRouteTablePropagationBuilderOps(val self: TransitGatew
 
 final class TransitGatewayRouteTablePropagationOps(val self: TransitGatewayRouteTablePropagation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdAsScala: Option[String] = Option(self.resourceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala: Option[TransitGatewayAttachmentResourceType] = Option(self.resourceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[TransitGatewayPropagationState] = Option(self.state)
 
 }

@@ -6,23 +6,26 @@ import software.amazon.awssdk.services.ec2.model._
 final class TerminateClientVpnConnectionsResponseBuilderOps(val self: TerminateClientVpnConnectionsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala(value: Option[String]): TerminateClientVpnConnectionsResponse.Builder = {
     value.fold(self) { v =>
       self.clientVpnEndpointId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def usernameAsScala(value: Option[String]): TerminateClientVpnConnectionsResponse.Builder = {
     value.fold(self) { v =>
       self.username(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionStatusesAsScala(
       value: Option[Seq[TerminateConnectionStatus]]
   ): TerminateClientVpnConnectionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.connectionStatuses(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.connectionStatuses(v.asJava)
     }
   }
 
@@ -30,13 +33,16 @@ final class TerminateClientVpnConnectionsResponseBuilderOps(val self: TerminateC
 
 final class TerminateClientVpnConnectionsResponseOps(val self: TerminateClientVpnConnectionsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def usernameAsScala: Option[String] = Option(self.username)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionStatusesAsScala: Option[Seq[TerminateConnectionStatus]] = Option(self.connectionStatuses).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.batch.model._
 
 final class NodePropertiesBuilderOps(val self: NodeProperties.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numNodesAsScala(value: Option[Int]): NodeProperties.Builder = {
     value.fold(self) { v =>
       self.numNodes(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mainNodeAsScala(value: Option[Int]): NodeProperties.Builder = {
     value.fold(self) { v =>
       self.mainNode(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeRangePropertiesAsScala(value: Option[Seq[NodeRangeProperty]]): NodeProperties.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.nodeRangeProperties(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.nodeRangeProperties(v.asJava)
     }
   }
 
@@ -27,12 +30,15 @@ final class NodePropertiesBuilderOps(val self: NodeProperties.Builder) extends A
 
 final class NodePropertiesOps(val self: NodeProperties) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numNodesAsScala: Option[Int] = Option(self.numNodes)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mainNodeAsScala: Option[Int] = Option(self.mainNode)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeRangePropertiesAsScala: Option[Seq[NodeRangeProperty]] = Option(self.nodeRangeProperties).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

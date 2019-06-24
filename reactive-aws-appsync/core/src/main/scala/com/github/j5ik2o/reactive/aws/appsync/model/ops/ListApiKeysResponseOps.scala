@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ListApiKeysResponseBuilderOps(val self: ListApiKeysResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiKeysAsScala(value: Option[Seq[ApiKey]]): ListApiKeysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.apiKeys(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.apiKeys(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListApiKeysResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,10 +23,12 @@ final class ListApiKeysResponseBuilderOps(val self: ListApiKeysResponse.Builder)
 
 final class ListApiKeysResponseOps(val self: ListApiKeysResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiKeysAsScala: Option[Seq[ApiKey]] = Option(self.apiKeys).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

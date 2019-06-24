@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StartPersonTrackingResponseBuilderOps(val self: StartPersonTrackingResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartPersonTrackingResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
@@ -15,6 +16,7 @@ final class StartPersonTrackingResponseBuilderOps(val self: StartPersonTrackingR
 
 final class StartPersonTrackingResponseOps(val self: StartPersonTrackingResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }

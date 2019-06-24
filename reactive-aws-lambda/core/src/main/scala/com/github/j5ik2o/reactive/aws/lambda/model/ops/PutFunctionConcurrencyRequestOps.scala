@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class PutFunctionConcurrencyRequestBuilderOps(val self: PutFunctionConcurrencyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): PutFunctionConcurrencyRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala(value: Option[Int]): PutFunctionConcurrencyRequest.Builder = {
     value.fold(self) { v =>
       self.reservedConcurrentExecutions(v)
@@ -21,8 +23,10 @@ final class PutFunctionConcurrencyRequestBuilderOps(val self: PutFunctionConcurr
 
 final class PutFunctionConcurrencyRequestOps(val self: PutFunctionConcurrencyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala: Option[String] = Option(self.functionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala: Option[Int] = Option(self.reservedConcurrentExecutions)
 
 }

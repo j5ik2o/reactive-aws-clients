@@ -7,25 +7,28 @@ final class ModifyVpcEndpointServicePermissionsRequestBuilderOps(
     val self: ModifyVpcEndpointServicePermissionsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala(value: Option[String]): ModifyVpcEndpointServicePermissionsRequest.Builder = {
     value.fold(self) { v =>
       self.serviceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addAllowedPrincipalsAsScala(
       value: Option[Seq[String]]
   ): ModifyVpcEndpointServicePermissionsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.addAllowedPrincipals(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.addAllowedPrincipals(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def removeAllowedPrincipalsAsScala(
       value: Option[Seq[String]]
   ): ModifyVpcEndpointServicePermissionsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.removeAllowedPrincipals(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.removeAllowedPrincipals(v.asJava)
     }
   }
 
@@ -34,14 +37,17 @@ final class ModifyVpcEndpointServicePermissionsRequestBuilderOps(
 final class ModifyVpcEndpointServicePermissionsRequestOps(val self: ModifyVpcEndpointServicePermissionsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala: Option[String] = Option(self.serviceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addAllowedPrincipalsAsScala: Option[Seq[String]] = Option(self.addAllowedPrincipals).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def removeAllowedPrincipalsAsScala: Option[Seq[String]] = Option(self.removeAllowedPrincipals).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

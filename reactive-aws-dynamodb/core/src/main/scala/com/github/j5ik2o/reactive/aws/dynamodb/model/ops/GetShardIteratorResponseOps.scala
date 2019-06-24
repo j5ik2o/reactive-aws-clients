@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetShardIteratorResponseBuilderOps(val self: GetShardIteratorResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIteratorAsScala(value: Option[String]): GetShardIteratorResponse.Builder = {
     value.fold(self) { v =>
       self.shardIterator(v)
@@ -15,6 +16,7 @@ final class GetShardIteratorResponseBuilderOps(val self: GetShardIteratorRespons
 
 final class GetShardIteratorResponseOps(val self: GetShardIteratorResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIteratorAsScala: Option[String] = Option(self.shardIterator)
 
 }

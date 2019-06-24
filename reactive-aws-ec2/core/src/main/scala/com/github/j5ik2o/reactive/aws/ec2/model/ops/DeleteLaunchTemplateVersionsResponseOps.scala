@@ -6,19 +6,23 @@ import software.amazon.awssdk.services.ec2.model._
 final class DeleteLaunchTemplateVersionsResponseBuilderOps(val self: DeleteLaunchTemplateVersionsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfullyDeletedLaunchTemplateVersionsAsScala(
       value: Option[Seq[DeleteLaunchTemplateVersionsResponseSuccessItem]]
   ): DeleteLaunchTemplateVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.successfullyDeletedLaunchTemplateVersions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.successfullyDeletedLaunchTemplateVersions(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfullyDeletedLaunchTemplateVersionsAsScala(
       value: Option[Seq[DeleteLaunchTemplateVersionsResponseErrorItem]]
   ): DeleteLaunchTemplateVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.unsuccessfullyDeletedLaunchTemplateVersions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.unsuccessfullyDeletedLaunchTemplateVersions(v.asJava)
     }
   }
 
@@ -26,16 +30,18 @@ final class DeleteLaunchTemplateVersionsResponseBuilderOps(val self: DeleteLaunc
 
 final class DeleteLaunchTemplateVersionsResponseOps(val self: DeleteLaunchTemplateVersionsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfullyDeletedLaunchTemplateVersionsAsScala
       : Option[Seq[DeleteLaunchTemplateVersionsResponseSuccessItem]] =
     Option(self.successfullyDeletedLaunchTemplateVersions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfullyDeletedLaunchTemplateVersionsAsScala
       : Option[Seq[DeleteLaunchTemplateVersionsResponseErrorItem]] =
     Option(self.unsuccessfullyDeletedLaunchTemplateVersions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

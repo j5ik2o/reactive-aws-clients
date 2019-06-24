@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class DisassociateKmsKeyRequestBuilderOps(val self: DisassociateKmsKeyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DisassociateKmsKeyRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
@@ -15,6 +16,7 @@ final class DisassociateKmsKeyRequestBuilderOps(val self: DisassociateKmsKeyRequ
 
 final class DisassociateKmsKeyRequestOps(val self: DisassociateKmsKeyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }

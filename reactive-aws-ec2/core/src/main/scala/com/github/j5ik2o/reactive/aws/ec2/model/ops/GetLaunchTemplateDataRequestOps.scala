@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class GetLaunchTemplateDataRequestBuilderOps(val self: GetLaunchTemplateDataRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): GetLaunchTemplateDataRequest.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
@@ -15,6 +16,7 @@ final class GetLaunchTemplateDataRequestBuilderOps(val self: GetLaunchTemplateDa
 
 final class GetLaunchTemplateDataRequestOps(val self: GetLaunchTemplateDataRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class ListQueuesRequestBuilderOps(val self: ListQueuesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNamePrefixAsScala(value: Option[String]): ListQueuesRequest.Builder = {
     value.fold(self) { v =>
       self.queueNamePrefix(v)
@@ -15,6 +16,7 @@ final class ListQueuesRequestBuilderOps(val self: ListQueuesRequest.Builder) ext
 
 final class ListQueuesRequestOps(val self: ListQueuesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNamePrefixAsScala: Option[String] = Option(self.queueNamePrefix)
 
 }

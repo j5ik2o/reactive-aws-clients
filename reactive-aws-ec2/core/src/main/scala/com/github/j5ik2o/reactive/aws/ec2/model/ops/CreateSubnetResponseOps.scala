@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateSubnetResponseBuilderOps(val self: CreateSubnetResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetAsScala(value: Option[Subnet]): CreateSubnetResponse.Builder = {
     value.fold(self) { v =>
       self.subnet(v)
@@ -15,6 +16,7 @@ final class CreateSubnetResponseBuilderOps(val self: CreateSubnetResponse.Builde
 
 final class CreateSubnetResponseOps(val self: CreateSubnetResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetAsScala: Option[Subnet] = Option(self.subnet)
 
 }

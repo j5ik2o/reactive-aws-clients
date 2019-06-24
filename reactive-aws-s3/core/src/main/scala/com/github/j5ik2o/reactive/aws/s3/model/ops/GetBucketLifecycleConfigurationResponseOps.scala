@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketLifecycleConfigurationResponseBuilderOps(val self: GetBucketLifecycleConfigurationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rulesAsScala(value: Option[Seq[LifecycleRule]]): GetBucketLifecycleConfigurationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.rules(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.rules(v.asJava)
     }
   }
 
@@ -17,8 +18,9 @@ final class GetBucketLifecycleConfigurationResponseBuilderOps(val self: GetBucke
 final class GetBucketLifecycleConfigurationResponseOps(val self: GetBucketLifecycleConfigurationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rulesAsScala: Option[Seq[LifecycleRule]] = Option(self.rules).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

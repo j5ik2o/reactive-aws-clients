@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.eks.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.eks.{ EksAsyncClient, EksClient }
 import software.amazon.awssdk.services.eks.model._
 
@@ -9,8 +9,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object EksCatsIOClient {
 
-  def apply(asyncClient: EksAsyncClient): EksCatsIOClient = new EksCatsIOClient {
-    override val underlying: EksAsyncClient = asyncClient
+  def apply(asyncClient: EksAsyncClient)(implicit ec: ExecutionContext): EksCatsIOClient = new EksCatsIOClient {
+    override def executionContext: ExecutionContext = ec
+    override val underlying: EksAsyncClient         = asyncClient
   }
 
 }
@@ -18,6 +19,9 @@ object EksCatsIOClient {
 trait EksCatsIOClient extends EksClient[IO] {
 
   val underlying: EksAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def createCluster(createClusterRequest: CreateClusterRequest): IO[CreateClusterResponse] =
     IO.fromFuture {

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecoveryDescription.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryStatusAsScala(
       value: Option[PointInTimeRecoveryStatus]
   ): PointInTimeRecoveryDescription.Builder = {
@@ -13,6 +14,7 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def earliestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
   ): PointInTimeRecoveryDescription.Builder = {
@@ -21,6 +23,7 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
   ): PointInTimeRecoveryDescription.Builder = {
@@ -33,10 +36,13 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
 
 final class PointInTimeRecoveryDescriptionOps(val self: PointInTimeRecoveryDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryStatusAsScala: Option[PointInTimeRecoveryStatus] = Option(self.pointInTimeRecoveryStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def earliestRestorableDateTimeAsScala: Option[java.time.Instant] = Option(self.earliestRestorableDateTime)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latestRestorableDateTimeAsScala: Option[java.time.Instant] = Option(self.latestRestorableDateTime)
 
 }

@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ApiKeyBuilderOps(val self: ApiKey.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiresAsScala(value: Option[Long]): ApiKey.Builder = {
     value.fold(self) { v =>
       self.expires(v)
@@ -27,10 +30,13 @@ final class ApiKeyBuilderOps(val self: ApiKey.Builder) extends AnyVal {
 
 final class ApiKeyOps(val self: ApiKey) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiresAsScala: Option[Long] = Option(self.expires)
 
 }

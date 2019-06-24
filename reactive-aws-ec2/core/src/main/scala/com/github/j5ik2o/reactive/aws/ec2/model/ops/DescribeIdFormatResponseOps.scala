@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeIdFormatResponseBuilderOps(val self: DescribeIdFormatResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusesAsScala(value: Option[Seq[IdFormat]]): DescribeIdFormatResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.statuses(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.statuses(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeIdFormatResponseBuilderOps(val self: DescribeIdFormatRespons
 
 final class DescribeIdFormatResponseOps(val self: DescribeIdFormatResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusesAsScala: Option[Seq[IdFormat]] = Option(self.statuses).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

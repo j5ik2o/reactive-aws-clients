@@ -7,6 +7,7 @@ final class CapacityReservationSpecificationResponseBuilderOps(
     val self: CapacityReservationSpecificationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationPreferenceAsScala(
       value: Option[CapacityReservationPreference]
   ): CapacityReservationSpecificationResponse.Builder = {
@@ -15,6 +16,7 @@ final class CapacityReservationSpecificationResponseBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationTargetAsScala(
       value: Option[CapacityReservationTargetResponse]
   ): CapacityReservationSpecificationResponse.Builder = {
@@ -28,9 +30,11 @@ final class CapacityReservationSpecificationResponseBuilderOps(
 final class CapacityReservationSpecificationResponseOps(val self: CapacityReservationSpecificationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationPreferenceAsScala: Option[CapacityReservationPreference] =
     Option(self.capacityReservationPreference)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationTargetAsScala: Option[CapacityReservationTargetResponse] =
     Option(self.capacityReservationTarget)
 

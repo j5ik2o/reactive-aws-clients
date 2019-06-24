@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class ListenerBuilderOps(val self: Listener.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def protocolAsScala(value: Option[String]): Listener.Builder = {
     value.fold(self) { v =>
       self.protocol(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def portAsScala(value: Option[Int]): Listener.Builder = {
     value.fold(self) { v =>
       self.port(v)
@@ -21,8 +23,10 @@ final class ListenerBuilderOps(val self: Listener.Builder) extends AnyVal {
 
 final class ListenerOps(val self: Listener) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def protocolAsScala: Option[String] = Option(self.protocol)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def portAsScala: Option[Int] = Option(self.port)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AssociateDhcpOptionsRequestBuilderOps(val self: AssociateDhcpOptionsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dhcpOptionsIdAsScala(value: Option[String]): AssociateDhcpOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.dhcpOptionsId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): AssociateDhcpOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -21,8 +23,10 @@ final class AssociateDhcpOptionsRequestBuilderOps(val self: AssociateDhcpOptions
 
 final class AssociateDhcpOptionsRequestOps(val self: AssociateDhcpOptionsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dhcpOptionsIdAsScala: Option[String] = Option(self.dhcpOptionsId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

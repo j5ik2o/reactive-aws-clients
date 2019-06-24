@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectLegalHoldResponseBuilderOps(val self: GetObjectLegalHoldResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def legalHoldAsScala(value: Option[ObjectLockLegalHold]): GetObjectLegalHoldResponse.Builder = {
     value.fold(self) { v =>
       self.legalHold(v)
@@ -15,6 +16,7 @@ final class GetObjectLegalHoldResponseBuilderOps(val self: GetObjectLegalHoldRes
 
 final class GetObjectLegalHoldResponseOps(val self: GetObjectLegalHoldResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def legalHoldAsScala: Option[ObjectLockLegalHold] = Option(self.legalHold)
 
 }

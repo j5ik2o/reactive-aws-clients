@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.kms.model._
 
 final class AliasListEntryBuilderOps(val self: AliasListEntry.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala(value: Option[String]): AliasListEntry.Builder = {
     value.fold(self) { v =>
       self.aliasName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasArnAsScala(value: Option[String]): AliasListEntry.Builder = {
     value.fold(self) { v =>
       self.aliasArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetKeyIdAsScala(value: Option[String]): AliasListEntry.Builder = {
     value.fold(self) { v =>
       self.targetKeyId(v)
@@ -27,10 +30,13 @@ final class AliasListEntryBuilderOps(val self: AliasListEntry.Builder) extends A
 
 final class AliasListEntryOps(val self: AliasListEntry) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala: Option[String] = Option(self.aliasName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasArnAsScala: Option[String] = Option(self.aliasArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetKeyIdAsScala: Option[String] = Option(self.targetKeyId)
 
 }

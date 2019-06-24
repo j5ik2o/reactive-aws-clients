@@ -7,6 +7,7 @@ final class ReplaceIamInstanceProfileAssociationResponseBuilderOps(
     val self: ReplaceIamInstanceProfileAssociationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAssociationAsScala(
       value: Option[IamInstanceProfileAssociation]
   ): ReplaceIamInstanceProfileAssociationResponse.Builder = {
@@ -20,6 +21,7 @@ final class ReplaceIamInstanceProfileAssociationResponseBuilderOps(
 final class ReplaceIamInstanceProfileAssociationResponseOps(val self: ReplaceIamInstanceProfileAssociationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAssociationAsScala: Option[IamInstanceProfileAssociation] =
     Option(self.iamInstanceProfileAssociation)
 

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class CreateStreamProcessorResponseBuilderOps(val self: CreateStreamProcessorResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamProcessorArnAsScala(value: Option[String]): CreateStreamProcessorResponse.Builder = {
     value.fold(self) { v =>
       self.streamProcessorArn(v)
@@ -15,6 +16,7 @@ final class CreateStreamProcessorResponseBuilderOps(val self: CreateStreamProces
 
 final class CreateStreamProcessorResponseOps(val self: CreateStreamProcessorResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamProcessorArnAsScala: Option[String] = Option(self.streamProcessorArn)
 
 }

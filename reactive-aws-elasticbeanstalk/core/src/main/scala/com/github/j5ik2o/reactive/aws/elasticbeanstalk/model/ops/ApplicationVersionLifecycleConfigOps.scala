@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class ApplicationVersionLifecycleConfigBuilderOps(val self: ApplicationVersionLifecycleConfig.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxCountRuleAsScala(value: Option[MaxCountRule]): ApplicationVersionLifecycleConfig.Builder = {
     value.fold(self) { v =>
       self.maxCountRule(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxAgeRuleAsScala(value: Option[MaxAgeRule]): ApplicationVersionLifecycleConfig.Builder = {
     value.fold(self) { v =>
       self.maxAgeRule(v)
@@ -22,8 +24,10 @@ final class ApplicationVersionLifecycleConfigBuilderOps(val self: ApplicationVer
 
 final class ApplicationVersionLifecycleConfigOps(val self: ApplicationVersionLifecycleConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxCountRuleAsScala: Option[MaxCountRule] = Option(self.maxCountRule)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxAgeRuleAsScala: Option[MaxAgeRule] = Option(self.maxAgeRule)
 
 }

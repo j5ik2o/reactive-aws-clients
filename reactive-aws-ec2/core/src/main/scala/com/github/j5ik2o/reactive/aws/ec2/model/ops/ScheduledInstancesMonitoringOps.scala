@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ScheduledInstancesMonitoringBuilderOps(val self: ScheduledInstancesMonitoring.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): ScheduledInstancesMonitoring.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -15,6 +16,7 @@ final class ScheduledInstancesMonitoringBuilderOps(val self: ScheduledInstancesM
 
 final class ScheduledInstancesMonitoringOps(val self: ScheduledInstancesMonitoring) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

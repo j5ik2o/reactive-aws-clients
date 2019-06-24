@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class PutAccountSettingResponseBuilderOps(val self: PutAccountSettingResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingAsScala(value: Option[Setting]): PutAccountSettingResponse.Builder = {
     value.fold(self) { v =>
       self.setting(v)
@@ -15,6 +16,7 @@ final class PutAccountSettingResponseBuilderOps(val self: PutAccountSettingRespo
 
 final class PutAccountSettingResponseOps(val self: PutAccountSettingResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingAsScala: Option[Setting] = Option(self.setting)
 
 }

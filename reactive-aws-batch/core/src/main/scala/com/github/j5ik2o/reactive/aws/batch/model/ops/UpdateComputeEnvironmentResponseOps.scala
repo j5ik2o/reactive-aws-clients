@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.batch.model._
 final class UpdateComputeEnvironmentResponseBuilderOps(val self: UpdateComputeEnvironmentResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentNameAsScala(value: Option[String]): UpdateComputeEnvironmentResponse.Builder = {
     value.fold(self) { v =>
       self.computeEnvironmentName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentArnAsScala(value: Option[String]): UpdateComputeEnvironmentResponse.Builder = {
     value.fold(self) { v =>
       self.computeEnvironmentArn(v)
@@ -22,8 +24,10 @@ final class UpdateComputeEnvironmentResponseBuilderOps(val self: UpdateComputeEn
 
 final class UpdateComputeEnvironmentResponseOps(val self: UpdateComputeEnvironmentResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentNameAsScala: Option[String] = Option(self.computeEnvironmentName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentArnAsScala: Option[String] = Option(self.computeEnvironmentArn)
 
 }

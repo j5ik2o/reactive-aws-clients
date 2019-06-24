@@ -5,11 +5,12 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class PutDashboardResponseBuilderOps(val self: PutDashboardResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardValidationMessagesAsScala(
       value: Option[Seq[DashboardValidationMessage]]
   ): PutDashboardResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.dashboardValidationMessages(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.dashboardValidationMessages(v.asJava)
     }
   }
 
@@ -17,9 +18,10 @@ final class PutDashboardResponseBuilderOps(val self: PutDashboardResponse.Builde
 
 final class PutDashboardResponseOps(val self: PutDashboardResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardValidationMessagesAsScala: Option[Seq[DashboardValidationMessage]] =
     Option(self.dashboardValidationMessages).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

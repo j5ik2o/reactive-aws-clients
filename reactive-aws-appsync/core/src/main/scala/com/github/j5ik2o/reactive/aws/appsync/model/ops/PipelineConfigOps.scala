@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class PipelineConfigBuilderOps(val self: PipelineConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionsAsScala(value: Option[Seq[String]]): PipelineConfig.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.functions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.functions(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class PipelineConfigBuilderOps(val self: PipelineConfig.Builder) extends A
 
 final class PipelineConfigOps(val self: PipelineConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionsAsScala: Option[Seq[String]] = Option(self.functions).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateSpotDatafeedSubscriptionResponseBuilderOps(val self: CreateSpotDatafeedSubscriptionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotDatafeedSubscriptionAsScala(
       value: Option[SpotDatafeedSubscription]
   ): CreateSpotDatafeedSubscriptionResponse.Builder = {
@@ -18,6 +19,7 @@ final class CreateSpotDatafeedSubscriptionResponseBuilderOps(val self: CreateSpo
 
 final class CreateSpotDatafeedSubscriptionResponseOps(val self: CreateSpotDatafeedSubscriptionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotDatafeedSubscriptionAsScala: Option[SpotDatafeedSubscription] = Option(self.spotDatafeedSubscription)
 
 }

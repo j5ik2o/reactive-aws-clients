@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectAclResponseBuilderOps(val self: PutObjectAclResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectAclResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -15,6 +16,7 @@ final class PutObjectAclResponseBuilderOps(val self: PutObjectAclResponse.Builde
 
 final class PutObjectAclResponseOps(val self: PutObjectAclResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }

@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepAsScala(value: Option[UpgradeStep]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.upgradeStep(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepStatusAsScala(value: Option[UpgradeStatus]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.upgradeStepStatus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def issuesAsScala(value: Option[Seq[String]]): UpgradeStepItem.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.issues(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.issues(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def progressPercentAsScala(value: Option[Double]): UpgradeStepItem.Builder = {
     value.fold(self) { v =>
       self.progressPercent(v)
@@ -33,14 +37,18 @@ final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends
 
 final class UpgradeStepItemOps(val self: UpgradeStepItem) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepAsScala: Option[UpgradeStep] = Option(self.upgradeStep)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStepStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def issuesAsScala: Option[Seq[String]] = Option(self.issues).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def progressPercentAsScala: Option[Double] = Option(self.progressPercent)
 
 }

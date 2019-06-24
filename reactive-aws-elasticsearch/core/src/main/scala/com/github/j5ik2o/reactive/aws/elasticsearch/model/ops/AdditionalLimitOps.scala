@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class AdditionalLimitBuilderOps(val self: AdditionalLimit.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitNameAsScala(value: Option[String]): AdditionalLimit.Builder = {
     value.fold(self) { v =>
       self.limitName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitValuesAsScala(value: Option[Seq[String]]): AdditionalLimit.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.limitValues(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.limitValues(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class AdditionalLimitBuilderOps(val self: AdditionalLimit.Builder) extends
 
 final class AdditionalLimitOps(val self: AdditionalLimit) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitNameAsScala: Option[String] = Option(self.limitName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitValuesAsScala: Option[Seq[String]] = Option(self.limitValues).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

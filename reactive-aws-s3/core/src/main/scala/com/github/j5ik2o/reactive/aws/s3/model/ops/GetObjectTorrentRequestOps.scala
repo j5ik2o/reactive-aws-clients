@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectTorrentRequestBuilderOps(val self: GetObjectTorrentRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala(value: Option[RequestPayer]): GetObjectTorrentRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
@@ -27,10 +30,13 @@ final class GetObjectTorrentRequestBuilderOps(val self: GetObjectTorrentRequest.
 
 final class GetObjectTorrentRequestOps(val self: GetObjectTorrentRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala: Option[String] = Option(self.key)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
 }

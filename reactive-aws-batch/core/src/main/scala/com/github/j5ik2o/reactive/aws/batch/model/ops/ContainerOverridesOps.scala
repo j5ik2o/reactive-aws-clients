@@ -5,33 +5,38 @@ import software.amazon.awssdk.services.batch.model._
 
 final class ContainerOverridesBuilderOps(val self: ContainerOverrides.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vcpusAsScala(value: Option[Int]): ContainerOverrides.Builder = {
     value.fold(self) { v =>
       self.vcpus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def memoryAsScala(value: Option[Int]): ContainerOverrides.Builder = {
     value.fold(self) { v =>
       self.memory(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def commandAsScala(value: Option[Seq[String]]): ContainerOverrides.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.command(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.command(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(value: Option[String]): ContainerOverrides.Builder = {
     value.fold(self) { v =>
       self.instanceType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentAsScala(value: Option[Seq[KeyValuePair]]): ContainerOverrides.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.environment(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.environment(v.asJava)
     }
   }
 
@@ -39,18 +44,23 @@ final class ContainerOverridesBuilderOps(val self: ContainerOverrides.Builder) e
 
 final class ContainerOverridesOps(val self: ContainerOverrides) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vcpusAsScala: Option[Int] = Option(self.vcpus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def memoryAsScala: Option[Int] = Option(self.memory)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def commandAsScala: Option[Seq[String]] = Option(self.command).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentAsScala: Option[Seq[KeyValuePair]] = Option(self.environment).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

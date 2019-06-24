@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class UpdateServiceResponseBuilderOps(val self: UpdateServiceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala(value: Option[Service]): UpdateServiceResponse.Builder = {
     value.fold(self) { v =>
       self.service(v)
@@ -15,6 +16,7 @@ final class UpdateServiceResponseBuilderOps(val self: UpdateServiceResponse.Buil
 
 final class UpdateServiceResponseOps(val self: UpdateServiceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala: Option[Service] = Option(self.service)
 
 }

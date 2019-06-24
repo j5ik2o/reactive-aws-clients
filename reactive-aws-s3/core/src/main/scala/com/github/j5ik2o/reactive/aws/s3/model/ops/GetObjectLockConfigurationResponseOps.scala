@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetObjectLockConfigurationResponseBuilderOps(val self: GetObjectLockConfigurationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockConfigurationAsScala(
       value: Option[ObjectLockConfiguration]
   ): GetObjectLockConfigurationResponse.Builder = {
@@ -18,6 +19,7 @@ final class GetObjectLockConfigurationResponseBuilderOps(val self: GetObjectLock
 
 final class GetObjectLockConfigurationResponseOps(val self: GetObjectLockConfigurationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] = Option(self.objectLockConfiguration)
 
 }

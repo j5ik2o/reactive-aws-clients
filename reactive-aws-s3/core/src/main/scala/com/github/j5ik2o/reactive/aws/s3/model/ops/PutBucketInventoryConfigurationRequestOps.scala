@@ -6,18 +6,21 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketInventoryConfigurationRequestBuilderOps(val self: PutBucketInventoryConfigurationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): PutBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inventoryConfigurationAsScala(
       value: Option[InventoryConfiguration]
   ): PutBucketInventoryConfigurationRequest.Builder = {
@@ -30,10 +33,13 @@ final class PutBucketInventoryConfigurationRequestBuilderOps(val self: PutBucket
 
 final class PutBucketInventoryConfigurationRequestOps(val self: PutBucketInventoryConfigurationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inventoryConfigurationAsScala: Option[InventoryConfiguration] = Option(self.inventoryConfiguration)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteFlowLogsRequestBuilderOps(val self: DeleteFlowLogsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def flowLogIdsAsScala(value: Option[Seq[String]]): DeleteFlowLogsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.flowLogIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.flowLogIds(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DeleteFlowLogsRequestBuilderOps(val self: DeleteFlowLogsRequest.Buil
 
 final class DeleteFlowLogsRequestOps(val self: DeleteFlowLogsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def flowLogIdsAsScala: Option[Seq[String]] = Option(self.flowLogIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

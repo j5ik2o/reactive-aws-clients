@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetDataSourceResponseBuilderOps(val self: GetDataSourceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataSourceAsScala(value: Option[DataSource]): GetDataSourceResponse.Builder = {
     value.fold(self) { v =>
       self.dataSource(v)
@@ -15,6 +16,7 @@ final class GetDataSourceResponseBuilderOps(val self: GetDataSourceResponse.Buil
 
 final class GetDataSourceResponseOps(val self: GetDataSourceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataSourceAsScala: Option[DataSource] = Option(self.dataSource)
 
 }

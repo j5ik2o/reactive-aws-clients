@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class PlacementConstraintBuilderOps(val self: PlacementConstraint.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[PlacementConstraintType]): PlacementConstraint.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAsScala(value: Option[String]): PlacementConstraint.Builder = {
     value.fold(self) { v =>
       self.expression(v)
@@ -21,8 +23,10 @@ final class PlacementConstraintBuilderOps(val self: PlacementConstraint.Builder)
 
 final class PlacementConstraintOps(val self: PlacementConstraint) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[PlacementConstraintType] = Option(self.`type`)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAsScala: Option[String] = Option(self.expression)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateFunctionResponseBuilderOps(val self: CreateFunctionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionConfigurationAsScala(value: Option[FunctionConfiguration]): CreateFunctionResponse.Builder = {
     value.fold(self) { v =>
       self.functionConfiguration(v)
@@ -15,6 +16,7 @@ final class CreateFunctionResponseBuilderOps(val self: CreateFunctionResponse.Bu
 
 final class CreateFunctionResponseOps(val self: CreateFunctionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionConfigurationAsScala: Option[FunctionConfiguration] = Option(self.functionConfiguration)
 
 }

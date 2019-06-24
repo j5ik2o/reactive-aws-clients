@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DescribeStackResourceResponseBuilderOps(val self: DescribeStackResourceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDetailAsScala(value: Option[StackResourceDetail]): DescribeStackResourceResponse.Builder = {
     value.fold(self) { v =>
       self.stackResourceDetail(v)
@@ -15,6 +16,7 @@ final class DescribeStackResourceResponseBuilderOps(val self: DescribeStackResou
 
 final class DescribeStackResourceResponseOps(val self: DescribeStackResourceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDetailAsScala: Option[StackResourceDetail] = Option(self.stackResourceDetail)
 
 }

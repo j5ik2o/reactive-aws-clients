@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ParameterNameValueBuilderOps(val self: ParameterNameValue.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterNameAsScala(value: Option[String]): ParameterNameValue.Builder = {
     value.fold(self) { v =>
       self.parameterName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterValueAsScala(value: Option[String]): ParameterNameValue.Builder = {
     value.fold(self) { v =>
       self.parameterValue(v)
@@ -21,8 +23,10 @@ final class ParameterNameValueBuilderOps(val self: ParameterNameValue.Builder) e
 
 final class ParameterNameValueOps(val self: ParameterNameValue) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterNameAsScala: Option[String] = Option(self.parameterName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterValueAsScala: Option[String] = Option(self.parameterValue)
 
 }

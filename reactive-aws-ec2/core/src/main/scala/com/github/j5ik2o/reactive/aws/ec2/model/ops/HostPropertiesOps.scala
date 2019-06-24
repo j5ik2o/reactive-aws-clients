@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class HostPropertiesBuilderOps(val self: HostProperties.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def coresAsScala(value: Option[Int]): HostProperties.Builder = {
     value.fold(self) { v =>
       self.cores(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(value: Option[String]): HostProperties.Builder = {
     value.fold(self) { v =>
       self.instanceType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def socketsAsScala(value: Option[Int]): HostProperties.Builder = {
     value.fold(self) { v =>
       self.sockets(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalVCpusAsScala(value: Option[Int]): HostProperties.Builder = {
     value.fold(self) { v =>
       self.totalVCpus(v)
@@ -33,12 +37,16 @@ final class HostPropertiesBuilderOps(val self: HostProperties.Builder) extends A
 
 final class HostPropertiesOps(val self: HostProperties) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def coresAsScala: Option[Int] = Option(self.cores)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def socketsAsScala: Option[Int] = Option(self.sockets)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalVCpusAsScala: Option[Int] = Option(self.totalVCpus)
 
 }

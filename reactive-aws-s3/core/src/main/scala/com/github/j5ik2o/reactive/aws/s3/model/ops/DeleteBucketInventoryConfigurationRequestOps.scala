@@ -7,12 +7,14 @@ final class DeleteBucketInventoryConfigurationRequestBuilderOps(
     val self: DeleteBucketInventoryConfigurationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): DeleteBucketInventoryConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -24,8 +26,10 @@ final class DeleteBucketInventoryConfigurationRequestBuilderOps(
 final class DeleteBucketInventoryConfigurationRequestOps(val self: DeleteBucketInventoryConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

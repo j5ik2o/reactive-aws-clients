@@ -7,6 +7,7 @@ final class ImportClientVpnClientCertificateRevocationListRequestBuilderOps(
     val self: ImportClientVpnClientCertificateRevocationListRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala(
       value: Option[String]
   ): ImportClientVpnClientCertificateRevocationListRequest.Builder = {
@@ -15,6 +16,7 @@ final class ImportClientVpnClientCertificateRevocationListRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def certificateRevocationListAsScala(
       value: Option[String]
   ): ImportClientVpnClientCertificateRevocationListRequest.Builder = {
@@ -29,8 +31,10 @@ final class ImportClientVpnClientCertificateRevocationListRequestOps(
     val self: ImportClientVpnClientCertificateRevocationListRequest
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def certificateRevocationListAsScala: Option[String] = Option(self.certificateRevocationList)
 
 }

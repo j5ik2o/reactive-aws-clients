@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class ListImagesFilterBuilderOps(val self: ListImagesFilter.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagStatusAsScala(value: Option[TagStatus]): ListImagesFilter.Builder = {
     value.fold(self) { v =>
       self.tagStatus(v)
@@ -15,6 +16,7 @@ final class ListImagesFilterBuilderOps(val self: ListImagesFilter.Builder) exten
 
 final class ListImagesFilterOps(val self: ListImagesFilter) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagStatusAsScala: Option[TagStatus] = Option(self.tagStatus)
 
 }

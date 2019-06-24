@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateResolverResponseBuilderOps(val self: CreateResolverResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resolverAsScala(value: Option[Resolver]): CreateResolverResponse.Builder = {
     value.fold(self) { v =>
       self.resolver(v)
@@ -15,6 +16,7 @@ final class CreateResolverResponseBuilderOps(val self: CreateResolverResponse.Bu
 
 final class CreateResolverResponseOps(val self: CreateResolverResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resolverAsScala: Option[Resolver] = Option(self.resolver)
 
 }

@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class AssociateClientVpnTargetNetworkResponseBuilderOps(val self: AssociateClientVpnTargetNetworkResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): AssociateClientVpnTargetNetworkResponse.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[AssociationStatus]): AssociateClientVpnTargetNetworkResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -23,8 +25,10 @@ final class AssociateClientVpnTargetNetworkResponseBuilderOps(val self: Associat
 final class AssociateClientVpnTargetNetworkResponseOps(val self: AssociateClientVpnTargetNetworkResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[AssociationStatus] = Option(self.status)
 
 }

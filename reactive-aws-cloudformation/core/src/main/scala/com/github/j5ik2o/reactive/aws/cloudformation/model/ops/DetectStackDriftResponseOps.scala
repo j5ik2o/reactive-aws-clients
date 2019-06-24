@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DetectStackDriftResponseBuilderOps(val self: DetectStackDriftResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftDetectionIdAsScala(value: Option[String]): DetectStackDriftResponse.Builder = {
     value.fold(self) { v =>
       self.stackDriftDetectionId(v)
@@ -15,6 +16,7 @@ final class DetectStackDriftResponseBuilderOps(val self: DetectStackDriftRespons
 
 final class DetectStackDriftResponseOps(val self: DetectStackDriftResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId)
 
 }

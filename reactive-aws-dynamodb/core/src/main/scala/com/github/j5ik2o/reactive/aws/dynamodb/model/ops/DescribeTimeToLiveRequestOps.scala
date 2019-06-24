@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeTimeToLiveRequestBuilderOps(val self: DescribeTimeToLiveRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DescribeTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
@@ -15,6 +16,7 @@ final class DescribeTimeToLiveRequestBuilderOps(val self: DescribeTimeToLiveRequ
 
 final class DescribeTimeToLiveRequestOps(val self: DescribeTimeToLiveRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
 }

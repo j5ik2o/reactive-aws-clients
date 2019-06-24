@@ -7,9 +7,10 @@ final class DeleteVpcEndpointServiceConfigurationsRequestBuilderOps(
     val self: DeleteVpcEndpointServiceConfigurationsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdsAsScala(value: Option[Seq[String]]): DeleteVpcEndpointServiceConfigurationsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.serviceIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.serviceIds(v.asJava)
     }
   }
 
@@ -18,8 +19,9 @@ final class DeleteVpcEndpointServiceConfigurationsRequestBuilderOps(
 final class DeleteVpcEndpointServiceConfigurationsRequestOps(val self: DeleteVpcEndpointServiceConfigurationsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdsAsScala: Option[Seq[String]] = Option(self.serviceIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

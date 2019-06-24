@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.appsync.model._
 final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDatabaseDataSourceConfig.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def relationalDatabaseSourceTypeAsScala(
       value: Option[RelationalDatabaseSourceType]
   ): RelationalDatabaseDataSourceConfig.Builder = {
@@ -14,6 +15,7 @@ final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDat
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rdsHttpEndpointConfigAsScala(
       value: Option[RdsHttpEndpointConfig]
   ): RelationalDatabaseDataSourceConfig.Builder = {
@@ -26,9 +28,11 @@ final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDat
 
 final class RelationalDatabaseDataSourceConfigOps(val self: RelationalDatabaseDataSourceConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def relationalDatabaseSourceTypeAsScala: Option[RelationalDatabaseSourceType] =
     Option(self.relationalDatabaseSourceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rdsHttpEndpointConfigAsScala: Option[RdsHttpEndpointConfig] = Option(self.rdsHttpEndpointConfig)
 
 }

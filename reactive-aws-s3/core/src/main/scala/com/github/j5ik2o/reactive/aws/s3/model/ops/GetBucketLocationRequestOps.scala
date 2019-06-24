@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketLocationRequestBuilderOps(val self: GetBucketLocationRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketLocationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class GetBucketLocationRequestBuilderOps(val self: GetBucketLocationReques
 
 final class GetBucketLocationRequestOps(val self: GetBucketLocationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

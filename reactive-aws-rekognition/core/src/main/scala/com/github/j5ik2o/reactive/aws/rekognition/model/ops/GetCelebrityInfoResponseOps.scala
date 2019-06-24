@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class GetCelebrityInfoResponseBuilderOps(val self: GetCelebrityInfoResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def urlsAsScala(value: Option[Seq[String]]): GetCelebrityInfoResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.urls(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.urls(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): GetCelebrityInfoResponse.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -21,10 +23,12 @@ final class GetCelebrityInfoResponseBuilderOps(val self: GetCelebrityInfoRespons
 
 final class GetCelebrityInfoResponseOps(val self: GetCelebrityInfoResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def urlsAsScala: Option[Seq[String]] = Option(self.urls).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

@@ -7,6 +7,7 @@ final class ModifyVpcEndpointConnectionNotificationRequestBuilderOps(
     val self: ModifyVpcEndpointConnectionNotificationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationIdAsScala(
       value: Option[String]
   ): ModifyVpcEndpointConnectionNotificationRequest.Builder = {
@@ -15,6 +16,7 @@ final class ModifyVpcEndpointConnectionNotificationRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationArnAsScala(
       value: Option[String]
   ): ModifyVpcEndpointConnectionNotificationRequest.Builder = {
@@ -23,11 +25,12 @@ final class ModifyVpcEndpointConnectionNotificationRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionEventsAsScala(
       value: Option[Seq[String]]
   ): ModifyVpcEndpointConnectionNotificationRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.connectionEvents(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.connectionEvents(v.asJava)
     }
   }
 
@@ -36,12 +39,15 @@ final class ModifyVpcEndpointConnectionNotificationRequestBuilderOps(
 final class ModifyVpcEndpointConnectionNotificationRequestOps(val self: ModifyVpcEndpointConnectionNotificationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationIdAsScala: Option[String] = Option(self.connectionNotificationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationArnAsScala: Option[String] = Option(self.connectionNotificationArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionEventsAsScala: Option[Seq[String]] = Option(self.connectionEvents).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

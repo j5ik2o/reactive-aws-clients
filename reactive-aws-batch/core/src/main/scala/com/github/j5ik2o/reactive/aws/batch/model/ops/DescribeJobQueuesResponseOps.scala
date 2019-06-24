@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class DescribeJobQueuesResponseBuilderOps(val self: DescribeJobQueuesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueuesAsScala(value: Option[Seq[JobQueueDetail]]): DescribeJobQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.jobQueues(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.jobQueues(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeJobQueuesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,10 +23,12 @@ final class DescribeJobQueuesResponseBuilderOps(val self: DescribeJobQueuesRespo
 
 final class DescribeJobQueuesResponseOps(val self: DescribeJobQueuesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueuesAsScala: Option[Seq[JobQueueDetail]] = Option(self.jobQueues).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

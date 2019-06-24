@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifyHostsRequestBuilderOps(val self: ModifyHostsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoPlacementAsScala(value: Option[AutoPlacement]): ModifyHostsRequest.Builder = {
     value.fold(self) { v =>
       self.autoPlacement(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostIdsAsScala(value: Option[Seq[String]]): ModifyHostsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.hostIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.hostIds(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class ModifyHostsRequestBuilderOps(val self: ModifyHostsRequest.Builder) e
 
 final class ModifyHostsRequestOps(val self: ModifyHostsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoPlacementAsScala: Option[AutoPlacement] = Option(self.autoPlacement)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostIdsAsScala: Option[Seq[String]] = Option(self.hostIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

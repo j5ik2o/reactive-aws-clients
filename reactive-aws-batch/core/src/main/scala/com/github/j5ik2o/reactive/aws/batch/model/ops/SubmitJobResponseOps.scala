@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class SubmitJobResponseBuilderOps(val self: SubmitJobResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobNameAsScala(value: Option[String]): SubmitJobResponse.Builder = {
     value.fold(self) { v =>
       self.jobName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): SubmitJobResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
@@ -21,8 +23,10 @@ final class SubmitJobResponseBuilderOps(val self: SubmitJobResponse.Builder) ext
 
 final class SubmitJobResponseOps(val self: SubmitJobResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobNameAsScala: Option[String] = Option(self.jobName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }

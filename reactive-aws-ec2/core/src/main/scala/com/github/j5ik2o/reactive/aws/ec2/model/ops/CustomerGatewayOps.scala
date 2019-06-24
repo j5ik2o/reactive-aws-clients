@@ -5,39 +5,45 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CustomerGatewayBuilderOps(val self: CustomerGateway.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bgpAsnAsScala(value: Option[String]): CustomerGateway.Builder = {
     value.fold(self) { v =>
       self.bgpAsn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customerGatewayIdAsScala(value: Option[String]): CustomerGateway.Builder = {
     value.fold(self) { v =>
       self.customerGatewayId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipAddressAsScala(value: Option[String]): CustomerGateway.Builder = {
     value.fold(self) { v =>
       self.ipAddress(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[String]): CustomerGateway.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): CustomerGateway.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Seq[Tag]]): CustomerGateway.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tags(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -45,18 +51,24 @@ final class CustomerGatewayBuilderOps(val self: CustomerGateway.Builder) extends
 
 final class CustomerGatewayOps(val self: CustomerGateway) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bgpAsnAsScala: Option[String] = Option(self.bgpAsn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customerGatewayIdAsScala: Option[String] = Option(self.customerGatewayId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipAddressAsScala: Option[String] = Option(self.ipAddress)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[String] = Option(self.state)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

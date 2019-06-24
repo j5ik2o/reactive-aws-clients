@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class MonitoringBuilderOps(val self: Monitoring.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[MonitoringState]): Monitoring.Builder = {
     value.fold(self) { v =>
       self.state(v)
@@ -15,6 +16,7 @@ final class MonitoringBuilderOps(val self: Monitoring.Builder) extends AnyVal {
 
 final class MonitoringOps(val self: Monitoring) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[MonitoringState] = Option(self.state)
 
 }

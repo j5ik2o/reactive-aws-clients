@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AllocateAddressRequestBuilderOps(val self: AllocateAddressRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainAsScala(value: Option[DomainType]): AllocateAddressRequest.Builder = {
     value.fold(self) { v =>
       self.domain(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addressAsScala(value: Option[String]): AllocateAddressRequest.Builder = {
     value.fold(self) { v =>
       self.address(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpv4PoolAsScala(value: Option[String]): AllocateAddressRequest.Builder = {
     value.fold(self) { v =>
       self.publicIpv4Pool(v)
@@ -27,10 +30,13 @@ final class AllocateAddressRequestBuilderOps(val self: AllocateAddressRequest.Bu
 
 final class AllocateAddressRequestOps(val self: AllocateAddressRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainAsScala: Option[DomainType] = Option(self.domain)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addressAsScala: Option[String] = Option(self.address)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpv4PoolAsScala: Option[String] = Option(self.publicIpv4Pool)
 
 }

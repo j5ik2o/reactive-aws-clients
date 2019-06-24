@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ProductCodeBuilderOps(val self: ProductCode.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodeIdAsScala(value: Option[String]): ProductCode.Builder = {
     value.fold(self) { v =>
       self.productCodeId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodeTypeAsScala(value: Option[ProductCodeValues]): ProductCode.Builder = {
     value.fold(self) { v =>
       self.productCodeType(v)
@@ -21,8 +23,10 @@ final class ProductCodeBuilderOps(val self: ProductCode.Builder) extends AnyVal 
 
 final class ProductCodeOps(val self: ProductCode) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodeIdAsScala: Option[String] = Option(self.productCodeId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodeTypeAsScala: Option[ProductCodeValues] = Option(self.productCodeType)
 
 }

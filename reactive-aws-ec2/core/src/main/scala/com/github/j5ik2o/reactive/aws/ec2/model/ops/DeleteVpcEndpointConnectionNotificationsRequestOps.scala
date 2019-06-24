@@ -7,11 +7,12 @@ final class DeleteVpcEndpointConnectionNotificationsRequestBuilderOps(
     val self: DeleteVpcEndpointConnectionNotificationsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationIdsAsScala(
       value: Option[Seq[String]]
   ): DeleteVpcEndpointConnectionNotificationsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.connectionNotificationIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.connectionNotificationIds(v.asJava)
     }
   }
 
@@ -21,8 +22,9 @@ final class DeleteVpcEndpointConnectionNotificationsRequestOps(
     val self: DeleteVpcEndpointConnectionNotificationsRequest
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationIdsAsScala: Option[Seq[String]] = Option(self.connectionNotificationIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -7,11 +7,12 @@ final class DescribeReservedInstancesListingsResponseBuilderOps(
     val self: DescribeReservedInstancesListingsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesListingsAsScala(
       value: Option[Seq[ReservedInstancesListing]]
   ): DescribeReservedInstancesListingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.reservedInstancesListings(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.reservedInstancesListings(v.asJava)
     }
   }
 
@@ -20,9 +21,10 @@ final class DescribeReservedInstancesListingsResponseBuilderOps(
 final class DescribeReservedInstancesListingsResponseOps(val self: DescribeReservedInstancesListingsResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesListingsAsScala: Option[Seq[ReservedInstancesListing]] =
     Option(self.reservedInstancesListings).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

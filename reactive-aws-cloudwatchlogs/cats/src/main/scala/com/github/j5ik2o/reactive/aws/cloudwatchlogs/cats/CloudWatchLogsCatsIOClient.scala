@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.cloudwatchlogs.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.cloudwatchlogs.{ CloudWatchLogsAsyncClient, CloudWatchLogsClient }
 import software.amazon.awssdk.services.cloudwatchlogs.model._
 import software.amazon.awssdk.services.cloudwatchlogs.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object CloudWatchLogsCatsIOClient {
 
-  def apply(asyncClient: CloudWatchLogsAsyncClient): CloudWatchLogsCatsIOClient = new CloudWatchLogsCatsIOClient {
-    override val underlying: CloudWatchLogsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudWatchLogsAsyncClient)(implicit ec: ExecutionContext): CloudWatchLogsCatsIOClient =
+    new CloudWatchLogsCatsIOClient {
+      override val executionContext: ExecutionContext    = ec
+      override val underlying: CloudWatchLogsAsyncClient = asyncClient
+    }
 
 }
 
 trait CloudWatchLogsCatsIOClient extends CloudWatchLogsClient[IO] {
 
   val underlying: CloudWatchLogsAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def associateKmsKey(associateKmsKeyRequest: AssociateKmsKeyRequest): IO[AssociateKmsKeyResponse] =
     IO.fromFuture {

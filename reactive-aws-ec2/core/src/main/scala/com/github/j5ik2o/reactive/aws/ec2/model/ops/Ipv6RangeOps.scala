@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class Ipv6RangeBuilderOps(val self: Ipv6Range.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrIpv6AsScala(value: Option[String]): Ipv6Range.Builder = {
     value.fold(self) { v =>
       self.cidrIpv6(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): Ipv6Range.Builder = {
     value.fold(self) { v =>
       self.description(v)
@@ -21,8 +23,10 @@ final class Ipv6RangeBuilderOps(val self: Ipv6Range.Builder) extends AnyVal {
 
 final class Ipv6RangeOps(val self: Ipv6Range) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrIpv6AsScala: Option[String] = Option(self.cidrIpv6)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
 }

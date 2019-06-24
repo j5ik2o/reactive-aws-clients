@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DescribeStacksResponseBuilderOps(val self: DescribeStacksResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stacksAsScala(value: Option[Seq[Stack]]): DescribeStacksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.stacks(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.stacks(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeStacksResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,10 +23,12 @@ final class DescribeStacksResponseBuilderOps(val self: DescribeStacksResponse.Bu
 
 final class DescribeStacksResponseOps(val self: DescribeStacksResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stacksAsScala: Option[Seq[Stack]] = Option(self.stacks).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

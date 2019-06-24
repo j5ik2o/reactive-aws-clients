@@ -6,11 +6,12 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeReservedInstancesResponseBuilderOps(val self: DescribeReservedInstancesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesAsScala(
       value: Option[Seq[ReservedInstances]]
   ): DescribeReservedInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.reservedInstances(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.reservedInstances(v.asJava)
     }
   }
 
@@ -18,8 +19,9 @@ final class DescribeReservedInstancesResponseBuilderOps(val self: DescribeReserv
 
 final class DescribeReservedInstancesResponseOps(val self: DescribeReservedInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesAsScala: Option[Seq[ReservedInstances]] = Option(self.reservedInstances).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

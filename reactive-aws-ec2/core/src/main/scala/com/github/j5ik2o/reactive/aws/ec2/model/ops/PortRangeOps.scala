@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class PortRangeBuilderOps(val self: PortRange.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fromAsScala(value: Option[Int]): PortRange.Builder = {
     value.fold(self) { v =>
       self.from(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def toAsScala(value: Option[Int]): PortRange.Builder = {
     value.fold(self) { v =>
       self.to(v)
@@ -21,8 +23,10 @@ final class PortRangeBuilderOps(val self: PortRange.Builder) extends AnyVal {
 
 final class PortRangeOps(val self: PortRange) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fromAsScala: Option[Int] = Option(self.from)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def toAsScala: Option[Int] = Option(self.to)
 
 }

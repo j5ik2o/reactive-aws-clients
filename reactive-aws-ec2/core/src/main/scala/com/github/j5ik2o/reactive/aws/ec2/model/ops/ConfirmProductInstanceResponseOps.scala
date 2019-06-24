@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ConfirmProductInstanceResponseBuilderOps(val self: ConfirmProductInstanceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerIdAsScala(value: Option[String]): ConfirmProductInstanceResponse.Builder = {
     value.fold(self) { v =>
       self.ownerId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ConfirmProductInstanceResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -21,8 +23,10 @@ final class ConfirmProductInstanceResponseBuilderOps(val self: ConfirmProductIns
 
 final class ConfirmProductInstanceResponseOps(val self: ConfirmProductInstanceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerIdAsScala: Option[String] = Option(self.ownerId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

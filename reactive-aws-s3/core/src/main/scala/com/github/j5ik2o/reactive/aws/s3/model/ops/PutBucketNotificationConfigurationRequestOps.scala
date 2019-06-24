@@ -7,12 +7,14 @@ final class PutBucketNotificationConfigurationRequestBuilderOps(
     val self: PutBucketNotificationConfigurationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutBucketNotificationConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationConfigurationAsScala(
       value: Option[NotificationConfiguration]
   ): PutBucketNotificationConfigurationRequest.Builder = {
@@ -26,8 +28,10 @@ final class PutBucketNotificationConfigurationRequestBuilderOps(
 final class PutBucketNotificationConfigurationRequestOps(val self: PutBucketNotificationConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationConfigurationAsScala: Option[NotificationConfiguration] = Option(self.notificationConfiguration)
 
 }

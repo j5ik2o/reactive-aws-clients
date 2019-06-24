@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateInternetGatewayResponseBuilderOps(val self: CreateInternetGatewayResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internetGatewayAsScala(value: Option[InternetGateway]): CreateInternetGatewayResponse.Builder = {
     value.fold(self) { v =>
       self.internetGateway(v)
@@ -15,6 +16,7 @@ final class CreateInternetGatewayResponseBuilderOps(val self: CreateInternetGate
 
 final class CreateInternetGatewayResponseOps(val self: CreateInternetGatewayResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internetGatewayAsScala: Option[InternetGateway] = Option(self.internetGateway)
 
 }

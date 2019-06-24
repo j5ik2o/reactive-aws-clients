@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class EnvironmentInfoDescriptionBuilderOps(val self: EnvironmentInfoDescription.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoTypeAsScala(value: Option[EnvironmentInfoType]): EnvironmentInfoDescription.Builder = {
     value.fold(self) { v =>
       self.infoType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2InstanceIdAsScala(value: Option[String]): EnvironmentInfoDescription.Builder = {
     value.fold(self) { v =>
       self.ec2InstanceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sampleTimestampAsScala(value: Option[java.time.Instant]): EnvironmentInfoDescription.Builder = {
     value.fold(self) { v =>
       self.sampleTimestamp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): EnvironmentInfoDescription.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -33,12 +37,16 @@ final class EnvironmentInfoDescriptionBuilderOps(val self: EnvironmentInfoDescri
 
 final class EnvironmentInfoDescriptionOps(val self: EnvironmentInfoDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoTypeAsScala: Option[EnvironmentInfoType] = Option(self.infoType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2InstanceIdAsScala: Option[String] = Option(self.ec2InstanceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sampleTimestampAsScala: Option[java.time.Instant] = Option(self.sampleTimestamp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

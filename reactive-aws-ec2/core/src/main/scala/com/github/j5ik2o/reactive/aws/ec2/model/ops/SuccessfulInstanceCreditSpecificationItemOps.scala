@@ -7,6 +7,7 @@ final class SuccessfulInstanceCreditSpecificationItemBuilderOps(
     val self: SuccessfulInstanceCreditSpecificationItem.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): SuccessfulInstanceCreditSpecificationItem.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
@@ -18,6 +19,7 @@ final class SuccessfulInstanceCreditSpecificationItemBuilderOps(
 final class SuccessfulInstanceCreditSpecificationItemOps(val self: SuccessfulInstanceCreditSpecificationItem)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
 }

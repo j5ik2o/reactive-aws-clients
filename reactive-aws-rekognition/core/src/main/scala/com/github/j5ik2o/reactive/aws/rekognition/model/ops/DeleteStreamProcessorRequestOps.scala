@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class DeleteStreamProcessorRequestBuilderOps(val self: DeleteStreamProcessorRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): DeleteStreamProcessorRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -15,6 +16,7 @@ final class DeleteStreamProcessorRequestBuilderOps(val self: DeleteStreamProcess
 
 final class DeleteStreamProcessorRequestOps(val self: DeleteStreamProcessorRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

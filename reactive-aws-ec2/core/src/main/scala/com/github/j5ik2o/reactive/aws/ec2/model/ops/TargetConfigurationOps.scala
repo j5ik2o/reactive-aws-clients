@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class TargetConfigurationBuilderOps(val self: TargetConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): TargetConfiguration.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def offeringIdAsScala(value: Option[String]): TargetConfiguration.Builder = {
     value.fold(self) { v =>
       self.offeringId(v)
@@ -21,8 +23,10 @@ final class TargetConfigurationBuilderOps(val self: TargetConfiguration.Builder)
 
 final class TargetConfigurationOps(val self: TargetConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def offeringIdAsScala: Option[String] = Option(self.offeringId)
 
 }

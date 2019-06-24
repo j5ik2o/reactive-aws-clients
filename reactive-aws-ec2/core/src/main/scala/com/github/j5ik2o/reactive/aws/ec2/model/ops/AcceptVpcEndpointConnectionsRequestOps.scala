@@ -6,15 +6,17 @@ import software.amazon.awssdk.services.ec2.model._
 final class AcceptVpcEndpointConnectionsRequestBuilderOps(val self: AcceptVpcEndpointConnectionsRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala(value: Option[String]): AcceptVpcEndpointConnectionsRequest.Builder = {
     value.fold(self) { v =>
       self.serviceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointIdsAsScala(value: Option[Seq[String]]): AcceptVpcEndpointConnectionsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.vpcEndpointIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.vpcEndpointIds(v.asJava)
     }
   }
 
@@ -22,10 +24,12 @@ final class AcceptVpcEndpointConnectionsRequestBuilderOps(val self: AcceptVpcEnd
 
 final class AcceptVpcEndpointConnectionsRequestOps(val self: AcceptVpcEndpointConnectionsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala: Option[String] = Option(self.serviceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointIdsAsScala: Option[Seq[String]] = Option(self.vpcEndpointIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

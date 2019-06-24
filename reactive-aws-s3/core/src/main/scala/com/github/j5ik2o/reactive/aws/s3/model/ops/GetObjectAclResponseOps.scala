@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectAclResponseBuilderOps(val self: GetObjectAclResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala(value: Option[Owner]): GetObjectAclResponse.Builder = {
     value.fold(self) { v =>
       self.owner(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantsAsScala(value: Option[Seq[Grant]]): GetObjectAclResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.grants(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.grants(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): GetObjectAclResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -27,12 +30,15 @@ final class GetObjectAclResponseBuilderOps(val self: GetObjectAclResponse.Builde
 
 final class GetObjectAclResponseOps(val self: GetObjectAclResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala: Option[Owner] = Option(self.owner)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantsAsScala: Option[Seq[Grant]] = Option(self.grants).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }

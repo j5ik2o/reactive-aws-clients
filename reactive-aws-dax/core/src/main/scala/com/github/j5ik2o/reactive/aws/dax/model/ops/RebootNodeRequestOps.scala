@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dax.model._
 
 final class RebootNodeRequestBuilderOps(val self: RebootNodeRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): RebootNodeRequest.Builder = {
     value.fold(self) { v =>
       self.clusterName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIdAsScala(value: Option[String]): RebootNodeRequest.Builder = {
     value.fold(self) { v =>
       self.nodeId(v)
@@ -21,8 +23,10 @@ final class RebootNodeRequestBuilderOps(val self: RebootNodeRequest.Builder) ext
 
 final class RebootNodeRequestOps(val self: RebootNodeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala: Option[String] = Option(self.clusterName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIdAsScala: Option[String] = Option(self.nodeId)
 
 }

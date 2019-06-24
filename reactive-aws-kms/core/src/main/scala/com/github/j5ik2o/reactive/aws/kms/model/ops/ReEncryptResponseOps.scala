@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.kms.model._
 
 final class ReEncryptResponseBuilderOps(val self: ReEncryptResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): ReEncryptResponse.Builder = {
     value.fold(self) { v =>
       self.ciphertextBlob(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceKeyIdAsScala(value: Option[String]): ReEncryptResponse.Builder = {
     value.fold(self) { v =>
       self.sourceKeyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ReEncryptResponse.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -27,10 +30,13 @@ final class ReEncryptResponseBuilderOps(val self: ReEncryptResponse.Builder) ext
 
 final class ReEncryptResponseOps(val self: ReEncryptResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.ciphertextBlob)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceKeyIdAsScala: Option[String] = Option(self.sourceKeyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

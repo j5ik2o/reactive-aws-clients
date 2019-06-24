@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketRequestPaymentResponseBuilderOps(val self: GetBucketRequestPaymentResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payerAsScala(value: Option[Payer]): GetBucketRequestPaymentResponse.Builder = {
     value.fold(self) { v =>
       self.payer(v)
@@ -16,6 +17,7 @@ final class GetBucketRequestPaymentResponseBuilderOps(val self: GetBucketRequest
 
 final class GetBucketRequestPaymentResponseOps(val self: GetBucketRequestPaymentResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payerAsScala: Option[Payer] = Option(self.payer)
 
 }

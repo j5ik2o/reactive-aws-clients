@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ReleaseAddressRequestBuilderOps(val self: ReleaseAddressRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdAsScala(value: Option[String]): ReleaseAddressRequest.Builder = {
     value.fold(self) { v =>
       self.allocationId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala(value: Option[String]): ReleaseAddressRequest.Builder = {
     value.fold(self) { v =>
       self.publicIp(v)
@@ -21,8 +23,10 @@ final class ReleaseAddressRequestBuilderOps(val self: ReleaseAddressRequest.Buil
 
 final class ReleaseAddressRequestOps(val self: ReleaseAddressRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdAsScala: Option[String] = Option(self.allocationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
 
 }

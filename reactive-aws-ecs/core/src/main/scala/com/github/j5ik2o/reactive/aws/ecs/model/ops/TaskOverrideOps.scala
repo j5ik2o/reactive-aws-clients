@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class TaskOverrideBuilderOps(val self: TaskOverride.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala(value: Option[Seq[ContainerOverride]]): TaskOverride.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.containerOverrides(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.containerOverrides(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
     value.fold(self) { v =>
       self.taskRoleArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
     value.fold(self) { v =>
       self.executionRoleArn(v)
@@ -27,12 +30,15 @@ final class TaskOverrideBuilderOps(val self: TaskOverride.Builder) extends AnyVa
 
 final class TaskOverrideOps(val self: TaskOverride) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala: Option[Seq[ContainerOverride]] = Option(self.containerOverrides).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskRoleArnAsScala: Option[String] = Option(self.taskRoleArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleArnAsScala: Option[String] = Option(self.executionRoleArn)
 
 }

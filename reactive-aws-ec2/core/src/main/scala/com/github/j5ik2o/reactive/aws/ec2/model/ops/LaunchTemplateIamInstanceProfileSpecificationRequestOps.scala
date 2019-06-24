@@ -7,12 +7,14 @@ final class LaunchTemplateIamInstanceProfileSpecificationRequestBuilderOps(
     val self: LaunchTemplateIamInstanceProfileSpecificationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): LaunchTemplateIamInstanceProfileSpecificationRequest.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): LaunchTemplateIamInstanceProfileSpecificationRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -25,8 +27,10 @@ final class LaunchTemplateIamInstanceProfileSpecificationRequestOps(
     val self: LaunchTemplateIamInstanceProfileSpecificationRequest
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

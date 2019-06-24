@@ -7,6 +7,7 @@ final class CancelElasticsearchServiceSoftwareUpdateResponseBuilderOps(
     val self: CancelElasticsearchServiceSoftwareUpdateResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceSoftwareOptionsAsScala(
       value: Option[ServiceSoftwareOptions]
   ): CancelElasticsearchServiceSoftwareUpdateResponse.Builder = {
@@ -21,6 +22,7 @@ final class CancelElasticsearchServiceSoftwareUpdateResponseOps(
     val self: CancelElasticsearchServiceSoftwareUpdateResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceSoftwareOptionsAsScala: Option[ServiceSoftwareOptions] = Option(self.serviceSoftwareOptions)
 
 }

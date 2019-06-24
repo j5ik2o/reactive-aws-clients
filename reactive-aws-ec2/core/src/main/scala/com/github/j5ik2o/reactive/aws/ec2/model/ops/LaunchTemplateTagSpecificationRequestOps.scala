@@ -6,15 +6,17 @@ import software.amazon.awssdk.services.ec2.model._
 final class LaunchTemplateTagSpecificationRequestBuilderOps(val self: LaunchTemplateTagSpecificationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(value: Option[ResourceType]): LaunchTemplateTagSpecificationRequest.Builder = {
     value.fold(self) { v =>
       self.resourceType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Seq[Tag]]): LaunchTemplateTagSpecificationRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tags(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -22,10 +24,12 @@ final class LaunchTemplateTagSpecificationRequestBuilderOps(val self: LaunchTemp
 
 final class LaunchTemplateTagSpecificationRequestOps(val self: LaunchTemplateTagSpecificationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala: Option[ResourceType] = Option(self.resourceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

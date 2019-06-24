@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateNatGatewayRequestBuilderOps(val self: CreateNatGatewayRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdAsScala(value: Option[String]): CreateNatGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.allocationId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateNatGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): CreateNatGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -27,10 +30,13 @@ final class CreateNatGatewayRequestBuilderOps(val self: CreateNatGatewayRequest.
 
 final class CreateNatGatewayRequestOps(val self: CreateNatGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdAsScala: Option[String] = Option(self.allocationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

@@ -6,24 +6,28 @@ import software.amazon.awssdk.services.ec2.model._
 final class AssignPrivateIpAddressesRequestBuilderOps(val self: AssignPrivateIpAddressesRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowReassignmentAsScala(value: Option[Boolean]): AssignPrivateIpAddressesRequest.Builder = {
     value.fold(self) { v =>
       self.allowReassignment(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): AssignPrivateIpAddressesRequest.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateIpAddressesAsScala(value: Option[Seq[String]]): AssignPrivateIpAddressesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.privateIpAddresses(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.privateIpAddresses(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def secondaryPrivateIpAddressCountAsScala(value: Option[Int]): AssignPrivateIpAddressesRequest.Builder = {
     value.fold(self) { v =>
       self.secondaryPrivateIpAddressCount(v)
@@ -34,14 +38,18 @@ final class AssignPrivateIpAddressesRequestBuilderOps(val self: AssignPrivateIpA
 
 final class AssignPrivateIpAddressesRequestOps(val self: AssignPrivateIpAddressesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowReassignmentAsScala: Option[Boolean] = Option(self.allowReassignment)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateIpAddressesAsScala: Option[Seq[String]] = Option(self.privateIpAddresses).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def secondaryPrivateIpAddressCountAsScala: Option[Int] = Option(self.secondaryPrivateIpAddressCount)
 
 }

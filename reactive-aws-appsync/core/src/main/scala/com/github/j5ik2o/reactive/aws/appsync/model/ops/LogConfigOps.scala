@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class LogConfigBuilderOps(val self: LogConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldLogLevelAsScala(value: Option[FieldLogLevel]): LogConfig.Builder = {
     value.fold(self) { v =>
       self.fieldLogLevel(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudWatchLogsRoleArnAsScala(value: Option[String]): LogConfig.Builder = {
     value.fold(self) { v =>
       self.cloudWatchLogsRoleArn(v)
@@ -21,8 +23,10 @@ final class LogConfigBuilderOps(val self: LogConfig.Builder) extends AnyVal {
 
 final class LogConfigOps(val self: LogConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldLogLevelAsScala: Option[FieldLogLevel] = Option(self.fieldLogLevel)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudWatchLogsRoleArnAsScala: Option[String] = Option(self.cloudWatchLogsRoleArn)
 
 }

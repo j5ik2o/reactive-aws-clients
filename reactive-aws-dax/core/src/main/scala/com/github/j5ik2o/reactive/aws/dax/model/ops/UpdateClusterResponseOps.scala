@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UpdateClusterResponseBuilderOps(val self: UpdateClusterResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): UpdateClusterResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
@@ -15,6 +16,7 @@ final class UpdateClusterResponseBuilderOps(val self: UpdateClusterResponse.Buil
 
 final class UpdateClusterResponseOps(val self: UpdateClusterResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }

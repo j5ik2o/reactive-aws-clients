@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateKeyPairResponseBuilderOps(val self: CreateKeyPairResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyFingerprintAsScala(value: Option[String]): CreateKeyPairResponse.Builder = {
     value.fold(self) { v =>
       self.keyFingerprint(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyMaterialAsScala(value: Option[String]): CreateKeyPairResponse.Builder = {
     value.fold(self) { v =>
       self.keyMaterial(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala(value: Option[String]): CreateKeyPairResponse.Builder = {
     value.fold(self) { v =>
       self.keyName(v)
@@ -27,10 +30,13 @@ final class CreateKeyPairResponseBuilderOps(val self: CreateKeyPairResponse.Buil
 
 final class CreateKeyPairResponseOps(val self: CreateKeyPairResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyFingerprintAsScala: Option[String] = Option(self.keyFingerprint)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyMaterialAsScala: Option[String] = Option(self.keyMaterial)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala: Option[String] = Option(self.keyName)
 
 }

@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ParameterGroupStatusBuilderOps(val self: ParameterGroupStatus.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterApplyStatusAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
     value.fold(self) { v =>
       self.parameterApplyStatus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIdsToRebootAsScala(value: Option[Seq[String]]): ParameterGroupStatus.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.nodeIdsToReboot(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.nodeIdsToReboot(v.asJava)
     }
   }
 
@@ -27,12 +30,15 @@ final class ParameterGroupStatusBuilderOps(val self: ParameterGroupStatus.Builde
 
 final class ParameterGroupStatusOps(val self: ParameterGroupStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterApplyStatusAsScala: Option[String] = Option(self.parameterApplyStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIdsToRebootAsScala: Option[Seq[String]] = Option(self.nodeIdsToReboot).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

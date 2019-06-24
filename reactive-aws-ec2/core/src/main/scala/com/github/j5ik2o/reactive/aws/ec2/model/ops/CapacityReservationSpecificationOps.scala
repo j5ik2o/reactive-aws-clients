@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CapacityReservationSpecificationBuilderOps(val self: CapacityReservationSpecification.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationPreferenceAsScala(
       value: Option[CapacityReservationPreference]
   ): CapacityReservationSpecification.Builder = {
@@ -14,6 +15,7 @@ final class CapacityReservationSpecificationBuilderOps(val self: CapacityReserva
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationTargetAsScala(
       value: Option[CapacityReservationTarget]
   ): CapacityReservationSpecification.Builder = {
@@ -26,9 +28,11 @@ final class CapacityReservationSpecificationBuilderOps(val self: CapacityReserva
 
 final class CapacityReservationSpecificationOps(val self: CapacityReservationSpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationPreferenceAsScala: Option[CapacityReservationPreference] =
     Option(self.capacityReservationPreference)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationTargetAsScala: Option[CapacityReservationTarget] = Option(self.capacityReservationTarget)
 
 }

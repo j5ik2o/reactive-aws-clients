@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class TransitGatewayAssociationBuilderOps(val self: TransitGatewayAssociation.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableIdAsScala(value: Option[String]): TransitGatewayAssociation.Builder = {
     value.fold(self) { v =>
       self.transitGatewayRouteTableId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala(value: Option[String]): TransitGatewayAssociation.Builder = {
     value.fold(self) { v =>
       self.transitGatewayAttachmentId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdAsScala(value: Option[String]): TransitGatewayAssociation.Builder = {
     value.fold(self) { v =>
       self.resourceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(
       value: Option[TransitGatewayAttachmentResourceType]
   ): TransitGatewayAssociation.Builder = {
@@ -31,6 +35,7 @@ final class TransitGatewayAssociationBuilderOps(val self: TransitGatewayAssociat
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[TransitGatewayAssociationState]): TransitGatewayAssociation.Builder = {
     value.fold(self) { v =>
       self.state(v)
@@ -41,14 +46,19 @@ final class TransitGatewayAssociationBuilderOps(val self: TransitGatewayAssociat
 
 final class TransitGatewayAssociationOps(val self: TransitGatewayAssociation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableIdAsScala: Option[String] = Option(self.transitGatewayRouteTableId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdAsScala: Option[String] = Option(self.resourceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala: Option[TransitGatewayAttachmentResourceType] = Option(self.resourceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[TransitGatewayAssociationState] = Option(self.state)
 
 }

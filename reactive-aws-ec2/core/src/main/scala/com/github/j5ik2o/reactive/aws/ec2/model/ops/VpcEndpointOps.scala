@@ -5,78 +5,91 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class VpcEndpointBuilderOps(val self: VpcEndpoint.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointIdAsScala(value: Option[String]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.vpcEndpointId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointTypeAsScala(value: Option[VpcEndpointType]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.vpcEndpointType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceNameAsScala(value: Option[String]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.serviceName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[State]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyDocumentAsScala(value: Option[String]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.policyDocument(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdsAsScala(value: Option[Seq[String]]): VpcEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.routeTableIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.routeTableIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdsAsScala(value: Option[Seq[String]]): VpcEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.subnetIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupsAsScala(value: Option[Seq[SecurityGroupIdentifier]]): VpcEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.groups(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.groups(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateDnsEnabledAsScala(value: Option[Boolean]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.privateDnsEnabled(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdsAsScala(value: Option[Seq[String]]): VpcEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.networkInterfaceIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.networkInterfaceIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsEntriesAsScala(value: Option[Seq[DnsEntry]]): VpcEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.dnsEntries(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.dnsEntries(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala(value: Option[java.time.Instant]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.creationTimestamp(v)
@@ -87,40 +100,53 @@ final class VpcEndpointBuilderOps(val self: VpcEndpoint.Builder) extends AnyVal 
 
 final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointIdAsScala: Option[String] = Option(self.vpcEndpointId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointTypeAsScala: Option[VpcEndpointType] = Option(self.vpcEndpointType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceNameAsScala: Option[String] = Option(self.serviceName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[State] = Option(self.state)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyDocumentAsScala: Option[String] = Option(self.policyDocument)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdsAsScala: Option[Seq[String]] = Option(self.routeTableIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupsAsScala: Option[Seq[SecurityGroupIdentifier]] = Option(self.groups).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateDnsEnabledAsScala: Option[Boolean] = Option(self.privateDnsEnabled)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdsAsScala: Option[Seq[String]] = Option(self.networkInterfaceIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsEntriesAsScala: Option[Seq[DnsEntry]] = Option(self.dnsEntries).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala: Option[java.time.Instant] = Option(self.creationTimestamp)
 
 }

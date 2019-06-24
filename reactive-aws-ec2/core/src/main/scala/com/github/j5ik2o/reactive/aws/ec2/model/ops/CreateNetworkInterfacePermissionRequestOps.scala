@@ -6,24 +6,28 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateNetworkInterfacePermissionRequestBuilderOps(val self: CreateNetworkInterfacePermissionRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): CreateNetworkInterfacePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsAccountIdAsScala(value: Option[String]): CreateNetworkInterfacePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.awsAccountId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsServiceAsScala(value: Option[String]): CreateNetworkInterfacePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.awsService(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionAsScala(
       value: Option[InterfacePermissionType]
   ): CreateNetworkInterfacePermissionRequest.Builder = {
@@ -37,12 +41,16 @@ final class CreateNetworkInterfacePermissionRequestBuilderOps(val self: CreateNe
 final class CreateNetworkInterfacePermissionRequestOps(val self: CreateNetworkInterfacePermissionRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsAccountIdAsScala: Option[String] = Option(self.awsAccountId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsServiceAsScala: Option[String] = Option(self.awsService)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionAsScala: Option[InterfacePermissionType] = Option(self.permission)
 
 }

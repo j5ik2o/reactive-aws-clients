@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class ComposeEnvironmentsRequestBuilderOps(val self: ComposeEnvironmentsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): ComposeEnvironmentsRequest.Builder = {
     value.fold(self) { v =>
       self.applicationName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala(value: Option[String]): ComposeEnvironmentsRequest.Builder = {
     value.fold(self) { v =>
       self.groupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelsAsScala(value: Option[Seq[String]]): ComposeEnvironmentsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.versionLabels(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.versionLabels(v.asJava)
     }
   }
 
@@ -27,12 +30,15 @@ final class ComposeEnvironmentsRequestBuilderOps(val self: ComposeEnvironmentsRe
 
 final class ComposeEnvironmentsRequestOps(val self: ComposeEnvironmentsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala: Option[String] = Option(self.groupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelsAsScala: Option[Seq[String]] = Option(self.versionLabels).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class EnableKeyRequestBuilderOps(val self: EnableKeyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): EnableKeyRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -15,6 +16,7 @@ final class EnableKeyRequestBuilderOps(val self: EnableKeyRequest.Builder) exten
 
 final class EnableKeyRequestOps(val self: EnableKeyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteVolumeRequestBuilderOps(val self: DeleteVolumeRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeIdAsScala(value: Option[String]): DeleteVolumeRequest.Builder = {
     value.fold(self) { v =>
       self.volumeId(v)
@@ -15,6 +16,7 @@ final class DeleteVolumeRequestBuilderOps(val self: DeleteVolumeRequest.Builder)
 
 final class DeleteVolumeRequestOps(val self: DeleteVolumeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeIdAsScala: Option[String] = Option(self.volumeId)
 
 }

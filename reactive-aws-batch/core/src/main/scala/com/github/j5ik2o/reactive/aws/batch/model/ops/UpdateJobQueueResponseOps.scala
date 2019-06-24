@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class UpdateJobQueueResponseBuilderOps(val self: UpdateJobQueueResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueNameAsScala(value: Option[String]): UpdateJobQueueResponse.Builder = {
     value.fold(self) { v =>
       self.jobQueueName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueArnAsScala(value: Option[String]): UpdateJobQueueResponse.Builder = {
     value.fold(self) { v =>
       self.jobQueueArn(v)
@@ -21,8 +23,10 @@ final class UpdateJobQueueResponseBuilderOps(val self: UpdateJobQueueResponse.Bu
 
 final class UpdateJobQueueResponseOps(val self: UpdateJobQueueResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueNameAsScala: Option[String] = Option(self.jobQueueName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueArnAsScala: Option[String] = Option(self.jobQueueArn)
 
 }

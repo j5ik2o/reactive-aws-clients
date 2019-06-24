@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamRequestBuilderOps(val self: DescribeStreamRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeStreamRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartShardIdAsScala(value: Option[String]): DescribeStreamRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartShardId(v)
@@ -27,10 +30,13 @@ final class DescribeStreamRequestBuilderOps(val self: DescribeStreamRequest.Buil
 
 final class DescribeStreamRequestOps(val self: DescribeStreamRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala: Option[String] = Option(self.streamName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartShardIdAsScala: Option[String] = Option(self.exclusiveStartShardId)
 
 }

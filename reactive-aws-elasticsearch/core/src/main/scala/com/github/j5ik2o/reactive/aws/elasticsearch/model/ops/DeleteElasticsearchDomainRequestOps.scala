@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class DeleteElasticsearchDomainRequestBuilderOps(val self: DeleteElasticsearchDomainRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DeleteElasticsearchDomainRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
@@ -16,6 +17,7 @@ final class DeleteElasticsearchDomainRequestBuilderOps(val self: DeleteElasticse
 
 final class DeleteElasticsearchDomainRequestOps(val self: DeleteElasticsearchDomainRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala: Option[String] = Option(self.domainName)
 
 }

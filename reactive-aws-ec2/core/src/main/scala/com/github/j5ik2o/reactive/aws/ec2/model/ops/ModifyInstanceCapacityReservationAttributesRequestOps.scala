@@ -7,12 +7,14 @@ final class ModifyInstanceCapacityReservationAttributesRequestBuilderOps(
     val self: ModifyInstanceCapacityReservationAttributesRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): ModifyInstanceCapacityReservationAttributesRequest.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationSpecificationAsScala(
       value: Option[CapacityReservationSpecification]
   ): ModifyInstanceCapacityReservationAttributesRequest.Builder = {
@@ -27,8 +29,10 @@ final class ModifyInstanceCapacityReservationAttributesRequestOps(
     val self: ModifyInstanceCapacityReservationAttributesRequest
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationSpecificationAsScala: Option[CapacityReservationSpecification] =
     Option(self.capacityReservationSpecification)
 

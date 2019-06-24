@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class SearchFacesByImageRequestBuilderOps(val self: SearchFacesByImageRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): SearchFacesByImageRequest.Builder = {
     value.fold(self) { v =>
       self.collectionId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): SearchFacesByImageRequest.Builder = {
     value.fold(self) { v =>
       self.image(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxFacesAsScala(value: Option[Int]): SearchFacesByImageRequest.Builder = {
     value.fold(self) { v =>
       self.maxFaces(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceMatchThresholdAsScala(value: Option[Float]): SearchFacesByImageRequest.Builder = {
     value.fold(self) { v =>
       self.faceMatchThreshold(v)
@@ -33,12 +37,16 @@ final class SearchFacesByImageRequestBuilderOps(val self: SearchFacesByImageRequ
 
 final class SearchFacesByImageRequestOps(val self: SearchFacesByImageRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala: Option[String] = Option(self.collectionId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala: Option[Image] = Option(self.image)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxFacesAsScala: Option[Int] = Option(self.maxFaces)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceMatchThresholdAsScala: Option[Float] = Option(self.faceMatchThreshold)
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketInventoryConfigurationResponseBuilderOps(val self: GetBucketInventoryConfigurationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inventoryConfigurationAsScala(
       value: Option[InventoryConfiguration]
   ): GetBucketInventoryConfigurationResponse.Builder = {
@@ -19,6 +20,7 @@ final class GetBucketInventoryConfigurationResponseBuilderOps(val self: GetBucke
 final class GetBucketInventoryConfigurationResponseOps(val self: GetBucketInventoryConfigurationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inventoryConfigurationAsScala: Option[InventoryConfiguration] = Option(self.inventoryConfiguration)
 
 }

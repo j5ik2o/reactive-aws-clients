@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteFleetSuccessItemBuilderOps(val self: DeleteFleetSuccessItem.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currentFleetStateAsScala(value: Option[FleetStateCode]): DeleteFleetSuccessItem.Builder = {
     value.fold(self) { v =>
       self.currentFleetState(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def previousFleetStateAsScala(value: Option[FleetStateCode]): DeleteFleetSuccessItem.Builder = {
     value.fold(self) { v =>
       self.previousFleetState(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fleetIdAsScala(value: Option[String]): DeleteFleetSuccessItem.Builder = {
     value.fold(self) { v =>
       self.fleetId(v)
@@ -27,10 +30,13 @@ final class DeleteFleetSuccessItemBuilderOps(val self: DeleteFleetSuccessItem.Bu
 
 final class DeleteFleetSuccessItemOps(val self: DeleteFleetSuccessItem) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currentFleetStateAsScala: Option[FleetStateCode] = Option(self.currentFleetState)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def previousFleetStateAsScala: Option[FleetStateCode] = Option(self.previousFleetState)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fleetIdAsScala: Option[String] = Option(self.fleetId)
 
 }

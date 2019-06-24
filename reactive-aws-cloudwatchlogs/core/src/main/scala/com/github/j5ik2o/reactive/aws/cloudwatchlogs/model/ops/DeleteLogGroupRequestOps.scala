@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class DeleteLogGroupRequestBuilderOps(val self: DeleteLogGroupRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteLogGroupRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
@@ -15,6 +16,7 @@ final class DeleteLogGroupRequestBuilderOps(val self: DeleteLogGroupRequest.Buil
 
 final class DeleteLogGroupRequestOps(val self: DeleteLogGroupRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
 }

@@ -7,6 +7,7 @@ final class AcceptReservedInstancesExchangeQuoteResponseBuilderOps(
     val self: AcceptReservedInstancesExchangeQuoteResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exchangeIdAsScala(value: Option[String]): AcceptReservedInstancesExchangeQuoteResponse.Builder = {
     value.fold(self) { v =>
       self.exchangeId(v)
@@ -18,6 +19,7 @@ final class AcceptReservedInstancesExchangeQuoteResponseBuilderOps(
 final class AcceptReservedInstancesExchangeQuoteResponseOps(val self: AcceptReservedInstancesExchangeQuoteResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exchangeIdAsScala: Option[String] = Option(self.exchangeId)
 
 }

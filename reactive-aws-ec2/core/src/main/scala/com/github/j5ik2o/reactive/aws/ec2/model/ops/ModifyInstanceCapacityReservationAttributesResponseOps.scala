@@ -7,6 +7,7 @@ final class ModifyInstanceCapacityReservationAttributesResponseBuilderOps(
     val self: ModifyInstanceCapacityReservationAttributesResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ModifyInstanceCapacityReservationAttributesResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -19,6 +20,7 @@ final class ModifyInstanceCapacityReservationAttributesResponseOps(
     val self: ModifyInstanceCapacityReservationAttributesResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

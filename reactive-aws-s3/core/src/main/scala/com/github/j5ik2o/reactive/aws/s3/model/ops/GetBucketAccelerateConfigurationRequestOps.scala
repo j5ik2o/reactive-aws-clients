@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketAccelerateConfigurationRequestBuilderOps(val self: GetBucketAccelerateConfigurationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketAccelerateConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -17,6 +18,7 @@ final class GetBucketAccelerateConfigurationRequestBuilderOps(val self: GetBucke
 final class GetBucketAccelerateConfigurationRequestOps(val self: GetBucketAccelerateConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

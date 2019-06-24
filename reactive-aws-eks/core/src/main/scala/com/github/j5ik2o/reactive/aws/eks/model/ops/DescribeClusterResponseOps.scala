@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.eks.model._
 
 final class DescribeClusterResponseBuilderOps(val self: DescribeClusterResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): DescribeClusterResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
@@ -15,6 +16,7 @@ final class DescribeClusterResponseBuilderOps(val self: DescribeClusterResponse.
 
 final class DescribeClusterResponseOps(val self: DescribeClusterResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }

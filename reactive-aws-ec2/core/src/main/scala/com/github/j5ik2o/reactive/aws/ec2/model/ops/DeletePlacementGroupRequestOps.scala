@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeletePlacementGroupRequestBuilderOps(val self: DeletePlacementGroupRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala(value: Option[String]): DeletePlacementGroupRequest.Builder = {
     value.fold(self) { v =>
       self.groupName(v)
@@ -15,6 +16,7 @@ final class DeletePlacementGroupRequestBuilderOps(val self: DeletePlacementGroup
 
 final class DeletePlacementGroupRequestOps(val self: DeletePlacementGroupRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala: Option[String] = Option(self.groupName)
 
 }

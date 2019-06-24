@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class InstanceLimitsBuilderOps(val self: InstanceLimits.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountLimitsAsScala(value: Option[InstanceCountLimits]): InstanceLimits.Builder = {
     value.fold(self) { v =>
       self.instanceCountLimits(v)
@@ -15,6 +16,7 @@ final class InstanceLimitsBuilderOps(val self: InstanceLimits.Builder) extends A
 
 final class InstanceLimitsOps(val self: InstanceLimits) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountLimitsAsScala: Option[InstanceCountLimits] = Option(self.instanceCountLimits)
 
 }

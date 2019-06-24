@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DeleteClientVpnEndpointResponseBuilderOps(val self: DeleteClientVpnEndpointResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ClientVpnEndpointStatus]): DeleteClientVpnEndpointResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -16,6 +17,7 @@ final class DeleteClientVpnEndpointResponseBuilderOps(val self: DeleteClientVpnE
 
 final class DeleteClientVpnEndpointResponseOps(val self: DeleteClientVpnEndpointResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ClientVpnEndpointStatus] = Option(self.status)
 
 }

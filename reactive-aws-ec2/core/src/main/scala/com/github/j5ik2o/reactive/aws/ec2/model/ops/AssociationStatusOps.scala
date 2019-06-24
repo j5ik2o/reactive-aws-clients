@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AssociationStatusBuilderOps(val self: AssociationStatus.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[AssociationStatusCode]): AssociationStatus.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): AssociationStatus.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class AssociationStatusBuilderOps(val self: AssociationStatus.Builder) ext
 
 final class AssociationStatusOps(val self: AssociationStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[AssociationStatusCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

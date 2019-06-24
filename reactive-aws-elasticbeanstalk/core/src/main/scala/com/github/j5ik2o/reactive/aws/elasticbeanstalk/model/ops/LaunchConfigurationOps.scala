@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class LaunchConfigurationBuilderOps(val self: LaunchConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): LaunchConfiguration.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -15,6 +16,7 @@ final class LaunchConfigurationBuilderOps(val self: LaunchConfiguration.Builder)
 
 final class LaunchConfigurationOps(val self: LaunchConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

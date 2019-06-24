@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StreamProcessorOutputBuilderOps(val self: StreamProcessorOutput.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kinesisDataStreamAsScala(value: Option[KinesisDataStream]): StreamProcessorOutput.Builder = {
     value.fold(self) { v =>
       self.kinesisDataStream(v)
@@ -15,6 +16,7 @@ final class StreamProcessorOutputBuilderOps(val self: StreamProcessorOutput.Buil
 
 final class StreamProcessorOutputOps(val self: StreamProcessorOutput) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kinesisDataStreamAsScala: Option[KinesisDataStream] = Option(self.kinesisDataStream)
 
 }

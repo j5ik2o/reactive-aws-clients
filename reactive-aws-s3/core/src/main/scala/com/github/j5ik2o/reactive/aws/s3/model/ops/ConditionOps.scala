@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ConditionBuilderOps(val self: Condition.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def httpErrorCodeReturnedEqualsAsScala(value: Option[String]): Condition.Builder = {
     value.fold(self) { v =>
       self.httpErrorCodeReturnedEquals(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPrefixEqualsAsScala(value: Option[String]): Condition.Builder = {
     value.fold(self) { v =>
       self.keyPrefixEquals(v)
@@ -21,8 +23,10 @@ final class ConditionBuilderOps(val self: Condition.Builder) extends AnyVal {
 
 final class ConditionOps(val self: Condition) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def httpErrorCodeReturnedEqualsAsScala: Option[String] = Option(self.httpErrorCodeReturnedEquals)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPrefixEqualsAsScala: Option[String] = Option(self.keyPrefixEquals)
 
 }

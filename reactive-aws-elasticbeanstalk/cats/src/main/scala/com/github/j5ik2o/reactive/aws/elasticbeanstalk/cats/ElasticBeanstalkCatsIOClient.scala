@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.elasticbeanstalk.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.elasticbeanstalk.{ ElasticBeanstalkAsyncClient, ElasticBeanstalkClient }
 import software.amazon.awssdk.services.elasticbeanstalk.model._
 import software.amazon.awssdk.services.elasticbeanstalk.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object ElasticBeanstalkCatsIOClient {
 
-  def apply(asyncClient: ElasticBeanstalkAsyncClient): ElasticBeanstalkCatsIOClient = new ElasticBeanstalkCatsIOClient {
-    override val underlying: ElasticBeanstalkAsyncClient = asyncClient
-  }
+  def apply(asyncClient: ElasticBeanstalkAsyncClient)(implicit ec: ExecutionContext): ElasticBeanstalkCatsIOClient =
+    new ElasticBeanstalkCatsIOClient {
+      override val executionContext: ExecutionContext      = ec
+      override val underlying: ElasticBeanstalkAsyncClient = asyncClient
+    }
 
 }
 
 trait ElasticBeanstalkCatsIOClient extends ElasticBeanstalkClient[IO] {
 
   val underlying: ElasticBeanstalkAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def abortEnvironmentUpdate(
       abortEnvironmentUpdateRequest: AbortEnvironmentUpdateRequest

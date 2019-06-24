@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateCapacityReservationResponseBuilderOps(val self: CreateCapacityReservationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationAsScala(
       value: Option[CapacityReservation]
   ): CreateCapacityReservationResponse.Builder = {
@@ -18,6 +19,7 @@ final class CreateCapacityReservationResponseBuilderOps(val self: CreateCapacity
 
 final class CreateCapacityReservationResponseOps(val self: CreateCapacityReservationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationAsScala: Option[CapacityReservation] = Option(self.capacityReservation)
 
 }

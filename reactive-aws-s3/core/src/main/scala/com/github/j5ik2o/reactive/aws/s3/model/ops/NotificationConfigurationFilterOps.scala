@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class NotificationConfigurationFilterBuilderOps(val self: NotificationConfigurationFilter.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[S3KeyFilter]): NotificationConfigurationFilter.Builder = {
     value.fold(self) { v =>
       self.key(v)
@@ -16,6 +17,7 @@ final class NotificationConfigurationFilterBuilderOps(val self: NotificationConf
 
 final class NotificationConfigurationFilterOps(val self: NotificationConfigurationFilter) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala: Option[S3KeyFilter] = Option(self.key)
 
 }

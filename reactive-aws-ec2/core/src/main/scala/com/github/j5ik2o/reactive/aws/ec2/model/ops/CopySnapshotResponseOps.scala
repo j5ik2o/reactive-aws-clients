@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CopySnapshotResponseBuilderOps(val self: CopySnapshotResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala(value: Option[String]): CopySnapshotResponse.Builder = {
     value.fold(self) { v =>
       self.snapshotId(v)
@@ -15,6 +16,7 @@ final class CopySnapshotResponseBuilderOps(val self: CopySnapshotResponse.Builde
 
 final class CopySnapshotResponseOps(val self: CopySnapshotResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala: Option[String] = Option(self.snapshotId)
 
 }

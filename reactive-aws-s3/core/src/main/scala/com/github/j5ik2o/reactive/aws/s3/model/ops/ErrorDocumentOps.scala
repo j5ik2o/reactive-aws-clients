@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ErrorDocumentBuilderOps(val self: ErrorDocument.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): ErrorDocument.Builder = {
     value.fold(self) { v =>
       self.key(v)
@@ -15,6 +16,7 @@ final class ErrorDocumentBuilderOps(val self: ErrorDocument.Builder) extends Any
 
 final class ErrorDocumentOps(val self: ErrorDocument) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala: Option[String] = Option(self.key)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class CreateChangeSetResponseBuilderOps(val self: CreateChangeSetResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): CreateChangeSetResponse.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): CreateChangeSetResponse.Builder = {
     value.fold(self) { v =>
       self.stackId(v)
@@ -21,8 +23,10 @@ final class CreateChangeSetResponseBuilderOps(val self: CreateChangeSetResponse.
 
 final class CreateChangeSetResponseOps(val self: CreateChangeSetResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala: Option[String] = Option(self.stackId)
 
 }

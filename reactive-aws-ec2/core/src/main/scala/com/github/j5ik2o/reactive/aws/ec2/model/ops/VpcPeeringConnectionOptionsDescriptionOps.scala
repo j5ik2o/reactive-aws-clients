@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class VpcPeeringConnectionOptionsDescriptionBuilderOps(val self: VpcPeeringConnectionOptionsDescription.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowDnsResolutionFromRemoteVpcAsScala(
       value: Option[Boolean]
   ): VpcPeeringConnectionOptionsDescription.Builder = {
@@ -14,6 +15,7 @@ final class VpcPeeringConnectionOptionsDescriptionBuilderOps(val self: VpcPeerin
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowEgressFromLocalClassicLinkToRemoteVpcAsScala(
       value: Option[Boolean]
   ): VpcPeeringConnectionOptionsDescription.Builder = {
@@ -22,6 +24,7 @@ final class VpcPeeringConnectionOptionsDescriptionBuilderOps(val self: VpcPeerin
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowEgressFromLocalVpcToRemoteClassicLinkAsScala(
       value: Option[Boolean]
   ): VpcPeeringConnectionOptionsDescription.Builder = {
@@ -34,11 +37,14 @@ final class VpcPeeringConnectionOptionsDescriptionBuilderOps(val self: VpcPeerin
 
 final class VpcPeeringConnectionOptionsDescriptionOps(val self: VpcPeeringConnectionOptionsDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowDnsResolutionFromRemoteVpcAsScala: Option[Boolean] = Option(self.allowDnsResolutionFromRemoteVpc)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowEgressFromLocalClassicLinkToRemoteVpcAsScala: Option[Boolean] =
     Option(self.allowEgressFromLocalClassicLinkToRemoteVpc)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowEgressFromLocalVpcToRemoteClassicLinkAsScala: Option[Boolean] =
     Option(self.allowEgressFromLocalVpcToRemoteClassicLink)
 

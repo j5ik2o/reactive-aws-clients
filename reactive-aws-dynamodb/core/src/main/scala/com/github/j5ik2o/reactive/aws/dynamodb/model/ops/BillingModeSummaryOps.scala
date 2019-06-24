@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BillingModeSummaryBuilderOps(val self: BillingModeSummary.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def billingModeAsScala(value: Option[BillingMode]): BillingModeSummary.Builder = {
     value.fold(self) { v =>
       self.billingMode(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdateToPayPerRequestDateTimeAsScala(value: Option[java.time.Instant]): BillingModeSummary.Builder = {
     value.fold(self) { v =>
       self.lastUpdateToPayPerRequestDateTime(v)
@@ -21,8 +23,10 @@ final class BillingModeSummaryBuilderOps(val self: BillingModeSummary.Builder) e
 
 final class BillingModeSummaryOps(val self: BillingModeSummary) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def billingModeAsScala: Option[BillingMode] = Option(self.billingMode)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdateToPayPerRequestDateTimeAsScala: Option[java.time.Instant] =
     Option(self.lastUpdateToPayPerRequestDateTime)
 

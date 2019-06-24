@@ -7,6 +7,7 @@ final class PurchaseReservedInstancesOfferingResponseBuilderOps(
     val self: PurchaseReservedInstancesOfferingResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesIdAsScala(value: Option[String]): PurchaseReservedInstancesOfferingResponse.Builder = {
     value.fold(self) { v =>
       self.reservedInstancesId(v)
@@ -18,6 +19,7 @@ final class PurchaseReservedInstancesOfferingResponseBuilderOps(
 final class PurchaseReservedInstancesOfferingResponseOps(val self: PurchaseReservedInstancesOfferingResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesIdAsScala: Option[String] = Option(self.reservedInstancesId)
 
 }

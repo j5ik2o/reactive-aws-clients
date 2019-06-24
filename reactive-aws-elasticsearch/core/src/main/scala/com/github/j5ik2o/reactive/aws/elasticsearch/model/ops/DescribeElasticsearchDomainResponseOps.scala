@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class DescribeElasticsearchDomainResponseBuilderOps(val self: DescribeElasticsearchDomainResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainStatusAsScala(
       value: Option[ElasticsearchDomainStatus]
   ): DescribeElasticsearchDomainResponse.Builder = {
@@ -18,6 +19,7 @@ final class DescribeElasticsearchDomainResponseBuilderOps(val self: DescribeElas
 
 final class DescribeElasticsearchDomainResponseOps(val self: DescribeElasticsearchDomainResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainStatusAsScala: Option[ElasticsearchDomainStatus] = Option(self.domainStatus)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetIntrospectionSchemaResponseBuilderOps(val self: GetIntrospectionSchemaResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def schemaAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetIntrospectionSchemaResponse.Builder = {
@@ -17,6 +18,7 @@ final class GetIntrospectionSchemaResponseBuilderOps(val self: GetIntrospectionS
 
 final class GetIntrospectionSchemaResponseOps(val self: GetIntrospectionSchemaResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def schemaAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.schema)
 
 }

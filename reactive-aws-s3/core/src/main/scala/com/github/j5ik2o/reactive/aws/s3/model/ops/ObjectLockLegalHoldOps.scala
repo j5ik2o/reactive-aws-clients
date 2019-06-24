@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectLockLegalHoldBuilderOps(val self: ObjectLockLegalHold.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ObjectLockLegalHoldStatus]): ObjectLockLegalHold.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class ObjectLockLegalHoldBuilderOps(val self: ObjectLockLegalHold.Builder)
 
 final class ObjectLockLegalHoldOps(val self: ObjectLockLegalHold) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ObjectLockLegalHoldStatus] = Option(self.status)
 
 }

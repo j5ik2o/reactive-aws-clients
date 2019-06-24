@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class StopStreamEncryptionRequestBuilderOps(val self: StopStreamEncryptionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionTypeAsScala(value: Option[EncryptionType]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.encryptionType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): StopStreamEncryptionRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -27,10 +30,13 @@ final class StopStreamEncryptionRequestBuilderOps(val self: StopStreamEncryption
 
 final class StopStreamEncryptionRequestOps(val self: StopStreamEncryptionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala: Option[String] = Option(self.streamName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionTypeAsScala: Option[EncryptionType] = Option(self.encryptionType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

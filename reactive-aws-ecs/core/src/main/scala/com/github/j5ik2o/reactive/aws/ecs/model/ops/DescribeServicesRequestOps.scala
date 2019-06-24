@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class DescribeServicesRequestBuilderOps(val self: DescribeServicesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): DescribeServicesRequest.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def servicesAsScala(value: Option[Seq[String]]): DescribeServicesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.services(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.services(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def includeAsScala(value: Option[Seq[ServiceField]]): DescribeServicesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.include(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.include(v.asJava)
     }
   }
 
@@ -27,14 +30,17 @@ final class DescribeServicesRequestBuilderOps(val self: DescribeServicesRequest.
 
 final class DescribeServicesRequestOps(val self: DescribeServicesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[String] = Option(self.cluster)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def servicesAsScala: Option[Seq[String]] = Option(self.services).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def includeAsScala: Option[Seq[ServiceField]] = Option(self.include).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

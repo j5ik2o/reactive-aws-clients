@@ -7,17 +7,19 @@ final class GetReservedInstancesExchangeQuoteRequestBuilderOps(
     val self: GetReservedInstancesExchangeQuoteRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstanceIdsAsScala(value: Option[Seq[String]]): GetReservedInstancesExchangeQuoteRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.reservedInstanceIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.reservedInstanceIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetConfigurationsAsScala(
       value: Option[Seq[TargetConfigurationRequest]]
   ): GetReservedInstancesExchangeQuoteRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.targetConfigurations(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.targetConfigurations(v.asJava)
     }
   }
 
@@ -26,13 +28,15 @@ final class GetReservedInstancesExchangeQuoteRequestBuilderOps(
 final class GetReservedInstancesExchangeQuoteRequestOps(val self: GetReservedInstancesExchangeQuoteRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstanceIdsAsScala: Option[Seq[String]] = Option(self.reservedInstanceIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetConfigurationsAsScala: Option[Seq[TargetConfigurationRequest]] =
     Option(self.targetConfigurations).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

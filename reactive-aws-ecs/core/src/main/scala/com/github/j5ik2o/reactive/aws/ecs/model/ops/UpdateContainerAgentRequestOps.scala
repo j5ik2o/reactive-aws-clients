@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class UpdateContainerAgentRequestBuilderOps(val self: UpdateContainerAgentRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): UpdateContainerAgentRequest.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[String]): UpdateContainerAgentRequest.Builder = {
     value.fold(self) { v =>
       self.containerInstance(v)
@@ -21,8 +23,10 @@ final class UpdateContainerAgentRequestBuilderOps(val self: UpdateContainerAgent
 
 final class UpdateContainerAgentRequestOps(val self: UpdateContainerAgentRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[String] = Option(self.cluster)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala: Option[String] = Option(self.containerInstance)
 
 }

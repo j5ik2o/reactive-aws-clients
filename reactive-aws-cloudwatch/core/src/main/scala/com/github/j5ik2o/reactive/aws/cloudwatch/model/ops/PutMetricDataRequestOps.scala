@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class PutMetricDataRequestBuilderOps(val self: PutMetricDataRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): PutMetricDataRequest.Builder = {
     value.fold(self) { v =>
       self.namespace(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricDataAsScala(value: Option[Seq[MetricDatum]]): PutMetricDataRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.metricData(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.metricData(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class PutMetricDataRequestBuilderOps(val self: PutMetricDataRequest.Builde
 
 final class PutMetricDataRequestOps(val self: PutMetricDataRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala: Option[String] = Option(self.namespace)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricDataAsScala: Option[Seq[MetricDatum]] = Option(self.metricData).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

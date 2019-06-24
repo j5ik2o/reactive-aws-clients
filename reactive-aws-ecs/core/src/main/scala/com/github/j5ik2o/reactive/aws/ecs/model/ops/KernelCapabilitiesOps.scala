@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class KernelCapabilitiesBuilderOps(val self: KernelCapabilities.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addAsScala(value: Option[Seq[String]]): KernelCapabilities.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.add(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.add(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dropAsScala(value: Option[Seq[String]]): KernelCapabilities.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.drop(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.drop(v.asJava)
     }
   }
 
@@ -21,12 +23,14 @@ final class KernelCapabilitiesBuilderOps(val self: KernelCapabilities.Builder) e
 
 final class KernelCapabilitiesOps(val self: KernelCapabilities) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addAsScala: Option[Seq[String]] = Option(self.add).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dropAsScala: Option[Seq[String]] = Option(self.drop).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

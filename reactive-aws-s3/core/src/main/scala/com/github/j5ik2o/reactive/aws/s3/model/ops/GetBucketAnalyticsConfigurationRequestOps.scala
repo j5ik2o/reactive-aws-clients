@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketAnalyticsConfigurationRequestBuilderOps(val self: GetBucketAnalyticsConfigurationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketAnalyticsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): GetBucketAnalyticsConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -22,8 +24,10 @@ final class GetBucketAnalyticsConfigurationRequestBuilderOps(val self: GetBucket
 
 final class GetBucketAnalyticsConfigurationRequestOps(val self: GetBucketAnalyticsConfigurationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

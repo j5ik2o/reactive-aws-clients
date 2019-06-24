@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetObjectTorrentResponseBuilderOps(val self: GetObjectTorrentResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): GetObjectTorrentResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -15,6 +16,7 @@ final class GetObjectTorrentResponseBuilderOps(val self: GetObjectTorrentRespons
 
 final class GetObjectTorrentResponseOps(val self: GetObjectTorrentResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }

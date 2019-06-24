@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.status(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseTypeAsScala(value: Option[SSEType]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.sseType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsMasterKeyArnAsScala(value: Option[String]): SSEDescription.Builder = {
     value.fold(self) { v =>
       self.kmsMasterKeyArn(v)
@@ -27,10 +30,13 @@ final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends A
 
 final class SSEDescriptionOps(val self: SSEDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[SSEStatus] = Option(self.status)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseTypeAsScala: Option[SSEType] = Option(self.sseType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsMasterKeyArnAsScala: Option[String] = Option(self.kmsMasterKeyArn)
 
 }

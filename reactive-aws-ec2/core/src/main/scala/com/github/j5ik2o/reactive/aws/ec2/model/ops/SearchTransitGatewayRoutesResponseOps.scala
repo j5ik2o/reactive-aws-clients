@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class SearchTransitGatewayRoutesResponseBuilderOps(val self: SearchTransitGatewayRoutesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routesAsScala(value: Option[Seq[TransitGatewayRoute]]): SearchTransitGatewayRoutesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.routes(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.routes(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def additionalRoutesAvailableAsScala(value: Option[Boolean]): SearchTransitGatewayRoutesResponse.Builder = {
     value.fold(self) { v =>
       self.additionalRoutesAvailable(v)
@@ -22,10 +24,12 @@ final class SearchTransitGatewayRoutesResponseBuilderOps(val self: SearchTransit
 
 final class SearchTransitGatewayRoutesResponseOps(val self: SearchTransitGatewayRoutesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routesAsScala: Option[Seq[TransitGatewayRoute]] = Option(self.routes).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def additionalRoutesAvailableAsScala: Option[Boolean] = Option(self.additionalRoutesAvailable)
 
 }

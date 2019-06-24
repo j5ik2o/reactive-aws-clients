@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class ElasticsearchDataSourceConfigBuilderOps(val self: ElasticsearchDataSourceConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.endpoint(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.awsRegion(v)
@@ -21,8 +23,10 @@ final class ElasticsearchDataSourceConfigBuilderOps(val self: ElasticsearchDataS
 
 final class ElasticsearchDataSourceConfigOps(val self: ElasticsearchDataSourceConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala: Option[String] = Option(self.endpoint)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala: Option[String] = Option(self.awsRegion)
 
 }

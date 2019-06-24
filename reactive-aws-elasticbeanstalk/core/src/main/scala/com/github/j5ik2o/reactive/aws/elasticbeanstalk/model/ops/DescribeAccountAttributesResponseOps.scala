@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class DescribeAccountAttributesResponseBuilderOps(val self: DescribeAccountAttributesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceQuotasAsScala(value: Option[ResourceQuotas]): DescribeAccountAttributesResponse.Builder = {
     value.fold(self) { v =>
       self.resourceQuotas(v)
@@ -16,6 +17,7 @@ final class DescribeAccountAttributesResponseBuilderOps(val self: DescribeAccoun
 
 final class DescribeAccountAttributesResponseOps(val self: DescribeAccountAttributesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceQuotasAsScala: Option[ResourceQuotas] = Option(self.resourceQuotas)
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateLaunchTemplateVersionResponseBuilderOps(val self: CreateLaunchTemplateVersionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateVersionAsScala(
       value: Option[LaunchTemplateVersion]
   ): CreateLaunchTemplateVersionResponse.Builder = {
@@ -18,6 +19,7 @@ final class CreateLaunchTemplateVersionResponseBuilderOps(val self: CreateLaunch
 
 final class CreateLaunchTemplateVersionResponseOps(val self: CreateLaunchTemplateVersionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateVersionAsScala: Option[LaunchTemplateVersion] = Option(self.launchTemplateVersion)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class DeploymentControllerBuilderOps(val self: DeploymentController.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[DeploymentControllerType]): DeploymentController.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -15,6 +16,7 @@ final class DeploymentControllerBuilderOps(val self: DeploymentController.Builde
 
 final class DeploymentControllerOps(val self: DeploymentController) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[DeploymentControllerType] = Option(self.`type`)
 
 }

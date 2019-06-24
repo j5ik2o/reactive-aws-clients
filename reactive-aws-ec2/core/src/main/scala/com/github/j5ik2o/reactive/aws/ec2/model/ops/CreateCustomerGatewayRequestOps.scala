@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateCustomerGatewayRequestBuilderOps(val self: CreateCustomerGatewayRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bgpAsnAsScala(value: Option[Int]): CreateCustomerGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.bgpAsn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala(value: Option[String]): CreateCustomerGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.publicIp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[GatewayType]): CreateCustomerGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -27,10 +30,13 @@ final class CreateCustomerGatewayRequestBuilderOps(val self: CreateCustomerGatew
 
 final class CreateCustomerGatewayRequestOps(val self: CreateCustomerGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bgpAsnAsScala: Option[Int] = Option(self.bgpAsn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[GatewayType] = Option(self.`type`)
 
 }

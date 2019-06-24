@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateKeyPairRequestBuilderOps(val self: CreateKeyPairRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala(value: Option[String]): CreateKeyPairRequest.Builder = {
     value.fold(self) { v =>
       self.keyName(v)
@@ -15,6 +16,7 @@ final class CreateKeyPairRequestBuilderOps(val self: CreateKeyPairRequest.Builde
 
 final class CreateKeyPairRequestOps(val self: CreateKeyPairRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala: Option[String] = Option(self.keyName)
 
 }

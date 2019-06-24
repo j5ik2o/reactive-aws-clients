@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.batch.model._
 
 final class RetryStrategyBuilderOps(val self: RetryStrategy.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attemptsAsScala(value: Option[Int]): RetryStrategy.Builder = {
     value.fold(self) { v =>
       self.attempts(v)
@@ -15,6 +16,7 @@ final class RetryStrategyBuilderOps(val self: RetryStrategy.Builder) extends Any
 
 final class RetryStrategyOps(val self: RetryStrategy) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attemptsAsScala: Option[Int] = Option(self.attempts)
 
 }

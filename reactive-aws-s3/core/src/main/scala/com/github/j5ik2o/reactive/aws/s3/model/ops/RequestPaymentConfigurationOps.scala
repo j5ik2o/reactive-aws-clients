@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RequestPaymentConfigurationBuilderOps(val self: RequestPaymentConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payerAsScala(value: Option[Payer]): RequestPaymentConfiguration.Builder = {
     value.fold(self) { v =>
       self.payer(v)
@@ -15,6 +16,7 @@ final class RequestPaymentConfigurationBuilderOps(val self: RequestPaymentConfig
 
 final class RequestPaymentConfigurationOps(val self: RequestPaymentConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payerAsScala: Option[Payer] = Option(self.payer)
 
 }

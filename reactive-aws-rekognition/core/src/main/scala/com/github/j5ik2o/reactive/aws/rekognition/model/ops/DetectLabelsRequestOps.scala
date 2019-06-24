@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class DetectLabelsRequestBuilderOps(val self: DetectLabelsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): DetectLabelsRequest.Builder = {
     value.fold(self) { v =>
       self.image(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxLabelsAsScala(value: Option[Int]): DetectLabelsRequest.Builder = {
     value.fold(self) { v =>
       self.maxLabels(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala(value: Option[Float]): DetectLabelsRequest.Builder = {
     value.fold(self) { v =>
       self.minConfidence(v)
@@ -27,10 +30,13 @@ final class DetectLabelsRequestBuilderOps(val self: DetectLabelsRequest.Builder)
 
 final class DetectLabelsRequestOps(val self: DetectLabelsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala: Option[Image] = Option(self.image)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxLabelsAsScala: Option[Int] = Option(self.maxLabels)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala: Option[Float] = Option(self.minConfidence)
 
 }

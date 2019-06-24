@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class MetricFilterMatchRecordBuilderOps(val self: MetricFilterMatchRecord.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventNumberAsScala(value: Option[Long]): MetricFilterMatchRecord.Builder = {
     value.fold(self) { v =>
       self.eventNumber(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventMessageAsScala(value: Option[String]): MetricFilterMatchRecord.Builder = {
     value.fold(self) { v =>
       self.eventMessage(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def extractedValuesAsScala(value: Option[Map[String, String]]): MetricFilterMatchRecord.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.extractedValues(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.extractedValues(v.asJava)
     }
   }
 
@@ -27,12 +30,15 @@ final class MetricFilterMatchRecordBuilderOps(val self: MetricFilterMatchRecord.
 
 final class MetricFilterMatchRecordOps(val self: MetricFilterMatchRecord) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventNumberAsScala: Option[Long] = Option(self.eventNumber)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventMessageAsScala: Option[String] = Option(self.eventMessage)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def extractedValuesAsScala: Option[Map[String, String]] = Option(self.extractedValues).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

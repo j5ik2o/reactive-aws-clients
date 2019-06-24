@@ -5,30 +5,35 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AvailabilityZoneBuilderOps(val self: AvailabilityZone.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[AvailabilityZoneState]): AvailabilityZone.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messagesAsScala(value: Option[Seq[AvailabilityZoneMessage]]): AvailabilityZone.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.messages(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.messages(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): AvailabilityZone.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneNameAsScala(value: Option[String]): AvailabilityZone.Builder = {
     value.fold(self) { v =>
       self.zoneName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneIdAsScala(value: Option[String]): AvailabilityZone.Builder = {
     value.fold(self) { v =>
       self.zoneId(v)
@@ -39,16 +44,21 @@ final class AvailabilityZoneBuilderOps(val self: AvailabilityZone.Builder) exten
 
 final class AvailabilityZoneOps(val self: AvailabilityZone) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[AvailabilityZoneState] = Option(self.state)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messagesAsScala: Option[Seq[AvailabilityZoneMessage]] = Option(self.messages).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneNameAsScala: Option[String] = Option(self.zoneName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneIdAsScala: Option[String] = Option(self.zoneId)
 
 }

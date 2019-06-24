@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateFpgaImageResponseBuilderOps(val self: CreateFpgaImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala(value: Option[String]): CreateFpgaImageResponse.Builder = {
     value.fold(self) { v =>
       self.fpgaImageId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageGlobalIdAsScala(value: Option[String]): CreateFpgaImageResponse.Builder = {
     value.fold(self) { v =>
       self.fpgaImageGlobalId(v)
@@ -21,8 +23,10 @@ final class CreateFpgaImageResponseBuilderOps(val self: CreateFpgaImageResponse.
 
 final class CreateFpgaImageResponseOps(val self: CreateFpgaImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala: Option[String] = Option(self.fpgaImageId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageGlobalIdAsScala: Option[String] = Option(self.fpgaImageGlobalId)
 
 }

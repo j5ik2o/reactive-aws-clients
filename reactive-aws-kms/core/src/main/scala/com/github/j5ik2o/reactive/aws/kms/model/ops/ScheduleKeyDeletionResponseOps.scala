@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class ScheduleKeyDeletionResponseBuilderOps(val self: ScheduleKeyDeletionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ScheduleKeyDeletionResponse.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletionDateAsScala(value: Option[java.time.Instant]): ScheduleKeyDeletionResponse.Builder = {
     value.fold(self) { v =>
       self.deletionDate(v)
@@ -21,8 +23,10 @@ final class ScheduleKeyDeletionResponseBuilderOps(val self: ScheduleKeyDeletionR
 
 final class ScheduleKeyDeletionResponseOps(val self: ScheduleKeyDeletionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletionDateAsScala: Option[java.time.Instant] = Option(self.deletionDate)
 
 }

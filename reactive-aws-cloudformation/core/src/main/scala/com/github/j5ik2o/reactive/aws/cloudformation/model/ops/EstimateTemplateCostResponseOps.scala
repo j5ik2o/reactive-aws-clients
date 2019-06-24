@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class EstimateTemplateCostResponseBuilderOps(val self: EstimateTemplateCostResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def urlAsScala(value: Option[String]): EstimateTemplateCostResponse.Builder = {
     value.fold(self) { v =>
       self.url(v)
@@ -15,6 +16,7 @@ final class EstimateTemplateCostResponseBuilderOps(val self: EstimateTemplateCos
 
 final class EstimateTemplateCostResponseOps(val self: EstimateTemplateCostResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def urlAsScala: Option[String] = Option(self.url)
 
 }

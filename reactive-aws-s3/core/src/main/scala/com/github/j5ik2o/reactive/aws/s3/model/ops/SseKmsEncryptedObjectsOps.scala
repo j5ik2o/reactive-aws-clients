@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SseKmsEncryptedObjectsBuilderOps(val self: SseKmsEncryptedObjects.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[SseKmsEncryptedObjectsStatus]): SseKmsEncryptedObjects.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class SseKmsEncryptedObjectsBuilderOps(val self: SseKmsEncryptedObjects.Bu
 
 final class SseKmsEncryptedObjectsOps(val self: SseKmsEncryptedObjects) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[SseKmsEncryptedObjectsStatus] = Option(self.status)
 
 }

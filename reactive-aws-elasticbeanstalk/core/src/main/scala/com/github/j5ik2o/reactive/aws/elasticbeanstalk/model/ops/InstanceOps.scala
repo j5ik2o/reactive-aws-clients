@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class InstanceBuilderOps(val self: Instance.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Instance.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -15,6 +16,7 @@ final class InstanceBuilderOps(val self: Instance.Builder) extends AnyVal {
 
 final class InstanceOps(val self: Instance) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class PersonDetectionBuilderOps(val self: PersonDetection.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): PersonDetection.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def personAsScala(value: Option[PersonDetail]): PersonDetection.Builder = {
     value.fold(self) { v =>
       self.person(v)
@@ -21,8 +23,10 @@ final class PersonDetectionBuilderOps(val self: PersonDetection.Builder) extends
 
 final class PersonDetectionOps(val self: PersonDetection) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def personAsScala: Option[PersonDetail] = Option(self.person)
 
 }

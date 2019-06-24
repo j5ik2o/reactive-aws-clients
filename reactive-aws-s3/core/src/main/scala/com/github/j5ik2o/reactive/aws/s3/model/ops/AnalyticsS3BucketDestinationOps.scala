@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDestination.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala(value: Option[AnalyticsS3ExportFileFormat]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.format(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucketAccountId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
@@ -33,12 +37,16 @@ final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDe
 
 final class AnalyticsS3BucketDestinationOps(val self: AnalyticsS3BucketDestination) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala: Option[AnalyticsS3ExportFileFormat] = Option(self.format)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAccountIdAsScala: Option[String] = Option(self.bucketAccountId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala: Option[String] = Option(self.prefix)
 
 }

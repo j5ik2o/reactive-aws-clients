@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutObjectRetentionResponseBuilderOps(val self: PutObjectRetentionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectRetentionResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -15,6 +16,7 @@ final class PutObjectRetentionResponseBuilderOps(val self: PutObjectRetentionRes
 
 final class PutObjectRetentionResponseOps(val self: PutObjectRetentionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }

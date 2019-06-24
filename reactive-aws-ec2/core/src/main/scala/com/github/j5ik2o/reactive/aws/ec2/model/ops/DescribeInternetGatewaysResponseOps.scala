@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeInternetGatewaysResponseBuilderOps(val self: DescribeInternetGatewaysResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internetGatewaysAsScala(value: Option[Seq[InternetGateway]]): DescribeInternetGatewaysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.internetGateways(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.internetGateways(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class DescribeInternetGatewaysResponseBuilderOps(val self: DescribeInterne
 
 final class DescribeInternetGatewaysResponseOps(val self: DescribeInternetGatewaysResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internetGatewaysAsScala: Option[Seq[InternetGateway]] = Option(self.internetGateways).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class RestoreTableFromBackupResponseBuilderOps(val self: RestoreTableFromBackupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala(value: Option[TableDescription]): RestoreTableFromBackupResponse.Builder = {
     value.fold(self) { v =>
       self.tableDescription(v)
@@ -15,6 +16,7 @@ final class RestoreTableFromBackupResponseBuilderOps(val self: RestoreTableFromB
 
 final class RestoreTableFromBackupResponseOps(val self: RestoreTableFromBackupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription)
 
 }

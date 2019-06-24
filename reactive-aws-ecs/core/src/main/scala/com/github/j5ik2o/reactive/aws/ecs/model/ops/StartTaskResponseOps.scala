@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class StartTaskResponseBuilderOps(val self: StartTaskResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tasksAsScala(value: Option[Seq[Task]]): StartTaskResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tasks(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tasks(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failuresAsScala(value: Option[Seq[Failure]]): StartTaskResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.failures(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.failures(v.asJava)
     }
   }
 
@@ -21,12 +23,14 @@ final class StartTaskResponseBuilderOps(val self: StartTaskResponse.Builder) ext
 
 final class StartTaskResponseOps(val self: StartTaskResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tasksAsScala: Option[Seq[Task]] = Option(self.tasks).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failuresAsScala: Option[Seq[Failure]] = Option(self.failures).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

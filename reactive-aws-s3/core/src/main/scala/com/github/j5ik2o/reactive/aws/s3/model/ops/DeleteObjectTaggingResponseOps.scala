@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteObjectTaggingResponseBuilderOps(val self: DeleteObjectTaggingResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): DeleteObjectTaggingResponse.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
@@ -15,6 +16,7 @@ final class DeleteObjectTaggingResponseBuilderOps(val self: DeleteObjectTaggingR
 
 final class DeleteObjectTaggingResponseOps(val self: DeleteObjectTaggingResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }

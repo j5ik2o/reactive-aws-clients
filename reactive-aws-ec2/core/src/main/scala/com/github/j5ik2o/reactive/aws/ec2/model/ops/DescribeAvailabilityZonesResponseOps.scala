@@ -6,11 +6,12 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeAvailabilityZonesResponseBuilderOps(val self: DescribeAvailabilityZonesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZonesAsScala(
       value: Option[Seq[AvailabilityZone]]
   ): DescribeAvailabilityZonesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.availabilityZones(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.availabilityZones(v.asJava)
     }
   }
 
@@ -18,8 +19,9 @@ final class DescribeAvailabilityZonesResponseBuilderOps(val self: DescribeAvaila
 
 final class DescribeAvailabilityZonesResponseOps(val self: DescribeAvailabilityZonesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZonesAsScala: Option[Seq[AvailabilityZone]] = Option(self.availabilityZones).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

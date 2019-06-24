@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class IndexDocumentBuilderOps(val self: IndexDocument.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def suffixAsScala(value: Option[String]): IndexDocument.Builder = {
     value.fold(self) { v =>
       self.suffix(v)
@@ -15,6 +16,7 @@ final class IndexDocumentBuilderOps(val self: IndexDocument.Builder) extends Any
 
 final class IndexDocumentOps(val self: IndexDocument) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def suffixAsScala: Option[String] = Option(self.suffix)
 
 }

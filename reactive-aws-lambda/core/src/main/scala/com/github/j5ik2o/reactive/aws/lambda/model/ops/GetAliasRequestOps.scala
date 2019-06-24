@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class GetAliasRequestBuilderOps(val self: GetAliasRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): GetAliasRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): GetAliasRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -21,8 +23,10 @@ final class GetAliasRequestBuilderOps(val self: GetAliasRequest.Builder) extends
 
 final class GetAliasRequestOps(val self: GetAliasRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala: Option[String] = Option(self.functionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

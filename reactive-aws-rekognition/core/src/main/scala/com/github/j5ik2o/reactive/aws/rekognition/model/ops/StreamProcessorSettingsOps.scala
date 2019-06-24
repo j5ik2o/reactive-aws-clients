@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StreamProcessorSettingsBuilderOps(val self: StreamProcessorSettings.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceSearchAsScala(value: Option[FaceSearchSettings]): StreamProcessorSettings.Builder = {
     value.fold(self) { v =>
       self.faceSearch(v)
@@ -15,6 +16,7 @@ final class StreamProcessorSettingsBuilderOps(val self: StreamProcessorSettings.
 
 final class StreamProcessorSettingsOps(val self: StreamProcessorSettings) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceSearchAsScala: Option[FaceSearchSettings] = Option(self.faceSearch)
 
 }

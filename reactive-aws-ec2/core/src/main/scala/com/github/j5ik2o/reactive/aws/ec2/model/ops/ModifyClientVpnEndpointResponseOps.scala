@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ModifyClientVpnEndpointResponseBuilderOps(val self: ModifyClientVpnEndpointResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ModifyClientVpnEndpointResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -16,6 +17,7 @@ final class ModifyClientVpnEndpointResponseBuilderOps(val self: ModifyClientVpnE
 
 final class ModifyClientVpnEndpointResponseOps(val self: ModifyClientVpnEndpointResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

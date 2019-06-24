@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DisassociateIamInstanceProfileRequestBuilderOps(val self: DisassociateIamInstanceProfileRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): DisassociateIamInstanceProfileRequest.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -16,6 +17,7 @@ final class DisassociateIamInstanceProfileRequestBuilderOps(val self: Disassocia
 
 final class DisassociateIamInstanceProfileRequestOps(val self: DisassociateIamInstanceProfileRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeCustomerGatewaysResponseBuilderOps(val self: DescribeCustomerGatewaysResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customerGatewaysAsScala(value: Option[Seq[CustomerGateway]]): DescribeCustomerGatewaysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.customerGateways(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.customerGateways(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class DescribeCustomerGatewaysResponseBuilderOps(val self: DescribeCustome
 
 final class DescribeCustomerGatewaysResponseOps(val self: DescribeCustomerGatewaysResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customerGatewaysAsScala: Option[Seq[CustomerGateway]] = Option(self.customerGateways).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

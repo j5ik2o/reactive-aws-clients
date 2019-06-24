@@ -6,11 +6,12 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class DescribeConfigurationSettingsResponseBuilderOps(val self: DescribeConfigurationSettingsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configurationSettingsAsScala(
       value: Option[Seq[ConfigurationSettingsDescription]]
   ): DescribeConfigurationSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.configurationSettings(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.configurationSettings(v.asJava)
     }
   }
 
@@ -18,9 +19,10 @@ final class DescribeConfigurationSettingsResponseBuilderOps(val self: DescribeCo
 
 final class DescribeConfigurationSettingsResponseOps(val self: DescribeConfigurationSettingsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configurationSettingsAsScala: Option[Seq[ConfigurationSettingsDescription]] =
     Option(self.configurationSettings).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class RetrieveEnvironmentInfoRequestBuilderOps(val self: RetrieveEnvironmentInfoRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): RetrieveEnvironmentInfoRequest.Builder = {
     value.fold(self) { v =>
       self.environmentId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): RetrieveEnvironmentInfoRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoTypeAsScala(value: Option[EnvironmentInfoType]): RetrieveEnvironmentInfoRequest.Builder = {
     value.fold(self) { v =>
       self.infoType(v)
@@ -27,10 +30,13 @@ final class RetrieveEnvironmentInfoRequestBuilderOps(val self: RetrieveEnvironme
 
 final class RetrieveEnvironmentInfoRequestOps(val self: RetrieveEnvironmentInfoRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoTypeAsScala: Option[EnvironmentInfoType] = Option(self.infoType)
 
 }

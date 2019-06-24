@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class AssociateIamInstanceProfileResponseBuilderOps(val self: AssociateIamInstanceProfileResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAssociationAsScala(
       value: Option[IamInstanceProfileAssociation]
   ): AssociateIamInstanceProfileResponse.Builder = {
@@ -18,6 +19,7 @@ final class AssociateIamInstanceProfileResponseBuilderOps(val self: AssociateIam
 
 final class AssociateIamInstanceProfileResponseOps(val self: AssociateIamInstanceProfileResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamInstanceProfileAssociationAsScala: Option[IamInstanceProfileAssociation] =
     Option(self.iamInstanceProfileAssociation)
 

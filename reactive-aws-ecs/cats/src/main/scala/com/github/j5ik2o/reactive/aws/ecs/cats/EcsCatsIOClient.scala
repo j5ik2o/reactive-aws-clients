@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.ecs.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.ecs.{ EcsAsyncClient, EcsClient }
 import software.amazon.awssdk.services.ecs.model._
 import software.amazon.awssdk.services.ecs.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object EcsCatsIOClient {
 
-  def apply(asyncClient: EcsAsyncClient): EcsCatsIOClient = new EcsCatsIOClient {
-    override val underlying: EcsAsyncClient = asyncClient
+  def apply(asyncClient: EcsAsyncClient)(implicit ec: ExecutionContext): EcsCatsIOClient = new EcsCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: EcsAsyncClient         = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object EcsCatsIOClient {
 trait EcsCatsIOClient extends EcsClient[IO] {
 
   val underlying: EcsAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def createCluster(createClusterRequest: CreateClusterRequest): IO[CreateClusterResponse] =
     IO.fromFuture {

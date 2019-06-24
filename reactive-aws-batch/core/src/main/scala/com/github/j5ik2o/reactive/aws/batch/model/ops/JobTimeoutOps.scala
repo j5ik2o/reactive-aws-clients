@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.batch.model._
 
 final class JobTimeoutBuilderOps(val self: JobTimeout.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attemptDurationSecondsAsScala(value: Option[Int]): JobTimeout.Builder = {
     value.fold(self) { v =>
       self.attemptDurationSeconds(v)
@@ -15,6 +16,7 @@ final class JobTimeoutBuilderOps(val self: JobTimeout.Builder) extends AnyVal {
 
 final class JobTimeoutOps(val self: JobTimeout) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attemptDurationSecondsAsScala: Option[Int] = Option(self.attemptDurationSeconds)
 
 }

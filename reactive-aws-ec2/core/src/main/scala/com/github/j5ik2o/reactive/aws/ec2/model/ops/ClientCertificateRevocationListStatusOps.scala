@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ClientCertificateRevocationListStatusBuilderOps(val self: ClientCertificateRevocationListStatus.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(
       value: Option[ClientCertificateRevocationListStatusCode]
   ): ClientCertificateRevocationListStatus.Builder = {
@@ -14,6 +15,7 @@ final class ClientCertificateRevocationListStatusBuilderOps(val self: ClientCert
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): ClientCertificateRevocationListStatus.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -24,8 +26,10 @@ final class ClientCertificateRevocationListStatusBuilderOps(val self: ClientCert
 
 final class ClientCertificateRevocationListStatusOps(val self: ClientCertificateRevocationListStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[ClientCertificateRevocationListStatusCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

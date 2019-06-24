@@ -6,15 +6,17 @@ import software.amazon.awssdk.services.ecr.model._
 final class BatchCheckLayerAvailabilityResponseBuilderOps(val self: BatchCheckLayerAvailabilityResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layersAsScala(value: Option[Seq[Layer]]): BatchCheckLayerAvailabilityResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.layers(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.layers(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failuresAsScala(value: Option[Seq[LayerFailure]]): BatchCheckLayerAvailabilityResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.failures(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.failures(v.asJava)
     }
   }
 
@@ -22,12 +24,14 @@ final class BatchCheckLayerAvailabilityResponseBuilderOps(val self: BatchCheckLa
 
 final class BatchCheckLayerAvailabilityResponseOps(val self: BatchCheckLayerAvailabilityResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layersAsScala: Option[Seq[Layer]] = Option(self.layers).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failuresAsScala: Option[Seq[LayerFailure]] = Option(self.failures).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

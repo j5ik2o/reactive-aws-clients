@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.rekognition.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.rekognition.{ RekognitionAsyncClient, RekognitionClient }
 import software.amazon.awssdk.services.rekognition.model._
 import software.amazon.awssdk.services.rekognition.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object RekognitionCatsIOClient {
 
-  def apply(asyncClient: RekognitionAsyncClient): RekognitionCatsIOClient = new RekognitionCatsIOClient {
-    override val underlying: RekognitionAsyncClient = asyncClient
-  }
+  def apply(asyncClient: RekognitionAsyncClient)(implicit ec: ExecutionContext): RekognitionCatsIOClient =
+    new RekognitionCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: RekognitionAsyncClient = asyncClient
+    }
 
 }
 
 trait RekognitionCatsIOClient extends RekognitionClient[IO] {
 
   val underlying: RekognitionAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def compareFaces(compareFacesRequest: CompareFacesRequest): IO[CompareFacesResponse] =
     IO.fromFuture {

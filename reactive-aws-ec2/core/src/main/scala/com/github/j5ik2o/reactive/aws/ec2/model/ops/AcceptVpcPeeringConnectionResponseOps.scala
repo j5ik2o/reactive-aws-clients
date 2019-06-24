@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class AcceptVpcPeeringConnectionResponseBuilderOps(val self: AcceptVpcPeeringConnectionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcPeeringConnectionAsScala(
       value: Option[VpcPeeringConnection]
   ): AcceptVpcPeeringConnectionResponse.Builder = {
@@ -18,6 +19,7 @@ final class AcceptVpcPeeringConnectionResponseBuilderOps(val self: AcceptVpcPeer
 
 final class AcceptVpcPeeringConnectionResponseOps(val self: AcceptVpcPeeringConnectionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcPeeringConnectionAsScala: Option[VpcPeeringConnection] = Option(self.vpcPeeringConnection)
 
 }

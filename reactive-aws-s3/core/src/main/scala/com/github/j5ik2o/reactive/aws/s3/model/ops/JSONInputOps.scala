@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class JSONInputBuilderOps(val self: JSONInput.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[JSONType]): JSONInput.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -15,6 +16,7 @@ final class JSONInputBuilderOps(val self: JSONInput.Builder) extends AnyVal {
 
 final class JSONInputOps(val self: JSONInput) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[JSONType] = Option(self.`type`)
 
 }

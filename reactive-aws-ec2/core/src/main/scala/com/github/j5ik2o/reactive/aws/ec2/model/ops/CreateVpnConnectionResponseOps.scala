@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateVpnConnectionResponseBuilderOps(val self: CreateVpnConnectionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnConnectionAsScala(value: Option[VpnConnection]): CreateVpnConnectionResponse.Builder = {
     value.fold(self) { v =>
       self.vpnConnection(v)
@@ -15,6 +16,7 @@ final class CreateVpnConnectionResponseBuilderOps(val self: CreateVpnConnectionR
 
 final class CreateVpnConnectionResponseOps(val self: CreateVpnConnectionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnConnectionAsScala: Option[VpnConnection] = Option(self.vpnConnection)
 
 }

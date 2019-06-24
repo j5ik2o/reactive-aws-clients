@@ -5,30 +5,35 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ProvisionedBandwidthBuilderOps(val self: ProvisionedBandwidth.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionTimeAsScala(value: Option[java.time.Instant]): ProvisionedBandwidth.Builder = {
     value.fold(self) { v =>
       self.provisionTime(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedAsScala(value: Option[String]): ProvisionedBandwidth.Builder = {
     value.fold(self) { v =>
       self.provisioned(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestTimeAsScala(value: Option[java.time.Instant]): ProvisionedBandwidth.Builder = {
     value.fold(self) { v =>
       self.requestTime(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestedAsScala(value: Option[String]): ProvisionedBandwidth.Builder = {
     value.fold(self) { v =>
       self.requested(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): ProvisionedBandwidth.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -39,14 +44,19 @@ final class ProvisionedBandwidthBuilderOps(val self: ProvisionedBandwidth.Builde
 
 final class ProvisionedBandwidthOps(val self: ProvisionedBandwidth) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionTimeAsScala: Option[java.time.Instant] = Option(self.provisionTime)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedAsScala: Option[String] = Option(self.provisioned)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestTimeAsScala: Option[java.time.Instant] = Option(self.requestTime)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestedAsScala: Option[String] = Option(self.requested)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)
 
 }

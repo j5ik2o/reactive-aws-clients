@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AttachNetworkInterfaceResponseBuilderOps(val self: AttachNetworkInterfaceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentIdAsScala(value: Option[String]): AttachNetworkInterfaceResponse.Builder = {
     value.fold(self) { v =>
       self.attachmentId(v)
@@ -15,6 +16,7 @@ final class AttachNetworkInterfaceResponseBuilderOps(val self: AttachNetworkInte
 
 final class AttachNetworkInterfaceResponseOps(val self: AttachNetworkInterfaceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentIdAsScala: Option[String] = Option(self.attachmentId)
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CancelCapacityReservationResponseBuilderOps(val self: CancelCapacityReservationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): CancelCapacityReservationResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -16,6 +17,7 @@ final class CancelCapacityReservationResponseBuilderOps(val self: CancelCapacity
 
 final class CancelCapacityReservationResponseOps(val self: CancelCapacityReservationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

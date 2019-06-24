@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class ResourceQuotaBuilderOps(val self: ResourceQuota.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumAsScala(value: Option[Int]): ResourceQuota.Builder = {
     value.fold(self) { v =>
       self.maximum(v)
@@ -15,6 +16,7 @@ final class ResourceQuotaBuilderOps(val self: ResourceQuota.Builder) extends Any
 
 final class ResourceQuotaOps(val self: ResourceQuota) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumAsScala: Option[Int] = Option(self.maximum)
 
 }

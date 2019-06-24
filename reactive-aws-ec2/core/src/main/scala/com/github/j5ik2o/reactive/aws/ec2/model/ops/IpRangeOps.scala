@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class IpRangeBuilderOps(val self: IpRange.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrIpAsScala(value: Option[String]): IpRange.Builder = {
     value.fold(self) { v =>
       self.cidrIp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): IpRange.Builder = {
     value.fold(self) { v =>
       self.description(v)
@@ -21,8 +23,10 @@ final class IpRangeBuilderOps(val self: IpRange.Builder) extends AnyVal {
 
 final class IpRangeOps(val self: IpRange) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrIpAsScala: Option[String] = Option(self.cidrIp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
 }

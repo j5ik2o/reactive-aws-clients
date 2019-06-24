@@ -7,12 +7,14 @@ final class GetHostReservationPurchasePreviewRequestBuilderOps(
     val self: GetHostReservationPurchasePreviewRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostIdSetAsScala(value: Option[Seq[String]]): GetHostReservationPurchasePreviewRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.hostIdSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.hostIdSet(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def offeringIdAsScala(value: Option[String]): GetHostReservationPurchasePreviewRequest.Builder = {
     value.fold(self) { v =>
       self.offeringId(v)
@@ -24,10 +26,12 @@ final class GetHostReservationPurchasePreviewRequestBuilderOps(
 final class GetHostReservationPurchasePreviewRequestOps(val self: GetHostReservationPurchasePreviewRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostIdSetAsScala: Option[Seq[String]] = Option(self.hostIdSet).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def offeringIdAsScala: Option[String] = Option(self.offeringId)
 
 }

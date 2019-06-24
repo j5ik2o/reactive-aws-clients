@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteParameterGroupRequestBuilderOps(val self: DeleteParameterGroupRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): DeleteParameterGroupRequest.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
@@ -15,6 +16,7 @@ final class DeleteParameterGroupRequestBuilderOps(val self: DeleteParameterGroup
 
 final class DeleteParameterGroupRequestOps(val self: DeleteParameterGroupRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
 }

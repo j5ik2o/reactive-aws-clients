@@ -1,22 +1,29 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.dynamodb.streams.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.dynamodb.streams.{ DynamoDbStreamsAsyncClient, DynamoDbStreamsClient }
 import software.amazon.awssdk.services.dynamodb.model._
 import software.amazon.awssdk.services.dynamodb.streams.paginators.{ DescribeStreamPublisher, ListStreamsPublisher }
 
+import scala.concurrent.{ ExecutionContext, Future }
+
 object DynamoDbStreamsCatsIOClient {
 
-  def apply(asyncClient: DynamoDbStreamsAsyncClient): DynamoDbStreamsCatsIOClient = new DynamoDbStreamsCatsIOClient {
-    override val underlying: DynamoDbStreamsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: DynamoDbStreamsAsyncClient)(implicit ec: ExecutionContext): DynamoDbStreamsCatsIOClient =
+    new DynamoDbStreamsCatsIOClient {
+      override val executionContext: ExecutionContext     = ec
+      override val underlying: DynamoDbStreamsAsyncClient = asyncClient
+    }
 
 }
 
 trait DynamoDbStreamsCatsIOClient extends DynamoDbStreamsClient[IO] {
 
   val underlying: DynamoDbStreamsAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def describeStream(describeStreamRequest: DescribeStreamRequest): IO[DescribeStreamResponse] =
     IO.fromFuture {

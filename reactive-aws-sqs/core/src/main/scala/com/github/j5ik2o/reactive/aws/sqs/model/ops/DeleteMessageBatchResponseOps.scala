@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageBatchResponseBuilderOps(val self: DeleteMessageBatchResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfulAsScala(value: Option[Seq[DeleteMessageBatchResultEntry]]): DeleteMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.successful(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.successful(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failedAsScala(value: Option[Seq[BatchResultErrorEntry]]): DeleteMessageBatchResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.failed(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.failed(v.asJava)
     }
   }
 
@@ -21,12 +23,14 @@ final class DeleteMessageBatchResponseBuilderOps(val self: DeleteMessageBatchRes
 
 final class DeleteMessageBatchResponseOps(val self: DeleteMessageBatchResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfulAsScala: Option[Seq[DeleteMessageBatchResultEntry]] = Option(self.successful).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failedAsScala: Option[Seq[BatchResultErrorEntry]] = Option(self.failed).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeSubnetsRequestBuilderOps(val self: DescribeSubnetsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[Seq[Filter]]): DescribeSubnetsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filters(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdsAsScala(value: Option[Seq[String]]): DescribeSubnetsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.subnetIds(v.asJava)
     }
   }
 
@@ -21,12 +23,14 @@ final class DescribeSubnetsRequestBuilderOps(val self: DescribeSubnetsRequest.Bu
 
 final class DescribeSubnetsRequestOps(val self: DescribeSubnetsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CancelSpotFleetRequestsErrorBuilderOps(val self: CancelSpotFleetRequestsError.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[CancelBatchErrorCode]): CancelSpotFleetRequestsError.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): CancelSpotFleetRequestsError.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class CancelSpotFleetRequestsErrorBuilderOps(val self: CancelSpotFleetRequ
 
 final class CancelSpotFleetRequestsErrorOps(val self: CancelSpotFleetRequestsError) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[CancelBatchErrorCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

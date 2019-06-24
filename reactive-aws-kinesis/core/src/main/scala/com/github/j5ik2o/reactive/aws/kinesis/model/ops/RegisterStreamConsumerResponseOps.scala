@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RegisterStreamConsumerResponseBuilderOps(val self: RegisterStreamConsumerResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumerAsScala(value: Option[Consumer]): RegisterStreamConsumerResponse.Builder = {
     value.fold(self) { v =>
       self.consumer(v)
@@ -15,6 +16,7 @@ final class RegisterStreamConsumerResponseBuilderOps(val self: RegisterStreamCon
 
 final class RegisterStreamConsumerResponseOps(val self: RegisterStreamConsumerResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumerAsScala: Option[Consumer] = Option(self.consumer)
 
 }

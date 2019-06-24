@@ -7,6 +7,7 @@ final class DescribeNetworkInterfaceAttributeRequestBuilderOps(
     val self: DescribeNetworkInterfaceAttributeRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala(
       value: Option[NetworkInterfaceAttribute]
   ): DescribeNetworkInterfaceAttributeRequest.Builder = {
@@ -15,6 +16,7 @@ final class DescribeNetworkInterfaceAttributeRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): DescribeNetworkInterfaceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
@@ -26,8 +28,10 @@ final class DescribeNetworkInterfaceAttributeRequestBuilderOps(
 final class DescribeNetworkInterfaceAttributeRequestOps(val self: DescribeNetworkInterfaceAttributeRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala: Option[NetworkInterfaceAttribute] = Option(self.attribute)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
 
 }

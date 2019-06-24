@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteFpgaImageResponseBuilderOps(val self: DeleteFpgaImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): DeleteFpgaImageResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -15,6 +16,7 @@ final class DeleteFpgaImageResponseBuilderOps(val self: DeleteFpgaImageResponse.
 
 final class DeleteFpgaImageResponseOps(val self: DeleteFpgaImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RouteTableAssociationBuilderOps(val self: RouteTableAssociation.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mainAsScala(value: Option[Boolean]): RouteTableAssociation.Builder = {
     value.fold(self) { v =>
       self.main(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableAssociationIdAsScala(value: Option[String]): RouteTableAssociation.Builder = {
     value.fold(self) { v =>
       self.routeTableAssociationId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala(value: Option[String]): RouteTableAssociation.Builder = {
     value.fold(self) { v =>
       self.routeTableId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): RouteTableAssociation.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -33,12 +37,16 @@ final class RouteTableAssociationBuilderOps(val self: RouteTableAssociation.Buil
 
 final class RouteTableAssociationOps(val self: RouteTableAssociation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mainAsScala: Option[Boolean] = Option(self.main)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableAssociationIdAsScala: Option[String] = Option(self.routeTableAssociationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala: Option[String] = Option(self.routeTableId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

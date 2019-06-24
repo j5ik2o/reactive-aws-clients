@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteNatGatewayRequestBuilderOps(val self: DeleteNatGatewayRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def natGatewayIdAsScala(value: Option[String]): DeleteNatGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.natGatewayId(v)
@@ -15,6 +16,7 @@ final class DeleteNatGatewayRequestBuilderOps(val self: DeleteNatGatewayRequest.
 
 final class DeleteNatGatewayRequestOps(val self: DeleteNatGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def natGatewayIdAsScala: Option[String] = Option(self.natGatewayId)
 
 }

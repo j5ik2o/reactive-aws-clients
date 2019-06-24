@@ -7,19 +7,23 @@ final class ModifyInstanceCreditSpecificationResponseBuilderOps(
     val self: ModifyInstanceCreditSpecificationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfulInstanceCreditSpecificationsAsScala(
       value: Option[Seq[SuccessfulInstanceCreditSpecificationItem]]
   ): ModifyInstanceCreditSpecificationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.successfulInstanceCreditSpecifications(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.successfulInstanceCreditSpecifications(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfulInstanceCreditSpecificationsAsScala(
       value: Option[Seq[UnsuccessfulInstanceCreditSpecificationItem]]
   ): ModifyInstanceCreditSpecificationResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.unsuccessfulInstanceCreditSpecifications(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.unsuccessfulInstanceCreditSpecifications(v.asJava)
     }
   }
 
@@ -28,14 +32,16 @@ final class ModifyInstanceCreditSpecificationResponseBuilderOps(
 final class ModifyInstanceCreditSpecificationResponseOps(val self: ModifyInstanceCreditSpecificationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successfulInstanceCreditSpecificationsAsScala: Option[Seq[SuccessfulInstanceCreditSpecificationItem]] =
     Option(self.successfulInstanceCreditSpecifications).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfulInstanceCreditSpecificationsAsScala: Option[Seq[UnsuccessfulInstanceCreditSpecificationItem]] =
     Option(self.unsuccessfulInstanceCreditSpecifications).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

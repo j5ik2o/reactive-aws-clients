@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.lambda.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.lambda.{ LambdaAsyncClient, LambdaClient }
 import software.amazon.awssdk.services.lambda.model._
 import software.amazon.awssdk.services.lambda.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object LambdaCatsIOClient {
 
-  def apply(asyncClient: LambdaAsyncClient): LambdaCatsIOClient = new LambdaCatsIOClient {
-    override val underlying: LambdaAsyncClient = asyncClient
-  }
+  def apply(asyncClient: LambdaAsyncClient)(implicit ec: ExecutionContext): LambdaCatsIOClient =
+    new LambdaCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: LambdaAsyncClient      = asyncClient
+    }
 
 }
 
 trait LambdaCatsIOClient extends LambdaClient[IO] {
 
   val underlying: LambdaAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def addLayerVersionPermission(
       addLayerVersionPermissionRequest: AddLayerVersionPermissionRequest

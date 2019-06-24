@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class DeleteAccountSettingRequestBuilderOps(val self: DeleteAccountSettingRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[SettingName]): DeleteAccountSettingRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala(value: Option[String]): DeleteAccountSettingRequest.Builder = {
     value.fold(self) { v =>
       self.principalArn(v)
@@ -21,8 +23,10 @@ final class DeleteAccountSettingRequestBuilderOps(val self: DeleteAccountSetting
 
 final class DeleteAccountSettingRequestOps(val self: DeleteAccountSettingRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[SettingName] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala: Option[String] = Option(self.principalArn)
 
 }

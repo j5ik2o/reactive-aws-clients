@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StartLabelDetectionResponseBuilderOps(val self: StartLabelDetectionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartLabelDetectionResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
@@ -15,6 +16,7 @@ final class StartLabelDetectionResponseBuilderOps(val self: StartLabelDetectionR
 
 final class StartLabelDetectionResponseOps(val self: StartLabelDetectionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }

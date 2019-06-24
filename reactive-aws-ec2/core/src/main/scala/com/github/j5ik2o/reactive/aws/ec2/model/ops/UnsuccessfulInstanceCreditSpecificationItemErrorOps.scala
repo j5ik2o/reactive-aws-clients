@@ -7,6 +7,7 @@ final class UnsuccessfulInstanceCreditSpecificationItemErrorBuilderOps(
     val self: UnsuccessfulInstanceCreditSpecificationItemError.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(
       value: Option[UnsuccessfulInstanceCreditSpecificationErrorCode]
   ): UnsuccessfulInstanceCreditSpecificationItemError.Builder = {
@@ -15,6 +16,7 @@ final class UnsuccessfulInstanceCreditSpecificationItemErrorBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): UnsuccessfulInstanceCreditSpecificationItemError.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -27,8 +29,10 @@ final class UnsuccessfulInstanceCreditSpecificationItemErrorOps(
     val self: UnsuccessfulInstanceCreditSpecificationItemError
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[UnsuccessfulInstanceCreditSpecificationErrorCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

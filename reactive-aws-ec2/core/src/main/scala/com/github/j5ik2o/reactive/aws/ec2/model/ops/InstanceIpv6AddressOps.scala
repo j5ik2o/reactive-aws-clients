@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class InstanceIpv6AddressBuilderOps(val self: InstanceIpv6Address.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6AddressAsScala(value: Option[String]): InstanceIpv6Address.Builder = {
     value.fold(self) { v =>
       self.ipv6Address(v)
@@ -15,6 +16,7 @@ final class InstanceIpv6AddressBuilderOps(val self: InstanceIpv6Address.Builder)
 
 final class InstanceIpv6AddressOps(val self: InstanceIpv6Address) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6AddressAsScala: Option[String] = Option(self.ipv6Address)
 
 }

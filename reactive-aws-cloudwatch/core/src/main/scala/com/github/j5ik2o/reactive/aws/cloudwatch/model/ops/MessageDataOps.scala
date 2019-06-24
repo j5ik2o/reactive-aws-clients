@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class MessageDataBuilderOps(val self: MessageData.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[String]): MessageData.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): MessageData.Builder = {
     value.fold(self) { v =>
       self.value(v)
@@ -21,8 +23,10 @@ final class MessageDataBuilderOps(val self: MessageData.Builder) extends AnyVal 
 
 final class MessageDataOps(val self: MessageData) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[String] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[String] = Option(self.value)
 
 }

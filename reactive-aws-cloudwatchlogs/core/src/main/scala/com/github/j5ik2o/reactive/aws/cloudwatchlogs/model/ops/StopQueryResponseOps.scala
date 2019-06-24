@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class StopQueryResponseBuilderOps(val self: StopQueryResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successAsScala(value: Option[Boolean]): StopQueryResponse.Builder = {
     value.fold(self) { v =>
       self.success(v)
@@ -15,6 +16,7 @@ final class StopQueryResponseBuilderOps(val self: StopQueryResponse.Builder) ext
 
 final class StopQueryResponseOps(val self: StopQueryResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successAsScala: Option[Boolean] = Option(self.success)
 
 }

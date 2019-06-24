@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class StartSchemaCreationResponseBuilderOps(val self: StartSchemaCreationResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[SchemaStatus]): StartSchemaCreationResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class StartSchemaCreationResponseBuilderOps(val self: StartSchemaCreationR
 
 final class StartSchemaCreationResponseOps(val self: StartSchemaCreationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[SchemaStatus] = Option(self.status)
 
 }

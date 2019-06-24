@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class InternetGatewayAttachmentBuilderOps(val self: InternetGatewayAttachment.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[AttachmentStatus]): InternetGatewayAttachment.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): InternetGatewayAttachment.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -21,8 +23,10 @@ final class InternetGatewayAttachmentBuilderOps(val self: InternetGatewayAttachm
 
 final class InternetGatewayAttachmentOps(val self: InternetGatewayAttachment) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[AttachmentStatus] = Option(self.state)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

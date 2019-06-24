@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class DescribeEnvironmentResourcesResponseBuilderOps(val self: DescribeEnvironmentResourcesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentResourcesAsScala(
       value: Option[EnvironmentResourceDescription]
   ): DescribeEnvironmentResourcesResponse.Builder = {
@@ -18,6 +19,7 @@ final class DescribeEnvironmentResourcesResponseBuilderOps(val self: DescribeEnv
 
 final class DescribeEnvironmentResourcesResponseOps(val self: DescribeEnvironmentResourcesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentResourcesAsScala: Option[EnvironmentResourceDescription] = Option(self.environmentResources)
 
 }

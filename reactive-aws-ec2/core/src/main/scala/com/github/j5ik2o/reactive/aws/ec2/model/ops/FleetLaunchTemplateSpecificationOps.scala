@@ -6,18 +6,21 @@ import software.amazon.awssdk.services.ec2.model._
 final class FleetLaunchTemplateSpecificationBuilderOps(val self: FleetLaunchTemplateSpecification.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateIdAsScala(value: Option[String]): FleetLaunchTemplateSpecification.Builder = {
     value.fold(self) { v =>
       self.launchTemplateId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateNameAsScala(value: Option[String]): FleetLaunchTemplateSpecification.Builder = {
     value.fold(self) { v =>
       self.launchTemplateName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): FleetLaunchTemplateSpecification.Builder = {
     value.fold(self) { v =>
       self.version(v)
@@ -28,10 +31,13 @@ final class FleetLaunchTemplateSpecificationBuilderOps(val self: FleetLaunchTemp
 
 final class FleetLaunchTemplateSpecificationOps(val self: FleetLaunchTemplateSpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateIdAsScala: Option[String] = Option(self.launchTemplateId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateNameAsScala: Option[String] = Option(self.launchTemplateName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala: Option[String] = Option(self.version)
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.lambda.model._
 final class DeleteFunctionConcurrencyRequestBuilderOps(val self: DeleteFunctionConcurrencyRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): DeleteFunctionConcurrencyRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
@@ -16,6 +17,7 @@ final class DeleteFunctionConcurrencyRequestBuilderOps(val self: DeleteFunctionC
 
 final class DeleteFunctionConcurrencyRequestOps(val self: DeleteFunctionConcurrencyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala: Option[String] = Option(self.functionName)
 
 }

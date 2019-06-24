@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeAddressesRequestBuilderOps(val self: DescribeAddressesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[Seq[Filter]]): DescribeAddressesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filters(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpsAsScala(value: Option[Seq[String]]): DescribeAddressesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.publicIps(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.publicIps(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdsAsScala(value: Option[Seq[String]]): DescribeAddressesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.allocationIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.allocationIds(v.asJava)
     }
   }
 
@@ -27,16 +30,19 @@ final class DescribeAddressesRequestBuilderOps(val self: DescribeAddressesReques
 
 final class DescribeAddressesRequestOps(val self: DescribeAddressesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpsAsScala: Option[Seq[String]] = Option(self.publicIps).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdsAsScala: Option[Seq[String]] = Option(self.allocationIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

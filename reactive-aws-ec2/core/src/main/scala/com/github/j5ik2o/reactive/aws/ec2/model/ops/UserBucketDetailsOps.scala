@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class UserBucketDetailsBuilderOps(val self: UserBucketDetails.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): UserBucketDetails.Builder = {
     value.fold(self) { v =>
       self.s3Bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala(value: Option[String]): UserBucketDetails.Builder = {
     value.fold(self) { v =>
       self.s3Key(v)
@@ -21,8 +23,10 @@ final class UserBucketDetailsBuilderOps(val self: UserBucketDetails.Builder) ext
 
 final class UserBucketDetailsOps(val self: UserBucketDetails) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala: Option[String] = Option(self.s3Bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala: Option[String] = Option(self.s3Key)
 
 }

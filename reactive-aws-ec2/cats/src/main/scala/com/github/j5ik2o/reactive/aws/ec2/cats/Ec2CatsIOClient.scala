@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.ec2.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.ec2.{ Ec2AsyncClient, Ec2Client }
 import software.amazon.awssdk.services.ec2.model._
 import software.amazon.awssdk.services.ec2.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object Ec2CatsIOClient {
 
-  def apply(asyncClient: Ec2AsyncClient): Ec2CatsIOClient = new Ec2CatsIOClient {
-    override val underlying: Ec2AsyncClient = asyncClient
+  def apply(asyncClient: Ec2AsyncClient)(implicit ec: ExecutionContext): Ec2CatsIOClient = new Ec2CatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: Ec2AsyncClient         = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object Ec2CatsIOClient {
 trait Ec2CatsIOClient extends Ec2Client[IO] {
 
   val underlying: Ec2AsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def acceptReservedInstancesExchangeQuote(
       acceptReservedInstancesExchangeQuoteRequest: AcceptReservedInstancesExchangeQuoteRequest

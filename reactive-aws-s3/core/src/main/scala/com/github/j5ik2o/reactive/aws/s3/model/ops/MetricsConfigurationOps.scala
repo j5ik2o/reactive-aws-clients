@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class MetricsConfigurationBuilderOps(val self: MetricsConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): MetricsConfiguration.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterAsScala(value: Option[MetricsFilter]): MetricsConfiguration.Builder = {
     value.fold(self) { v =>
       self.filter(v)
@@ -21,8 +23,10 @@ final class MetricsConfigurationBuilderOps(val self: MetricsConfiguration.Builde
 
 final class MetricsConfigurationOps(val self: MetricsConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterAsScala: Option[MetricsFilter] = Option(self.filter)
 
 }

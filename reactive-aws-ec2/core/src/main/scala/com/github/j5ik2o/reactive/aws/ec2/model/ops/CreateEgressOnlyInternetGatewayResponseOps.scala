@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateEgressOnlyInternetGatewayResponseBuilderOps(val self: CreateEgressOnlyInternetGatewayResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateEgressOnlyInternetGatewayResponse.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayAsScala(
       value: Option[EgressOnlyInternetGateway]
   ): CreateEgressOnlyInternetGatewayResponse.Builder = {
@@ -25,8 +27,10 @@ final class CreateEgressOnlyInternetGatewayResponseBuilderOps(val self: CreateEg
 final class CreateEgressOnlyInternetGatewayResponseOps(val self: CreateEgressOnlyInternetGatewayResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayAsScala: Option[EgressOnlyInternetGateway] = Option(self.egressOnlyInternetGateway)
 
 }

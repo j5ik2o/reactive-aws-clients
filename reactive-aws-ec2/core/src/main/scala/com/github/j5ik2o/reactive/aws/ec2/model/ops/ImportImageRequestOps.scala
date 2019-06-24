@@ -5,66 +5,77 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ImportImageRequestBuilderOps(val self: ImportImageRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def architectureAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.architecture(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientDataAsScala(value: Option[ClientData]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.clientData(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def diskContainersAsScala(value: Option[Seq[ImageDiskContainer]]): ImportImageRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.diskContainers(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.diskContainers(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptedAsScala(value: Option[Boolean]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.encrypted(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hypervisorAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.hypervisor(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseTypeAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.licenseType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.platform(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleNameAsScala(value: Option[String]): ImportImageRequest.Builder = {
     value.fold(self) { v =>
       self.roleName(v)
@@ -75,28 +86,39 @@ final class ImportImageRequestBuilderOps(val self: ImportImageRequest.Builder) e
 
 final class ImportImageRequestOps(val self: ImportImageRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def architectureAsScala: Option[String] = Option(self.architecture)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientDataAsScala: Option[ClientData] = Option(self.clientData)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def diskContainersAsScala: Option[Seq[ImageDiskContainer]] = Option(self.diskContainers).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptedAsScala: Option[Boolean] = Option(self.encrypted)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hypervisorAsScala: Option[String] = Option(self.hypervisor)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseTypeAsScala: Option[String] = Option(self.licenseType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformAsScala: Option[String] = Option(self.platform)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleNameAsScala: Option[String] = Option(self.roleName)
 
 }

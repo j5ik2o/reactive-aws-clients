@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class CheckDnsAvailabilityRequestBuilderOps(val self: CheckDnsAvailabilityRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cnamePrefixAsScala(value: Option[String]): CheckDnsAvailabilityRequest.Builder = {
     value.fold(self) { v =>
       self.cnamePrefix(v)
@@ -15,6 +16,7 @@ final class CheckDnsAvailabilityRequestBuilderOps(val self: CheckDnsAvailability
 
 final class CheckDnsAvailabilityRequestOps(val self: CheckDnsAvailabilityRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cnamePrefixAsScala: Option[String] = Option(self.cnamePrefix)
 
 }

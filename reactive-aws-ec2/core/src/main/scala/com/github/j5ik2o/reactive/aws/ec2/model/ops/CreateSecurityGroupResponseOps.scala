@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateSecurityGroupResponseBuilderOps(val self: CreateSecurityGroupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupIdAsScala(value: Option[String]): CreateSecurityGroupResponse.Builder = {
     value.fold(self) { v =>
       self.groupId(v)
@@ -15,6 +16,7 @@ final class CreateSecurityGroupResponseBuilderOps(val self: CreateSecurityGroupR
 
 final class CreateSecurityGroupResponseOps(val self: CreateSecurityGroupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupIdAsScala: Option[String] = Option(self.groupId)
 
 }

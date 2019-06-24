@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ClassicLinkDnsSupportBuilderOps(val self: ClassicLinkDnsSupport.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def classicLinkDnsSupportedAsScala(value: Option[Boolean]): ClassicLinkDnsSupport.Builder = {
     value.fold(self) { v =>
       self.classicLinkDnsSupported(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): ClassicLinkDnsSupport.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -21,8 +23,10 @@ final class ClassicLinkDnsSupportBuilderOps(val self: ClassicLinkDnsSupport.Buil
 
 final class ClassicLinkDnsSupportOps(val self: ClassicLinkDnsSupport) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def classicLinkDnsSupportedAsScala: Option[Boolean] = Option(self.classicLinkDnsSupported)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

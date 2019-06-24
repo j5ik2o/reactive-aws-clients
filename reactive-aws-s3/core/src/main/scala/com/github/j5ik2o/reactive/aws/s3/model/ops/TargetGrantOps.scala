@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class TargetGrantBuilderOps(val self: TargetGrant.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def granteeAsScala(value: Option[Grantee]): TargetGrant.Builder = {
     value.fold(self) { v =>
       self.grantee(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionAsScala(value: Option[BucketLogsPermission]): TargetGrant.Builder = {
     value.fold(self) { v =>
       self.permission(v)
@@ -21,8 +23,10 @@ final class TargetGrantBuilderOps(val self: TargetGrant.Builder) extends AnyVal 
 
 final class TargetGrantOps(val self: TargetGrant) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def granteeAsScala: Option[Grantee] = Option(self.grantee)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionAsScala: Option[BucketLogsPermission] = Option(self.permission)
 
 }

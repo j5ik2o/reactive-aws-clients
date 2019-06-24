@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class UpdateApplicationResponseBuilderOps(val self: UpdateApplicationResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationAsScala(value: Option[ApplicationDescription]): UpdateApplicationResponse.Builder = {
     value.fold(self) { v =>
       self.application(v)
@@ -15,6 +16,7 @@ final class UpdateApplicationResponseBuilderOps(val self: UpdateApplicationRespo
 
 final class UpdateApplicationResponseOps(val self: UpdateApplicationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationAsScala: Option[ApplicationDescription] = Option(self.application)
 
 }

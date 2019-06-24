@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeKeyPairsResponseBuilderOps(val self: DescribeKeyPairsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPairsAsScala(value: Option[Seq[KeyPairInfo]]): DescribeKeyPairsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.keyPairs(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.keyPairs(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeKeyPairsResponseBuilderOps(val self: DescribeKeyPairsRespons
 
 final class DescribeKeyPairsResponseOps(val self: DescribeKeyPairsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPairsAsScala: Option[Seq[KeyPairInfo]] = Option(self.keyPairs).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

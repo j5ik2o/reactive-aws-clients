@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class PurgeQueueRequestBuilderOps(val self: PurgeQueueRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): PurgeQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
@@ -15,6 +16,7 @@ final class PurgeQueueRequestBuilderOps(val self: PurgeQueueRequest.Builder) ext
 
 final class PurgeQueueRequestOps(val self: PurgeQueueRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class MoveAddressToVpcRequestBuilderOps(val self: MoveAddressToVpcRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala(value: Option[String]): MoveAddressToVpcRequest.Builder = {
     value.fold(self) { v =>
       self.publicIp(v)
@@ -15,6 +16,7 @@ final class MoveAddressToVpcRequestBuilderOps(val self: MoveAddressToVpcRequest.
 
 final class MoveAddressToVpcRequestOps(val self: MoveAddressToVpcRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
 
 }

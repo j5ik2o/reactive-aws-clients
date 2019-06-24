@@ -1,15 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.appsync.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.appsync.{ AppSyncAsyncClient, AppSyncClient }
 import software.amazon.awssdk.services.appsync.model._
 
+import scala.concurrent.{ ExecutionContext, Future }
+
 object AppSyncCatsIOClient {
 
-  def apply(asyncClient: AppSyncAsyncClient): AppSyncCatsIOClient =
+  def apply(asyncClient: AppSyncAsyncClient)(implicit ec: ExecutionContext): AppSyncCatsIOClient =
     new AppSyncCatsIOClient {
-      override val underlying: AppSyncAsyncClient = asyncClient
+      override val executionContext: ExecutionContext = ec
+      override val underlying: AppSyncAsyncClient     = asyncClient
     }
 
 }
@@ -17,6 +20,9 @@ object AppSyncCatsIOClient {
 trait AppSyncCatsIOClient extends AppSyncClient[IO] {
 
   val underlying: AppSyncAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def createApiKey(createApiKeyRequest: CreateApiKeyRequest): IO[CreateApiKeyResponse] =
     IO.fromFuture {

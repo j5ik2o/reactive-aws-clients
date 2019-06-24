@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ModifyNetworkInterfaceAttributeRequestBuilderOps(val self: ModifyNetworkInterfaceAttributeRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentAsScala(
       value: Option[NetworkInterfaceAttachmentChanges]
   ): ModifyNetworkInterfaceAttributeRequest.Builder = {
@@ -14,24 +15,28 @@ final class ModifyNetworkInterfaceAttributeRequestBuilderOps(val self: ModifyNet
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[AttributeValue]): ModifyNetworkInterfaceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupsAsScala(value: Option[Seq[String]]): ModifyNetworkInterfaceAttributeRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.groups(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.groups(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): ModifyNetworkInterfaceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceDestCheckAsScala(
       value: Option[AttributeBooleanValue]
   ): ModifyNetworkInterfaceAttributeRequest.Builder = {
@@ -44,16 +49,21 @@ final class ModifyNetworkInterfaceAttributeRequestBuilderOps(val self: ModifyNet
 
 final class ModifyNetworkInterfaceAttributeRequestOps(val self: ModifyNetworkInterfaceAttributeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentAsScala: Option[NetworkInterfaceAttachmentChanges] = Option(self.attachment)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[AttributeValue] = Option(self.description)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupsAsScala: Option[Seq[String]] = Option(self.groups).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceDestCheckAsScala: Option[AttributeBooleanValue] = Option(self.sourceDestCheck)
 
 }

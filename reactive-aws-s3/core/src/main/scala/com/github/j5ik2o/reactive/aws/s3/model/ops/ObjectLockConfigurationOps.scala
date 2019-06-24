@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectLockConfigurationBuilderOps(val self: ObjectLockConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockEnabledAsScala(value: Option[ObjectLockEnabled]): ObjectLockConfiguration.Builder = {
     value.fold(self) { v =>
       self.objectLockEnabled(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleAsScala(value: Option[ObjectLockRule]): ObjectLockConfiguration.Builder = {
     value.fold(self) { v =>
       self.rule(v)
@@ -21,8 +23,10 @@ final class ObjectLockConfigurationBuilderOps(val self: ObjectLockConfiguration.
 
 final class ObjectLockConfigurationOps(val self: ObjectLockConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockEnabledAsScala: Option[ObjectLockEnabled] = Option(self.objectLockEnabled)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleAsScala: Option[ObjectLockRule] = Option(self.rule)
 
 }

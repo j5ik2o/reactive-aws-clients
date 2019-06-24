@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class DeleteDestinationRequestBuilderOps(val self: DeleteDestinationRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala(value: Option[String]): DeleteDestinationRequest.Builder = {
     value.fold(self) { v =>
       self.destinationName(v)
@@ -15,6 +16,7 @@ final class DeleteDestinationRequestBuilderOps(val self: DeleteDestinationReques
 
 final class DeleteDestinationRequestOps(val self: DeleteDestinationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala: Option[String] = Option(self.destinationName)
 
 }

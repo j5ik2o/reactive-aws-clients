@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class UserDataBuilderOps(val self: UserData.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataAsScala(value: Option[String]): UserData.Builder = {
     value.fold(self) { v =>
       self.data(v)
@@ -15,6 +16,7 @@ final class UserDataBuilderOps(val self: UserData.Builder) extends AnyVal {
 
 final class UserDataOps(val self: UserData) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataAsScala: Option[String] = Option(self.data)
 
 }

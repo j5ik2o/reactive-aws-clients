@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ConfirmProductInstanceRequestBuilderOps(val self: ConfirmProductInstanceRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): ConfirmProductInstanceRequest.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodeAsScala(value: Option[String]): ConfirmProductInstanceRequest.Builder = {
     value.fold(self) { v =>
       self.productCode(v)
@@ -21,8 +23,10 @@ final class ConfirmProductInstanceRequestBuilderOps(val self: ConfirmProductInst
 
 final class ConfirmProductInstanceRequestOps(val self: ConfirmProductInstanceRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodeAsScala: Option[String] = Option(self.productCode)
 
 }

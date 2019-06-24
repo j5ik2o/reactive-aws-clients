@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class DeleteCollectionResponseBuilderOps(val self: DeleteCollectionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodeAsScala(value: Option[Int]): DeleteCollectionResponse.Builder = {
     value.fold(self) { v =>
       self.statusCode(v)
@@ -15,6 +16,7 @@ final class DeleteCollectionResponseBuilderOps(val self: DeleteCollectionRespons
 
 final class DeleteCollectionResponseOps(val self: DeleteCollectionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodeAsScala: Option[Int] = Option(self.statusCode)
 
 }

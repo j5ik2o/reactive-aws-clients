@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class DeleteSubnetGroupResponseBuilderOps(val self: DeleteSubnetGroupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletionMessageAsScala(value: Option[String]): DeleteSubnetGroupResponse.Builder = {
     value.fold(self) { v =>
       self.deletionMessage(v)
@@ -15,6 +16,7 @@ final class DeleteSubnetGroupResponseBuilderOps(val self: DeleteSubnetGroupRespo
 
 final class DeleteSubnetGroupResponseOps(val self: DeleteSubnetGroupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletionMessageAsScala: Option[String] = Option(self.deletionMessage)
 
 }

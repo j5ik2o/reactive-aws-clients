@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketReplicationResponseBuilderOps(val self: GetBucketReplicationResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicationConfigurationAsScala(
       value: Option[ReplicationConfiguration]
   ): GetBucketReplicationResponse.Builder = {
@@ -17,6 +18,7 @@ final class GetBucketReplicationResponseBuilderOps(val self: GetBucketReplicatio
 
 final class GetBucketReplicationResponseOps(val self: GetBucketReplicationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicationConfigurationAsScala: Option[ReplicationConfiguration] = Option(self.replicationConfiguration)
 
 }

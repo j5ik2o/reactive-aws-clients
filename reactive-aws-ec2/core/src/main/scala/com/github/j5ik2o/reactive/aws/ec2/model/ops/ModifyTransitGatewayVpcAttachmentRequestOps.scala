@@ -7,6 +7,7 @@ final class ModifyTransitGatewayVpcAttachmentRequestBuilderOps(
     val self: ModifyTransitGatewayVpcAttachmentRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala(
       value: Option[String]
   ): ModifyTransitGatewayVpcAttachmentRequest.Builder = {
@@ -15,18 +16,21 @@ final class ModifyTransitGatewayVpcAttachmentRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addSubnetIdsAsScala(value: Option[Seq[String]]): ModifyTransitGatewayVpcAttachmentRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.addSubnetIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.addSubnetIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def removeSubnetIdsAsScala(value: Option[Seq[String]]): ModifyTransitGatewayVpcAttachmentRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.removeSubnetIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.removeSubnetIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(
       value: Option[ModifyTransitGatewayVpcAttachmentRequestOptions]
   ): ModifyTransitGatewayVpcAttachmentRequest.Builder = {
@@ -40,16 +44,20 @@ final class ModifyTransitGatewayVpcAttachmentRequestBuilderOps(
 final class ModifyTransitGatewayVpcAttachmentRequestOps(val self: ModifyTransitGatewayVpcAttachmentRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addSubnetIdsAsScala: Option[Seq[String]] = Option(self.addSubnetIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def removeSubnetIdsAsScala: Option[Seq[String]] = Option(self.removeSubnetIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala: Option[ModifyTransitGatewayVpcAttachmentRequestOptions] = Option(self.options)
 
 }

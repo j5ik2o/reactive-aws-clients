@@ -5,27 +5,31 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class AddPermissionRequestBuilderOps(val self: AddPermissionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): AddPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.label(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsAccountIdsAsScala(value: Option[Seq[String]]): AddPermissionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.awsAccountIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.awsAccountIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionsAsScala(value: Option[Seq[String]]): AddPermissionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.actions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.actions(v.asJava)
     }
   }
 
@@ -33,16 +37,20 @@ final class AddPermissionRequestBuilderOps(val self: AddPermissionRequest.Builde
 
 final class AddPermissionRequestOps(val self: AddPermissionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala: Option[String] = Option(self.label)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsAccountIdsAsScala: Option[Seq[String]] = Option(self.awsAccountIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionsAsScala: Option[Seq[String]] = Option(self.actions).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

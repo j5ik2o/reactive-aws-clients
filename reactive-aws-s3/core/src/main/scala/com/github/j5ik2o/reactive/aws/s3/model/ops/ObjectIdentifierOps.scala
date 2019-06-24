@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ObjectIdentifierBuilderOps(val self: ObjectIdentifier.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): ObjectIdentifier.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): ObjectIdentifier.Builder = {
     value.fold(self) { v =>
       self.versionId(v)
@@ -21,8 +23,10 @@ final class ObjectIdentifierBuilderOps(val self: ObjectIdentifier.Builder) exten
 
 final class ObjectIdentifierOps(val self: ObjectIdentifier) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala: Option[String] = Option(self.key)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala: Option[String] = Option(self.versionId)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class DeleteDashboardsRequestBuilderOps(val self: DeleteDashboardsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNamesAsScala(value: Option[Seq[String]]): DeleteDashboardsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.dashboardNames(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.dashboardNames(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DeleteDashboardsRequestBuilderOps(val self: DeleteDashboardsRequest.
 
 final class DeleteDashboardsRequestOps(val self: DeleteDashboardsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNamesAsScala: Option[Seq[String]] = Option(self.dashboardNames).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

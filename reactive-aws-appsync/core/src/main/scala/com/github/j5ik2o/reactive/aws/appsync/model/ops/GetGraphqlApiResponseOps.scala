@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetGraphqlApiResponseBuilderOps(val self: GetGraphqlApiResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def graphqlApiAsScala(value: Option[GraphqlApi]): GetGraphqlApiResponse.Builder = {
     value.fold(self) { v =>
       self.graphqlApi(v)
@@ -15,6 +16,7 @@ final class GetGraphqlApiResponseBuilderOps(val self: GetGraphqlApiResponse.Buil
 
 final class GetGraphqlApiResponseOps(val self: GetGraphqlApiResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def graphqlApiAsScala: Option[GraphqlApi] = Option(self.graphqlApi)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DetachClassicLinkVpcResponseBuilderOps(val self: DetachClassicLinkVpcResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): DetachClassicLinkVpcResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -15,6 +16,7 @@ final class DetachClassicLinkVpcResponseBuilderOps(val self: DetachClassicLinkVp
 
 final class DetachClassicLinkVpcResponseOps(val self: DetachClassicLinkVpcResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

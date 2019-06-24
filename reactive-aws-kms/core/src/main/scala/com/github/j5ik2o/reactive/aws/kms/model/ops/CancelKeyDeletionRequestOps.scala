@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class CancelKeyDeletionRequestBuilderOps(val self: CancelKeyDeletionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): CancelKeyDeletionRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -15,6 +16,7 @@ final class CancelKeyDeletionRequestBuilderOps(val self: CancelKeyDeletionReques
 
 final class CancelKeyDeletionRequestOps(val self: CancelKeyDeletionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

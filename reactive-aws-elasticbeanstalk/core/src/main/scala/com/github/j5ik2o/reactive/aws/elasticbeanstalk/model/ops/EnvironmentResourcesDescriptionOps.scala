@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class EnvironmentResourcesDescriptionBuilderOps(val self: EnvironmentResourcesDescription.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loadBalancerAsScala(value: Option[LoadBalancerDescription]): EnvironmentResourcesDescription.Builder = {
     value.fold(self) { v =>
       self.loadBalancer(v)
@@ -16,6 +17,7 @@ final class EnvironmentResourcesDescriptionBuilderOps(val self: EnvironmentResou
 
 final class EnvironmentResourcesDescriptionOps(val self: EnvironmentResourcesDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loadBalancerAsScala: Option[LoadBalancerDescription] = Option(self.loadBalancer)
 
 }

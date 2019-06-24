@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListTablesRequestBuilderOps(val self: ListTablesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartTableNameAsScala(value: Option[String]): ListTablesRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartTableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListTablesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
@@ -21,8 +23,10 @@ final class ListTablesRequestBuilderOps(val self: ListTablesRequest.Builder) ext
 
 final class ListTablesRequestOps(val self: ListTablesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartTableNameAsScala: Option[String] = Option(self.exclusiveStartTableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
 
 }

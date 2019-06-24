@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class PointInTimeRecoverySpecificationBuilderOps(val self: PointInTimeRecoverySpecification.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryEnabledAsScala(value: Option[Boolean]): PointInTimeRecoverySpecification.Builder = {
     value.fold(self) { v =>
       self.pointInTimeRecoveryEnabled(v)
@@ -16,6 +17,7 @@ final class PointInTimeRecoverySpecificationBuilderOps(val self: PointInTimeReco
 
 final class PointInTimeRecoverySpecificationOps(val self: PointInTimeRecoverySpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryEnabledAsScala: Option[Boolean] = Option(self.pointInTimeRecoveryEnabled)
 
 }

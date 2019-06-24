@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class CreateTypeResponseBuilderOps(val self: CreateTypeResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[Type]): CreateTypeResponse.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -15,6 +16,7 @@ final class CreateTypeResponseBuilderOps(val self: CreateTypeResponse.Builder) e
 
 final class CreateTypeResponseOps(val self: CreateTypeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[Type] = Option(self.`type`)
 
 }

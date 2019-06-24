@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class DeleteFunctionRequestBuilderOps(val self: DeleteFunctionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): DeleteFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): DeleteFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
@@ -21,8 +23,10 @@ final class DeleteFunctionRequestBuilderOps(val self: DeleteFunctionRequest.Buil
 
 final class DeleteFunctionRequestOps(val self: DeleteFunctionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala: Option[String] = Option(self.functionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
 }

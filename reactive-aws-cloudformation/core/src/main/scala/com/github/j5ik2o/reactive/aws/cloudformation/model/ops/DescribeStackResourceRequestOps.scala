@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DescribeStackResourceRequestBuilderOps(val self: DescribeStackResourceRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): DescribeStackResourceRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): DescribeStackResourceRequest.Builder = {
     value.fold(self) { v =>
       self.logicalResourceId(v)
@@ -21,8 +23,10 @@ final class DescribeStackResourceRequestBuilderOps(val self: DescribeStackResour
 
 final class DescribeStackResourceRequestOps(val self: DescribeStackResourceRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala: Option[String] = Option(self.stackName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId)
 
 }

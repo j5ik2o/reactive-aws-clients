@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class LifecyclePolicyRuleActionBuilderOps(val self: LifecyclePolicyRuleAction.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ImageActionType]): LifecyclePolicyRuleAction.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -15,6 +16,7 @@ final class LifecyclePolicyRuleActionBuilderOps(val self: LifecyclePolicyRuleAct
 
 final class LifecyclePolicyRuleActionOps(val self: LifecyclePolicyRuleAction) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[ImageActionType] = Option(self.`type`)
 
 }

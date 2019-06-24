@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlockRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicAccessBlockConfigurationAsScala(
       value: Option[PublicAccessBlockConfiguration]
   ): PutPublicAccessBlockRequest.Builder = {
@@ -29,10 +32,13 @@ final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlock
 
 final class PutPublicAccessBlockRequestOps(val self: PutPublicAccessBlockRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicAccessBlockConfigurationAsScala: Option[PublicAccessBlockConfiguration] =
     Option(self.publicAccessBlockConfiguration)
 
