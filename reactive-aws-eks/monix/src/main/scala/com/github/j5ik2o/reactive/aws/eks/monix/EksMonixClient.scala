@@ -53,6 +53,13 @@ trait EksMonixClient extends EksClient[Task] {
       underlying.listUpdates(listUpdatesRequest)
     }
 
+  override def updateClusterConfig(
+      updateClusterConfigRequest: UpdateClusterConfigRequest
+  ): Task[UpdateClusterConfigResponse] =
+    Task.deferFuture {
+      underlying.updateClusterConfig(updateClusterConfigRequest)
+    }
+
   override def updateClusterVersion(
       updateClusterVersionRequest: UpdateClusterVersionRequest
   ): Task[UpdateClusterVersionResponse] =

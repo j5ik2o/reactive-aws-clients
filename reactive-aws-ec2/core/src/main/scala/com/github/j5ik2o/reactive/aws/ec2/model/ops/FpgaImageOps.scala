@@ -97,6 +97,13 @@ final class FpgaImageBuilderOps(val self: FpgaImage.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def dataRetentionSupportAsScala(value: Option[Boolean]): FpgaImage.Builder = {
+    value.fold(self) { v =>
+      self.dataRetentionSupport(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isPublicAsScala(value: Option[Boolean]): FpgaImage.Builder = {
     value.fold(self) { v =>
       self.isPublic(v)
@@ -149,6 +156,9 @@ final class FpgaImageOps(val self: FpgaImage) extends AnyVal {
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def dataRetentionSupportAsScala: Option[Boolean] = Option(self.dataRetentionSupport)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isPublicAsScala: Option[Boolean] = Option(self.isPublic)

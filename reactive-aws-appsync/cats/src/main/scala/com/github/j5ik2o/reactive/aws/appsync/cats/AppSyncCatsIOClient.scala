@@ -160,6 +160,13 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
       IO(underlying.listResolversByFunction(listResolversByFunctionRequest))
     }
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): IO[ListTagsForResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.listTagsForResource(listTagsForResourceRequest))
+    }
+
   override def listTypes(listTypesRequest: ListTypesRequest): IO[ListTypesResponse] =
     IO.fromFuture {
       IO(underlying.listTypes(listTypesRequest))
@@ -170,6 +177,16 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
   ): IO[StartSchemaCreationResponse] =
     IO.fromFuture {
       IO(underlying.startSchemaCreation(startSchemaCreationRequest))
+    }
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): IO[TagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.tagResource(tagResourceRequest))
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.untagResource(untagResourceRequest))
     }
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): IO[UpdateApiKeyResponse] =

@@ -19,6 +19,20 @@ final class VpcConfigRequestBuilderOps(val self: VpcConfigRequest.Builder) exten
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPublicAccessAsScala(value: Option[Boolean]): VpcConfigRequest.Builder = {
+    value.fold(self) { v =>
+      self.endpointPublicAccess(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPrivateAccessAsScala(value: Option[Boolean]): VpcConfigRequest.Builder = {
+    value.fold(self) { v =>
+      self.endpointPrivateAccess(v)
+    }
+  }
+
 }
 
 final class VpcConfigRequestOps(val self: VpcConfigRequest) extends AnyVal {
@@ -32,6 +46,12 @@ final class VpcConfigRequestOps(val self: VpcConfigRequest) extends AnyVal {
   final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPublicAccessAsScala: Option[Boolean] = Option(self.endpointPublicAccess)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPrivateAccessAsScala: Option[Boolean] = Option(self.endpointPrivateAccess)
 
 }
 

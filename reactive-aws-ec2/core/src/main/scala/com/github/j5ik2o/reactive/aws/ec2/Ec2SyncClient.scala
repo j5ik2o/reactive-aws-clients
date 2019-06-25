@@ -650,6 +650,9 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeByoipCidrsResponse] =
     underlying.describeByoipCidrs(describeByoipCidrsRequest).toEither
 
+  def describeByoipCidrsPaginator(describeByoipCidrsRequest: DescribeByoipCidrsRequest): DescribeByoipCidrsIterable =
+    underlying.describeByoipCidrsPaginator(describeByoipCidrsRequest)
+
   override def describeCapacityReservations(): Either[Throwable, DescribeCapacityReservationsResponse] =
     underlying.describeCapacityReservations().toEither
 
@@ -657,6 +660,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
   ): Either[Throwable, DescribeCapacityReservationsResponse] =
     underlying.describeCapacityReservations(describeCapacityReservationsRequest).toEither
+
+  def describeCapacityReservationsPaginator(): DescribeCapacityReservationsIterable =
+    underlying.describeCapacityReservationsPaginator()
+
+  def describeCapacityReservationsPaginator(
+      describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
+  ): DescribeCapacityReservationsIterable =
+    underlying.describeCapacityReservationsPaginator(describeCapacityReservationsRequest)
 
   override def describeClassicLinkInstances(): Either[Throwable, DescribeClassicLinkInstancesResponse] =
     underlying.describeClassicLinkInstances().toEither
@@ -666,15 +677,33 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeClassicLinkInstancesResponse] =
     underlying.describeClassicLinkInstances(describeClassicLinkInstancesRequest).toEither
 
+  def describeClassicLinkInstancesPaginator(): DescribeClassicLinkInstancesIterable =
+    underlying.describeClassicLinkInstancesPaginator()
+
+  def describeClassicLinkInstancesPaginator(
+      describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
+  ): DescribeClassicLinkInstancesIterable =
+    underlying.describeClassicLinkInstancesPaginator(describeClassicLinkInstancesRequest)
+
   override def describeClientVpnAuthorizationRules(
       describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
   ): Either[Throwable, DescribeClientVpnAuthorizationRulesResponse] =
     underlying.describeClientVpnAuthorizationRules(describeClientVpnAuthorizationRulesRequest).toEither
 
+  def describeClientVpnAuthorizationRulesPaginator(
+      describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
+  ): DescribeClientVpnAuthorizationRulesIterable =
+    underlying.describeClientVpnAuthorizationRulesPaginator(describeClientVpnAuthorizationRulesRequest)
+
   override def describeClientVpnConnections(
       describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
   ): Either[Throwable, DescribeClientVpnConnectionsResponse] =
     underlying.describeClientVpnConnections(describeClientVpnConnectionsRequest).toEither
+
+  def describeClientVpnConnectionsPaginator(
+      describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
+  ): DescribeClientVpnConnectionsIterable =
+    underlying.describeClientVpnConnectionsPaginator(describeClientVpnConnectionsRequest)
 
   override def describeClientVpnEndpoints(): Either[Throwable, DescribeClientVpnEndpointsResponse] =
     underlying.describeClientVpnEndpoints().toEither
@@ -684,15 +713,33 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeClientVpnEndpointsResponse] =
     underlying.describeClientVpnEndpoints(describeClientVpnEndpointsRequest).toEither
 
+  def describeClientVpnEndpointsPaginator(): DescribeClientVpnEndpointsIterable =
+    underlying.describeClientVpnEndpointsPaginator()
+
+  def describeClientVpnEndpointsPaginator(
+      describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
+  ): DescribeClientVpnEndpointsIterable =
+    underlying.describeClientVpnEndpointsPaginator(describeClientVpnEndpointsRequest)
+
   override def describeClientVpnRoutes(
       describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
   ): Either[Throwable, DescribeClientVpnRoutesResponse] =
     underlying.describeClientVpnRoutes(describeClientVpnRoutesRequest).toEither
 
+  def describeClientVpnRoutesPaginator(
+      describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
+  ): DescribeClientVpnRoutesIterable =
+    underlying.describeClientVpnRoutesPaginator(describeClientVpnRoutesRequest)
+
   override def describeClientVpnTargetNetworks(
       describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
   ): Either[Throwable, DescribeClientVpnTargetNetworksResponse] =
     underlying.describeClientVpnTargetNetworks(describeClientVpnTargetNetworksRequest).toEither
+
+  def describeClientVpnTargetNetworksPaginator(
+      describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
+  ): DescribeClientVpnTargetNetworksIterable =
+    underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
 
   override def describeConversionTasks(): Either[Throwable, DescribeConversionTasksResponse] =
     underlying.describeConversionTasks().toEither
@@ -718,6 +765,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeDhcpOptionsResponse] =
     underlying.describeDhcpOptions(describeDhcpOptionsRequest).toEither
 
+  def describeDhcpOptionsPaginator(): DescribeDhcpOptionsIterable =
+    underlying.describeDhcpOptionsPaginator()
+
+  def describeDhcpOptionsPaginator(
+      describeDhcpOptionsRequest: DescribeDhcpOptionsRequest
+  ): DescribeDhcpOptionsIterable =
+    underlying.describeDhcpOptionsPaginator(describeDhcpOptionsRequest)
+
   override def describeEgressOnlyInternetGateways(): Either[Throwable, DescribeEgressOnlyInternetGatewaysResponse] =
     underlying.describeEgressOnlyInternetGateways().toEither
 
@@ -725,6 +780,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
   ): Either[Throwable, DescribeEgressOnlyInternetGatewaysResponse] =
     underlying.describeEgressOnlyInternetGateways(describeEgressOnlyInternetGatewaysRequest).toEither
+
+  def describeEgressOnlyInternetGatewaysPaginator(): DescribeEgressOnlyInternetGatewaysIterable =
+    underlying.describeEgressOnlyInternetGatewaysPaginator()
+
+  def describeEgressOnlyInternetGatewaysPaginator(
+      describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
+  ): DescribeEgressOnlyInternetGatewaysIterable =
+    underlying.describeEgressOnlyInternetGatewaysPaginator(describeEgressOnlyInternetGatewaysRequest)
 
   override def describeElasticGpus(): Either[Throwable, DescribeElasticGpusResponse] =
     underlying.describeElasticGpus().toEither
@@ -758,6 +821,12 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   override def describeFleets(describeFleetsRequest: DescribeFleetsRequest): Either[Throwable, DescribeFleetsResponse] =
     underlying.describeFleets(describeFleetsRequest).toEither
 
+  def describeFleetsPaginator(): DescribeFleetsIterable =
+    underlying.describeFleetsPaginator()
+
+  def describeFleetsPaginator(describeFleetsRequest: DescribeFleetsRequest): DescribeFleetsIterable =
+    underlying.describeFleetsPaginator(describeFleetsRequest)
+
   override def describeFlowLogs(): Either[Throwable, DescribeFlowLogsResponse] =
     underlying.describeFlowLogs().toEither
 
@@ -765,6 +834,12 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeFlowLogsRequest: DescribeFlowLogsRequest
   ): Either[Throwable, DescribeFlowLogsResponse] =
     underlying.describeFlowLogs(describeFlowLogsRequest).toEither
+
+  def describeFlowLogsPaginator(): DescribeFlowLogsIterable =
+    underlying.describeFlowLogsPaginator()
+
+  def describeFlowLogsPaginator(describeFlowLogsRequest: DescribeFlowLogsRequest): DescribeFlowLogsIterable =
+    underlying.describeFlowLogsPaginator(describeFlowLogsRequest)
 
   override def describeFpgaImageAttribute(
       describeFpgaImageAttributeRequest: DescribeFpgaImageAttributeRequest
@@ -779,6 +854,12 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeFpgaImagesResponse] =
     underlying.describeFpgaImages(describeFpgaImagesRequest).toEither
 
+  def describeFpgaImagesPaginator(): DescribeFpgaImagesIterable =
+    underlying.describeFpgaImagesPaginator()
+
+  def describeFpgaImagesPaginator(describeFpgaImagesRequest: DescribeFpgaImagesRequest): DescribeFpgaImagesIterable =
+    underlying.describeFpgaImagesPaginator(describeFpgaImagesRequest)
+
   override def describeHostReservationOfferings(): Either[Throwable, DescribeHostReservationOfferingsResponse] =
     underlying.describeHostReservationOfferings().toEither
 
@@ -786,6 +867,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
   ): Either[Throwable, DescribeHostReservationOfferingsResponse] =
     underlying.describeHostReservationOfferings(describeHostReservationOfferingsRequest).toEither
+
+  def describeHostReservationOfferingsPaginator(): DescribeHostReservationOfferingsIterable =
+    underlying.describeHostReservationOfferingsPaginator()
+
+  def describeHostReservationOfferingsPaginator(
+      describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
+  ): DescribeHostReservationOfferingsIterable =
+    underlying.describeHostReservationOfferingsPaginator(describeHostReservationOfferingsRequest)
 
   override def describeHostReservations(): Either[Throwable, DescribeHostReservationsResponse] =
     underlying.describeHostReservations().toEither
@@ -795,11 +884,25 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeHostReservationsResponse] =
     underlying.describeHostReservations(describeHostReservationsRequest).toEither
 
+  def describeHostReservationsPaginator(): DescribeHostReservationsIterable =
+    underlying.describeHostReservationsPaginator()
+
+  def describeHostReservationsPaginator(
+      describeHostReservationsRequest: DescribeHostReservationsRequest
+  ): DescribeHostReservationsIterable =
+    underlying.describeHostReservationsPaginator(describeHostReservationsRequest)
+
   override def describeHosts(): Either[Throwable, DescribeHostsResponse] =
     underlying.describeHosts().toEither
 
   override def describeHosts(describeHostsRequest: DescribeHostsRequest): Either[Throwable, DescribeHostsResponse] =
     underlying.describeHosts(describeHostsRequest).toEither
+
+  def describeHostsPaginator(): DescribeHostsIterable =
+    underlying.describeHostsPaginator()
+
+  def describeHostsPaginator(describeHostsRequest: DescribeHostsRequest): DescribeHostsIterable =
+    underlying.describeHostsPaginator(describeHostsRequest)
 
   override def describeIamInstanceProfileAssociations()
       : Either[Throwable, DescribeIamInstanceProfileAssociationsResponse] =
@@ -809,6 +912,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
   ): Either[Throwable, DescribeIamInstanceProfileAssociationsResponse] =
     underlying.describeIamInstanceProfileAssociations(describeIamInstanceProfileAssociationsRequest).toEither
+
+  def describeIamInstanceProfileAssociationsPaginator(): DescribeIamInstanceProfileAssociationsIterable =
+    underlying.describeIamInstanceProfileAssociationsPaginator()
+
+  def describeIamInstanceProfileAssociationsPaginator(
+      describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
+  ): DescribeIamInstanceProfileAssociationsIterable =
+    underlying.describeIamInstanceProfileAssociationsPaginator(describeIamInstanceProfileAssociationsRequest)
 
   override def describeIdFormat(): Either[Throwable, DescribeIdFormatResponse] =
     underlying.describeIdFormat().toEither
@@ -842,6 +953,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeImportImageTasksResponse] =
     underlying.describeImportImageTasks(describeImportImageTasksRequest).toEither
 
+  def describeImportImageTasksPaginator(): DescribeImportImageTasksIterable =
+    underlying.describeImportImageTasksPaginator()
+
+  def describeImportImageTasksPaginator(
+      describeImportImageTasksRequest: DescribeImportImageTasksRequest
+  ): DescribeImportImageTasksIterable =
+    underlying.describeImportImageTasksPaginator(describeImportImageTasksRequest)
+
   override def describeImportSnapshotTasks(): Either[Throwable, DescribeImportSnapshotTasksResponse] =
     underlying.describeImportSnapshotTasks().toEither
 
@@ -849,6 +968,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
   ): Either[Throwable, DescribeImportSnapshotTasksResponse] =
     underlying.describeImportSnapshotTasks(describeImportSnapshotTasksRequest).toEither
+
+  def describeImportSnapshotTasksPaginator(): DescribeImportSnapshotTasksIterable =
+    underlying.describeImportSnapshotTasksPaginator()
+
+  def describeImportSnapshotTasksPaginator(
+      describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
+  ): DescribeImportSnapshotTasksIterable =
+    underlying.describeImportSnapshotTasksPaginator(describeImportSnapshotTasksRequest)
 
   override def describeInstanceAttribute(
       describeInstanceAttributeRequest: DescribeInstanceAttributeRequest
@@ -862,6 +989,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
   ): Either[Throwable, DescribeInstanceCreditSpecificationsResponse] =
     underlying.describeInstanceCreditSpecifications(describeInstanceCreditSpecificationsRequest).toEither
+
+  def describeInstanceCreditSpecificationsPaginator(): DescribeInstanceCreditSpecificationsIterable =
+    underlying.describeInstanceCreditSpecificationsPaginator()
+
+  def describeInstanceCreditSpecificationsPaginator(
+      describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
+  ): DescribeInstanceCreditSpecificationsIterable =
+    underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
 
   override def describeInstanceStatus(): Either[Throwable, DescribeInstanceStatusResponse] =
     underlying.describeInstanceStatus().toEither
@@ -901,6 +1036,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeInternetGatewaysResponse] =
     underlying.describeInternetGateways(describeInternetGatewaysRequest).toEither
 
+  def describeInternetGatewaysPaginator(): DescribeInternetGatewaysIterable =
+    underlying.describeInternetGatewaysPaginator()
+
+  def describeInternetGatewaysPaginator(
+      describeInternetGatewaysRequest: DescribeInternetGatewaysRequest
+  ): DescribeInternetGatewaysIterable =
+    underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest)
+
   override def describeKeyPairs(): Either[Throwable, DescribeKeyPairsResponse] =
     underlying.describeKeyPairs().toEither
 
@@ -914,6 +1057,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeLaunchTemplateVersionsResponse] =
     underlying.describeLaunchTemplateVersions(describeLaunchTemplateVersionsRequest).toEither
 
+  def describeLaunchTemplateVersionsPaginator(
+      describeLaunchTemplateVersionsRequest: DescribeLaunchTemplateVersionsRequest
+  ): DescribeLaunchTemplateVersionsIterable =
+    underlying.describeLaunchTemplateVersionsPaginator(describeLaunchTemplateVersionsRequest)
+
   override def describeLaunchTemplates(): Either[Throwable, DescribeLaunchTemplatesResponse] =
     underlying.describeLaunchTemplates().toEither
 
@@ -922,6 +1070,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeLaunchTemplatesResponse] =
     underlying.describeLaunchTemplates(describeLaunchTemplatesRequest).toEither
 
+  def describeLaunchTemplatesPaginator(): DescribeLaunchTemplatesIterable =
+    underlying.describeLaunchTemplatesPaginator()
+
+  def describeLaunchTemplatesPaginator(
+      describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
+  ): DescribeLaunchTemplatesIterable =
+    underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest)
+
   override def describeMovingAddresses(): Either[Throwable, DescribeMovingAddressesResponse] =
     underlying.describeMovingAddresses().toEither
 
@@ -929,6 +1085,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
   ): Either[Throwable, DescribeMovingAddressesResponse] =
     underlying.describeMovingAddresses(describeMovingAddressesRequest).toEither
+
+  def describeMovingAddressesPaginator(): DescribeMovingAddressesIterable =
+    underlying.describeMovingAddressesPaginator()
+
+  def describeMovingAddressesPaginator(
+      describeMovingAddressesRequest: DescribeMovingAddressesRequest
+  ): DescribeMovingAddressesIterable =
+    underlying.describeMovingAddressesPaginator(describeMovingAddressesRequest)
 
   override def describeNatGateways(): Either[Throwable, DescribeNatGatewaysResponse] =
     underlying.describeNatGateways().toEither
@@ -954,6 +1118,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeNetworkAclsResponse] =
     underlying.describeNetworkAcls(describeNetworkAclsRequest).toEither
 
+  def describeNetworkAclsPaginator(): DescribeNetworkAclsIterable =
+    underlying.describeNetworkAclsPaginator()
+
+  def describeNetworkAclsPaginator(
+      describeNetworkAclsRequest: DescribeNetworkAclsRequest
+  ): DescribeNetworkAclsIterable =
+    underlying.describeNetworkAclsPaginator(describeNetworkAclsRequest)
+
   override def describeNetworkInterfaceAttribute(
       describeNetworkInterfaceAttributeRequest: DescribeNetworkInterfaceAttributeRequest
   ): Either[Throwable, DescribeNetworkInterfaceAttributeResponse] =
@@ -966,6 +1138,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeNetworkInterfacePermissionsRequest: DescribeNetworkInterfacePermissionsRequest
   ): Either[Throwable, DescribeNetworkInterfacePermissionsResponse] =
     underlying.describeNetworkInterfacePermissions(describeNetworkInterfacePermissionsRequest).toEither
+
+  def describeNetworkInterfacePermissionsPaginator(): DescribeNetworkInterfacePermissionsIterable =
+    underlying.describeNetworkInterfacePermissionsPaginator()
+
+  def describeNetworkInterfacePermissionsPaginator(
+      describeNetworkInterfacePermissionsRequest: DescribeNetworkInterfacePermissionsRequest
+  ): DescribeNetworkInterfacePermissionsIterable =
+    underlying.describeNetworkInterfacePermissionsPaginator(describeNetworkInterfacePermissionsRequest)
 
   override def describeNetworkInterfaces(): Either[Throwable, DescribeNetworkInterfacesResponse] =
     underlying.describeNetworkInterfaces().toEither
@@ -999,6 +1179,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribePrefixListsResponse] =
     underlying.describePrefixLists(describePrefixListsRequest).toEither
 
+  def describePrefixListsPaginator(): DescribePrefixListsIterable =
+    underlying.describePrefixListsPaginator()
+
+  def describePrefixListsPaginator(
+      describePrefixListsRequest: DescribePrefixListsRequest
+  ): DescribePrefixListsIterable =
+    underlying.describePrefixListsPaginator(describePrefixListsRequest)
+
   override def describePrincipalIdFormat(): Either[Throwable, DescribePrincipalIdFormatResponse] =
     underlying.describePrincipalIdFormat().toEither
 
@@ -1007,6 +1195,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribePrincipalIdFormatResponse] =
     underlying.describePrincipalIdFormat(describePrincipalIdFormatRequest).toEither
 
+  def describePrincipalIdFormatPaginator(): DescribePrincipalIdFormatIterable =
+    underlying.describePrincipalIdFormatPaginator()
+
+  def describePrincipalIdFormatPaginator(
+      describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
+  ): DescribePrincipalIdFormatIterable =
+    underlying.describePrincipalIdFormatPaginator(describePrincipalIdFormatRequest)
+
   override def describePublicIpv4Pools(): Either[Throwable, DescribePublicIpv4PoolsResponse] =
     underlying.describePublicIpv4Pools().toEither
 
@@ -1014,6 +1210,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
   ): Either[Throwable, DescribePublicIpv4PoolsResponse] =
     underlying.describePublicIpv4Pools(describePublicIpv4PoolsRequest).toEither
+
+  def describePublicIpv4PoolsPaginator(): DescribePublicIpv4PoolsIterable =
+    underlying.describePublicIpv4PoolsPaginator()
+
+  def describePublicIpv4PoolsPaginator(
+      describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
+  ): DescribePublicIpv4PoolsIterable =
+    underlying.describePublicIpv4PoolsPaginator(describePublicIpv4PoolsRequest)
 
   override def describeRegions(): Either[Throwable, DescribeRegionsResponse] =
     underlying.describeRegions().toEither
@@ -1093,6 +1297,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeScheduledInstanceAvailabilityResponse] =
     underlying.describeScheduledInstanceAvailability(describeScheduledInstanceAvailabilityRequest).toEither
 
+  def describeScheduledInstanceAvailabilityPaginator(
+      describeScheduledInstanceAvailabilityRequest: DescribeScheduledInstanceAvailabilityRequest
+  ): DescribeScheduledInstanceAvailabilityIterable =
+    underlying.describeScheduledInstanceAvailabilityPaginator(describeScheduledInstanceAvailabilityRequest)
+
   override def describeScheduledInstances(): Either[Throwable, DescribeScheduledInstancesResponse] =
     underlying.describeScheduledInstances().toEither
 
@@ -1100,6 +1309,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
   ): Either[Throwable, DescribeScheduledInstancesResponse] =
     underlying.describeScheduledInstances(describeScheduledInstancesRequest).toEither
+
+  def describeScheduledInstancesPaginator(): DescribeScheduledInstancesIterable =
+    underlying.describeScheduledInstancesPaginator()
+
+  def describeScheduledInstancesPaginator(
+      describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
+  ): DescribeScheduledInstancesIterable =
+    underlying.describeScheduledInstancesPaginator(describeScheduledInstancesRequest)
 
   override def describeSecurityGroupReferences(
       describeSecurityGroupReferencesRequest: DescribeSecurityGroupReferencesRequest
@@ -1183,6 +1400,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeSpotInstanceRequestsResponse] =
     underlying.describeSpotInstanceRequests(describeSpotInstanceRequestsRequest).toEither
 
+  def describeSpotInstanceRequestsPaginator(): DescribeSpotInstanceRequestsIterable =
+    underlying.describeSpotInstanceRequestsPaginator()
+
+  def describeSpotInstanceRequestsPaginator(
+      describeSpotInstanceRequestsRequest: DescribeSpotInstanceRequestsRequest
+  ): DescribeSpotInstanceRequestsIterable =
+    underlying.describeSpotInstanceRequestsPaginator(describeSpotInstanceRequestsRequest)
+
   override def describeSpotPriceHistory(): Either[Throwable, DescribeSpotPriceHistoryResponse] =
     underlying.describeSpotPriceHistory().toEither
 
@@ -1204,6 +1429,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeStaleSecurityGroupsResponse] =
     underlying.describeStaleSecurityGroups(describeStaleSecurityGroupsRequest).toEither
 
+  def describeStaleSecurityGroupsPaginator(
+      describeStaleSecurityGroupsRequest: DescribeStaleSecurityGroupsRequest
+  ): DescribeStaleSecurityGroupsIterable =
+    underlying.describeStaleSecurityGroupsPaginator(describeStaleSecurityGroupsRequest)
+
   override def describeSubnets(): Either[Throwable, DescribeSubnetsResponse] =
     underlying.describeSubnets().toEither
 
@@ -1211,6 +1441,12 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeSubnetsRequest: DescribeSubnetsRequest
   ): Either[Throwable, DescribeSubnetsResponse] =
     underlying.describeSubnets(describeSubnetsRequest).toEither
+
+  def describeSubnetsPaginator(): DescribeSubnetsIterable =
+    underlying.describeSubnetsPaginator()
+
+  def describeSubnetsPaginator(describeSubnetsRequest: DescribeSubnetsRequest): DescribeSubnetsIterable =
+    underlying.describeSubnetsPaginator(describeSubnetsRequest)
 
   override def describeTags(): Either[Throwable, DescribeTagsResponse] =
     underlying.describeTags().toEither
@@ -1232,6 +1468,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeTransitGatewayAttachmentsResponse] =
     underlying.describeTransitGatewayAttachments(describeTransitGatewayAttachmentsRequest).toEither
 
+  def describeTransitGatewayAttachmentsPaginator(): DescribeTransitGatewayAttachmentsIterable =
+    underlying.describeTransitGatewayAttachmentsPaginator()
+
+  def describeTransitGatewayAttachmentsPaginator(
+      describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
+  ): DescribeTransitGatewayAttachmentsIterable =
+    underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
+
   override def describeTransitGatewayRouteTables(): Either[Throwable, DescribeTransitGatewayRouteTablesResponse] =
     underlying.describeTransitGatewayRouteTables().toEither
 
@@ -1239,6 +1483,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): Either[Throwable, DescribeTransitGatewayRouteTablesResponse] =
     underlying.describeTransitGatewayRouteTables(describeTransitGatewayRouteTablesRequest).toEither
+
+  def describeTransitGatewayRouteTablesPaginator(): DescribeTransitGatewayRouteTablesIterable =
+    underlying.describeTransitGatewayRouteTablesPaginator()
+
+  def describeTransitGatewayRouteTablesPaginator(
+      describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
+  ): DescribeTransitGatewayRouteTablesIterable =
+    underlying.describeTransitGatewayRouteTablesPaginator(describeTransitGatewayRouteTablesRequest)
 
   override def describeTransitGatewayVpcAttachments(): Either[Throwable, DescribeTransitGatewayVpcAttachmentsResponse] =
     underlying.describeTransitGatewayVpcAttachments().toEither
@@ -1248,6 +1500,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeTransitGatewayVpcAttachmentsResponse] =
     underlying.describeTransitGatewayVpcAttachments(describeTransitGatewayVpcAttachmentsRequest).toEither
 
+  def describeTransitGatewayVpcAttachmentsPaginator(): DescribeTransitGatewayVpcAttachmentsIterable =
+    underlying.describeTransitGatewayVpcAttachmentsPaginator()
+
+  def describeTransitGatewayVpcAttachmentsPaginator(
+      describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
+  ): DescribeTransitGatewayVpcAttachmentsIterable =
+    underlying.describeTransitGatewayVpcAttachmentsPaginator(describeTransitGatewayVpcAttachmentsRequest)
+
   override def describeTransitGateways(): Either[Throwable, DescribeTransitGatewaysResponse] =
     underlying.describeTransitGateways().toEither
 
@@ -1255,6 +1515,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
   ): Either[Throwable, DescribeTransitGatewaysResponse] =
     underlying.describeTransitGateways(describeTransitGatewaysRequest).toEither
+
+  def describeTransitGatewaysPaginator(): DescribeTransitGatewaysIterable =
+    underlying.describeTransitGatewaysPaginator()
+
+  def describeTransitGatewaysPaginator(
+      describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
+  ): DescribeTransitGatewaysIterable =
+    underlying.describeTransitGatewaysPaginator(describeTransitGatewaysRequest)
 
   override def describeVolumeAttribute(
       describeVolumeAttributeRequest: DescribeVolumeAttributeRequest
@@ -1299,6 +1567,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeVolumesModificationsResponse] =
     underlying.describeVolumesModifications(describeVolumesModificationsRequest).toEither
 
+  def describeVolumesModificationsPaginator(): DescribeVolumesModificationsIterable =
+    underlying.describeVolumesModificationsPaginator()
+
+  def describeVolumesModificationsPaginator(
+      describeVolumesModificationsRequest: DescribeVolumesModificationsRequest
+  ): DescribeVolumesModificationsIterable =
+    underlying.describeVolumesModificationsPaginator(describeVolumesModificationsRequest)
+
   override def describeVpcAttribute(
       describeVpcAttributeRequest: DescribeVpcAttributeRequest
   ): Either[Throwable, DescribeVpcAttributeResponse] =
@@ -1320,6 +1596,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeVpcClassicLinkDnsSupportResponse] =
     underlying.describeVpcClassicLinkDnsSupport(describeVpcClassicLinkDnsSupportRequest).toEither
 
+  def describeVpcClassicLinkDnsSupportPaginator(): DescribeVpcClassicLinkDnsSupportIterable =
+    underlying.describeVpcClassicLinkDnsSupportPaginator()
+
+  def describeVpcClassicLinkDnsSupportPaginator(
+      describeVpcClassicLinkDnsSupportRequest: DescribeVpcClassicLinkDnsSupportRequest
+  ): DescribeVpcClassicLinkDnsSupportIterable =
+    underlying.describeVpcClassicLinkDnsSupportPaginator(describeVpcClassicLinkDnsSupportRequest)
+
   override def describeVpcEndpointConnectionNotifications()
       : Either[Throwable, DescribeVpcEndpointConnectionNotificationsResponse] =
     underlying.describeVpcEndpointConnectionNotifications().toEither
@@ -1329,6 +1613,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeVpcEndpointConnectionNotificationsResponse] =
     underlying.describeVpcEndpointConnectionNotifications(describeVpcEndpointConnectionNotificationsRequest).toEither
 
+  def describeVpcEndpointConnectionNotificationsPaginator(): DescribeVpcEndpointConnectionNotificationsIterable =
+    underlying.describeVpcEndpointConnectionNotificationsPaginator()
+
+  def describeVpcEndpointConnectionNotificationsPaginator(
+      describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
+  ): DescribeVpcEndpointConnectionNotificationsIterable =
+    underlying.describeVpcEndpointConnectionNotificationsPaginator(describeVpcEndpointConnectionNotificationsRequest)
+
   override def describeVpcEndpointConnections(): Either[Throwable, DescribeVpcEndpointConnectionsResponse] =
     underlying.describeVpcEndpointConnections().toEither
 
@@ -1336,6 +1628,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
   ): Either[Throwable, DescribeVpcEndpointConnectionsResponse] =
     underlying.describeVpcEndpointConnections(describeVpcEndpointConnectionsRequest).toEither
+
+  def describeVpcEndpointConnectionsPaginator(): DescribeVpcEndpointConnectionsIterable =
+    underlying.describeVpcEndpointConnectionsPaginator()
+
+  def describeVpcEndpointConnectionsPaginator(
+      describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
+  ): DescribeVpcEndpointConnectionsIterable =
+    underlying.describeVpcEndpointConnectionsPaginator(describeVpcEndpointConnectionsRequest)
 
   override def describeVpcEndpointServiceConfigurations()
       : Either[Throwable, DescribeVpcEndpointServiceConfigurationsResponse] =
@@ -1346,10 +1646,23 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeVpcEndpointServiceConfigurationsResponse] =
     underlying.describeVpcEndpointServiceConfigurations(describeVpcEndpointServiceConfigurationsRequest).toEither
 
+  def describeVpcEndpointServiceConfigurationsPaginator(): DescribeVpcEndpointServiceConfigurationsIterable =
+    underlying.describeVpcEndpointServiceConfigurationsPaginator()
+
+  def describeVpcEndpointServiceConfigurationsPaginator(
+      describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
+  ): DescribeVpcEndpointServiceConfigurationsIterable =
+    underlying.describeVpcEndpointServiceConfigurationsPaginator(describeVpcEndpointServiceConfigurationsRequest)
+
   override def describeVpcEndpointServicePermissions(
       describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
   ): Either[Throwable, DescribeVpcEndpointServicePermissionsResponse] =
     underlying.describeVpcEndpointServicePermissions(describeVpcEndpointServicePermissionsRequest).toEither
+
+  def describeVpcEndpointServicePermissionsPaginator(
+      describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
+  ): DescribeVpcEndpointServicePermissionsIterable =
+    underlying.describeVpcEndpointServicePermissionsPaginator(describeVpcEndpointServicePermissionsRequest)
 
   override def describeVpcEndpointServices(): Either[Throwable, DescribeVpcEndpointServicesResponse] =
     underlying.describeVpcEndpointServices().toEither
@@ -1367,6 +1680,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeVpcEndpointsResponse] =
     underlying.describeVpcEndpoints(describeVpcEndpointsRequest).toEither
 
+  def describeVpcEndpointsPaginator(): DescribeVpcEndpointsIterable =
+    underlying.describeVpcEndpointsPaginator()
+
+  def describeVpcEndpointsPaginator(
+      describeVpcEndpointsRequest: DescribeVpcEndpointsRequest
+  ): DescribeVpcEndpointsIterable =
+    underlying.describeVpcEndpointsPaginator(describeVpcEndpointsRequest)
+
   override def describeVpcPeeringConnections(): Either[Throwable, DescribeVpcPeeringConnectionsResponse] =
     underlying.describeVpcPeeringConnections().toEither
 
@@ -1375,11 +1696,25 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeVpcPeeringConnectionsResponse] =
     underlying.describeVpcPeeringConnections(describeVpcPeeringConnectionsRequest).toEither
 
+  def describeVpcPeeringConnectionsPaginator(): DescribeVpcPeeringConnectionsIterable =
+    underlying.describeVpcPeeringConnectionsPaginator()
+
+  def describeVpcPeeringConnectionsPaginator(
+      describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
+  ): DescribeVpcPeeringConnectionsIterable =
+    underlying.describeVpcPeeringConnectionsPaginator(describeVpcPeeringConnectionsRequest)
+
   override def describeVpcs(): Either[Throwable, DescribeVpcsResponse] =
     underlying.describeVpcs().toEither
 
   override def describeVpcs(describeVpcsRequest: DescribeVpcsRequest): Either[Throwable, DescribeVpcsResponse] =
     underlying.describeVpcs(describeVpcsRequest).toEither
+
+  def describeVpcsPaginator(): DescribeVpcsIterable =
+    underlying.describeVpcsPaginator()
+
+  def describeVpcsPaginator(describeVpcsRequest: DescribeVpcsRequest): DescribeVpcsIterable =
+    underlying.describeVpcsPaginator(describeVpcsRequest)
 
   override def describeVpnConnections(): Either[Throwable, DescribeVpnConnectionsResponse] =
     underlying.describeVpnConnections().toEither
@@ -1549,15 +1884,30 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, GetTransitGatewayAttachmentPropagationsResponse] =
     underlying.getTransitGatewayAttachmentPropagations(getTransitGatewayAttachmentPropagationsRequest).toEither
 
+  def getTransitGatewayAttachmentPropagationsPaginator(
+      getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
+  ): GetTransitGatewayAttachmentPropagationsIterable =
+    underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): Either[Throwable, GetTransitGatewayRouteTableAssociationsResponse] =
     underlying.getTransitGatewayRouteTableAssociations(getTransitGatewayRouteTableAssociationsRequest).toEither
 
+  def getTransitGatewayRouteTableAssociationsPaginator(
+      getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
+  ): GetTransitGatewayRouteTableAssociationsIterable =
+    underlying.getTransitGatewayRouteTableAssociationsPaginator(getTransitGatewayRouteTableAssociationsRequest)
+
   override def getTransitGatewayRouteTablePropagations(
       getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
   ): Either[Throwable, GetTransitGatewayRouteTablePropagationsResponse] =
     underlying.getTransitGatewayRouteTablePropagations(getTransitGatewayRouteTablePropagationsRequest).toEither
+
+  def getTransitGatewayRouteTablePropagationsPaginator(
+      getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
+  ): GetTransitGatewayRouteTablePropagationsIterable =
+    underlying.getTransitGatewayRouteTablePropagationsPaginator(getTransitGatewayRouteTablePropagationsRequest)
 
   override def importClientVpnClientCertificateRevocationList(
       importClientVpnClientCertificateRevocationListRequest: ImportClientVpnClientCertificateRevocationListRequest
@@ -1716,6 +2066,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       modifyVpcTenancyRequest: ModifyVpcTenancyRequest
   ): Either[Throwable, ModifyVpcTenancyResponse] =
     underlying.modifyVpcTenancy(modifyVpcTenancyRequest).toEither
+
+  override def modifyVpnConnection(
+      modifyVpnConnectionRequest: ModifyVpnConnectionRequest
+  ): Either[Throwable, ModifyVpnConnectionResponse] =
+    underlying.modifyVpnConnection(modifyVpnConnectionRequest).toEither
 
   override def monitorInstances(
       monitorInstancesRequest: MonitorInstancesRequest

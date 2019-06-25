@@ -19,6 +19,20 @@ final class DescribeDhcpOptionsRequestBuilderOps(val self: DescribeDhcpOptionsRe
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeDhcpOptionsRequest.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala(value: Option[Int]): DescribeDhcpOptionsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxResults(v)
+    }
+  }
+
 }
 
 final class DescribeDhcpOptionsRequestOps(val self: DescribeDhcpOptionsRequest) extends AnyVal {
@@ -32,6 +46,12 @@ final class DescribeDhcpOptionsRequestOps(val self: DescribeDhcpOptionsRequest) 
   final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

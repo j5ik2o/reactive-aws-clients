@@ -34,6 +34,13 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def loggingAsScala(value: Option[Logging]): CreateClusterRequest.Builder = {
+    value.fold(self) { v =>
+      self.logging(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): CreateClusterRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
@@ -55,6 +62,9 @@ final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcesVpcConfigAsScala: Option[VpcConfigRequest] = Option(self.resourcesVpcConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def loggingAsScala: Option[Logging] = Option(self.logging)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)

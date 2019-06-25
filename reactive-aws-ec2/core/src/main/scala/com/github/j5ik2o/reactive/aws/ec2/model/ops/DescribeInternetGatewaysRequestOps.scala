@@ -20,6 +20,20 @@ final class DescribeInternetGatewaysRequestBuilderOps(val self: DescribeInternet
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeInternetGatewaysRequest.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala(value: Option[Int]): DescribeInternetGatewaysRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxResults(v)
+    }
+  }
+
 }
 
 final class DescribeInternetGatewaysRequestOps(val self: DescribeInternetGatewaysRequest) extends AnyVal {
@@ -33,6 +47,12 @@ final class DescribeInternetGatewaysRequestOps(val self: DescribeInternetGateway
   final def internetGatewayIdsAsScala: Option[Seq[String]] = Option(self.internetGatewayIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

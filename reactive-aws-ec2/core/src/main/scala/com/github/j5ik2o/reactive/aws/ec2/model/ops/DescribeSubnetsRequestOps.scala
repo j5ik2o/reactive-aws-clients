@@ -19,6 +19,20 @@ final class DescribeSubnetsRequestBuilderOps(val self: DescribeSubnetsRequest.Bu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeSubnetsRequest.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala(value: Option[Int]): DescribeSubnetsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxResults(v)
+    }
+  }
+
 }
 
 final class DescribeSubnetsRequestOps(val self: DescribeSubnetsRequest) extends AnyVal {
@@ -32,6 +46,12 @@ final class DescribeSubnetsRequestOps(val self: DescribeSubnetsRequest) extends 
   final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

@@ -882,6 +882,11 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeByoipCidrs(describeByoipCidrsRequest)
     }
 
+  def describeByoipCidrsPaginator(
+      describeByoipCidrsRequest: DescribeByoipCidrsRequest
+  ): Observable[DescribeByoipCidrsResponse] =
+    Observable.fromReactivePublisher(underlying.describeByoipCidrsPaginator(describeByoipCidrsRequest))
+
   override def describeCapacityReservations(
       describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
   ): Task[DescribeCapacityReservationsResponse] =
@@ -893,6 +898,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeCapacityReservations()
     }
+
+  def describeCapacityReservationsPaginator(): Observable[DescribeCapacityReservationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeCapacityReservationsPaginator())
+
+  def describeCapacityReservationsPaginator(
+      describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
+  ): Observable[DescribeCapacityReservationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeCapacityReservationsPaginator(describeCapacityReservationsRequest)
+    )
 
   override def describeClassicLinkInstances(
       describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
@@ -906,6 +921,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeClassicLinkInstances()
     }
 
+  def describeClassicLinkInstancesPaginator(): Observable[DescribeClassicLinkInstancesResponse] =
+    Observable.fromReactivePublisher(underlying.describeClassicLinkInstancesPaginator())
+
+  def describeClassicLinkInstancesPaginator(
+      describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
+  ): Observable[DescribeClassicLinkInstancesResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeClassicLinkInstancesPaginator(describeClassicLinkInstancesRequest)
+    )
+
   override def describeClientVpnAuthorizationRules(
       describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
   ): Task[DescribeClientVpnAuthorizationRulesResponse] =
@@ -913,12 +938,26 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeClientVpnAuthorizationRules(describeClientVpnAuthorizationRulesRequest)
     }
 
+  def describeClientVpnAuthorizationRulesPaginator(
+      describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
+  ): Observable[DescribeClientVpnAuthorizationRulesResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeClientVpnAuthorizationRulesPaginator(describeClientVpnAuthorizationRulesRequest)
+    )
+
   override def describeClientVpnConnections(
       describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
   ): Task[DescribeClientVpnConnectionsResponse] =
     Task.deferFuture {
       underlying.describeClientVpnConnections(describeClientVpnConnectionsRequest)
     }
+
+  def describeClientVpnConnectionsPaginator(
+      describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
+  ): Observable[DescribeClientVpnConnectionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeClientVpnConnectionsPaginator(describeClientVpnConnectionsRequest)
+    )
 
   override def describeClientVpnEndpoints(
       describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
@@ -932,6 +971,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeClientVpnEndpoints()
     }
 
+  def describeClientVpnEndpointsPaginator(): Observable[DescribeClientVpnEndpointsResponse] =
+    Observable.fromReactivePublisher(underlying.describeClientVpnEndpointsPaginator())
+
+  def describeClientVpnEndpointsPaginator(
+      describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
+  ): Observable[DescribeClientVpnEndpointsResponse] =
+    Observable.fromReactivePublisher(underlying.describeClientVpnEndpointsPaginator(describeClientVpnEndpointsRequest))
+
   override def describeClientVpnRoutes(
       describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
   ): Task[DescribeClientVpnRoutesResponse] =
@@ -939,12 +986,24 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeClientVpnRoutes(describeClientVpnRoutesRequest)
     }
 
+  def describeClientVpnRoutesPaginator(
+      describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
+  ): Observable[DescribeClientVpnRoutesResponse] =
+    Observable.fromReactivePublisher(underlying.describeClientVpnRoutesPaginator(describeClientVpnRoutesRequest))
+
   override def describeClientVpnTargetNetworks(
       describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
   ): Task[DescribeClientVpnTargetNetworksResponse] =
     Task.deferFuture {
       underlying.describeClientVpnTargetNetworks(describeClientVpnTargetNetworksRequest)
     }
+
+  def describeClientVpnTargetNetworksPaginator(
+      describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
+  ): Observable[DescribeClientVpnTargetNetworksResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
+    )
 
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
@@ -982,6 +1041,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeDhcpOptions()
     }
 
+  def describeDhcpOptionsPaginator(): Observable[DescribeDhcpOptionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeDhcpOptionsPaginator())
+
+  def describeDhcpOptionsPaginator(
+      describeDhcpOptionsRequest: DescribeDhcpOptionsRequest
+  ): Observable[DescribeDhcpOptionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeDhcpOptionsPaginator(describeDhcpOptionsRequest))
+
   override def describeEgressOnlyInternetGateways(
       describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
   ): Task[DescribeEgressOnlyInternetGatewaysResponse] =
@@ -993,6 +1060,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeEgressOnlyInternetGateways()
     }
+
+  def describeEgressOnlyInternetGatewaysPaginator(): Observable[DescribeEgressOnlyInternetGatewaysResponse] =
+    Observable.fromReactivePublisher(underlying.describeEgressOnlyInternetGatewaysPaginator())
+
+  def describeEgressOnlyInternetGatewaysPaginator(
+      describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
+  ): Observable[DescribeEgressOnlyInternetGatewaysResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeEgressOnlyInternetGatewaysPaginator(describeEgressOnlyInternetGatewaysRequest)
+    )
 
   override def describeElasticGpus(
       describeElasticGpusRequest: DescribeElasticGpusRequest
@@ -1042,6 +1119,12 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeFleets()
     }
 
+  def describeFleetsPaginator(): Observable[DescribeFleetsResponse] =
+    Observable.fromReactivePublisher(underlying.describeFleetsPaginator())
+
+  def describeFleetsPaginator(describeFleetsRequest: DescribeFleetsRequest): Observable[DescribeFleetsResponse] =
+    Observable.fromReactivePublisher(underlying.describeFleetsPaginator(describeFleetsRequest))
+
   override def describeFlowLogs(describeFlowLogsRequest: DescribeFlowLogsRequest): Task[DescribeFlowLogsResponse] =
     Task.deferFuture {
       underlying.describeFlowLogs(describeFlowLogsRequest)
@@ -1051,6 +1134,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeFlowLogs()
     }
+
+  def describeFlowLogsPaginator(): Observable[DescribeFlowLogsResponse] =
+    Observable.fromReactivePublisher(underlying.describeFlowLogsPaginator())
+
+  def describeFlowLogsPaginator(
+      describeFlowLogsRequest: DescribeFlowLogsRequest
+  ): Observable[DescribeFlowLogsResponse] =
+    Observable.fromReactivePublisher(underlying.describeFlowLogsPaginator(describeFlowLogsRequest))
 
   override def describeFpgaImageAttribute(
       describeFpgaImageAttributeRequest: DescribeFpgaImageAttributeRequest
@@ -1071,6 +1162,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeFpgaImages()
     }
 
+  def describeFpgaImagesPaginator(): Observable[DescribeFpgaImagesResponse] =
+    Observable.fromReactivePublisher(underlying.describeFpgaImagesPaginator())
+
+  def describeFpgaImagesPaginator(
+      describeFpgaImagesRequest: DescribeFpgaImagesRequest
+  ): Observable[DescribeFpgaImagesResponse] =
+    Observable.fromReactivePublisher(underlying.describeFpgaImagesPaginator(describeFpgaImagesRequest))
+
   override def describeHostReservationOfferings(
       describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
   ): Task[DescribeHostReservationOfferingsResponse] =
@@ -1082,6 +1181,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeHostReservationOfferings()
     }
+
+  def describeHostReservationOfferingsPaginator(): Observable[DescribeHostReservationOfferingsResponse] =
+    Observable.fromReactivePublisher(underlying.describeHostReservationOfferingsPaginator())
+
+  def describeHostReservationOfferingsPaginator(
+      describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
+  ): Observable[DescribeHostReservationOfferingsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeHostReservationOfferingsPaginator(describeHostReservationOfferingsRequest)
+    )
 
   override def describeHostReservations(
       describeHostReservationsRequest: DescribeHostReservationsRequest
@@ -1095,6 +1204,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeHostReservations()
     }
 
+  def describeHostReservationsPaginator(): Observable[DescribeHostReservationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeHostReservationsPaginator())
+
+  def describeHostReservationsPaginator(
+      describeHostReservationsRequest: DescribeHostReservationsRequest
+  ): Observable[DescribeHostReservationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeHostReservationsPaginator(describeHostReservationsRequest))
+
   override def describeHosts(describeHostsRequest: DescribeHostsRequest): Task[DescribeHostsResponse] =
     Task.deferFuture {
       underlying.describeHosts(describeHostsRequest)
@@ -1104,6 +1221,12 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeHosts()
     }
+
+  def describeHostsPaginator(): Observable[DescribeHostsResponse] =
+    Observable.fromReactivePublisher(underlying.describeHostsPaginator())
+
+  def describeHostsPaginator(describeHostsRequest: DescribeHostsRequest): Observable[DescribeHostsResponse] =
+    Observable.fromReactivePublisher(underlying.describeHostsPaginator(describeHostsRequest))
 
   override def describeIamInstanceProfileAssociations(
       describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
@@ -1116,6 +1239,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeIamInstanceProfileAssociations()
     }
+
+  def describeIamInstanceProfileAssociationsPaginator(): Observable[DescribeIamInstanceProfileAssociationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeIamInstanceProfileAssociationsPaginator())
+
+  def describeIamInstanceProfileAssociationsPaginator(
+      describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
+  ): Observable[DescribeIamInstanceProfileAssociationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeIamInstanceProfileAssociationsPaginator(describeIamInstanceProfileAssociationsRequest)
+    )
 
   override def describeIdFormat(describeIdFormatRequest: DescribeIdFormatRequest): Task[DescribeIdFormatResponse] =
     Task.deferFuture {
@@ -1163,6 +1296,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeImportImageTasks()
     }
 
+  def describeImportImageTasksPaginator(): Observable[DescribeImportImageTasksResponse] =
+    Observable.fromReactivePublisher(underlying.describeImportImageTasksPaginator())
+
+  def describeImportImageTasksPaginator(
+      describeImportImageTasksRequest: DescribeImportImageTasksRequest
+  ): Observable[DescribeImportImageTasksResponse] =
+    Observable.fromReactivePublisher(underlying.describeImportImageTasksPaginator(describeImportImageTasksRequest))
+
   override def describeImportSnapshotTasks(
       describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
   ): Task[DescribeImportSnapshotTasksResponse] =
@@ -1174,6 +1315,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeImportSnapshotTasks()
     }
+
+  def describeImportSnapshotTasksPaginator(): Observable[DescribeImportSnapshotTasksResponse] =
+    Observable.fromReactivePublisher(underlying.describeImportSnapshotTasksPaginator())
+
+  def describeImportSnapshotTasksPaginator(
+      describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
+  ): Observable[DescribeImportSnapshotTasksResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeImportSnapshotTasksPaginator(describeImportSnapshotTasksRequest)
+    )
 
   override def describeInstanceAttribute(
       describeInstanceAttributeRequest: DescribeInstanceAttributeRequest
@@ -1193,6 +1344,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeInstanceCreditSpecifications()
     }
+
+  def describeInstanceCreditSpecificationsPaginator(): Observable[DescribeInstanceCreditSpecificationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeInstanceCreditSpecificationsPaginator())
+
+  def describeInstanceCreditSpecificationsPaginator(
+      describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
+  ): Observable[DescribeInstanceCreditSpecificationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
+    )
 
   override def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -1244,6 +1405,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeInternetGateways()
     }
 
+  def describeInternetGatewaysPaginator(): Observable[DescribeInternetGatewaysResponse] =
+    Observable.fromReactivePublisher(underlying.describeInternetGatewaysPaginator())
+
+  def describeInternetGatewaysPaginator(
+      describeInternetGatewaysRequest: DescribeInternetGatewaysRequest
+  ): Observable[DescribeInternetGatewaysResponse] =
+    Observable.fromReactivePublisher(underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest))
+
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): Task[DescribeKeyPairsResponse] =
     Task.deferFuture {
       underlying.describeKeyPairs(describeKeyPairsRequest)
@@ -1261,6 +1430,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeLaunchTemplateVersions(describeLaunchTemplateVersionsRequest)
     }
 
+  def describeLaunchTemplateVersionsPaginator(
+      describeLaunchTemplateVersionsRequest: DescribeLaunchTemplateVersionsRequest
+  ): Observable[DescribeLaunchTemplateVersionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeLaunchTemplateVersionsPaginator(describeLaunchTemplateVersionsRequest)
+    )
+
   override def describeLaunchTemplates(
       describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
   ): Task[DescribeLaunchTemplatesResponse] =
@@ -1273,6 +1449,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeLaunchTemplates()
     }
 
+  def describeLaunchTemplatesPaginator(): Observable[DescribeLaunchTemplatesResponse] =
+    Observable.fromReactivePublisher(underlying.describeLaunchTemplatesPaginator())
+
+  def describeLaunchTemplatesPaginator(
+      describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
+  ): Observable[DescribeLaunchTemplatesResponse] =
+    Observable.fromReactivePublisher(underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest))
+
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
   ): Task[DescribeMovingAddressesResponse] =
@@ -1284,6 +1468,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeMovingAddresses()
     }
+
+  def describeMovingAddressesPaginator(): Observable[DescribeMovingAddressesResponse] =
+    Observable.fromReactivePublisher(underlying.describeMovingAddressesPaginator())
+
+  def describeMovingAddressesPaginator(
+      describeMovingAddressesRequest: DescribeMovingAddressesRequest
+  ): Observable[DescribeMovingAddressesResponse] =
+    Observable.fromReactivePublisher(underlying.describeMovingAddressesPaginator(describeMovingAddressesRequest))
 
   override def describeNatGateways(
       describeNatGatewaysRequest: DescribeNatGatewaysRequest
@@ -1317,6 +1509,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeNetworkAcls()
     }
 
+  def describeNetworkAclsPaginator(): Observable[DescribeNetworkAclsResponse] =
+    Observable.fromReactivePublisher(underlying.describeNetworkAclsPaginator())
+
+  def describeNetworkAclsPaginator(
+      describeNetworkAclsRequest: DescribeNetworkAclsRequest
+  ): Observable[DescribeNetworkAclsResponse] =
+    Observable.fromReactivePublisher(underlying.describeNetworkAclsPaginator(describeNetworkAclsRequest))
+
   override def describeNetworkInterfaceAttribute(
       describeNetworkInterfaceAttributeRequest: DescribeNetworkInterfaceAttributeRequest
   ): Task[DescribeNetworkInterfaceAttributeResponse] =
@@ -1335,6 +1535,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeNetworkInterfacePermissions()
     }
+
+  def describeNetworkInterfacePermissionsPaginator(): Observable[DescribeNetworkInterfacePermissionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeNetworkInterfacePermissionsPaginator())
+
+  def describeNetworkInterfacePermissionsPaginator(
+      describeNetworkInterfacePermissionsRequest: DescribeNetworkInterfacePermissionsRequest
+  ): Observable[DescribeNetworkInterfacePermissionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeNetworkInterfacePermissionsPaginator(describeNetworkInterfacePermissionsRequest)
+    )
 
   override def describeNetworkInterfaces(
       describeNetworkInterfacesRequest: DescribeNetworkInterfacesRequest
@@ -1380,6 +1590,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describePrefixLists()
     }
 
+  def describePrefixListsPaginator(): Observable[DescribePrefixListsResponse] =
+    Observable.fromReactivePublisher(underlying.describePrefixListsPaginator())
+
+  def describePrefixListsPaginator(
+      describePrefixListsRequest: DescribePrefixListsRequest
+  ): Observable[DescribePrefixListsResponse] =
+    Observable.fromReactivePublisher(underlying.describePrefixListsPaginator(describePrefixListsRequest))
+
   override def describePrincipalIdFormat(
       describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
   ): Task[DescribePrincipalIdFormatResponse] =
@@ -1392,6 +1610,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describePrincipalIdFormat()
     }
 
+  def describePrincipalIdFormatPaginator(): Observable[DescribePrincipalIdFormatResponse] =
+    Observable.fromReactivePublisher(underlying.describePrincipalIdFormatPaginator())
+
+  def describePrincipalIdFormatPaginator(
+      describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
+  ): Observable[DescribePrincipalIdFormatResponse] =
+    Observable.fromReactivePublisher(underlying.describePrincipalIdFormatPaginator(describePrincipalIdFormatRequest))
+
   override def describePublicIpv4Pools(
       describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
   ): Task[DescribePublicIpv4PoolsResponse] =
@@ -1403,6 +1629,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describePublicIpv4Pools()
     }
+
+  def describePublicIpv4PoolsPaginator(): Observable[DescribePublicIpv4PoolsResponse] =
+    Observable.fromReactivePublisher(underlying.describePublicIpv4PoolsPaginator())
+
+  def describePublicIpv4PoolsPaginator(
+      describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
+  ): Observable[DescribePublicIpv4PoolsResponse] =
+    Observable.fromReactivePublisher(underlying.describePublicIpv4PoolsPaginator(describePublicIpv4PoolsRequest))
 
   override def describeRegions(describeRegionsRequest: DescribeRegionsRequest): Task[DescribeRegionsResponse] =
     Task.deferFuture {
@@ -1509,6 +1743,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeScheduledInstanceAvailability(describeScheduledInstanceAvailabilityRequest)
     }
 
+  def describeScheduledInstanceAvailabilityPaginator(
+      describeScheduledInstanceAvailabilityRequest: DescribeScheduledInstanceAvailabilityRequest
+  ): Observable[DescribeScheduledInstanceAvailabilityResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeScheduledInstanceAvailabilityPaginator(describeScheduledInstanceAvailabilityRequest)
+    )
+
   override def describeScheduledInstances(
       describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
   ): Task[DescribeScheduledInstancesResponse] =
@@ -1520,6 +1761,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeScheduledInstances()
     }
+
+  def describeScheduledInstancesPaginator(): Observable[DescribeScheduledInstancesResponse] =
+    Observable.fromReactivePublisher(underlying.describeScheduledInstancesPaginator())
+
+  def describeScheduledInstancesPaginator(
+      describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
+  ): Observable[DescribeScheduledInstancesResponse] =
+    Observable.fromReactivePublisher(underlying.describeScheduledInstancesPaginator(describeScheduledInstancesRequest))
 
   override def describeSecurityGroupReferences(
       describeSecurityGroupReferencesRequest: DescribeSecurityGroupReferencesRequest
@@ -1631,6 +1880,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeSpotInstanceRequests()
     }
 
+  def describeSpotInstanceRequestsPaginator(): Observable[DescribeSpotInstanceRequestsResponse] =
+    Observable.fromReactivePublisher(underlying.describeSpotInstanceRequestsPaginator())
+
+  def describeSpotInstanceRequestsPaginator(
+      describeSpotInstanceRequestsRequest: DescribeSpotInstanceRequestsRequest
+  ): Observable[DescribeSpotInstanceRequestsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeSpotInstanceRequestsPaginator(describeSpotInstanceRequestsRequest)
+    )
+
   override def describeSpotPriceHistory(
       describeSpotPriceHistoryRequest: DescribeSpotPriceHistoryRequest
   ): Task[DescribeSpotPriceHistoryResponse] =
@@ -1658,6 +1917,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeStaleSecurityGroups(describeStaleSecurityGroupsRequest)
     }
 
+  def describeStaleSecurityGroupsPaginator(
+      describeStaleSecurityGroupsRequest: DescribeStaleSecurityGroupsRequest
+  ): Observable[DescribeStaleSecurityGroupsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeStaleSecurityGroupsPaginator(describeStaleSecurityGroupsRequest)
+    )
+
   override def describeSubnets(describeSubnetsRequest: DescribeSubnetsRequest): Task[DescribeSubnetsResponse] =
     Task.deferFuture {
       underlying.describeSubnets(describeSubnetsRequest)
@@ -1667,6 +1933,12 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeSubnets()
     }
+
+  def describeSubnetsPaginator(): Observable[DescribeSubnetsResponse] =
+    Observable.fromReactivePublisher(underlying.describeSubnetsPaginator())
+
+  def describeSubnetsPaginator(describeSubnetsRequest: DescribeSubnetsRequest): Observable[DescribeSubnetsResponse] =
+    Observable.fromReactivePublisher(underlying.describeSubnetsPaginator(describeSubnetsRequest))
 
   override def describeTags(describeTagsRequest: DescribeTagsRequest): Task[DescribeTagsResponse] =
     Task.deferFuture {
@@ -1696,6 +1968,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeTransitGatewayAttachments()
     }
 
+  def describeTransitGatewayAttachmentsPaginator(): Observable[DescribeTransitGatewayAttachmentsResponse] =
+    Observable.fromReactivePublisher(underlying.describeTransitGatewayAttachmentsPaginator())
+
+  def describeTransitGatewayAttachmentsPaginator(
+      describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
+  ): Observable[DescribeTransitGatewayAttachmentsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
+    )
+
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): Task[DescribeTransitGatewayRouteTablesResponse] =
@@ -1707,6 +1989,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeTransitGatewayRouteTables()
     }
+
+  def describeTransitGatewayRouteTablesPaginator(): Observable[DescribeTransitGatewayRouteTablesResponse] =
+    Observable.fromReactivePublisher(underlying.describeTransitGatewayRouteTablesPaginator())
+
+  def describeTransitGatewayRouteTablesPaginator(
+      describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
+  ): Observable[DescribeTransitGatewayRouteTablesResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTransitGatewayRouteTablesPaginator(describeTransitGatewayRouteTablesRequest)
+    )
 
   override def describeTransitGatewayVpcAttachments(
       describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
@@ -1720,6 +2012,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeTransitGatewayVpcAttachments()
     }
 
+  def describeTransitGatewayVpcAttachmentsPaginator(): Observable[DescribeTransitGatewayVpcAttachmentsResponse] =
+    Observable.fromReactivePublisher(underlying.describeTransitGatewayVpcAttachmentsPaginator())
+
+  def describeTransitGatewayVpcAttachmentsPaginator(
+      describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
+  ): Observable[DescribeTransitGatewayVpcAttachmentsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTransitGatewayVpcAttachmentsPaginator(describeTransitGatewayVpcAttachmentsRequest)
+    )
+
   override def describeTransitGateways(
       describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
   ): Task[DescribeTransitGatewaysResponse] =
@@ -1731,6 +2033,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeTransitGateways()
     }
+
+  def describeTransitGatewaysPaginator(): Observable[DescribeTransitGatewaysResponse] =
+    Observable.fromReactivePublisher(underlying.describeTransitGatewaysPaginator())
+
+  def describeTransitGatewaysPaginator(
+      describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
+  ): Observable[DescribeTransitGatewaysResponse] =
+    Observable.fromReactivePublisher(underlying.describeTransitGatewaysPaginator(describeTransitGatewaysRequest))
 
   override def describeVolumeAttribute(
       describeVolumeAttributeRequest: DescribeVolumeAttributeRequest
@@ -1781,6 +2091,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeVolumesModifications()
     }
 
+  def describeVolumesModificationsPaginator(): Observable[DescribeVolumesModificationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVolumesModificationsPaginator())
+
+  def describeVolumesModificationsPaginator(
+      describeVolumesModificationsRequest: DescribeVolumesModificationsRequest
+  ): Observable[DescribeVolumesModificationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVolumesModificationsPaginator(describeVolumesModificationsRequest)
+    )
+
   def describeVolumesPaginator(): Observable[DescribeVolumesResponse] =
     Observable.fromReactivePublisher(underlying.describeVolumesPaginator())
 
@@ -1818,6 +2138,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeVpcClassicLinkDnsSupport()
     }
 
+  def describeVpcClassicLinkDnsSupportPaginator(): Observable[DescribeVpcClassicLinkDnsSupportResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcClassicLinkDnsSupportPaginator())
+
+  def describeVpcClassicLinkDnsSupportPaginator(
+      describeVpcClassicLinkDnsSupportRequest: DescribeVpcClassicLinkDnsSupportRequest
+  ): Observable[DescribeVpcClassicLinkDnsSupportResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVpcClassicLinkDnsSupportPaginator(describeVpcClassicLinkDnsSupportRequest)
+    )
+
   override def describeVpcEndpointConnectionNotifications(
       describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
   ): Task[DescribeVpcEndpointConnectionNotificationsResponse] =
@@ -1829,6 +2159,17 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeVpcEndpointConnectionNotifications()
     }
+
+  def describeVpcEndpointConnectionNotificationsPaginator()
+      : Observable[DescribeVpcEndpointConnectionNotificationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcEndpointConnectionNotificationsPaginator())
+
+  def describeVpcEndpointConnectionNotificationsPaginator(
+      describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
+  ): Observable[DescribeVpcEndpointConnectionNotificationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVpcEndpointConnectionNotificationsPaginator(describeVpcEndpointConnectionNotificationsRequest)
+    )
 
   override def describeVpcEndpointConnections(
       describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
@@ -1842,6 +2183,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeVpcEndpointConnections()
     }
 
+  def describeVpcEndpointConnectionsPaginator(): Observable[DescribeVpcEndpointConnectionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcEndpointConnectionsPaginator())
+
+  def describeVpcEndpointConnectionsPaginator(
+      describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
+  ): Observable[DescribeVpcEndpointConnectionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVpcEndpointConnectionsPaginator(describeVpcEndpointConnectionsRequest)
+    )
+
   override def describeVpcEndpointServiceConfigurations(
       describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
   ): Task[DescribeVpcEndpointServiceConfigurationsResponse] =
@@ -1854,12 +2205,30 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeVpcEndpointServiceConfigurations()
     }
 
+  def describeVpcEndpointServiceConfigurationsPaginator()
+      : Observable[DescribeVpcEndpointServiceConfigurationsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcEndpointServiceConfigurationsPaginator())
+
+  def describeVpcEndpointServiceConfigurationsPaginator(
+      describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
+  ): Observable[DescribeVpcEndpointServiceConfigurationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVpcEndpointServiceConfigurationsPaginator(describeVpcEndpointServiceConfigurationsRequest)
+    )
+
   override def describeVpcEndpointServicePermissions(
       describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
   ): Task[DescribeVpcEndpointServicePermissionsResponse] =
     Task.deferFuture {
       underlying.describeVpcEndpointServicePermissions(describeVpcEndpointServicePermissionsRequest)
     }
+
+  def describeVpcEndpointServicePermissionsPaginator(
+      describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
+  ): Observable[DescribeVpcEndpointServicePermissionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVpcEndpointServicePermissionsPaginator(describeVpcEndpointServicePermissionsRequest)
+    )
 
   override def describeVpcEndpointServices(
       describeVpcEndpointServicesRequest: DescribeVpcEndpointServicesRequest
@@ -1885,6 +2254,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeVpcEndpoints()
     }
 
+  def describeVpcEndpointsPaginator(): Observable[DescribeVpcEndpointsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcEndpointsPaginator())
+
+  def describeVpcEndpointsPaginator(
+      describeVpcEndpointsRequest: DescribeVpcEndpointsRequest
+  ): Observable[DescribeVpcEndpointsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcEndpointsPaginator(describeVpcEndpointsRequest))
+
   override def describeVpcPeeringConnections(
       describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
   ): Task[DescribeVpcPeeringConnectionsResponse] =
@@ -1897,6 +2274,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeVpcPeeringConnections()
     }
 
+  def describeVpcPeeringConnectionsPaginator(): Observable[DescribeVpcPeeringConnectionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcPeeringConnectionsPaginator())
+
+  def describeVpcPeeringConnectionsPaginator(
+      describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
+  ): Observable[DescribeVpcPeeringConnectionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeVpcPeeringConnectionsPaginator(describeVpcPeeringConnectionsRequest)
+    )
+
   override def describeVpcs(describeVpcsRequest: DescribeVpcsRequest): Task[DescribeVpcsResponse] =
     Task.deferFuture {
       underlying.describeVpcs(describeVpcsRequest)
@@ -1906,6 +2293,12 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeVpcs()
     }
+
+  def describeVpcsPaginator(): Observable[DescribeVpcsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcsPaginator())
+
+  def describeVpcsPaginator(describeVpcsRequest: DescribeVpcsRequest): Observable[DescribeVpcsResponse] =
+    Observable.fromReactivePublisher(underlying.describeVpcsPaginator(describeVpcsRequest))
 
   override def describeVpnConnections(
       describeVpnConnectionsRequest: DescribeVpnConnectionsRequest
@@ -2138,6 +2531,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.getTransitGatewayAttachmentPropagations(getTransitGatewayAttachmentPropagationsRequest)
     }
 
+  def getTransitGatewayAttachmentPropagationsPaginator(
+      getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
+  ): Observable[GetTransitGatewayAttachmentPropagationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
+    )
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): Task[GetTransitGatewayRouteTableAssociationsResponse] =
@@ -2145,12 +2545,26 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.getTransitGatewayRouteTableAssociations(getTransitGatewayRouteTableAssociationsRequest)
     }
 
+  def getTransitGatewayRouteTableAssociationsPaginator(
+      getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
+  ): Observable[GetTransitGatewayRouteTableAssociationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.getTransitGatewayRouteTableAssociationsPaginator(getTransitGatewayRouteTableAssociationsRequest)
+    )
+
   override def getTransitGatewayRouteTablePropagations(
       getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
   ): Task[GetTransitGatewayRouteTablePropagationsResponse] =
     Task.deferFuture {
       underlying.getTransitGatewayRouteTablePropagations(getTransitGatewayRouteTablePropagationsRequest)
     }
+
+  def getTransitGatewayRouteTablePropagationsPaginator(
+      getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
+  ): Observable[GetTransitGatewayRouteTablePropagationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.getTransitGatewayRouteTablePropagationsPaginator(getTransitGatewayRouteTablePropagationsRequest)
+    )
 
   override def importClientVpnClientCertificateRevocationList(
       importClientVpnClientCertificateRevocationListRequest: ImportClientVpnClientCertificateRevocationListRequest
@@ -2373,6 +2787,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def modifyVpcTenancy(modifyVpcTenancyRequest: ModifyVpcTenancyRequest): Task[ModifyVpcTenancyResponse] =
     Task.deferFuture {
       underlying.modifyVpcTenancy(modifyVpcTenancyRequest)
+    }
+
+  override def modifyVpnConnection(
+      modifyVpnConnectionRequest: ModifyVpnConnectionRequest
+  ): Task[ModifyVpnConnectionResponse] =
+    Task.deferFuture {
+      underlying.modifyVpnConnection(modifyVpnConnectionRequest)
     }
 
   override def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): Task[MonitorInstancesResponse] =

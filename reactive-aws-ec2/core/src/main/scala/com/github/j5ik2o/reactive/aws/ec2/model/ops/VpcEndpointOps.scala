@@ -76,6 +76,13 @@ final class VpcEndpointBuilderOps(val self: VpcEndpoint.Builder) extends AnyVal 
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def requesterManagedAsScala(value: Option[Boolean]): VpcEndpoint.Builder = {
+    value.fold(self) { v =>
+      self.requesterManaged(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdsAsScala(value: Option[Seq[String]]): VpcEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.networkInterfaceIds(v.asJava)
@@ -93,6 +100,13 @@ final class VpcEndpointBuilderOps(val self: VpcEndpoint.Builder) extends AnyVal 
   final def creationTimestampAsScala(value: Option[java.time.Instant]): VpcEndpoint.Builder = {
     value.fold(self) { v =>
       self.creationTimestamp(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): VpcEndpoint.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -137,6 +151,9 @@ final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
   final def privateDnsEnabledAsScala: Option[Boolean] = Option(self.privateDnsEnabled)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def requesterManagedAsScala: Option[Boolean] = Option(self.requesterManaged)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdsAsScala: Option[Seq[String]] = Option(self.networkInterfaceIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
@@ -148,6 +165,11 @@ final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala: Option[java.time.Instant] = Option(self.creationTimestamp)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

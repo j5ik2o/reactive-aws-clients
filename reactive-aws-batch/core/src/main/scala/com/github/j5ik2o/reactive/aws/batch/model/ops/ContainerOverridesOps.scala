@@ -40,6 +40,13 @@ final class ContainerOverridesBuilderOps(val self: ContainerOverrides.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourceRequirementsAsScala(value: Option[Seq[ResourceRequirement]]): ContainerOverrides.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.resourceRequirements(v.asJava)
+    }
+  }
+
 }
 
 final class ContainerOverridesOps(val self: ContainerOverrides) extends AnyVal {
@@ -60,6 +67,11 @@ final class ContainerOverridesOps(val self: ContainerOverrides) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentAsScala: Option[Seq[KeyValuePair]] = Option(self.environment).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourceRequirementsAsScala: Option[Seq[ResourceRequirement]] = Option(self.resourceRequirements).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

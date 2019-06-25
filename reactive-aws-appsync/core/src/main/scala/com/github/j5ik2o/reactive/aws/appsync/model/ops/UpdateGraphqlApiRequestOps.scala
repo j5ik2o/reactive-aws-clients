@@ -47,6 +47,16 @@ final class UpdateGraphqlApiRequestBuilderOps(val self: UpdateGraphqlApiRequest.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def additionalAuthenticationProvidersAsScala(
+      value: Option[Seq[AdditionalAuthenticationProvider]]
+  ): UpdateGraphqlApiRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.additionalAuthenticationProviders(v.asJava)
+    }
+  }
+
 }
 
 final class UpdateGraphqlApiRequestOps(val self: UpdateGraphqlApiRequest) extends AnyVal {
@@ -68,6 +78,12 @@ final class UpdateGraphqlApiRequestOps(val self: UpdateGraphqlApiRequest) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] = Option(self.openIDConnectConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def additionalAuthenticationProvidersAsScala: Option[Seq[AdditionalAuthenticationProvider]] =
+    Option(self.additionalAuthenticationProviders).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

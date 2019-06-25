@@ -112,6 +112,13 @@ final class InstanceNetworkInterfaceBuilderOps(val self: InstanceNetworkInterfac
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala(value: Option[String]): InstanceNetworkInterface.Builder = {
+    value.fold(self) { v =>
+      self.interfaceType(v)
+    }
+  }
+
 }
 
 final class InstanceNetworkInterfaceOps(val self: InstanceNetworkInterface) extends AnyVal {
@@ -167,6 +174,9 @@ final class InstanceNetworkInterfaceOps(val self: InstanceNetworkInterface) exte
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala: Option[String] = Option(self.interfaceType)
 
 }
 

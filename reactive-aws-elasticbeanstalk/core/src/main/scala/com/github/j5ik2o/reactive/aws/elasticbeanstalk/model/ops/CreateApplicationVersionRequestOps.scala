@@ -64,6 +64,13 @@ final class CreateApplicationVersionRequestBuilderOps(val self: CreateApplicatio
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): CreateApplicationVersionRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class CreateApplicationVersionRequestOps(val self: CreateApplicationVersionRequest) extends AnyVal {
@@ -91,6 +98,11 @@ final class CreateApplicationVersionRequestOps(val self: CreateApplicationVersio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def processAsScala: Option[Boolean] = Option(self.process)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

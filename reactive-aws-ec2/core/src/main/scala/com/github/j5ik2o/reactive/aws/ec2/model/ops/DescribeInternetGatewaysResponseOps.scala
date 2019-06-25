@@ -13,6 +13,13 @@ final class DescribeInternetGatewaysResponseBuilderOps(val self: DescribeInterne
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeInternetGatewaysResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
 }
 
 final class DescribeInternetGatewaysResponseOps(val self: DescribeInternetGatewaysResponse) extends AnyVal {
@@ -21,6 +28,9 @@ final class DescribeInternetGatewaysResponseOps(val self: DescribeInternetGatewa
   final def internetGatewaysAsScala: Option[Seq[InternetGateway]] = Option(self.internetGateways).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

@@ -19,6 +19,20 @@ final class DescribeNetworkAclsRequestBuilderOps(val self: DescribeNetworkAclsRe
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeNetworkAclsRequest.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala(value: Option[Int]): DescribeNetworkAclsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxResults(v)
+    }
+  }
+
 }
 
 final class DescribeNetworkAclsRequestOps(val self: DescribeNetworkAclsRequest) extends AnyVal {
@@ -32,6 +46,12 @@ final class DescribeNetworkAclsRequestOps(val self: DescribeNetworkAclsRequest) 
   final def networkAclIdsAsScala: Option[Seq[String]] = Option(self.networkAclIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

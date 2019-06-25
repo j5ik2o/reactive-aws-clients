@@ -78,6 +78,9 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   override def getMetricData(getMetricDataRequest: GetMetricDataRequest): Future[GetMetricDataResponse] =
     underlying.getMetricData(getMetricDataRequest).toScala
 
+  def getMetricDataPaginator(getMetricDataRequest: GetMetricDataRequest): GetMetricDataPublisher =
+    underlying.getMetricDataPaginator(getMetricDataRequest)
+
   override def getMetricStatistics(
       getMetricStatisticsRequest: GetMetricStatisticsRequest
   ): Future[GetMetricStatisticsResponse] =
@@ -94,6 +97,12 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   override def listDashboards(): Future[ListDashboardsResponse] =
     underlying.listDashboards().toScala
 
+  def listDashboardsPaginator(): ListDashboardsPublisher =
+    underlying.listDashboardsPaginator()
+
+  def listDashboardsPaginator(listDashboardsRequest: ListDashboardsRequest): ListDashboardsPublisher =
+    underlying.listDashboardsPaginator(listDashboardsRequest)
+
   override def listMetrics(listMetricsRequest: ListMetricsRequest): Future[ListMetricsResponse] =
     underlying.listMetrics(listMetricsRequest).toScala
 
@@ -106,6 +115,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   def listMetricsPaginator(listMetricsRequest: ListMetricsRequest): ListMetricsPublisher =
     underlying.listMetricsPaginator(listMetricsRequest)
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Future[ListTagsForResourceResponse] =
+    underlying.listTagsForResource(listTagsForResourceRequest).toScala
+
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Future[PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toScala
 
@@ -117,5 +131,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
 
   override def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): Future[SetAlarmStateResponse] =
     underlying.setAlarmState(setAlarmStateRequest).toScala
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toScala
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toScala
 
 }

@@ -51,6 +51,19 @@ trait EcsAkkaClient {
       underlying.createService(createServiceRequest)
     }
 
+  def createTaskSetSource(
+      createTaskSetRequest: CreateTaskSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTaskSetResponse, NotUsed] =
+    Source.single(createTaskSetRequest).via(createTaskSetFlow(parallelism))
+
+  def createTaskSetFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTaskSetRequest, CreateTaskSetResponse, NotUsed] =
+    Flow[CreateTaskSetRequest].mapAsync(parallelism) { createTaskSetRequest =>
+      underlying.createTaskSet(createTaskSetRequest)
+    }
+
   def deleteAccountSettingSource(
       deleteAccountSettingRequest: DeleteAccountSettingRequest,
       parallelism: Int = DefaultParallelism
@@ -101,6 +114,19 @@ trait EcsAkkaClient {
   ): Flow[DeleteServiceRequest, DeleteServiceResponse, NotUsed] =
     Flow[DeleteServiceRequest].mapAsync(parallelism) { deleteServiceRequest =>
       underlying.deleteService(deleteServiceRequest)
+    }
+
+  def deleteTaskSetSource(
+      deleteTaskSetRequest: DeleteTaskSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTaskSetResponse, NotUsed] =
+    Source.single(deleteTaskSetRequest).via(deleteTaskSetFlow(parallelism))
+
+  def deleteTaskSetFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTaskSetRequest, DeleteTaskSetResponse, NotUsed] =
+    Flow[DeleteTaskSetRequest].mapAsync(parallelism) { deleteTaskSetRequest =>
+      underlying.deleteTaskSet(deleteTaskSetRequest)
     }
 
   def deregisterContainerInstanceSource(
@@ -182,6 +208,19 @@ trait EcsAkkaClient {
   ): Flow[DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse, NotUsed] =
     Flow[DescribeTaskDefinitionRequest].mapAsync(parallelism) { describeTaskDefinitionRequest =>
       underlying.describeTaskDefinition(describeTaskDefinitionRequest)
+    }
+
+  def describeTaskSetsSource(
+      describeTaskSetsRequest: DescribeTaskSetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTaskSetsResponse, NotUsed] =
+    Source.single(describeTaskSetsRequest).via(describeTaskSetsFlow(parallelism))
+
+  def describeTaskSetsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTaskSetsRequest, DescribeTaskSetsResponse, NotUsed] =
+    Flow[DescribeTaskSetsRequest].mapAsync(parallelism) { describeTaskSetsRequest =>
+      underlying.describeTaskSets(describeTaskSetsRequest)
     }
 
   def describeTasksSource(
@@ -581,6 +620,32 @@ trait EcsAkkaClient {
   ): Flow[UpdateServiceRequest, UpdateServiceResponse, NotUsed] =
     Flow[UpdateServiceRequest].mapAsync(parallelism) { updateServiceRequest =>
       underlying.updateService(updateServiceRequest)
+    }
+
+  def updateServicePrimaryTaskSetSource(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateServicePrimaryTaskSetResponse, NotUsed] =
+    Source.single(updateServicePrimaryTaskSetRequest).via(updateServicePrimaryTaskSetFlow(parallelism))
+
+  def updateServicePrimaryTaskSetFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse, NotUsed] =
+    Flow[UpdateServicePrimaryTaskSetRequest].mapAsync(parallelism) { updateServicePrimaryTaskSetRequest =>
+      underlying.updateServicePrimaryTaskSet(updateServicePrimaryTaskSetRequest)
+    }
+
+  def updateTaskSetSource(
+      updateTaskSetRequest: UpdateTaskSetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateTaskSetResponse, NotUsed] =
+    Source.single(updateTaskSetRequest).via(updateTaskSetFlow(parallelism))
+
+  def updateTaskSetFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateTaskSetRequest, UpdateTaskSetResponse, NotUsed] =
+    Flow[UpdateTaskSetRequest].mapAsync(parallelism) { updateTaskSetRequest =>
+      underlying.updateTaskSet(updateTaskSetRequest)
     }
 
 }

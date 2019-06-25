@@ -225,6 +225,19 @@ trait LambdaAkkaClient {
       underlying.getLayerVersion(getLayerVersionRequest)
     }
 
+  def getLayerVersionByArnSource(
+      getLayerVersionByArnRequest: GetLayerVersionByArnRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetLayerVersionByArnResponse, NotUsed] =
+    Source.single(getLayerVersionByArnRequest).via(getLayerVersionByArnFlow(parallelism))
+
+  def getLayerVersionByArnFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetLayerVersionByArnRequest, GetLayerVersionByArnResponse, NotUsed] =
+    Flow[GetLayerVersionByArnRequest].mapAsync(parallelism) { getLayerVersionByArnRequest =>
+      underlying.getLayerVersionByArn(getLayerVersionByArnRequest)
+    }
+
   def getLayerVersionPolicySource(
       getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest,
       parallelism: Int = DefaultParallelism

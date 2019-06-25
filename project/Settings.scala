@@ -12,7 +12,7 @@ object Settings {
   val scalaVersion212 = "2.12.8"
   val scalaVersion213 = "2.13.0"
 
-  val awsSdk2Version = "2.5.37"
+  val awsSdk2Version = "2.5.69"
 
   val catsVersion  = "2.0.0-M4"
   val catsEffectVersion = "2.0.0-M4"

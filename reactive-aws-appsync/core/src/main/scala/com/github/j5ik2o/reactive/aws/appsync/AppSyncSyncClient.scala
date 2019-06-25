@@ -116,6 +116,11 @@ trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
   ): Either[Throwable, ListResolversByFunctionResponse] =
     underlying.listResolversByFunction(listResolversByFunctionRequest).toEither
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Either[Throwable, ListTagsForResourceResponse] =
+    underlying.listTagsForResource(listTagsForResourceRequest).toEither
+
   override def listTypes(listTypesRequest: ListTypesRequest): Either[Throwable, ListTypesResponse] =
     underlying.listTypes(listTypesRequest).toEither
 
@@ -123,6 +128,12 @@ trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
       startSchemaCreationRequest: StartSchemaCreationRequest
   ): Either[Throwable, StartSchemaCreationResponse] =
     underlying.startSchemaCreation(startSchemaCreationRequest).toEither
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Either[Throwable, TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toEither
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Either[Throwable, UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toEither
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): Either[Throwable, UpdateApiKeyResponse] =
     underlying.updateApiKey(updateApiKeyRequest).toEither

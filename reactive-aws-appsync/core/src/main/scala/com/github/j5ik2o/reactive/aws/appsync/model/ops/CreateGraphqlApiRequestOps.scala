@@ -40,6 +40,23 @@ final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Map[String, String]]): CreateGraphqlApiRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def additionalAuthenticationProvidersAsScala(
+      value: Option[Seq[AdditionalAuthenticationProvider]]
+  ): CreateGraphqlApiRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.additionalAuthenticationProviders(v.asJava)
+    }
+  }
+
 }
 
 final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extends AnyVal {
@@ -58,6 +75,17 @@ final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] = Option(self.openIDConnectConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def additionalAuthenticationProvidersAsScala: Option[Seq[AdditionalAuthenticationProvider]] =
+    Option(self.additionalAuthenticationProviders).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

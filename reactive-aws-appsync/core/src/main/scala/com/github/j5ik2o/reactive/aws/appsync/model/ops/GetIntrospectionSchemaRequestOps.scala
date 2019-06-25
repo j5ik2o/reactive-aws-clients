@@ -19,6 +19,13 @@ final class GetIntrospectionSchemaRequestBuilderOps(val self: GetIntrospectionSc
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def includeDirectivesAsScala(value: Option[Boolean]): GetIntrospectionSchemaRequest.Builder = {
+    value.fold(self) { v =>
+      self.includeDirectives(v)
+    }
+  }
+
 }
 
 final class GetIntrospectionSchemaRequestOps(val self: GetIntrospectionSchemaRequest) extends AnyVal {
@@ -28,6 +35,9 @@ final class GetIntrospectionSchemaRequestOps(val self: GetIntrospectionSchemaReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala: Option[OutputType] = Option(self.format)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def includeDirectivesAsScala: Option[Boolean] = Option(self.includeDirectives)
 
 }
 

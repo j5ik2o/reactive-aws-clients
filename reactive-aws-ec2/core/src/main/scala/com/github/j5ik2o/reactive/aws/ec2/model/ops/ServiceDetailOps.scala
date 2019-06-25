@@ -13,6 +13,13 @@ final class ServiceDetailBuilderOps(val self: ServiceDetail.Builder) extends Any
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def serviceIdAsScala(value: Option[String]): ServiceDetail.Builder = {
+    value.fold(self) { v =>
+      self.serviceId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceTypeAsScala(value: Option[Seq[ServiceTypeDetail]]): ServiceDetail.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.serviceType(v.asJava)
@@ -61,12 +68,29 @@ final class ServiceDetailBuilderOps(val self: ServiceDetail.Builder) extends Any
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def managesVpcEndpointsAsScala(value: Option[Boolean]): ServiceDetail.Builder = {
+    value.fold(self) { v =>
+      self.managesVpcEndpoints(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): ServiceDetail.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class ServiceDetailOps(val self: ServiceDetail) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceNameAsScala: Option[String] = Option(self.serviceName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def serviceIdAsScala: Option[String] = Option(self.serviceId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceTypeAsScala: Option[Seq[ServiceTypeDetail]] = Option(self.serviceType).map { v =>
@@ -94,6 +118,14 @@ final class ServiceDetailOps(val self: ServiceDetail) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acceptanceRequiredAsScala: Option[Boolean] = Option(self.acceptanceRequired)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def managesVpcEndpointsAsScala: Option[Boolean] = Option(self.managesVpcEndpoints)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

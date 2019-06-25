@@ -47,6 +47,13 @@ final class LaunchTemplateInstanceNetworkInterfaceSpecificationBuilderOps(
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala(value: Option[String]): LaunchTemplateInstanceNetworkInterfaceSpecification.Builder = {
+    value.fold(self) { v =>
+      self.interfaceType(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6AddressCountAsScala(value: Option[Int]): LaunchTemplateInstanceNetworkInterfaceSpecification.Builder = {
     value.fold(self) { v =>
       self.ipv6AddressCount(v)
@@ -127,6 +134,9 @@ final class LaunchTemplateInstanceNetworkInterfaceSpecificationOps(
   final def groupsAsScala: Option[Seq[String]] = Option(self.groups).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala: Option[String] = Option(self.interfaceType)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6AddressCountAsScala: Option[Int] = Option(self.ipv6AddressCount)

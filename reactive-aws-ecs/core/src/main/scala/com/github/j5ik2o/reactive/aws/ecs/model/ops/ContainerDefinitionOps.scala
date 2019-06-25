@@ -118,6 +118,27 @@ final class ContainerDefinitionBuilderOps(val self: ContainerDefinition.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def dependsOnAsScala(value: Option[Seq[ContainerDependency]]): ContainerDefinition.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.dependsOn(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def startTimeoutAsScala(value: Option[Int]): ContainerDefinition.Builder = {
+    value.fold(self) { v =>
+      self.startTimeout(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stopTimeoutAsScala(value: Option[Int]): ContainerDefinition.Builder = {
+    value.fold(self) { v =>
+      self.stopTimeout(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostnameAsScala(value: Option[String]): ContainerDefinition.Builder = {
     value.fold(self) { v =>
       self.hostname(v)
@@ -310,6 +331,17 @@ final class ContainerDefinitionOps(val self: ContainerDefinition) extends AnyVal
   final def secretsAsScala: Option[Seq[Secret]] = Option(self.secrets).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def dependsOnAsScala: Option[Seq[ContainerDependency]] = Option(self.dependsOn).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def startTimeoutAsScala: Option[Int] = Option(self.startTimeout)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stopTimeoutAsScala: Option[Int] = Option(self.stopTimeout)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostnameAsScala: Option[String] = Option(self.hostname)

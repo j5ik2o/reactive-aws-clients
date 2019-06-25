@@ -26,6 +26,20 @@ final class VpcConfigResponseBuilderOps(val self: VpcConfigResponse.Builder) ext
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPublicAccessAsScala(value: Option[Boolean]): VpcConfigResponse.Builder = {
+    value.fold(self) { v =>
+      self.endpointPublicAccess(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPrivateAccessAsScala(value: Option[Boolean]): VpcConfigResponse.Builder = {
+    value.fold(self) { v =>
+      self.endpointPrivateAccess(v)
+    }
+  }
+
 }
 
 final class VpcConfigResponseOps(val self: VpcConfigResponse) extends AnyVal {
@@ -42,6 +56,12 @@ final class VpcConfigResponseOps(val self: VpcConfigResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPublicAccessAsScala: Option[Boolean] = Option(self.endpointPublicAccess)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def endpointPrivateAccessAsScala: Option[Boolean] = Option(self.endpointPrivateAccess)
 
 }
 

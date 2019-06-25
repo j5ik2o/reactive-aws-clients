@@ -19,6 +19,8 @@ trait EksClient[M[_]] {
 
   def listUpdates(listUpdatesRequest: ListUpdatesRequest): M[ListUpdatesResponse]
 
+  def updateClusterConfig(updateClusterConfigRequest: UpdateClusterConfigRequest): M[UpdateClusterConfigResponse]
+
   def updateClusterVersion(updateClusterVersionRequest: UpdateClusterVersionRequest): M[UpdateClusterVersionResponse]
 
 }

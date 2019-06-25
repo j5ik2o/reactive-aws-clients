@@ -12,6 +12,13 @@ final class DescribeVpcsResponseBuilderOps(val self: DescribeVpcsResponse.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeVpcsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
 }
 
 final class DescribeVpcsResponseOps(val self: DescribeVpcsResponse) extends AnyVal {
@@ -20,6 +27,9 @@ final class DescribeVpcsResponseOps(val self: DescribeVpcsResponse) extends AnyV
   final def vpcsAsScala: Option[Seq[Vpc]] = Option(self.vpcs).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

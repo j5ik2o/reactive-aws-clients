@@ -94,6 +94,13 @@ final class InstanceNetworkInterfaceSpecificationBuilderOps(val self: InstanceNe
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala(value: Option[String]): InstanceNetworkInterfaceSpecification.Builder = {
+    value.fold(self) { v =>
+      self.interfaceType(v)
+    }
+  }
+
 }
 
 final class InstanceNetworkInterfaceSpecificationOps(val self: InstanceNetworkInterfaceSpecification) extends AnyVal {
@@ -140,6 +147,9 @@ final class InstanceNetworkInterfaceSpecificationOps(val self: InstanceNetworkIn
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala: Option[String] = Option(self.interfaceType)
 
 }
 

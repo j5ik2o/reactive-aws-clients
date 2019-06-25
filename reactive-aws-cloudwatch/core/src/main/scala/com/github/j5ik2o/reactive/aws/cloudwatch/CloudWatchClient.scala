@@ -41,6 +41,8 @@ trait CloudWatchClient[M[_]] {
 
   def listMetrics(): M[ListMetricsResponse]
 
+  def listTagsForResource(listTagsForResourceRequest: ListTagsForResourceRequest): M[ListTagsForResourceResponse]
+
   def putDashboard(putDashboardRequest: PutDashboardRequest): M[PutDashboardResponse]
 
   def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): M[PutMetricAlarmResponse]
@@ -48,5 +50,9 @@ trait CloudWatchClient[M[_]] {
   def putMetricData(putMetricDataRequest: PutMetricDataRequest): M[PutMetricDataResponse]
 
   def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): M[SetAlarmStateResponse]
+
+  def tagResource(tagResourceRequest: TagResourceRequest): M[TagResourceResponse]
+
+  def untagResource(untagResourceRequest: UntagResourceRequest): M[UntagResourceResponse]
 
 }

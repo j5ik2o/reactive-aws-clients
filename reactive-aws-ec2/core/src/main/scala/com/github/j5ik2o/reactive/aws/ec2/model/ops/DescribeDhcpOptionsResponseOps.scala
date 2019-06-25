@@ -12,6 +12,13 @@ final class DescribeDhcpOptionsResponseBuilderOps(val self: DescribeDhcpOptionsR
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeDhcpOptionsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
 }
 
 final class DescribeDhcpOptionsResponseOps(val self: DescribeDhcpOptionsResponse) extends AnyVal {
@@ -20,6 +27,9 @@ final class DescribeDhcpOptionsResponseOps(val self: DescribeDhcpOptionsResponse
   final def dhcpOptionsAsScala: Option[Seq[DhcpOptions]] = Option(self.dhcpOptions).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

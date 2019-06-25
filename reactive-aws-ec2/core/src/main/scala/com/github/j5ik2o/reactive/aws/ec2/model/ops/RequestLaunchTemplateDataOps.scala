@@ -185,20 +185,20 @@ final class RequestLaunchTemplateDataBuilderOps(val self: RequestLaunchTemplateD
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hibernationOptionsAsScala(
-      value: Option[LaunchTemplateHibernationOptionsRequest]
-  ): RequestLaunchTemplateData.Builder = {
-    value.fold(self) { v =>
-      self.hibernationOptions(v)
-    }
-  }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseSpecificationsAsScala(
       value: Option[Seq[LaunchTemplateLicenseConfigurationRequest]]
   ): RequestLaunchTemplateData.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.licenseSpecifications(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hibernationOptionsAsScala(
+      value: Option[LaunchTemplateHibernationOptionsRequest]
+  ): RequestLaunchTemplateData.Builder = {
+    value.fold(self) { v =>
+      self.hibernationOptions(v)
     }
   }
 
@@ -299,13 +299,13 @@ final class RequestLaunchTemplateDataOps(val self: RequestLaunchTemplateData) ex
     Option(self.capacityReservationSpecification)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hibernationOptionsAsScala: Option[LaunchTemplateHibernationOptionsRequest] = Option(self.hibernationOptions)
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseSpecificationsAsScala: Option[Seq[LaunchTemplateLicenseConfigurationRequest]] =
     Option(self.licenseSpecifications).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hibernationOptionsAsScala: Option[LaunchTemplateHibernationOptionsRequest] = Option(self.hibernationOptions)
 
 }
 

@@ -101,6 +101,19 @@ trait EksAkkaClient {
       underlying.listUpdates(listUpdatesRequest)
     }
 
+  def updateClusterConfigSource(
+      updateClusterConfigRequest: UpdateClusterConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateClusterConfigResponse, NotUsed] =
+    Source.single(updateClusterConfigRequest).via(updateClusterConfigFlow(parallelism))
+
+  def updateClusterConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateClusterConfigRequest, UpdateClusterConfigResponse, NotUsed] =
+    Flow[UpdateClusterConfigRequest].mapAsync(parallelism) { updateClusterConfigRequest =>
+      underlying.updateClusterConfig(updateClusterConfigRequest)
+    }
+
   def updateClusterVersionSource(
       updateClusterVersionRequest: UpdateClusterVersionRequest,
       parallelism: Int = DefaultParallelism

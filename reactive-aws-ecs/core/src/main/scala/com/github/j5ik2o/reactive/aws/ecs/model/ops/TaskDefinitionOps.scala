@@ -126,6 +126,13 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def proxyConfigurationAsScala(value: Option[ProxyConfiguration]): TaskDefinition.Builder = {
+    value.fold(self) { v =>
+      self.proxyConfiguration(v)
+    }
+  }
+
 }
 
 final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
@@ -193,6 +200,9 @@ final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipcModeAsScala: Option[IpcMode] = Option(self.ipcMode)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def proxyConfigurationAsScala: Option[ProxyConfiguration] = Option(self.proxyConfiguration)
 
 }
 

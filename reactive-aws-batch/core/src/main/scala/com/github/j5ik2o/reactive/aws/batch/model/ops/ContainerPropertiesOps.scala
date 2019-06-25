@@ -96,6 +96,13 @@ final class ContainerPropertiesBuilderOps(val self: ContainerProperties.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourceRequirementsAsScala(value: Option[Seq[ResourceRequirement]]): ContainerProperties.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.resourceRequirements(v.asJava)
+    }
+  }
+
 }
 
 final class ContainerPropertiesOps(val self: ContainerProperties) extends AnyVal {
@@ -148,6 +155,11 @@ final class ContainerPropertiesOps(val self: ContainerProperties) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourceRequirementsAsScala: Option[Seq[ResourceRequirement]] = Option(self.resourceRequirements).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

@@ -44,6 +44,11 @@ trait EksSyncClient extends EksClient[Either[Throwable, ?]] {
   override def listUpdates(listUpdatesRequest: ListUpdatesRequest): Either[Throwable, ListUpdatesResponse] =
     underlying.listUpdates(listUpdatesRequest).toEither
 
+  override def updateClusterConfig(
+      updateClusterConfigRequest: UpdateClusterConfigRequest
+  ): Either[Throwable, UpdateClusterConfigResponse] =
+    underlying.updateClusterConfig(updateClusterConfigRequest).toEither
+
   override def updateClusterVersion(
       updateClusterVersionRequest: UpdateClusterVersionRequest
   ): Either[Throwable, UpdateClusterVersionResponse] =

@@ -102,6 +102,9 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.getMetricData(getMetricDataRequest))
     }
 
+  def getMetricDataPaginator(getMetricDataRequest: GetMetricDataRequest): GetMetricDataPublisher =
+    underlying.getMetricDataPaginator(getMetricDataRequest)
+
   override def getMetricStatistics(
       getMetricStatisticsRequest: GetMetricStatisticsRequest
   ): IO[GetMetricStatisticsResponse] =
@@ -126,6 +129,12 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.listDashboards())
     }
 
+  def listDashboardsPaginator(): ListDashboardsPublisher =
+    underlying.listDashboardsPaginator()
+
+  def listDashboardsPaginator(listDashboardsRequest: ListDashboardsRequest): ListDashboardsPublisher =
+    underlying.listDashboardsPaginator(listDashboardsRequest)
+
   override def listMetrics(listMetricsRequest: ListMetricsRequest): IO[ListMetricsResponse] =
     IO.fromFuture {
       IO(underlying.listMetrics(listMetricsRequest))
@@ -141,6 +150,13 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
 
   def listMetricsPaginator(listMetricsRequest: ListMetricsRequest): ListMetricsPublisher =
     underlying.listMetricsPaginator(listMetricsRequest)
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): IO[ListTagsForResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.listTagsForResource(listTagsForResourceRequest))
+    }
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): IO[PutDashboardResponse] =
     IO.fromFuture {
@@ -160,6 +176,16 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
   override def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): IO[SetAlarmStateResponse] =
     IO.fromFuture {
       IO(underlying.setAlarmState(setAlarmStateRequest))
+    }
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): IO[TagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.tagResource(tagResourceRequest))
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.untagResource(untagResourceRequest))
     }
 
 }

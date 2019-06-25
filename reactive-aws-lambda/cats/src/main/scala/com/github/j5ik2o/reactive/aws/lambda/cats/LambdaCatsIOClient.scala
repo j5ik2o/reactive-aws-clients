@@ -126,6 +126,13 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
       IO(underlying.getLayerVersion(getLayerVersionRequest))
     }
 
+  override def getLayerVersionByArn(
+      getLayerVersionByArnRequest: GetLayerVersionByArnRequest
+  ): IO[GetLayerVersionByArnResponse] =
+    IO.fromFuture {
+      IO(underlying.getLayerVersionByArn(getLayerVersionByArnRequest))
+    }
+
   override def getLayerVersionPolicy(
       getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest
   ): IO[GetLayerVersionPolicyResponse] =

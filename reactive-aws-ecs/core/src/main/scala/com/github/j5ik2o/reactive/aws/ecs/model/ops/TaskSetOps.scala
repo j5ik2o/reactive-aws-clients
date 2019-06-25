@@ -20,6 +20,20 @@ final class TaskSetBuilderOps(val self: TaskSet.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def serviceArnAsScala(value: Option[String]): TaskSet.Builder = {
+    value.fold(self) { v =>
+      self.serviceArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clusterArnAsScala(value: Option[String]): TaskSet.Builder = {
+    value.fold(self) { v =>
+      self.clusterArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startedByAsScala(value: Option[String]): TaskSet.Builder = {
     value.fold(self) { v =>
       self.startedBy(v)
@@ -111,6 +125,13 @@ final class TaskSetBuilderOps(val self: TaskSet.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def serviceRegistriesAsScala(value: Option[Seq[ServiceRegistry]]): TaskSet.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.serviceRegistries(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scaleAsScala(value: Option[Scale]): TaskSet.Builder = {
     value.fold(self) { v =>
       self.scale(v)
@@ -140,6 +161,12 @@ final class TaskSetOps(val self: TaskSet) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskSetArnAsScala: Option[String] = Option(self.taskSetArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def serviceArnAsScala: Option[String] = Option(self.serviceArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clusterArnAsScala: Option[String] = Option(self.clusterArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startedByAsScala: Option[String] = Option(self.startedBy)
@@ -179,6 +206,11 @@ final class TaskSetOps(val self: TaskSet) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loadBalancersAsScala: Option[Seq[LoadBalancer]] = Option(self.loadBalancers).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def serviceRegistriesAsScala: Option[Seq[ServiceRegistry]] = Option(self.serviceRegistries).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

@@ -154,6 +154,13 @@ trait AppSyncMonixClient extends AppSyncClient[Task] {
       underlying.listResolversByFunction(listResolversByFunctionRequest)
     }
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Task[ListTagsForResourceResponse] =
+    Task.deferFuture {
+      underlying.listTagsForResource(listTagsForResourceRequest)
+    }
+
   override def listTypes(listTypesRequest: ListTypesRequest): Task[ListTypesResponse] =
     Task.deferFuture {
       underlying.listTypes(listTypesRequest)
@@ -164,6 +171,16 @@ trait AppSyncMonixClient extends AppSyncClient[Task] {
   ): Task[StartSchemaCreationResponse] =
     Task.deferFuture {
       underlying.startSchemaCreation(startSchemaCreationRequest)
+    }
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Task[TagResourceResponse] =
+    Task.deferFuture {
+      underlying.tagResource(tagResourceRequest)
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Task[UntagResourceResponse] =
+    Task.deferFuture {
+      underlying.untagResource(untagResourceRequest)
     }
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): Task[UpdateApiKeyResponse] =

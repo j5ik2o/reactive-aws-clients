@@ -161,6 +161,11 @@ trait CloudWatchAkkaClient {
       underlying.getMetricData(getMetricDataRequest)
     }
 
+  def getMetricDataPaginatorFlow: Flow[GetMetricDataRequest, GetMetricDataResponse, NotUsed] =
+    Flow[GetMetricDataRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getMetricDataPaginator(request))
+    }
+
   def getMetricStatisticsSource(
       getMetricStatisticsRequest: GetMetricStatisticsRequest,
       parallelism: Int = DefaultParallelism
@@ -203,6 +208,14 @@ trait CloudWatchAkkaClient {
   def listDashboardsSource(): Source[ListDashboardsResponse, NotUsed] =
     Source.fromFuture(underlying.listDashboards())
 
+  def listDashboardsPaginatorSource: Source[ListDashboardsResponse, NotUsed] =
+    Source.fromPublisher(underlying.listDashboardsPaginator())
+
+  def listDashboardsPaginatorFlow: Flow[ListDashboardsRequest, ListDashboardsResponse, NotUsed] =
+    Flow[ListDashboardsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listDashboardsPaginator(request))
+    }
+
   def listMetricsSource(
       listMetricsRequest: ListMetricsRequest,
       parallelism: Int = DefaultParallelism
@@ -223,6 +236,19 @@ trait CloudWatchAkkaClient {
   def listMetricsPaginatorFlow: Flow[ListMetricsRequest, ListMetricsResponse, NotUsed] =
     Flow[ListMetricsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listMetricsPaginator(request))
+    }
+
+  def listTagsForResourceSource(
+      listTagsForResourceRequest: ListTagsForResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForResourceResponse, NotUsed] =
+    Source.single(listTagsForResourceRequest).via(listTagsForResourceFlow(parallelism))
+
+  def listTagsForResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListTagsForResourceRequest, ListTagsForResourceResponse, NotUsed] =
+    Flow[ListTagsForResourceRequest].mapAsync(parallelism) { listTagsForResourceRequest =>
+      underlying.listTagsForResource(listTagsForResourceRequest)
     }
 
   def putDashboardSource(
@@ -275,6 +301,30 @@ trait CloudWatchAkkaClient {
   ): Flow[SetAlarmStateRequest, SetAlarmStateResponse, NotUsed] =
     Flow[SetAlarmStateRequest].mapAsync(parallelism) { setAlarmStateRequest =>
       underlying.setAlarmState(setAlarmStateRequest)
+    }
+
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
+    Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
+
+  def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
+    Flow[TagResourceRequest].mapAsync(parallelism) { tagResourceRequest =>
+      underlying.tagResource(tagResourceRequest)
+    }
+
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
+    Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
+
+  def untagResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
+    Flow[UntagResourceRequest].mapAsync(parallelism) { untagResourceRequest =>
+      underlying.untagResource(untagResourceRequest)
     }
 
 }

@@ -19,6 +19,20 @@ final class DescribeVpcsRequestBuilderOps(val self: DescribeVpcsRequest.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeVpcsRequest.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala(value: Option[Int]): DescribeVpcsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxResults(v)
+    }
+  }
+
 }
 
 final class DescribeVpcsRequestOps(val self: DescribeVpcsRequest) extends AnyVal {
@@ -32,6 +46,12 @@ final class DescribeVpcsRequestOps(val self: DescribeVpcsRequest) extends AnyVal
   final def vpcIdsAsScala: Option[Seq[String]] = Option(self.vpcIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

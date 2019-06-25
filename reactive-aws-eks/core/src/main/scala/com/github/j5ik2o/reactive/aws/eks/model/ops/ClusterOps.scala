@@ -55,6 +55,13 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def loggingAsScala(value: Option[Logging]): Cluster.Builder = {
+    value.fold(self) { v =>
+      self.logging(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ClusterStatus]): Cluster.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -106,6 +113,9 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcesVpcConfigAsScala: Option[VpcConfigResponse] = Option(self.resourcesVpcConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def loggingAsScala: Option[Logging] = Option(self.logging)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ClusterStatus] = Option(self.status)

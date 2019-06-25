@@ -39,6 +39,11 @@ trait EcsCatsIOClient extends EcsClient[IO] {
       IO(underlying.createService(createServiceRequest))
     }
 
+  override def createTaskSet(createTaskSetRequest: CreateTaskSetRequest): IO[CreateTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.createTaskSet(createTaskSetRequest))
+    }
+
   override def deleteAccountSetting(
       deleteAccountSettingRequest: DeleteAccountSettingRequest
   ): IO[DeleteAccountSettingResponse] =
@@ -59,6 +64,11 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def deleteService(deleteServiceRequest: DeleteServiceRequest): IO[DeleteServiceResponse] =
     IO.fromFuture {
       IO(underlying.deleteService(deleteServiceRequest))
+    }
+
+  override def deleteTaskSet(deleteTaskSetRequest: DeleteTaskSetRequest): IO[DeleteTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTaskSet(deleteTaskSetRequest))
     }
 
   override def deregisterContainerInstance(
@@ -102,6 +112,11 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   ): IO[DescribeTaskDefinitionResponse] =
     IO.fromFuture {
       IO(underlying.describeTaskDefinition(describeTaskDefinitionRequest))
+    }
+
+  override def describeTaskSets(describeTaskSetsRequest: DescribeTaskSetsRequest): IO[DescribeTaskSetsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTaskSets(describeTaskSetsRequest))
     }
 
   override def describeTasks(describeTasksRequest: DescribeTasksRequest): IO[DescribeTasksResponse] =
@@ -335,6 +350,18 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def updateService(updateServiceRequest: UpdateServiceRequest): IO[UpdateServiceResponse] =
     IO.fromFuture {
       IO(underlying.updateService(updateServiceRequest))
+    }
+
+  override def updateServicePrimaryTaskSet(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest
+  ): IO[UpdateServicePrimaryTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.updateServicePrimaryTaskSet(updateServicePrimaryTaskSetRequest))
+    }
+
+  override def updateTaskSet(updateTaskSetRequest: UpdateTaskSetRequest): IO[UpdateTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.updateTaskSet(updateTaskSetRequest))
     }
 
 }

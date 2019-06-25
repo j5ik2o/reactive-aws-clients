@@ -57,6 +57,13 @@ final class CreateNetworkInterfaceRequestBuilderOps(val self: CreateNetworkInter
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala(value: Option[NetworkInterfaceCreationType]): CreateNetworkInterfaceRequest.Builder = {
+    value.fold(self) { v =>
+      self.interfaceType(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): CreateNetworkInterfaceRequest.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -94,6 +101,9 @@ final class CreateNetworkInterfaceRequestOps(val self: CreateNetworkInterfaceReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def secondaryPrivateIpAddressCountAsScala: Option[Int] = Option(self.secondaryPrivateIpAddressCount)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def interfaceTypeAsScala: Option[NetworkInterfaceCreationType] = Option(self.interfaceType)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)

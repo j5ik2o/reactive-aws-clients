@@ -32,6 +32,9 @@ trait EcsAsyncClient extends EcsClient[Future] {
   override def createService(createServiceRequest: CreateServiceRequest): Future[CreateServiceResponse] =
     underlying.createService(createServiceRequest).toScala
 
+  override def createTaskSet(createTaskSetRequest: CreateTaskSetRequest): Future[CreateTaskSetResponse] =
+    underlying.createTaskSet(createTaskSetRequest).toScala
+
   override def deleteAccountSetting(
       deleteAccountSettingRequest: DeleteAccountSettingRequest
   ): Future[DeleteAccountSettingResponse] =
@@ -45,6 +48,9 @@ trait EcsAsyncClient extends EcsClient[Future] {
 
   override def deleteService(deleteServiceRequest: DeleteServiceRequest): Future[DeleteServiceResponse] =
     underlying.deleteService(deleteServiceRequest).toScala
+
+  override def deleteTaskSet(deleteTaskSetRequest: DeleteTaskSetRequest): Future[DeleteTaskSetResponse] =
+    underlying.deleteTaskSet(deleteTaskSetRequest).toScala
 
   override def deregisterContainerInstance(
       deregisterContainerInstanceRequest: DeregisterContainerInstanceRequest
@@ -74,6 +80,9 @@ trait EcsAsyncClient extends EcsClient[Future] {
       describeTaskDefinitionRequest: DescribeTaskDefinitionRequest
   ): Future[DescribeTaskDefinitionResponse] =
     underlying.describeTaskDefinition(describeTaskDefinitionRequest).toScala
+
+  override def describeTaskSets(describeTaskSetsRequest: DescribeTaskSetsRequest): Future[DescribeTaskSetsResponse] =
+    underlying.describeTaskSets(describeTaskSetsRequest).toScala
 
   override def describeTasks(describeTasksRequest: DescribeTasksRequest): Future[DescribeTasksResponse] =
     underlying.describeTasks(describeTasksRequest).toScala
@@ -243,5 +252,13 @@ trait EcsAsyncClient extends EcsClient[Future] {
 
   override def updateService(updateServiceRequest: UpdateServiceRequest): Future[UpdateServiceResponse] =
     underlying.updateService(updateServiceRequest).toScala
+
+  override def updateServicePrimaryTaskSet(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest
+  ): Future[UpdateServicePrimaryTaskSetResponse] =
+    underlying.updateServicePrimaryTaskSet(updateServicePrimaryTaskSetRequest).toScala
+
+  override def updateTaskSet(updateTaskSetRequest: UpdateTaskSetRequest): Future[UpdateTaskSetResponse] =
+    underlying.updateTaskSet(updateTaskSetRequest).toScala
 
 }

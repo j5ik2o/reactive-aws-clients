@@ -119,6 +119,13 @@ trait LambdaMonixClient extends LambdaClient[Task] {
       underlying.getLayerVersion(getLayerVersionRequest)
     }
 
+  override def getLayerVersionByArn(
+      getLayerVersionByArnRequest: GetLayerVersionByArnRequest
+  ): Task[GetLayerVersionByArnResponse] =
+    Task.deferFuture {
+      underlying.getLayerVersionByArn(getLayerVersionByArnRequest)
+    }
+
   override def getLayerVersionPolicy(
       getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest
   ): Task[GetLayerVersionPolicyResponse] =

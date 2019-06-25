@@ -12,6 +12,13 @@ final class DescribeSubnetsResponseBuilderOps(val self: DescribeSubnetsResponse.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeSubnetsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
+    }
+  }
+
 }
 
 final class DescribeSubnetsResponseOps(val self: DescribeSubnetsResponse) extends AnyVal {
@@ -20,6 +27,9 @@ final class DescribeSubnetsResponseOps(val self: DescribeSubnetsResponse) extend
   final def subnetsAsScala: Option[Seq[Subnet]] = Option(self.subnets).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

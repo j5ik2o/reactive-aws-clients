@@ -19,6 +19,13 @@ final class LogConfigurationBuilderOps(val self: LogConfiguration.Builder) exten
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def secretOptionsAsScala(value: Option[Seq[Secret]]): LogConfiguration.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.secretOptions(v.asJava)
+    }
+  }
+
 }
 
 final class LogConfigurationOps(val self: LogConfiguration) extends AnyVal {
@@ -29,6 +36,11 @@ final class LogConfigurationOps(val self: LogConfiguration) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala: Option[Map[String, String]] = Option(self.options).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def secretOptionsAsScala: Option[Seq[Secret]] = Option(self.secretOptions).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

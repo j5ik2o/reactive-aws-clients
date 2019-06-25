@@ -100,6 +100,13 @@ final class RegisterTaskDefinitionRequestBuilderOps(val self: RegisterTaskDefini
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def proxyConfigurationAsScala(value: Option[ProxyConfiguration]): RegisterTaskDefinitionRequest.Builder = {
+    value.fold(self) { v =>
+      self.proxyConfiguration(v)
+    }
+  }
+
 }
 
 final class RegisterTaskDefinitionRequestOps(val self: RegisterTaskDefinitionRequest) extends AnyVal {
@@ -153,6 +160,9 @@ final class RegisterTaskDefinitionRequestOps(val self: RegisterTaskDefinitionReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipcModeAsScala: Option[IpcMode] = Option(self.ipcMode)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def proxyConfigurationAsScala: Option[ProxyConfiguration] = Option(self.proxyConfiguration)
 
 }
 

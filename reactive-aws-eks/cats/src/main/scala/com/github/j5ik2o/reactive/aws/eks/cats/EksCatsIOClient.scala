@@ -58,6 +58,13 @@ trait EksCatsIOClient extends EksClient[IO] {
       IO(underlying.listUpdates(listUpdatesRequest))
     }
 
+  override def updateClusterConfig(
+      updateClusterConfigRequest: UpdateClusterConfigRequest
+  ): IO[UpdateClusterConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.updateClusterConfig(updateClusterConfigRequest))
+    }
+
   override def updateClusterVersion(
       updateClusterVersionRequest: UpdateClusterVersionRequest
   ): IO[UpdateClusterVersionResponse] =
