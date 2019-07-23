@@ -32,7 +32,7 @@ class DynamoDbCatsIOClientImplSpec
 
   val client = DynamoDbCatsIOClient(DynamoDbAsyncClient(underlying))(executionContext)
 
-  "DynamoDBAsyncClientV2ImplSpec" - {
+  "DynamoDbCatsIOClientImplSpec" - {
     "createTable & listTables" in {
       val (tableName: String, createResponse: CreateTableResponse) = createTable()
       createResponse.sdkHttpResponse().isSuccessful shouldBe true
