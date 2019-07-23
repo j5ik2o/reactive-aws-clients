@@ -32,6 +32,7 @@ ScalaのためのAWSクライアントライブラリ。
 - Scala
     - 2.11.x
     - 2.12.x
+    - 2.13.x
 
 ## インストール
 
@@ -39,7 +40,7 @@ ScalaのためのAWSクライアントライブラリ。
 
 ```scala
 val libraryName = "..." // e.g.) dynamodb
-val version = "1.1.3"
+val version = "1.1.4"
 
 libraryDependencies += Seq(
   "com.github.j5ik2o" %% s"reactive-aws-$libraryName-core" % version,
