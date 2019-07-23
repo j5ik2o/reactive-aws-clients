@@ -6,17 +6,19 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateTransitGatewayRouteTableRequestBuilderOps(val self: CreateTransitGatewayRouteTableRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayIdAsScala(value: Option[String]): CreateTransitGatewayRouteTableRequest.Builder = {
     value.fold(self) { v =>
       self.transitGatewayId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagSpecificationsAsScala(
       value: Option[Seq[TagSpecification]]
   ): CreateTransitGatewayRouteTableRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tagSpecifications(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
     }
   }
 
@@ -24,10 +26,12 @@ final class CreateTransitGatewayRouteTableRequestBuilderOps(val self: CreateTran
 
 final class CreateTransitGatewayRouteTableRequestOps(val self: CreateTransitGatewayRouteTableRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayIdAsScala: Option[String] = Option(self.transitGatewayId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class LaunchTemplatesMonitoringRequestBuilderOps(val self: LaunchTemplatesMonitoringRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): LaunchTemplatesMonitoringRequest.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -16,6 +17,7 @@ final class LaunchTemplatesMonitoringRequestBuilderOps(val self: LaunchTemplates
 
 final class LaunchTemplatesMonitoringRequestOps(val self: LaunchTemplatesMonitoringRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

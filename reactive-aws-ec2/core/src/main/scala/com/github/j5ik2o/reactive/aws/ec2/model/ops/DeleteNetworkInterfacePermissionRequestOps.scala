@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DeleteNetworkInterfacePermissionRequestBuilderOps(val self: DeleteNetworkInterfacePermissionRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfacePermissionIdAsScala(
       value: Option[String]
   ): DeleteNetworkInterfacePermissionRequest.Builder = {
@@ -14,6 +15,7 @@ final class DeleteNetworkInterfacePermissionRequestBuilderOps(val self: DeleteNe
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala(value: Option[Boolean]): DeleteNetworkInterfacePermissionRequest.Builder = {
     value.fold(self) { v =>
       self.force(v)
@@ -25,8 +27,10 @@ final class DeleteNetworkInterfacePermissionRequestBuilderOps(val self: DeleteNe
 final class DeleteNetworkInterfacePermissionRequestOps(val self: DeleteNetworkInterfacePermissionRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfacePermissionIdAsScala: Option[String] = Option(self.networkInterfacePermissionId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala: Option[Boolean] = Option(self.force)
 
 }

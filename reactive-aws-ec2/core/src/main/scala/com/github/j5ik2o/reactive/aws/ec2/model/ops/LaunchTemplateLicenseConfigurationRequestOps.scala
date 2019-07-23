@@ -7,6 +7,7 @@ final class LaunchTemplateLicenseConfigurationRequestBuilderOps(
     val self: LaunchTemplateLicenseConfigurationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseConfigurationArnAsScala(value: Option[String]): LaunchTemplateLicenseConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.licenseConfigurationArn(v)
@@ -18,6 +19,7 @@ final class LaunchTemplateLicenseConfigurationRequestBuilderOps(
 final class LaunchTemplateLicenseConfigurationRequestOps(val self: LaunchTemplateLicenseConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseConfigurationArnAsScala: Option[String] = Option(self.licenseConfigurationArn)
 
 }

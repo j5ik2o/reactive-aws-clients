@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class GenerateDataKeyResponseBuilderOps(val self: GenerateDataKeyResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GenerateDataKeyResponse.Builder = {
@@ -13,12 +14,14 @@ final class GenerateDataKeyResponseBuilderOps(val self: GenerateDataKeyResponse.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def plaintextAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): GenerateDataKeyResponse.Builder = {
     value.fold(self) { v =>
       self.plaintext(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GenerateDataKeyResponse.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -29,10 +32,13 @@ final class GenerateDataKeyResponseBuilderOps(val self: GenerateDataKeyResponse.
 
 final class GenerateDataKeyResponseOps(val self: GenerateDataKeyResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.ciphertextBlob)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def plaintextAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.plaintext)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

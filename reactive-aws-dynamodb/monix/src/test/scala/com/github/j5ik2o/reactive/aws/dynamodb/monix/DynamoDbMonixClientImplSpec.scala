@@ -56,7 +56,7 @@ class DynamoDbMonixClientImplSpec extends FreeSpec with Matchers with ScalaFutur
         .keyAsScala(Map("Id" -> AttributeValue.builder().s("abc").build())).build()
       val getItemResponse = client.getItem(getItemRequest).runToFuture.futureValue
       getItemResponse.sdkHttpResponse().isSuccessful shouldBe true
-      getItemResponse.itemAsScala.get.mapValues(_.s) shouldBe Map("Id" -> "abc", "Name" -> "xyz")
+      getItemResponse.itemAsScala.get.mapValues(_.s).toMap shouldBe Map("Id" -> "abc", "Name" -> "xyz")
 
       val updateItemRequest = UpdateItemRequest
         .builder()

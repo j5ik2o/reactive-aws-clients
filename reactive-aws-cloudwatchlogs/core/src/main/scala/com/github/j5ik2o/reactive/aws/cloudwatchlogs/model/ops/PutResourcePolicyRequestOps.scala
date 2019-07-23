@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class PutResourcePolicyRequestBuilderOps(val self: PutResourcePolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): PutResourcePolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policyName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyDocumentAsScala(value: Option[String]): PutResourcePolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policyDocument(v)
@@ -21,8 +23,10 @@ final class PutResourcePolicyRequestBuilderOps(val self: PutResourcePolicyReques
 
 final class PutResourcePolicyRequestOps(val self: PutResourcePolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala: Option[String] = Option(self.policyName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyDocumentAsScala: Option[String] = Option(self.policyDocument)
 
 }

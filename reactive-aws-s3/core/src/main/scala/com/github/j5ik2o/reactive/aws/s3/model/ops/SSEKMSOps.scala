@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SSEKMSBuilderOps(val self: SSEKMS.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): SSEKMS.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -15,6 +16,7 @@ final class SSEKMSBuilderOps(val self: SSEKMS.Builder) extends AnyVal {
 
 final class SSEKMSOps(val self: SSEKMS) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

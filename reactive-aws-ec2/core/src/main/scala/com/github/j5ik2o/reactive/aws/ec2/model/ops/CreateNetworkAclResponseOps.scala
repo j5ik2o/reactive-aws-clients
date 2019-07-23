@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateNetworkAclResponseBuilderOps(val self: CreateNetworkAclResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkAclAsScala(value: Option[NetworkAcl]): CreateNetworkAclResponse.Builder = {
     value.fold(self) { v =>
       self.networkAcl(v)
@@ -15,6 +16,7 @@ final class CreateNetworkAclResponseBuilderOps(val self: CreateNetworkAclRespons
 
 final class CreateNetworkAclResponseOps(val self: CreateNetworkAclResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkAclAsScala: Option[NetworkAcl] = Option(self.networkAcl)
 
 }

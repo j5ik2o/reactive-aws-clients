@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class UpdateApplicationVersionResponseBuilderOps(val self: UpdateApplicationVersionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationVersionAsScala(
       value: Option[ApplicationVersionDescription]
   ): UpdateApplicationVersionResponse.Builder = {
@@ -18,6 +19,7 @@ final class UpdateApplicationVersionResponseBuilderOps(val self: UpdateApplicati
 
 final class UpdateApplicationVersionResponseOps(val self: UpdateApplicationVersionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationVersionAsScala: Option[ApplicationVersionDescription] = Option(self.applicationVersion)
 
 }

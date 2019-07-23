@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListBackupsResponseBuilderOps(val self: ListBackupsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupSummariesAsScala(value: Option[Seq[BackupSummary]]): ListBackupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.backupSummaries(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.backupSummaries(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedBackupArnAsScala(value: Option[String]): ListBackupsResponse.Builder = {
     value.fold(self) { v =>
       self.lastEvaluatedBackupArn(v)
@@ -21,10 +23,12 @@ final class ListBackupsResponseBuilderOps(val self: ListBackupsResponse.Builder)
 
 final class ListBackupsResponseOps(val self: ListBackupsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupSummariesAsScala: Option[Seq[BackupSummary]] = Option(self.backupSummaries).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedBackupArnAsScala: Option[String] = Option(self.lastEvaluatedBackupArn)
 
 }

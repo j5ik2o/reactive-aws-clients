@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DisassociateSubnetCidrBlockRequestBuilderOps(val self: DisassociateSubnetCidrBlockRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): DisassociateSubnetCidrBlockRequest.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -16,6 +17,7 @@ final class DisassociateSubnetCidrBlockRequestBuilderOps(val self: DisassociateS
 
 final class DisassociateSubnetCidrBlockRequestOps(val self: DisassociateSubnetCidrBlockRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

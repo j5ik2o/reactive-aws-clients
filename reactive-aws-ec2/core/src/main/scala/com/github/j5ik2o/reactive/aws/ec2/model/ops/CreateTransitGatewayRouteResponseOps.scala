@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateTransitGatewayRouteResponseBuilderOps(val self: CreateTransitGatewayRouteResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeAsScala(value: Option[TransitGatewayRoute]): CreateTransitGatewayRouteResponse.Builder = {
     value.fold(self) { v =>
       self.route(v)
@@ -16,6 +17,7 @@ final class CreateTransitGatewayRouteResponseBuilderOps(val self: CreateTransitG
 
 final class CreateTransitGatewayRouteResponseOps(val self: CreateTransitGatewayRouteResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeAsScala: Option[TransitGatewayRoute] = Option(self.route)
 
 }

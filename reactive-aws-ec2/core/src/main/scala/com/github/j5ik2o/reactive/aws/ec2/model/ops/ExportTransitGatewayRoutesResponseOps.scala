@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ExportTransitGatewayRoutesResponseBuilderOps(val self: ExportTransitGatewayRoutesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3LocationAsScala(value: Option[String]): ExportTransitGatewayRoutesResponse.Builder = {
     value.fold(self) { v =>
       self.s3Location(v)
@@ -16,6 +17,7 @@ final class ExportTransitGatewayRoutesResponseBuilderOps(val self: ExportTransit
 
 final class ExportTransitGatewayRoutesResponseOps(val self: ExportTransitGatewayRoutesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3LocationAsScala: Option[String] = Option(self.s3Location)
 
 }

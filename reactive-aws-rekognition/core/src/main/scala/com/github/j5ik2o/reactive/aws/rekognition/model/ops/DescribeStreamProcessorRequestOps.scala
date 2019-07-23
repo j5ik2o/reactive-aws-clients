@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class DescribeStreamProcessorRequestBuilderOps(val self: DescribeStreamProcessorRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): DescribeStreamProcessorRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -15,6 +16,7 @@ final class DescribeStreamProcessorRequestBuilderOps(val self: DescribeStreamPro
 
 final class DescribeStreamProcessorRequestOps(val self: DescribeStreamProcessorRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

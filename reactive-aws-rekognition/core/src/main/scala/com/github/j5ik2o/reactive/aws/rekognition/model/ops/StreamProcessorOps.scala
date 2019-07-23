@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StreamProcessorBuilderOps(val self: StreamProcessor.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): StreamProcessor.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[StreamProcessorStatus]): StreamProcessor.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -21,8 +23,10 @@ final class StreamProcessorBuilderOps(val self: StreamProcessor.Builder) extends
 
 final class StreamProcessorOps(val self: StreamProcessor) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[StreamProcessorStatus] = Option(self.status)
 
 }

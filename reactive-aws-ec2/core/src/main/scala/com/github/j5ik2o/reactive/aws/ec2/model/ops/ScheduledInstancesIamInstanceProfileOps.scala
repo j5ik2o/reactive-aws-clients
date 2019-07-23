@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class ScheduledInstancesIamInstanceProfileBuilderOps(val self: ScheduledInstancesIamInstanceProfile.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): ScheduledInstancesIamInstanceProfile.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): ScheduledInstancesIamInstanceProfile.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -22,8 +24,10 @@ final class ScheduledInstancesIamInstanceProfileBuilderOps(val self: ScheduledIn
 
 final class ScheduledInstancesIamInstanceProfileOps(val self: ScheduledInstancesIamInstanceProfile) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

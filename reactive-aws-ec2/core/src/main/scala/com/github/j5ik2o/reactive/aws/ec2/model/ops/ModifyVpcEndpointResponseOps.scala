@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifyVpcEndpointResponseBuilderOps(val self: ModifyVpcEndpointResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ModifyVpcEndpointResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -15,6 +16,7 @@ final class ModifyVpcEndpointResponseBuilderOps(val self: ModifyVpcEndpointRespo
 
 final class ModifyVpcEndpointResponseOps(val self: ModifyVpcEndpointResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

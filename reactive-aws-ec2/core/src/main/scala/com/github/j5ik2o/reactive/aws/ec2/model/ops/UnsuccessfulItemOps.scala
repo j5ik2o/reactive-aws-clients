@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class UnsuccessfulItemBuilderOps(val self: UnsuccessfulItem.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorAsScala(value: Option[UnsuccessfulItemError]): UnsuccessfulItem.Builder = {
     value.fold(self) { v =>
       self.error(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdAsScala(value: Option[String]): UnsuccessfulItem.Builder = {
     value.fold(self) { v =>
       self.resourceId(v)
@@ -21,8 +23,10 @@ final class UnsuccessfulItemBuilderOps(val self: UnsuccessfulItem.Builder) exten
 
 final class UnsuccessfulItemOps(val self: UnsuccessfulItem) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorAsScala: Option[UnsuccessfulItemError] = Option(self.error)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdAsScala: Option[String] = Option(self.resourceId)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.s3.model._
 
 final class S3KeyFilterBuilderOps(val self: S3KeyFilter.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterRulesAsScala(value: Option[Seq[FilterRule]]): S3KeyFilter.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filterRules(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filterRules(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class S3KeyFilterBuilderOps(val self: S3KeyFilter.Builder) extends AnyVal 
 
 final class S3KeyFilterOps(val self: S3KeyFilter) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterRulesAsScala: Option[Seq[FilterRule]] = Option(self.filterRules).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

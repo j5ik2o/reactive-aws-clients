@@ -7,6 +7,7 @@ final class DescribeSpotDatafeedSubscriptionResponseBuilderOps(
     val self: DescribeSpotDatafeedSubscriptionResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotDatafeedSubscriptionAsScala(
       value: Option[SpotDatafeedSubscription]
   ): DescribeSpotDatafeedSubscriptionResponse.Builder = {
@@ -20,6 +21,7 @@ final class DescribeSpotDatafeedSubscriptionResponseBuilderOps(
 final class DescribeSpotDatafeedSubscriptionResponseOps(val self: DescribeSpotDatafeedSubscriptionResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotDatafeedSubscriptionAsScala: Option[SpotDatafeedSubscription] = Option(self.spotDatafeedSubscription)
 
 }

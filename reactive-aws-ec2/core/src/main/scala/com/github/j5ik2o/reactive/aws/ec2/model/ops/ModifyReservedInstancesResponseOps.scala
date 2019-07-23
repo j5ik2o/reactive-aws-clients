@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ModifyReservedInstancesResponseBuilderOps(val self: ModifyReservedInstancesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesModificationIdAsScala(value: Option[String]): ModifyReservedInstancesResponse.Builder = {
     value.fold(self) { v =>
       self.reservedInstancesModificationId(v)
@@ -16,6 +17,7 @@ final class ModifyReservedInstancesResponseBuilderOps(val self: ModifyReservedIn
 
 final class ModifyReservedInstancesResponseOps(val self: ModifyReservedInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesModificationIdAsScala: Option[String] = Option(self.reservedInstancesModificationId)
 
 }

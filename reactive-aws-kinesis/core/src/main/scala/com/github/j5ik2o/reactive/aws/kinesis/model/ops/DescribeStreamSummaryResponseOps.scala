@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamSummaryResponseBuilderOps(val self: DescribeStreamSummaryResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamDescriptionSummaryAsScala(
       value: Option[StreamDescriptionSummary]
   ): DescribeStreamSummaryResponse.Builder = {
@@ -17,6 +18,7 @@ final class DescribeStreamSummaryResponseBuilderOps(val self: DescribeStreamSumm
 
 final class DescribeStreamSummaryResponseOps(val self: DescribeStreamSummaryResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamDescriptionSummaryAsScala: Option[StreamDescriptionSummary] = Option(self.streamDescriptionSummary)
 
 }

@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class StorageTypeBuilderOps(val self: StorageType.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageTypeNameAsScala(value: Option[String]): StorageType.Builder = {
     value.fold(self) { v =>
       self.storageTypeName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageSubTypeNameAsScala(value: Option[String]): StorageType.Builder = {
     value.fold(self) { v =>
       self.storageSubTypeName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageTypeLimitsAsScala(value: Option[Seq[StorageTypeLimit]]): StorageType.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.storageTypeLimits(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.storageTypeLimits(v.asJava)
     }
   }
 
@@ -27,12 +30,15 @@ final class StorageTypeBuilderOps(val self: StorageType.Builder) extends AnyVal 
 
 final class StorageTypeOps(val self: StorageType) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageTypeNameAsScala: Option[String] = Option(self.storageTypeName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageSubTypeNameAsScala: Option[String] = Option(self.storageSubTypeName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageTypeLimitsAsScala: Option[Seq[StorageTypeLimit]] = Option(self.storageTypeLimits).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

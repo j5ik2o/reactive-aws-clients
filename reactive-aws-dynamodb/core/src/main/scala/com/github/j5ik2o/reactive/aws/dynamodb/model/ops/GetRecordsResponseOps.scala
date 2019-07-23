@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GetRecordsResponseBuilderOps(val self: GetRecordsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recordsAsScala(value: Option[Seq[Record]]): GetRecordsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.records(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.records(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextShardIteratorAsScala(value: Option[String]): GetRecordsResponse.Builder = {
     value.fold(self) { v =>
       self.nextShardIterator(v)
@@ -21,10 +23,12 @@ final class GetRecordsResponseBuilderOps(val self: GetRecordsResponse.Builder) e
 
 final class GetRecordsResponseOps(val self: GetRecordsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recordsAsScala: Option[Seq[Record]] = Option(self.records).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextShardIteratorAsScala: Option[String] = Option(self.nextShardIterator)
 
 }

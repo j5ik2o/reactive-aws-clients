@@ -6,18 +6,21 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeSpotFleetInstancesResponseBuilderOps(val self: DescribeSpotFleetInstancesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def activeInstancesAsScala(value: Option[Seq[ActiveInstance]]): DescribeSpotFleetInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.activeInstances(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.activeInstances(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeSpotFleetInstancesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestIdAsScala(value: Option[String]): DescribeSpotFleetInstancesResponse.Builder = {
     value.fold(self) { v =>
       self.spotFleetRequestId(v)
@@ -28,12 +31,15 @@ final class DescribeSpotFleetInstancesResponseBuilderOps(val self: DescribeSpotF
 
 final class DescribeSpotFleetInstancesResponseOps(val self: DescribeSpotFleetInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def activeInstancesAsScala: Option[Seq[ActiveInstance]] = Option(self.activeInstances).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestIdAsScala: Option[String] = Option(self.spotFleetRequestId)
 
 }

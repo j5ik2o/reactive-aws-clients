@@ -7,14 +7,17 @@ final class GetTransitGatewayAttachmentPropagationsResponseBuilderOps(
     val self: GetTransitGatewayAttachmentPropagationsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentPropagationsAsScala(
       value: Option[Seq[TransitGatewayAttachmentPropagation]]
   ): GetTransitGatewayAttachmentPropagationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.transitGatewayAttachmentPropagations(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.transitGatewayAttachmentPropagations(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetTransitGatewayAttachmentPropagationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -27,11 +30,13 @@ final class GetTransitGatewayAttachmentPropagationsResponseOps(
     val self: GetTransitGatewayAttachmentPropagationsResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayAttachmentPropagationsAsScala: Option[Seq[TransitGatewayAttachmentPropagation]] =
     Option(self.transitGatewayAttachmentPropagations).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

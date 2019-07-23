@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class RemoveTagsFromStreamRequestBuilderOps(val self: RemoveTagsFromStreamRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala(value: Option[String]): RemoveTagsFromStreamRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagKeysAsScala(value: Option[Seq[String]]): RemoveTagsFromStreamRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tagKeys(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagKeys(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class RemoveTagsFromStreamRequestBuilderOps(val self: RemoveTagsFromStream
 
 final class RemoveTagsFromStreamRequestOps(val self: RemoveTagsFromStreamRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala: Option[String] = Option(self.streamName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

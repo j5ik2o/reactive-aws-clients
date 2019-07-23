@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifyIdFormatRequestBuilderOps(val self: ModifyIdFormatRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala(value: Option[String]): ModifyIdFormatRequest.Builder = {
     value.fold(self) { v =>
       self.resource(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def useLongIdsAsScala(value: Option[Boolean]): ModifyIdFormatRequest.Builder = {
     value.fold(self) { v =>
       self.useLongIds(v)
@@ -21,8 +23,10 @@ final class ModifyIdFormatRequestBuilderOps(val self: ModifyIdFormatRequest.Buil
 
 final class ModifyIdFormatRequestOps(val self: ModifyIdFormatRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala: Option[String] = Option(self.resource)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def useLongIdsAsScala: Option[Boolean] = Option(self.useLongIds)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class GetAuthorizationTokenRequestBuilderOps(val self: GetAuthorizationTokenRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdsAsScala(value: Option[Seq[String]]): GetAuthorizationTokenRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.registryIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.registryIds(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class GetAuthorizationTokenRequestBuilderOps(val self: GetAuthorizationTok
 
 final class GetAuthorizationTokenRequestOps(val self: GetAuthorizationTokenRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdsAsScala: Option[Seq[String]] = Option(self.registryIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

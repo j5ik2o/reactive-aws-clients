@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class EnvironmentLinkBuilderOps(val self: EnvironmentLink.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def linkNameAsScala(value: Option[String]): EnvironmentLink.Builder = {
     value.fold(self) { v =>
       self.linkName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): EnvironmentLink.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
@@ -21,8 +23,10 @@ final class EnvironmentLinkBuilderOps(val self: EnvironmentLink.Builder) extends
 
 final class EnvironmentLinkOps(val self: EnvironmentLink) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def linkNameAsScala: Option[String] = Option(self.linkName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
 }

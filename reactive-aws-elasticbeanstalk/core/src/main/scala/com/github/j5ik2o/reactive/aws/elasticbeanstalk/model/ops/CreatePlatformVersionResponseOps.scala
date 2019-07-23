@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class CreatePlatformVersionResponseBuilderOps(val self: CreatePlatformVersionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformSummaryAsScala(value: Option[PlatformSummary]): CreatePlatformVersionResponse.Builder = {
     value.fold(self) { v =>
       self.platformSummary(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformBuilderAsScala(value: Option[PlatformBuilder]): CreatePlatformVersionResponse.Builder = {
     value.fold(self) { v =>
       self.platformBuilder(v)
@@ -21,8 +23,10 @@ final class CreatePlatformVersionResponseBuilderOps(val self: CreatePlatformVers
 
 final class CreatePlatformVersionResponseOps(val self: CreatePlatformVersionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformSummaryAsScala: Option[PlatformSummary] = Option(self.platformSummary)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformBuilderAsScala: Option[PlatformBuilder] = Option(self.platformBuilder)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class UpdateContainerAgentResponseBuilderOps(val self: UpdateContainerAgentResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[ContainerInstance]): UpdateContainerAgentResponse.Builder = {
     value.fold(self) { v =>
       self.containerInstance(v)
@@ -15,6 +16,7 @@ final class UpdateContainerAgentResponseBuilderOps(val self: UpdateContainerAgen
 
 final class UpdateContainerAgentResponseOps(val self: UpdateContainerAgentResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala: Option[ContainerInstance] = Option(self.containerInstance)
 
 }

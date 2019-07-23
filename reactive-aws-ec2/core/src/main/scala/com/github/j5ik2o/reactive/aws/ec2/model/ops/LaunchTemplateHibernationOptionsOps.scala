@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class LaunchTemplateHibernationOptionsBuilderOps(val self: LaunchTemplateHibernationOptions.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configuredAsScala(value: Option[Boolean]): LaunchTemplateHibernationOptions.Builder = {
     value.fold(self) { v =>
       self.configured(v)
@@ -16,6 +17,7 @@ final class LaunchTemplateHibernationOptionsBuilderOps(val self: LaunchTemplateH
 
 final class LaunchTemplateHibernationOptionsOps(val self: LaunchTemplateHibernationOptions) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configuredAsScala: Option[Boolean] = Option(self.configured)
 
 }

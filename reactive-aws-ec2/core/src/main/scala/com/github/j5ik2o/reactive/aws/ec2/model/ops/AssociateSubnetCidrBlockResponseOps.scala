@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class AssociateSubnetCidrBlockResponseBuilderOps(val self: AssociateSubnetCidrBlockResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockAssociationAsScala(
       value: Option[SubnetIpv6CidrBlockAssociation]
   ): AssociateSubnetCidrBlockResponse.Builder = {
@@ -14,6 +15,7 @@ final class AssociateSubnetCidrBlockResponseBuilderOps(val self: AssociateSubnet
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): AssociateSubnetCidrBlockResponse.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -24,9 +26,11 @@ final class AssociateSubnetCidrBlockResponseBuilderOps(val self: AssociateSubnet
 
 final class AssociateSubnetCidrBlockResponseOps(val self: AssociateSubnetCidrBlockResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockAssociationAsScala: Option[SubnetIpv6CidrBlockAssociation] =
     Option(self.ipv6CidrBlockAssociation)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

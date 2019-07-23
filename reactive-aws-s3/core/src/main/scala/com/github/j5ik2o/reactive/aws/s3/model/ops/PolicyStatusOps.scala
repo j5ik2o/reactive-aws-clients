@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class PolicyStatusBuilderOps(val self: PolicyStatus.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isPublicAsScala(value: Option[Boolean]): PolicyStatus.Builder = {
     value.fold(self) { v =>
       self.isPublic(v)
@@ -15,6 +16,7 @@ final class PolicyStatusBuilderOps(val self: PolicyStatus.Builder) extends AnyVa
 
 final class PolicyStatusOps(val self: PolicyStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isPublicAsScala: Option[Boolean] = Option(self.isPublic)
 
 }

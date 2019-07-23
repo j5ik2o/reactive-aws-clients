@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBuilderOps(val self: Delete.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectsAsScala(value: Option[Seq[ObjectIdentifier]]): Delete.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.objects(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.objects(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def quietAsScala(value: Option[Boolean]): Delete.Builder = {
     value.fold(self) { v =>
       self.quiet(v)
@@ -21,10 +23,12 @@ final class DeleteBuilderOps(val self: Delete.Builder) extends AnyVal {
 
 final class DeleteOps(val self: Delete) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectsAsScala: Option[Seq[ObjectIdentifier]] = Option(self.objects).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def quietAsScala: Option[Boolean] = Option(self.quiet)
 
 }

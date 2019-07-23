@@ -6,17 +6,19 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeStaleSecurityGroupsResponseBuilderOps(val self: DescribeStaleSecurityGroupsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeStaleSecurityGroupsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def staleSecurityGroupSetAsScala(
       value: Option[Seq[StaleSecurityGroup]]
   ): DescribeStaleSecurityGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.staleSecurityGroupSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.staleSecurityGroupSet(v.asJava)
     }
   }
 
@@ -24,11 +26,13 @@ final class DescribeStaleSecurityGroupsResponseBuilderOps(val self: DescribeStal
 
 final class DescribeStaleSecurityGroupsResponseOps(val self: DescribeStaleSecurityGroupsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def staleSecurityGroupSetAsScala: Option[Seq[StaleSecurityGroup]] = Option(self.staleSecurityGroupSet).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

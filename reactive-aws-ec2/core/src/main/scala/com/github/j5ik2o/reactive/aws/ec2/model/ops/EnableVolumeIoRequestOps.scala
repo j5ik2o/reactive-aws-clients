@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class EnableVolumeIoRequestBuilderOps(val self: EnableVolumeIoRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeIdAsScala(value: Option[String]): EnableVolumeIoRequest.Builder = {
     value.fold(self) { v =>
       self.volumeId(v)
@@ -15,6 +16,7 @@ final class EnableVolumeIoRequestBuilderOps(val self: EnableVolumeIoRequest.Buil
 
 final class EnableVolumeIoRequestOps(val self: EnableVolumeIoRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeIdAsScala: Option[String] = Option(self.volumeId)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class StreamSpecificationBuilderOps(val self: StreamSpecification.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamEnabledAsScala(value: Option[Boolean]): StreamSpecification.Builder = {
     value.fold(self) { v =>
       self.streamEnabled(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamSpecification.Builder = {
     value.fold(self) { v =>
       self.streamViewType(v)
@@ -21,8 +23,10 @@ final class StreamSpecificationBuilderOps(val self: StreamSpecification.Builder)
 
 final class StreamSpecificationOps(val self: StreamSpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamEnabledAsScala: Option[Boolean] = Option(self.streamEnabled)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamViewTypeAsScala: Option[StreamViewType] = Option(self.streamViewType)
 
 }

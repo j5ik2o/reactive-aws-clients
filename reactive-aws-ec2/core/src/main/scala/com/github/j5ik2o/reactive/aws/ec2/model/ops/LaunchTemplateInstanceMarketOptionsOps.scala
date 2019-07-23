@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class LaunchTemplateInstanceMarketOptionsBuilderOps(val self: LaunchTemplateInstanceMarketOptions.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def marketTypeAsScala(value: Option[MarketType]): LaunchTemplateInstanceMarketOptions.Builder = {
     value.fold(self) { v =>
       self.marketType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotOptionsAsScala(
       value: Option[LaunchTemplateSpotMarketOptions]
   ): LaunchTemplateInstanceMarketOptions.Builder = {
@@ -24,8 +26,10 @@ final class LaunchTemplateInstanceMarketOptionsBuilderOps(val self: LaunchTempla
 
 final class LaunchTemplateInstanceMarketOptionsOps(val self: LaunchTemplateInstanceMarketOptions) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def marketTypeAsScala: Option[MarketType] = Option(self.marketType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotOptionsAsScala: Option[LaunchTemplateSpotMarketOptions] = Option(self.spotOptions)
 
 }

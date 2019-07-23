@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class ParentBuilderOps(val self: Parent.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Parent.Builder = {
     value.fold(self) { v =>
       self.name(v)
@@ -15,6 +16,7 @@ final class ParentBuilderOps(val self: Parent.Builder) extends AnyVal {
 
 final class ParentOps(val self: Parent) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
 }

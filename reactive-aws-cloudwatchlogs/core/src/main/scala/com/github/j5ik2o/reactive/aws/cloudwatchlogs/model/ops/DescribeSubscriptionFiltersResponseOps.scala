@@ -6,14 +6,16 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 final class DescribeSubscriptionFiltersResponseBuilderOps(val self: DescribeSubscriptionFiltersResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subscriptionFiltersAsScala(
       value: Option[Seq[SubscriptionFilter]]
   ): DescribeSubscriptionFiltersResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.subscriptionFilters(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.subscriptionFilters(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeSubscriptionFiltersResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -24,10 +26,12 @@ final class DescribeSubscriptionFiltersResponseBuilderOps(val self: DescribeSubs
 
 final class DescribeSubscriptionFiltersResponseOps(val self: DescribeSubscriptionFiltersResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subscriptionFiltersAsScala: Option[Seq[SubscriptionFilter]] = Option(self.subscriptionFilters).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

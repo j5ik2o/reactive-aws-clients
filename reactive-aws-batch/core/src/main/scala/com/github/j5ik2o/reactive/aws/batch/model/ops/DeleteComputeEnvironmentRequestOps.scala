@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.batch.model._
 final class DeleteComputeEnvironmentRequestBuilderOps(val self: DeleteComputeEnvironmentRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala(value: Option[String]): DeleteComputeEnvironmentRequest.Builder = {
     value.fold(self) { v =>
       self.computeEnvironment(v)
@@ -16,6 +17,7 @@ final class DeleteComputeEnvironmentRequestBuilderOps(val self: DeleteComputeEnv
 
 final class DeleteComputeEnvironmentRequestOps(val self: DeleteComputeEnvironmentRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment)
 
 }

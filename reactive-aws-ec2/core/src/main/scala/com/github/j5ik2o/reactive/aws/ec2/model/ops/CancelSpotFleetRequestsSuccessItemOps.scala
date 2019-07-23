@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CancelSpotFleetRequestsSuccessItemBuilderOps(val self: CancelSpotFleetRequestsSuccessItem.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currentSpotFleetRequestStateAsScala(
       value: Option[BatchState]
   ): CancelSpotFleetRequestsSuccessItem.Builder = {
@@ -14,6 +15,7 @@ final class CancelSpotFleetRequestsSuccessItemBuilderOps(val self: CancelSpotFle
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def previousSpotFleetRequestStateAsScala(
       value: Option[BatchState]
   ): CancelSpotFleetRequestsSuccessItem.Builder = {
@@ -22,6 +24,7 @@ final class CancelSpotFleetRequestsSuccessItemBuilderOps(val self: CancelSpotFle
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestIdAsScala(value: Option[String]): CancelSpotFleetRequestsSuccessItem.Builder = {
     value.fold(self) { v =>
       self.spotFleetRequestId(v)
@@ -32,10 +35,13 @@ final class CancelSpotFleetRequestsSuccessItemBuilderOps(val self: CancelSpotFle
 
 final class CancelSpotFleetRequestsSuccessItemOps(val self: CancelSpotFleetRequestsSuccessItem) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currentSpotFleetRequestStateAsScala: Option[BatchState] = Option(self.currentSpotFleetRequestState)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def previousSpotFleetRequestStateAsScala: Option[BatchState] = Option(self.previousSpotFleetRequestState)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestIdAsScala: Option[String] = Option(self.spotFleetRequestId)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class ListDashboardsRequestBuilderOps(val self: ListDashboardsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNamePrefixAsScala(value: Option[String]): ListDashboardsRequest.Builder = {
     value.fold(self) { v =>
       self.dashboardNamePrefix(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListDashboardsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,8 +23,10 @@ final class ListDashboardsRequestBuilderOps(val self: ListDashboardsRequest.Buil
 
 final class ListDashboardsRequestOps(val self: ListDashboardsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNamePrefixAsScala: Option[String] = Option(self.dashboardNamePrefix)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

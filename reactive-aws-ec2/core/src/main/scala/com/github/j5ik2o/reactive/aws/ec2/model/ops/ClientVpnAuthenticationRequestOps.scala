@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ClientVpnAuthenticationRequestBuilderOps(val self: ClientVpnAuthenticationRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ClientVpnAuthenticationType]): ClientVpnAuthenticationRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def activeDirectoryAsScala(
       value: Option[DirectoryServiceAuthenticationRequest]
   ): ClientVpnAuthenticationRequest.Builder = {
@@ -19,6 +21,7 @@ final class ClientVpnAuthenticationRequestBuilderOps(val self: ClientVpnAuthenti
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mutualAuthenticationAsScala(
       value: Option[CertificateAuthenticationRequest]
   ): ClientVpnAuthenticationRequest.Builder = {
@@ -31,10 +34,13 @@ final class ClientVpnAuthenticationRequestBuilderOps(val self: ClientVpnAuthenti
 
 final class ClientVpnAuthenticationRequestOps(val self: ClientVpnAuthenticationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[ClientVpnAuthenticationType] = Option(self.`type`)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def activeDirectoryAsScala: Option[DirectoryServiceAuthenticationRequest] = Option(self.activeDirectory)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mutualAuthenticationAsScala: Option[CertificateAuthenticationRequest] = Option(self.mutualAuthentication)
 
 }

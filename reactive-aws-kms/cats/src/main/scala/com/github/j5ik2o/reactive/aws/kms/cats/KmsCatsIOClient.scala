@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kms.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.kms.{ KmsAsyncClient, KmsClient }
 import software.amazon.awssdk.services.kms.model._
 import software.amazon.awssdk.services.kms.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object KmsCatsIOClient {
 
-  def apply(asyncClient: KmsAsyncClient): KmsCatsIOClient = new KmsCatsIOClient {
-    override val underlying: KmsAsyncClient = asyncClient
+  def apply(asyncClient: KmsAsyncClient)(implicit ec: ExecutionContext): KmsCatsIOClient = new KmsCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: KmsAsyncClient         = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object KmsCatsIOClient {
 trait KmsCatsIOClient extends KmsClient[IO] {
 
   val underlying: KmsAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def cancelKeyDeletion(cancelKeyDeletionRequest: CancelKeyDeletionRequest): IO[CancelKeyDeletionResponse] =
     IO.fromFuture {

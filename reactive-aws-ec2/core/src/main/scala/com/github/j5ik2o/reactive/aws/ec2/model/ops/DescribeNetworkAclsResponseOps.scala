@@ -5,9 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeNetworkAclsResponseBuilderOps(val self: DescribeNetworkAclsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkAclsAsScala(value: Option[Seq[NetworkAcl]]): DescribeNetworkAclsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.networkAcls(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.networkAcls(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): DescribeNetworkAclsResponse.Builder = {
+    value.fold(self) { v =>
+      self.nextToken(v)
     }
   }
 
@@ -15,9 +23,13 @@ final class DescribeNetworkAclsResponseBuilderOps(val self: DescribeNetworkAclsR
 
 final class DescribeNetworkAclsResponseOps(val self: DescribeNetworkAclsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkAclsAsScala: Option[Seq[NetworkAcl]] = Option(self.networkAcls).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

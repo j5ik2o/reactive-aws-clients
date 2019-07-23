@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreditSpecificationBuilderOps(val self: CreditSpecification.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuCreditsAsScala(value: Option[String]): CreditSpecification.Builder = {
     value.fold(self) { v =>
       self.cpuCredits(v)
@@ -15,6 +16,7 @@ final class CreditSpecificationBuilderOps(val self: CreditSpecification.Builder)
 
 final class CreditSpecificationOps(val self: CreditSpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuCreditsAsScala: Option[String] = Option(self.cpuCredits)
 
 }

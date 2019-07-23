@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class HashKeyRangeBuilderOps(val self: HashKeyRange.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
     value.fold(self) { v =>
       self.startingHashKey(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endingHashKeyAsScala(value: Option[String]): HashKeyRange.Builder = {
     value.fold(self) { v =>
       self.endingHashKey(v)
@@ -21,8 +23,10 @@ final class HashKeyRangeBuilderOps(val self: HashKeyRange.Builder) extends AnyVa
 
 final class HashKeyRangeOps(val self: HashKeyRange) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingHashKeyAsScala: Option[String] = Option(self.startingHashKey)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endingHashKeyAsScala: Option[String] = Option(self.endingHashKey)
 
 }

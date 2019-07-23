@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AccelerateConfigurationBuilderOps(val self: AccelerateConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[BucketAccelerateStatus]): AccelerateConfiguration.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class AccelerateConfigurationBuilderOps(val self: AccelerateConfiguration.
 
 final class AccelerateConfigurationOps(val self: AccelerateConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[BucketAccelerateStatus] = Option(self.status)
 
 }

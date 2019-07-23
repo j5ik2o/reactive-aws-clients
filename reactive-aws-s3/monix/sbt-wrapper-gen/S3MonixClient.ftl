@@ -32,7 +32,8 @@ val underlying: ${baseName}AsyncClient
     <#if methodDesc.static >
         <#return false>
     </#if>
-    <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes"> <#return false>
+    <#if methodDesc.name == "getObject" || methodDesc.name == "getObjectAsBytes"  || methodDesc.name == "getObjectTorrent" || methodDesc.name == "getObjectTorrentAsBytes" || methodDesc.name == "utilities">
+        <#return false>
     </#if>
     <#if methodDesc.parameterTypeDescs?size gte 2>
         <#return false>

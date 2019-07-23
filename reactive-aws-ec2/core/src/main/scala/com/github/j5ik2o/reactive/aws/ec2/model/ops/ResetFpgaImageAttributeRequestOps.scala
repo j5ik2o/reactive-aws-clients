@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ResetFpgaImageAttributeRequestBuilderOps(val self: ResetFpgaImageAttributeRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala(value: Option[String]): ResetFpgaImageAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.fpgaImageId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala(value: Option[ResetFpgaImageAttributeName]): ResetFpgaImageAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.attribute(v)
@@ -21,8 +23,10 @@ final class ResetFpgaImageAttributeRequestBuilderOps(val self: ResetFpgaImageAtt
 
 final class ResetFpgaImageAttributeRequestOps(val self: ResetFpgaImageAttributeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala: Option[String] = Option(self.fpgaImageId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala: Option[ResetFpgaImageAttributeName] = Option(self.attribute)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class ListQueuesResponseBuilderOps(val self: ListQueuesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlsAsScala(value: Option[Seq[String]]): ListQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.queueUrls(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.queueUrls(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class ListQueuesResponseBuilderOps(val self: ListQueuesResponse.Builder) e
 
 final class ListQueuesResponseOps(val self: ListQueuesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlsAsScala: Option[Seq[String]] = Option(self.queueUrls).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UntagResourceResponseBuilderOps(val self: UntagResourceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Seq[Tag]]): UntagResourceResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tags(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class UntagResourceResponseBuilderOps(val self: UntagResourceResponse.Buil
 
 final class UntagResourceResponseOps(val self: UntagResourceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

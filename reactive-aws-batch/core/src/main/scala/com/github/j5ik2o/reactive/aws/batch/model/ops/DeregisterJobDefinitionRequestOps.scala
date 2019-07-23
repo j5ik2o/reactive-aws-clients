@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.batch.model._
 
 final class DeregisterJobDefinitionRequestBuilderOps(val self: DeregisterJobDefinitionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala(value: Option[String]): DeregisterJobDefinitionRequest.Builder = {
     value.fold(self) { v =>
       self.jobDefinition(v)
@@ -15,6 +16,7 @@ final class DeregisterJobDefinitionRequestBuilderOps(val self: DeregisterJobDefi
 
 final class DeregisterJobDefinitionRequestOps(val self: DeregisterJobDefinitionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala: Option[String] = Option(self.jobDefinition)
 
 }

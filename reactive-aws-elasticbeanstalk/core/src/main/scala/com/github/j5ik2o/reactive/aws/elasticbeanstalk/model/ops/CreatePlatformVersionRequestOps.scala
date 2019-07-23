@@ -5,35 +5,47 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class CreatePlatformVersionRequestBuilderOps(val self: CreatePlatformVersionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformNameAsScala(value: Option[String]): CreatePlatformVersionRequest.Builder = {
     value.fold(self) { v =>
       self.platformName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): CreatePlatformVersionRequest.Builder = {
     value.fold(self) { v =>
       self.platformVersion(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformDefinitionBundleAsScala(value: Option[S3Location]): CreatePlatformVersionRequest.Builder = {
     value.fold(self) { v =>
       self.platformDefinitionBundle(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): CreatePlatformVersionRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionSettingsAsScala(
       value: Option[Seq[ConfigurationOptionSetting]]
   ): CreatePlatformVersionRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.optionSettings(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.optionSettings(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): CreatePlatformVersionRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -41,16 +53,26 @@ final class CreatePlatformVersionRequestBuilderOps(val self: CreatePlatformVersi
 
 final class CreatePlatformVersionRequestOps(val self: CreatePlatformVersionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformNameAsScala: Option[String] = Option(self.platformName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala: Option[String] = Option(self.platformVersion)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformDefinitionBundleAsScala: Option[S3Location] = Option(self.platformDefinitionBundle)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

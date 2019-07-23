@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ReplicaBuilderOps(val self: Replica.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): Replica.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
@@ -15,6 +16,7 @@ final class ReplicaBuilderOps(val self: Replica.Builder) extends AnyVal {
 
 final class ReplicaOps(val self: Replica) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }

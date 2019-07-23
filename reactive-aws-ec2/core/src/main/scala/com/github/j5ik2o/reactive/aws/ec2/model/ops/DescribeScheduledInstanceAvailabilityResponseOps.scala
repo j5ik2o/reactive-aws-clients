@@ -7,17 +7,20 @@ final class DescribeScheduledInstanceAvailabilityResponseBuilderOps(
     val self: DescribeScheduledInstanceAvailabilityResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeScheduledInstanceAvailabilityResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scheduledInstanceAvailabilitySetAsScala(
       value: Option[Seq[ScheduledInstanceAvailability]]
   ): DescribeScheduledInstanceAvailabilityResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.scheduledInstanceAvailabilitySet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.scheduledInstanceAvailabilitySet(v.asJava)
     }
   }
 
@@ -26,11 +29,13 @@ final class DescribeScheduledInstanceAvailabilityResponseBuilderOps(
 final class DescribeScheduledInstanceAvailabilityResponseOps(val self: DescribeScheduledInstanceAvailabilityResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scheduledInstanceAvailabilitySetAsScala: Option[Seq[ScheduledInstanceAvailability]] =
     Option(self.scheduledInstanceAvailabilitySet).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

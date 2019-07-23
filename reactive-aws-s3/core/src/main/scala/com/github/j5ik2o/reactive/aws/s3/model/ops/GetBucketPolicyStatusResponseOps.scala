@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketPolicyStatusResponseBuilderOps(val self: GetBucketPolicyStatusResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyStatusAsScala(value: Option[PolicyStatus]): GetBucketPolicyStatusResponse.Builder = {
     value.fold(self) { v =>
       self.policyStatus(v)
@@ -15,6 +16,7 @@ final class GetBucketPolicyStatusResponseBuilderOps(val self: GetBucketPolicySta
 
 final class GetBucketPolicyStatusResponseOps(val self: GetBucketPolicyStatusResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyStatusAsScala: Option[PolicyStatus] = Option(self.policyStatus)
 
 }

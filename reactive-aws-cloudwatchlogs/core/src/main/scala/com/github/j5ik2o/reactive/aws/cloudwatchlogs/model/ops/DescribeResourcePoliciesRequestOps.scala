@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 final class DescribeResourcePoliciesRequestBuilderOps(val self: DescribeResourcePoliciesRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeResourcePoliciesRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeResourcePoliciesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
@@ -22,8 +24,10 @@ final class DescribeResourcePoliciesRequestBuilderOps(val self: DescribeResource
 
 final class DescribeResourcePoliciesRequestOps(val self: DescribeResourcePoliciesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
 
 }

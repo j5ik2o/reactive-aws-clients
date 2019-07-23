@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifyVolumeResponseBuilderOps(val self: ModifyVolumeResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeModificationAsScala(value: Option[VolumeModification]): ModifyVolumeResponse.Builder = {
     value.fold(self) { v =>
       self.volumeModification(v)
@@ -15,6 +16,7 @@ final class ModifyVolumeResponseBuilderOps(val self: ModifyVolumeResponse.Builde
 
 final class ModifyVolumeResponseOps(val self: ModifyVolumeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeModificationAsScala: Option[VolumeModification] = Option(self.volumeModification)
 
 }

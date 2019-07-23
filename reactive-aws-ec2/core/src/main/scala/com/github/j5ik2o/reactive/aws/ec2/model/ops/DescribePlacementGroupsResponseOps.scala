@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribePlacementGroupsResponseBuilderOps(val self: DescribePlacementGroupsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def placementGroupsAsScala(value: Option[Seq[PlacementGroup]]): DescribePlacementGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.placementGroups(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.placementGroups(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class DescribePlacementGroupsResponseBuilderOps(val self: DescribePlacemen
 
 final class DescribePlacementGroupsResponseOps(val self: DescribePlacementGroupsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def placementGroupsAsScala: Option[Seq[PlacementGroup]] = Option(self.placementGroups).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DeleteEgressOnlyInternetGatewayResponseBuilderOps(val self: DeleteEgressOnlyInternetGatewayResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnCodeAsScala(value: Option[Boolean]): DeleteEgressOnlyInternetGatewayResponse.Builder = {
     value.fold(self) { v =>
       self.returnCode(v)
@@ -17,6 +18,7 @@ final class DeleteEgressOnlyInternetGatewayResponseBuilderOps(val self: DeleteEg
 final class DeleteEgressOnlyInternetGatewayResponseOps(val self: DeleteEgressOnlyInternetGatewayResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnCodeAsScala: Option[Boolean] = Option(self.returnCode)
 
 }

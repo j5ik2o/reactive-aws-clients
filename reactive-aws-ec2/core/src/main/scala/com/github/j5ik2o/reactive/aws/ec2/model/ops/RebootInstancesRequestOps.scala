@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RebootInstancesRequestBuilderOps(val self: RebootInstancesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdsAsScala(value: Option[Seq[String]]): RebootInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.instanceIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.instanceIds(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class RebootInstancesRequestBuilderOps(val self: RebootInstancesRequest.Bu
 
 final class RebootInstancesRequestOps(val self: RebootInstancesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdsAsScala: Option[Seq[String]] = Option(self.instanceIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

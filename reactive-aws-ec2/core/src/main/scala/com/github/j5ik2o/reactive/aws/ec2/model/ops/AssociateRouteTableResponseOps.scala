@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AssociateRouteTableResponseBuilderOps(val self: AssociateRouteTableResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): AssociateRouteTableResponse.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -15,6 +16,7 @@ final class AssociateRouteTableResponseBuilderOps(val self: AssociateRouteTableR
 
 final class AssociateRouteTableResponseOps(val self: AssociateRouteTableResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

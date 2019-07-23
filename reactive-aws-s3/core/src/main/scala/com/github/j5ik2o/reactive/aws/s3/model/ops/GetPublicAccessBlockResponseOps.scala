@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetPublicAccessBlockResponseBuilderOps(val self: GetPublicAccessBlockResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicAccessBlockConfigurationAsScala(
       value: Option[PublicAccessBlockConfiguration]
   ): GetPublicAccessBlockResponse.Builder = {
@@ -17,6 +18,7 @@ final class GetPublicAccessBlockResponseBuilderOps(val self: GetPublicAccessBloc
 
 final class GetPublicAccessBlockResponseOps(val self: GetPublicAccessBlockResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicAccessBlockConfigurationAsScala: Option[PublicAccessBlockConfiguration] =
     Option(self.publicAccessBlockConfiguration)
 

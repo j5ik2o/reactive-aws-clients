@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class CreateStorageLocationResponseBuilderOps(val self: CreateStorageLocationResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): CreateStorageLocationResponse.Builder = {
     value.fold(self) { v =>
       self.s3Bucket(v)
@@ -15,6 +16,7 @@ final class CreateStorageLocationResponseBuilderOps(val self: CreateStorageLocat
 
 final class CreateStorageLocationResponseOps(val self: CreateStorageLocationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala: Option[String] = Option(self.s3Bucket)
 
 }

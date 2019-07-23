@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class HostVolumePropertiesBuilderOps(val self: HostVolumeProperties.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourcePathAsScala(value: Option[String]): HostVolumeProperties.Builder = {
     value.fold(self) { v =>
       self.sourcePath(v)
@@ -15,6 +16,7 @@ final class HostVolumePropertiesBuilderOps(val self: HostVolumeProperties.Builde
 
 final class HostVolumePropertiesOps(val self: HostVolumeProperties) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourcePathAsScala: Option[String] = Option(self.sourcePath)
 
 }

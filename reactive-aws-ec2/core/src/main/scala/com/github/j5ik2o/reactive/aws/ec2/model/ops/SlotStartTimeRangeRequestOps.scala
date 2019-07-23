@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class SlotStartTimeRangeRequestBuilderOps(val self: SlotStartTimeRangeRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def earliestTimeAsScala(value: Option[java.time.Instant]): SlotStartTimeRangeRequest.Builder = {
     value.fold(self) { v =>
       self.earliestTime(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latestTimeAsScala(value: Option[java.time.Instant]): SlotStartTimeRangeRequest.Builder = {
     value.fold(self) { v =>
       self.latestTime(v)
@@ -21,8 +23,10 @@ final class SlotStartTimeRangeRequestBuilderOps(val self: SlotStartTimeRangeRequ
 
 final class SlotStartTimeRangeRequestOps(val self: SlotStartTimeRangeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def earliestTimeAsScala: Option[java.time.Instant] = Option(self.earliestTime)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latestTimeAsScala: Option[java.time.Instant] = Option(self.latestTime)
 
 }

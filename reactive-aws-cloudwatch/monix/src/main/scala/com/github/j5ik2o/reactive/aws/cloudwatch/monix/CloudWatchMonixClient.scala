@@ -95,6 +95,9 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.getMetricData(getMetricDataRequest)
     }
 
+  def getMetricDataPaginator(getMetricDataRequest: GetMetricDataRequest): Observable[GetMetricDataResponse] =
+    Observable.fromReactivePublisher(underlying.getMetricDataPaginator(getMetricDataRequest))
+
   override def getMetricStatistics(
       getMetricStatisticsRequest: GetMetricStatisticsRequest
   ): Task[GetMetricStatisticsResponse] =
@@ -119,6 +122,12 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.listDashboards()
     }
 
+  def listDashboardsPaginator(): Observable[ListDashboardsResponse] =
+    Observable.fromReactivePublisher(underlying.listDashboardsPaginator())
+
+  def listDashboardsPaginator(listDashboardsRequest: ListDashboardsRequest): Observable[ListDashboardsResponse] =
+    Observable.fromReactivePublisher(underlying.listDashboardsPaginator(listDashboardsRequest))
+
   override def listMetrics(listMetricsRequest: ListMetricsRequest): Task[ListMetricsResponse] =
     Task.deferFuture {
       underlying.listMetrics(listMetricsRequest)
@@ -134,6 +143,13 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
 
   def listMetricsPaginator(listMetricsRequest: ListMetricsRequest): Observable[ListMetricsResponse] =
     Observable.fromReactivePublisher(underlying.listMetricsPaginator(listMetricsRequest))
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Task[ListTagsForResourceResponse] =
+    Task.deferFuture {
+      underlying.listTagsForResource(listTagsForResourceRequest)
+    }
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Task[PutDashboardResponse] =
     Task.deferFuture {
@@ -153,6 +169,16 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
   override def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): Task[SetAlarmStateResponse] =
     Task.deferFuture {
       underlying.setAlarmState(setAlarmStateRequest)
+    }
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Task[TagResourceResponse] =
+    Task.deferFuture {
+      underlying.tagResource(tagResourceRequest)
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Task[UntagResourceResponse] =
+    Task.deferFuture {
+      underlying.untagResource(untagResourceRequest)
     }
 
 }

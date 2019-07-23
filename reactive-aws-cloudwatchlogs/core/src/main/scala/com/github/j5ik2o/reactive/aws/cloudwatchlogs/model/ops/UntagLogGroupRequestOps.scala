@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class UntagLogGroupRequestBuilderOps(val self: UntagLogGroupRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): UntagLogGroupRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Seq[String]]): UntagLogGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tags(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class UntagLogGroupRequestBuilderOps(val self: UntagLogGroupRequest.Builde
 
 final class UntagLogGroupRequestOps(val self: UntagLogGroupRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[String]] = Option(self.tags).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

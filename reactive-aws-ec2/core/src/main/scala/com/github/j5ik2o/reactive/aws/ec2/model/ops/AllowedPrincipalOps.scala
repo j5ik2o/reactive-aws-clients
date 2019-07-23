@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AllowedPrincipalBuilderOps(val self: AllowedPrincipal.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalTypeAsScala(value: Option[PrincipalType]): AllowedPrincipal.Builder = {
     value.fold(self) { v =>
       self.principalType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalAsScala(value: Option[String]): AllowedPrincipal.Builder = {
     value.fold(self) { v =>
       self.principal(v)
@@ -21,8 +23,10 @@ final class AllowedPrincipalBuilderOps(val self: AllowedPrincipal.Builder) exten
 
 final class AllowedPrincipalOps(val self: AllowedPrincipal) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalTypeAsScala: Option[PrincipalType] = Option(self.principalType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalAsScala: Option[String] = Option(self.principal)
 
 }

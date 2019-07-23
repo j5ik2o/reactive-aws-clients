@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class EnableVpcClassicLinkDnsSupportResponseBuilderOps(val self: EnableVpcClassicLinkDnsSupportResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): EnableVpcClassicLinkDnsSupportResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -16,6 +17,7 @@ final class EnableVpcClassicLinkDnsSupportResponseBuilderOps(val self: EnableVpc
 
 final class EnableVpcClassicLinkDnsSupportResponseOps(val self: EnableVpcClassicLinkDnsSupportResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

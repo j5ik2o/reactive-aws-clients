@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DisassociateRouteTableRequestBuilderOps(val self: DisassociateRouteTableRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): DisassociateRouteTableRequest.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -15,6 +16,7 @@ final class DisassociateRouteTableRequestBuilderOps(val self: DisassociateRouteT
 
 final class DisassociateRouteTableRequestOps(val self: DisassociateRouteTableRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

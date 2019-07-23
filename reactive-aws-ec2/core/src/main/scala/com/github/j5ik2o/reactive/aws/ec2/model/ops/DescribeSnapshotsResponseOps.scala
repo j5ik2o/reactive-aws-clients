@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeSnapshotsResponseBuilderOps(val self: DescribeSnapshotsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotsAsScala(value: Option[Seq[Snapshot]]): DescribeSnapshotsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.snapshots(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.snapshots(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeSnapshotsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,10 +23,12 @@ final class DescribeSnapshotsResponseBuilderOps(val self: DescribeSnapshotsRespo
 
 final class DescribeSnapshotsResponseOps(val self: DescribeSnapshotsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotsAsScala: Option[Seq[Snapshot]] = Option(self.snapshots).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

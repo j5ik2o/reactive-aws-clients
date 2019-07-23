@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamSummaryRequestBuilderOps(val self: DescribeStreamSummaryRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala(value: Option[String]): DescribeStreamSummaryRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
@@ -15,6 +16,7 @@ final class DescribeStreamSummaryRequestBuilderOps(val self: DescribeStreamSumma
 
 final class DescribeStreamSummaryRequestOps(val self: DescribeStreamSummaryRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala: Option[String] = Option(self.streamName)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CancelBundleTaskResponseBuilderOps(val self: CancelBundleTaskResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bundleTaskAsScala(value: Option[BundleTask]): CancelBundleTaskResponse.Builder = {
     value.fold(self) { v =>
       self.bundleTask(v)
@@ -15,6 +16,7 @@ final class CancelBundleTaskResponseBuilderOps(val self: CancelBundleTaskRespons
 
 final class CancelBundleTaskResponseOps(val self: CancelBundleTaskResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bundleTaskAsScala: Option[BundleTask] = Option(self.bundleTask)
 
 }

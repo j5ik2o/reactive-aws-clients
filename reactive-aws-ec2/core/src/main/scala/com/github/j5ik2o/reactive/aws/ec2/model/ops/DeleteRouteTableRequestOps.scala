@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteRouteTableRequestBuilderOps(val self: DeleteRouteTableRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala(value: Option[String]): DeleteRouteTableRequest.Builder = {
     value.fold(self) { v =>
       self.routeTableId(v)
@@ -15,6 +16,7 @@ final class DeleteRouteTableRequestBuilderOps(val self: DeleteRouteTableRequest.
 
 final class DeleteRouteTableRequestOps(val self: DeleteRouteTableRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala: Option[String] = Option(self.routeTableId)
 
 }

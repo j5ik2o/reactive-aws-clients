@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifySubnetAttributeRequestBuilderOps(val self: ModifySubnetAttributeRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def assignIpv6AddressOnCreationAsScala(
       value: Option[AttributeBooleanValue]
   ): ModifySubnetAttributeRequest.Builder = {
@@ -13,12 +14,14 @@ final class ModifySubnetAttributeRequestBuilderOps(val self: ModifySubnetAttribu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mapPublicIpOnLaunchAsScala(value: Option[AttributeBooleanValue]): ModifySubnetAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.mapPublicIpOnLaunch(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): ModifySubnetAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -29,10 +32,13 @@ final class ModifySubnetAttributeRequestBuilderOps(val self: ModifySubnetAttribu
 
 final class ModifySubnetAttributeRequestOps(val self: ModifySubnetAttributeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def assignIpv6AddressOnCreationAsScala: Option[AttributeBooleanValue] = Option(self.assignIpv6AddressOnCreation)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mapPublicIpOnLaunchAsScala: Option[AttributeBooleanValue] = Option(self.mapPublicIpOnLaunch)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

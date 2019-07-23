@@ -6,24 +6,28 @@ import software.amazon.awssdk.services.ec2.model._
 final class TargetCapacitySpecificationRequestBuilderOps(val self: TargetCapacitySpecificationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalTargetCapacityAsScala(value: Option[Int]): TargetCapacitySpecificationRequest.Builder = {
     value.fold(self) { v =>
       self.totalTargetCapacity(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def onDemandTargetCapacityAsScala(value: Option[Int]): TargetCapacitySpecificationRequest.Builder = {
     value.fold(self) { v =>
       self.onDemandTargetCapacity(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotTargetCapacityAsScala(value: Option[Int]): TargetCapacitySpecificationRequest.Builder = {
     value.fold(self) { v =>
       self.spotTargetCapacity(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultTargetCapacityTypeAsScala(
       value: Option[DefaultTargetCapacityType]
   ): TargetCapacitySpecificationRequest.Builder = {
@@ -36,12 +40,16 @@ final class TargetCapacitySpecificationRequestBuilderOps(val self: TargetCapacit
 
 final class TargetCapacitySpecificationRequestOps(val self: TargetCapacitySpecificationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalTargetCapacityAsScala: Option[Int] = Option(self.totalTargetCapacity)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def onDemandTargetCapacityAsScala: Option[Int] = Option(self.onDemandTargetCapacity)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotTargetCapacityAsScala: Option[Int] = Option(self.spotTargetCapacity)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultTargetCapacityTypeAsScala: Option[DefaultTargetCapacityType] = Option(self.defaultTargetCapacityType)
 
 }

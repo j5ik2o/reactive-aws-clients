@@ -338,6 +338,19 @@ trait AppSyncAkkaClient {
       underlying.listResolversByFunction(listResolversByFunctionRequest)
     }
 
+  def listTagsForResourceSource(
+      listTagsForResourceRequest: ListTagsForResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForResourceResponse, NotUsed] =
+    Source.single(listTagsForResourceRequest).via(listTagsForResourceFlow(parallelism))
+
+  def listTagsForResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListTagsForResourceRequest, ListTagsForResourceResponse, NotUsed] =
+    Flow[ListTagsForResourceRequest].mapAsync(parallelism) { listTagsForResourceRequest =>
+      underlying.listTagsForResource(listTagsForResourceRequest)
+    }
+
   def listTypesSource(
       listTypesRequest: ListTypesRequest,
       parallelism: Int = DefaultParallelism
@@ -360,6 +373,30 @@ trait AppSyncAkkaClient {
   ): Flow[StartSchemaCreationRequest, StartSchemaCreationResponse, NotUsed] =
     Flow[StartSchemaCreationRequest].mapAsync(parallelism) { startSchemaCreationRequest =>
       underlying.startSchemaCreation(startSchemaCreationRequest)
+    }
+
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
+    Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
+
+  def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
+    Flow[TagResourceRequest].mapAsync(parallelism) { tagResourceRequest =>
+      underlying.tagResource(tagResourceRequest)
+    }
+
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
+    Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
+
+  def untagResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
+    Flow[UntagResourceRequest].mapAsync(parallelism) { untagResourceRequest =>
+      underlying.untagResource(untagResourceRequest)
     }
 
   def updateApiKeySource(

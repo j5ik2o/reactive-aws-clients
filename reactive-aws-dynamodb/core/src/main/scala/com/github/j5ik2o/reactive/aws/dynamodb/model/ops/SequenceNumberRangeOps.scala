@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class SequenceNumberRangeBuilderOps(val self: SequenceNumberRange.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
     value.fold(self) { v =>
       self.startingSequenceNumber(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endingSequenceNumberAsScala(value: Option[String]): SequenceNumberRange.Builder = {
     value.fold(self) { v =>
       self.endingSequenceNumber(v)
@@ -21,8 +23,10 @@ final class SequenceNumberRangeBuilderOps(val self: SequenceNumberRange.Builder)
 
 final class SequenceNumberRangeOps(val self: SequenceNumberRange) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingSequenceNumberAsScala: Option[String] = Option(self.startingSequenceNumber)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endingSequenceNumberAsScala: Option[String] = Option(self.endingSequenceNumber)
 
 }

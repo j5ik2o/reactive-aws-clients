@@ -1,15 +1,18 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.appsync.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.appsync.{ AppSyncAsyncClient, AppSyncClient }
 import software.amazon.awssdk.services.appsync.model._
 
+import scala.concurrent.{ ExecutionContext, Future }
+
 object AppSyncCatsIOClient {
 
-  def apply(asyncClient: AppSyncAsyncClient): AppSyncCatsIOClient =
+  def apply(asyncClient: AppSyncAsyncClient)(implicit ec: ExecutionContext): AppSyncCatsIOClient =
     new AppSyncCatsIOClient {
-      override val underlying: AppSyncAsyncClient = asyncClient
+      override val executionContext: ExecutionContext = ec
+      override val underlying: AppSyncAsyncClient     = asyncClient
     }
 
 }
@@ -17,6 +20,9 @@ object AppSyncCatsIOClient {
 trait AppSyncCatsIOClient extends AppSyncClient[IO] {
 
   val underlying: AppSyncAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def createApiKey(createApiKeyRequest: CreateApiKeyRequest): IO[CreateApiKeyResponse] =
     IO.fromFuture {
@@ -154,6 +160,13 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
       IO(underlying.listResolversByFunction(listResolversByFunctionRequest))
     }
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): IO[ListTagsForResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.listTagsForResource(listTagsForResourceRequest))
+    }
+
   override def listTypes(listTypesRequest: ListTypesRequest): IO[ListTypesResponse] =
     IO.fromFuture {
       IO(underlying.listTypes(listTypesRequest))
@@ -164,6 +177,16 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
   ): IO[StartSchemaCreationResponse] =
     IO.fromFuture {
       IO(underlying.startSchemaCreation(startSchemaCreationRequest))
+    }
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): IO[TagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.tagResource(tagResourceRequest))
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.untagResource(untagResourceRequest))
     }
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): IO[UpdateApiKeyResponse] =

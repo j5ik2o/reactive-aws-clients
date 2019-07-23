@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class DescribePlatformVersionResponseBuilderOps(val self: DescribePlatformVersionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformDescriptionAsScala(value: Option[PlatformDescription]): DescribePlatformVersionResponse.Builder = {
     value.fold(self) { v =>
       self.platformDescription(v)
@@ -16,6 +17,7 @@ final class DescribePlatformVersionResponseBuilderOps(val self: DescribePlatform
 
 final class DescribePlatformVersionResponseOps(val self: DescribePlatformVersionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformDescriptionAsScala: Option[PlatformDescription] = Option(self.platformDescription)
 
 }

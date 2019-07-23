@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 final class DeleteSubscriptionFilterRequestBuilderOps(val self: DeleteSubscriptionFilterRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteSubscriptionFilterRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): DeleteSubscriptionFilterRequest.Builder = {
     value.fold(self) { v =>
       self.filterName(v)
@@ -22,8 +24,10 @@ final class DeleteSubscriptionFilterRequestBuilderOps(val self: DeleteSubscripti
 
 final class DeleteSubscriptionFilterRequestOps(val self: DeleteSubscriptionFilterRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala: Option[String] = Option(self.filterName)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class LaunchTemplateBuilderOps(val self: LaunchTemplate.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): LaunchTemplate.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -15,6 +16,7 @@ final class LaunchTemplateBuilderOps(val self: LaunchTemplate.Builder) extends A
 
 final class LaunchTemplateOps(val self: LaunchTemplate) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

@@ -79,6 +79,9 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   override def getMetricData(getMetricDataRequest: GetMetricDataRequest): Either[Throwable, GetMetricDataResponse] =
     underlying.getMetricData(getMetricDataRequest).toEither
 
+  def getMetricDataPaginator(getMetricDataRequest: GetMetricDataRequest): GetMetricDataIterable =
+    underlying.getMetricDataPaginator(getMetricDataRequest)
+
   override def getMetricStatistics(
       getMetricStatisticsRequest: GetMetricStatisticsRequest
   ): Either[Throwable, GetMetricStatisticsResponse] =
@@ -95,6 +98,12 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   override def listDashboards(listDashboardsRequest: ListDashboardsRequest): Either[Throwable, ListDashboardsResponse] =
     underlying.listDashboards(listDashboardsRequest).toEither
 
+  def listDashboardsPaginator(): ListDashboardsIterable =
+    underlying.listDashboardsPaginator()
+
+  def listDashboardsPaginator(listDashboardsRequest: ListDashboardsRequest): ListDashboardsIterable =
+    underlying.listDashboardsPaginator(listDashboardsRequest)
+
   override def listMetrics(): Either[Throwable, ListMetricsResponse] =
     underlying.listMetrics().toEither
 
@@ -107,6 +116,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   def listMetricsPaginator(listMetricsRequest: ListMetricsRequest): ListMetricsIterable =
     underlying.listMetricsPaginator(listMetricsRequest)
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Either[Throwable, ListTagsForResourceResponse] =
+    underlying.listTagsForResource(listTagsForResourceRequest).toEither
+
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Either[Throwable, PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toEither
 
@@ -118,5 +132,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
 
   override def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): Either[Throwable, SetAlarmStateResponse] =
     underlying.setAlarmState(setAlarmStateRequest).toEither
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Either[Throwable, TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toEither
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Either[Throwable, UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toEither
 
 }

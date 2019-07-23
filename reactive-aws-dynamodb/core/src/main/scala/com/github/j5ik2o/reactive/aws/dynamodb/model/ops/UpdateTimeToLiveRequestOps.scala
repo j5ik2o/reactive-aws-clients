@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class UpdateTimeToLiveRequestBuilderOps(val self: UpdateTimeToLiveRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): UpdateTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeToLiveSpecificationAsScala(value: Option[TimeToLiveSpecification]): UpdateTimeToLiveRequest.Builder = {
     value.fold(self) { v =>
       self.timeToLiveSpecification(v)
@@ -21,8 +23,10 @@ final class UpdateTimeToLiveRequestBuilderOps(val self: UpdateTimeToLiveRequest.
 
 final class UpdateTimeToLiveRequestOps(val self: UpdateTimeToLiveRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeToLiveSpecificationAsScala: Option[TimeToLiveSpecification] = Option(self.timeToLiveSpecification)
 
 }

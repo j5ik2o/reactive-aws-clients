@@ -7,6 +7,7 @@ final class ImportClientVpnClientCertificateRevocationListResponseBuilderOps(
     val self: ImportClientVpnClientCertificateRevocationListResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(
       value: Option[Boolean]
   ): ImportClientVpnClientCertificateRevocationListResponse.Builder = {
@@ -21,6 +22,7 @@ final class ImportClientVpnClientCertificateRevocationListResponseOps(
     val self: ImportClientVpnClientCertificateRevocationListResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

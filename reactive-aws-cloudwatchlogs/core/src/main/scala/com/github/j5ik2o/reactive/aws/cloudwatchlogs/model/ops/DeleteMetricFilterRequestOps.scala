@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class DeleteMetricFilterRequestBuilderOps(val self: DeleteMetricFilterRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteMetricFilterRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): DeleteMetricFilterRequest.Builder = {
     value.fold(self) { v =>
       self.filterName(v)
@@ -21,8 +23,10 @@ final class DeleteMetricFilterRequestBuilderOps(val self: DeleteMetricFilterRequ
 
 final class DeleteMetricFilterRequestOps(val self: DeleteMetricFilterRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala: Option[String] = Option(self.filterName)
 
 }

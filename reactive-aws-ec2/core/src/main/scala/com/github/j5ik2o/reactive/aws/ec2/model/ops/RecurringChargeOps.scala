@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RecurringChargeBuilderOps(val self: RecurringCharge.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amountAsScala(value: Option[Double]): RecurringCharge.Builder = {
     value.fold(self) { v =>
       self.amount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frequencyAsScala(value: Option[RecurringChargeFrequency]): RecurringCharge.Builder = {
     value.fold(self) { v =>
       self.frequency(v)
@@ -21,8 +23,10 @@ final class RecurringChargeBuilderOps(val self: RecurringCharge.Builder) extends
 
 final class RecurringChargeOps(val self: RecurringCharge) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amountAsScala: Option[Double] = Option(self.amount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frequencyAsScala: Option[RecurringChargeFrequency] = Option(self.frequency)
 
 }

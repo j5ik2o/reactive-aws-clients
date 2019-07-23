@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RegisterImageResponseBuilderOps(val self: RegisterImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[String]): RegisterImageResponse.Builder = {
     value.fold(self) { v =>
       self.imageId(v)
@@ -15,6 +16,7 @@ final class RegisterImageResponseBuilderOps(val self: RegisterImageResponse.Buil
 
 final class RegisterImageResponseOps(val self: RegisterImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala: Option[String] = Option(self.imageId)
 
 }

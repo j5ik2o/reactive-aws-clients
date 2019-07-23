@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class CreateCollectionRequestBuilderOps(val self: CreateCollectionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): CreateCollectionRequest.Builder = {
     value.fold(self) { v =>
       self.collectionId(v)
@@ -15,6 +16,7 @@ final class CreateCollectionRequestBuilderOps(val self: CreateCollectionRequest.
 
 final class CreateCollectionRequestOps(val self: CreateCollectionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala: Option[String] = Option(self.collectionId)
 
 }

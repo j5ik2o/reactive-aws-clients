@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GrantBuilderOps(val self: Grant.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def granteeAsScala(value: Option[Grantee]): Grant.Builder = {
     value.fold(self) { v =>
       self.grantee(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionAsScala(value: Option[Permission]): Grant.Builder = {
     value.fold(self) { v =>
       self.permission(v)
@@ -21,8 +23,10 @@ final class GrantBuilderOps(val self: Grant.Builder) extends AnyVal {
 
 final class GrantOps(val self: Grant) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def granteeAsScala: Option[Grantee] = Option(self.grantee)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionAsScala: Option[Permission] = Option(self.permission)
 
 }

@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class InstanceStatusDetailsBuilderOps(val self: InstanceStatusDetails.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def impairedSinceAsScala(value: Option[java.time.Instant]): InstanceStatusDetails.Builder = {
     value.fold(self) { v =>
       self.impairedSince(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[StatusName]): InstanceStatusDetails.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[StatusType]): InstanceStatusDetails.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -27,10 +30,13 @@ final class InstanceStatusDetailsBuilderOps(val self: InstanceStatusDetails.Buil
 
 final class InstanceStatusDetailsOps(val self: InstanceStatusDetails) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def impairedSinceAsScala: Option[java.time.Instant] = Option(self.impairedSince)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[StatusName] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[StatusType] = Option(self.status)
 
 }

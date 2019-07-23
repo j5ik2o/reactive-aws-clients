@@ -31,6 +31,9 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
   override def createService(createServiceRequest: CreateServiceRequest): Either[Throwable, CreateServiceResponse] =
     underlying.createService(createServiceRequest).toEither
 
+  override def createTaskSet(createTaskSetRequest: CreateTaskSetRequest): Either[Throwable, CreateTaskSetResponse] =
+    underlying.createTaskSet(createTaskSetRequest).toEither
+
   override def deleteAccountSetting(
       deleteAccountSettingRequest: DeleteAccountSettingRequest
   ): Either[Throwable, DeleteAccountSettingResponse] =
@@ -46,6 +49,9 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
 
   override def deleteService(deleteServiceRequest: DeleteServiceRequest): Either[Throwable, DeleteServiceResponse] =
     underlying.deleteService(deleteServiceRequest).toEither
+
+  override def deleteTaskSet(deleteTaskSetRequest: DeleteTaskSetRequest): Either[Throwable, DeleteTaskSetResponse] =
+    underlying.deleteTaskSet(deleteTaskSetRequest).toEither
 
   override def deregisterContainerInstance(
       deregisterContainerInstanceRequest: DeregisterContainerInstanceRequest
@@ -79,6 +85,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
       describeTaskDefinitionRequest: DescribeTaskDefinitionRequest
   ): Either[Throwable, DescribeTaskDefinitionResponse] =
     underlying.describeTaskDefinition(describeTaskDefinitionRequest).toEither
+
+  override def describeTaskSets(
+      describeTaskSetsRequest: DescribeTaskSetsRequest
+  ): Either[Throwable, DescribeTaskSetsResponse] =
+    underlying.describeTaskSets(describeTaskSetsRequest).toEither
 
   override def describeTasks(describeTasksRequest: DescribeTasksRequest): Either[Throwable, DescribeTasksResponse] =
     underlying.describeTasks(describeTasksRequest).toEither
@@ -248,5 +259,13 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
 
   override def updateService(updateServiceRequest: UpdateServiceRequest): Either[Throwable, UpdateServiceResponse] =
     underlying.updateService(updateServiceRequest).toEither
+
+  override def updateServicePrimaryTaskSet(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest
+  ): Either[Throwable, UpdateServicePrimaryTaskSetResponse] =
+    underlying.updateServicePrimaryTaskSet(updateServicePrimaryTaskSetRequest).toEither
+
+  override def updateTaskSet(updateTaskSetRequest: UpdateTaskSetRequest): Either[Throwable, UpdateTaskSetResponse] =
+    underlying.updateTaskSet(updateTaskSetRequest).toEither
 
 }

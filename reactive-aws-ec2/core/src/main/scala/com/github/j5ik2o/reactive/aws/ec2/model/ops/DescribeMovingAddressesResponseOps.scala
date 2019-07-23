@@ -6,14 +6,16 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeMovingAddressesResponseBuilderOps(val self: DescribeMovingAddressesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def movingAddressStatusesAsScala(
       value: Option[Seq[MovingAddressStatus]]
   ): DescribeMovingAddressesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.movingAddressStatuses(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.movingAddressStatuses(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeMovingAddressesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -24,11 +26,13 @@ final class DescribeMovingAddressesResponseBuilderOps(val self: DescribeMovingAd
 
 final class DescribeMovingAddressesResponseOps(val self: DescribeMovingAddressesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def movingAddressStatusesAsScala: Option[Seq[MovingAddressStatus]] = Option(self.movingAddressStatuses).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

@@ -6,17 +6,19 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeSpotFleetRequestsResponseBuilderOps(val self: DescribeSpotFleetRequestsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeSpotFleetRequestsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestConfigsAsScala(
       value: Option[Seq[SpotFleetRequestConfig]]
   ): DescribeSpotFleetRequestsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.spotFleetRequestConfigs(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.spotFleetRequestConfigs(v.asJava)
     }
   }
 
@@ -24,11 +26,13 @@ final class DescribeSpotFleetRequestsResponseBuilderOps(val self: DescribeSpotFl
 
 final class DescribeSpotFleetRequestsResponseOps(val self: DescribeSpotFleetRequestsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestConfigsAsScala: Option[Seq[SpotFleetRequestConfig]] =
     Option(self.spotFleetRequestConfigs).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

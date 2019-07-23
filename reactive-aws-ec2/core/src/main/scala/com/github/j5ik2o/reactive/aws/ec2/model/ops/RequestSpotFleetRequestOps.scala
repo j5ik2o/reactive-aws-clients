@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RequestSpotFleetRequestBuilderOps(val self: RequestSpotFleetRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestConfigAsScala(
       value: Option[SpotFleetRequestConfigData]
   ): RequestSpotFleetRequest.Builder = {
@@ -17,6 +18,7 @@ final class RequestSpotFleetRequestBuilderOps(val self: RequestSpotFleetRequest.
 
 final class RequestSpotFleetRequestOps(val self: RequestSpotFleetRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestConfigAsScala: Option[SpotFleetRequestConfigData] = Option(self.spotFleetRequestConfig)
 
 }

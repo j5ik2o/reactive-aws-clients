@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AttachInternetGatewayRequestBuilderOps(val self: AttachInternetGatewayRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internetGatewayIdAsScala(value: Option[String]): AttachInternetGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.internetGatewayId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): AttachInternetGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -21,8 +23,10 @@ final class AttachInternetGatewayRequestBuilderOps(val self: AttachInternetGatew
 
 final class AttachInternetGatewayRequestOps(val self: AttachInternetGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internetGatewayIdAsScala: Option[String] = Option(self.internetGatewayId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

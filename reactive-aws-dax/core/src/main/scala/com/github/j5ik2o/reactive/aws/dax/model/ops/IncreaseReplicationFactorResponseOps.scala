@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.dax.model._
 final class IncreaseReplicationFactorResponseBuilderOps(val self: IncreaseReplicationFactorResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): IncreaseReplicationFactorResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
@@ -16,6 +17,7 @@ final class IncreaseReplicationFactorResponseBuilderOps(val self: IncreaseReplic
 
 final class IncreaseReplicationFactorResponseOps(val self: IncreaseReplicationFactorResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }

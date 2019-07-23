@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.lambda.model._
 final class DeleteEventSourceMappingRequestBuilderOps(val self: DeleteEventSourceMappingRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uuidAsScala(value: Option[String]): DeleteEventSourceMappingRequest.Builder = {
     value.fold(self) { v =>
       self.uuid(v)
@@ -16,6 +17,7 @@ final class DeleteEventSourceMappingRequestBuilderOps(val self: DeleteEventSourc
 
 final class DeleteEventSourceMappingRequestOps(val self: DeleteEventSourceMappingRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uuidAsScala: Option[String] = Option(self.uuid)
 
 }

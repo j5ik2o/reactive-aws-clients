@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class CompareFacesRequestBuilderOps(val self: CompareFacesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceImageAsScala(value: Option[Image]): CompareFacesRequest.Builder = {
     value.fold(self) { v =>
       self.sourceImage(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetImageAsScala(value: Option[Image]): CompareFacesRequest.Builder = {
     value.fold(self) { v =>
       self.targetImage(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityThresholdAsScala(value: Option[Float]): CompareFacesRequest.Builder = {
     value.fold(self) { v =>
       self.similarityThreshold(v)
@@ -27,10 +30,13 @@ final class CompareFacesRequestBuilderOps(val self: CompareFacesRequest.Builder)
 
 final class CompareFacesRequestOps(val self: CompareFacesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceImageAsScala: Option[Image] = Option(self.sourceImage)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetImageAsScala: Option[Image] = Option(self.targetImage)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityThresholdAsScala: Option[Float] = Option(self.similarityThreshold)
 
 }

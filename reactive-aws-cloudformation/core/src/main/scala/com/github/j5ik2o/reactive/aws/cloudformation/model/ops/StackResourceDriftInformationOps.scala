@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class StackResourceDriftInformationBuilderOps(val self: StackResourceDriftInformation.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDriftStatusAsScala(
       value: Option[StackResourceDriftStatus]
   ): StackResourceDriftInformation.Builder = {
@@ -13,6 +14,7 @@ final class StackResourceDriftInformationBuilderOps(val self: StackResourceDrift
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastCheckTimestampAsScala(value: Option[java.time.Instant]): StackResourceDriftInformation.Builder = {
     value.fold(self) { v =>
       self.lastCheckTimestamp(v)
@@ -23,8 +25,10 @@ final class StackResourceDriftInformationBuilderOps(val self: StackResourceDrift
 
 final class StackResourceDriftInformationOps(val self: StackResourceDriftInformation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDriftStatusAsScala: Option[StackResourceDriftStatus] = Option(self.stackResourceDriftStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastCheckTimestampAsScala: Option[java.time.Instant] = Option(self.lastCheckTimestamp)
 
 }

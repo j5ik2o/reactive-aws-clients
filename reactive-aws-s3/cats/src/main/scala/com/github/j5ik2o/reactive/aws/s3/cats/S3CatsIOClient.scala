@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.s3.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.s3.{ S3AsyncClient, S3Client }
 import software.amazon.awssdk.services.s3.model._
 import software.amazon.awssdk.services.s3.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object S3CatsIOClient {
 
-  def apply(asyncClient: S3AsyncClient): S3CatsIOClient = new S3CatsIOClient {
-    override val underlying: S3AsyncClient = asyncClient
+  def apply(asyncClient: S3AsyncClient)(implicit ec: ExecutionContext): S3CatsIOClient = new S3CatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: S3AsyncClient          = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object S3CatsIOClient {
 trait S3CatsIOClient extends S3Client[IO] with S3CatsIOClientSupoprt {
 
   val underlying: S3AsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def abortMultipartUpload(
       abortMultipartUploadRequest: AbortMultipartUploadRequest

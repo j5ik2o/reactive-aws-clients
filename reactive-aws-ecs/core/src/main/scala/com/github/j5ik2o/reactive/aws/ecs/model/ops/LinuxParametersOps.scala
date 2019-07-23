@@ -5,33 +5,38 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class LinuxParametersBuilderOps(val self: LinuxParameters.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capabilitiesAsScala(value: Option[KernelCapabilities]): LinuxParameters.Builder = {
     value.fold(self) { v =>
       self.capabilities(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def devicesAsScala(value: Option[Seq[Device]]): LinuxParameters.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.devices(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.devices(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def initProcessEnabledAsScala(value: Option[Boolean]): LinuxParameters.Builder = {
     value.fold(self) { v =>
       self.initProcessEnabled(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sharedMemorySizeAsScala(value: Option[Int]): LinuxParameters.Builder = {
     value.fold(self) { v =>
       self.sharedMemorySize(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tmpfsAsScala(value: Option[Seq[Tmpfs]]): LinuxParameters.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tmpfs(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tmpfs(v.asJava)
     }
   }
 
@@ -39,18 +44,23 @@ final class LinuxParametersBuilderOps(val self: LinuxParameters.Builder) extends
 
 final class LinuxParametersOps(val self: LinuxParameters) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capabilitiesAsScala: Option[KernelCapabilities] = Option(self.capabilities)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def devicesAsScala: Option[Seq[Device]] = Option(self.devices).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def initProcessEnabledAsScala: Option[Boolean] = Option(self.initProcessEnabled)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sharedMemorySizeAsScala: Option[Int] = Option(self.sharedMemorySize)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tmpfsAsScala: Option[Seq[Tmpfs]] = Option(self.tmpfs).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

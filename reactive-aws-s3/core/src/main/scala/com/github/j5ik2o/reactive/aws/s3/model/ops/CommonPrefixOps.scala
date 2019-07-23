@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class CommonPrefixBuilderOps(val self: CommonPrefix.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala(value: Option[String]): CommonPrefix.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
@@ -15,6 +16,7 @@ final class CommonPrefixBuilderOps(val self: CommonPrefix.Builder) extends AnyVa
 
 final class CommonPrefixOps(val self: CommonPrefix) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala: Option[String] = Option(self.prefix)
 
 }

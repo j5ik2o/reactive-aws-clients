@@ -5,18 +5,23 @@ import software.amazon.awssdk.services.batch.model._
 
 final class ArrayPropertiesDetailBuilderOps(val self: ArrayPropertiesDetail.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusSummaryAsScala(value: Option[Map[String, Int]]): ArrayPropertiesDetail.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Integer])).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.statusSummary(v.asJava)
-    }
+    value
+      .filter(_.nonEmpty).map(_.view.map { case (k, v) => (k, v.asInstanceOf[java.lang.Integer]) }.toMap).fold(self) {
+        v =>
+          import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.statusSummary(v.asJava)
+      }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): ArrayPropertiesDetail.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexAsScala(value: Option[Int]): ArrayPropertiesDetail.Builder = {
     value.fold(self) { v =>
       self.index(v)
@@ -27,12 +32,16 @@ final class ArrayPropertiesDetailBuilderOps(val self: ArrayPropertiesDetail.Buil
 
 final class ArrayPropertiesDetailOps(val self: ArrayPropertiesDetail) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusSummaryAsScala: Option[Map[String, Int]] = Option(self.statusSummary).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.intValue())
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+    v.asScala.toMap.view.map { case (k, v) => (k, v.intValue()) }.toMap
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala: Option[Int] = Option(self.size)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexAsScala: Option[Int] = Option(self.index)
 
 }

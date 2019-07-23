@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 final class UpdateElasticsearchDomainConfigResponseBuilderOps(val self: UpdateElasticsearchDomainConfigResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainConfigAsScala(
       value: Option[ElasticsearchDomainConfig]
   ): UpdateElasticsearchDomainConfigResponse.Builder = {
@@ -19,6 +20,7 @@ final class UpdateElasticsearchDomainConfigResponseBuilderOps(val self: UpdateEl
 final class UpdateElasticsearchDomainConfigResponseOps(val self: UpdateElasticsearchDomainConfigResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainConfigAsScala: Option[ElasticsearchDomainConfig] = Option(self.domainConfig)
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class FleetLaunchTemplateConfigRequestBuilderOps(val self: FleetLaunchTemplateConfigRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateSpecificationAsScala(
       value: Option[FleetLaunchTemplateSpecificationRequest]
   ): FleetLaunchTemplateConfigRequest.Builder = {
@@ -14,11 +15,12 @@ final class FleetLaunchTemplateConfigRequestBuilderOps(val self: FleetLaunchTemp
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def overridesAsScala(
       value: Option[Seq[FleetLaunchTemplateOverridesRequest]]
   ): FleetLaunchTemplateConfigRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.overrides(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.overrides(v.asJava)
     }
   }
 
@@ -26,11 +28,13 @@ final class FleetLaunchTemplateConfigRequestBuilderOps(val self: FleetLaunchTemp
 
 final class FleetLaunchTemplateConfigRequestOps(val self: FleetLaunchTemplateConfigRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateSpecificationAsScala: Option[FleetLaunchTemplateSpecificationRequest] =
     Option(self.launchTemplateSpecification)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def overridesAsScala: Option[Seq[FleetLaunchTemplateOverridesRequest]] = Option(self.overrides).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

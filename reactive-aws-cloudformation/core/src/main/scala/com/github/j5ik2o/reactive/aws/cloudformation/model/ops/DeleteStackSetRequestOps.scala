@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DeleteStackSetRequestBuilderOps(val self: DeleteStackSetRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): DeleteStackSetRequest.Builder = {
     value.fold(self) { v =>
       self.stackSetName(v)
@@ -15,6 +16,7 @@ final class DeleteStackSetRequestBuilderOps(val self: DeleteStackSetRequest.Buil
 
 final class DeleteStackSetRequestOps(val self: DeleteStackSetRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
 }

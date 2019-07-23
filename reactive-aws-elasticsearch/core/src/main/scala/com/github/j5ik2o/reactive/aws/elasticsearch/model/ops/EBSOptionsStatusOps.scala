@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class EBSOptionsStatusBuilderOps(val self: EBSOptionsStatus.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(value: Option[EBSOptions]): EBSOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.options(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[OptionStatus]): EBSOptionsStatus.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -21,8 +23,10 @@ final class EBSOptionsStatusBuilderOps(val self: EBSOptionsStatus.Builder) exten
 
 final class EBSOptionsStatusOps(val self: EBSOptionsStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala: Option[EBSOptions] = Option(self.options)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[OptionStatus] = Option(self.status)
 
 }

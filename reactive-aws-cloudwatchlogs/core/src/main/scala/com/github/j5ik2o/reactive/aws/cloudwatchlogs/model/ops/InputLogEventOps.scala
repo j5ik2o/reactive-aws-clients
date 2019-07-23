@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class InputLogEventBuilderOps(val self: InputLogEvent.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): InputLogEvent.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): InputLogEvent.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class InputLogEventBuilderOps(val self: InputLogEvent.Builder) extends Any
 
 final class InputLogEventOps(val self: InputLogEvent) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

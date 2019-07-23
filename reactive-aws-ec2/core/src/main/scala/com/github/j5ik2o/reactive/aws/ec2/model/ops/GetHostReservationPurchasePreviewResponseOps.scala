@@ -7,6 +7,7 @@ final class GetHostReservationPurchasePreviewResponseBuilderOps(
     val self: GetHostReservationPurchasePreviewResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currencyCodeAsScala(
       value: Option[CurrencyCodeValues]
   ): GetHostReservationPurchasePreviewResponse.Builder = {
@@ -15,18 +16,21 @@ final class GetHostReservationPurchasePreviewResponseBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def purchaseAsScala(value: Option[Seq[Purchase]]): GetHostReservationPurchasePreviewResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.purchase(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.purchase(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalHourlyPriceAsScala(value: Option[String]): GetHostReservationPurchasePreviewResponse.Builder = {
     value.fold(self) { v =>
       self.totalHourlyPrice(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalUpfrontPriceAsScala(value: Option[String]): GetHostReservationPurchasePreviewResponse.Builder = {
     value.fold(self) { v =>
       self.totalUpfrontPrice(v)
@@ -38,14 +42,18 @@ final class GetHostReservationPurchasePreviewResponseBuilderOps(
 final class GetHostReservationPurchasePreviewResponseOps(val self: GetHostReservationPurchasePreviewResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currencyCodeAsScala: Option[CurrencyCodeValues] = Option(self.currencyCode)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def purchaseAsScala: Option[Seq[Purchase]] = Option(self.purchase).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalHourlyPriceAsScala: Option[String] = Option(self.totalHourlyPrice)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalUpfrontPriceAsScala: Option[String] = Option(self.totalUpfrontPrice)
 
 }

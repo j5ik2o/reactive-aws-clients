@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class GenerateRandomRequestBuilderOps(val self: GenerateRandomRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numberOfBytesAsScala(value: Option[Int]): GenerateRandomRequest.Builder = {
     value.fold(self) { v =>
       self.numberOfBytes(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): GenerateRandomRequest.Builder = {
     value.fold(self) { v =>
       self.customKeyStoreId(v)
@@ -21,8 +23,10 @@ final class GenerateRandomRequestBuilderOps(val self: GenerateRandomRequest.Buil
 
 final class GenerateRandomRequestOps(val self: GenerateRandomRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numberOfBytesAsScala: Option[Int] = Option(self.numberOfBytes)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala: Option[String] = Option(self.customKeyStoreId)
 
 }

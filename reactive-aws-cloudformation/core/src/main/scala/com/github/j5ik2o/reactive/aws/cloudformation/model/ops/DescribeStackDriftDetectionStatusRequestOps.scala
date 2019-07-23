@@ -7,6 +7,7 @@ final class DescribeStackDriftDetectionStatusRequestBuilderOps(
     val self: DescribeStackDriftDetectionStatusRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftDetectionIdAsScala(value: Option[String]): DescribeStackDriftDetectionStatusRequest.Builder = {
     value.fold(self) { v =>
       self.stackDriftDetectionId(v)
@@ -18,6 +19,7 @@ final class DescribeStackDriftDetectionStatusRequestBuilderOps(
 final class DescribeStackDriftDetectionStatusRequestOps(val self: DescribeStackDriftDetectionStatusRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftDetectionIdAsScala: Option[String] = Option(self.stackDriftDetectionId)
 
 }

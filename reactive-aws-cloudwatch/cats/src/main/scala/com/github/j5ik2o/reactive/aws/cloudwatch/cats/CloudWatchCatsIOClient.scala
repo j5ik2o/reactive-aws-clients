@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.cloudwatch.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.cloudwatch.{ CloudWatchAsyncClient, CloudWatchClient }
 import software.amazon.awssdk.services.cloudwatch.model._
 import software.amazon.awssdk.services.cloudwatch.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object CloudWatchCatsIOClient {
 
-  def apply(asyncClient: CloudWatchAsyncClient): CloudWatchCatsIOClient = new CloudWatchCatsIOClient {
-    override val underlying: CloudWatchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudWatchAsyncClient)(implicit ec: ExecutionContext): CloudWatchCatsIOClient =
+    new CloudWatchCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: CloudWatchAsyncClient  = asyncClient
+    }
 
 }
 
 trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
 
   val underlying: CloudWatchAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def deleteAlarms(deleteAlarmsRequest: DeleteAlarmsRequest): IO[DeleteAlarmsResponse] =
     IO.fromFuture {
@@ -97,6 +102,9 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.getMetricData(getMetricDataRequest))
     }
 
+  def getMetricDataPaginator(getMetricDataRequest: GetMetricDataRequest): GetMetricDataPublisher =
+    underlying.getMetricDataPaginator(getMetricDataRequest)
+
   override def getMetricStatistics(
       getMetricStatisticsRequest: GetMetricStatisticsRequest
   ): IO[GetMetricStatisticsResponse] =
@@ -121,6 +129,12 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.listDashboards())
     }
 
+  def listDashboardsPaginator(): ListDashboardsPublisher =
+    underlying.listDashboardsPaginator()
+
+  def listDashboardsPaginator(listDashboardsRequest: ListDashboardsRequest): ListDashboardsPublisher =
+    underlying.listDashboardsPaginator(listDashboardsRequest)
+
   override def listMetrics(listMetricsRequest: ListMetricsRequest): IO[ListMetricsResponse] =
     IO.fromFuture {
       IO(underlying.listMetrics(listMetricsRequest))
@@ -136,6 +150,13 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
 
   def listMetricsPaginator(listMetricsRequest: ListMetricsRequest): ListMetricsPublisher =
     underlying.listMetricsPaginator(listMetricsRequest)
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): IO[ListTagsForResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.listTagsForResource(listTagsForResourceRequest))
+    }
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): IO[PutDashboardResponse] =
     IO.fromFuture {
@@ -155,6 +176,16 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
   override def setAlarmState(setAlarmStateRequest: SetAlarmStateRequest): IO[SetAlarmStateResponse] =
     IO.fromFuture {
       IO(underlying.setAlarmState(setAlarmStateRequest))
+    }
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): IO[TagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.tagResource(tagResourceRequest))
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.untagResource(untagResourceRequest))
     }
 
 }

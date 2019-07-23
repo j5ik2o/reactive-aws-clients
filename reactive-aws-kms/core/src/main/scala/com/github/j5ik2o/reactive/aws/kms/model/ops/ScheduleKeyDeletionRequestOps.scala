@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class ScheduleKeyDeletionRequestBuilderOps(val self: ScheduleKeyDeletionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ScheduleKeyDeletionRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pendingWindowInDaysAsScala(value: Option[Int]): ScheduleKeyDeletionRequest.Builder = {
     value.fold(self) { v =>
       self.pendingWindowInDays(v)
@@ -21,8 +23,10 @@ final class ScheduleKeyDeletionRequestBuilderOps(val self: ScheduleKeyDeletionRe
 
 final class ScheduleKeyDeletionRequestOps(val self: ScheduleKeyDeletionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pendingWindowInDaysAsScala: Option[Int] = Option(self.pendingWindowInDays)
 
 }

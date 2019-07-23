@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class AssociateKmsKeyRequestBuilderOps(val self: AssociateKmsKeyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): AssociateKmsKeyRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): AssociateKmsKeyRequest.Builder = {
     value.fold(self) { v =>
       self.kmsKeyId(v)
@@ -21,8 +23,10 @@ final class AssociateKmsKeyRequestBuilderOps(val self: AssociateKmsKeyRequest.Bu
 
 final class AssociateKmsKeyRequestOps(val self: AssociateKmsKeyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
 }

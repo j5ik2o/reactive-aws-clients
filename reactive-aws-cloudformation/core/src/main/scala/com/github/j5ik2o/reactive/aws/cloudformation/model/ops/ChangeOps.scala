@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class ChangeBuilderOps(val self: Change.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ChangeType]): Change.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceChangeAsScala(value: Option[ResourceChange]): Change.Builder = {
     value.fold(self) { v =>
       self.resourceChange(v)
@@ -21,8 +23,10 @@ final class ChangeBuilderOps(val self: Change.Builder) extends AnyVal {
 
 final class ChangeOps(val self: Change) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[ChangeType] = Option(self.`type`)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceChangeAsScala: Option[ResourceChange] = Option(self.resourceChange)
 
 }

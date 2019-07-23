@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class DeleteAlarmsRequestBuilderOps(val self: DeleteAlarmsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNamesAsScala(value: Option[Seq[String]]): DeleteAlarmsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.alarmNames(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.alarmNames(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DeleteAlarmsRequestBuilderOps(val self: DeleteAlarmsRequest.Builder)
 
 final class DeleteAlarmsRequestOps(val self: DeleteAlarmsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNamesAsScala: Option[Seq[String]] = Option(self.alarmNames).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

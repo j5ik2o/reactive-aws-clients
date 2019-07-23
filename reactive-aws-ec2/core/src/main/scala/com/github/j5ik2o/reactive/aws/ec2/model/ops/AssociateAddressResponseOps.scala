@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AssociateAddressResponseBuilderOps(val self: AssociateAddressResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): AssociateAddressResponse.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -15,6 +16,7 @@ final class AssociateAddressResponseBuilderOps(val self: AssociateAddressRespons
 
 final class AssociateAddressResponseOps(val self: AssociateAddressResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

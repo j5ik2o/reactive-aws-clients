@@ -7,6 +7,7 @@ final class CreateVpcEndpointConnectionNotificationResponseBuilderOps(
     val self: CreateVpcEndpointConnectionNotificationResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationAsScala(
       value: Option[ConnectionNotification]
   ): CreateVpcEndpointConnectionNotificationResponse.Builder = {
@@ -15,6 +16,7 @@ final class CreateVpcEndpointConnectionNotificationResponseBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateVpcEndpointConnectionNotificationResponse.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
@@ -27,8 +29,10 @@ final class CreateVpcEndpointConnectionNotificationResponseOps(
     val self: CreateVpcEndpointConnectionNotificationResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationAsScala: Option[ConnectionNotification] = Option(self.connectionNotification)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
 }

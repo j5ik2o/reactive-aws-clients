@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateRouteTableResponseBuilderOps(val self: CreateRouteTableResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableAsScala(value: Option[RouteTable]): CreateRouteTableResponse.Builder = {
     value.fold(self) { v =>
       self.routeTable(v)
@@ -15,6 +16,7 @@ final class CreateRouteTableResponseBuilderOps(val self: CreateRouteTableRespons
 
 final class CreateRouteTableResponseOps(val self: CreateRouteTableResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableAsScala: Option[RouteTable] = Option(self.routeTable)
 
 }

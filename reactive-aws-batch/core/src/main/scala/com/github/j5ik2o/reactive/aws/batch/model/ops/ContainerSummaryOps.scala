@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class ContainerSummaryBuilderOps(val self: ContainerSummary.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): ContainerSummary.Builder = {
     value.fold(self) { v =>
       self.exitCode(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): ContainerSummary.Builder = {
     value.fold(self) { v =>
       self.reason(v)
@@ -21,8 +23,10 @@ final class ContainerSummaryBuilderOps(val self: ContainerSummary.Builder) exten
 
 final class ContainerSummaryOps(val self: ContainerSummary) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala: Option[Int] = Option(self.exitCode)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala: Option[String] = Option(self.reason)
 
 }

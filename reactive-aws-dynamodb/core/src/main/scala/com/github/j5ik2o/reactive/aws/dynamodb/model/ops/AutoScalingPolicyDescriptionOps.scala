@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AutoScalingPolicyDescriptionBuilderOps(val self: AutoScalingPolicyDescription.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): AutoScalingPolicyDescription.Builder = {
     value.fold(self) { v =>
       self.policyName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetTrackingScalingPolicyConfigurationAsScala(
       value: Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription]
   ): AutoScalingPolicyDescription.Builder = {
@@ -23,8 +25,10 @@ final class AutoScalingPolicyDescriptionBuilderOps(val self: AutoScalingPolicyDe
 
 final class AutoScalingPolicyDescriptionOps(val self: AutoScalingPolicyDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala: Option[String] = Option(self.policyName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetTrackingScalingPolicyConfigurationAsScala
       : Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription] =
     Option(self.targetTrackingScalingPolicyConfiguration)

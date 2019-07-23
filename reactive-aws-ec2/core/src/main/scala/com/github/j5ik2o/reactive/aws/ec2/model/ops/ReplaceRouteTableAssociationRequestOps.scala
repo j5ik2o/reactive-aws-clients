@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class ReplaceRouteTableAssociationRequestBuilderOps(val self: ReplaceRouteTableAssociationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): ReplaceRouteTableAssociationRequest.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala(value: Option[String]): ReplaceRouteTableAssociationRequest.Builder = {
     value.fold(self) { v =>
       self.routeTableId(v)
@@ -22,8 +24,10 @@ final class ReplaceRouteTableAssociationRequestBuilderOps(val self: ReplaceRoute
 
 final class ReplaceRouteTableAssociationRequestOps(val self: ReplaceRouteTableAssociationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala: Option[String] = Option(self.routeTableId)
 
 }

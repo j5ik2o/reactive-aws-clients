@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class CelebrityRecognitionBuilderOps(val self: CelebrityRecognition.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): CelebrityRecognition.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def celebrityAsScala(value: Option[CelebrityDetail]): CelebrityRecognition.Builder = {
     value.fold(self) { v =>
       self.celebrity(v)
@@ -21,8 +23,10 @@ final class CelebrityRecognitionBuilderOps(val self: CelebrityRecognition.Builde
 
 final class CelebrityRecognitionOps(val self: CelebrityRecognition) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def celebrityAsScala: Option[CelebrityDetail] = Option(self.celebrity)
 
 }

@@ -7,6 +7,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     val self: AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def disableScaleInAsScala(
       value: Option[Boolean]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
@@ -15,6 +16,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scaleInCooldownAsScala(
       value: Option[Int]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
@@ -23,6 +25,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scaleOutCooldownAsScala(
       value: Option[Int]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
@@ -31,6 +34,7 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetValueAsScala(
       value: Option[Double]
   ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription.Builder = {
@@ -45,12 +49,16 @@ final class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionOps(
     val self: AutoScalingTargetTrackingScalingPolicyConfigurationDescription
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def disableScaleInAsScala: Option[Boolean] = Option(self.disableScaleIn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scaleInCooldownAsScala: Option[Int] = Option(self.scaleInCooldown)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scaleOutCooldownAsScala: Option[Int] = Option(self.scaleOutCooldown)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetValueAsScala: Option[Double] = Option(self.targetValue)
 
 }

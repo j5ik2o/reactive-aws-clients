@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ItemResponseBuilderOps(val self: ItemResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def itemAsScala(value: Option[Map[String, AttributeValue]]): ItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.item(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.item(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class ItemResponseBuilderOps(val self: ItemResponse.Builder) extends AnyVa
 
 final class ItemResponseOps(val self: ItemResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

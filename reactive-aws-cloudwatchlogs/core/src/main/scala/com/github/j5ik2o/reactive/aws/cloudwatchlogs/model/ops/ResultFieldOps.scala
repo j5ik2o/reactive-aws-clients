@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class ResultFieldBuilderOps(val self: ResultField.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldAsScala(value: Option[String]): ResultField.Builder = {
     value.fold(self) { v =>
       self.field(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): ResultField.Builder = {
     value.fold(self) { v =>
       self.value(v)
@@ -21,8 +23,10 @@ final class ResultFieldBuilderOps(val self: ResultField.Builder) extends AnyVal 
 
 final class ResultFieldOps(val self: ResultField) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldAsScala: Option[String] = Option(self.field)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[String] = Option(self.value)
 
 }

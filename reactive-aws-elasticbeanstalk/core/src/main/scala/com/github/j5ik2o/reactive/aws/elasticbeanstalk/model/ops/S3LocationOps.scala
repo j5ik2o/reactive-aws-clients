@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): S3Location.Builder = {
     value.fold(self) { v =>
       self.s3Bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala(value: Option[String]): S3Location.Builder = {
     value.fold(self) { v =>
       self.s3Key(v)
@@ -21,8 +23,10 @@ final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
 
 final class S3LocationOps(val self: S3Location) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala: Option[String] = Option(self.s3Bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala: Option[String] = Option(self.s3Key)
 
 }

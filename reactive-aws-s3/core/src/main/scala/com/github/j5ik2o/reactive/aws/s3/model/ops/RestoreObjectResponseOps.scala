@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class RestoreObjectResponseBuilderOps(val self: RestoreObjectResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): RestoreObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def restoreOutputPathAsScala(value: Option[String]): RestoreObjectResponse.Builder = {
     value.fold(self) { v =>
       self.restoreOutputPath(v)
@@ -21,8 +23,10 @@ final class RestoreObjectResponseBuilderOps(val self: RestoreObjectResponse.Buil
 
 final class RestoreObjectResponseOps(val self: RestoreObjectResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def restoreOutputPathAsScala: Option[String] = Option(self.restoreOutputPath)
 
 }

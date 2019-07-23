@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class RepositoryCredentialsBuilderOps(val self: RepositoryCredentials.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def credentialsParameterAsScala(value: Option[String]): RepositoryCredentials.Builder = {
     value.fold(self) { v =>
       self.credentialsParameter(v)
@@ -15,6 +16,7 @@ final class RepositoryCredentialsBuilderOps(val self: RepositoryCredentials.Buil
 
 final class RepositoryCredentialsOps(val self: RepositoryCredentials) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def credentialsParameterAsScala: Option[String] = Option(self.credentialsParameter)
 
 }

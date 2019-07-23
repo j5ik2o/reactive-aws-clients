@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class LambdaDataSourceConfigBuilderOps(val self: LambdaDataSourceConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lambdaFunctionArnAsScala(value: Option[String]): LambdaDataSourceConfig.Builder = {
     value.fold(self) { v =>
       self.lambdaFunctionArn(v)
@@ -15,6 +16,7 @@ final class LambdaDataSourceConfigBuilderOps(val self: LambdaDataSourceConfig.Bu
 
 final class LambdaDataSourceConfigOps(val self: LambdaDataSourceConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lambdaFunctionArnAsScala: Option[String] = Option(self.lambdaFunctionArn)
 
 }

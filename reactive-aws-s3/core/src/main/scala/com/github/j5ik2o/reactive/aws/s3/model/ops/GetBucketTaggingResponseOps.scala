@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketTaggingResponseBuilderOps(val self: GetBucketTaggingResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagSetAsScala(value: Option[Seq[Tag]]): GetBucketTaggingResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tagSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSet(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class GetBucketTaggingResponseBuilderOps(val self: GetBucketTaggingRespons
 
 final class GetBucketTaggingResponseOps(val self: GetBucketTaggingResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketAccelerateConfigurationRequestBuilderOps(val self: PutBucketAccelerateConfigurationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutBucketAccelerateConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accelerateConfigurationAsScala(
       value: Option[AccelerateConfiguration]
   ): PutBucketAccelerateConfigurationRequest.Builder = {
@@ -25,8 +27,10 @@ final class PutBucketAccelerateConfigurationRequestBuilderOps(val self: PutBucke
 final class PutBucketAccelerateConfigurationRequestOps(val self: PutBucketAccelerateConfigurationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accelerateConfigurationAsScala: Option[AccelerateConfiguration] = Option(self.accelerateConfiguration)
 
 }

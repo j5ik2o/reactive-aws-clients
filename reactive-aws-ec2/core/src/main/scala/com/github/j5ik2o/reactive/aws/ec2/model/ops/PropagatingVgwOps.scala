@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class PropagatingVgwBuilderOps(val self: PropagatingVgw.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def gatewayIdAsScala(value: Option[String]): PropagatingVgw.Builder = {
     value.fold(self) { v =>
       self.gatewayId(v)
@@ -15,6 +16,7 @@ final class PropagatingVgwBuilderOps(val self: PropagatingVgw.Builder) extends A
 
 final class PropagatingVgwOps(val self: PropagatingVgw) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def gatewayIdAsScala: Option[String] = Option(self.gatewayId)
 
 }

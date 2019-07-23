@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeregisterImageRequestBuilderOps(val self: DeregisterImageRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[String]): DeregisterImageRequest.Builder = {
     value.fold(self) { v =>
       self.imageId(v)
@@ -15,6 +16,7 @@ final class DeregisterImageRequestBuilderOps(val self: DeregisterImageRequest.Bu
 
 final class DeregisterImageRequestOps(val self: DeregisterImageRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala: Option[String] = Option(self.imageId)
 
 }

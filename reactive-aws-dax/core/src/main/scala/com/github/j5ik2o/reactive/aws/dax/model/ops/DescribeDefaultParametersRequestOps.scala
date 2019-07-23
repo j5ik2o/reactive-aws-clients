@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.dax.model._
 final class DescribeDefaultParametersRequestBuilderOps(val self: DescribeDefaultParametersRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeDefaultParametersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeDefaultParametersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -22,8 +24,10 @@ final class DescribeDefaultParametersRequestBuilderOps(val self: DescribeDefault
 
 final class DescribeDefaultParametersRequestOps(val self: DescribeDefaultParametersRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

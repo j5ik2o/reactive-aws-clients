@@ -1,14 +1,17 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.sqs.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.sqs.{ SqsAsyncClient, SqsClient }
 import software.amazon.awssdk.services.sqs.model._
 
+import scala.concurrent.{ ExecutionContext, Future }
+
 object SqsCatsIOClient {
 
-  def apply(asyncClient: SqsAsyncClient): SqsCatsIOClient = new SqsCatsIOClient {
-    override val underlying: SqsAsyncClient = asyncClient
+  def apply(asyncClient: SqsAsyncClient)(implicit ec: ExecutionContext): SqsCatsIOClient = new SqsCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: SqsAsyncClient         = asyncClient
   }
 
 }
@@ -16,6 +19,9 @@ object SqsCatsIOClient {
 trait SqsCatsIOClient extends SqsClient[IO] {
 
   val underlying: SqsAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def addPermission(addPermissionRequest: AddPermissionRequest): IO[AddPermissionResponse] =
     IO.fromFuture {

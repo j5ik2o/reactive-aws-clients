@@ -5,23 +5,27 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class BatchGetItemResponseBuilderOps(val self: BatchGetItemResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def responsesAsScala(
       value: Option[Map[String, Seq[Map[String, AttributeValue]]]]
   ): BatchGetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.responses(v.mapValues(_.map(_.asJava).asJava).asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.responses(v.view.map { case (k, v) => (k, v.map(_.asJava).asJava) }.toMap.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unprocessedKeysAsScala(value: Option[Map[String, KeysAndAttributes]]): BatchGetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.unprocessedKeys(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.unprocessedKeys(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumedCapacityAsScala(value: Option[Seq[ConsumedCapacity]]): BatchGetItemResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.consumedCapacity(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.consumedCapacity(v.asJava)
     }
   }
 
@@ -29,16 +33,20 @@ final class BatchGetItemResponseBuilderOps(val self: BatchGetItemResponse.Builde
 
 final class BatchGetItemResponseOps(val self: BatchGetItemResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def responsesAsScala: Option[Map[String, Seq[Map[String, AttributeValue]]]] = Option(self.responses).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap))
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+    v.asScala.toMap.view.map { case (k, v) => (k, v.asScala.map(_.asScala.toMap)) }.toMap
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unprocessedKeysAsScala: Option[Map[String, KeysAndAttributes]] = Option(self.unprocessedKeys).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

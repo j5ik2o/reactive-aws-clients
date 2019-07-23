@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.eks.model._
 
 final class UpdateClusterVersionResponseBuilderOps(val self: UpdateClusterVersionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[Update]): UpdateClusterVersionResponse.Builder = {
     value.fold(self) { v =>
       self.update(v)
@@ -15,6 +16,7 @@ final class UpdateClusterVersionResponseBuilderOps(val self: UpdateClusterVersio
 
 final class UpdateClusterVersionResponseOps(val self: UpdateClusterVersionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala: Option[Update] = Option(self.update)
 
 }

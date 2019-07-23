@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.elasticsearch.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.elasticsearch.{ ElasticsearchAsyncClient, ElasticsearchClient }
 import software.amazon.awssdk.services.elasticsearch.model._
 import software.amazon.awssdk.services.elasticsearch.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object ElasticsearchCatsIOClient {
 
-  def apply(asyncClient: ElasticsearchAsyncClient): ElasticsearchCatsIOClient = new ElasticsearchCatsIOClient {
-    override val underlying: ElasticsearchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: ElasticsearchAsyncClient)(implicit ec: ExecutionContext): ElasticsearchCatsIOClient =
+    new ElasticsearchCatsIOClient {
+      override val executionContext: ExecutionContext   = ec
+      override val underlying: ElasticsearchAsyncClient = asyncClient
+    }
 
 }
 
 trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
 
   val underlying: ElasticsearchAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def addTags(addTagsRequest: AddTagsRequest): IO[AddTagsResponse] =
     IO.fromFuture {

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DetachNetworkInterfaceRequestBuilderOps(val self: DetachNetworkInterfaceRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentIdAsScala(value: Option[String]): DetachNetworkInterfaceRequest.Builder = {
     value.fold(self) { v =>
       self.attachmentId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala(value: Option[Boolean]): DetachNetworkInterfaceRequest.Builder = {
     value.fold(self) { v =>
       self.force(v)
@@ -21,8 +23,10 @@ final class DetachNetworkInterfaceRequestBuilderOps(val self: DetachNetworkInter
 
 final class DetachNetworkInterfaceRequestOps(val self: DetachNetworkInterfaceRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentIdAsScala: Option[String] = Option(self.attachmentId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala: Option[Boolean] = Option(self.force)
 
 }

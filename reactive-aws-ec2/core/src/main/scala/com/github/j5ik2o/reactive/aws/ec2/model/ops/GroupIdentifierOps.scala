@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class GroupIdentifierBuilderOps(val self: GroupIdentifier.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala(value: Option[String]): GroupIdentifier.Builder = {
     value.fold(self) { v =>
       self.groupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupIdAsScala(value: Option[String]): GroupIdentifier.Builder = {
     value.fold(self) { v =>
       self.groupId(v)
@@ -21,8 +23,10 @@ final class GroupIdentifierBuilderOps(val self: GroupIdentifier.Builder) extends
 
 final class GroupIdentifierOps(val self: GroupIdentifier) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala: Option[String] = Option(self.groupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupIdAsScala: Option[String] = Option(self.groupId)
 
 }

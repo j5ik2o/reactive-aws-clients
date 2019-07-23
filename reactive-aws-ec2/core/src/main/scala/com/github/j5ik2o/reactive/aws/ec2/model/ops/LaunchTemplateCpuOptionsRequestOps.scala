@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class LaunchTemplateCpuOptionsRequestBuilderOps(val self: LaunchTemplateCpuOptionsRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def coreCountAsScala(value: Option[Int]): LaunchTemplateCpuOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.coreCount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def threadsPerCoreAsScala(value: Option[Int]): LaunchTemplateCpuOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.threadsPerCore(v)
@@ -22,8 +24,10 @@ final class LaunchTemplateCpuOptionsRequestBuilderOps(val self: LaunchTemplateCp
 
 final class LaunchTemplateCpuOptionsRequestOps(val self: LaunchTemplateCpuOptionsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def coreCountAsScala: Option[Int] = Option(self.coreCount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def threadsPerCoreAsScala: Option[Int] = Option(self.threadsPerCore)
 
 }

@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AccountAttributeBuilderOps(val self: AccountAttribute.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala(value: Option[String]): AccountAttribute.Builder = {
     value.fold(self) { v =>
       self.attributeName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeValuesAsScala(value: Option[Seq[AccountAttributeValue]]): AccountAttribute.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.attributeValues(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.attributeValues(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class AccountAttributeBuilderOps(val self: AccountAttribute.Builder) exten
 
 final class AccountAttributeOps(val self: AccountAttribute) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala: Option[String] = Option(self.attributeName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeValuesAsScala: Option[Seq[AccountAttributeValue]] = Option(self.attributeValues).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

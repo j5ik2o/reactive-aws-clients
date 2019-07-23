@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class SetRepositoryPolicyResponseBuilderOps(val self: SetRepositoryPolicyResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): SetRepositoryPolicyResponse.Builder = {
     value.fold(self) { v =>
       self.registryId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): SetRepositoryPolicyResponse.Builder = {
     value.fold(self) { v =>
       self.repositoryName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyTextAsScala(value: Option[String]): SetRepositoryPolicyResponse.Builder = {
     value.fold(self) { v =>
       self.policyText(v)
@@ -27,10 +30,13 @@ final class SetRepositoryPolicyResponseBuilderOps(val self: SetRepositoryPolicyR
 
 final class SetRepositoryPolicyResponseOps(val self: SetRepositoryPolicyResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala: Option[String] = Option(self.registryId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala: Option[String] = Option(self.repositoryName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyTextAsScala: Option[String] = Option(self.policyText)
 
 }

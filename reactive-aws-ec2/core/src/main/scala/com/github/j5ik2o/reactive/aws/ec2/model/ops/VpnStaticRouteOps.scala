@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class VpnStaticRouteBuilderOps(val self: VpnStaticRoute.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationCidrBlockAsScala(value: Option[String]): VpnStaticRoute.Builder = {
     value.fold(self) { v =>
       self.destinationCidrBlock(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceAsScala(value: Option[VpnStaticRouteSource]): VpnStaticRoute.Builder = {
     value.fold(self) { v =>
       self.source(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[VpnState]): VpnStaticRoute.Builder = {
     value.fold(self) { v =>
       self.state(v)
@@ -27,10 +30,13 @@ final class VpnStaticRouteBuilderOps(val self: VpnStaticRoute.Builder) extends A
 
 final class VpnStaticRouteOps(val self: VpnStaticRoute) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationCidrBlockAsScala: Option[String] = Option(self.destinationCidrBlock)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceAsScala: Option[VpnStaticRouteSource] = Option(self.source)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[VpnState] = Option(self.state)
 
 }

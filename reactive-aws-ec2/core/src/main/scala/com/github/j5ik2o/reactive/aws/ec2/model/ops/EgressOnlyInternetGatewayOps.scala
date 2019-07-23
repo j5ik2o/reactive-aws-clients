@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class EgressOnlyInternetGatewayBuilderOps(val self: EgressOnlyInternetGateway.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentsAsScala(value: Option[Seq[InternetGatewayAttachment]]): EgressOnlyInternetGateway.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.attachments(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.attachments(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala(value: Option[String]): EgressOnlyInternetGateway.Builder = {
     value.fold(self) { v =>
       self.egressOnlyInternetGatewayId(v)
@@ -21,10 +23,12 @@ final class EgressOnlyInternetGatewayBuilderOps(val self: EgressOnlyInternetGate
 
 final class EgressOnlyInternetGatewayOps(val self: EgressOnlyInternetGateway) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentsAsScala: Option[Seq[InternetGatewayAttachment]] = Option(self.attachments).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala: Option[String] = Option(self.egressOnlyInternetGatewayId)
 
 }

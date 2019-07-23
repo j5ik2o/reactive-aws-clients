@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ecs.model._
 final class RegisterContainerInstanceResponseBuilderOps(val self: RegisterContainerInstanceResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[ContainerInstance]): RegisterContainerInstanceResponse.Builder = {
     value.fold(self) { v =>
       self.containerInstance(v)
@@ -16,6 +17,7 @@ final class RegisterContainerInstanceResponseBuilderOps(val self: RegisterContai
 
 final class RegisterContainerInstanceResponseOps(val self: RegisterContainerInstanceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala: Option[ContainerInstance] = Option(self.containerInstance)
 
 }

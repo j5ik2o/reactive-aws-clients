@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class PurchaseRequestBuilderOps(val self: PurchaseRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): PurchaseRequest.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def purchaseTokenAsScala(value: Option[String]): PurchaseRequest.Builder = {
     value.fold(self) { v =>
       self.purchaseToken(v)
@@ -21,8 +23,10 @@ final class PurchaseRequestBuilderOps(val self: PurchaseRequest.Builder) extends
 
 final class PurchaseRequestOps(val self: PurchaseRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def purchaseTokenAsScala: Option[String] = Option(self.purchaseToken)
 
 }

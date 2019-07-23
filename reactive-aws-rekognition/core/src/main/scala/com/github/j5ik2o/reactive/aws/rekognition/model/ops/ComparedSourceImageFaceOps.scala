@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class ComparedSourceImageFaceBuilderOps(val self: ComparedSourceImageFace.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): ComparedSourceImageFace.Builder = {
     value.fold(self) { v =>
       self.boundingBox(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): ComparedSourceImageFace.Builder = {
     value.fold(self) { v =>
       self.confidence(v)
@@ -21,8 +23,10 @@ final class ComparedSourceImageFaceBuilderOps(val self: ComparedSourceImageFace.
 
 final class ComparedSourceImageFaceOps(val self: ComparedSourceImageFace) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala: Option[BoundingBox] = Option(self.boundingBox)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala: Option[Float] = Option(self.confidence)
 
 }

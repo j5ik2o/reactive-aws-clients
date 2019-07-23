@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class ListClustersRequestBuilderOps(val self: ListClustersRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListClustersRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListClustersRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
@@ -21,8 +23,10 @@ final class ListClustersRequestBuilderOps(val self: ListClustersRequest.Builder)
 
 final class ListClustersRequestOps(val self: ListClustersRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }

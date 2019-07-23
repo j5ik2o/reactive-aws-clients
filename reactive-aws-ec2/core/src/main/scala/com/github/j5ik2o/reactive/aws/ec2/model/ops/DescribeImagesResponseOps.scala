@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeImagesResponseBuilderOps(val self: DescribeImagesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imagesAsScala(value: Option[Seq[Image]]): DescribeImagesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.images(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.images(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeImagesResponseBuilderOps(val self: DescribeImagesResponse.Bu
 
 final class DescribeImagesResponseOps(val self: DescribeImagesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imagesAsScala: Option[Seq[Image]] = Option(self.images).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

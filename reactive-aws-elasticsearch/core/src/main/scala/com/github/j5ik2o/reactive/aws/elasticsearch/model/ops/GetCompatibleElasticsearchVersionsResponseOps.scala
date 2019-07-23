@@ -7,11 +7,12 @@ final class GetCompatibleElasticsearchVersionsResponseBuilderOps(
     val self: GetCompatibleElasticsearchVersionsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def compatibleElasticsearchVersionsAsScala(
       value: Option[Seq[CompatibleVersionsMap]]
   ): GetCompatibleElasticsearchVersionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.compatibleElasticsearchVersions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.compatibleElasticsearchVersions(v.asJava)
     }
   }
 
@@ -20,9 +21,10 @@ final class GetCompatibleElasticsearchVersionsResponseBuilderOps(
 final class GetCompatibleElasticsearchVersionsResponseOps(val self: GetCompatibleElasticsearchVersionsResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def compatibleElasticsearchVersionsAsScala: Option[Seq[CompatibleVersionsMap]] =
     Option(self.compatibleElasticsearchVersions).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

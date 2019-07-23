@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CertificateAuthenticationRequestBuilderOps(val self: CertificateAuthenticationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRootCertificateChainArnAsScala(value: Option[String]): CertificateAuthenticationRequest.Builder = {
     value.fold(self) { v =>
       self.clientRootCertificateChainArn(v)
@@ -16,6 +17,7 @@ final class CertificateAuthenticationRequestBuilderOps(val self: CertificateAuth
 
 final class CertificateAuthenticationRequestOps(val self: CertificateAuthenticationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRootCertificateChainArnAsScala: Option[String] = Option(self.clientRootCertificateChainArn)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AssociateVpcCidrBlockResponseBuilderOps(val self: AssociateVpcCidrBlockResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockAssociationAsScala(
       value: Option[VpcIpv6CidrBlockAssociation]
   ): AssociateVpcCidrBlockResponse.Builder = {
@@ -13,6 +14,7 @@ final class AssociateVpcCidrBlockResponseBuilderOps(val self: AssociateVpcCidrBl
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrBlockAssociationAsScala(
       value: Option[VpcCidrBlockAssociation]
   ): AssociateVpcCidrBlockResponse.Builder = {
@@ -21,6 +23,7 @@ final class AssociateVpcCidrBlockResponseBuilderOps(val self: AssociateVpcCidrBl
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): AssociateVpcCidrBlockResponse.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -31,10 +34,13 @@ final class AssociateVpcCidrBlockResponseBuilderOps(val self: AssociateVpcCidrBl
 
 final class AssociateVpcCidrBlockResponseOps(val self: AssociateVpcCidrBlockResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockAssociationAsScala: Option[VpcIpv6CidrBlockAssociation] = Option(self.ipv6CidrBlockAssociation)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrBlockAssociationAsScala: Option[VpcCidrBlockAssociation] = Option(self.cidrBlockAssociation)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

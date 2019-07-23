@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class LicenseConfigurationBuilderOps(val self: LicenseConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseConfigurationArnAsScala(value: Option[String]): LicenseConfiguration.Builder = {
     value.fold(self) { v =>
       self.licenseConfigurationArn(v)
@@ -15,6 +16,7 @@ final class LicenseConfigurationBuilderOps(val self: LicenseConfiguration.Builde
 
 final class LicenseConfigurationOps(val self: LicenseConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseConfigurationArnAsScala: Option[String] = Option(self.licenseConfigurationArn)
 
 }

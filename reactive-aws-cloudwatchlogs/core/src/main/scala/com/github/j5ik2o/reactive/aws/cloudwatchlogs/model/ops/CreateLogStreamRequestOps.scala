@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class CreateLogStreamRequestBuilderOps(val self: CreateLogStreamRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): CreateLogStreamRequest.Builder = {
     value.fold(self) { v =>
       self.logGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNameAsScala(value: Option[String]): CreateLogStreamRequest.Builder = {
     value.fold(self) { v =>
       self.logStreamName(v)
@@ -21,8 +23,10 @@ final class CreateLogStreamRequestBuilderOps(val self: CreateLogStreamRequest.Bu
 
 final class CreateLogStreamRequestOps(val self: CreateLogStreamRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNameAsScala: Option[String] = Option(self.logStreamName)
 
 }

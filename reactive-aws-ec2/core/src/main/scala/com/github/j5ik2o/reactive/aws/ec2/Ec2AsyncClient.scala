@@ -615,6 +615,9 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeByoipCidrsResponse] =
     underlying.describeByoipCidrs(describeByoipCidrsRequest).toScala
 
+  def describeByoipCidrsPaginator(describeByoipCidrsRequest: DescribeByoipCidrsRequest): DescribeByoipCidrsPublisher =
+    underlying.describeByoipCidrsPaginator(describeByoipCidrsRequest)
+
   override def describeCapacityReservations(
       describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
   ): Future[DescribeCapacityReservationsResponse] =
@@ -622,6 +625,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeCapacityReservations(): Future[DescribeCapacityReservationsResponse] =
     underlying.describeCapacityReservations().toScala
+
+  def describeCapacityReservationsPaginator(): DescribeCapacityReservationsPublisher =
+    underlying.describeCapacityReservationsPaginator()
+
+  def describeCapacityReservationsPaginator(
+      describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
+  ): DescribeCapacityReservationsPublisher =
+    underlying.describeCapacityReservationsPaginator(describeCapacityReservationsRequest)
 
   override def describeClassicLinkInstances(
       describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
@@ -631,15 +642,33 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeClassicLinkInstances(): Future[DescribeClassicLinkInstancesResponse] =
     underlying.describeClassicLinkInstances().toScala
 
+  def describeClassicLinkInstancesPaginator(): DescribeClassicLinkInstancesPublisher =
+    underlying.describeClassicLinkInstancesPaginator()
+
+  def describeClassicLinkInstancesPaginator(
+      describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
+  ): DescribeClassicLinkInstancesPublisher =
+    underlying.describeClassicLinkInstancesPaginator(describeClassicLinkInstancesRequest)
+
   override def describeClientVpnAuthorizationRules(
       describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
   ): Future[DescribeClientVpnAuthorizationRulesResponse] =
     underlying.describeClientVpnAuthorizationRules(describeClientVpnAuthorizationRulesRequest).toScala
 
+  def describeClientVpnAuthorizationRulesPaginator(
+      describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
+  ): DescribeClientVpnAuthorizationRulesPublisher =
+    underlying.describeClientVpnAuthorizationRulesPaginator(describeClientVpnAuthorizationRulesRequest)
+
   override def describeClientVpnConnections(
       describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
   ): Future[DescribeClientVpnConnectionsResponse] =
     underlying.describeClientVpnConnections(describeClientVpnConnectionsRequest).toScala
+
+  def describeClientVpnConnectionsPaginator(
+      describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
+  ): DescribeClientVpnConnectionsPublisher =
+    underlying.describeClientVpnConnectionsPaginator(describeClientVpnConnectionsRequest)
 
   override def describeClientVpnEndpoints(
       describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
@@ -649,15 +678,33 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeClientVpnEndpoints(): Future[DescribeClientVpnEndpointsResponse] =
     underlying.describeClientVpnEndpoints().toScala
 
+  def describeClientVpnEndpointsPaginator(): DescribeClientVpnEndpointsPublisher =
+    underlying.describeClientVpnEndpointsPaginator()
+
+  def describeClientVpnEndpointsPaginator(
+      describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
+  ): DescribeClientVpnEndpointsPublisher =
+    underlying.describeClientVpnEndpointsPaginator(describeClientVpnEndpointsRequest)
+
   override def describeClientVpnRoutes(
       describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
   ): Future[DescribeClientVpnRoutesResponse] =
     underlying.describeClientVpnRoutes(describeClientVpnRoutesRequest).toScala
 
+  def describeClientVpnRoutesPaginator(
+      describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
+  ): DescribeClientVpnRoutesPublisher =
+    underlying.describeClientVpnRoutesPaginator(describeClientVpnRoutesRequest)
+
   override def describeClientVpnTargetNetworks(
       describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
   ): Future[DescribeClientVpnTargetNetworksResponse] =
     underlying.describeClientVpnTargetNetworks(describeClientVpnTargetNetworksRequest).toScala
+
+  def describeClientVpnTargetNetworksPaginator(
+      describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
+  ): DescribeClientVpnTargetNetworksPublisher =
+    underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
 
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
@@ -683,6 +730,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeDhcpOptions(): Future[DescribeDhcpOptionsResponse] =
     underlying.describeDhcpOptions().toScala
 
+  def describeDhcpOptionsPaginator(): DescribeDhcpOptionsPublisher =
+    underlying.describeDhcpOptionsPaginator()
+
+  def describeDhcpOptionsPaginator(
+      describeDhcpOptionsRequest: DescribeDhcpOptionsRequest
+  ): DescribeDhcpOptionsPublisher =
+    underlying.describeDhcpOptionsPaginator(describeDhcpOptionsRequest)
+
   override def describeEgressOnlyInternetGateways(
       describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
   ): Future[DescribeEgressOnlyInternetGatewaysResponse] =
@@ -690,6 +745,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeEgressOnlyInternetGateways(): Future[DescribeEgressOnlyInternetGatewaysResponse] =
     underlying.describeEgressOnlyInternetGateways().toScala
+
+  def describeEgressOnlyInternetGatewaysPaginator(): DescribeEgressOnlyInternetGatewaysPublisher =
+    underlying.describeEgressOnlyInternetGatewaysPaginator()
+
+  def describeEgressOnlyInternetGatewaysPaginator(
+      describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
+  ): DescribeEgressOnlyInternetGatewaysPublisher =
+    underlying.describeEgressOnlyInternetGatewaysPaginator(describeEgressOnlyInternetGatewaysRequest)
 
   override def describeElasticGpus(
       describeElasticGpusRequest: DescribeElasticGpusRequest
@@ -723,11 +786,23 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeFleets(): Future[DescribeFleetsResponse] =
     underlying.describeFleets().toScala
 
+  def describeFleetsPaginator(): DescribeFleetsPublisher =
+    underlying.describeFleetsPaginator()
+
+  def describeFleetsPaginator(describeFleetsRequest: DescribeFleetsRequest): DescribeFleetsPublisher =
+    underlying.describeFleetsPaginator(describeFleetsRequest)
+
   override def describeFlowLogs(describeFlowLogsRequest: DescribeFlowLogsRequest): Future[DescribeFlowLogsResponse] =
     underlying.describeFlowLogs(describeFlowLogsRequest).toScala
 
   override def describeFlowLogs(): Future[DescribeFlowLogsResponse] =
     underlying.describeFlowLogs().toScala
+
+  def describeFlowLogsPaginator(): DescribeFlowLogsPublisher =
+    underlying.describeFlowLogsPaginator()
+
+  def describeFlowLogsPaginator(describeFlowLogsRequest: DescribeFlowLogsRequest): DescribeFlowLogsPublisher =
+    underlying.describeFlowLogsPaginator(describeFlowLogsRequest)
 
   override def describeFpgaImageAttribute(
       describeFpgaImageAttributeRequest: DescribeFpgaImageAttributeRequest
@@ -742,6 +817,12 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeFpgaImages(): Future[DescribeFpgaImagesResponse] =
     underlying.describeFpgaImages().toScala
 
+  def describeFpgaImagesPaginator(): DescribeFpgaImagesPublisher =
+    underlying.describeFpgaImagesPaginator()
+
+  def describeFpgaImagesPaginator(describeFpgaImagesRequest: DescribeFpgaImagesRequest): DescribeFpgaImagesPublisher =
+    underlying.describeFpgaImagesPaginator(describeFpgaImagesRequest)
+
   override def describeHostReservationOfferings(
       describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
   ): Future[DescribeHostReservationOfferingsResponse] =
@@ -749,6 +830,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeHostReservationOfferings(): Future[DescribeHostReservationOfferingsResponse] =
     underlying.describeHostReservationOfferings().toScala
+
+  def describeHostReservationOfferingsPaginator(): DescribeHostReservationOfferingsPublisher =
+    underlying.describeHostReservationOfferingsPaginator()
+
+  def describeHostReservationOfferingsPaginator(
+      describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
+  ): DescribeHostReservationOfferingsPublisher =
+    underlying.describeHostReservationOfferingsPaginator(describeHostReservationOfferingsRequest)
 
   override def describeHostReservations(
       describeHostReservationsRequest: DescribeHostReservationsRequest
@@ -758,11 +847,25 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeHostReservations(): Future[DescribeHostReservationsResponse] =
     underlying.describeHostReservations().toScala
 
+  def describeHostReservationsPaginator(): DescribeHostReservationsPublisher =
+    underlying.describeHostReservationsPaginator()
+
+  def describeHostReservationsPaginator(
+      describeHostReservationsRequest: DescribeHostReservationsRequest
+  ): DescribeHostReservationsPublisher =
+    underlying.describeHostReservationsPaginator(describeHostReservationsRequest)
+
   override def describeHosts(describeHostsRequest: DescribeHostsRequest): Future[DescribeHostsResponse] =
     underlying.describeHosts(describeHostsRequest).toScala
 
   override def describeHosts(): Future[DescribeHostsResponse] =
     underlying.describeHosts().toScala
+
+  def describeHostsPaginator(): DescribeHostsPublisher =
+    underlying.describeHostsPaginator()
+
+  def describeHostsPaginator(describeHostsRequest: DescribeHostsRequest): DescribeHostsPublisher =
+    underlying.describeHostsPaginator(describeHostsRequest)
 
   override def describeIamInstanceProfileAssociations(
       describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
@@ -771,6 +874,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeIamInstanceProfileAssociations(): Future[DescribeIamInstanceProfileAssociationsResponse] =
     underlying.describeIamInstanceProfileAssociations().toScala
+
+  def describeIamInstanceProfileAssociationsPaginator(): DescribeIamInstanceProfileAssociationsPublisher =
+    underlying.describeIamInstanceProfileAssociationsPaginator()
+
+  def describeIamInstanceProfileAssociationsPaginator(
+      describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
+  ): DescribeIamInstanceProfileAssociationsPublisher =
+    underlying.describeIamInstanceProfileAssociationsPaginator(describeIamInstanceProfileAssociationsRequest)
 
   override def describeIdFormat(describeIdFormatRequest: DescribeIdFormatRequest): Future[DescribeIdFormatResponse] =
     underlying.describeIdFormat(describeIdFormatRequest).toScala
@@ -802,6 +913,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeImportImageTasks(): Future[DescribeImportImageTasksResponse] =
     underlying.describeImportImageTasks().toScala
 
+  def describeImportImageTasksPaginator(): DescribeImportImageTasksPublisher =
+    underlying.describeImportImageTasksPaginator()
+
+  def describeImportImageTasksPaginator(
+      describeImportImageTasksRequest: DescribeImportImageTasksRequest
+  ): DescribeImportImageTasksPublisher =
+    underlying.describeImportImageTasksPaginator(describeImportImageTasksRequest)
+
   override def describeImportSnapshotTasks(
       describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
   ): Future[DescribeImportSnapshotTasksResponse] =
@@ -809,6 +928,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeImportSnapshotTasks(): Future[DescribeImportSnapshotTasksResponse] =
     underlying.describeImportSnapshotTasks().toScala
+
+  def describeImportSnapshotTasksPaginator(): DescribeImportSnapshotTasksPublisher =
+    underlying.describeImportSnapshotTasksPaginator()
+
+  def describeImportSnapshotTasksPaginator(
+      describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
+  ): DescribeImportSnapshotTasksPublisher =
+    underlying.describeImportSnapshotTasksPaginator(describeImportSnapshotTasksRequest)
 
   override def describeInstanceAttribute(
       describeInstanceAttributeRequest: DescribeInstanceAttributeRequest
@@ -822,6 +949,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeInstanceCreditSpecifications(): Future[DescribeInstanceCreditSpecificationsResponse] =
     underlying.describeInstanceCreditSpecifications().toScala
+
+  def describeInstanceCreditSpecificationsPaginator(): DescribeInstanceCreditSpecificationsPublisher =
+    underlying.describeInstanceCreditSpecificationsPaginator()
+
+  def describeInstanceCreditSpecificationsPaginator(
+      describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
+  ): DescribeInstanceCreditSpecificationsPublisher =
+    underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
 
   override def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -861,6 +996,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeInternetGateways(): Future[DescribeInternetGatewaysResponse] =
     underlying.describeInternetGateways().toScala
 
+  def describeInternetGatewaysPaginator(): DescribeInternetGatewaysPublisher =
+    underlying.describeInternetGatewaysPaginator()
+
+  def describeInternetGatewaysPaginator(
+      describeInternetGatewaysRequest: DescribeInternetGatewaysRequest
+  ): DescribeInternetGatewaysPublisher =
+    underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest)
+
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): Future[DescribeKeyPairsResponse] =
     underlying.describeKeyPairs(describeKeyPairsRequest).toScala
 
@@ -872,6 +1015,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeLaunchTemplateVersionsResponse] =
     underlying.describeLaunchTemplateVersions(describeLaunchTemplateVersionsRequest).toScala
 
+  def describeLaunchTemplateVersionsPaginator(
+      describeLaunchTemplateVersionsRequest: DescribeLaunchTemplateVersionsRequest
+  ): DescribeLaunchTemplateVersionsPublisher =
+    underlying.describeLaunchTemplateVersionsPaginator(describeLaunchTemplateVersionsRequest)
+
   override def describeLaunchTemplates(
       describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
   ): Future[DescribeLaunchTemplatesResponse] =
@@ -880,6 +1028,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeLaunchTemplates(): Future[DescribeLaunchTemplatesResponse] =
     underlying.describeLaunchTemplates().toScala
 
+  def describeLaunchTemplatesPaginator(): DescribeLaunchTemplatesPublisher =
+    underlying.describeLaunchTemplatesPaginator()
+
+  def describeLaunchTemplatesPaginator(
+      describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
+  ): DescribeLaunchTemplatesPublisher =
+    underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest)
+
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
   ): Future[DescribeMovingAddressesResponse] =
@@ -887,6 +1043,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeMovingAddresses(): Future[DescribeMovingAddressesResponse] =
     underlying.describeMovingAddresses().toScala
+
+  def describeMovingAddressesPaginator(): DescribeMovingAddressesPublisher =
+    underlying.describeMovingAddressesPaginator()
+
+  def describeMovingAddressesPaginator(
+      describeMovingAddressesRequest: DescribeMovingAddressesRequest
+  ): DescribeMovingAddressesPublisher =
+    underlying.describeMovingAddressesPaginator(describeMovingAddressesRequest)
 
   override def describeNatGateways(
       describeNatGatewaysRequest: DescribeNatGatewaysRequest
@@ -912,6 +1076,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeNetworkAcls(): Future[DescribeNetworkAclsResponse] =
     underlying.describeNetworkAcls().toScala
 
+  def describeNetworkAclsPaginator(): DescribeNetworkAclsPublisher =
+    underlying.describeNetworkAclsPaginator()
+
+  def describeNetworkAclsPaginator(
+      describeNetworkAclsRequest: DescribeNetworkAclsRequest
+  ): DescribeNetworkAclsPublisher =
+    underlying.describeNetworkAclsPaginator(describeNetworkAclsRequest)
+
   override def describeNetworkInterfaceAttribute(
       describeNetworkInterfaceAttributeRequest: DescribeNetworkInterfaceAttributeRequest
   ): Future[DescribeNetworkInterfaceAttributeResponse] =
@@ -924,6 +1096,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeNetworkInterfacePermissions(): Future[DescribeNetworkInterfacePermissionsResponse] =
     underlying.describeNetworkInterfacePermissions().toScala
+
+  def describeNetworkInterfacePermissionsPaginator(): DescribeNetworkInterfacePermissionsPublisher =
+    underlying.describeNetworkInterfacePermissionsPaginator()
+
+  def describeNetworkInterfacePermissionsPaginator(
+      describeNetworkInterfacePermissionsRequest: DescribeNetworkInterfacePermissionsRequest
+  ): DescribeNetworkInterfacePermissionsPublisher =
+    underlying.describeNetworkInterfacePermissionsPaginator(describeNetworkInterfacePermissionsRequest)
 
   override def describeNetworkInterfaces(
       describeNetworkInterfacesRequest: DescribeNetworkInterfacesRequest
@@ -957,6 +1137,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describePrefixLists(): Future[DescribePrefixListsResponse] =
     underlying.describePrefixLists().toScala
 
+  def describePrefixListsPaginator(): DescribePrefixListsPublisher =
+    underlying.describePrefixListsPaginator()
+
+  def describePrefixListsPaginator(
+      describePrefixListsRequest: DescribePrefixListsRequest
+  ): DescribePrefixListsPublisher =
+    underlying.describePrefixListsPaginator(describePrefixListsRequest)
+
   override def describePrincipalIdFormat(
       describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
   ): Future[DescribePrincipalIdFormatResponse] =
@@ -965,6 +1153,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describePrincipalIdFormat(): Future[DescribePrincipalIdFormatResponse] =
     underlying.describePrincipalIdFormat().toScala
 
+  def describePrincipalIdFormatPaginator(): DescribePrincipalIdFormatPublisher =
+    underlying.describePrincipalIdFormatPaginator()
+
+  def describePrincipalIdFormatPaginator(
+      describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
+  ): DescribePrincipalIdFormatPublisher =
+    underlying.describePrincipalIdFormatPaginator(describePrincipalIdFormatRequest)
+
   override def describePublicIpv4Pools(
       describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
   ): Future[DescribePublicIpv4PoolsResponse] =
@@ -972,6 +1168,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describePublicIpv4Pools(): Future[DescribePublicIpv4PoolsResponse] =
     underlying.describePublicIpv4Pools().toScala
+
+  def describePublicIpv4PoolsPaginator(): DescribePublicIpv4PoolsPublisher =
+    underlying.describePublicIpv4PoolsPaginator()
+
+  def describePublicIpv4PoolsPaginator(
+      describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
+  ): DescribePublicIpv4PoolsPublisher =
+    underlying.describePublicIpv4PoolsPaginator(describePublicIpv4PoolsRequest)
 
   override def describeRegions(describeRegionsRequest: DescribeRegionsRequest): Future[DescribeRegionsResponse] =
     underlying.describeRegions(describeRegionsRequest).toScala
@@ -1048,6 +1252,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeScheduledInstanceAvailabilityResponse] =
     underlying.describeScheduledInstanceAvailability(describeScheduledInstanceAvailabilityRequest).toScala
 
+  def describeScheduledInstanceAvailabilityPaginator(
+      describeScheduledInstanceAvailabilityRequest: DescribeScheduledInstanceAvailabilityRequest
+  ): DescribeScheduledInstanceAvailabilityPublisher =
+    underlying.describeScheduledInstanceAvailabilityPaginator(describeScheduledInstanceAvailabilityRequest)
+
   override def describeScheduledInstances(
       describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
   ): Future[DescribeScheduledInstancesResponse] =
@@ -1055,6 +1264,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeScheduledInstances(): Future[DescribeScheduledInstancesResponse] =
     underlying.describeScheduledInstances().toScala
+
+  def describeScheduledInstancesPaginator(): DescribeScheduledInstancesPublisher =
+    underlying.describeScheduledInstancesPaginator()
+
+  def describeScheduledInstancesPaginator(
+      describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
+  ): DescribeScheduledInstancesPublisher =
+    underlying.describeScheduledInstancesPaginator(describeScheduledInstancesRequest)
 
   override def describeSecurityGroupReferences(
       describeSecurityGroupReferencesRequest: DescribeSecurityGroupReferencesRequest
@@ -1138,6 +1355,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeSpotInstanceRequests(): Future[DescribeSpotInstanceRequestsResponse] =
     underlying.describeSpotInstanceRequests().toScala
 
+  def describeSpotInstanceRequestsPaginator(): DescribeSpotInstanceRequestsPublisher =
+    underlying.describeSpotInstanceRequestsPaginator()
+
+  def describeSpotInstanceRequestsPaginator(
+      describeSpotInstanceRequestsRequest: DescribeSpotInstanceRequestsRequest
+  ): DescribeSpotInstanceRequestsPublisher =
+    underlying.describeSpotInstanceRequestsPaginator(describeSpotInstanceRequestsRequest)
+
   override def describeSpotPriceHistory(
       describeSpotPriceHistoryRequest: DescribeSpotPriceHistoryRequest
   ): Future[DescribeSpotPriceHistoryResponse] =
@@ -1159,11 +1384,22 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeStaleSecurityGroupsResponse] =
     underlying.describeStaleSecurityGroups(describeStaleSecurityGroupsRequest).toScala
 
+  def describeStaleSecurityGroupsPaginator(
+      describeStaleSecurityGroupsRequest: DescribeStaleSecurityGroupsRequest
+  ): DescribeStaleSecurityGroupsPublisher =
+    underlying.describeStaleSecurityGroupsPaginator(describeStaleSecurityGroupsRequest)
+
   override def describeSubnets(describeSubnetsRequest: DescribeSubnetsRequest): Future[DescribeSubnetsResponse] =
     underlying.describeSubnets(describeSubnetsRequest).toScala
 
   override def describeSubnets(): Future[DescribeSubnetsResponse] =
     underlying.describeSubnets().toScala
+
+  def describeSubnetsPaginator(): DescribeSubnetsPublisher =
+    underlying.describeSubnetsPaginator()
+
+  def describeSubnetsPaginator(describeSubnetsRequest: DescribeSubnetsRequest): DescribeSubnetsPublisher =
+    underlying.describeSubnetsPaginator(describeSubnetsRequest)
 
   override def describeTags(describeTagsRequest: DescribeTagsRequest): Future[DescribeTagsResponse] =
     underlying.describeTags(describeTagsRequest).toScala
@@ -1185,6 +1421,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeTransitGatewayAttachments(): Future[DescribeTransitGatewayAttachmentsResponse] =
     underlying.describeTransitGatewayAttachments().toScala
 
+  def describeTransitGatewayAttachmentsPaginator(): DescribeTransitGatewayAttachmentsPublisher =
+    underlying.describeTransitGatewayAttachmentsPaginator()
+
+  def describeTransitGatewayAttachmentsPaginator(
+      describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
+  ): DescribeTransitGatewayAttachmentsPublisher =
+    underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
+
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): Future[DescribeTransitGatewayRouteTablesResponse] =
@@ -1192,6 +1436,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeTransitGatewayRouteTables(): Future[DescribeTransitGatewayRouteTablesResponse] =
     underlying.describeTransitGatewayRouteTables().toScala
+
+  def describeTransitGatewayRouteTablesPaginator(): DescribeTransitGatewayRouteTablesPublisher =
+    underlying.describeTransitGatewayRouteTablesPaginator()
+
+  def describeTransitGatewayRouteTablesPaginator(
+      describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
+  ): DescribeTransitGatewayRouteTablesPublisher =
+    underlying.describeTransitGatewayRouteTablesPaginator(describeTransitGatewayRouteTablesRequest)
 
   override def describeTransitGatewayVpcAttachments(
       describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
@@ -1201,6 +1453,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeTransitGatewayVpcAttachments(): Future[DescribeTransitGatewayVpcAttachmentsResponse] =
     underlying.describeTransitGatewayVpcAttachments().toScala
 
+  def describeTransitGatewayVpcAttachmentsPaginator(): DescribeTransitGatewayVpcAttachmentsPublisher =
+    underlying.describeTransitGatewayVpcAttachmentsPaginator()
+
+  def describeTransitGatewayVpcAttachmentsPaginator(
+      describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
+  ): DescribeTransitGatewayVpcAttachmentsPublisher =
+    underlying.describeTransitGatewayVpcAttachmentsPaginator(describeTransitGatewayVpcAttachmentsRequest)
+
   override def describeTransitGateways(
       describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
   ): Future[DescribeTransitGatewaysResponse] =
@@ -1208,6 +1468,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeTransitGateways(): Future[DescribeTransitGatewaysResponse] =
     underlying.describeTransitGateways().toScala
+
+  def describeTransitGatewaysPaginator(): DescribeTransitGatewaysPublisher =
+    underlying.describeTransitGatewaysPaginator()
+
+  def describeTransitGatewaysPaginator(
+      describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
+  ): DescribeTransitGatewaysPublisher =
+    underlying.describeTransitGatewaysPaginator(describeTransitGatewaysRequest)
 
   override def describeVolumeAttribute(
       describeVolumeAttributeRequest: DescribeVolumeAttributeRequest
@@ -1244,6 +1512,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeVolumesModifications(): Future[DescribeVolumesModificationsResponse] =
     underlying.describeVolumesModifications().toScala
 
+  def describeVolumesModificationsPaginator(): DescribeVolumesModificationsPublisher =
+    underlying.describeVolumesModificationsPaginator()
+
+  def describeVolumesModificationsPaginator(
+      describeVolumesModificationsRequest: DescribeVolumesModificationsRequest
+  ): DescribeVolumesModificationsPublisher =
+    underlying.describeVolumesModificationsPaginator(describeVolumesModificationsRequest)
+
   def describeVolumesPaginator(): DescribeVolumesPublisher =
     underlying.describeVolumesPaginator()
 
@@ -1271,6 +1547,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeVpcClassicLinkDnsSupport(): Future[DescribeVpcClassicLinkDnsSupportResponse] =
     underlying.describeVpcClassicLinkDnsSupport().toScala
 
+  def describeVpcClassicLinkDnsSupportPaginator(): DescribeVpcClassicLinkDnsSupportPublisher =
+    underlying.describeVpcClassicLinkDnsSupportPaginator()
+
+  def describeVpcClassicLinkDnsSupportPaginator(
+      describeVpcClassicLinkDnsSupportRequest: DescribeVpcClassicLinkDnsSupportRequest
+  ): DescribeVpcClassicLinkDnsSupportPublisher =
+    underlying.describeVpcClassicLinkDnsSupportPaginator(describeVpcClassicLinkDnsSupportRequest)
+
   override def describeVpcEndpointConnectionNotifications(
       describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
   ): Future[DescribeVpcEndpointConnectionNotificationsResponse] =
@@ -1280,6 +1564,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       : Future[DescribeVpcEndpointConnectionNotificationsResponse] =
     underlying.describeVpcEndpointConnectionNotifications().toScala
 
+  def describeVpcEndpointConnectionNotificationsPaginator(): DescribeVpcEndpointConnectionNotificationsPublisher =
+    underlying.describeVpcEndpointConnectionNotificationsPaginator()
+
+  def describeVpcEndpointConnectionNotificationsPaginator(
+      describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
+  ): DescribeVpcEndpointConnectionNotificationsPublisher =
+    underlying.describeVpcEndpointConnectionNotificationsPaginator(describeVpcEndpointConnectionNotificationsRequest)
+
   override def describeVpcEndpointConnections(
       describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
   ): Future[DescribeVpcEndpointConnectionsResponse] =
@@ -1287,6 +1579,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeVpcEndpointConnections(): Future[DescribeVpcEndpointConnectionsResponse] =
     underlying.describeVpcEndpointConnections().toScala
+
+  def describeVpcEndpointConnectionsPaginator(): DescribeVpcEndpointConnectionsPublisher =
+    underlying.describeVpcEndpointConnectionsPaginator()
+
+  def describeVpcEndpointConnectionsPaginator(
+      describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
+  ): DescribeVpcEndpointConnectionsPublisher =
+    underlying.describeVpcEndpointConnectionsPaginator(describeVpcEndpointConnectionsRequest)
 
   override def describeVpcEndpointServiceConfigurations(
       describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
@@ -1296,10 +1596,23 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeVpcEndpointServiceConfigurations(): Future[DescribeVpcEndpointServiceConfigurationsResponse] =
     underlying.describeVpcEndpointServiceConfigurations().toScala
 
+  def describeVpcEndpointServiceConfigurationsPaginator(): DescribeVpcEndpointServiceConfigurationsPublisher =
+    underlying.describeVpcEndpointServiceConfigurationsPaginator()
+
+  def describeVpcEndpointServiceConfigurationsPaginator(
+      describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
+  ): DescribeVpcEndpointServiceConfigurationsPublisher =
+    underlying.describeVpcEndpointServiceConfigurationsPaginator(describeVpcEndpointServiceConfigurationsRequest)
+
   override def describeVpcEndpointServicePermissions(
       describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
   ): Future[DescribeVpcEndpointServicePermissionsResponse] =
     underlying.describeVpcEndpointServicePermissions(describeVpcEndpointServicePermissionsRequest).toScala
+
+  def describeVpcEndpointServicePermissionsPaginator(
+      describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
+  ): DescribeVpcEndpointServicePermissionsPublisher =
+    underlying.describeVpcEndpointServicePermissionsPaginator(describeVpcEndpointServicePermissionsRequest)
 
   override def describeVpcEndpointServices(
       describeVpcEndpointServicesRequest: DescribeVpcEndpointServicesRequest
@@ -1317,6 +1630,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeVpcEndpoints(): Future[DescribeVpcEndpointsResponse] =
     underlying.describeVpcEndpoints().toScala
 
+  def describeVpcEndpointsPaginator(): DescribeVpcEndpointsPublisher =
+    underlying.describeVpcEndpointsPaginator()
+
+  def describeVpcEndpointsPaginator(
+      describeVpcEndpointsRequest: DescribeVpcEndpointsRequest
+  ): DescribeVpcEndpointsPublisher =
+    underlying.describeVpcEndpointsPaginator(describeVpcEndpointsRequest)
+
   override def describeVpcPeeringConnections(
       describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
   ): Future[DescribeVpcPeeringConnectionsResponse] =
@@ -1325,11 +1646,25 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def describeVpcPeeringConnections(): Future[DescribeVpcPeeringConnectionsResponse] =
     underlying.describeVpcPeeringConnections().toScala
 
+  def describeVpcPeeringConnectionsPaginator(): DescribeVpcPeeringConnectionsPublisher =
+    underlying.describeVpcPeeringConnectionsPaginator()
+
+  def describeVpcPeeringConnectionsPaginator(
+      describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
+  ): DescribeVpcPeeringConnectionsPublisher =
+    underlying.describeVpcPeeringConnectionsPaginator(describeVpcPeeringConnectionsRequest)
+
   override def describeVpcs(describeVpcsRequest: DescribeVpcsRequest): Future[DescribeVpcsResponse] =
     underlying.describeVpcs(describeVpcsRequest).toScala
 
   override def describeVpcs(): Future[DescribeVpcsResponse] =
     underlying.describeVpcs().toScala
+
+  def describeVpcsPaginator(): DescribeVpcsPublisher =
+    underlying.describeVpcsPaginator()
+
+  def describeVpcsPaginator(describeVpcsRequest: DescribeVpcsRequest): DescribeVpcsPublisher =
+    underlying.describeVpcsPaginator(describeVpcsRequest)
 
   override def describeVpnConnections(
       describeVpnConnectionsRequest: DescribeVpnConnectionsRequest
@@ -1493,15 +1828,30 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[GetTransitGatewayAttachmentPropagationsResponse] =
     underlying.getTransitGatewayAttachmentPropagations(getTransitGatewayAttachmentPropagationsRequest).toScala
 
+  def getTransitGatewayAttachmentPropagationsPaginator(
+      getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
+  ): GetTransitGatewayAttachmentPropagationsPublisher =
+    underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): Future[GetTransitGatewayRouteTableAssociationsResponse] =
     underlying.getTransitGatewayRouteTableAssociations(getTransitGatewayRouteTableAssociationsRequest).toScala
 
+  def getTransitGatewayRouteTableAssociationsPaginator(
+      getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
+  ): GetTransitGatewayRouteTableAssociationsPublisher =
+    underlying.getTransitGatewayRouteTableAssociationsPaginator(getTransitGatewayRouteTableAssociationsRequest)
+
   override def getTransitGatewayRouteTablePropagations(
       getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
   ): Future[GetTransitGatewayRouteTablePropagationsResponse] =
     underlying.getTransitGatewayRouteTablePropagations(getTransitGatewayRouteTablePropagationsRequest).toScala
+
+  def getTransitGatewayRouteTablePropagationsPaginator(
+      getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
+  ): GetTransitGatewayRouteTablePropagationsPublisher =
+    underlying.getTransitGatewayRouteTablePropagationsPaginator(getTransitGatewayRouteTablePropagationsRequest)
 
   override def importClientVpnClientCertificateRevocationList(
       importClientVpnClientCertificateRevocationListRequest: ImportClientVpnClientCertificateRevocationListRequest
@@ -1658,6 +2008,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def modifyVpcTenancy(modifyVpcTenancyRequest: ModifyVpcTenancyRequest): Future[ModifyVpcTenancyResponse] =
     underlying.modifyVpcTenancy(modifyVpcTenancyRequest).toScala
+
+  override def modifyVpnConnection(
+      modifyVpnConnectionRequest: ModifyVpnConnectionRequest
+  ): Future[ModifyVpnConnectionResponse] =
+    underlying.modifyVpnConnection(modifyVpnConnectionRequest).toScala
 
   override def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): Future[MonitorInstancesResponse] =
     underlying.monitorInstances(monitorInstancesRequest).toScala

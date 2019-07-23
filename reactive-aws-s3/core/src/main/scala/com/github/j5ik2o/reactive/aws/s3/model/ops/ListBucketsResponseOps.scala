@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ListBucketsResponseBuilderOps(val self: ListBucketsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketsAsScala(value: Option[Seq[Bucket]]): ListBucketsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.buckets(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.buckets(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala(value: Option[Owner]): ListBucketsResponse.Builder = {
     value.fold(self) { v =>
       self.owner(v)
@@ -21,10 +23,12 @@ final class ListBucketsResponseBuilderOps(val self: ListBucketsResponse.Builder)
 
 final class ListBucketsResponseOps(val self: ListBucketsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketsAsScala: Option[Seq[Bucket]] = Option(self.buckets).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala: Option[Owner] = Option(self.owner)
 
 }

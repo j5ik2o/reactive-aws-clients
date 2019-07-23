@@ -3,7 +3,7 @@
 // Auto-Generated
 package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5ik2o.reactive.aws")}.cats
 
-import cats.effect.IO
+import cats.effect.{ContextShift, IO}
 import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
 import software.amazon.awssdk.services.${baseName?lower_case}.model._
 
@@ -11,7 +11,8 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object ${baseName}CatsIOClient {
 
-  def apply(asyncClient: ${baseName}AsyncClient): ${baseName}CatsIOClient = new ${baseName}CatsIOClient {
+  def apply(asyncClient: ${baseName}AsyncClient)(implicit ec: ExecutionContext): ${baseName}CatsIOClient = new ${baseName}CatsIOClient {
+override val executionContext: ExecutionContext = ec
 override val underlying: ${baseName}AsyncClient = asyncClient
 }
 
@@ -20,6 +21,9 @@ override val underlying: ${baseName}AsyncClient = asyncClient
 trait ${baseName}CatsIOClient extends ${baseName}Client[IO] {
 
   val underlying: ${baseName}AsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
 <#list methods as method>
     <#if targetMethod(method)>

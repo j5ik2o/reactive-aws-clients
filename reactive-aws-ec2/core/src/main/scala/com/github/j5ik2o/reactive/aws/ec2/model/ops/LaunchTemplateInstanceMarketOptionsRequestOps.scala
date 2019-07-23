@@ -7,12 +7,14 @@ final class LaunchTemplateInstanceMarketOptionsRequestBuilderOps(
     val self: LaunchTemplateInstanceMarketOptionsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def marketTypeAsScala(value: Option[MarketType]): LaunchTemplateInstanceMarketOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.marketType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotOptionsAsScala(
       value: Option[LaunchTemplateSpotMarketOptionsRequest]
   ): LaunchTemplateInstanceMarketOptionsRequest.Builder = {
@@ -26,8 +28,10 @@ final class LaunchTemplateInstanceMarketOptionsRequestBuilderOps(
 final class LaunchTemplateInstanceMarketOptionsRequestOps(val self: LaunchTemplateInstanceMarketOptionsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def marketTypeAsScala: Option[MarketType] = Option(self.marketType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotOptionsAsScala: Option[LaunchTemplateSpotMarketOptionsRequest] = Option(self.spotOptions)
 
 }

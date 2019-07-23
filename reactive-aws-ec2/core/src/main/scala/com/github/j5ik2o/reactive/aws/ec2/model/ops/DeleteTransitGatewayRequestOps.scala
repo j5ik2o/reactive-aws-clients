@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteTransitGatewayRequestBuilderOps(val self: DeleteTransitGatewayRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayIdAsScala(value: Option[String]): DeleteTransitGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.transitGatewayId(v)
@@ -15,6 +16,7 @@ final class DeleteTransitGatewayRequestBuilderOps(val self: DeleteTransitGateway
 
 final class DeleteTransitGatewayRequestOps(val self: DeleteTransitGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayIdAsScala: Option[String] = Option(self.transitGatewayId)
 
 }

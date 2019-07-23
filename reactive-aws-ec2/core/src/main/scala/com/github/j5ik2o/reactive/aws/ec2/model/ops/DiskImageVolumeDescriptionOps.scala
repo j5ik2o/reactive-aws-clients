@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DiskImageVolumeDescriptionBuilderOps(val self: DiskImageVolumeDescription.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): DiskImageVolumeDescription.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Long]): DiskImageVolumeDescription.Builder = {
     value.fold(self) { v =>
       self.size(v)
@@ -21,8 +23,10 @@ final class DiskImageVolumeDescriptionBuilderOps(val self: DiskImageVolumeDescri
 
 final class DiskImageVolumeDescriptionOps(val self: DiskImageVolumeDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala: Option[Long] = Option(self.size)
 
 }

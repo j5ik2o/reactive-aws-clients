@@ -6,21 +6,24 @@ import software.amazon.awssdk.services.ecr.model._
 final class BatchCheckLayerAvailabilityRequestBuilderOps(val self: BatchCheckLayerAvailabilityRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): BatchCheckLayerAvailabilityRequest.Builder = {
     value.fold(self) { v =>
       self.registryId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): BatchCheckLayerAvailabilityRequest.Builder = {
     value.fold(self) { v =>
       self.repositoryName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestsAsScala(value: Option[Seq[String]]): BatchCheckLayerAvailabilityRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.layerDigests(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.layerDigests(v.asJava)
     }
   }
 
@@ -28,12 +31,15 @@ final class BatchCheckLayerAvailabilityRequestBuilderOps(val self: BatchCheckLay
 
 final class BatchCheckLayerAvailabilityRequestOps(val self: BatchCheckLayerAvailabilityRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala: Option[String] = Option(self.registryId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala: Option[String] = Option(self.repositoryName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestsAsScala: Option[Seq[String]] = Option(self.layerDigests).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

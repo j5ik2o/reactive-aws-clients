@@ -7,6 +7,7 @@ final class CreateTransitGatewayVpcAttachmentRequestOptionsBuilderOps(
     val self: CreateTransitGatewayVpcAttachmentRequestOptions.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsSupportAsScala(
       value: Option[DnsSupportValue]
   ): CreateTransitGatewayVpcAttachmentRequestOptions.Builder = {
@@ -15,6 +16,7 @@ final class CreateTransitGatewayVpcAttachmentRequestOptionsBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6SupportAsScala(
       value: Option[Ipv6SupportValue]
   ): CreateTransitGatewayVpcAttachmentRequestOptions.Builder = {
@@ -29,8 +31,10 @@ final class CreateTransitGatewayVpcAttachmentRequestOptionsOps(
     val self: CreateTransitGatewayVpcAttachmentRequestOptions
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsSupportAsScala: Option[DnsSupportValue] = Option(self.dnsSupport)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6SupportAsScala: Option[Ipv6SupportValue] = Option(self.ipv6Support)
 
 }

@@ -6,11 +6,12 @@ import software.amazon.awssdk.services.ec2.model._
 final class PurchaseScheduledInstancesResponseBuilderOps(val self: PurchaseScheduledInstancesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scheduledInstanceSetAsScala(
       value: Option[Seq[ScheduledInstance]]
   ): PurchaseScheduledInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.scheduledInstanceSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.scheduledInstanceSet(v.asJava)
     }
   }
 
@@ -18,8 +19,9 @@ final class PurchaseScheduledInstancesResponseBuilderOps(val self: PurchaseSched
 
 final class PurchaseScheduledInstancesResponseOps(val self: PurchaseScheduledInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scheduledInstanceSetAsScala: Option[Seq[ScheduledInstance]] = Option(self.scheduledInstanceSet).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

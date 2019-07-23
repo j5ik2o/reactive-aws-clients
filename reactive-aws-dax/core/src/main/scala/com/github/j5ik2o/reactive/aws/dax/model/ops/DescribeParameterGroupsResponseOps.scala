@@ -6,15 +6,17 @@ import software.amazon.awssdk.services.dax.model._
 final class DescribeParameterGroupsResponseBuilderOps(val self: DescribeParameterGroupsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeParameterGroupsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupsAsScala(value: Option[Seq[ParameterGroup]]): DescribeParameterGroupsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.parameterGroups(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.parameterGroups(v.asJava)
     }
   }
 
@@ -22,10 +24,12 @@ final class DescribeParameterGroupsResponseBuilderOps(val self: DescribeParamete
 
 final class DescribeParameterGroupsResponseOps(val self: DescribeParameterGroupsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupsAsScala: Option[Seq[ParameterGroup]] = Option(self.parameterGroups).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

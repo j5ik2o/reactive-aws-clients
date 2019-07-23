@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class DescribeStreamConsumerResponseBuilderOps(val self: DescribeStreamConsumerResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumerDescriptionAsScala(value: Option[ConsumerDescription]): DescribeStreamConsumerResponse.Builder = {
     value.fold(self) { v =>
       self.consumerDescription(v)
@@ -15,6 +16,7 @@ final class DescribeStreamConsumerResponseBuilderOps(val self: DescribeStreamCon
 
 final class DescribeStreamConsumerResponseOps(val self: DescribeStreamConsumerResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumerDescriptionAsScala: Option[ConsumerDescription] = Option(self.consumerDescription)
 
 }

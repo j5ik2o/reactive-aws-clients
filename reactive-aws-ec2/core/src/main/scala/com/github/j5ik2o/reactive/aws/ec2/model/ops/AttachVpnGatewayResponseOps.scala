@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AttachVpnGatewayResponseBuilderOps(val self: AttachVpnGatewayResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcAttachmentAsScala(value: Option[VpcAttachment]): AttachVpnGatewayResponse.Builder = {
     value.fold(self) { v =>
       self.vpcAttachment(v)
@@ -15,6 +16,7 @@ final class AttachVpnGatewayResponseBuilderOps(val self: AttachVpnGatewayRespons
 
 final class AttachVpnGatewayResponseOps(val self: AttachVpnGatewayResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcAttachmentAsScala: Option[VpcAttachment] = Option(self.vpcAttachment)
 
 }

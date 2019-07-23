@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class MovingAddressStatusBuilderOps(val self: MovingAddressStatus.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moveStatusAsScala(value: Option[MoveStatus]): MovingAddressStatus.Builder = {
     value.fold(self) { v =>
       self.moveStatus(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala(value: Option[String]): MovingAddressStatus.Builder = {
     value.fold(self) { v =>
       self.publicIp(v)
@@ -21,8 +23,10 @@ final class MovingAddressStatusBuilderOps(val self: MovingAddressStatus.Builder)
 
 final class MovingAddressStatusOps(val self: MovingAddressStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moveStatusAsScala: Option[MoveStatus] = Option(self.moveStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
 
 }

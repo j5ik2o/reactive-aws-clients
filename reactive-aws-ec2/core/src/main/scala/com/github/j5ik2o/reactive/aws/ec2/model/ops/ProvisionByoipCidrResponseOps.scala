@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ProvisionByoipCidrResponseBuilderOps(val self: ProvisionByoipCidrResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def byoipCidrAsScala(value: Option[ByoipCidr]): ProvisionByoipCidrResponse.Builder = {
     value.fold(self) { v =>
       self.byoipCidr(v)
@@ -15,6 +16,7 @@ final class ProvisionByoipCidrResponseBuilderOps(val self: ProvisionByoipCidrRes
 
 final class ProvisionByoipCidrResponseOps(val self: ProvisionByoipCidrResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def byoipCidrAsScala: Option[ByoipCidr] = Option(self.byoipCidr)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class GetUpgradeStatusRequestBuilderOps(val self: GetUpgradeStatusRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): GetUpgradeStatusRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
@@ -15,6 +16,7 @@ final class GetUpgradeStatusRequestBuilderOps(val self: GetUpgradeStatusRequest.
 
 final class GetUpgradeStatusRequestOps(val self: GetUpgradeStatusRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala: Option[String] = Option(self.domainName)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class MoveAddressToVpcResponseBuilderOps(val self: MoveAddressToVpcResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdAsScala(value: Option[String]): MoveAddressToVpcResponse.Builder = {
     value.fold(self) { v =>
       self.allocationId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[Status]): MoveAddressToVpcResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -21,8 +23,10 @@ final class MoveAddressToVpcResponseBuilderOps(val self: MoveAddressToVpcRespons
 
 final class MoveAddressToVpcResponseOps(val self: MoveAddressToVpcResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationIdAsScala: Option[String] = Option(self.allocationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[Status] = Option(self.status)
 
 }

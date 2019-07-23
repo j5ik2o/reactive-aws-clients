@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class VideoBuilderOps(val self: Video.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3ObjectAsScala(value: Option[S3Object]): Video.Builder = {
     value.fold(self) { v =>
       self.s3Object(v)
@@ -15,6 +16,7 @@ final class VideoBuilderOps(val self: Video.Builder) extends AnyVal {
 
 final class VideoOps(val self: Video) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3ObjectAsScala: Option[S3Object] = Option(self.s3Object)
 
 }

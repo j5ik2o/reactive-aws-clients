@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateNetworkInterfaceResponseBuilderOps(val self: CreateNetworkInterfaceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceAsScala(value: Option[NetworkInterface]): CreateNetworkInterfaceResponse.Builder = {
     value.fold(self) { v =>
       self.networkInterface(v)
@@ -15,6 +16,7 @@ final class CreateNetworkInterfaceResponseBuilderOps(val self: CreateNetworkInte
 
 final class CreateNetworkInterfaceResponseOps(val self: CreateNetworkInterfaceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceAsScala: Option[NetworkInterface] = Option(self.networkInterface)
 
 }

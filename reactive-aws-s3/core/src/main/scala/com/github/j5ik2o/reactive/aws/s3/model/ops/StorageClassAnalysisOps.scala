@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class StorageClassAnalysisBuilderOps(val self: StorageClassAnalysis.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataExportAsScala(value: Option[StorageClassAnalysisDataExport]): StorageClassAnalysis.Builder = {
     value.fold(self) { v =>
       self.dataExport(v)
@@ -15,6 +16,7 @@ final class StorageClassAnalysisBuilderOps(val self: StorageClassAnalysis.Builde
 
 final class StorageClassAnalysisOps(val self: StorageClassAnalysis) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataExportAsScala: Option[StorageClassAnalysisDataExport] = Option(self.dataExport)
 
 }

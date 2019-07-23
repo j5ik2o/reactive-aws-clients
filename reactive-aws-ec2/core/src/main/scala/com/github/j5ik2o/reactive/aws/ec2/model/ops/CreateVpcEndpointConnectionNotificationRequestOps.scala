@@ -7,18 +7,21 @@ final class CreateVpcEndpointConnectionNotificationRequestBuilderOps(
     val self: CreateVpcEndpointConnectionNotificationRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala(value: Option[String]): CreateVpcEndpointConnectionNotificationRequest.Builder = {
     value.fold(self) { v =>
       self.serviceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointIdAsScala(value: Option[String]): CreateVpcEndpointConnectionNotificationRequest.Builder = {
     value.fold(self) { v =>
       self.vpcEndpointId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationArnAsScala(
       value: Option[String]
   ): CreateVpcEndpointConnectionNotificationRequest.Builder = {
@@ -27,14 +30,16 @@ final class CreateVpcEndpointConnectionNotificationRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionEventsAsScala(
       value: Option[Seq[String]]
   ): CreateVpcEndpointConnectionNotificationRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.connectionEvents(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.connectionEvents(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateVpcEndpointConnectionNotificationRequest.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
@@ -46,16 +51,21 @@ final class CreateVpcEndpointConnectionNotificationRequestBuilderOps(
 final class CreateVpcEndpointConnectionNotificationRequestOps(val self: CreateVpcEndpointConnectionNotificationRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala: Option[String] = Option(self.serviceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcEndpointIdAsScala: Option[String] = Option(self.vpcEndpointId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionNotificationArnAsScala: Option[String] = Option(self.connectionNotificationArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionEventsAsScala: Option[Seq[String]] = Option(self.connectionEvents).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
 }

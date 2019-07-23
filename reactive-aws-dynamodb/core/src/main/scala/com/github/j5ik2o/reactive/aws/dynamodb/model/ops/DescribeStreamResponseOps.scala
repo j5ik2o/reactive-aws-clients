@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeStreamResponseBuilderOps(val self: DescribeStreamResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamDescriptionAsScala(value: Option[StreamDescription]): DescribeStreamResponse.Builder = {
     value.fold(self) { v =>
       self.streamDescription(v)
@@ -15,6 +16,7 @@ final class DescribeStreamResponseBuilderOps(val self: DescribeStreamResponse.Bu
 
 final class DescribeStreamResponseOps(val self: DescribeStreamResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamDescriptionAsScala: Option[StreamDescription] = Option(self.streamDescription)
 
 }

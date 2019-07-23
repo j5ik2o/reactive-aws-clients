@@ -7,6 +7,7 @@ final class DisassociateTransitGatewayRouteTableResponseBuilderOps(
     val self: DisassociateTransitGatewayRouteTableResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationAsScala(
       value: Option[TransitGatewayAssociation]
   ): DisassociateTransitGatewayRouteTableResponse.Builder = {
@@ -20,6 +21,7 @@ final class DisassociateTransitGatewayRouteTableResponseBuilderOps(
 final class DisassociateTransitGatewayRouteTableResponseOps(val self: DisassociateTransitGatewayRouteTableResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationAsScala: Option[TransitGatewayAssociation] = Option(self.association)
 
 }

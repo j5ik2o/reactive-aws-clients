@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class DetectModerationLabelsResponseBuilderOps(val self: DetectModerationLabelsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationLabelsAsScala(value: Option[Seq[ModerationLabel]]): DetectModerationLabelsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.moderationLabels(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.moderationLabels(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationModelVersionAsScala(value: Option[String]): DetectModerationLabelsResponse.Builder = {
     value.fold(self) { v =>
       self.moderationModelVersion(v)
@@ -21,10 +23,12 @@ final class DetectModerationLabelsResponseBuilderOps(val self: DetectModerationL
 
 final class DetectModerationLabelsResponseOps(val self: DetectModerationLabelsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationLabelsAsScala: Option[Seq[ModerationLabel]] = Option(self.moderationLabels).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationModelVersionAsScala: Option[String] = Option(self.moderationModelVersion)
 
 }

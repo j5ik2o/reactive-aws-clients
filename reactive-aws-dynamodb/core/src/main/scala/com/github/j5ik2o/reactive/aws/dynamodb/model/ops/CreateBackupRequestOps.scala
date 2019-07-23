@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class CreateBackupRequestBuilderOps(val self: CreateBackupRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): CreateBackupRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupNameAsScala(value: Option[String]): CreateBackupRequest.Builder = {
     value.fold(self) { v =>
       self.backupName(v)
@@ -21,8 +23,10 @@ final class CreateBackupRequestBuilderOps(val self: CreateBackupRequest.Builder)
 
 final class CreateBackupRequestOps(val self: CreateBackupRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupNameAsScala: Option[String] = Option(self.backupName)
 
 }

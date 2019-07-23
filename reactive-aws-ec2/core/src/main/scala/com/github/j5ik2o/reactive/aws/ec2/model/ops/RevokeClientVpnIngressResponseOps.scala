@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RevokeClientVpnIngressResponseBuilderOps(val self: RevokeClientVpnIngressResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ClientVpnAuthorizationRuleStatus]): RevokeClientVpnIngressResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class RevokeClientVpnIngressResponseBuilderOps(val self: RevokeClientVpnIn
 
 final class RevokeClientVpnIngressResponseOps(val self: RevokeClientVpnIngressResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ClientVpnAuthorizationRuleStatus] = Option(self.status)
 
 }

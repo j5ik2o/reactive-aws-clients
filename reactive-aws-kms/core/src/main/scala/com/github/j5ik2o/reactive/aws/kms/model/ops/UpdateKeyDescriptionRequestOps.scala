@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class UpdateKeyDescriptionRequestBuilderOps(val self: UpdateKeyDescriptionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): UpdateKeyDescriptionRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): UpdateKeyDescriptionRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
@@ -21,8 +23,10 @@ final class UpdateKeyDescriptionRequestBuilderOps(val self: UpdateKeyDescription
 
 final class UpdateKeyDescriptionRequestOps(val self: UpdateKeyDescriptionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
 }

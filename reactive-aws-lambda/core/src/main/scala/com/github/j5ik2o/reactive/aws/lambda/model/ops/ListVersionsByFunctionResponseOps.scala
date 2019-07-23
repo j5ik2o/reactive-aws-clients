@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class ListVersionsByFunctionResponseBuilderOps(val self: ListVersionsByFunctionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListVersionsByFunctionResponse.Builder = {
     value.fold(self) { v =>
       self.nextMarker(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionsAsScala(value: Option[Seq[FunctionConfiguration]]): ListVersionsByFunctionResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.versions(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.versions(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class ListVersionsByFunctionResponseBuilderOps(val self: ListVersionsByFun
 
 final class ListVersionsByFunctionResponseOps(val self: ListVersionsByFunctionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionsAsScala: Option[Seq[FunctionConfiguration]] = Option(self.versions).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

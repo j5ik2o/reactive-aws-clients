@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class GetLogRecordRequestBuilderOps(val self: GetLogRecordRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logRecordPointerAsScala(value: Option[String]): GetLogRecordRequest.Builder = {
     value.fold(self) { v =>
       self.logRecordPointer(v)
@@ -15,6 +16,7 @@ final class GetLogRecordRequestBuilderOps(val self: GetLogRecordRequest.Builder)
 
 final class GetLogRecordRequestOps(val self: GetLogRecordRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logRecordPointerAsScala: Option[String] = Option(self.logRecordPointer)
 
 }

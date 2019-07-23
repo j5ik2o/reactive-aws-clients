@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteTableRequestBuilderOps(val self: DeleteTableRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DeleteTableRequest.Builder = {
     value.fold(self) { v =>
       self.tableName(v)
@@ -15,6 +16,7 @@ final class DeleteTableRequestBuilderOps(val self: DeleteTableRequest.Builder) e
 
 final class DeleteTableRequestOps(val self: DeleteTableRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
 }

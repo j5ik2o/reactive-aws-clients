@@ -7,6 +7,7 @@ final class CreateNetworkInterfacePermissionResponseBuilderOps(
     val self: CreateNetworkInterfacePermissionResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def interfacePermissionAsScala(
       value: Option[NetworkInterfacePermission]
   ): CreateNetworkInterfacePermissionResponse.Builder = {
@@ -20,6 +21,7 @@ final class CreateNetworkInterfacePermissionResponseBuilderOps(
 final class CreateNetworkInterfacePermissionResponseOps(val self: CreateNetworkInterfacePermissionResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def interfacePermissionAsScala: Option[NetworkInterfacePermission] = Option(self.interfacePermission)
 
 }

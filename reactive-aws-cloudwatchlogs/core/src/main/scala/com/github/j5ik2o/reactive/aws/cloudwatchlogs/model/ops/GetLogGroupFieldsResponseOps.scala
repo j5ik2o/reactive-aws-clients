@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class GetLogGroupFieldsResponseBuilderOps(val self: GetLogGroupFieldsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupFieldsAsScala(value: Option[Seq[LogGroupField]]): GetLogGroupFieldsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.logGroupFields(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.logGroupFields(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class GetLogGroupFieldsResponseBuilderOps(val self: GetLogGroupFieldsRespo
 
 final class GetLogGroupFieldsResponseOps(val self: GetLogGroupFieldsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupFieldsAsScala: Option[Seq[LogGroupField]] = Option(self.logGroupFields).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

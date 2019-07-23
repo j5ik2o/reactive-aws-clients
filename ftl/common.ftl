@@ -74,6 +74,7 @@
 
 
 <#macro enrichSetterAsScala simpleTypeName method>
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
     <#local methodName=escapeMethodName(method.name)/>
     <#local firstType=method.returnTypeDesc/>
     <#local typeName=filterTypeName(firstType.simpleTypeName)/>
@@ -83,25 +84,25 @@
             final def ${method.name}AsScala(value: Option[${fullTypeName}]): ${simpleTypeName}.Builder = {
             <#local valueTypeName=firstType.valueTypeDesc.simpleTypeName>
             <#if valueTypeName == "SdkBytes">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if mapValueTypeName == "Seq">
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.mapValues(_.asJava).asJava).asJava) } 
+                    value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.map(_.view.map{ case (k, v) => (k, v.asJava) }.asJava).asJava).toMap }
                 <#else>
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } 
+                    value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.map(_.asJava).asJava) } 
                 </#if>
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.map(_.asJava).asJava) } 
             <#elseif valueTypeName == "String">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Int">
-                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).map(_.map(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             <#else>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             </#if>
             }
             <#break >
@@ -109,23 +110,23 @@
             final def ${method.name}AsScala(value: Option[${fullTypeName}]): ${simpleTypeName}.Builder = {
             <#assign valueTypeName=firstType.valueTypeDesc.simpleTypeName>
             <#if valueTypeName == "String">
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             <#elseif valueTypeName == "Int">
-                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Integer])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).map(_.view.map{ case (k, v) => (k, v.asInstanceOf[java.lang.Integer]) }.toMap).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) }
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.${valueTypeName}])).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).map(_.view.map{ case (k, v) => (k, v.asInstanceOf[java.lang.${valueTypeName}]) }.toMap).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) }
             <#elseif valueTypeName == "Map">
                 <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.map(_.asJava).asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.map(_.asJava).asJava) } 
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName == "Map">
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.map(_.asJava).asJava).asJava) } 
+                    value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.view.map{ case (k, v) => (k, v.map(_.asJava).asJava)}.toMap.asJava) }
                 <#else>
-                    value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.mapValues(_.asJava).asJava) } 
+                    value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.view.map{ case (k, v) => (k, v.asJava) }.toMap.asJava) }
                 </#if>
             <#else>
-                value.filter(_.nonEmpty).fold(self){ v => import scala.collection.JavaConverters._; self.${methodName}(v.asJava) } 
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.${methodName}(v.asJava) } 
             </#if>
             }
             <#break >
@@ -138,6 +139,7 @@
 </#macro>
 
 <#macro enrichGetterAsScala simpleTypeName method>
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
     <#local methodName=escapeMethodName(method.name)/>
     <#local firstType=method.returnTypeDesc/>
     <#local typeName=filterTypeName(firstType.simpleTypeName)/>
@@ -146,42 +148,42 @@
         <#case "Seq">
             <#local valueTypeName=firstType.valueTypeDesc.simpleTypeName/>
             <#if valueTypeName == "SdkBytes">
-                final def ${method.name}AsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
+                final def ${method.name}AsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala } 
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                final def ${method.name}AsScala: Option[Seq[Seq[${filterTypeName(seqValueTypeName)}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala) } 
+                final def ${method.name}AsScala: Option[Seq[Seq[${filterTypeName(seqValueTypeName)}]]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.asScala) } 
             <#elseif valueTypeName == "Map">
                 <#local mapKeyTypeName=firstType.valueTypeDesc.keyTypeDesc.simpleTypeName>
                 <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                final def ${method.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${filterTypeName(mapValueTypeName)}]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.asScala.toMap) } 
+                final def ${method.name}AsScala: Option[Seq[Map[${mapKeyTypeName}, ${filterTypeName(mapValueTypeName)}]]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.asScala.toMap) } 
             <#elseif valueTypeName == "String">
-                final def ${method.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
+                final def ${method.name}AsScala: Option[Seq[String]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } 
+                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.${valueTypeName?uncap_first}Value()) } 
             <#else>
-                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
+                final def ${method.name}AsScala: Option[Seq[${filterTypeName(valueTypeName)}]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala } 
             </#if>
             <#break >
         <#case "Map">
             <#local keyTypeName=firstType.keyTypeDesc.simpleTypeName>
             <#local valueTypeName=firstType.valueTypeDesc.simpleTypeName>
             <#if valueTypeName == "SdkBytes">
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala } 
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, software.amazon.awssdk.core.SdkBytes]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala } 
             <#elseif valueTypeName == "Seq">
                 <#local seqValueTypeName=firstType.valueTypeDesc.valueTypeDesc.simpleTypeName>
                 <#if seqValueTypeName=="Map">
                     <#local mapKeyTypeName=firstType.valueTypeDesc.valueTypeDesc.keyTypeDesc.simpleTypeName>
                     <#local mapValueTypeName=firstType.valueTypeDesc.valueTypeDesc.valueTypeDesc.simpleTypeName>
-                    final def ${method.name}AsScala: Option[Map[${keyTypeName}, Seq[Map[${mapKeyTypeName},${filterTypeName(mapValueTypeName)}]]]] = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala.map(_.asScala.toMap)) } 
+                    final def ${method.name}AsScala: Option[Map[${keyTypeName}, Seq[Map[${mapKeyTypeName},${filterTypeName(mapValueTypeName)}]]]] = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap.view.map{ case (k, v) => (k, v.asScala.map(_.asScala.toMap)) }.toMap }
                 <#else>
-                    final def ${method.name}AsScala: Option[Map[${keyTypeName},Seq[${filterTypeName(seqValueTypeName)}]]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.asScala) } 
+                    final def ${method.name}AsScala: Option[Map[${keyTypeName},Seq[${filterTypeName(seqValueTypeName)}]]]  = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap.view.map{ case (k, v) => (k, v.asScala) }.toMap }
                 </#if>
             <#elseif valueTypeName == "String">
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } 
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap } 
             <#elseif isDefined(valueTypeName) && valueTypeName != "String">
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.${valueTypeName?uncap_first}Value())} 
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap.view.map{ case (k, v) => (k, v.${valueTypeName?uncap_first}Value()) }.toMap }
             <#else>
-                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import scala.collection.JavaConverters._; v.asScala.toMap } 
+                final def ${method.name}AsScala: Option[Map[${keyTypeName}, ${filterTypeName(valueTypeName)}]]  = Option(self.${methodName}).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap } 
             </#if>
             <#break >
         <#case "SdkBytes">

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class GetFunctionRequestBuilderOps(val self: GetFunctionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): GetFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.functionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): GetFunctionRequest.Builder = {
     value.fold(self) { v =>
       self.qualifier(v)
@@ -21,8 +23,10 @@ final class GetFunctionRequestBuilderOps(val self: GetFunctionRequest.Builder) e
 
 final class GetFunctionRequestOps(val self: GetFunctionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala: Option[String] = Option(self.functionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala: Option[String] = Option(self.qualifier)
 
 }

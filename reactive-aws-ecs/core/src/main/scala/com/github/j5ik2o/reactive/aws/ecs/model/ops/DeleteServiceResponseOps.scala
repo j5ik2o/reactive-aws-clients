@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class DeleteServiceResponseBuilderOps(val self: DeleteServiceResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala(value: Option[Service]): DeleteServiceResponse.Builder = {
     value.fold(self) { v =>
       self.service(v)
@@ -15,6 +16,7 @@ final class DeleteServiceResponseBuilderOps(val self: DeleteServiceResponse.Buil
 
 final class DeleteServiceResponseOps(val self: DeleteServiceResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala: Option[Service] = Option(self.service)
 
 }

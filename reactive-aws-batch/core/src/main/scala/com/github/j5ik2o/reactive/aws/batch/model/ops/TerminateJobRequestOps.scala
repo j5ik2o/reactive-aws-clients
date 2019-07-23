@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class TerminateJobRequestBuilderOps(val self: TerminateJobRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): TerminateJobRequest.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): TerminateJobRequest.Builder = {
     value.fold(self) { v =>
       self.reason(v)
@@ -21,8 +23,10 @@ final class TerminateJobRequestBuilderOps(val self: TerminateJobRequest.Builder)
 
 final class TerminateJobRequestOps(val self: TerminateJobRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala: Option[String] = Option(self.reason)
 
 }

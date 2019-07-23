@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ImportVolumeResponseBuilderOps(val self: ImportVolumeResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conversionTaskAsScala(value: Option[ConversionTask]): ImportVolumeResponse.Builder = {
     value.fold(self) { v =>
       self.conversionTask(v)
@@ -15,6 +16,7 @@ final class ImportVolumeResponseBuilderOps(val self: ImportVolumeResponse.Builde
 
 final class ImportVolumeResponseOps(val self: ImportVolumeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conversionTaskAsScala: Option[ConversionTask] = Option(self.conversionTask)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UpdateSubnetGroupResponseBuilderOps(val self: UpdateSubnetGroupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupAsScala(value: Option[SubnetGroup]): UpdateSubnetGroupResponse.Builder = {
     value.fold(self) { v =>
       self.subnetGroup(v)
@@ -15,6 +16,7 @@ final class UpdateSubnetGroupResponseBuilderOps(val self: UpdateSubnetGroupRespo
 
 final class UpdateSubnetGroupResponseOps(val self: UpdateSubnetGroupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupAsScala: Option[SubnetGroup] = Option(self.subnetGroup)
 
 }

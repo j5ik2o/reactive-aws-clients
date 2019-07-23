@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class NewDhcpConfigurationBuilderOps(val self: NewDhcpConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): NewDhcpConfiguration.Builder = {
     value.fold(self) { v =>
       self.key(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valuesAsScala(value: Option[Seq[String]]): NewDhcpConfiguration.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.values(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.values(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class NewDhcpConfigurationBuilderOps(val self: NewDhcpConfiguration.Builde
 
 final class NewDhcpConfigurationOps(val self: NewDhcpConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala: Option[String] = Option(self.key)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valuesAsScala: Option[Seq[String]] = Option(self.values).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

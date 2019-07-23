@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DeleteEgressOnlyInternetGatewayRequestBuilderOps(val self: DeleteEgressOnlyInternetGatewayRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala(
       value: Option[String]
   ): DeleteEgressOnlyInternetGatewayRequest.Builder = {
@@ -18,6 +19,7 @@ final class DeleteEgressOnlyInternetGatewayRequestBuilderOps(val self: DeleteEgr
 
 final class DeleteEgressOnlyInternetGatewayRequestOps(val self: DeleteEgressOnlyInternetGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala: Option[String] = Option(self.egressOnlyInternetGatewayId)
 
 }

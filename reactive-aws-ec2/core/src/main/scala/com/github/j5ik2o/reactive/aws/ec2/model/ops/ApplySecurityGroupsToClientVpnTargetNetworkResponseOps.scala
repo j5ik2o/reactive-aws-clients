@@ -7,11 +7,12 @@ final class ApplySecurityGroupsToClientVpnTargetNetworkResponseBuilderOps(
     val self: ApplySecurityGroupsToClientVpnTargetNetworkResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupIdsAsScala(
       value: Option[Seq[String]]
   ): ApplySecurityGroupsToClientVpnTargetNetworkResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.securityGroupIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.securityGroupIds(v.asJava)
     }
   }
 
@@ -21,8 +22,9 @@ final class ApplySecurityGroupsToClientVpnTargetNetworkResponseOps(
     val self: ApplySecurityGroupsToClientVpnTargetNetworkResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

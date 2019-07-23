@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AttributeBooleanValueBuilderOps(val self: AttributeBooleanValue.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[Boolean]): AttributeBooleanValue.Builder = {
     value.fold(self) { v =>
       self.value(v)
@@ -15,6 +16,7 @@ final class AttributeBooleanValueBuilderOps(val self: AttributeBooleanValue.Buil
 
 final class AttributeBooleanValueOps(val self: AttributeBooleanValue) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[Boolean] = Option(self.value)
 
 }

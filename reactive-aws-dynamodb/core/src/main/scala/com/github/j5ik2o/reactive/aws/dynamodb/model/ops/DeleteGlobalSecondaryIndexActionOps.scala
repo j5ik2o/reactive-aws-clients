@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class DeleteGlobalSecondaryIndexActionBuilderOps(val self: DeleteGlobalSecondaryIndexAction.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): DeleteGlobalSecondaryIndexAction.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
@@ -16,6 +17,7 @@ final class DeleteGlobalSecondaryIndexActionBuilderOps(val self: DeleteGlobalSec
 
 final class DeleteGlobalSecondaryIndexActionOps(val self: DeleteGlobalSecondaryIndexAction) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
 }

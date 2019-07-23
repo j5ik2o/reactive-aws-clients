@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketLoggingResponseBuilderOps(val self: GetBucketLoggingResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loggingEnabledAsScala(value: Option[LoggingEnabled]): GetBucketLoggingResponse.Builder = {
     value.fold(self) { v =>
       self.loggingEnabled(v)
@@ -15,6 +16,7 @@ final class GetBucketLoggingResponseBuilderOps(val self: GetBucketLoggingRespons
 
 final class GetBucketLoggingResponseOps(val self: GetBucketLoggingResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loggingEnabledAsScala: Option[LoggingEnabled] = Option(self.loggingEnabled)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class StartFaceDetectionResponseBuilderOps(val self: StartFaceDetectionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartFaceDetectionResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
@@ -15,6 +16,7 @@ final class StartFaceDetectionResponseBuilderOps(val self: StartFaceDetectionRes
 
 final class StartFaceDetectionResponseOps(val self: StartFaceDetectionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }

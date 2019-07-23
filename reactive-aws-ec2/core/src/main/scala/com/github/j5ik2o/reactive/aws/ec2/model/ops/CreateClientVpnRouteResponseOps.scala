@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateClientVpnRouteResponseBuilderOps(val self: CreateClientVpnRouteResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ClientVpnRouteStatus]): CreateClientVpnRouteResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class CreateClientVpnRouteResponseBuilderOps(val self: CreateClientVpnRout
 
 final class CreateClientVpnRouteResponseOps(val self: CreateClientVpnRouteResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ClientVpnRouteStatus] = Option(self.status)
 
 }

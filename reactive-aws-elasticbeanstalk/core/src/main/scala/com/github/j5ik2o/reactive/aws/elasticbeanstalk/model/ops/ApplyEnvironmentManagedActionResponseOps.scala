@@ -6,24 +6,28 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class ApplyEnvironmentManagedActionResponseBuilderOps(val self: ApplyEnvironmentManagedActionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionIdAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.actionId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionDescriptionAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.actionDescription(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionTypeAsScala(value: Option[ActionType]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.actionType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -34,12 +38,16 @@ final class ApplyEnvironmentManagedActionResponseBuilderOps(val self: ApplyEnvir
 
 final class ApplyEnvironmentManagedActionResponseOps(val self: ApplyEnvironmentManagedActionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionIdAsScala: Option[String] = Option(self.actionId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionDescriptionAsScala: Option[String] = Option(self.actionDescription)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionTypeAsScala: Option[ActionType] = Option(self.actionType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)
 
 }

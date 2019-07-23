@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteSnapshotRequestBuilderOps(val self: DeleteSnapshotRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala(value: Option[String]): DeleteSnapshotRequest.Builder = {
     value.fold(self) { v =>
       self.snapshotId(v)
@@ -15,6 +16,7 @@ final class DeleteSnapshotRequestBuilderOps(val self: DeleteSnapshotRequest.Buil
 
 final class DeleteSnapshotRequestOps(val self: DeleteSnapshotRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala: Option[String] = Option(self.snapshotId)
 
 }

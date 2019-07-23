@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeInstanceAttributeRequestBuilderOps(val self: DescribeInstanceAttributeRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala(value: Option[InstanceAttributeName]): DescribeInstanceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.attribute(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): DescribeInstanceAttributeRequest.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
@@ -22,8 +24,10 @@ final class DescribeInstanceAttributeRequestBuilderOps(val self: DescribeInstanc
 
 final class DescribeInstanceAttributeRequestOps(val self: DescribeInstanceAttributeRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala: Option[InstanceAttributeName] = Option(self.attribute)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
 }

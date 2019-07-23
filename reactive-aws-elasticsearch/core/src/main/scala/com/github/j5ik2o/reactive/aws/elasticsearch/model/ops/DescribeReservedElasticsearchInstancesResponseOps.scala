@@ -7,17 +7,19 @@ final class DescribeReservedElasticsearchInstancesResponseBuilderOps(
     val self: DescribeReservedElasticsearchInstancesResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeReservedElasticsearchInstancesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedElasticsearchInstancesAsScala(
       value: Option[Seq[ReservedElasticsearchInstance]]
   ): DescribeReservedElasticsearchInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.reservedElasticsearchInstances(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.reservedElasticsearchInstances(v.asJava)
     }
   }
 
@@ -26,11 +28,13 @@ final class DescribeReservedElasticsearchInstancesResponseBuilderOps(
 final class DescribeReservedElasticsearchInstancesResponseOps(val self: DescribeReservedElasticsearchInstancesResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedElasticsearchInstancesAsScala: Option[Seq[ReservedElasticsearchInstance]] =
     Option(self.reservedElasticsearchInstances).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class SourceSelectionCriteriaBuilderOps(val self: SourceSelectionCriteria.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseKmsEncryptedObjectsAsScala(value: Option[SseKmsEncryptedObjects]): SourceSelectionCriteria.Builder = {
     value.fold(self) { v =>
       self.sseKmsEncryptedObjects(v)
@@ -15,6 +16,7 @@ final class SourceSelectionCriteriaBuilderOps(val self: SourceSelectionCriteria.
 
 final class SourceSelectionCriteriaOps(val self: SourceSelectionCriteria) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseKmsEncryptedObjectsAsScala: Option[SseKmsEncryptedObjects] = Option(self.sseKmsEncryptedObjects)
 
 }

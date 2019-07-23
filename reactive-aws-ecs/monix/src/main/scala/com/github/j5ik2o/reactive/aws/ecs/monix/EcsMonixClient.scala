@@ -33,6 +33,11 @@ trait EcsMonixClient extends EcsClient[Task] {
       underlying.createService(createServiceRequest)
     }
 
+  override def createTaskSet(createTaskSetRequest: CreateTaskSetRequest): Task[CreateTaskSetResponse] =
+    Task.deferFuture {
+      underlying.createTaskSet(createTaskSetRequest)
+    }
+
   override def deleteAccountSetting(
       deleteAccountSettingRequest: DeleteAccountSettingRequest
   ): Task[DeleteAccountSettingResponse] =
@@ -53,6 +58,11 @@ trait EcsMonixClient extends EcsClient[Task] {
   override def deleteService(deleteServiceRequest: DeleteServiceRequest): Task[DeleteServiceResponse] =
     Task.deferFuture {
       underlying.deleteService(deleteServiceRequest)
+    }
+
+  override def deleteTaskSet(deleteTaskSetRequest: DeleteTaskSetRequest): Task[DeleteTaskSetResponse] =
+    Task.deferFuture {
+      underlying.deleteTaskSet(deleteTaskSetRequest)
     }
 
   override def deregisterContainerInstance(
@@ -96,6 +106,11 @@ trait EcsMonixClient extends EcsClient[Task] {
   ): Task[DescribeTaskDefinitionResponse] =
     Task.deferFuture {
       underlying.describeTaskDefinition(describeTaskDefinitionRequest)
+    }
+
+  override def describeTaskSets(describeTaskSetsRequest: DescribeTaskSetsRequest): Task[DescribeTaskSetsResponse] =
+    Task.deferFuture {
+      underlying.describeTaskSets(describeTaskSetsRequest)
     }
 
   override def describeTasks(describeTasksRequest: DescribeTasksRequest): Task[DescribeTasksResponse] =
@@ -329,6 +344,18 @@ trait EcsMonixClient extends EcsClient[Task] {
   override def updateService(updateServiceRequest: UpdateServiceRequest): Task[UpdateServiceResponse] =
     Task.deferFuture {
       underlying.updateService(updateServiceRequest)
+    }
+
+  override def updateServicePrimaryTaskSet(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest
+  ): Task[UpdateServicePrimaryTaskSetResponse] =
+    Task.deferFuture {
+      underlying.updateServicePrimaryTaskSet(updateServicePrimaryTaskSetRequest)
+    }
+
+  override def updateTaskSet(updateTaskSetRequest: UpdateTaskSetRequest): Task[UpdateTaskSetResponse] =
+    Task.deferFuture {
+      underlying.updateTaskSet(updateTaskSetRequest)
     }
 
 }

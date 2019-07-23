@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.rekognition.model._
 final class StartCelebrityRecognitionResponseBuilderOps(val self: StartCelebrityRecognitionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartCelebrityRecognitionResponse.Builder = {
     value.fold(self) { v =>
       self.jobId(v)
@@ -16,6 +17,7 @@ final class StartCelebrityRecognitionResponseBuilderOps(val self: StartCelebrity
 
 final class StartCelebrityRecognitionResponseOps(val self: StartCelebrityRecognitionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala: Option[String] = Option(self.jobId)
 
 }

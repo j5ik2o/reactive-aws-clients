@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class UpdateApiKeyResponseBuilderOps(val self: UpdateApiKeyResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiKeyAsScala(value: Option[ApiKey]): UpdateApiKeyResponse.Builder = {
     value.fold(self) { v =>
       self.apiKey(v)
@@ -15,6 +16,7 @@ final class UpdateApiKeyResponseBuilderOps(val self: UpdateApiKeyResponse.Builde
 
 final class UpdateApiKeyResponseOps(val self: UpdateApiKeyResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiKeyAsScala: Option[ApiKey] = Option(self.apiKey)
 
 }

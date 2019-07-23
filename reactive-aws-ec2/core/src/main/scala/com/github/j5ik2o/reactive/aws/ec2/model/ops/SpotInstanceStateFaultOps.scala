@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class SpotInstanceStateFaultBuilderOps(val self: SpotInstanceStateFault.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[String]): SpotInstanceStateFault.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): SpotInstanceStateFault.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class SpotInstanceStateFaultBuilderOps(val self: SpotInstanceStateFault.Bu
 
 final class SpotInstanceStateFaultOps(val self: SpotInstanceStateFault) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[String] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

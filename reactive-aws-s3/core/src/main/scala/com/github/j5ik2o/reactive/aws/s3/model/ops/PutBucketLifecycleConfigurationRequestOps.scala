@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.s3.model._
 final class PutBucketLifecycleConfigurationRequestBuilderOps(val self: PutBucketLifecycleConfigurationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutBucketLifecycleConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecycleConfigurationAsScala(
       value: Option[BucketLifecycleConfiguration]
   ): PutBucketLifecycleConfigurationRequest.Builder = {
@@ -24,8 +26,10 @@ final class PutBucketLifecycleConfigurationRequestBuilderOps(val self: PutBucket
 
 final class PutBucketLifecycleConfigurationRequestOps(val self: PutBucketLifecycleConfigurationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecycleConfigurationAsScala: Option[BucketLifecycleConfiguration] = Option(self.lifecycleConfiguration)
 
 }

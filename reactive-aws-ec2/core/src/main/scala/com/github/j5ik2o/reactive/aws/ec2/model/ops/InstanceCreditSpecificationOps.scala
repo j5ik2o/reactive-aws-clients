@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class InstanceCreditSpecificationBuilderOps(val self: InstanceCreditSpecification.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): InstanceCreditSpecification.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuCreditsAsScala(value: Option[String]): InstanceCreditSpecification.Builder = {
     value.fold(self) { v =>
       self.cpuCredits(v)
@@ -21,8 +23,10 @@ final class InstanceCreditSpecificationBuilderOps(val self: InstanceCreditSpecif
 
 final class InstanceCreditSpecificationOps(val self: InstanceCreditSpecification) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuCreditsAsScala: Option[String] = Option(self.cpuCredits)
 
 }

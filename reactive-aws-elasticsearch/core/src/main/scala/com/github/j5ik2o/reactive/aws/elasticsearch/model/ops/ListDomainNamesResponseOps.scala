@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 final class ListDomainNamesResponseBuilderOps(val self: ListDomainNamesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNamesAsScala(value: Option[Seq[DomainInfo]]): ListDomainNamesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.domainNames(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.domainNames(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class ListDomainNamesResponseBuilderOps(val self: ListDomainNamesResponse.
 
 final class ListDomainNamesResponseOps(val self: ListDomainNamesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNamesAsScala: Option[Seq[DomainInfo]] = Option(self.domainNames).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

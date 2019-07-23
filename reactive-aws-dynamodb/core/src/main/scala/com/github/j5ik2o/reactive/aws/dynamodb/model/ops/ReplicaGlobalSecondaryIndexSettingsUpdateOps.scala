@@ -7,12 +7,14 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     val self: ReplicaGlobalSecondaryIndexSettingsUpdate.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.indexName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
   ): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
@@ -21,6 +23,7 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): ReplicaGlobalSecondaryIndexSettingsUpdate.Builder = {
@@ -34,10 +37,13 @@ final class ReplicaGlobalSecondaryIndexSettingsUpdateBuilderOps(
 final class ReplicaGlobalSecondaryIndexSettingsUpdateOps(val self: ReplicaGlobalSecondaryIndexSettingsUpdate)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.provisionedReadCapacityUnits)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
     Option(self.provisionedReadCapacityAutoScalingSettingsUpdate)
 

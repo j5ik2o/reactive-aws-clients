@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.cloudformation.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.cloudformation.{ CloudFormationAsyncClient, CloudFormationClient }
 import software.amazon.awssdk.services.cloudformation.model._
 import software.amazon.awssdk.services.cloudformation.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object CloudFormationCatsIOClient {
 
-  def apply(asyncClient: CloudFormationAsyncClient): CloudFormationCatsIOClient = new CloudFormationCatsIOClient {
-    override val underlying: CloudFormationAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudFormationAsyncClient)(implicit ec: ExecutionContext): CloudFormationCatsIOClient =
+    new CloudFormationCatsIOClient {
+      override val executionContext: ExecutionContext    = ec
+      override val underlying: CloudFormationAsyncClient = asyncClient
+    }
 
 }
 
 trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
 
   val underlying: CloudFormationAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def cancelUpdateStack(cancelUpdateStackRequest: CancelUpdateStackRequest): IO[CancelUpdateStackResponse] =
     IO.fromFuture {

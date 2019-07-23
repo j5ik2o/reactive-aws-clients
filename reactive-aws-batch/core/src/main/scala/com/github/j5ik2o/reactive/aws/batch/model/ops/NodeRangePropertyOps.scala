@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class NodeRangePropertyBuilderOps(val self: NodeRangeProperty.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetNodesAsScala(value: Option[String]): NodeRangeProperty.Builder = {
     value.fold(self) { v =>
       self.targetNodes(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala(value: Option[ContainerProperties]): NodeRangeProperty.Builder = {
     value.fold(self) { v =>
       self.container(v)
@@ -21,8 +23,10 @@ final class NodeRangePropertyBuilderOps(val self: NodeRangeProperty.Builder) ext
 
 final class NodeRangePropertyOps(val self: NodeRangeProperty) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetNodesAsScala: Option[String] = Option(self.targetNodes)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala: Option[ContainerProperties] = Option(self.container)
 
 }

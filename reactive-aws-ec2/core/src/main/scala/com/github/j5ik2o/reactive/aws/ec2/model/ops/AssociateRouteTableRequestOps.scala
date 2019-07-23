@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AssociateRouteTableRequestBuilderOps(val self: AssociateRouteTableRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala(value: Option[String]): AssociateRouteTableRequest.Builder = {
     value.fold(self) { v =>
       self.routeTableId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): AssociateRouteTableRequest.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -21,8 +23,10 @@ final class AssociateRouteTableRequestBuilderOps(val self: AssociateRouteTableRe
 
 final class AssociateRouteTableRequestOps(val self: AssociateRouteTableRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala: Option[String] = Option(self.routeTableId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

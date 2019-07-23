@@ -7,6 +7,7 @@ final class ModifyVpcPeeringConnectionOptionsResponseBuilderOps(
     val self: ModifyVpcPeeringConnectionOptionsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accepterPeeringConnectionOptionsAsScala(
       value: Option[PeeringConnectionOptions]
   ): ModifyVpcPeeringConnectionOptionsResponse.Builder = {
@@ -15,6 +16,7 @@ final class ModifyVpcPeeringConnectionOptionsResponseBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requesterPeeringConnectionOptionsAsScala(
       value: Option[PeeringConnectionOptions]
   ): ModifyVpcPeeringConnectionOptionsResponse.Builder = {
@@ -28,9 +30,11 @@ final class ModifyVpcPeeringConnectionOptionsResponseBuilderOps(
 final class ModifyVpcPeeringConnectionOptionsResponseOps(val self: ModifyVpcPeeringConnectionOptionsResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accepterPeeringConnectionOptionsAsScala: Option[PeeringConnectionOptions] =
     Option(self.accepterPeeringConnectionOptions)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requesterPeeringConnectionOptionsAsScala: Option[PeeringConnectionOptions] =
     Option(self.requesterPeeringConnectionOptions)
 

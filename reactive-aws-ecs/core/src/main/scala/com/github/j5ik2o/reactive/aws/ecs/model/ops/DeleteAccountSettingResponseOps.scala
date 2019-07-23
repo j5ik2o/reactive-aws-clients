@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class DeleteAccountSettingResponseBuilderOps(val self: DeleteAccountSettingResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingAsScala(value: Option[Setting]): DeleteAccountSettingResponse.Builder = {
     value.fold(self) { v =>
       self.setting(v)
@@ -15,6 +16,7 @@ final class DeleteAccountSettingResponseBuilderOps(val self: DeleteAccountSettin
 
 final class DeleteAccountSettingResponseOps(val self: DeleteAccountSettingResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingAsScala: Option[Setting] = Option(self.setting)
 
 }

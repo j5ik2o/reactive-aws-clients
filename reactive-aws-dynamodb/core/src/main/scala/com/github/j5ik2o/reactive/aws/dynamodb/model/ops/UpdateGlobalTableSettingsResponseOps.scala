@@ -6,17 +6,19 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class UpdateGlobalTableSettingsResponseBuilderOps(val self: UpdateGlobalTableSettingsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsResponse.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaSettingsAsScala(
       value: Option[Seq[ReplicaSettingsDescription]]
   ): UpdateGlobalTableSettingsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.replicaSettings(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.replicaSettings(v.asJava)
     }
   }
 
@@ -24,10 +26,12 @@ final class UpdateGlobalTableSettingsResponseBuilderOps(val self: UpdateGlobalTa
 
 final class UpdateGlobalTableSettingsResponseOps(val self: UpdateGlobalTableSettingsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaSettingsAsScala: Option[Seq[ReplicaSettingsDescription]] = Option(self.replicaSettings).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

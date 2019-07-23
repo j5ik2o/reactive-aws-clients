@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class InstanceBlockDeviceMappingBuilderOps(val self: InstanceBlockDeviceMapping.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deviceNameAsScala(value: Option[String]): InstanceBlockDeviceMapping.Builder = {
     value.fold(self) { v =>
       self.deviceName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ebsAsScala(value: Option[EbsInstanceBlockDevice]): InstanceBlockDeviceMapping.Builder = {
     value.fold(self) { v =>
       self.ebs(v)
@@ -21,8 +23,10 @@ final class InstanceBlockDeviceMappingBuilderOps(val self: InstanceBlockDeviceMa
 
 final class InstanceBlockDeviceMappingOps(val self: InstanceBlockDeviceMapping) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deviceNameAsScala: Option[String] = Option(self.deviceName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ebsAsScala: Option[EbsInstanceBlockDevice] = Option(self.ebs)
 
 }

@@ -11,6 +11,8 @@ trait EcsClient[M[_]] {
 
   def createService(createServiceRequest: CreateServiceRequest): M[CreateServiceResponse]
 
+  def createTaskSet(createTaskSetRequest: CreateTaskSetRequest): M[CreateTaskSetResponse]
+
   def deleteAccountSetting(deleteAccountSettingRequest: DeleteAccountSettingRequest): M[DeleteAccountSettingResponse]
 
   def deleteAttributes(deleteAttributesRequest: DeleteAttributesRequest): M[DeleteAttributesResponse]
@@ -18,6 +20,8 @@ trait EcsClient[M[_]] {
   def deleteCluster(deleteClusterRequest: DeleteClusterRequest): M[DeleteClusterResponse]
 
   def deleteService(deleteServiceRequest: DeleteServiceRequest): M[DeleteServiceResponse]
+
+  def deleteTaskSet(deleteTaskSetRequest: DeleteTaskSetRequest): M[DeleteTaskSetResponse]
 
   def deregisterContainerInstance(
       deregisterContainerInstanceRequest: DeregisterContainerInstanceRequest
@@ -40,6 +44,8 @@ trait EcsClient[M[_]] {
   def describeTaskDefinition(
       describeTaskDefinitionRequest: DescribeTaskDefinitionRequest
   ): M[DescribeTaskDefinitionResponse]
+
+  def describeTaskSets(describeTaskSetsRequest: DescribeTaskSetsRequest): M[DescribeTaskSetsResponse]
 
   def describeTasks(describeTasksRequest: DescribeTasksRequest): M[DescribeTasksResponse]
 
@@ -122,5 +128,11 @@ trait EcsClient[M[_]] {
   ): M[UpdateContainerInstancesStateResponse]
 
   def updateService(updateServiceRequest: UpdateServiceRequest): M[UpdateServiceResponse]
+
+  def updateServicePrimaryTaskSet(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest
+  ): M[UpdateServicePrimaryTaskSetResponse]
+
+  def updateTaskSet(updateTaskSetRequest: UpdateTaskSetRequest): M[UpdateTaskSetResponse]
 
 }

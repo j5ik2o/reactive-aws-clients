@@ -5,30 +5,35 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountAsScala(value: Option[String]): Destination.Builder = {
     value.fold(self) { v =>
       self.account(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala(value: Option[StorageClass]): Destination.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessControlTranslationAsScala(value: Option[AccessControlTranslation]): Destination.Builder = {
     value.fold(self) { v =>
       self.accessControlTranslation(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionConfigurationAsScala(value: Option[EncryptionConfiguration]): Destination.Builder = {
     value.fold(self) { v =>
       self.encryptionConfiguration(v)
@@ -39,14 +44,19 @@ final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal 
 
 final class DestinationOps(val self: Destination) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountAsScala: Option[String] = Option(self.account)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala: Option[StorageClass] = Option(self.storageClass)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessControlTranslationAsScala: Option[AccessControlTranslation] = Option(self.accessControlTranslation)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionConfigurationAsScala: Option[EncryptionConfiguration] = Option(self.encryptionConfiguration)
 
 }

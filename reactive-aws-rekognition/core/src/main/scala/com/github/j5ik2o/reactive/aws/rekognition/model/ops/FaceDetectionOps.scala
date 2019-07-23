@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class FaceDetectionBuilderOps(val self: FaceDetection.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): FaceDetection.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[FaceDetail]): FaceDetection.Builder = {
     value.fold(self) { v =>
       self.face(v)
@@ -21,8 +23,10 @@ final class FaceDetectionBuilderOps(val self: FaceDetection.Builder) extends Any
 
 final class FaceDetectionOps(val self: FaceDetection) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala: Option[FaceDetail] = Option(self.face)
 
 }

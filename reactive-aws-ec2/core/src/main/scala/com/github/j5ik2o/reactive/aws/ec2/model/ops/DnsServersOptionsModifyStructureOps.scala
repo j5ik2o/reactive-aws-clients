@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DnsServersOptionsModifyStructureBuilderOps(val self: DnsServersOptionsModifyStructure.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customDnsServersAsScala(value: Option[Seq[String]]): DnsServersOptionsModifyStructure.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.customDnsServers(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.customDnsServers(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): DnsServersOptionsModifyStructure.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -22,10 +24,12 @@ final class DnsServersOptionsModifyStructureBuilderOps(val self: DnsServersOptio
 
 final class DnsServersOptionsModifyStructureOps(val self: DnsServersOptionsModifyStructure) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customDnsServersAsScala: Option[Seq[String]] = Option(self.customDnsServers).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

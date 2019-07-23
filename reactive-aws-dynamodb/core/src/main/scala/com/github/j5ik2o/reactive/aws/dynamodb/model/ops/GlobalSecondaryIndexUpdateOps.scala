@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class GlobalSecondaryIndexUpdateBuilderOps(val self: GlobalSecondaryIndexUpdate.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.update(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createAsScala(value: Option[CreateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.create(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteAsScala(value: Option[DeleteGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
     value.fold(self) { v =>
       self.delete(v)
@@ -27,10 +30,13 @@ final class GlobalSecondaryIndexUpdateBuilderOps(val self: GlobalSecondaryIndexU
 
 final class GlobalSecondaryIndexUpdateOps(val self: GlobalSecondaryIndexUpdate) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala: Option[UpdateGlobalSecondaryIndexAction] = Option(self.update)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createAsScala: Option[CreateGlobalSecondaryIndexAction] = Option(self.create)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteAsScala: Option[DeleteGlobalSecondaryIndexAction] = Option(self.delete)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CopyFpgaImageResponseBuilderOps(val self: CopyFpgaImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala(value: Option[String]): CopyFpgaImageResponse.Builder = {
     value.fold(self) { v =>
       self.fpgaImageId(v)
@@ -15,6 +16,7 @@ final class CopyFpgaImageResponseBuilderOps(val self: CopyFpgaImageResponse.Buil
 
 final class CopyFpgaImageResponseOps(val self: CopyFpgaImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fpgaImageIdAsScala: Option[String] = Option(self.fpgaImageId)
 
 }

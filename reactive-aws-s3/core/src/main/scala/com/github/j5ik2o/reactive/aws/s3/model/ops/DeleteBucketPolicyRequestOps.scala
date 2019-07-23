@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketPolicyRequestBuilderOps(val self: DeleteBucketPolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): DeleteBucketPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class DeleteBucketPolicyRequestBuilderOps(val self: DeleteBucketPolicyRequ
 
 final class DeleteBucketPolicyRequestOps(val self: DeleteBucketPolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

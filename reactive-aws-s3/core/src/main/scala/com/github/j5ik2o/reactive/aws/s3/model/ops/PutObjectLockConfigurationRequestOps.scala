@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.s3.model._
 final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockConfigurationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockConfigurationAsScala(
       value: Option[ObjectLockConfiguration]
   ): PutObjectLockConfigurationRequest.Builder = {
@@ -20,18 +22,21 @@ final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockC
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.requestPayer(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tokenAsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.token(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala(value: Option[String]): PutObjectLockConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.contentMD5(v)
@@ -42,14 +47,19 @@ final class PutObjectLockConfigurationRequestBuilderOps(val self: PutObjectLockC
 
 final class PutObjectLockConfigurationRequestOps(val self: PutObjectLockConfigurationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockConfigurationAsScala: Option[ObjectLockConfiguration] = Option(self.objectLockConfiguration)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala: Option[RequestPayer] = Option(self.requestPayer)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tokenAsScala: Option[String] = Option(self.token)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala: Option[String] = Option(self.contentMD5)
 
 }

@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ElasticInferenceAcceleratorAssociationBuilderOps(val self: ElasticInferenceAcceleratorAssociation.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorArnAsScala(
       value: Option[String]
   ): ElasticInferenceAcceleratorAssociation.Builder = {
@@ -14,6 +15,7 @@ final class ElasticInferenceAcceleratorAssociationBuilderOps(val self: ElasticIn
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorAssociationIdAsScala(
       value: Option[String]
   ): ElasticInferenceAcceleratorAssociation.Builder = {
@@ -22,6 +24,7 @@ final class ElasticInferenceAcceleratorAssociationBuilderOps(val self: ElasticIn
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorAssociationStateAsScala(
       value: Option[String]
   ): ElasticInferenceAcceleratorAssociation.Builder = {
@@ -30,6 +33,7 @@ final class ElasticInferenceAcceleratorAssociationBuilderOps(val self: ElasticIn
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorAssociationTimeAsScala(
       value: Option[java.time.Instant]
   ): ElasticInferenceAcceleratorAssociation.Builder = {
@@ -42,14 +46,18 @@ final class ElasticInferenceAcceleratorAssociationBuilderOps(val self: ElasticIn
 
 final class ElasticInferenceAcceleratorAssociationOps(val self: ElasticInferenceAcceleratorAssociation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorArnAsScala: Option[String] = Option(self.elasticInferenceAcceleratorArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorAssociationIdAsScala: Option[String] =
     Option(self.elasticInferenceAcceleratorAssociationId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorAssociationStateAsScala: Option[String] =
     Option(self.elasticInferenceAcceleratorAssociationState)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticInferenceAcceleratorAssociationTimeAsScala: Option[java.time.Instant] =
     Option(self.elasticInferenceAcceleratorAssociationTime)
 

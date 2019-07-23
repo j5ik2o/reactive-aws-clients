@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteVpcRequestBuilderOps(val self: DeleteVpcRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): DeleteVpcRequest.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -15,6 +16,7 @@ final class DeleteVpcRequestBuilderOps(val self: DeleteVpcRequest.Builder) exten
 
 final class DeleteVpcRequestOps(val self: DeleteVpcRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeLaunchTemplatesResponseBuilderOps(val self: DescribeLaunchTemplatesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplatesAsScala(value: Option[Seq[LaunchTemplate]]): DescribeLaunchTemplatesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.launchTemplates(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.launchTemplates(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeLaunchTemplatesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -22,10 +24,12 @@ final class DescribeLaunchTemplatesResponseBuilderOps(val self: DescribeLaunchTe
 
 final class DescribeLaunchTemplatesResponseOps(val self: DescribeLaunchTemplatesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplatesAsScala: Option[Seq[LaunchTemplate]] = Option(self.launchTemplates).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

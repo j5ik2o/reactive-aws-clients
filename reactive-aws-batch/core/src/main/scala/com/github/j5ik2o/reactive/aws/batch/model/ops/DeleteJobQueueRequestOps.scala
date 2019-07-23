@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.batch.model._
 
 final class DeleteJobQueueRequestBuilderOps(val self: DeleteJobQueueRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala(value: Option[String]): DeleteJobQueueRequest.Builder = {
     value.fold(self) { v =>
       self.jobQueue(v)
@@ -15,6 +16,7 @@ final class DeleteJobQueueRequestBuilderOps(val self: DeleteJobQueueRequest.Buil
 
 final class DeleteJobQueueRequestOps(val self: DeleteJobQueueRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala: Option[String] = Option(self.jobQueue)
 
 }

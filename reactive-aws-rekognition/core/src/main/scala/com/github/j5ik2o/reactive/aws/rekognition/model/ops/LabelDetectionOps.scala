@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class LabelDetectionBuilderOps(val self: LabelDetection.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): LabelDetection.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[Label]): LabelDetection.Builder = {
     value.fold(self) { v =>
       self.label(v)
@@ -21,8 +23,10 @@ final class LabelDetectionBuilderOps(val self: LabelDetection.Builder) extends A
 
 final class LabelDetectionOps(val self: LabelDetection) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala: Option[Long] = Option(self.timestamp)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala: Option[Label] = Option(self.label)
 
 }

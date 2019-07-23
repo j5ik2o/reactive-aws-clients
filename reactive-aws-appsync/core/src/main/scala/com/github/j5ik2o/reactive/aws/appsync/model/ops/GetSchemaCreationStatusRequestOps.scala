@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class GetSchemaCreationStatusRequestBuilderOps(val self: GetSchemaCreationStatusRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): GetSchemaCreationStatusRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
@@ -15,6 +16,7 @@ final class GetSchemaCreationStatusRequestBuilderOps(val self: GetSchemaCreation
 
 final class GetSchemaCreationStatusRequestOps(val self: GetSchemaCreationStatusRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala: Option[String] = Option(self.apiId)
 
 }

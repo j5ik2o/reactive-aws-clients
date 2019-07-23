@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.eks.model._
 
 final class DescribeUpdateResponseBuilderOps(val self: DescribeUpdateResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[Update]): DescribeUpdateResponse.Builder = {
     value.fold(self) { v =>
       self.update(v)
@@ -15,6 +16,7 @@ final class DescribeUpdateResponseBuilderOps(val self: DescribeUpdateResponse.Bu
 
 final class DescribeUpdateResponseOps(val self: DescribeUpdateResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala: Option[Update] = Option(self.update)
 
 }

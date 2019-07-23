@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class AuthorizationConfigBuilderOps(val self: AuthorizationConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationTypeAsScala(value: Option[AuthorizationType]): AuthorizationConfig.Builder = {
     value.fold(self) { v =>
       self.authorizationType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsIamConfigAsScala(value: Option[AwsIamConfig]): AuthorizationConfig.Builder = {
     value.fold(self) { v =>
       self.awsIamConfig(v)
@@ -21,8 +23,10 @@ final class AuthorizationConfigBuilderOps(val self: AuthorizationConfig.Builder)
 
 final class AuthorizationConfigOps(val self: AuthorizationConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationTypeAsScala: Option[AuthorizationType] = Option(self.authorizationType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsIamConfigAsScala: Option[AwsIamConfig] = Option(self.awsIamConfig)
 
 }

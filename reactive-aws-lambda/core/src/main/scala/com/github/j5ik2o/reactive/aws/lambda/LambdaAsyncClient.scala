@@ -90,6 +90,11 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
   override def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): Future[GetLayerVersionResponse] =
     underlying.getLayerVersion(getLayerVersionRequest).toScala
 
+  override def getLayerVersionByArn(
+      getLayerVersionByArnRequest: GetLayerVersionByArnRequest
+  ): Future[GetLayerVersionByArnResponse] =
+    underlying.getLayerVersionByArn(getLayerVersionByArnRequest).toScala
+
   override def getLayerVersionPolicy(
       getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest
   ): Future[GetLayerVersionPolicyResponse] =

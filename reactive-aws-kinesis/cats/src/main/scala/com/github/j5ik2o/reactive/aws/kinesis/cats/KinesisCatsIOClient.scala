@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.kinesis.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.kinesis.{ KinesisAsyncClient, KinesisClient }
 import software.amazon.awssdk.services.kinesis.model._
 import software.amazon.awssdk.services.kinesis.paginators._
@@ -10,15 +10,20 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object KinesisCatsIOClient {
 
-  def apply(asyncClient: KinesisAsyncClient): KinesisCatsIOClient = new KinesisCatsIOClient {
-    override val underlying: KinesisAsyncClient = asyncClient
-  }
+  def apply(asyncClient: KinesisAsyncClient)(implicit ec: ExecutionContext): KinesisCatsIOClient =
+    new KinesisCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: KinesisAsyncClient     = asyncClient
+    }
 
 }
 
 trait KinesisCatsIOClient extends KinesisClient[IO] {
 
   val underlying: KinesisAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def addTagsToStream(addTagsToStreamRequest: AddTagsToStreamRequest): IO[AddTagsToStreamResponse] =
     IO.fromFuture {

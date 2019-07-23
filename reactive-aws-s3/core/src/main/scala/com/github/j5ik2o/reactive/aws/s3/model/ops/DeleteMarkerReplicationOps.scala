@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteMarkerReplicationBuilderOps(val self: DeleteMarkerReplication.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[DeleteMarkerReplicationStatus]): DeleteMarkerReplication.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class DeleteMarkerReplicationBuilderOps(val self: DeleteMarkerReplication.
 
 final class DeleteMarkerReplicationOps(val self: DeleteMarkerReplication) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[DeleteMarkerReplicationStatus] = Option(self.status)
 
 }

@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class GetPasswordDataResponseBuilderOps(val self: GetPasswordDataResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): GetPasswordDataResponse.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def passwordDataAsScala(value: Option[String]): GetPasswordDataResponse.Builder = {
     value.fold(self) { v =>
       self.passwordData(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): GetPasswordDataResponse.Builder = {
     value.fold(self) { v =>
       self.timestamp(v)
@@ -27,10 +30,13 @@ final class GetPasswordDataResponseBuilderOps(val self: GetPasswordDataResponse.
 
 final class GetPasswordDataResponseOps(val self: GetPasswordDataResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def passwordDataAsScala: Option[String] = Option(self.passwordData)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala: Option[java.time.Instant] = Option(self.timestamp)
 
 }

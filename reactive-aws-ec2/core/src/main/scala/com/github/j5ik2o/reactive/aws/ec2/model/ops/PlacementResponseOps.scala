@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class PlacementResponseBuilderOps(val self: PlacementResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala(value: Option[String]): PlacementResponse.Builder = {
     value.fold(self) { v =>
       self.groupName(v)
@@ -15,6 +16,7 @@ final class PlacementResponseBuilderOps(val self: PlacementResponse.Builder) ext
 
 final class PlacementResponseOps(val self: PlacementResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala: Option[String] = Option(self.groupName)
 
 }

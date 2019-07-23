@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class NoncurrentVersionTransitionBuilderOps(val self: NoncurrentVersionTransition.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def noncurrentDaysAsScala(value: Option[Int]): NoncurrentVersionTransition.Builder = {
     value.fold(self) { v =>
       self.noncurrentDays(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala(value: Option[TransitionStorageClass]): NoncurrentVersionTransition.Builder = {
     value.fold(self) { v =>
       self.storageClass(v)
@@ -21,8 +23,10 @@ final class NoncurrentVersionTransitionBuilderOps(val self: NoncurrentVersionTra
 
 final class NoncurrentVersionTransitionOps(val self: NoncurrentVersionTransition) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def noncurrentDaysAsScala: Option[Int] = Option(self.noncurrentDays)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala: Option[TransitionStorageClass] = Option(self.storageClass)
 
 }

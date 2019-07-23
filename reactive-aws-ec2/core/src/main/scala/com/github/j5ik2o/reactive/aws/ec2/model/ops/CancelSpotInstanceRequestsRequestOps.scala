@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.ec2.model._
 final class CancelSpotInstanceRequestsRequestBuilderOps(val self: CancelSpotInstanceRequestsRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotInstanceRequestIdsAsScala(value: Option[Seq[String]]): CancelSpotInstanceRequestsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.spotInstanceRequestIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.spotInstanceRequestIds(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class CancelSpotInstanceRequestsRequestBuilderOps(val self: CancelSpotInst
 
 final class CancelSpotInstanceRequestsRequestOps(val self: CancelSpotInstanceRequestsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotInstanceRequestIdsAsScala: Option[Seq[String]] = Option(self.spotInstanceRequestIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

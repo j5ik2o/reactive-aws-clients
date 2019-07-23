@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class HibernationOptionsRequestBuilderOps(val self: HibernationOptionsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configuredAsScala(value: Option[Boolean]): HibernationOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.configured(v)
@@ -15,6 +16,7 @@ final class HibernationOptionsRequestBuilderOps(val self: HibernationOptionsRequ
 
 final class HibernationOptionsRequestOps(val self: HibernationOptionsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configuredAsScala: Option[Boolean] = Option(self.configured)
 
 }

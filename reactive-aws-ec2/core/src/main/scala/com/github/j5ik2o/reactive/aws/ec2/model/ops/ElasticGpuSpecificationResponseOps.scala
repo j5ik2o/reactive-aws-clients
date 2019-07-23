@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ElasticGpuSpecificationResponseBuilderOps(val self: ElasticGpuSpecificationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): ElasticGpuSpecificationResponse.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -16,6 +17,7 @@ final class ElasticGpuSpecificationResponseBuilderOps(val self: ElasticGpuSpecif
 
 final class ElasticGpuSpecificationResponseOps(val self: ElasticGpuSpecificationResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
 
 }

@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class DeleteAttributesRequestBuilderOps(val self: DeleteAttributesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): DeleteAttributesRequest.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributesAsScala(value: Option[Seq[Attribute]]): DeleteAttributesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.attributes(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.attributes(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class DeleteAttributesRequestBuilderOps(val self: DeleteAttributesRequest.
 
 final class DeleteAttributesRequestOps(val self: DeleteAttributesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[String] = Option(self.cluster)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributesAsScala: Option[Seq[Attribute]] = Option(self.attributes).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

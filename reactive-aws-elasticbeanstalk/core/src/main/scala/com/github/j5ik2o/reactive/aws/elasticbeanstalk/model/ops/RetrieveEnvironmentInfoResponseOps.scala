@@ -6,11 +6,12 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 final class RetrieveEnvironmentInfoResponseBuilderOps(val self: RetrieveEnvironmentInfoResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentInfoAsScala(
       value: Option[Seq[EnvironmentInfoDescription]]
   ): RetrieveEnvironmentInfoResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.environmentInfo(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.environmentInfo(v.asJava)
     }
   }
 
@@ -18,8 +19,9 @@ final class RetrieveEnvironmentInfoResponseBuilderOps(val self: RetrieveEnvironm
 
 final class RetrieveEnvironmentInfoResponseOps(val self: RetrieveEnvironmentInfoResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentInfoAsScala: Option[Seq[EnvironmentInfoDescription]] = Option(self.environmentInfo).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

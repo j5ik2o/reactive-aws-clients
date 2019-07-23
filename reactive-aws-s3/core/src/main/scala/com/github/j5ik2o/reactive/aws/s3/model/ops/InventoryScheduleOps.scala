@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryScheduleBuilderOps(val self: InventorySchedule.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frequencyAsScala(value: Option[InventoryFrequency]): InventorySchedule.Builder = {
     value.fold(self) { v =>
       self.frequency(v)
@@ -15,6 +16,7 @@ final class InventoryScheduleBuilderOps(val self: InventorySchedule.Builder) ext
 
 final class InventoryScheduleOps(val self: InventorySchedule) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frequencyAsScala: Option[InventoryFrequency] = Option(self.frequency)
 
 }

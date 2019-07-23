@@ -6,18 +6,21 @@ import software.amazon.awssdk.services.ec2.model._
 final class InstanceNetworkInterfaceAssociationBuilderOps(val self: InstanceNetworkInterfaceAssociation.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipOwnerIdAsScala(value: Option[String]): InstanceNetworkInterfaceAssociation.Builder = {
     value.fold(self) { v =>
       self.ipOwnerId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicDnsNameAsScala(value: Option[String]): InstanceNetworkInterfaceAssociation.Builder = {
     value.fold(self) { v =>
       self.publicDnsName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala(value: Option[String]): InstanceNetworkInterfaceAssociation.Builder = {
     value.fold(self) { v =>
       self.publicIp(v)
@@ -28,10 +31,13 @@ final class InstanceNetworkInterfaceAssociationBuilderOps(val self: InstanceNetw
 
 final class InstanceNetworkInterfaceAssociationOps(val self: InstanceNetworkInterfaceAssociation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipOwnerIdAsScala: Option[String] = Option(self.ipOwnerId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicDnsNameAsScala: Option[String] = Option(self.publicDnsName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
 
 }

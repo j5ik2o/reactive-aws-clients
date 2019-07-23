@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DescribeStackSetResponseBuilderOps(val self: DescribeStackSetResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetAsScala(value: Option[StackSet]): DescribeStackSetResponse.Builder = {
     value.fold(self) { v =>
       self.stackSet(v)
@@ -15,6 +16,7 @@ final class DescribeStackSetResponseBuilderOps(val self: DescribeStackSetRespons
 
 final class DescribeStackSetResponseOps(val self: DescribeStackSetResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetAsScala: Option[StackSet] = Option(self.stackSet)
 
 }

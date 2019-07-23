@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeExportTasksRequestBuilderOps(val self: DescribeExportTasksRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exportTaskIdsAsScala(value: Option[Seq[String]]): DescribeExportTasksRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.exportTaskIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.exportTaskIds(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeExportTasksRequestBuilderOps(val self: DescribeExportTasksRe
 
 final class DescribeExportTasksRequestOps(val self: DescribeExportTasksRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exportTaskIdsAsScala: Option[Seq[String]] = Option(self.exportTaskIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

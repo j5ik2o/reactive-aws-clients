@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeleteBucketCorsRequestBuilderOps(val self: DeleteBucketCorsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): DeleteBucketCorsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class DeleteBucketCorsRequestBuilderOps(val self: DeleteBucketCorsRequest.
 
 final class DeleteBucketCorsRequestOps(val self: DeleteBucketCorsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

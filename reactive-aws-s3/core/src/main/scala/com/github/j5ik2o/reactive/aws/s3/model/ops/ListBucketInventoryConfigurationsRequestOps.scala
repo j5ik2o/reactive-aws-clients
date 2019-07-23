@@ -7,12 +7,14 @@ final class ListBucketInventoryConfigurationsRequestBuilderOps(
     val self: ListBucketInventoryConfigurationsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): ListBucketInventoryConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsRequest.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
@@ -24,8 +26,10 @@ final class ListBucketInventoryConfigurationsRequestBuilderOps(
 final class ListBucketInventoryConfigurationsRequestOps(val self: ListBucketInventoryConfigurationsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuationTokenAsScala: Option[String] = Option(self.continuationToken)
 
 }

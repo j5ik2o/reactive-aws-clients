@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.sqs.model._
 final class ListDeadLetterSourceQueuesResponseBuilderOps(val self: ListDeadLetterSourceQueuesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlsAsScala(value: Option[Seq[String]]): ListDeadLetterSourceQueuesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.queueUrls(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.queueUrls(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class ListDeadLetterSourceQueuesResponseBuilderOps(val self: ListDeadLette
 
 final class ListDeadLetterSourceQueuesResponseOps(val self: ListDeadLetterSourceQueuesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlsAsScala: Option[Seq[String]] = Option(self.queueUrls).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

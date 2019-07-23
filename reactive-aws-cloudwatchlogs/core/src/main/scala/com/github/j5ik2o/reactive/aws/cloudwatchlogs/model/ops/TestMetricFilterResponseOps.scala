@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class TestMetricFilterResponseBuilderOps(val self: TestMetricFilterResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def matchesAsScala(value: Option[Seq[MetricFilterMatchRecord]]): TestMetricFilterResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.matches(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.matches(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class TestMetricFilterResponseBuilderOps(val self: TestMetricFilterRespons
 
 final class TestMetricFilterResponseOps(val self: TestMetricFilterResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def matchesAsScala: Option[Seq[MetricFilterMatchRecord]] = Option(self.matches).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

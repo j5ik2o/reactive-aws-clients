@@ -7,26 +7,30 @@ final class ListBucketInventoryConfigurationsResponseBuilderOps(
     val self: ListBucketInventoryConfigurationsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.continuationToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inventoryConfigurationListAsScala(
       value: Option[Seq[InventoryConfiguration]]
   ): ListBucketInventoryConfigurationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.inventoryConfigurationList(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.inventoryConfigurationList(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isTruncatedAsScala(value: Option[Boolean]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.isTruncated(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextContinuationTokenAsScala(value: Option[String]): ListBucketInventoryConfigurationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextContinuationToken(v)
@@ -38,15 +42,19 @@ final class ListBucketInventoryConfigurationsResponseBuilderOps(
 final class ListBucketInventoryConfigurationsResponseOps(val self: ListBucketInventoryConfigurationsResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuationTokenAsScala: Option[String] = Option(self.continuationToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inventoryConfigurationListAsScala: Option[Seq[InventoryConfiguration]] =
     Option(self.inventoryConfigurationList).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isTruncatedAsScala: Option[Boolean] = Option(self.isTruncated)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextContinuationTokenAsScala: Option[String] = Option(self.nextContinuationToken)
 
 }

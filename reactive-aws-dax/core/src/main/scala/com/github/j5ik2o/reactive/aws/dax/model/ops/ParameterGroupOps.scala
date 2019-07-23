@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dax.model._
 
 final class ParameterGroupBuilderOps(val self: ParameterGroup.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): ParameterGroup.Builder = {
     value.fold(self) { v =>
       self.parameterGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ParameterGroup.Builder = {
     value.fold(self) { v =>
       self.description(v)
@@ -21,8 +23,10 @@ final class ParameterGroupBuilderOps(val self: ParameterGroup.Builder) extends A
 
 final class ParameterGroupOps(val self: ParameterGroup) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
 }

@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeTransitGatewaysResponseBuilderOps(val self: DescribeTransitGatewaysResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewaysAsScala(value: Option[Seq[TransitGateway]]): DescribeTransitGatewaysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.transitGateways(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.transitGateways(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeTransitGatewaysResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -22,10 +24,12 @@ final class DescribeTransitGatewaysResponseBuilderOps(val self: DescribeTransitG
 
 final class DescribeTransitGatewaysResponseOps(val self: DescribeTransitGatewaysResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewaysAsScala: Option[Seq[TransitGateway]] = Option(self.transitGateways).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

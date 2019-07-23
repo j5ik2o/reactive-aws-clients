@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ElasticGpuHealthBuilderOps(val self: ElasticGpuHealth.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ElasticGpuStatus]): ElasticGpuHealth.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -15,6 +16,7 @@ final class ElasticGpuHealthBuilderOps(val self: ElasticGpuHealth.Builder) exten
 
 final class ElasticGpuHealthOps(val self: ElasticGpuHealth) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ElasticGpuStatus] = Option(self.status)
 
 }

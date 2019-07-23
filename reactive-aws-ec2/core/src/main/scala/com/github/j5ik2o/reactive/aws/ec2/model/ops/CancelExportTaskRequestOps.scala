@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CancelExportTaskRequestBuilderOps(val self: CancelExportTaskRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exportTaskIdAsScala(value: Option[String]): CancelExportTaskRequest.Builder = {
     value.fold(self) { v =>
       self.exportTaskId(v)
@@ -15,6 +16,7 @@ final class CancelExportTaskRequestBuilderOps(val self: CancelExportTaskRequest.
 
 final class CancelExportTaskRequestOps(val self: CancelExportTaskRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exportTaskIdAsScala: Option[String] = Option(self.exportTaskId)
 
 }

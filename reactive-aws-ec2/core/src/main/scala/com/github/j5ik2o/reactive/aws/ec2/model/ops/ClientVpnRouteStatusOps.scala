@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ClientVpnRouteStatusBuilderOps(val self: ClientVpnRouteStatus.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[ClientVpnRouteStatusCode]): ClientVpnRouteStatus.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): ClientVpnRouteStatus.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class ClientVpnRouteStatusBuilderOps(val self: ClientVpnRouteStatus.Builde
 
 final class ClientVpnRouteStatusOps(val self: ClientVpnRouteStatus) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[ClientVpnRouteStatusCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

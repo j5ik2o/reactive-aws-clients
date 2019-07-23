@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class GetRecordsRequestBuilderOps(val self: GetRecordsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIteratorAsScala(value: Option[String]): GetRecordsRequest.Builder = {
     value.fold(self) { v =>
       self.shardIterator(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): GetRecordsRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
@@ -21,8 +23,10 @@ final class GetRecordsRequestBuilderOps(val self: GetRecordsRequest.Builder) ext
 
 final class GetRecordsRequestOps(val self: GetRecordsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIteratorAsScala: Option[String] = Option(self.shardIterator)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
 
 }

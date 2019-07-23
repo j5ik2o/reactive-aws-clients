@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class PlatformDeviceBuilderOps(val self: PlatformDevice.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): PlatformDevice.Builder = {
     value.fold(self) { v =>
       self.id(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[PlatformDeviceType]): PlatformDevice.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -21,8 +23,10 @@ final class PlatformDeviceBuilderOps(val self: PlatformDevice.Builder) extends A
 
 final class PlatformDeviceOps(val self: PlatformDevice) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[PlatformDeviceType] = Option(self.`type`)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class ListTagsLogGroupResponseBuilderOps(val self: ListTagsLogGroupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Map[String, String]]): ListTagsLogGroupResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.tags(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class ListTagsLogGroupResponseBuilderOps(val self: ListTagsLogGroupRespons
 
 final class ListTagsLogGroupResponseOps(val self: ListTagsLogGroupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

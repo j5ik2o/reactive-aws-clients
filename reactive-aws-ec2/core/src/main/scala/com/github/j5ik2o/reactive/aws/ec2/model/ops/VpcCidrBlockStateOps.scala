@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class VpcCidrBlockStateBuilderOps(val self: VpcCidrBlockState.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[VpcCidrBlockStateCode]): VpcCidrBlockState.Builder = {
     value.fold(self) { v =>
       self.state(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): VpcCidrBlockState.Builder = {
     value.fold(self) { v =>
       self.statusMessage(v)
@@ -21,8 +23,10 @@ final class VpcCidrBlockStateBuilderOps(val self: VpcCidrBlockState.Builder) ext
 
 final class VpcCidrBlockStateOps(val self: VpcCidrBlockState) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[VpcCidrBlockStateCode] = Option(self.state)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala: Option[String] = Option(self.statusMessage)
 
 }

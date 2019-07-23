@@ -5,30 +5,35 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class PublicIpv4PoolBuilderOps(val self: PublicIpv4Pool.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poolIdAsScala(value: Option[String]): PublicIpv4Pool.Builder = {
     value.fold(self) { v =>
       self.poolId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): PublicIpv4Pool.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poolAddressRangesAsScala(value: Option[Seq[PublicIpv4PoolRange]]): PublicIpv4Pool.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.poolAddressRanges(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.poolAddressRanges(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalAddressCountAsScala(value: Option[Int]): PublicIpv4Pool.Builder = {
     value.fold(self) { v =>
       self.totalAddressCount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalAvailableAddressCountAsScala(value: Option[Int]): PublicIpv4Pool.Builder = {
     value.fold(self) { v =>
       self.totalAvailableAddressCount(v)
@@ -39,16 +44,21 @@ final class PublicIpv4PoolBuilderOps(val self: PublicIpv4Pool.Builder) extends A
 
 final class PublicIpv4PoolOps(val self: PublicIpv4Pool) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poolIdAsScala: Option[String] = Option(self.poolId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poolAddressRangesAsScala: Option[Seq[PublicIpv4PoolRange]] = Option(self.poolAddressRanges).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalAddressCountAsScala: Option[Int] = Option(self.totalAddressCount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalAvailableAddressCountAsScala: Option[Int] = Option(self.totalAvailableAddressCount)
 
 }

@@ -6,24 +6,28 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeHostReservationsRequestBuilderOps(val self: DescribeHostReservationsRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterAsScala(value: Option[Seq[Filter]]): DescribeHostReservationsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filter(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filter(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostReservationIdSetAsScala(value: Option[Seq[String]]): DescribeHostReservationsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.hostReservationIdSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.hostReservationIdSet(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeHostReservationsRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeHostReservationsRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -34,16 +38,20 @@ final class DescribeHostReservationsRequestBuilderOps(val self: DescribeHostRese
 
 final class DescribeHostReservationsRequestOps(val self: DescribeHostReservationsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterAsScala: Option[Seq[Filter]] = Option(self.filter).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostReservationIdSetAsScala: Option[Seq[String]] = Option(self.hostReservationIdSet).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AbortIncompleteMultipartUploadBuilderOps(val self: AbortIncompleteMultipartUpload.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def daysAfterInitiationAsScala(value: Option[Int]): AbortIncompleteMultipartUpload.Builder = {
     value.fold(self) { v =>
       self.daysAfterInitiation(v)
@@ -15,6 +16,7 @@ final class AbortIncompleteMultipartUploadBuilderOps(val self: AbortIncompleteMu
 
 final class AbortIncompleteMultipartUploadOps(val self: AbortIncompleteMultipartUpload) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def daysAfterInitiationAsScala: Option[Int] = Option(self.daysAfterInitiation)
 
 }

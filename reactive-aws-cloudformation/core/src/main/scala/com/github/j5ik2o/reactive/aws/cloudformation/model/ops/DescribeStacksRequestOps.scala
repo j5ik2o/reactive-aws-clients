@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DescribeStacksRequestBuilderOps(val self: DescribeStacksRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): DescribeStacksRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeStacksRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,8 +23,10 @@ final class DescribeStacksRequestBuilderOps(val self: DescribeStacksRequest.Buil
 
 final class DescribeStacksRequestOps(val self: DescribeStacksRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala: Option[String] = Option(self.stackName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

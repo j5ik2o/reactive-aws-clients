@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class ScaleBuilderOps(val self: Scale.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[Double]): Scale.Builder = {
     value.fold(self) { v =>
       self.value(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala(value: Option[ScaleUnit]): Scale.Builder = {
     value.fold(self) { v =>
       self.unit(v)
@@ -21,8 +23,10 @@ final class ScaleBuilderOps(val self: Scale.Builder) extends AnyVal {
 
 final class ScaleOps(val self: Scale) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[Double] = Option(self.value)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala: Option[ScaleUnit] = Option(self.unit)
 
 }

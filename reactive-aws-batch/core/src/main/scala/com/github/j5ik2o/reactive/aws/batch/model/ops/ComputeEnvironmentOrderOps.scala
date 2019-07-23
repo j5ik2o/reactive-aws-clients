@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class ComputeEnvironmentOrderBuilderOps(val self: ComputeEnvironmentOrder.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orderAsScala(value: Option[Int]): ComputeEnvironmentOrder.Builder = {
     value.fold(self) { v =>
       self.order(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala(value: Option[String]): ComputeEnvironmentOrder.Builder = {
     value.fold(self) { v =>
       self.computeEnvironment(v)
@@ -21,8 +23,10 @@ final class ComputeEnvironmentOrderBuilderOps(val self: ComputeEnvironmentOrder.
 
 final class ComputeEnvironmentOrderOps(val self: ComputeEnvironmentOrder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orderAsScala: Option[Int] = Option(self.order)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala: Option[String] = Option(self.computeEnvironment)
 
 }

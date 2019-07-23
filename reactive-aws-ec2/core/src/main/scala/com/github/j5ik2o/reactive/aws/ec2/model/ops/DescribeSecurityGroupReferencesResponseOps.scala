@@ -6,11 +6,12 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeSecurityGroupReferencesResponseBuilderOps(val self: DescribeSecurityGroupReferencesResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupReferenceSetAsScala(
       value: Option[Seq[SecurityGroupReference]]
   ): DescribeSecurityGroupReferencesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.securityGroupReferenceSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.securityGroupReferenceSet(v.asJava)
     }
   }
 
@@ -19,9 +20,10 @@ final class DescribeSecurityGroupReferencesResponseBuilderOps(val self: Describe
 final class DescribeSecurityGroupReferencesResponseOps(val self: DescribeSecurityGroupReferencesResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupReferenceSetAsScala: Option[Seq[SecurityGroupReference]] =
     Option(self.securityGroupReferenceSet).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

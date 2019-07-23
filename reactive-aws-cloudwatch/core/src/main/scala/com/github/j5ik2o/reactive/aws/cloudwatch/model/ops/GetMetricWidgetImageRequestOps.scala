@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class GetMetricWidgetImageRequestBuilderOps(val self: GetMetricWidgetImageRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricWidgetAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
     value.fold(self) { v =>
       self.metricWidget(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputFormatAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
     value.fold(self) { v =>
       self.outputFormat(v)
@@ -21,8 +23,10 @@ final class GetMetricWidgetImageRequestBuilderOps(val self: GetMetricWidgetImage
 
 final class GetMetricWidgetImageRequestOps(val self: GetMetricWidgetImageRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricWidgetAsScala: Option[String] = Option(self.metricWidget)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputFormatAsScala: Option[String] = Option(self.outputFormat)
 
 }

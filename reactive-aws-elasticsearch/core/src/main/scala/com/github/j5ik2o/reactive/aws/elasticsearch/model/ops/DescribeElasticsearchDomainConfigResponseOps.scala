@@ -7,6 +7,7 @@ final class DescribeElasticsearchDomainConfigResponseBuilderOps(
     val self: DescribeElasticsearchDomainConfigResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainConfigAsScala(
       value: Option[ElasticsearchDomainConfig]
   ): DescribeElasticsearchDomainConfigResponse.Builder = {
@@ -20,6 +21,7 @@ final class DescribeElasticsearchDomainConfigResponseBuilderOps(
 final class DescribeElasticsearchDomainConfigResponseOps(val self: DescribeElasticsearchDomainConfigResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainConfigAsScala: Option[ElasticsearchDomainConfig] = Option(self.domainConfig)
 
 }

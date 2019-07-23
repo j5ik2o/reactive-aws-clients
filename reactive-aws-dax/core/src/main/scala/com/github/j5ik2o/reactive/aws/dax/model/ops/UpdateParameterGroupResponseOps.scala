@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UpdateParameterGroupResponseBuilderOps(val self: UpdateParameterGroupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupAsScala(value: Option[ParameterGroup]): UpdateParameterGroupResponse.Builder = {
     value.fold(self) { v =>
       self.parameterGroup(v)
@@ -15,6 +16,7 @@ final class UpdateParameterGroupResponseBuilderOps(val self: UpdateParameterGrou
 
 final class UpdateParameterGroupResponseOps(val self: UpdateParameterGroupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupAsScala: Option[ParameterGroup] = Option(self.parameterGroup)
 
 }

@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.batch.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.batch.{ BatchAsyncClient, BatchClient }
 import software.amazon.awssdk.services.batch.model._
 
@@ -9,8 +9,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object BatchCatsIOClient {
 
-  def apply(asyncClient: BatchAsyncClient): BatchCatsIOClient = new BatchCatsIOClient {
-    override val underlying: BatchAsyncClient = asyncClient
+  def apply(asyncClient: BatchAsyncClient)(implicit ec: ExecutionContext): BatchCatsIOClient = new BatchCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: BatchAsyncClient       = asyncClient
   }
 
 }
@@ -18,6 +19,9 @@ object BatchCatsIOClient {
 trait BatchCatsIOClient extends BatchClient[IO] {
 
   val underlying: BatchAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def cancelJob(cancelJobRequest: CancelJobRequest): IO[CancelJobResponse] =
     IO.fromFuture {

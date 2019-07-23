@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class LifecyclePolicyPreviewSummaryBuilderOps(val self: LifecyclePolicyPreviewSummary.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiringImageTotalCountAsScala(value: Option[Int]): LifecyclePolicyPreviewSummary.Builder = {
     value.fold(self) { v =>
       self.expiringImageTotalCount(v)
@@ -15,6 +16,7 @@ final class LifecyclePolicyPreviewSummaryBuilderOps(val self: LifecyclePolicyPre
 
 final class LifecyclePolicyPreviewSummaryOps(val self: LifecyclePolicyPreviewSummary) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiringImageTotalCountAsScala: Option[Int] = Option(self.expiringImageTotalCount)
 
 }

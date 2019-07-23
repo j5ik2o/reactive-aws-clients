@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InventoryEncryptionBuilderOps(val self: InventoryEncryption.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sses3AsScala(value: Option[SSES3]): InventoryEncryption.Builder = {
     value.fold(self) { v =>
       self.sses3(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsAsScala(value: Option[SSEKMS]): InventoryEncryption.Builder = {
     value.fold(self) { v =>
       self.ssekms(v)
@@ -21,8 +23,10 @@ final class InventoryEncryptionBuilderOps(val self: InventoryEncryption.Builder)
 
 final class InventoryEncryptionOps(val self: InventoryEncryption) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sses3AsScala: Option[SSES3] = Option(self.sses3)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsAsScala: Option[SSEKMS] = Option(self.ssekms)
 
 }

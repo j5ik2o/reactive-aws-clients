@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class GetMetricWidgetImageResponseBuilderOps(val self: GetMetricWidgetImageResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricWidgetImageAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetMetricWidgetImageResponse.Builder = {
@@ -17,6 +18,7 @@ final class GetMetricWidgetImageResponseBuilderOps(val self: GetMetricWidgetImag
 
 final class GetMetricWidgetImageResponseOps(val self: GetMetricWidgetImageResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricWidgetImageAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.metricWidgetImage)
 
 }

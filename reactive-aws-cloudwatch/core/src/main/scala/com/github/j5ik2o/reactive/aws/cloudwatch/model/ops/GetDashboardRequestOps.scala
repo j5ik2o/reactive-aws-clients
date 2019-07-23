@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class GetDashboardRequestBuilderOps(val self: GetDashboardRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNameAsScala(value: Option[String]): GetDashboardRequest.Builder = {
     value.fold(self) { v =>
       self.dashboardName(v)
@@ -15,6 +16,7 @@ final class GetDashboardRequestBuilderOps(val self: GetDashboardRequest.Builder)
 
 final class GetDashboardRequestOps(val self: GetDashboardRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNameAsScala: Option[String] = Option(self.dashboardName)
 
 }

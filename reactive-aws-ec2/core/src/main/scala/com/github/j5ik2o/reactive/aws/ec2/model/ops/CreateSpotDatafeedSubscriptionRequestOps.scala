@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateSpotDatafeedSubscriptionRequestBuilderOps(val self: CreateSpotDatafeedSubscriptionRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): CreateSpotDatafeedSubscriptionRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala(value: Option[String]): CreateSpotDatafeedSubscriptionRequest.Builder = {
     value.fold(self) { v =>
       self.prefix(v)
@@ -22,8 +24,10 @@ final class CreateSpotDatafeedSubscriptionRequestBuilderOps(val self: CreateSpot
 
 final class CreateSpotDatafeedSubscriptionRequestOps(val self: CreateSpotDatafeedSubscriptionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala: Option[String] = Option(self.prefix)
 
 }

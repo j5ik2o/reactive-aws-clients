@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketRequestPaymentRequestBuilderOps(val self: GetBucketRequestPaymentRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketRequestPaymentRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class GetBucketRequestPaymentRequestBuilderOps(val self: GetBucketRequestP
 
 final class GetBucketRequestPaymentRequestOps(val self: GetBucketRequestPaymentRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

@@ -7,12 +7,14 @@ final class PurchaseReservedInstancesOfferingRequestBuilderOps(
     val self: PurchaseReservedInstancesOfferingRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): PurchaseReservedInstancesOfferingRequest.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesOfferingIdAsScala(
       value: Option[String]
   ): PurchaseReservedInstancesOfferingRequest.Builder = {
@@ -21,6 +23,7 @@ final class PurchaseReservedInstancesOfferingRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitPriceAsScala(
       value: Option[ReservedInstanceLimitPrice]
   ): PurchaseReservedInstancesOfferingRequest.Builder = {
@@ -34,10 +37,13 @@ final class PurchaseReservedInstancesOfferingRequestBuilderOps(
 final class PurchaseReservedInstancesOfferingRequestOps(val self: PurchaseReservedInstancesOfferingRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesOfferingIdAsScala: Option[String] = Option(self.reservedInstancesOfferingId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitPriceAsScala: Option[ReservedInstanceLimitPrice] = Option(self.limitPrice)
 
 }

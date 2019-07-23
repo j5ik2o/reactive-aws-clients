@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class DeleteMessageBatchResultEntryBuilderOps(val self: DeleteMessageBatchResultEntry.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): DeleteMessageBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -15,6 +16,7 @@ final class DeleteMessageBatchResultEntryBuilderOps(val self: DeleteMessageBatch
 
 final class DeleteMessageBatchResultEntryOps(val self: DeleteMessageBatchResultEntry) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

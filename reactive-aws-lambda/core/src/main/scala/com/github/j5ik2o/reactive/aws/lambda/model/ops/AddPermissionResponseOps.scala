@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class AddPermissionResponseBuilderOps(val self: AddPermissionResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementAsScala(value: Option[String]): AddPermissionResponse.Builder = {
     value.fold(self) { v =>
       self.statement(v)
@@ -15,6 +16,7 @@ final class AddPermissionResponseBuilderOps(val self: AddPermissionResponse.Buil
 
 final class AddPermissionResponseOps(val self: AddPermissionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementAsScala: Option[String] = Option(self.statement)
 
 }

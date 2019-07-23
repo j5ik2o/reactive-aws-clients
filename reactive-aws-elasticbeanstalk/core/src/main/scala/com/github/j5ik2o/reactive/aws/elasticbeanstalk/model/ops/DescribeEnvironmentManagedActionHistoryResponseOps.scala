@@ -7,14 +7,16 @@ final class DescribeEnvironmentManagedActionHistoryResponseBuilderOps(
     val self: DescribeEnvironmentManagedActionHistoryResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def managedActionHistoryItemsAsScala(
       value: Option[Seq[ManagedActionHistoryItem]]
   ): DescribeEnvironmentManagedActionHistoryResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.managedActionHistoryItems(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.managedActionHistoryItems(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -27,11 +29,13 @@ final class DescribeEnvironmentManagedActionHistoryResponseOps(
     val self: DescribeEnvironmentManagedActionHistoryResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def managedActionHistoryItemsAsScala: Option[Seq[ManagedActionHistoryItem]] =
     Option(self.managedActionHistoryItems).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

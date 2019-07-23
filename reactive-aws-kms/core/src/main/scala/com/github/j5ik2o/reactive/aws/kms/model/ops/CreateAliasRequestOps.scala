@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class CreateAliasRequestBuilderOps(val self: CreateAliasRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala(value: Option[String]): CreateAliasRequest.Builder = {
     value.fold(self) { v =>
       self.aliasName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetKeyIdAsScala(value: Option[String]): CreateAliasRequest.Builder = {
     value.fold(self) { v =>
       self.targetKeyId(v)
@@ -21,8 +23,10 @@ final class CreateAliasRequestBuilderOps(val self: CreateAliasRequest.Builder) e
 
 final class CreateAliasRequestOps(val self: CreateAliasRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala: Option[String] = Option(self.aliasName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetKeyIdAsScala: Option[String] = Option(self.targetKeyId)
 
 }

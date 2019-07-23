@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DeleteReplicaActionBuilderOps(val self: DeleteReplicaAction.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): DeleteReplicaAction.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
@@ -15,6 +16,7 @@ final class DeleteReplicaActionBuilderOps(val self: DeleteReplicaAction.Builder)
 
 final class DeleteReplicaActionOps(val self: DeleteReplicaAction) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }

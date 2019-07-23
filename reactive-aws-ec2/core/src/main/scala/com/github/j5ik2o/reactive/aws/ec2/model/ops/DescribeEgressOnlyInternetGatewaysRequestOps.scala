@@ -7,20 +7,23 @@ final class DescribeEgressOnlyInternetGatewaysRequestBuilderOps(
     val self: DescribeEgressOnlyInternetGatewaysRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdsAsScala(
       value: Option[Seq[String]]
   ): DescribeEgressOnlyInternetGatewaysRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.egressOnlyInternetGatewayIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.egressOnlyInternetGatewayIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeEgressOnlyInternetGatewaysRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEgressOnlyInternetGatewaysRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -32,13 +35,16 @@ final class DescribeEgressOnlyInternetGatewaysRequestBuilderOps(
 final class DescribeEgressOnlyInternetGatewaysRequestOps(val self: DescribeEgressOnlyInternetGatewaysRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdsAsScala: Option[Seq[String]] = Option(self.egressOnlyInternetGatewayIds).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

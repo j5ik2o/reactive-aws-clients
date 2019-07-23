@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.kms.model._
 
 final class ListKeysResponseBuilderOps(val self: ListKeysResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keysAsScala(value: Option[Seq[KeyListEntry]]): ListKeysResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.keys(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.keys(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListKeysResponse.Builder = {
     value.fold(self) { v =>
       self.nextMarker(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def truncatedAsScala(value: Option[Boolean]): ListKeysResponse.Builder = {
     value.fold(self) { v =>
       self.truncated(v)
@@ -27,12 +30,15 @@ final class ListKeysResponseBuilderOps(val self: ListKeysResponse.Builder) exten
 
 final class ListKeysResponseOps(val self: ListKeysResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keysAsScala: Option[Seq[KeyListEntry]] = Option(self.keys).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def truncatedAsScala: Option[Boolean] = Option(self.truncated)
 
 }

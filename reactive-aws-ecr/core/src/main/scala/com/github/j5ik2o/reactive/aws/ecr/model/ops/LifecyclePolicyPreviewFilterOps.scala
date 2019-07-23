@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class LifecyclePolicyPreviewFilterBuilderOps(val self: LifecyclePolicyPreviewFilter.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagStatusAsScala(value: Option[TagStatus]): LifecyclePolicyPreviewFilter.Builder = {
     value.fold(self) { v =>
       self.tagStatus(v)
@@ -15,6 +16,7 @@ final class LifecyclePolicyPreviewFilterBuilderOps(val self: LifecyclePolicyPrev
 
 final class LifecyclePolicyPreviewFilterOps(val self: LifecyclePolicyPreviewFilter) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagStatusAsScala: Option[TagStatus] = Option(self.tagStatus)
 
 }

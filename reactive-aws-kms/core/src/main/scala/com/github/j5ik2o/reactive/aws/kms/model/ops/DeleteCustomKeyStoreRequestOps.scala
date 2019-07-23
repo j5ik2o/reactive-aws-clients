@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class DeleteCustomKeyStoreRequestBuilderOps(val self: DeleteCustomKeyStoreRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): DeleteCustomKeyStoreRequest.Builder = {
     value.fold(self) { v =>
       self.customKeyStoreId(v)
@@ -15,6 +16,7 @@ final class DeleteCustomKeyStoreRequestBuilderOps(val self: DeleteCustomKeyStore
 
 final class DeleteCustomKeyStoreRequestOps(val self: DeleteCustomKeyStoreRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala: Option[String] = Option(self.customKeyStoreId)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class LoadBalancersConfigBuilderOps(val self: LoadBalancersConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def classicLoadBalancersConfigAsScala(
       value: Option[ClassicLoadBalancersConfig]
   ): LoadBalancersConfig.Builder = {
@@ -13,6 +14,7 @@ final class LoadBalancersConfigBuilderOps(val self: LoadBalancersConfig.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetGroupsConfigAsScala(value: Option[TargetGroupsConfig]): LoadBalancersConfig.Builder = {
     value.fold(self) { v =>
       self.targetGroupsConfig(v)
@@ -23,9 +25,11 @@ final class LoadBalancersConfigBuilderOps(val self: LoadBalancersConfig.Builder)
 
 final class LoadBalancersConfigOps(val self: LoadBalancersConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def classicLoadBalancersConfigAsScala: Option[ClassicLoadBalancersConfig] =
     Option(self.classicLoadBalancersConfig)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetGroupsConfigAsScala: Option[TargetGroupsConfig] = Option(self.targetGroupsConfig)
 
 }

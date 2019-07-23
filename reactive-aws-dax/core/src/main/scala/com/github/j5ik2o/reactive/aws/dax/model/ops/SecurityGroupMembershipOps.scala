@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dax.model._
 
 final class SecurityGroupMembershipBuilderOps(val self: SecurityGroupMembership.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupIdentifierAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
     value.fold(self) { v =>
       self.securityGroupIdentifier(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -21,8 +23,10 @@ final class SecurityGroupMembershipBuilderOps(val self: SecurityGroupMembership.
 
 final class SecurityGroupMembershipOps(val self: SecurityGroupMembership) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupIdentifierAsScala: Option[String] = Option(self.securityGroupIdentifier)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)
 
 }

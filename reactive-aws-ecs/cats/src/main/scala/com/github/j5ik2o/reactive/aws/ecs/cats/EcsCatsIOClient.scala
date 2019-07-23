@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.ecs.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.ecs.{ EcsAsyncClient, EcsClient }
 import software.amazon.awssdk.services.ecs.model._
 import software.amazon.awssdk.services.ecs.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object EcsCatsIOClient {
 
-  def apply(asyncClient: EcsAsyncClient): EcsCatsIOClient = new EcsCatsIOClient {
-    override val underlying: EcsAsyncClient = asyncClient
+  def apply(asyncClient: EcsAsyncClient)(implicit ec: ExecutionContext): EcsCatsIOClient = new EcsCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: EcsAsyncClient         = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object EcsCatsIOClient {
 trait EcsCatsIOClient extends EcsClient[IO] {
 
   val underlying: EcsAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def createCluster(createClusterRequest: CreateClusterRequest): IO[CreateClusterResponse] =
     IO.fromFuture {
@@ -33,6 +37,11 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def createService(createServiceRequest: CreateServiceRequest): IO[CreateServiceResponse] =
     IO.fromFuture {
       IO(underlying.createService(createServiceRequest))
+    }
+
+  override def createTaskSet(createTaskSetRequest: CreateTaskSetRequest): IO[CreateTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.createTaskSet(createTaskSetRequest))
     }
 
   override def deleteAccountSetting(
@@ -55,6 +64,11 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def deleteService(deleteServiceRequest: DeleteServiceRequest): IO[DeleteServiceResponse] =
     IO.fromFuture {
       IO(underlying.deleteService(deleteServiceRequest))
+    }
+
+  override def deleteTaskSet(deleteTaskSetRequest: DeleteTaskSetRequest): IO[DeleteTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTaskSet(deleteTaskSetRequest))
     }
 
   override def deregisterContainerInstance(
@@ -98,6 +112,11 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   ): IO[DescribeTaskDefinitionResponse] =
     IO.fromFuture {
       IO(underlying.describeTaskDefinition(describeTaskDefinitionRequest))
+    }
+
+  override def describeTaskSets(describeTaskSetsRequest: DescribeTaskSetsRequest): IO[DescribeTaskSetsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTaskSets(describeTaskSetsRequest))
     }
 
   override def describeTasks(describeTasksRequest: DescribeTasksRequest): IO[DescribeTasksResponse] =
@@ -331,6 +350,18 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def updateService(updateServiceRequest: UpdateServiceRequest): IO[UpdateServiceResponse] =
     IO.fromFuture {
       IO(underlying.updateService(updateServiceRequest))
+    }
+
+  override def updateServicePrimaryTaskSet(
+      updateServicePrimaryTaskSetRequest: UpdateServicePrimaryTaskSetRequest
+  ): IO[UpdateServicePrimaryTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.updateServicePrimaryTaskSet(updateServicePrimaryTaskSetRequest))
+    }
+
+  override def updateTaskSet(updateTaskSetRequest: UpdateTaskSetRequest): IO[UpdateTaskSetResponse] =
+    IO.fromFuture {
+      IO(underlying.updateTaskSet(updateTaskSetRequest))
     }
 
 }

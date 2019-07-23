@@ -1069,6 +1069,8 @@ trait Ec2Client[M[_]] {
 
   def modifyVpcTenancy(modifyVpcTenancyRequest: ModifyVpcTenancyRequest): M[ModifyVpcTenancyResponse]
 
+  def modifyVpnConnection(modifyVpnConnectionRequest: ModifyVpnConnectionRequest): M[ModifyVpnConnectionResponse]
+
   def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): M[MonitorInstancesResponse]
 
   def moveAddressToVpc(moveAddressToVpcRequest: MoveAddressToVpcRequest): M[MoveAddressToVpcResponse]

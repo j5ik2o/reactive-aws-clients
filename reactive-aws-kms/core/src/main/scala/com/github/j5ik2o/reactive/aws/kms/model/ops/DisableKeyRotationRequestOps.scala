@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.kms.model._
 
 final class DisableKeyRotationRequestBuilderOps(val self: DisableKeyRotationRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): DisableKeyRotationRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
@@ -15,6 +16,7 @@ final class DisableKeyRotationRequestBuilderOps(val self: DisableKeyRotationRequ
 
 final class DisableKeyRotationRequestOps(val self: DisableKeyRotationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
 }

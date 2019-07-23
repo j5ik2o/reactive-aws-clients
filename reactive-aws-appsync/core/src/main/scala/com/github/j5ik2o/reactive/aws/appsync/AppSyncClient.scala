@@ -63,9 +63,15 @@ trait AppSyncClient[M[_]] {
       listResolversByFunctionRequest: ListResolversByFunctionRequest
   ): M[ListResolversByFunctionResponse]
 
+  def listTagsForResource(listTagsForResourceRequest: ListTagsForResourceRequest): M[ListTagsForResourceResponse]
+
   def listTypes(listTypesRequest: ListTypesRequest): M[ListTypesResponse]
 
   def startSchemaCreation(startSchemaCreationRequest: StartSchemaCreationRequest): M[StartSchemaCreationResponse]
+
+  def tagResource(tagResourceRequest: TagResourceRequest): M[TagResourceResponse]
+
+  def untagResource(untagResourceRequest: UntagResourceRequest): M[UntagResourceResponse]
 
   def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): M[UpdateApiKeyResponse]
 

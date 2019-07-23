@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class CreateQueueRequestBuilderOps(val self: CreateQueueRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNameAsScala(value: Option[String]): CreateQueueRequest.Builder = {
     value.fold(self) { v =>
       self.queueName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributesAsScala(value: Option[Map[QueueAttributeName, String]]): CreateQueueRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.attributes(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.attributes(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class CreateQueueRequestBuilderOps(val self: CreateQueueRequest.Builder) e
 
 final class CreateQueueRequestOps(val self: CreateQueueRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNameAsScala: Option[String] = Option(self.queueName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributesAsScala: Option[Map[QueueAttributeName, String]] = Option(self.attributes).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

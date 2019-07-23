@@ -91,6 +91,11 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   ): Either[Throwable, GetLayerVersionResponse] =
     underlying.getLayerVersion(getLayerVersionRequest).toEither
 
+  override def getLayerVersionByArn(
+      getLayerVersionByArnRequest: GetLayerVersionByArnRequest
+  ): Either[Throwable, GetLayerVersionByArnResponse] =
+    underlying.getLayerVersionByArn(getLayerVersionByArnRequest).toEither
+
   override def getLayerVersionPolicy(
       getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest
   ): Either[Throwable, GetLayerVersionPolicyResponse] =

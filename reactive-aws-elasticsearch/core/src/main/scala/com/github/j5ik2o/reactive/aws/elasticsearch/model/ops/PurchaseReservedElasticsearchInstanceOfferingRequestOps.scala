@@ -7,6 +7,7 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
     val self: PurchaseReservedElasticsearchInstanceOfferingRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedElasticsearchInstanceOfferingIdAsScala(
       value: Option[String]
   ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
@@ -15,6 +16,7 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservationNameAsScala(
       value: Option[String]
   ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
@@ -23,6 +25,7 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
@@ -35,11 +38,14 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestOps(
     val self: PurchaseReservedElasticsearchInstanceOfferingRequest
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedElasticsearchInstanceOfferingIdAsScala: Option[String] =
     Option(self.reservedElasticsearchInstanceOfferingId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservationNameAsScala: Option[String] = Option(self.reservationName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
 }

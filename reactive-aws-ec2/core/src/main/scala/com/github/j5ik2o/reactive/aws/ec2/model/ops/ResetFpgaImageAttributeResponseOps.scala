@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class ResetFpgaImageAttributeResponseBuilderOps(val self: ResetFpgaImageAttributeResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): ResetFpgaImageAttributeResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -16,6 +17,7 @@ final class ResetFpgaImageAttributeResponseBuilderOps(val self: ResetFpgaImageAt
 
 final class ResetFpgaImageAttributeResponseOps(val self: ResetFpgaImageAttributeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

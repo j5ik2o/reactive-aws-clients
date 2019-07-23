@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AnalyticsExportDestinationBuilderOps(val self: AnalyticsExportDestination.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketDestinationAsScala(
       value: Option[AnalyticsS3BucketDestination]
   ): AnalyticsExportDestination.Builder = {
@@ -17,6 +18,7 @@ final class AnalyticsExportDestinationBuilderOps(val self: AnalyticsExportDestin
 
 final class AnalyticsExportDestinationOps(val self: AnalyticsExportDestination) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketDestinationAsScala: Option[AnalyticsS3BucketDestination] = Option(self.s3BucketDestination)
 
 }

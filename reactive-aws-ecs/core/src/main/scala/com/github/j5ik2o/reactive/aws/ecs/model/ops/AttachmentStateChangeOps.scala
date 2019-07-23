@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class AttachmentStateChangeBuilderOps(val self: AttachmentStateChange.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentArnAsScala(value: Option[String]): AttachmentStateChange.Builder = {
     value.fold(self) { v =>
       self.attachmentArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): AttachmentStateChange.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -21,8 +23,10 @@ final class AttachmentStateChangeBuilderOps(val self: AttachmentStateChange.Buil
 
 final class AttachmentStateChangeOps(val self: AttachmentStateChange) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentArnAsScala: Option[String] = Option(self.attachmentArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)
 
 }

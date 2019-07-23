@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class StopTaskResponseBuilderOps(val self: StopTaskResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskAsScala(value: Option[Task]): StopTaskResponse.Builder = {
     value.fold(self) { v =>
       self.task(v)
@@ -15,6 +16,7 @@ final class StopTaskResponseBuilderOps(val self: StopTaskResponse.Builder) exten
 
 final class StopTaskResponseOps(val self: StopTaskResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskAsScala: Option[Task] = Option(self.task)
 
 }

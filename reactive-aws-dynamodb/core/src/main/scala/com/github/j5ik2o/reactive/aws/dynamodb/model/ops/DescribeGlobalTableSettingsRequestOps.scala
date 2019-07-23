@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class DescribeGlobalTableSettingsRequestBuilderOps(val self: DescribeGlobalTableSettingsRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): DescribeGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
@@ -16,6 +17,7 @@ final class DescribeGlobalTableSettingsRequestBuilderOps(val self: DescribeGloba
 
 final class DescribeGlobalTableSettingsRequestOps(val self: DescribeGlobalTableSettingsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
 }

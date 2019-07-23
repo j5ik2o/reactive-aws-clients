@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.sqs.model._
 
 final class CreateQueueResponseBuilderOps(val self: CreateQueueResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): CreateQueueResponse.Builder = {
     value.fold(self) { v =>
       self.queueUrl(v)
@@ -15,6 +16,7 @@ final class CreateQueueResponseBuilderOps(val self: CreateQueueResponse.Builder)
 
 final class CreateQueueResponseOps(val self: CreateQueueResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
 }

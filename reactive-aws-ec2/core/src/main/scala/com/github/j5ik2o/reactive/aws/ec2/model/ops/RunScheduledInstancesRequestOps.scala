@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RunScheduledInstancesRequestBuilderOps(val self: RunScheduledInstancesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): RunScheduledInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): RunScheduledInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.instanceCount(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchSpecificationAsScala(
       value: Option[ScheduledInstancesLaunchSpecification]
   ): RunScheduledInstancesRequest.Builder = {
@@ -25,6 +28,7 @@ final class RunScheduledInstancesRequestBuilderOps(val self: RunScheduledInstanc
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scheduledInstanceIdAsScala(value: Option[String]): RunScheduledInstancesRequest.Builder = {
     value.fold(self) { v =>
       self.scheduledInstanceId(v)
@@ -35,12 +39,16 @@ final class RunScheduledInstancesRequestBuilderOps(val self: RunScheduledInstanc
 
 final class RunScheduledInstancesRequestOps(val self: RunScheduledInstancesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala: Option[Int] = Option(self.instanceCount)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchSpecificationAsScala: Option[ScheduledInstancesLaunchSpecification] = Option(self.launchSpecification)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scheduledInstanceIdAsScala: Option[String] = Option(self.scheduledInstanceId)
 
 }

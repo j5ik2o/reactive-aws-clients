@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CancelReservedInstancesListingRequestBuilderOps(val self: CancelReservedInstancesListingRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesListingIdAsScala(value: Option[String]): CancelReservedInstancesListingRequest.Builder = {
     value.fold(self) { v =>
       self.reservedInstancesListingId(v)
@@ -16,6 +17,7 @@ final class CancelReservedInstancesListingRequestBuilderOps(val self: CancelRese
 
 final class CancelReservedInstancesListingRequestOps(val self: CancelReservedInstancesListingRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedInstancesListingIdAsScala: Option[String] = Option(self.reservedInstancesListingId)
 
 }

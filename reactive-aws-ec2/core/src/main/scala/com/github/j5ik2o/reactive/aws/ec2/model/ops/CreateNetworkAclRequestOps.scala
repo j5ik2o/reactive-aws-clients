@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateNetworkAclRequestBuilderOps(val self: CreateNetworkAclRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): CreateNetworkAclRequest.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -15,6 +16,7 @@ final class CreateNetworkAclRequestBuilderOps(val self: CreateNetworkAclRequest.
 
 final class CreateNetworkAclRequestOps(val self: CreateNetworkAclRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

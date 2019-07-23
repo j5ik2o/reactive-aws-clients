@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.ecr.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.ecr.{ EcrAsyncClient, EcrClient }
 import software.amazon.awssdk.services.ecr.model._
 import software.amazon.awssdk.services.ecr.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object EcrCatsIOClient {
 
-  def apply(asyncClient: EcrAsyncClient): EcrCatsIOClient = new EcrCatsIOClient {
-    override val underlying: EcrAsyncClient = asyncClient
+  def apply(asyncClient: EcrAsyncClient)(implicit ec: ExecutionContext): EcrCatsIOClient = new EcrCatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: EcrAsyncClient         = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object EcrCatsIOClient {
 trait EcrCatsIOClient extends EcrClient[IO] {
 
   val underlying: EcrAsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def batchCheckLayerAvailability(
       batchCheckLayerAvailabilityRequest: BatchCheckLayerAvailabilityRequest

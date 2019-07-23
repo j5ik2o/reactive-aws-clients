@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateTransitGatewayRouteTableResponseBuilderOps(val self: CreateTransitGatewayRouteTableResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableAsScala(
       value: Option[TransitGatewayRouteTable]
   ): CreateTransitGatewayRouteTableResponse.Builder = {
@@ -18,6 +19,7 @@ final class CreateTransitGatewayRouteTableResponseBuilderOps(val self: CreateTra
 
 final class CreateTransitGatewayRouteTableResponseOps(val self: CreateTransitGatewayRouteTableResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableAsScala: Option[TransitGatewayRouteTable] = Option(self.transitGatewayRouteTable)
 
 }

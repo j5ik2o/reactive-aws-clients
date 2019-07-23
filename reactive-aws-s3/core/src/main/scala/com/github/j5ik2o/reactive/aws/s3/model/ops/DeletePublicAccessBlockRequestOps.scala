@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class DeletePublicAccessBlockRequestBuilderOps(val self: DeletePublicAccessBlockRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): DeletePublicAccessBlockRequest.Builder = {
     value.fold(self) { v =>
       self.bucket(v)
@@ -15,6 +16,7 @@ final class DeletePublicAccessBlockRequestBuilderOps(val self: DeletePublicAcces
 
 final class DeletePublicAccessBlockRequestOps(val self: DeletePublicAccessBlockRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala: Option[String] = Option(self.bucket)
 
 }

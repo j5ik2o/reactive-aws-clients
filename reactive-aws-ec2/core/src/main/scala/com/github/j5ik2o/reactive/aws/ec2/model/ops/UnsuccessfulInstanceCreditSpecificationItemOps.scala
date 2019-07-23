@@ -7,12 +7,14 @@ final class UnsuccessfulInstanceCreditSpecificationItemBuilderOps(
     val self: UnsuccessfulInstanceCreditSpecificationItem.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala(value: Option[String]): UnsuccessfulInstanceCreditSpecificationItem.Builder = {
     value.fold(self) { v =>
       self.instanceId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorAsScala(
       value: Option[UnsuccessfulInstanceCreditSpecificationItemError]
   ): UnsuccessfulInstanceCreditSpecificationItem.Builder = {
@@ -26,8 +28,10 @@ final class UnsuccessfulInstanceCreditSpecificationItemBuilderOps(
 final class UnsuccessfulInstanceCreditSpecificationItemOps(val self: UnsuccessfulInstanceCreditSpecificationItem)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorAsScala: Option[UnsuccessfulInstanceCreditSpecificationItemError] = Option(self.error)
 
 }

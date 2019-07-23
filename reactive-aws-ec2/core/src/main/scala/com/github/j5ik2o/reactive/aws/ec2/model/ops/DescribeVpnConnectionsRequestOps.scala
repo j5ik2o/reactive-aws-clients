@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeVpnConnectionsRequestBuilderOps(val self: DescribeVpnConnectionsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[Seq[Filter]]): DescribeVpnConnectionsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.filters(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnConnectionIdsAsScala(value: Option[Seq[String]]): DescribeVpnConnectionsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.vpnConnectionIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.vpnConnectionIds(v.asJava)
     }
   }
 
@@ -21,12 +23,14 @@ final class DescribeVpnConnectionsRequestBuilderOps(val self: DescribeVpnConnect
 
 final class DescribeVpnConnectionsRequestOps(val self: DescribeVpnConnectionsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnConnectionIdsAsScala: Option[Seq[String]] = Option(self.vpnConnectionIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

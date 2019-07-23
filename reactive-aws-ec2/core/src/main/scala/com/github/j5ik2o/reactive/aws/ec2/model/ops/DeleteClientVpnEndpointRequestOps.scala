@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteClientVpnEndpointRequestBuilderOps(val self: DeleteClientVpnEndpointRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala(value: Option[String]): DeleteClientVpnEndpointRequest.Builder = {
     value.fold(self) { v =>
       self.clientVpnEndpointId(v)
@@ -15,6 +16,7 @@ final class DeleteClientVpnEndpointRequestBuilderOps(val self: DeleteClientVpnEn
 
 final class DeleteClientVpnEndpointRequestOps(val self: DeleteClientVpnEndpointRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
 
 }

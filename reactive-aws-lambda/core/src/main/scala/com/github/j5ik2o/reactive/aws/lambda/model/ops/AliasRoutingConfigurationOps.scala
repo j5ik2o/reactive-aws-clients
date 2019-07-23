@@ -5,9 +5,11 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class AliasRoutingConfigurationBuilderOps(val self: AliasRoutingConfiguration.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def additionalVersionWeightsAsScala(value: Option[Map[String, Double]]): AliasRoutingConfiguration.Builder = {
-    value.filter(_.nonEmpty).map(_.mapValues(_.asInstanceOf[java.lang.Double])).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.additionalVersionWeights(v.asJava)
+    value.filter(_.nonEmpty).map(_.view.map { case (k, v) => (k, v.asInstanceOf[java.lang.Double]) }.toMap).fold(self) {
+      v =>
+        import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.additionalVersionWeights(v.asJava)
     }
   }
 
@@ -15,9 +17,11 @@ final class AliasRoutingConfigurationBuilderOps(val self: AliasRoutingConfigurat
 
 final class AliasRoutingConfigurationOps(val self: AliasRoutingConfiguration) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def additionalVersionWeightsAsScala: Option[Map[String, Double]] = Option(self.additionalVersionWeights).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala.toMap.mapValues(_.doubleValue())
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      v.asScala.toMap.view.map { case (k, v) => (k, v.doubleValue()) }.toMap
   }
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class DeleteResourcePolicyRequestBuilderOps(val self: DeleteResourcePolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): DeleteResourcePolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policyName(v)
@@ -15,6 +16,7 @@ final class DeleteResourcePolicyRequestBuilderOps(val self: DeleteResourcePolicy
 
 final class DeleteResourcePolicyRequestOps(val self: DeleteResourcePolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala: Option[String] = Option(self.policyName)
 
 }

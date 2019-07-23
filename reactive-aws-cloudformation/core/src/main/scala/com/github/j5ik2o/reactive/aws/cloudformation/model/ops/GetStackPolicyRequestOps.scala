@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class GetStackPolicyRequestBuilderOps(val self: GetStackPolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): GetStackPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
@@ -15,6 +16,7 @@ final class GetStackPolicyRequestBuilderOps(val self: GetStackPolicyRequest.Buil
 
 final class GetStackPolicyRequestOps(val self: GetStackPolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala: Option[String] = Option(self.stackName)
 
 }

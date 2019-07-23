@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class ListFacesResponseBuilderOps(val self: ListFacesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def facesAsScala(value: Option[Seq[Face]]): ListFacesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.faces(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.faces(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListFacesResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala(value: Option[String]): ListFacesResponse.Builder = {
     value.fold(self) { v =>
       self.faceModelVersion(v)
@@ -27,12 +30,15 @@ final class ListFacesResponseBuilderOps(val self: ListFacesResponse.Builder) ext
 
 final class ListFacesResponseOps(val self: ListFacesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def facesAsScala: Option[Seq[Face]] = Option(self.faces).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala: Option[String] = Option(self.faceModelVersion)
 
 }

@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateRouteTableRequestBuilderOps(val self: CreateRouteTableRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): CreateRouteTableRequest.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -15,6 +16,7 @@ final class CreateRouteTableRequestBuilderOps(val self: CreateRouteTableRequest.
 
 final class CreateRouteTableRequestOps(val self: CreateRouteTableRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }

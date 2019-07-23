@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.batch.model._
 
 final class UlimitBuilderOps(val self: Ulimit.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hardLimitAsScala(value: Option[Int]): Ulimit.Builder = {
     value.fold(self) { v =>
       self.hardLimit(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Ulimit.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def softLimitAsScala(value: Option[Int]): Ulimit.Builder = {
     value.fold(self) { v =>
       self.softLimit(v)
@@ -27,10 +30,13 @@ final class UlimitBuilderOps(val self: Ulimit.Builder) extends AnyVal {
 
 final class UlimitOps(val self: Ulimit) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hardLimitAsScala: Option[Int] = Option(self.hardLimit)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def softLimitAsScala: Option[Int] = Option(self.softLimit)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class ValidateTemplateRequestBuilderOps(val self: ValidateTemplateRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala(value: Option[String]): ValidateTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.templateBody(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateURLAsScala(value: Option[String]): ValidateTemplateRequest.Builder = {
     value.fold(self) { v =>
       self.templateURL(v)
@@ -21,8 +23,10 @@ final class ValidateTemplateRequestBuilderOps(val self: ValidateTemplateRequest.
 
 final class ValidateTemplateRequestOps(val self: ValidateTemplateRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala: Option[String] = Option(self.templateBody)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateURLAsScala: Option[String] = Option(self.templateURL)
 
 }

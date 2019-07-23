@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class TransitGatewayAttachmentAssociationBuilderOps(val self: TransitGatewayAttachmentAssociation.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableIdAsScala(value: Option[String]): TransitGatewayAttachmentAssociation.Builder = {
     value.fold(self) { v =>
       self.transitGatewayRouteTableId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[TransitGatewayAssociationState]): TransitGatewayAttachmentAssociation.Builder = {
     value.fold(self) { v =>
       self.state(v)
@@ -22,8 +24,10 @@ final class TransitGatewayAttachmentAssociationBuilderOps(val self: TransitGatew
 
 final class TransitGatewayAttachmentAssociationOps(val self: TransitGatewayAttachmentAssociation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayRouteTableIdAsScala: Option[String] = Option(self.transitGatewayRouteTableId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[TransitGatewayAssociationState] = Option(self.state)
 
 }

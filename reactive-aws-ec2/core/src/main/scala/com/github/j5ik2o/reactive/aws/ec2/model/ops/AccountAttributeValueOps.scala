@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AccountAttributeValueBuilderOps(val self: AccountAttributeValue.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeValueAsScala(value: Option[String]): AccountAttributeValue.Builder = {
     value.fold(self) { v =>
       self.attributeValue(v)
@@ -15,6 +16,7 @@ final class AccountAttributeValueBuilderOps(val self: AccountAttributeValue.Buil
 
 final class AccountAttributeValueOps(val self: AccountAttributeValue) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeValueAsScala: Option[String] = Option(self.attributeValue)
 
 }

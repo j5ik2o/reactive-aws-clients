@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListGlobalTablesRequestBuilderOps(val self: ListGlobalTablesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.exclusiveStartGlobalTableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.limit(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
@@ -27,10 +30,13 @@ final class ListGlobalTablesRequestBuilderOps(val self: ListGlobalTablesRequest.
 
 final class ListGlobalTablesRequestOps(val self: ListGlobalTablesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartGlobalTableNameAsScala: Option[String] = Option(self.exclusiveStartGlobalTableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
 
 }

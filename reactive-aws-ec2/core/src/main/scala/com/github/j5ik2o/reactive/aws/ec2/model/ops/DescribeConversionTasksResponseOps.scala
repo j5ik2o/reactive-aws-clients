@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.ec2.model._
 final class DescribeConversionTasksResponseBuilderOps(val self: DescribeConversionTasksResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conversionTasksAsScala(value: Option[Seq[ConversionTask]]): DescribeConversionTasksResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.conversionTasks(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.conversionTasks(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class DescribeConversionTasksResponseBuilderOps(val self: DescribeConversi
 
 final class DescribeConversionTasksResponseOps(val self: DescribeConversionTasksResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conversionTasksAsScala: Option[Seq[ConversionTask]] = Option(self.conversionTasks).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

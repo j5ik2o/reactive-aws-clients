@@ -7,6 +7,7 @@ final class UpdateSecurityGroupRuleDescriptionsIngressResponseBuilderOps(
     val self: UpdateSecurityGroupRuleDescriptionsIngressResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala(value: Option[Boolean]): UpdateSecurityGroupRuleDescriptionsIngressResponse.Builder = {
     value.fold(self) { v =>
       self.returnValue(v)
@@ -19,6 +20,7 @@ final class UpdateSecurityGroupRuleDescriptionsIngressResponseOps(
     val self: UpdateSecurityGroupRuleDescriptionsIngressResponse
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }

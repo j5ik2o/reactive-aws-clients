@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dax.model._
 
 final class RebootNodeResponseBuilderOps(val self: RebootNodeResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): RebootNodeResponse.Builder = {
     value.fold(self) { v =>
       self.cluster(v)
@@ -15,6 +16,7 @@ final class RebootNodeResponseBuilderOps(val self: RebootNodeResponse.Builder) e
 
 final class RebootNodeResponseOps(val self: RebootNodeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala: Option[Cluster] = Option(self.cluster)
 
 }

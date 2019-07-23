@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AbortMultipartUploadResponseBuilderOps(val self: AbortMultipartUploadResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): AbortMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -15,6 +16,7 @@ final class AbortMultipartUploadResponseBuilderOps(val self: AbortMultipartUploa
 
 final class AbortMultipartUploadResponseOps(val self: AbortMultipartUploadResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)
 
 }

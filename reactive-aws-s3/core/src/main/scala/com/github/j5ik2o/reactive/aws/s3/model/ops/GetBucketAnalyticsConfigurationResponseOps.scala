@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.s3.model._
 final class GetBucketAnalyticsConfigurationResponseBuilderOps(val self: GetBucketAnalyticsConfigurationResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def analyticsConfigurationAsScala(
       value: Option[AnalyticsConfiguration]
   ): GetBucketAnalyticsConfigurationResponse.Builder = {
@@ -19,6 +20,7 @@ final class GetBucketAnalyticsConfigurationResponseBuilderOps(val self: GetBucke
 final class GetBucketAnalyticsConfigurationResponseOps(val self: GetBucketAnalyticsConfigurationResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def analyticsConfigurationAsScala: Option[AnalyticsConfiguration] = Option(self.analyticsConfiguration)
 
 }

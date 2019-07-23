@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class FpgaImageStateBuilderOps(val self: FpgaImageState.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[FpgaImageStateCode]): FpgaImageState.Builder = {
     value.fold(self) { v =>
       self.code(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): FpgaImageState.Builder = {
     value.fold(self) { v =>
       self.message(v)
@@ -21,8 +23,10 @@ final class FpgaImageStateBuilderOps(val self: FpgaImageState.Builder) extends A
 
 final class FpgaImageStateOps(val self: FpgaImageState) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala: Option[FpgaImageStateCode] = Option(self.code)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala: Option[String] = Option(self.message)
 
 }

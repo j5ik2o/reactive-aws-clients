@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.appsync.model._
 
 final class DeleteGraphqlApiRequestBuilderOps(val self: DeleteGraphqlApiRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): DeleteGraphqlApiRequest.Builder = {
     value.fold(self) { v =>
       self.apiId(v)
@@ -15,6 +16,7 @@ final class DeleteGraphqlApiRequestBuilderOps(val self: DeleteGraphqlApiRequest.
 
 final class DeleteGraphqlApiRequestOps(val self: DeleteGraphqlApiRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala: Option[String] = Option(self.apiId)
 
 }

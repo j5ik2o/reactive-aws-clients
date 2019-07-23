@@ -7,12 +7,14 @@ final class DisassociateClientVpnTargetNetworkRequestBuilderOps(
     val self: DisassociateClientVpnTargetNetworkRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala(value: Option[String]): DisassociateClientVpnTargetNetworkRequest.Builder = {
     value.fold(self) { v =>
       self.clientVpnEndpointId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala(value: Option[String]): DisassociateClientVpnTargetNetworkRequest.Builder = {
     value.fold(self) { v =>
       self.associationId(v)
@@ -24,8 +26,10 @@ final class DisassociateClientVpnTargetNetworkRequestBuilderOps(
 final class DisassociateClientVpnTargetNetworkRequestOps(val self: DisassociateClientVpnTargetNetworkRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
 
 }

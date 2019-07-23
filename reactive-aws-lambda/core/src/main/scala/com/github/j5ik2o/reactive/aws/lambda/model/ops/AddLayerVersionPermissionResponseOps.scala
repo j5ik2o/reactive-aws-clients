@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.lambda.model._
 final class AddLayerVersionPermissionResponseBuilderOps(val self: AddLayerVersionPermissionResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementAsScala(value: Option[String]): AddLayerVersionPermissionResponse.Builder = {
     value.fold(self) { v =>
       self.statement(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): AddLayerVersionPermissionResponse.Builder = {
     value.fold(self) { v =>
       self.revisionId(v)
@@ -22,8 +24,10 @@ final class AddLayerVersionPermissionResponseBuilderOps(val self: AddLayerVersio
 
 final class AddLayerVersionPermissionResponseOps(val self: AddLayerVersionPermissionResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementAsScala: Option[String] = Option(self.statement)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala: Option[String] = Option(self.revisionId)
 
 }

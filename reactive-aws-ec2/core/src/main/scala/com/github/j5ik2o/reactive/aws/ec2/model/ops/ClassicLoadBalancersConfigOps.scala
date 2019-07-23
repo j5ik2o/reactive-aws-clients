@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ClassicLoadBalancersConfigBuilderOps(val self: ClassicLoadBalancersConfig.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def classicLoadBalancersAsScala(value: Option[Seq[ClassicLoadBalancer]]): ClassicLoadBalancersConfig.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.classicLoadBalancers(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.classicLoadBalancers(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class ClassicLoadBalancersConfigBuilderOps(val self: ClassicLoadBalancersC
 
 final class ClassicLoadBalancersConfigOps(val self: ClassicLoadBalancersConfig) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def classicLoadBalancersAsScala: Option[Seq[ClassicLoadBalancer]] = Option(self.classicLoadBalancers).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

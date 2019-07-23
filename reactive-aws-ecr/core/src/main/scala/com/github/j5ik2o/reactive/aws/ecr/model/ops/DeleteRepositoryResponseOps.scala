@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class DeleteRepositoryResponseBuilderOps(val self: DeleteRepositoryResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryAsScala(value: Option[Repository]): DeleteRepositoryResponse.Builder = {
     value.fold(self) { v =>
       self.repository(v)
@@ -15,6 +16,7 @@ final class DeleteRepositoryResponseBuilderOps(val self: DeleteRepositoryRespons
 
 final class DeleteRepositoryResponseOps(val self: DeleteRepositoryResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryAsScala: Option[Repository] = Option(self.repository)
 
 }

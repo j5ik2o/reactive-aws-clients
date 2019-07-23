@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class AttributeDefinitionBuilderOps(val self: AttributeDefinition.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala(value: Option[String]): AttributeDefinition.Builder = {
     value.fold(self) { v =>
       self.attributeName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeTypeAsScala(value: Option[ScalarAttributeType]): AttributeDefinition.Builder = {
     value.fold(self) { v =>
       self.attributeType(v)
@@ -21,8 +23,10 @@ final class AttributeDefinitionBuilderOps(val self: AttributeDefinition.Builder)
 
 final class AttributeDefinitionOps(val self: AttributeDefinition) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala: Option[String] = Option(self.attributeName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeTypeAsScala: Option[ScalarAttributeType] = Option(self.attributeType)
 
 }

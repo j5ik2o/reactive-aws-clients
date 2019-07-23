@@ -5,39 +5,45 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class StaleIpPermissionBuilderOps(val self: StaleIpPermission.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fromPortAsScala(value: Option[Int]): StaleIpPermission.Builder = {
     value.fold(self) { v =>
       self.fromPort(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipProtocolAsScala(value: Option[String]): StaleIpPermission.Builder = {
     value.fold(self) { v =>
       self.ipProtocol(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipRangesAsScala(value: Option[Seq[String]]): StaleIpPermission.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.ipRanges(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.ipRanges(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixListIdsAsScala(value: Option[Seq[String]]): StaleIpPermission.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.prefixListIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.prefixListIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def toPortAsScala(value: Option[Int]): StaleIpPermission.Builder = {
     value.fold(self) { v =>
       self.toPort(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userIdGroupPairsAsScala(value: Option[Seq[UserIdGroupPair]]): StaleIpPermission.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.userIdGroupPairs(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.userIdGroupPairs(v.asJava)
     }
   }
 
@@ -45,22 +51,28 @@ final class StaleIpPermissionBuilderOps(val self: StaleIpPermission.Builder) ext
 
 final class StaleIpPermissionOps(val self: StaleIpPermission) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fromPortAsScala: Option[Int] = Option(self.fromPort)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipProtocolAsScala: Option[String] = Option(self.ipProtocol)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipRangesAsScala: Option[Seq[String]] = Option(self.ipRanges).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixListIdsAsScala: Option[Seq[String]] = Option(self.prefixListIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def toPortAsScala: Option[Int] = Option(self.toPort)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userIdGroupPairsAsScala: Option[Seq[UserIdGroupPair]] = Option(self.userIdGroupPairs).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

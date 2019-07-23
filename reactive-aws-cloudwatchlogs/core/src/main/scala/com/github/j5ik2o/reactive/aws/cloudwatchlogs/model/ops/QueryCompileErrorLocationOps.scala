@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class QueryCompileErrorLocationBuilderOps(val self: QueryCompileErrorLocation.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startCharOffsetAsScala(value: Option[Int]): QueryCompileErrorLocation.Builder = {
     value.fold(self) { v =>
       self.startCharOffset(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endCharOffsetAsScala(value: Option[Int]): QueryCompileErrorLocation.Builder = {
     value.fold(self) { v =>
       self.endCharOffset(v)
@@ -21,8 +23,10 @@ final class QueryCompileErrorLocationBuilderOps(val self: QueryCompileErrorLocat
 
 final class QueryCompileErrorLocationOps(val self: QueryCompileErrorLocation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startCharOffsetAsScala: Option[Int] = Option(self.startCharOffset)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endCharOffsetAsScala: Option[Int] = Option(self.endCharOffset)
 
 }

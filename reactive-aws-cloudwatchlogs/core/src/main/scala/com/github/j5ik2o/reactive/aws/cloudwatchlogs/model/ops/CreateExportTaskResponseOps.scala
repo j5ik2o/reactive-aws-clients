@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class CreateExportTaskResponseBuilderOps(val self: CreateExportTaskResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskIdAsScala(value: Option[String]): CreateExportTaskResponse.Builder = {
     value.fold(self) { v =>
       self.taskId(v)
@@ -15,6 +16,7 @@ final class CreateExportTaskResponseBuilderOps(val self: CreateExportTaskRespons
 
 final class CreateExportTaskResponseOps(val self: CreateExportTaskResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskIdAsScala: Option[String] = Option(self.taskId)
 
 }

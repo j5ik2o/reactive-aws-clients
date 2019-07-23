@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.eks.model._
 
 final class DescribeUpdateRequestBuilderOps(val self: DescribeUpdateRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): DescribeUpdateRequest.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateIdAsScala(value: Option[String]): DescribeUpdateRequest.Builder = {
     value.fold(self) { v =>
       self.updateId(v)
@@ -21,8 +23,10 @@ final class DescribeUpdateRequestBuilderOps(val self: DescribeUpdateRequest.Buil
 
 final class DescribeUpdateRequestOps(val self: DescribeUpdateRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateIdAsScala: Option[String] = Option(self.updateId)
 
 }

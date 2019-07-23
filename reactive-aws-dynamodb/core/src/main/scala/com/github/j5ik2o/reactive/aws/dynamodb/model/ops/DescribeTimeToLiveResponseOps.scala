@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeTimeToLiveResponseBuilderOps(val self: DescribeTimeToLiveResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeToLiveDescriptionAsScala(value: Option[TimeToLiveDescription]): DescribeTimeToLiveResponse.Builder = {
     value.fold(self) { v =>
       self.timeToLiveDescription(v)
@@ -15,6 +16,7 @@ final class DescribeTimeToLiveResponseBuilderOps(val self: DescribeTimeToLiveRes
 
 final class DescribeTimeToLiveResponseOps(val self: DescribeTimeToLiveResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeToLiveDescriptionAsScala: Option[TimeToLiveDescription] = Option(self.timeToLiveDescription)
 
 }

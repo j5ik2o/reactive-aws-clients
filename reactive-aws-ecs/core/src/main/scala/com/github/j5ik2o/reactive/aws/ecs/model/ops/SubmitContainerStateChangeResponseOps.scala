@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ecs.model._
 final class SubmitContainerStateChangeResponseBuilderOps(val self: SubmitContainerStateChangeResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acknowledgmentAsScala(value: Option[String]): SubmitContainerStateChangeResponse.Builder = {
     value.fold(self) { v =>
       self.acknowledgment(v)
@@ -16,6 +17,7 @@ final class SubmitContainerStateChangeResponseBuilderOps(val self: SubmitContain
 
 final class SubmitContainerStateChangeResponseOps(val self: SubmitContainerStateChangeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acknowledgmentAsScala: Option[String] = Option(self.acknowledgment)
 
 }

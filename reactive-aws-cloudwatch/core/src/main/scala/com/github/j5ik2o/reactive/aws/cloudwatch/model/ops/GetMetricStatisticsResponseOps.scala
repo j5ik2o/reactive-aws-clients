@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class GetMetricStatisticsResponseBuilderOps(val self: GetMetricStatisticsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): GetMetricStatisticsResponse.Builder = {
     value.fold(self) { v =>
       self.label(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def datapointsAsScala(value: Option[Seq[Datapoint]]): GetMetricStatisticsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.datapoints(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.datapoints(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class GetMetricStatisticsResponseBuilderOps(val self: GetMetricStatisticsR
 
 final class GetMetricStatisticsResponseOps(val self: GetMetricStatisticsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala: Option[String] = Option(self.label)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def datapointsAsScala: Option[Seq[Datapoint]] = Option(self.datapoints).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

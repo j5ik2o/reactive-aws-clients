@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class RollbackTriggerBuilderOps(val self: RollbackTrigger.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): RollbackTrigger.Builder = {
     value.fold(self) { v =>
       self.arn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): RollbackTrigger.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -21,8 +23,10 @@ final class RollbackTriggerBuilderOps(val self: RollbackTrigger.Builder) extends
 
 final class RollbackTriggerOps(val self: RollbackTrigger) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
 
 }

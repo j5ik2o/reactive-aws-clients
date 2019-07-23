@@ -5,21 +5,24 @@ import software.amazon.awssdk.services.dax.model._
 
 final class UpdateSubnetGroupRequestBuilderOps(val self: UpdateSubnetGroupRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupNameAsScala(value: Option[String]): UpdateSubnetGroupRequest.Builder = {
     value.fold(self) { v =>
       self.subnetGroupName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): UpdateSubnetGroupRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdsAsScala(value: Option[Seq[String]]): UpdateSubnetGroupRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.subnetIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.subnetIds(v.asJava)
     }
   }
 
@@ -27,12 +30,15 @@ final class UpdateSubnetGroupRequestBuilderOps(val self: UpdateSubnetGroupReques
 
 final class UpdateSubnetGroupRequestOps(val self: UpdateSubnetGroupRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

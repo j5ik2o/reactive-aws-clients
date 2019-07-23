@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.kms.model._
 final class DisconnectCustomKeyStoreRequestBuilderOps(val self: DisconnectCustomKeyStoreRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): DisconnectCustomKeyStoreRequest.Builder = {
     value.fold(self) { v =>
       self.customKeyStoreId(v)
@@ -16,6 +17,7 @@ final class DisconnectCustomKeyStoreRequestBuilderOps(val self: DisconnectCustom
 
 final class DisconnectCustomKeyStoreRequestOps(val self: DisconnectCustomKeyStoreRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala: Option[String] = Option(self.customKeyStoreId)
 
 }

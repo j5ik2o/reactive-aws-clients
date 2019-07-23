@@ -6,9 +6,10 @@ import software.amazon.awssdk.services.ec2.model._
 final class AcceptVpcEndpointConnectionsResponseBuilderOps(val self: AcceptVpcEndpointConnectionsResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfulAsScala(value: Option[Seq[UnsuccessfulItem]]): AcceptVpcEndpointConnectionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.unsuccessful(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.unsuccessful(v.asJava)
     }
   }
 
@@ -16,8 +17,9 @@ final class AcceptVpcEndpointConnectionsResponseBuilderOps(val self: AcceptVpcEn
 
 final class AcceptVpcEndpointConnectionsResponseOps(val self: AcceptVpcEndpointConnectionsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unsuccessfulAsScala: Option[Seq[UnsuccessfulItem]] = Option(self.unsuccessful).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

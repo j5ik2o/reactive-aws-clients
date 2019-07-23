@@ -106,6 +106,11 @@ trait AppSyncAsyncClient extends AppSyncClient[Future] {
   ): Future[ListResolversByFunctionResponse] =
     underlying.listResolversByFunction(listResolversByFunctionRequest).toScala
 
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Future[ListTagsForResourceResponse] =
+    underlying.listTagsForResource(listTagsForResourceRequest).toScala
+
   override def listTypes(listTypesRequest: ListTypesRequest): Future[ListTypesResponse] =
     underlying.listTypes(listTypesRequest).toScala
 
@@ -113,6 +118,12 @@ trait AppSyncAsyncClient extends AppSyncClient[Future] {
       startSchemaCreationRequest: StartSchemaCreationRequest
   ): Future[StartSchemaCreationResponse] =
     underlying.startSchemaCreation(startSchemaCreationRequest).toScala
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toScala
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toScala
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): Future[UpdateApiKeyResponse] =
     underlying.updateApiKey(updateApiKeyRequest).toScala

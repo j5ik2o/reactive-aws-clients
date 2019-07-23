@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): ReplicaSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.regionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaProvisionedReadCapacityUnitsAsScala(value: Option[Long]): ReplicaSettingsUpdate.Builder = {
     value.fold(self) { v =>
       self.replicaProvisionedReadCapacityUnits(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaProvisionedReadCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): ReplicaSettingsUpdate.Builder = {
@@ -25,11 +28,13 @@ final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaGlobalSecondaryIndexSettingsUpdateAsScala(
       value: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]]
   ): ReplicaSettingsUpdate.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.replicaGlobalSecondaryIndexSettingsUpdate(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.replicaGlobalSecondaryIndexSettingsUpdate(v.asJava)
     }
   }
 
@@ -37,16 +42,20 @@ final class ReplicaSettingsUpdateBuilderOps(val self: ReplicaSettingsUpdate.Buil
 
 final class ReplicaSettingsUpdateOps(val self: ReplicaSettingsUpdate) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaProvisionedReadCapacityUnitsAsScala: Option[Long] = Option(self.replicaProvisionedReadCapacityUnits)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaProvisionedReadCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
     Option(self.replicaProvisionedReadCapacityAutoScalingSettingsUpdate)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaGlobalSecondaryIndexSettingsUpdateAsScala: Option[Seq[ReplicaGlobalSecondaryIndexSettingsUpdate]] =
     Option(self.replicaGlobalSecondaryIndexSettingsUpdate).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
 }

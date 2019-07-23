@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.ec2.model._
 final class DirectoryServiceAuthenticationRequestBuilderOps(val self: DirectoryServiceAuthenticationRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def directoryIdAsScala(value: Option[String]): DirectoryServiceAuthenticationRequest.Builder = {
     value.fold(self) { v =>
       self.directoryId(v)
@@ -16,6 +17,7 @@ final class DirectoryServiceAuthenticationRequestBuilderOps(val self: DirectoryS
 
 final class DirectoryServiceAuthenticationRequestOps(val self: DirectoryServiceAuthenticationRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def directoryIdAsScala: Option[String] = Option(self.directoryId)
 
 }

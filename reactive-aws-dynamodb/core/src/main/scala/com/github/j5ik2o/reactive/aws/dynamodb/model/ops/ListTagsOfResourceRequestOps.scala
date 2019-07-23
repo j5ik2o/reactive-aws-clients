@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ListTagsOfResourceRequestBuilderOps(val self: ListTagsOfResourceRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceArnAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
     value.fold(self) { v =>
       self.resourceArn(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListTagsOfResourceRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -21,8 +23,10 @@ final class ListTagsOfResourceRequestBuilderOps(val self: ListTagsOfResourceRequ
 
 final class ListTagsOfResourceRequestOps(val self: ListTagsOfResourceRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

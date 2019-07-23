@@ -7,24 +7,28 @@ final class DescribeEnvironmentManagedActionHistoryRequestBuilderOps(
     val self: DescribeEnvironmentManagedActionHistoryRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.environmentId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.environmentName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.maxItems(v)
@@ -36,12 +40,16 @@ final class DescribeEnvironmentManagedActionHistoryRequestBuilderOps(
 final class DescribeEnvironmentManagedActionHistoryRequestOps(val self: DescribeEnvironmentManagedActionHistoryRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala: Option[Int] = Option(self.maxItems)
 
 }

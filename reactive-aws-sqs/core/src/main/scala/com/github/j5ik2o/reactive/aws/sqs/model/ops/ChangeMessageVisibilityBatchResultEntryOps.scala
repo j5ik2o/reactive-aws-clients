@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.sqs.model._
 final class ChangeMessageVisibilityBatchResultEntryBuilderOps(val self: ChangeMessageVisibilityBatchResultEntry.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): ChangeMessageVisibilityBatchResultEntry.Builder = {
     value.fold(self) { v =>
       self.id(v)
@@ -17,6 +18,7 @@ final class ChangeMessageVisibilityBatchResultEntryBuilderOps(val self: ChangeMe
 final class ChangeMessageVisibilityBatchResultEntryOps(val self: ChangeMessageVisibilityBatchResultEntry)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala: Option[String] = Option(self.id)
 
 }

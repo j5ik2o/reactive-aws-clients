@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class KeyPairInfoBuilderOps(val self: KeyPairInfo.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyFingerprintAsScala(value: Option[String]): KeyPairInfo.Builder = {
     value.fold(self) { v =>
       self.keyFingerprint(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala(value: Option[String]): KeyPairInfo.Builder = {
     value.fold(self) { v =>
       self.keyName(v)
@@ -21,8 +23,10 @@ final class KeyPairInfoBuilderOps(val self: KeyPairInfo.Builder) extends AnyVal 
 
 final class KeyPairInfoOps(val self: KeyPairInfo) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyFingerprintAsScala: Option[String] = Option(self.keyFingerprint)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala: Option[String] = Option(self.keyName)
 
 }

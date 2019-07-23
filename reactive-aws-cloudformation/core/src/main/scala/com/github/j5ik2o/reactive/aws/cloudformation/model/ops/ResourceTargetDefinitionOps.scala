@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class ResourceTargetDefinitionBuilderOps(val self: ResourceTargetDefinition.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala(value: Option[ResourceAttribute]): ResourceTargetDefinition.Builder = {
     value.fold(self) { v =>
       self.attribute(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): ResourceTargetDefinition.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requiresRecreationAsScala(value: Option[RequiresRecreation]): ResourceTargetDefinition.Builder = {
     value.fold(self) { v =>
       self.requiresRecreation(v)
@@ -27,10 +30,13 @@ final class ResourceTargetDefinitionBuilderOps(val self: ResourceTargetDefinitio
 
 final class ResourceTargetDefinitionOps(val self: ResourceTargetDefinition) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala: Option[ResourceAttribute] = Option(self.attribute)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requiresRecreationAsScala: Option[RequiresRecreation] = Option(self.requiresRecreation)
 
 }

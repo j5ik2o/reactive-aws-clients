@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class CreateGlobalTableResponseBuilderOps(val self: CreateGlobalTableResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableDescriptionAsScala(value: Option[GlobalTableDescription]): CreateGlobalTableResponse.Builder = {
     value.fold(self) { v =>
       self.globalTableDescription(v)
@@ -15,6 +16,7 @@ final class CreateGlobalTableResponseBuilderOps(val self: CreateGlobalTableRespo
 
 final class CreateGlobalTableResponseOps(val self: CreateGlobalTableResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableDescriptionAsScala: Option[GlobalTableDescription] = Option(self.globalTableDescription)
 
 }

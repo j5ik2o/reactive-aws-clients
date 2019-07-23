@@ -51,6 +51,8 @@ trait LambdaClient[M[_]] {
 
   def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): M[GetLayerVersionResponse]
 
+  def getLayerVersionByArn(getLayerVersionByArnRequest: GetLayerVersionByArnRequest): M[GetLayerVersionByArnResponse]
+
   def getLayerVersionPolicy(
       getLayerVersionPolicyRequest: GetLayerVersionPolicyRequest
   ): M[GetLayerVersionPolicyResponse]

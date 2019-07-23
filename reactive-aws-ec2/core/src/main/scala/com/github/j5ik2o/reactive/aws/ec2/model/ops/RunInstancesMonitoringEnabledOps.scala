@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RunInstancesMonitoringEnabledBuilderOps(val self: RunInstancesMonitoringEnabled.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): RunInstancesMonitoringEnabled.Builder = {
     value.fold(self) { v =>
       self.enabled(v)
@@ -15,6 +16,7 @@ final class RunInstancesMonitoringEnabledBuilderOps(val self: RunInstancesMonito
 
 final class RunInstancesMonitoringEnabledOps(val self: RunInstancesMonitoringEnabled) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }

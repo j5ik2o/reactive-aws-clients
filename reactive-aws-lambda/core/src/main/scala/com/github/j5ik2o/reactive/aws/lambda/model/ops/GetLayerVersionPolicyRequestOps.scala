@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class GetLayerVersionPolicyRequestBuilderOps(val self: GetLayerVersionPolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): GetLayerVersionPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.layerName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala(value: Option[Long]): GetLayerVersionPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.versionNumber(v)
@@ -21,8 +23,10 @@ final class GetLayerVersionPolicyRequestBuilderOps(val self: GetLayerVersionPoli
 
 final class GetLayerVersionPolicyRequestOps(val self: GetLayerVersionPolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala: Option[String] = Option(self.layerName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala: Option[Long] = Option(self.versionNumber)
 
 }

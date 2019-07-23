@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TransactGetItemBuilderOps(val self: TransactGetItem.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def getAsScala(value: Option[Get]): TransactGetItem.Builder = {
     value.fold(self) { v =>
       self.get(v)
@@ -15,6 +16,7 @@ final class TransactGetItemBuilderOps(val self: TransactGetItem.Builder) extends
 
 final class TransactGetItemOps(val self: TransactGetItem) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def getAsScala: Option[Get] = Option(self.get)
 
 }

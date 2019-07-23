@@ -7,12 +7,14 @@ final class DescribeElasticsearchInstanceTypeLimitsRequestBuilderOps(
     val self: DescribeElasticsearchInstanceTypeLimitsRequest.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
     value.fold(self) { v =>
       self.domainName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(
       value: Option[ESPartitionInstanceType]
   ): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
@@ -21,6 +23,7 @@ final class DescribeElasticsearchInstanceTypeLimitsRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchVersionAsScala(
       value: Option[String]
   ): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
@@ -34,10 +37,13 @@ final class DescribeElasticsearchInstanceTypeLimitsRequestBuilderOps(
 final class DescribeElasticsearchInstanceTypeLimitsRequestOps(val self: DescribeElasticsearchInstanceTypeLimitsRequest)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala: Option[String] = Option(self.domainName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[ESPartitionInstanceType] = Option(self.instanceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchVersionAsScala: Option[String] = Option(self.elasticsearchVersion)
 
 }

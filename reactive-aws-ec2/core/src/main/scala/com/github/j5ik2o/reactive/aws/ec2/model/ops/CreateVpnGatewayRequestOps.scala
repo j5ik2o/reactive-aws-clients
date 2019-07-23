@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateVpnGatewayRequestBuilderOps(val self: CreateVpnGatewayRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala(value: Option[String]): CreateVpnGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.availabilityZone(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[GatewayType]): CreateVpnGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amazonSideAsnAsScala(value: Option[Long]): CreateVpnGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.amazonSideAsn(v)
@@ -27,10 +30,13 @@ final class CreateVpnGatewayRequestBuilderOps(val self: CreateVpnGatewayRequest.
 
 final class CreateVpnGatewayRequestOps(val self: CreateVpnGatewayRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[GatewayType] = Option(self.`type`)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amazonSideAsnAsScala: Option[Long] = Option(self.amazonSideAsn)
 
 }

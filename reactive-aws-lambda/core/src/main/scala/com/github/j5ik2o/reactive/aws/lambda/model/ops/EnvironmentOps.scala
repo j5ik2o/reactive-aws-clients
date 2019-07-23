@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class EnvironmentBuilderOps(val self: Environment.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def variablesAsScala(value: Option[Map[String, String]]): Environment.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.variables(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.variables(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class EnvironmentBuilderOps(val self: Environment.Builder) extends AnyVal 
 
 final class EnvironmentOps(val self: Environment) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def variablesAsScala: Option[Map[String, String]] = Option(self.variables).map { v =>
-    import scala.collection.JavaConverters._; v.asScala.toMap
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
 
 }

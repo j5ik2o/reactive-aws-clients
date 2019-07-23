@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDescription.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuousBackupsStatusAsScala(
       value: Option[ContinuousBackupsStatus]
   ): ContinuousBackupsDescription.Builder = {
@@ -13,6 +14,7 @@ final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDe
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryDescriptionAsScala(
       value: Option[PointInTimeRecoveryDescription]
   ): ContinuousBackupsDescription.Builder = {
@@ -25,8 +27,10 @@ final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDe
 
 final class ContinuousBackupsDescriptionOps(val self: ContinuousBackupsDescription) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuousBackupsStatusAsScala: Option[ContinuousBackupsStatus] = Option(self.continuousBackupsStatus)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryDescriptionAsScala: Option[PointInTimeRecoveryDescription] =
     Option(self.pointInTimeRecoveryDescription)
 

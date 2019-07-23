@@ -5,15 +5,17 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 final class DetectStackDriftRequestBuilderOps(val self: DetectStackDriftRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): DetectStackDriftRequest.Builder = {
     value.fold(self) { v =>
       self.stackName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdsAsScala(value: Option[Seq[String]]): DetectStackDriftRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.logicalResourceIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.logicalResourceIds(v.asJava)
     }
   }
 
@@ -21,10 +23,12 @@ final class DetectStackDriftRequestBuilderOps(val self: DetectStackDriftRequest.
 
 final class DetectStackDriftRequestOps(val self: DetectStackDriftRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala: Option[String] = Option(self.stackName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdsAsScala: Option[Seq[String]] = Option(self.logicalResourceIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

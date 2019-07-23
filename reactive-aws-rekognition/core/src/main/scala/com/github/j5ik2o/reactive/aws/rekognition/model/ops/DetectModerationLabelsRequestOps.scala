@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class DetectModerationLabelsRequestBuilderOps(val self: DetectModerationLabelsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): DetectModerationLabelsRequest.Builder = {
     value.fold(self) { v =>
       self.image(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala(value: Option[Float]): DetectModerationLabelsRequest.Builder = {
     value.fold(self) { v =>
       self.minConfidence(v)
@@ -21,8 +23,10 @@ final class DetectModerationLabelsRequestBuilderOps(val self: DetectModerationLa
 
 final class DetectModerationLabelsRequestOps(val self: DetectModerationLabelsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala: Option[Image] = Option(self.image)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala: Option[Float] = Option(self.minConfidence)
 
 }

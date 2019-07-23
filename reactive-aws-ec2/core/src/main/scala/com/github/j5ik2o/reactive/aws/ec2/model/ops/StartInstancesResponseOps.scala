@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class StartInstancesResponseBuilderOps(val self: StartInstancesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingInstancesAsScala(value: Option[Seq[InstanceStateChange]]): StartInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.startingInstances(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.startingInstances(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class StartInstancesResponseBuilderOps(val self: StartInstancesResponse.Bu
 
 final class StartInstancesResponseOps(val self: StartInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingInstancesAsScala: Option[Seq[InstanceStateChange]] = Option(self.startingInstances).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

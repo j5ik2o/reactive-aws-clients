@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RunScheduledInstancesResponseBuilderOps(val self: RunScheduledInstancesResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdSetAsScala(value: Option[Seq[String]]): RunScheduledInstancesResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.instanceIdSet(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.instanceIdSet(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class RunScheduledInstancesResponseBuilderOps(val self: RunScheduledInstan
 
 final class RunScheduledInstancesResponseOps(val self: RunScheduledInstancesResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdSetAsScala: Option[Seq[String]] = Option(self.instanceIdSet).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

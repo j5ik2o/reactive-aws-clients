@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class PutDestinationPolicyRequestBuilderOps(val self: PutDestinationPolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala(value: Option[String]): PutDestinationPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.destinationName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPolicyAsScala(value: Option[String]): PutDestinationPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.accessPolicy(v)
@@ -21,8 +23,10 @@ final class PutDestinationPolicyRequestBuilderOps(val self: PutDestinationPolicy
 
 final class PutDestinationPolicyRequestOps(val self: PutDestinationPolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala: Option[String] = Option(self.destinationName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPolicyAsScala: Option[String] = Option(self.accessPolicy)
 
 }

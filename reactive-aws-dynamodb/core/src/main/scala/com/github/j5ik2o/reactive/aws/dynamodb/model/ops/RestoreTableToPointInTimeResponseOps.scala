@@ -6,6 +6,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class RestoreTableToPointInTimeResponseBuilderOps(val self: RestoreTableToPointInTimeResponse.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala(value: Option[TableDescription]): RestoreTableToPointInTimeResponse.Builder = {
     value.fold(self) { v =>
       self.tableDescription(v)
@@ -16,6 +17,7 @@ final class RestoreTableToPointInTimeResponseBuilderOps(val self: RestoreTableTo
 
 final class RestoreTableToPointInTimeResponseOps(val self: RestoreTableToPointInTimeResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala: Option[TableDescription] = Option(self.tableDescription)
 
 }

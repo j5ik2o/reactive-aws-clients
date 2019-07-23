@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class StartQueryResponseBuilderOps(val self: StartQueryResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queryIdAsScala(value: Option[String]): StartQueryResponse.Builder = {
     value.fold(self) { v =>
       self.queryId(v)
@@ -15,6 +16,7 @@ final class StartQueryResponseBuilderOps(val self: StartQueryResponse.Builder) e
 
 final class StartQueryResponseOps(val self: StartQueryResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queryIdAsScala: Option[String] = Option(self.queryId)
 
 }

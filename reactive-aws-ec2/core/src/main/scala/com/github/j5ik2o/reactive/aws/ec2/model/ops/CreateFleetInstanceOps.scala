@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CreateFleetInstanceBuilderOps(val self: CreateFleetInstance.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateAndOverridesAsScala(
       value: Option[LaunchTemplateAndOverridesResponse]
   ): CreateFleetInstance.Builder = {
@@ -13,24 +14,28 @@ final class CreateFleetInstanceBuilderOps(val self: CreateFleetInstance.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecycleAsScala(value: Option[InstanceLifecycle]): CreateFleetInstance.Builder = {
     value.fold(self) { v =>
       self.lifecycle(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdsAsScala(value: Option[Seq[String]]): CreateFleetInstance.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.instanceIds(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.instanceIds(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(value: Option[InstanceType]): CreateFleetInstance.Builder = {
     value.fold(self) { v =>
       self.instanceType(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformAsScala(value: Option[PlatformValues]): CreateFleetInstance.Builder = {
     value.fold(self) { v =>
       self.platform(v)
@@ -41,17 +46,22 @@ final class CreateFleetInstanceBuilderOps(val self: CreateFleetInstance.Builder)
 
 final class CreateFleetInstanceOps(val self: CreateFleetInstance) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateAndOverridesAsScala: Option[LaunchTemplateAndOverridesResponse] =
     Option(self.launchTemplateAndOverrides)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecycleAsScala: Option[InstanceLifecycle] = Option(self.lifecycle)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceIdsAsScala: Option[Seq[String]] = Option(self.instanceIds).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[InstanceType] = Option(self.instanceType)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformAsScala: Option[PlatformValues] = Option(self.platform)
 
 }

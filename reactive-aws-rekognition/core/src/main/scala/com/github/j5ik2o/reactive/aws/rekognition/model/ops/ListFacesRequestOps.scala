@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class ListFacesRequestBuilderOps(val self: ListFacesRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): ListFacesRequest.Builder = {
     value.fold(self) { v =>
       self.collectionId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListFacesRequest.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListFacesRequest.Builder = {
     value.fold(self) { v =>
       self.maxResults(v)
@@ -27,10 +30,13 @@ final class ListFacesRequestBuilderOps(val self: ListFacesRequest.Builder) exten
 
 final class ListFacesRequestOps(val self: ListFacesRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala: Option[String] = Option(self.collectionId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }

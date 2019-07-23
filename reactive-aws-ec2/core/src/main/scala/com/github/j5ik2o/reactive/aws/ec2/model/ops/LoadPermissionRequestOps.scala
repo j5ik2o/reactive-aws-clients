@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class LoadPermissionRequestBuilderOps(val self: LoadPermissionRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupAsScala(value: Option[PermissionGroup]): LoadPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.group(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userIdAsScala(value: Option[String]): LoadPermissionRequest.Builder = {
     value.fold(self) { v =>
       self.userId(v)
@@ -21,8 +23,10 @@ final class LoadPermissionRequestBuilderOps(val self: LoadPermissionRequest.Buil
 
 final class LoadPermissionRequestOps(val self: LoadPermissionRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupAsScala: Option[PermissionGroup] = Option(self.group)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userIdAsScala: Option[String] = Option(self.userId)
 
 }

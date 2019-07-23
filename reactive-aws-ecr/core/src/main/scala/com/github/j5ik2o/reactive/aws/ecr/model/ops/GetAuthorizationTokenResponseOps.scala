@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ecr.model._
 
 final class GetAuthorizationTokenResponseBuilderOps(val self: GetAuthorizationTokenResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationDataAsScala(value: Option[Seq[AuthorizationData]]): GetAuthorizationTokenResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.authorizationData(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.authorizationData(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class GetAuthorizationTokenResponseBuilderOps(val self: GetAuthorizationTo
 
 final class GetAuthorizationTokenResponseOps(val self: GetAuthorizationTokenResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationDataAsScala: Option[Seq[AuthorizationData]] = Option(self.authorizationData).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

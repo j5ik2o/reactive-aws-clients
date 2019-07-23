@@ -5,24 +5,28 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class ConfigurationOptionSettingBuilderOps(val self: ConfigurationOptionSetting.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceNameAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
     value.fold(self) { v =>
       self.resourceName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
     value.fold(self) { v =>
       self.namespace(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionNameAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
     value.fold(self) { v =>
       self.optionName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
     value.fold(self) { v =>
       self.value(v)
@@ -33,12 +37,16 @@ final class ConfigurationOptionSettingBuilderOps(val self: ConfigurationOptionSe
 
 final class ConfigurationOptionSettingOps(val self: ConfigurationOptionSetting) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceNameAsScala: Option[String] = Option(self.resourceName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala: Option[String] = Option(self.namespace)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionNameAsScala: Option[String] = Option(self.optionName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[String] = Option(self.value)
 
 }

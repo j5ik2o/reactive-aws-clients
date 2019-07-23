@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class GetKeyPolicyRequestBuilderOps(val self: GetKeyPolicyRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetKeyPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): GetKeyPolicyRequest.Builder = {
     value.fold(self) { v =>
       self.policyName(v)
@@ -21,8 +23,10 @@ final class GetKeyPolicyRequestBuilderOps(val self: GetKeyPolicyRequest.Builder)
 
 final class GetKeyPolicyRequestOps(val self: GetKeyPolicyRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala: Option[String] = Option(self.policyName)
 
 }

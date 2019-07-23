@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.cloudwatch.model._
 
 final class DimensionBuilderOps(val self: Dimension.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Dimension.Builder = {
     value.fold(self) { v =>
       self.name(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): Dimension.Builder = {
     value.fold(self) { v =>
       self.value(v)
@@ -21,8 +23,10 @@ final class DimensionBuilderOps(val self: Dimension.Builder) extends AnyVal {
 
 final class DimensionOps(val self: Dimension) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala: Option[String] = Option(self.value)
 
 }

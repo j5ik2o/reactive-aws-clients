@@ -7,14 +7,16 @@ final class DescribeInstanceCreditSpecificationsResponseBuilderOps(
     val self: DescribeInstanceCreditSpecificationsResponse.Builder
 ) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCreditSpecificationsAsScala(
       value: Option[Seq[InstanceCreditSpecification]]
   ): DescribeInstanceCreditSpecificationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.instanceCreditSpecifications(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.instanceCreditSpecifications(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeInstanceCreditSpecificationsResponse.Builder = {
     value.fold(self) { v =>
       self.nextToken(v)
@@ -26,11 +28,13 @@ final class DescribeInstanceCreditSpecificationsResponseBuilderOps(
 final class DescribeInstanceCreditSpecificationsResponseOps(val self: DescribeInstanceCreditSpecificationsResponse)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCreditSpecificationsAsScala: Option[Seq[InstanceCreditSpecification]] =
     Option(self.instanceCreditSpecifications).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }

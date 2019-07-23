@@ -1,7 +1,7 @@
 // Auto-Generated
 package com.github.j5ik2o.reactive.aws.ec2.cats
 
-import cats.effect.IO
+import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.ec2.{ Ec2AsyncClient, Ec2Client }
 import software.amazon.awssdk.services.ec2.model._
 import software.amazon.awssdk.services.ec2.paginators._
@@ -10,8 +10,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object Ec2CatsIOClient {
 
-  def apply(asyncClient: Ec2AsyncClient): Ec2CatsIOClient = new Ec2CatsIOClient {
-    override val underlying: Ec2AsyncClient = asyncClient
+  def apply(asyncClient: Ec2AsyncClient)(implicit ec: ExecutionContext): Ec2CatsIOClient = new Ec2CatsIOClient {
+    override val executionContext: ExecutionContext = ec
+    override val underlying: Ec2AsyncClient         = asyncClient
   }
 
 }
@@ -19,6 +20,9 @@ object Ec2CatsIOClient {
 trait Ec2CatsIOClient extends Ec2Client[IO] {
 
   val underlying: Ec2AsyncClient
+
+  def executionContext: ExecutionContext
+  implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
   override def acceptReservedInstancesExchangeQuote(
       acceptReservedInstancesExchangeQuoteRequest: AcceptReservedInstancesExchangeQuoteRequest
@@ -884,6 +888,9 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeByoipCidrs(describeByoipCidrsRequest))
     }
 
+  def describeByoipCidrsPaginator(describeByoipCidrsRequest: DescribeByoipCidrsRequest): DescribeByoipCidrsPublisher =
+    underlying.describeByoipCidrsPaginator(describeByoipCidrsRequest)
+
   override def describeCapacityReservations(
       describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
   ): IO[DescribeCapacityReservationsResponse] =
@@ -895,6 +902,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeCapacityReservations())
     }
+
+  def describeCapacityReservationsPaginator(): DescribeCapacityReservationsPublisher =
+    underlying.describeCapacityReservationsPaginator()
+
+  def describeCapacityReservationsPaginator(
+      describeCapacityReservationsRequest: DescribeCapacityReservationsRequest
+  ): DescribeCapacityReservationsPublisher =
+    underlying.describeCapacityReservationsPaginator(describeCapacityReservationsRequest)
 
   override def describeClassicLinkInstances(
       describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
@@ -908,6 +923,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeClassicLinkInstances())
     }
 
+  def describeClassicLinkInstancesPaginator(): DescribeClassicLinkInstancesPublisher =
+    underlying.describeClassicLinkInstancesPaginator()
+
+  def describeClassicLinkInstancesPaginator(
+      describeClassicLinkInstancesRequest: DescribeClassicLinkInstancesRequest
+  ): DescribeClassicLinkInstancesPublisher =
+    underlying.describeClassicLinkInstancesPaginator(describeClassicLinkInstancesRequest)
+
   override def describeClientVpnAuthorizationRules(
       describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
   ): IO[DescribeClientVpnAuthorizationRulesResponse] =
@@ -915,12 +938,22 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeClientVpnAuthorizationRules(describeClientVpnAuthorizationRulesRequest))
     }
 
+  def describeClientVpnAuthorizationRulesPaginator(
+      describeClientVpnAuthorizationRulesRequest: DescribeClientVpnAuthorizationRulesRequest
+  ): DescribeClientVpnAuthorizationRulesPublisher =
+    underlying.describeClientVpnAuthorizationRulesPaginator(describeClientVpnAuthorizationRulesRequest)
+
   override def describeClientVpnConnections(
       describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
   ): IO[DescribeClientVpnConnectionsResponse] =
     IO.fromFuture {
       IO(underlying.describeClientVpnConnections(describeClientVpnConnectionsRequest))
     }
+
+  def describeClientVpnConnectionsPaginator(
+      describeClientVpnConnectionsRequest: DescribeClientVpnConnectionsRequest
+  ): DescribeClientVpnConnectionsPublisher =
+    underlying.describeClientVpnConnectionsPaginator(describeClientVpnConnectionsRequest)
 
   override def describeClientVpnEndpoints(
       describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
@@ -934,6 +967,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeClientVpnEndpoints())
     }
 
+  def describeClientVpnEndpointsPaginator(): DescribeClientVpnEndpointsPublisher =
+    underlying.describeClientVpnEndpointsPaginator()
+
+  def describeClientVpnEndpointsPaginator(
+      describeClientVpnEndpointsRequest: DescribeClientVpnEndpointsRequest
+  ): DescribeClientVpnEndpointsPublisher =
+    underlying.describeClientVpnEndpointsPaginator(describeClientVpnEndpointsRequest)
+
   override def describeClientVpnRoutes(
       describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
   ): IO[DescribeClientVpnRoutesResponse] =
@@ -941,12 +982,22 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeClientVpnRoutes(describeClientVpnRoutesRequest))
     }
 
+  def describeClientVpnRoutesPaginator(
+      describeClientVpnRoutesRequest: DescribeClientVpnRoutesRequest
+  ): DescribeClientVpnRoutesPublisher =
+    underlying.describeClientVpnRoutesPaginator(describeClientVpnRoutesRequest)
+
   override def describeClientVpnTargetNetworks(
       describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
   ): IO[DescribeClientVpnTargetNetworksResponse] =
     IO.fromFuture {
       IO(underlying.describeClientVpnTargetNetworks(describeClientVpnTargetNetworksRequest))
     }
+
+  def describeClientVpnTargetNetworksPaginator(
+      describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
+  ): DescribeClientVpnTargetNetworksPublisher =
+    underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
 
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
@@ -984,6 +1035,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeDhcpOptions())
     }
 
+  def describeDhcpOptionsPaginator(): DescribeDhcpOptionsPublisher =
+    underlying.describeDhcpOptionsPaginator()
+
+  def describeDhcpOptionsPaginator(
+      describeDhcpOptionsRequest: DescribeDhcpOptionsRequest
+  ): DescribeDhcpOptionsPublisher =
+    underlying.describeDhcpOptionsPaginator(describeDhcpOptionsRequest)
+
   override def describeEgressOnlyInternetGateways(
       describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
   ): IO[DescribeEgressOnlyInternetGatewaysResponse] =
@@ -995,6 +1054,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeEgressOnlyInternetGateways())
     }
+
+  def describeEgressOnlyInternetGatewaysPaginator(): DescribeEgressOnlyInternetGatewaysPublisher =
+    underlying.describeEgressOnlyInternetGatewaysPaginator()
+
+  def describeEgressOnlyInternetGatewaysPaginator(
+      describeEgressOnlyInternetGatewaysRequest: DescribeEgressOnlyInternetGatewaysRequest
+  ): DescribeEgressOnlyInternetGatewaysPublisher =
+    underlying.describeEgressOnlyInternetGatewaysPaginator(describeEgressOnlyInternetGatewaysRequest)
 
   override def describeElasticGpus(
       describeElasticGpusRequest: DescribeElasticGpusRequest
@@ -1044,6 +1111,12 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeFleets())
     }
 
+  def describeFleetsPaginator(): DescribeFleetsPublisher =
+    underlying.describeFleetsPaginator()
+
+  def describeFleetsPaginator(describeFleetsRequest: DescribeFleetsRequest): DescribeFleetsPublisher =
+    underlying.describeFleetsPaginator(describeFleetsRequest)
+
   override def describeFlowLogs(describeFlowLogsRequest: DescribeFlowLogsRequest): IO[DescribeFlowLogsResponse] =
     IO.fromFuture {
       IO(underlying.describeFlowLogs(describeFlowLogsRequest))
@@ -1053,6 +1126,12 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeFlowLogs())
     }
+
+  def describeFlowLogsPaginator(): DescribeFlowLogsPublisher =
+    underlying.describeFlowLogsPaginator()
+
+  def describeFlowLogsPaginator(describeFlowLogsRequest: DescribeFlowLogsRequest): DescribeFlowLogsPublisher =
+    underlying.describeFlowLogsPaginator(describeFlowLogsRequest)
 
   override def describeFpgaImageAttribute(
       describeFpgaImageAttributeRequest: DescribeFpgaImageAttributeRequest
@@ -1073,6 +1152,12 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeFpgaImages())
     }
 
+  def describeFpgaImagesPaginator(): DescribeFpgaImagesPublisher =
+    underlying.describeFpgaImagesPaginator()
+
+  def describeFpgaImagesPaginator(describeFpgaImagesRequest: DescribeFpgaImagesRequest): DescribeFpgaImagesPublisher =
+    underlying.describeFpgaImagesPaginator(describeFpgaImagesRequest)
+
   override def describeHostReservationOfferings(
       describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
   ): IO[DescribeHostReservationOfferingsResponse] =
@@ -1084,6 +1169,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeHostReservationOfferings())
     }
+
+  def describeHostReservationOfferingsPaginator(): DescribeHostReservationOfferingsPublisher =
+    underlying.describeHostReservationOfferingsPaginator()
+
+  def describeHostReservationOfferingsPaginator(
+      describeHostReservationOfferingsRequest: DescribeHostReservationOfferingsRequest
+  ): DescribeHostReservationOfferingsPublisher =
+    underlying.describeHostReservationOfferingsPaginator(describeHostReservationOfferingsRequest)
 
   override def describeHostReservations(
       describeHostReservationsRequest: DescribeHostReservationsRequest
@@ -1097,6 +1190,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeHostReservations())
     }
 
+  def describeHostReservationsPaginator(): DescribeHostReservationsPublisher =
+    underlying.describeHostReservationsPaginator()
+
+  def describeHostReservationsPaginator(
+      describeHostReservationsRequest: DescribeHostReservationsRequest
+  ): DescribeHostReservationsPublisher =
+    underlying.describeHostReservationsPaginator(describeHostReservationsRequest)
+
   override def describeHosts(describeHostsRequest: DescribeHostsRequest): IO[DescribeHostsResponse] =
     IO.fromFuture {
       IO(underlying.describeHosts(describeHostsRequest))
@@ -1106,6 +1207,12 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeHosts())
     }
+
+  def describeHostsPaginator(): DescribeHostsPublisher =
+    underlying.describeHostsPaginator()
+
+  def describeHostsPaginator(describeHostsRequest: DescribeHostsRequest): DescribeHostsPublisher =
+    underlying.describeHostsPaginator(describeHostsRequest)
 
   override def describeIamInstanceProfileAssociations(
       describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
@@ -1118,6 +1225,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeIamInstanceProfileAssociations())
     }
+
+  def describeIamInstanceProfileAssociationsPaginator(): DescribeIamInstanceProfileAssociationsPublisher =
+    underlying.describeIamInstanceProfileAssociationsPaginator()
+
+  def describeIamInstanceProfileAssociationsPaginator(
+      describeIamInstanceProfileAssociationsRequest: DescribeIamInstanceProfileAssociationsRequest
+  ): DescribeIamInstanceProfileAssociationsPublisher =
+    underlying.describeIamInstanceProfileAssociationsPaginator(describeIamInstanceProfileAssociationsRequest)
 
   override def describeIdFormat(describeIdFormatRequest: DescribeIdFormatRequest): IO[DescribeIdFormatResponse] =
     IO.fromFuture {
@@ -1165,6 +1280,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeImportImageTasks())
     }
 
+  def describeImportImageTasksPaginator(): DescribeImportImageTasksPublisher =
+    underlying.describeImportImageTasksPaginator()
+
+  def describeImportImageTasksPaginator(
+      describeImportImageTasksRequest: DescribeImportImageTasksRequest
+  ): DescribeImportImageTasksPublisher =
+    underlying.describeImportImageTasksPaginator(describeImportImageTasksRequest)
+
   override def describeImportSnapshotTasks(
       describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
   ): IO[DescribeImportSnapshotTasksResponse] =
@@ -1176,6 +1299,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeImportSnapshotTasks())
     }
+
+  def describeImportSnapshotTasksPaginator(): DescribeImportSnapshotTasksPublisher =
+    underlying.describeImportSnapshotTasksPaginator()
+
+  def describeImportSnapshotTasksPaginator(
+      describeImportSnapshotTasksRequest: DescribeImportSnapshotTasksRequest
+  ): DescribeImportSnapshotTasksPublisher =
+    underlying.describeImportSnapshotTasksPaginator(describeImportSnapshotTasksRequest)
 
   override def describeInstanceAttribute(
       describeInstanceAttributeRequest: DescribeInstanceAttributeRequest
@@ -1195,6 +1326,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeInstanceCreditSpecifications())
     }
+
+  def describeInstanceCreditSpecificationsPaginator(): DescribeInstanceCreditSpecificationsPublisher =
+    underlying.describeInstanceCreditSpecificationsPaginator()
+
+  def describeInstanceCreditSpecificationsPaginator(
+      describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
+  ): DescribeInstanceCreditSpecificationsPublisher =
+    underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
 
   override def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -1244,6 +1383,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeInternetGateways())
     }
 
+  def describeInternetGatewaysPaginator(): DescribeInternetGatewaysPublisher =
+    underlying.describeInternetGatewaysPaginator()
+
+  def describeInternetGatewaysPaginator(
+      describeInternetGatewaysRequest: DescribeInternetGatewaysRequest
+  ): DescribeInternetGatewaysPublisher =
+    underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest)
+
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): IO[DescribeKeyPairsResponse] =
     IO.fromFuture {
       IO(underlying.describeKeyPairs(describeKeyPairsRequest))
@@ -1261,6 +1408,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeLaunchTemplateVersions(describeLaunchTemplateVersionsRequest))
     }
 
+  def describeLaunchTemplateVersionsPaginator(
+      describeLaunchTemplateVersionsRequest: DescribeLaunchTemplateVersionsRequest
+  ): DescribeLaunchTemplateVersionsPublisher =
+    underlying.describeLaunchTemplateVersionsPaginator(describeLaunchTemplateVersionsRequest)
+
   override def describeLaunchTemplates(
       describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
   ): IO[DescribeLaunchTemplatesResponse] =
@@ -1273,6 +1425,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeLaunchTemplates())
     }
 
+  def describeLaunchTemplatesPaginator(): DescribeLaunchTemplatesPublisher =
+    underlying.describeLaunchTemplatesPaginator()
+
+  def describeLaunchTemplatesPaginator(
+      describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
+  ): DescribeLaunchTemplatesPublisher =
+    underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest)
+
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
   ): IO[DescribeMovingAddressesResponse] =
@@ -1284,6 +1444,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeMovingAddresses())
     }
+
+  def describeMovingAddressesPaginator(): DescribeMovingAddressesPublisher =
+    underlying.describeMovingAddressesPaginator()
+
+  def describeMovingAddressesPaginator(
+      describeMovingAddressesRequest: DescribeMovingAddressesRequest
+  ): DescribeMovingAddressesPublisher =
+    underlying.describeMovingAddressesPaginator(describeMovingAddressesRequest)
 
   override def describeNatGateways(
       describeNatGatewaysRequest: DescribeNatGatewaysRequest
@@ -1317,6 +1485,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeNetworkAcls())
     }
 
+  def describeNetworkAclsPaginator(): DescribeNetworkAclsPublisher =
+    underlying.describeNetworkAclsPaginator()
+
+  def describeNetworkAclsPaginator(
+      describeNetworkAclsRequest: DescribeNetworkAclsRequest
+  ): DescribeNetworkAclsPublisher =
+    underlying.describeNetworkAclsPaginator(describeNetworkAclsRequest)
+
   override def describeNetworkInterfaceAttribute(
       describeNetworkInterfaceAttributeRequest: DescribeNetworkInterfaceAttributeRequest
   ): IO[DescribeNetworkInterfaceAttributeResponse] =
@@ -1335,6 +1511,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeNetworkInterfacePermissions())
     }
+
+  def describeNetworkInterfacePermissionsPaginator(): DescribeNetworkInterfacePermissionsPublisher =
+    underlying.describeNetworkInterfacePermissionsPaginator()
+
+  def describeNetworkInterfacePermissionsPaginator(
+      describeNetworkInterfacePermissionsRequest: DescribeNetworkInterfacePermissionsRequest
+  ): DescribeNetworkInterfacePermissionsPublisher =
+    underlying.describeNetworkInterfacePermissionsPaginator(describeNetworkInterfacePermissionsRequest)
 
   override def describeNetworkInterfaces(
       describeNetworkInterfacesRequest: DescribeNetworkInterfacesRequest
@@ -1380,6 +1564,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describePrefixLists())
     }
 
+  def describePrefixListsPaginator(): DescribePrefixListsPublisher =
+    underlying.describePrefixListsPaginator()
+
+  def describePrefixListsPaginator(
+      describePrefixListsRequest: DescribePrefixListsRequest
+  ): DescribePrefixListsPublisher =
+    underlying.describePrefixListsPaginator(describePrefixListsRequest)
+
   override def describePrincipalIdFormat(
       describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
   ): IO[DescribePrincipalIdFormatResponse] =
@@ -1392,6 +1584,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describePrincipalIdFormat())
     }
 
+  def describePrincipalIdFormatPaginator(): DescribePrincipalIdFormatPublisher =
+    underlying.describePrincipalIdFormatPaginator()
+
+  def describePrincipalIdFormatPaginator(
+      describePrincipalIdFormatRequest: DescribePrincipalIdFormatRequest
+  ): DescribePrincipalIdFormatPublisher =
+    underlying.describePrincipalIdFormatPaginator(describePrincipalIdFormatRequest)
+
   override def describePublicIpv4Pools(
       describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
   ): IO[DescribePublicIpv4PoolsResponse] =
@@ -1403,6 +1603,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describePublicIpv4Pools())
     }
+
+  def describePublicIpv4PoolsPaginator(): DescribePublicIpv4PoolsPublisher =
+    underlying.describePublicIpv4PoolsPaginator()
+
+  def describePublicIpv4PoolsPaginator(
+      describePublicIpv4PoolsRequest: DescribePublicIpv4PoolsRequest
+  ): DescribePublicIpv4PoolsPublisher =
+    underlying.describePublicIpv4PoolsPaginator(describePublicIpv4PoolsRequest)
 
   override def describeRegions(describeRegionsRequest: DescribeRegionsRequest): IO[DescribeRegionsResponse] =
     IO.fromFuture {
@@ -1505,6 +1713,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeScheduledInstanceAvailability(describeScheduledInstanceAvailabilityRequest))
     }
 
+  def describeScheduledInstanceAvailabilityPaginator(
+      describeScheduledInstanceAvailabilityRequest: DescribeScheduledInstanceAvailabilityRequest
+  ): DescribeScheduledInstanceAvailabilityPublisher =
+    underlying.describeScheduledInstanceAvailabilityPaginator(describeScheduledInstanceAvailabilityRequest)
+
   override def describeScheduledInstances(
       describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
   ): IO[DescribeScheduledInstancesResponse] =
@@ -1516,6 +1729,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeScheduledInstances())
     }
+
+  def describeScheduledInstancesPaginator(): DescribeScheduledInstancesPublisher =
+    underlying.describeScheduledInstancesPaginator()
+
+  def describeScheduledInstancesPaginator(
+      describeScheduledInstancesRequest: DescribeScheduledInstancesRequest
+  ): DescribeScheduledInstancesPublisher =
+    underlying.describeScheduledInstancesPaginator(describeScheduledInstancesRequest)
 
   override def describeSecurityGroupReferences(
       describeSecurityGroupReferencesRequest: DescribeSecurityGroupReferencesRequest
@@ -1625,6 +1846,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeSpotInstanceRequests())
     }
 
+  def describeSpotInstanceRequestsPaginator(): DescribeSpotInstanceRequestsPublisher =
+    underlying.describeSpotInstanceRequestsPaginator()
+
+  def describeSpotInstanceRequestsPaginator(
+      describeSpotInstanceRequestsRequest: DescribeSpotInstanceRequestsRequest
+  ): DescribeSpotInstanceRequestsPublisher =
+    underlying.describeSpotInstanceRequestsPaginator(describeSpotInstanceRequestsRequest)
+
   override def describeSpotPriceHistory(
       describeSpotPriceHistoryRequest: DescribeSpotPriceHistoryRequest
   ): IO[DescribeSpotPriceHistoryResponse] =
@@ -1652,6 +1881,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeStaleSecurityGroups(describeStaleSecurityGroupsRequest))
     }
 
+  def describeStaleSecurityGroupsPaginator(
+      describeStaleSecurityGroupsRequest: DescribeStaleSecurityGroupsRequest
+  ): DescribeStaleSecurityGroupsPublisher =
+    underlying.describeStaleSecurityGroupsPaginator(describeStaleSecurityGroupsRequest)
+
   override def describeSubnets(describeSubnetsRequest: DescribeSubnetsRequest): IO[DescribeSubnetsResponse] =
     IO.fromFuture {
       IO(underlying.describeSubnets(describeSubnetsRequest))
@@ -1661,6 +1895,12 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeSubnets())
     }
+
+  def describeSubnetsPaginator(): DescribeSubnetsPublisher =
+    underlying.describeSubnetsPaginator()
+
+  def describeSubnetsPaginator(describeSubnetsRequest: DescribeSubnetsRequest): DescribeSubnetsPublisher =
+    underlying.describeSubnetsPaginator(describeSubnetsRequest)
 
   override def describeTags(describeTagsRequest: DescribeTagsRequest): IO[DescribeTagsResponse] =
     IO.fromFuture {
@@ -1690,6 +1930,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeTransitGatewayAttachments())
     }
 
+  def describeTransitGatewayAttachmentsPaginator(): DescribeTransitGatewayAttachmentsPublisher =
+    underlying.describeTransitGatewayAttachmentsPaginator()
+
+  def describeTransitGatewayAttachmentsPaginator(
+      describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
+  ): DescribeTransitGatewayAttachmentsPublisher =
+    underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
+
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): IO[DescribeTransitGatewayRouteTablesResponse] =
@@ -1701,6 +1949,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeTransitGatewayRouteTables())
     }
+
+  def describeTransitGatewayRouteTablesPaginator(): DescribeTransitGatewayRouteTablesPublisher =
+    underlying.describeTransitGatewayRouteTablesPaginator()
+
+  def describeTransitGatewayRouteTablesPaginator(
+      describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
+  ): DescribeTransitGatewayRouteTablesPublisher =
+    underlying.describeTransitGatewayRouteTablesPaginator(describeTransitGatewayRouteTablesRequest)
 
   override def describeTransitGatewayVpcAttachments(
       describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
@@ -1714,6 +1970,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeTransitGatewayVpcAttachments())
     }
 
+  def describeTransitGatewayVpcAttachmentsPaginator(): DescribeTransitGatewayVpcAttachmentsPublisher =
+    underlying.describeTransitGatewayVpcAttachmentsPaginator()
+
+  def describeTransitGatewayVpcAttachmentsPaginator(
+      describeTransitGatewayVpcAttachmentsRequest: DescribeTransitGatewayVpcAttachmentsRequest
+  ): DescribeTransitGatewayVpcAttachmentsPublisher =
+    underlying.describeTransitGatewayVpcAttachmentsPaginator(describeTransitGatewayVpcAttachmentsRequest)
+
   override def describeTransitGateways(
       describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
   ): IO[DescribeTransitGatewaysResponse] =
@@ -1725,6 +1989,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeTransitGateways())
     }
+
+  def describeTransitGatewaysPaginator(): DescribeTransitGatewaysPublisher =
+    underlying.describeTransitGatewaysPaginator()
+
+  def describeTransitGatewaysPaginator(
+      describeTransitGatewaysRequest: DescribeTransitGatewaysRequest
+  ): DescribeTransitGatewaysPublisher =
+    underlying.describeTransitGatewaysPaginator(describeTransitGatewaysRequest)
 
   override def describeVolumeAttribute(
       describeVolumeAttributeRequest: DescribeVolumeAttributeRequest
@@ -1775,6 +2047,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeVolumesModifications())
     }
 
+  def describeVolumesModificationsPaginator(): DescribeVolumesModificationsPublisher =
+    underlying.describeVolumesModificationsPaginator()
+
+  def describeVolumesModificationsPaginator(
+      describeVolumesModificationsRequest: DescribeVolumesModificationsRequest
+  ): DescribeVolumesModificationsPublisher =
+    underlying.describeVolumesModificationsPaginator(describeVolumesModificationsRequest)
+
   def describeVolumesPaginator(): DescribeVolumesPublisher =
     underlying.describeVolumesPaginator()
 
@@ -1812,6 +2092,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeVpcClassicLinkDnsSupport())
     }
 
+  def describeVpcClassicLinkDnsSupportPaginator(): DescribeVpcClassicLinkDnsSupportPublisher =
+    underlying.describeVpcClassicLinkDnsSupportPaginator()
+
+  def describeVpcClassicLinkDnsSupportPaginator(
+      describeVpcClassicLinkDnsSupportRequest: DescribeVpcClassicLinkDnsSupportRequest
+  ): DescribeVpcClassicLinkDnsSupportPublisher =
+    underlying.describeVpcClassicLinkDnsSupportPaginator(describeVpcClassicLinkDnsSupportRequest)
+
   override def describeVpcEndpointConnectionNotifications(
       describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
   ): IO[DescribeVpcEndpointConnectionNotificationsResponse] =
@@ -1823,6 +2111,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeVpcEndpointConnectionNotifications())
     }
+
+  def describeVpcEndpointConnectionNotificationsPaginator(): DescribeVpcEndpointConnectionNotificationsPublisher =
+    underlying.describeVpcEndpointConnectionNotificationsPaginator()
+
+  def describeVpcEndpointConnectionNotificationsPaginator(
+      describeVpcEndpointConnectionNotificationsRequest: DescribeVpcEndpointConnectionNotificationsRequest
+  ): DescribeVpcEndpointConnectionNotificationsPublisher =
+    underlying.describeVpcEndpointConnectionNotificationsPaginator(describeVpcEndpointConnectionNotificationsRequest)
 
   override def describeVpcEndpointConnections(
       describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
@@ -1836,6 +2132,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeVpcEndpointConnections())
     }
 
+  def describeVpcEndpointConnectionsPaginator(): DescribeVpcEndpointConnectionsPublisher =
+    underlying.describeVpcEndpointConnectionsPaginator()
+
+  def describeVpcEndpointConnectionsPaginator(
+      describeVpcEndpointConnectionsRequest: DescribeVpcEndpointConnectionsRequest
+  ): DescribeVpcEndpointConnectionsPublisher =
+    underlying.describeVpcEndpointConnectionsPaginator(describeVpcEndpointConnectionsRequest)
+
   override def describeVpcEndpointServiceConfigurations(
       describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
   ): IO[DescribeVpcEndpointServiceConfigurationsResponse] =
@@ -1848,12 +2152,25 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeVpcEndpointServiceConfigurations())
     }
 
+  def describeVpcEndpointServiceConfigurationsPaginator(): DescribeVpcEndpointServiceConfigurationsPublisher =
+    underlying.describeVpcEndpointServiceConfigurationsPaginator()
+
+  def describeVpcEndpointServiceConfigurationsPaginator(
+      describeVpcEndpointServiceConfigurationsRequest: DescribeVpcEndpointServiceConfigurationsRequest
+  ): DescribeVpcEndpointServiceConfigurationsPublisher =
+    underlying.describeVpcEndpointServiceConfigurationsPaginator(describeVpcEndpointServiceConfigurationsRequest)
+
   override def describeVpcEndpointServicePermissions(
       describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
   ): IO[DescribeVpcEndpointServicePermissionsResponse] =
     IO.fromFuture {
       IO(underlying.describeVpcEndpointServicePermissions(describeVpcEndpointServicePermissionsRequest))
     }
+
+  def describeVpcEndpointServicePermissionsPaginator(
+      describeVpcEndpointServicePermissionsRequest: DescribeVpcEndpointServicePermissionsRequest
+  ): DescribeVpcEndpointServicePermissionsPublisher =
+    underlying.describeVpcEndpointServicePermissionsPaginator(describeVpcEndpointServicePermissionsRequest)
 
   override def describeVpcEndpointServices(
       describeVpcEndpointServicesRequest: DescribeVpcEndpointServicesRequest
@@ -1879,6 +2196,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeVpcEndpoints())
     }
 
+  def describeVpcEndpointsPaginator(): DescribeVpcEndpointsPublisher =
+    underlying.describeVpcEndpointsPaginator()
+
+  def describeVpcEndpointsPaginator(
+      describeVpcEndpointsRequest: DescribeVpcEndpointsRequest
+  ): DescribeVpcEndpointsPublisher =
+    underlying.describeVpcEndpointsPaginator(describeVpcEndpointsRequest)
+
   override def describeVpcPeeringConnections(
       describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
   ): IO[DescribeVpcPeeringConnectionsResponse] =
@@ -1891,6 +2216,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeVpcPeeringConnections())
     }
 
+  def describeVpcPeeringConnectionsPaginator(): DescribeVpcPeeringConnectionsPublisher =
+    underlying.describeVpcPeeringConnectionsPaginator()
+
+  def describeVpcPeeringConnectionsPaginator(
+      describeVpcPeeringConnectionsRequest: DescribeVpcPeeringConnectionsRequest
+  ): DescribeVpcPeeringConnectionsPublisher =
+    underlying.describeVpcPeeringConnectionsPaginator(describeVpcPeeringConnectionsRequest)
+
   override def describeVpcs(describeVpcsRequest: DescribeVpcsRequest): IO[DescribeVpcsResponse] =
     IO.fromFuture {
       IO(underlying.describeVpcs(describeVpcsRequest))
@@ -1900,6 +2233,12 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeVpcs())
     }
+
+  def describeVpcsPaginator(): DescribeVpcsPublisher =
+    underlying.describeVpcsPaginator()
+
+  def describeVpcsPaginator(describeVpcsRequest: DescribeVpcsRequest): DescribeVpcsPublisher =
+    underlying.describeVpcsPaginator(describeVpcsRequest)
 
   override def describeVpnConnections(
       describeVpnConnectionsRequest: DescribeVpnConnectionsRequest
@@ -2134,6 +2473,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.getTransitGatewayAttachmentPropagations(getTransitGatewayAttachmentPropagationsRequest))
     }
 
+  def getTransitGatewayAttachmentPropagationsPaginator(
+      getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
+  ): GetTransitGatewayAttachmentPropagationsPublisher =
+    underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): IO[GetTransitGatewayRouteTableAssociationsResponse] =
@@ -2141,12 +2485,22 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.getTransitGatewayRouteTableAssociations(getTransitGatewayRouteTableAssociationsRequest))
     }
 
+  def getTransitGatewayRouteTableAssociationsPaginator(
+      getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
+  ): GetTransitGatewayRouteTableAssociationsPublisher =
+    underlying.getTransitGatewayRouteTableAssociationsPaginator(getTransitGatewayRouteTableAssociationsRequest)
+
   override def getTransitGatewayRouteTablePropagations(
       getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
   ): IO[GetTransitGatewayRouteTablePropagationsResponse] =
     IO.fromFuture {
       IO(underlying.getTransitGatewayRouteTablePropagations(getTransitGatewayRouteTablePropagationsRequest))
     }
+
+  def getTransitGatewayRouteTablePropagationsPaginator(
+      getTransitGatewayRouteTablePropagationsRequest: GetTransitGatewayRouteTablePropagationsRequest
+  ): GetTransitGatewayRouteTablePropagationsPublisher =
+    underlying.getTransitGatewayRouteTablePropagationsPaginator(getTransitGatewayRouteTablePropagationsRequest)
 
   override def importClientVpnClientCertificateRevocationList(
       importClientVpnClientCertificateRevocationListRequest: ImportClientVpnClientCertificateRevocationListRequest
@@ -2371,6 +2725,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def modifyVpcTenancy(modifyVpcTenancyRequest: ModifyVpcTenancyRequest): IO[ModifyVpcTenancyResponse] =
     IO.fromFuture {
       IO(underlying.modifyVpcTenancy(modifyVpcTenancyRequest))
+    }
+
+  override def modifyVpnConnection(
+      modifyVpnConnectionRequest: ModifyVpnConnectionRequest
+  ): IO[ModifyVpnConnectionResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyVpnConnection(modifyVpnConnectionRequest))
     }
 
   override def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): IO[MonitorInstancesResponse] =

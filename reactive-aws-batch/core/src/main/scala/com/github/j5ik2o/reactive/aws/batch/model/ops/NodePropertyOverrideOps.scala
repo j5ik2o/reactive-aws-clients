@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.batch.model._
 
 final class NodePropertyOverrideBuilderOps(val self: NodePropertyOverride.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetNodesAsScala(value: Option[String]): NodePropertyOverride.Builder = {
     value.fold(self) { v =>
       self.targetNodes(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala(value: Option[ContainerOverrides]): NodePropertyOverride.Builder = {
     value.fold(self) { v =>
       self.containerOverrides(v)
@@ -21,8 +23,10 @@ final class NodePropertyOverrideBuilderOps(val self: NodePropertyOverride.Builde
 
 final class NodePropertyOverrideOps(val self: NodePropertyOverride) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetNodesAsScala: Option[String] = Option(self.targetNodes)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala: Option[ContainerOverrides] = Option(self.containerOverrides)
 
 }

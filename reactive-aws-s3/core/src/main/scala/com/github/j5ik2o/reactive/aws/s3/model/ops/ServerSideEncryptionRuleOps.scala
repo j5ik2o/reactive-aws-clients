@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class ServerSideEncryptionRuleBuilderOps(val self: ServerSideEncryptionRule.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applyServerSideEncryptionByDefaultAsScala(
       value: Option[ServerSideEncryptionByDefault]
   ): ServerSideEncryptionRule.Builder = {
@@ -17,6 +18,7 @@ final class ServerSideEncryptionRuleBuilderOps(val self: ServerSideEncryptionRul
 
 final class ServerSideEncryptionRuleOps(val self: ServerSideEncryptionRule) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applyServerSideEncryptionByDefaultAsScala: Option[ServerSideEncryptionByDefault] =
     Option(self.applyServerSideEncryptionByDefault)
 

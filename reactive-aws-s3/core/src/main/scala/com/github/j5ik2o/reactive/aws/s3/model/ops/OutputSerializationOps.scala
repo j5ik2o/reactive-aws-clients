@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.s3.model._
 
 final class OutputSerializationBuilderOps(val self: OutputSerialization.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def csvAsScala(value: Option[CSVOutput]): OutputSerialization.Builder = {
     value.fold(self) { v =>
       self.csv(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jsonAsScala(value: Option[JSONOutput]): OutputSerialization.Builder = {
     value.fold(self) { v =>
       self.json(v)
@@ -21,8 +23,10 @@ final class OutputSerializationBuilderOps(val self: OutputSerialization.Builder)
 
 final class OutputSerializationOps(val self: OutputSerialization) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def csvAsScala: Option[CSVOutput] = Option(self.csv)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jsonAsScala: Option[JSONOutput] = Option(self.json)
 
 }

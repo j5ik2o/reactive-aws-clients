@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.kinesis.model._
 final class DecreaseStreamRetentionPeriodRequestBuilderOps(val self: DecreaseStreamRetentionPeriodRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala(value: Option[String]): DecreaseStreamRetentionPeriodRequest.Builder = {
     value.fold(self) { v =>
       self.streamName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionPeriodHoursAsScala(value: Option[Int]): DecreaseStreamRetentionPeriodRequest.Builder = {
     value.fold(self) { v =>
       self.retentionPeriodHours(v)
@@ -22,8 +24,10 @@ final class DecreaseStreamRetentionPeriodRequestBuilderOps(val self: DecreaseStr
 
 final class DecreaseStreamRetentionPeriodRequestOps(val self: DecreaseStreamRetentionPeriodRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamNameAsScala: Option[String] = Option(self.streamName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours)
 
 }

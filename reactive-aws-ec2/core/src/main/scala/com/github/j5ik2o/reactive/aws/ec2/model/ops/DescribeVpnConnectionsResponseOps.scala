@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeVpnConnectionsResponseBuilderOps(val self: DescribeVpnConnectionsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnConnectionsAsScala(value: Option[Seq[VpnConnection]]): DescribeVpnConnectionsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.vpnConnections(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.vpnConnections(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeVpnConnectionsResponseBuilderOps(val self: DescribeVpnConnec
 
 final class DescribeVpnConnectionsResponseOps(val self: DescribeVpnConnectionsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnConnectionsAsScala: Option[Seq[VpnConnection]] = Option(self.vpnConnections).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

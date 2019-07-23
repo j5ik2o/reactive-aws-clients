@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeVpcClassicLinkResponseBuilderOps(val self: DescribeVpcClassicLinkResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcsAsScala(value: Option[Seq[VpcClassicLink]]): DescribeVpcClassicLinkResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.vpcs(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.vpcs(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeVpcClassicLinkResponseBuilderOps(val self: DescribeVpcClassi
 
 final class DescribeVpcClassicLinkResponseOps(val self: DescribeVpcClassicLinkResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcsAsScala: Option[Seq[VpcClassicLink]] = Option(self.vpcs).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

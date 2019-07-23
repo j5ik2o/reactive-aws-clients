@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.rekognition.model._
 
 final class KinesisDataStreamBuilderOps(val self: KinesisDataStream.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): KinesisDataStream.Builder = {
     value.fold(self) { v =>
       self.arn(v)
@@ -15,6 +16,7 @@ final class KinesisDataStreamBuilderOps(val self: KinesisDataStream.Builder) ext
 
 final class KinesisDataStreamOps(val self: KinesisDataStream) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)
 
 }

@@ -5,9 +5,10 @@ import software.amazon.awssdk.services.elasticbeanstalk.model._
 
 final class DescribeApplicationsResponseBuilderOps(val self: DescribeApplicationsResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationsAsScala(value: Option[Seq[ApplicationDescription]]): DescribeApplicationsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.applications(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.applications(v.asJava)
     }
   }
 
@@ -15,8 +16,9 @@ final class DescribeApplicationsResponseBuilderOps(val self: DescribeApplication
 
 final class DescribeApplicationsResponseOps(val self: DescribeApplicationsResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationsAsScala: Option[Seq[ApplicationDescription]] = Option(self.applications).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

@@ -5,18 +5,21 @@ import software.amazon.awssdk.services.s3.model._
 
 final class LoggingEnabledBuilderOps(val self: LoggingEnabled.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetBucketAsScala(value: Option[String]): LoggingEnabled.Builder = {
     value.fold(self) { v =>
       self.targetBucket(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetGrantsAsScala(value: Option[Seq[TargetGrant]]): LoggingEnabled.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.targetGrants(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.targetGrants(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetPrefixAsScala(value: Option[String]): LoggingEnabled.Builder = {
     value.fold(self) { v =>
       self.targetPrefix(v)
@@ -27,12 +30,15 @@ final class LoggingEnabledBuilderOps(val self: LoggingEnabled.Builder) extends A
 
 final class LoggingEnabledOps(val self: LoggingEnabled) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetBucketAsScala: Option[String] = Option(self.targetBucket)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetGrantsAsScala: Option[Seq[TargetGrant]] = Option(self.targetGrants).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetPrefixAsScala: Option[String] = Option(self.targetPrefix)
 
 }

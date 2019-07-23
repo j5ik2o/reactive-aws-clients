@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class DescribeBackupResponseBuilderOps(val self: DescribeBackupResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupDescriptionAsScala(value: Option[BackupDescription]): DescribeBackupResponse.Builder = {
     value.fold(self) { v =>
       self.backupDescription(v)
@@ -15,6 +16,7 @@ final class DescribeBackupResponseBuilderOps(val self: DescribeBackupResponse.Bu
 
 final class DescribeBackupResponseOps(val self: DescribeBackupResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupDescriptionAsScala: Option[BackupDescription] = Option(self.backupDescription)
 
 }

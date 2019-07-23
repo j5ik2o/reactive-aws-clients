@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CidrBlockBuilderOps(val self: CidrBlock.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrBlockAsScala(value: Option[String]): CidrBlock.Builder = {
     value.fold(self) { v =>
       self.cidrBlock(v)
@@ -15,6 +16,7 @@ final class CidrBlockBuilderOps(val self: CidrBlock.Builder) extends AnyVal {
 
 final class CidrBlockOps(val self: CidrBlock) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrBlockAsScala: Option[String] = Option(self.cidrBlock)
 
 }

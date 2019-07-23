@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.kms.model._
 
 final class GetParametersForImportResponseBuilderOps(val self: GetParametersForImportResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetParametersForImportResponse.Builder = {
     value.fold(self) { v =>
       self.keyId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def importTokenAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetParametersForImportResponse.Builder = {
@@ -19,6 +21,7 @@ final class GetParametersForImportResponseBuilderOps(val self: GetParametersForI
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicKeyAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetParametersForImportResponse.Builder = {
@@ -27,6 +30,7 @@ final class GetParametersForImportResponseBuilderOps(val self: GetParametersForI
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parametersValidToAsScala(value: Option[java.time.Instant]): GetParametersForImportResponse.Builder = {
     value.fold(self) { v =>
       self.parametersValidTo(v)
@@ -37,12 +41,16 @@ final class GetParametersForImportResponseBuilderOps(val self: GetParametersForI
 
 final class GetParametersForImportResponseOps(val self: GetParametersForImportResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def importTokenAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.importToken)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicKeyAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.publicKey)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parametersValidToAsScala: Option[java.time.Instant] = Option(self.parametersValidTo)
 
 }

@@ -5,12 +5,14 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 final class TransactGetItemsRequestBuilderOps(val self: TransactGetItemsRequest.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transactItemsAsScala(value: Option[Seq[TransactGetItem]]): TransactGetItemsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.transactItems(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.transactItems(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): TransactGetItemsRequest.Builder = {
     value.fold(self) { v =>
       self.returnConsumedCapacity(v)
@@ -21,10 +23,12 @@ final class TransactGetItemsRequestBuilderOps(val self: TransactGetItemsRequest.
 
 final class TransactGetItemsRequestOps(val self: TransactGetItemsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transactItemsAsScala: Option[Seq[TransactGetItem]] = Option(self.transactItems).map { v =>
-    import scala.collection.JavaConverters._; v.asScala
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] = Option(self.returnConsumedCapacity)
 
 }

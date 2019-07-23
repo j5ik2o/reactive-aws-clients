@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.lambda.model._
 
 final class TracingConfigResponseBuilderOps(val self: TracingConfigResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def modeAsScala(value: Option[TracingMode]): TracingConfigResponse.Builder = {
     value.fold(self) { v =>
       self.mode(v)
@@ -15,6 +16,7 @@ final class TracingConfigResponseBuilderOps(val self: TracingConfigResponse.Buil
 
 final class TracingConfigResponseOps(val self: TracingConfigResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def modeAsScala: Option[TracingMode] = Option(self.mode)
 
 }

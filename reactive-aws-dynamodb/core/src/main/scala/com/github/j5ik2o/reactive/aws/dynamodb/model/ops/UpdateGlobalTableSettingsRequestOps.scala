@@ -6,18 +6,21 @@ import software.amazon.awssdk.services.dynamodb.model._
 final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTableSettingsRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableName(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableBillingModeAsScala(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest.Builder = {
     value.fold(self) { v =>
       self.globalTableBillingMode(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableProvisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): UpdateGlobalTableSettingsRequest.Builder = {
@@ -26,6 +29,7 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): UpdateGlobalTableSettingsRequest.Builder = {
@@ -34,19 +38,22 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala(
       value: Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.globalTableGlobalSecondaryIndexSettingsUpdate(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      self.globalTableGlobalSecondaryIndexSettingsUpdate(v.asJava)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaSettingsUpdateAsScala(
       value: Option[Seq[ReplicaSettingsUpdate]]
   ): UpdateGlobalTableSettingsRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import scala.collection.JavaConverters._; self.replicaSettingsUpdate(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.replicaSettingsUpdate(v.asJava)
     }
   }
 
@@ -54,25 +61,31 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
 
 final class UpdateGlobalTableSettingsRequestOps(val self: UpdateGlobalTableSettingsRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableBillingModeAsScala: Option[BillingMode] = Option(self.globalTableBillingMode)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableProvisionedWriteCapacityUnitsAsScala: Option[Long] =
     Option(self.globalTableProvisionedWriteCapacityUnits)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala: Option[AutoScalingSettingsUpdate] =
     Option(self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableGlobalSecondaryIndexSettingsUpdateAsScala
       : Option[Seq[GlobalTableGlobalSecondaryIndexSettingsUpdate]] =
     Option(self.globalTableGlobalSecondaryIndexSettingsUpdate).map { v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaSettingsUpdateAsScala: Option[Seq[ReplicaSettingsUpdate]] = Option(self.replicaSettingsUpdate).map {
     v =>
-      import scala.collection.JavaConverters._; v.asScala
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

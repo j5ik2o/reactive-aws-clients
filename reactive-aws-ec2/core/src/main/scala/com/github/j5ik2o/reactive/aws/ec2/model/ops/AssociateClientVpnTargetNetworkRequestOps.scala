@@ -6,12 +6,14 @@ import software.amazon.awssdk.services.ec2.model._
 final class AssociateClientVpnTargetNetworkRequestBuilderOps(val self: AssociateClientVpnTargetNetworkRequest.Builder)
     extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala(value: Option[String]): AssociateClientVpnTargetNetworkRequest.Builder = {
     value.fold(self) { v =>
       self.clientVpnEndpointId(v)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala(value: Option[String]): AssociateClientVpnTargetNetworkRequest.Builder = {
     value.fold(self) { v =>
       self.subnetId(v)
@@ -22,8 +24,10 @@ final class AssociateClientVpnTargetNetworkRequestBuilderOps(val self: Associate
 
 final class AssociateClientVpnTargetNetworkRequestOps(val self: AssociateClientVpnTargetNetworkRequest) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
 
 }

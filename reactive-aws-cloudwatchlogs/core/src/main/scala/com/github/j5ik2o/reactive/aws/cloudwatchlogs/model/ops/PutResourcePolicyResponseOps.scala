@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 final class PutResourcePolicyResponseBuilderOps(val self: PutResourcePolicyResponse.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcePolicyAsScala(value: Option[ResourcePolicy]): PutResourcePolicyResponse.Builder = {
     value.fold(self) { v =>
       self.resourcePolicy(v)
@@ -15,6 +16,7 @@ final class PutResourcePolicyResponseBuilderOps(val self: PutResourcePolicyRespo
 
 final class PutResourcePolicyResponseOps(val self: PutResourcePolicyResponse) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcePolicyAsScala: Option[ResourcePolicy] = Option(self.resourcePolicy)
 
 }

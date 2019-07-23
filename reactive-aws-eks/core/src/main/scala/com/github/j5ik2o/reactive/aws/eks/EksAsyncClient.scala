@@ -43,6 +43,11 @@ trait EksAsyncClient extends EksClient[Future] {
   override def listUpdates(listUpdatesRequest: ListUpdatesRequest): Future[ListUpdatesResponse] =
     underlying.listUpdates(listUpdatesRequest).toScala
 
+  override def updateClusterConfig(
+      updateClusterConfigRequest: UpdateClusterConfigRequest
+  ): Future[UpdateClusterConfigResponse] =
+    underlying.updateClusterConfig(updateClusterConfigRequest).toScala
+
   override def updateClusterVersion(
       updateClusterVersionRequest: UpdateClusterVersionRequest
   ): Future[UpdateClusterVersionResponse] =

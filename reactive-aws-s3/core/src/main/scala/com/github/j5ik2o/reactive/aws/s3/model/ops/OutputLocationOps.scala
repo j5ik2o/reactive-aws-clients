@@ -5,6 +5,7 @@ import software.amazon.awssdk.services.s3.model._
 
 final class OutputLocationBuilderOps(val self: OutputLocation.Builder) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3AsScala(value: Option[S3Location]): OutputLocation.Builder = {
     value.fold(self) { v =>
       self.s3(v)
@@ -15,6 +16,7 @@ final class OutputLocationBuilderOps(val self: OutputLocation.Builder) extends A
 
 final class OutputLocationOps(val self: OutputLocation) extends AnyVal {
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3AsScala: Option[S3Location] = Option(self.s3)
 
 }
