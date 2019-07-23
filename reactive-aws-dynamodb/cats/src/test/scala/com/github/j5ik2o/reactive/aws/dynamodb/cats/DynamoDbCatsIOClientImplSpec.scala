@@ -60,7 +60,7 @@ class DynamoDbCatsIOClientImplSpec
         .keyAsScala(Map("Id" -> AttributeValue.builder().s("abc").build())).build()
       val getItemResponse = client.getItem(getItemRequest).unsafeToFuture().futureValue
       getItemResponse.sdkHttpResponse().isSuccessful shouldBe true
-      getItemResponse.itemAsScala.get.mapValues(_.sAsScala.get) shouldBe Map("Id" -> "abc", "Name" -> "xyz")
+      getItemResponse.itemAsScala.get.mapValues(_.sAsScala.get).toMap shouldBe Map("Id" -> "abc", "Name" -> "xyz")
 
       val updateItemRequest = UpdateItemRequest
         .builder()

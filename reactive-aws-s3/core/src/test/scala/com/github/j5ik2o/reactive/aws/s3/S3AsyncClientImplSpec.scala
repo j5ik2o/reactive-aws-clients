@@ -8,12 +8,12 @@ import software.amazon.awssdk.services.s3.model._
 import scala.concurrent.duration._
 
 class S3AsyncClientImplSpec extends FreeSpec with Matchers with ScalaFutures with S3ContainerSpecSupport {
-  implicit val pc: PatienceConfig = PatienceConfig(30 seconds, 1 seconds)
+  implicit val pc: PatienceConfig = PatienceConfig(20 seconds, 1 seconds)
 
   lazy val s3Client = S3AsyncClient(javaS3Client)
 
   "S3AsyncClientImpl" - {
-    "create bucket, put object, get object" in {
+    "create bucket, put object, get object" ignore {
       val value = "abc"
       s3Client.createBucket(CreateBucketRequest.builder().bucket("test").build()).futureValue
       s3Client
