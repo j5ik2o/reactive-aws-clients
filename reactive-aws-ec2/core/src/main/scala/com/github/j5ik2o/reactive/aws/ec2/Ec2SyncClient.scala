@@ -345,6 +345,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   override def createSnapshot(createSnapshotRequest: CreateSnapshotRequest): Either[Throwable, CreateSnapshotResponse] =
     underlying.createSnapshot(createSnapshotRequest).toEither
 
+  override def createSnapshots(
+      createSnapshotsRequest: CreateSnapshotsRequest
+  ): Either[Throwable, CreateSnapshotsResponse] =
+    underlying.createSnapshots(createSnapshotsRequest).toEither
+
   override def createSpotDatafeedSubscription(
       createSpotDatafeedSubscriptionRequest: CreateSpotDatafeedSubscriptionRequest
   ): Either[Throwable, CreateSpotDatafeedSubscriptionResponse] =
@@ -355,6 +360,26 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
 
   override def createTags(createTagsRequest: CreateTagsRequest): Either[Throwable, CreateTagsResponse] =
     underlying.createTags(createTagsRequest).toEither
+
+  override def createTrafficMirrorFilter(
+      createTrafficMirrorFilterRequest: CreateTrafficMirrorFilterRequest
+  ): Either[Throwable, CreateTrafficMirrorFilterResponse] =
+    underlying.createTrafficMirrorFilter(createTrafficMirrorFilterRequest).toEither
+
+  override def createTrafficMirrorFilterRule(
+      createTrafficMirrorFilterRuleRequest: CreateTrafficMirrorFilterRuleRequest
+  ): Either[Throwable, CreateTrafficMirrorFilterRuleResponse] =
+    underlying.createTrafficMirrorFilterRule(createTrafficMirrorFilterRuleRequest).toEither
+
+  override def createTrafficMirrorSession(
+      createTrafficMirrorSessionRequest: CreateTrafficMirrorSessionRequest
+  ): Either[Throwable, CreateTrafficMirrorSessionResponse] =
+    underlying.createTrafficMirrorSession(createTrafficMirrorSessionRequest).toEither
+
+  override def createTrafficMirrorTarget(
+      createTrafficMirrorTargetRequest: CreateTrafficMirrorTargetRequest
+  ): Either[Throwable, CreateTrafficMirrorTargetResponse] =
+    underlying.createTrafficMirrorTarget(createTrafficMirrorTargetRequest).toEither
 
   override def createTransitGateway(): Either[Throwable, CreateTransitGatewayResponse] =
     underlying.createTransitGateway().toEither
@@ -504,6 +529,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DeletePlacementGroupResponse] =
     underlying.deletePlacementGroup(deletePlacementGroupRequest).toEither
 
+  override def deleteQueuedReservedInstances(
+      deleteQueuedReservedInstancesRequest: DeleteQueuedReservedInstancesRequest
+  ): Either[Throwable, DeleteQueuedReservedInstancesResponse] =
+    underlying.deleteQueuedReservedInstances(deleteQueuedReservedInstancesRequest).toEither
+
   override def deleteRoute(deleteRouteRequest: DeleteRouteRequest): Either[Throwable, DeleteRouteResponse] =
     underlying.deleteRoute(deleteRouteRequest).toEither
 
@@ -533,6 +563,26 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
 
   override def deleteTags(deleteTagsRequest: DeleteTagsRequest): Either[Throwable, DeleteTagsResponse] =
     underlying.deleteTags(deleteTagsRequest).toEither
+
+  override def deleteTrafficMirrorFilter(
+      deleteTrafficMirrorFilterRequest: DeleteTrafficMirrorFilterRequest
+  ): Either[Throwable, DeleteTrafficMirrorFilterResponse] =
+    underlying.deleteTrafficMirrorFilter(deleteTrafficMirrorFilterRequest).toEither
+
+  override def deleteTrafficMirrorFilterRule(
+      deleteTrafficMirrorFilterRuleRequest: DeleteTrafficMirrorFilterRuleRequest
+  ): Either[Throwable, DeleteTrafficMirrorFilterRuleResponse] =
+    underlying.deleteTrafficMirrorFilterRule(deleteTrafficMirrorFilterRuleRequest).toEither
+
+  override def deleteTrafficMirrorSession(
+      deleteTrafficMirrorSessionRequest: DeleteTrafficMirrorSessionRequest
+  ): Either[Throwable, DeleteTrafficMirrorSessionResponse] =
+    underlying.deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest).toEither
+
+  override def deleteTrafficMirrorTarget(
+      deleteTrafficMirrorTargetRequest: DeleteTrafficMirrorTargetRequest
+  ): Either[Throwable, DeleteTrafficMirrorTargetResponse] =
+    underlying.deleteTrafficMirrorTarget(deleteTrafficMirrorTargetRequest).toEither
 
   override def deleteTransitGateway(
       deleteTransitGatewayRequest: DeleteTransitGatewayRequest
@@ -796,6 +846,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeElasticGpusRequest: DescribeElasticGpusRequest
   ): Either[Throwable, DescribeElasticGpusResponse] =
     underlying.describeElasticGpus(describeElasticGpusRequest).toEither
+
+  override def describeExportImageTasks(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): Either[Throwable, DescribeExportImageTasksResponse] =
+    underlying.describeExportImageTasks(describeExportImageTasksRequest).toEither
 
   override def describeExportTasks(): Either[Throwable, DescribeExportTasksResponse] =
     underlying.describeExportTasks().toEither
@@ -1460,6 +1515,36 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   def describeTagsPaginator(describeTagsRequest: DescribeTagsRequest): DescribeTagsIterable =
     underlying.describeTagsPaginator(describeTagsRequest)
 
+  override def describeTrafficMirrorFilters(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): Either[Throwable, DescribeTrafficMirrorFiltersResponse] =
+    underlying.describeTrafficMirrorFilters(describeTrafficMirrorFiltersRequest).toEither
+
+  def describeTrafficMirrorFiltersPaginator(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): DescribeTrafficMirrorFiltersIterable =
+    underlying.describeTrafficMirrorFiltersPaginator(describeTrafficMirrorFiltersRequest)
+
+  override def describeTrafficMirrorSessions(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): Either[Throwable, DescribeTrafficMirrorSessionsResponse] =
+    underlying.describeTrafficMirrorSessions(describeTrafficMirrorSessionsRequest).toEither
+
+  def describeTrafficMirrorSessionsPaginator(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): DescribeTrafficMirrorSessionsIterable =
+    underlying.describeTrafficMirrorSessionsPaginator(describeTrafficMirrorSessionsRequest)
+
+  override def describeTrafficMirrorTargets(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): Either[Throwable, DescribeTrafficMirrorTargetsResponse] =
+    underlying.describeTrafficMirrorTargets(describeTrafficMirrorTargetsRequest).toEither
+
+  def describeTrafficMirrorTargetsPaginator(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): DescribeTrafficMirrorTargetsIterable =
+    underlying.describeTrafficMirrorTargetsPaginator(describeTrafficMirrorTargetsRequest)
+
   override def describeTransitGatewayAttachments(): Either[Throwable, DescribeTransitGatewayAttachmentsResponse] =
     underlying.describeTransitGatewayAttachments().toEither
 
@@ -1755,6 +1840,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DetachVpnGatewayResponse] =
     underlying.detachVpnGateway(detachVpnGatewayRequest).toEither
 
+  override def disableEbsEncryptionByDefault(
+      disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest
+  ): Either[Throwable, DisableEbsEncryptionByDefaultResponse] =
+    underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest).toEither
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): Either[Throwable, DisableTransitGatewayRouteTablePropagationResponse] =
@@ -1810,6 +1900,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DisassociateVpcCidrBlockResponse] =
     underlying.disassociateVpcCidrBlock(disassociateVpcCidrBlockRequest).toEither
 
+  override def enableEbsEncryptionByDefault(
+      enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
+  ): Either[Throwable, EnableEbsEncryptionByDefaultResponse] =
+    underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest).toEither
+
   override def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
   ): Either[Throwable, EnableTransitGatewayRouteTablePropagationResponse] =
@@ -1844,10 +1939,18 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, ExportClientVpnClientConfigurationResponse] =
     underlying.exportClientVpnClientConfiguration(exportClientVpnClientConfigurationRequest).toEither
 
+  override def exportImage(exportImageRequest: ExportImageRequest): Either[Throwable, ExportImageResponse] =
+    underlying.exportImage(exportImageRequest).toEither
+
   override def exportTransitGatewayRoutes(
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest
   ): Either[Throwable, ExportTransitGatewayRoutesResponse] =
     underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest).toEither
+
+  override def getCapacityReservationUsage(
+      getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
+  ): Either[Throwable, GetCapacityReservationUsageResponse] =
+    underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest).toEither
 
   override def getConsoleOutput(
       getConsoleOutputRequest: GetConsoleOutputRequest
@@ -1858,6 +1961,16 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       getConsoleScreenshotRequest: GetConsoleScreenshotRequest
   ): Either[Throwable, GetConsoleScreenshotResponse] =
     underlying.getConsoleScreenshot(getConsoleScreenshotRequest).toEither
+
+  override def getEbsDefaultKmsKeyId(
+      getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
+  ): Either[Throwable, GetEbsDefaultKmsKeyIdResponse] =
+    underlying.getEbsDefaultKmsKeyId(getEbsDefaultKmsKeyIdRequest).toEither
+
+  override def getEbsEncryptionByDefault(
+      getEbsEncryptionByDefaultRequest: GetEbsEncryptionByDefaultRequest
+  ): Either[Throwable, GetEbsEncryptionByDefaultResponse] =
+    underlying.getEbsEncryptionByDefault(getEbsEncryptionByDefaultRequest).toEither
 
   override def getHostReservationPurchasePreview(
       getHostReservationPurchasePreviewRequest: GetHostReservationPurchasePreviewRequest
@@ -1940,6 +2053,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, ModifyClientVpnEndpointResponse] =
     underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest).toEither
 
+  override def modifyEbsDefaultKmsKeyId(
+      modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
+  ): Either[Throwable, ModifyEbsDefaultKmsKeyIdResponse] =
+    underlying.modifyEbsDefaultKmsKeyId(modifyEbsDefaultKmsKeyIdRequest).toEither
+
   override def modifyFleet(modifyFleetRequest: ModifyFleetRequest): Either[Throwable, ModifyFleetResponse] =
     underlying.modifyFleet(modifyFleetRequest).toEither
 
@@ -2019,6 +2137,21 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, ModifySubnetAttributeResponse] =
     underlying.modifySubnetAttribute(modifySubnetAttributeRequest).toEither
 
+  override def modifyTrafficMirrorFilterNetworkServices(
+      modifyTrafficMirrorFilterNetworkServicesRequest: ModifyTrafficMirrorFilterNetworkServicesRequest
+  ): Either[Throwable, ModifyTrafficMirrorFilterNetworkServicesResponse] =
+    underlying.modifyTrafficMirrorFilterNetworkServices(modifyTrafficMirrorFilterNetworkServicesRequest).toEither
+
+  override def modifyTrafficMirrorFilterRule(
+      modifyTrafficMirrorFilterRuleRequest: ModifyTrafficMirrorFilterRuleRequest
+  ): Either[Throwable, ModifyTrafficMirrorFilterRuleResponse] =
+    underlying.modifyTrafficMirrorFilterRule(modifyTrafficMirrorFilterRuleRequest).toEither
+
+  override def modifyTrafficMirrorSession(
+      modifyTrafficMirrorSessionRequest: ModifyTrafficMirrorSessionRequest
+  ): Either[Throwable, ModifyTrafficMirrorSessionResponse] =
+    underlying.modifyTrafficMirrorSession(modifyTrafficMirrorSessionRequest).toEither
+
   override def modifyTransitGatewayVpcAttachment(
       modifyTransitGatewayVpcAttachmentRequest: ModifyTransitGatewayVpcAttachmentRequest
   ): Either[Throwable, ModifyTransitGatewayVpcAttachmentResponse] =
@@ -2071,6 +2204,16 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       modifyVpnConnectionRequest: ModifyVpnConnectionRequest
   ): Either[Throwable, ModifyVpnConnectionResponse] =
     underlying.modifyVpnConnection(modifyVpnConnectionRequest).toEither
+
+  override def modifyVpnTunnelCertificate(
+      modifyVpnTunnelCertificateRequest: ModifyVpnTunnelCertificateRequest
+  ): Either[Throwable, ModifyVpnTunnelCertificateResponse] =
+    underlying.modifyVpnTunnelCertificate(modifyVpnTunnelCertificateRequest).toEither
+
+  override def modifyVpnTunnelOptions(
+      modifyVpnTunnelOptionsRequest: ModifyVpnTunnelOptionsRequest
+  ): Either[Throwable, ModifyVpnTunnelOptionsResponse] =
+    underlying.modifyVpnTunnelOptions(modifyVpnTunnelOptionsRequest).toEither
 
   override def monitorInstances(
       monitorInstancesRequest: MonitorInstancesRequest
@@ -2174,6 +2317,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, RequestSpotInstancesResponse] =
     underlying.requestSpotInstances(requestSpotInstancesRequest).toEither
 
+  override def resetEbsDefaultKmsKeyId(
+      resetEbsDefaultKmsKeyIdRequest: ResetEbsDefaultKmsKeyIdRequest
+  ): Either[Throwable, ResetEbsDefaultKmsKeyIdResponse] =
+    underlying.resetEbsDefaultKmsKeyId(resetEbsDefaultKmsKeyIdRequest).toEither
+
   override def resetFpgaImageAttribute(
       resetFpgaImageAttributeRequest: ResetFpgaImageAttributeRequest
   ): Either[Throwable, ResetFpgaImageAttributeResponse] =
@@ -2231,6 +2379,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest
   ): Either[Throwable, SearchTransitGatewayRoutesResponse] =
     underlying.searchTransitGatewayRoutes(searchTransitGatewayRoutesRequest).toEither
+
+  override def sendDiagnosticInterrupt(
+      sendDiagnosticInterruptRequest: SendDiagnosticInterruptRequest
+  ): Either[Throwable, SendDiagnosticInterruptResponse] =
+    underlying.sendDiagnosticInterrupt(sendDiagnosticInterruptRequest).toEither
 
   override def startInstances(startInstancesRequest: StartInstancesRequest): Either[Throwable, StartInstancesResponse] =
     underlying.startInstances(startInstancesRequest).toEither

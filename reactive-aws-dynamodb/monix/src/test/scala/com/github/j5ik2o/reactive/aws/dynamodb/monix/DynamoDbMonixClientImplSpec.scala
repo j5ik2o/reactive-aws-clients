@@ -9,6 +9,7 @@ import monix.execution.Scheduler.Implicits.global
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{ FreeSpec, Matchers }
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
+import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.dynamodb.{ DynamoDbAsyncClient => JavaDynamoDbAsyncClient }
 import software.amazon.awssdk.services.dynamodb.model._
 
@@ -23,6 +24,7 @@ class DynamoDbMonixClientImplSpec extends FreeSpec with Matchers with ScalaFutur
     .credentialsProvider(
       StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKeyId, secretAccessKey))
     )
+    .region(Region.EU_WEST_1)
     .endpointOverride(URI.create(endpoint))
     .build()
 

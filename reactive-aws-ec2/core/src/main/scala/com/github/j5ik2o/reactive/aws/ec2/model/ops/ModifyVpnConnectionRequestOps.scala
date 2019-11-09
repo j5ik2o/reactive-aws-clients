@@ -20,6 +20,13 @@ final class ModifyVpnConnectionRequestBuilderOps(val self: ModifyVpnConnectionRe
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerGatewayIdAsScala(value: Option[String]): ModifyVpnConnectionRequest.Builder = {
+    value.fold(self) { v =>
+      self.customerGatewayId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnGatewayIdAsScala(value: Option[String]): ModifyVpnConnectionRequest.Builder = {
     value.fold(self) { v =>
       self.vpnGatewayId(v)
@@ -35,6 +42,9 @@ final class ModifyVpnConnectionRequestOps(val self: ModifyVpnConnectionRequest) 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayIdAsScala: Option[String] = Option(self.transitGatewayId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerGatewayIdAsScala: Option[String] = Option(self.customerGatewayId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpnGatewayIdAsScala: Option[String] = Option(self.vpnGatewayId)

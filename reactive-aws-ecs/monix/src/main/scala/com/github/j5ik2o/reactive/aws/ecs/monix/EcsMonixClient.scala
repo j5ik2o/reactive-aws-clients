@@ -303,6 +303,13 @@ trait EcsMonixClient extends EcsClient[Task] {
       underlying.stopTask(stopTaskRequest)
     }
 
+  override def submitAttachmentStateChanges(
+      submitAttachmentStateChangesRequest: SubmitAttachmentStateChangesRequest
+  ): Task[SubmitAttachmentStateChangesResponse] =
+    Task.deferFuture {
+      underlying.submitAttachmentStateChanges(submitAttachmentStateChangesRequest)
+    }
+
   override def submitContainerStateChange(
       submitContainerStateChangeRequest: SubmitContainerStateChangeRequest
   ): Task[SubmitContainerStateChangeResponse] =
@@ -325,6 +332,13 @@ trait EcsMonixClient extends EcsClient[Task] {
   override def untagResource(untagResourceRequest: UntagResourceRequest): Task[UntagResourceResponse] =
     Task.deferFuture {
       underlying.untagResource(untagResourceRequest)
+    }
+
+  override def updateClusterSettings(
+      updateClusterSettingsRequest: UpdateClusterSettingsRequest
+  ): Task[UpdateClusterSettingsResponse] =
+    Task.deferFuture {
+      underlying.updateClusterSettings(updateClusterSettingsRequest)
     }
 
   override def updateContainerAgent(

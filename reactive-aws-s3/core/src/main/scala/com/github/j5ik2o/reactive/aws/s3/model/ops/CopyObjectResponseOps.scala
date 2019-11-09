@@ -62,6 +62,13 @@ final class CopyObjectResponseBuilderOps(val self: CopyObjectResponse.Builder) e
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala(value: Option[String]): CopyObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsEncryptionContext(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): CopyObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -95,6 +102,9 @@ final class CopyObjectResponseOps(val self: CopyObjectResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala: Option[String] = Option(self.ssekmsEncryptionContext)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)

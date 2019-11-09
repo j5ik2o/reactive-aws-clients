@@ -66,6 +66,18 @@ trait EcrMonixClient extends EcrClient[Task] {
       underlying.deleteRepositoryPolicy(deleteRepositoryPolicyRequest)
     }
 
+  override def describeImageScanFindings(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): Task[DescribeImageScanFindingsResponse] =
+    Task.deferFuture {
+      underlying.describeImageScanFindings(describeImageScanFindingsRequest)
+    }
+
+  def describeImageScanFindingsPaginator(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): Observable[DescribeImageScanFindingsResponse] =
+    Observable.fromReactivePublisher(underlying.describeImageScanFindingsPaginator(describeImageScanFindingsRequest))
+
   override def describeImages(describeImagesRequest: DescribeImagesRequest): Task[DescribeImagesResponse] =
     Task.deferFuture {
       underlying.describeImages(describeImagesRequest)
@@ -127,6 +139,11 @@ trait EcrMonixClient extends EcrClient[Task] {
       underlying.getLifecyclePolicyPreview(getLifecyclePolicyPreviewRequest)
     }
 
+  def getLifecyclePolicyPreviewPaginator(
+      getLifecyclePolicyPreviewRequest: GetLifecyclePolicyPreviewRequest
+  ): Observable[GetLifecyclePolicyPreviewResponse] =
+    Observable.fromReactivePublisher(underlying.getLifecyclePolicyPreviewPaginator(getLifecyclePolicyPreviewRequest))
+
   override def getRepositoryPolicy(
       getRepositoryPolicyRequest: GetRepositoryPolicyRequest
   ): Task[GetRepositoryPolicyResponse] =
@@ -161,6 +178,20 @@ trait EcrMonixClient extends EcrClient[Task] {
       underlying.putImage(putImageRequest)
     }
 
+  override def putImageScanningConfiguration(
+      putImageScanningConfigurationRequest: PutImageScanningConfigurationRequest
+  ): Task[PutImageScanningConfigurationResponse] =
+    Task.deferFuture {
+      underlying.putImageScanningConfiguration(putImageScanningConfigurationRequest)
+    }
+
+  override def putImageTagMutability(
+      putImageTagMutabilityRequest: PutImageTagMutabilityRequest
+  ): Task[PutImageTagMutabilityResponse] =
+    Task.deferFuture {
+      underlying.putImageTagMutability(putImageTagMutabilityRequest)
+    }
+
   override def putLifecyclePolicy(
       putLifecyclePolicyRequest: PutLifecyclePolicyRequest
   ): Task[PutLifecyclePolicyResponse] =
@@ -173,6 +204,11 @@ trait EcrMonixClient extends EcrClient[Task] {
   ): Task[SetRepositoryPolicyResponse] =
     Task.deferFuture {
       underlying.setRepositoryPolicy(setRepositoryPolicyRequest)
+    }
+
+  override def startImageScan(startImageScanRequest: StartImageScanRequest): Task[StartImageScanResponse] =
+    Task.deferFuture {
+      underlying.startImageScan(startImageScanRequest)
     }
 
   override def startLifecyclePolicyPreview(

@@ -465,6 +465,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.createSnapshot(createSnapshotRequest))
     }
 
+  override def createSnapshots(createSnapshotsRequest: CreateSnapshotsRequest): IO[CreateSnapshotsResponse] =
+    IO.fromFuture {
+      IO(underlying.createSnapshots(createSnapshotsRequest))
+    }
+
   override def createSpotDatafeedSubscription(
       createSpotDatafeedSubscriptionRequest: CreateSpotDatafeedSubscriptionRequest
   ): IO[CreateSpotDatafeedSubscriptionResponse] =
@@ -480,6 +485,34 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def createTags(createTagsRequest: CreateTagsRequest): IO[CreateTagsResponse] =
     IO.fromFuture {
       IO(underlying.createTags(createTagsRequest))
+    }
+
+  override def createTrafficMirrorFilter(
+      createTrafficMirrorFilterRequest: CreateTrafficMirrorFilterRequest
+  ): IO[CreateTrafficMirrorFilterResponse] =
+    IO.fromFuture {
+      IO(underlying.createTrafficMirrorFilter(createTrafficMirrorFilterRequest))
+    }
+
+  override def createTrafficMirrorFilterRule(
+      createTrafficMirrorFilterRuleRequest: CreateTrafficMirrorFilterRuleRequest
+  ): IO[CreateTrafficMirrorFilterRuleResponse] =
+    IO.fromFuture {
+      IO(underlying.createTrafficMirrorFilterRule(createTrafficMirrorFilterRuleRequest))
+    }
+
+  override def createTrafficMirrorSession(
+      createTrafficMirrorSessionRequest: CreateTrafficMirrorSessionRequest
+  ): IO[CreateTrafficMirrorSessionResponse] =
+    IO.fromFuture {
+      IO(underlying.createTrafficMirrorSession(createTrafficMirrorSessionRequest))
+    }
+
+  override def createTrafficMirrorTarget(
+      createTrafficMirrorTargetRequest: CreateTrafficMirrorTargetRequest
+  ): IO[CreateTrafficMirrorTargetResponse] =
+    IO.fromFuture {
+      IO(underlying.createTrafficMirrorTarget(createTrafficMirrorTargetRequest))
     }
 
   override def createTransitGateway(
@@ -682,6 +715,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.deletePlacementGroup(deletePlacementGroupRequest))
     }
 
+  override def deleteQueuedReservedInstances(
+      deleteQueuedReservedInstancesRequest: DeleteQueuedReservedInstancesRequest
+  ): IO[DeleteQueuedReservedInstancesResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteQueuedReservedInstances(deleteQueuedReservedInstancesRequest))
+    }
+
   override def deleteRoute(deleteRouteRequest: DeleteRouteRequest): IO[DeleteRouteResponse] =
     IO.fromFuture {
       IO(underlying.deleteRoute(deleteRouteRequest))
@@ -724,6 +764,34 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def deleteTags(deleteTagsRequest: DeleteTagsRequest): IO[DeleteTagsResponse] =
     IO.fromFuture {
       IO(underlying.deleteTags(deleteTagsRequest))
+    }
+
+  override def deleteTrafficMirrorFilter(
+      deleteTrafficMirrorFilterRequest: DeleteTrafficMirrorFilterRequest
+  ): IO[DeleteTrafficMirrorFilterResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTrafficMirrorFilter(deleteTrafficMirrorFilterRequest))
+    }
+
+  override def deleteTrafficMirrorFilterRule(
+      deleteTrafficMirrorFilterRuleRequest: DeleteTrafficMirrorFilterRuleRequest
+  ): IO[DeleteTrafficMirrorFilterRuleResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTrafficMirrorFilterRule(deleteTrafficMirrorFilterRuleRequest))
+    }
+
+  override def deleteTrafficMirrorSession(
+      deleteTrafficMirrorSessionRequest: DeleteTrafficMirrorSessionRequest
+  ): IO[DeleteTrafficMirrorSessionResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest))
+    }
+
+  override def deleteTrafficMirrorTarget(
+      deleteTrafficMirrorTargetRequest: DeleteTrafficMirrorTargetRequest
+  ): IO[DeleteTrafficMirrorTargetResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTrafficMirrorTarget(deleteTrafficMirrorTargetRequest))
     }
 
   override def deleteTransitGateway(
@@ -1073,6 +1141,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def describeElasticGpus(): IO[DescribeElasticGpusResponse] =
     IO.fromFuture {
       IO(underlying.describeElasticGpus())
+    }
+
+  override def describeExportImageTasks(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): IO[DescribeExportImageTasksResponse] =
+    IO.fromFuture {
+      IO(underlying.describeExportImageTasks(describeExportImageTasksRequest))
     }
 
   override def describeExportTasks(
@@ -1918,6 +1993,42 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   def describeTagsPaginator(describeTagsRequest: DescribeTagsRequest): DescribeTagsPublisher =
     underlying.describeTagsPaginator(describeTagsRequest)
 
+  override def describeTrafficMirrorFilters(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): IO[DescribeTrafficMirrorFiltersResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTrafficMirrorFilters(describeTrafficMirrorFiltersRequest))
+    }
+
+  def describeTrafficMirrorFiltersPaginator(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): DescribeTrafficMirrorFiltersPublisher =
+    underlying.describeTrafficMirrorFiltersPaginator(describeTrafficMirrorFiltersRequest)
+
+  override def describeTrafficMirrorSessions(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): IO[DescribeTrafficMirrorSessionsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTrafficMirrorSessions(describeTrafficMirrorSessionsRequest))
+    }
+
+  def describeTrafficMirrorSessionsPaginator(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): DescribeTrafficMirrorSessionsPublisher =
+    underlying.describeTrafficMirrorSessionsPaginator(describeTrafficMirrorSessionsRequest)
+
+  override def describeTrafficMirrorTargets(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): IO[DescribeTrafficMirrorTargetsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTrafficMirrorTargets(describeTrafficMirrorTargetsRequest))
+    }
+
+  def describeTrafficMirrorTargetsPaginator(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): DescribeTrafficMirrorTargetsPublisher =
+    underlying.describeTrafficMirrorTargetsPaginator(describeTrafficMirrorTargetsRequest)
+
   override def describeTransitGatewayAttachments(
       describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
   ): IO[DescribeTransitGatewayAttachmentsResponse] =
@@ -2295,6 +2406,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.detachVpnGateway(detachVpnGatewayRequest))
     }
 
+  override def disableEbsEncryptionByDefault(
+      disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest
+  ): IO[DisableEbsEncryptionByDefaultResponse] =
+    IO.fromFuture {
+      IO(underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest))
+    }
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): IO[DisableTransitGatewayRouteTablePropagationResponse] =
@@ -2372,6 +2490,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.disassociateVpcCidrBlock(disassociateVpcCidrBlockRequest))
     }
 
+  override def enableEbsEncryptionByDefault(
+      enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
+  ): IO[EnableEbsEncryptionByDefaultResponse] =
+    IO.fromFuture {
+      IO(underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest))
+    }
+
   override def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
   ): IO[EnableTransitGatewayRouteTablePropagationResponse] =
@@ -2421,11 +2546,23 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.exportClientVpnClientConfiguration(exportClientVpnClientConfigurationRequest))
     }
 
+  override def exportImage(exportImageRequest: ExportImageRequest): IO[ExportImageResponse] =
+    IO.fromFuture {
+      IO(underlying.exportImage(exportImageRequest))
+    }
+
   override def exportTransitGatewayRoutes(
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest
   ): IO[ExportTransitGatewayRoutesResponse] =
     IO.fromFuture {
       IO(underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest))
+    }
+
+  override def getCapacityReservationUsage(
+      getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
+  ): IO[GetCapacityReservationUsageResponse] =
+    IO.fromFuture {
+      IO(underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest))
     }
 
   override def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): IO[GetConsoleOutputResponse] =
@@ -2438,6 +2575,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[GetConsoleScreenshotResponse] =
     IO.fromFuture {
       IO(underlying.getConsoleScreenshot(getConsoleScreenshotRequest))
+    }
+
+  override def getEbsDefaultKmsKeyId(
+      getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
+  ): IO[GetEbsDefaultKmsKeyIdResponse] =
+    IO.fromFuture {
+      IO(underlying.getEbsDefaultKmsKeyId(getEbsDefaultKmsKeyIdRequest))
+    }
+
+  override def getEbsEncryptionByDefault(
+      getEbsEncryptionByDefaultRequest: GetEbsEncryptionByDefaultRequest
+  ): IO[GetEbsEncryptionByDefaultResponse] =
+    IO.fromFuture {
+      IO(underlying.getEbsEncryptionByDefault(getEbsEncryptionByDefaultRequest))
     }
 
   override def getHostReservationPurchasePreview(
@@ -2548,6 +2699,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[ModifyClientVpnEndpointResponse] =
     IO.fromFuture {
       IO(underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest))
+    }
+
+  override def modifyEbsDefaultKmsKeyId(
+      modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
+  ): IO[ModifyEbsDefaultKmsKeyIdResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyEbsDefaultKmsKeyId(modifyEbsDefaultKmsKeyIdRequest))
     }
 
   override def modifyFleet(modifyFleetRequest: ModifyFleetRequest): IO[ModifyFleetResponse] =
@@ -2663,6 +2821,27 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.modifySubnetAttribute(modifySubnetAttributeRequest))
     }
 
+  override def modifyTrafficMirrorFilterNetworkServices(
+      modifyTrafficMirrorFilterNetworkServicesRequest: ModifyTrafficMirrorFilterNetworkServicesRequest
+  ): IO[ModifyTrafficMirrorFilterNetworkServicesResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyTrafficMirrorFilterNetworkServices(modifyTrafficMirrorFilterNetworkServicesRequest))
+    }
+
+  override def modifyTrafficMirrorFilterRule(
+      modifyTrafficMirrorFilterRuleRequest: ModifyTrafficMirrorFilterRuleRequest
+  ): IO[ModifyTrafficMirrorFilterRuleResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyTrafficMirrorFilterRule(modifyTrafficMirrorFilterRuleRequest))
+    }
+
+  override def modifyTrafficMirrorSession(
+      modifyTrafficMirrorSessionRequest: ModifyTrafficMirrorSessionRequest
+  ): IO[ModifyTrafficMirrorSessionResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyTrafficMirrorSession(modifyTrafficMirrorSessionRequest))
+    }
+
   override def modifyTransitGatewayVpcAttachment(
       modifyTransitGatewayVpcAttachmentRequest: ModifyTransitGatewayVpcAttachmentRequest
   ): IO[ModifyTransitGatewayVpcAttachmentResponse] =
@@ -2732,6 +2911,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[ModifyVpnConnectionResponse] =
     IO.fromFuture {
       IO(underlying.modifyVpnConnection(modifyVpnConnectionRequest))
+    }
+
+  override def modifyVpnTunnelCertificate(
+      modifyVpnTunnelCertificateRequest: ModifyVpnTunnelCertificateRequest
+  ): IO[ModifyVpnTunnelCertificateResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyVpnTunnelCertificate(modifyVpnTunnelCertificateRequest))
+    }
+
+  override def modifyVpnTunnelOptions(
+      modifyVpnTunnelOptionsRequest: ModifyVpnTunnelOptionsRequest
+  ): IO[ModifyVpnTunnelOptionsResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyVpnTunnelOptions(modifyVpnTunnelOptionsRequest))
     }
 
   override def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): IO[MonitorInstancesResponse] =
@@ -2872,6 +3065,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.requestSpotInstances(requestSpotInstancesRequest))
     }
 
+  override def resetEbsDefaultKmsKeyId(
+      resetEbsDefaultKmsKeyIdRequest: ResetEbsDefaultKmsKeyIdRequest
+  ): IO[ResetEbsDefaultKmsKeyIdResponse] =
+    IO.fromFuture {
+      IO(underlying.resetEbsDefaultKmsKeyId(resetEbsDefaultKmsKeyIdRequest))
+    }
+
   override def resetFpgaImageAttribute(
       resetFpgaImageAttributeRequest: ResetFpgaImageAttributeRequest
   ): IO[ResetFpgaImageAttributeResponse] =
@@ -2952,6 +3152,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[SearchTransitGatewayRoutesResponse] =
     IO.fromFuture {
       IO(underlying.searchTransitGatewayRoutes(searchTransitGatewayRoutesRequest))
+    }
+
+  override def sendDiagnosticInterrupt(
+      sendDiagnosticInterruptRequest: SendDiagnosticInterruptRequest
+  ): IO[SendDiagnosticInterruptResponse] =
+    IO.fromFuture {
+      IO(underlying.sendDiagnosticInterrupt(sendDiagnosticInterruptRequest))
     }
 
   override def startInstances(startInstancesRequest: StartInstancesRequest): IO[StartInstancesResponse] =

@@ -5,6 +5,7 @@ import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.eks.EksAsyncClient
 import software.amazon.awssdk.services.eks.model._
+import software.amazon.awssdk.services.eks.paginators._
 
 object EksAkkaClient {
 
@@ -90,6 +91,27 @@ trait EksAkkaClient {
   def listClustersSource(): Source[ListClustersResponse, NotUsed] =
     Source.fromFuture(underlying.listClusters())
 
+  def listClustersPaginatorSource: Source[ListClustersResponse, NotUsed] =
+    Source.fromPublisher(underlying.listClustersPaginator())
+
+  def listClustersPaginatorFlow: Flow[ListClustersRequest, ListClustersResponse, NotUsed] =
+    Flow[ListClustersRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listClustersPaginator(request))
+    }
+
+  def listTagsForResourceSource(
+      listTagsForResourceRequest: ListTagsForResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTagsForResourceResponse, NotUsed] =
+    Source.single(listTagsForResourceRequest).via(listTagsForResourceFlow(parallelism))
+
+  def listTagsForResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListTagsForResourceRequest, ListTagsForResourceResponse, NotUsed] =
+    Flow[ListTagsForResourceRequest].mapAsync(parallelism) { listTagsForResourceRequest =>
+      underlying.listTagsForResource(listTagsForResourceRequest)
+    }
+
   def listUpdatesSource(
       listUpdatesRequest: ListUpdatesRequest,
       parallelism: Int = DefaultParallelism
@@ -99,6 +121,35 @@ trait EksAkkaClient {
   def listUpdatesFlow(parallelism: Int = DefaultParallelism): Flow[ListUpdatesRequest, ListUpdatesResponse, NotUsed] =
     Flow[ListUpdatesRequest].mapAsync(parallelism) { listUpdatesRequest =>
       underlying.listUpdates(listUpdatesRequest)
+    }
+
+  def listUpdatesPaginatorFlow: Flow[ListUpdatesRequest, ListUpdatesResponse, NotUsed] =
+    Flow[ListUpdatesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listUpdatesPaginator(request))
+    }
+
+  def tagResourceSource(
+      tagResourceRequest: TagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[TagResourceResponse, NotUsed] =
+    Source.single(tagResourceRequest).via(tagResourceFlow(parallelism))
+
+  def tagResourceFlow(parallelism: Int = DefaultParallelism): Flow[TagResourceRequest, TagResourceResponse, NotUsed] =
+    Flow[TagResourceRequest].mapAsync(parallelism) { tagResourceRequest =>
+      underlying.tagResource(tagResourceRequest)
+    }
+
+  def untagResourceSource(
+      untagResourceRequest: UntagResourceRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UntagResourceResponse, NotUsed] =
+    Source.single(untagResourceRequest).via(untagResourceFlow(parallelism))
+
+  def untagResourceFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
+    Flow[UntagResourceRequest].mapAsync(parallelism) { untagResourceRequest =>
+      underlying.untagResource(untagResourceRequest)
     }
 
   def updateClusterConfigSource(

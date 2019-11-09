@@ -148,6 +148,9 @@ trait LambdaMonixClient extends LambdaClient[Task] {
       underlying.listAliases(listAliasesRequest)
     }
 
+  def listAliasesPaginator(listAliasesRequest: ListAliasesRequest): Observable[ListAliasesResponse] =
+    Observable.fromReactivePublisher(underlying.listAliasesPaginator(listAliasesRequest))
+
   override def listEventSourceMappings(
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): Task[ListEventSourceMappingsResponse] =
@@ -189,6 +192,11 @@ trait LambdaMonixClient extends LambdaClient[Task] {
       underlying.listLayerVersions(listLayerVersionsRequest)
     }
 
+  def listLayerVersionsPaginator(
+      listLayerVersionsRequest: ListLayerVersionsRequest
+  ): Observable[ListLayerVersionsResponse] =
+    Observable.fromReactivePublisher(underlying.listLayerVersionsPaginator(listLayerVersionsRequest))
+
   override def listLayers(listLayersRequest: ListLayersRequest): Task[ListLayersResponse] =
     Task.deferFuture {
       underlying.listLayers(listLayersRequest)
@@ -198,6 +206,12 @@ trait LambdaMonixClient extends LambdaClient[Task] {
     Task.deferFuture {
       underlying.listLayers()
     }
+
+  def listLayersPaginator(): Observable[ListLayersResponse] =
+    Observable.fromReactivePublisher(underlying.listLayersPaginator())
+
+  def listLayersPaginator(listLayersRequest: ListLayersRequest): Observable[ListLayersResponse] =
+    Observable.fromReactivePublisher(underlying.listLayersPaginator(listLayersRequest))
 
   override def listTags(listTagsRequest: ListTagsRequest): Task[ListTagsResponse] =
     Task.deferFuture {
@@ -210,6 +224,11 @@ trait LambdaMonixClient extends LambdaClient[Task] {
     Task.deferFuture {
       underlying.listVersionsByFunction(listVersionsByFunctionRequest)
     }
+
+  def listVersionsByFunctionPaginator(
+      listVersionsByFunctionRequest: ListVersionsByFunctionRequest
+  ): Observable[ListVersionsByFunctionResponse] =
+    Observable.fromReactivePublisher(underlying.listVersionsByFunctionPaginator(listVersionsByFunctionRequest))
 
   override def publishLayerVersion(
       publishLayerVersionRequest: PublishLayerVersionRequest

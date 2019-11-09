@@ -155,6 +155,9 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
       IO(underlying.listAliases(listAliasesRequest))
     }
 
+  def listAliasesPaginator(listAliasesRequest: ListAliasesRequest): ListAliasesPublisher =
+    underlying.listAliasesPaginator(listAliasesRequest)
+
   override def listEventSourceMappings(
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): IO[ListEventSourceMappingsResponse] =
@@ -196,6 +199,9 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
       IO(underlying.listLayerVersions(listLayerVersionsRequest))
     }
 
+  def listLayerVersionsPaginator(listLayerVersionsRequest: ListLayerVersionsRequest): ListLayerVersionsPublisher =
+    underlying.listLayerVersionsPaginator(listLayerVersionsRequest)
+
   override def listLayers(listLayersRequest: ListLayersRequest): IO[ListLayersResponse] =
     IO.fromFuture {
       IO(underlying.listLayers(listLayersRequest))
@@ -205,6 +211,12 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
     IO.fromFuture {
       IO(underlying.listLayers())
     }
+
+  def listLayersPaginator(): ListLayersPublisher =
+    underlying.listLayersPaginator()
+
+  def listLayersPaginator(listLayersRequest: ListLayersRequest): ListLayersPublisher =
+    underlying.listLayersPaginator(listLayersRequest)
 
   override def listTags(listTagsRequest: ListTagsRequest): IO[ListTagsResponse] =
     IO.fromFuture {
@@ -217,6 +229,11 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
     IO.fromFuture {
       IO(underlying.listVersionsByFunction(listVersionsByFunctionRequest))
     }
+
+  def listVersionsByFunctionPaginator(
+      listVersionsByFunctionRequest: ListVersionsByFunctionRequest
+  ): ListVersionsByFunctionPublisher =
+    underlying.listVersionsByFunctionPaginator(listVersionsByFunctionRequest)
 
   override def publishLayerVersion(
       publishLayerVersionRequest: PublishLayerVersionRequest

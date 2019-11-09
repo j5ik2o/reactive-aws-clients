@@ -28,6 +28,13 @@ final class PutBucketReplicationRequestBuilderOps(val self: PutBucketReplication
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tokenAsScala(value: Option[String]): PutBucketReplicationRequest.Builder = {
+    value.fold(self) { v =>
+      self.token(v)
+    }
+  }
+
 }
 
 final class PutBucketReplicationRequestOps(val self: PutBucketReplicationRequest) extends AnyVal {
@@ -40,6 +47,9 @@ final class PutBucketReplicationRequestOps(val self: PutBucketReplicationRequest
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicationConfigurationAsScala: Option[ReplicationConfiguration] = Option(self.replicationConfiguration)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tokenAsScala: Option[String] = Option(self.token)
 
 }
 

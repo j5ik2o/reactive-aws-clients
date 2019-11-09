@@ -55,6 +55,13 @@ final class ContainerInstanceBuilderOps(val self: ContainerInstance.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def statusReasonAsScala(value: Option[String]): ContainerInstance.Builder = {
+    value.fold(self) { v =>
+      self.statusReason(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def agentConnectedAsScala(value: Option[Boolean]): ContainerInstance.Builder = {
     value.fold(self) { v =>
       self.agentConnected(v)
@@ -138,6 +145,9 @@ final class ContainerInstanceOps(val self: ContainerInstance) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def statusReasonAsScala: Option[String] = Option(self.statusReason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def agentConnectedAsScala: Option[Boolean] = Option(self.agentConnected)

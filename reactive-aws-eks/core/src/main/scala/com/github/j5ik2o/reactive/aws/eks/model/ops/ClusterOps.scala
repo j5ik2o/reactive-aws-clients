@@ -62,6 +62,13 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def identityAsScala(value: Option[Identity]): Cluster.Builder = {
+    value.fold(self) { v =>
+      self.identity(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ClusterStatus]): Cluster.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -86,6 +93,13 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
   final def platformVersionAsScala(value: Option[String]): Cluster.Builder = {
     value.fold(self) { v =>
       self.platformVersion(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Map[String, String]]): Cluster.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
     }
   }
 
@@ -118,6 +132,9 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
   final def loggingAsScala: Option[Logging] = Option(self.logging)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def identityAsScala: Option[Identity] = Option(self.identity)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[ClusterStatus] = Option(self.status)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -128,6 +145,11 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala: Option[String] = Option(self.platformVersion)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+  }
 
 }
 

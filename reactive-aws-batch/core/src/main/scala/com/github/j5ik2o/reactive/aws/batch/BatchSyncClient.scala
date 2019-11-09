@@ -3,6 +3,7 @@ package com.github.j5ik2o.reactive.aws.batch
 
 import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.batch.model._
+import software.amazon.awssdk.services.batch.paginators._
 import software.amazon.awssdk.services.batch.{ BatchClient => JavaBatchSyncClient }
 
 object BatchSyncClient extends ToEitherSupport {
@@ -53,6 +54,14 @@ trait BatchSyncClient extends BatchClient[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeComputeEnvironmentsResponse] =
     underlying.describeComputeEnvironments(describeComputeEnvironmentsRequest).toEither
 
+  def describeComputeEnvironmentsPaginator(): DescribeComputeEnvironmentsIterable =
+    underlying.describeComputeEnvironmentsPaginator()
+
+  def describeComputeEnvironmentsPaginator(
+      describeComputeEnvironmentsRequest: DescribeComputeEnvironmentsRequest
+  ): DescribeComputeEnvironmentsIterable =
+    underlying.describeComputeEnvironmentsPaginator(describeComputeEnvironmentsRequest)
+
   override def describeJobDefinitions(): Either[Throwable, DescribeJobDefinitionsResponse] =
     underlying.describeJobDefinitions().toEither
 
@@ -60,6 +69,14 @@ trait BatchSyncClient extends BatchClient[Either[Throwable, ?]] {
       describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
   ): Either[Throwable, DescribeJobDefinitionsResponse] =
     underlying.describeJobDefinitions(describeJobDefinitionsRequest).toEither
+
+  def describeJobDefinitionsPaginator(): DescribeJobDefinitionsIterable =
+    underlying.describeJobDefinitionsPaginator()
+
+  def describeJobDefinitionsPaginator(
+      describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
+  ): DescribeJobDefinitionsIterable =
+    underlying.describeJobDefinitionsPaginator(describeJobDefinitionsRequest)
 
   override def describeJobQueues(): Either[Throwable, DescribeJobQueuesResponse] =
     underlying.describeJobQueues().toEither
@@ -69,11 +86,20 @@ trait BatchSyncClient extends BatchClient[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeJobQueuesResponse] =
     underlying.describeJobQueues(describeJobQueuesRequest).toEither
 
+  def describeJobQueuesPaginator(): DescribeJobQueuesIterable =
+    underlying.describeJobQueuesPaginator()
+
+  def describeJobQueuesPaginator(describeJobQueuesRequest: DescribeJobQueuesRequest): DescribeJobQueuesIterable =
+    underlying.describeJobQueuesPaginator(describeJobQueuesRequest)
+
   override def describeJobs(describeJobsRequest: DescribeJobsRequest): Either[Throwable, DescribeJobsResponse] =
     underlying.describeJobs(describeJobsRequest).toEither
 
   override def listJobs(listJobsRequest: ListJobsRequest): Either[Throwable, ListJobsResponse] =
     underlying.listJobs(listJobsRequest).toEither
+
+  def listJobsPaginator(listJobsRequest: ListJobsRequest): ListJobsIterable =
+    underlying.listJobsPaginator(listJobsRequest)
 
   override def registerJobDefinition(
       registerJobDefinitionRequest: RegisterJobDefinitionRequest

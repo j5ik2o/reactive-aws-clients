@@ -2,6 +2,7 @@
 package com.github.j5ik2o.reactive.aws.eks
 
 import software.amazon.awssdk.services.eks.model._
+import software.amazon.awssdk.services.eks.paginators._
 import software.amazon.awssdk.services.eks.{ EksAsyncClient => JavaEksAsyncClient }
 
 import scala.compat.java8.FutureConverters._
@@ -40,8 +41,28 @@ trait EksAsyncClient extends EksClient[Future] {
   override def listClusters(): Future[ListClustersResponse] =
     underlying.listClusters().toScala
 
+  def listClustersPaginator(): ListClustersPublisher =
+    underlying.listClustersPaginator()
+
+  def listClustersPaginator(listClustersRequest: ListClustersRequest): ListClustersPublisher =
+    underlying.listClustersPaginator(listClustersRequest)
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Future[ListTagsForResourceResponse] =
+    underlying.listTagsForResource(listTagsForResourceRequest).toScala
+
   override def listUpdates(listUpdatesRequest: ListUpdatesRequest): Future[ListUpdatesResponse] =
     underlying.listUpdates(listUpdatesRequest).toScala
+
+  def listUpdatesPaginator(listUpdatesRequest: ListUpdatesRequest): ListUpdatesPublisher =
+    underlying.listUpdatesPaginator(listUpdatesRequest)
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toScala
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toScala
 
   override def updateClusterConfig(
       updateClusterConfigRequest: UpdateClusterConfigRequest

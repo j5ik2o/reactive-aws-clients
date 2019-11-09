@@ -109,6 +109,10 @@ trait EcsClient[M[_]] {
 
   def stopTask(stopTaskRequest: StopTaskRequest): M[StopTaskResponse]
 
+  def submitAttachmentStateChanges(
+      submitAttachmentStateChangesRequest: SubmitAttachmentStateChangesRequest
+  ): M[SubmitAttachmentStateChangesResponse]
+
   def submitContainerStateChange(
       submitContainerStateChangeRequest: SubmitContainerStateChangeRequest
   ): M[SubmitContainerStateChangeResponse]
@@ -120,6 +124,10 @@ trait EcsClient[M[_]] {
   def tagResource(tagResourceRequest: TagResourceRequest): M[TagResourceResponse]
 
   def untagResource(untagResourceRequest: UntagResourceRequest): M[UntagResourceResponse]
+
+  def updateClusterSettings(
+      updateClusterSettingsRequest: UpdateClusterSettingsRequest
+  ): M[UpdateClusterSettingsResponse]
 
   def updateContainerAgent(updateContainerAgentRequest: UpdateContainerAgentRequest): M[UpdateContainerAgentResponse]
 

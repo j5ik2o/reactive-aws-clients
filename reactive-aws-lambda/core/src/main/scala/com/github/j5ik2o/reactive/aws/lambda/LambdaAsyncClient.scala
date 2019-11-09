@@ -109,6 +109,9 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
   override def listAliases(listAliasesRequest: ListAliasesRequest): Future[ListAliasesResponse] =
     underlying.listAliases(listAliasesRequest).toScala
 
+  def listAliasesPaginator(listAliasesRequest: ListAliasesRequest): ListAliasesPublisher =
+    underlying.listAliasesPaginator(listAliasesRequest)
+
   override def listEventSourceMappings(
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): Future[ListEventSourceMappingsResponse] =
@@ -142,11 +145,20 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
   ): Future[ListLayerVersionsResponse] =
     underlying.listLayerVersions(listLayerVersionsRequest).toScala
 
+  def listLayerVersionsPaginator(listLayerVersionsRequest: ListLayerVersionsRequest): ListLayerVersionsPublisher =
+    underlying.listLayerVersionsPaginator(listLayerVersionsRequest)
+
   override def listLayers(listLayersRequest: ListLayersRequest): Future[ListLayersResponse] =
     underlying.listLayers(listLayersRequest).toScala
 
   override def listLayers(): Future[ListLayersResponse] =
     underlying.listLayers().toScala
+
+  def listLayersPaginator(): ListLayersPublisher =
+    underlying.listLayersPaginator()
+
+  def listLayersPaginator(listLayersRequest: ListLayersRequest): ListLayersPublisher =
+    underlying.listLayersPaginator(listLayersRequest)
 
   override def listTags(listTagsRequest: ListTagsRequest): Future[ListTagsResponse] =
     underlying.listTags(listTagsRequest).toScala
@@ -155,6 +167,11 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
       listVersionsByFunctionRequest: ListVersionsByFunctionRequest
   ): Future[ListVersionsByFunctionResponse] =
     underlying.listVersionsByFunction(listVersionsByFunctionRequest).toScala
+
+  def listVersionsByFunctionPaginator(
+      listVersionsByFunctionRequest: ListVersionsByFunctionRequest
+  ): ListVersionsByFunctionPublisher =
+    underlying.listVersionsByFunctionPaginator(listVersionsByFunctionRequest)
 
   override def publishLayerVersion(
       publishLayerVersionRequest: PublishLayerVersionRequest

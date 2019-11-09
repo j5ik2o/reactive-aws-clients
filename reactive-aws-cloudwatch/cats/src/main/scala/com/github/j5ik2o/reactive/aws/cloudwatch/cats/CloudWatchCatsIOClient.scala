@@ -30,6 +30,13 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.deleteAlarms(deleteAlarmsRequest))
     }
 
+  override def deleteAnomalyDetector(
+      deleteAnomalyDetectorRequest: DeleteAnomalyDetectorRequest
+  ): IO[DeleteAnomalyDetectorResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteAnomalyDetector(deleteAnomalyDetectorRequest))
+    }
+
   override def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): IO[DeleteDashboardsResponse] =
     IO.fromFuture {
       IO(underlying.deleteDashboards(deleteDashboardsRequest))
@@ -77,6 +84,13 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
 
   def describeAlarmsPaginator(describeAlarmsRequest: DescribeAlarmsRequest): DescribeAlarmsPublisher =
     underlying.describeAlarmsPaginator(describeAlarmsRequest)
+
+  override def describeAnomalyDetectors(
+      describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest
+  ): IO[DescribeAnomalyDetectorsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest))
+    }
 
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
@@ -156,6 +170,13 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
   ): IO[ListTagsForResourceResponse] =
     IO.fromFuture {
       IO(underlying.listTagsForResource(listTagsForResourceRequest))
+    }
+
+  override def putAnomalyDetector(
+      putAnomalyDetectorRequest: PutAnomalyDetectorRequest
+  ): IO[PutAnomalyDetectorResponse] =
+    IO.fromFuture {
+      IO(underlying.putAnomalyDetector(putAnomalyDetectorRequest))
     }
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): IO[PutDashboardResponse] =

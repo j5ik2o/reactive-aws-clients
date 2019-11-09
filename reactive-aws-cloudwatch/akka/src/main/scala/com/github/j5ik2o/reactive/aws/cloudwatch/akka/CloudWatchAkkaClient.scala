@@ -35,6 +35,19 @@ trait CloudWatchAkkaClient {
       underlying.deleteAlarms(deleteAlarmsRequest)
     }
 
+  def deleteAnomalyDetectorSource(
+      deleteAnomalyDetectorRequest: DeleteAnomalyDetectorRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteAnomalyDetectorResponse, NotUsed] =
+    Source.single(deleteAnomalyDetectorRequest).via(deleteAnomalyDetectorFlow(parallelism))
+
+  def deleteAnomalyDetectorFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteAnomalyDetectorRequest, DeleteAnomalyDetectorResponse, NotUsed] =
+    Flow[DeleteAnomalyDetectorRequest].mapAsync(parallelism) { deleteAnomalyDetectorRequest =>
+      underlying.deleteAnomalyDetector(deleteAnomalyDetectorRequest)
+    }
+
   def deleteDashboardsSource(
       deleteDashboardsRequest: DeleteDashboardsRequest,
       parallelism: Int = DefaultParallelism
@@ -107,6 +120,19 @@ trait CloudWatchAkkaClient {
   def describeAlarmsPaginatorFlow: Flow[DescribeAlarmsRequest, DescribeAlarmsResponse, NotUsed] =
     Flow[DescribeAlarmsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeAlarmsPaginator(request))
+    }
+
+  def describeAnomalyDetectorsSource(
+      describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeAnomalyDetectorsResponse, NotUsed] =
+    Source.single(describeAnomalyDetectorsRequest).via(describeAnomalyDetectorsFlow(parallelism))
+
+  def describeAnomalyDetectorsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeAnomalyDetectorsRequest, DescribeAnomalyDetectorsResponse, NotUsed] =
+    Flow[DescribeAnomalyDetectorsRequest].mapAsync(parallelism) { describeAnomalyDetectorsRequest =>
+      underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest)
     }
 
   def disableAlarmActionsSource(
@@ -249,6 +275,19 @@ trait CloudWatchAkkaClient {
   ): Flow[ListTagsForResourceRequest, ListTagsForResourceResponse, NotUsed] =
     Flow[ListTagsForResourceRequest].mapAsync(parallelism) { listTagsForResourceRequest =>
       underlying.listTagsForResource(listTagsForResourceRequest)
+    }
+
+  def putAnomalyDetectorSource(
+      putAnomalyDetectorRequest: PutAnomalyDetectorRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutAnomalyDetectorResponse, NotUsed] =
+    Source.single(putAnomalyDetectorRequest).via(putAnomalyDetectorFlow(parallelism))
+
+  def putAnomalyDetectorFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutAnomalyDetectorRequest, PutAnomalyDetectorResponse, NotUsed] =
+    Flow[PutAnomalyDetectorRequest].mapAsync(parallelism) { putAnomalyDetectorRequest =>
+      underlying.putAnomalyDetector(putAnomalyDetectorRequest)
     }
 
   def putDashboardSource(

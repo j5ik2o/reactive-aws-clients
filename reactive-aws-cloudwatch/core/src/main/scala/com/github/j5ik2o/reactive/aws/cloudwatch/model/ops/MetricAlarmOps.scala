@@ -187,6 +187,13 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def thresholdMetricIdAsScala(value: Option[String]): MetricAlarm.Builder = {
+    value.fold(self) { v =>
+      self.thresholdMetricId(v)
+    }
+  }
+
 }
 
 final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
@@ -279,6 +286,9 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
   final def metricsAsScala: Option[Seq[MetricDataQuery]] = Option(self.metrics).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def thresholdMetricIdAsScala: Option[String] = Option(self.thresholdMetricId)
 
 }
 

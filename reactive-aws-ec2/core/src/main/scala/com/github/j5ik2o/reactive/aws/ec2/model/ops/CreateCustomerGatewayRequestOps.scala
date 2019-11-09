@@ -20,6 +20,13 @@ final class CreateCustomerGatewayRequestBuilderOps(val self: CreateCustomerGatew
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def certificateArnAsScala(value: Option[String]): CreateCustomerGatewayRequest.Builder = {
+    value.fold(self) { v =>
+      self.certificateArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[GatewayType]): CreateCustomerGatewayRequest.Builder = {
     value.fold(self) { v =>
       self.`type`(v)
@@ -35,6 +42,9 @@ final class CreateCustomerGatewayRequestOps(val self: CreateCustomerGatewayReque
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def certificateArnAsScala: Option[String] = Option(self.certificateArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[GatewayType] = Option(self.`type`)

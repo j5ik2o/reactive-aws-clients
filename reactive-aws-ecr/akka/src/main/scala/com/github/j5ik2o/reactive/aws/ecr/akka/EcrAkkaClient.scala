@@ -126,6 +126,25 @@ trait EcrAkkaClient {
       underlying.deleteRepositoryPolicy(deleteRepositoryPolicyRequest)
     }
 
+  def describeImageScanFindingsSource(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeImageScanFindingsResponse, NotUsed] =
+    Source.single(describeImageScanFindingsRequest).via(describeImageScanFindingsFlow(parallelism))
+
+  def describeImageScanFindingsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse, NotUsed] =
+    Flow[DescribeImageScanFindingsRequest].mapAsync(parallelism) { describeImageScanFindingsRequest =>
+      underlying.describeImageScanFindings(describeImageScanFindingsRequest)
+    }
+
+  def describeImageScanFindingsPaginatorFlow
+      : Flow[DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse, NotUsed] =
+    Flow[DescribeImageScanFindingsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeImageScanFindingsPaginator(request))
+    }
+
   def describeImagesSource(
       describeImagesRequest: DescribeImagesRequest,
       parallelism: Int = DefaultParallelism
@@ -223,6 +242,12 @@ trait EcrAkkaClient {
       underlying.getLifecyclePolicyPreview(getLifecyclePolicyPreviewRequest)
     }
 
+  def getLifecyclePolicyPreviewPaginatorFlow
+      : Flow[GetLifecyclePolicyPreviewRequest, GetLifecyclePolicyPreviewResponse, NotUsed] =
+    Flow[GetLifecyclePolicyPreviewRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getLifecyclePolicyPreviewPaginator(request))
+    }
+
   def getRepositoryPolicySource(
       getRepositoryPolicyRequest: GetRepositoryPolicyRequest,
       parallelism: Int = DefaultParallelism
@@ -289,6 +314,32 @@ trait EcrAkkaClient {
       underlying.putImage(putImageRequest)
     }
 
+  def putImageScanningConfigurationSource(
+      putImageScanningConfigurationRequest: PutImageScanningConfigurationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutImageScanningConfigurationResponse, NotUsed] =
+    Source.single(putImageScanningConfigurationRequest).via(putImageScanningConfigurationFlow(parallelism))
+
+  def putImageScanningConfigurationFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse, NotUsed] =
+    Flow[PutImageScanningConfigurationRequest].mapAsync(parallelism) { putImageScanningConfigurationRequest =>
+      underlying.putImageScanningConfiguration(putImageScanningConfigurationRequest)
+    }
+
+  def putImageTagMutabilitySource(
+      putImageTagMutabilityRequest: PutImageTagMutabilityRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutImageTagMutabilityResponse, NotUsed] =
+    Source.single(putImageTagMutabilityRequest).via(putImageTagMutabilityFlow(parallelism))
+
+  def putImageTagMutabilityFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutImageTagMutabilityRequest, PutImageTagMutabilityResponse, NotUsed] =
+    Flow[PutImageTagMutabilityRequest].mapAsync(parallelism) { putImageTagMutabilityRequest =>
+      underlying.putImageTagMutability(putImageTagMutabilityRequest)
+    }
+
   def putLifecyclePolicySource(
       putLifecyclePolicyRequest: PutLifecyclePolicyRequest,
       parallelism: Int = DefaultParallelism
@@ -313,6 +364,19 @@ trait EcrAkkaClient {
   ): Flow[SetRepositoryPolicyRequest, SetRepositoryPolicyResponse, NotUsed] =
     Flow[SetRepositoryPolicyRequest].mapAsync(parallelism) { setRepositoryPolicyRequest =>
       underlying.setRepositoryPolicy(setRepositoryPolicyRequest)
+    }
+
+  def startImageScanSource(
+      startImageScanRequest: StartImageScanRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartImageScanResponse, NotUsed] =
+    Source.single(startImageScanRequest).via(startImageScanFlow(parallelism))
+
+  def startImageScanFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[StartImageScanRequest, StartImageScanResponse, NotUsed] =
+    Flow[StartImageScanRequest].mapAsync(parallelism) { startImageScanRequest =>
+      underlying.startImageScan(startImageScanRequest)
     }
 
   def startLifecyclePolicyPreviewSource(

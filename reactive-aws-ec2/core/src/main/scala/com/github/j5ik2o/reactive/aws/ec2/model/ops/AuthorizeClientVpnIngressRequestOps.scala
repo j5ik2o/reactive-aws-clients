@@ -41,6 +41,13 @@ final class AuthorizeClientVpnIngressRequestBuilderOps(val self: AuthorizeClient
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clientTokenAsScala(value: Option[String]): AuthorizeClientVpnIngressRequest.Builder = {
+    value.fold(self) { v =>
+      self.clientToken(v)
+    }
+  }
+
 }
 
 final class AuthorizeClientVpnIngressRequestOps(val self: AuthorizeClientVpnIngressRequest) extends AnyVal {
@@ -59,6 +66,9 @@ final class AuthorizeClientVpnIngressRequestOps(val self: AuthorizeClientVpnIngr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
 }
 

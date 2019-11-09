@@ -231,6 +231,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
   override def stopTask(stopTaskRequest: StopTaskRequest): Either[Throwable, StopTaskResponse] =
     underlying.stopTask(stopTaskRequest).toEither
 
+  override def submitAttachmentStateChanges(
+      submitAttachmentStateChangesRequest: SubmitAttachmentStateChangesRequest
+  ): Either[Throwable, SubmitAttachmentStateChangesResponse] =
+    underlying.submitAttachmentStateChanges(submitAttachmentStateChangesRequest).toEither
+
   override def submitContainerStateChange(
       submitContainerStateChangeRequest: SubmitContainerStateChangeRequest
   ): Either[Throwable, SubmitContainerStateChangeResponse] =
@@ -246,6 +251,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
 
   override def untagResource(untagResourceRequest: UntagResourceRequest): Either[Throwable, UntagResourceResponse] =
     underlying.untagResource(untagResourceRequest).toEither
+
+  override def updateClusterSettings(
+      updateClusterSettingsRequest: UpdateClusterSettingsRequest
+  ): Either[Throwable, UpdateClusterSettingsResponse] =
+    underlying.updateClusterSettings(updateClusterSettingsRequest).toEither
 
   override def updateContainerAgent(
       updateContainerAgentRequest: UpdateContainerAgentRequest

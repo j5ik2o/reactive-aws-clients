@@ -92,6 +92,15 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def domainEndpointOptionsAsScala(
+      value: Option[DomainEndpointOptionsStatus]
+  ): ElasticsearchDomainConfig.Builder = {
+    value.fold(self) { v =>
+      self.domainEndpointOptions(v)
+    }
+  }
+
 }
 
 final class ElasticsearchDomainConfigOps(val self: ElasticsearchDomainConfig) extends AnyVal {
@@ -130,6 +139,9 @@ final class ElasticsearchDomainConfigOps(val self: ElasticsearchDomainConfig) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logPublishingOptionsAsScala: Option[LogPublishingOptionsStatus] = Option(self.logPublishingOptions)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def domainEndpointOptionsAsScala: Option[DomainEndpointOptionsStatus] = Option(self.domainEndpointOptions)
 
 }
 

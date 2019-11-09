@@ -28,6 +28,13 @@ final class ModifySpotFleetRequestRequestBuilderOps(val self: ModifySpotFleetReq
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def onDemandTargetCapacityAsScala(value: Option[Int]): ModifySpotFleetRequestRequest.Builder = {
+    value.fold(self) { v =>
+      self.onDemandTargetCapacity(v)
+    }
+  }
+
 }
 
 final class ModifySpotFleetRequestRequestOps(val self: ModifySpotFleetRequestRequest) extends AnyVal {
@@ -41,6 +48,9 @@ final class ModifySpotFleetRequestRequestOps(val self: ModifySpotFleetRequestReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetCapacityAsScala: Option[Int] = Option(self.targetCapacity)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def onDemandTargetCapacityAsScala: Option[Int] = Option(self.onDemandTargetCapacity)
 
 }
 

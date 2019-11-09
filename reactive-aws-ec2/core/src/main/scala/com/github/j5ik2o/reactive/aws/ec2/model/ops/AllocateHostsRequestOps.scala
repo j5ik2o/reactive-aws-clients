@@ -47,6 +47,13 @@ final class AllocateHostsRequestBuilderOps(val self: AllocateHostsRequest.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostRecoveryAsScala(value: Option[HostRecovery]): AllocateHostsRequest.Builder = {
+    value.fold(self) { v =>
+      self.hostRecovery(v)
+    }
+  }
+
 }
 
 final class AllocateHostsRequestOps(val self: AllocateHostsRequest) extends AnyVal {
@@ -70,6 +77,9 @@ final class AllocateHostsRequestOps(val self: AllocateHostsRequest) extends AnyV
   final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostRecoveryAsScala: Option[HostRecovery] = Option(self.hostRecovery)
 
 }
 

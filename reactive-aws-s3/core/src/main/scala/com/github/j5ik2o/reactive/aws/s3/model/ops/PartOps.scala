@@ -27,7 +27,7 @@ final class PartBuilderOps(val self: Part.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sizeAsScala(value: Option[Int]): Part.Builder = {
+  final def sizeAsScala(value: Option[Long]): Part.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
@@ -47,7 +47,7 @@ final class PartOps(val self: Part) extends AnyVal {
   final def eTagAsScala: Option[String] = Option(self.eTag)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sizeAsScala: Option[Int] = Option(self.size)
+  final def sizeAsScala: Option[Long] = Option(self.size)
 
 }
 

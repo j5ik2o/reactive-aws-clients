@@ -5,6 +5,7 @@ import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.batch.BatchAsyncClient
 import software.amazon.awssdk.services.batch.model._
+import software.amazon.awssdk.services.batch.paginators._
 
 object BatchAkkaClient {
 
@@ -114,6 +115,15 @@ trait BatchAkkaClient {
   def describeComputeEnvironmentsSource(): Source[DescribeComputeEnvironmentsResponse, NotUsed] =
     Source.fromFuture(underlying.describeComputeEnvironments())
 
+  def describeComputeEnvironmentsPaginatorSource: Source[DescribeComputeEnvironmentsResponse, NotUsed] =
+    Source.fromPublisher(underlying.describeComputeEnvironmentsPaginator())
+
+  def describeComputeEnvironmentsPaginatorFlow
+      : Flow[DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse, NotUsed] =
+    Flow[DescribeComputeEnvironmentsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeComputeEnvironmentsPaginator(request))
+    }
+
   def describeJobDefinitionsSource(
       describeJobDefinitionsRequest: DescribeJobDefinitionsRequest,
       parallelism: Int = DefaultParallelism
@@ -130,6 +140,15 @@ trait BatchAkkaClient {
   def describeJobDefinitionsSource(): Source[DescribeJobDefinitionsResponse, NotUsed] =
     Source.fromFuture(underlying.describeJobDefinitions())
 
+  def describeJobDefinitionsPaginatorSource: Source[DescribeJobDefinitionsResponse, NotUsed] =
+    Source.fromPublisher(underlying.describeJobDefinitionsPaginator())
+
+  def describeJobDefinitionsPaginatorFlow
+      : Flow[DescribeJobDefinitionsRequest, DescribeJobDefinitionsResponse, NotUsed] =
+    Flow[DescribeJobDefinitionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeJobDefinitionsPaginator(request))
+    }
+
   def describeJobQueuesSource(
       describeJobQueuesRequest: DescribeJobQueuesRequest,
       parallelism: Int = DefaultParallelism
@@ -145,6 +164,14 @@ trait BatchAkkaClient {
 
   def describeJobQueuesSource(): Source[DescribeJobQueuesResponse, NotUsed] =
     Source.fromFuture(underlying.describeJobQueues())
+
+  def describeJobQueuesPaginatorSource: Source[DescribeJobQueuesResponse, NotUsed] =
+    Source.fromPublisher(underlying.describeJobQueuesPaginator())
+
+  def describeJobQueuesPaginatorFlow: Flow[DescribeJobQueuesRequest, DescribeJobQueuesResponse, NotUsed] =
+    Flow[DescribeJobQueuesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeJobQueuesPaginator(request))
+    }
 
   def describeJobsSource(
       describeJobsRequest: DescribeJobsRequest,
@@ -169,6 +196,11 @@ trait BatchAkkaClient {
     Flow[ListJobsRequest].mapAsync(parallelism) { listJobsRequest =>
       underlying.listJobs(listJobsRequest)
     }
+
+  def listJobsPaginatorFlow: Flow[ListJobsRequest, ListJobsResponse, NotUsed] = Flow[ListJobsRequest].flatMapConcat {
+    request =>
+      Source.fromPublisher(underlying.listJobsPaginator(request))
+  }
 
   def registerJobDefinitionSource(
       registerJobDefinitionRequest: RegisterJobDefinitionRequest,

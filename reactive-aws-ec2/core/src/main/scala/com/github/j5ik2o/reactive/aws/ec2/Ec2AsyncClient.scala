@@ -324,6 +324,9 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def createSnapshot(createSnapshotRequest: CreateSnapshotRequest): Future[CreateSnapshotResponse] =
     underlying.createSnapshot(createSnapshotRequest).toScala
 
+  override def createSnapshots(createSnapshotsRequest: CreateSnapshotsRequest): Future[CreateSnapshotsResponse] =
+    underlying.createSnapshots(createSnapshotsRequest).toScala
+
   override def createSpotDatafeedSubscription(
       createSpotDatafeedSubscriptionRequest: CreateSpotDatafeedSubscriptionRequest
   ): Future[CreateSpotDatafeedSubscriptionResponse] =
@@ -334,6 +337,26 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def createTags(createTagsRequest: CreateTagsRequest): Future[CreateTagsResponse] =
     underlying.createTags(createTagsRequest).toScala
+
+  override def createTrafficMirrorFilter(
+      createTrafficMirrorFilterRequest: CreateTrafficMirrorFilterRequest
+  ): Future[CreateTrafficMirrorFilterResponse] =
+    underlying.createTrafficMirrorFilter(createTrafficMirrorFilterRequest).toScala
+
+  override def createTrafficMirrorFilterRule(
+      createTrafficMirrorFilterRuleRequest: CreateTrafficMirrorFilterRuleRequest
+  ): Future[CreateTrafficMirrorFilterRuleResponse] =
+    underlying.createTrafficMirrorFilterRule(createTrafficMirrorFilterRuleRequest).toScala
+
+  override def createTrafficMirrorSession(
+      createTrafficMirrorSessionRequest: CreateTrafficMirrorSessionRequest
+  ): Future[CreateTrafficMirrorSessionResponse] =
+    underlying.createTrafficMirrorSession(createTrafficMirrorSessionRequest).toScala
+
+  override def createTrafficMirrorTarget(
+      createTrafficMirrorTargetRequest: CreateTrafficMirrorTargetRequest
+  ): Future[CreateTrafficMirrorTargetResponse] =
+    underlying.createTrafficMirrorTarget(createTrafficMirrorTargetRequest).toScala
 
   override def createTransitGateway(
       createTransitGatewayRequest: CreateTransitGatewayRequest
@@ -475,6 +498,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DeletePlacementGroupResponse] =
     underlying.deletePlacementGroup(deletePlacementGroupRequest).toScala
 
+  override def deleteQueuedReservedInstances(
+      deleteQueuedReservedInstancesRequest: DeleteQueuedReservedInstancesRequest
+  ): Future[DeleteQueuedReservedInstancesResponse] =
+    underlying.deleteQueuedReservedInstances(deleteQueuedReservedInstancesRequest).toScala
+
   override def deleteRoute(deleteRouteRequest: DeleteRouteRequest): Future[DeleteRouteResponse] =
     underlying.deleteRoute(deleteRouteRequest).toScala
 
@@ -502,6 +530,26 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def deleteTags(deleteTagsRequest: DeleteTagsRequest): Future[DeleteTagsResponse] =
     underlying.deleteTags(deleteTagsRequest).toScala
+
+  override def deleteTrafficMirrorFilter(
+      deleteTrafficMirrorFilterRequest: DeleteTrafficMirrorFilterRequest
+  ): Future[DeleteTrafficMirrorFilterResponse] =
+    underlying.deleteTrafficMirrorFilter(deleteTrafficMirrorFilterRequest).toScala
+
+  override def deleteTrafficMirrorFilterRule(
+      deleteTrafficMirrorFilterRuleRequest: DeleteTrafficMirrorFilterRuleRequest
+  ): Future[DeleteTrafficMirrorFilterRuleResponse] =
+    underlying.deleteTrafficMirrorFilterRule(deleteTrafficMirrorFilterRuleRequest).toScala
+
+  override def deleteTrafficMirrorSession(
+      deleteTrafficMirrorSessionRequest: DeleteTrafficMirrorSessionRequest
+  ): Future[DeleteTrafficMirrorSessionResponse] =
+    underlying.deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest).toScala
+
+  override def deleteTrafficMirrorTarget(
+      deleteTrafficMirrorTargetRequest: DeleteTrafficMirrorTargetRequest
+  ): Future[DeleteTrafficMirrorTargetResponse] =
+    underlying.deleteTrafficMirrorTarget(deleteTrafficMirrorTargetRequest).toScala
 
   override def deleteTransitGateway(
       deleteTransitGatewayRequest: DeleteTransitGatewayRequest
@@ -761,6 +809,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeElasticGpus(): Future[DescribeElasticGpusResponse] =
     underlying.describeElasticGpus().toScala
+
+  override def describeExportImageTasks(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): Future[DescribeExportImageTasksResponse] =
+    underlying.describeExportImageTasks(describeExportImageTasksRequest).toScala
 
   override def describeExportTasks(
       describeExportTasksRequest: DescribeExportTasksRequest
@@ -1413,6 +1466,36 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   def describeTagsPaginator(describeTagsRequest: DescribeTagsRequest): DescribeTagsPublisher =
     underlying.describeTagsPaginator(describeTagsRequest)
 
+  override def describeTrafficMirrorFilters(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): Future[DescribeTrafficMirrorFiltersResponse] =
+    underlying.describeTrafficMirrorFilters(describeTrafficMirrorFiltersRequest).toScala
+
+  def describeTrafficMirrorFiltersPaginator(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): DescribeTrafficMirrorFiltersPublisher =
+    underlying.describeTrafficMirrorFiltersPaginator(describeTrafficMirrorFiltersRequest)
+
+  override def describeTrafficMirrorSessions(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): Future[DescribeTrafficMirrorSessionsResponse] =
+    underlying.describeTrafficMirrorSessions(describeTrafficMirrorSessionsRequest).toScala
+
+  def describeTrafficMirrorSessionsPaginator(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): DescribeTrafficMirrorSessionsPublisher =
+    underlying.describeTrafficMirrorSessionsPaginator(describeTrafficMirrorSessionsRequest)
+
+  override def describeTrafficMirrorTargets(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): Future[DescribeTrafficMirrorTargetsResponse] =
+    underlying.describeTrafficMirrorTargets(describeTrafficMirrorTargetsRequest).toScala
+
+  def describeTrafficMirrorTargetsPaginator(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): DescribeTrafficMirrorTargetsPublisher =
+    underlying.describeTrafficMirrorTargetsPaginator(describeTrafficMirrorTargetsRequest)
+
   override def describeTransitGatewayAttachments(
       describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
   ): Future[DescribeTransitGatewayAttachmentsResponse] =
@@ -1703,6 +1786,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def detachVpnGateway(detachVpnGatewayRequest: DetachVpnGatewayRequest): Future[DetachVpnGatewayResponse] =
     underlying.detachVpnGateway(detachVpnGatewayRequest).toScala
 
+  override def disableEbsEncryptionByDefault(
+      disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest
+  ): Future[DisableEbsEncryptionByDefaultResponse] =
+    underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest).toScala
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): Future[DisableTransitGatewayRouteTablePropagationResponse] =
@@ -1758,6 +1846,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DisassociateVpcCidrBlockResponse] =
     underlying.disassociateVpcCidrBlock(disassociateVpcCidrBlockRequest).toScala
 
+  override def enableEbsEncryptionByDefault(
+      enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
+  ): Future[EnableEbsEncryptionByDefaultResponse] =
+    underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest).toScala
+
   override def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
   ): Future[EnableTransitGatewayRouteTablePropagationResponse] =
@@ -1792,10 +1885,18 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[ExportClientVpnClientConfigurationResponse] =
     underlying.exportClientVpnClientConfiguration(exportClientVpnClientConfigurationRequest).toScala
 
+  override def exportImage(exportImageRequest: ExportImageRequest): Future[ExportImageResponse] =
+    underlying.exportImage(exportImageRequest).toScala
+
   override def exportTransitGatewayRoutes(
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest
   ): Future[ExportTransitGatewayRoutesResponse] =
     underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest).toScala
+
+  override def getCapacityReservationUsage(
+      getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
+  ): Future[GetCapacityReservationUsageResponse] =
+    underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest).toScala
 
   override def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): Future[GetConsoleOutputResponse] =
     underlying.getConsoleOutput(getConsoleOutputRequest).toScala
@@ -1804,6 +1905,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       getConsoleScreenshotRequest: GetConsoleScreenshotRequest
   ): Future[GetConsoleScreenshotResponse] =
     underlying.getConsoleScreenshot(getConsoleScreenshotRequest).toScala
+
+  override def getEbsDefaultKmsKeyId(
+      getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
+  ): Future[GetEbsDefaultKmsKeyIdResponse] =
+    underlying.getEbsDefaultKmsKeyId(getEbsDefaultKmsKeyIdRequest).toScala
+
+  override def getEbsEncryptionByDefault(
+      getEbsEncryptionByDefaultRequest: GetEbsEncryptionByDefaultRequest
+  ): Future[GetEbsEncryptionByDefaultResponse] =
+    underlying.getEbsEncryptionByDefault(getEbsEncryptionByDefaultRequest).toScala
 
   override def getHostReservationPurchasePreview(
       getHostReservationPurchasePreviewRequest: GetHostReservationPurchasePreviewRequest
@@ -1884,6 +1995,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[ModifyClientVpnEndpointResponse] =
     underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest).toScala
 
+  override def modifyEbsDefaultKmsKeyId(
+      modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
+  ): Future[ModifyEbsDefaultKmsKeyIdResponse] =
+    underlying.modifyEbsDefaultKmsKeyId(modifyEbsDefaultKmsKeyIdRequest).toScala
+
   override def modifyFleet(modifyFleetRequest: ModifyFleetRequest): Future[ModifyFleetResponse] =
     underlying.modifyFleet(modifyFleetRequest).toScala
 
@@ -1963,6 +2079,21 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[ModifySubnetAttributeResponse] =
     underlying.modifySubnetAttribute(modifySubnetAttributeRequest).toScala
 
+  override def modifyTrafficMirrorFilterNetworkServices(
+      modifyTrafficMirrorFilterNetworkServicesRequest: ModifyTrafficMirrorFilterNetworkServicesRequest
+  ): Future[ModifyTrafficMirrorFilterNetworkServicesResponse] =
+    underlying.modifyTrafficMirrorFilterNetworkServices(modifyTrafficMirrorFilterNetworkServicesRequest).toScala
+
+  override def modifyTrafficMirrorFilterRule(
+      modifyTrafficMirrorFilterRuleRequest: ModifyTrafficMirrorFilterRuleRequest
+  ): Future[ModifyTrafficMirrorFilterRuleResponse] =
+    underlying.modifyTrafficMirrorFilterRule(modifyTrafficMirrorFilterRuleRequest).toScala
+
+  override def modifyTrafficMirrorSession(
+      modifyTrafficMirrorSessionRequest: ModifyTrafficMirrorSessionRequest
+  ): Future[ModifyTrafficMirrorSessionResponse] =
+    underlying.modifyTrafficMirrorSession(modifyTrafficMirrorSessionRequest).toScala
+
   override def modifyTransitGatewayVpcAttachment(
       modifyTransitGatewayVpcAttachmentRequest: ModifyTransitGatewayVpcAttachmentRequest
   ): Future[ModifyTransitGatewayVpcAttachmentResponse] =
@@ -2013,6 +2144,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       modifyVpnConnectionRequest: ModifyVpnConnectionRequest
   ): Future[ModifyVpnConnectionResponse] =
     underlying.modifyVpnConnection(modifyVpnConnectionRequest).toScala
+
+  override def modifyVpnTunnelCertificate(
+      modifyVpnTunnelCertificateRequest: ModifyVpnTunnelCertificateRequest
+  ): Future[ModifyVpnTunnelCertificateResponse] =
+    underlying.modifyVpnTunnelCertificate(modifyVpnTunnelCertificateRequest).toScala
+
+  override def modifyVpnTunnelOptions(
+      modifyVpnTunnelOptionsRequest: ModifyVpnTunnelOptionsRequest
+  ): Future[ModifyVpnTunnelOptionsResponse] =
+    underlying.modifyVpnTunnelOptions(modifyVpnTunnelOptionsRequest).toScala
 
   override def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): Future[MonitorInstancesResponse] =
     underlying.monitorInstances(monitorInstancesRequest).toScala
@@ -2108,6 +2249,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[RequestSpotInstancesResponse] =
     underlying.requestSpotInstances(requestSpotInstancesRequest).toScala
 
+  override def resetEbsDefaultKmsKeyId(
+      resetEbsDefaultKmsKeyIdRequest: ResetEbsDefaultKmsKeyIdRequest
+  ): Future[ResetEbsDefaultKmsKeyIdResponse] =
+    underlying.resetEbsDefaultKmsKeyId(resetEbsDefaultKmsKeyIdRequest).toScala
+
   override def resetFpgaImageAttribute(
       resetFpgaImageAttributeRequest: ResetFpgaImageAttributeRequest
   ): Future[ResetFpgaImageAttributeResponse] =
@@ -2165,6 +2311,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest
   ): Future[SearchTransitGatewayRoutesResponse] =
     underlying.searchTransitGatewayRoutes(searchTransitGatewayRoutesRequest).toScala
+
+  override def sendDiagnosticInterrupt(
+      sendDiagnosticInterruptRequest: SendDiagnosticInterruptRequest
+  ): Future[SendDiagnosticInterruptResponse] =
+    underlying.sendDiagnosticInterrupt(sendDiagnosticInterruptRequest).toScala
 
   override def startInstances(startInstancesRequest: StartInstancesRequest): Future[StartInstancesResponse] =
     underlying.startInstances(startInstancesRequest).toScala

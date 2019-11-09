@@ -40,6 +40,13 @@ final class MetricDataQueryBuilderOps(val self: MetricDataQuery.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def periodAsScala(value: Option[Int]): MetricDataQuery.Builder = {
+    value.fold(self) { v =>
+      self.period(v)
+    }
+  }
+
 }
 
 final class MetricDataQueryOps(val self: MetricDataQuery) extends AnyVal {
@@ -58,6 +65,9 @@ final class MetricDataQueryOps(val self: MetricDataQuery) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnDataAsScala: Option[Boolean] = Option(self.returnData)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def periodAsScala: Option[Int] = Option(self.period)
 
 }
 

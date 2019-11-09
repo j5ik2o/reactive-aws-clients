@@ -49,6 +49,13 @@ final class SpotOptionsRequestBuilderOps(val self: SpotOptionsRequest.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxTotalPriceAsScala(value: Option[String]): SpotOptionsRequest.Builder = {
+    value.fold(self) { v =>
+      self.maxTotalPrice(v)
+    }
+  }
+
 }
 
 final class SpotOptionsRequestOps(val self: SpotOptionsRequest) extends AnyVal {
@@ -71,6 +78,9 @@ final class SpotOptionsRequestOps(val self: SpotOptionsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minTargetCapacityAsScala: Option[Int] = Option(self.minTargetCapacity)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxTotalPriceAsScala: Option[String] = Option(self.maxTotalPrice)
 
 }
 

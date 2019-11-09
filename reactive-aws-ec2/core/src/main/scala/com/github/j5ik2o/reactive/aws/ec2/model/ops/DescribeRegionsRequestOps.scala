@@ -19,6 +19,13 @@ final class DescribeRegionsRequestBuilderOps(val self: DescribeRegionsRequest.Bu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allRegionsAsScala(value: Option[Boolean]): DescribeRegionsRequest.Builder = {
+    value.fold(self) { v =>
+      self.allRegions(v)
+    }
+  }
+
 }
 
 final class DescribeRegionsRequestOps(val self: DescribeRegionsRequest) extends AnyVal {
@@ -32,6 +39,9 @@ final class DescribeRegionsRequestOps(val self: DescribeRegionsRequest) extends 
   final def regionNamesAsScala: Option[Seq[String]] = Option(self.regionNames).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allRegionsAsScala: Option[Boolean] = Option(self.allRegions)
 
 }
 

@@ -7,6 +7,10 @@ trait CloudWatchClient[M[_]] {
 
   def deleteAlarms(deleteAlarmsRequest: DeleteAlarmsRequest): M[DeleteAlarmsResponse]
 
+  def deleteAnomalyDetector(
+      deleteAnomalyDetectorRequest: DeleteAnomalyDetectorRequest
+  ): M[DeleteAnomalyDetectorResponse]
+
   def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): M[DeleteDashboardsResponse]
 
   def describeAlarmHistory(describeAlarmHistoryRequest: DescribeAlarmHistoryRequest): M[DescribeAlarmHistoryResponse]
@@ -20,6 +24,10 @@ trait CloudWatchClient[M[_]] {
   def describeAlarmsForMetric(
       describeAlarmsForMetricRequest: DescribeAlarmsForMetricRequest
   ): M[DescribeAlarmsForMetricResponse]
+
+  def describeAnomalyDetectors(
+      describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest
+  ): M[DescribeAnomalyDetectorsResponse]
 
   def disableAlarmActions(disableAlarmActionsRequest: DisableAlarmActionsRequest): M[DisableAlarmActionsResponse]
 
@@ -42,6 +50,8 @@ trait CloudWatchClient[M[_]] {
   def listMetrics(): M[ListMetricsResponse]
 
   def listTagsForResource(listTagsForResourceRequest: ListTagsForResourceRequest): M[ListTagsForResourceResponse]
+
+  def putAnomalyDetector(putAnomalyDetectorRequest: PutAnomalyDetectorRequest): M[PutAnomalyDetectorResponse]
 
   def putDashboard(putDashboardRequest: PutDashboardRequest): M[PutDashboardResponse]
 

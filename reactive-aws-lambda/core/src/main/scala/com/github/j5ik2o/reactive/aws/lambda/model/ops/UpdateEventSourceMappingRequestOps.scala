@@ -34,6 +34,13 @@ final class UpdateEventSourceMappingRequestBuilderOps(val self: UpdateEventSourc
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumBatchingWindowInSecondsAsScala(value: Option[Int]): UpdateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.maximumBatchingWindowInSeconds(v)
+    }
+  }
+
 }
 
 final class UpdateEventSourceMappingRequestOps(val self: UpdateEventSourceMappingRequest) extends AnyVal {
@@ -49,6 +56,9 @@ final class UpdateEventSourceMappingRequestOps(val self: UpdateEventSourceMappin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def batchSizeAsScala: Option[Int] = Option(self.batchSize)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumBatchingWindowInSecondsAsScala: Option[Int] = Option(self.maximumBatchingWindowInSeconds)
 
 }
 

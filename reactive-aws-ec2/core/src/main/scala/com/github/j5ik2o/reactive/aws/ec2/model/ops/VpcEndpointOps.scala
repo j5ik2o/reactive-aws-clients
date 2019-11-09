@@ -110,6 +110,13 @@ final class VpcEndpointBuilderOps(val self: VpcEndpoint.Builder) extends AnyVal 
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala(value: Option[String]): VpcEndpoint.Builder = {
+    value.fold(self) { v =>
+      self.ownerId(v)
+    }
+  }
+
 }
 
 final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
@@ -170,6 +177,9 @@ final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala: Option[String] = Option(self.ownerId)
 
 }
 

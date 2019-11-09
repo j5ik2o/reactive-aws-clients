@@ -12,12 +12,24 @@ final class VpnConnectionOptionsBuilderOps(val self: VpnConnectionOptions.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tunnelOptionsAsScala(value: Option[Seq[TunnelOption]]): VpnConnectionOptions.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tunnelOptions(v.asJava)
+    }
+  }
+
 }
 
 final class VpnConnectionOptionsOps(val self: VpnConnectionOptions) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def staticRoutesOnlyAsScala: Option[Boolean] = Option(self.staticRoutesOnly)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tunnelOptionsAsScala: Option[Seq[TunnelOption]] = Option(self.tunnelOptions).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

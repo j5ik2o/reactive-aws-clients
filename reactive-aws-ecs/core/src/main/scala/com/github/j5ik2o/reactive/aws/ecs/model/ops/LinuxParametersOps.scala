@@ -40,6 +40,20 @@ final class LinuxParametersBuilderOps(val self: LinuxParameters.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxSwapAsScala(value: Option[Int]): LinuxParameters.Builder = {
+    value.fold(self) { v =>
+      self.maxSwap(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def swappinessAsScala(value: Option[Int]): LinuxParameters.Builder = {
+    value.fold(self) { v =>
+      self.swappiness(v)
+    }
+  }
+
 }
 
 final class LinuxParametersOps(val self: LinuxParameters) extends AnyVal {
@@ -62,6 +76,12 @@ final class LinuxParametersOps(val self: LinuxParameters) extends AnyVal {
   final def tmpfsAsScala: Option[Seq[Tmpfs]] = Option(self.tmpfs).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxSwapAsScala: Option[Int] = Option(self.maxSwap)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def swappinessAsScala: Option[Int] = Option(self.swappiness)
 
 }
 

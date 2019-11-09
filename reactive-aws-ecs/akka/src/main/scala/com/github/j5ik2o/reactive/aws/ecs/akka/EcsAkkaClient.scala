@@ -533,6 +533,19 @@ trait EcsAkkaClient {
       underlying.stopTask(stopTaskRequest)
     }
 
+  def submitAttachmentStateChangesSource(
+      submitAttachmentStateChangesRequest: SubmitAttachmentStateChangesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SubmitAttachmentStateChangesResponse, NotUsed] =
+    Source.single(submitAttachmentStateChangesRequest).via(submitAttachmentStateChangesFlow(parallelism))
+
+  def submitAttachmentStateChangesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse, NotUsed] =
+    Flow[SubmitAttachmentStateChangesRequest].mapAsync(parallelism) { submitAttachmentStateChangesRequest =>
+      underlying.submitAttachmentStateChanges(submitAttachmentStateChangesRequest)
+    }
+
   def submitContainerStateChangeSource(
       submitContainerStateChangeRequest: SubmitContainerStateChangeRequest,
       parallelism: Int = DefaultParallelism
@@ -581,6 +594,19 @@ trait EcsAkkaClient {
   ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
     Flow[UntagResourceRequest].mapAsync(parallelism) { untagResourceRequest =>
       underlying.untagResource(untagResourceRequest)
+    }
+
+  def updateClusterSettingsSource(
+      updateClusterSettingsRequest: UpdateClusterSettingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateClusterSettingsResponse, NotUsed] =
+    Source.single(updateClusterSettingsRequest).via(updateClusterSettingsFlow(parallelism))
+
+  def updateClusterSettingsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateClusterSettingsRequest, UpdateClusterSettingsResponse, NotUsed] =
+    Flow[UpdateClusterSettingsRequest].mapAsync(parallelism) { updateClusterSettingsRequest =>
+      underlying.updateClusterSettings(updateClusterSettingsRequest)
     }
 
   def updateContainerAgentSource(

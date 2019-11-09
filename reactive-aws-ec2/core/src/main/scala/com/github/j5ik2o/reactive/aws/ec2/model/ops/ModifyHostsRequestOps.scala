@@ -19,6 +19,13 @@ final class ModifyHostsRequestBuilderOps(val self: ModifyHostsRequest.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostRecoveryAsScala(value: Option[HostRecovery]): ModifyHostsRequest.Builder = {
+    value.fold(self) { v =>
+      self.hostRecovery(v)
+    }
+  }
+
 }
 
 final class ModifyHostsRequestOps(val self: ModifyHostsRequest) extends AnyVal {
@@ -30,6 +37,9 @@ final class ModifyHostsRequestOps(val self: ModifyHostsRequest) extends AnyVal {
   final def hostIdsAsScala: Option[Seq[String]] = Option(self.hostIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostRecoveryAsScala: Option[HostRecovery] = Option(self.hostRecovery)
 
 }
 

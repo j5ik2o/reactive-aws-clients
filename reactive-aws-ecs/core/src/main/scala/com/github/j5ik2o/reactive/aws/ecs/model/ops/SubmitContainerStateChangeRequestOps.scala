@@ -28,6 +28,13 @@ final class SubmitContainerStateChangeRequestBuilderOps(val self: SubmitContaine
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def runtimeIdAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
+    value.fold(self) { v =>
+      self.runtimeId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
     value.fold(self) { v =>
       self.status(v)
@@ -67,6 +74,9 @@ final class SubmitContainerStateChangeRequestOps(val self: SubmitContainerStateC
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala: Option[String] = Option(self.containerName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def runtimeIdAsScala: Option[String] = Option(self.runtimeId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[String] = Option(self.status)

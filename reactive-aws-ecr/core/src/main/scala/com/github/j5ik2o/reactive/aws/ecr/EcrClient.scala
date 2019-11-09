@@ -27,6 +27,10 @@ trait EcrClient[M[_]] {
       deleteRepositoryPolicyRequest: DeleteRepositoryPolicyRequest
   ): M[DeleteRepositoryPolicyResponse]
 
+  def describeImageScanFindings(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): M[DescribeImageScanFindingsResponse]
+
   def describeImages(describeImagesRequest: DescribeImagesRequest): M[DescribeImagesResponse]
 
   def describeRepositories(describeRepositoriesRequest: DescribeRepositoriesRequest): M[DescribeRepositoriesResponse]
@@ -59,9 +63,19 @@ trait EcrClient[M[_]] {
 
   def putImage(putImageRequest: PutImageRequest): M[PutImageResponse]
 
+  def putImageScanningConfiguration(
+      putImageScanningConfigurationRequest: PutImageScanningConfigurationRequest
+  ): M[PutImageScanningConfigurationResponse]
+
+  def putImageTagMutability(
+      putImageTagMutabilityRequest: PutImageTagMutabilityRequest
+  ): M[PutImageTagMutabilityResponse]
+
   def putLifecyclePolicy(putLifecyclePolicyRequest: PutLifecyclePolicyRequest): M[PutLifecyclePolicyResponse]
 
   def setRepositoryPolicy(setRepositoryPolicyRequest: SetRepositoryPolicyRequest): M[SetRepositoryPolicyResponse]
+
+  def startImageScan(startImageScanRequest: StartImageScanRequest): M[StartImageScanResponse]
 
   def startLifecyclePolicyPreview(
       startLifecyclePolicyPreviewRequest: StartLifecyclePolicyPreviewRequest

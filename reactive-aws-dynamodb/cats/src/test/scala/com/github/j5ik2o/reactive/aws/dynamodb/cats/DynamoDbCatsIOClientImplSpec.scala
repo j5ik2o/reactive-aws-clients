@@ -2,6 +2,7 @@ package com.github.j5ik2o.reactive.aws.dynamodb.cats
 
 import java.net.URI
 import java.util.UUID
+import java.util.concurrent.{ Executor, Executors }
 
 import com.github.j5ik2o.reactive.aws.dynamodb.{ DynamoDBContainerSpecSupport, DynamoDbAsyncClient }
 import com.github.j5ik2o.reactive.aws.dynamodb.model.ops._
@@ -9,9 +10,11 @@ import org.scalatest.{ AsyncFreeSpec, Matchers }
 import org.scalatest.concurrent.ScalaFutures
 import software.amazon.awssdk.auth.credentials.{ AwsBasicCredentials, StaticCredentialsProvider }
 import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient
+import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.dynamodb.{ DynamoDbAsyncClient => JavaDynamoDbAsyncClient }
 import software.amazon.awssdk.services.dynamodb.model._
 
+import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
 
 class DynamoDbCatsIOClientImplSpec
@@ -19,7 +22,7 @@ class DynamoDbCatsIOClientImplSpec
     with Matchers
     with ScalaFutures
     with DynamoDBContainerSpecSupport {
-  implicit val pc: PatienceConfig = PatienceConfig(20 seconds, 1 seconds)
+  implicit val pc: PatienceConfig = PatienceConfig(30 seconds, 1 seconds)
 
   val underlying = JavaDynamoDbAsyncClient
     .builder()
@@ -27,10 +30,12 @@ class DynamoDbCatsIOClientImplSpec
     .credentialsProvider(
       StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKeyId, secretAccessKey))
     )
+    .region(Region.EU_WEST_1)
     .endpointOverride(URI.create(endpoint))
     .build()
 
-  val client = DynamoDbCatsIOClient(DynamoDbAsyncClient(underlying))(executionContext)
+  val catsEc = ExecutionContext.fromExecutor(Executors.newCachedThreadPool())
+  val client = DynamoDbCatsIOClient(DynamoDbAsyncClient(underlying))(catsEc)
 
   "DynamoDbCatsIOClientImplSpec" - {
     "createTable & listTables" in {

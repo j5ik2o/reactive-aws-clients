@@ -33,6 +33,13 @@ final class CreateClientVpnRouteRequestBuilderOps(val self: CreateClientVpnRoute
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clientTokenAsScala(value: Option[String]): CreateClientVpnRouteRequest.Builder = {
+    value.fold(self) { v =>
+      self.clientToken(v)
+    }
+  }
+
 }
 
 final class CreateClientVpnRouteRequestOps(val self: CreateClientVpnRouteRequest) extends AnyVal {
@@ -48,6 +55,9 @@ final class CreateClientVpnRouteRequestOps(val self: CreateClientVpnRouteRequest
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
 }
 

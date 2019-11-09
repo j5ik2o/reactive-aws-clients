@@ -9,14 +9,14 @@ import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
 object Settings {
   val sdkBaseName     = settingKey[String]("sdk base name")
   val scalaVersion211 = "2.11.12"
-  val scalaVersion212 = "2.12.8"
-  val scalaVersion213 = "2.13.0"
+  val scalaVersion212 = "2.12.10"
+  val scalaVersion213 = "2.13.1"
 
-  val awsSdk2Version = "2.5.69"
+  val awsSdk2Version = "2.10.13"
 
-  val catsVersion  = "2.0.0-M4"
-  val catsEffectVersion = "2.0.0-M4"
-  val monixVersion = "3.0.0-RC3"
+  val catsVersion  = "2.0.0"
+  val catsEffectVersion = "2.0.0"
+  val monixVersion = "3.0.0"
   val akkaVersion  = "2.5.23"
 
   val compileScalaStyle = taskKey[Unit]("compileScalaStyle")

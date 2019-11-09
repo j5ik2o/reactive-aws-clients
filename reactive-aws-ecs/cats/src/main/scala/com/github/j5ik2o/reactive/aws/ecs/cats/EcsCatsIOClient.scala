@@ -309,6 +309,13 @@ trait EcsCatsIOClient extends EcsClient[IO] {
       IO(underlying.stopTask(stopTaskRequest))
     }
 
+  override def submitAttachmentStateChanges(
+      submitAttachmentStateChangesRequest: SubmitAttachmentStateChangesRequest
+  ): IO[SubmitAttachmentStateChangesResponse] =
+    IO.fromFuture {
+      IO(underlying.submitAttachmentStateChanges(submitAttachmentStateChangesRequest))
+    }
+
   override def submitContainerStateChange(
       submitContainerStateChangeRequest: SubmitContainerStateChangeRequest
   ): IO[SubmitContainerStateChangeResponse] =
@@ -331,6 +338,13 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
     IO.fromFuture {
       IO(underlying.untagResource(untagResourceRequest))
+    }
+
+  override def updateClusterSettings(
+      updateClusterSettingsRequest: UpdateClusterSettingsRequest
+  ): IO[UpdateClusterSettingsResponse] =
+    IO.fromFuture {
+      IO(underlying.updateClusterSettings(updateClusterSettingsRequest))
     }
 
   override def updateContainerAgent(

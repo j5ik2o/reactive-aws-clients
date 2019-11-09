@@ -19,6 +19,13 @@ final class RegionBuilderOps(val self: Region.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def optInStatusAsScala(value: Option[String]): Region.Builder = {
+    value.fold(self) { v =>
+      self.optInStatus(v)
+    }
+  }
+
 }
 
 final class RegionOps(val self: Region) extends AnyVal {
@@ -28,6 +35,9 @@ final class RegionOps(val self: Region) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala: Option[String] = Option(self.regionName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def optInStatusAsScala: Option[String] = Option(self.optInStatus)
 
 }
 

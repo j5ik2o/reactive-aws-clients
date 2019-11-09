@@ -37,6 +37,13 @@ final class CreateCapacityReservationRequestBuilderOps(val self: CreateCapacityR
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def availabilityZoneIdAsScala(value: Option[String]): CreateCapacityReservationRequest.Builder = {
+    value.fold(self) { v =>
+      self.availabilityZoneId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tenancyAsScala(value: Option[CapacityReservationTenancy]): CreateCapacityReservationRequest.Builder = {
     value.fold(self) { v =>
       self.tenancy(v)
@@ -109,6 +116,9 @@ final class CreateCapacityReservationRequestOps(val self: CreateCapacityReservat
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def availabilityZoneIdAsScala: Option[String] = Option(self.availabilityZoneId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tenancyAsScala: Option[CapacityReservationTenancy] = Option(self.tenancy)

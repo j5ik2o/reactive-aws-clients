@@ -459,6 +459,11 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.createSnapshot(createSnapshotRequest)
     }
 
+  override def createSnapshots(createSnapshotsRequest: CreateSnapshotsRequest): Task[CreateSnapshotsResponse] =
+    Task.deferFuture {
+      underlying.createSnapshots(createSnapshotsRequest)
+    }
+
   override def createSpotDatafeedSubscription(
       createSpotDatafeedSubscriptionRequest: CreateSpotDatafeedSubscriptionRequest
   ): Task[CreateSpotDatafeedSubscriptionResponse] =
@@ -474,6 +479,34 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def createTags(createTagsRequest: CreateTagsRequest): Task[CreateTagsResponse] =
     Task.deferFuture {
       underlying.createTags(createTagsRequest)
+    }
+
+  override def createTrafficMirrorFilter(
+      createTrafficMirrorFilterRequest: CreateTrafficMirrorFilterRequest
+  ): Task[CreateTrafficMirrorFilterResponse] =
+    Task.deferFuture {
+      underlying.createTrafficMirrorFilter(createTrafficMirrorFilterRequest)
+    }
+
+  override def createTrafficMirrorFilterRule(
+      createTrafficMirrorFilterRuleRequest: CreateTrafficMirrorFilterRuleRequest
+  ): Task[CreateTrafficMirrorFilterRuleResponse] =
+    Task.deferFuture {
+      underlying.createTrafficMirrorFilterRule(createTrafficMirrorFilterRuleRequest)
+    }
+
+  override def createTrafficMirrorSession(
+      createTrafficMirrorSessionRequest: CreateTrafficMirrorSessionRequest
+  ): Task[CreateTrafficMirrorSessionResponse] =
+    Task.deferFuture {
+      underlying.createTrafficMirrorSession(createTrafficMirrorSessionRequest)
+    }
+
+  override def createTrafficMirrorTarget(
+      createTrafficMirrorTargetRequest: CreateTrafficMirrorTargetRequest
+  ): Task[CreateTrafficMirrorTargetResponse] =
+    Task.deferFuture {
+      underlying.createTrafficMirrorTarget(createTrafficMirrorTargetRequest)
     }
 
   override def createTransitGateway(
@@ -676,6 +709,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.deletePlacementGroup(deletePlacementGroupRequest)
     }
 
+  override def deleteQueuedReservedInstances(
+      deleteQueuedReservedInstancesRequest: DeleteQueuedReservedInstancesRequest
+  ): Task[DeleteQueuedReservedInstancesResponse] =
+    Task.deferFuture {
+      underlying.deleteQueuedReservedInstances(deleteQueuedReservedInstancesRequest)
+    }
+
   override def deleteRoute(deleteRouteRequest: DeleteRouteRequest): Task[DeleteRouteResponse] =
     Task.deferFuture {
       underlying.deleteRoute(deleteRouteRequest)
@@ -718,6 +758,34 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def deleteTags(deleteTagsRequest: DeleteTagsRequest): Task[DeleteTagsResponse] =
     Task.deferFuture {
       underlying.deleteTags(deleteTagsRequest)
+    }
+
+  override def deleteTrafficMirrorFilter(
+      deleteTrafficMirrorFilterRequest: DeleteTrafficMirrorFilterRequest
+  ): Task[DeleteTrafficMirrorFilterResponse] =
+    Task.deferFuture {
+      underlying.deleteTrafficMirrorFilter(deleteTrafficMirrorFilterRequest)
+    }
+
+  override def deleteTrafficMirrorFilterRule(
+      deleteTrafficMirrorFilterRuleRequest: DeleteTrafficMirrorFilterRuleRequest
+  ): Task[DeleteTrafficMirrorFilterRuleResponse] =
+    Task.deferFuture {
+      underlying.deleteTrafficMirrorFilterRule(deleteTrafficMirrorFilterRuleRequest)
+    }
+
+  override def deleteTrafficMirrorSession(
+      deleteTrafficMirrorSessionRequest: DeleteTrafficMirrorSessionRequest
+  ): Task[DeleteTrafficMirrorSessionResponse] =
+    Task.deferFuture {
+      underlying.deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest)
+    }
+
+  override def deleteTrafficMirrorTarget(
+      deleteTrafficMirrorTargetRequest: DeleteTrafficMirrorTargetRequest
+  ): Task[DeleteTrafficMirrorTargetResponse] =
+    Task.deferFuture {
+      underlying.deleteTrafficMirrorTarget(deleteTrafficMirrorTargetRequest)
     }
 
   override def deleteTransitGateway(
@@ -1081,6 +1149,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def describeElasticGpus(): Task[DescribeElasticGpusResponse] =
     Task.deferFuture {
       underlying.describeElasticGpus()
+    }
+
+  override def describeExportImageTasks(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): Task[DescribeExportImageTasksResponse] =
+    Task.deferFuture {
+      underlying.describeExportImageTasks(describeExportImageTasksRequest)
     }
 
   override def describeExportTasks(
@@ -1956,6 +2031,48 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   def describeTagsPaginator(describeTagsRequest: DescribeTagsRequest): Observable[DescribeTagsResponse] =
     Observable.fromReactivePublisher(underlying.describeTagsPaginator(describeTagsRequest))
 
+  override def describeTrafficMirrorFilters(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): Task[DescribeTrafficMirrorFiltersResponse] =
+    Task.deferFuture {
+      underlying.describeTrafficMirrorFilters(describeTrafficMirrorFiltersRequest)
+    }
+
+  def describeTrafficMirrorFiltersPaginator(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): Observable[DescribeTrafficMirrorFiltersResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTrafficMirrorFiltersPaginator(describeTrafficMirrorFiltersRequest)
+    )
+
+  override def describeTrafficMirrorSessions(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): Task[DescribeTrafficMirrorSessionsResponse] =
+    Task.deferFuture {
+      underlying.describeTrafficMirrorSessions(describeTrafficMirrorSessionsRequest)
+    }
+
+  def describeTrafficMirrorSessionsPaginator(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): Observable[DescribeTrafficMirrorSessionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTrafficMirrorSessionsPaginator(describeTrafficMirrorSessionsRequest)
+    )
+
+  override def describeTrafficMirrorTargets(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): Task[DescribeTrafficMirrorTargetsResponse] =
+    Task.deferFuture {
+      underlying.describeTrafficMirrorTargets(describeTrafficMirrorTargetsRequest)
+    }
+
+  def describeTrafficMirrorTargetsPaginator(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): Observable[DescribeTrafficMirrorTargetsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTrafficMirrorTargetsPaginator(describeTrafficMirrorTargetsRequest)
+    )
+
   override def describeTransitGatewayAttachments(
       describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
   ): Task[DescribeTransitGatewayAttachmentsResponse] =
@@ -2355,6 +2472,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.detachVpnGateway(detachVpnGatewayRequest)
     }
 
+  override def disableEbsEncryptionByDefault(
+      disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest
+  ): Task[DisableEbsEncryptionByDefaultResponse] =
+    Task.deferFuture {
+      underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest)
+    }
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): Task[DisableTransitGatewayRouteTablePropagationResponse] =
@@ -2432,6 +2556,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.disassociateVpcCidrBlock(disassociateVpcCidrBlockRequest)
     }
 
+  override def enableEbsEncryptionByDefault(
+      enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
+  ): Task[EnableEbsEncryptionByDefaultResponse] =
+    Task.deferFuture {
+      underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest)
+    }
+
   override def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
   ): Task[EnableTransitGatewayRouteTablePropagationResponse] =
@@ -2479,11 +2610,23 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.exportClientVpnClientConfiguration(exportClientVpnClientConfigurationRequest)
     }
 
+  override def exportImage(exportImageRequest: ExportImageRequest): Task[ExportImageResponse] =
+    Task.deferFuture {
+      underlying.exportImage(exportImageRequest)
+    }
+
   override def exportTransitGatewayRoutes(
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest
   ): Task[ExportTransitGatewayRoutesResponse] =
     Task.deferFuture {
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
+    }
+
+  override def getCapacityReservationUsage(
+      getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
+  ): Task[GetCapacityReservationUsageResponse] =
+    Task.deferFuture {
+      underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest)
     }
 
   override def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): Task[GetConsoleOutputResponse] =
@@ -2496,6 +2639,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[GetConsoleScreenshotResponse] =
     Task.deferFuture {
       underlying.getConsoleScreenshot(getConsoleScreenshotRequest)
+    }
+
+  override def getEbsDefaultKmsKeyId(
+      getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
+  ): Task[GetEbsDefaultKmsKeyIdResponse] =
+    Task.deferFuture {
+      underlying.getEbsDefaultKmsKeyId(getEbsDefaultKmsKeyIdRequest)
+    }
+
+  override def getEbsEncryptionByDefault(
+      getEbsEncryptionByDefaultRequest: GetEbsEncryptionByDefaultRequest
+  ): Task[GetEbsEncryptionByDefaultResponse] =
+    Task.deferFuture {
+      underlying.getEbsEncryptionByDefault(getEbsEncryptionByDefaultRequest)
     }
 
   override def getHostReservationPurchasePreview(
@@ -2612,6 +2769,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest)
     }
 
+  override def modifyEbsDefaultKmsKeyId(
+      modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
+  ): Task[ModifyEbsDefaultKmsKeyIdResponse] =
+    Task.deferFuture {
+      underlying.modifyEbsDefaultKmsKeyId(modifyEbsDefaultKmsKeyIdRequest)
+    }
+
   override def modifyFleet(modifyFleetRequest: ModifyFleetRequest): Task[ModifyFleetResponse] =
     Task.deferFuture {
       underlying.modifyFleet(modifyFleetRequest)
@@ -2725,6 +2889,27 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.modifySubnetAttribute(modifySubnetAttributeRequest)
     }
 
+  override def modifyTrafficMirrorFilterNetworkServices(
+      modifyTrafficMirrorFilterNetworkServicesRequest: ModifyTrafficMirrorFilterNetworkServicesRequest
+  ): Task[ModifyTrafficMirrorFilterNetworkServicesResponse] =
+    Task.deferFuture {
+      underlying.modifyTrafficMirrorFilterNetworkServices(modifyTrafficMirrorFilterNetworkServicesRequest)
+    }
+
+  override def modifyTrafficMirrorFilterRule(
+      modifyTrafficMirrorFilterRuleRequest: ModifyTrafficMirrorFilterRuleRequest
+  ): Task[ModifyTrafficMirrorFilterRuleResponse] =
+    Task.deferFuture {
+      underlying.modifyTrafficMirrorFilterRule(modifyTrafficMirrorFilterRuleRequest)
+    }
+
+  override def modifyTrafficMirrorSession(
+      modifyTrafficMirrorSessionRequest: ModifyTrafficMirrorSessionRequest
+  ): Task[ModifyTrafficMirrorSessionResponse] =
+    Task.deferFuture {
+      underlying.modifyTrafficMirrorSession(modifyTrafficMirrorSessionRequest)
+    }
+
   override def modifyTransitGatewayVpcAttachment(
       modifyTransitGatewayVpcAttachmentRequest: ModifyTransitGatewayVpcAttachmentRequest
   ): Task[ModifyTransitGatewayVpcAttachmentResponse] =
@@ -2794,6 +2979,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[ModifyVpnConnectionResponse] =
     Task.deferFuture {
       underlying.modifyVpnConnection(modifyVpnConnectionRequest)
+    }
+
+  override def modifyVpnTunnelCertificate(
+      modifyVpnTunnelCertificateRequest: ModifyVpnTunnelCertificateRequest
+  ): Task[ModifyVpnTunnelCertificateResponse] =
+    Task.deferFuture {
+      underlying.modifyVpnTunnelCertificate(modifyVpnTunnelCertificateRequest)
+    }
+
+  override def modifyVpnTunnelOptions(
+      modifyVpnTunnelOptionsRequest: ModifyVpnTunnelOptionsRequest
+  ): Task[ModifyVpnTunnelOptionsResponse] =
+    Task.deferFuture {
+      underlying.modifyVpnTunnelOptions(modifyVpnTunnelOptionsRequest)
     }
 
   override def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): Task[MonitorInstancesResponse] =
@@ -2934,6 +3133,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.requestSpotInstances(requestSpotInstancesRequest)
     }
 
+  override def resetEbsDefaultKmsKeyId(
+      resetEbsDefaultKmsKeyIdRequest: ResetEbsDefaultKmsKeyIdRequest
+  ): Task[ResetEbsDefaultKmsKeyIdResponse] =
+    Task.deferFuture {
+      underlying.resetEbsDefaultKmsKeyId(resetEbsDefaultKmsKeyIdRequest)
+    }
+
   override def resetFpgaImageAttribute(
       resetFpgaImageAttributeRequest: ResetFpgaImageAttributeRequest
   ): Task[ResetFpgaImageAttributeResponse] =
@@ -3014,6 +3220,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[SearchTransitGatewayRoutesResponse] =
     Task.deferFuture {
       underlying.searchTransitGatewayRoutes(searchTransitGatewayRoutesRequest)
+    }
+
+  override def sendDiagnosticInterrupt(
+      sendDiagnosticInterruptRequest: SendDiagnosticInterruptRequest
+  ): Task[SendDiagnosticInterruptResponse] =
+    Task.deferFuture {
+      underlying.sendDiagnosticInterrupt(sendDiagnosticInterruptRequest)
     }
 
   override def startInstances(startInstancesRequest: StartInstancesRequest): Task[StartInstancesResponse] =

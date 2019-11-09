@@ -110,6 +110,9 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   override def listAliases(listAliasesRequest: ListAliasesRequest): Either[Throwable, ListAliasesResponse] =
     underlying.listAliases(listAliasesRequest).toEither
 
+  def listAliasesPaginator(listAliasesRequest: ListAliasesRequest): ListAliasesIterable =
+    underlying.listAliasesPaginator(listAliasesRequest)
+
   override def listEventSourceMappings(): Either[Throwable, ListEventSourceMappingsResponse] =
     underlying.listEventSourceMappings().toEither
 
@@ -143,11 +146,20 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   ): Either[Throwable, ListLayerVersionsResponse] =
     underlying.listLayerVersions(listLayerVersionsRequest).toEither
 
+  def listLayerVersionsPaginator(listLayerVersionsRequest: ListLayerVersionsRequest): ListLayerVersionsIterable =
+    underlying.listLayerVersionsPaginator(listLayerVersionsRequest)
+
   override def listLayers(): Either[Throwable, ListLayersResponse] =
     underlying.listLayers().toEither
 
   override def listLayers(listLayersRequest: ListLayersRequest): Either[Throwable, ListLayersResponse] =
     underlying.listLayers(listLayersRequest).toEither
+
+  def listLayersPaginator(): ListLayersIterable =
+    underlying.listLayersPaginator()
+
+  def listLayersPaginator(listLayersRequest: ListLayersRequest): ListLayersIterable =
+    underlying.listLayersPaginator(listLayersRequest)
 
   override def listTags(listTagsRequest: ListTagsRequest): Either[Throwable, ListTagsResponse] =
     underlying.listTags(listTagsRequest).toEither
@@ -156,6 +168,11 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
       listVersionsByFunctionRequest: ListVersionsByFunctionRequest
   ): Either[Throwable, ListVersionsByFunctionResponse] =
     underlying.listVersionsByFunction(listVersionsByFunctionRequest).toEither
+
+  def listVersionsByFunctionPaginator(
+      listVersionsByFunctionRequest: ListVersionsByFunctionRequest
+  ): ListVersionsByFunctionIterable =
+    underlying.listVersionsByFunctionPaginator(listVersionsByFunctionRequest)
 
   override def publishLayerVersion(
       publishLayerVersionRequest: PublishLayerVersionRequest

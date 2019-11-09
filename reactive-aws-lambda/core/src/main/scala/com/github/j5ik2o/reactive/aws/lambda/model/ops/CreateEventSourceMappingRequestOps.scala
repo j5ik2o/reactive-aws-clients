@@ -35,6 +35,13 @@ final class CreateEventSourceMappingRequestBuilderOps(val self: CreateEventSourc
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumBatchingWindowInSecondsAsScala(value: Option[Int]): CreateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.maximumBatchingWindowInSeconds(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingPositionAsScala(value: Option[EventSourcePosition]): CreateEventSourceMappingRequest.Builder = {
     value.fold(self) { v =>
       self.startingPosition(v)
@@ -65,6 +72,9 @@ final class CreateEventSourceMappingRequestOps(val self: CreateEventSourceMappin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def batchSizeAsScala: Option[Int] = Option(self.batchSize)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumBatchingWindowInSecondsAsScala: Option[Int] = Option(self.maximumBatchingWindowInSeconds)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingPositionAsScala: Option[EventSourcePosition] = Option(self.startingPosition)

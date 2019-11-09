@@ -52,6 +52,16 @@ trait EcrAsyncClient extends EcrClient[Future] {
   ): Future[DeleteRepositoryPolicyResponse] =
     underlying.deleteRepositoryPolicy(deleteRepositoryPolicyRequest).toScala
 
+  override def describeImageScanFindings(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): Future[DescribeImageScanFindingsResponse] =
+    underlying.describeImageScanFindings(describeImageScanFindingsRequest).toScala
+
+  def describeImageScanFindingsPaginator(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): DescribeImageScanFindingsPublisher =
+    underlying.describeImageScanFindingsPaginator(describeImageScanFindingsRequest)
+
   override def describeImages(describeImagesRequest: DescribeImagesRequest): Future[DescribeImagesResponse] =
     underlying.describeImages(describeImagesRequest).toScala
 
@@ -97,6 +107,11 @@ trait EcrAsyncClient extends EcrClient[Future] {
   ): Future[GetLifecyclePolicyPreviewResponse] =
     underlying.getLifecyclePolicyPreview(getLifecyclePolicyPreviewRequest).toScala
 
+  def getLifecyclePolicyPreviewPaginator(
+      getLifecyclePolicyPreviewRequest: GetLifecyclePolicyPreviewRequest
+  ): GetLifecyclePolicyPreviewPublisher =
+    underlying.getLifecyclePolicyPreviewPaginator(getLifecyclePolicyPreviewRequest)
+
   override def getRepositoryPolicy(
       getRepositoryPolicyRequest: GetRepositoryPolicyRequest
   ): Future[GetRepositoryPolicyResponse] =
@@ -121,6 +136,16 @@ trait EcrAsyncClient extends EcrClient[Future] {
   override def putImage(putImageRequest: PutImageRequest): Future[PutImageResponse] =
     underlying.putImage(putImageRequest).toScala
 
+  override def putImageScanningConfiguration(
+      putImageScanningConfigurationRequest: PutImageScanningConfigurationRequest
+  ): Future[PutImageScanningConfigurationResponse] =
+    underlying.putImageScanningConfiguration(putImageScanningConfigurationRequest).toScala
+
+  override def putImageTagMutability(
+      putImageTagMutabilityRequest: PutImageTagMutabilityRequest
+  ): Future[PutImageTagMutabilityResponse] =
+    underlying.putImageTagMutability(putImageTagMutabilityRequest).toScala
+
   override def putLifecyclePolicy(
       putLifecyclePolicyRequest: PutLifecyclePolicyRequest
   ): Future[PutLifecyclePolicyResponse] =
@@ -130,6 +155,9 @@ trait EcrAsyncClient extends EcrClient[Future] {
       setRepositoryPolicyRequest: SetRepositoryPolicyRequest
   ): Future[SetRepositoryPolicyResponse] =
     underlying.setRepositoryPolicy(setRepositoryPolicyRequest).toScala
+
+  override def startImageScan(startImageScanRequest: StartImageScanRequest): Future[StartImageScanResponse] =
+    underlying.startImageScan(startImageScanRequest).toScala
 
   override def startLifecyclePolicyPreview(
       startLifecyclePolicyPreviewRequest: StartLifecyclePolicyPreviewRequest

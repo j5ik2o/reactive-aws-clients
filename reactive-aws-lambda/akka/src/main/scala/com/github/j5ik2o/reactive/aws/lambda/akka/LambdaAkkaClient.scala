@@ -284,6 +284,11 @@ trait LambdaAkkaClient {
       underlying.listAliases(listAliasesRequest)
     }
 
+  def listAliasesPaginatorFlow: Flow[ListAliasesRequest, ListAliasesResponse, NotUsed] =
+    Flow[ListAliasesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listAliasesPaginator(request))
+    }
+
   def listEventSourceMappingsSource(
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest,
       parallelism: Int = DefaultParallelism
@@ -346,6 +351,11 @@ trait LambdaAkkaClient {
       underlying.listLayerVersions(listLayerVersionsRequest)
     }
 
+  def listLayerVersionsPaginatorFlow: Flow[ListLayerVersionsRequest, ListLayerVersionsResponse, NotUsed] =
+    Flow[ListLayerVersionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listLayerVersionsPaginator(request))
+    }
+
   def listLayersSource(
       listLayersRequest: ListLayersRequest,
       parallelism: Int = DefaultParallelism
@@ -359,6 +369,14 @@ trait LambdaAkkaClient {
 
   def listLayersSource(): Source[ListLayersResponse, NotUsed] =
     Source.fromFuture(underlying.listLayers())
+
+  def listLayersPaginatorSource: Source[ListLayersResponse, NotUsed] =
+    Source.fromPublisher(underlying.listLayersPaginator())
+
+  def listLayersPaginatorFlow: Flow[ListLayersRequest, ListLayersResponse, NotUsed] =
+    Flow[ListLayersRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listLayersPaginator(request))
+    }
 
   def listTagsSource(
       listTagsRequest: ListTagsRequest,
@@ -382,6 +400,12 @@ trait LambdaAkkaClient {
   ): Flow[ListVersionsByFunctionRequest, ListVersionsByFunctionResponse, NotUsed] =
     Flow[ListVersionsByFunctionRequest].mapAsync(parallelism) { listVersionsByFunctionRequest =>
       underlying.listVersionsByFunction(listVersionsByFunctionRequest)
+    }
+
+  def listVersionsByFunctionPaginatorFlow
+      : Flow[ListVersionsByFunctionRequest, ListVersionsByFunctionResponse, NotUsed] =
+    Flow[ListVersionsByFunctionRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listVersionsByFunctionPaginator(request))
     }
 
   def publishLayerVersionSource(

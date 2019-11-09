@@ -3,6 +3,7 @@ package com.github.j5ik2o.reactive.aws.eks
 
 import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.eks.model._
+import software.amazon.awssdk.services.eks.paginators._
 import software.amazon.awssdk.services.eks.{ EksClient => JavaEksSyncClient }
 
 object EksSyncClient extends ToEitherSupport {
@@ -41,8 +42,28 @@ trait EksSyncClient extends EksClient[Either[Throwable, ?]] {
   override def listClusters(listClustersRequest: ListClustersRequest): Either[Throwable, ListClustersResponse] =
     underlying.listClusters(listClustersRequest).toEither
 
+  def listClustersPaginator(): ListClustersIterable =
+    underlying.listClustersPaginator()
+
+  def listClustersPaginator(listClustersRequest: ListClustersRequest): ListClustersIterable =
+    underlying.listClustersPaginator(listClustersRequest)
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Either[Throwable, ListTagsForResourceResponse] =
+    underlying.listTagsForResource(listTagsForResourceRequest).toEither
+
   override def listUpdates(listUpdatesRequest: ListUpdatesRequest): Either[Throwable, ListUpdatesResponse] =
     underlying.listUpdates(listUpdatesRequest).toEither
+
+  def listUpdatesPaginator(listUpdatesRequest: ListUpdatesRequest): ListUpdatesIterable =
+    underlying.listUpdatesPaginator(listUpdatesRequest)
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Either[Throwable, TagResourceResponse] =
+    underlying.tagResource(tagResourceRequest).toEither
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Either[Throwable, UntagResourceResponse] =
+    underlying.untagResource(untagResourceRequest).toEither
 
   override def updateClusterConfig(
       updateClusterConfigRequest: UpdateClusterConfigRequest

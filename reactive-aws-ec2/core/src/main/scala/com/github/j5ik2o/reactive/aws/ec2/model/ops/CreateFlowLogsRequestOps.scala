@@ -61,6 +61,13 @@ final class CreateFlowLogsRequestBuilderOps(val self: CreateFlowLogsRequest.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def logFormatAsScala(value: Option[String]): CreateFlowLogsRequest.Builder = {
+    value.fold(self) { v =>
+      self.logFormat(v)
+    }
+  }
+
 }
 
 final class CreateFlowLogsRequestOps(val self: CreateFlowLogsRequest) extends AnyVal {
@@ -90,6 +97,9 @@ final class CreateFlowLogsRequestOps(val self: CreateFlowLogsRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logDestinationAsScala: Option[String] = Option(self.logDestination)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def logFormatAsScala: Option[String] = Option(self.logFormat)
 
 }
 
