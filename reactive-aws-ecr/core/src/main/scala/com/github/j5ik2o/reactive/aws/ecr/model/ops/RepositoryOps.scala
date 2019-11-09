@@ -40,6 +40,20 @@ final class RepositoryBuilderOps(val self: Repository.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageTagMutabilityAsScala(value: Option[ImageTagMutability]): Repository.Builder = {
+    value.fold(self) { v =>
+      self.imageTagMutability(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageScanningConfigurationAsScala(value: Option[ImageScanningConfiguration]): Repository.Builder = {
+    value.fold(self) { v =>
+      self.imageScanningConfiguration(v)
+    }
+  }
+
 }
 
 final class RepositoryOps(val self: Repository) extends AnyVal {
@@ -58,6 +72,13 @@ final class RepositoryOps(val self: Repository) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala: Option[java.time.Instant] = Option(self.createdAt)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageTagMutabilityAsScala: Option[ImageTagMutability] = Option(self.imageTagMutability)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageScanningConfigurationAsScala: Option[ImageScanningConfiguration] =
+    Option(self.imageScanningConfiguration)
 
 }
 

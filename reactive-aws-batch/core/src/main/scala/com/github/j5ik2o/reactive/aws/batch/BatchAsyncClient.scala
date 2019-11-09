@@ -2,6 +2,7 @@
 package com.github.j5ik2o.reactive.aws.batch
 
 import software.amazon.awssdk.services.batch.model._
+import software.amazon.awssdk.services.batch.paginators._
 import software.amazon.awssdk.services.batch.{ BatchAsyncClient => JavaBatchAsyncClient }
 
 import scala.compat.java8.FutureConverters._
@@ -54,6 +55,14 @@ trait BatchAsyncClient extends BatchClient[Future] {
   override def describeComputeEnvironments(): Future[DescribeComputeEnvironmentsResponse] =
     underlying.describeComputeEnvironments().toScala
 
+  def describeComputeEnvironmentsPaginator(): DescribeComputeEnvironmentsPublisher =
+    underlying.describeComputeEnvironmentsPaginator()
+
+  def describeComputeEnvironmentsPaginator(
+      describeComputeEnvironmentsRequest: DescribeComputeEnvironmentsRequest
+  ): DescribeComputeEnvironmentsPublisher =
+    underlying.describeComputeEnvironmentsPaginator(describeComputeEnvironmentsRequest)
+
   override def describeJobDefinitions(
       describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
   ): Future[DescribeJobDefinitionsResponse] =
@@ -61,6 +70,14 @@ trait BatchAsyncClient extends BatchClient[Future] {
 
   override def describeJobDefinitions(): Future[DescribeJobDefinitionsResponse] =
     underlying.describeJobDefinitions().toScala
+
+  def describeJobDefinitionsPaginator(): DescribeJobDefinitionsPublisher =
+    underlying.describeJobDefinitionsPaginator()
+
+  def describeJobDefinitionsPaginator(
+      describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
+  ): DescribeJobDefinitionsPublisher =
+    underlying.describeJobDefinitionsPaginator(describeJobDefinitionsRequest)
 
   override def describeJobQueues(
       describeJobQueuesRequest: DescribeJobQueuesRequest
@@ -70,11 +87,20 @@ trait BatchAsyncClient extends BatchClient[Future] {
   override def describeJobQueues(): Future[DescribeJobQueuesResponse] =
     underlying.describeJobQueues().toScala
 
+  def describeJobQueuesPaginator(): DescribeJobQueuesPublisher =
+    underlying.describeJobQueuesPaginator()
+
+  def describeJobQueuesPaginator(describeJobQueuesRequest: DescribeJobQueuesRequest): DescribeJobQueuesPublisher =
+    underlying.describeJobQueuesPaginator(describeJobQueuesRequest)
+
   override def describeJobs(describeJobsRequest: DescribeJobsRequest): Future[DescribeJobsResponse] =
     underlying.describeJobs(describeJobsRequest).toScala
 
   override def listJobs(listJobsRequest: ListJobsRequest): Future[ListJobsResponse] =
     underlying.listJobs(listJobsRequest).toScala
+
+  def listJobsPaginator(listJobsRequest: ListJobsRequest): ListJobsPublisher =
+    underlying.listJobsPaginator(listJobsRequest)
 
   override def registerJobDefinition(
       registerJobDefinitionRequest: RegisterJobDefinitionRequest

@@ -40,6 +40,13 @@ final class VgwTelemetryBuilderOps(val self: VgwTelemetry.Builder) extends AnyVa
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def certificateArnAsScala(value: Option[String]): VgwTelemetry.Builder = {
+    value.fold(self) { v =>
+      self.certificateArn(v)
+    }
+  }
+
 }
 
 final class VgwTelemetryOps(val self: VgwTelemetry) extends AnyVal {
@@ -58,6 +65,9 @@ final class VgwTelemetryOps(val self: VgwTelemetry) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala: Option[String] = Option(self.statusMessage)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def certificateArnAsScala: Option[String] = Option(self.certificateArn)
 
 }
 

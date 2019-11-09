@@ -2,6 +2,7 @@
 package com.github.j5ik2o.reactive.aws.eks.monix
 
 import software.amazon.awssdk.services.eks.model._
+import software.amazon.awssdk.services.eks.paginators._
 import com.github.j5ik2o.reactive.aws.eks.{ EksAsyncClient, EksClient }
 import monix.eval.Task
 import monix.reactive.Observable
@@ -48,9 +49,35 @@ trait EksMonixClient extends EksClient[Task] {
       underlying.listClusters()
     }
 
+  def listClustersPaginator(): Observable[ListClustersResponse] =
+    Observable.fromReactivePublisher(underlying.listClustersPaginator())
+
+  def listClustersPaginator(listClustersRequest: ListClustersRequest): Observable[ListClustersResponse] =
+    Observable.fromReactivePublisher(underlying.listClustersPaginator(listClustersRequest))
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): Task[ListTagsForResourceResponse] =
+    Task.deferFuture {
+      underlying.listTagsForResource(listTagsForResourceRequest)
+    }
+
   override def listUpdates(listUpdatesRequest: ListUpdatesRequest): Task[ListUpdatesResponse] =
     Task.deferFuture {
       underlying.listUpdates(listUpdatesRequest)
+    }
+
+  def listUpdatesPaginator(listUpdatesRequest: ListUpdatesRequest): Observable[ListUpdatesResponse] =
+    Observable.fromReactivePublisher(underlying.listUpdatesPaginator(listUpdatesRequest))
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): Task[TagResourceResponse] =
+    Task.deferFuture {
+      underlying.tagResource(tagResourceRequest)
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): Task[UntagResourceResponse] =
+    Task.deferFuture {
+      underlying.untagResource(untagResourceRequest)
     }
 
   override def updateClusterConfig(

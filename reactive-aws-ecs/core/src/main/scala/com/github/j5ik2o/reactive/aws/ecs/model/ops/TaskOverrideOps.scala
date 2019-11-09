@@ -13,6 +13,15 @@ final class TaskOverrideBuilderOps(val self: TaskOverride.Builder) extends AnyVa
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inferenceAcceleratorOverridesAsScala(
+      value: Option[Seq[InferenceAcceleratorOverride]]
+  ): TaskOverride.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.inferenceAcceleratorOverrides(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
     value.fold(self) { v =>
       self.taskRoleArn(v)
@@ -34,6 +43,12 @@ final class TaskOverrideOps(val self: TaskOverride) extends AnyVal {
   final def containerOverridesAsScala: Option[Seq[ContainerOverride]] = Option(self.containerOverrides).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inferenceAcceleratorOverridesAsScala: Option[Seq[InferenceAcceleratorOverride]] =
+    Option(self.inferenceAcceleratorOverrides).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskRoleArnAsScala: Option[String] = Option(self.taskRoleArn)

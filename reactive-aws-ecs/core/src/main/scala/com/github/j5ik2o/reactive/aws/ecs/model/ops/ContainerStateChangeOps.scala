@@ -13,6 +13,20 @@ final class ContainerStateChangeBuilderOps(val self: ContainerStateChange.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageDigestAsScala(value: Option[String]): ContainerStateChange.Builder = {
+    value.fold(self) { v =>
+      self.imageDigest(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def runtimeIdAsScala(value: Option[String]): ContainerStateChange.Builder = {
+    value.fold(self) { v =>
+      self.runtimeId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): ContainerStateChange.Builder = {
     value.fold(self) { v =>
       self.exitCode(v)
@@ -46,6 +60,12 @@ final class ContainerStateChangeOps(val self: ContainerStateChange) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala: Option[String] = Option(self.containerName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageDigestAsScala: Option[String] = Option(self.imageDigest)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def runtimeIdAsScala: Option[String] = Option(self.runtimeId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala: Option[Int] = Option(self.exitCode)

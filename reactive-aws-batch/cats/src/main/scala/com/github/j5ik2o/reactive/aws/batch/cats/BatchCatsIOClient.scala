@@ -4,6 +4,7 @@ package com.github.j5ik2o.reactive.aws.batch.cats
 import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.batch.{ BatchAsyncClient, BatchClient }
 import software.amazon.awssdk.services.batch.model._
+import software.amazon.awssdk.services.batch.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
@@ -71,6 +72,14 @@ trait BatchCatsIOClient extends BatchClient[IO] {
       IO(underlying.describeComputeEnvironments())
     }
 
+  def describeComputeEnvironmentsPaginator(): DescribeComputeEnvironmentsPublisher =
+    underlying.describeComputeEnvironmentsPaginator()
+
+  def describeComputeEnvironmentsPaginator(
+      describeComputeEnvironmentsRequest: DescribeComputeEnvironmentsRequest
+  ): DescribeComputeEnvironmentsPublisher =
+    underlying.describeComputeEnvironmentsPaginator(describeComputeEnvironmentsRequest)
+
   override def describeJobDefinitions(
       describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
   ): IO[DescribeJobDefinitionsResponse] =
@@ -83,6 +92,14 @@ trait BatchCatsIOClient extends BatchClient[IO] {
       IO(underlying.describeJobDefinitions())
     }
 
+  def describeJobDefinitionsPaginator(): DescribeJobDefinitionsPublisher =
+    underlying.describeJobDefinitionsPaginator()
+
+  def describeJobDefinitionsPaginator(
+      describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
+  ): DescribeJobDefinitionsPublisher =
+    underlying.describeJobDefinitionsPaginator(describeJobDefinitionsRequest)
+
   override def describeJobQueues(describeJobQueuesRequest: DescribeJobQueuesRequest): IO[DescribeJobQueuesResponse] =
     IO.fromFuture {
       IO(underlying.describeJobQueues(describeJobQueuesRequest))
@@ -93,6 +110,12 @@ trait BatchCatsIOClient extends BatchClient[IO] {
       IO(underlying.describeJobQueues())
     }
 
+  def describeJobQueuesPaginator(): DescribeJobQueuesPublisher =
+    underlying.describeJobQueuesPaginator()
+
+  def describeJobQueuesPaginator(describeJobQueuesRequest: DescribeJobQueuesRequest): DescribeJobQueuesPublisher =
+    underlying.describeJobQueuesPaginator(describeJobQueuesRequest)
+
   override def describeJobs(describeJobsRequest: DescribeJobsRequest): IO[DescribeJobsResponse] =
     IO.fromFuture {
       IO(underlying.describeJobs(describeJobsRequest))
@@ -102,6 +125,9 @@ trait BatchCatsIOClient extends BatchClient[IO] {
     IO.fromFuture {
       IO(underlying.listJobs(listJobsRequest))
     }
+
+  def listJobsPaginator(listJobsRequest: ListJobsRequest): ListJobsPublisher =
+    underlying.listJobsPaginator(listJobsRequest)
 
   override def registerJobDefinition(
       registerJobDefinitionRequest: RegisterJobDefinitionRequest

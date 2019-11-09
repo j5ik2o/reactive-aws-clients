@@ -82,6 +82,13 @@ final class FlowLogBuilderOps(val self: FlowLog.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def logFormatAsScala(value: Option[String]): FlowLog.Builder = {
+    value.fold(self) { v =>
+      self.logFormat(v)
+    }
+  }
+
 }
 
 final class FlowLogOps(val self: FlowLog) extends AnyVal {
@@ -118,6 +125,9 @@ final class FlowLogOps(val self: FlowLog) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logDestinationAsScala: Option[String] = Option(self.logDestination)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def logFormatAsScala: Option[String] = Option(self.logFormat)
 
 }
 

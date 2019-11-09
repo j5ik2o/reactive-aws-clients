@@ -89,6 +89,13 @@ final class HostBuilderOps(val self: Host.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostRecoveryAsScala(value: Option[HostRecovery]): Host.Builder = {
+    value.fold(self) { v =>
+      self.hostRecovery(v)
+    }
+  }
+
 }
 
 final class HostOps(val self: Host) extends AnyVal {
@@ -132,6 +139,9 @@ final class HostOps(val self: Host) extends AnyVal {
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostRecoveryAsScala: Option[HostRecovery] = Option(self.hostRecovery)
 
 }
 

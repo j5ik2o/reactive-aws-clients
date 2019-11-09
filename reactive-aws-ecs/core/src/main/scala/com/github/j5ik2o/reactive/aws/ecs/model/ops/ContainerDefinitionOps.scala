@@ -264,6 +264,13 @@ final class ContainerDefinitionBuilderOps(val self: ContainerDefinition.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def firelensConfigurationAsScala(value: Option[FirelensConfiguration]): ContainerDefinition.Builder = {
+    value.fold(self) { v =>
+      self.firelensConfiguration(v)
+    }
+  }
+
 }
 
 final class ContainerDefinitionOps(val self: ContainerDefinition) extends AnyVal {
@@ -412,6 +419,9 @@ final class ContainerDefinitionOps(val self: ContainerDefinition) extends AnyVal
   final def resourceRequirementsAsScala: Option[Seq[ResourceRequirement]] = Option(self.resourceRequirements).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def firelensConfigurationAsScala: Option[FirelensConfiguration] = Option(self.firelensConfiguration)
 
 }
 

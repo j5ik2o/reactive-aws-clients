@@ -13,6 +13,13 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allocationStrategyAsScala(value: Option[CRAllocationStrategy]): ComputeResource.Builder = {
+    value.fold(self) { v =>
+      self.allocationStrategy(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minvCpusAsScala(value: Option[Int]): ComputeResource.Builder = {
     value.fold(self) { v =>
       self.minvCpus(v)
@@ -116,6 +123,9 @@ final class ComputeResourceOps(val self: ComputeResource) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[CRType] = Option(self.`type`)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allocationStrategyAsScala: Option[CRAllocationStrategy] = Option(self.allocationStrategy)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minvCpusAsScala: Option[Int] = Option(self.minvCpus)

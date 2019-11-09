@@ -107,6 +107,15 @@ final class RegisterTaskDefinitionRequestBuilderOps(val self: RegisterTaskDefini
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inferenceAcceleratorsAsScala(
+      value: Option[Seq[InferenceAccelerator]]
+  ): RegisterTaskDefinitionRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.inferenceAccelerators(v.asJava)
+    }
+  }
+
 }
 
 final class RegisterTaskDefinitionRequestOps(val self: RegisterTaskDefinitionRequest) extends AnyVal {
@@ -163,6 +172,12 @@ final class RegisterTaskDefinitionRequestOps(val self: RegisterTaskDefinitionReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def proxyConfigurationAsScala: Option[ProxyConfiguration] = Option(self.proxyConfiguration)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inferenceAcceleratorsAsScala: Option[Seq[InferenceAccelerator]] = Option(self.inferenceAccelerators).map {
+    v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

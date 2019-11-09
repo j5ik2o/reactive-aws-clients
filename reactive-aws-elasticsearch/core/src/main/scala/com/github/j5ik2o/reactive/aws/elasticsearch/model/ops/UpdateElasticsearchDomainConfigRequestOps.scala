@@ -75,6 +75,15 @@ final class UpdateElasticsearchDomainConfigRequestBuilderOps(val self: UpdateEla
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def domainEndpointOptionsAsScala(
+      value: Option[DomainEndpointOptions]
+  ): UpdateElasticsearchDomainConfigRequest.Builder = {
+    value.fold(self) { v =>
+      self.domainEndpointOptions(v)
+    }
+  }
+
 }
 
 final class UpdateElasticsearchDomainConfigRequestOps(val self: UpdateElasticsearchDomainConfigRequest) extends AnyVal {
@@ -111,6 +120,9 @@ final class UpdateElasticsearchDomainConfigRequestOps(val self: UpdateElasticsea
     Option(self.logPublishingOptions).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def domainEndpointOptionsAsScala: Option[DomainEndpointOptions] = Option(self.domainEndpointOptions)
 
 }
 

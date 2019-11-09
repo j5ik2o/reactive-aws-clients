@@ -23,6 +23,13 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.deleteAlarms(deleteAlarmsRequest)
     }
 
+  override def deleteAnomalyDetector(
+      deleteAnomalyDetectorRequest: DeleteAnomalyDetectorRequest
+  ): Task[DeleteAnomalyDetectorResponse] =
+    Task.deferFuture {
+      underlying.deleteAnomalyDetector(deleteAnomalyDetectorRequest)
+    }
+
   override def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): Task[DeleteDashboardsResponse] =
     Task.deferFuture {
       underlying.deleteDashboards(deleteDashboardsRequest)
@@ -70,6 +77,13 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
 
   def describeAlarmsPaginator(describeAlarmsRequest: DescribeAlarmsRequest): Observable[DescribeAlarmsResponse] =
     Observable.fromReactivePublisher(underlying.describeAlarmsPaginator(describeAlarmsRequest))
+
+  override def describeAnomalyDetectors(
+      describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest
+  ): Task[DescribeAnomalyDetectorsResponse] =
+    Task.deferFuture {
+      underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest)
+    }
 
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
@@ -149,6 +163,13 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
   ): Task[ListTagsForResourceResponse] =
     Task.deferFuture {
       underlying.listTagsForResource(listTagsForResourceRequest)
+    }
+
+  override def putAnomalyDetector(
+      putAnomalyDetectorRequest: PutAnomalyDetectorRequest
+  ): Task[PutAnomalyDetectorResponse] =
+    Task.deferFuture {
+      underlying.putAnomalyDetector(putAnomalyDetectorRequest)
     }
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Task[PutDashboardResponse] =

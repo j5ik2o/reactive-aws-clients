@@ -72,6 +72,18 @@ trait EcrCatsIOClient extends EcrClient[IO] {
       IO(underlying.deleteRepositoryPolicy(deleteRepositoryPolicyRequest))
     }
 
+  override def describeImageScanFindings(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): IO[DescribeImageScanFindingsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeImageScanFindings(describeImageScanFindingsRequest))
+    }
+
+  def describeImageScanFindingsPaginator(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): DescribeImageScanFindingsPublisher =
+    underlying.describeImageScanFindingsPaginator(describeImageScanFindingsRequest)
+
   override def describeImages(describeImagesRequest: DescribeImagesRequest): IO[DescribeImagesResponse] =
     IO.fromFuture {
       IO(underlying.describeImages(describeImagesRequest))
@@ -133,6 +145,11 @@ trait EcrCatsIOClient extends EcrClient[IO] {
       IO(underlying.getLifecyclePolicyPreview(getLifecyclePolicyPreviewRequest))
     }
 
+  def getLifecyclePolicyPreviewPaginator(
+      getLifecyclePolicyPreviewRequest: GetLifecyclePolicyPreviewRequest
+  ): GetLifecyclePolicyPreviewPublisher =
+    underlying.getLifecyclePolicyPreviewPaginator(getLifecyclePolicyPreviewRequest)
+
   override def getRepositoryPolicy(
       getRepositoryPolicyRequest: GetRepositoryPolicyRequest
   ): IO[GetRepositoryPolicyResponse] =
@@ -167,6 +184,20 @@ trait EcrCatsIOClient extends EcrClient[IO] {
       IO(underlying.putImage(putImageRequest))
     }
 
+  override def putImageScanningConfiguration(
+      putImageScanningConfigurationRequest: PutImageScanningConfigurationRequest
+  ): IO[PutImageScanningConfigurationResponse] =
+    IO.fromFuture {
+      IO(underlying.putImageScanningConfiguration(putImageScanningConfigurationRequest))
+    }
+
+  override def putImageTagMutability(
+      putImageTagMutabilityRequest: PutImageTagMutabilityRequest
+  ): IO[PutImageTagMutabilityResponse] =
+    IO.fromFuture {
+      IO(underlying.putImageTagMutability(putImageTagMutabilityRequest))
+    }
+
   override def putLifecyclePolicy(
       putLifecyclePolicyRequest: PutLifecyclePolicyRequest
   ): IO[PutLifecyclePolicyResponse] =
@@ -179,6 +210,11 @@ trait EcrCatsIOClient extends EcrClient[IO] {
   ): IO[SetRepositoryPolicyResponse] =
     IO.fromFuture {
       IO(underlying.setRepositoryPolicy(setRepositoryPolicyRequest))
+    }
+
+  override def startImageScan(startImageScanRequest: StartImageScanRequest): IO[StartImageScanResponse] =
+    IO.fromFuture {
+      IO(underlying.startImageScan(startImageScanRequest))
     }
 
   override def startLifecyclePolicyPreview(

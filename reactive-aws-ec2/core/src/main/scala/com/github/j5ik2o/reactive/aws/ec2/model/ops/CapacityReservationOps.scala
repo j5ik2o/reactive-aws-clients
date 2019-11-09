@@ -13,6 +13,27 @@ final class CapacityReservationBuilderOps(val self: CapacityReservation.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala(value: Option[String]): CapacityReservation.Builder = {
+    value.fold(self) { v =>
+      self.ownerId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityReservationArnAsScala(value: Option[String]): CapacityReservation.Builder = {
+    value.fold(self) { v =>
+      self.capacityReservationArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def availabilityZoneIdAsScala(value: Option[String]): CapacityReservation.Builder = {
+    value.fold(self) { v =>
+      self.availabilityZoneId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(value: Option[String]): CapacityReservation.Builder = {
     value.fold(self) { v =>
       self.instanceType(v)
@@ -116,6 +137,15 @@ final class CapacityReservationOps(val self: CapacityReservation) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityReservationIdAsScala: Option[String] = Option(self.capacityReservationId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala: Option[String] = Option(self.ownerId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityReservationArnAsScala: Option[String] = Option(self.capacityReservationArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def availabilityZoneIdAsScala: Option[String] = Option(self.availabilityZoneId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)

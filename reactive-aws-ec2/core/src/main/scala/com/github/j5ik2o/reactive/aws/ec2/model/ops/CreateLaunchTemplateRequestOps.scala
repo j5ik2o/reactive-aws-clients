@@ -33,6 +33,13 @@ final class CreateLaunchTemplateRequestBuilderOps(val self: CreateLaunchTemplate
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreateLaunchTemplateRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class CreateLaunchTemplateRequestOps(val self: CreateLaunchTemplateRequest) extends AnyVal {
@@ -48,6 +55,11 @@ final class CreateLaunchTemplateRequestOps(val self: CreateLaunchTemplateRequest
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateDataAsScala: Option[RequestLaunchTemplateData] = Option(self.launchTemplateData)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

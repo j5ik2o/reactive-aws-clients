@@ -211,6 +211,8 @@ trait Ec2Client[M[_]] {
 
   def createSnapshot(createSnapshotRequest: CreateSnapshotRequest): M[CreateSnapshotResponse]
 
+  def createSnapshots(createSnapshotsRequest: CreateSnapshotsRequest): M[CreateSnapshotsResponse]
+
   def createSpotDatafeedSubscription(
       createSpotDatafeedSubscriptionRequest: CreateSpotDatafeedSubscriptionRequest
   ): M[CreateSpotDatafeedSubscriptionResponse]
@@ -218,6 +220,22 @@ trait Ec2Client[M[_]] {
   def createSubnet(createSubnetRequest: CreateSubnetRequest): M[CreateSubnetResponse]
 
   def createTags(createTagsRequest: CreateTagsRequest): M[CreateTagsResponse]
+
+  def createTrafficMirrorFilter(
+      createTrafficMirrorFilterRequest: CreateTrafficMirrorFilterRequest
+  ): M[CreateTrafficMirrorFilterResponse]
+
+  def createTrafficMirrorFilterRule(
+      createTrafficMirrorFilterRuleRequest: CreateTrafficMirrorFilterRuleRequest
+  ): M[CreateTrafficMirrorFilterRuleResponse]
+
+  def createTrafficMirrorSession(
+      createTrafficMirrorSessionRequest: CreateTrafficMirrorSessionRequest
+  ): M[CreateTrafficMirrorSessionResponse]
+
+  def createTrafficMirrorTarget(
+      createTrafficMirrorTargetRequest: CreateTrafficMirrorTargetRequest
+  ): M[CreateTrafficMirrorTargetResponse]
 
   def createTransitGateway(createTransitGatewayRequest: CreateTransitGatewayRequest): M[CreateTransitGatewayResponse]
 
@@ -313,6 +331,10 @@ trait Ec2Client[M[_]] {
 
   def deletePlacementGroup(deletePlacementGroupRequest: DeletePlacementGroupRequest): M[DeletePlacementGroupResponse]
 
+  def deleteQueuedReservedInstances(
+      deleteQueuedReservedInstancesRequest: DeleteQueuedReservedInstancesRequest
+  ): M[DeleteQueuedReservedInstancesResponse]
+
   def deleteRoute(deleteRouteRequest: DeleteRouteRequest): M[DeleteRouteResponse]
 
   def deleteRouteTable(deleteRouteTableRequest: DeleteRouteTableRequest): M[DeleteRouteTableResponse]
@@ -330,6 +352,22 @@ trait Ec2Client[M[_]] {
   def deleteSubnet(deleteSubnetRequest: DeleteSubnetRequest): M[DeleteSubnetResponse]
 
   def deleteTags(deleteTagsRequest: DeleteTagsRequest): M[DeleteTagsResponse]
+
+  def deleteTrafficMirrorFilter(
+      deleteTrafficMirrorFilterRequest: DeleteTrafficMirrorFilterRequest
+  ): M[DeleteTrafficMirrorFilterResponse]
+
+  def deleteTrafficMirrorFilterRule(
+      deleteTrafficMirrorFilterRuleRequest: DeleteTrafficMirrorFilterRuleRequest
+  ): M[DeleteTrafficMirrorFilterRuleResponse]
+
+  def deleteTrafficMirrorSession(
+      deleteTrafficMirrorSessionRequest: DeleteTrafficMirrorSessionRequest
+  ): M[DeleteTrafficMirrorSessionResponse]
+
+  def deleteTrafficMirrorTarget(
+      deleteTrafficMirrorTargetRequest: DeleteTrafficMirrorTargetRequest
+  ): M[DeleteTrafficMirrorTargetResponse]
 
   def deleteTransitGateway(deleteTransitGatewayRequest: DeleteTransitGatewayRequest): M[DeleteTransitGatewayResponse]
 
@@ -462,6 +500,10 @@ trait Ec2Client[M[_]] {
   def describeElasticGpus(describeElasticGpusRequest: DescribeElasticGpusRequest): M[DescribeElasticGpusResponse]
 
   def describeElasticGpus(): M[DescribeElasticGpusResponse]
+
+  def describeExportImageTasks(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): M[DescribeExportImageTasksResponse]
 
   def describeExportTasks(describeExportTasksRequest: DescribeExportTasksRequest): M[DescribeExportTasksResponse]
 
@@ -735,6 +777,18 @@ trait Ec2Client[M[_]] {
 
   def describeTags(): M[DescribeTagsResponse]
 
+  def describeTrafficMirrorFilters(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest
+  ): M[DescribeTrafficMirrorFiltersResponse]
+
+  def describeTrafficMirrorSessions(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest
+  ): M[DescribeTrafficMirrorSessionsResponse]
+
+  def describeTrafficMirrorTargets(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest
+  ): M[DescribeTrafficMirrorTargetsResponse]
+
   def describeTransitGatewayAttachments(
       describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest
   ): M[DescribeTransitGatewayAttachmentsResponse]
@@ -857,6 +911,10 @@ trait Ec2Client[M[_]] {
 
   def detachVpnGateway(detachVpnGatewayRequest: DetachVpnGatewayRequest): M[DetachVpnGatewayResponse]
 
+  def disableEbsEncryptionByDefault(
+      disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest
+  ): M[DisableEbsEncryptionByDefaultResponse]
+
   def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): M[DisableTransitGatewayRouteTablePropagationResponse]
@@ -899,6 +957,10 @@ trait Ec2Client[M[_]] {
       disassociateVpcCidrBlockRequest: DisassociateVpcCidrBlockRequest
   ): M[DisassociateVpcCidrBlockResponse]
 
+  def enableEbsEncryptionByDefault(
+      enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
+  ): M[EnableEbsEncryptionByDefaultResponse]
+
   def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
   ): M[EnableTransitGatewayRouteTablePropagationResponse]
@@ -923,13 +985,27 @@ trait Ec2Client[M[_]] {
       exportClientVpnClientConfigurationRequest: ExportClientVpnClientConfigurationRequest
   ): M[ExportClientVpnClientConfigurationResponse]
 
+  def exportImage(exportImageRequest: ExportImageRequest): M[ExportImageResponse]
+
   def exportTransitGatewayRoutes(
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest
   ): M[ExportTransitGatewayRoutesResponse]
 
+  def getCapacityReservationUsage(
+      getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
+  ): M[GetCapacityReservationUsageResponse]
+
   def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): M[GetConsoleOutputResponse]
 
   def getConsoleScreenshot(getConsoleScreenshotRequest: GetConsoleScreenshotRequest): M[GetConsoleScreenshotResponse]
+
+  def getEbsDefaultKmsKeyId(
+      getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
+  ): M[GetEbsDefaultKmsKeyIdResponse]
+
+  def getEbsEncryptionByDefault(
+      getEbsEncryptionByDefaultRequest: GetEbsEncryptionByDefaultRequest
+  ): M[GetEbsEncryptionByDefaultResponse]
 
   def getHostReservationPurchasePreview(
       getHostReservationPurchasePreviewRequest: GetHostReservationPurchasePreviewRequest
@@ -978,6 +1054,10 @@ trait Ec2Client[M[_]] {
   def modifyClientVpnEndpoint(
       modifyClientVpnEndpointRequest: ModifyClientVpnEndpointRequest
   ): M[ModifyClientVpnEndpointResponse]
+
+  def modifyEbsDefaultKmsKeyId(
+      modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
+  ): M[ModifyEbsDefaultKmsKeyIdResponse]
 
   def modifyFleet(modifyFleetRequest: ModifyFleetRequest): M[ModifyFleetResponse]
 
@@ -1037,6 +1117,18 @@ trait Ec2Client[M[_]] {
       modifySubnetAttributeRequest: ModifySubnetAttributeRequest
   ): M[ModifySubnetAttributeResponse]
 
+  def modifyTrafficMirrorFilterNetworkServices(
+      modifyTrafficMirrorFilterNetworkServicesRequest: ModifyTrafficMirrorFilterNetworkServicesRequest
+  ): M[ModifyTrafficMirrorFilterNetworkServicesResponse]
+
+  def modifyTrafficMirrorFilterRule(
+      modifyTrafficMirrorFilterRuleRequest: ModifyTrafficMirrorFilterRuleRequest
+  ): M[ModifyTrafficMirrorFilterRuleResponse]
+
+  def modifyTrafficMirrorSession(
+      modifyTrafficMirrorSessionRequest: ModifyTrafficMirrorSessionRequest
+  ): M[ModifyTrafficMirrorSessionResponse]
+
   def modifyTransitGatewayVpcAttachment(
       modifyTransitGatewayVpcAttachmentRequest: ModifyTransitGatewayVpcAttachmentRequest
   ): M[ModifyTransitGatewayVpcAttachmentResponse]
@@ -1070,6 +1162,14 @@ trait Ec2Client[M[_]] {
   def modifyVpcTenancy(modifyVpcTenancyRequest: ModifyVpcTenancyRequest): M[ModifyVpcTenancyResponse]
 
   def modifyVpnConnection(modifyVpnConnectionRequest: ModifyVpnConnectionRequest): M[ModifyVpnConnectionResponse]
+
+  def modifyVpnTunnelCertificate(
+      modifyVpnTunnelCertificateRequest: ModifyVpnTunnelCertificateRequest
+  ): M[ModifyVpnTunnelCertificateResponse]
+
+  def modifyVpnTunnelOptions(
+      modifyVpnTunnelOptionsRequest: ModifyVpnTunnelOptionsRequest
+  ): M[ModifyVpnTunnelOptionsResponse]
 
   def monitorInstances(monitorInstancesRequest: MonitorInstancesRequest): M[MonitorInstancesResponse]
 
@@ -1137,6 +1237,10 @@ trait Ec2Client[M[_]] {
 
   def requestSpotInstances(requestSpotInstancesRequest: RequestSpotInstancesRequest): M[RequestSpotInstancesResponse]
 
+  def resetEbsDefaultKmsKeyId(
+      resetEbsDefaultKmsKeyIdRequest: ResetEbsDefaultKmsKeyIdRequest
+  ): M[ResetEbsDefaultKmsKeyIdResponse]
+
   def resetFpgaImageAttribute(
       resetFpgaImageAttributeRequest: ResetFpgaImageAttributeRequest
   ): M[ResetFpgaImageAttributeResponse]
@@ -1180,6 +1284,10 @@ trait Ec2Client[M[_]] {
   def searchTransitGatewayRoutes(
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest
   ): M[SearchTransitGatewayRoutesResponse]
+
+  def sendDiagnosticInterrupt(
+      sendDiagnosticInterruptRequest: SendDiagnosticInterruptRequest
+  ): M[SendDiagnosticInterruptResponse]
 
   def startInstances(startInstancesRequest: StartInstancesRequest): M[StartInstancesResponse]
 

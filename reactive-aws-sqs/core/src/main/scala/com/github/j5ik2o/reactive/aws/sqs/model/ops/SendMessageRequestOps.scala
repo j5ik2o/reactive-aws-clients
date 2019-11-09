@@ -34,6 +34,15 @@ final class SendMessageRequestBuilderOps(val self: SendMessageRequest.Builder) e
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def messageSystemAttributesAsScala(
+      value: Option[Map[MessageSystemAttributeNameForSends, MessageSystemAttributeValue]]
+  ): SendMessageRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.messageSystemAttributes(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageDeduplicationIdAsScala(value: Option[String]): SendMessageRequest.Builder = {
     value.fold(self) { v =>
       self.messageDeduplicationId(v)
@@ -65,6 +74,13 @@ final class SendMessageRequestOps(val self: SendMessageRequest) extends AnyVal {
     v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def messageSystemAttributesAsScala
+      : Option[Map[MessageSystemAttributeNameForSends, MessageSystemAttributeValue]] =
+    Option(self.messageSystemAttributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageDeduplicationIdAsScala: Option[String] = Option(self.messageDeduplicationId)

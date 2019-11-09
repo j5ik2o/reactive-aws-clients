@@ -98,6 +98,15 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def domainEndpointOptionsAsScala(
+      value: Option[DomainEndpointOptions]
+  ): CreateElasticsearchDomainRequest.Builder = {
+    value.fold(self) { v =>
+      self.domainEndpointOptions(v)
+    }
+  }
+
 }
 
 final class CreateElasticsearchDomainRequestOps(val self: CreateElasticsearchDomainRequest) extends AnyVal {
@@ -144,6 +153,9 @@ final class CreateElasticsearchDomainRequestOps(val self: CreateElasticsearchDom
     Option(self.logPublishingOptions).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def domainEndpointOptionsAsScala: Option[DomainEndpointOptions] = Option(self.domainEndpointOptions)
 
 }
 

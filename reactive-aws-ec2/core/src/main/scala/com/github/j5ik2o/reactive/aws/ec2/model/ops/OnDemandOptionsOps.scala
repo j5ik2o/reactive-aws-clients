@@ -33,6 +33,13 @@ final class OnDemandOptionsBuilderOps(val self: OnDemandOptions.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxTotalPriceAsScala(value: Option[String]): OnDemandOptions.Builder = {
+    value.fold(self) { v =>
+      self.maxTotalPrice(v)
+    }
+  }
+
 }
 
 final class OnDemandOptionsOps(val self: OnDemandOptions) extends AnyVal {
@@ -48,6 +55,9 @@ final class OnDemandOptionsOps(val self: OnDemandOptions) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minTargetCapacityAsScala: Option[Int] = Option(self.minTargetCapacity)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxTotalPriceAsScala: Option[String] = Option(self.maxTotalPrice)
 
 }
 

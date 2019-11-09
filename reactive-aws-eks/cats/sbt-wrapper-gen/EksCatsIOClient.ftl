@@ -6,6 +6,7 @@ package ${packageName?replace("software.amazon.awssdk.services", "com.github.j5i
 import cats.effect.{ContextShift, IO}
 import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.{ ${baseName}AsyncClient, ${baseName}Client }
 import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 

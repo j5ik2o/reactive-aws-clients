@@ -145,6 +145,13 @@ final class ContainerDetailBuilderOps(val self: ContainerDetail.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def linuxParametersAsScala(value: Option[LinuxParameters]): ContainerDetail.Builder = {
+    value.fold(self) { v =>
+      self.linuxParameters(v)
+    }
+  }
+
 }
 
 final class ContainerDetailOps(val self: ContainerDetail) extends AnyVal {
@@ -222,6 +229,9 @@ final class ContainerDetailOps(val self: ContainerDetail) extends AnyVal {
   final def resourceRequirementsAsScala: Option[Seq[ResourceRequirement]] = Option(self.resourceRequirements).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def linuxParametersAsScala: Option[LinuxParameters] = Option(self.linuxParameters)
 
 }
 

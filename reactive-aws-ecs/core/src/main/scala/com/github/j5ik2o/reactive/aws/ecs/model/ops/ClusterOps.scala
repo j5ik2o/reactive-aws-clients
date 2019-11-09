@@ -68,6 +68,13 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def settingsAsScala(value: Option[Seq[ClusterSetting]]): Cluster.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.settings(v.asJava)
+    }
+  }
+
 }
 
 final class ClusterOps(val self: Cluster) extends AnyVal {
@@ -100,6 +107,11 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def settingsAsScala: Option[Seq[ClusterSetting]] = Option(self.settings).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

@@ -19,6 +19,13 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def settingsAsScala(value: Option[Seq[ClusterSetting]]): CreateClusterRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.settings(v.asJava)
+    }
+  }
+
 }
 
 final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyVal {
@@ -28,6 +35,11 @@ final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def settingsAsScala: Option[Seq[ClusterSetting]] = Option(self.settings).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

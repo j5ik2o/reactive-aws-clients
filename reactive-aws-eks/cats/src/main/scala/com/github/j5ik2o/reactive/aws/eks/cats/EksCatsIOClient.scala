@@ -4,6 +4,7 @@ package com.github.j5ik2o.reactive.aws.eks.cats
 import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.eks.{ EksAsyncClient, EksClient }
 import software.amazon.awssdk.services.eks.model._
+import software.amazon.awssdk.services.eks.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
@@ -53,9 +54,35 @@ trait EksCatsIOClient extends EksClient[IO] {
       IO(underlying.listClusters())
     }
 
+  def listClustersPaginator(): ListClustersPublisher =
+    underlying.listClustersPaginator()
+
+  def listClustersPaginator(listClustersRequest: ListClustersRequest): ListClustersPublisher =
+    underlying.listClustersPaginator(listClustersRequest)
+
+  override def listTagsForResource(
+      listTagsForResourceRequest: ListTagsForResourceRequest
+  ): IO[ListTagsForResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.listTagsForResource(listTagsForResourceRequest))
+    }
+
   override def listUpdates(listUpdatesRequest: ListUpdatesRequest): IO[ListUpdatesResponse] =
     IO.fromFuture {
       IO(underlying.listUpdates(listUpdatesRequest))
+    }
+
+  def listUpdatesPaginator(listUpdatesRequest: ListUpdatesRequest): ListUpdatesPublisher =
+    underlying.listUpdatesPaginator(listUpdatesRequest)
+
+  override def tagResource(tagResourceRequest: TagResourceRequest): IO[TagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.tagResource(tagResourceRequest))
+    }
+
+  override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
+    IO.fromFuture {
+      IO(underlying.untagResource(untagResourceRequest))
     }
 
   override def updateClusterConfig(

@@ -25,6 +25,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   override def deleteAlarms(deleteAlarmsRequest: DeleteAlarmsRequest): Either[Throwable, DeleteAlarmsResponse] =
     underlying.deleteAlarms(deleteAlarmsRequest).toEither
 
+  override def deleteAnomalyDetector(
+      deleteAnomalyDetectorRequest: DeleteAnomalyDetectorRequest
+  ): Either[Throwable, DeleteAnomalyDetectorResponse] =
+    underlying.deleteAnomalyDetector(deleteAnomalyDetectorRequest).toEither
+
   override def deleteDashboards(
       deleteDashboardsRequest: DeleteDashboardsRequest
   ): Either[Throwable, DeleteDashboardsResponse] =
@@ -62,6 +67,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
       describeAlarmsForMetricRequest: DescribeAlarmsForMetricRequest
   ): Either[Throwable, DescribeAlarmsForMetricResponse] =
     underlying.describeAlarmsForMetric(describeAlarmsForMetricRequest).toEither
+
+  override def describeAnomalyDetectors(
+      describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest
+  ): Either[Throwable, DescribeAnomalyDetectorsResponse] =
+    underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest).toEither
 
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
@@ -120,6 +130,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
       listTagsForResourceRequest: ListTagsForResourceRequest
   ): Either[Throwable, ListTagsForResourceResponse] =
     underlying.listTagsForResource(listTagsForResourceRequest).toEither
+
+  override def putAnomalyDetector(
+      putAnomalyDetectorRequest: PutAnomalyDetectorRequest
+  ): Either[Throwable, PutAnomalyDetectorResponse] =
+    underlying.putAnomalyDetector(putAnomalyDetectorRequest).toEither
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Either[Throwable, PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toEither

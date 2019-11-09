@@ -20,6 +20,13 @@ final class SendMessageResponseBuilderOps(val self: SendMessageResponse.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def md5OfMessageSystemAttributesAsScala(value: Option[String]): SendMessageResponse.Builder = {
+    value.fold(self) { v =>
+      self.md5OfMessageSystemAttributes(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageIdAsScala(value: Option[String]): SendMessageResponse.Builder = {
     value.fold(self) { v =>
       self.messageId(v)
@@ -42,6 +49,9 @@ final class SendMessageResponseOps(val self: SendMessageResponse) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageAttributesAsScala: Option[String] = Option(self.md5OfMessageAttributes)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def md5OfMessageSystemAttributesAsScala: Option[String] = Option(self.md5OfMessageSystemAttributes)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageIdAsScala: Option[String] = Option(self.messageId)

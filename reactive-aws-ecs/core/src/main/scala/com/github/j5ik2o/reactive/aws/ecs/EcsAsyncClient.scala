@@ -224,6 +224,11 @@ trait EcsAsyncClient extends EcsClient[Future] {
   override def stopTask(stopTaskRequest: StopTaskRequest): Future[StopTaskResponse] =
     underlying.stopTask(stopTaskRequest).toScala
 
+  override def submitAttachmentStateChanges(
+      submitAttachmentStateChangesRequest: SubmitAttachmentStateChangesRequest
+  ): Future[SubmitAttachmentStateChangesResponse] =
+    underlying.submitAttachmentStateChanges(submitAttachmentStateChangesRequest).toScala
+
   override def submitContainerStateChange(
       submitContainerStateChangeRequest: SubmitContainerStateChangeRequest
   ): Future[SubmitContainerStateChangeResponse] =
@@ -239,6 +244,11 @@ trait EcsAsyncClient extends EcsClient[Future] {
 
   override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
     underlying.untagResource(untagResourceRequest).toScala
+
+  override def updateClusterSettings(
+      updateClusterSettingsRequest: UpdateClusterSettingsRequest
+  ): Future[UpdateClusterSettingsResponse] =
+    underlying.updateClusterSettings(updateClusterSettingsRequest).toScala
 
   override def updateContainerAgent(
       updateContainerAgentRequest: UpdateContainerAgentRequest

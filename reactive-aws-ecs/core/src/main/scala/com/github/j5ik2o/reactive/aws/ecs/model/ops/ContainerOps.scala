@@ -27,6 +27,27 @@ final class ContainerBuilderOps(val self: Container.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageAsScala(value: Option[String]): Container.Builder = {
+    value.fold(self) { v =>
+      self.image(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageDigestAsScala(value: Option[String]): Container.Builder = {
+    value.fold(self) { v =>
+      self.imageDigest(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def runtimeIdAsScala(value: Option[String]): Container.Builder = {
+    value.fold(self) { v =>
+      self.runtimeId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastStatusAsScala(value: Option[String]): Container.Builder = {
     value.fold(self) { v =>
       self.lastStatus(v)
@@ -108,6 +129,15 @@ final class ContainerOps(val self: Container) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageAsScala: Option[String] = Option(self.image)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageDigestAsScala: Option[String] = Option(self.imageDigest)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def runtimeIdAsScala: Option[String] = Option(self.runtimeId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastStatusAsScala: Option[String] = Option(self.lastStatus)

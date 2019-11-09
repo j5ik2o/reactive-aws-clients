@@ -202,6 +202,13 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsEncryptionContext(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def copySourceSSECustomerAlgorithmAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.copySourceSSECustomerAlgorithm(v)
@@ -346,6 +353,9 @@ final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala: Option[String] = Option(self.ssekmsEncryptionContext)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def copySourceSSECustomerAlgorithmAsScala: Option[String] = Option(self.copySourceSSECustomerAlgorithm)

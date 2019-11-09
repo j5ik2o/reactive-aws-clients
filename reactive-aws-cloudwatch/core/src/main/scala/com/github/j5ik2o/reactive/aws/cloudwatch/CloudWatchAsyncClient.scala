@@ -26,6 +26,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   override def deleteAlarms(deleteAlarmsRequest: DeleteAlarmsRequest): Future[DeleteAlarmsResponse] =
     underlying.deleteAlarms(deleteAlarmsRequest).toScala
 
+  override def deleteAnomalyDetector(
+      deleteAnomalyDetectorRequest: DeleteAnomalyDetectorRequest
+  ): Future[DeleteAnomalyDetectorResponse] =
+    underlying.deleteAnomalyDetector(deleteAnomalyDetectorRequest).toScala
+
   override def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): Future[DeleteDashboardsResponse] =
     underlying.deleteDashboards(deleteDashboardsRequest).toScala
 
@@ -61,6 +66,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
 
   def describeAlarmsPaginator(describeAlarmsRequest: DescribeAlarmsRequest): DescribeAlarmsPublisher =
     underlying.describeAlarmsPaginator(describeAlarmsRequest)
+
+  override def describeAnomalyDetectors(
+      describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest
+  ): Future[DescribeAnomalyDetectorsResponse] =
+    underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest).toScala
 
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
@@ -119,6 +129,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
       listTagsForResourceRequest: ListTagsForResourceRequest
   ): Future[ListTagsForResourceResponse] =
     underlying.listTagsForResource(listTagsForResourceRequest).toScala
+
+  override def putAnomalyDetector(
+      putAnomalyDetectorRequest: PutAnomalyDetectorRequest
+  ): Future[PutAnomalyDetectorResponse] =
+    underlying.putAnomalyDetector(putAnomalyDetectorRequest).toScala
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Future[PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toScala

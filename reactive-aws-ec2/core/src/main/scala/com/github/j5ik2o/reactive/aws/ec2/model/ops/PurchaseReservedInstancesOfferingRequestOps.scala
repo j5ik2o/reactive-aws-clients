@@ -32,6 +32,13 @@ final class PurchaseReservedInstancesOfferingRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def purchaseTimeAsScala(value: Option[java.time.Instant]): PurchaseReservedInstancesOfferingRequest.Builder = {
+    value.fold(self) { v =>
+      self.purchaseTime(v)
+    }
+  }
+
 }
 
 final class PurchaseReservedInstancesOfferingRequestOps(val self: PurchaseReservedInstancesOfferingRequest)
@@ -45,6 +52,9 @@ final class PurchaseReservedInstancesOfferingRequestOps(val self: PurchaseReserv
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitPriceAsScala: Option[ReservedInstanceLimitPrice] = Option(self.limitPrice)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def purchaseTimeAsScala: Option[java.time.Instant] = Option(self.purchaseTime)
 
 }
 

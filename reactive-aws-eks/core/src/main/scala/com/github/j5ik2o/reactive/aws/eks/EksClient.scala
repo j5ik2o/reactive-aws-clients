@@ -17,7 +17,13 @@ trait EksClient[M[_]] {
 
   def listClusters(): M[ListClustersResponse]
 
+  def listTagsForResource(listTagsForResourceRequest: ListTagsForResourceRequest): M[ListTagsForResourceResponse]
+
   def listUpdates(listUpdatesRequest: ListUpdatesRequest): M[ListUpdatesResponse]
+
+  def tagResource(tagResourceRequest: TagResourceRequest): M[TagResourceResponse]
+
+  def untagResource(untagResourceRequest: UntagResourceRequest): M[UntagResourceResponse]
 
   def updateClusterConfig(updateClusterConfigRequest: UpdateClusterConfigRequest): M[UpdateClusterConfigResponse]
 

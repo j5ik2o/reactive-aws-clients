@@ -13,7 +13,7 @@ final class ObjectVersionBuilderOps(val self: ObjectVersion.Builder) extends Any
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sizeAsScala(value: Option[Int]): ObjectVersion.Builder = {
+  final def sizeAsScala(value: Option[Long]): ObjectVersion.Builder = {
     value.fold(self) { v =>
       self.size(v)
     }
@@ -69,7 +69,7 @@ final class ObjectVersionOps(val self: ObjectVersion) extends AnyVal {
   final def eTagAsScala: Option[String] = Option(self.eTag)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sizeAsScala: Option[Int] = Option(self.size)
+  final def sizeAsScala: Option[Long] = Option(self.size)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala: Option[ObjectVersionStorageClass] = Option(self.storageClass)

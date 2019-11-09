@@ -905,6 +905,19 @@ trait Ec2AkkaClient {
       underlying.createSnapshot(createSnapshotRequest)
     }
 
+  def createSnapshotsSource(
+      createSnapshotsRequest: CreateSnapshotsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateSnapshotsResponse, NotUsed] =
+    Source.single(createSnapshotsRequest).via(createSnapshotsFlow(parallelism))
+
+  def createSnapshotsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateSnapshotsRequest, CreateSnapshotsResponse, NotUsed] =
+    Flow[CreateSnapshotsRequest].mapAsync(parallelism) { createSnapshotsRequest =>
+      underlying.createSnapshots(createSnapshotsRequest)
+    }
+
   def createSpotDatafeedSubscriptionSource(
       createSpotDatafeedSubscriptionRequest: CreateSpotDatafeedSubscriptionRequest,
       parallelism: Int = DefaultParallelism
@@ -940,6 +953,58 @@ trait Ec2AkkaClient {
   def createTagsFlow(parallelism: Int = DefaultParallelism): Flow[CreateTagsRequest, CreateTagsResponse, NotUsed] =
     Flow[CreateTagsRequest].mapAsync(parallelism) { createTagsRequest =>
       underlying.createTags(createTagsRequest)
+    }
+
+  def createTrafficMirrorFilterSource(
+      createTrafficMirrorFilterRequest: CreateTrafficMirrorFilterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTrafficMirrorFilterResponse, NotUsed] =
+    Source.single(createTrafficMirrorFilterRequest).via(createTrafficMirrorFilterFlow(parallelism))
+
+  def createTrafficMirrorFilterFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTrafficMirrorFilterRequest, CreateTrafficMirrorFilterResponse, NotUsed] =
+    Flow[CreateTrafficMirrorFilterRequest].mapAsync(parallelism) { createTrafficMirrorFilterRequest =>
+      underlying.createTrafficMirrorFilter(createTrafficMirrorFilterRequest)
+    }
+
+  def createTrafficMirrorFilterRuleSource(
+      createTrafficMirrorFilterRuleRequest: CreateTrafficMirrorFilterRuleRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTrafficMirrorFilterRuleResponse, NotUsed] =
+    Source.single(createTrafficMirrorFilterRuleRequest).via(createTrafficMirrorFilterRuleFlow(parallelism))
+
+  def createTrafficMirrorFilterRuleFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTrafficMirrorFilterRuleRequest, CreateTrafficMirrorFilterRuleResponse, NotUsed] =
+    Flow[CreateTrafficMirrorFilterRuleRequest].mapAsync(parallelism) { createTrafficMirrorFilterRuleRequest =>
+      underlying.createTrafficMirrorFilterRule(createTrafficMirrorFilterRuleRequest)
+    }
+
+  def createTrafficMirrorSessionSource(
+      createTrafficMirrorSessionRequest: CreateTrafficMirrorSessionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTrafficMirrorSessionResponse, NotUsed] =
+    Source.single(createTrafficMirrorSessionRequest).via(createTrafficMirrorSessionFlow(parallelism))
+
+  def createTrafficMirrorSessionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTrafficMirrorSessionRequest, CreateTrafficMirrorSessionResponse, NotUsed] =
+    Flow[CreateTrafficMirrorSessionRequest].mapAsync(parallelism) { createTrafficMirrorSessionRequest =>
+      underlying.createTrafficMirrorSession(createTrafficMirrorSessionRequest)
+    }
+
+  def createTrafficMirrorTargetSource(
+      createTrafficMirrorTargetRequest: CreateTrafficMirrorTargetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTrafficMirrorTargetResponse, NotUsed] =
+    Source.single(createTrafficMirrorTargetRequest).via(createTrafficMirrorTargetFlow(parallelism))
+
+  def createTrafficMirrorTargetFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTrafficMirrorTargetRequest, CreateTrafficMirrorTargetResponse, NotUsed] =
+    Flow[CreateTrafficMirrorTargetRequest].mapAsync(parallelism) { createTrafficMirrorTargetRequest =>
+      underlying.createTrafficMirrorTarget(createTrafficMirrorTargetRequest)
     }
 
   def createTransitGatewaySource(
@@ -1352,6 +1417,19 @@ trait Ec2AkkaClient {
       underlying.deletePlacementGroup(deletePlacementGroupRequest)
     }
 
+  def deleteQueuedReservedInstancesSource(
+      deleteQueuedReservedInstancesRequest: DeleteQueuedReservedInstancesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteQueuedReservedInstancesResponse, NotUsed] =
+    Source.single(deleteQueuedReservedInstancesRequest).via(deleteQueuedReservedInstancesFlow(parallelism))
+
+  def deleteQueuedReservedInstancesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResponse, NotUsed] =
+    Flow[DeleteQueuedReservedInstancesRequest].mapAsync(parallelism) { deleteQueuedReservedInstancesRequest =>
+      underlying.deleteQueuedReservedInstances(deleteQueuedReservedInstancesRequest)
+    }
+
   def deleteRouteSource(
       deleteRouteRequest: DeleteRouteRequest,
       parallelism: Int = DefaultParallelism
@@ -1440,6 +1518,58 @@ trait Ec2AkkaClient {
   def deleteTagsFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTagsRequest, DeleteTagsResponse, NotUsed] =
     Flow[DeleteTagsRequest].mapAsync(parallelism) { deleteTagsRequest =>
       underlying.deleteTags(deleteTagsRequest)
+    }
+
+  def deleteTrafficMirrorFilterSource(
+      deleteTrafficMirrorFilterRequest: DeleteTrafficMirrorFilterRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTrafficMirrorFilterResponse, NotUsed] =
+    Source.single(deleteTrafficMirrorFilterRequest).via(deleteTrafficMirrorFilterFlow(parallelism))
+
+  def deleteTrafficMirrorFilterFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTrafficMirrorFilterRequest, DeleteTrafficMirrorFilterResponse, NotUsed] =
+    Flow[DeleteTrafficMirrorFilterRequest].mapAsync(parallelism) { deleteTrafficMirrorFilterRequest =>
+      underlying.deleteTrafficMirrorFilter(deleteTrafficMirrorFilterRequest)
+    }
+
+  def deleteTrafficMirrorFilterRuleSource(
+      deleteTrafficMirrorFilterRuleRequest: DeleteTrafficMirrorFilterRuleRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTrafficMirrorFilterRuleResponse, NotUsed] =
+    Source.single(deleteTrafficMirrorFilterRuleRequest).via(deleteTrafficMirrorFilterRuleFlow(parallelism))
+
+  def deleteTrafficMirrorFilterRuleFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTrafficMirrorFilterRuleRequest, DeleteTrafficMirrorFilterRuleResponse, NotUsed] =
+    Flow[DeleteTrafficMirrorFilterRuleRequest].mapAsync(parallelism) { deleteTrafficMirrorFilterRuleRequest =>
+      underlying.deleteTrafficMirrorFilterRule(deleteTrafficMirrorFilterRuleRequest)
+    }
+
+  def deleteTrafficMirrorSessionSource(
+      deleteTrafficMirrorSessionRequest: DeleteTrafficMirrorSessionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTrafficMirrorSessionResponse, NotUsed] =
+    Source.single(deleteTrafficMirrorSessionRequest).via(deleteTrafficMirrorSessionFlow(parallelism))
+
+  def deleteTrafficMirrorSessionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTrafficMirrorSessionRequest, DeleteTrafficMirrorSessionResponse, NotUsed] =
+    Flow[DeleteTrafficMirrorSessionRequest].mapAsync(parallelism) { deleteTrafficMirrorSessionRequest =>
+      underlying.deleteTrafficMirrorSession(deleteTrafficMirrorSessionRequest)
+    }
+
+  def deleteTrafficMirrorTargetSource(
+      deleteTrafficMirrorTargetRequest: DeleteTrafficMirrorTargetRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTrafficMirrorTargetResponse, NotUsed] =
+    Source.single(deleteTrafficMirrorTargetRequest).via(deleteTrafficMirrorTargetFlow(parallelism))
+
+  def deleteTrafficMirrorTargetFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTrafficMirrorTargetRequest, DeleteTrafficMirrorTargetResponse, NotUsed] =
+    Flow[DeleteTrafficMirrorTargetRequest].mapAsync(parallelism) { deleteTrafficMirrorTargetRequest =>
+      underlying.deleteTrafficMirrorTarget(deleteTrafficMirrorTargetRequest)
     }
 
   def deleteTransitGatewaySource(
@@ -1989,6 +2119,19 @@ trait Ec2AkkaClient {
 
   def describeElasticGpusSource(): Source[DescribeElasticGpusResponse, NotUsed] =
     Source.fromFuture(underlying.describeElasticGpus())
+
+  def describeExportImageTasksSource(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeExportImageTasksResponse, NotUsed] =
+    Source.single(describeExportImageTasksRequest).via(describeExportImageTasksFlow(parallelism))
+
+  def describeExportImageTasksFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeExportImageTasksRequest, DescribeExportImageTasksResponse, NotUsed] =
+    Flow[DescribeExportImageTasksRequest].mapAsync(parallelism) { describeExportImageTasksRequest =>
+      underlying.describeExportImageTasks(describeExportImageTasksRequest)
+    }
 
   def describeExportTasksSource(
       describeExportTasksRequest: DescribeExportTasksRequest,
@@ -3163,6 +3306,63 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeTagsPaginator(request))
     }
 
+  def describeTrafficMirrorFiltersSource(
+      describeTrafficMirrorFiltersRequest: DescribeTrafficMirrorFiltersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTrafficMirrorFiltersResponse, NotUsed] =
+    Source.single(describeTrafficMirrorFiltersRequest).via(describeTrafficMirrorFiltersFlow(parallelism))
+
+  def describeTrafficMirrorFiltersFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTrafficMirrorFiltersRequest, DescribeTrafficMirrorFiltersResponse, NotUsed] =
+    Flow[DescribeTrafficMirrorFiltersRequest].mapAsync(parallelism) { describeTrafficMirrorFiltersRequest =>
+      underlying.describeTrafficMirrorFilters(describeTrafficMirrorFiltersRequest)
+    }
+
+  def describeTrafficMirrorFiltersPaginatorFlow
+      : Flow[DescribeTrafficMirrorFiltersRequest, DescribeTrafficMirrorFiltersResponse, NotUsed] =
+    Flow[DescribeTrafficMirrorFiltersRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeTrafficMirrorFiltersPaginator(request))
+    }
+
+  def describeTrafficMirrorSessionsSource(
+      describeTrafficMirrorSessionsRequest: DescribeTrafficMirrorSessionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTrafficMirrorSessionsResponse, NotUsed] =
+    Source.single(describeTrafficMirrorSessionsRequest).via(describeTrafficMirrorSessionsFlow(parallelism))
+
+  def describeTrafficMirrorSessionsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTrafficMirrorSessionsRequest, DescribeTrafficMirrorSessionsResponse, NotUsed] =
+    Flow[DescribeTrafficMirrorSessionsRequest].mapAsync(parallelism) { describeTrafficMirrorSessionsRequest =>
+      underlying.describeTrafficMirrorSessions(describeTrafficMirrorSessionsRequest)
+    }
+
+  def describeTrafficMirrorSessionsPaginatorFlow
+      : Flow[DescribeTrafficMirrorSessionsRequest, DescribeTrafficMirrorSessionsResponse, NotUsed] =
+    Flow[DescribeTrafficMirrorSessionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeTrafficMirrorSessionsPaginator(request))
+    }
+
+  def describeTrafficMirrorTargetsSource(
+      describeTrafficMirrorTargetsRequest: DescribeTrafficMirrorTargetsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTrafficMirrorTargetsResponse, NotUsed] =
+    Source.single(describeTrafficMirrorTargetsRequest).via(describeTrafficMirrorTargetsFlow(parallelism))
+
+  def describeTrafficMirrorTargetsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResponse, NotUsed] =
+    Flow[DescribeTrafficMirrorTargetsRequest].mapAsync(parallelism) { describeTrafficMirrorTargetsRequest =>
+      underlying.describeTrafficMirrorTargets(describeTrafficMirrorTargetsRequest)
+    }
+
+  def describeTrafficMirrorTargetsPaginatorFlow
+      : Flow[DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResponse, NotUsed] =
+    Flow[DescribeTrafficMirrorTargetsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeTrafficMirrorTargetsPaginator(request))
+    }
+
   def describeTransitGatewayAttachmentsSource(
       describeTransitGatewayAttachmentsRequest: DescribeTransitGatewayAttachmentsRequest,
       parallelism: Int = DefaultParallelism
@@ -3706,6 +3906,19 @@ trait Ec2AkkaClient {
       underlying.detachVpnGateway(detachVpnGatewayRequest)
     }
 
+  def disableEbsEncryptionByDefaultSource(
+      disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisableEbsEncryptionByDefaultResponse, NotUsed] =
+    Source.single(disableEbsEncryptionByDefaultRequest).via(disableEbsEncryptionByDefaultFlow(parallelism))
+
+  def disableEbsEncryptionByDefaultFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DisableEbsEncryptionByDefaultRequest, DisableEbsEncryptionByDefaultResponse, NotUsed] =
+    Flow[DisableEbsEncryptionByDefaultRequest].mapAsync(parallelism) { disableEbsEncryptionByDefaultRequest =>
+      underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest)
+    }
+
   def disableTransitGatewayRouteTablePropagationSource(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest,
       parallelism: Int = DefaultParallelism
@@ -3857,6 +4070,19 @@ trait Ec2AkkaClient {
       underlying.disassociateVpcCidrBlock(disassociateVpcCidrBlockRequest)
     }
 
+  def enableEbsEncryptionByDefaultSource(
+      enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableEbsEncryptionByDefaultResponse, NotUsed] =
+    Source.single(enableEbsEncryptionByDefaultRequest).via(enableEbsEncryptionByDefaultFlow(parallelism))
+
+  def enableEbsEncryptionByDefaultFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResponse, NotUsed] =
+    Flow[EnableEbsEncryptionByDefaultRequest].mapAsync(parallelism) { enableEbsEncryptionByDefaultRequest =>
+      underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest)
+    }
+
   def enableTransitGatewayRouteTablePropagationSource(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest,
       parallelism: Int = DefaultParallelism
@@ -3960,6 +4186,17 @@ trait Ec2AkkaClient {
       underlying.exportClientVpnClientConfiguration(exportClientVpnClientConfigurationRequest)
     }
 
+  def exportImageSource(
+      exportImageRequest: ExportImageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ExportImageResponse, NotUsed] =
+    Source.single(exportImageRequest).via(exportImageFlow(parallelism))
+
+  def exportImageFlow(parallelism: Int = DefaultParallelism): Flow[ExportImageRequest, ExportImageResponse, NotUsed] =
+    Flow[ExportImageRequest].mapAsync(parallelism) { exportImageRequest =>
+      underlying.exportImage(exportImageRequest)
+    }
+
   def exportTransitGatewayRoutesSource(
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest,
       parallelism: Int = DefaultParallelism
@@ -3971,6 +4208,19 @@ trait Ec2AkkaClient {
   ): Flow[ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResponse, NotUsed] =
     Flow[ExportTransitGatewayRoutesRequest].mapAsync(parallelism) { exportTransitGatewayRoutesRequest =>
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
+    }
+
+  def getCapacityReservationUsageSource(
+      getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetCapacityReservationUsageResponse, NotUsed] =
+    Source.single(getCapacityReservationUsageRequest).via(getCapacityReservationUsageFlow(parallelism))
+
+  def getCapacityReservationUsageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetCapacityReservationUsageRequest, GetCapacityReservationUsageResponse, NotUsed] =
+    Flow[GetCapacityReservationUsageRequest].mapAsync(parallelism) { getCapacityReservationUsageRequest =>
+      underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest)
     }
 
   def getConsoleOutputSource(
@@ -3997,6 +4247,32 @@ trait Ec2AkkaClient {
   ): Flow[GetConsoleScreenshotRequest, GetConsoleScreenshotResponse, NotUsed] =
     Flow[GetConsoleScreenshotRequest].mapAsync(parallelism) { getConsoleScreenshotRequest =>
       underlying.getConsoleScreenshot(getConsoleScreenshotRequest)
+    }
+
+  def getEbsDefaultKmsKeyIdSource(
+      getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetEbsDefaultKmsKeyIdResponse, NotUsed] =
+    Source.single(getEbsDefaultKmsKeyIdRequest).via(getEbsDefaultKmsKeyIdFlow(parallelism))
+
+  def getEbsDefaultKmsKeyIdFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetEbsDefaultKmsKeyIdRequest, GetEbsDefaultKmsKeyIdResponse, NotUsed] =
+    Flow[GetEbsDefaultKmsKeyIdRequest].mapAsync(parallelism) { getEbsDefaultKmsKeyIdRequest =>
+      underlying.getEbsDefaultKmsKeyId(getEbsDefaultKmsKeyIdRequest)
+    }
+
+  def getEbsEncryptionByDefaultSource(
+      getEbsEncryptionByDefaultRequest: GetEbsEncryptionByDefaultRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetEbsEncryptionByDefaultResponse, NotUsed] =
+    Source.single(getEbsEncryptionByDefaultRequest).via(getEbsEncryptionByDefaultFlow(parallelism))
+
+  def getEbsEncryptionByDefaultFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetEbsEncryptionByDefaultRequest, GetEbsEncryptionByDefaultResponse, NotUsed] =
+    Flow[GetEbsEncryptionByDefaultRequest].mapAsync(parallelism) { getEbsEncryptionByDefaultRequest =>
+      underlying.getEbsEncryptionByDefault(getEbsEncryptionByDefaultRequest)
     }
 
   def getHostReservationPurchasePreviewSource(
@@ -4228,6 +4504,19 @@ trait Ec2AkkaClient {
       underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest)
     }
 
+  def modifyEbsDefaultKmsKeyIdSource(
+      modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyEbsDefaultKmsKeyIdResponse, NotUsed] =
+    Source.single(modifyEbsDefaultKmsKeyIdRequest).via(modifyEbsDefaultKmsKeyIdFlow(parallelism))
+
+  def modifyEbsDefaultKmsKeyIdFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResponse, NotUsed] =
+    Flow[ModifyEbsDefaultKmsKeyIdRequest].mapAsync(parallelism) { modifyEbsDefaultKmsKeyIdRequest =>
+      underlying.modifyEbsDefaultKmsKeyId(modifyEbsDefaultKmsKeyIdRequest)
+    }
+
   def modifyFleetSource(
       modifyFleetRequest: ModifyFleetRequest,
       parallelism: Int = DefaultParallelism
@@ -4451,6 +4740,49 @@ trait Ec2AkkaClient {
       underlying.modifySubnetAttribute(modifySubnetAttributeRequest)
     }
 
+  def modifyTrafficMirrorFilterNetworkServicesSource(
+      modifyTrafficMirrorFilterNetworkServicesRequest: ModifyTrafficMirrorFilterNetworkServicesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyTrafficMirrorFilterNetworkServicesResponse, NotUsed] =
+    Source
+      .single(modifyTrafficMirrorFilterNetworkServicesRequest).via(
+        modifyTrafficMirrorFilterNetworkServicesFlow(parallelism)
+      )
+
+  def modifyTrafficMirrorFilterNetworkServicesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyTrafficMirrorFilterNetworkServicesRequest, ModifyTrafficMirrorFilterNetworkServicesResponse, NotUsed] =
+    Flow[ModifyTrafficMirrorFilterNetworkServicesRequest].mapAsync(parallelism) {
+      modifyTrafficMirrorFilterNetworkServicesRequest =>
+        underlying.modifyTrafficMirrorFilterNetworkServices(modifyTrafficMirrorFilterNetworkServicesRequest)
+    }
+
+  def modifyTrafficMirrorFilterRuleSource(
+      modifyTrafficMirrorFilterRuleRequest: ModifyTrafficMirrorFilterRuleRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyTrafficMirrorFilterRuleResponse, NotUsed] =
+    Source.single(modifyTrafficMirrorFilterRuleRequest).via(modifyTrafficMirrorFilterRuleFlow(parallelism))
+
+  def modifyTrafficMirrorFilterRuleFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyTrafficMirrorFilterRuleRequest, ModifyTrafficMirrorFilterRuleResponse, NotUsed] =
+    Flow[ModifyTrafficMirrorFilterRuleRequest].mapAsync(parallelism) { modifyTrafficMirrorFilterRuleRequest =>
+      underlying.modifyTrafficMirrorFilterRule(modifyTrafficMirrorFilterRuleRequest)
+    }
+
+  def modifyTrafficMirrorSessionSource(
+      modifyTrafficMirrorSessionRequest: ModifyTrafficMirrorSessionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyTrafficMirrorSessionResponse, NotUsed] =
+    Source.single(modifyTrafficMirrorSessionRequest).via(modifyTrafficMirrorSessionFlow(parallelism))
+
+  def modifyTrafficMirrorSessionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyTrafficMirrorSessionRequest, ModifyTrafficMirrorSessionResponse, NotUsed] =
+    Flow[ModifyTrafficMirrorSessionRequest].mapAsync(parallelism) { modifyTrafficMirrorSessionRequest =>
+      underlying.modifyTrafficMirrorSession(modifyTrafficMirrorSessionRequest)
+    }
+
   def modifyTransitGatewayVpcAttachmentSource(
       modifyTransitGatewayVpcAttachmentRequest: ModifyTransitGatewayVpcAttachmentRequest,
       parallelism: Int = DefaultParallelism
@@ -4599,6 +4931,32 @@ trait Ec2AkkaClient {
   ): Flow[ModifyVpnConnectionRequest, ModifyVpnConnectionResponse, NotUsed] =
     Flow[ModifyVpnConnectionRequest].mapAsync(parallelism) { modifyVpnConnectionRequest =>
       underlying.modifyVpnConnection(modifyVpnConnectionRequest)
+    }
+
+  def modifyVpnTunnelCertificateSource(
+      modifyVpnTunnelCertificateRequest: ModifyVpnTunnelCertificateRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyVpnTunnelCertificateResponse, NotUsed] =
+    Source.single(modifyVpnTunnelCertificateRequest).via(modifyVpnTunnelCertificateFlow(parallelism))
+
+  def modifyVpnTunnelCertificateFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResponse, NotUsed] =
+    Flow[ModifyVpnTunnelCertificateRequest].mapAsync(parallelism) { modifyVpnTunnelCertificateRequest =>
+      underlying.modifyVpnTunnelCertificate(modifyVpnTunnelCertificateRequest)
+    }
+
+  def modifyVpnTunnelOptionsSource(
+      modifyVpnTunnelOptionsRequest: ModifyVpnTunnelOptionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyVpnTunnelOptionsResponse, NotUsed] =
+    Source.single(modifyVpnTunnelOptionsRequest).via(modifyVpnTunnelOptionsFlow(parallelism))
+
+  def modifyVpnTunnelOptionsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResponse, NotUsed] =
+    Flow[ModifyVpnTunnelOptionsRequest].mapAsync(parallelism) { modifyVpnTunnelOptionsRequest =>
+      underlying.modifyVpnTunnelOptions(modifyVpnTunnelOptionsRequest)
     }
 
   def monitorInstancesSource(
@@ -4889,6 +5247,19 @@ trait Ec2AkkaClient {
       underlying.requestSpotInstances(requestSpotInstancesRequest)
     }
 
+  def resetEbsDefaultKmsKeyIdSource(
+      resetEbsDefaultKmsKeyIdRequest: ResetEbsDefaultKmsKeyIdRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ResetEbsDefaultKmsKeyIdResponse, NotUsed] =
+    Source.single(resetEbsDefaultKmsKeyIdRequest).via(resetEbsDefaultKmsKeyIdFlow(parallelism))
+
+  def resetEbsDefaultKmsKeyIdFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ResetEbsDefaultKmsKeyIdRequest, ResetEbsDefaultKmsKeyIdResponse, NotUsed] =
+    Flow[ResetEbsDefaultKmsKeyIdRequest].mapAsync(parallelism) { resetEbsDefaultKmsKeyIdRequest =>
+      underlying.resetEbsDefaultKmsKeyId(resetEbsDefaultKmsKeyIdRequest)
+    }
+
   def resetFpgaImageAttributeSource(
       resetFpgaImageAttributeRequest: ResetFpgaImageAttributeRequest,
       parallelism: Int = DefaultParallelism
@@ -5043,6 +5414,19 @@ trait Ec2AkkaClient {
   ): Flow[SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResponse, NotUsed] =
     Flow[SearchTransitGatewayRoutesRequest].mapAsync(parallelism) { searchTransitGatewayRoutesRequest =>
       underlying.searchTransitGatewayRoutes(searchTransitGatewayRoutesRequest)
+    }
+
+  def sendDiagnosticInterruptSource(
+      sendDiagnosticInterruptRequest: SendDiagnosticInterruptRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SendDiagnosticInterruptResponse, NotUsed] =
+    Source.single(sendDiagnosticInterruptRequest).via(sendDiagnosticInterruptFlow(parallelism))
+
+  def sendDiagnosticInterruptFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[SendDiagnosticInterruptRequest, SendDiagnosticInterruptResponse, NotUsed] =
+    Flow[SendDiagnosticInterruptRequest].mapAsync(parallelism) { sendDiagnosticInterruptRequest =>
+      underlying.sendDiagnosticInterrupt(sendDiagnosticInterruptRequest)
     }
 
   def startInstancesSource(

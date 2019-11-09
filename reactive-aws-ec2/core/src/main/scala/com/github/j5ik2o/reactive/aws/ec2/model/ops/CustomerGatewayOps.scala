@@ -27,6 +27,13 @@ final class CustomerGatewayBuilderOps(val self: CustomerGateway.Builder) extends
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def certificateArnAsScala(value: Option[String]): CustomerGateway.Builder = {
+    value.fold(self) { v =>
+      self.certificateArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[String]): CustomerGateway.Builder = {
     value.fold(self) { v =>
       self.state(v)
@@ -59,6 +66,9 @@ final class CustomerGatewayOps(val self: CustomerGateway) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipAddressAsScala: Option[String] = Option(self.ipAddress)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def certificateArnAsScala: Option[String] = Option(self.certificateArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[String] = Option(self.state)

@@ -2,6 +2,7 @@
 package com.github.j5ik2o.reactive.aws.batch.monix
 
 import software.amazon.awssdk.services.batch.model._
+import software.amazon.awssdk.services.batch.paginators._
 import com.github.j5ik2o.reactive.aws.batch.{ BatchAsyncClient, BatchClient }
 import monix.eval.Task
 import monix.reactive.Observable
@@ -66,6 +67,16 @@ trait BatchMonixClient extends BatchClient[Task] {
       underlying.describeComputeEnvironments()
     }
 
+  def describeComputeEnvironmentsPaginator(): Observable[DescribeComputeEnvironmentsResponse] =
+    Observable.fromReactivePublisher(underlying.describeComputeEnvironmentsPaginator())
+
+  def describeComputeEnvironmentsPaginator(
+      describeComputeEnvironmentsRequest: DescribeComputeEnvironmentsRequest
+  ): Observable[DescribeComputeEnvironmentsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeComputeEnvironmentsPaginator(describeComputeEnvironmentsRequest)
+    )
+
   override def describeJobDefinitions(
       describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
   ): Task[DescribeJobDefinitionsResponse] =
@@ -78,6 +89,14 @@ trait BatchMonixClient extends BatchClient[Task] {
       underlying.describeJobDefinitions()
     }
 
+  def describeJobDefinitionsPaginator(): Observable[DescribeJobDefinitionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeJobDefinitionsPaginator())
+
+  def describeJobDefinitionsPaginator(
+      describeJobDefinitionsRequest: DescribeJobDefinitionsRequest
+  ): Observable[DescribeJobDefinitionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeJobDefinitionsPaginator(describeJobDefinitionsRequest))
+
   override def describeJobQueues(describeJobQueuesRequest: DescribeJobQueuesRequest): Task[DescribeJobQueuesResponse] =
     Task.deferFuture {
       underlying.describeJobQueues(describeJobQueuesRequest)
@@ -88,6 +107,14 @@ trait BatchMonixClient extends BatchClient[Task] {
       underlying.describeJobQueues()
     }
 
+  def describeJobQueuesPaginator(): Observable[DescribeJobQueuesResponse] =
+    Observable.fromReactivePublisher(underlying.describeJobQueuesPaginator())
+
+  def describeJobQueuesPaginator(
+      describeJobQueuesRequest: DescribeJobQueuesRequest
+  ): Observable[DescribeJobQueuesResponse] =
+    Observable.fromReactivePublisher(underlying.describeJobQueuesPaginator(describeJobQueuesRequest))
+
   override def describeJobs(describeJobsRequest: DescribeJobsRequest): Task[DescribeJobsResponse] =
     Task.deferFuture {
       underlying.describeJobs(describeJobsRequest)
@@ -97,6 +124,9 @@ trait BatchMonixClient extends BatchClient[Task] {
     Task.deferFuture {
       underlying.listJobs(listJobsRequest)
     }
+
+  def listJobsPaginator(listJobsRequest: ListJobsRequest): Observable[ListJobsResponse] =
+    Observable.fromReactivePublisher(underlying.listJobsPaginator(listJobsRequest))
 
   override def registerJobDefinition(
       registerJobDefinitionRequest: RegisterJobDefinitionRequest

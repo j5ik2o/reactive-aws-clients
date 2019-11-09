@@ -20,6 +20,13 @@ final class AssociateClientVpnTargetNetworkRequestBuilderOps(val self: Associate
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clientTokenAsScala(value: Option[String]): AssociateClientVpnTargetNetworkRequest.Builder = {
+    value.fold(self) { v =>
+      self.clientToken(v)
+    }
+  }
+
 }
 
 final class AssociateClientVpnTargetNetworkRequestOps(val self: AssociateClientVpnTargetNetworkRequest) extends AnyVal {
@@ -29,6 +36,9 @@ final class AssociateClientVpnTargetNetworkRequestOps(val self: AssociateClientV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clientTokenAsScala: Option[String] = Option(self.clientToken)
 
 }
 

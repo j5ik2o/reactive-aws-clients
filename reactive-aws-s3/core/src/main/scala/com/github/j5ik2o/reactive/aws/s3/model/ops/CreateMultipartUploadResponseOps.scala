@@ -69,6 +69,13 @@ final class CreateMultipartUploadResponseBuilderOps(val self: CreateMultipartUpl
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala(value: Option[String]): CreateMultipartUploadResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsEncryptionContext(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): CreateMultipartUploadResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -105,6 +112,9 @@ final class CreateMultipartUploadResponseOps(val self: CreateMultipartUploadResp
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala: Option[String] = Option(self.ssekmsEncryptionContext)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)

@@ -57,6 +57,13 @@ final class CreateClientVpnEndpointRequestBuilderOps(val self: CreateClientVpnEn
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def splitTunnelAsScala(value: Option[Boolean]): CreateClientVpnEndpointRequest.Builder = {
+    value.fold(self) { v =>
+      self.splitTunnel(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateClientVpnEndpointRequest.Builder = {
     value.fold(self) { v =>
       self.clientToken(v)
@@ -99,6 +106,9 @@ final class CreateClientVpnEndpointRequestOps(val self: CreateClientVpnEndpointR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def splitTunnelAsScala: Option[Boolean] = Option(self.splitTunnel)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala: Option[String] = Option(self.clientToken)

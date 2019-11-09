@@ -57,6 +57,16 @@ trait EcrSyncClient extends EcrClient[Either[Throwable, ?]] {
   ): Either[Throwable, DeleteRepositoryPolicyResponse] =
     underlying.deleteRepositoryPolicy(deleteRepositoryPolicyRequest).toEither
 
+  override def describeImageScanFindings(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): Either[Throwable, DescribeImageScanFindingsResponse] =
+    underlying.describeImageScanFindings(describeImageScanFindingsRequest).toEither
+
+  def describeImageScanFindingsPaginator(
+      describeImageScanFindingsRequest: DescribeImageScanFindingsRequest
+  ): DescribeImageScanFindingsIterable =
+    underlying.describeImageScanFindingsPaginator(describeImageScanFindingsRequest)
+
   override def describeImages(describeImagesRequest: DescribeImagesRequest): Either[Throwable, DescribeImagesResponse] =
     underlying.describeImages(describeImagesRequest).toEither
 
@@ -102,6 +112,11 @@ trait EcrSyncClient extends EcrClient[Either[Throwable, ?]] {
   ): Either[Throwable, GetLifecyclePolicyPreviewResponse] =
     underlying.getLifecyclePolicyPreview(getLifecyclePolicyPreviewRequest).toEither
 
+  def getLifecyclePolicyPreviewPaginator(
+      getLifecyclePolicyPreviewRequest: GetLifecyclePolicyPreviewRequest
+  ): GetLifecyclePolicyPreviewIterable =
+    underlying.getLifecyclePolicyPreviewPaginator(getLifecyclePolicyPreviewRequest)
+
   override def getRepositoryPolicy(
       getRepositoryPolicyRequest: GetRepositoryPolicyRequest
   ): Either[Throwable, GetRepositoryPolicyResponse] =
@@ -126,6 +141,16 @@ trait EcrSyncClient extends EcrClient[Either[Throwable, ?]] {
   override def putImage(putImageRequest: PutImageRequest): Either[Throwable, PutImageResponse] =
     underlying.putImage(putImageRequest).toEither
 
+  override def putImageScanningConfiguration(
+      putImageScanningConfigurationRequest: PutImageScanningConfigurationRequest
+  ): Either[Throwable, PutImageScanningConfigurationResponse] =
+    underlying.putImageScanningConfiguration(putImageScanningConfigurationRequest).toEither
+
+  override def putImageTagMutability(
+      putImageTagMutabilityRequest: PutImageTagMutabilityRequest
+  ): Either[Throwable, PutImageTagMutabilityResponse] =
+    underlying.putImageTagMutability(putImageTagMutabilityRequest).toEither
+
   override def putLifecyclePolicy(
       putLifecyclePolicyRequest: PutLifecyclePolicyRequest
   ): Either[Throwable, PutLifecyclePolicyResponse] =
@@ -135,6 +160,9 @@ trait EcrSyncClient extends EcrClient[Either[Throwable, ?]] {
       setRepositoryPolicyRequest: SetRepositoryPolicyRequest
   ): Either[Throwable, SetRepositoryPolicyResponse] =
     underlying.setRepositoryPolicy(setRepositoryPolicyRequest).toEither
+
+  override def startImageScan(startImageScanRequest: StartImageScanRequest): Either[Throwable, StartImageScanResponse] =
+    underlying.startImageScan(startImageScanRequest).toEither
 
   override def startLifecyclePolicyPreview(
       startLifecyclePolicyPreviewRequest: StartLifecyclePolicyPreviewRequest

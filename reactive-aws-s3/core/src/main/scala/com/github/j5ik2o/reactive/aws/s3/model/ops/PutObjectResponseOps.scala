@@ -55,6 +55,13 @@ final class PutObjectResponseBuilderOps(val self: PutObjectResponse.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala(value: Option[String]): PutObjectResponse.Builder = {
+    value.fold(self) { v =>
+      self.ssekmsEncryptionContext(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectResponse.Builder = {
     value.fold(self) { v =>
       self.requestCharged(v)
@@ -85,6 +92,9 @@ final class PutObjectResponseOps(val self: PutObjectResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsKeyIdAsScala: Option[String] = Option(self.ssekmsKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ssekmsEncryptionContextAsScala: Option[String] = Option(self.ssekmsEncryptionContext)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala: Option[RequestCharged] = Option(self.requestCharged)

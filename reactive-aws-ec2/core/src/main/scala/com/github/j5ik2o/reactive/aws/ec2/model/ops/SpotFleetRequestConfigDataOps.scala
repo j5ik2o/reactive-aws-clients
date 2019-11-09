@@ -98,6 +98,20 @@ final class SpotFleetRequestConfigDataBuilderOps(val self: SpotFleetRequestConfi
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def onDemandMaxTotalPriceAsScala(value: Option[String]): SpotFleetRequestConfigData.Builder = {
+    value.fold(self) { v =>
+      self.onDemandMaxTotalPrice(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def spotMaxTotalPriceAsScala(value: Option[String]): SpotFleetRequestConfigData.Builder = {
+    value.fold(self) { v =>
+      self.spotMaxTotalPrice(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def terminateInstancesWithExpirationAsScala(value: Option[Boolean]): SpotFleetRequestConfigData.Builder = {
     value.fold(self) { v =>
       self.terminateInstancesWithExpiration(v)
@@ -202,6 +216,12 @@ final class SpotFleetRequestConfigDataOps(val self: SpotFleetRequestConfigData) 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def onDemandTargetCapacityAsScala: Option[Int] = Option(self.onDemandTargetCapacity)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def onDemandMaxTotalPriceAsScala: Option[String] = Option(self.onDemandMaxTotalPrice)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def spotMaxTotalPriceAsScala: Option[String] = Option(self.spotMaxTotalPrice)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def terminateInstancesWithExpirationAsScala: Option[Boolean] = Option(self.terminateInstancesWithExpiration)

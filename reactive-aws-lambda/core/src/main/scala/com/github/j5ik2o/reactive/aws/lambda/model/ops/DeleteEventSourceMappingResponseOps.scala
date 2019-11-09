@@ -21,6 +21,13 @@ final class DeleteEventSourceMappingResponseBuilderOps(val self: DeleteEventSour
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumBatchingWindowInSecondsAsScala(value: Option[Int]): DeleteEventSourceMappingResponse.Builder = {
+    value.fold(self) { v =>
+      self.maximumBatchingWindowInSeconds(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala(value: Option[String]): DeleteEventSourceMappingResponse.Builder = {
     value.fold(self) { v =>
       self.eventSourceArn(v)
@@ -71,6 +78,9 @@ final class DeleteEventSourceMappingResponseOps(val self: DeleteEventSourceMappi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def batchSizeAsScala: Option[Int] = Option(self.batchSize)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumBatchingWindowInSecondsAsScala: Option[Int] = Option(self.maximumBatchingWindowInSeconds)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala: Option[String] = Option(self.eventSourceArn)

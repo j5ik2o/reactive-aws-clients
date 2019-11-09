@@ -40,6 +40,20 @@ final class VpcEndpointConnectionBuilderOps(val self: VpcEndpointConnection.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def dnsEntriesAsScala(value: Option[Seq[DnsEntry]]): VpcEndpointConnection.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.dnsEntries(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkLoadBalancerArnsAsScala(value: Option[Seq[String]]): VpcEndpointConnection.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.networkLoadBalancerArns(v.asJava)
+    }
+  }
+
 }
 
 final class VpcEndpointConnectionOps(val self: VpcEndpointConnection) extends AnyVal {
@@ -58,6 +72,16 @@ final class VpcEndpointConnectionOps(val self: VpcEndpointConnection) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala: Option[java.time.Instant] = Option(self.creationTimestamp)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def dnsEntriesAsScala: Option[Seq[DnsEntry]] = Option(self.dnsEntries).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkLoadBalancerArnsAsScala: Option[Seq[String]] = Option(self.networkLoadBalancerArns).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 
