@@ -86,6 +86,7 @@ val putItemResponseFuture = client.putItem(putItemRequest)
 Run the following commands (`Maven` is required to run `mvnInstall` or `mvnClean`)
 
 ```sh
+$ git submodule update --init
 $ sbt mvnClean mvnInstall // first time only
 $ sbt compile
 ```
