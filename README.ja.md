@@ -40,7 +40,7 @@ ScalaのためのAWSクライアントライブラリ。
 
 ```scala
 val libraryName = "..." // e.g.) dynamodb
-val version = "1.1.4"
+val version = "1.1.5"
 
 libraryDependencies += Seq(
   "com.github.j5ik2o" %% s"reactive-aws-$libraryName-core" % version,
