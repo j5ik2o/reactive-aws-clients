@@ -8,7 +8,7 @@ libraryDependencies ++= {
       Seq(
         "io.monix" %% "monix" % monixVersion
       )
-    case None =>
+    case _ =>
       throw new IllegalArgumentException()
   }
 }
