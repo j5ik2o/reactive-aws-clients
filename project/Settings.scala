@@ -33,7 +33,7 @@ object Settings {
     testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-F", sys.env.getOrElse("SBT_TEST_TIME_FACTOR", "1")),
     libraryDependencies ++= Seq(
       "org.scalatest"  %% "scalatest"      % "3.0.8"  % Test,
-      "org.scalacheck" %% "scalacheck"     % "1.14.0" % Test,
+      "org.scalacheck" %% "scalacheck"     % "1.14.2" % Test,
       "ch.qos.logback" % "logback-classic" % "1.2.3"  % Test
     )
   )
