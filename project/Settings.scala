@@ -14,10 +14,10 @@ object Settings {
 
   val awsSdk2Version = "2.10.31"
 
-  val catsVersion  = "2.0.0"
+  val catsVersion       = "2.0.0"
   val catsEffectVersion = "2.0.0"
-  val monixVersion = "3.1.0"
-  val akkaVersion  = "2.5.27"
+  val monixVersion      = "3.1.0"
+  val akkaVersion       = "2.5.27"
 
   val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
 
@@ -30,12 +30,13 @@ object Settings {
   //)
 
   val testSettings = Seq(
-    testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-F", sys.env.getOrElse("SBT_TEST_TIME_FACTOR", "1")),
+    testOptions in Test += Tests
+        .Argument(TestFrameworks.ScalaTest, "-F", sys.env.getOrElse("SBT_TEST_TIME_FACTOR", "1")),
     libraryDependencies ++= Seq(
-      "org.scalatest"  %% "scalatest"      % "3.0.8"  % Test,
-      "org.scalacheck" %% "scalacheck"     % "1.14.2" % Test,
-      "ch.qos.logback" % "logback-classic" % "1.2.3"  % Test
-    )
+        "org.scalatest"  %% "scalatest"      % "3.0.8"  % Test,
+        "org.scalacheck" %% "scalacheck"     % "1.14.2" % Test,
+        "ch.qos.logback" % "logback-classic" % "1.2.3"  % Test
+      )
   )
 
   val coreSettings = Seq(
@@ -83,10 +84,12 @@ object Settings {
     },
     publishTo in ThisBuild := sonatypePublishTo.value,
     credentials := {
-      (sys.env.get("CREDENTIALS_REALM"),
-       sys.env.get("CREDENTIALS_HOST"),
-       sys.env.get("CREDENTIALS_USER_NAME"),
-       sys.env.get("CREDENTIALS_PASSWORD")) match {
+      (
+        sys.env.get("CREDENTIALS_REALM"),
+        sys.env.get("CREDENTIALS_HOST"),
+        sys.env.get("CREDENTIALS_USER_NAME"),
+        sys.env.get("CREDENTIALS_PASSWORD")
+      ) match {
         case (Some(r), Some(h), Some(u), Some(p)) =>
           Credentials(r, h, u, p) :: Nil
         case _ =>
@@ -97,18 +100,18 @@ object Settings {
     },
     scalafmtOnCompile in ThisBuild := true,
     resolvers ++= Seq(
-      Resolver.bintrayRepo("danslapman", "maven"),
-      "Seasar Repository" at "http://maven.seasar.org/maven2/",
-      Resolver.sonatypeRepo("releases"),
-      "DynamoDB Local Repository" at "https://s3-ap-northeast-1.amazonaws.com/dynamodb-local-tokyo/release"
-    ),
-        addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
+        Resolver.bintrayRepo("danslapman", "maven"),
+        "Seasar Repository" at "https://maven.seasar.org/maven2/",
+        Resolver.sonatypeRepo("releases"),
+        "DynamoDB Local Repository" at "https://s3-ap-northeast-1.amazonaws.com/dynamodb-local-tokyo/release"
+      ),
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     libraryDependencies ++= Seq(
-      "com.beachape"           %% "enumeratum"         % "1.5.13",
-      "org.slf4j"              % "slf4j-api"           % "1.7.29",
-      "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0",
-      "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.2"
-    ),
+        "com.beachape"           %% "enumeratum"              % "1.5.13",
+        "org.slf4j"              % "slf4j-api"                % "1.7.29",
+        "org.scala-lang.modules" %% "scala-java8-compat"      % "0.9.0",
+        "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.2"
+      ),
     dependencyOverrides ++= {
       Seq(
         "org.scalatest"               %% "scalatest"                  % "3.0.8",
@@ -135,17 +138,17 @@ object Settings {
     },
     parallelExecution in Test := false,
     wartremoverErrors ++= Warts.allBut(
-      Wart.ArrayEquals,
-      Wart.Any,
-      Wart.Throw,
-      Wart.Nothing,
-      Wart.Product,
-      Wart.NonUnitStatements,
-      Wart.DefaultArguments,
-      Wart.ImplicitParameter,
-      Wart.StringPlusAny,
-      Wart.Overloading
-    ),
+        Wart.ArrayEquals,
+        Wart.Any,
+        Wart.Throw,
+        Wart.Nothing,
+        Wart.Product,
+        Wart.NonUnitStatements,
+        Wart.DefaultArguments,
+        Wart.ImplicitParameter,
+        Wart.StringPlusAny,
+        Wart.Overloading
+      ),
     wartremoverExcluded += baseDirectory.value / "src" / "test" / "scala",
     updateOptions := updateOptions.value.withCachedResolution(true)
   ) // ++ scalaStyleSettings
@@ -197,8 +200,10 @@ object Settings {
   lazy val scalaWrapperGenCoreSettings = {
     Seq(
       inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / s"aws-sdk-src/aws-sdk-java-v2/services/${sdkBaseName.value.toLowerCase}/target/generated-sources/sdk/software/amazon/awssdk/services/${sdkBaseName.value.toLowerCase}",
-      templateDirectories in scalaWrapperGen := Seq((baseDirectory in LocalRootProject).value / "ftl",
-                                                    baseDirectory.value / "sbt-wrapper-gen"),
+      templateDirectories in scalaWrapperGen := Seq(
+          (baseDirectory in LocalRootProject).value / "ftl",
+          baseDirectory.value / "sbt-wrapper-gen"
+        ),
       outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
         (scalaSource in Compile).value
       },
@@ -255,8 +260,10 @@ object Settings {
   def scalaWrapperGenBaseSettings(typeName: String = "", packageName: String = ""): Seq[Def.Setting[_]] =
     Seq(
       inputSourceDirectory in scalaWrapperGen := (baseDirectory in LocalRootProject).value / s"aws-sdk-src/aws-sdk-java-v2/services/${sdkBaseName.value.toLowerCase}/target/generated-sources/sdk/software/amazon/awssdk/services/${sdkBaseName.value.toLowerCase}",
-      templateDirectories in scalaWrapperGen := Seq((baseDirectory in LocalRootProject).value / "ftl",
-                                                    baseDirectory.value / "sbt-wrapper-gen"),
+      templateDirectories in scalaWrapperGen := Seq(
+          (baseDirectory in LocalRootProject).value / "ftl",
+          baseDirectory.value / "sbt-wrapper-gen"
+        ),
       outputSourceDirectoryMapper in scalaWrapperGen := { _ =>
         (scalaSource in Compile).value
       },
@@ -280,7 +287,7 @@ object Settings {
             if f == s"${sdkBaseName.value}${typeName}Client" && cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
           s"${sdkBaseName.value}${typeName}Client.ftl"
         case (name, cd) => throw new Exception(s"error: ${name}, ${cd.simpleTypeName}")
-      },
+      }
     )
 
 }
