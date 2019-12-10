@@ -107,7 +107,7 @@ object Settings {
       "com.beachape"           %% "enumeratum"         % "1.5.13",
       "org.slf4j"              % "slf4j-api"           % "1.7.29",
       "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0",
-      "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.0"
+      "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.2"
     ),
     dependencyOverrides ++= {
       Seq(
