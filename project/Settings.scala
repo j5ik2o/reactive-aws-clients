@@ -17,7 +17,7 @@ object Settings {
   val catsVersion  = "2.0.0"
   val catsEffectVersion = "2.0.0"
   val monixVersion = "3.1.0"
-  val akkaVersion  = "2.5.23"
+  val akkaVersion  = "2.5.27"
 
   val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
 
@@ -33,7 +33,7 @@ object Settings {
     testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-F", sys.env.getOrElse("SBT_TEST_TIME_FACTOR", "1")),
     libraryDependencies ++= Seq(
       "org.scalatest"  %% "scalatest"      % "3.0.8"  % Test,
-      "org.scalacheck" %% "scalacheck"     % "1.14.0" % Test,
+      "org.scalacheck" %% "scalacheck"     % "1.14.2" % Test,
       "ch.qos.logback" % "logback-classic" % "1.2.3"  % Test
     )
   )
@@ -105,9 +105,9 @@ object Settings {
         addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     libraryDependencies ++= Seq(
       "com.beachape"           %% "enumeratum"         % "1.5.13",
-      "org.slf4j"              % "slf4j-api"           % "1.7.26",
+      "org.slf4j"              % "slf4j-api"           % "1.7.29",
       "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0",
-      "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.0"
+      "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.2"
     ),
     dependencyOverrides ++= {
       Seq(
