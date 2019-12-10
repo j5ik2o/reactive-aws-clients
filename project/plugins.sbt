@@ -16,6 +16,6 @@ addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.0")
 
 addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.4.2")
 
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.4.0")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.4.3")
 
 addSbtPlugin("com.github.j5ik2o" % "sbt-wrapper-gen" % "1.0.7")
