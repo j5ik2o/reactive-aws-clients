@@ -8,6 +8,7 @@ jobs:
     branches:
       only:
         - /feature\/.*/
+        - /update.*/
     machine: true
     steps:
       - run:
