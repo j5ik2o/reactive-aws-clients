@@ -1,5 +1,5 @@
 resolvers ++= Seq(
-  "Seasar Repository" at "http://maven.seasar.org/maven2/",
+  "Seasar Repository" at "https://maven.seasar.org/maven2/",
   Resolver.sonatypeRepo("releases"),
   Resolver.sonatypeRepo("snapshots")
 )
