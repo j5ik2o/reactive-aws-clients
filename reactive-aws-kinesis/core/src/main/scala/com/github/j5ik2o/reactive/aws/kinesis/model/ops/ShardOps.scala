@@ -27,13 +27,6 @@ final class ShardBuilderOps(val self: Shard.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hashKeyRangeAsScala(value: Option[HashKeyRange]): Shard.Builder = {
-    value.fold(self) { v =>
-      self.hashKeyRange(v)
-    }
-  }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberRangeAsScala(value: Option[SequenceNumberRange]): Shard.Builder = {
     value.fold(self) { v =>
       self.sequenceNumberRange(v)
@@ -52,9 +45,6 @@ final class ShardOps(val self: Shard) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def adjacentParentShardIdAsScala: Option[String] = Option(self.adjacentParentShardId)
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hashKeyRangeAsScala: Option[HashKeyRange] = Option(self.hashKeyRange)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberRangeAsScala: Option[SequenceNumberRange] = Option(self.sequenceNumberRange)

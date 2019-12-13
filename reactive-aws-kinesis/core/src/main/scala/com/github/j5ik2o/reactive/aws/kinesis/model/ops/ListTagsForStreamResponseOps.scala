@@ -12,13 +12,6 @@ final class ListTagsForStreamResponseBuilderOps(val self: ListTagsForStreamRespo
     }
   }
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hasMoreTagsAsScala(value: Option[Boolean]): ListTagsForStreamResponse.Builder = {
-    value.fold(self) { v =>
-      self.hasMoreTags(v)
-    }
-  }
-
 }
 
 final class ListTagsForStreamResponseOps(val self: ListTagsForStreamResponse) extends AnyVal {
@@ -27,9 +20,6 @@ final class ListTagsForStreamResponseOps(val self: ListTagsForStreamResponse) ex
   final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hasMoreTagsAsScala: Option[Boolean] = Option(self.hasMoreTags)
 
 }
 

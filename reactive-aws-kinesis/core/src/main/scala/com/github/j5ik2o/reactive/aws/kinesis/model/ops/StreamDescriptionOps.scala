@@ -34,13 +34,6 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hasMoreShardsAsScala(value: Option[Boolean]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.hasMoreShards(v)
-    }
-  }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionPeriodHoursAsScala(value: Option[Int]): StreamDescription.Builder = {
     value.fold(self) { v =>
       self.retentionPeriodHours(v)
@@ -92,9 +85,6 @@ final class StreamDescriptionOps(val self: StreamDescription) extends AnyVal {
   final def shardsAsScala: Option[Seq[Shard]] = Option(self.shards).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hasMoreShardsAsScala: Option[Boolean] = Option(self.hasMoreShards)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionPeriodHoursAsScala: Option[Int] = Option(self.retentionPeriodHours)

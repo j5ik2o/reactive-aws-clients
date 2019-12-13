@@ -14,6 +14,13 @@ final class LaunchTemplateElasticInferenceAcceleratorBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def countAsScala(value: Option[Int]): LaunchTemplateElasticInferenceAccelerator.Builder = {
+    value.fold(self) { v =>
+      self.count(v)
+    }
+  }
+
 }
 
 final class LaunchTemplateElasticInferenceAcceleratorOps(val self: LaunchTemplateElasticInferenceAccelerator)
@@ -21,6 +28,9 @@ final class LaunchTemplateElasticInferenceAcceleratorOps(val self: LaunchTemplat
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def countAsScala: Option[Int] = Option(self.count)
 
 }
 
