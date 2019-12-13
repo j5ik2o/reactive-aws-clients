@@ -13,6 +13,13 @@ final class TaskOverrideBuilderOps(val self: TaskOverride.Builder) extends AnyVa
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def cpuAsScala(value: Option[String]): TaskOverride.Builder = {
+    value.fold(self) { v =>
+      self.cpu(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inferenceAcceleratorOverridesAsScala(
       value: Option[Seq[InferenceAcceleratorOverride]]
   ): TaskOverride.Builder = {
@@ -22,16 +29,23 @@ final class TaskOverrideBuilderOps(val self: TaskOverride.Builder) extends AnyVa
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def taskRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
+  final def executionRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
     value.fold(self) { v =>
-      self.taskRoleArn(v)
+      self.executionRoleArn(v)
     }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def executionRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
+  final def memoryAsScala(value: Option[String]): TaskOverride.Builder = {
     value.fold(self) { v =>
-      self.executionRoleArn(v)
+      self.memory(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def taskRoleArnAsScala(value: Option[String]): TaskOverride.Builder = {
+    value.fold(self) { v =>
+      self.taskRoleArn(v)
     }
   }
 
@@ -45,16 +59,22 @@ final class TaskOverrideOps(val self: TaskOverride) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def cpuAsScala: Option[String] = Option(self.cpu)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inferenceAcceleratorOverridesAsScala: Option[Seq[InferenceAcceleratorOverride]] =
     Option(self.inferenceAcceleratorOverrides).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def taskRoleArnAsScala: Option[String] = Option(self.taskRoleArn)
+  final def executionRoleArnAsScala: Option[String] = Option(self.executionRoleArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def executionRoleArnAsScala: Option[String] = Option(self.executionRoleArn)
+  final def memoryAsScala: Option[String] = Option(self.memory)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def taskRoleArnAsScala: Option[String] = Option(self.taskRoleArn)
 
 }
 

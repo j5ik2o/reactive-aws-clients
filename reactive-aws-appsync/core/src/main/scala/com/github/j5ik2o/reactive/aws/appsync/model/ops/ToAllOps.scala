@@ -4,9 +4,11 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 
 trait ToAllOps
     extends ToOptionSupport
+    with ToAdditionalAuthenticationProviderOps
     with ToApiKeyOps
     with ToAuthorizationConfigOps
     with ToAwsIamConfigOps
+    with ToCognitoUserPoolConfigOps
     with ToCreateApiKeyRequestOps
     with ToCreateApiKeyResponseOps
     with ToCreateDataSourceRequestOps
@@ -58,6 +60,8 @@ trait ToAllOps
     with ToListResolversByFunctionResponseOps
     with ToListResolversRequestOps
     with ToListResolversResponseOps
+    with ToListTagsForResourceRequestOps
+    with ToListTagsForResourceResponseOps
     with ToListTypesRequestOps
     with ToListTypesResponseOps
     with ToLogConfigOps
@@ -68,7 +72,9 @@ trait ToAllOps
     with ToResolverOps
     with ToStartSchemaCreationRequestOps
     with ToStartSchemaCreationResponseOps
+    with ToTagResourceRequestOps
     with ToTypeOps
+    with ToUntagResourceRequestOps
     with ToUpdateApiKeyRequestOps
     with ToUpdateApiKeyResponseOps
     with ToUpdateDataSourceRequestOps

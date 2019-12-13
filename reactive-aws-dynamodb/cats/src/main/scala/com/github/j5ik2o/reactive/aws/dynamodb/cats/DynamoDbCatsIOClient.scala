@@ -80,6 +80,13 @@ trait DynamoDbCatsIOClient extends DynamoDbClient[IO] {
       IO(underlying.describeContinuousBackups(describeContinuousBackupsRequest))
     }
 
+  override def describeContributorInsights(
+      describeContributorInsightsRequest: DescribeContributorInsightsRequest
+  ): IO[DescribeContributorInsightsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeContributorInsights(describeContributorInsightsRequest))
+    }
+
   override def describeEndpoints(describeEndpointsRequest: DescribeEndpointsRequest): IO[DescribeEndpointsResponse] =
     IO.fromFuture {
       IO(underlying.describeEndpoints(describeEndpointsRequest))
@@ -119,6 +126,13 @@ trait DynamoDbCatsIOClient extends DynamoDbClient[IO] {
       IO(underlying.describeTable(describeTableRequest))
     }
 
+  override def describeTableReplicaAutoScaling(
+      describeTableReplicaAutoScalingRequest: DescribeTableReplicaAutoScalingRequest
+  ): IO[DescribeTableReplicaAutoScalingResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTableReplicaAutoScaling(describeTableReplicaAutoScalingRequest))
+    }
+
   override def describeTimeToLive(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest
   ): IO[DescribeTimeToLiveResponse] =
@@ -140,6 +154,18 @@ trait DynamoDbCatsIOClient extends DynamoDbClient[IO] {
     IO.fromFuture {
       IO(underlying.listBackups())
     }
+
+  override def listContributorInsights(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): IO[ListContributorInsightsResponse] =
+    IO.fromFuture {
+      IO(underlying.listContributorInsights(listContributorInsightsRequest))
+    }
+
+  def listContributorInsightsPaginator(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): ListContributorInsightsPublisher =
+    underlying.listContributorInsightsPaginator(listContributorInsightsRequest)
 
   override def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): IO[ListGlobalTablesResponse] =
     IO.fromFuture {
@@ -238,6 +264,13 @@ trait DynamoDbCatsIOClient extends DynamoDbClient[IO] {
       IO(underlying.updateContinuousBackups(updateContinuousBackupsRequest))
     }
 
+  override def updateContributorInsights(
+      updateContributorInsightsRequest: UpdateContributorInsightsRequest
+  ): IO[UpdateContributorInsightsResponse] =
+    IO.fromFuture {
+      IO(underlying.updateContributorInsights(updateContributorInsightsRequest))
+    }
+
   override def updateGlobalTable(updateGlobalTableRequest: UpdateGlobalTableRequest): IO[UpdateGlobalTableResponse] =
     IO.fromFuture {
       IO(underlying.updateGlobalTable(updateGlobalTableRequest))
@@ -258,6 +291,13 @@ trait DynamoDbCatsIOClient extends DynamoDbClient[IO] {
   override def updateTable(updateTableRequest: UpdateTableRequest): IO[UpdateTableResponse] =
     IO.fromFuture {
       IO(underlying.updateTable(updateTableRequest))
+    }
+
+  override def updateTableReplicaAutoScaling(
+      updateTableReplicaAutoScalingRequest: UpdateTableReplicaAutoScalingRequest
+  ): IO[UpdateTableReplicaAutoScalingResponse] =
+    IO.fromFuture {
+      IO(underlying.updateTableReplicaAutoScaling(updateTableReplicaAutoScalingRequest))
     }
 
   override def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): IO[UpdateTimeToLiveResponse] =

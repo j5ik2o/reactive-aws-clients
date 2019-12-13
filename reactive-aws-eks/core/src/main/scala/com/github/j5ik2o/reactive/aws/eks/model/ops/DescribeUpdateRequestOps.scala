@@ -19,6 +19,13 @@ final class DescribeUpdateRequestBuilderOps(val self: DescribeUpdateRequest.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nodegroupNameAsScala(value: Option[String]): DescribeUpdateRequest.Builder = {
+    value.fold(self) { v =>
+      self.nodegroupName(v)
+    }
+  }
+
 }
 
 final class DescribeUpdateRequestOps(val self: DescribeUpdateRequest) extends AnyVal {
@@ -28,6 +35,9 @@ final class DescribeUpdateRequestOps(val self: DescribeUpdateRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateIdAsScala: Option[String] = Option(self.updateId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nodegroupNameAsScala: Option[String] = Option(self.nodegroupName)
 
 }
 

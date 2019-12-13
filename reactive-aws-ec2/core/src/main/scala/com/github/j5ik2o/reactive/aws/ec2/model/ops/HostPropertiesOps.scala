@@ -20,6 +20,13 @@ final class HostPropertiesBuilderOps(val self: HostProperties.Builder) extends A
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceFamilyAsScala(value: Option[String]): HostProperties.Builder = {
+    value.fold(self) { v =>
+      self.instanceFamily(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def socketsAsScala(value: Option[Int]): HostProperties.Builder = {
     value.fold(self) { v =>
       self.sockets(v)
@@ -42,6 +49,9 @@ final class HostPropertiesOps(val self: HostProperties) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceFamilyAsScala: Option[String] = Option(self.instanceFamily)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def socketsAsScala: Option[Int] = Option(self.sockets)

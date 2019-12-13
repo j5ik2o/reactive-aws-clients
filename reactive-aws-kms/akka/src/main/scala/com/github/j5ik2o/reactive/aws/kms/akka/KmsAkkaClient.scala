@@ -257,6 +257,33 @@ trait KmsAkkaClient {
       underlying.generateDataKey(generateDataKeyRequest)
     }
 
+  def generateDataKeyPairSource(
+      generateDataKeyPairRequest: GenerateDataKeyPairRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GenerateDataKeyPairResponse, NotUsed] =
+    Source.single(generateDataKeyPairRequest).via(generateDataKeyPairFlow(parallelism))
+
+  def generateDataKeyPairFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GenerateDataKeyPairRequest, GenerateDataKeyPairResponse, NotUsed] =
+    Flow[GenerateDataKeyPairRequest].mapAsync(parallelism) { generateDataKeyPairRequest =>
+      underlying.generateDataKeyPair(generateDataKeyPairRequest)
+    }
+
+  def generateDataKeyPairWithoutPlaintextSource(
+      generateDataKeyPairWithoutPlaintextRequest: GenerateDataKeyPairWithoutPlaintextRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GenerateDataKeyPairWithoutPlaintextResponse, NotUsed] =
+    Source.single(generateDataKeyPairWithoutPlaintextRequest).via(generateDataKeyPairWithoutPlaintextFlow(parallelism))
+
+  def generateDataKeyPairWithoutPlaintextFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GenerateDataKeyPairWithoutPlaintextRequest, GenerateDataKeyPairWithoutPlaintextResponse, NotUsed] =
+    Flow[GenerateDataKeyPairWithoutPlaintextRequest].mapAsync(parallelism) {
+      generateDataKeyPairWithoutPlaintextRequest =>
+        underlying.generateDataKeyPairWithoutPlaintext(generateDataKeyPairWithoutPlaintextRequest)
+    }
+
   def generateDataKeyWithoutPlaintextSource(
       generateDataKeyWithoutPlaintextRequest: GenerateDataKeyWithoutPlaintextRequest,
       parallelism: Int = DefaultParallelism
@@ -323,6 +350,19 @@ trait KmsAkkaClient {
   ): Flow[GetParametersForImportRequest, GetParametersForImportResponse, NotUsed] =
     Flow[GetParametersForImportRequest].mapAsync(parallelism) { getParametersForImportRequest =>
       underlying.getParametersForImport(getParametersForImportRequest)
+    }
+
+  def getPublicKeySource(
+      getPublicKeyRequest: GetPublicKeyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetPublicKeyResponse, NotUsed] =
+    Source.single(getPublicKeyRequest).via(getPublicKeyFlow(parallelism))
+
+  def getPublicKeyFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetPublicKeyRequest, GetPublicKeyResponse, NotUsed] =
+    Flow[GetPublicKeyRequest].mapAsync(parallelism) { getPublicKeyRequest =>
+      underlying.getPublicKey(getPublicKeyRequest)
     }
 
   def importKeyMaterialSource(
@@ -504,6 +544,14 @@ trait KmsAkkaClient {
       underlying.scheduleKeyDeletion(scheduleKeyDeletionRequest)
     }
 
+  def signSource(signRequest: SignRequest, parallelism: Int = DefaultParallelism): Source[SignResponse, NotUsed] =
+    Source.single(signRequest).via(signFlow(parallelism))
+
+  def signFlow(parallelism: Int = DefaultParallelism): Flow[SignRequest, SignResponse, NotUsed] =
+    Flow[SignRequest].mapAsync(parallelism) { signRequest =>
+      underlying.sign(signRequest)
+    }
+
   def tagResourceSource(
       tagResourceRequest: TagResourceRequest,
       parallelism: Int = DefaultParallelism
@@ -563,6 +611,17 @@ trait KmsAkkaClient {
   ): Flow[UpdateKeyDescriptionRequest, UpdateKeyDescriptionResponse, NotUsed] =
     Flow[UpdateKeyDescriptionRequest].mapAsync(parallelism) { updateKeyDescriptionRequest =>
       underlying.updateKeyDescription(updateKeyDescriptionRequest)
+    }
+
+  def verifySource(
+      verifyRequest: VerifyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[VerifyResponse, NotUsed] =
+    Source.single(verifyRequest).via(verifyFlow(parallelism))
+
+  def verifyFlow(parallelism: Int = DefaultParallelism): Flow[VerifyRequest, VerifyResponse, NotUsed] =
+    Flow[VerifyRequest].mapAsync(parallelism) { verifyRequest =>
+      underlying.verify(verifyRequest)
     }
 
 }

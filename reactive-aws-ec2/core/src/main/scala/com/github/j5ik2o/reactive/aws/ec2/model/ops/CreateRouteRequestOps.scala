@@ -55,6 +55,13 @@ final class CreateRouteRequestBuilderOps(val self: CreateRouteRequest.Builder) e
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def localGatewayIdAsScala(value: Option[String]): CreateRouteRequest.Builder = {
+    value.fold(self) { v =>
+      self.localGatewayId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala(value: Option[String]): CreateRouteRequest.Builder = {
     value.fold(self) { v =>
       self.networkInterfaceId(v)
@@ -99,6 +106,9 @@ final class CreateRouteRequestOps(val self: CreateRouteRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitGatewayIdAsScala: Option[String] = Option(self.transitGatewayId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def localGatewayIdAsScala: Option[String] = Option(self.localGatewayId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)

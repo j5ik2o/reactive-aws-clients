@@ -24,6 +24,13 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   def executionContext: ExecutionContext
   implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
+  override def createCapacityProvider(
+      createCapacityProviderRequest: CreateCapacityProviderRequest
+  ): IO[CreateCapacityProviderResponse] =
+    IO.fromFuture {
+      IO(underlying.createCapacityProvider(createCapacityProviderRequest))
+    }
+
   override def createCluster(createClusterRequest: CreateClusterRequest): IO[CreateClusterResponse] =
     IO.fromFuture {
       IO(underlying.createCluster(createClusterRequest))
@@ -83,6 +90,13 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   ): IO[DeregisterTaskDefinitionResponse] =
     IO.fromFuture {
       IO(underlying.deregisterTaskDefinition(deregisterTaskDefinitionRequest))
+    }
+
+  override def describeCapacityProviders(
+      describeCapacityProvidersRequest: DescribeCapacityProvidersRequest
+  ): IO[DescribeCapacityProvidersResponse] =
+    IO.fromFuture {
+      IO(underlying.describeCapacityProviders(describeCapacityProvidersRequest))
     }
 
   override def describeClusters(describeClustersRequest: DescribeClustersRequest): IO[DescribeClustersResponse] =
@@ -147,6 +161,9 @@ trait EcsCatsIOClient extends EcsClient[IO] {
     IO.fromFuture {
       IO(underlying.listAttributes(listAttributesRequest))
     }
+
+  def listAttributesPaginator(listAttributesRequest: ListAttributesRequest): ListAttributesPublisher =
+    underlying.listAttributesPaginator(listAttributesRequest)
 
   override def listClusters(listClustersRequest: ListClustersRequest): IO[ListClustersResponse] =
     IO.fromFuture {
@@ -278,6 +295,13 @@ trait EcsCatsIOClient extends EcsClient[IO] {
   override def putAttributes(putAttributesRequest: PutAttributesRequest): IO[PutAttributesResponse] =
     IO.fromFuture {
       IO(underlying.putAttributes(putAttributesRequest))
+    }
+
+  override def putClusterCapacityProviders(
+      putClusterCapacityProvidersRequest: PutClusterCapacityProvidersRequest
+  ): IO[PutClusterCapacityProvidersResponse] =
+    IO.fromFuture {
+      IO(underlying.putClusterCapacityProviders(putClusterCapacityProvidersRequest))
     }
 
   override def registerContainerInstance(

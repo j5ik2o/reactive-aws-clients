@@ -27,6 +27,13 @@ final class DescribeAvailabilityZonesRequestBuilderOps(val self: DescribeAvailab
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allAvailabilityZonesAsScala(value: Option[Boolean]): DescribeAvailabilityZonesRequest.Builder = {
+    value.fold(self) { v =>
+      self.allAvailabilityZones(v)
+    }
+  }
+
 }
 
 final class DescribeAvailabilityZonesRequestOps(val self: DescribeAvailabilityZonesRequest) extends AnyVal {
@@ -45,6 +52,9 @@ final class DescribeAvailabilityZonesRequestOps(val self: DescribeAvailabilityZo
   final def zoneIdsAsScala: Option[Seq[String]] = Option(self.zoneIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allAvailabilityZonesAsScala: Option[Boolean] = Option(self.allAvailabilityZones)
 
 }
 

@@ -31,6 +31,7 @@ trait ToAllOps
     with ToListQueuesResponseOps
     with ToMessageAttributeValueOps
     with ToMessageOps
+    with ToMessageSystemAttributeValueOps
     with ToPurgeQueueRequestOps
     with ToReceiveMessageRequestOps
     with ToReceiveMessageResponseOps

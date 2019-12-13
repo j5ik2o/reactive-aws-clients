@@ -18,6 +18,11 @@ trait AppSyncMonixClient extends AppSyncClient[Task] {
 
   val underlying: AppSyncAsyncClient
 
+  override def createApiCache(createApiCacheRequest: CreateApiCacheRequest): Task[CreateApiCacheResponse] =
+    Task.deferFuture {
+      underlying.createApiCache(createApiCacheRequest)
+    }
+
   override def createApiKey(createApiKeyRequest: CreateApiKeyRequest): Task[CreateApiKeyResponse] =
     Task.deferFuture {
       underlying.createApiKey(createApiKeyRequest)
@@ -48,6 +53,11 @@ trait AppSyncMonixClient extends AppSyncClient[Task] {
       underlying.createType(createTypeRequest)
     }
 
+  override def deleteApiCache(deleteApiCacheRequest: DeleteApiCacheRequest): Task[DeleteApiCacheResponse] =
+    Task.deferFuture {
+      underlying.deleteApiCache(deleteApiCacheRequest)
+    }
+
   override def deleteApiKey(deleteApiKeyRequest: DeleteApiKeyRequest): Task[DeleteApiKeyResponse] =
     Task.deferFuture {
       underlying.deleteApiKey(deleteApiKeyRequest)
@@ -76,6 +86,16 @@ trait AppSyncMonixClient extends AppSyncClient[Task] {
   override def deleteType(deleteTypeRequest: DeleteTypeRequest): Task[DeleteTypeResponse] =
     Task.deferFuture {
       underlying.deleteType(deleteTypeRequest)
+    }
+
+  override def flushApiCache(flushApiCacheRequest: FlushApiCacheRequest): Task[FlushApiCacheResponse] =
+    Task.deferFuture {
+      underlying.flushApiCache(flushApiCacheRequest)
+    }
+
+  override def getApiCache(getApiCacheRequest: GetApiCacheRequest): Task[GetApiCacheResponse] =
+    Task.deferFuture {
+      underlying.getApiCache(getApiCacheRequest)
     }
 
   override def getDataSource(getDataSourceRequest: GetDataSourceRequest): Task[GetDataSourceResponse] =
@@ -181,6 +201,11 @@ trait AppSyncMonixClient extends AppSyncClient[Task] {
   override def untagResource(untagResourceRequest: UntagResourceRequest): Task[UntagResourceResponse] =
     Task.deferFuture {
       underlying.untagResource(untagResourceRequest)
+    }
+
+  override def updateApiCache(updateApiCacheRequest: UpdateApiCacheRequest): Task[UpdateApiCacheResponse] =
+    Task.deferFuture {
+      underlying.updateApiCache(updateApiCacheRequest)
     }
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): Task[UpdateApiKeyResponse] =

@@ -5,10 +5,13 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 trait ToAllOps
     extends ToOptionSupport
     with ToAlarmHistoryItemOps
+    with ToAnomalyDetectorConfigurationOps
+    with ToAnomalyDetectorOps
     with ToDashboardEntryOps
     with ToDashboardValidationMessageOps
     with ToDatapointOps
     with ToDeleteAlarmsRequestOps
+    with ToDeleteAnomalyDetectorRequestOps
     with ToDeleteDashboardsRequestOps
     with ToDescribeAlarmHistoryRequestOps
     with ToDescribeAlarmHistoryResponseOps
@@ -16,6 +19,8 @@ trait ToAllOps
     with ToDescribeAlarmsForMetricResponseOps
     with ToDescribeAlarmsRequestOps
     with ToDescribeAlarmsResponseOps
+    with ToDescribeAnomalyDetectorsRequestOps
+    with ToDescribeAnomalyDetectorsResponseOps
     with ToDimensionFilterOps
     with ToDimensionOps
     with ToDisableAlarmActionsRequestOps
@@ -32,6 +37,8 @@ trait ToAllOps
     with ToListDashboardsResponseOps
     with ToListMetricsRequestOps
     with ToListMetricsResponseOps
+    with ToListTagsForResourceRequestOps
+    with ToListTagsForResourceResponseOps
     with ToMessageDataOps
     with ToMetricAlarmOps
     with ToMetricDataQueryOps
@@ -39,9 +46,14 @@ trait ToAllOps
     with ToMetricDatumOps
     with ToMetricOps
     with ToMetricStatOps
+    with ToPutAnomalyDetectorRequestOps
     with ToPutDashboardRequestOps
     with ToPutDashboardResponseOps
     with ToPutMetricAlarmRequestOps
     with ToPutMetricDataRequestOps
+    with ToRangeOps
     with ToSetAlarmStateRequestOps
     with ToStatisticSetOps
+    with ToTagOps
+    with ToTagResourceRequestOps
+    with ToUntagResourceRequestOps

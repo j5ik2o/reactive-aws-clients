@@ -26,6 +26,20 @@ final class DynamodbDataSourceConfigBuilderOps(val self: DynamodbDataSourceConfi
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deltaSyncConfigAsScala(value: Option[DeltaSyncConfig]): DynamodbDataSourceConfig.Builder = {
+    value.fold(self) { v =>
+      self.deltaSyncConfig(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def versionedAsScala(value: Option[Boolean]): DynamodbDataSourceConfig.Builder = {
+    value.fold(self) { v =>
+      self.versioned(v)
+    }
+  }
+
 }
 
 final class DynamodbDataSourceConfigOps(val self: DynamodbDataSourceConfig) extends AnyVal {
@@ -38,6 +52,12 @@ final class DynamodbDataSourceConfigOps(val self: DynamodbDataSourceConfig) exte
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def useCallerCredentialsAsScala: Option[Boolean] = Option(self.useCallerCredentials)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deltaSyncConfigAsScala: Option[DeltaSyncConfig] = Option(self.deltaSyncConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def versionedAsScala: Option[Boolean] = Option(self.versioned)
 
 }
 

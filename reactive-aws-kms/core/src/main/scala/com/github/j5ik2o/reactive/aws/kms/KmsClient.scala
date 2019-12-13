@@ -55,6 +55,12 @@ trait KmsClient[M[_]] {
 
   def generateDataKey(generateDataKeyRequest: GenerateDataKeyRequest): M[GenerateDataKeyResponse]
 
+  def generateDataKeyPair(generateDataKeyPairRequest: GenerateDataKeyPairRequest): M[GenerateDataKeyPairResponse]
+
+  def generateDataKeyPairWithoutPlaintext(
+      generateDataKeyPairWithoutPlaintextRequest: GenerateDataKeyPairWithoutPlaintextRequest
+  ): M[GenerateDataKeyPairWithoutPlaintextResponse]
+
   def generateDataKeyWithoutPlaintext(
       generateDataKeyWithoutPlaintextRequest: GenerateDataKeyWithoutPlaintextRequest
   ): M[GenerateDataKeyWithoutPlaintextResponse]
@@ -70,6 +76,8 @@ trait KmsClient[M[_]] {
   def getParametersForImport(
       getParametersForImportRequest: GetParametersForImportRequest
   ): M[GetParametersForImportResponse]
+
+  def getPublicKey(getPublicKeyRequest: GetPublicKeyRequest): M[GetPublicKeyResponse]
 
   def importKeyMaterial(importKeyMaterialRequest: ImportKeyMaterialRequest): M[ImportKeyMaterialResponse]
 
@@ -101,6 +109,8 @@ trait KmsClient[M[_]] {
 
   def scheduleKeyDeletion(scheduleKeyDeletionRequest: ScheduleKeyDeletionRequest): M[ScheduleKeyDeletionResponse]
 
+  def sign(signRequest: SignRequest): M[SignResponse]
+
   def tagResource(tagResourceRequest: TagResourceRequest): M[TagResourceResponse]
 
   def untagResource(untagResourceRequest: UntagResourceRequest): M[UntagResourceResponse]
@@ -110,5 +120,7 @@ trait KmsClient[M[_]] {
   def updateCustomKeyStore(updateCustomKeyStoreRequest: UpdateCustomKeyStoreRequest): M[UpdateCustomKeyStoreResponse]
 
   def updateKeyDescription(updateKeyDescriptionRequest: UpdateKeyDescriptionRequest): M[UpdateKeyDescriptionResponse]
+
+  def verify(verifyRequest: VerifyRequest): M[VerifyResponse]
 
 }

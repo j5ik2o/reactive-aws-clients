@@ -74,6 +74,11 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
       underlying.deleteStackSet(deleteStackSetRequest)
     }
 
+  override def deregisterType(deregisterTypeRequest: DeregisterTypeRequest): Task[DeregisterTypeResponse] =
+    Task.deferFuture {
+      underlying.deregisterType(deregisterTypeRequest)
+    }
+
   override def describeAccountLimits(
       describeAccountLimitsRequest: DescribeAccountLimitsRequest
   ): Task[DescribeAccountLimitsResponse] =
@@ -173,6 +178,18 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
   def describeStacksPaginator(describeStacksRequest: DescribeStacksRequest): Observable[DescribeStacksResponse] =
     Observable.fromReactivePublisher(underlying.describeStacksPaginator(describeStacksRequest))
 
+  override def describeType(describeTypeRequest: DescribeTypeRequest): Task[DescribeTypeResponse] =
+    Task.deferFuture {
+      underlying.describeType(describeTypeRequest)
+    }
+
+  override def describeTypeRegistration(
+      describeTypeRegistrationRequest: DescribeTypeRegistrationRequest
+  ): Task[DescribeTypeRegistrationResponse] =
+    Task.deferFuture {
+      underlying.describeTypeRegistration(describeTypeRegistrationRequest)
+    }
+
   override def detectStackDrift(detectStackDriftRequest: DetectStackDriftRequest): Task[DetectStackDriftResponse] =
     Task.deferFuture {
       underlying.detectStackDrift(detectStackDriftRequest)
@@ -183,6 +200,13 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
   ): Task[DetectStackResourceDriftResponse] =
     Task.deferFuture {
       underlying.detectStackResourceDrift(detectStackResourceDriftRequest)
+    }
+
+  override def detectStackSetDrift(
+      detectStackSetDriftRequest: DetectStackSetDriftRequest
+  ): Task[DetectStackSetDriftResponse] =
+    Task.deferFuture {
+      underlying.detectStackSetDrift(detectStackSetDriftRequest)
     }
 
   override def estimateTemplateCost(
@@ -302,9 +326,58 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
   def listStacksPaginator(listStacksRequest: ListStacksRequest): Observable[ListStacksResponse] =
     Observable.fromReactivePublisher(underlying.listStacksPaginator(listStacksRequest))
 
+  override def listTypeRegistrations(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): Task[ListTypeRegistrationsResponse] =
+    Task.deferFuture {
+      underlying.listTypeRegistrations(listTypeRegistrationsRequest)
+    }
+
+  def listTypeRegistrationsPaginator(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): Observable[ListTypeRegistrationsResponse] =
+    Observable.fromReactivePublisher(underlying.listTypeRegistrationsPaginator(listTypeRegistrationsRequest))
+
+  override def listTypeVersions(listTypeVersionsRequest: ListTypeVersionsRequest): Task[ListTypeVersionsResponse] =
+    Task.deferFuture {
+      underlying.listTypeVersions(listTypeVersionsRequest)
+    }
+
+  def listTypeVersionsPaginator(
+      listTypeVersionsRequest: ListTypeVersionsRequest
+  ): Observable[ListTypeVersionsResponse] =
+    Observable.fromReactivePublisher(underlying.listTypeVersionsPaginator(listTypeVersionsRequest))
+
+  override def listTypes(listTypesRequest: ListTypesRequest): Task[ListTypesResponse] =
+    Task.deferFuture {
+      underlying.listTypes(listTypesRequest)
+    }
+
+  def listTypesPaginator(listTypesRequest: ListTypesRequest): Observable[ListTypesResponse] =
+    Observable.fromReactivePublisher(underlying.listTypesPaginator(listTypesRequest))
+
+  override def recordHandlerProgress(
+      recordHandlerProgressRequest: RecordHandlerProgressRequest
+  ): Task[RecordHandlerProgressResponse] =
+    Task.deferFuture {
+      underlying.recordHandlerProgress(recordHandlerProgressRequest)
+    }
+
+  override def registerType(registerTypeRequest: RegisterTypeRequest): Task[RegisterTypeResponse] =
+    Task.deferFuture {
+      underlying.registerType(registerTypeRequest)
+    }
+
   override def setStackPolicy(setStackPolicyRequest: SetStackPolicyRequest): Task[SetStackPolicyResponse] =
     Task.deferFuture {
       underlying.setStackPolicy(setStackPolicyRequest)
+    }
+
+  override def setTypeDefaultVersion(
+      setTypeDefaultVersionRequest: SetTypeDefaultVersionRequest
+  ): Task[SetTypeDefaultVersionResponse] =
+    Task.deferFuture {
+      underlying.setTypeDefaultVersion(setTypeDefaultVersionRequest)
     }
 
   override def signalResource(signalResourceRequest: SignalResourceRequest): Task[SignalResourceResponse] =

@@ -23,6 +23,11 @@ object EcsAsyncClient {
 trait EcsAsyncClient extends EcsClient[Future] {
   val underlying: JavaEcsAsyncClient
 
+  override def createCapacityProvider(
+      createCapacityProviderRequest: CreateCapacityProviderRequest
+  ): Future[CreateCapacityProviderResponse] =
+    underlying.createCapacityProvider(createCapacityProviderRequest).toScala
+
   override def createCluster(createClusterRequest: CreateClusterRequest): Future[CreateClusterResponse] =
     underlying.createCluster(createClusterRequest).toScala
 
@@ -61,6 +66,11 @@ trait EcsAsyncClient extends EcsClient[Future] {
       deregisterTaskDefinitionRequest: DeregisterTaskDefinitionRequest
   ): Future[DeregisterTaskDefinitionResponse] =
     underlying.deregisterTaskDefinition(deregisterTaskDefinitionRequest).toScala
+
+  override def describeCapacityProviders(
+      describeCapacityProvidersRequest: DescribeCapacityProvidersRequest
+  ): Future[DescribeCapacityProvidersResponse] =
+    underlying.describeCapacityProviders(describeCapacityProvidersRequest).toScala
 
   override def describeClusters(describeClustersRequest: DescribeClustersRequest): Future[DescribeClustersResponse] =
     underlying.describeClusters(describeClustersRequest).toScala
@@ -102,6 +112,9 @@ trait EcsAsyncClient extends EcsClient[Future] {
 
   override def listAttributes(listAttributesRequest: ListAttributesRequest): Future[ListAttributesResponse] =
     underlying.listAttributes(listAttributesRequest).toScala
+
+  def listAttributesPaginator(listAttributesRequest: ListAttributesRequest): ListAttributesPublisher =
+    underlying.listAttributesPaginator(listAttributesRequest)
 
   override def listClusters(listClustersRequest: ListClustersRequest): Future[ListClustersResponse] =
     underlying.listClusters(listClustersRequest).toScala
@@ -204,6 +217,11 @@ trait EcsAsyncClient extends EcsClient[Future] {
 
   override def putAttributes(putAttributesRequest: PutAttributesRequest): Future[PutAttributesResponse] =
     underlying.putAttributes(putAttributesRequest).toScala
+
+  override def putClusterCapacityProviders(
+      putClusterCapacityProvidersRequest: PutClusterCapacityProvidersRequest
+  ): Future[PutClusterCapacityProvidersResponse] =
+    underlying.putClusterCapacityProviders(putClusterCapacityProvidersRequest).toScala
 
   override def registerContainerInstance(
       registerContainerInstanceRequest: RegisterContainerInstanceRequest

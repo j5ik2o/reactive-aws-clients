@@ -71,6 +71,13 @@ trait DynamoDbMonixClient extends DynamoDbClient[Task] {
       underlying.describeContinuousBackups(describeContinuousBackupsRequest)
     }
 
+  override def describeContributorInsights(
+      describeContributorInsightsRequest: DescribeContributorInsightsRequest
+  ): Task[DescribeContributorInsightsResponse] =
+    Task.deferFuture {
+      underlying.describeContributorInsights(describeContributorInsightsRequest)
+    }
+
   override def describeEndpoints(describeEndpointsRequest: DescribeEndpointsRequest): Task[DescribeEndpointsResponse] =
     Task.deferFuture {
       underlying.describeEndpoints(describeEndpointsRequest)
@@ -110,6 +117,13 @@ trait DynamoDbMonixClient extends DynamoDbClient[Task] {
       underlying.describeTable(describeTableRequest)
     }
 
+  override def describeTableReplicaAutoScaling(
+      describeTableReplicaAutoScalingRequest: DescribeTableReplicaAutoScalingRequest
+  ): Task[DescribeTableReplicaAutoScalingResponse] =
+    Task.deferFuture {
+      underlying.describeTableReplicaAutoScaling(describeTableReplicaAutoScalingRequest)
+    }
+
   override def describeTimeToLive(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest
   ): Task[DescribeTimeToLiveResponse] =
@@ -131,6 +145,18 @@ trait DynamoDbMonixClient extends DynamoDbClient[Task] {
     Task.deferFuture {
       underlying.listBackups()
     }
+
+  override def listContributorInsights(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): Task[ListContributorInsightsResponse] =
+    Task.deferFuture {
+      underlying.listContributorInsights(listContributorInsightsRequest)
+    }
+
+  def listContributorInsightsPaginator(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): Observable[ListContributorInsightsResponse] =
+    Observable.fromReactivePublisher(underlying.listContributorInsightsPaginator(listContributorInsightsRequest))
 
   override def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): Task[ListGlobalTablesResponse] =
     Task.deferFuture {
@@ -229,6 +255,13 @@ trait DynamoDbMonixClient extends DynamoDbClient[Task] {
       underlying.updateContinuousBackups(updateContinuousBackupsRequest)
     }
 
+  override def updateContributorInsights(
+      updateContributorInsightsRequest: UpdateContributorInsightsRequest
+  ): Task[UpdateContributorInsightsResponse] =
+    Task.deferFuture {
+      underlying.updateContributorInsights(updateContributorInsightsRequest)
+    }
+
   override def updateGlobalTable(updateGlobalTableRequest: UpdateGlobalTableRequest): Task[UpdateGlobalTableResponse] =
     Task.deferFuture {
       underlying.updateGlobalTable(updateGlobalTableRequest)
@@ -249,6 +282,13 @@ trait DynamoDbMonixClient extends DynamoDbClient[Task] {
   override def updateTable(updateTableRequest: UpdateTableRequest): Task[UpdateTableResponse] =
     Task.deferFuture {
       underlying.updateTable(updateTableRequest)
+    }
+
+  override def updateTableReplicaAutoScaling(
+      updateTableReplicaAutoScalingRequest: UpdateTableReplicaAutoScalingRequest
+  ): Task[UpdateTableReplicaAutoScalingResponse] =
+    Task.deferFuture {
+      underlying.updateTableReplicaAutoScaling(updateTableReplicaAutoScalingRequest)
     }
 
   override def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): Task[UpdateTimeToLiveResponse] =

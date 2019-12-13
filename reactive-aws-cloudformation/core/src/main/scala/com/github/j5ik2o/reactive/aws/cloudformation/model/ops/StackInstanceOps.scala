@@ -54,6 +54,20 @@ final class StackInstanceBuilderOps(val self: StackInstance.Builder) extends Any
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def driftStatusAsScala(value: Option[StackDriftStatus]): StackInstance.Builder = {
+    value.fold(self) { v =>
+      self.driftStatus(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastDriftCheckTimestampAsScala(value: Option[java.time.Instant]): StackInstance.Builder = {
+    value.fold(self) { v =>
+      self.lastDriftCheckTimestamp(v)
+    }
+  }
+
 }
 
 final class StackInstanceOps(val self: StackInstance) extends AnyVal {
@@ -80,6 +94,12 @@ final class StackInstanceOps(val self: StackInstance) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala: Option[String] = Option(self.statusReason)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def driftStatusAsScala: Option[StackDriftStatus] = Option(self.driftStatus)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastDriftCheckTimestampAsScala: Option[java.time.Instant] = Option(self.lastDriftCheckTimestamp)
 
 }
 

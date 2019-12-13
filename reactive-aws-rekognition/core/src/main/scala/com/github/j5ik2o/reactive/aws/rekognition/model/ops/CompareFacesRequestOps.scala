@@ -26,6 +26,13 @@ final class CompareFacesRequestBuilderOps(val self: CompareFacesRequest.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def qualityFilterAsScala(value: Option[QualityFilter]): CompareFacesRequest.Builder = {
+    value.fold(self) { v =>
+      self.qualityFilter(v)
+    }
+  }
+
 }
 
 final class CompareFacesRequestOps(val self: CompareFacesRequest) extends AnyVal {
@@ -38,6 +45,9 @@ final class CompareFacesRequestOps(val self: CompareFacesRequest) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityThresholdAsScala: Option[Float] = Option(self.similarityThreshold)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def qualityFilterAsScala: Option[QualityFilter] = Option(self.qualityFilter)
 
 }
 

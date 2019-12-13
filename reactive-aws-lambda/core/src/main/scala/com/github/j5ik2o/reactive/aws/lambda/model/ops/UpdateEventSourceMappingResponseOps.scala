@@ -28,6 +28,13 @@ final class UpdateEventSourceMappingResponseBuilderOps(val self: UpdateEventSour
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def parallelizationFactorAsScala(value: Option[Int]): UpdateEventSourceMappingResponse.Builder = {
+    value.fold(self) { v =>
+      self.parallelizationFactor(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala(value: Option[String]): UpdateEventSourceMappingResponse.Builder = {
     value.fold(self) { v =>
       self.eventSourceArn(v)
@@ -69,6 +76,34 @@ final class UpdateEventSourceMappingResponseBuilderOps(val self: UpdateEventSour
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationConfigAsScala(value: Option[DestinationConfig]): UpdateEventSourceMappingResponse.Builder = {
+    value.fold(self) { v =>
+      self.destinationConfig(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRecordAgeInSecondsAsScala(value: Option[Int]): UpdateEventSourceMappingResponse.Builder = {
+    value.fold(self) { v =>
+      self.maximumRecordAgeInSeconds(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def bisectBatchOnFunctionErrorAsScala(value: Option[Boolean]): UpdateEventSourceMappingResponse.Builder = {
+    value.fold(self) { v =>
+      self.bisectBatchOnFunctionError(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRetryAttemptsAsScala(value: Option[Int]): UpdateEventSourceMappingResponse.Builder = {
+    value.fold(self) { v =>
+      self.maximumRetryAttempts(v)
+    }
+  }
+
 }
 
 final class UpdateEventSourceMappingResponseOps(val self: UpdateEventSourceMappingResponse) extends AnyVal {
@@ -81,6 +116,9 @@ final class UpdateEventSourceMappingResponseOps(val self: UpdateEventSourceMappi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumBatchingWindowInSecondsAsScala: Option[Int] = Option(self.maximumBatchingWindowInSeconds)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def parallelizationFactorAsScala: Option[Int] = Option(self.parallelizationFactor)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala: Option[String] = Option(self.eventSourceArn)
@@ -99,6 +137,18 @@ final class UpdateEventSourceMappingResponseOps(val self: UpdateEventSourceMappi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateTransitionReasonAsScala: Option[String] = Option(self.stateTransitionReason)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationConfigAsScala: Option[DestinationConfig] = Option(self.destinationConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRecordAgeInSecondsAsScala: Option[Int] = Option(self.maximumRecordAgeInSeconds)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def bisectBatchOnFunctionErrorAsScala: Option[Boolean] = Option(self.bisectBatchOnFunctionError)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRetryAttemptsAsScala: Option[Int] = Option(self.maximumRetryAttempts)
 
 }
 

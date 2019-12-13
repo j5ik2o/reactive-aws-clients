@@ -47,9 +47,7 @@ typeDescFilter in scalaWrapperGen := {
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
     Seq(s"${sdkBaseName.value}Client",
-        s"${sdkBaseName.value}AsyncClient",
-        "JavaAsyncClientMetricsInterceptor",
-        "JavaSyncClientMetricsInterceptor")
+        s"${sdkBaseName.value}AsyncClient")
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client" => Seq(s"${sdkBaseName.value}SyncClient")
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}StreamsAsyncClient" =>
     Seq(s"${sdkBaseName.value}StreamsClient", s"${sdkBaseName.value}StreamsAsyncClient")
@@ -78,11 +76,11 @@ templateNameMapper in scalaWrapperGen := {
       if f == s"${sdkBaseName.value}StreamsSyncClient" && cd.simpleTypeName == s"${sdkBaseName.value}StreamsClient" =>
     s"${sdkBaseName.value}StreamsSyncClient.ftl"
 
-  case ("JavaAsyncClientMetricsInterceptor", cd: ClassDesc)
-      if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
-    "JavaAsyncClientMetricsInterceptor.ftl"
-  case ("JavaSyncClientMetricsInterceptor", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
-    "JavaSyncClientMetricsInterceptor.ftl"
+//  case ("JavaAsyncClientMetricsInterceptor", cd: ClassDesc)
+//      if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+//    "JavaAsyncClientMetricsInterceptor.ftl"
+//  case ("JavaSyncClientMetricsInterceptor", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+//    "JavaSyncClientMetricsInterceptor.ftl"
 
   case (f, cd: ClassDesc) if f.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
 

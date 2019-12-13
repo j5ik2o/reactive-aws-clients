@@ -105,6 +105,16 @@ trait KmsSyncClient extends KmsClient[Either[Throwable, ?]] {
   ): Either[Throwable, GenerateDataKeyResponse] =
     underlying.generateDataKey(generateDataKeyRequest).toEither
 
+  override def generateDataKeyPair(
+      generateDataKeyPairRequest: GenerateDataKeyPairRequest
+  ): Either[Throwable, GenerateDataKeyPairResponse] =
+    underlying.generateDataKeyPair(generateDataKeyPairRequest).toEither
+
+  override def generateDataKeyPairWithoutPlaintext(
+      generateDataKeyPairWithoutPlaintextRequest: GenerateDataKeyPairWithoutPlaintextRequest
+  ): Either[Throwable, GenerateDataKeyPairWithoutPlaintextResponse] =
+    underlying.generateDataKeyPairWithoutPlaintext(generateDataKeyPairWithoutPlaintextRequest).toEither
+
   override def generateDataKeyWithoutPlaintext(
       generateDataKeyWithoutPlaintextRequest: GenerateDataKeyWithoutPlaintextRequest
   ): Either[Throwable, GenerateDataKeyWithoutPlaintextResponse] =
@@ -128,6 +138,9 @@ trait KmsSyncClient extends KmsClient[Either[Throwable, ?]] {
       getParametersForImportRequest: GetParametersForImportRequest
   ): Either[Throwable, GetParametersForImportResponse] =
     underlying.getParametersForImport(getParametersForImportRequest).toEither
+
+  override def getPublicKey(getPublicKeyRequest: GetPublicKeyRequest): Either[Throwable, GetPublicKeyResponse] =
+    underlying.getPublicKey(getPublicKeyRequest).toEither
 
   override def importKeyMaterial(
       importKeyMaterialRequest: ImportKeyMaterialRequest
@@ -202,6 +215,9 @@ trait KmsSyncClient extends KmsClient[Either[Throwable, ?]] {
   ): Either[Throwable, ScheduleKeyDeletionResponse] =
     underlying.scheduleKeyDeletion(scheduleKeyDeletionRequest).toEither
 
+  override def sign(signRequest: SignRequest): Either[Throwable, SignResponse] =
+    underlying.sign(signRequest).toEither
+
   override def tagResource(tagResourceRequest: TagResourceRequest): Either[Throwable, TagResourceResponse] =
     underlying.tagResource(tagResourceRequest).toEither
 
@@ -220,5 +236,8 @@ trait KmsSyncClient extends KmsClient[Either[Throwable, ?]] {
       updateKeyDescriptionRequest: UpdateKeyDescriptionRequest
   ): Either[Throwable, UpdateKeyDescriptionResponse] =
     underlying.updateKeyDescription(updateKeyDescriptionRequest).toEither
+
+  override def verify(verifyRequest: VerifyRequest): Either[Throwable, VerifyResponse] =
+    underlying.verify(verifyRequest).toEither
 
 }

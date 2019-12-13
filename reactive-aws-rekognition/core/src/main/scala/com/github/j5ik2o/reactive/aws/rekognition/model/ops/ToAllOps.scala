@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.rekognition.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToAgeRangeOps
+    extends ToOptionSupport
+    with ToAgeRangeOps
     with ToBeardOps
     with ToBoundingBoxOps
     with ToCelebrityDetailOps

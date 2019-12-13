@@ -96,6 +96,15 @@ final class ImportImageTaskBuilderOps(val self: ImportImageTask.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def licenseSpecificationsAsScala(
+      value: Option[Seq[ImportImageLicenseConfigurationResponse]]
+  ): ImportImageTask.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.licenseSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ImportImageTaskOps(val self: ImportImageTask) extends AnyVal {
@@ -140,6 +149,12 @@ final class ImportImageTaskOps(val self: ImportImageTask) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala: Option[String] = Option(self.statusMessage)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def licenseSpecificationsAsScala: Option[Seq[ImportImageLicenseConfigurationResponse]] =
+    Option(self.licenseSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

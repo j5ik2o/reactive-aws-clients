@@ -42,6 +42,13 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.deleteDashboards(deleteDashboardsRequest))
     }
 
+  override def deleteInsightRules(
+      deleteInsightRulesRequest: DeleteInsightRulesRequest
+  ): IO[DeleteInsightRulesResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteInsightRules(deleteInsightRulesRequest))
+    }
+
   override def describeAlarmHistory(
       describeAlarmHistoryRequest: DescribeAlarmHistoryRequest
   ): IO[DescribeAlarmHistoryResponse] =
@@ -92,11 +99,30 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest))
     }
 
+  override def describeInsightRules(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): IO[DescribeInsightRulesResponse] =
+    IO.fromFuture {
+      IO(underlying.describeInsightRules(describeInsightRulesRequest))
+    }
+
+  def describeInsightRulesPaginator(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): DescribeInsightRulesPublisher =
+    underlying.describeInsightRulesPaginator(describeInsightRulesRequest)
+
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
   ): IO[DisableAlarmActionsResponse] =
     IO.fromFuture {
       IO(underlying.disableAlarmActions(disableAlarmActionsRequest))
+    }
+
+  override def disableInsightRules(
+      disableInsightRulesRequest: DisableInsightRulesRequest
+  ): IO[DisableInsightRulesResponse] =
+    IO.fromFuture {
+      IO(underlying.disableInsightRules(disableInsightRulesRequest))
     }
 
   override def enableAlarmActions(
@@ -106,9 +132,23 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.enableAlarmActions(enableAlarmActionsRequest))
     }
 
+  override def enableInsightRules(
+      enableInsightRulesRequest: EnableInsightRulesRequest
+  ): IO[EnableInsightRulesResponse] =
+    IO.fromFuture {
+      IO(underlying.enableInsightRules(enableInsightRulesRequest))
+    }
+
   override def getDashboard(getDashboardRequest: GetDashboardRequest): IO[GetDashboardResponse] =
     IO.fromFuture {
       IO(underlying.getDashboard(getDashboardRequest))
+    }
+
+  override def getInsightRuleReport(
+      getInsightRuleReportRequest: GetInsightRuleReportRequest
+  ): IO[GetInsightRuleReportResponse] =
+    IO.fromFuture {
+      IO(underlying.getInsightRuleReport(getInsightRuleReportRequest))
     }
 
   override def getMetricData(getMetricDataRequest: GetMetricDataRequest): IO[GetMetricDataResponse] =
@@ -182,6 +222,11 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
   override def putDashboard(putDashboardRequest: PutDashboardRequest): IO[PutDashboardResponse] =
     IO.fromFuture {
       IO(underlying.putDashboard(putDashboardRequest))
+    }
+
+  override def putInsightRule(putInsightRuleRequest: PutInsightRuleRequest): IO[PutInsightRuleResponse] =
+    IO.fromFuture {
+      IO(underlying.putInsightRule(putInsightRuleRequest))
     }
 
   override def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): IO[PutMetricAlarmResponse] =

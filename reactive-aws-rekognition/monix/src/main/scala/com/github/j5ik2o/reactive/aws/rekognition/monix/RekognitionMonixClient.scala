@@ -28,6 +28,18 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
       underlying.createCollection(createCollectionRequest)
     }
 
+  override def createProject(createProjectRequest: CreateProjectRequest): Task[CreateProjectResponse] =
+    Task.deferFuture {
+      underlying.createProject(createProjectRequest)
+    }
+
+  override def createProjectVersion(
+      createProjectVersionRequest: CreateProjectVersionRequest
+  ): Task[CreateProjectVersionResponse] =
+    Task.deferFuture {
+      underlying.createProjectVersion(createProjectVersionRequest)
+    }
+
   override def createStreamProcessor(
       createStreamProcessorRequest: CreateStreamProcessorRequest
   ): Task[CreateStreamProcessorResponse] =
@@ -59,11 +71,40 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
       underlying.describeCollection(describeCollectionRequest)
     }
 
+  override def describeProjectVersions(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): Task[DescribeProjectVersionsResponse] =
+    Task.deferFuture {
+      underlying.describeProjectVersions(describeProjectVersionsRequest)
+    }
+
+  def describeProjectVersionsPaginator(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): Observable[DescribeProjectVersionsResponse] =
+    Observable.fromReactivePublisher(underlying.describeProjectVersionsPaginator(describeProjectVersionsRequest))
+
+  override def describeProjects(describeProjectsRequest: DescribeProjectsRequest): Task[DescribeProjectsResponse] =
+    Task.deferFuture {
+      underlying.describeProjects(describeProjectsRequest)
+    }
+
+  def describeProjectsPaginator(
+      describeProjectsRequest: DescribeProjectsRequest
+  ): Observable[DescribeProjectsResponse] =
+    Observable.fromReactivePublisher(underlying.describeProjectsPaginator(describeProjectsRequest))
+
   override def describeStreamProcessor(
       describeStreamProcessorRequest: DescribeStreamProcessorRequest
   ): Task[DescribeStreamProcessorResponse] =
     Task.deferFuture {
       underlying.describeStreamProcessor(describeStreamProcessorRequest)
+    }
+
+  override def detectCustomLabels(
+      detectCustomLabelsRequest: DetectCustomLabelsRequest
+  ): Task[DetectCustomLabelsResponse] =
+    Task.deferFuture {
+      underlying.detectCustomLabels(detectCustomLabelsRequest)
     }
 
   override def detectFaces(detectFacesRequest: DetectFacesRequest): Task[DetectFacesResponse] =
@@ -263,11 +304,25 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
       underlying.startPersonTracking(startPersonTrackingRequest)
     }
 
+  override def startProjectVersion(
+      startProjectVersionRequest: StartProjectVersionRequest
+  ): Task[StartProjectVersionResponse] =
+    Task.deferFuture {
+      underlying.startProjectVersion(startProjectVersionRequest)
+    }
+
   override def startStreamProcessor(
       startStreamProcessorRequest: StartStreamProcessorRequest
   ): Task[StartStreamProcessorResponse] =
     Task.deferFuture {
       underlying.startStreamProcessor(startStreamProcessorRequest)
+    }
+
+  override def stopProjectVersion(
+      stopProjectVersionRequest: StopProjectVersionRequest
+  ): Task[StopProjectVersionResponse] =
+    Task.deferFuture {
+      underlying.stopProjectVersion(stopProjectVersionRequest)
     }
 
   override def stopStreamProcessor(

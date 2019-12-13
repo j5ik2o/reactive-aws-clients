@@ -19,6 +19,13 @@ final class DetectModerationLabelsRequestBuilderOps(val self: DetectModerationLa
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def humanLoopConfigAsScala(value: Option[HumanLoopConfig]): DetectModerationLabelsRequest.Builder = {
+    value.fold(self) { v =>
+      self.humanLoopConfig(v)
+    }
+  }
+
 }
 
 final class DetectModerationLabelsRequestOps(val self: DetectModerationLabelsRequest) extends AnyVal {
@@ -28,6 +35,9 @@ final class DetectModerationLabelsRequestOps(val self: DetectModerationLabelsReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala: Option[Float] = Option(self.minConfidence)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def humanLoopConfigAsScala: Option[HumanLoopConfig] = Option(self.humanLoopConfig)
 
 }
 

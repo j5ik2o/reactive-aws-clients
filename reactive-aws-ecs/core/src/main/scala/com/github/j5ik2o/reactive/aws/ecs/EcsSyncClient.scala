@@ -22,6 +22,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
 
   import EcsSyncClient._
 
+  override def createCapacityProvider(
+      createCapacityProviderRequest: CreateCapacityProviderRequest
+  ): Either[Throwable, CreateCapacityProviderResponse] =
+    underlying.createCapacityProvider(createCapacityProviderRequest).toEither
+
   override def createCluster(): Either[Throwable, CreateClusterResponse] =
     underlying.createCluster().toEither
 
@@ -62,6 +67,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
       deregisterTaskDefinitionRequest: DeregisterTaskDefinitionRequest
   ): Either[Throwable, DeregisterTaskDefinitionResponse] =
     underlying.deregisterTaskDefinition(deregisterTaskDefinitionRequest).toEither
+
+  override def describeCapacityProviders(
+      describeCapacityProvidersRequest: DescribeCapacityProvidersRequest
+  ): Either[Throwable, DescribeCapacityProvidersResponse] =
+    underlying.describeCapacityProviders(describeCapacityProvidersRequest).toEither
 
   override def describeClusters(): Either[Throwable, DescribeClustersResponse] =
     underlying.describeClusters().toEither
@@ -109,6 +119,9 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
 
   override def listAttributes(listAttributesRequest: ListAttributesRequest): Either[Throwable, ListAttributesResponse] =
     underlying.listAttributes(listAttributesRequest).toEither
+
+  def listAttributesPaginator(listAttributesRequest: ListAttributesRequest): ListAttributesIterable =
+    underlying.listAttributesPaginator(listAttributesRequest)
 
   override def listClusters(): Either[Throwable, ListClustersResponse] =
     underlying.listClusters().toEither
@@ -211,6 +224,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
 
   override def putAttributes(putAttributesRequest: PutAttributesRequest): Either[Throwable, PutAttributesResponse] =
     underlying.putAttributes(putAttributesRequest).toEither
+
+  override def putClusterCapacityProviders(
+      putClusterCapacityProvidersRequest: PutClusterCapacityProvidersRequest
+  ): Either[Throwable, PutClusterCapacityProvidersResponse] =
+    underlying.putClusterCapacityProviders(putClusterCapacityProvidersRequest).toEither
 
   override def registerContainerInstance(
       registerContainerInstanceRequest: RegisterContainerInstanceRequest

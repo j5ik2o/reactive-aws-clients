@@ -135,6 +135,19 @@ trait LambdaAkkaClient {
       underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest)
     }
 
+  def deleteFunctionEventInvokeConfigSource(
+      deleteFunctionEventInvokeConfigRequest: DeleteFunctionEventInvokeConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFunctionEventInvokeConfigResponse, NotUsed] =
+    Source.single(deleteFunctionEventInvokeConfigRequest).via(deleteFunctionEventInvokeConfigFlow(parallelism))
+
+  def deleteFunctionEventInvokeConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteFunctionEventInvokeConfigRequest, DeleteFunctionEventInvokeConfigResponse, NotUsed] =
+    Flow[DeleteFunctionEventInvokeConfigRequest].mapAsync(parallelism) { deleteFunctionEventInvokeConfigRequest =>
+      underlying.deleteFunctionEventInvokeConfig(deleteFunctionEventInvokeConfigRequest)
+    }
+
   def deleteLayerVersionSource(
       deleteLayerVersionRequest: DeleteLayerVersionRequest,
       parallelism: Int = DefaultParallelism
@@ -146,6 +159,19 @@ trait LambdaAkkaClient {
   ): Flow[DeleteLayerVersionRequest, DeleteLayerVersionResponse, NotUsed] =
     Flow[DeleteLayerVersionRequest].mapAsync(parallelism) { deleteLayerVersionRequest =>
       underlying.deleteLayerVersion(deleteLayerVersionRequest)
+    }
+
+  def deleteProvisionedConcurrencyConfigSource(
+      deleteProvisionedConcurrencyConfigRequest: DeleteProvisionedConcurrencyConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteProvisionedConcurrencyConfigResponse, NotUsed] =
+    Source.single(deleteProvisionedConcurrencyConfigRequest).via(deleteProvisionedConcurrencyConfigFlow(parallelism))
+
+  def deleteProvisionedConcurrencyConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteProvisionedConcurrencyConfigRequest, DeleteProvisionedConcurrencyConfigResponse, NotUsed] =
+    Flow[DeleteProvisionedConcurrencyConfigRequest].mapAsync(parallelism) { deleteProvisionedConcurrencyConfigRequest =>
+      underlying.deleteProvisionedConcurrencyConfig(deleteProvisionedConcurrencyConfigRequest)
     }
 
   def getAccountSettingsSource(
@@ -199,6 +225,19 @@ trait LambdaAkkaClient {
       underlying.getFunction(getFunctionRequest)
     }
 
+  def getFunctionConcurrencySource(
+      getFunctionConcurrencyRequest: GetFunctionConcurrencyRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetFunctionConcurrencyResponse, NotUsed] =
+    Source.single(getFunctionConcurrencyRequest).via(getFunctionConcurrencyFlow(parallelism))
+
+  def getFunctionConcurrencyFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetFunctionConcurrencyRequest, GetFunctionConcurrencyResponse, NotUsed] =
+    Flow[GetFunctionConcurrencyRequest].mapAsync(parallelism) { getFunctionConcurrencyRequest =>
+      underlying.getFunctionConcurrency(getFunctionConcurrencyRequest)
+    }
+
   def getFunctionConfigurationSource(
       getFunctionConfigurationRequest: GetFunctionConfigurationRequest,
       parallelism: Int = DefaultParallelism
@@ -210,6 +249,19 @@ trait LambdaAkkaClient {
   ): Flow[GetFunctionConfigurationRequest, GetFunctionConfigurationResponse, NotUsed] =
     Flow[GetFunctionConfigurationRequest].mapAsync(parallelism) { getFunctionConfigurationRequest =>
       underlying.getFunctionConfiguration(getFunctionConfigurationRequest)
+    }
+
+  def getFunctionEventInvokeConfigSource(
+      getFunctionEventInvokeConfigRequest: GetFunctionEventInvokeConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetFunctionEventInvokeConfigResponse, NotUsed] =
+    Source.single(getFunctionEventInvokeConfigRequest).via(getFunctionEventInvokeConfigFlow(parallelism))
+
+  def getFunctionEventInvokeConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetFunctionEventInvokeConfigRequest, GetFunctionEventInvokeConfigResponse, NotUsed] =
+    Flow[GetFunctionEventInvokeConfigRequest].mapAsync(parallelism) { getFunctionEventInvokeConfigRequest =>
+      underlying.getFunctionEventInvokeConfig(getFunctionEventInvokeConfigRequest)
     }
 
   def getLayerVersionSource(
@@ -262,6 +314,19 @@ trait LambdaAkkaClient {
       underlying.getPolicy(getPolicyRequest)
     }
 
+  def getProvisionedConcurrencyConfigSource(
+      getProvisionedConcurrencyConfigRequest: GetProvisionedConcurrencyConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetProvisionedConcurrencyConfigResponse, NotUsed] =
+    Source.single(getProvisionedConcurrencyConfigRequest).via(getProvisionedConcurrencyConfigFlow(parallelism))
+
+  def getProvisionedConcurrencyConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetProvisionedConcurrencyConfigRequest, GetProvisionedConcurrencyConfigResponse, NotUsed] =
+    Flow[GetProvisionedConcurrencyConfigRequest].mapAsync(parallelism) { getProvisionedConcurrencyConfigRequest =>
+      underlying.getProvisionedConcurrencyConfig(getProvisionedConcurrencyConfigRequest)
+    }
+
   def invokeSource(
       invokeRequest: InvokeRequest,
       parallelism: Int = DefaultParallelism
@@ -312,6 +377,25 @@ trait LambdaAkkaClient {
       : Flow[ListEventSourceMappingsRequest, ListEventSourceMappingsResponse, NotUsed] =
     Flow[ListEventSourceMappingsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listEventSourceMappingsPaginator(request))
+    }
+
+  def listFunctionEventInvokeConfigsSource(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListFunctionEventInvokeConfigsResponse, NotUsed] =
+    Source.single(listFunctionEventInvokeConfigsRequest).via(listFunctionEventInvokeConfigsFlow(parallelism))
+
+  def listFunctionEventInvokeConfigsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListFunctionEventInvokeConfigsRequest, ListFunctionEventInvokeConfigsResponse, NotUsed] =
+    Flow[ListFunctionEventInvokeConfigsRequest].mapAsync(parallelism) { listFunctionEventInvokeConfigsRequest =>
+      underlying.listFunctionEventInvokeConfigs(listFunctionEventInvokeConfigsRequest)
+    }
+
+  def listFunctionEventInvokeConfigsPaginatorFlow
+      : Flow[ListFunctionEventInvokeConfigsRequest, ListFunctionEventInvokeConfigsResponse, NotUsed] =
+    Flow[ListFunctionEventInvokeConfigsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listFunctionEventInvokeConfigsPaginator(request))
     }
 
   def listFunctionsSource(
@@ -376,6 +460,25 @@ trait LambdaAkkaClient {
   def listLayersPaginatorFlow: Flow[ListLayersRequest, ListLayersResponse, NotUsed] =
     Flow[ListLayersRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listLayersPaginator(request))
+    }
+
+  def listProvisionedConcurrencyConfigsSource(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListProvisionedConcurrencyConfigsResponse, NotUsed] =
+    Source.single(listProvisionedConcurrencyConfigsRequest).via(listProvisionedConcurrencyConfigsFlow(parallelism))
+
+  def listProvisionedConcurrencyConfigsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListProvisionedConcurrencyConfigsRequest, ListProvisionedConcurrencyConfigsResponse, NotUsed] =
+    Flow[ListProvisionedConcurrencyConfigsRequest].mapAsync(parallelism) { listProvisionedConcurrencyConfigsRequest =>
+      underlying.listProvisionedConcurrencyConfigs(listProvisionedConcurrencyConfigsRequest)
+    }
+
+  def listProvisionedConcurrencyConfigsPaginatorFlow
+      : Flow[ListProvisionedConcurrencyConfigsRequest, ListProvisionedConcurrencyConfigsResponse, NotUsed] =
+    Flow[ListProvisionedConcurrencyConfigsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listProvisionedConcurrencyConfigsPaginator(request))
     }
 
   def listTagsSource(
@@ -445,6 +548,32 @@ trait LambdaAkkaClient {
   ): Flow[PutFunctionConcurrencyRequest, PutFunctionConcurrencyResponse, NotUsed] =
     Flow[PutFunctionConcurrencyRequest].mapAsync(parallelism) { putFunctionConcurrencyRequest =>
       underlying.putFunctionConcurrency(putFunctionConcurrencyRequest)
+    }
+
+  def putFunctionEventInvokeConfigSource(
+      putFunctionEventInvokeConfigRequest: PutFunctionEventInvokeConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutFunctionEventInvokeConfigResponse, NotUsed] =
+    Source.single(putFunctionEventInvokeConfigRequest).via(putFunctionEventInvokeConfigFlow(parallelism))
+
+  def putFunctionEventInvokeConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutFunctionEventInvokeConfigRequest, PutFunctionEventInvokeConfigResponse, NotUsed] =
+    Flow[PutFunctionEventInvokeConfigRequest].mapAsync(parallelism) { putFunctionEventInvokeConfigRequest =>
+      underlying.putFunctionEventInvokeConfig(putFunctionEventInvokeConfigRequest)
+    }
+
+  def putProvisionedConcurrencyConfigSource(
+      putProvisionedConcurrencyConfigRequest: PutProvisionedConcurrencyConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutProvisionedConcurrencyConfigResponse, NotUsed] =
+    Source.single(putProvisionedConcurrencyConfigRequest).via(putProvisionedConcurrencyConfigFlow(parallelism))
+
+  def putProvisionedConcurrencyConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutProvisionedConcurrencyConfigRequest, PutProvisionedConcurrencyConfigResponse, NotUsed] =
+    Flow[PutProvisionedConcurrencyConfigRequest].mapAsync(parallelism) { putProvisionedConcurrencyConfigRequest =>
+      underlying.putProvisionedConcurrencyConfig(putProvisionedConcurrencyConfigRequest)
     }
 
   def removeLayerVersionPermissionSource(
@@ -545,6 +674,19 @@ trait LambdaAkkaClient {
   ): Flow[UpdateFunctionConfigurationRequest, UpdateFunctionConfigurationResponse, NotUsed] =
     Flow[UpdateFunctionConfigurationRequest].mapAsync(parallelism) { updateFunctionConfigurationRequest =>
       underlying.updateFunctionConfiguration(updateFunctionConfigurationRequest)
+    }
+
+  def updateFunctionEventInvokeConfigSource(
+      updateFunctionEventInvokeConfigRequest: UpdateFunctionEventInvokeConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateFunctionEventInvokeConfigResponse, NotUsed] =
+    Source.single(updateFunctionEventInvokeConfigRequest).via(updateFunctionEventInvokeConfigFlow(parallelism))
+
+  def updateFunctionEventInvokeConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateFunctionEventInvokeConfigRequest, UpdateFunctionEventInvokeConfigResponse, NotUsed] =
+    Flow[UpdateFunctionEventInvokeConfigRequest].mapAsync(parallelism) { updateFunctionEventInvokeConfigRequest =>
+      underlying.updateFunctionEventInvokeConfig(updateFunctionEventInvokeConfigRequest)
     }
 
 }

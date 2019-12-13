@@ -31,7 +31,15 @@ trait LambdaClient[M[_]] {
       deleteFunctionConcurrencyRequest: DeleteFunctionConcurrencyRequest
   ): M[DeleteFunctionConcurrencyResponse]
 
+  def deleteFunctionEventInvokeConfig(
+      deleteFunctionEventInvokeConfigRequest: DeleteFunctionEventInvokeConfigRequest
+  ): M[DeleteFunctionEventInvokeConfigResponse]
+
   def deleteLayerVersion(deleteLayerVersionRequest: DeleteLayerVersionRequest): M[DeleteLayerVersionResponse]
+
+  def deleteProvisionedConcurrencyConfig(
+      deleteProvisionedConcurrencyConfigRequest: DeleteProvisionedConcurrencyConfigRequest
+  ): M[DeleteProvisionedConcurrencyConfigResponse]
 
   def getAccountSettings(getAccountSettingsRequest: GetAccountSettingsRequest): M[GetAccountSettingsResponse]
 
@@ -45,9 +53,17 @@ trait LambdaClient[M[_]] {
 
   def getFunction(getFunctionRequest: GetFunctionRequest): M[GetFunctionResponse]
 
+  def getFunctionConcurrency(
+      getFunctionConcurrencyRequest: GetFunctionConcurrencyRequest
+  ): M[GetFunctionConcurrencyResponse]
+
   def getFunctionConfiguration(
       getFunctionConfigurationRequest: GetFunctionConfigurationRequest
   ): M[GetFunctionConfigurationResponse]
+
+  def getFunctionEventInvokeConfig(
+      getFunctionEventInvokeConfigRequest: GetFunctionEventInvokeConfigRequest
+  ): M[GetFunctionEventInvokeConfigResponse]
 
   def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): M[GetLayerVersionResponse]
 
@@ -59,6 +75,10 @@ trait LambdaClient[M[_]] {
 
   def getPolicy(getPolicyRequest: GetPolicyRequest): M[GetPolicyResponse]
 
+  def getProvisionedConcurrencyConfig(
+      getProvisionedConcurrencyConfigRequest: GetProvisionedConcurrencyConfigRequest
+  ): M[GetProvisionedConcurrencyConfigResponse]
+
   def invoke(invokeRequest: InvokeRequest): M[InvokeResponse]
 
   def listAliases(listAliasesRequest: ListAliasesRequest): M[ListAliasesResponse]
@@ -69,6 +89,10 @@ trait LambdaClient[M[_]] {
 
   def listEventSourceMappings(): M[ListEventSourceMappingsResponse]
 
+  def listFunctionEventInvokeConfigs(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): M[ListFunctionEventInvokeConfigsResponse]
+
   def listFunctions(listFunctionsRequest: ListFunctionsRequest): M[ListFunctionsResponse]
 
   def listFunctions(): M[ListFunctionsResponse]
@@ -78,6 +102,10 @@ trait LambdaClient[M[_]] {
   def listLayers(listLayersRequest: ListLayersRequest): M[ListLayersResponse]
 
   def listLayers(): M[ListLayersResponse]
+
+  def listProvisionedConcurrencyConfigs(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): M[ListProvisionedConcurrencyConfigsResponse]
 
   def listTags(listTagsRequest: ListTagsRequest): M[ListTagsResponse]
 
@@ -92,6 +120,14 @@ trait LambdaClient[M[_]] {
   def putFunctionConcurrency(
       putFunctionConcurrencyRequest: PutFunctionConcurrencyRequest
   ): M[PutFunctionConcurrencyResponse]
+
+  def putFunctionEventInvokeConfig(
+      putFunctionEventInvokeConfigRequest: PutFunctionEventInvokeConfigRequest
+  ): M[PutFunctionEventInvokeConfigResponse]
+
+  def putProvisionedConcurrencyConfig(
+      putProvisionedConcurrencyConfigRequest: PutProvisionedConcurrencyConfigRequest
+  ): M[PutProvisionedConcurrencyConfigResponse]
 
   def removeLayerVersionPermission(
       removeLayerVersionPermissionRequest: RemoveLayerVersionPermissionRequest
@@ -114,5 +150,9 @@ trait LambdaClient[M[_]] {
   def updateFunctionConfiguration(
       updateFunctionConfigurationRequest: UpdateFunctionConfigurationRequest
   ): M[UpdateFunctionConfigurationResponse]
+
+  def updateFunctionEventInvokeConfig(
+      updateFunctionEventInvokeConfigRequest: UpdateFunctionEventInvokeConfigRequest
+  ): M[UpdateFunctionEventInvokeConfigResponse]
 
 }

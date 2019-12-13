@@ -42,6 +42,8 @@ trait ToAllOps
     with ToGetFunctionConfigurationResponseOps
     with ToGetFunctionRequestOps
     with ToGetFunctionResponseOps
+    with ToGetLayerVersionByArnRequestOps
+    with ToGetLayerVersionByArnResponseOps
     with ToGetLayerVersionPolicyRequestOps
     with ToGetLayerVersionPolicyResponseOps
     with ToGetLayerVersionRequestOps

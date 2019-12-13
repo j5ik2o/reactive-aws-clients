@@ -20,6 +20,9 @@ trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
   val underlying: JavaAppSyncClient
   import AppSyncSyncClient._
 
+  override def createApiCache(createApiCacheRequest: CreateApiCacheRequest): Either[Throwable, CreateApiCacheResponse] =
+    underlying.createApiCache(createApiCacheRequest).toEither
+
   override def createApiKey(createApiKeyRequest: CreateApiKeyRequest): Either[Throwable, CreateApiKeyResponse] =
     underlying.createApiKey(createApiKeyRequest).toEither
 
@@ -42,6 +45,9 @@ trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
   override def createType(createTypeRequest: CreateTypeRequest): Either[Throwable, CreateTypeResponse] =
     underlying.createType(createTypeRequest).toEither
 
+  override def deleteApiCache(deleteApiCacheRequest: DeleteApiCacheRequest): Either[Throwable, DeleteApiCacheResponse] =
+    underlying.deleteApiCache(deleteApiCacheRequest).toEither
+
   override def deleteApiKey(deleteApiKeyRequest: DeleteApiKeyRequest): Either[Throwable, DeleteApiKeyResponse] =
     underlying.deleteApiKey(deleteApiKeyRequest).toEither
 
@@ -63,6 +69,12 @@ trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
 
   override def deleteType(deleteTypeRequest: DeleteTypeRequest): Either[Throwable, DeleteTypeResponse] =
     underlying.deleteType(deleteTypeRequest).toEither
+
+  override def flushApiCache(flushApiCacheRequest: FlushApiCacheRequest): Either[Throwable, FlushApiCacheResponse] =
+    underlying.flushApiCache(flushApiCacheRequest).toEither
+
+  override def getApiCache(getApiCacheRequest: GetApiCacheRequest): Either[Throwable, GetApiCacheResponse] =
+    underlying.getApiCache(getApiCacheRequest).toEither
 
   override def getDataSource(getDataSourceRequest: GetDataSourceRequest): Either[Throwable, GetDataSourceResponse] =
     underlying.getDataSource(getDataSourceRequest).toEither
@@ -134,6 +146,9 @@ trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
 
   override def untagResource(untagResourceRequest: UntagResourceRequest): Either[Throwable, UntagResourceResponse] =
     underlying.untagResource(untagResourceRequest).toEither
+
+  override def updateApiCache(updateApiCacheRequest: UpdateApiCacheRequest): Either[Throwable, UpdateApiCacheResponse] =
+    underlying.updateApiCache(updateApiCacheRequest).toEither
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): Either[Throwable, UpdateApiKeyResponse] =
     underlying.updateApiKey(updateApiKeyRequest).toEither

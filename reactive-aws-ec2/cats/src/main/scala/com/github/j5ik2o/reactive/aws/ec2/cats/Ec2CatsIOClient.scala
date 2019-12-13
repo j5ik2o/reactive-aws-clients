@@ -31,6 +31,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.acceptReservedInstancesExchangeQuote(acceptReservedInstancesExchangeQuoteRequest))
     }
 
+  override def acceptTransitGatewayPeeringAttachment(
+      acceptTransitGatewayPeeringAttachmentRequest: AcceptTransitGatewayPeeringAttachmentRequest
+  ): IO[AcceptTransitGatewayPeeringAttachmentResponse] =
+    IO.fromFuture {
+      IO(underlying.acceptTransitGatewayPeeringAttachment(acceptTransitGatewayPeeringAttachmentRequest))
+    }
+
   override def acceptTransitGatewayVpcAttachment(
       acceptTransitGatewayVpcAttachmentRequest: AcceptTransitGatewayVpcAttachmentRequest
   ): IO[AcceptTransitGatewayVpcAttachmentResponse] =
@@ -138,6 +145,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[AssociateSubnetCidrBlockResponse] =
     IO.fromFuture {
       IO(underlying.associateSubnetCidrBlock(associateSubnetCidrBlockRequest))
+    }
+
+  override def associateTransitGatewayMulticastDomain(
+      associateTransitGatewayMulticastDomainRequest: AssociateTransitGatewayMulticastDomainRequest
+  ): IO[AssociateTransitGatewayMulticastDomainResponse] =
+    IO.fromFuture {
+      IO(underlying.associateTransitGatewayMulticastDomain(associateTransitGatewayMulticastDomainRequest))
     }
 
   override def associateTransitGatewayRouteTable(
@@ -398,6 +412,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.createLaunchTemplateVersion(createLaunchTemplateVersionRequest))
     }
 
+  override def createLocalGatewayRoute(
+      createLocalGatewayRouteRequest: CreateLocalGatewayRouteRequest
+  ): IO[CreateLocalGatewayRouteResponse] =
+    IO.fromFuture {
+      IO(underlying.createLocalGatewayRoute(createLocalGatewayRouteRequest))
+    }
+
+  override def createLocalGatewayRouteTableVpcAssociation(
+      createLocalGatewayRouteTableVpcAssociationRequest: CreateLocalGatewayRouteTableVpcAssociationRequest
+  ): IO[CreateLocalGatewayRouteTableVpcAssociationResponse] =
+    IO.fromFuture {
+      IO(underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest))
+    }
+
   override def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): IO[CreateNatGatewayResponse] =
     IO.fromFuture {
       IO(underlying.createNatGateway(createNatGatewayRequest))
@@ -525,6 +553,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def createTransitGateway(): IO[CreateTransitGatewayResponse] =
     IO.fromFuture {
       IO(underlying.createTransitGateway())
+    }
+
+  override def createTransitGatewayMulticastDomain(
+      createTransitGatewayMulticastDomainRequest: CreateTransitGatewayMulticastDomainRequest
+  ): IO[CreateTransitGatewayMulticastDomainResponse] =
+    IO.fromFuture {
+      IO(underlying.createTransitGatewayMulticastDomain(createTransitGatewayMulticastDomainRequest))
+    }
+
+  override def createTransitGatewayPeeringAttachment(
+      createTransitGatewayPeeringAttachmentRequest: CreateTransitGatewayPeeringAttachmentRequest
+  ): IO[CreateTransitGatewayPeeringAttachmentResponse] =
+    IO.fromFuture {
+      IO(underlying.createTransitGatewayPeeringAttachment(createTransitGatewayPeeringAttachmentRequest))
     }
 
   override def createTransitGatewayRoute(
@@ -677,6 +719,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.deleteLaunchTemplateVersions(deleteLaunchTemplateVersionsRequest))
     }
 
+  override def deleteLocalGatewayRoute(
+      deleteLocalGatewayRouteRequest: DeleteLocalGatewayRouteRequest
+  ): IO[DeleteLocalGatewayRouteResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteLocalGatewayRoute(deleteLocalGatewayRouteRequest))
+    }
+
+  override def deleteLocalGatewayRouteTableVpcAssociation(
+      deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
+  ): IO[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest))
+    }
+
   override def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): IO[DeleteNatGatewayResponse] =
     IO.fromFuture {
       IO(underlying.deleteNatGateway(deleteNatGatewayRequest))
@@ -801,6 +857,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.deleteTransitGateway(deleteTransitGatewayRequest))
     }
 
+  override def deleteTransitGatewayMulticastDomain(
+      deleteTransitGatewayMulticastDomainRequest: DeleteTransitGatewayMulticastDomainRequest
+  ): IO[DeleteTransitGatewayMulticastDomainResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTransitGatewayMulticastDomain(deleteTransitGatewayMulticastDomainRequest))
+    }
+
+  override def deleteTransitGatewayPeeringAttachment(
+      deleteTransitGatewayPeeringAttachmentRequest: DeleteTransitGatewayPeeringAttachmentRequest
+  ): IO[DeleteTransitGatewayPeeringAttachmentResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteTransitGatewayPeeringAttachment(deleteTransitGatewayPeeringAttachmentRequest))
+    }
+
   override def deleteTransitGatewayRoute(
       deleteTransitGatewayRouteRequest: DeleteTransitGatewayRouteRequest
   ): IO[DeleteTransitGatewayRouteResponse] =
@@ -889,6 +959,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def deregisterImage(deregisterImageRequest: DeregisterImageRequest): IO[DeregisterImageResponse] =
     IO.fromFuture {
       IO(underlying.deregisterImage(deregisterImageRequest))
+    }
+
+  override def deregisterTransitGatewayMulticastGroupMembers(
+      deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
+  ): IO[DeregisterTransitGatewayMulticastGroupMembersResponse] =
+    IO.fromFuture {
+      IO(underlying.deregisterTransitGatewayMulticastGroupMembers(deregisterTransitGatewayMulticastGroupMembersRequest))
+    }
+
+  override def deregisterTransitGatewayMulticastGroupSources(
+      deregisterTransitGatewayMulticastGroupSourcesRequest: DeregisterTransitGatewayMulticastGroupSourcesRequest
+  ): IO[DeregisterTransitGatewayMulticastGroupSourcesResponse] =
+    IO.fromFuture {
+      IO(underlying.deregisterTransitGatewayMulticastGroupSources(deregisterTransitGatewayMulticastGroupSourcesRequest))
     }
 
   override def describeAccountAttributes(
@@ -1067,6 +1151,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): DescribeClientVpnTargetNetworksPublisher =
     underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
 
+  override def describeCoipPools(describeCoipPoolsRequest: DescribeCoipPoolsRequest): IO[DescribeCoipPoolsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeCoipPools(describeCoipPoolsRequest))
+    }
+
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
   ): IO[DescribeConversionTasksResponse] =
@@ -1150,6 +1239,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.describeExportImageTasks(describeExportImageTasksRequest))
     }
 
+  def describeExportImageTasksPaginator(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): DescribeExportImageTasksPublisher =
+    underlying.describeExportImageTasksPaginator(describeExportImageTasksRequest)
+
   override def describeExportTasks(
       describeExportTasksRequest: DescribeExportTasksRequest
   ): IO[DescribeExportTasksResponse] =
@@ -1161,6 +1255,18 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.describeExportTasks())
     }
+
+  override def describeFastSnapshotRestores(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): IO[DescribeFastSnapshotRestoresResponse] =
+    IO.fromFuture {
+      IO(underlying.describeFastSnapshotRestores(describeFastSnapshotRestoresRequest))
+    }
+
+  def describeFastSnapshotRestoresPaginator(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): DescribeFastSnapshotRestoresPublisher =
+    underlying.describeFastSnapshotRestoresPaginator(describeFastSnapshotRestoresRequest)
 
   override def describeFleetHistory(
       describeFleetHistoryRequest: DescribeFleetHistoryRequest
@@ -1430,6 +1536,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): DescribeInstanceStatusPublisher =
     underlying.describeInstanceStatusPaginator(describeInstanceStatusRequest)
 
+  override def describeInstanceTypeOfferings(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): IO[DescribeInstanceTypeOfferingsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest))
+    }
+
+  override def describeInstanceTypes(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): IO[DescribeInstanceTypesResponse] =
+    IO.fromFuture {
+      IO(underlying.describeInstanceTypes(describeInstanceTypesRequest))
+    }
+
   override def describeInstances(describeInstancesRequest: DescribeInstancesRequest): IO[DescribeInstancesResponse] =
     IO.fromFuture {
       IO(underlying.describeInstances(describeInstancesRequest))
@@ -1507,6 +1627,52 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
   ): DescribeLaunchTemplatesPublisher =
     underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest)
+
+  override def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): IO[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] =
+    IO.fromFuture {
+      IO(
+        underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+          describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+        )
+      )
+    }
+
+  override def describeLocalGatewayRouteTableVpcAssociations(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): IO[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest))
+    }
+
+  override def describeLocalGatewayRouteTables(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): IO[DescribeLocalGatewayRouteTablesResponse] =
+    IO.fromFuture {
+      IO(underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest))
+    }
+
+  override def describeLocalGatewayVirtualInterfaceGroups(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): IO[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest))
+    }
+
+  override def describeLocalGatewayVirtualInterfaces(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): IO[DescribeLocalGatewayVirtualInterfacesResponse] =
+    IO.fromFuture {
+      IO(underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest))
+    }
+
+  override def describeLocalGateways(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): IO[DescribeLocalGatewaysResponse] =
+    IO.fromFuture {
+      IO(underlying.describeLocalGateways(describeLocalGatewaysRequest))
+    }
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -2049,6 +2215,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): DescribeTransitGatewayAttachmentsPublisher =
     underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
 
+  override def describeTransitGatewayMulticastDomains(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): IO[DescribeTransitGatewayMulticastDomainsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest))
+    }
+
+  override def describeTransitGatewayPeeringAttachments(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): IO[DescribeTransitGatewayPeeringAttachmentsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest))
+    }
+
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): IO[DescribeTransitGatewayRouteTablesResponse] =
@@ -2413,6 +2593,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest))
     }
 
+  override def disableFastSnapshotRestores(
+      disableFastSnapshotRestoresRequest: DisableFastSnapshotRestoresRequest
+  ): IO[DisableFastSnapshotRestoresResponse] =
+    IO.fromFuture {
+      IO(underlying.disableFastSnapshotRestores(disableFastSnapshotRestoresRequest))
+    }
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): IO[DisableTransitGatewayRouteTablePropagationResponse] =
@@ -2476,6 +2663,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.disassociateSubnetCidrBlock(disassociateSubnetCidrBlockRequest))
     }
 
+  override def disassociateTransitGatewayMulticastDomain(
+      disassociateTransitGatewayMulticastDomainRequest: DisassociateTransitGatewayMulticastDomainRequest
+  ): IO[DisassociateTransitGatewayMulticastDomainResponse] =
+    IO.fromFuture {
+      IO(underlying.disassociateTransitGatewayMulticastDomain(disassociateTransitGatewayMulticastDomainRequest))
+    }
+
   override def disassociateTransitGatewayRouteTable(
       disassociateTransitGatewayRouteTableRequest: DisassociateTransitGatewayRouteTableRequest
   ): IO[DisassociateTransitGatewayRouteTableResponse] =
@@ -2495,6 +2689,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[EnableEbsEncryptionByDefaultResponse] =
     IO.fromFuture {
       IO(underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest))
+    }
+
+  override def enableFastSnapshotRestores(
+      enableFastSnapshotRestoresRequest: EnableFastSnapshotRestoresRequest
+  ): IO[EnableFastSnapshotRestoresResponse] =
+    IO.fromFuture {
+      IO(underlying.enableFastSnapshotRestores(enableFastSnapshotRestoresRequest))
     }
 
   override def enableTransitGatewayRouteTablePropagation(
@@ -2565,6 +2766,11 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest))
     }
 
+  override def getCoipPoolUsage(getCoipPoolUsageRequest: GetCoipPoolUsageRequest): IO[GetCoipPoolUsageResponse] =
+    IO.fromFuture {
+      IO(underlying.getCoipPoolUsage(getCoipPoolUsageRequest))
+    }
+
   override def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): IO[GetConsoleOutputResponse] =
     IO.fromFuture {
       IO(underlying.getConsoleOutput(getConsoleOutputRequest))
@@ -2575,6 +2781,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[GetConsoleScreenshotResponse] =
     IO.fromFuture {
       IO(underlying.getConsoleScreenshot(getConsoleScreenshotRequest))
+    }
+
+  override def getDefaultCreditSpecification(
+      getDefaultCreditSpecificationRequest: GetDefaultCreditSpecificationRequest
+  ): IO[GetDefaultCreditSpecificationResponse] =
+    IO.fromFuture {
+      IO(underlying.getDefaultCreditSpecification(getDefaultCreditSpecificationRequest))
     }
 
   override def getEbsDefaultKmsKeyId(
@@ -2628,6 +2841,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
   ): GetTransitGatewayAttachmentPropagationsPublisher =
     underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
+
+  override def getTransitGatewayMulticastDomainAssociations(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): IO[GetTransitGatewayMulticastDomainAssociationsResponse] =
+    IO.fromFuture {
+      IO(underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest))
+    }
 
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
@@ -2701,6 +2921,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest))
     }
 
+  override def modifyDefaultCreditSpecification(
+      modifyDefaultCreditSpecificationRequest: ModifyDefaultCreditSpecificationRequest
+  ): IO[ModifyDefaultCreditSpecificationResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyDefaultCreditSpecification(modifyDefaultCreditSpecificationRequest))
+    }
+
   override def modifyEbsDefaultKmsKeyId(
       modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
   ): IO[ModifyEbsDefaultKmsKeyIdResponse] =
@@ -2770,6 +2997,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[ModifyInstanceEventStartTimeResponse] =
     IO.fromFuture {
       IO(underlying.modifyInstanceEventStartTime(modifyInstanceEventStartTimeRequest))
+    }
+
+  override def modifyInstanceMetadataOptions(
+      modifyInstanceMetadataOptionsRequest: ModifyInstanceMetadataOptionsRequest
+  ): IO[ModifyInstanceMetadataOptionsResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyInstanceMetadataOptions(modifyInstanceMetadataOptionsRequest))
     }
 
   override def modifyInstancePlacement(
@@ -2975,6 +3209,27 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.registerImage(registerImageRequest))
     }
 
+  override def registerTransitGatewayMulticastGroupMembers(
+      registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest
+  ): IO[RegisterTransitGatewayMulticastGroupMembersResponse] =
+    IO.fromFuture {
+      IO(underlying.registerTransitGatewayMulticastGroupMembers(registerTransitGatewayMulticastGroupMembersRequest))
+    }
+
+  override def registerTransitGatewayMulticastGroupSources(
+      registerTransitGatewayMulticastGroupSourcesRequest: RegisterTransitGatewayMulticastGroupSourcesRequest
+  ): IO[RegisterTransitGatewayMulticastGroupSourcesResponse] =
+    IO.fromFuture {
+      IO(underlying.registerTransitGatewayMulticastGroupSources(registerTransitGatewayMulticastGroupSourcesRequest))
+    }
+
+  override def rejectTransitGatewayPeeringAttachment(
+      rejectTransitGatewayPeeringAttachmentRequest: RejectTransitGatewayPeeringAttachmentRequest
+  ): IO[RejectTransitGatewayPeeringAttachmentResponse] =
+    IO.fromFuture {
+      IO(underlying.rejectTransitGatewayPeeringAttachment(rejectTransitGatewayPeeringAttachmentRequest))
+    }
+
   override def rejectTransitGatewayVpcAttachment(
       rejectTransitGatewayVpcAttachmentRequest: RejectTransitGatewayVpcAttachmentRequest
   ): IO[RejectTransitGatewayVpcAttachmentResponse] =
@@ -3145,6 +3400,20 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[RunScheduledInstancesResponse] =
     IO.fromFuture {
       IO(underlying.runScheduledInstances(runScheduledInstancesRequest))
+    }
+
+  override def searchLocalGatewayRoutes(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): IO[SearchLocalGatewayRoutesResponse] =
+    IO.fromFuture {
+      IO(underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest))
+    }
+
+  override def searchTransitGatewayMulticastGroups(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): IO[SearchTransitGatewayMulticastGroupsResponse] =
+    IO.fromFuture {
+      IO(underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest))
     }
 
   override def searchTransitGatewayRoutes(

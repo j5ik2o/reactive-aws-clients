@@ -29,6 +29,8 @@ trait ToAllOps
     with ToDescribeReservedElasticsearchInstanceOfferingsResponseOps
     with ToDescribeReservedElasticsearchInstancesRequestOps
     with ToDescribeReservedElasticsearchInstancesResponseOps
+    with ToDomainEndpointOptionsOps
+    with ToDomainEndpointOptionsStatusOps
     with ToDomainInfoOps
     with ToEBSOptionsOps
     with ToEBSOptionsStatusOps

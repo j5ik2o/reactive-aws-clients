@@ -22,6 +22,19 @@ trait EcsAkkaClient {
 
   val underlying: EcsAsyncClient
 
+  def createCapacityProviderSource(
+      createCapacityProviderRequest: CreateCapacityProviderRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateCapacityProviderResponse, NotUsed] =
+    Source.single(createCapacityProviderRequest).via(createCapacityProviderFlow(parallelism))
+
+  def createCapacityProviderFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateCapacityProviderRequest, CreateCapacityProviderResponse, NotUsed] =
+    Flow[CreateCapacityProviderRequest].mapAsync(parallelism) { createCapacityProviderRequest =>
+      underlying.createCapacityProvider(createCapacityProviderRequest)
+    }
+
   def createClusterSource(
       createClusterRequest: CreateClusterRequest,
       parallelism: Int = DefaultParallelism
@@ -155,6 +168,19 @@ trait EcsAkkaClient {
       underlying.deregisterTaskDefinition(deregisterTaskDefinitionRequest)
     }
 
+  def describeCapacityProvidersSource(
+      describeCapacityProvidersRequest: DescribeCapacityProvidersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeCapacityProvidersResponse, NotUsed] =
+    Source.single(describeCapacityProvidersRequest).via(describeCapacityProvidersFlow(parallelism))
+
+  def describeCapacityProvidersFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse, NotUsed] =
+    Flow[DescribeCapacityProvidersRequest].mapAsync(parallelism) { describeCapacityProvidersRequest =>
+      underlying.describeCapacityProviders(describeCapacityProvidersRequest)
+    }
+
   def describeClustersSource(
       describeClustersRequest: DescribeClustersRequest,
       parallelism: Int = DefaultParallelism
@@ -276,6 +302,11 @@ trait EcsAkkaClient {
   ): Flow[ListAttributesRequest, ListAttributesResponse, NotUsed] =
     Flow[ListAttributesRequest].mapAsync(parallelism) { listAttributesRequest =>
       underlying.listAttributes(listAttributesRequest)
+    }
+
+  def listAttributesPaginatorFlow: Flow[ListAttributesRequest, ListAttributesResponse, NotUsed] =
+    Flow[ListAttributesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listAttributesPaginator(request))
     }
 
   def listClustersSource(
@@ -472,6 +503,19 @@ trait EcsAkkaClient {
   ): Flow[PutAttributesRequest, PutAttributesResponse, NotUsed] =
     Flow[PutAttributesRequest].mapAsync(parallelism) { putAttributesRequest =>
       underlying.putAttributes(putAttributesRequest)
+    }
+
+  def putClusterCapacityProvidersSource(
+      putClusterCapacityProvidersRequest: PutClusterCapacityProvidersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutClusterCapacityProvidersResponse, NotUsed] =
+    Source.single(putClusterCapacityProvidersRequest).via(putClusterCapacityProvidersFlow(parallelism))
+
+  def putClusterCapacityProvidersFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse, NotUsed] =
+    Flow[PutClusterCapacityProvidersRequest].mapAsync(parallelism) { putClusterCapacityProvidersRequest =>
+      underlying.putClusterCapacityProviders(putClusterCapacityProvidersRequest)
     }
 
   def registerContainerInstanceSource(

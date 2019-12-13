@@ -4,6 +4,7 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 
 trait ToAllOps
     extends ToOptionSupport
+    with ToAttributeOps
     with ToAuthorizationDataOps
     with ToBatchCheckLayerAvailabilityRequestOps
     with ToBatchCheckLayerAvailabilityResponseOps
@@ -21,6 +22,8 @@ trait ToAllOps
     with ToDeleteRepositoryPolicyResponseOps
     with ToDeleteRepositoryRequestOps
     with ToDeleteRepositoryResponseOps
+    with ToDescribeImageScanFindingsRequestOps
+    with ToDescribeImageScanFindingsResponseOps
     with ToDescribeImagesFilterOps
     with ToDescribeImagesRequestOps
     with ToDescribeImagesResponseOps
@@ -40,6 +43,11 @@ trait ToAllOps
     with ToImageFailureOps
     with ToImageIdentifierOps
     with ToImageOps
+    with ToImageScanFindingOps
+    with ToImageScanFindingsOps
+    with ToImageScanFindingsSummaryOps
+    with ToImageScanStatusOps
+    with ToImageScanningConfigurationOps
     with ToInitiateLayerUploadRequestOps
     with ToInitiateLayerUploadResponseOps
     with ToLayerFailureOps
@@ -55,11 +63,17 @@ trait ToAllOps
     with ToListTagsForResourceResponseOps
     with ToPutImageRequestOps
     with ToPutImageResponseOps
+    with ToPutImageScanningConfigurationRequestOps
+    with ToPutImageScanningConfigurationResponseOps
+    with ToPutImageTagMutabilityRequestOps
+    with ToPutImageTagMutabilityResponseOps
     with ToPutLifecyclePolicyRequestOps
     with ToPutLifecyclePolicyResponseOps
     with ToRepositoryOps
     with ToSetRepositoryPolicyRequestOps
     with ToSetRepositoryPolicyResponseOps
+    with ToStartImageScanRequestOps
+    with ToStartImageScanResponseOps
     with ToStartLifecyclePolicyPreviewRequestOps
     with ToStartLifecyclePolicyPreviewResponseOps
     with ToTagOps

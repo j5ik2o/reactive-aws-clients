@@ -5,6 +5,8 @@ import software.amazon.awssdk.services.appsync.model._
 
 trait AppSyncClient[M[_]] {
 
+  def createApiCache(createApiCacheRequest: CreateApiCacheRequest): M[CreateApiCacheResponse]
+
   def createApiKey(createApiKeyRequest: CreateApiKeyRequest): M[CreateApiKeyResponse]
 
   def createDataSource(createDataSourceRequest: CreateDataSourceRequest): M[CreateDataSourceResponse]
@@ -17,6 +19,8 @@ trait AppSyncClient[M[_]] {
 
   def createType(createTypeRequest: CreateTypeRequest): M[CreateTypeResponse]
 
+  def deleteApiCache(deleteApiCacheRequest: DeleteApiCacheRequest): M[DeleteApiCacheResponse]
+
   def deleteApiKey(deleteApiKeyRequest: DeleteApiKeyRequest): M[DeleteApiKeyResponse]
 
   def deleteDataSource(deleteDataSourceRequest: DeleteDataSourceRequest): M[DeleteDataSourceResponse]
@@ -28,6 +32,10 @@ trait AppSyncClient[M[_]] {
   def deleteResolver(deleteResolverRequest: DeleteResolverRequest): M[DeleteResolverResponse]
 
   def deleteType(deleteTypeRequest: DeleteTypeRequest): M[DeleteTypeResponse]
+
+  def flushApiCache(flushApiCacheRequest: FlushApiCacheRequest): M[FlushApiCacheResponse]
+
+  def getApiCache(getApiCacheRequest: GetApiCacheRequest): M[GetApiCacheResponse]
 
   def getDataSource(getDataSourceRequest: GetDataSourceRequest): M[GetDataSourceResponse]
 
@@ -72,6 +80,8 @@ trait AppSyncClient[M[_]] {
   def tagResource(tagResourceRequest: TagResourceRequest): M[TagResourceResponse]
 
   def untagResource(untagResourceRequest: UntagResourceRequest): M[UntagResourceResponse]
+
+  def updateApiCache(updateApiCacheRequest: UpdateApiCacheRequest): M[UpdateApiCacheResponse]
 
   def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): M[UpdateApiKeyResponse]
 

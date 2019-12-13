@@ -26,6 +26,22 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProvidersAsScala(value: Option[Seq[String]]): CreateClusterRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.capacityProviders(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def defaultCapacityProviderStrategyAsScala(
+      value: Option[Seq[CapacityProviderStrategyItem]]
+  ): CreateClusterRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.defaultCapacityProviderStrategy(v.asJava)
+    }
+  }
+
 }
 
 final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyVal {
@@ -42,6 +58,17 @@ final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyV
   final def settingsAsScala: Option[Seq[ClusterSetting]] = Option(self.settings).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProvidersAsScala: Option[Seq[String]] = Option(self.capacityProviders).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def defaultCapacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =
+    Option(self.defaultCapacityProviderStrategy).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

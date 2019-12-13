@@ -62,6 +62,15 @@ final class CreateServiceRequestBuilderOps(val self: CreateServiceRequest.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderStrategyAsScala(
+      value: Option[Seq[CapacityProviderStrategyItem]]
+  ): CreateServiceRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.capacityProviderStrategy(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): CreateServiceRequest.Builder = {
     value.fold(self) { v =>
       self.platformVersion(v)
@@ -176,6 +185,12 @@ final class CreateServiceRequestOps(val self: CreateServiceRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTypeAsScala: Option[LaunchType] = Option(self.launchType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =
+    Option(self.capacityProviderStrategy).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala: Option[String] = Option(self.platformVersion)

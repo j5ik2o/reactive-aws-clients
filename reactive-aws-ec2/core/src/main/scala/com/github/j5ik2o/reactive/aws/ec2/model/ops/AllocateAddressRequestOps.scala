@@ -26,6 +26,20 @@ final class AllocateAddressRequestBuilderOps(val self: AllocateAddressRequest.Bu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala(value: Option[String]): AllocateAddressRequest.Builder = {
+    value.fold(self) { v =>
+      self.networkBorderGroup(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala(value: Option[String]): AllocateAddressRequest.Builder = {
+    value.fold(self) { v =>
+      self.customerOwnedIpv4Pool(v)
+    }
+  }
+
 }
 
 final class AllocateAddressRequestOps(val self: AllocateAddressRequest) extends AnyVal {
@@ -38,6 +52,12 @@ final class AllocateAddressRequestOps(val self: AllocateAddressRequest) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpv4PoolAsScala: Option[String] = Option(self.publicIpv4Pool)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala: Option[String] = Option(self.networkBorderGroup)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala: Option[String] = Option(self.customerOwnedIpv4Pool)
 
 }
 

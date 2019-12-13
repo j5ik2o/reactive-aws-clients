@@ -146,6 +146,50 @@ final class GetFunctionConfigurationResponseBuilderOps(val self: GetFunctionConf
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateAsScala(value: Option[State]): GetFunctionConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.state(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateReasonAsScala(value: Option[String]): GetFunctionConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.stateReason(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateReasonCodeAsScala(value: Option[StateReasonCode]): GetFunctionConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.stateReasonCode(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastUpdateStatusAsScala(value: Option[LastUpdateStatus]): GetFunctionConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.lastUpdateStatus(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastUpdateStatusReasonAsScala(value: Option[String]): GetFunctionConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.lastUpdateStatusReason(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastUpdateStatusReasonCodeAsScala(
+      value: Option[LastUpdateStatusReasonCode]
+  ): GetFunctionConfigurationResponse.Builder = {
+    value.fold(self) { v =>
+      self.lastUpdateStatusReasonCode(v)
+    }
+  }
+
 }
 
 final class GetFunctionConfigurationResponseOps(val self: GetFunctionConfigurationResponse) extends AnyVal {
@@ -211,6 +255,25 @@ final class GetFunctionConfigurationResponseOps(val self: GetFunctionConfigurati
   final def layersAsScala: Option[Seq[Layer]] = Option(self.layers).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateAsScala: Option[State] = Option(self.state)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateReasonAsScala: Option[String] = Option(self.stateReason)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateReasonCodeAsScala: Option[StateReasonCode] = Option(self.stateReasonCode)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastUpdateStatusAsScala: Option[LastUpdateStatus] = Option(self.lastUpdateStatus)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastUpdateStatusReasonAsScala: Option[String] = Option(self.lastUpdateStatusReason)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastUpdateStatusReasonCodeAsScala: Option[LastUpdateStatusReasonCode] =
+    Option(self.lastUpdateStatusReasonCode)
 
 }
 

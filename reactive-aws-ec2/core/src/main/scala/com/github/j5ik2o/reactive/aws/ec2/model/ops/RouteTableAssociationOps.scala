@@ -33,6 +33,20 @@ final class RouteTableAssociationBuilderOps(val self: RouteTableAssociation.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def gatewayIdAsScala(value: Option[String]): RouteTableAssociation.Builder = {
+    value.fold(self) { v =>
+      self.gatewayId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def associationStateAsScala(value: Option[RouteTableAssociationState]): RouteTableAssociation.Builder = {
+    value.fold(self) { v =>
+      self.associationState(v)
+    }
+  }
+
 }
 
 final class RouteTableAssociationOps(val self: RouteTableAssociation) extends AnyVal {
@@ -48,6 +62,12 @@ final class RouteTableAssociationOps(val self: RouteTableAssociation) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def gatewayIdAsScala: Option[String] = Option(self.gatewayId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def associationStateAsScala: Option[RouteTableAssociationState] = Option(self.associationState)
 
 }
 

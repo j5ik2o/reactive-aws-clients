@@ -19,6 +19,13 @@ final class ReleaseAddressRequestBuilderOps(val self: ReleaseAddressRequest.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala(value: Option[String]): ReleaseAddressRequest.Builder = {
+    value.fold(self) { v =>
+      self.networkBorderGroup(v)
+    }
+  }
+
 }
 
 final class ReleaseAddressRequestOps(val self: ReleaseAddressRequest) extends AnyVal {
@@ -28,6 +35,9 @@ final class ReleaseAddressRequestOps(val self: ReleaseAddressRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpAsScala: Option[String] = Option(self.publicIp)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala: Option[String] = Option(self.networkBorderGroup)
 
 }
 

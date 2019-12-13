@@ -1,7 +1,10 @@
 package com.github.j5ik2o.reactive.aws.batch.model.ops
 
+import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
+
 trait ToAllOps
-    extends ToArrayPropertiesDetailOps
+    extends ToOptionSupport
+    with ToArrayPropertiesDetailOps
     with ToArrayPropertiesOps
     with ToArrayPropertiesSummaryOps
     with ToAttemptContainerDetailOps
@@ -30,6 +33,7 @@ trait ToAllOps
     with ToDescribeJobQueuesResponseOps
     with ToDescribeJobsRequestOps
     with ToDescribeJobsResponseOps
+    with ToDeviceOps
     with ToHostOps
     with ToJobDefinitionOps
     with ToJobDependencyOps
@@ -39,6 +43,7 @@ trait ToAllOps
     with ToJobTimeoutOps
     with ToKeyValuePairOps
     with ToLaunchTemplateSpecificationOps
+    with ToLinuxParametersOps
     with ToListJobsRequestOps
     with ToListJobsResponseOps
     with ToMountPointOps
@@ -51,6 +56,7 @@ trait ToAllOps
     with ToNodeRangePropertyOps
     with ToRegisterJobDefinitionRequestOps
     with ToRegisterJobDefinitionResponseOps
+    with ToResourceRequirementOps
     with ToRetryStrategyOps
     with ToSubmitJobRequestOps
     with ToSubmitJobResponseOps

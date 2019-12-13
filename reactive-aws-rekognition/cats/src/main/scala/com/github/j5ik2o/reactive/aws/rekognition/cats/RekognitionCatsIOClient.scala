@@ -35,6 +35,18 @@ trait RekognitionCatsIOClient extends RekognitionClient[IO] {
       IO(underlying.createCollection(createCollectionRequest))
     }
 
+  override def createProject(createProjectRequest: CreateProjectRequest): IO[CreateProjectResponse] =
+    IO.fromFuture {
+      IO(underlying.createProject(createProjectRequest))
+    }
+
+  override def createProjectVersion(
+      createProjectVersionRequest: CreateProjectVersionRequest
+  ): IO[CreateProjectVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.createProjectVersion(createProjectVersionRequest))
+    }
+
   override def createStreamProcessor(
       createStreamProcessorRequest: CreateStreamProcessorRequest
   ): IO[CreateStreamProcessorResponse] =
@@ -66,11 +78,38 @@ trait RekognitionCatsIOClient extends RekognitionClient[IO] {
       IO(underlying.describeCollection(describeCollectionRequest))
     }
 
+  override def describeProjectVersions(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): IO[DescribeProjectVersionsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeProjectVersions(describeProjectVersionsRequest))
+    }
+
+  def describeProjectVersionsPaginator(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): DescribeProjectVersionsPublisher =
+    underlying.describeProjectVersionsPaginator(describeProjectVersionsRequest)
+
+  override def describeProjects(describeProjectsRequest: DescribeProjectsRequest): IO[DescribeProjectsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeProjects(describeProjectsRequest))
+    }
+
+  def describeProjectsPaginator(describeProjectsRequest: DescribeProjectsRequest): DescribeProjectsPublisher =
+    underlying.describeProjectsPaginator(describeProjectsRequest)
+
   override def describeStreamProcessor(
       describeStreamProcessorRequest: DescribeStreamProcessorRequest
   ): IO[DescribeStreamProcessorResponse] =
     IO.fromFuture {
       IO(underlying.describeStreamProcessor(describeStreamProcessorRequest))
+    }
+
+  override def detectCustomLabels(
+      detectCustomLabelsRequest: DetectCustomLabelsRequest
+  ): IO[DetectCustomLabelsResponse] =
+    IO.fromFuture {
+      IO(underlying.detectCustomLabels(detectCustomLabelsRequest))
     }
 
   override def detectFaces(detectFacesRequest: DetectFacesRequest): IO[DetectFacesResponse] =
@@ -264,11 +303,25 @@ trait RekognitionCatsIOClient extends RekognitionClient[IO] {
       IO(underlying.startPersonTracking(startPersonTrackingRequest))
     }
 
+  override def startProjectVersion(
+      startProjectVersionRequest: StartProjectVersionRequest
+  ): IO[StartProjectVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.startProjectVersion(startProjectVersionRequest))
+    }
+
   override def startStreamProcessor(
       startStreamProcessorRequest: StartStreamProcessorRequest
   ): IO[StartStreamProcessorResponse] =
     IO.fromFuture {
       IO(underlying.startStreamProcessor(startStreamProcessorRequest))
+    }
+
+  override def stopProjectVersion(
+      stopProjectVersionRequest: StopProjectVersionRequest
+  ): IO[StopProjectVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.stopProjectVersion(stopProjectVersionRequest))
     }
 
   override def stopStreamProcessor(

@@ -28,6 +28,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[AcceptReservedInstancesExchangeQuoteResponse] =
     underlying.acceptReservedInstancesExchangeQuote(acceptReservedInstancesExchangeQuoteRequest).toScala
 
+  override def acceptTransitGatewayPeeringAttachment(
+      acceptTransitGatewayPeeringAttachmentRequest: AcceptTransitGatewayPeeringAttachmentRequest
+  ): Future[AcceptTransitGatewayPeeringAttachmentResponse] =
+    underlying.acceptTransitGatewayPeeringAttachment(acceptTransitGatewayPeeringAttachmentRequest).toScala
+
   override def acceptTransitGatewayVpcAttachment(
       acceptTransitGatewayVpcAttachmentRequest: AcceptTransitGatewayVpcAttachmentRequest
   ): Future[AcceptTransitGatewayVpcAttachmentResponse] =
@@ -102,6 +107,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       associateSubnetCidrBlockRequest: AssociateSubnetCidrBlockRequest
   ): Future[AssociateSubnetCidrBlockResponse] =
     underlying.associateSubnetCidrBlock(associateSubnetCidrBlockRequest).toScala
+
+  override def associateTransitGatewayMulticastDomain(
+      associateTransitGatewayMulticastDomainRequest: AssociateTransitGatewayMulticastDomainRequest
+  ): Future[AssociateTransitGatewayMulticastDomainResponse] =
+    underlying.associateTransitGatewayMulticastDomain(associateTransitGatewayMulticastDomainRequest).toScala
 
   override def associateTransitGatewayRouteTable(
       associateTransitGatewayRouteTableRequest: AssociateTransitGatewayRouteTableRequest
@@ -279,6 +289,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[CreateLaunchTemplateVersionResponse] =
     underlying.createLaunchTemplateVersion(createLaunchTemplateVersionRequest).toScala
 
+  override def createLocalGatewayRoute(
+      createLocalGatewayRouteRequest: CreateLocalGatewayRouteRequest
+  ): Future[CreateLocalGatewayRouteResponse] =
+    underlying.createLocalGatewayRoute(createLocalGatewayRouteRequest).toScala
+
+  override def createLocalGatewayRouteTableVpcAssociation(
+      createLocalGatewayRouteTableVpcAssociationRequest: CreateLocalGatewayRouteTableVpcAssociationRequest
+  ): Future[CreateLocalGatewayRouteTableVpcAssociationResponse] =
+    underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest).toScala
+
   override def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): Future[CreateNatGatewayResponse] =
     underlying.createNatGateway(createNatGatewayRequest).toScala
 
@@ -365,6 +385,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def createTransitGateway(): Future[CreateTransitGatewayResponse] =
     underlying.createTransitGateway().toScala
+
+  override def createTransitGatewayMulticastDomain(
+      createTransitGatewayMulticastDomainRequest: CreateTransitGatewayMulticastDomainRequest
+  ): Future[CreateTransitGatewayMulticastDomainResponse] =
+    underlying.createTransitGatewayMulticastDomain(createTransitGatewayMulticastDomainRequest).toScala
+
+  override def createTransitGatewayPeeringAttachment(
+      createTransitGatewayPeeringAttachmentRequest: CreateTransitGatewayPeeringAttachmentRequest
+  ): Future[CreateTransitGatewayPeeringAttachmentResponse] =
+    underlying.createTransitGatewayPeeringAttachment(createTransitGatewayPeeringAttachmentRequest).toScala
 
   override def createTransitGatewayRoute(
       createTransitGatewayRouteRequest: CreateTransitGatewayRouteRequest
@@ -472,6 +502,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DeleteLaunchTemplateVersionsResponse] =
     underlying.deleteLaunchTemplateVersions(deleteLaunchTemplateVersionsRequest).toScala
 
+  override def deleteLocalGatewayRoute(
+      deleteLocalGatewayRouteRequest: DeleteLocalGatewayRouteRequest
+  ): Future[DeleteLocalGatewayRouteResponse] =
+    underlying.deleteLocalGatewayRoute(deleteLocalGatewayRouteRequest).toScala
+
+  override def deleteLocalGatewayRouteTableVpcAssociation(
+      deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
+  ): Future[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
+    underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest).toScala
+
   override def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): Future[DeleteNatGatewayResponse] =
     underlying.deleteNatGateway(deleteNatGatewayRequest).toScala
 
@@ -556,6 +596,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DeleteTransitGatewayResponse] =
     underlying.deleteTransitGateway(deleteTransitGatewayRequest).toScala
 
+  override def deleteTransitGatewayMulticastDomain(
+      deleteTransitGatewayMulticastDomainRequest: DeleteTransitGatewayMulticastDomainRequest
+  ): Future[DeleteTransitGatewayMulticastDomainResponse] =
+    underlying.deleteTransitGatewayMulticastDomain(deleteTransitGatewayMulticastDomainRequest).toScala
+
+  override def deleteTransitGatewayPeeringAttachment(
+      deleteTransitGatewayPeeringAttachmentRequest: DeleteTransitGatewayPeeringAttachmentRequest
+  ): Future[DeleteTransitGatewayPeeringAttachmentResponse] =
+    underlying.deleteTransitGatewayPeeringAttachment(deleteTransitGatewayPeeringAttachmentRequest).toScala
+
   override def deleteTransitGatewayRoute(
       deleteTransitGatewayRouteRequest: DeleteTransitGatewayRouteRequest
   ): Future[DeleteTransitGatewayRouteResponse] =
@@ -617,6 +667,18 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def deregisterImage(deregisterImageRequest: DeregisterImageRequest): Future[DeregisterImageResponse] =
     underlying.deregisterImage(deregisterImageRequest).toScala
+
+  override def deregisterTransitGatewayMulticastGroupMembers(
+      deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
+  ): Future[DeregisterTransitGatewayMulticastGroupMembersResponse] =
+    underlying
+      .deregisterTransitGatewayMulticastGroupMembers(deregisterTransitGatewayMulticastGroupMembersRequest).toScala
+
+  override def deregisterTransitGatewayMulticastGroupSources(
+      deregisterTransitGatewayMulticastGroupSourcesRequest: DeregisterTransitGatewayMulticastGroupSourcesRequest
+  ): Future[DeregisterTransitGatewayMulticastGroupSourcesResponse] =
+    underlying
+      .deregisterTransitGatewayMulticastGroupSources(deregisterTransitGatewayMulticastGroupSourcesRequest).toScala
 
   override def describeAccountAttributes(
       describeAccountAttributesRequest: DescribeAccountAttributesRequest
@@ -754,6 +816,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): DescribeClientVpnTargetNetworksPublisher =
     underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
 
+  override def describeCoipPools(
+      describeCoipPoolsRequest: DescribeCoipPoolsRequest
+  ): Future[DescribeCoipPoolsResponse] =
+    underlying.describeCoipPools(describeCoipPoolsRequest).toScala
+
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
   ): Future[DescribeConversionTasksResponse] =
@@ -815,6 +882,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeExportImageTasksResponse] =
     underlying.describeExportImageTasks(describeExportImageTasksRequest).toScala
 
+  def describeExportImageTasksPaginator(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): DescribeExportImageTasksPublisher =
+    underlying.describeExportImageTasksPaginator(describeExportImageTasksRequest)
+
   override def describeExportTasks(
       describeExportTasksRequest: DescribeExportTasksRequest
   ): Future[DescribeExportTasksResponse] =
@@ -822,6 +894,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def describeExportTasks(): Future[DescribeExportTasksResponse] =
     underlying.describeExportTasks().toScala
+
+  override def describeFastSnapshotRestores(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): Future[DescribeFastSnapshotRestoresResponse] =
+    underlying.describeFastSnapshotRestores(describeFastSnapshotRestoresRequest).toScala
+
+  def describeFastSnapshotRestoresPaginator(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): DescribeFastSnapshotRestoresPublisher =
+    underlying.describeFastSnapshotRestoresPaginator(describeFastSnapshotRestoresRequest)
 
   override def describeFleetHistory(
       describeFleetHistoryRequest: DescribeFleetHistoryRequest
@@ -1027,6 +1109,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): DescribeInstanceStatusPublisher =
     underlying.describeInstanceStatusPaginator(describeInstanceStatusRequest)
 
+  override def describeInstanceTypeOfferings(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): Future[DescribeInstanceTypeOfferingsResponse] =
+    underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest).toScala
+
+  override def describeInstanceTypes(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): Future[DescribeInstanceTypesResponse] =
+    underlying.describeInstanceTypes(describeInstanceTypesRequest).toScala
+
   override def describeInstances(
       describeInstancesRequest: DescribeInstancesRequest
   ): Future[DescribeInstancesResponse] =
@@ -1088,6 +1180,40 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
   ): DescribeLaunchTemplatesPublisher =
     underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest)
+
+  override def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): Future[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] =
+    underlying
+      .describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+        describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+      ).toScala
+
+  override def describeLocalGatewayRouteTableVpcAssociations(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): Future[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
+    underlying
+      .describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest).toScala
+
+  override def describeLocalGatewayRouteTables(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): Future[DescribeLocalGatewayRouteTablesResponse] =
+    underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest).toScala
+
+  override def describeLocalGatewayVirtualInterfaceGroups(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): Future[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
+    underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest).toScala
+
+  override def describeLocalGatewayVirtualInterfaces(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): Future[DescribeLocalGatewayVirtualInterfacesResponse] =
+    underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest).toScala
+
+  override def describeLocalGateways(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): Future[DescribeLocalGatewaysResponse] =
+    underlying.describeLocalGateways(describeLocalGatewaysRequest).toScala
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -1512,6 +1638,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): DescribeTransitGatewayAttachmentsPublisher =
     underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
 
+  override def describeTransitGatewayMulticastDomains(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): Future[DescribeTransitGatewayMulticastDomainsResponse] =
+    underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest).toScala
+
+  override def describeTransitGatewayPeeringAttachments(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): Future[DescribeTransitGatewayPeeringAttachmentsResponse] =
+    underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest).toScala
+
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): Future[DescribeTransitGatewayRouteTablesResponse] =
@@ -1791,6 +1927,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DisableEbsEncryptionByDefaultResponse] =
     underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest).toScala
 
+  override def disableFastSnapshotRestores(
+      disableFastSnapshotRestoresRequest: DisableFastSnapshotRestoresRequest
+  ): Future[DisableFastSnapshotRestoresResponse] =
+    underlying.disableFastSnapshotRestores(disableFastSnapshotRestoresRequest).toScala
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): Future[DisableTransitGatewayRouteTablePropagationResponse] =
@@ -1836,6 +1977,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DisassociateSubnetCidrBlockResponse] =
     underlying.disassociateSubnetCidrBlock(disassociateSubnetCidrBlockRequest).toScala
 
+  override def disassociateTransitGatewayMulticastDomain(
+      disassociateTransitGatewayMulticastDomainRequest: DisassociateTransitGatewayMulticastDomainRequest
+  ): Future[DisassociateTransitGatewayMulticastDomainResponse] =
+    underlying.disassociateTransitGatewayMulticastDomain(disassociateTransitGatewayMulticastDomainRequest).toScala
+
   override def disassociateTransitGatewayRouteTable(
       disassociateTransitGatewayRouteTableRequest: DisassociateTransitGatewayRouteTableRequest
   ): Future[DisassociateTransitGatewayRouteTableResponse] =
@@ -1850,6 +1996,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
   ): Future[EnableEbsEncryptionByDefaultResponse] =
     underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest).toScala
+
+  override def enableFastSnapshotRestores(
+      enableFastSnapshotRestoresRequest: EnableFastSnapshotRestoresRequest
+  ): Future[EnableFastSnapshotRestoresResponse] =
+    underlying.enableFastSnapshotRestores(enableFastSnapshotRestoresRequest).toScala
 
   override def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
@@ -1898,6 +2049,9 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[GetCapacityReservationUsageResponse] =
     underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest).toScala
 
+  override def getCoipPoolUsage(getCoipPoolUsageRequest: GetCoipPoolUsageRequest): Future[GetCoipPoolUsageResponse] =
+    underlying.getCoipPoolUsage(getCoipPoolUsageRequest).toScala
+
   override def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): Future[GetConsoleOutputResponse] =
     underlying.getConsoleOutput(getConsoleOutputRequest).toScala
 
@@ -1905,6 +2059,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       getConsoleScreenshotRequest: GetConsoleScreenshotRequest
   ): Future[GetConsoleScreenshotResponse] =
     underlying.getConsoleScreenshot(getConsoleScreenshotRequest).toScala
+
+  override def getDefaultCreditSpecification(
+      getDefaultCreditSpecificationRequest: GetDefaultCreditSpecificationRequest
+  ): Future[GetDefaultCreditSpecificationResponse] =
+    underlying.getDefaultCreditSpecification(getDefaultCreditSpecificationRequest).toScala
 
   override def getEbsDefaultKmsKeyId(
       getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
@@ -1943,6 +2102,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
   ): GetTransitGatewayAttachmentPropagationsPublisher =
     underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
+
+  override def getTransitGatewayMulticastDomainAssociations(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): Future[GetTransitGatewayMulticastDomainAssociationsResponse] =
+    underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest).toScala
 
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
@@ -1995,6 +2159,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[ModifyClientVpnEndpointResponse] =
     underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest).toScala
 
+  override def modifyDefaultCreditSpecification(
+      modifyDefaultCreditSpecificationRequest: ModifyDefaultCreditSpecificationRequest
+  ): Future[ModifyDefaultCreditSpecificationResponse] =
+    underlying.modifyDefaultCreditSpecification(modifyDefaultCreditSpecificationRequest).toScala
+
   override def modifyEbsDefaultKmsKeyId(
       modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
   ): Future[ModifyEbsDefaultKmsKeyIdResponse] =
@@ -2043,6 +2212,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       modifyInstanceEventStartTimeRequest: ModifyInstanceEventStartTimeRequest
   ): Future[ModifyInstanceEventStartTimeResponse] =
     underlying.modifyInstanceEventStartTime(modifyInstanceEventStartTimeRequest).toScala
+
+  override def modifyInstanceMetadataOptions(
+      modifyInstanceMetadataOptionsRequest: ModifyInstanceMetadataOptionsRequest
+  ): Future[ModifyInstanceMetadataOptionsResponse] =
+    underlying.modifyInstanceMetadataOptions(modifyInstanceMetadataOptionsRequest).toScala
 
   override def modifyInstancePlacement(
       modifyInstancePlacementRequest: ModifyInstancePlacementRequest
@@ -2187,6 +2361,21 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def registerImage(registerImageRequest: RegisterImageRequest): Future[RegisterImageResponse] =
     underlying.registerImage(registerImageRequest).toScala
 
+  override def registerTransitGatewayMulticastGroupMembers(
+      registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest
+  ): Future[RegisterTransitGatewayMulticastGroupMembersResponse] =
+    underlying.registerTransitGatewayMulticastGroupMembers(registerTransitGatewayMulticastGroupMembersRequest).toScala
+
+  override def registerTransitGatewayMulticastGroupSources(
+      registerTransitGatewayMulticastGroupSourcesRequest: RegisterTransitGatewayMulticastGroupSourcesRequest
+  ): Future[RegisterTransitGatewayMulticastGroupSourcesResponse] =
+    underlying.registerTransitGatewayMulticastGroupSources(registerTransitGatewayMulticastGroupSourcesRequest).toScala
+
+  override def rejectTransitGatewayPeeringAttachment(
+      rejectTransitGatewayPeeringAttachmentRequest: RejectTransitGatewayPeeringAttachmentRequest
+  ): Future[RejectTransitGatewayPeeringAttachmentResponse] =
+    underlying.rejectTransitGatewayPeeringAttachment(rejectTransitGatewayPeeringAttachmentRequest).toScala
+
   override def rejectTransitGatewayVpcAttachment(
       rejectTransitGatewayVpcAttachmentRequest: RejectTransitGatewayVpcAttachmentRequest
   ): Future[RejectTransitGatewayVpcAttachmentResponse] =
@@ -2306,6 +2495,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       runScheduledInstancesRequest: RunScheduledInstancesRequest
   ): Future[RunScheduledInstancesResponse] =
     underlying.runScheduledInstances(runScheduledInstancesRequest).toScala
+
+  override def searchLocalGatewayRoutes(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): Future[SearchLocalGatewayRoutesResponse] =
+    underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest).toScala
+
+  override def searchTransitGatewayMulticastGroups(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): Future[SearchTransitGatewayMulticastGroupsResponse] =
+    underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest).toScala
 
   override def searchTransitGatewayRoutes(
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest

@@ -61,6 +61,9 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   override def deleteStackSet(deleteStackSetRequest: DeleteStackSetRequest): Future[DeleteStackSetResponse] =
     underlying.deleteStackSet(deleteStackSetRequest).toScala
 
+  override def deregisterType(deregisterTypeRequest: DeregisterTypeRequest): Future[DeregisterTypeResponse] =
+    underlying.deregisterType(deregisterTypeRequest).toScala
+
   override def describeAccountLimits(
       describeAccountLimitsRequest: DescribeAccountLimitsRequest
   ): Future[DescribeAccountLimitsResponse] =
@@ -134,6 +137,14 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   def describeStacksPaginator(describeStacksRequest: DescribeStacksRequest): DescribeStacksPublisher =
     underlying.describeStacksPaginator(describeStacksRequest)
 
+  override def describeType(describeTypeRequest: DescribeTypeRequest): Future[DescribeTypeResponse] =
+    underlying.describeType(describeTypeRequest).toScala
+
+  override def describeTypeRegistration(
+      describeTypeRegistrationRequest: DescribeTypeRegistrationRequest
+  ): Future[DescribeTypeRegistrationResponse] =
+    underlying.describeTypeRegistration(describeTypeRegistrationRequest).toScala
+
   override def detectStackDrift(detectStackDriftRequest: DetectStackDriftRequest): Future[DetectStackDriftResponse] =
     underlying.detectStackDrift(detectStackDriftRequest).toScala
 
@@ -141,6 +152,11 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
       detectStackResourceDriftRequest: DetectStackResourceDriftRequest
   ): Future[DetectStackResourceDriftResponse] =
     underlying.detectStackResourceDrift(detectStackResourceDriftRequest).toScala
+
+  override def detectStackSetDrift(
+      detectStackSetDriftRequest: DetectStackSetDriftRequest
+  ): Future[DetectStackSetDriftResponse] =
+    underlying.detectStackSetDrift(detectStackSetDriftRequest).toScala
 
   override def estimateTemplateCost(
       estimateTemplateCostRequest: EstimateTemplateCostRequest
@@ -223,8 +239,43 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   def listStacksPaginator(listStacksRequest: ListStacksRequest): ListStacksPublisher =
     underlying.listStacksPaginator(listStacksRequest)
 
+  override def listTypeRegistrations(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): Future[ListTypeRegistrationsResponse] =
+    underlying.listTypeRegistrations(listTypeRegistrationsRequest).toScala
+
+  def listTypeRegistrationsPaginator(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): ListTypeRegistrationsPublisher =
+    underlying.listTypeRegistrationsPaginator(listTypeRegistrationsRequest)
+
+  override def listTypeVersions(listTypeVersionsRequest: ListTypeVersionsRequest): Future[ListTypeVersionsResponse] =
+    underlying.listTypeVersions(listTypeVersionsRequest).toScala
+
+  def listTypeVersionsPaginator(listTypeVersionsRequest: ListTypeVersionsRequest): ListTypeVersionsPublisher =
+    underlying.listTypeVersionsPaginator(listTypeVersionsRequest)
+
+  override def listTypes(listTypesRequest: ListTypesRequest): Future[ListTypesResponse] =
+    underlying.listTypes(listTypesRequest).toScala
+
+  def listTypesPaginator(listTypesRequest: ListTypesRequest): ListTypesPublisher =
+    underlying.listTypesPaginator(listTypesRequest)
+
+  override def recordHandlerProgress(
+      recordHandlerProgressRequest: RecordHandlerProgressRequest
+  ): Future[RecordHandlerProgressResponse] =
+    underlying.recordHandlerProgress(recordHandlerProgressRequest).toScala
+
+  override def registerType(registerTypeRequest: RegisterTypeRequest): Future[RegisterTypeResponse] =
+    underlying.registerType(registerTypeRequest).toScala
+
   override def setStackPolicy(setStackPolicyRequest: SetStackPolicyRequest): Future[SetStackPolicyResponse] =
     underlying.setStackPolicy(setStackPolicyRequest).toScala
+
+  override def setTypeDefaultVersion(
+      setTypeDefaultVersionRequest: SetTypeDefaultVersionRequest
+  ): Future[SetTypeDefaultVersionResponse] =
+    underlying.setTypeDefaultVersion(setTypeDefaultVersionRequest).toScala
 
   override def signalResource(signalResourceRequest: SignalResourceRequest): Future[SignalResourceResponse] =
     underlying.signalResource(signalResourceRequest).toScala

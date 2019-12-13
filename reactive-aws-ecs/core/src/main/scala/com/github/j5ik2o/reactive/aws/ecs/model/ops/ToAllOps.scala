@@ -9,7 +9,9 @@ trait ToAllOps
     with ToAttributeOps
     with ToAwsVpcConfigurationOps
     with ToClusterOps
+    with ToClusterSettingOps
     with ToContainerDefinitionOps
+    with ToContainerDependencyOps
     with ToContainerInstanceOps
     with ToContainerOps
     with ToContainerOverrideOps
@@ -18,6 +20,8 @@ trait ToAllOps
     with ToCreateClusterResponseOps
     with ToCreateServiceRequestOps
     with ToCreateServiceResponseOps
+    with ToCreateTaskSetRequestOps
+    with ToCreateTaskSetResponseOps
     with ToDeleteAccountSettingRequestOps
     with ToDeleteAccountSettingResponseOps
     with ToDeleteAttributesRequestOps
@@ -26,6 +30,8 @@ trait ToAllOps
     with ToDeleteClusterResponseOps
     with ToDeleteServiceRequestOps
     with ToDeleteServiceResponseOps
+    with ToDeleteTaskSetRequestOps
+    with ToDeleteTaskSetResponseOps
     with ToDeploymentConfigurationOps
     with ToDeploymentControllerOps
     with ToDeploymentOps
@@ -41,6 +47,8 @@ trait ToAllOps
     with ToDescribeServicesResponseOps
     with ToDescribeTaskDefinitionRequestOps
     with ToDescribeTaskDefinitionResponseOps
+    with ToDescribeTaskSetsRequestOps
+    with ToDescribeTaskSetsResponseOps
     with ToDescribeTasksRequestOps
     with ToDescribeTasksResponseOps
     with ToDeviceOps
@@ -48,9 +56,12 @@ trait ToAllOps
     with ToDiscoverPollEndpointResponseOps
     with ToDockerVolumeConfigurationOps
     with ToFailureOps
+    with ToFirelensConfigurationOps
     with ToHealthCheckOps
     with ToHostEntryOps
     with ToHostVolumePropertiesOps
+    with ToInferenceAcceleratorOps
+    with ToInferenceAcceleratorOverrideOps
     with ToKernelCapabilitiesOps
     with ToKeyValuePairOps
     with ToLinuxParametersOps
@@ -82,6 +93,7 @@ trait ToAllOps
     with ToPlacementStrategyOps
     with ToPlatformDeviceOps
     with ToPortMappingOps
+    with ToProxyConfigurationOps
     with ToPutAccountSettingDefaultRequestOps
     with ToPutAccountSettingDefaultResponseOps
     with ToPutAccountSettingRequestOps
@@ -107,6 +119,8 @@ trait ToAllOps
     with ToStartTaskResponseOps
     with ToStopTaskRequestOps
     with ToStopTaskResponseOps
+    with ToSubmitAttachmentStateChangesRequestOps
+    with ToSubmitAttachmentStateChangesResponseOps
     with ToSubmitContainerStateChangeRequestOps
     with ToSubmitContainerStateChangeResponseOps
     with ToSubmitTaskStateChangeRequestOps
@@ -124,12 +138,18 @@ trait ToAllOps
     with ToUlimitOps
     with ToUntagResourceRequestOps
     with ToUntagResourceResponseOps
+    with ToUpdateClusterSettingsRequestOps
+    with ToUpdateClusterSettingsResponseOps
     with ToUpdateContainerAgentRequestOps
     with ToUpdateContainerAgentResponseOps
     with ToUpdateContainerInstancesStateRequestOps
     with ToUpdateContainerInstancesStateResponseOps
+    with ToUpdateServicePrimaryTaskSetRequestOps
+    with ToUpdateServicePrimaryTaskSetResponseOps
     with ToUpdateServiceRequestOps
     with ToUpdateServiceResponseOps
+    with ToUpdateTaskSetRequestOps
+    with ToUpdateTaskSetResponseOps
     with ToVersionInfoOps
     with ToVolumeFromOps
     with ToVolumeOps

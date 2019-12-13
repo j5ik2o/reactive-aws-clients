@@ -34,6 +34,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   override def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): Future[DeleteDashboardsResponse] =
     underlying.deleteDashboards(deleteDashboardsRequest).toScala
 
+  override def deleteInsightRules(
+      deleteInsightRulesRequest: DeleteInsightRulesRequest
+  ): Future[DeleteInsightRulesResponse] =
+    underlying.deleteInsightRules(deleteInsightRulesRequest).toScala
+
   override def describeAlarmHistory(
       describeAlarmHistoryRequest: DescribeAlarmHistoryRequest
   ): Future[DescribeAlarmHistoryResponse] =
@@ -72,18 +77,43 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   ): Future[DescribeAnomalyDetectorsResponse] =
     underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest).toScala
 
+  override def describeInsightRules(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): Future[DescribeInsightRulesResponse] =
+    underlying.describeInsightRules(describeInsightRulesRequest).toScala
+
+  def describeInsightRulesPaginator(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): DescribeInsightRulesPublisher =
+    underlying.describeInsightRulesPaginator(describeInsightRulesRequest)
+
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
   ): Future[DisableAlarmActionsResponse] =
     underlying.disableAlarmActions(disableAlarmActionsRequest).toScala
+
+  override def disableInsightRules(
+      disableInsightRulesRequest: DisableInsightRulesRequest
+  ): Future[DisableInsightRulesResponse] =
+    underlying.disableInsightRules(disableInsightRulesRequest).toScala
 
   override def enableAlarmActions(
       enableAlarmActionsRequest: EnableAlarmActionsRequest
   ): Future[EnableAlarmActionsResponse] =
     underlying.enableAlarmActions(enableAlarmActionsRequest).toScala
 
+  override def enableInsightRules(
+      enableInsightRulesRequest: EnableInsightRulesRequest
+  ): Future[EnableInsightRulesResponse] =
+    underlying.enableInsightRules(enableInsightRulesRequest).toScala
+
   override def getDashboard(getDashboardRequest: GetDashboardRequest): Future[GetDashboardResponse] =
     underlying.getDashboard(getDashboardRequest).toScala
+
+  override def getInsightRuleReport(
+      getInsightRuleReportRequest: GetInsightRuleReportRequest
+  ): Future[GetInsightRuleReportResponse] =
+    underlying.getInsightRuleReport(getInsightRuleReportRequest).toScala
 
   override def getMetricData(getMetricDataRequest: GetMetricDataRequest): Future[GetMetricDataResponse] =
     underlying.getMetricData(getMetricDataRequest).toScala
@@ -137,6 +167,9 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Future[PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toScala
+
+  override def putInsightRule(putInsightRuleRequest: PutInsightRuleRequest): Future[PutInsightRuleResponse] =
+    underlying.putInsightRule(putInsightRuleRequest).toScala
 
   override def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): Future[PutMetricAlarmResponse] =
     underlying.putMetricAlarm(putMetricAlarmRequest).toScala
