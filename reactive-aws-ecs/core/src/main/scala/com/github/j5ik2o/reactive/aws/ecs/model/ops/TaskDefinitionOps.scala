@@ -113,6 +113,13 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inferenceAcceleratorsAsScala(value: Option[Seq[InferenceAccelerator]]): TaskDefinition.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.inferenceAccelerators(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pidModeAsScala(value: Option[PidMode]): TaskDefinition.Builder = {
     value.fold(self) { v =>
       self.pidMode(v)
@@ -194,6 +201,12 @@ final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def memoryAsScala: Option[String] = Option(self.memory)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inferenceAcceleratorsAsScala: Option[Seq[InferenceAccelerator]] = Option(self.inferenceAccelerators).map {
+    v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pidModeAsScala: Option[PidMode] = Option(self.pidMode)

@@ -55,6 +55,11 @@ trait DynamoDbSyncClient extends DynamoDbClient[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeContinuousBackupsResponse] =
     underlying.describeContinuousBackups(describeContinuousBackupsRequest).toEither
 
+  override def describeContributorInsights(
+      describeContributorInsightsRequest: DescribeContributorInsightsRequest
+  ): Either[Throwable, DescribeContributorInsightsResponse] =
+    underlying.describeContributorInsights(describeContributorInsightsRequest).toEither
+
   override def describeEndpoints(): Either[Throwable, DescribeEndpointsResponse] =
     underlying.describeEndpoints().toEither
 
@@ -82,6 +87,11 @@ trait DynamoDbSyncClient extends DynamoDbClient[Either[Throwable, ?]] {
   override def describeTable(describeTableRequest: DescribeTableRequest): Either[Throwable, DescribeTableResponse] =
     underlying.describeTable(describeTableRequest).toEither
 
+  override def describeTableReplicaAutoScaling(
+      describeTableReplicaAutoScalingRequest: DescribeTableReplicaAutoScalingRequest
+  ): Either[Throwable, DescribeTableReplicaAutoScalingResponse] =
+    underlying.describeTableReplicaAutoScaling(describeTableReplicaAutoScalingRequest).toEither
+
   override def describeTimeToLive(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest
   ): Either[Throwable, DescribeTimeToLiveResponse] =
@@ -95,6 +105,16 @@ trait DynamoDbSyncClient extends DynamoDbClient[Either[Throwable, ?]] {
 
   override def listBackups(listBackupsRequest: ListBackupsRequest): Either[Throwable, ListBackupsResponse] =
     underlying.listBackups(listBackupsRequest).toEither
+
+  override def listContributorInsights(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): Either[Throwable, ListContributorInsightsResponse] =
+    underlying.listContributorInsights(listContributorInsightsRequest).toEither
+
+  def listContributorInsightsPaginator(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): ListContributorInsightsIterable =
+    underlying.listContributorInsightsPaginator(listContributorInsightsRequest)
 
   override def listGlobalTables(): Either[Throwable, ListGlobalTablesResponse] =
     underlying.listGlobalTables().toEither
@@ -167,6 +187,11 @@ trait DynamoDbSyncClient extends DynamoDbClient[Either[Throwable, ?]] {
   ): Either[Throwable, UpdateContinuousBackupsResponse] =
     underlying.updateContinuousBackups(updateContinuousBackupsRequest).toEither
 
+  override def updateContributorInsights(
+      updateContributorInsightsRequest: UpdateContributorInsightsRequest
+  ): Either[Throwable, UpdateContributorInsightsResponse] =
+    underlying.updateContributorInsights(updateContributorInsightsRequest).toEither
+
   override def updateGlobalTable(
       updateGlobalTableRequest: UpdateGlobalTableRequest
   ): Either[Throwable, UpdateGlobalTableResponse] =
@@ -182,6 +207,11 @@ trait DynamoDbSyncClient extends DynamoDbClient[Either[Throwable, ?]] {
 
   override def updateTable(updateTableRequest: UpdateTableRequest): Either[Throwable, UpdateTableResponse] =
     underlying.updateTable(updateTableRequest).toEither
+
+  override def updateTableReplicaAutoScaling(
+      updateTableReplicaAutoScalingRequest: UpdateTableReplicaAutoScalingRequest
+  ): Either[Throwable, UpdateTableReplicaAutoScalingResponse] =
+    underlying.updateTableReplicaAutoScaling(updateTableReplicaAutoScalingRequest).toEither
 
   override def updateTimeToLive(
       updateTimeToLiveRequest: UpdateTimeToLiveRequest

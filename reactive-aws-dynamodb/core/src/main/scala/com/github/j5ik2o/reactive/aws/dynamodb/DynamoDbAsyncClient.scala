@@ -57,6 +57,11 @@ trait DynamoDbAsyncClient extends DynamoDbClient[Future] {
   ): Future[DescribeContinuousBackupsResponse] =
     underlying.describeContinuousBackups(describeContinuousBackupsRequest).toScala
 
+  override def describeContributorInsights(
+      describeContributorInsightsRequest: DescribeContributorInsightsRequest
+  ): Future[DescribeContributorInsightsResponse] =
+    underlying.describeContributorInsights(describeContributorInsightsRequest).toScala
+
   override def describeEndpoints(
       describeEndpointsRequest: DescribeEndpointsRequest
   ): Future[DescribeEndpointsResponse] =
@@ -84,6 +89,11 @@ trait DynamoDbAsyncClient extends DynamoDbClient[Future] {
   override def describeTable(describeTableRequest: DescribeTableRequest): Future[DescribeTableResponse] =
     underlying.describeTable(describeTableRequest).toScala
 
+  override def describeTableReplicaAutoScaling(
+      describeTableReplicaAutoScalingRequest: DescribeTableReplicaAutoScalingRequest
+  ): Future[DescribeTableReplicaAutoScalingResponse] =
+    underlying.describeTableReplicaAutoScaling(describeTableReplicaAutoScalingRequest).toScala
+
   override def describeTimeToLive(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest
   ): Future[DescribeTimeToLiveResponse] =
@@ -97,6 +107,16 @@ trait DynamoDbAsyncClient extends DynamoDbClient[Future] {
 
   override def listBackups(): Future[ListBackupsResponse] =
     underlying.listBackups().toScala
+
+  override def listContributorInsights(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): Future[ListContributorInsightsResponse] =
+    underlying.listContributorInsights(listContributorInsightsRequest).toScala
+
+  def listContributorInsightsPaginator(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): ListContributorInsightsPublisher =
+    underlying.listContributorInsightsPaginator(listContributorInsightsRequest)
 
   override def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): Future[ListGlobalTablesResponse] =
     underlying.listGlobalTables(listGlobalTablesRequest).toScala
@@ -165,6 +185,11 @@ trait DynamoDbAsyncClient extends DynamoDbClient[Future] {
   ): Future[UpdateContinuousBackupsResponse] =
     underlying.updateContinuousBackups(updateContinuousBackupsRequest).toScala
 
+  override def updateContributorInsights(
+      updateContributorInsightsRequest: UpdateContributorInsightsRequest
+  ): Future[UpdateContributorInsightsResponse] =
+    underlying.updateContributorInsights(updateContributorInsightsRequest).toScala
+
   override def updateGlobalTable(
       updateGlobalTableRequest: UpdateGlobalTableRequest
   ): Future[UpdateGlobalTableResponse] =
@@ -180,6 +205,11 @@ trait DynamoDbAsyncClient extends DynamoDbClient[Future] {
 
   override def updateTable(updateTableRequest: UpdateTableRequest): Future[UpdateTableResponse] =
     underlying.updateTable(updateTableRequest).toScala
+
+  override def updateTableReplicaAutoScaling(
+      updateTableReplicaAutoScalingRequest: UpdateTableReplicaAutoScalingRequest
+  ): Future[UpdateTableReplicaAutoScalingResponse] =
+    underlying.updateTableReplicaAutoScaling(updateTableReplicaAutoScalingRequest).toScala
 
   override def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): Future[UpdateTimeToLiveResponse] =
     underlying.updateTimeToLive(updateTimeToLiveRequest).toScala

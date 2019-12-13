@@ -33,6 +33,13 @@ final class SearchFacesByImageRequestBuilderOps(val self: SearchFacesByImageRequ
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def qualityFilterAsScala(value: Option[QualityFilter]): SearchFacesByImageRequest.Builder = {
+    value.fold(self) { v =>
+      self.qualityFilter(v)
+    }
+  }
+
 }
 
 final class SearchFacesByImageRequestOps(val self: SearchFacesByImageRequest) extends AnyVal {
@@ -48,6 +55,9 @@ final class SearchFacesByImageRequestOps(val self: SearchFacesByImageRequest) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceMatchThresholdAsScala: Option[Float] = Option(self.faceMatchThreshold)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def qualityFilterAsScala: Option[QualityFilter] = Option(self.qualityFilter)
 
 }
 

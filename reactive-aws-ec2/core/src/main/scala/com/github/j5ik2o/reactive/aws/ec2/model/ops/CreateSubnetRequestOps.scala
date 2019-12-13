@@ -34,6 +34,13 @@ final class CreateSubnetRequestBuilderOps(val self: CreateSubnetRequest.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): CreateSubnetRequest.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): CreateSubnetRequest.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -55,6 +62,9 @@ final class CreateSubnetRequestOps(val self: CreateSubnetRequest) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockAsScala: Option[String] = Option(self.ipv6CidrBlock)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)

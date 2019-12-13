@@ -35,6 +35,13 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.deleteDashboards(deleteDashboardsRequest)
     }
 
+  override def deleteInsightRules(
+      deleteInsightRulesRequest: DeleteInsightRulesRequest
+  ): Task[DeleteInsightRulesResponse] =
+    Task.deferFuture {
+      underlying.deleteInsightRules(deleteInsightRulesRequest)
+    }
+
   override def describeAlarmHistory(
       describeAlarmHistoryRequest: DescribeAlarmHistoryRequest
   ): Task[DescribeAlarmHistoryResponse] =
@@ -85,11 +92,30 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest)
     }
 
+  override def describeInsightRules(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): Task[DescribeInsightRulesResponse] =
+    Task.deferFuture {
+      underlying.describeInsightRules(describeInsightRulesRequest)
+    }
+
+  def describeInsightRulesPaginator(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): Observable[DescribeInsightRulesResponse] =
+    Observable.fromReactivePublisher(underlying.describeInsightRulesPaginator(describeInsightRulesRequest))
+
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
   ): Task[DisableAlarmActionsResponse] =
     Task.deferFuture {
       underlying.disableAlarmActions(disableAlarmActionsRequest)
+    }
+
+  override def disableInsightRules(
+      disableInsightRulesRequest: DisableInsightRulesRequest
+  ): Task[DisableInsightRulesResponse] =
+    Task.deferFuture {
+      underlying.disableInsightRules(disableInsightRulesRequest)
     }
 
   override def enableAlarmActions(
@@ -99,9 +125,23 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.enableAlarmActions(enableAlarmActionsRequest)
     }
 
+  override def enableInsightRules(
+      enableInsightRulesRequest: EnableInsightRulesRequest
+  ): Task[EnableInsightRulesResponse] =
+    Task.deferFuture {
+      underlying.enableInsightRules(enableInsightRulesRequest)
+    }
+
   override def getDashboard(getDashboardRequest: GetDashboardRequest): Task[GetDashboardResponse] =
     Task.deferFuture {
       underlying.getDashboard(getDashboardRequest)
+    }
+
+  override def getInsightRuleReport(
+      getInsightRuleReportRequest: GetInsightRuleReportRequest
+  ): Task[GetInsightRuleReportResponse] =
+    Task.deferFuture {
+      underlying.getInsightRuleReport(getInsightRuleReportRequest)
     }
 
   override def getMetricData(getMetricDataRequest: GetMetricDataRequest): Task[GetMetricDataResponse] =
@@ -175,6 +215,11 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Task[PutDashboardResponse] =
     Task.deferFuture {
       underlying.putDashboard(putDashboardRequest)
+    }
+
+  override def putInsightRule(putInsightRuleRequest: PutInsightRuleRequest): Task[PutInsightRuleResponse] =
+    Task.deferFuture {
+      underlying.putInsightRule(putInsightRuleRequest)
     }
 
   override def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): Task[PutMetricAlarmResponse] =

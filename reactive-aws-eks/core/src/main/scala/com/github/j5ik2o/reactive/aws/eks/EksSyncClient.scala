@@ -25,13 +25,43 @@ trait EksSyncClient extends EksClient[Either[Throwable, ?]] {
   override def createCluster(createClusterRequest: CreateClusterRequest): Either[Throwable, CreateClusterResponse] =
     underlying.createCluster(createClusterRequest).toEither
 
+  override def createFargateProfile(
+      createFargateProfileRequest: CreateFargateProfileRequest
+  ): Either[Throwable, CreateFargateProfileResponse] =
+    underlying.createFargateProfile(createFargateProfileRequest).toEither
+
+  override def createNodegroup(
+      createNodegroupRequest: CreateNodegroupRequest
+  ): Either[Throwable, CreateNodegroupResponse] =
+    underlying.createNodegroup(createNodegroupRequest).toEither
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): Either[Throwable, DeleteClusterResponse] =
     underlying.deleteCluster(deleteClusterRequest).toEither
+
+  override def deleteFargateProfile(
+      deleteFargateProfileRequest: DeleteFargateProfileRequest
+  ): Either[Throwable, DeleteFargateProfileResponse] =
+    underlying.deleteFargateProfile(deleteFargateProfileRequest).toEither
+
+  override def deleteNodegroup(
+      deleteNodegroupRequest: DeleteNodegroupRequest
+  ): Either[Throwable, DeleteNodegroupResponse] =
+    underlying.deleteNodegroup(deleteNodegroupRequest).toEither
 
   override def describeCluster(
       describeClusterRequest: DescribeClusterRequest
   ): Either[Throwable, DescribeClusterResponse] =
     underlying.describeCluster(describeClusterRequest).toEither
+
+  override def describeFargateProfile(
+      describeFargateProfileRequest: DescribeFargateProfileRequest
+  ): Either[Throwable, DescribeFargateProfileResponse] =
+    underlying.describeFargateProfile(describeFargateProfileRequest).toEither
+
+  override def describeNodegroup(
+      describeNodegroupRequest: DescribeNodegroupRequest
+  ): Either[Throwable, DescribeNodegroupResponse] =
+    underlying.describeNodegroup(describeNodegroupRequest).toEither
 
   override def describeUpdate(describeUpdateRequest: DescribeUpdateRequest): Either[Throwable, DescribeUpdateResponse] =
     underlying.describeUpdate(describeUpdateRequest).toEither
@@ -47,6 +77,22 @@ trait EksSyncClient extends EksClient[Either[Throwable, ?]] {
 
   def listClustersPaginator(listClustersRequest: ListClustersRequest): ListClustersIterable =
     underlying.listClustersPaginator(listClustersRequest)
+
+  override def listFargateProfiles(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): Either[Throwable, ListFargateProfilesResponse] =
+    underlying.listFargateProfiles(listFargateProfilesRequest).toEither
+
+  def listFargateProfilesPaginator(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): ListFargateProfilesIterable =
+    underlying.listFargateProfilesPaginator(listFargateProfilesRequest)
+
+  override def listNodegroups(listNodegroupsRequest: ListNodegroupsRequest): Either[Throwable, ListNodegroupsResponse] =
+    underlying.listNodegroups(listNodegroupsRequest).toEither
+
+  def listNodegroupsPaginator(listNodegroupsRequest: ListNodegroupsRequest): ListNodegroupsIterable =
+    underlying.listNodegroupsPaginator(listNodegroupsRequest)
 
   override def listTagsForResource(
       listTagsForResourceRequest: ListTagsForResourceRequest
@@ -74,5 +120,15 @@ trait EksSyncClient extends EksClient[Either[Throwable, ?]] {
       updateClusterVersionRequest: UpdateClusterVersionRequest
   ): Either[Throwable, UpdateClusterVersionResponse] =
     underlying.updateClusterVersion(updateClusterVersionRequest).toEither
+
+  override def updateNodegroupConfig(
+      updateNodegroupConfigRequest: UpdateNodegroupConfigRequest
+  ): Either[Throwable, UpdateNodegroupConfigResponse] =
+    underlying.updateNodegroupConfig(updateNodegroupConfigRequest).toEither
+
+  override def updateNodegroupVersion(
+      updateNodegroupVersionRequest: UpdateNodegroupVersionRequest
+  ): Either[Throwable, UpdateNodegroupVersionResponse] =
+    underlying.updateNodegroupVersion(updateNodegroupVersionRequest).toEither
 
 }

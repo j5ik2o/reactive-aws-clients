@@ -19,6 +19,13 @@ final class DecryptResponseBuilderOps(val self: DecryptResponse.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): DecryptResponse.Builder = {
+    value.fold(self) { v =>
+      self.encryptionAlgorithm(v)
+    }
+  }
+
 }
 
 final class DecryptResponseOps(val self: DecryptResponse) extends AnyVal {
@@ -28,6 +35,9 @@ final class DecryptResponseOps(val self: DecryptResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def plaintextAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.plaintext)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] = Option(self.encryptionAlgorithm)
 
 }
 

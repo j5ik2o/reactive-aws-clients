@@ -34,6 +34,13 @@ final class AllocateHostsRequestBuilderOps(val self: AllocateHostsRequest.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceFamilyAsScala(value: Option[String]): AllocateHostsRequest.Builder = {
+    value.fold(self) { v =>
+      self.instanceFamily(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def quantityAsScala(value: Option[Int]): AllocateHostsRequest.Builder = {
     value.fold(self) { v =>
       self.quantity(v)
@@ -69,6 +76,9 @@ final class AllocateHostsRequestOps(val self: AllocateHostsRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceFamilyAsScala: Option[String] = Option(self.instanceFamily)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def quantityAsScala: Option[Int] = Option(self.quantity)

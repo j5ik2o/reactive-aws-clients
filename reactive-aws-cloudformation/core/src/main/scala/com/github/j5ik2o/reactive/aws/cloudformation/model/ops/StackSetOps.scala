@@ -82,6 +82,13 @@ final class StackSetBuilderOps(val self: StackSet.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stackSetDriftDetectionDetailsAsScala(value: Option[StackSetDriftDetectionDetails]): StackSet.Builder = {
+    value.fold(self) { v =>
+      self.stackSetDriftDetectionDetails(v)
+    }
+  }
+
 }
 
 final class StackSetOps(val self: StackSet) extends AnyVal {
@@ -124,6 +131,10 @@ final class StackSetOps(val self: StackSet) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleNameAsScala: Option[String] = Option(self.executionRoleName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stackSetDriftDetectionDetailsAsScala: Option[StackSetDriftDetectionDetails] =
+    Option(self.stackSetDriftDetectionDetails)
 
 }
 

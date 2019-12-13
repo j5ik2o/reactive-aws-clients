@@ -26,6 +26,20 @@ final class DecryptRequestBuilderOps(val self: DecryptRequest.Builder) extends A
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyIdAsScala(value: Option[String]): DecryptRequest.Builder = {
+    value.fold(self) { v =>
+      self.keyId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): DecryptRequest.Builder = {
+    value.fold(self) { v =>
+      self.encryptionAlgorithm(v)
+    }
+  }
+
 }
 
 final class DecryptRequestOps(val self: DecryptRequest) extends AnyVal {
@@ -42,6 +56,12 @@ final class DecryptRequestOps(val self: DecryptRequest) extends AnyVal {
   final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyIdAsScala: Option[String] = Option(self.keyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] = Option(self.encryptionAlgorithm)
 
 }
 

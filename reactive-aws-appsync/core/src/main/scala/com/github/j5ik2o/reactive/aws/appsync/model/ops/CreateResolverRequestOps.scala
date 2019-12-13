@@ -61,6 +61,20 @@ final class CreateResolverRequestBuilderOps(val self: CreateResolverRequest.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def syncConfigAsScala(value: Option[SyncConfig]): CreateResolverRequest.Builder = {
+    value.fold(self) { v =>
+      self.syncConfig(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def cachingConfigAsScala(value: Option[CachingConfig]): CreateResolverRequest.Builder = {
+    value.fold(self) { v =>
+      self.cachingConfig(v)
+    }
+  }
+
 }
 
 final class CreateResolverRequestOps(val self: CreateResolverRequest) extends AnyVal {
@@ -88,6 +102,12 @@ final class CreateResolverRequestOps(val self: CreateResolverRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pipelineConfigAsScala: Option[PipelineConfig] = Option(self.pipelineConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def syncConfigAsScala: Option[SyncConfig] = Option(self.syncConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def cachingConfigAsScala: Option[CachingConfig] = Option(self.cachingConfig)
 
 }
 

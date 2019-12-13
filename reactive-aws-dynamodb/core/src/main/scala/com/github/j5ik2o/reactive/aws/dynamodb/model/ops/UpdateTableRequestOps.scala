@@ -56,6 +56,13 @@ final class UpdateTableRequestBuilderOps(val self: UpdateTableRequest.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def replicaUpdatesAsScala(value: Option[Seq[ReplicationGroupUpdate]]): UpdateTableRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.replicaUpdates(v.asJava)
+    }
+  }
+
 }
 
 final class UpdateTableRequestOps(val self: UpdateTableRequest) extends AnyVal {
@@ -85,6 +92,11 @@ final class UpdateTableRequestOps(val self: UpdateTableRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseSpecificationAsScala: Option[SSESpecification] = Option(self.sseSpecification)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def replicaUpdatesAsScala: Option[Seq[ReplicationGroupUpdate]] = Option(self.replicaUpdates).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

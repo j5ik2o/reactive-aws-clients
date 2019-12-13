@@ -20,6 +20,13 @@ final class ReEncryptRequestBuilderOps(val self: ReEncryptRequest.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceKeyIdAsScala(value: Option[String]): ReEncryptRequest.Builder = {
+    value.fold(self) { v =>
+      self.sourceKeyId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationKeyIdAsScala(value: Option[String]): ReEncryptRequest.Builder = {
     value.fold(self) { v =>
       self.destinationKeyId(v)
@@ -30,6 +37,20 @@ final class ReEncryptRequestBuilderOps(val self: ReEncryptRequest.Builder) exten
   final def destinationEncryptionContextAsScala(value: Option[Map[String, String]]): ReEncryptRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.destinationEncryptionContext(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptRequest.Builder = {
+    value.fold(self) { v =>
+      self.sourceEncryptionAlgorithm(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptRequest.Builder = {
+    value.fold(self) { v =>
+      self.destinationEncryptionAlgorithm(v)
     }
   }
 
@@ -54,6 +75,9 @@ final class ReEncryptRequestOps(val self: ReEncryptRequest) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceKeyIdAsScala: Option[String] = Option(self.sourceKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationKeyIdAsScala: Option[String] = Option(self.destinationKeyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -61,6 +85,13 @@ final class ReEncryptRequestOps(val self: ReEncryptRequest) extends AnyVal {
     Option(self.destinationEncryptionContext).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceEncryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] = Option(self.sourceEncryptionAlgorithm)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationEncryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] =
+    Option(self.destinationEncryptionAlgorithm)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>

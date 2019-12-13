@@ -33,6 +33,13 @@ final class CreateCustomerGatewayRequestBuilderOps(val self: CreateCustomerGatew
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deviceNameAsScala(value: Option[String]): CreateCustomerGatewayRequest.Builder = {
+    value.fold(self) { v =>
+      self.deviceName(v)
+    }
+  }
+
 }
 
 final class CreateCustomerGatewayRequestOps(val self: CreateCustomerGatewayRequest) extends AnyVal {
@@ -48,6 +55,9 @@ final class CreateCustomerGatewayRequestOps(val self: CreateCustomerGatewayReque
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[GatewayType] = Option(self.`type`)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deviceNameAsScala: Option[String] = Option(self.deviceName)
 
 }
 

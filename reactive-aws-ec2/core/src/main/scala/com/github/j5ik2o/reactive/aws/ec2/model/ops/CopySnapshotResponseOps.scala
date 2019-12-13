@@ -12,12 +12,24 @@ final class CopySnapshotResponseBuilderOps(val self: CopySnapshotResponse.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): CopySnapshotResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class CopySnapshotResponseOps(val self: CopySnapshotResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotIdAsScala: Option[String] = Option(self.snapshotId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

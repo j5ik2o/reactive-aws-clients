@@ -25,6 +25,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.acceptReservedInstancesExchangeQuote(acceptReservedInstancesExchangeQuoteRequest)
     }
 
+  override def acceptTransitGatewayPeeringAttachment(
+      acceptTransitGatewayPeeringAttachmentRequest: AcceptTransitGatewayPeeringAttachmentRequest
+  ): Task[AcceptTransitGatewayPeeringAttachmentResponse] =
+    Task.deferFuture {
+      underlying.acceptTransitGatewayPeeringAttachment(acceptTransitGatewayPeeringAttachmentRequest)
+    }
+
   override def acceptTransitGatewayVpcAttachment(
       acceptTransitGatewayVpcAttachmentRequest: AcceptTransitGatewayVpcAttachmentRequest
   ): Task[AcceptTransitGatewayVpcAttachmentResponse] =
@@ -132,6 +139,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[AssociateSubnetCidrBlockResponse] =
     Task.deferFuture {
       underlying.associateSubnetCidrBlock(associateSubnetCidrBlockRequest)
+    }
+
+  override def associateTransitGatewayMulticastDomain(
+      associateTransitGatewayMulticastDomainRequest: AssociateTransitGatewayMulticastDomainRequest
+  ): Task[AssociateTransitGatewayMulticastDomainResponse] =
+    Task.deferFuture {
+      underlying.associateTransitGatewayMulticastDomain(associateTransitGatewayMulticastDomainRequest)
     }
 
   override def associateTransitGatewayRouteTable(
@@ -392,6 +406,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.createLaunchTemplateVersion(createLaunchTemplateVersionRequest)
     }
 
+  override def createLocalGatewayRoute(
+      createLocalGatewayRouteRequest: CreateLocalGatewayRouteRequest
+  ): Task[CreateLocalGatewayRouteResponse] =
+    Task.deferFuture {
+      underlying.createLocalGatewayRoute(createLocalGatewayRouteRequest)
+    }
+
+  override def createLocalGatewayRouteTableVpcAssociation(
+      createLocalGatewayRouteTableVpcAssociationRequest: CreateLocalGatewayRouteTableVpcAssociationRequest
+  ): Task[CreateLocalGatewayRouteTableVpcAssociationResponse] =
+    Task.deferFuture {
+      underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest)
+    }
+
   override def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): Task[CreateNatGatewayResponse] =
     Task.deferFuture {
       underlying.createNatGateway(createNatGatewayRequest)
@@ -519,6 +547,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def createTransitGateway(): Task[CreateTransitGatewayResponse] =
     Task.deferFuture {
       underlying.createTransitGateway()
+    }
+
+  override def createTransitGatewayMulticastDomain(
+      createTransitGatewayMulticastDomainRequest: CreateTransitGatewayMulticastDomainRequest
+  ): Task[CreateTransitGatewayMulticastDomainResponse] =
+    Task.deferFuture {
+      underlying.createTransitGatewayMulticastDomain(createTransitGatewayMulticastDomainRequest)
+    }
+
+  override def createTransitGatewayPeeringAttachment(
+      createTransitGatewayPeeringAttachmentRequest: CreateTransitGatewayPeeringAttachmentRequest
+  ): Task[CreateTransitGatewayPeeringAttachmentResponse] =
+    Task.deferFuture {
+      underlying.createTransitGatewayPeeringAttachment(createTransitGatewayPeeringAttachmentRequest)
     }
 
   override def createTransitGatewayRoute(
@@ -671,6 +713,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.deleteLaunchTemplateVersions(deleteLaunchTemplateVersionsRequest)
     }
 
+  override def deleteLocalGatewayRoute(
+      deleteLocalGatewayRouteRequest: DeleteLocalGatewayRouteRequest
+  ): Task[DeleteLocalGatewayRouteResponse] =
+    Task.deferFuture {
+      underlying.deleteLocalGatewayRoute(deleteLocalGatewayRouteRequest)
+    }
+
+  override def deleteLocalGatewayRouteTableVpcAssociation(
+      deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
+  ): Task[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
+    Task.deferFuture {
+      underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest)
+    }
+
   override def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): Task[DeleteNatGatewayResponse] =
     Task.deferFuture {
       underlying.deleteNatGateway(deleteNatGatewayRequest)
@@ -795,6 +851,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.deleteTransitGateway(deleteTransitGatewayRequest)
     }
 
+  override def deleteTransitGatewayMulticastDomain(
+      deleteTransitGatewayMulticastDomainRequest: DeleteTransitGatewayMulticastDomainRequest
+  ): Task[DeleteTransitGatewayMulticastDomainResponse] =
+    Task.deferFuture {
+      underlying.deleteTransitGatewayMulticastDomain(deleteTransitGatewayMulticastDomainRequest)
+    }
+
+  override def deleteTransitGatewayPeeringAttachment(
+      deleteTransitGatewayPeeringAttachmentRequest: DeleteTransitGatewayPeeringAttachmentRequest
+  ): Task[DeleteTransitGatewayPeeringAttachmentResponse] =
+    Task.deferFuture {
+      underlying.deleteTransitGatewayPeeringAttachment(deleteTransitGatewayPeeringAttachmentRequest)
+    }
+
   override def deleteTransitGatewayRoute(
       deleteTransitGatewayRouteRequest: DeleteTransitGatewayRouteRequest
   ): Task[DeleteTransitGatewayRouteResponse] =
@@ -883,6 +953,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def deregisterImage(deregisterImageRequest: DeregisterImageRequest): Task[DeregisterImageResponse] =
     Task.deferFuture {
       underlying.deregisterImage(deregisterImageRequest)
+    }
+
+  override def deregisterTransitGatewayMulticastGroupMembers(
+      deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
+  ): Task[DeregisterTransitGatewayMulticastGroupMembersResponse] =
+    Task.deferFuture {
+      underlying.deregisterTransitGatewayMulticastGroupMembers(deregisterTransitGatewayMulticastGroupMembersRequest)
+    }
+
+  override def deregisterTransitGatewayMulticastGroupSources(
+      deregisterTransitGatewayMulticastGroupSourcesRequest: DeregisterTransitGatewayMulticastGroupSourcesRequest
+  ): Task[DeregisterTransitGatewayMulticastGroupSourcesResponse] =
+    Task.deferFuture {
+      underlying.deregisterTransitGatewayMulticastGroupSources(deregisterTransitGatewayMulticastGroupSourcesRequest)
     }
 
   override def describeAccountAttributes(
@@ -1073,6 +1157,11 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeClientVpnTargetNetworksPaginator(describeClientVpnTargetNetworksRequest)
     )
 
+  override def describeCoipPools(describeCoipPoolsRequest: DescribeCoipPoolsRequest): Task[DescribeCoipPoolsResponse] =
+    Task.deferFuture {
+      underlying.describeCoipPools(describeCoipPoolsRequest)
+    }
+
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
   ): Task[DescribeConversionTasksResponse] =
@@ -1158,6 +1247,11 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeExportImageTasks(describeExportImageTasksRequest)
     }
 
+  def describeExportImageTasksPaginator(
+      describeExportImageTasksRequest: DescribeExportImageTasksRequest
+  ): Observable[DescribeExportImageTasksResponse] =
+    Observable.fromReactivePublisher(underlying.describeExportImageTasksPaginator(describeExportImageTasksRequest))
+
   override def describeExportTasks(
       describeExportTasksRequest: DescribeExportTasksRequest
   ): Task[DescribeExportTasksResponse] =
@@ -1169,6 +1263,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.describeExportTasks()
     }
+
+  override def describeFastSnapshotRestores(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): Task[DescribeFastSnapshotRestoresResponse] =
+    Task.deferFuture {
+      underlying.describeFastSnapshotRestores(describeFastSnapshotRestoresRequest)
+    }
+
+  def describeFastSnapshotRestoresPaginator(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): Observable[DescribeFastSnapshotRestoresResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeFastSnapshotRestoresPaginator(describeFastSnapshotRestoresRequest)
+    )
 
   override def describeFleetHistory(
       describeFleetHistoryRequest: DescribeFleetHistoryRequest
@@ -1450,6 +1558,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Observable[DescribeInstanceStatusResponse] =
     Observable.fromReactivePublisher(underlying.describeInstanceStatusPaginator(describeInstanceStatusRequest))
 
+  override def describeInstanceTypeOfferings(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): Task[DescribeInstanceTypeOfferingsResponse] =
+    Task.deferFuture {
+      underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest)
+    }
+
+  override def describeInstanceTypes(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): Task[DescribeInstanceTypesResponse] =
+    Task.deferFuture {
+      underlying.describeInstanceTypes(describeInstanceTypesRequest)
+    }
+
   override def describeInstances(describeInstancesRequest: DescribeInstancesRequest): Task[DescribeInstancesResponse] =
     Task.deferFuture {
       underlying.describeInstances(describeInstancesRequest)
@@ -1531,6 +1653,50 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       describeLaunchTemplatesRequest: DescribeLaunchTemplatesRequest
   ): Observable[DescribeLaunchTemplatesResponse] =
     Observable.fromReactivePublisher(underlying.describeLaunchTemplatesPaginator(describeLaunchTemplatesRequest))
+
+  override def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): Task[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] =
+    Task.deferFuture {
+      underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+        describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+      )
+    }
+
+  override def describeLocalGatewayRouteTableVpcAssociations(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): Task[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
+    Task.deferFuture {
+      underlying.describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest)
+    }
+
+  override def describeLocalGatewayRouteTables(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): Task[DescribeLocalGatewayRouteTablesResponse] =
+    Task.deferFuture {
+      underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest)
+    }
+
+  override def describeLocalGatewayVirtualInterfaceGroups(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): Task[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
+    Task.deferFuture {
+      underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest)
+    }
+
+  override def describeLocalGatewayVirtualInterfaces(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): Task[DescribeLocalGatewayVirtualInterfacesResponse] =
+    Task.deferFuture {
+      underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest)
+    }
+
+  override def describeLocalGateways(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): Task[DescribeLocalGatewaysResponse] =
+    Task.deferFuture {
+      underlying.describeLocalGateways(describeLocalGatewaysRequest)
+    }
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -2095,6 +2261,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeTransitGatewayAttachmentsPaginator(describeTransitGatewayAttachmentsRequest)
     )
 
+  override def describeTransitGatewayMulticastDomains(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): Task[DescribeTransitGatewayMulticastDomainsResponse] =
+    Task.deferFuture {
+      underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest)
+    }
+
+  override def describeTransitGatewayPeeringAttachments(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): Task[DescribeTransitGatewayPeeringAttachmentsResponse] =
+    Task.deferFuture {
+      underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest)
+    }
+
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): Task[DescribeTransitGatewayRouteTablesResponse] =
@@ -2479,6 +2659,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest)
     }
 
+  override def disableFastSnapshotRestores(
+      disableFastSnapshotRestoresRequest: DisableFastSnapshotRestoresRequest
+  ): Task[DisableFastSnapshotRestoresResponse] =
+    Task.deferFuture {
+      underlying.disableFastSnapshotRestores(disableFastSnapshotRestoresRequest)
+    }
+
   override def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): Task[DisableTransitGatewayRouteTablePropagationResponse] =
@@ -2542,6 +2729,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.disassociateSubnetCidrBlock(disassociateSubnetCidrBlockRequest)
     }
 
+  override def disassociateTransitGatewayMulticastDomain(
+      disassociateTransitGatewayMulticastDomainRequest: DisassociateTransitGatewayMulticastDomainRequest
+  ): Task[DisassociateTransitGatewayMulticastDomainResponse] =
+    Task.deferFuture {
+      underlying.disassociateTransitGatewayMulticastDomain(disassociateTransitGatewayMulticastDomainRequest)
+    }
+
   override def disassociateTransitGatewayRouteTable(
       disassociateTransitGatewayRouteTableRequest: DisassociateTransitGatewayRouteTableRequest
   ): Task[DisassociateTransitGatewayRouteTableResponse] =
@@ -2561,6 +2755,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[EnableEbsEncryptionByDefaultResponse] =
     Task.deferFuture {
       underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest)
+    }
+
+  override def enableFastSnapshotRestores(
+      enableFastSnapshotRestoresRequest: EnableFastSnapshotRestoresRequest
+  ): Task[EnableFastSnapshotRestoresResponse] =
+    Task.deferFuture {
+      underlying.enableFastSnapshotRestores(enableFastSnapshotRestoresRequest)
     }
 
   override def enableTransitGatewayRouteTablePropagation(
@@ -2629,6 +2830,11 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest)
     }
 
+  override def getCoipPoolUsage(getCoipPoolUsageRequest: GetCoipPoolUsageRequest): Task[GetCoipPoolUsageResponse] =
+    Task.deferFuture {
+      underlying.getCoipPoolUsage(getCoipPoolUsageRequest)
+    }
+
   override def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): Task[GetConsoleOutputResponse] =
     Task.deferFuture {
       underlying.getConsoleOutput(getConsoleOutputRequest)
@@ -2639,6 +2845,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[GetConsoleScreenshotResponse] =
     Task.deferFuture {
       underlying.getConsoleScreenshot(getConsoleScreenshotRequest)
+    }
+
+  override def getDefaultCreditSpecification(
+      getDefaultCreditSpecificationRequest: GetDefaultCreditSpecificationRequest
+  ): Task[GetDefaultCreditSpecificationResponse] =
+    Task.deferFuture {
+      underlying.getDefaultCreditSpecification(getDefaultCreditSpecificationRequest)
     }
 
   override def getEbsDefaultKmsKeyId(
@@ -2694,6 +2907,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Observable.fromReactivePublisher(
       underlying.getTransitGatewayAttachmentPropagationsPaginator(getTransitGatewayAttachmentPropagationsRequest)
     )
+
+  override def getTransitGatewayMulticastDomainAssociations(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): Task[GetTransitGatewayMulticastDomainAssociationsResponse] =
+    Task.deferFuture {
+      underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest)
+    }
 
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
@@ -2769,6 +2989,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest)
     }
 
+  override def modifyDefaultCreditSpecification(
+      modifyDefaultCreditSpecificationRequest: ModifyDefaultCreditSpecificationRequest
+  ): Task[ModifyDefaultCreditSpecificationResponse] =
+    Task.deferFuture {
+      underlying.modifyDefaultCreditSpecification(modifyDefaultCreditSpecificationRequest)
+    }
+
   override def modifyEbsDefaultKmsKeyId(
       modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
   ): Task[ModifyEbsDefaultKmsKeyIdResponse] =
@@ -2838,6 +3065,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[ModifyInstanceEventStartTimeResponse] =
     Task.deferFuture {
       underlying.modifyInstanceEventStartTime(modifyInstanceEventStartTimeRequest)
+    }
+
+  override def modifyInstanceMetadataOptions(
+      modifyInstanceMetadataOptionsRequest: ModifyInstanceMetadataOptionsRequest
+  ): Task[ModifyInstanceMetadataOptionsResponse] =
+    Task.deferFuture {
+      underlying.modifyInstanceMetadataOptions(modifyInstanceMetadataOptionsRequest)
     }
 
   override def modifyInstancePlacement(
@@ -3043,6 +3277,27 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.registerImage(registerImageRequest)
     }
 
+  override def registerTransitGatewayMulticastGroupMembers(
+      registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest
+  ): Task[RegisterTransitGatewayMulticastGroupMembersResponse] =
+    Task.deferFuture {
+      underlying.registerTransitGatewayMulticastGroupMembers(registerTransitGatewayMulticastGroupMembersRequest)
+    }
+
+  override def registerTransitGatewayMulticastGroupSources(
+      registerTransitGatewayMulticastGroupSourcesRequest: RegisterTransitGatewayMulticastGroupSourcesRequest
+  ): Task[RegisterTransitGatewayMulticastGroupSourcesResponse] =
+    Task.deferFuture {
+      underlying.registerTransitGatewayMulticastGroupSources(registerTransitGatewayMulticastGroupSourcesRequest)
+    }
+
+  override def rejectTransitGatewayPeeringAttachment(
+      rejectTransitGatewayPeeringAttachmentRequest: RejectTransitGatewayPeeringAttachmentRequest
+  ): Task[RejectTransitGatewayPeeringAttachmentResponse] =
+    Task.deferFuture {
+      underlying.rejectTransitGatewayPeeringAttachment(rejectTransitGatewayPeeringAttachmentRequest)
+    }
+
   override def rejectTransitGatewayVpcAttachment(
       rejectTransitGatewayVpcAttachmentRequest: RejectTransitGatewayVpcAttachmentRequest
   ): Task[RejectTransitGatewayVpcAttachmentResponse] =
@@ -3213,6 +3468,20 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[RunScheduledInstancesResponse] =
     Task.deferFuture {
       underlying.runScheduledInstances(runScheduledInstancesRequest)
+    }
+
+  override def searchLocalGatewayRoutes(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): Task[SearchLocalGatewayRoutesResponse] =
+    Task.deferFuture {
+      underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest)
+    }
+
+  override def searchTransitGatewayMulticastGroups(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): Task[SearchTransitGatewayMulticastGroupsResponse] =
+    Task.deferFuture {
+      underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest)
     }
 
   override def searchTransitGatewayRoutes(

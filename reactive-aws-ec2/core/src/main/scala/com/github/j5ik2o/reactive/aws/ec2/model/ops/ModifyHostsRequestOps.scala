@@ -26,6 +26,20 @@ final class ModifyHostsRequestBuilderOps(val self: ModifyHostsRequest.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceTypeAsScala(value: Option[String]): ModifyHostsRequest.Builder = {
+    value.fold(self) { v =>
+      self.instanceType(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceFamilyAsScala(value: Option[String]): ModifyHostsRequest.Builder = {
+    value.fold(self) { v =>
+      self.instanceFamily(v)
+    }
+  }
+
 }
 
 final class ModifyHostsRequestOps(val self: ModifyHostsRequest) extends AnyVal {
@@ -40,6 +54,12 @@ final class ModifyHostsRequestOps(val self: ModifyHostsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostRecoveryAsScala: Option[HostRecovery] = Option(self.hostRecovery)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceFamilyAsScala: Option[String] = Option(self.instanceFamily)
 
 }
 

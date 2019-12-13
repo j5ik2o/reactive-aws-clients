@@ -20,6 +20,13 @@ final class VpcConfigResponseBuilderOps(val self: VpcConfigResponse.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clusterSecurityGroupIdAsScala(value: Option[String]): VpcConfigResponse.Builder = {
+    value.fold(self) { v =>
+      self.clusterSecurityGroupId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): VpcConfigResponse.Builder = {
     value.fold(self) { v =>
       self.vpcId(v)
@@ -53,6 +60,9 @@ final class VpcConfigResponseOps(val self: VpcConfigResponse) extends AnyVal {
   final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def clusterSecurityGroupIdAsScala: Option[String] = Option(self.clusterSecurityGroupId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)

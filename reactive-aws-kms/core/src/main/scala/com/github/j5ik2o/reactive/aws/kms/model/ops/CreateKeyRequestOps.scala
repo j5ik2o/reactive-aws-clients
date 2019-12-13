@@ -27,6 +27,13 @@ final class CreateKeyRequestBuilderOps(val self: CreateKeyRequest.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerMasterKeySpecAsScala(value: Option[CustomerMasterKeySpec]): CreateKeyRequest.Builder = {
+    value.fold(self) { v =>
+      self.customerMasterKeySpec(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def originAsScala(value: Option[OriginType]): CreateKeyRequest.Builder = {
     value.fold(self) { v =>
       self.origin(v)
@@ -66,6 +73,9 @@ final class CreateKeyRequestOps(val self: CreateKeyRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyUsageAsScala: Option[KeyUsageType] = Option(self.keyUsage)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerMasterKeySpecAsScala: Option[CustomerMasterKeySpec] = Option(self.customerMasterKeySpec)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def originAsScala: Option[OriginType] = Option(self.origin)

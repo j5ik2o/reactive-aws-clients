@@ -47,9 +47,7 @@ typeDescFilter in scalaWrapperGen := {
 typeNameMapper in scalaWrapperGen := {
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
     Seq(s"${sdkBaseName.value}Client",
-        s"${sdkBaseName.value}AsyncClient",
-        "JavaAsyncClientMetricsInterceptor",
-        "JavaSyncClientMetricsInterceptor")
+        s"${sdkBaseName.value}AsyncClient")
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}Client" => Seq(s"${sdkBaseName.value}SyncClient")
   case cd if cd.simpleTypeName == s"${sdkBaseName.value}StreamsAsyncClient" =>
     Seq(s"${sdkBaseName.value}StreamsClient", s"${sdkBaseName.value}StreamsAsyncClient")

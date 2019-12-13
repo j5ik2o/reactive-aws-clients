@@ -19,6 +19,13 @@ final class HostInstanceBuilderOps(val self: HostInstance.Builder) extends AnyVa
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala(value: Option[String]): HostInstance.Builder = {
+    value.fold(self) { v =>
+      self.ownerId(v)
+    }
+  }
+
 }
 
 final class HostInstanceOps(val self: HostInstance) extends AnyVal {
@@ -28,6 +35,9 @@ final class HostInstanceOps(val self: HostInstance) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala: Option[String] = Option(self.instanceType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala: Option[String] = Option(self.ownerId)
 
 }
 

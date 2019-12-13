@@ -26,6 +26,13 @@ final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends A
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inaccessibleEncryptionDateTimeAsScala(value: Option[java.time.Instant]): SSEDescription.Builder = {
+    value.fold(self) { v =>
+      self.inaccessibleEncryptionDateTime(v)
+    }
+  }
+
 }
 
 final class SSEDescriptionOps(val self: SSEDescription) extends AnyVal {
@@ -38,6 +45,10 @@ final class SSEDescriptionOps(val self: SSEDescription) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsMasterKeyArnAsScala: Option[String] = Option(self.kmsMasterKeyArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def inaccessibleEncryptionDateTimeAsScala: Option[java.time.Instant] =
+    Option(self.inaccessibleEncryptionDateTime)
 
 }
 

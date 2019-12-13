@@ -47,6 +47,13 @@ final class LaunchTemplatePlacementBuilderOps(val self: LaunchTemplatePlacement.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostResourceGroupArnAsScala(value: Option[String]): LaunchTemplatePlacement.Builder = {
+    value.fold(self) { v =>
+      self.hostResourceGroupArn(v)
+    }
+  }
+
 }
 
 final class LaunchTemplatePlacementOps(val self: LaunchTemplatePlacement) extends AnyVal {
@@ -68,6 +75,9 @@ final class LaunchTemplatePlacementOps(val self: LaunchTemplatePlacement) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spreadDomainAsScala: Option[String] = Option(self.spreadDomain)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostResourceGroupArnAsScala: Option[String] = Option(self.hostResourceGroupArn)
 
 }
 

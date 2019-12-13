@@ -29,14 +29,50 @@ trait EksCatsIOClient extends EksClient[IO] {
       IO(underlying.createCluster(createClusterRequest))
     }
 
+  override def createFargateProfile(
+      createFargateProfileRequest: CreateFargateProfileRequest
+  ): IO[CreateFargateProfileResponse] =
+    IO.fromFuture {
+      IO(underlying.createFargateProfile(createFargateProfileRequest))
+    }
+
+  override def createNodegroup(createNodegroupRequest: CreateNodegroupRequest): IO[CreateNodegroupResponse] =
+    IO.fromFuture {
+      IO(underlying.createNodegroup(createNodegroupRequest))
+    }
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): IO[DeleteClusterResponse] =
     IO.fromFuture {
       IO(underlying.deleteCluster(deleteClusterRequest))
     }
 
+  override def deleteFargateProfile(
+      deleteFargateProfileRequest: DeleteFargateProfileRequest
+  ): IO[DeleteFargateProfileResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteFargateProfile(deleteFargateProfileRequest))
+    }
+
+  override def deleteNodegroup(deleteNodegroupRequest: DeleteNodegroupRequest): IO[DeleteNodegroupResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteNodegroup(deleteNodegroupRequest))
+    }
+
   override def describeCluster(describeClusterRequest: DescribeClusterRequest): IO[DescribeClusterResponse] =
     IO.fromFuture {
       IO(underlying.describeCluster(describeClusterRequest))
+    }
+
+  override def describeFargateProfile(
+      describeFargateProfileRequest: DescribeFargateProfileRequest
+  ): IO[DescribeFargateProfileResponse] =
+    IO.fromFuture {
+      IO(underlying.describeFargateProfile(describeFargateProfileRequest))
+    }
+
+  override def describeNodegroup(describeNodegroupRequest: DescribeNodegroupRequest): IO[DescribeNodegroupResponse] =
+    IO.fromFuture {
+      IO(underlying.describeNodegroup(describeNodegroupRequest))
     }
 
   override def describeUpdate(describeUpdateRequest: DescribeUpdateRequest): IO[DescribeUpdateResponse] =
@@ -59,6 +95,26 @@ trait EksCatsIOClient extends EksClient[IO] {
 
   def listClustersPaginator(listClustersRequest: ListClustersRequest): ListClustersPublisher =
     underlying.listClustersPaginator(listClustersRequest)
+
+  override def listFargateProfiles(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): IO[ListFargateProfilesResponse] =
+    IO.fromFuture {
+      IO(underlying.listFargateProfiles(listFargateProfilesRequest))
+    }
+
+  def listFargateProfilesPaginator(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): ListFargateProfilesPublisher =
+    underlying.listFargateProfilesPaginator(listFargateProfilesRequest)
+
+  override def listNodegroups(listNodegroupsRequest: ListNodegroupsRequest): IO[ListNodegroupsResponse] =
+    IO.fromFuture {
+      IO(underlying.listNodegroups(listNodegroupsRequest))
+    }
+
+  def listNodegroupsPaginator(listNodegroupsRequest: ListNodegroupsRequest): ListNodegroupsPublisher =
+    underlying.listNodegroupsPaginator(listNodegroupsRequest)
 
   override def listTagsForResource(
       listTagsForResourceRequest: ListTagsForResourceRequest
@@ -97,6 +153,20 @@ trait EksCatsIOClient extends EksClient[IO] {
   ): IO[UpdateClusterVersionResponse] =
     IO.fromFuture {
       IO(underlying.updateClusterVersion(updateClusterVersionRequest))
+    }
+
+  override def updateNodegroupConfig(
+      updateNodegroupConfigRequest: UpdateNodegroupConfigRequest
+  ): IO[UpdateNodegroupConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.updateNodegroupConfig(updateNodegroupConfigRequest))
+    }
+
+  override def updateNodegroupVersion(
+      updateNodegroupVersionRequest: UpdateNodegroupVersionRequest
+  ): IO[UpdateNodegroupVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.updateNodegroupVersion(updateNodegroupVersionRequest))
     }
 
 }

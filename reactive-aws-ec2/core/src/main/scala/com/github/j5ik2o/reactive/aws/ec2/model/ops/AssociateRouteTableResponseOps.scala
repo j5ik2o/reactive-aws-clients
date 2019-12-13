@@ -12,12 +12,22 @@ final class AssociateRouteTableResponseBuilderOps(val self: AssociateRouteTableR
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def associationStateAsScala(value: Option[RouteTableAssociationState]): AssociateRouteTableResponse.Builder = {
+    value.fold(self) { v =>
+      self.associationState(v)
+    }
+  }
+
 }
 
 final class AssociateRouteTableResponseOps(val self: AssociateRouteTableResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associationIdAsScala: Option[String] = Option(self.associationId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def associationStateAsScala: Option[RouteTableAssociationState] = Option(self.associationState)
 
 }
 

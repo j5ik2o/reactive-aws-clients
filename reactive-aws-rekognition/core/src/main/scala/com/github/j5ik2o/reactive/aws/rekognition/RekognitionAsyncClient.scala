@@ -29,6 +29,14 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
   override def createCollection(createCollectionRequest: CreateCollectionRequest): Future[CreateCollectionResponse] =
     underlying.createCollection(createCollectionRequest).toScala
 
+  override def createProject(createProjectRequest: CreateProjectRequest): Future[CreateProjectResponse] =
+    underlying.createProject(createProjectRequest).toScala
+
+  override def createProjectVersion(
+      createProjectVersionRequest: CreateProjectVersionRequest
+  ): Future[CreateProjectVersionResponse] =
+    underlying.createProjectVersion(createProjectVersionRequest).toScala
+
   override def createStreamProcessor(
       createStreamProcessorRequest: CreateStreamProcessorRequest
   ): Future[CreateStreamProcessorResponse] =
@@ -50,10 +58,31 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
   ): Future[DescribeCollectionResponse] =
     underlying.describeCollection(describeCollectionRequest).toScala
 
+  override def describeProjectVersions(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): Future[DescribeProjectVersionsResponse] =
+    underlying.describeProjectVersions(describeProjectVersionsRequest).toScala
+
+  def describeProjectVersionsPaginator(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): DescribeProjectVersionsPublisher =
+    underlying.describeProjectVersionsPaginator(describeProjectVersionsRequest)
+
+  override def describeProjects(describeProjectsRequest: DescribeProjectsRequest): Future[DescribeProjectsResponse] =
+    underlying.describeProjects(describeProjectsRequest).toScala
+
+  def describeProjectsPaginator(describeProjectsRequest: DescribeProjectsRequest): DescribeProjectsPublisher =
+    underlying.describeProjectsPaginator(describeProjectsRequest)
+
   override def describeStreamProcessor(
       describeStreamProcessorRequest: DescribeStreamProcessorRequest
   ): Future[DescribeStreamProcessorResponse] =
     underlying.describeStreamProcessor(describeStreamProcessorRequest).toScala
+
+  override def detectCustomLabels(
+      detectCustomLabelsRequest: DetectCustomLabelsRequest
+  ): Future[DetectCustomLabelsResponse] =
+    underlying.detectCustomLabels(detectCustomLabelsRequest).toScala
 
   override def detectFaces(detectFacesRequest: DetectFacesRequest): Future[DetectFacesResponse] =
     underlying.detectFaces(detectFacesRequest).toScala
@@ -198,10 +227,20 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
   ): Future[StartPersonTrackingResponse] =
     underlying.startPersonTracking(startPersonTrackingRequest).toScala
 
+  override def startProjectVersion(
+      startProjectVersionRequest: StartProjectVersionRequest
+  ): Future[StartProjectVersionResponse] =
+    underlying.startProjectVersion(startProjectVersionRequest).toScala
+
   override def startStreamProcessor(
       startStreamProcessorRequest: StartStreamProcessorRequest
   ): Future[StartStreamProcessorResponse] =
     underlying.startStreamProcessor(startStreamProcessorRequest).toScala
+
+  override def stopProjectVersion(
+      stopProjectVersionRequest: StopProjectVersionRequest
+  ): Future[StopProjectVersionResponse] =
+    underlying.stopProjectVersion(stopProjectVersionRequest).toScala
 
   override def stopStreamProcessor(
       stopStreamProcessorRequest: StopStreamProcessorRequest

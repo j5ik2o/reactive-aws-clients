@@ -14,7 +14,7 @@ public final class DynamoDbAsyncClientMetricsDecorator implements DynamoDbAsyncC
     private final DynamoDbAsyncClient underlying;
     private final MetricsReporter metricsReporter;
 
-    DynamoDbAsyncClientMetricsDecorator(DynamoDbAsyncClient underlying, MetricsReporter metricsReporter) {
+    public DynamoDbAsyncClientMetricsDecorator(DynamoDbAsyncClient underlying, MetricsReporter metricsReporter) {
         this.underlying = underlying;
         this.metricsReporter = metricsReporter;
     }

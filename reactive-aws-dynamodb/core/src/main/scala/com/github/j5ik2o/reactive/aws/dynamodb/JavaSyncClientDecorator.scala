@@ -1,9 +1,8 @@
 package com.github.j5ik2o.reactive.aws.dynamodb
 
-
 import com.github.j5ik2o.reactive.aws.dynamodb.metrics.DynamoDbSyncClientMetricsDecorator
 import com.github.j5ik2o.reactive.aws.metrics.MetricsReporter
-import software.amazon.awssdk.services.dynamodb.{DynamoDbClient => JavaDynamoDbClient}
+import software.amazon.awssdk.services.dynamodb.{ DynamoDbClient => JavaDynamoDbClient }
 
 object JavaSyncClientDecorator {
 

@@ -103,6 +103,13 @@ final class SubnetBuilderOps(val self: Subnet.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): Subnet.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
 }
 
 final class SubnetOps(val self: Subnet) extends AnyVal {
@@ -153,6 +160,9 @@ final class SubnetOps(val self: Subnet) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetArnAsScala: Option[String] = Option(self.subnetArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
 
 }
 

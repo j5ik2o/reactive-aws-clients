@@ -69,6 +69,13 @@ final class NetworkInterfaceBuilderOps(val self: NetworkInterface.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): NetworkInterface.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerIdAsScala(value: Option[String]): NetworkInterface.Builder = {
     value.fold(self) { v =>
       self.ownerId(v)
@@ -181,6 +188,9 @@ final class NetworkInterfaceOps(val self: NetworkInterface) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkInterfaceIdAsScala: Option[String] = Option(self.networkInterfaceId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerIdAsScala: Option[String] = Option(self.ownerId)

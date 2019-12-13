@@ -41,6 +41,41 @@ final class UpdateEventSourceMappingRequestBuilderOps(val self: UpdateEventSourc
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationConfigAsScala(value: Option[DestinationConfig]): UpdateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.destinationConfig(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRecordAgeInSecondsAsScala(value: Option[Int]): UpdateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.maximumRecordAgeInSeconds(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def bisectBatchOnFunctionErrorAsScala(value: Option[Boolean]): UpdateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.bisectBatchOnFunctionError(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRetryAttemptsAsScala(value: Option[Int]): UpdateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.maximumRetryAttempts(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def parallelizationFactorAsScala(value: Option[Int]): UpdateEventSourceMappingRequest.Builder = {
+    value.fold(self) { v =>
+      self.parallelizationFactor(v)
+    }
+  }
+
 }
 
 final class UpdateEventSourceMappingRequestOps(val self: UpdateEventSourceMappingRequest) extends AnyVal {
@@ -59,6 +94,21 @@ final class UpdateEventSourceMappingRequestOps(val self: UpdateEventSourceMappin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumBatchingWindowInSecondsAsScala: Option[Int] = Option(self.maximumBatchingWindowInSeconds)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationConfigAsScala: Option[DestinationConfig] = Option(self.destinationConfig)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRecordAgeInSecondsAsScala: Option[Int] = Option(self.maximumRecordAgeInSeconds)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def bisectBatchOnFunctionErrorAsScala: Option[Boolean] = Option(self.bisectBatchOnFunctionError)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maximumRetryAttemptsAsScala: Option[Int] = Option(self.maximumRetryAttempts)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def parallelizationFactorAsScala: Option[Int] = Option(self.parallelizationFactor)
 
 }
 

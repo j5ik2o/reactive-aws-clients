@@ -19,6 +19,13 @@ final class EncryptResponseBuilderOps(val self: EncryptResponse.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): EncryptResponse.Builder = {
+    value.fold(self) { v =>
+      self.encryptionAlgorithm(v)
+    }
+  }
+
 }
 
 final class EncryptResponseOps(val self: EncryptResponse) extends AnyVal {
@@ -28,6 +35,9 @@ final class EncryptResponseOps(val self: EncryptResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] = Option(self.encryptionAlgorithm)
 
 }
 

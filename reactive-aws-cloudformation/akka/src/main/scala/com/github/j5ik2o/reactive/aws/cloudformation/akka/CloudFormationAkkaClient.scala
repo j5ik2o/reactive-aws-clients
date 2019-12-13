@@ -148,6 +148,19 @@ trait CloudFormationAkkaClient {
       underlying.deleteStackSet(deleteStackSetRequest)
     }
 
+  def deregisterTypeSource(
+      deregisterTypeRequest: DeregisterTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeregisterTypeResponse, NotUsed] =
+    Source.single(deregisterTypeRequest).via(deregisterTypeFlow(parallelism))
+
+  def deregisterTypeFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeregisterTypeRequest, DeregisterTypeResponse, NotUsed] =
+    Flow[DeregisterTypeRequest].mapAsync(parallelism) { deregisterTypeRequest =>
+      underlying.deregisterType(deregisterTypeRequest)
+    }
+
   def describeAccountLimitsSource(
       describeAccountLimitsRequest: DescribeAccountLimitsRequest,
       parallelism: Int = DefaultParallelism
@@ -316,6 +329,32 @@ trait CloudFormationAkkaClient {
       Source.fromPublisher(underlying.describeStacksPaginator(request))
     }
 
+  def describeTypeSource(
+      describeTypeRequest: DescribeTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTypeResponse, NotUsed] =
+    Source.single(describeTypeRequest).via(describeTypeFlow(parallelism))
+
+  def describeTypeFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTypeRequest, DescribeTypeResponse, NotUsed] =
+    Flow[DescribeTypeRequest].mapAsync(parallelism) { describeTypeRequest =>
+      underlying.describeType(describeTypeRequest)
+    }
+
+  def describeTypeRegistrationSource(
+      describeTypeRegistrationRequest: DescribeTypeRegistrationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTypeRegistrationResponse, NotUsed] =
+    Source.single(describeTypeRegistrationRequest).via(describeTypeRegistrationFlow(parallelism))
+
+  def describeTypeRegistrationFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTypeRegistrationRequest, DescribeTypeRegistrationResponse, NotUsed] =
+    Flow[DescribeTypeRegistrationRequest].mapAsync(parallelism) { describeTypeRegistrationRequest =>
+      underlying.describeTypeRegistration(describeTypeRegistrationRequest)
+    }
+
   def detectStackDriftSource(
       detectStackDriftRequest: DetectStackDriftRequest,
       parallelism: Int = DefaultParallelism
@@ -340,6 +379,19 @@ trait CloudFormationAkkaClient {
   ): Flow[DetectStackResourceDriftRequest, DetectStackResourceDriftResponse, NotUsed] =
     Flow[DetectStackResourceDriftRequest].mapAsync(parallelism) { detectStackResourceDriftRequest =>
       underlying.detectStackResourceDrift(detectStackResourceDriftRequest)
+    }
+
+  def detectStackSetDriftSource(
+      detectStackSetDriftRequest: DetectStackSetDriftRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DetectStackSetDriftResponse, NotUsed] =
+    Source.single(detectStackSetDriftRequest).via(detectStackSetDriftFlow(parallelism))
+
+  def detectStackSetDriftFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DetectStackSetDriftRequest, DetectStackSetDriftResponse, NotUsed] =
+    Flow[DetectStackSetDriftRequest].mapAsync(parallelism) { detectStackSetDriftRequest =>
+      underlying.detectStackSetDrift(detectStackSetDriftRequest)
     }
 
   def estimateTemplateCostSource(
@@ -551,6 +603,84 @@ trait CloudFormationAkkaClient {
       Source.fromPublisher(underlying.listStacksPaginator(request))
     }
 
+  def listTypeRegistrationsSource(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTypeRegistrationsResponse, NotUsed] =
+    Source.single(listTypeRegistrationsRequest).via(listTypeRegistrationsFlow(parallelism))
+
+  def listTypeRegistrationsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListTypeRegistrationsRequest, ListTypeRegistrationsResponse, NotUsed] =
+    Flow[ListTypeRegistrationsRequest].mapAsync(parallelism) { listTypeRegistrationsRequest =>
+      underlying.listTypeRegistrations(listTypeRegistrationsRequest)
+    }
+
+  def listTypeRegistrationsPaginatorFlow: Flow[ListTypeRegistrationsRequest, ListTypeRegistrationsResponse, NotUsed] =
+    Flow[ListTypeRegistrationsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listTypeRegistrationsPaginator(request))
+    }
+
+  def listTypeVersionsSource(
+      listTypeVersionsRequest: ListTypeVersionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTypeVersionsResponse, NotUsed] =
+    Source.single(listTypeVersionsRequest).via(listTypeVersionsFlow(parallelism))
+
+  def listTypeVersionsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListTypeVersionsRequest, ListTypeVersionsResponse, NotUsed] =
+    Flow[ListTypeVersionsRequest].mapAsync(parallelism) { listTypeVersionsRequest =>
+      underlying.listTypeVersions(listTypeVersionsRequest)
+    }
+
+  def listTypeVersionsPaginatorFlow: Flow[ListTypeVersionsRequest, ListTypeVersionsResponse, NotUsed] =
+    Flow[ListTypeVersionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listTypeVersionsPaginator(request))
+    }
+
+  def listTypesSource(
+      listTypesRequest: ListTypesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListTypesResponse, NotUsed] =
+    Source.single(listTypesRequest).via(listTypesFlow(parallelism))
+
+  def listTypesFlow(parallelism: Int = DefaultParallelism): Flow[ListTypesRequest, ListTypesResponse, NotUsed] =
+    Flow[ListTypesRequest].mapAsync(parallelism) { listTypesRequest =>
+      underlying.listTypes(listTypesRequest)
+    }
+
+  def listTypesPaginatorFlow: Flow[ListTypesRequest, ListTypesResponse, NotUsed] =
+    Flow[ListTypesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listTypesPaginator(request))
+    }
+
+  def recordHandlerProgressSource(
+      recordHandlerProgressRequest: RecordHandlerProgressRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RecordHandlerProgressResponse, NotUsed] =
+    Source.single(recordHandlerProgressRequest).via(recordHandlerProgressFlow(parallelism))
+
+  def recordHandlerProgressFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[RecordHandlerProgressRequest, RecordHandlerProgressResponse, NotUsed] =
+    Flow[RecordHandlerProgressRequest].mapAsync(parallelism) { recordHandlerProgressRequest =>
+      underlying.recordHandlerProgress(recordHandlerProgressRequest)
+    }
+
+  def registerTypeSource(
+      registerTypeRequest: RegisterTypeRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RegisterTypeResponse, NotUsed] =
+    Source.single(registerTypeRequest).via(registerTypeFlow(parallelism))
+
+  def registerTypeFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[RegisterTypeRequest, RegisterTypeResponse, NotUsed] =
+    Flow[RegisterTypeRequest].mapAsync(parallelism) { registerTypeRequest =>
+      underlying.registerType(registerTypeRequest)
+    }
+
   def setStackPolicySource(
       setStackPolicyRequest: SetStackPolicyRequest,
       parallelism: Int = DefaultParallelism
@@ -562,6 +692,19 @@ trait CloudFormationAkkaClient {
   ): Flow[SetStackPolicyRequest, SetStackPolicyResponse, NotUsed] =
     Flow[SetStackPolicyRequest].mapAsync(parallelism) { setStackPolicyRequest =>
       underlying.setStackPolicy(setStackPolicyRequest)
+    }
+
+  def setTypeDefaultVersionSource(
+      setTypeDefaultVersionRequest: SetTypeDefaultVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SetTypeDefaultVersionResponse, NotUsed] =
+    Source.single(setTypeDefaultVersionRequest).via(setTypeDefaultVersionFlow(parallelism))
+
+  def setTypeDefaultVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[SetTypeDefaultVersionRequest, SetTypeDefaultVersionResponse, NotUsed] =
+    Flow[SetTypeDefaultVersionRequest].mapAsync(parallelism) { setTypeDefaultVersionRequest =>
+      underlying.setTypeDefaultVersion(setTypeDefaultVersionRequest)
     }
 
   def signalResourceSource(

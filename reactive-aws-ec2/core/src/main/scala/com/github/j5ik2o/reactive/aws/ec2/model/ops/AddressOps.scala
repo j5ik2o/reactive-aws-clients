@@ -75,6 +75,27 @@ final class AddressBuilderOps(val self: Address.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala(value: Option[String]): Address.Builder = {
+    value.fold(self) { v =>
+      self.networkBorderGroup(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpAsScala(value: Option[String]): Address.Builder = {
+    value.fold(self) { v =>
+      self.customerOwnedIp(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala(value: Option[String]): Address.Builder = {
+    value.fold(self) { v =>
+      self.customerOwnedIpv4Pool(v)
+    }
+  }
+
 }
 
 final class AddressOps(val self: Address) extends AnyVal {
@@ -110,6 +131,15 @@ final class AddressOps(val self: Address) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicIpv4PoolAsScala: Option[String] = Option(self.publicIpv4Pool)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala: Option[String] = Option(self.networkBorderGroup)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpAsScala: Option[String] = Option(self.customerOwnedIp)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala: Option[String] = Option(self.customerOwnedIpv4Pool)
 
 }
 

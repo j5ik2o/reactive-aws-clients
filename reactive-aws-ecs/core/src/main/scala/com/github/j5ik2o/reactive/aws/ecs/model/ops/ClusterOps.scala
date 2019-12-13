@@ -75,6 +75,36 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProvidersAsScala(value: Option[Seq[String]]): Cluster.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.capacityProviders(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def defaultCapacityProviderStrategyAsScala(
+      value: Option[Seq[CapacityProviderStrategyItem]]
+  ): Cluster.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.defaultCapacityProviderStrategy(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def attachmentsAsScala(value: Option[Seq[Attachment]]): Cluster.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.attachments(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def attachmentsStatusAsScala(value: Option[String]): Cluster.Builder = {
+    value.fold(self) { v =>
+      self.attachmentsStatus(v)
+    }
+  }
+
 }
 
 final class ClusterOps(val self: Cluster) extends AnyVal {
@@ -114,6 +144,25 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
   final def settingsAsScala: Option[Seq[ClusterSetting]] = Option(self.settings).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProvidersAsScala: Option[Seq[String]] = Option(self.capacityProviders).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def defaultCapacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =
+    Option(self.defaultCapacityProviderStrategy).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def attachmentsAsScala: Option[Seq[Attachment]] = Option(self.attachments).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def attachmentsStatusAsScala: Option[String] = Option(self.attachmentsStatus)
 
 }
 

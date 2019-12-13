@@ -226,6 +226,13 @@ final class InstanceBuilderOps(val self: Instance.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): Instance.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rootDeviceNameAsScala(value: Option[String]): Instance.Builder = {
     value.fold(self) { v =>
       self.rootDeviceName(v)
@@ -322,6 +329,13 @@ final class InstanceBuilderOps(val self: Instance.Builder) extends AnyVal {
   final def licensesAsScala(value: Option[Seq[LicenseConfiguration]]): Instance.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.licenses(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metadataOptionsAsScala(value: Option[InstanceMetadataOptionsResponse]): Instance.Builder = {
+    value.fold(self) { v =>
+      self.metadataOptions(v)
     }
   }
 
@@ -436,6 +450,9 @@ final class InstanceOps(val self: Instance) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rootDeviceNameAsScala: Option[String] = Option(self.rootDeviceName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -483,6 +500,9 @@ final class InstanceOps(val self: Instance) extends AnyVal {
   final def licensesAsScala: Option[Seq[LicenseConfiguration]] = Option(self.licenses).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metadataOptionsAsScala: Option[InstanceMetadataOptionsResponse] = Option(self.metadataOptions)
 
 }
 

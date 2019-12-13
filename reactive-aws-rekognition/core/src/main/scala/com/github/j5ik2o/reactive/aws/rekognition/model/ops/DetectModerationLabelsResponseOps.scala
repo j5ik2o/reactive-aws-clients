@@ -19,6 +19,15 @@ final class DetectModerationLabelsResponseBuilderOps(val self: DetectModerationL
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def humanLoopActivationOutputAsScala(
+      value: Option[HumanLoopActivationOutput]
+  ): DetectModerationLabelsResponse.Builder = {
+    value.fold(self) { v =>
+      self.humanLoopActivationOutput(v)
+    }
+  }
+
 }
 
 final class DetectModerationLabelsResponseOps(val self: DetectModerationLabelsResponse) extends AnyVal {
@@ -30,6 +39,9 @@ final class DetectModerationLabelsResponseOps(val self: DetectModerationLabelsRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationModelVersionAsScala: Option[String] = Option(self.moderationModelVersion)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def humanLoopActivationOutputAsScala: Option[HumanLoopActivationOutput] = Option(self.humanLoopActivationOutput)
 
 }
 

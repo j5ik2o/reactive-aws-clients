@@ -22,6 +22,19 @@ trait AppSyncAkkaClient {
 
   val underlying: AppSyncAsyncClient
 
+  def createApiCacheSource(
+      createApiCacheRequest: CreateApiCacheRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateApiCacheResponse, NotUsed] =
+    Source.single(createApiCacheRequest).via(createApiCacheFlow(parallelism))
+
+  def createApiCacheFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateApiCacheRequest, CreateApiCacheResponse, NotUsed] =
+    Flow[CreateApiCacheRequest].mapAsync(parallelism) { createApiCacheRequest =>
+      underlying.createApiCache(createApiCacheRequest)
+    }
+
   def createApiKeySource(
       createApiKeyRequest: CreateApiKeyRequest,
       parallelism: Int = DefaultParallelism
@@ -98,6 +111,19 @@ trait AppSyncAkkaClient {
       underlying.createType(createTypeRequest)
     }
 
+  def deleteApiCacheSource(
+      deleteApiCacheRequest: DeleteApiCacheRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteApiCacheResponse, NotUsed] =
+    Source.single(deleteApiCacheRequest).via(deleteApiCacheFlow(parallelism))
+
+  def deleteApiCacheFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteApiCacheRequest, DeleteApiCacheResponse, NotUsed] =
+    Flow[DeleteApiCacheRequest].mapAsync(parallelism) { deleteApiCacheRequest =>
+      underlying.deleteApiCache(deleteApiCacheRequest)
+    }
+
   def deleteApiKeySource(
       deleteApiKeyRequest: DeleteApiKeyRequest,
       parallelism: Int = DefaultParallelism
@@ -172,6 +198,30 @@ trait AppSyncAkkaClient {
   def deleteTypeFlow(parallelism: Int = DefaultParallelism): Flow[DeleteTypeRequest, DeleteTypeResponse, NotUsed] =
     Flow[DeleteTypeRequest].mapAsync(parallelism) { deleteTypeRequest =>
       underlying.deleteType(deleteTypeRequest)
+    }
+
+  def flushApiCacheSource(
+      flushApiCacheRequest: FlushApiCacheRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[FlushApiCacheResponse, NotUsed] =
+    Source.single(flushApiCacheRequest).via(flushApiCacheFlow(parallelism))
+
+  def flushApiCacheFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[FlushApiCacheRequest, FlushApiCacheResponse, NotUsed] =
+    Flow[FlushApiCacheRequest].mapAsync(parallelism) { flushApiCacheRequest =>
+      underlying.flushApiCache(flushApiCacheRequest)
+    }
+
+  def getApiCacheSource(
+      getApiCacheRequest: GetApiCacheRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetApiCacheResponse, NotUsed] =
+    Source.single(getApiCacheRequest).via(getApiCacheFlow(parallelism))
+
+  def getApiCacheFlow(parallelism: Int = DefaultParallelism): Flow[GetApiCacheRequest, GetApiCacheResponse, NotUsed] =
+    Flow[GetApiCacheRequest].mapAsync(parallelism) { getApiCacheRequest =>
+      underlying.getApiCache(getApiCacheRequest)
     }
 
   def getDataSourceSource(
@@ -397,6 +447,19 @@ trait AppSyncAkkaClient {
   ): Flow[UntagResourceRequest, UntagResourceResponse, NotUsed] =
     Flow[UntagResourceRequest].mapAsync(parallelism) { untagResourceRequest =>
       underlying.untagResource(untagResourceRequest)
+    }
+
+  def updateApiCacheSource(
+      updateApiCacheRequest: UpdateApiCacheRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateApiCacheResponse, NotUsed] =
+    Source.single(updateApiCacheRequest).via(updateApiCacheFlow(parallelism))
+
+  def updateApiCacheFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateApiCacheRequest, UpdateApiCacheResponse, NotUsed] =
+    Flow[UpdateApiCacheRequest].mapAsync(parallelism) { updateApiCacheRequest =>
+      underlying.updateApiCache(updateApiCacheRequest)
     }
 
   def updateApiKeySource(

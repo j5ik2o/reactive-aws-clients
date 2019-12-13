@@ -27,6 +27,8 @@ trait CloudFormationClient[M[_]] {
 
   def deleteStackSet(deleteStackSetRequest: DeleteStackSetRequest): M[DeleteStackSetResponse]
 
+  def deregisterType(deregisterTypeRequest: DeregisterTypeRequest): M[DeregisterTypeResponse]
+
   def describeAccountLimits(
       describeAccountLimitsRequest: DescribeAccountLimitsRequest
   ): M[DescribeAccountLimitsResponse]
@@ -67,11 +69,19 @@ trait CloudFormationClient[M[_]] {
 
   def describeStacks(): M[DescribeStacksResponse]
 
+  def describeType(describeTypeRequest: DescribeTypeRequest): M[DescribeTypeResponse]
+
+  def describeTypeRegistration(
+      describeTypeRegistrationRequest: DescribeTypeRegistrationRequest
+  ): M[DescribeTypeRegistrationResponse]
+
   def detectStackDrift(detectStackDriftRequest: DetectStackDriftRequest): M[DetectStackDriftResponse]
 
   def detectStackResourceDrift(
       detectStackResourceDriftRequest: DetectStackResourceDriftRequest
   ): M[DetectStackResourceDriftResponse]
+
+  def detectStackSetDrift(detectStackSetDriftRequest: DetectStackSetDriftRequest): M[DetectStackSetDriftResponse]
 
   def estimateTemplateCost(estimateTemplateCostRequest: EstimateTemplateCostRequest): M[EstimateTemplateCostResponse]
 
@@ -111,7 +121,25 @@ trait CloudFormationClient[M[_]] {
 
   def listStacks(): M[ListStacksResponse]
 
+  def listTypeRegistrations(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): M[ListTypeRegistrationsResponse]
+
+  def listTypeVersions(listTypeVersionsRequest: ListTypeVersionsRequest): M[ListTypeVersionsResponse]
+
+  def listTypes(listTypesRequest: ListTypesRequest): M[ListTypesResponse]
+
+  def recordHandlerProgress(
+      recordHandlerProgressRequest: RecordHandlerProgressRequest
+  ): M[RecordHandlerProgressResponse]
+
+  def registerType(registerTypeRequest: RegisterTypeRequest): M[RegisterTypeResponse]
+
   def setStackPolicy(setStackPolicyRequest: SetStackPolicyRequest): M[SetStackPolicyResponse]
+
+  def setTypeDefaultVersion(
+      setTypeDefaultVersionRequest: SetTypeDefaultVersionRequest
+  ): M[SetTypeDefaultVersionResponse]
 
   def signalResource(signalResourceRequest: SignalResourceRequest): M[SignalResourceResponse]
 

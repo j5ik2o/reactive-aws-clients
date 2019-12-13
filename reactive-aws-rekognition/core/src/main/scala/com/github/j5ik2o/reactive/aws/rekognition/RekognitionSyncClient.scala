@@ -30,6 +30,14 @@ trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
   ): Either[Throwable, CreateCollectionResponse] =
     underlying.createCollection(createCollectionRequest).toEither
 
+  override def createProject(createProjectRequest: CreateProjectRequest): Either[Throwable, CreateProjectResponse] =
+    underlying.createProject(createProjectRequest).toEither
+
+  override def createProjectVersion(
+      createProjectVersionRequest: CreateProjectVersionRequest
+  ): Either[Throwable, CreateProjectVersionResponse] =
+    underlying.createProjectVersion(createProjectVersionRequest).toEither
+
   override def createStreamProcessor(
       createStreamProcessorRequest: CreateStreamProcessorRequest
   ): Either[Throwable, CreateStreamProcessorResponse] =
@@ -53,10 +61,33 @@ trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeCollectionResponse] =
     underlying.describeCollection(describeCollectionRequest).toEither
 
+  override def describeProjectVersions(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): Either[Throwable, DescribeProjectVersionsResponse] =
+    underlying.describeProjectVersions(describeProjectVersionsRequest).toEither
+
+  def describeProjectVersionsPaginator(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): DescribeProjectVersionsIterable =
+    underlying.describeProjectVersionsPaginator(describeProjectVersionsRequest)
+
+  override def describeProjects(
+      describeProjectsRequest: DescribeProjectsRequest
+  ): Either[Throwable, DescribeProjectsResponse] =
+    underlying.describeProjects(describeProjectsRequest).toEither
+
+  def describeProjectsPaginator(describeProjectsRequest: DescribeProjectsRequest): DescribeProjectsIterable =
+    underlying.describeProjectsPaginator(describeProjectsRequest)
+
   override def describeStreamProcessor(
       describeStreamProcessorRequest: DescribeStreamProcessorRequest
   ): Either[Throwable, DescribeStreamProcessorResponse] =
     underlying.describeStreamProcessor(describeStreamProcessorRequest).toEither
+
+  override def detectCustomLabels(
+      detectCustomLabelsRequest: DetectCustomLabelsRequest
+  ): Either[Throwable, DetectCustomLabelsResponse] =
+    underlying.detectCustomLabels(detectCustomLabelsRequest).toEither
 
   override def detectFaces(detectFacesRequest: DetectFacesRequest): Either[Throwable, DetectFacesResponse] =
     underlying.detectFaces(detectFacesRequest).toEither
@@ -209,10 +240,20 @@ trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
   ): Either[Throwable, StartPersonTrackingResponse] =
     underlying.startPersonTracking(startPersonTrackingRequest).toEither
 
+  override def startProjectVersion(
+      startProjectVersionRequest: StartProjectVersionRequest
+  ): Either[Throwable, StartProjectVersionResponse] =
+    underlying.startProjectVersion(startProjectVersionRequest).toEither
+
   override def startStreamProcessor(
       startStreamProcessorRequest: StartStreamProcessorRequest
   ): Either[Throwable, StartStreamProcessorResponse] =
     underlying.startStreamProcessor(startStreamProcessorRequest).toEither
+
+  override def stopProjectVersion(
+      stopProjectVersionRequest: StopProjectVersionRequest
+  ): Either[Throwable, StopProjectVersionResponse] =
+    underlying.stopProjectVersion(stopProjectVersionRequest).toEither
 
   override def stopStreamProcessor(
       stopStreamProcessorRequest: StopStreamProcessorRequest
