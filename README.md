@@ -42,7 +42,7 @@ Add dependencies to `build.sbt`.
 
 ```scala
 val libraryName = "dynamodb"
-val version = "1.1.5"
+val version = "1.1.6"
 
 libraryDependencies += Seq(
   "com.github.j5ik2o" %% s"reactive-aws-$libraryName-core" % version,
