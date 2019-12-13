@@ -12,13 +12,6 @@ final class ListStreamsResponseBuilderOps(val self: ListStreamsResponse.Builder)
     }
   }
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hasMoreStreamsAsScala(value: Option[Boolean]): ListStreamsResponse.Builder = {
-    value.fold(self) { v =>
-      self.hasMoreStreams(v)
-    }
-  }
-
 }
 
 final class ListStreamsResponseOps(val self: ListStreamsResponse) extends AnyVal {
@@ -27,9 +20,6 @@ final class ListStreamsResponseOps(val self: ListStreamsResponse) extends AnyVal
   final def streamNamesAsScala: Option[Seq[String]] = Option(self.streamNames).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def hasMoreStreamsAsScala: Option[Boolean] = Option(self.hasMoreStreams)
 
 }
 

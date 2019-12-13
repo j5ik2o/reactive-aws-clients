@@ -7,7 +7,7 @@ import ${packageName}._
 final class ${simpleTypeName}BuilderOps(val self: ${simpleTypeName}.Builder) extends AnyVal {
 
 <#list methods as m>
-    <#if !m.static && !m.name?ends_with("AsString") && !m.name?ends_with("AsStrings") && m.name != "builder" && m.name != "serializableBuilderClass" && m.name != "toBuilder" && m.name != "hashCode" && m.name != "toString" && m.name != "sdkFields" && !m.parameterTypeDescs?has_content>
+    <#if !m.static && !m.name?starts_with("has") && !m.name?ends_with("AsString") && !m.name?ends_with("AsStrings") && m.name != "builder" && m.name != "serializableBuilderClass" && m.name != "toBuilder" && m.name != "hashCode" && m.name != "toString" && m.name != "sdkFields" && !m.parameterTypeDescs?has_content>
         <@enrichSetterAsScala simpleTypeName m />
 
     </#if>
@@ -18,7 +18,7 @@ final class ${simpleTypeName}BuilderOps(val self: ${simpleTypeName}.Builder) ext
 final class ${simpleTypeName}Ops(val self: ${simpleTypeName}) extends AnyVal {
 
 <#list methods as m>
-    <#if !m.static && !m.name?ends_with("AsString") && !m.name?ends_with("AsStrings") && m.name != "builder" && m.name != "serializableBuilderClass" && m.name != "toBuilder" && m.name != "hashCode" && m.name != "toString" && m.name != "sdkFields" && !m.parameterTypeDescs?has_content>
+    <#if !m.static && !m.name?starts_with("has") && !m.name?ends_with("AsString") && !m.name?ends_with("AsStrings") && m.name != "builder" && m.name != "serializableBuilderClass" && m.name != "toBuilder" && m.name != "hashCode" && m.name != "toString" && m.name != "sdkFields" && !m.parameterTypeDescs?has_content>
         <@enrichGetterAsScala simpleTypeName m />
 
     </#if>

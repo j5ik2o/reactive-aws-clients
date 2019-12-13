@@ -12,12 +12,22 @@ final class ElasticInferenceAcceleratorBuilderOps(val self: ElasticInferenceAcce
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def countAsScala(value: Option[Int]): ElasticInferenceAccelerator.Builder = {
+    value.fold(self) { v =>
+      self.count(v)
+    }
+  }
+
 }
 
 final class ElasticInferenceAcceleratorOps(val self: ElasticInferenceAccelerator) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala: Option[String] = Option(self.`type`)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def countAsScala: Option[Int] = Option(self.count)
 
 }
 
