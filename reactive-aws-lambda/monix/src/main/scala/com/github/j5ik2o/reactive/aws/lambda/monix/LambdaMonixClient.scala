@@ -71,11 +71,25 @@ trait LambdaMonixClient extends LambdaClient[Task] {
       underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest)
     }
 
+  override def deleteFunctionEventInvokeConfig(
+      deleteFunctionEventInvokeConfigRequest: DeleteFunctionEventInvokeConfigRequest
+  ): Task[DeleteFunctionEventInvokeConfigResponse] =
+    Task.deferFuture {
+      underlying.deleteFunctionEventInvokeConfig(deleteFunctionEventInvokeConfigRequest)
+    }
+
   override def deleteLayerVersion(
       deleteLayerVersionRequest: DeleteLayerVersionRequest
   ): Task[DeleteLayerVersionResponse] =
     Task.deferFuture {
       underlying.deleteLayerVersion(deleteLayerVersionRequest)
+    }
+
+  override def deleteProvisionedConcurrencyConfig(
+      deleteProvisionedConcurrencyConfigRequest: DeleteProvisionedConcurrencyConfigRequest
+  ): Task[DeleteProvisionedConcurrencyConfigResponse] =
+    Task.deferFuture {
+      underlying.deleteProvisionedConcurrencyConfig(deleteProvisionedConcurrencyConfigRequest)
     }
 
   override def getAccountSettings(
@@ -107,11 +121,25 @@ trait LambdaMonixClient extends LambdaClient[Task] {
       underlying.getFunction(getFunctionRequest)
     }
 
+  override def getFunctionConcurrency(
+      getFunctionConcurrencyRequest: GetFunctionConcurrencyRequest
+  ): Task[GetFunctionConcurrencyResponse] =
+    Task.deferFuture {
+      underlying.getFunctionConcurrency(getFunctionConcurrencyRequest)
+    }
+
   override def getFunctionConfiguration(
       getFunctionConfigurationRequest: GetFunctionConfigurationRequest
   ): Task[GetFunctionConfigurationResponse] =
     Task.deferFuture {
       underlying.getFunctionConfiguration(getFunctionConfigurationRequest)
+    }
+
+  override def getFunctionEventInvokeConfig(
+      getFunctionEventInvokeConfigRequest: GetFunctionEventInvokeConfigRequest
+  ): Task[GetFunctionEventInvokeConfigResponse] =
+    Task.deferFuture {
+      underlying.getFunctionEventInvokeConfig(getFunctionEventInvokeConfigRequest)
     }
 
   override def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): Task[GetLayerVersionResponse] =
@@ -136,6 +164,13 @@ trait LambdaMonixClient extends LambdaClient[Task] {
   override def getPolicy(getPolicyRequest: GetPolicyRequest): Task[GetPolicyResponse] =
     Task.deferFuture {
       underlying.getPolicy(getPolicyRequest)
+    }
+
+  override def getProvisionedConcurrencyConfig(
+      getProvisionedConcurrencyConfigRequest: GetProvisionedConcurrencyConfigRequest
+  ): Task[GetProvisionedConcurrencyConfigResponse] =
+    Task.deferFuture {
+      underlying.getProvisionedConcurrencyConfig(getProvisionedConcurrencyConfigRequest)
     }
 
   override def invoke(invokeRequest: InvokeRequest): Task[InvokeResponse] =
@@ -170,6 +205,20 @@ trait LambdaMonixClient extends LambdaClient[Task] {
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): Observable[ListEventSourceMappingsResponse] =
     Observable.fromReactivePublisher(underlying.listEventSourceMappingsPaginator(listEventSourceMappingsRequest))
+
+  override def listFunctionEventInvokeConfigs(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): Task[ListFunctionEventInvokeConfigsResponse] =
+    Task.deferFuture {
+      underlying.listFunctionEventInvokeConfigs(listFunctionEventInvokeConfigsRequest)
+    }
+
+  def listFunctionEventInvokeConfigsPaginator(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): Observable[ListFunctionEventInvokeConfigsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.listFunctionEventInvokeConfigsPaginator(listFunctionEventInvokeConfigsRequest)
+    )
 
   override def listFunctions(listFunctionsRequest: ListFunctionsRequest): Task[ListFunctionsResponse] =
     Task.deferFuture {
@@ -213,6 +262,20 @@ trait LambdaMonixClient extends LambdaClient[Task] {
   def listLayersPaginator(listLayersRequest: ListLayersRequest): Observable[ListLayersResponse] =
     Observable.fromReactivePublisher(underlying.listLayersPaginator(listLayersRequest))
 
+  override def listProvisionedConcurrencyConfigs(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): Task[ListProvisionedConcurrencyConfigsResponse] =
+    Task.deferFuture {
+      underlying.listProvisionedConcurrencyConfigs(listProvisionedConcurrencyConfigsRequest)
+    }
+
+  def listProvisionedConcurrencyConfigsPaginator(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): Observable[ListProvisionedConcurrencyConfigsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.listProvisionedConcurrencyConfigsPaginator(listProvisionedConcurrencyConfigsRequest)
+    )
+
   override def listTags(listTagsRequest: ListTagsRequest): Task[ListTagsResponse] =
     Task.deferFuture {
       underlying.listTags(listTagsRequest)
@@ -247,6 +310,20 @@ trait LambdaMonixClient extends LambdaClient[Task] {
   ): Task[PutFunctionConcurrencyResponse] =
     Task.deferFuture {
       underlying.putFunctionConcurrency(putFunctionConcurrencyRequest)
+    }
+
+  override def putFunctionEventInvokeConfig(
+      putFunctionEventInvokeConfigRequest: PutFunctionEventInvokeConfigRequest
+  ): Task[PutFunctionEventInvokeConfigResponse] =
+    Task.deferFuture {
+      underlying.putFunctionEventInvokeConfig(putFunctionEventInvokeConfigRequest)
+    }
+
+  override def putProvisionedConcurrencyConfig(
+      putProvisionedConcurrencyConfigRequest: PutProvisionedConcurrencyConfigRequest
+  ): Task[PutProvisionedConcurrencyConfigResponse] =
+    Task.deferFuture {
+      underlying.putProvisionedConcurrencyConfig(putProvisionedConcurrencyConfigRequest)
     }
 
   override def removeLayerVersionPermission(
@@ -295,6 +372,13 @@ trait LambdaMonixClient extends LambdaClient[Task] {
   ): Task[UpdateFunctionConfigurationResponse] =
     Task.deferFuture {
       underlying.updateFunctionConfiguration(updateFunctionConfigurationRequest)
+    }
+
+  override def updateFunctionEventInvokeConfig(
+      updateFunctionEventInvokeConfigRequest: UpdateFunctionEventInvokeConfigRequest
+  ): Task[UpdateFunctionEventInvokeConfigResponse] =
+    Task.deferFuture {
+      underlying.updateFunctionEventInvokeConfig(updateFunctionEventInvokeConfigRequest)
     }
 
 }

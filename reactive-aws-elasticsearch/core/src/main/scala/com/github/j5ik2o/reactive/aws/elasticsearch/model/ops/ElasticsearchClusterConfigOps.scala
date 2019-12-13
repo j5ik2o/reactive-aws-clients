@@ -54,6 +54,27 @@ final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterC
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warmEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
+    value.fold(self) { v =>
+      self.warmEnabled(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warmTypeAsScala(value: Option[ESWarmPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
+    value.fold(self) { v =>
+      self.warmType(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warmCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
+    value.fold(self) { v =>
+      self.warmCount(v)
+    }
+  }
+
 }
 
 final class ElasticsearchClusterConfigOps(val self: ElasticsearchClusterConfig) extends AnyVal {
@@ -78,6 +99,15 @@ final class ElasticsearchClusterConfigOps(val self: ElasticsearchClusterConfig) 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dedicatedMasterCountAsScala: Option[Int] = Option(self.dedicatedMasterCount)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warmEnabledAsScala: Option[Boolean] = Option(self.warmEnabled)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warmTypeAsScala: Option[ESWarmPartitionInstanceType] = Option(self.warmType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warmCountAsScala: Option[Int] = Option(self.warmCount)
 
 }
 

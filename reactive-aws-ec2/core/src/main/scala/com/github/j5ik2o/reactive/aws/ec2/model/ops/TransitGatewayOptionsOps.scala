@@ -67,6 +67,13 @@ final class TransitGatewayOptionsBuilderOps(val self: TransitGatewayOptions.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multicastSupportAsScala(value: Option[MulticastSupportValue]): TransitGatewayOptions.Builder = {
+    value.fold(self) { v =>
+      self.multicastSupport(v)
+    }
+  }
+
 }
 
 final class TransitGatewayOptionsOps(val self: TransitGatewayOptions) extends AnyVal {
@@ -97,6 +104,9 @@ final class TransitGatewayOptionsOps(val self: TransitGatewayOptions) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsSupportAsScala: Option[DnsSupportValue] = Option(self.dnsSupport)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multicastSupportAsScala: Option[MulticastSupportValue] = Option(self.multicastSupport)
 
 }
 

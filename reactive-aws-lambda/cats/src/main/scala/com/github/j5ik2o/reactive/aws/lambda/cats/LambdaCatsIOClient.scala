@@ -78,11 +78,25 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
       IO(underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest))
     }
 
+  override def deleteFunctionEventInvokeConfig(
+      deleteFunctionEventInvokeConfigRequest: DeleteFunctionEventInvokeConfigRequest
+  ): IO[DeleteFunctionEventInvokeConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteFunctionEventInvokeConfig(deleteFunctionEventInvokeConfigRequest))
+    }
+
   override def deleteLayerVersion(
       deleteLayerVersionRequest: DeleteLayerVersionRequest
   ): IO[DeleteLayerVersionResponse] =
     IO.fromFuture {
       IO(underlying.deleteLayerVersion(deleteLayerVersionRequest))
+    }
+
+  override def deleteProvisionedConcurrencyConfig(
+      deleteProvisionedConcurrencyConfigRequest: DeleteProvisionedConcurrencyConfigRequest
+  ): IO[DeleteProvisionedConcurrencyConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteProvisionedConcurrencyConfig(deleteProvisionedConcurrencyConfigRequest))
     }
 
   override def getAccountSettings(
@@ -114,11 +128,25 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
       IO(underlying.getFunction(getFunctionRequest))
     }
 
+  override def getFunctionConcurrency(
+      getFunctionConcurrencyRequest: GetFunctionConcurrencyRequest
+  ): IO[GetFunctionConcurrencyResponse] =
+    IO.fromFuture {
+      IO(underlying.getFunctionConcurrency(getFunctionConcurrencyRequest))
+    }
+
   override def getFunctionConfiguration(
       getFunctionConfigurationRequest: GetFunctionConfigurationRequest
   ): IO[GetFunctionConfigurationResponse] =
     IO.fromFuture {
       IO(underlying.getFunctionConfiguration(getFunctionConfigurationRequest))
+    }
+
+  override def getFunctionEventInvokeConfig(
+      getFunctionEventInvokeConfigRequest: GetFunctionEventInvokeConfigRequest
+  ): IO[GetFunctionEventInvokeConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.getFunctionEventInvokeConfig(getFunctionEventInvokeConfigRequest))
     }
 
   override def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): IO[GetLayerVersionResponse] =
@@ -143,6 +171,13 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
   override def getPolicy(getPolicyRequest: GetPolicyRequest): IO[GetPolicyResponse] =
     IO.fromFuture {
       IO(underlying.getPolicy(getPolicyRequest))
+    }
+
+  override def getProvisionedConcurrencyConfig(
+      getProvisionedConcurrencyConfigRequest: GetProvisionedConcurrencyConfigRequest
+  ): IO[GetProvisionedConcurrencyConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.getProvisionedConcurrencyConfig(getProvisionedConcurrencyConfigRequest))
     }
 
   override def invoke(invokeRequest: InvokeRequest): IO[InvokeResponse] =
@@ -177,6 +212,18 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): ListEventSourceMappingsPublisher =
     underlying.listEventSourceMappingsPaginator(listEventSourceMappingsRequest)
+
+  override def listFunctionEventInvokeConfigs(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): IO[ListFunctionEventInvokeConfigsResponse] =
+    IO.fromFuture {
+      IO(underlying.listFunctionEventInvokeConfigs(listFunctionEventInvokeConfigsRequest))
+    }
+
+  def listFunctionEventInvokeConfigsPaginator(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): ListFunctionEventInvokeConfigsPublisher =
+    underlying.listFunctionEventInvokeConfigsPaginator(listFunctionEventInvokeConfigsRequest)
 
   override def listFunctions(listFunctionsRequest: ListFunctionsRequest): IO[ListFunctionsResponse] =
     IO.fromFuture {
@@ -218,6 +265,18 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
   def listLayersPaginator(listLayersRequest: ListLayersRequest): ListLayersPublisher =
     underlying.listLayersPaginator(listLayersRequest)
 
+  override def listProvisionedConcurrencyConfigs(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): IO[ListProvisionedConcurrencyConfigsResponse] =
+    IO.fromFuture {
+      IO(underlying.listProvisionedConcurrencyConfigs(listProvisionedConcurrencyConfigsRequest))
+    }
+
+  def listProvisionedConcurrencyConfigsPaginator(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): ListProvisionedConcurrencyConfigsPublisher =
+    underlying.listProvisionedConcurrencyConfigsPaginator(listProvisionedConcurrencyConfigsRequest)
+
   override def listTags(listTagsRequest: ListTagsRequest): IO[ListTagsResponse] =
     IO.fromFuture {
       IO(underlying.listTags(listTagsRequest))
@@ -252,6 +311,20 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
   ): IO[PutFunctionConcurrencyResponse] =
     IO.fromFuture {
       IO(underlying.putFunctionConcurrency(putFunctionConcurrencyRequest))
+    }
+
+  override def putFunctionEventInvokeConfig(
+      putFunctionEventInvokeConfigRequest: PutFunctionEventInvokeConfigRequest
+  ): IO[PutFunctionEventInvokeConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.putFunctionEventInvokeConfig(putFunctionEventInvokeConfigRequest))
+    }
+
+  override def putProvisionedConcurrencyConfig(
+      putProvisionedConcurrencyConfigRequest: PutProvisionedConcurrencyConfigRequest
+  ): IO[PutProvisionedConcurrencyConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.putProvisionedConcurrencyConfig(putProvisionedConcurrencyConfigRequest))
     }
 
   override def removeLayerVersionPermission(
@@ -300,6 +373,13 @@ trait LambdaCatsIOClient extends LambdaClient[IO] {
   ): IO[UpdateFunctionConfigurationResponse] =
     IO.fromFuture {
       IO(underlying.updateFunctionConfiguration(updateFunctionConfigurationRequest))
+    }
+
+  override def updateFunctionEventInvokeConfig(
+      updateFunctionEventInvokeConfigRequest: UpdateFunctionEventInvokeConfigRequest
+  ): IO[UpdateFunctionEventInvokeConfigResponse] =
+    IO.fromFuture {
+      IO(underlying.updateFunctionEventInvokeConfig(updateFunctionEventInvokeConfigRequest))
     }
 
 }

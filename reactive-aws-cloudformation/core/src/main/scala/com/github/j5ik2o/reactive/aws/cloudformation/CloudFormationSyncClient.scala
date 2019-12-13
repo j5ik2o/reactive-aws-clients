@@ -64,6 +64,9 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   override def deleteStackSet(deleteStackSetRequest: DeleteStackSetRequest): Either[Throwable, DeleteStackSetResponse] =
     underlying.deleteStackSet(deleteStackSetRequest).toEither
 
+  override def deregisterType(deregisterTypeRequest: DeregisterTypeRequest): Either[Throwable, DeregisterTypeResponse] =
+    underlying.deregisterType(deregisterTypeRequest).toEither
+
   override def describeAccountLimits(): Either[Throwable, DescribeAccountLimitsResponse] =
     underlying.describeAccountLimits().toEither
 
@@ -139,6 +142,14 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   def describeStacksPaginator(describeStacksRequest: DescribeStacksRequest): DescribeStacksIterable =
     underlying.describeStacksPaginator(describeStacksRequest)
 
+  override def describeType(describeTypeRequest: DescribeTypeRequest): Either[Throwable, DescribeTypeResponse] =
+    underlying.describeType(describeTypeRequest).toEither
+
+  override def describeTypeRegistration(
+      describeTypeRegistrationRequest: DescribeTypeRegistrationRequest
+  ): Either[Throwable, DescribeTypeRegistrationResponse] =
+    underlying.describeTypeRegistration(describeTypeRegistrationRequest).toEither
+
   override def detectStackDrift(
       detectStackDriftRequest: DetectStackDriftRequest
   ): Either[Throwable, DetectStackDriftResponse] =
@@ -148,6 +159,11 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
       detectStackResourceDriftRequest: DetectStackResourceDriftRequest
   ): Either[Throwable, DetectStackResourceDriftResponse] =
     underlying.detectStackResourceDrift(detectStackResourceDriftRequest).toEither
+
+  override def detectStackSetDrift(
+      detectStackSetDriftRequest: DetectStackSetDriftRequest
+  ): Either[Throwable, DetectStackSetDriftResponse] =
+    underlying.detectStackSetDrift(detectStackSetDriftRequest).toEither
 
   override def estimateTemplateCost(
       estimateTemplateCostRequest: EstimateTemplateCostRequest
@@ -232,8 +248,45 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   def listStacksPaginator(listStacksRequest: ListStacksRequest): ListStacksIterable =
     underlying.listStacksPaginator(listStacksRequest)
 
+  override def listTypeRegistrations(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): Either[Throwable, ListTypeRegistrationsResponse] =
+    underlying.listTypeRegistrations(listTypeRegistrationsRequest).toEither
+
+  def listTypeRegistrationsPaginator(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): ListTypeRegistrationsIterable =
+    underlying.listTypeRegistrationsPaginator(listTypeRegistrationsRequest)
+
+  override def listTypeVersions(
+      listTypeVersionsRequest: ListTypeVersionsRequest
+  ): Either[Throwable, ListTypeVersionsResponse] =
+    underlying.listTypeVersions(listTypeVersionsRequest).toEither
+
+  def listTypeVersionsPaginator(listTypeVersionsRequest: ListTypeVersionsRequest): ListTypeVersionsIterable =
+    underlying.listTypeVersionsPaginator(listTypeVersionsRequest)
+
+  override def listTypes(listTypesRequest: ListTypesRequest): Either[Throwable, ListTypesResponse] =
+    underlying.listTypes(listTypesRequest).toEither
+
+  def listTypesPaginator(listTypesRequest: ListTypesRequest): ListTypesIterable =
+    underlying.listTypesPaginator(listTypesRequest)
+
+  override def recordHandlerProgress(
+      recordHandlerProgressRequest: RecordHandlerProgressRequest
+  ): Either[Throwable, RecordHandlerProgressResponse] =
+    underlying.recordHandlerProgress(recordHandlerProgressRequest).toEither
+
+  override def registerType(registerTypeRequest: RegisterTypeRequest): Either[Throwable, RegisterTypeResponse] =
+    underlying.registerType(registerTypeRequest).toEither
+
   override def setStackPolicy(setStackPolicyRequest: SetStackPolicyRequest): Either[Throwable, SetStackPolicyResponse] =
     underlying.setStackPolicy(setStackPolicyRequest).toEither
+
+  override def setTypeDefaultVersion(
+      setTypeDefaultVersionRequest: SetTypeDefaultVersionRequest
+  ): Either[Throwable, SetTypeDefaultVersionResponse] =
+    underlying.setTypeDefaultVersion(setTypeDefaultVersionRequest).toEither
 
   override def signalResource(signalResourceRequest: SignalResourceRequest): Either[Throwable, SignalResourceResponse] =
     underlying.signalResource(signalResourceRequest).toEither

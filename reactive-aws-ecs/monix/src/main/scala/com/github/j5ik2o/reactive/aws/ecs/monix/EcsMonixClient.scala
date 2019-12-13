@@ -18,6 +18,13 @@ trait EcsMonixClient extends EcsClient[Task] {
 
   val underlying: EcsAsyncClient
 
+  override def createCapacityProvider(
+      createCapacityProviderRequest: CreateCapacityProviderRequest
+  ): Task[CreateCapacityProviderResponse] =
+    Task.deferFuture {
+      underlying.createCapacityProvider(createCapacityProviderRequest)
+    }
+
   override def createCluster(createClusterRequest: CreateClusterRequest): Task[CreateClusterResponse] =
     Task.deferFuture {
       underlying.createCluster(createClusterRequest)
@@ -77,6 +84,13 @@ trait EcsMonixClient extends EcsClient[Task] {
   ): Task[DeregisterTaskDefinitionResponse] =
     Task.deferFuture {
       underlying.deregisterTaskDefinition(deregisterTaskDefinitionRequest)
+    }
+
+  override def describeCapacityProviders(
+      describeCapacityProvidersRequest: DescribeCapacityProvidersRequest
+  ): Task[DescribeCapacityProvidersResponse] =
+    Task.deferFuture {
+      underlying.describeCapacityProviders(describeCapacityProvidersRequest)
     }
 
   override def describeClusters(describeClustersRequest: DescribeClustersRequest): Task[DescribeClustersResponse] =
@@ -141,6 +155,9 @@ trait EcsMonixClient extends EcsClient[Task] {
     Task.deferFuture {
       underlying.listAttributes(listAttributesRequest)
     }
+
+  def listAttributesPaginator(listAttributesRequest: ListAttributesRequest): Observable[ListAttributesResponse] =
+    Observable.fromReactivePublisher(underlying.listAttributesPaginator(listAttributesRequest))
 
   override def listClusters(listClustersRequest: ListClustersRequest): Task[ListClustersResponse] =
     Task.deferFuture {
@@ -272,6 +289,13 @@ trait EcsMonixClient extends EcsClient[Task] {
   override def putAttributes(putAttributesRequest: PutAttributesRequest): Task[PutAttributesResponse] =
     Task.deferFuture {
       underlying.putAttributes(putAttributesRequest)
+    }
+
+  override def putClusterCapacityProviders(
+      putClusterCapacityProvidersRequest: PutClusterCapacityProvidersRequest
+  ): Task[PutClusterCapacityProvidersResponse] =
+    Task.deferFuture {
+      underlying.putClusterCapacityProviders(putClusterCapacityProvidersRequest)
     }
 
   override def registerContainerInstance(

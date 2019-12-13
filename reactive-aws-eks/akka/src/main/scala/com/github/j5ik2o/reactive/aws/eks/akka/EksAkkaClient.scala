@@ -36,6 +36,32 @@ trait EksAkkaClient {
       underlying.createCluster(createClusterRequest)
     }
 
+  def createFargateProfileSource(
+      createFargateProfileRequest: CreateFargateProfileRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateFargateProfileResponse, NotUsed] =
+    Source.single(createFargateProfileRequest).via(createFargateProfileFlow(parallelism))
+
+  def createFargateProfileFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateFargateProfileRequest, CreateFargateProfileResponse, NotUsed] =
+    Flow[CreateFargateProfileRequest].mapAsync(parallelism) { createFargateProfileRequest =>
+      underlying.createFargateProfile(createFargateProfileRequest)
+    }
+
+  def createNodegroupSource(
+      createNodegroupRequest: CreateNodegroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateNodegroupResponse, NotUsed] =
+    Source.single(createNodegroupRequest).via(createNodegroupFlow(parallelism))
+
+  def createNodegroupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateNodegroupRequest, CreateNodegroupResponse, NotUsed] =
+    Flow[CreateNodegroupRequest].mapAsync(parallelism) { createNodegroupRequest =>
+      underlying.createNodegroup(createNodegroupRequest)
+    }
+
   def deleteClusterSource(
       deleteClusterRequest: DeleteClusterRequest,
       parallelism: Int = DefaultParallelism
@@ -49,6 +75,32 @@ trait EksAkkaClient {
       underlying.deleteCluster(deleteClusterRequest)
     }
 
+  def deleteFargateProfileSource(
+      deleteFargateProfileRequest: DeleteFargateProfileRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteFargateProfileResponse, NotUsed] =
+    Source.single(deleteFargateProfileRequest).via(deleteFargateProfileFlow(parallelism))
+
+  def deleteFargateProfileFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteFargateProfileRequest, DeleteFargateProfileResponse, NotUsed] =
+    Flow[DeleteFargateProfileRequest].mapAsync(parallelism) { deleteFargateProfileRequest =>
+      underlying.deleteFargateProfile(deleteFargateProfileRequest)
+    }
+
+  def deleteNodegroupSource(
+      deleteNodegroupRequest: DeleteNodegroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteNodegroupResponse, NotUsed] =
+    Source.single(deleteNodegroupRequest).via(deleteNodegroupFlow(parallelism))
+
+  def deleteNodegroupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteNodegroupRequest, DeleteNodegroupResponse, NotUsed] =
+    Flow[DeleteNodegroupRequest].mapAsync(parallelism) { deleteNodegroupRequest =>
+      underlying.deleteNodegroup(deleteNodegroupRequest)
+    }
+
   def describeClusterSource(
       describeClusterRequest: DescribeClusterRequest,
       parallelism: Int = DefaultParallelism
@@ -60,6 +112,32 @@ trait EksAkkaClient {
   ): Flow[DescribeClusterRequest, DescribeClusterResponse, NotUsed] =
     Flow[DescribeClusterRequest].mapAsync(parallelism) { describeClusterRequest =>
       underlying.describeCluster(describeClusterRequest)
+    }
+
+  def describeFargateProfileSource(
+      describeFargateProfileRequest: DescribeFargateProfileRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeFargateProfileResponse, NotUsed] =
+    Source.single(describeFargateProfileRequest).via(describeFargateProfileFlow(parallelism))
+
+  def describeFargateProfileFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeFargateProfileRequest, DescribeFargateProfileResponse, NotUsed] =
+    Flow[DescribeFargateProfileRequest].mapAsync(parallelism) { describeFargateProfileRequest =>
+      underlying.describeFargateProfile(describeFargateProfileRequest)
+    }
+
+  def describeNodegroupSource(
+      describeNodegroupRequest: DescribeNodegroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeNodegroupResponse, NotUsed] =
+    Source.single(describeNodegroupRequest).via(describeNodegroupFlow(parallelism))
+
+  def describeNodegroupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeNodegroupRequest, DescribeNodegroupResponse, NotUsed] =
+    Flow[DescribeNodegroupRequest].mapAsync(parallelism) { describeNodegroupRequest =>
+      underlying.describeNodegroup(describeNodegroupRequest)
     }
 
   def describeUpdateSource(
@@ -97,6 +175,42 @@ trait EksAkkaClient {
   def listClustersPaginatorFlow: Flow[ListClustersRequest, ListClustersResponse, NotUsed] =
     Flow[ListClustersRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listClustersPaginator(request))
+    }
+
+  def listFargateProfilesSource(
+      listFargateProfilesRequest: ListFargateProfilesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListFargateProfilesResponse, NotUsed] =
+    Source.single(listFargateProfilesRequest).via(listFargateProfilesFlow(parallelism))
+
+  def listFargateProfilesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListFargateProfilesRequest, ListFargateProfilesResponse, NotUsed] =
+    Flow[ListFargateProfilesRequest].mapAsync(parallelism) { listFargateProfilesRequest =>
+      underlying.listFargateProfiles(listFargateProfilesRequest)
+    }
+
+  def listFargateProfilesPaginatorFlow: Flow[ListFargateProfilesRequest, ListFargateProfilesResponse, NotUsed] =
+    Flow[ListFargateProfilesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listFargateProfilesPaginator(request))
+    }
+
+  def listNodegroupsSource(
+      listNodegroupsRequest: ListNodegroupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListNodegroupsResponse, NotUsed] =
+    Source.single(listNodegroupsRequest).via(listNodegroupsFlow(parallelism))
+
+  def listNodegroupsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListNodegroupsRequest, ListNodegroupsResponse, NotUsed] =
+    Flow[ListNodegroupsRequest].mapAsync(parallelism) { listNodegroupsRequest =>
+      underlying.listNodegroups(listNodegroupsRequest)
+    }
+
+  def listNodegroupsPaginatorFlow: Flow[ListNodegroupsRequest, ListNodegroupsResponse, NotUsed] =
+    Flow[ListNodegroupsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listNodegroupsPaginator(request))
     }
 
   def listTagsForResourceSource(
@@ -176,6 +290,32 @@ trait EksAkkaClient {
   ): Flow[UpdateClusterVersionRequest, UpdateClusterVersionResponse, NotUsed] =
     Flow[UpdateClusterVersionRequest].mapAsync(parallelism) { updateClusterVersionRequest =>
       underlying.updateClusterVersion(updateClusterVersionRequest)
+    }
+
+  def updateNodegroupConfigSource(
+      updateNodegroupConfigRequest: UpdateNodegroupConfigRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateNodegroupConfigResponse, NotUsed] =
+    Source.single(updateNodegroupConfigRequest).via(updateNodegroupConfigFlow(parallelism))
+
+  def updateNodegroupConfigFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse, NotUsed] =
+    Flow[UpdateNodegroupConfigRequest].mapAsync(parallelism) { updateNodegroupConfigRequest =>
+      underlying.updateNodegroupConfig(updateNodegroupConfigRequest)
+    }
+
+  def updateNodegroupVersionSource(
+      updateNodegroupVersionRequest: UpdateNodegroupVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateNodegroupVersionResponse, NotUsed] =
+    Source.single(updateNodegroupVersionRequest).via(updateNodegroupVersionFlow(parallelism))
+
+  def updateNodegroupVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse, NotUsed] =
+    Flow[UpdateNodegroupVersionRequest].mapAsync(parallelism) { updateNodegroupVersionRequest =>
+      underlying.updateNodegroupVersion(updateNodegroupVersionRequest)
     }
 
 }

@@ -20,6 +20,13 @@ final class ContainerInstanceBuilderOps(val self: ContainerInstance.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderNameAsScala(value: Option[String]): ContainerInstance.Builder = {
+    value.fold(self) { v =>
+      self.capacityProviderName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[Long]): ContainerInstance.Builder = {
     value.fold(self) { v =>
       self.version(v)
@@ -126,6 +133,9 @@ final class ContainerInstanceOps(val self: ContainerInstance) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2InstanceIdAsScala: Option[String] = Option(self.ec2InstanceId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderNameAsScala: Option[String] = Option(self.capacityProviderName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala: Option[Long] = Option(self.version)

@@ -82,6 +82,15 @@ final class ImportImageRequestBuilderOps(val self: ImportImageRequest.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def licenseSpecificationsAsScala(
+      value: Option[Seq[ImportImageLicenseConfigurationRequest]]
+  ): ImportImageRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.licenseSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ImportImageRequestOps(val self: ImportImageRequest) extends AnyVal {
@@ -120,6 +129,12 @@ final class ImportImageRequestOps(val self: ImportImageRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleNameAsScala: Option[String] = Option(self.roleName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def licenseSpecificationsAsScala: Option[Seq[ImportImageLicenseConfigurationRequest]] =
+    Option(self.licenseSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

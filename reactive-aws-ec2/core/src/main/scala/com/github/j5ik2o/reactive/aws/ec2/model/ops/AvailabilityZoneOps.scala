@@ -13,6 +13,13 @@ final class AvailabilityZoneBuilderOps(val self: AvailabilityZone.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def optInStatusAsScala(value: Option[AvailabilityZoneOptInStatus]): AvailabilityZone.Builder = {
+    value.fold(self) { v =>
+      self.optInStatus(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messagesAsScala(value: Option[Seq[AvailabilityZoneMessage]]): AvailabilityZone.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.messages(v.asJava)
@@ -40,12 +47,29 @@ final class AvailabilityZoneBuilderOps(val self: AvailabilityZone.Builder) exten
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupNameAsScala(value: Option[String]): AvailabilityZone.Builder = {
+    value.fold(self) { v =>
+      self.groupName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala(value: Option[String]): AvailabilityZone.Builder = {
+    value.fold(self) { v =>
+      self.networkBorderGroup(v)
+    }
+  }
+
 }
 
 final class AvailabilityZoneOps(val self: AvailabilityZone) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[AvailabilityZoneState] = Option(self.state)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def optInStatusAsScala: Option[AvailabilityZoneOptInStatus] = Option(self.optInStatus)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messagesAsScala: Option[Seq[AvailabilityZoneMessage]] = Option(self.messages).map { v =>
@@ -60,6 +84,12 @@ final class AvailabilityZoneOps(val self: AvailabilityZone) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneIdAsScala: Option[String] = Option(self.zoneId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupNameAsScala: Option[String] = Option(self.groupName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala: Option[String] = Option(self.networkBorderGroup)
 
 }
 

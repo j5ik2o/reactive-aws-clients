@@ -104,6 +104,16 @@ trait KmsAsyncClient extends KmsClient[Future] {
   override def generateDataKey(generateDataKeyRequest: GenerateDataKeyRequest): Future[GenerateDataKeyResponse] =
     underlying.generateDataKey(generateDataKeyRequest).toScala
 
+  override def generateDataKeyPair(
+      generateDataKeyPairRequest: GenerateDataKeyPairRequest
+  ): Future[GenerateDataKeyPairResponse] =
+    underlying.generateDataKeyPair(generateDataKeyPairRequest).toScala
+
+  override def generateDataKeyPairWithoutPlaintext(
+      generateDataKeyPairWithoutPlaintextRequest: GenerateDataKeyPairWithoutPlaintextRequest
+  ): Future[GenerateDataKeyPairWithoutPlaintextResponse] =
+    underlying.generateDataKeyPairWithoutPlaintext(generateDataKeyPairWithoutPlaintextRequest).toScala
+
   override def generateDataKeyWithoutPlaintext(
       generateDataKeyWithoutPlaintextRequest: GenerateDataKeyWithoutPlaintextRequest
   ): Future[GenerateDataKeyWithoutPlaintextResponse] =
@@ -127,6 +137,9 @@ trait KmsAsyncClient extends KmsClient[Future] {
       getParametersForImportRequest: GetParametersForImportRequest
   ): Future[GetParametersForImportResponse] =
     underlying.getParametersForImport(getParametersForImportRequest).toScala
+
+  override def getPublicKey(getPublicKeyRequest: GetPublicKeyRequest): Future[GetPublicKeyResponse] =
+    underlying.getPublicKey(getPublicKeyRequest).toScala
 
   override def importKeyMaterial(
       importKeyMaterialRequest: ImportKeyMaterialRequest
@@ -197,6 +210,9 @@ trait KmsAsyncClient extends KmsClient[Future] {
   ): Future[ScheduleKeyDeletionResponse] =
     underlying.scheduleKeyDeletion(scheduleKeyDeletionRequest).toScala
 
+  override def sign(signRequest: SignRequest): Future[SignResponse] =
+    underlying.sign(signRequest).toScala
+
   override def tagResource(tagResourceRequest: TagResourceRequest): Future[TagResourceResponse] =
     underlying.tagResource(tagResourceRequest).toScala
 
@@ -215,5 +231,8 @@ trait KmsAsyncClient extends KmsClient[Future] {
       updateKeyDescriptionRequest: UpdateKeyDescriptionRequest
   ): Future[UpdateKeyDescriptionResponse] =
     underlying.updateKeyDescription(updateKeyDescriptionRequest).toScala
+
+  override def verify(verifyRequest: VerifyRequest): Future[VerifyResponse] =
+    underlying.verify(verifyRequest).toScala
 
 }

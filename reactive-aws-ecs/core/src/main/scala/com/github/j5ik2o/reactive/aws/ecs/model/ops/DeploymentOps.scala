@@ -62,6 +62,13 @@ final class DeploymentBuilderOps(val self: Deployment.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderStrategyAsScala(value: Option[Seq[CapacityProviderStrategyItem]]): Deployment.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.capacityProviderStrategy(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTypeAsScala(value: Option[LaunchType]): Deployment.Builder = {
     value.fold(self) { v =>
       self.launchType(v)
@@ -109,6 +116,12 @@ final class DeploymentOps(val self: Deployment) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updatedAtAsScala: Option[java.time.Instant] = Option(self.updatedAt)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =
+    Option(self.capacityProviderStrategy).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTypeAsScala: Option[LaunchType] = Option(self.launchType)

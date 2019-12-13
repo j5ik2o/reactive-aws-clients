@@ -24,6 +24,11 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
   def executionContext: ExecutionContext
   implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
+  override def createApiCache(createApiCacheRequest: CreateApiCacheRequest): IO[CreateApiCacheResponse] =
+    IO.fromFuture {
+      IO(underlying.createApiCache(createApiCacheRequest))
+    }
+
   override def createApiKey(createApiKeyRequest: CreateApiKeyRequest): IO[CreateApiKeyResponse] =
     IO.fromFuture {
       IO(underlying.createApiKey(createApiKeyRequest))
@@ -54,6 +59,11 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
       IO(underlying.createType(createTypeRequest))
     }
 
+  override def deleteApiCache(deleteApiCacheRequest: DeleteApiCacheRequest): IO[DeleteApiCacheResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteApiCache(deleteApiCacheRequest))
+    }
+
   override def deleteApiKey(deleteApiKeyRequest: DeleteApiKeyRequest): IO[DeleteApiKeyResponse] =
     IO.fromFuture {
       IO(underlying.deleteApiKey(deleteApiKeyRequest))
@@ -82,6 +92,16 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
   override def deleteType(deleteTypeRequest: DeleteTypeRequest): IO[DeleteTypeResponse] =
     IO.fromFuture {
       IO(underlying.deleteType(deleteTypeRequest))
+    }
+
+  override def flushApiCache(flushApiCacheRequest: FlushApiCacheRequest): IO[FlushApiCacheResponse] =
+    IO.fromFuture {
+      IO(underlying.flushApiCache(flushApiCacheRequest))
+    }
+
+  override def getApiCache(getApiCacheRequest: GetApiCacheRequest): IO[GetApiCacheResponse] =
+    IO.fromFuture {
+      IO(underlying.getApiCache(getApiCacheRequest))
     }
 
   override def getDataSource(getDataSourceRequest: GetDataSourceRequest): IO[GetDataSourceResponse] =
@@ -187,6 +207,11 @@ trait AppSyncCatsIOClient extends AppSyncClient[IO] {
   override def untagResource(untagResourceRequest: UntagResourceRequest): IO[UntagResourceResponse] =
     IO.fromFuture {
       IO(underlying.untagResource(untagResourceRequest))
+    }
+
+  override def updateApiCache(updateApiCacheRequest: UpdateApiCacheRequest): IO[UpdateApiCacheResponse] =
+    IO.fromFuture {
+      IO(underlying.updateApiCache(updateApiCacheRequest))
     }
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): IO[UpdateApiKeyResponse] =

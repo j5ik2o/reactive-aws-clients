@@ -26,6 +26,13 @@ final class CreateVpcRequestBuilderOps(val self: CreateVpcRequest.Builder) exten
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockNetworkBorderGroupAsScala(value: Option[String]): CreateVpcRequest.Builder = {
+    value.fold(self) { v =>
+      self.ipv6CidrBlockNetworkBorderGroup(v)
+    }
+  }
+
 }
 
 final class CreateVpcRequestOps(val self: CreateVpcRequest) extends AnyVal {
@@ -38,6 +45,9 @@ final class CreateVpcRequestOps(val self: CreateVpcRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTenancyAsScala: Option[Tenancy] = Option(self.instanceTenancy)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockNetworkBorderGroupAsScala: Option[String] = Option(self.ipv6CidrBlockNetworkBorderGroup)
 
 }
 

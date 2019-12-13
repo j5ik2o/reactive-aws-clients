@@ -251,6 +251,13 @@ final class RunInstancesRequestBuilderOps(val self: RunInstancesRequest.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metadataOptionsAsScala(value: Option[InstanceMetadataOptionsRequest]): RunInstancesRequest.Builder = {
+    value.fold(self) { v =>
+      self.metadataOptions(v)
+    }
+  }
+
 }
 
 final class RunInstancesRequestOps(val self: RunInstancesRequest) extends AnyVal {
@@ -380,6 +387,9 @@ final class RunInstancesRequestOps(val self: RunInstancesRequest) extends AnyVal
     Option(self.licenseSpecifications).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metadataOptionsAsScala: Option[InstanceMetadataOptionsRequest] = Option(self.metadataOptions)
 
 }
 

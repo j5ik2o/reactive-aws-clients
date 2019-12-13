@@ -34,6 +34,40 @@ final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToP
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def billingModeOverrideAsScala(value: Option[BillingMode]): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.billingModeOverride(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def globalSecondaryIndexOverrideAsScala(
+      value: Option[Seq[GlobalSecondaryIndex]]
+  ): RestoreTableToPointInTimeRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.globalSecondaryIndexOverride(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def localSecondaryIndexOverrideAsScala(
+      value: Option[Seq[LocalSecondaryIndex]]
+  ): RestoreTableToPointInTimeRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.localSecondaryIndexOverride(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def provisionedThroughputOverrideAsScala(
+      value: Option[ProvisionedThroughput]
+  ): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughputOverride(v)
+    }
+  }
+
 }
 
 final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInTimeRequest) extends AnyVal {
@@ -49,6 +83,25 @@ final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInT
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def restoreDateTimeAsScala: Option[java.time.Instant] = Option(self.restoreDateTime)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def billingModeOverrideAsScala: Option[BillingMode] = Option(self.billingModeOverride)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def globalSecondaryIndexOverrideAsScala: Option[Seq[GlobalSecondaryIndex]] =
+    Option(self.globalSecondaryIndexOverride).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def localSecondaryIndexOverrideAsScala: Option[Seq[LocalSecondaryIndex]] =
+    Option(self.localSecondaryIndexOverride).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def provisionedThroughputOverrideAsScala: Option[ProvisionedThroughput] =
+    Option(self.provisionedThroughputOverride)
 
 }
 

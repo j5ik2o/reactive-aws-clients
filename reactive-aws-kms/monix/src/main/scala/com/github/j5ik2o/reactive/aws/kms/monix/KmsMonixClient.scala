@@ -137,6 +137,20 @@ trait KmsMonixClient extends KmsClient[Task] {
       underlying.generateDataKey(generateDataKeyRequest)
     }
 
+  override def generateDataKeyPair(
+      generateDataKeyPairRequest: GenerateDataKeyPairRequest
+  ): Task[GenerateDataKeyPairResponse] =
+    Task.deferFuture {
+      underlying.generateDataKeyPair(generateDataKeyPairRequest)
+    }
+
+  override def generateDataKeyPairWithoutPlaintext(
+      generateDataKeyPairWithoutPlaintextRequest: GenerateDataKeyPairWithoutPlaintextRequest
+  ): Task[GenerateDataKeyPairWithoutPlaintextResponse] =
+    Task.deferFuture {
+      underlying.generateDataKeyPairWithoutPlaintext(generateDataKeyPairWithoutPlaintextRequest)
+    }
+
   override def generateDataKeyWithoutPlaintext(
       generateDataKeyWithoutPlaintextRequest: GenerateDataKeyWithoutPlaintextRequest
   ): Task[GenerateDataKeyWithoutPlaintextResponse] =
@@ -171,6 +185,11 @@ trait KmsMonixClient extends KmsClient[Task] {
   ): Task[GetParametersForImportResponse] =
     Task.deferFuture {
       underlying.getParametersForImport(getParametersForImportRequest)
+    }
+
+  override def getPublicKey(getPublicKeyRequest: GetPublicKeyRequest): Task[GetPublicKeyResponse] =
+    Task.deferFuture {
+      underlying.getPublicKey(getPublicKeyRequest)
     }
 
   override def importKeyMaterial(importKeyMaterialRequest: ImportKeyMaterialRequest): Task[ImportKeyMaterialResponse] =
@@ -270,6 +289,11 @@ trait KmsMonixClient extends KmsClient[Task] {
       underlying.scheduleKeyDeletion(scheduleKeyDeletionRequest)
     }
 
+  override def sign(signRequest: SignRequest): Task[SignResponse] =
+    Task.deferFuture {
+      underlying.sign(signRequest)
+    }
+
   override def tagResource(tagResourceRequest: TagResourceRequest): Task[TagResourceResponse] =
     Task.deferFuture {
       underlying.tagResource(tagResourceRequest)
@@ -297,6 +321,11 @@ trait KmsMonixClient extends KmsClient[Task] {
   ): Task[UpdateKeyDescriptionResponse] =
     Task.deferFuture {
       underlying.updateKeyDescription(updateKeyDescriptionRequest)
+    }
+
+  override def verify(verifyRequest: VerifyRequest): Task[VerifyResponse] =
+    Task.deferFuture {
+      underlying.verify(verifyRequest)
     }
 
 }

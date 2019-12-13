@@ -41,6 +41,13 @@ final class CreateVolumeResponseBuilderOps(val self: CreateVolumeResponse.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): CreateVolumeResponse.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): CreateVolumeResponse.Builder = {
     value.fold(self) { v =>
       self.size(v)
@@ -89,6 +96,13 @@ final class CreateVolumeResponseBuilderOps(val self: CreateVolumeResponse.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def fastRestoredAsScala(value: Option[Boolean]): CreateVolumeResponse.Builder = {
+    value.fold(self) { v =>
+      self.fastRestored(v)
+    }
+  }
+
 }
 
 final class CreateVolumeResponseOps(val self: CreateVolumeResponse) extends AnyVal {
@@ -109,6 +123,9 @@ final class CreateVolumeResponseOps(val self: CreateVolumeResponse) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala: Option[Int] = Option(self.size)
@@ -132,6 +149,9 @@ final class CreateVolumeResponseOps(val self: CreateVolumeResponse) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeTypeAsScala: Option[VolumeType] = Option(self.volumeType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def fastRestoredAsScala: Option[Boolean] = Option(self.fastRestored)
 
 }
 

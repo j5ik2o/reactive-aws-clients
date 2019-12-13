@@ -34,6 +34,13 @@ final class CreateVolumeRequestBuilderOps(val self: CreateVolumeRequest.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): CreateVolumeRequest.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): CreateVolumeRequest.Builder = {
     value.fold(self) { v =>
       self.size(v)
@@ -76,6 +83,9 @@ final class CreateVolumeRequestOps(val self: CreateVolumeRequest) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala: Option[Int] = Option(self.size)

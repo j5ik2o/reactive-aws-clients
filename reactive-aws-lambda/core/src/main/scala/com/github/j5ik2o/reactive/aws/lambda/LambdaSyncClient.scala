@@ -57,10 +57,20 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   ): Either[Throwable, DeleteFunctionConcurrencyResponse] =
     underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest).toEither
 
+  override def deleteFunctionEventInvokeConfig(
+      deleteFunctionEventInvokeConfigRequest: DeleteFunctionEventInvokeConfigRequest
+  ): Either[Throwable, DeleteFunctionEventInvokeConfigResponse] =
+    underlying.deleteFunctionEventInvokeConfig(deleteFunctionEventInvokeConfigRequest).toEither
+
   override def deleteLayerVersion(
       deleteLayerVersionRequest: DeleteLayerVersionRequest
   ): Either[Throwable, DeleteLayerVersionResponse] =
     underlying.deleteLayerVersion(deleteLayerVersionRequest).toEither
+
+  override def deleteProvisionedConcurrencyConfig(
+      deleteProvisionedConcurrencyConfigRequest: DeleteProvisionedConcurrencyConfigRequest
+  ): Either[Throwable, DeleteProvisionedConcurrencyConfigResponse] =
+    underlying.deleteProvisionedConcurrencyConfig(deleteProvisionedConcurrencyConfigRequest).toEither
 
   override def getAccountSettings(): Either[Throwable, GetAccountSettingsResponse] =
     underlying.getAccountSettings().toEither
@@ -81,10 +91,20 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   override def getFunction(getFunctionRequest: GetFunctionRequest): Either[Throwable, GetFunctionResponse] =
     underlying.getFunction(getFunctionRequest).toEither
 
+  override def getFunctionConcurrency(
+      getFunctionConcurrencyRequest: GetFunctionConcurrencyRequest
+  ): Either[Throwable, GetFunctionConcurrencyResponse] =
+    underlying.getFunctionConcurrency(getFunctionConcurrencyRequest).toEither
+
   override def getFunctionConfiguration(
       getFunctionConfigurationRequest: GetFunctionConfigurationRequest
   ): Either[Throwable, GetFunctionConfigurationResponse] =
     underlying.getFunctionConfiguration(getFunctionConfigurationRequest).toEither
+
+  override def getFunctionEventInvokeConfig(
+      getFunctionEventInvokeConfigRequest: GetFunctionEventInvokeConfigRequest
+  ): Either[Throwable, GetFunctionEventInvokeConfigResponse] =
+    underlying.getFunctionEventInvokeConfig(getFunctionEventInvokeConfigRequest).toEither
 
   override def getLayerVersion(
       getLayerVersionRequest: GetLayerVersionRequest
@@ -103,6 +123,11 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
 
   override def getPolicy(getPolicyRequest: GetPolicyRequest): Either[Throwable, GetPolicyResponse] =
     underlying.getPolicy(getPolicyRequest).toEither
+
+  override def getProvisionedConcurrencyConfig(
+      getProvisionedConcurrencyConfigRequest: GetProvisionedConcurrencyConfigRequest
+  ): Either[Throwable, GetProvisionedConcurrencyConfigResponse] =
+    underlying.getProvisionedConcurrencyConfig(getProvisionedConcurrencyConfigRequest).toEither
 
   override def invoke(invokeRequest: InvokeRequest): Either[Throwable, InvokeResponse] =
     underlying.invoke(invokeRequest).toEither
@@ -128,6 +153,16 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): ListEventSourceMappingsIterable =
     underlying.listEventSourceMappingsPaginator(listEventSourceMappingsRequest)
+
+  override def listFunctionEventInvokeConfigs(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): Either[Throwable, ListFunctionEventInvokeConfigsResponse] =
+    underlying.listFunctionEventInvokeConfigs(listFunctionEventInvokeConfigsRequest).toEither
+
+  def listFunctionEventInvokeConfigsPaginator(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): ListFunctionEventInvokeConfigsIterable =
+    underlying.listFunctionEventInvokeConfigsPaginator(listFunctionEventInvokeConfigsRequest)
 
   override def listFunctions(): Either[Throwable, ListFunctionsResponse] =
     underlying.listFunctions().toEither
@@ -161,6 +196,16 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   def listLayersPaginator(listLayersRequest: ListLayersRequest): ListLayersIterable =
     underlying.listLayersPaginator(listLayersRequest)
 
+  override def listProvisionedConcurrencyConfigs(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): Either[Throwable, ListProvisionedConcurrencyConfigsResponse] =
+    underlying.listProvisionedConcurrencyConfigs(listProvisionedConcurrencyConfigsRequest).toEither
+
+  def listProvisionedConcurrencyConfigsPaginator(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): ListProvisionedConcurrencyConfigsIterable =
+    underlying.listProvisionedConcurrencyConfigsPaginator(listProvisionedConcurrencyConfigsRequest)
+
   override def listTags(listTagsRequest: ListTagsRequest): Either[Throwable, ListTagsResponse] =
     underlying.listTags(listTagsRequest).toEither
 
@@ -186,6 +231,16 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
       putFunctionConcurrencyRequest: PutFunctionConcurrencyRequest
   ): Either[Throwable, PutFunctionConcurrencyResponse] =
     underlying.putFunctionConcurrency(putFunctionConcurrencyRequest).toEither
+
+  override def putFunctionEventInvokeConfig(
+      putFunctionEventInvokeConfigRequest: PutFunctionEventInvokeConfigRequest
+  ): Either[Throwable, PutFunctionEventInvokeConfigResponse] =
+    underlying.putFunctionEventInvokeConfig(putFunctionEventInvokeConfigRequest).toEither
+
+  override def putProvisionedConcurrencyConfig(
+      putProvisionedConcurrencyConfigRequest: PutProvisionedConcurrencyConfigRequest
+  ): Either[Throwable, PutProvisionedConcurrencyConfigResponse] =
+    underlying.putProvisionedConcurrencyConfig(putProvisionedConcurrencyConfigRequest).toEither
 
   override def removeLayerVersionPermission(
       removeLayerVersionPermissionRequest: RemoveLayerVersionPermissionRequest
@@ -220,5 +275,10 @@ trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
       updateFunctionConfigurationRequest: UpdateFunctionConfigurationRequest
   ): Either[Throwable, UpdateFunctionConfigurationResponse] =
     underlying.updateFunctionConfiguration(updateFunctionConfigurationRequest).toEither
+
+  override def updateFunctionEventInvokeConfig(
+      updateFunctionEventInvokeConfigRequest: UpdateFunctionEventInvokeConfigRequest
+  ): Either[Throwable, UpdateFunctionEventInvokeConfigResponse] =
+    underlying.updateFunctionEventInvokeConfig(updateFunctionEventInvokeConfigRequest).toEither
 
 }

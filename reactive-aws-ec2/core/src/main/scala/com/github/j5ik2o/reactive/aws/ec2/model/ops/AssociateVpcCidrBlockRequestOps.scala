@@ -26,6 +26,13 @@ final class AssociateVpcCidrBlockRequestBuilderOps(val self: AssociateVpcCidrBlo
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockNetworkBorderGroupAsScala(value: Option[String]): AssociateVpcCidrBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.ipv6CidrBlockNetworkBorderGroup(v)
+    }
+  }
+
 }
 
 final class AssociateVpcCidrBlockRequestOps(val self: AssociateVpcCidrBlockRequest) extends AnyVal {
@@ -38,6 +45,9 @@ final class AssociateVpcCidrBlockRequestOps(val self: AssociateVpcCidrBlockReque
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockNetworkBorderGroupAsScala: Option[String] = Option(self.ipv6CidrBlockNetworkBorderGroup)
 
 }
 

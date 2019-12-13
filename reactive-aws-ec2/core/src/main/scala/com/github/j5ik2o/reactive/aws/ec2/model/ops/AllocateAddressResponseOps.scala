@@ -27,9 +27,30 @@ final class AllocateAddressResponseBuilderOps(val self: AllocateAddressResponse.
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala(value: Option[String]): AllocateAddressResponse.Builder = {
+    value.fold(self) { v =>
+      self.networkBorderGroup(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainAsScala(value: Option[DomainType]): AllocateAddressResponse.Builder = {
     value.fold(self) { v =>
       self.domain(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpAsScala(value: Option[String]): AllocateAddressResponse.Builder = {
+    value.fold(self) { v =>
+      self.customerOwnedIp(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala(value: Option[String]): AllocateAddressResponse.Builder = {
+    value.fold(self) { v =>
+      self.customerOwnedIpv4Pool(v)
     }
   }
 
@@ -47,7 +68,16 @@ final class AllocateAddressResponseOps(val self: AllocateAddressResponse) extend
   final def publicIpv4PoolAsScala: Option[String] = Option(self.publicIpv4Pool)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def networkBorderGroupAsScala: Option[String] = Option(self.networkBorderGroup)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainAsScala: Option[DomainType] = Option(self.domain)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpAsScala: Option[String] = Option(self.customerOwnedIp)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala: Option[String] = Option(self.customerOwnedIpv4Pool)
 
 }
 

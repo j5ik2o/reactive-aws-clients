@@ -40,6 +40,20 @@ final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal 
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def replicationTimeAsScala(value: Option[ReplicationTime]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.replicationTime(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metricsAsScala(value: Option[Metrics]): Destination.Builder = {
+    value.fold(self) { v =>
+      self.metrics(v)
+    }
+  }
+
 }
 
 final class DestinationOps(val self: Destination) extends AnyVal {
@@ -58,6 +72,12 @@ final class DestinationOps(val self: Destination) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionConfigurationAsScala: Option[EncryptionConfiguration] = Option(self.encryptionConfiguration)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def replicationTimeAsScala: Option[ReplicationTime] = Option(self.replicationTime)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metricsAsScala: Option[Metrics] = Option(self.metrics)
 
 }
 

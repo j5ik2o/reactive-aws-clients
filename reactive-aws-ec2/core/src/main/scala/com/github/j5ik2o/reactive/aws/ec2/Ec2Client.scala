@@ -9,6 +9,10 @@ trait Ec2Client[M[_]] {
       acceptReservedInstancesExchangeQuoteRequest: AcceptReservedInstancesExchangeQuoteRequest
   ): M[AcceptReservedInstancesExchangeQuoteResponse]
 
+  def acceptTransitGatewayPeeringAttachment(
+      acceptTransitGatewayPeeringAttachmentRequest: AcceptTransitGatewayPeeringAttachmentRequest
+  ): M[AcceptTransitGatewayPeeringAttachmentResponse]
+
   def acceptTransitGatewayVpcAttachment(
       acceptTransitGatewayVpcAttachmentRequest: AcceptTransitGatewayVpcAttachmentRequest
   ): M[AcceptTransitGatewayVpcAttachmentResponse]
@@ -58,6 +62,10 @@ trait Ec2Client[M[_]] {
   def associateSubnetCidrBlock(
       associateSubnetCidrBlockRequest: AssociateSubnetCidrBlockRequest
   ): M[AssociateSubnetCidrBlockResponse]
+
+  def associateTransitGatewayMulticastDomain(
+      associateTransitGatewayMulticastDomainRequest: AssociateTransitGatewayMulticastDomainRequest
+  ): M[AssociateTransitGatewayMulticastDomainResponse]
 
   def associateTransitGatewayRouteTable(
       associateTransitGatewayRouteTableRequest: AssociateTransitGatewayRouteTableRequest
@@ -181,6 +189,14 @@ trait Ec2Client[M[_]] {
       createLaunchTemplateVersionRequest: CreateLaunchTemplateVersionRequest
   ): M[CreateLaunchTemplateVersionResponse]
 
+  def createLocalGatewayRoute(
+      createLocalGatewayRouteRequest: CreateLocalGatewayRouteRequest
+  ): M[CreateLocalGatewayRouteResponse]
+
+  def createLocalGatewayRouteTableVpcAssociation(
+      createLocalGatewayRouteTableVpcAssociationRequest: CreateLocalGatewayRouteTableVpcAssociationRequest
+  ): M[CreateLocalGatewayRouteTableVpcAssociationResponse]
+
   def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): M[CreateNatGatewayResponse]
 
   def createNetworkAcl(createNetworkAclRequest: CreateNetworkAclRequest): M[CreateNetworkAclResponse]
@@ -240,6 +256,14 @@ trait Ec2Client[M[_]] {
   def createTransitGateway(createTransitGatewayRequest: CreateTransitGatewayRequest): M[CreateTransitGatewayResponse]
 
   def createTransitGateway(): M[CreateTransitGatewayResponse]
+
+  def createTransitGatewayMulticastDomain(
+      createTransitGatewayMulticastDomainRequest: CreateTransitGatewayMulticastDomainRequest
+  ): M[CreateTransitGatewayMulticastDomainResponse]
+
+  def createTransitGatewayPeeringAttachment(
+      createTransitGatewayPeeringAttachmentRequest: CreateTransitGatewayPeeringAttachmentRequest
+  ): M[CreateTransitGatewayPeeringAttachmentResponse]
 
   def createTransitGatewayRoute(
       createTransitGatewayRouteRequest: CreateTransitGatewayRouteRequest
@@ -313,6 +337,14 @@ trait Ec2Client[M[_]] {
       deleteLaunchTemplateVersionsRequest: DeleteLaunchTemplateVersionsRequest
   ): M[DeleteLaunchTemplateVersionsResponse]
 
+  def deleteLocalGatewayRoute(
+      deleteLocalGatewayRouteRequest: DeleteLocalGatewayRouteRequest
+  ): M[DeleteLocalGatewayRouteResponse]
+
+  def deleteLocalGatewayRouteTableVpcAssociation(
+      deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
+  ): M[DeleteLocalGatewayRouteTableVpcAssociationResponse]
+
   def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): M[DeleteNatGatewayResponse]
 
   def deleteNetworkAcl(deleteNetworkAclRequest: DeleteNetworkAclRequest): M[DeleteNetworkAclResponse]
@@ -371,6 +403,14 @@ trait Ec2Client[M[_]] {
 
   def deleteTransitGateway(deleteTransitGatewayRequest: DeleteTransitGatewayRequest): M[DeleteTransitGatewayResponse]
 
+  def deleteTransitGatewayMulticastDomain(
+      deleteTransitGatewayMulticastDomainRequest: DeleteTransitGatewayMulticastDomainRequest
+  ): M[DeleteTransitGatewayMulticastDomainResponse]
+
+  def deleteTransitGatewayPeeringAttachment(
+      deleteTransitGatewayPeeringAttachmentRequest: DeleteTransitGatewayPeeringAttachmentRequest
+  ): M[DeleteTransitGatewayPeeringAttachmentResponse]
+
   def deleteTransitGatewayRoute(
       deleteTransitGatewayRouteRequest: DeleteTransitGatewayRouteRequest
   ): M[DeleteTransitGatewayRouteResponse]
@@ -412,6 +452,14 @@ trait Ec2Client[M[_]] {
   def deprovisionByoipCidr(deprovisionByoipCidrRequest: DeprovisionByoipCidrRequest): M[DeprovisionByoipCidrResponse]
 
   def deregisterImage(deregisterImageRequest: DeregisterImageRequest): M[DeregisterImageResponse]
+
+  def deregisterTransitGatewayMulticastGroupMembers(
+      deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
+  ): M[DeregisterTransitGatewayMulticastGroupMembersResponse]
+
+  def deregisterTransitGatewayMulticastGroupSources(
+      deregisterTransitGatewayMulticastGroupSourcesRequest: DeregisterTransitGatewayMulticastGroupSourcesRequest
+  ): M[DeregisterTransitGatewayMulticastGroupSourcesResponse]
 
   def describeAccountAttributes(
       describeAccountAttributesRequest: DescribeAccountAttributesRequest
@@ -475,6 +523,8 @@ trait Ec2Client[M[_]] {
       describeClientVpnTargetNetworksRequest: DescribeClientVpnTargetNetworksRequest
   ): M[DescribeClientVpnTargetNetworksResponse]
 
+  def describeCoipPools(describeCoipPoolsRequest: DescribeCoipPoolsRequest): M[DescribeCoipPoolsResponse]
+
   def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
   ): M[DescribeConversionTasksResponse]
@@ -508,6 +558,10 @@ trait Ec2Client[M[_]] {
   def describeExportTasks(describeExportTasksRequest: DescribeExportTasksRequest): M[DescribeExportTasksResponse]
 
   def describeExportTasks(): M[DescribeExportTasksResponse]
+
+  def describeFastSnapshotRestores(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest
+  ): M[DescribeFastSnapshotRestoresResponse]
 
   def describeFleetHistory(describeFleetHistoryRequest: DescribeFleetHistoryRequest): M[DescribeFleetHistoryResponse]
 
@@ -597,6 +651,14 @@ trait Ec2Client[M[_]] {
 
   def describeInstanceStatus(): M[DescribeInstanceStatusResponse]
 
+  def describeInstanceTypeOfferings(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): M[DescribeInstanceTypeOfferingsResponse]
+
+  def describeInstanceTypes(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): M[DescribeInstanceTypesResponse]
+
   def describeInstances(describeInstancesRequest: DescribeInstancesRequest): M[DescribeInstancesResponse]
 
   def describeInstances(): M[DescribeInstancesResponse]
@@ -620,6 +682,30 @@ trait Ec2Client[M[_]] {
   ): M[DescribeLaunchTemplatesResponse]
 
   def describeLaunchTemplates(): M[DescribeLaunchTemplatesResponse]
+
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): M[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse]
+
+  def describeLocalGatewayRouteTableVpcAssociations(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): M[DescribeLocalGatewayRouteTableVpcAssociationsResponse]
+
+  def describeLocalGatewayRouteTables(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): M[DescribeLocalGatewayRouteTablesResponse]
+
+  def describeLocalGatewayVirtualInterfaceGroups(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): M[DescribeLocalGatewayVirtualInterfaceGroupsResponse]
+
+  def describeLocalGatewayVirtualInterfaces(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): M[DescribeLocalGatewayVirtualInterfacesResponse]
+
+  def describeLocalGateways(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): M[DescribeLocalGatewaysResponse]
 
   def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -795,6 +881,14 @@ trait Ec2Client[M[_]] {
 
   def describeTransitGatewayAttachments(): M[DescribeTransitGatewayAttachmentsResponse]
 
+  def describeTransitGatewayMulticastDomains(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): M[DescribeTransitGatewayMulticastDomainsResponse]
+
+  def describeTransitGatewayPeeringAttachments(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): M[DescribeTransitGatewayPeeringAttachmentsResponse]
+
   def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
   ): M[DescribeTransitGatewayRouteTablesResponse]
@@ -915,6 +1009,10 @@ trait Ec2Client[M[_]] {
       disableEbsEncryptionByDefaultRequest: DisableEbsEncryptionByDefaultRequest
   ): M[DisableEbsEncryptionByDefaultResponse]
 
+  def disableFastSnapshotRestores(
+      disableFastSnapshotRestoresRequest: DisableFastSnapshotRestoresRequest
+  ): M[DisableFastSnapshotRestoresResponse]
+
   def disableTransitGatewayRouteTablePropagation(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest
   ): M[DisableTransitGatewayRouteTablePropagationResponse]
@@ -949,6 +1047,10 @@ trait Ec2Client[M[_]] {
       disassociateSubnetCidrBlockRequest: DisassociateSubnetCidrBlockRequest
   ): M[DisassociateSubnetCidrBlockResponse]
 
+  def disassociateTransitGatewayMulticastDomain(
+      disassociateTransitGatewayMulticastDomainRequest: DisassociateTransitGatewayMulticastDomainRequest
+  ): M[DisassociateTransitGatewayMulticastDomainResponse]
+
   def disassociateTransitGatewayRouteTable(
       disassociateTransitGatewayRouteTableRequest: DisassociateTransitGatewayRouteTableRequest
   ): M[DisassociateTransitGatewayRouteTableResponse]
@@ -960,6 +1062,10 @@ trait Ec2Client[M[_]] {
   def enableEbsEncryptionByDefault(
       enableEbsEncryptionByDefaultRequest: EnableEbsEncryptionByDefaultRequest
   ): M[EnableEbsEncryptionByDefaultResponse]
+
+  def enableFastSnapshotRestores(
+      enableFastSnapshotRestoresRequest: EnableFastSnapshotRestoresRequest
+  ): M[EnableFastSnapshotRestoresResponse]
 
   def enableTransitGatewayRouteTablePropagation(
       enableTransitGatewayRouteTablePropagationRequest: EnableTransitGatewayRouteTablePropagationRequest
@@ -995,9 +1101,15 @@ trait Ec2Client[M[_]] {
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): M[GetCapacityReservationUsageResponse]
 
+  def getCoipPoolUsage(getCoipPoolUsageRequest: GetCoipPoolUsageRequest): M[GetCoipPoolUsageResponse]
+
   def getConsoleOutput(getConsoleOutputRequest: GetConsoleOutputRequest): M[GetConsoleOutputResponse]
 
   def getConsoleScreenshot(getConsoleScreenshotRequest: GetConsoleScreenshotRequest): M[GetConsoleScreenshotResponse]
+
+  def getDefaultCreditSpecification(
+      getDefaultCreditSpecificationRequest: GetDefaultCreditSpecificationRequest
+  ): M[GetDefaultCreditSpecificationResponse]
 
   def getEbsDefaultKmsKeyId(
       getEbsDefaultKmsKeyIdRequest: GetEbsDefaultKmsKeyIdRequest
@@ -1024,6 +1136,10 @@ trait Ec2Client[M[_]] {
   def getTransitGatewayAttachmentPropagations(
       getTransitGatewayAttachmentPropagationsRequest: GetTransitGatewayAttachmentPropagationsRequest
   ): M[GetTransitGatewayAttachmentPropagationsResponse]
+
+  def getTransitGatewayMulticastDomainAssociations(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): M[GetTransitGatewayMulticastDomainAssociationsResponse]
 
   def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
@@ -1054,6 +1170,10 @@ trait Ec2Client[M[_]] {
   def modifyClientVpnEndpoint(
       modifyClientVpnEndpointRequest: ModifyClientVpnEndpointRequest
   ): M[ModifyClientVpnEndpointResponse]
+
+  def modifyDefaultCreditSpecification(
+      modifyDefaultCreditSpecificationRequest: ModifyDefaultCreditSpecificationRequest
+  ): M[ModifyDefaultCreditSpecificationResponse]
 
   def modifyEbsDefaultKmsKeyId(
       modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest
@@ -1090,6 +1210,10 @@ trait Ec2Client[M[_]] {
   def modifyInstanceEventStartTime(
       modifyInstanceEventStartTimeRequest: ModifyInstanceEventStartTimeRequest
   ): M[ModifyInstanceEventStartTimeResponse]
+
+  def modifyInstanceMetadataOptions(
+      modifyInstanceMetadataOptionsRequest: ModifyInstanceMetadataOptionsRequest
+  ): M[ModifyInstanceMetadataOptionsResponse]
 
   def modifyInstancePlacement(
       modifyInstancePlacementRequest: ModifyInstancePlacementRequest
@@ -1193,6 +1317,18 @@ trait Ec2Client[M[_]] {
 
   def registerImage(registerImageRequest: RegisterImageRequest): M[RegisterImageResponse]
 
+  def registerTransitGatewayMulticastGroupMembers(
+      registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest
+  ): M[RegisterTransitGatewayMulticastGroupMembersResponse]
+
+  def registerTransitGatewayMulticastGroupSources(
+      registerTransitGatewayMulticastGroupSourcesRequest: RegisterTransitGatewayMulticastGroupSourcesRequest
+  ): M[RegisterTransitGatewayMulticastGroupSourcesResponse]
+
+  def rejectTransitGatewayPeeringAttachment(
+      rejectTransitGatewayPeeringAttachmentRequest: RejectTransitGatewayPeeringAttachmentRequest
+  ): M[RejectTransitGatewayPeeringAttachmentResponse]
+
   def rejectTransitGatewayVpcAttachment(
       rejectTransitGatewayVpcAttachmentRequest: RejectTransitGatewayVpcAttachmentRequest
   ): M[RejectTransitGatewayVpcAttachmentResponse]
@@ -1280,6 +1416,14 @@ trait Ec2Client[M[_]] {
   def runScheduledInstances(
       runScheduledInstancesRequest: RunScheduledInstancesRequest
   ): M[RunScheduledInstancesResponse]
+
+  def searchLocalGatewayRoutes(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): M[SearchLocalGatewayRoutesResponse]
+
+  def searchTransitGatewayMulticastGroups(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): M[SearchTransitGatewayMulticastGroupsResponse]
 
   def searchTransitGatewayRoutes(
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest

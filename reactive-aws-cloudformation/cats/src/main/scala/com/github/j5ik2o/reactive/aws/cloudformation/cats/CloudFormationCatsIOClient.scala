@@ -81,6 +81,11 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
       IO(underlying.deleteStackSet(deleteStackSetRequest))
     }
 
+  override def deregisterType(deregisterTypeRequest: DeregisterTypeRequest): IO[DeregisterTypeResponse] =
+    IO.fromFuture {
+      IO(underlying.deregisterType(deregisterTypeRequest))
+    }
+
   override def describeAccountLimits(
       describeAccountLimitsRequest: DescribeAccountLimitsRequest
   ): IO[DescribeAccountLimitsResponse] =
@@ -178,6 +183,18 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
   def describeStacksPaginator(describeStacksRequest: DescribeStacksRequest): DescribeStacksPublisher =
     underlying.describeStacksPaginator(describeStacksRequest)
 
+  override def describeType(describeTypeRequest: DescribeTypeRequest): IO[DescribeTypeResponse] =
+    IO.fromFuture {
+      IO(underlying.describeType(describeTypeRequest))
+    }
+
+  override def describeTypeRegistration(
+      describeTypeRegistrationRequest: DescribeTypeRegistrationRequest
+  ): IO[DescribeTypeRegistrationResponse] =
+    IO.fromFuture {
+      IO(underlying.describeTypeRegistration(describeTypeRegistrationRequest))
+    }
+
   override def detectStackDrift(detectStackDriftRequest: DetectStackDriftRequest): IO[DetectStackDriftResponse] =
     IO.fromFuture {
       IO(underlying.detectStackDrift(detectStackDriftRequest))
@@ -188,6 +205,13 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
   ): IO[DetectStackResourceDriftResponse] =
     IO.fromFuture {
       IO(underlying.detectStackResourceDrift(detectStackResourceDriftRequest))
+    }
+
+  override def detectStackSetDrift(
+      detectStackSetDriftRequest: DetectStackSetDriftRequest
+  ): IO[DetectStackSetDriftResponse] =
+    IO.fromFuture {
+      IO(underlying.detectStackSetDrift(detectStackSetDriftRequest))
     }
 
   override def estimateTemplateCost(
@@ -305,9 +329,56 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
   def listStacksPaginator(listStacksRequest: ListStacksRequest): ListStacksPublisher =
     underlying.listStacksPaginator(listStacksRequest)
 
+  override def listTypeRegistrations(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): IO[ListTypeRegistrationsResponse] =
+    IO.fromFuture {
+      IO(underlying.listTypeRegistrations(listTypeRegistrationsRequest))
+    }
+
+  def listTypeRegistrationsPaginator(
+      listTypeRegistrationsRequest: ListTypeRegistrationsRequest
+  ): ListTypeRegistrationsPublisher =
+    underlying.listTypeRegistrationsPaginator(listTypeRegistrationsRequest)
+
+  override def listTypeVersions(listTypeVersionsRequest: ListTypeVersionsRequest): IO[ListTypeVersionsResponse] =
+    IO.fromFuture {
+      IO(underlying.listTypeVersions(listTypeVersionsRequest))
+    }
+
+  def listTypeVersionsPaginator(listTypeVersionsRequest: ListTypeVersionsRequest): ListTypeVersionsPublisher =
+    underlying.listTypeVersionsPaginator(listTypeVersionsRequest)
+
+  override def listTypes(listTypesRequest: ListTypesRequest): IO[ListTypesResponse] =
+    IO.fromFuture {
+      IO(underlying.listTypes(listTypesRequest))
+    }
+
+  def listTypesPaginator(listTypesRequest: ListTypesRequest): ListTypesPublisher =
+    underlying.listTypesPaginator(listTypesRequest)
+
+  override def recordHandlerProgress(
+      recordHandlerProgressRequest: RecordHandlerProgressRequest
+  ): IO[RecordHandlerProgressResponse] =
+    IO.fromFuture {
+      IO(underlying.recordHandlerProgress(recordHandlerProgressRequest))
+    }
+
+  override def registerType(registerTypeRequest: RegisterTypeRequest): IO[RegisterTypeResponse] =
+    IO.fromFuture {
+      IO(underlying.registerType(registerTypeRequest))
+    }
+
   override def setStackPolicy(setStackPolicyRequest: SetStackPolicyRequest): IO[SetStackPolicyResponse] =
     IO.fromFuture {
       IO(underlying.setStackPolicy(setStackPolicyRequest))
+    }
+
+  override def setTypeDefaultVersion(
+      setTypeDefaultVersionRequest: SetTypeDefaultVersionRequest
+  ): IO[SetTypeDefaultVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.setTypeDefaultVersion(setTypeDefaultVersionRequest))
     }
 
   override def signalResource(signalResourceRequest: SignalResourceRequest): IO[SignalResourceResponse] =

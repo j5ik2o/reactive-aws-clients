@@ -6,6 +6,13 @@ import software.amazon.awssdk.services.ec2.model._
 final class VpnConnectionOptionsBuilderOps(val self: VpnConnectionOptions.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def enableAccelerationAsScala(value: Option[Boolean]): VpnConnectionOptions.Builder = {
+    value.fold(self) { v =>
+      self.enableAcceleration(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def staticRoutesOnlyAsScala(value: Option[Boolean]): VpnConnectionOptions.Builder = {
     value.fold(self) { v =>
       self.staticRoutesOnly(v)
@@ -22,6 +29,9 @@ final class VpnConnectionOptionsBuilderOps(val self: VpnConnectionOptions.Builde
 }
 
 final class VpnConnectionOptionsOps(val self: VpnConnectionOptions) extends AnyVal {
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def enableAccelerationAsScala: Option[Boolean] = Option(self.enableAcceleration)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def staticRoutesOnlyAsScala: Option[Boolean] = Option(self.staticRoutesOnly)

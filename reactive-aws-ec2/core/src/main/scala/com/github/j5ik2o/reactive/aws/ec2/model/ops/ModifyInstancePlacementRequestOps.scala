@@ -47,6 +47,13 @@ final class ModifyInstancePlacementRequestBuilderOps(val self: ModifyInstancePla
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostResourceGroupArnAsScala(value: Option[String]): ModifyInstancePlacementRequest.Builder = {
+    value.fold(self) { v =>
+      self.hostResourceGroupArn(v)
+    }
+  }
+
 }
 
 final class ModifyInstancePlacementRequestOps(val self: ModifyInstancePlacementRequest) extends AnyVal {
@@ -68,6 +75,9 @@ final class ModifyInstancePlacementRequestOps(val self: ModifyInstancePlacementR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partitionNumberAsScala: Option[Int] = Option(self.partitionNumber)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostResourceGroupArnAsScala: Option[String] = Option(self.hostResourceGroupArn)
 
 }
 

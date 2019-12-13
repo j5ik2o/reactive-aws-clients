@@ -19,6 +19,13 @@ final class AssociateRouteTableRequestBuilderOps(val self: AssociateRouteTableRe
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def gatewayIdAsScala(value: Option[String]): AssociateRouteTableRequest.Builder = {
+    value.fold(self) { v =>
+      self.gatewayId(v)
+    }
+  }
+
 }
 
 final class AssociateRouteTableRequestOps(val self: AssociateRouteTableRequest) extends AnyVal {
@@ -28,6 +35,9 @@ final class AssociateRouteTableRequestOps(val self: AssociateRouteTableRequest) 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def gatewayIdAsScala: Option[String] = Option(self.gatewayId)
 
 }
 

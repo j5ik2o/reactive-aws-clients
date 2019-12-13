@@ -9,6 +9,10 @@ trait RekognitionClient[M[_]] {
 
   def createCollection(createCollectionRequest: CreateCollectionRequest): M[CreateCollectionResponse]
 
+  def createProject(createProjectRequest: CreateProjectRequest): M[CreateProjectResponse]
+
+  def createProjectVersion(createProjectVersionRequest: CreateProjectVersionRequest): M[CreateProjectVersionResponse]
+
   def createStreamProcessor(
       createStreamProcessorRequest: CreateStreamProcessorRequest
   ): M[CreateStreamProcessorResponse]
@@ -23,9 +27,17 @@ trait RekognitionClient[M[_]] {
 
   def describeCollection(describeCollectionRequest: DescribeCollectionRequest): M[DescribeCollectionResponse]
 
+  def describeProjectVersions(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest
+  ): M[DescribeProjectVersionsResponse]
+
+  def describeProjects(describeProjectsRequest: DescribeProjectsRequest): M[DescribeProjectsResponse]
+
   def describeStreamProcessor(
       describeStreamProcessorRequest: DescribeStreamProcessorRequest
   ): M[DescribeStreamProcessorResponse]
+
+  def detectCustomLabels(detectCustomLabelsRequest: DetectCustomLabelsRequest): M[DetectCustomLabelsResponse]
 
   def detectFaces(detectFacesRequest: DetectFacesRequest): M[DetectFacesResponse]
 
@@ -87,7 +99,11 @@ trait RekognitionClient[M[_]] {
 
   def startPersonTracking(startPersonTrackingRequest: StartPersonTrackingRequest): M[StartPersonTrackingResponse]
 
+  def startProjectVersion(startProjectVersionRequest: StartProjectVersionRequest): M[StartProjectVersionResponse]
+
   def startStreamProcessor(startStreamProcessorRequest: StartStreamProcessorRequest): M[StartStreamProcessorResponse]
+
+  def stopProjectVersion(stopProjectVersionRequest: StopProjectVersionRequest): M[StopProjectVersionResponse]
 
   def stopStreamProcessor(stopStreamProcessorRequest: StopStreamProcessorRequest): M[StopStreamProcessorResponse]
 

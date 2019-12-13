@@ -122,6 +122,20 @@ final class TableDescriptionBuilderOps(val self: TableDescription.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def globalTableVersionAsScala(value: Option[String]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.globalTableVersion(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def replicasAsScala(value: Option[Seq[ReplicaDescription]]): TableDescription.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.replicas(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def restoreSummaryAsScala(value: Option[RestoreSummary]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.restoreSummary(v)
@@ -132,6 +146,13 @@ final class TableDescriptionBuilderOps(val self: TableDescription.Builder) exten
   final def sseDescriptionAsScala(value: Option[SSEDescription]): TableDescription.Builder = {
     value.fold(self) { v =>
       self.sseDescription(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def archivalSummaryAsScala(value: Option[ArchivalSummary]): TableDescription.Builder = {
+    value.fold(self) { v =>
+      self.archivalSummary(v)
     }
   }
 
@@ -198,10 +219,21 @@ final class TableDescriptionOps(val self: TableDescription) extends AnyVal {
   final def latestStreamArnAsScala: Option[String] = Option(self.latestStreamArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def globalTableVersionAsScala: Option[String] = Option(self.globalTableVersion)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def replicasAsScala: Option[Seq[ReplicaDescription]] = Option(self.replicas).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def restoreSummaryAsScala: Option[RestoreSummary] = Option(self.restoreSummary)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseDescriptionAsScala: Option[SSEDescription] = Option(self.sseDescription)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def archivalSummaryAsScala: Option[ArchivalSummary] = Option(self.archivalSummary)
 
 }
 

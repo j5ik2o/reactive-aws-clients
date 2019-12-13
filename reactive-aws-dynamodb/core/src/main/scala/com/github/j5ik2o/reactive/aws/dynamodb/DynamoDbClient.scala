@@ -27,6 +27,10 @@ trait DynamoDbClient[M[_]] extends DynamoDbClientSupport[M] {
       describeContinuousBackupsRequest: DescribeContinuousBackupsRequest
   ): M[DescribeContinuousBackupsResponse]
 
+  def describeContributorInsights(
+      describeContributorInsightsRequest: DescribeContributorInsightsRequest
+  ): M[DescribeContributorInsightsResponse]
+
   def describeEndpoints(describeEndpointsRequest: DescribeEndpointsRequest): M[DescribeEndpointsResponse]
 
   def describeEndpoints(): M[DescribeEndpointsResponse]
@@ -43,6 +47,10 @@ trait DynamoDbClient[M[_]] extends DynamoDbClientSupport[M] {
 
   def describeTable(describeTableRequest: DescribeTableRequest): M[DescribeTableResponse]
 
+  def describeTableReplicaAutoScaling(
+      describeTableReplicaAutoScalingRequest: DescribeTableReplicaAutoScalingRequest
+  ): M[DescribeTableReplicaAutoScalingResponse]
+
   def describeTimeToLive(describeTimeToLiveRequest: DescribeTimeToLiveRequest): M[DescribeTimeToLiveResponse]
 
   def getItem(getItemRequest: GetItemRequest): M[GetItemResponse]
@@ -50,6 +58,10 @@ trait DynamoDbClient[M[_]] extends DynamoDbClientSupport[M] {
   def listBackups(listBackupsRequest: ListBackupsRequest): M[ListBackupsResponse]
 
   def listBackups(): M[ListBackupsResponse]
+
+  def listContributorInsights(
+      listContributorInsightsRequest: ListContributorInsightsRequest
+  ): M[ListContributorInsightsResponse]
 
   def listGlobalTables(listGlobalTablesRequest: ListGlobalTablesRequest): M[ListGlobalTablesResponse]
 
@@ -87,6 +99,10 @@ trait DynamoDbClient[M[_]] extends DynamoDbClientSupport[M] {
       updateContinuousBackupsRequest: UpdateContinuousBackupsRequest
   ): M[UpdateContinuousBackupsResponse]
 
+  def updateContributorInsights(
+      updateContributorInsightsRequest: UpdateContributorInsightsRequest
+  ): M[UpdateContributorInsightsResponse]
+
   def updateGlobalTable(updateGlobalTableRequest: UpdateGlobalTableRequest): M[UpdateGlobalTableResponse]
 
   def updateGlobalTableSettings(
@@ -96,6 +112,10 @@ trait DynamoDbClient[M[_]] extends DynamoDbClientSupport[M] {
   def updateItem(updateItemRequest: UpdateItemRequest): M[UpdateItemResponse]
 
   def updateTable(updateTableRequest: UpdateTableRequest): M[UpdateTableResponse]
+
+  def updateTableReplicaAutoScaling(
+      updateTableReplicaAutoScalingRequest: UpdateTableReplicaAutoScalingRequest
+  ): M[UpdateTableReplicaAutoScalingResponse]
 
   def updateTimeToLive(updateTimeToLiveRequest: UpdateTimeToLiveRequest): M[UpdateTimeToLiveResponse]
 

@@ -19,6 +19,13 @@ final class FailureBuilderOps(val self: Failure.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def detailAsScala(value: Option[String]): Failure.Builder = {
+    value.fold(self) { v =>
+      self.detail(v)
+    }
+  }
+
 }
 
 final class FailureOps(val self: Failure) extends AnyVal {
@@ -28,6 +35,9 @@ final class FailureOps(val self: Failure) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala: Option[String] = Option(self.reason)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def detailAsScala: Option[String] = Option(self.detail)
 
 }
 

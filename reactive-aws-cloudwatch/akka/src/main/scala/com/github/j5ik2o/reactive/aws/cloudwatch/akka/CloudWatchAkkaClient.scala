@@ -61,6 +61,19 @@ trait CloudWatchAkkaClient {
       underlying.deleteDashboards(deleteDashboardsRequest)
     }
 
+  def deleteInsightRulesSource(
+      deleteInsightRulesRequest: DeleteInsightRulesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteInsightRulesResponse, NotUsed] =
+    Source.single(deleteInsightRulesRequest).via(deleteInsightRulesFlow(parallelism))
+
+  def deleteInsightRulesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteInsightRulesRequest, DeleteInsightRulesResponse, NotUsed] =
+    Flow[DeleteInsightRulesRequest].mapAsync(parallelism) { deleteInsightRulesRequest =>
+      underlying.deleteInsightRules(deleteInsightRulesRequest)
+    }
+
   def describeAlarmHistorySource(
       describeAlarmHistoryRequest: DescribeAlarmHistoryRequest,
       parallelism: Int = DefaultParallelism
@@ -135,6 +148,24 @@ trait CloudWatchAkkaClient {
       underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest)
     }
 
+  def describeInsightRulesSource(
+      describeInsightRulesRequest: DescribeInsightRulesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeInsightRulesResponse, NotUsed] =
+    Source.single(describeInsightRulesRequest).via(describeInsightRulesFlow(parallelism))
+
+  def describeInsightRulesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeInsightRulesRequest, DescribeInsightRulesResponse, NotUsed] =
+    Flow[DescribeInsightRulesRequest].mapAsync(parallelism) { describeInsightRulesRequest =>
+      underlying.describeInsightRules(describeInsightRulesRequest)
+    }
+
+  def describeInsightRulesPaginatorFlow: Flow[DescribeInsightRulesRequest, DescribeInsightRulesResponse, NotUsed] =
+    Flow[DescribeInsightRulesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeInsightRulesPaginator(request))
+    }
+
   def disableAlarmActionsSource(
       disableAlarmActionsRequest: DisableAlarmActionsRequest,
       parallelism: Int = DefaultParallelism
@@ -146,6 +177,19 @@ trait CloudWatchAkkaClient {
   ): Flow[DisableAlarmActionsRequest, DisableAlarmActionsResponse, NotUsed] =
     Flow[DisableAlarmActionsRequest].mapAsync(parallelism) { disableAlarmActionsRequest =>
       underlying.disableAlarmActions(disableAlarmActionsRequest)
+    }
+
+  def disableInsightRulesSource(
+      disableInsightRulesRequest: DisableInsightRulesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisableInsightRulesResponse, NotUsed] =
+    Source.single(disableInsightRulesRequest).via(disableInsightRulesFlow(parallelism))
+
+  def disableInsightRulesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DisableInsightRulesRequest, DisableInsightRulesResponse, NotUsed] =
+    Flow[DisableInsightRulesRequest].mapAsync(parallelism) { disableInsightRulesRequest =>
+      underlying.disableInsightRules(disableInsightRulesRequest)
     }
 
   def enableAlarmActionsSource(
@@ -161,6 +205,19 @@ trait CloudWatchAkkaClient {
       underlying.enableAlarmActions(enableAlarmActionsRequest)
     }
 
+  def enableInsightRulesSource(
+      enableInsightRulesRequest: EnableInsightRulesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableInsightRulesResponse, NotUsed] =
+    Source.single(enableInsightRulesRequest).via(enableInsightRulesFlow(parallelism))
+
+  def enableInsightRulesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[EnableInsightRulesRequest, EnableInsightRulesResponse, NotUsed] =
+    Flow[EnableInsightRulesRequest].mapAsync(parallelism) { enableInsightRulesRequest =>
+      underlying.enableInsightRules(enableInsightRulesRequest)
+    }
+
   def getDashboardSource(
       getDashboardRequest: GetDashboardRequest,
       parallelism: Int = DefaultParallelism
@@ -172,6 +229,19 @@ trait CloudWatchAkkaClient {
   ): Flow[GetDashboardRequest, GetDashboardResponse, NotUsed] =
     Flow[GetDashboardRequest].mapAsync(parallelism) { getDashboardRequest =>
       underlying.getDashboard(getDashboardRequest)
+    }
+
+  def getInsightRuleReportSource(
+      getInsightRuleReportRequest: GetInsightRuleReportRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetInsightRuleReportResponse, NotUsed] =
+    Source.single(getInsightRuleReportRequest).via(getInsightRuleReportFlow(parallelism))
+
+  def getInsightRuleReportFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetInsightRuleReportRequest, GetInsightRuleReportResponse, NotUsed] =
+    Flow[GetInsightRuleReportRequest].mapAsync(parallelism) { getInsightRuleReportRequest =>
+      underlying.getInsightRuleReport(getInsightRuleReportRequest)
     }
 
   def getMetricDataSource(
@@ -301,6 +371,19 @@ trait CloudWatchAkkaClient {
   ): Flow[PutDashboardRequest, PutDashboardResponse, NotUsed] =
     Flow[PutDashboardRequest].mapAsync(parallelism) { putDashboardRequest =>
       underlying.putDashboard(putDashboardRequest)
+    }
+
+  def putInsightRuleSource(
+      putInsightRuleRequest: PutInsightRuleRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutInsightRuleResponse, NotUsed] =
+    Source.single(putInsightRuleRequest).via(putInsightRuleFlow(parallelism))
+
+  def putInsightRuleFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutInsightRuleRequest, PutInsightRuleResponse, NotUsed] =
+    Flow[PutInsightRuleRequest].mapAsync(parallelism) { putInsightRuleRequest =>
+      underlying.putInsightRule(putInsightRuleRequest)
     }
 
   def putMetricAlarmSource(

@@ -48,6 +48,32 @@ trait RekognitionAkkaClient {
       underlying.createCollection(createCollectionRequest)
     }
 
+  def createProjectSource(
+      createProjectRequest: CreateProjectRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateProjectResponse, NotUsed] =
+    Source.single(createProjectRequest).via(createProjectFlow(parallelism))
+
+  def createProjectFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateProjectRequest, CreateProjectResponse, NotUsed] =
+    Flow[CreateProjectRequest].mapAsync(parallelism) { createProjectRequest =>
+      underlying.createProject(createProjectRequest)
+    }
+
+  def createProjectVersionSource(
+      createProjectVersionRequest: CreateProjectVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateProjectVersionResponse, NotUsed] =
+    Source.single(createProjectVersionRequest).via(createProjectVersionFlow(parallelism))
+
+  def createProjectVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateProjectVersionRequest, CreateProjectVersionResponse, NotUsed] =
+    Flow[CreateProjectVersionRequest].mapAsync(parallelism) { createProjectVersionRequest =>
+      underlying.createProjectVersion(createProjectVersionRequest)
+    }
+
   def createStreamProcessorSource(
       createStreamProcessorRequest: CreateStreamProcessorRequest,
       parallelism: Int = DefaultParallelism
@@ -111,6 +137,43 @@ trait RekognitionAkkaClient {
       underlying.describeCollection(describeCollectionRequest)
     }
 
+  def describeProjectVersionsSource(
+      describeProjectVersionsRequest: DescribeProjectVersionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeProjectVersionsResponse, NotUsed] =
+    Source.single(describeProjectVersionsRequest).via(describeProjectVersionsFlow(parallelism))
+
+  def describeProjectVersionsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeProjectVersionsRequest, DescribeProjectVersionsResponse, NotUsed] =
+    Flow[DescribeProjectVersionsRequest].mapAsync(parallelism) { describeProjectVersionsRequest =>
+      underlying.describeProjectVersions(describeProjectVersionsRequest)
+    }
+
+  def describeProjectVersionsPaginatorFlow
+      : Flow[DescribeProjectVersionsRequest, DescribeProjectVersionsResponse, NotUsed] =
+    Flow[DescribeProjectVersionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeProjectVersionsPaginator(request))
+    }
+
+  def describeProjectsSource(
+      describeProjectsRequest: DescribeProjectsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeProjectsResponse, NotUsed] =
+    Source.single(describeProjectsRequest).via(describeProjectsFlow(parallelism))
+
+  def describeProjectsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeProjectsRequest, DescribeProjectsResponse, NotUsed] =
+    Flow[DescribeProjectsRequest].mapAsync(parallelism) { describeProjectsRequest =>
+      underlying.describeProjects(describeProjectsRequest)
+    }
+
+  def describeProjectsPaginatorFlow: Flow[DescribeProjectsRequest, DescribeProjectsResponse, NotUsed] =
+    Flow[DescribeProjectsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeProjectsPaginator(request))
+    }
+
   def describeStreamProcessorSource(
       describeStreamProcessorRequest: DescribeStreamProcessorRequest,
       parallelism: Int = DefaultParallelism
@@ -122,6 +185,19 @@ trait RekognitionAkkaClient {
   ): Flow[DescribeStreamProcessorRequest, DescribeStreamProcessorResponse, NotUsed] =
     Flow[DescribeStreamProcessorRequest].mapAsync(parallelism) { describeStreamProcessorRequest =>
       underlying.describeStreamProcessor(describeStreamProcessorRequest)
+    }
+
+  def detectCustomLabelsSource(
+      detectCustomLabelsRequest: DetectCustomLabelsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DetectCustomLabelsResponse, NotUsed] =
+    Source.single(detectCustomLabelsRequest).via(detectCustomLabelsFlow(parallelism))
+
+  def detectCustomLabelsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DetectCustomLabelsRequest, DetectCustomLabelsResponse, NotUsed] =
+    Flow[DetectCustomLabelsRequest].mapAsync(parallelism) { detectCustomLabelsRequest =>
+      underlying.detectCustomLabels(detectCustomLabelsRequest)
     }
 
   def detectFacesSource(
@@ -484,6 +560,19 @@ trait RekognitionAkkaClient {
       underlying.startPersonTracking(startPersonTrackingRequest)
     }
 
+  def startProjectVersionSource(
+      startProjectVersionRequest: StartProjectVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartProjectVersionResponse, NotUsed] =
+    Source.single(startProjectVersionRequest).via(startProjectVersionFlow(parallelism))
+
+  def startProjectVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[StartProjectVersionRequest, StartProjectVersionResponse, NotUsed] =
+    Flow[StartProjectVersionRequest].mapAsync(parallelism) { startProjectVersionRequest =>
+      underlying.startProjectVersion(startProjectVersionRequest)
+    }
+
   def startStreamProcessorSource(
       startStreamProcessorRequest: StartStreamProcessorRequest,
       parallelism: Int = DefaultParallelism
@@ -495,6 +584,19 @@ trait RekognitionAkkaClient {
   ): Flow[StartStreamProcessorRequest, StartStreamProcessorResponse, NotUsed] =
     Flow[StartStreamProcessorRequest].mapAsync(parallelism) { startStreamProcessorRequest =>
       underlying.startStreamProcessor(startStreamProcessorRequest)
+    }
+
+  def stopProjectVersionSource(
+      stopProjectVersionRequest: StopProjectVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StopProjectVersionResponse, NotUsed] =
+    Source.single(stopProjectVersionRequest).via(stopProjectVersionFlow(parallelism))
+
+  def stopProjectVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[StopProjectVersionRequest, StopProjectVersionResponse, NotUsed] =
+    Flow[StopProjectVersionRequest].mapAsync(parallelism) { stopProjectVersionRequest =>
+      underlying.stopProjectVersion(stopProjectVersionRequest)
     }
 
   def stopStreamProcessorSource(

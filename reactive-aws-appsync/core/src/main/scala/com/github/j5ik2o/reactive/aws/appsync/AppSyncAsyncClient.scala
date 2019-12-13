@@ -22,6 +22,9 @@ object AppSyncAsyncClient {
 trait AppSyncAsyncClient extends AppSyncClient[Future] {
   val underlying: JavaAppSyncAsyncClient
 
+  override def createApiCache(createApiCacheRequest: CreateApiCacheRequest): Future[CreateApiCacheResponse] =
+    underlying.createApiCache(createApiCacheRequest).toScala
+
   override def createApiKey(createApiKeyRequest: CreateApiKeyRequest): Future[CreateApiKeyResponse] =
     underlying.createApiKey(createApiKeyRequest).toScala
 
@@ -40,6 +43,9 @@ trait AppSyncAsyncClient extends AppSyncClient[Future] {
   override def createType(createTypeRequest: CreateTypeRequest): Future[CreateTypeResponse] =
     underlying.createType(createTypeRequest).toScala
 
+  override def deleteApiCache(deleteApiCacheRequest: DeleteApiCacheRequest): Future[DeleteApiCacheResponse] =
+    underlying.deleteApiCache(deleteApiCacheRequest).toScala
+
   override def deleteApiKey(deleteApiKeyRequest: DeleteApiKeyRequest): Future[DeleteApiKeyResponse] =
     underlying.deleteApiKey(deleteApiKeyRequest).toScala
 
@@ -57,6 +63,12 @@ trait AppSyncAsyncClient extends AppSyncClient[Future] {
 
   override def deleteType(deleteTypeRequest: DeleteTypeRequest): Future[DeleteTypeResponse] =
     underlying.deleteType(deleteTypeRequest).toScala
+
+  override def flushApiCache(flushApiCacheRequest: FlushApiCacheRequest): Future[FlushApiCacheResponse] =
+    underlying.flushApiCache(flushApiCacheRequest).toScala
+
+  override def getApiCache(getApiCacheRequest: GetApiCacheRequest): Future[GetApiCacheResponse] =
+    underlying.getApiCache(getApiCacheRequest).toScala
 
   override def getDataSource(getDataSourceRequest: GetDataSourceRequest): Future[GetDataSourceResponse] =
     underlying.getDataSource(getDataSourceRequest).toScala
@@ -124,6 +136,9 @@ trait AppSyncAsyncClient extends AppSyncClient[Future] {
 
   override def untagResource(untagResourceRequest: UntagResourceRequest): Future[UntagResourceResponse] =
     underlying.untagResource(untagResourceRequest).toScala
+
+  override def updateApiCache(updateApiCacheRequest: UpdateApiCacheRequest): Future[UpdateApiCacheResponse] =
+    underlying.updateApiCache(updateApiCacheRequest).toScala
 
   override def updateApiKey(updateApiKeyRequest: UpdateApiKeyRequest): Future[UpdateApiKeyResponse] =
     underlying.updateApiKey(updateApiKeyRequest).toScala

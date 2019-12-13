@@ -110,6 +110,13 @@ final class CreateChangeSetRequestBuilderOps(val self: CreateChangeSetRequest.Bu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourcesToImportAsScala(value: Option[Seq[ResourceToImport]]): CreateChangeSetRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.resourcesToImport(v.asJava)
+    }
+  }
+
 }
 
 final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends AnyVal {
@@ -168,6 +175,11 @@ final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetTypeAsScala: Option[ChangeSetType] = Option(self.changeSetType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourcesToImportAsScala: Option[Seq[ResourceToImport]] = Option(self.resourcesToImport).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

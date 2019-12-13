@@ -61,6 +61,15 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourceIdentifierSummariesAsScala(
+      value: Option[Seq[ResourceIdentifierSummary]]
+  ): GetTemplateSummaryResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.resourceIdentifierSummaries(v.asJava)
+    }
+  }
+
 }
 
 final class GetTemplateSummaryResponseOps(val self: GetTemplateSummaryResponse) extends AnyVal {
@@ -96,6 +105,12 @@ final class GetTemplateSummaryResponseOps(val self: GetTemplateSummaryResponse) 
   final def declaredTransformsAsScala: Option[Seq[String]] = Option(self.declaredTransforms).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def resourceIdentifierSummariesAsScala: Option[Seq[ResourceIdentifierSummary]] =
+    Option(self.resourceIdentifierSummaries).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

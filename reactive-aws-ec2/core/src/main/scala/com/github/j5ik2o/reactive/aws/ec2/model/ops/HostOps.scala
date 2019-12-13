@@ -96,6 +96,34 @@ final class HostBuilderOps(val self: Host.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allowsMultipleInstanceTypesAsScala(value: Option[AllowsMultipleInstanceTypes]): Host.Builder = {
+    value.fold(self) { v =>
+      self.allowsMultipleInstanceTypes(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala(value: Option[String]): Host.Builder = {
+    value.fold(self) { v =>
+      self.ownerId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def availabilityZoneIdAsScala(value: Option[String]): Host.Builder = {
+    value.fold(self) { v =>
+      self.availabilityZoneId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def memberOfServiceLinkedResourceGroupAsScala(value: Option[Boolean]): Host.Builder = {
+    value.fold(self) { v =>
+      self.memberOfServiceLinkedResourceGroup(v)
+    }
+  }
+
 }
 
 final class HostOps(val self: Host) extends AnyVal {
@@ -142,6 +170,19 @@ final class HostOps(val self: Host) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostRecoveryAsScala: Option[HostRecovery] = Option(self.hostRecovery)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def allowsMultipleInstanceTypesAsScala: Option[AllowsMultipleInstanceTypes] =
+    Option(self.allowsMultipleInstanceTypes)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ownerIdAsScala: Option[String] = Option(self.ownerId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def availabilityZoneIdAsScala: Option[String] = Option(self.availabilityZoneId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def memberOfServiceLinkedResourceGroupAsScala: Option[Boolean] = Option(self.memberOfServiceLinkedResourceGroup)
 
 }
 

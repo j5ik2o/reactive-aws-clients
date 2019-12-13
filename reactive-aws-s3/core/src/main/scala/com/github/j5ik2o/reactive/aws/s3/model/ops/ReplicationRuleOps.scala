@@ -48,6 +48,13 @@ final class ReplicationRuleBuilderOps(val self: ReplicationRule.Builder) extends
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def existingObjectReplicationAsScala(value: Option[ExistingObjectReplication]): ReplicationRule.Builder = {
+    value.fold(self) { v =>
+      self.existingObjectReplication(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala(value: Option[Destination]): ReplicationRule.Builder = {
     value.fold(self) { v =>
       self.destination(v)
@@ -82,6 +89,9 @@ final class ReplicationRuleOps(val self: ReplicationRule) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceSelectionCriteriaAsScala: Option[SourceSelectionCriteria] = Option(self.sourceSelectionCriteria)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def existingObjectReplicationAsScala: Option[ExistingObjectReplication] = Option(self.existingObjectReplication)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala: Option[Destination] = Option(self.destination)

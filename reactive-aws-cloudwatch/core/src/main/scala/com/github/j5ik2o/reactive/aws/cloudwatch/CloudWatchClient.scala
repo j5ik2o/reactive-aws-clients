@@ -13,6 +13,8 @@ trait CloudWatchClient[M[_]] {
 
   def deleteDashboards(deleteDashboardsRequest: DeleteDashboardsRequest): M[DeleteDashboardsResponse]
 
+  def deleteInsightRules(deleteInsightRulesRequest: DeleteInsightRulesRequest): M[DeleteInsightRulesResponse]
+
   def describeAlarmHistory(describeAlarmHistoryRequest: DescribeAlarmHistoryRequest): M[DescribeAlarmHistoryResponse]
 
   def describeAlarmHistory(): M[DescribeAlarmHistoryResponse]
@@ -29,11 +31,19 @@ trait CloudWatchClient[M[_]] {
       describeAnomalyDetectorsRequest: DescribeAnomalyDetectorsRequest
   ): M[DescribeAnomalyDetectorsResponse]
 
+  def describeInsightRules(describeInsightRulesRequest: DescribeInsightRulesRequest): M[DescribeInsightRulesResponse]
+
   def disableAlarmActions(disableAlarmActionsRequest: DisableAlarmActionsRequest): M[DisableAlarmActionsResponse]
+
+  def disableInsightRules(disableInsightRulesRequest: DisableInsightRulesRequest): M[DisableInsightRulesResponse]
 
   def enableAlarmActions(enableAlarmActionsRequest: EnableAlarmActionsRequest): M[EnableAlarmActionsResponse]
 
+  def enableInsightRules(enableInsightRulesRequest: EnableInsightRulesRequest): M[EnableInsightRulesResponse]
+
   def getDashboard(getDashboardRequest: GetDashboardRequest): M[GetDashboardResponse]
+
+  def getInsightRuleReport(getInsightRuleReportRequest: GetInsightRuleReportRequest): M[GetInsightRuleReportResponse]
 
   def getMetricData(getMetricDataRequest: GetMetricDataRequest): M[GetMetricDataResponse]
 
@@ -54,6 +64,8 @@ trait CloudWatchClient[M[_]] {
   def putAnomalyDetector(putAnomalyDetectorRequest: PutAnomalyDetectorRequest): M[PutAnomalyDetectorResponse]
 
   def putDashboard(putDashboardRequest: PutDashboardRequest): M[PutDashboardResponse]
+
+  def putInsightRule(putInsightRuleRequest: PutInsightRuleRequest): M[PutInsightRuleResponse]
 
   def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): M[PutMetricAlarmResponse]
 

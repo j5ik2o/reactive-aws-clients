@@ -24,14 +24,50 @@ trait EksMonixClient extends EksClient[Task] {
       underlying.createCluster(createClusterRequest)
     }
 
+  override def createFargateProfile(
+      createFargateProfileRequest: CreateFargateProfileRequest
+  ): Task[CreateFargateProfileResponse] =
+    Task.deferFuture {
+      underlying.createFargateProfile(createFargateProfileRequest)
+    }
+
+  override def createNodegroup(createNodegroupRequest: CreateNodegroupRequest): Task[CreateNodegroupResponse] =
+    Task.deferFuture {
+      underlying.createNodegroup(createNodegroupRequest)
+    }
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): Task[DeleteClusterResponse] =
     Task.deferFuture {
       underlying.deleteCluster(deleteClusterRequest)
     }
 
+  override def deleteFargateProfile(
+      deleteFargateProfileRequest: DeleteFargateProfileRequest
+  ): Task[DeleteFargateProfileResponse] =
+    Task.deferFuture {
+      underlying.deleteFargateProfile(deleteFargateProfileRequest)
+    }
+
+  override def deleteNodegroup(deleteNodegroupRequest: DeleteNodegroupRequest): Task[DeleteNodegroupResponse] =
+    Task.deferFuture {
+      underlying.deleteNodegroup(deleteNodegroupRequest)
+    }
+
   override def describeCluster(describeClusterRequest: DescribeClusterRequest): Task[DescribeClusterResponse] =
     Task.deferFuture {
       underlying.describeCluster(describeClusterRequest)
+    }
+
+  override def describeFargateProfile(
+      describeFargateProfileRequest: DescribeFargateProfileRequest
+  ): Task[DescribeFargateProfileResponse] =
+    Task.deferFuture {
+      underlying.describeFargateProfile(describeFargateProfileRequest)
+    }
+
+  override def describeNodegroup(describeNodegroupRequest: DescribeNodegroupRequest): Task[DescribeNodegroupResponse] =
+    Task.deferFuture {
+      underlying.describeNodegroup(describeNodegroupRequest)
     }
 
   override def describeUpdate(describeUpdateRequest: DescribeUpdateRequest): Task[DescribeUpdateResponse] =
@@ -54,6 +90,26 @@ trait EksMonixClient extends EksClient[Task] {
 
   def listClustersPaginator(listClustersRequest: ListClustersRequest): Observable[ListClustersResponse] =
     Observable.fromReactivePublisher(underlying.listClustersPaginator(listClustersRequest))
+
+  override def listFargateProfiles(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): Task[ListFargateProfilesResponse] =
+    Task.deferFuture {
+      underlying.listFargateProfiles(listFargateProfilesRequest)
+    }
+
+  def listFargateProfilesPaginator(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): Observable[ListFargateProfilesResponse] =
+    Observable.fromReactivePublisher(underlying.listFargateProfilesPaginator(listFargateProfilesRequest))
+
+  override def listNodegroups(listNodegroupsRequest: ListNodegroupsRequest): Task[ListNodegroupsResponse] =
+    Task.deferFuture {
+      underlying.listNodegroups(listNodegroupsRequest)
+    }
+
+  def listNodegroupsPaginator(listNodegroupsRequest: ListNodegroupsRequest): Observable[ListNodegroupsResponse] =
+    Observable.fromReactivePublisher(underlying.listNodegroupsPaginator(listNodegroupsRequest))
 
   override def listTagsForResource(
       listTagsForResourceRequest: ListTagsForResourceRequest
@@ -92,6 +148,20 @@ trait EksMonixClient extends EksClient[Task] {
   ): Task[UpdateClusterVersionResponse] =
     Task.deferFuture {
       underlying.updateClusterVersion(updateClusterVersionRequest)
+    }
+
+  override def updateNodegroupConfig(
+      updateNodegroupConfigRequest: UpdateNodegroupConfigRequest
+  ): Task[UpdateNodegroupConfigResponse] =
+    Task.deferFuture {
+      underlying.updateNodegroupConfig(updateNodegroupConfigRequest)
+    }
+
+  override def updateNodegroupVersion(
+      updateNodegroupVersionRequest: UpdateNodegroupVersionRequest
+  ): Task[UpdateNodegroupVersionResponse] =
+    Task.deferFuture {
+      underlying.updateNodegroupVersion(updateNodegroupVersionRequest)
     }
 
 }

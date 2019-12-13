@@ -58,10 +58,20 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
   ): Future[DeleteFunctionConcurrencyResponse] =
     underlying.deleteFunctionConcurrency(deleteFunctionConcurrencyRequest).toScala
 
+  override def deleteFunctionEventInvokeConfig(
+      deleteFunctionEventInvokeConfigRequest: DeleteFunctionEventInvokeConfigRequest
+  ): Future[DeleteFunctionEventInvokeConfigResponse] =
+    underlying.deleteFunctionEventInvokeConfig(deleteFunctionEventInvokeConfigRequest).toScala
+
   override def deleteLayerVersion(
       deleteLayerVersionRequest: DeleteLayerVersionRequest
   ): Future[DeleteLayerVersionResponse] =
     underlying.deleteLayerVersion(deleteLayerVersionRequest).toScala
+
+  override def deleteProvisionedConcurrencyConfig(
+      deleteProvisionedConcurrencyConfigRequest: DeleteProvisionedConcurrencyConfigRequest
+  ): Future[DeleteProvisionedConcurrencyConfigResponse] =
+    underlying.deleteProvisionedConcurrencyConfig(deleteProvisionedConcurrencyConfigRequest).toScala
 
   override def getAccountSettings(
       getAccountSettingsRequest: GetAccountSettingsRequest
@@ -82,10 +92,20 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
   override def getFunction(getFunctionRequest: GetFunctionRequest): Future[GetFunctionResponse] =
     underlying.getFunction(getFunctionRequest).toScala
 
+  override def getFunctionConcurrency(
+      getFunctionConcurrencyRequest: GetFunctionConcurrencyRequest
+  ): Future[GetFunctionConcurrencyResponse] =
+    underlying.getFunctionConcurrency(getFunctionConcurrencyRequest).toScala
+
   override def getFunctionConfiguration(
       getFunctionConfigurationRequest: GetFunctionConfigurationRequest
   ): Future[GetFunctionConfigurationResponse] =
     underlying.getFunctionConfiguration(getFunctionConfigurationRequest).toScala
+
+  override def getFunctionEventInvokeConfig(
+      getFunctionEventInvokeConfigRequest: GetFunctionEventInvokeConfigRequest
+  ): Future[GetFunctionEventInvokeConfigResponse] =
+    underlying.getFunctionEventInvokeConfig(getFunctionEventInvokeConfigRequest).toScala
 
   override def getLayerVersion(getLayerVersionRequest: GetLayerVersionRequest): Future[GetLayerVersionResponse] =
     underlying.getLayerVersion(getLayerVersionRequest).toScala
@@ -102,6 +122,11 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
 
   override def getPolicy(getPolicyRequest: GetPolicyRequest): Future[GetPolicyResponse] =
     underlying.getPolicy(getPolicyRequest).toScala
+
+  override def getProvisionedConcurrencyConfig(
+      getProvisionedConcurrencyConfigRequest: GetProvisionedConcurrencyConfigRequest
+  ): Future[GetProvisionedConcurrencyConfigResponse] =
+    underlying.getProvisionedConcurrencyConfig(getProvisionedConcurrencyConfigRequest).toScala
 
   override def invoke(invokeRequest: InvokeRequest): Future[InvokeResponse] =
     underlying.invoke(invokeRequest).toScala
@@ -127,6 +152,16 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
       listEventSourceMappingsRequest: ListEventSourceMappingsRequest
   ): ListEventSourceMappingsPublisher =
     underlying.listEventSourceMappingsPaginator(listEventSourceMappingsRequest)
+
+  override def listFunctionEventInvokeConfigs(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): Future[ListFunctionEventInvokeConfigsResponse] =
+    underlying.listFunctionEventInvokeConfigs(listFunctionEventInvokeConfigsRequest).toScala
+
+  def listFunctionEventInvokeConfigsPaginator(
+      listFunctionEventInvokeConfigsRequest: ListFunctionEventInvokeConfigsRequest
+  ): ListFunctionEventInvokeConfigsPublisher =
+    underlying.listFunctionEventInvokeConfigsPaginator(listFunctionEventInvokeConfigsRequest)
 
   override def listFunctions(listFunctionsRequest: ListFunctionsRequest): Future[ListFunctionsResponse] =
     underlying.listFunctions(listFunctionsRequest).toScala
@@ -160,6 +195,16 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
   def listLayersPaginator(listLayersRequest: ListLayersRequest): ListLayersPublisher =
     underlying.listLayersPaginator(listLayersRequest)
 
+  override def listProvisionedConcurrencyConfigs(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): Future[ListProvisionedConcurrencyConfigsResponse] =
+    underlying.listProvisionedConcurrencyConfigs(listProvisionedConcurrencyConfigsRequest).toScala
+
+  def listProvisionedConcurrencyConfigsPaginator(
+      listProvisionedConcurrencyConfigsRequest: ListProvisionedConcurrencyConfigsRequest
+  ): ListProvisionedConcurrencyConfigsPublisher =
+    underlying.listProvisionedConcurrencyConfigsPaginator(listProvisionedConcurrencyConfigsRequest)
+
   override def listTags(listTagsRequest: ListTagsRequest): Future[ListTagsResponse] =
     underlying.listTags(listTagsRequest).toScala
 
@@ -185,6 +230,16 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
       putFunctionConcurrencyRequest: PutFunctionConcurrencyRequest
   ): Future[PutFunctionConcurrencyResponse] =
     underlying.putFunctionConcurrency(putFunctionConcurrencyRequest).toScala
+
+  override def putFunctionEventInvokeConfig(
+      putFunctionEventInvokeConfigRequest: PutFunctionEventInvokeConfigRequest
+  ): Future[PutFunctionEventInvokeConfigResponse] =
+    underlying.putFunctionEventInvokeConfig(putFunctionEventInvokeConfigRequest).toScala
+
+  override def putProvisionedConcurrencyConfig(
+      putProvisionedConcurrencyConfigRequest: PutProvisionedConcurrencyConfigRequest
+  ): Future[PutProvisionedConcurrencyConfigResponse] =
+    underlying.putProvisionedConcurrencyConfig(putProvisionedConcurrencyConfigRequest).toScala
 
   override def removeLayerVersionPermission(
       removeLayerVersionPermissionRequest: RemoveLayerVersionPermissionRequest
@@ -217,5 +272,10 @@ trait LambdaAsyncClient extends LambdaClient[Future] {
       updateFunctionConfigurationRequest: UpdateFunctionConfigurationRequest
   ): Future[UpdateFunctionConfigurationResponse] =
     underlying.updateFunctionConfiguration(updateFunctionConfigurationRequest).toScala
+
+  override def updateFunctionEventInvokeConfig(
+      updateFunctionEventInvokeConfigRequest: UpdateFunctionEventInvokeConfigRequest
+  ): Future[UpdateFunctionEventInvokeConfigResponse] =
+    underlying.updateFunctionEventInvokeConfig(updateFunctionEventInvokeConfigRequest).toScala
 
 }

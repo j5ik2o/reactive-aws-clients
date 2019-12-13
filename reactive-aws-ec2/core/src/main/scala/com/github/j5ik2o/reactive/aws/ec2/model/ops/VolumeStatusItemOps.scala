@@ -20,6 +20,13 @@ final class VolumeStatusItemBuilderOps(val self: VolumeStatusItem.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala(value: Option[String]): VolumeStatusItem.Builder = {
+    value.fold(self) { v =>
+      self.outpostArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventsAsScala(value: Option[Seq[VolumeStatusEvent]]): VolumeStatusItem.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.events(v.asJava)
@@ -51,6 +58,9 @@ final class VolumeStatusItemOps(val self: VolumeStatusItem) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def outpostArnAsScala: Option[String] = Option(self.outpostArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventsAsScala: Option[Seq[VolumeStatusEvent]] = Option(self.events).map { v =>

@@ -34,6 +34,15 @@ final class UpdateServiceRequestBuilderOps(val self: UpdateServiceRequest.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderStrategyAsScala(
+      value: Option[Seq[CapacityProviderStrategyItem]]
+  ): UpdateServiceRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.capacityProviderStrategy(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentConfigurationAsScala(value: Option[DeploymentConfiguration]): UpdateServiceRequest.Builder = {
     value.fold(self) { v =>
       self.deploymentConfiguration(v)
@@ -83,6 +92,12 @@ final class UpdateServiceRequestOps(val self: UpdateServiceRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala: Option[String] = Option(self.taskDefinition)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =
+    Option(self.capacityProviderStrategy).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentConfigurationAsScala: Option[DeploymentConfiguration] = Option(self.deploymentConfiguration)

@@ -54,6 +54,13 @@ final class PlacementBuilderOps(val self: Placement.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostResourceGroupArnAsScala(value: Option[String]): Placement.Builder = {
+    value.fold(self) { v =>
+      self.hostResourceGroupArn(v)
+    }
+  }
+
 }
 
 final class PlacementOps(val self: Placement) extends AnyVal {
@@ -78,6 +85,9 @@ final class PlacementOps(val self: Placement) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spreadDomainAsScala: Option[String] = Option(self.spreadDomain)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def hostResourceGroupArnAsScala: Option[String] = Option(self.hostResourceGroupArn)
 
 }
 

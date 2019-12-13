@@ -37,6 +37,21 @@ trait Ec2AkkaClient {
         underlying.acceptReservedInstancesExchangeQuote(acceptReservedInstancesExchangeQuoteRequest)
     }
 
+  def acceptTransitGatewayPeeringAttachmentSource(
+      acceptTransitGatewayPeeringAttachmentRequest: AcceptTransitGatewayPeeringAttachmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AcceptTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Source
+      .single(acceptTransitGatewayPeeringAttachmentRequest).via(acceptTransitGatewayPeeringAttachmentFlow(parallelism))
+
+  def acceptTransitGatewayPeeringAttachmentFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[AcceptTransitGatewayPeeringAttachmentRequest, AcceptTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Flow[AcceptTransitGatewayPeeringAttachmentRequest].mapAsync(parallelism) {
+      acceptTransitGatewayPeeringAttachmentRequest =>
+        underlying.acceptTransitGatewayPeeringAttachment(acceptTransitGatewayPeeringAttachmentRequest)
+    }
+
   def acceptTransitGatewayVpcAttachmentSource(
       acceptTransitGatewayVpcAttachmentRequest: AcceptTransitGatewayVpcAttachmentRequest,
       parallelism: Int = DefaultParallelism
@@ -242,6 +257,23 @@ trait Ec2AkkaClient {
   ): Flow[AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResponse, NotUsed] =
     Flow[AssociateSubnetCidrBlockRequest].mapAsync(parallelism) { associateSubnetCidrBlockRequest =>
       underlying.associateSubnetCidrBlock(associateSubnetCidrBlockRequest)
+    }
+
+  def associateTransitGatewayMulticastDomainSource(
+      associateTransitGatewayMulticastDomainRequest: AssociateTransitGatewayMulticastDomainRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociateTransitGatewayMulticastDomainResponse, NotUsed] =
+    Source
+      .single(associateTransitGatewayMulticastDomainRequest).via(
+        associateTransitGatewayMulticastDomainFlow(parallelism)
+      )
+
+  def associateTransitGatewayMulticastDomainFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[AssociateTransitGatewayMulticastDomainRequest, AssociateTransitGatewayMulticastDomainResponse, NotUsed] =
+    Flow[AssociateTransitGatewayMulticastDomainRequest].mapAsync(parallelism) {
+      associateTransitGatewayMulticastDomainRequest =>
+        underlying.associateTransitGatewayMulticastDomain(associateTransitGatewayMulticastDomainRequest)
     }
 
   def associateTransitGatewayRouteTableSource(
@@ -764,6 +796,38 @@ trait Ec2AkkaClient {
       underlying.createLaunchTemplateVersion(createLaunchTemplateVersionRequest)
     }
 
+  def createLocalGatewayRouteSource(
+      createLocalGatewayRouteRequest: CreateLocalGatewayRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateLocalGatewayRouteResponse, NotUsed] =
+    Source.single(createLocalGatewayRouteRequest).via(createLocalGatewayRouteFlow(parallelism))
+
+  def createLocalGatewayRouteFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateLocalGatewayRouteRequest, CreateLocalGatewayRouteResponse, NotUsed] =
+    Flow[CreateLocalGatewayRouteRequest].mapAsync(parallelism) { createLocalGatewayRouteRequest =>
+      underlying.createLocalGatewayRoute(createLocalGatewayRouteRequest)
+    }
+
+  def createLocalGatewayRouteTableVpcAssociationSource(
+      createLocalGatewayRouteTableVpcAssociationRequest: CreateLocalGatewayRouteTableVpcAssociationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateLocalGatewayRouteTableVpcAssociationResponse, NotUsed] =
+    Source
+      .single(createLocalGatewayRouteTableVpcAssociationRequest).via(
+        createLocalGatewayRouteTableVpcAssociationFlow(parallelism)
+      )
+
+  def createLocalGatewayRouteTableVpcAssociationFlow(parallelism: Int = DefaultParallelism): Flow[
+    CreateLocalGatewayRouteTableVpcAssociationRequest,
+    CreateLocalGatewayRouteTableVpcAssociationResponse,
+    NotUsed
+  ] =
+    Flow[CreateLocalGatewayRouteTableVpcAssociationRequest].mapAsync(parallelism) {
+      createLocalGatewayRouteTableVpcAssociationRequest =>
+        underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest)
+    }
+
   def createNatGatewaySource(
       createNatGatewayRequest: CreateNatGatewayRequest,
       parallelism: Int = DefaultParallelism
@@ -1022,6 +1086,35 @@ trait Ec2AkkaClient {
 
   def createTransitGatewaySource(): Source[CreateTransitGatewayResponse, NotUsed] =
     Source.fromFuture(underlying.createTransitGateway())
+
+  def createTransitGatewayMulticastDomainSource(
+      createTransitGatewayMulticastDomainRequest: CreateTransitGatewayMulticastDomainRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTransitGatewayMulticastDomainResponse, NotUsed] =
+    Source.single(createTransitGatewayMulticastDomainRequest).via(createTransitGatewayMulticastDomainFlow(parallelism))
+
+  def createTransitGatewayMulticastDomainFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTransitGatewayMulticastDomainRequest, CreateTransitGatewayMulticastDomainResponse, NotUsed] =
+    Flow[CreateTransitGatewayMulticastDomainRequest].mapAsync(parallelism) {
+      createTransitGatewayMulticastDomainRequest =>
+        underlying.createTransitGatewayMulticastDomain(createTransitGatewayMulticastDomainRequest)
+    }
+
+  def createTransitGatewayPeeringAttachmentSource(
+      createTransitGatewayPeeringAttachmentRequest: CreateTransitGatewayPeeringAttachmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Source
+      .single(createTransitGatewayPeeringAttachmentRequest).via(createTransitGatewayPeeringAttachmentFlow(parallelism))
+
+  def createTransitGatewayPeeringAttachmentFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateTransitGatewayPeeringAttachmentRequest, CreateTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Flow[CreateTransitGatewayPeeringAttachmentRequest].mapAsync(parallelism) {
+      createTransitGatewayPeeringAttachmentRequest =>
+        underlying.createTransitGatewayPeeringAttachment(createTransitGatewayPeeringAttachmentRequest)
+    }
 
   def createTransitGatewayRouteSource(
       createTransitGatewayRouteRequest: CreateTransitGatewayRouteRequest,
@@ -1339,6 +1432,38 @@ trait Ec2AkkaClient {
       underlying.deleteLaunchTemplateVersions(deleteLaunchTemplateVersionsRequest)
     }
 
+  def deleteLocalGatewayRouteSource(
+      deleteLocalGatewayRouteRequest: DeleteLocalGatewayRouteRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteLocalGatewayRouteResponse, NotUsed] =
+    Source.single(deleteLocalGatewayRouteRequest).via(deleteLocalGatewayRouteFlow(parallelism))
+
+  def deleteLocalGatewayRouteFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResponse, NotUsed] =
+    Flow[DeleteLocalGatewayRouteRequest].mapAsync(parallelism) { deleteLocalGatewayRouteRequest =>
+      underlying.deleteLocalGatewayRoute(deleteLocalGatewayRouteRequest)
+    }
+
+  def deleteLocalGatewayRouteTableVpcAssociationSource(
+      deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteLocalGatewayRouteTableVpcAssociationResponse, NotUsed] =
+    Source
+      .single(deleteLocalGatewayRouteTableVpcAssociationRequest).via(
+        deleteLocalGatewayRouteTableVpcAssociationFlow(parallelism)
+      )
+
+  def deleteLocalGatewayRouteTableVpcAssociationFlow(parallelism: Int = DefaultParallelism): Flow[
+    DeleteLocalGatewayRouteTableVpcAssociationRequest,
+    DeleteLocalGatewayRouteTableVpcAssociationResponse,
+    NotUsed
+  ] =
+    Flow[DeleteLocalGatewayRouteTableVpcAssociationRequest].mapAsync(parallelism) {
+      deleteLocalGatewayRouteTableVpcAssociationRequest =>
+        underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest)
+    }
+
   def deleteNatGatewaySource(
       deleteNatGatewayRequest: DeleteNatGatewayRequest,
       parallelism: Int = DefaultParallelism
@@ -1585,6 +1710,35 @@ trait Ec2AkkaClient {
       underlying.deleteTransitGateway(deleteTransitGatewayRequest)
     }
 
+  def deleteTransitGatewayMulticastDomainSource(
+      deleteTransitGatewayMulticastDomainRequest: DeleteTransitGatewayMulticastDomainRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTransitGatewayMulticastDomainResponse, NotUsed] =
+    Source.single(deleteTransitGatewayMulticastDomainRequest).via(deleteTransitGatewayMulticastDomainFlow(parallelism))
+
+  def deleteTransitGatewayMulticastDomainFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTransitGatewayMulticastDomainRequest, DeleteTransitGatewayMulticastDomainResponse, NotUsed] =
+    Flow[DeleteTransitGatewayMulticastDomainRequest].mapAsync(parallelism) {
+      deleteTransitGatewayMulticastDomainRequest =>
+        underlying.deleteTransitGatewayMulticastDomain(deleteTransitGatewayMulticastDomainRequest)
+    }
+
+  def deleteTransitGatewayPeeringAttachmentSource(
+      deleteTransitGatewayPeeringAttachmentRequest: DeleteTransitGatewayPeeringAttachmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Source
+      .single(deleteTransitGatewayPeeringAttachmentRequest).via(deleteTransitGatewayPeeringAttachmentFlow(parallelism))
+
+  def deleteTransitGatewayPeeringAttachmentFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteTransitGatewayPeeringAttachmentRequest, DeleteTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Flow[DeleteTransitGatewayPeeringAttachmentRequest].mapAsync(parallelism) {
+      deleteTransitGatewayPeeringAttachmentRequest =>
+        underlying.deleteTransitGatewayPeeringAttachment(deleteTransitGatewayPeeringAttachmentRequest)
+    }
+
   def deleteTransitGatewayRouteSource(
       deleteTransitGatewayRouteRequest: DeleteTransitGatewayRouteRequest,
       parallelism: Int = DefaultParallelism
@@ -1771,6 +1925,44 @@ trait Ec2AkkaClient {
   ): Flow[DeregisterImageRequest, DeregisterImageResponse, NotUsed] =
     Flow[DeregisterImageRequest].mapAsync(parallelism) { deregisterImageRequest =>
       underlying.deregisterImage(deregisterImageRequest)
+    }
+
+  def deregisterTransitGatewayMulticastGroupMembersSource(
+      deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeregisterTransitGatewayMulticastGroupMembersResponse, NotUsed] =
+    Source
+      .single(deregisterTransitGatewayMulticastGroupMembersRequest).via(
+        deregisterTransitGatewayMulticastGroupMembersFlow(parallelism)
+      )
+
+  def deregisterTransitGatewayMulticastGroupMembersFlow(parallelism: Int = DefaultParallelism): Flow[
+    DeregisterTransitGatewayMulticastGroupMembersRequest,
+    DeregisterTransitGatewayMulticastGroupMembersResponse,
+    NotUsed
+  ] =
+    Flow[DeregisterTransitGatewayMulticastGroupMembersRequest].mapAsync(parallelism) {
+      deregisterTransitGatewayMulticastGroupMembersRequest =>
+        underlying.deregisterTransitGatewayMulticastGroupMembers(deregisterTransitGatewayMulticastGroupMembersRequest)
+    }
+
+  def deregisterTransitGatewayMulticastGroupSourcesSource(
+      deregisterTransitGatewayMulticastGroupSourcesRequest: DeregisterTransitGatewayMulticastGroupSourcesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeregisterTransitGatewayMulticastGroupSourcesResponse, NotUsed] =
+    Source
+      .single(deregisterTransitGatewayMulticastGroupSourcesRequest).via(
+        deregisterTransitGatewayMulticastGroupSourcesFlow(parallelism)
+      )
+
+  def deregisterTransitGatewayMulticastGroupSourcesFlow(parallelism: Int = DefaultParallelism): Flow[
+    DeregisterTransitGatewayMulticastGroupSourcesRequest,
+    DeregisterTransitGatewayMulticastGroupSourcesResponse,
+    NotUsed
+  ] =
+    Flow[DeregisterTransitGatewayMulticastGroupSourcesRequest].mapAsync(parallelism) {
+      deregisterTransitGatewayMulticastGroupSourcesRequest =>
+        underlying.deregisterTransitGatewayMulticastGroupSources(deregisterTransitGatewayMulticastGroupSourcesRequest)
     }
 
   def describeAccountAttributesSource(
@@ -2023,6 +2215,19 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeClientVpnTargetNetworksPaginator(request))
     }
 
+  def describeCoipPoolsSource(
+      describeCoipPoolsRequest: DescribeCoipPoolsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeCoipPoolsResponse, NotUsed] =
+    Source.single(describeCoipPoolsRequest).via(describeCoipPoolsFlow(parallelism))
+
+  def describeCoipPoolsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeCoipPoolsRequest, DescribeCoipPoolsResponse, NotUsed] =
+    Flow[DescribeCoipPoolsRequest].mapAsync(parallelism) { describeCoipPoolsRequest =>
+      underlying.describeCoipPools(describeCoipPoolsRequest)
+    }
+
   def describeConversionTasksSource(
       describeConversionTasksRequest: DescribeConversionTasksRequest,
       parallelism: Int = DefaultParallelism
@@ -2133,6 +2338,12 @@ trait Ec2AkkaClient {
       underlying.describeExportImageTasks(describeExportImageTasksRequest)
     }
 
+  def describeExportImageTasksPaginatorFlow
+      : Flow[DescribeExportImageTasksRequest, DescribeExportImageTasksResponse, NotUsed] =
+    Flow[DescribeExportImageTasksRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeExportImageTasksPaginator(request))
+    }
+
   def describeExportTasksSource(
       describeExportTasksRequest: DescribeExportTasksRequest,
       parallelism: Int = DefaultParallelism
@@ -2148,6 +2359,25 @@ trait Ec2AkkaClient {
 
   def describeExportTasksSource(): Source[DescribeExportTasksResponse, NotUsed] =
     Source.fromFuture(underlying.describeExportTasks())
+
+  def describeFastSnapshotRestoresSource(
+      describeFastSnapshotRestoresRequest: DescribeFastSnapshotRestoresRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeFastSnapshotRestoresResponse, NotUsed] =
+    Source.single(describeFastSnapshotRestoresRequest).via(describeFastSnapshotRestoresFlow(parallelism))
+
+  def describeFastSnapshotRestoresFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeFastSnapshotRestoresRequest, DescribeFastSnapshotRestoresResponse, NotUsed] =
+    Flow[DescribeFastSnapshotRestoresRequest].mapAsync(parallelism) { describeFastSnapshotRestoresRequest =>
+      underlying.describeFastSnapshotRestores(describeFastSnapshotRestoresRequest)
+    }
+
+  def describeFastSnapshotRestoresPaginatorFlow
+      : Flow[DescribeFastSnapshotRestoresRequest, DescribeFastSnapshotRestoresResponse, NotUsed] =
+    Flow[DescribeFastSnapshotRestoresRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeFastSnapshotRestoresPaginator(request))
+    }
 
   def describeFleetHistorySource(
       describeFleetHistoryRequest: DescribeFleetHistoryRequest,
@@ -2538,6 +2768,32 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeInstanceStatusPaginator(request))
     }
 
+  def describeInstanceTypeOfferingsSource(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeInstanceTypeOfferingsResponse, NotUsed] =
+    Source.single(describeInstanceTypeOfferingsRequest).via(describeInstanceTypeOfferingsFlow(parallelism))
+
+  def describeInstanceTypeOfferingsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResponse, NotUsed] =
+    Flow[DescribeInstanceTypeOfferingsRequest].mapAsync(parallelism) { describeInstanceTypeOfferingsRequest =>
+      underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest)
+    }
+
+  def describeInstanceTypesSource(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeInstanceTypesResponse, NotUsed] =
+    Source.single(describeInstanceTypesRequest).via(describeInstanceTypesFlow(parallelism))
+
+  def describeInstanceTypesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeInstanceTypesRequest, DescribeInstanceTypesResponse, NotUsed] =
+    Flow[DescribeInstanceTypesRequest].mapAsync(parallelism) { describeInstanceTypesRequest =>
+      underlying.describeInstanceTypes(describeInstanceTypesRequest)
+    }
+
   def describeInstancesSource(
       describeInstancesRequest: DescribeInstancesRequest,
       parallelism: Int = DefaultParallelism
@@ -2645,6 +2901,106 @@ trait Ec2AkkaClient {
       : Flow[DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResponse, NotUsed] =
     Flow[DescribeLaunchTemplatesRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeLaunchTemplatesPaginator(request))
+    }
+
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsSource(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse, NotUsed] =
+    Source
+      .single(describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest).via(
+        describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsFlow(parallelism)
+      )
+
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest].mapAsync(parallelism) {
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest =>
+        underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+          describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+        )
+    }
+
+  def describeLocalGatewayRouteTableVpcAssociationsSource(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLocalGatewayRouteTableVpcAssociationsResponse, NotUsed] =
+    Source
+      .single(describeLocalGatewayRouteTableVpcAssociationsRequest).via(
+        describeLocalGatewayRouteTableVpcAssociationsFlow(parallelism)
+      )
+
+  def describeLocalGatewayRouteTableVpcAssociationsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeLocalGatewayRouteTableVpcAssociationsRequest,
+    DescribeLocalGatewayRouteTableVpcAssociationsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeLocalGatewayRouteTableVpcAssociationsRequest].mapAsync(parallelism) {
+      describeLocalGatewayRouteTableVpcAssociationsRequest =>
+        underlying.describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest)
+    }
+
+  def describeLocalGatewayRouteTablesSource(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLocalGatewayRouteTablesResponse, NotUsed] =
+    Source.single(describeLocalGatewayRouteTablesRequest).via(describeLocalGatewayRouteTablesFlow(parallelism))
+
+  def describeLocalGatewayRouteTablesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResponse, NotUsed] =
+    Flow[DescribeLocalGatewayRouteTablesRequest].mapAsync(parallelism) { describeLocalGatewayRouteTablesRequest =>
+      underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest)
+    }
+
+  def describeLocalGatewayVirtualInterfaceGroupsSource(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLocalGatewayVirtualInterfaceGroupsResponse, NotUsed] =
+    Source
+      .single(describeLocalGatewayVirtualInterfaceGroupsRequest).via(
+        describeLocalGatewayVirtualInterfaceGroupsFlow(parallelism)
+      )
+
+  def describeLocalGatewayVirtualInterfaceGroupsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeLocalGatewayVirtualInterfaceGroupsRequest,
+    DescribeLocalGatewayVirtualInterfaceGroupsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeLocalGatewayVirtualInterfaceGroupsRequest].mapAsync(parallelism) {
+      describeLocalGatewayVirtualInterfaceGroupsRequest =>
+        underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest)
+    }
+
+  def describeLocalGatewayVirtualInterfacesSource(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLocalGatewayVirtualInterfacesResponse, NotUsed] =
+    Source
+      .single(describeLocalGatewayVirtualInterfacesRequest).via(describeLocalGatewayVirtualInterfacesFlow(parallelism))
+
+  def describeLocalGatewayVirtualInterfacesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeLocalGatewayVirtualInterfacesRequest, DescribeLocalGatewayVirtualInterfacesResponse, NotUsed] =
+    Flow[DescribeLocalGatewayVirtualInterfacesRequest].mapAsync(parallelism) {
+      describeLocalGatewayVirtualInterfacesRequest =>
+        underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest)
+    }
+
+  def describeLocalGatewaysSource(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeLocalGatewaysResponse, NotUsed] =
+    Source.single(describeLocalGatewaysRequest).via(describeLocalGatewaysFlow(parallelism))
+
+  def describeLocalGatewaysFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeLocalGatewaysRequest, DescribeLocalGatewaysResponse, NotUsed] =
+    Flow[DescribeLocalGatewaysRequest].mapAsync(parallelism) { describeLocalGatewaysRequest =>
+      underlying.describeLocalGateways(describeLocalGatewaysRequest)
     }
 
   def describeMovingAddressesSource(
@@ -3388,6 +3744,40 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeTransitGatewayAttachmentsPaginator(request))
     }
 
+  def describeTransitGatewayMulticastDomainsSource(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTransitGatewayMulticastDomainsResponse, NotUsed] =
+    Source
+      .single(describeTransitGatewayMulticastDomainsRequest).via(
+        describeTransitGatewayMulticastDomainsFlow(parallelism)
+      )
+
+  def describeTransitGatewayMulticastDomainsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTransitGatewayMulticastDomainsRequest, DescribeTransitGatewayMulticastDomainsResponse, NotUsed] =
+    Flow[DescribeTransitGatewayMulticastDomainsRequest].mapAsync(parallelism) {
+      describeTransitGatewayMulticastDomainsRequest =>
+        underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest)
+    }
+
+  def describeTransitGatewayPeeringAttachmentsSource(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTransitGatewayPeeringAttachmentsResponse, NotUsed] =
+    Source
+      .single(describeTransitGatewayPeeringAttachmentsRequest).via(
+        describeTransitGatewayPeeringAttachmentsFlow(parallelism)
+      )
+
+  def describeTransitGatewayPeeringAttachmentsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTransitGatewayPeeringAttachmentsRequest, DescribeTransitGatewayPeeringAttachmentsResponse, NotUsed] =
+    Flow[DescribeTransitGatewayPeeringAttachmentsRequest].mapAsync(parallelism) {
+      describeTransitGatewayPeeringAttachmentsRequest =>
+        underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest)
+    }
+
   def describeTransitGatewayRouteTablesSource(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest,
       parallelism: Int = DefaultParallelism
@@ -3919,6 +4309,19 @@ trait Ec2AkkaClient {
       underlying.disableEbsEncryptionByDefault(disableEbsEncryptionByDefaultRequest)
     }
 
+  def disableFastSnapshotRestoresSource(
+      disableFastSnapshotRestoresRequest: DisableFastSnapshotRestoresRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisableFastSnapshotRestoresResponse, NotUsed] =
+    Source.single(disableFastSnapshotRestoresRequest).via(disableFastSnapshotRestoresFlow(parallelism))
+
+  def disableFastSnapshotRestoresFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DisableFastSnapshotRestoresRequest, DisableFastSnapshotRestoresResponse, NotUsed] =
+    Flow[DisableFastSnapshotRestoresRequest].mapAsync(parallelism) { disableFastSnapshotRestoresRequest =>
+      underlying.disableFastSnapshotRestores(disableFastSnapshotRestoresRequest)
+    }
+
   def disableTransitGatewayRouteTablePropagationSource(
       disableTransitGatewayRouteTablePropagationRequest: DisableTransitGatewayRouteTablePropagationRequest,
       parallelism: Int = DefaultParallelism
@@ -4042,6 +4445,25 @@ trait Ec2AkkaClient {
       underlying.disassociateSubnetCidrBlock(disassociateSubnetCidrBlockRequest)
     }
 
+  def disassociateTransitGatewayMulticastDomainSource(
+      disassociateTransitGatewayMulticastDomainRequest: DisassociateTransitGatewayMulticastDomainRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisassociateTransitGatewayMulticastDomainResponse, NotUsed] =
+    Source
+      .single(disassociateTransitGatewayMulticastDomainRequest).via(
+        disassociateTransitGatewayMulticastDomainFlow(parallelism)
+      )
+
+  def disassociateTransitGatewayMulticastDomainFlow(parallelism: Int = DefaultParallelism): Flow[
+    DisassociateTransitGatewayMulticastDomainRequest,
+    DisassociateTransitGatewayMulticastDomainResponse,
+    NotUsed
+  ] =
+    Flow[DisassociateTransitGatewayMulticastDomainRequest].mapAsync(parallelism) {
+      disassociateTransitGatewayMulticastDomainRequest =>
+        underlying.disassociateTransitGatewayMulticastDomain(disassociateTransitGatewayMulticastDomainRequest)
+    }
+
   def disassociateTransitGatewayRouteTableSource(
       disassociateTransitGatewayRouteTableRequest: DisassociateTransitGatewayRouteTableRequest,
       parallelism: Int = DefaultParallelism
@@ -4081,6 +4503,19 @@ trait Ec2AkkaClient {
   ): Flow[EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResponse, NotUsed] =
     Flow[EnableEbsEncryptionByDefaultRequest].mapAsync(parallelism) { enableEbsEncryptionByDefaultRequest =>
       underlying.enableEbsEncryptionByDefault(enableEbsEncryptionByDefaultRequest)
+    }
+
+  def enableFastSnapshotRestoresSource(
+      enableFastSnapshotRestoresRequest: EnableFastSnapshotRestoresRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[EnableFastSnapshotRestoresResponse, NotUsed] =
+    Source.single(enableFastSnapshotRestoresRequest).via(enableFastSnapshotRestoresFlow(parallelism))
+
+  def enableFastSnapshotRestoresFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[EnableFastSnapshotRestoresRequest, EnableFastSnapshotRestoresResponse, NotUsed] =
+    Flow[EnableFastSnapshotRestoresRequest].mapAsync(parallelism) { enableFastSnapshotRestoresRequest =>
+      underlying.enableFastSnapshotRestores(enableFastSnapshotRestoresRequest)
     }
 
   def enableTransitGatewayRouteTablePropagationSource(
@@ -4223,6 +4658,19 @@ trait Ec2AkkaClient {
       underlying.getCapacityReservationUsage(getCapacityReservationUsageRequest)
     }
 
+  def getCoipPoolUsageSource(
+      getCoipPoolUsageRequest: GetCoipPoolUsageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetCoipPoolUsageResponse, NotUsed] =
+    Source.single(getCoipPoolUsageRequest).via(getCoipPoolUsageFlow(parallelism))
+
+  def getCoipPoolUsageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetCoipPoolUsageRequest, GetCoipPoolUsageResponse, NotUsed] =
+    Flow[GetCoipPoolUsageRequest].mapAsync(parallelism) { getCoipPoolUsageRequest =>
+      underlying.getCoipPoolUsage(getCoipPoolUsageRequest)
+    }
+
   def getConsoleOutputSource(
       getConsoleOutputRequest: GetConsoleOutputRequest,
       parallelism: Int = DefaultParallelism
@@ -4247,6 +4695,19 @@ trait Ec2AkkaClient {
   ): Flow[GetConsoleScreenshotRequest, GetConsoleScreenshotResponse, NotUsed] =
     Flow[GetConsoleScreenshotRequest].mapAsync(parallelism) { getConsoleScreenshotRequest =>
       underlying.getConsoleScreenshot(getConsoleScreenshotRequest)
+    }
+
+  def getDefaultCreditSpecificationSource(
+      getDefaultCreditSpecificationRequest: GetDefaultCreditSpecificationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetDefaultCreditSpecificationResponse, NotUsed] =
+    Source.single(getDefaultCreditSpecificationRequest).via(getDefaultCreditSpecificationFlow(parallelism))
+
+  def getDefaultCreditSpecificationFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResponse, NotUsed] =
+    Flow[GetDefaultCreditSpecificationRequest].mapAsync(parallelism) { getDefaultCreditSpecificationRequest =>
+      underlying.getDefaultCreditSpecification(getDefaultCreditSpecificationRequest)
     }
 
   def getEbsDefaultKmsKeyIdSource(
@@ -4348,6 +4809,25 @@ trait Ec2AkkaClient {
       : Flow[GetTransitGatewayAttachmentPropagationsRequest, GetTransitGatewayAttachmentPropagationsResponse, NotUsed] =
     Flow[GetTransitGatewayAttachmentPropagationsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.getTransitGatewayAttachmentPropagationsPaginator(request))
+    }
+
+  def getTransitGatewayMulticastDomainAssociationsSource(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetTransitGatewayMulticastDomainAssociationsResponse, NotUsed] =
+    Source
+      .single(getTransitGatewayMulticastDomainAssociationsRequest).via(
+        getTransitGatewayMulticastDomainAssociationsFlow(parallelism)
+      )
+
+  def getTransitGatewayMulticastDomainAssociationsFlow(parallelism: Int = DefaultParallelism): Flow[
+    GetTransitGatewayMulticastDomainAssociationsRequest,
+    GetTransitGatewayMulticastDomainAssociationsResponse,
+    NotUsed
+  ] =
+    Flow[GetTransitGatewayMulticastDomainAssociationsRequest].mapAsync(parallelism) {
+      getTransitGatewayMulticastDomainAssociationsRequest =>
+        underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest)
     }
 
   def getTransitGatewayRouteTableAssociationsSource(
@@ -4504,6 +4984,19 @@ trait Ec2AkkaClient {
       underlying.modifyClientVpnEndpoint(modifyClientVpnEndpointRequest)
     }
 
+  def modifyDefaultCreditSpecificationSource(
+      modifyDefaultCreditSpecificationRequest: ModifyDefaultCreditSpecificationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyDefaultCreditSpecificationResponse, NotUsed] =
+    Source.single(modifyDefaultCreditSpecificationRequest).via(modifyDefaultCreditSpecificationFlow(parallelism))
+
+  def modifyDefaultCreditSpecificationFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResponse, NotUsed] =
+    Flow[ModifyDefaultCreditSpecificationRequest].mapAsync(parallelism) { modifyDefaultCreditSpecificationRequest =>
+      underlying.modifyDefaultCreditSpecification(modifyDefaultCreditSpecificationRequest)
+    }
+
   def modifyEbsDefaultKmsKeyIdSource(
       modifyEbsDefaultKmsKeyIdRequest: ModifyEbsDefaultKmsKeyIdRequest,
       parallelism: Int = DefaultParallelism
@@ -4647,6 +5140,19 @@ trait Ec2AkkaClient {
   ): Flow[ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResponse, NotUsed] =
     Flow[ModifyInstanceEventStartTimeRequest].mapAsync(parallelism) { modifyInstanceEventStartTimeRequest =>
       underlying.modifyInstanceEventStartTime(modifyInstanceEventStartTimeRequest)
+    }
+
+  def modifyInstanceMetadataOptionsSource(
+      modifyInstanceMetadataOptionsRequest: ModifyInstanceMetadataOptionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyInstanceMetadataOptionsResponse, NotUsed] =
+    Source.single(modifyInstanceMetadataOptionsRequest).via(modifyInstanceMetadataOptionsFlow(parallelism))
+
+  def modifyInstanceMetadataOptionsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyInstanceMetadataOptionsRequest, ModifyInstanceMetadataOptionsResponse, NotUsed] =
+    Flow[ModifyInstanceMetadataOptionsRequest].mapAsync(parallelism) { modifyInstanceMetadataOptionsRequest =>
+      underlying.modifyInstanceMetadataOptions(modifyInstanceMetadataOptionsRequest)
     }
 
   def modifyInstancePlacementSource(
@@ -5063,6 +5569,59 @@ trait Ec2AkkaClient {
       underlying.registerImage(registerImageRequest)
     }
 
+  def registerTransitGatewayMulticastGroupMembersSource(
+      registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RegisterTransitGatewayMulticastGroupMembersResponse, NotUsed] =
+    Source
+      .single(registerTransitGatewayMulticastGroupMembersRequest).via(
+        registerTransitGatewayMulticastGroupMembersFlow(parallelism)
+      )
+
+  def registerTransitGatewayMulticastGroupMembersFlow(parallelism: Int = DefaultParallelism): Flow[
+    RegisterTransitGatewayMulticastGroupMembersRequest,
+    RegisterTransitGatewayMulticastGroupMembersResponse,
+    NotUsed
+  ] =
+    Flow[RegisterTransitGatewayMulticastGroupMembersRequest].mapAsync(parallelism) {
+      registerTransitGatewayMulticastGroupMembersRequest =>
+        underlying.registerTransitGatewayMulticastGroupMembers(registerTransitGatewayMulticastGroupMembersRequest)
+    }
+
+  def registerTransitGatewayMulticastGroupSourcesSource(
+      registerTransitGatewayMulticastGroupSourcesRequest: RegisterTransitGatewayMulticastGroupSourcesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RegisterTransitGatewayMulticastGroupSourcesResponse, NotUsed] =
+    Source
+      .single(registerTransitGatewayMulticastGroupSourcesRequest).via(
+        registerTransitGatewayMulticastGroupSourcesFlow(parallelism)
+      )
+
+  def registerTransitGatewayMulticastGroupSourcesFlow(parallelism: Int = DefaultParallelism): Flow[
+    RegisterTransitGatewayMulticastGroupSourcesRequest,
+    RegisterTransitGatewayMulticastGroupSourcesResponse,
+    NotUsed
+  ] =
+    Flow[RegisterTransitGatewayMulticastGroupSourcesRequest].mapAsync(parallelism) {
+      registerTransitGatewayMulticastGroupSourcesRequest =>
+        underlying.registerTransitGatewayMulticastGroupSources(registerTransitGatewayMulticastGroupSourcesRequest)
+    }
+
+  def rejectTransitGatewayPeeringAttachmentSource(
+      rejectTransitGatewayPeeringAttachmentRequest: RejectTransitGatewayPeeringAttachmentRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RejectTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Source
+      .single(rejectTransitGatewayPeeringAttachmentRequest).via(rejectTransitGatewayPeeringAttachmentFlow(parallelism))
+
+  def rejectTransitGatewayPeeringAttachmentFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[RejectTransitGatewayPeeringAttachmentRequest, RejectTransitGatewayPeeringAttachmentResponse, NotUsed] =
+    Flow[RejectTransitGatewayPeeringAttachmentRequest].mapAsync(parallelism) {
+      rejectTransitGatewayPeeringAttachmentRequest =>
+        underlying.rejectTransitGatewayPeeringAttachment(rejectTransitGatewayPeeringAttachmentRequest)
+    }
+
   def rejectTransitGatewayVpcAttachmentSource(
       rejectTransitGatewayVpcAttachmentRequest: RejectTransitGatewayVpcAttachmentRequest,
       parallelism: Int = DefaultParallelism
@@ -5401,6 +5960,33 @@ trait Ec2AkkaClient {
   ): Flow[RunScheduledInstancesRequest, RunScheduledInstancesResponse, NotUsed] =
     Flow[RunScheduledInstancesRequest].mapAsync(parallelism) { runScheduledInstancesRequest =>
       underlying.runScheduledInstances(runScheduledInstancesRequest)
+    }
+
+  def searchLocalGatewayRoutesSource(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SearchLocalGatewayRoutesResponse, NotUsed] =
+    Source.single(searchLocalGatewayRoutesRequest).via(searchLocalGatewayRoutesFlow(parallelism))
+
+  def searchLocalGatewayRoutesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResponse, NotUsed] =
+    Flow[SearchLocalGatewayRoutesRequest].mapAsync(parallelism) { searchLocalGatewayRoutesRequest =>
+      underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest)
+    }
+
+  def searchTransitGatewayMulticastGroupsSource(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[SearchTransitGatewayMulticastGroupsResponse, NotUsed] =
+    Source.single(searchTransitGatewayMulticastGroupsRequest).via(searchTransitGatewayMulticastGroupsFlow(parallelism))
+
+  def searchTransitGatewayMulticastGroupsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[SearchTransitGatewayMulticastGroupsRequest, SearchTransitGatewayMulticastGroupsResponse, NotUsed] =
+    Flow[SearchTransitGatewayMulticastGroupsRequest].mapAsync(parallelism) {
+      searchTransitGatewayMulticastGroupsRequest =>
+        underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest)
     }
 
   def searchTransitGatewayRoutesSource(

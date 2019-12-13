@@ -19,6 +19,40 @@ final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBa
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def billingModeOverrideAsScala(value: Option[BillingMode]): RestoreTableFromBackupRequest.Builder = {
+    value.fold(self) { v =>
+      self.billingModeOverride(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def globalSecondaryIndexOverrideAsScala(
+      value: Option[Seq[GlobalSecondaryIndex]]
+  ): RestoreTableFromBackupRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.globalSecondaryIndexOverride(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def localSecondaryIndexOverrideAsScala(
+      value: Option[Seq[LocalSecondaryIndex]]
+  ): RestoreTableFromBackupRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.localSecondaryIndexOverride(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def provisionedThroughputOverrideAsScala(
+      value: Option[ProvisionedThroughput]
+  ): RestoreTableFromBackupRequest.Builder = {
+    value.fold(self) { v =>
+      self.provisionedThroughputOverride(v)
+    }
+  }
+
 }
 
 final class RestoreTableFromBackupRequestOps(val self: RestoreTableFromBackupRequest) extends AnyVal {
@@ -28,6 +62,25 @@ final class RestoreTableFromBackupRequestOps(val self: RestoreTableFromBackupReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupArnAsScala: Option[String] = Option(self.backupArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def billingModeOverrideAsScala: Option[BillingMode] = Option(self.billingModeOverride)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def globalSecondaryIndexOverrideAsScala: Option[Seq[GlobalSecondaryIndex]] =
+    Option(self.globalSecondaryIndexOverride).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def localSecondaryIndexOverrideAsScala: Option[Seq[LocalSecondaryIndex]] =
+    Option(self.localSecondaryIndexOverride).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def provisionedThroughputOverrideAsScala: Option[ProvisionedThroughput] =
+    Option(self.provisionedThroughputOverride)
 
 }
 

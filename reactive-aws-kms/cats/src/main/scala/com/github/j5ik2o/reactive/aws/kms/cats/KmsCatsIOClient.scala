@@ -143,6 +143,20 @@ trait KmsCatsIOClient extends KmsClient[IO] {
       IO(underlying.generateDataKey(generateDataKeyRequest))
     }
 
+  override def generateDataKeyPair(
+      generateDataKeyPairRequest: GenerateDataKeyPairRequest
+  ): IO[GenerateDataKeyPairResponse] =
+    IO.fromFuture {
+      IO(underlying.generateDataKeyPair(generateDataKeyPairRequest))
+    }
+
+  override def generateDataKeyPairWithoutPlaintext(
+      generateDataKeyPairWithoutPlaintextRequest: GenerateDataKeyPairWithoutPlaintextRequest
+  ): IO[GenerateDataKeyPairWithoutPlaintextResponse] =
+    IO.fromFuture {
+      IO(underlying.generateDataKeyPairWithoutPlaintext(generateDataKeyPairWithoutPlaintextRequest))
+    }
+
   override def generateDataKeyWithoutPlaintext(
       generateDataKeyWithoutPlaintextRequest: GenerateDataKeyWithoutPlaintextRequest
   ): IO[GenerateDataKeyWithoutPlaintextResponse] =
@@ -177,6 +191,11 @@ trait KmsCatsIOClient extends KmsClient[IO] {
   ): IO[GetParametersForImportResponse] =
     IO.fromFuture {
       IO(underlying.getParametersForImport(getParametersForImportRequest))
+    }
+
+  override def getPublicKey(getPublicKeyRequest: GetPublicKeyRequest): IO[GetPublicKeyResponse] =
+    IO.fromFuture {
+      IO(underlying.getPublicKey(getPublicKeyRequest))
     }
 
   override def importKeyMaterial(importKeyMaterialRequest: ImportKeyMaterialRequest): IO[ImportKeyMaterialResponse] =
@@ -276,6 +295,11 @@ trait KmsCatsIOClient extends KmsClient[IO] {
       IO(underlying.scheduleKeyDeletion(scheduleKeyDeletionRequest))
     }
 
+  override def sign(signRequest: SignRequest): IO[SignResponse] =
+    IO.fromFuture {
+      IO(underlying.sign(signRequest))
+    }
+
   override def tagResource(tagResourceRequest: TagResourceRequest): IO[TagResourceResponse] =
     IO.fromFuture {
       IO(underlying.tagResource(tagResourceRequest))
@@ -303,6 +327,11 @@ trait KmsCatsIOClient extends KmsClient[IO] {
   ): IO[UpdateKeyDescriptionResponse] =
     IO.fromFuture {
       IO(underlying.updateKeyDescription(updateKeyDescriptionRequest))
+    }
+
+  override def verify(verifyRequest: VerifyRequest): IO[VerifyResponse] =
+    IO.fromFuture {
+      IO(underlying.verify(verifyRequest))
     }
 
 }

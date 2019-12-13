@@ -5,6 +5,10 @@ import software.amazon.awssdk.services.ecs.model._
 
 trait EcsClient[M[_]] {
 
+  def createCapacityProvider(
+      createCapacityProviderRequest: CreateCapacityProviderRequest
+  ): M[CreateCapacityProviderResponse]
+
   def createCluster(createClusterRequest: CreateClusterRequest): M[CreateClusterResponse]
 
   def createCluster(): M[CreateClusterResponse]
@@ -30,6 +34,10 @@ trait EcsClient[M[_]] {
   def deregisterTaskDefinition(
       deregisterTaskDefinitionRequest: DeregisterTaskDefinitionRequest
   ): M[DeregisterTaskDefinitionResponse]
+
+  def describeCapacityProviders(
+      describeCapacityProvidersRequest: DescribeCapacityProvidersRequest
+  ): M[DescribeCapacityProvidersResponse]
 
   def describeClusters(describeClustersRequest: DescribeClustersRequest): M[DescribeClustersResponse]
 
@@ -94,6 +102,10 @@ trait EcsClient[M[_]] {
   ): M[PutAccountSettingDefaultResponse]
 
   def putAttributes(putAttributesRequest: PutAttributesRequest): M[PutAttributesResponse]
+
+  def putClusterCapacityProviders(
+      putClusterCapacityProvidersRequest: PutClusterCapacityProvidersRequest
+  ): M[PutClusterCapacityProvidersResponse]
 
   def registerContainerInstance(
       registerContainerInstanceRequest: RegisterContainerInstanceRequest

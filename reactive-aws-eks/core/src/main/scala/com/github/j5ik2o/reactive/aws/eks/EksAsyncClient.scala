@@ -26,11 +26,37 @@ trait EksAsyncClient extends EksClient[Future] {
   override def createCluster(createClusterRequest: CreateClusterRequest): Future[CreateClusterResponse] =
     underlying.createCluster(createClusterRequest).toScala
 
+  override def createFargateProfile(
+      createFargateProfileRequest: CreateFargateProfileRequest
+  ): Future[CreateFargateProfileResponse] =
+    underlying.createFargateProfile(createFargateProfileRequest).toScala
+
+  override def createNodegroup(createNodegroupRequest: CreateNodegroupRequest): Future[CreateNodegroupResponse] =
+    underlying.createNodegroup(createNodegroupRequest).toScala
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): Future[DeleteClusterResponse] =
     underlying.deleteCluster(deleteClusterRequest).toScala
 
+  override def deleteFargateProfile(
+      deleteFargateProfileRequest: DeleteFargateProfileRequest
+  ): Future[DeleteFargateProfileResponse] =
+    underlying.deleteFargateProfile(deleteFargateProfileRequest).toScala
+
+  override def deleteNodegroup(deleteNodegroupRequest: DeleteNodegroupRequest): Future[DeleteNodegroupResponse] =
+    underlying.deleteNodegroup(deleteNodegroupRequest).toScala
+
   override def describeCluster(describeClusterRequest: DescribeClusterRequest): Future[DescribeClusterResponse] =
     underlying.describeCluster(describeClusterRequest).toScala
+
+  override def describeFargateProfile(
+      describeFargateProfileRequest: DescribeFargateProfileRequest
+  ): Future[DescribeFargateProfileResponse] =
+    underlying.describeFargateProfile(describeFargateProfileRequest).toScala
+
+  override def describeNodegroup(
+      describeNodegroupRequest: DescribeNodegroupRequest
+  ): Future[DescribeNodegroupResponse] =
+    underlying.describeNodegroup(describeNodegroupRequest).toScala
 
   override def describeUpdate(describeUpdateRequest: DescribeUpdateRequest): Future[DescribeUpdateResponse] =
     underlying.describeUpdate(describeUpdateRequest).toScala
@@ -46,6 +72,22 @@ trait EksAsyncClient extends EksClient[Future] {
 
   def listClustersPaginator(listClustersRequest: ListClustersRequest): ListClustersPublisher =
     underlying.listClustersPaginator(listClustersRequest)
+
+  override def listFargateProfiles(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): Future[ListFargateProfilesResponse] =
+    underlying.listFargateProfiles(listFargateProfilesRequest).toScala
+
+  def listFargateProfilesPaginator(
+      listFargateProfilesRequest: ListFargateProfilesRequest
+  ): ListFargateProfilesPublisher =
+    underlying.listFargateProfilesPaginator(listFargateProfilesRequest)
+
+  override def listNodegroups(listNodegroupsRequest: ListNodegroupsRequest): Future[ListNodegroupsResponse] =
+    underlying.listNodegroups(listNodegroupsRequest).toScala
+
+  def listNodegroupsPaginator(listNodegroupsRequest: ListNodegroupsRequest): ListNodegroupsPublisher =
+    underlying.listNodegroupsPaginator(listNodegroupsRequest)
 
   override def listTagsForResource(
       listTagsForResourceRequest: ListTagsForResourceRequest
@@ -73,5 +115,15 @@ trait EksAsyncClient extends EksClient[Future] {
       updateClusterVersionRequest: UpdateClusterVersionRequest
   ): Future[UpdateClusterVersionResponse] =
     underlying.updateClusterVersion(updateClusterVersionRequest).toScala
+
+  override def updateNodegroupConfig(
+      updateNodegroupConfigRequest: UpdateNodegroupConfigRequest
+  ): Future[UpdateNodegroupConfigResponse] =
+    underlying.updateNodegroupConfig(updateNodegroupConfigRequest).toScala
+
+  override def updateNodegroupVersion(
+      updateNodegroupVersionRequest: UpdateNodegroupVersionRequest
+  ): Future[UpdateNodegroupVersionResponse] =
+    underlying.updateNodegroupVersion(updateNodegroupVersionRequest).toScala
 
 }

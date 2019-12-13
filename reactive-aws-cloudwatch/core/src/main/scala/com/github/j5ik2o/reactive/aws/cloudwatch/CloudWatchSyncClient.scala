@@ -35,6 +35,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   ): Either[Throwable, DeleteDashboardsResponse] =
     underlying.deleteDashboards(deleteDashboardsRequest).toEither
 
+  override def deleteInsightRules(
+      deleteInsightRulesRequest: DeleteInsightRulesRequest
+  ): Either[Throwable, DeleteInsightRulesResponse] =
+    underlying.deleteInsightRules(deleteInsightRulesRequest).toEither
+
   override def describeAlarmHistory(): Either[Throwable, DescribeAlarmHistoryResponse] =
     underlying.describeAlarmHistory().toEither
 
@@ -73,18 +78,43 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeAnomalyDetectorsResponse] =
     underlying.describeAnomalyDetectors(describeAnomalyDetectorsRequest).toEither
 
+  override def describeInsightRules(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): Either[Throwable, DescribeInsightRulesResponse] =
+    underlying.describeInsightRules(describeInsightRulesRequest).toEither
+
+  def describeInsightRulesPaginator(
+      describeInsightRulesRequest: DescribeInsightRulesRequest
+  ): DescribeInsightRulesIterable =
+    underlying.describeInsightRulesPaginator(describeInsightRulesRequest)
+
   override def disableAlarmActions(
       disableAlarmActionsRequest: DisableAlarmActionsRequest
   ): Either[Throwable, DisableAlarmActionsResponse] =
     underlying.disableAlarmActions(disableAlarmActionsRequest).toEither
+
+  override def disableInsightRules(
+      disableInsightRulesRequest: DisableInsightRulesRequest
+  ): Either[Throwable, DisableInsightRulesResponse] =
+    underlying.disableInsightRules(disableInsightRulesRequest).toEither
 
   override def enableAlarmActions(
       enableAlarmActionsRequest: EnableAlarmActionsRequest
   ): Either[Throwable, EnableAlarmActionsResponse] =
     underlying.enableAlarmActions(enableAlarmActionsRequest).toEither
 
+  override def enableInsightRules(
+      enableInsightRulesRequest: EnableInsightRulesRequest
+  ): Either[Throwable, EnableInsightRulesResponse] =
+    underlying.enableInsightRules(enableInsightRulesRequest).toEither
+
   override def getDashboard(getDashboardRequest: GetDashboardRequest): Either[Throwable, GetDashboardResponse] =
     underlying.getDashboard(getDashboardRequest).toEither
+
+  override def getInsightRuleReport(
+      getInsightRuleReportRequest: GetInsightRuleReportRequest
+  ): Either[Throwable, GetInsightRuleReportResponse] =
+    underlying.getInsightRuleReport(getInsightRuleReportRequest).toEither
 
   override def getMetricData(getMetricDataRequest: GetMetricDataRequest): Either[Throwable, GetMetricDataResponse] =
     underlying.getMetricData(getMetricDataRequest).toEither
@@ -138,6 +168,9 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
 
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Either[Throwable, PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toEither
+
+  override def putInsightRule(putInsightRuleRequest: PutInsightRuleRequest): Either[Throwable, PutInsightRuleResponse] =
+    underlying.putInsightRule(putInsightRuleRequest).toEither
 
   override def putMetricAlarm(putMetricAlarmRequest: PutMetricAlarmRequest): Either[Throwable, PutMetricAlarmResponse] =
     underlying.putMetricAlarm(putMetricAlarmRequest).toEither

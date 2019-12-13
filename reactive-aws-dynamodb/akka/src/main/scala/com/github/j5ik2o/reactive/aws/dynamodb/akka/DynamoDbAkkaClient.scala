@@ -151,6 +151,19 @@ trait DynamoDbAkkaClient {
       underlying.describeContinuousBackups(describeContinuousBackupsRequest)
     }
 
+  def describeContributorInsightsSource(
+      describeContributorInsightsRequest: DescribeContributorInsightsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeContributorInsightsResponse, NotUsed] =
+    Source.single(describeContributorInsightsRequest).via(describeContributorInsightsFlow(parallelism))
+
+  def describeContributorInsightsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeContributorInsightsRequest, DescribeContributorInsightsResponse, NotUsed] =
+    Flow[DescribeContributorInsightsRequest].mapAsync(parallelism) { describeContributorInsightsRequest =>
+      underlying.describeContributorInsights(describeContributorInsightsRequest)
+    }
+
   def describeEndpointsSource(
       describeEndpointsRequest: DescribeEndpointsRequest,
       parallelism: Int = DefaultParallelism
@@ -222,6 +235,19 @@ trait DynamoDbAkkaClient {
       underlying.describeTable(describeTableRequest)
     }
 
+  def describeTableReplicaAutoScalingSource(
+      describeTableReplicaAutoScalingRequest: DescribeTableReplicaAutoScalingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeTableReplicaAutoScalingResponse, NotUsed] =
+    Source.single(describeTableReplicaAutoScalingRequest).via(describeTableReplicaAutoScalingFlow(parallelism))
+
+  def describeTableReplicaAutoScalingFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeTableReplicaAutoScalingRequest, DescribeTableReplicaAutoScalingResponse, NotUsed] =
+    Flow[DescribeTableReplicaAutoScalingRequest].mapAsync(parallelism) { describeTableReplicaAutoScalingRequest =>
+      underlying.describeTableReplicaAutoScaling(describeTableReplicaAutoScalingRequest)
+    }
+
   def describeTimeToLiveSource(
       describeTimeToLiveRequest: DescribeTimeToLiveRequest,
       parallelism: Int = DefaultParallelism
@@ -259,6 +285,25 @@ trait DynamoDbAkkaClient {
 
   def listBackupsSource(): Source[ListBackupsResponse, NotUsed] =
     Source.fromFuture(underlying.listBackups())
+
+  def listContributorInsightsSource(
+      listContributorInsightsRequest: ListContributorInsightsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListContributorInsightsResponse, NotUsed] =
+    Source.single(listContributorInsightsRequest).via(listContributorInsightsFlow(parallelism))
+
+  def listContributorInsightsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListContributorInsightsRequest, ListContributorInsightsResponse, NotUsed] =
+    Flow[ListContributorInsightsRequest].mapAsync(parallelism) { listContributorInsightsRequest =>
+      underlying.listContributorInsights(listContributorInsightsRequest)
+    }
+
+  def listContributorInsightsPaginatorFlow
+      : Flow[ListContributorInsightsRequest, ListContributorInsightsResponse, NotUsed] =
+    Flow[ListContributorInsightsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listContributorInsightsPaginator(request))
+    }
 
   def listGlobalTablesSource(
       listGlobalTablesRequest: ListGlobalTablesRequest,
@@ -435,6 +480,19 @@ trait DynamoDbAkkaClient {
       underlying.updateContinuousBackups(updateContinuousBackupsRequest)
     }
 
+  def updateContributorInsightsSource(
+      updateContributorInsightsRequest: UpdateContributorInsightsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateContributorInsightsResponse, NotUsed] =
+    Source.single(updateContributorInsightsRequest).via(updateContributorInsightsFlow(parallelism))
+
+  def updateContributorInsightsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateContributorInsightsRequest, UpdateContributorInsightsResponse, NotUsed] =
+    Flow[UpdateContributorInsightsRequest].mapAsync(parallelism) { updateContributorInsightsRequest =>
+      underlying.updateContributorInsights(updateContributorInsightsRequest)
+    }
+
   def updateGlobalTableSource(
       updateGlobalTableRequest: UpdateGlobalTableRequest,
       parallelism: Int = DefaultParallelism
@@ -481,6 +539,19 @@ trait DynamoDbAkkaClient {
   def updateTableFlow(parallelism: Int = DefaultParallelism): Flow[UpdateTableRequest, UpdateTableResponse, NotUsed] =
     Flow[UpdateTableRequest].mapAsync(parallelism) { updateTableRequest =>
       underlying.updateTable(updateTableRequest)
+    }
+
+  def updateTableReplicaAutoScalingSource(
+      updateTableReplicaAutoScalingRequest: UpdateTableReplicaAutoScalingRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[UpdateTableReplicaAutoScalingResponse, NotUsed] =
+    Source.single(updateTableReplicaAutoScalingRequest).via(updateTableReplicaAutoScalingFlow(parallelism))
+
+  def updateTableReplicaAutoScalingFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[UpdateTableReplicaAutoScalingRequest, UpdateTableReplicaAutoScalingResponse, NotUsed] =
+    Flow[UpdateTableReplicaAutoScalingRequest].mapAsync(parallelism) { updateTableReplicaAutoScalingRequest =>
+      underlying.updateTableReplicaAutoScaling(updateTableReplicaAutoScalingRequest)
     }
 
   def updateTimeToLiveSource(

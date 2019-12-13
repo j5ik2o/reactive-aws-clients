@@ -26,6 +26,20 @@ final class ReEncryptResponseBuilderOps(val self: ReEncryptResponse.Builder) ext
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptResponse.Builder = {
+    value.fold(self) { v =>
+      self.sourceEncryptionAlgorithm(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptResponse.Builder = {
+    value.fold(self) { v =>
+      self.destinationEncryptionAlgorithm(v)
+    }
+  }
+
 }
 
 final class ReEncryptResponseOps(val self: ReEncryptResponse) extends AnyVal {
@@ -38,6 +52,13 @@ final class ReEncryptResponseOps(val self: ReEncryptResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceEncryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] = Option(self.sourceEncryptionAlgorithm)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationEncryptionAlgorithmAsScala: Option[EncryptionAlgorithmSpec] =
+    Option(self.destinationEncryptionAlgorithm)
 
 }
 

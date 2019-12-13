@@ -1,0 +1,46 @@
+// Auto-Generated
+package com.github.j5ik2o.reactive.aws.dynamodb.model.ops
+
+import software.amazon.awssdk.services.dynamodb.model._
+
+final class DescribeContributorInsightsRequestBuilderOps(val self: DescribeContributorInsightsRequest.Builder)
+    extends AnyVal {
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tableNameAsScala(value: Option[String]): DescribeContributorInsightsRequest.Builder = {
+    value.fold(self) { v =>
+      self.tableName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def indexNameAsScala(value: Option[String]): DescribeContributorInsightsRequest.Builder = {
+    value.fold(self) { v =>
+      self.indexName(v)
+    }
+  }
+
+}
+
+final class DescribeContributorInsightsRequestOps(val self: DescribeContributorInsightsRequest) extends AnyVal {
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tableNameAsScala: Option[String] = Option(self.tableName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def indexNameAsScala: Option[String] = Option(self.indexName)
+
+}
+
+@SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
+trait ToDescribeContributorInsightsRequestOps {
+
+  implicit def toDescribeContributorInsightsRequestBuilderOps(
+      v: DescribeContributorInsightsRequest.Builder
+  ): DescribeContributorInsightsRequestBuilderOps = new DescribeContributorInsightsRequestBuilderOps(v)
+
+  implicit def toDescribeContributorInsightsRequestOps(
+      v: DescribeContributorInsightsRequest
+  ): DescribeContributorInsightsRequestOps = new DescribeContributorInsightsRequestOps(v)
+
+}

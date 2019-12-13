@@ -110,6 +110,27 @@ final class KeyMetadataBuilderOps(val self: KeyMetadata.Builder) extends AnyVal 
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerMasterKeySpecAsScala(value: Option[CustomerMasterKeySpec]): KeyMetadata.Builder = {
+    value.fold(self) { v =>
+      self.customerMasterKeySpec(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmsAsScala(value: Option[Seq[EncryptionAlgorithmSpec]]): KeyMetadata.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.encryptionAlgorithms(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def signingAlgorithmsAsScala(value: Option[Seq[SigningAlgorithmSpec]]): KeyMetadata.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.signingAlgorithms(v.asJava)
+    }
+  }
+
 }
 
 final class KeyMetadataOps(val self: KeyMetadata) extends AnyVal {
@@ -158,6 +179,20 @@ final class KeyMetadataOps(val self: KeyMetadata) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyManagerAsScala: Option[KeyManagerType] = Option(self.keyManager)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerMasterKeySpecAsScala: Option[CustomerMasterKeySpec] = Option(self.customerMasterKeySpec)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionAlgorithmsAsScala: Option[Seq[EncryptionAlgorithmSpec]] = Option(self.encryptionAlgorithms).map {
+    v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def signingAlgorithmsAsScala: Option[Seq[SigningAlgorithmSpec]] = Option(self.signingAlgorithms).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 
