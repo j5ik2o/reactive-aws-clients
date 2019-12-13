@@ -78,11 +78,11 @@ templateNameMapper in scalaWrapperGen := {
       if f == s"${sdkBaseName.value}StreamsSyncClient" && cd.simpleTypeName == s"${sdkBaseName.value}StreamsClient" =>
     s"${sdkBaseName.value}StreamsSyncClient.ftl"
 
-  case ("JavaAsyncClientMetricsInterceptor", cd: ClassDesc)
-      if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
-    "JavaAsyncClientMetricsInterceptor.ftl"
-  case ("JavaSyncClientMetricsInterceptor", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
-    "JavaSyncClientMetricsInterceptor.ftl"
+//  case ("JavaAsyncClientMetricsInterceptor", cd: ClassDesc)
+//      if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+//    "JavaAsyncClientMetricsInterceptor.ftl"
+//  case ("JavaSyncClientMetricsInterceptor", cd: ClassDesc) if cd.simpleTypeName == s"${sdkBaseName.value}AsyncClient" =>
+//    "JavaSyncClientMetricsInterceptor.ftl"
 
   case (f, cd: ClassDesc) if f.endsWith("Ops") && cd.packageName.exists(_.endsWith("model")) => "ModelOps.ftl"
 
