@@ -107,7 +107,7 @@ object Settings {
       ),
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     libraryDependencies ++= Seq(
-        "com.beachape"           %% "enumeratum"              % "1.5.14",
+        "com.beachape"           %% "enumeratum"              % "1.5.15",
         "org.slf4j"              % "slf4j-api"                % "1.7.30",
         "org.scala-lang.modules" %% "scala-java8-compat"      % "0.9.0",
         "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.3"
