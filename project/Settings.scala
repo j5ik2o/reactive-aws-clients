@@ -109,14 +109,14 @@ object Settings {
     libraryDependencies ++= Seq(
         "com.beachape"           %% "enumeratum"              % "1.5.15",
         "org.slf4j"              % "slf4j-api"                % "1.7.30",
-        "org.scala-lang.modules" %% "scala-java8-compat"      % "0.9.0",
+        "org.scala-lang.modules" %% "scala-java8-compat"      % "0.9.1",
         "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.3"
       ),
     dependencyOverrides ++= {
       Seq(
         "org.scalatest"               %% "scalatest"                  % "3.0.8",
         "org.slf4j"                   % "slf4j-api"                   % "1.7.25",
-        "org.scala-lang.modules"      %% "scala-java8-compat"         % "0.9.0",
+        "org.scala-lang.modules"      %% "scala-java8-compat"         % "0.9.1",
         "org.apache.httpcomponents"   % "httpcore"                    % "4.4.11",
         "org.apache.httpcomponents"   % "httpclient"                  % "4.5.6",
         "com.fasterxml.jackson.core"  % "jackson-core"                % "2.9.8",
