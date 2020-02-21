@@ -35,7 +35,7 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
       "com.whisk"        %% "docker-testkit-scalatest"    % "0.9.9",
       "com.whisk"        %% "docker-testkit-impl-spotify" % "0.9.9",
       "org.seasar.util"  % "s2util"                       % "0.0.1",
-      "org.scalatest"    %% "scalatest"                   % "3.1.0",
+      "org.scalatest"    %% "scalatest"                   % "3.1.1",
       "org.scalacheck"   %% "scalacheck"                  % "1.14.3"
     )
   )
