@@ -3,7 +3,7 @@ import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 import sbt.Keys._
 import sbt.{ Classpaths, Credentials, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
 import wartremover.WartRemover.autoImport.{ wartremoverErrors, wartremoverExcluded, Wart, Warts }
-import xerial.sbt.Sonatype.autoImport.{ sonatypeProfileName, sonatypePublishTo }
+import xerial.sbt.Sonatype.autoImport.{ sonatypeProfileName, sonatypePublishToBundle }
 import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
 
 object Settings {
@@ -82,21 +82,11 @@ object Settings {
           </developer>
         </developers>
     },
-    publishTo in ThisBuild := sonatypePublishTo.value,
+    publishTo := sonatypePublishToBundle.value,
     credentials := {
-      (
-        sys.env.get("CREDENTIALS_REALM"),
-        sys.env.get("CREDENTIALS_HOST"),
-        sys.env.get("CREDENTIALS_USER_NAME"),
-        sys.env.get("CREDENTIALS_PASSWORD")
-      ) match {
-        case (Some(r), Some(h), Some(u), Some(p)) =>
-          Credentials(r, h, u, p) :: Nil
-        case _ =>
-          val ivyCredentials = (baseDirectory in LocalRootProject).value / ".credentials"
-          Credentials(ivyCredentials) :: Nil
-      }
-
+      val ivyCredentials = (baseDirectory in LocalRootProject).value / ".credentials"
+      val gpgCredentials = (baseDirectory in LocalRootProject).value / ".gpgCredentials"
+      Credentials(ivyCredentials) :: Credentials(gpgCredentials) :: Nil
     },
     scalafmtOnCompile in ThisBuild := true,
     resolvers ++= Seq(
