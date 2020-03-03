@@ -196,6 +196,16 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
   ): Observable[GetPersonTrackingResponse] =
     Observable.fromReactivePublisher(underlying.getPersonTrackingPaginator(getPersonTrackingRequest))
 
+  override def getTextDetection(getTextDetectionRequest: GetTextDetectionRequest): Task[GetTextDetectionResponse] =
+    Task.deferFuture {
+      underlying.getTextDetection(getTextDetectionRequest)
+    }
+
+  def getTextDetectionPaginator(
+      getTextDetectionRequest: GetTextDetectionRequest
+  ): Observable[GetTextDetectionResponse] =
+    Observable.fromReactivePublisher(underlying.getTextDetectionPaginator(getTextDetectionRequest))
+
   override def indexFaces(indexFacesRequest: IndexFacesRequest): Task[IndexFacesResponse] =
     Task.deferFuture {
       underlying.indexFaces(indexFacesRequest)
@@ -316,6 +326,13 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
   ): Task[StartStreamProcessorResponse] =
     Task.deferFuture {
       underlying.startStreamProcessor(startStreamProcessorRequest)
+    }
+
+  override def startTextDetection(
+      startTextDetectionRequest: StartTextDetectionRequest
+  ): Task[StartTextDetectionResponse] =
+    Task.deferFuture {
+      underlying.startTextDetection(startTextDetectionRequest)
     }
 
   override def stopProjectVersion(

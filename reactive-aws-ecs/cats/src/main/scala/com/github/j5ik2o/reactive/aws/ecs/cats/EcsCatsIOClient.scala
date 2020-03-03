@@ -157,6 +157,14 @@ trait EcsCatsIOClient extends EcsClient[IO] {
       IO(underlying.listAccountSettings())
     }
 
+  def listAccountSettingsPaginator(): ListAccountSettingsPublisher =
+    underlying.listAccountSettingsPaginator()
+
+  def listAccountSettingsPaginator(
+      listAccountSettingsRequest: ListAccountSettingsRequest
+  ): ListAccountSettingsPublisher =
+    underlying.listAccountSettingsPaginator(listAccountSettingsRequest)
+
   override def listAttributes(listAttributesRequest: ListAttributesRequest): IO[ListAttributesResponse] =
     IO.fromFuture {
       IO(underlying.listAttributes(listAttributesRequest))

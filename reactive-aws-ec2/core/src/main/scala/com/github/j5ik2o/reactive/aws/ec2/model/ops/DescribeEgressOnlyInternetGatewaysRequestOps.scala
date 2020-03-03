@@ -30,6 +30,13 @@ final class DescribeEgressOnlyInternetGatewaysRequestBuilderOps(
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala(value: Option[Seq[Filter]]): DescribeEgressOnlyInternetGatewaysRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
+    }
+  }
+
 }
 
 final class DescribeEgressOnlyInternetGatewaysRequestOps(val self: DescribeEgressOnlyInternetGatewaysRequest)
@@ -46,6 +53,11 @@ final class DescribeEgressOnlyInternetGatewaysRequestOps(val self: DescribeEgres
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

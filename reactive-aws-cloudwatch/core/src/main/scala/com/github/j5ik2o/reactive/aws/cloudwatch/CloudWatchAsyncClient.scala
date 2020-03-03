@@ -165,6 +165,11 @@ trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   ): Future[PutAnomalyDetectorResponse] =
     underlying.putAnomalyDetector(putAnomalyDetectorRequest).toScala
 
+  override def putCompositeAlarm(
+      putCompositeAlarmRequest: PutCompositeAlarmRequest
+  ): Future[PutCompositeAlarmResponse] =
+    underlying.putCompositeAlarm(putCompositeAlarmRequest).toScala
+
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Future[PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toScala
 

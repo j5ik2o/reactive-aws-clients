@@ -360,6 +360,19 @@ trait CloudWatchAkkaClient {
       underlying.putAnomalyDetector(putAnomalyDetectorRequest)
     }
 
+  def putCompositeAlarmSource(
+      putCompositeAlarmRequest: PutCompositeAlarmRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutCompositeAlarmResponse, NotUsed] =
+    Source.single(putCompositeAlarmRequest).via(putCompositeAlarmFlow(parallelism))
+
+  def putCompositeAlarmFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutCompositeAlarmRequest, PutCompositeAlarmResponse, NotUsed] =
+    Flow[PutCompositeAlarmRequest].mapAsync(parallelism) { putCompositeAlarmRequest =>
+      underlying.putCompositeAlarm(putCompositeAlarmRequest)
+    }
+
   def putDashboardSource(
       putDashboardRequest: PutDashboardRequest,
       parallelism: Int = DefaultParallelism

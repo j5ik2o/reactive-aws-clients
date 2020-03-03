@@ -1610,6 +1610,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Observable[DescribeInternetGatewaysResponse] =
     Observable.fromReactivePublisher(underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest))
 
+  override def describeIpv6Pools(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): Task[DescribeIpv6PoolsResponse] =
+    Task.deferFuture {
+      underlying.describeIpv6Pools(describeIpv6PoolsRequest)
+    }
+
+  def describeIpv6PoolsPaginator(
+      describeIpv6PoolsRequest: DescribeIpv6PoolsRequest
+  ): Observable[DescribeIpv6PoolsResponse] =
+    Observable.fromReactivePublisher(underlying.describeIpv6PoolsPaginator(describeIpv6PoolsRequest))
+
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): Task[DescribeKeyPairsResponse] =
     Task.deferFuture {
       underlying.describeKeyPairs(describeKeyPairsRequest)
@@ -2823,6 +2833,18 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
     }
 
+  override def getAssociatedIpv6PoolCidrs(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): Task[GetAssociatedIpv6PoolCidrsResponse] =
+    Task.deferFuture {
+      underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest)
+    }
+
+  def getAssociatedIpv6PoolCidrsPaginator(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): Observable[GetAssociatedIpv6PoolCidrsResponse] =
+    Observable.fromReactivePublisher(underlying.getAssociatedIpv6PoolCidrsPaginator(getAssociatedIpv6PoolCidrsRequest))
+
   override def getCapacityReservationUsage(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): Task[GetCapacityReservationUsageResponse] =
@@ -3501,6 +3523,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def startInstances(startInstancesRequest: StartInstancesRequest): Task[StartInstancesResponse] =
     Task.deferFuture {
       underlying.startInstances(startInstancesRequest)
+    }
+
+  override def startVpcEndpointServicePrivateDnsVerification(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest
+  ): Task[StartVpcEndpointServicePrivateDnsVerificationResponse] =
+    Task.deferFuture {
+      underlying.startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest)
     }
 
   override def stopInstances(stopInstancesRequest: StopInstancesRequest): Task[StopInstancesResponse] =

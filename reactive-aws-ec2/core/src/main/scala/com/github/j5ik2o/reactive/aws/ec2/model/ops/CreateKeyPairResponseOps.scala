@@ -26,6 +26,13 @@ final class CreateKeyPairResponseBuilderOps(val self: CreateKeyPairResponse.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdAsScala(value: Option[String]): CreateKeyPairResponse.Builder = {
+    value.fold(self) { v =>
+      self.keyPairId(v)
+    }
+  }
+
 }
 
 final class CreateKeyPairResponseOps(val self: CreateKeyPairResponse) extends AnyVal {
@@ -38,6 +45,9 @@ final class CreateKeyPairResponseOps(val self: CreateKeyPairResponse) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala: Option[String] = Option(self.keyName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdAsScala: Option[String] = Option(self.keyPairId)
 
 }
 

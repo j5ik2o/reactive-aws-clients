@@ -19,6 +19,13 @@ final class DescribePlacementGroupsRequestBuilderOps(val self: DescribePlacement
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupIdsAsScala(value: Option[Seq[String]]): DescribePlacementGroupsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.groupIds(v.asJava)
+    }
+  }
+
 }
 
 final class DescribePlacementGroupsRequestOps(val self: DescribePlacementGroupsRequest) extends AnyVal {
@@ -30,6 +37,11 @@ final class DescribePlacementGroupsRequestOps(val self: DescribePlacementGroupsR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNamesAsScala: Option[Seq[String]] = Option(self.groupNames).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupIdsAsScala: Option[Seq[String]] = Option(self.groupIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

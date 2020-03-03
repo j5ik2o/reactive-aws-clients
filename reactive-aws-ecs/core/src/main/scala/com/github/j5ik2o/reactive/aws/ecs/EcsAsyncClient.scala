@@ -110,6 +110,14 @@ trait EcsAsyncClient extends EcsClient[Future] {
   override def listAccountSettings(): Future[ListAccountSettingsResponse] =
     underlying.listAccountSettings().toScala
 
+  def listAccountSettingsPaginator(): ListAccountSettingsPublisher =
+    underlying.listAccountSettingsPaginator()
+
+  def listAccountSettingsPaginator(
+      listAccountSettingsRequest: ListAccountSettingsRequest
+  ): ListAccountSettingsPublisher =
+    underlying.listAccountSettingsPaginator(listAccountSettingsRequest)
+
   override def listAttributes(listAttributesRequest: ListAttributesRequest): Future[ListAttributesResponse] =
     underlying.listAttributes(listAttributesRequest).toScala
 

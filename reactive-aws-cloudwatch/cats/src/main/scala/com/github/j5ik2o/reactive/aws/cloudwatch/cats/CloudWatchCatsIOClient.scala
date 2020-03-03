@@ -219,6 +219,11 @@ trait CloudWatchCatsIOClient extends CloudWatchClient[IO] {
       IO(underlying.putAnomalyDetector(putAnomalyDetectorRequest))
     }
 
+  override def putCompositeAlarm(putCompositeAlarmRequest: PutCompositeAlarmRequest): IO[PutCompositeAlarmResponse] =
+    IO.fromFuture {
+      IO(underlying.putCompositeAlarm(putCompositeAlarmRequest))
+    }
+
   override def putDashboard(putDashboardRequest: PutDashboardRequest): IO[PutDashboardResponse] =
     IO.fromFuture {
       IO(underlying.putDashboard(putDashboardRequest))

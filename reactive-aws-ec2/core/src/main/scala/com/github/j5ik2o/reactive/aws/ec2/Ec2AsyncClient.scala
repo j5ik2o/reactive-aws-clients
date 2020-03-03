@@ -1149,6 +1149,14 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): DescribeInternetGatewaysPublisher =
     underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest)
 
+  override def describeIpv6Pools(
+      describeIpv6PoolsRequest: DescribeIpv6PoolsRequest
+  ): Future[DescribeIpv6PoolsResponse] =
+    underlying.describeIpv6Pools(describeIpv6PoolsRequest).toScala
+
+  def describeIpv6PoolsPaginator(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): DescribeIpv6PoolsPublisher =
+    underlying.describeIpv6PoolsPaginator(describeIpv6PoolsRequest)
+
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): Future[DescribeKeyPairsResponse] =
     underlying.describeKeyPairs(describeKeyPairsRequest).toScala
 
@@ -2044,6 +2052,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[ExportTransitGatewayRoutesResponse] =
     underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest).toScala
 
+  override def getAssociatedIpv6PoolCidrs(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): Future[GetAssociatedIpv6PoolCidrsResponse] =
+    underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest).toScala
+
+  def getAssociatedIpv6PoolCidrsPaginator(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): GetAssociatedIpv6PoolCidrsPublisher =
+    underlying.getAssociatedIpv6PoolCidrsPaginator(getAssociatedIpv6PoolCidrsRequest)
+
   override def getCapacityReservationUsage(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): Future[GetCapacityReservationUsageResponse] =
@@ -2518,6 +2536,12 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def startInstances(startInstancesRequest: StartInstancesRequest): Future[StartInstancesResponse] =
     underlying.startInstances(startInstancesRequest).toScala
+
+  override def startVpcEndpointServicePrivateDnsVerification(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest
+  ): Future[StartVpcEndpointServicePrivateDnsVerificationResponse] =
+    underlying
+      .startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest).toScala
 
   override def stopInstances(stopInstancesRequest: StopInstancesRequest): Future[StopInstancesResponse] =
     underlying.stopInstances(stopInstancesRequest).toScala

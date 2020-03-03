@@ -151,6 +151,14 @@ trait EcsMonixClient extends EcsClient[Task] {
       underlying.listAccountSettings()
     }
 
+  def listAccountSettingsPaginator(): Observable[ListAccountSettingsResponse] =
+    Observable.fromReactivePublisher(underlying.listAccountSettingsPaginator())
+
+  def listAccountSettingsPaginator(
+      listAccountSettingsRequest: ListAccountSettingsRequest
+  ): Observable[ListAccountSettingsResponse] =
+    Observable.fromReactivePublisher(underlying.listAccountSettingsPaginator(listAccountSettingsRequest))
+
   override def listAttributes(listAttributesRequest: ListAttributesRequest): Task[ListAttributesResponse] =
     Task.deferFuture {
       underlying.listAttributes(listAttributesRequest)

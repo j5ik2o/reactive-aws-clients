@@ -83,6 +83,13 @@ final class ClientVpnEndpointBuilderOps(val self: ClientVpnEndpoint.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpnPortAsScala(value: Option[Int]): ClientVpnEndpoint.Builder = {
+    value.fold(self) { v =>
+      self.vpnPort(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associatedTargetNetworksAsScala(value: Option[Seq[AssociatedTargetNetwork]]): ClientVpnEndpoint.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.associatedTargetNetworks(v.asJava)
@@ -155,6 +162,9 @@ final class ClientVpnEndpointOps(val self: ClientVpnEndpoint) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transportProtocolAsScala: Option[TransportProtocol] = Option(self.transportProtocol)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpnPortAsScala: Option[Int] = Option(self.vpnPort)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def associatedTargetNetworksAsScala: Option[Seq[AssociatedTargetNetwork]] =

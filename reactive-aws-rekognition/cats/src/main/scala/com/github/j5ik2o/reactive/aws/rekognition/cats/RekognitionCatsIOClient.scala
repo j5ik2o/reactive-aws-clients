@@ -195,6 +195,14 @@ trait RekognitionCatsIOClient extends RekognitionClient[IO] {
   def getPersonTrackingPaginator(getPersonTrackingRequest: GetPersonTrackingRequest): GetPersonTrackingPublisher =
     underlying.getPersonTrackingPaginator(getPersonTrackingRequest)
 
+  override def getTextDetection(getTextDetectionRequest: GetTextDetectionRequest): IO[GetTextDetectionResponse] =
+    IO.fromFuture {
+      IO(underlying.getTextDetection(getTextDetectionRequest))
+    }
+
+  def getTextDetectionPaginator(getTextDetectionRequest: GetTextDetectionRequest): GetTextDetectionPublisher =
+    underlying.getTextDetectionPaginator(getTextDetectionRequest)
+
   override def indexFaces(indexFacesRequest: IndexFacesRequest): IO[IndexFacesResponse] =
     IO.fromFuture {
       IO(underlying.indexFaces(indexFacesRequest))
@@ -315,6 +323,13 @@ trait RekognitionCatsIOClient extends RekognitionClient[IO] {
   ): IO[StartStreamProcessorResponse] =
     IO.fromFuture {
       IO(underlying.startStreamProcessor(startStreamProcessorRequest))
+    }
+
+  override def startTextDetection(
+      startTextDetectionRequest: StartTextDetectionRequest
+  ): IO[StartTextDetectionResponse] =
+    IO.fromFuture {
+      IO(underlying.startTextDetection(startTextDetectionRequest))
     }
 
   override def stopProjectVersion(

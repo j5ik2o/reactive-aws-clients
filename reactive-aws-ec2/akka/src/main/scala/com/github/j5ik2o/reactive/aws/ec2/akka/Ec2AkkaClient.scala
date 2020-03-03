@@ -2843,6 +2843,24 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeInternetGatewaysPaginator(request))
     }
 
+  def describeIpv6PoolsSource(
+      describeIpv6PoolsRequest: DescribeIpv6PoolsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeIpv6PoolsResponse, NotUsed] =
+    Source.single(describeIpv6PoolsRequest).via(describeIpv6PoolsFlow(parallelism))
+
+  def describeIpv6PoolsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeIpv6PoolsRequest, DescribeIpv6PoolsResponse, NotUsed] =
+    Flow[DescribeIpv6PoolsRequest].mapAsync(parallelism) { describeIpv6PoolsRequest =>
+      underlying.describeIpv6Pools(describeIpv6PoolsRequest)
+    }
+
+  def describeIpv6PoolsPaginatorFlow: Flow[DescribeIpv6PoolsRequest, DescribeIpv6PoolsResponse, NotUsed] =
+    Flow[DescribeIpv6PoolsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeIpv6PoolsPaginator(request))
+    }
+
   def describeKeyPairsSource(
       describeKeyPairsRequest: DescribeKeyPairsRequest,
       parallelism: Int = DefaultParallelism
@@ -4645,6 +4663,25 @@ trait Ec2AkkaClient {
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
     }
 
+  def getAssociatedIpv6PoolCidrsSource(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetAssociatedIpv6PoolCidrsResponse, NotUsed] =
+    Source.single(getAssociatedIpv6PoolCidrsRequest).via(getAssociatedIpv6PoolCidrsFlow(parallelism))
+
+  def getAssociatedIpv6PoolCidrsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResponse, NotUsed] =
+    Flow[GetAssociatedIpv6PoolCidrsRequest].mapAsync(parallelism) { getAssociatedIpv6PoolCidrsRequest =>
+      underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest)
+    }
+
+  def getAssociatedIpv6PoolCidrsPaginatorFlow
+      : Flow[GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResponse, NotUsed] =
+    Flow[GetAssociatedIpv6PoolCidrsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getAssociatedIpv6PoolCidrsPaginator(request))
+    }
+
   def getCapacityReservationUsageSource(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest,
       parallelism: Int = DefaultParallelism
@@ -6026,6 +6063,25 @@ trait Ec2AkkaClient {
   ): Flow[StartInstancesRequest, StartInstancesResponse, NotUsed] =
     Flow[StartInstancesRequest].mapAsync(parallelism) { startInstancesRequest =>
       underlying.startInstances(startInstancesRequest)
+    }
+
+  def startVpcEndpointServicePrivateDnsVerificationSource(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartVpcEndpointServicePrivateDnsVerificationResponse, NotUsed] =
+    Source
+      .single(startVpcEndpointServicePrivateDnsVerificationRequest).via(
+        startVpcEndpointServicePrivateDnsVerificationFlow(parallelism)
+      )
+
+  def startVpcEndpointServicePrivateDnsVerificationFlow(parallelism: Int = DefaultParallelism): Flow[
+    StartVpcEndpointServicePrivateDnsVerificationRequest,
+    StartVpcEndpointServicePrivateDnsVerificationResponse,
+    NotUsed
+  ] =
+    Flow[StartVpcEndpointServicePrivateDnsVerificationRequest].mapAsync(parallelism) {
+      startVpcEndpointServicePrivateDnsVerificationRequest =>
+        underlying.startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest)
     }
 
   def stopInstancesSource(
