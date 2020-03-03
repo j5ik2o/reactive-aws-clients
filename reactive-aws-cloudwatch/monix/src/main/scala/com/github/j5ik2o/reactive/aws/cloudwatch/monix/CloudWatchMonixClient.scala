@@ -212,6 +212,11 @@ trait CloudWatchMonixClient extends CloudWatchClient[Task] {
       underlying.putAnomalyDetector(putAnomalyDetectorRequest)
     }
 
+  override def putCompositeAlarm(putCompositeAlarmRequest: PutCompositeAlarmRequest): Task[PutCompositeAlarmResponse] =
+    Task.deferFuture {
+      underlying.putCompositeAlarm(putCompositeAlarmRequest)
+    }
+
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Task[PutDashboardResponse] =
     Task.deferFuture {
       underlying.putDashboard(putDashboardRequest)

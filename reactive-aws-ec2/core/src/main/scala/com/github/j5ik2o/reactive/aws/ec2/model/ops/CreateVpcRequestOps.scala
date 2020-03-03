@@ -20,6 +20,20 @@ final class CreateVpcRequestBuilderOps(val self: CreateVpcRequest.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6PoolAsScala(value: Option[String]): CreateVpcRequest.Builder = {
+    value.fold(self) { v =>
+      self.ipv6Pool(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockAsScala(value: Option[String]): CreateVpcRequest.Builder = {
+    value.fold(self) { v =>
+      self.ipv6CidrBlock(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTenancyAsScala(value: Option[Tenancy]): CreateVpcRequest.Builder = {
     value.fold(self) { v =>
       self.instanceTenancy(v)
@@ -42,6 +56,12 @@ final class CreateVpcRequestOps(val self: CreateVpcRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amazonProvidedIpv6CidrBlockAsScala: Option[Boolean] = Option(self.amazonProvidedIpv6CidrBlock)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6PoolAsScala: Option[String] = Option(self.ipv6Pool)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockAsScala: Option[String] = Option(self.ipv6CidrBlock)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTenancyAsScala: Option[Tenancy] = Option(self.instanceTenancy)

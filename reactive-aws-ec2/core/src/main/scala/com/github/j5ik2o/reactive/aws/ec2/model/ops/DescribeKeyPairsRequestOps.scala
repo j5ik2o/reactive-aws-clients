@@ -19,6 +19,13 @@ final class DescribeKeyPairsRequestBuilderOps(val self: DescribeKeyPairsRequest.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdsAsScala(value: Option[Seq[String]]): DescribeKeyPairsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.keyPairIds(v.asJava)
+    }
+  }
+
 }
 
 final class DescribeKeyPairsRequestOps(val self: DescribeKeyPairsRequest) extends AnyVal {
@@ -30,6 +37,11 @@ final class DescribeKeyPairsRequestOps(val self: DescribeKeyPairsRequest) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNamesAsScala: Option[Seq[String]] = Option(self.keyNames).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdsAsScala: Option[Seq[String]] = Option(self.keyPairIds).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

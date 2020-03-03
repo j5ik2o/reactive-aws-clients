@@ -47,6 +47,13 @@ final class VpcConfigResponseBuilderOps(val self: VpcConfigResponse.Builder) ext
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def publicAccessCidrsAsScala(value: Option[Seq[String]]): VpcConfigResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.publicAccessCidrs(v.asJava)
+    }
+  }
+
 }
 
 final class VpcConfigResponseOps(val self: VpcConfigResponse) extends AnyVal {
@@ -72,6 +79,11 @@ final class VpcConfigResponseOps(val self: VpcConfigResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointPrivateAccessAsScala: Option[Boolean] = Option(self.endpointPrivateAccess)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def publicAccessCidrsAsScala: Option[Seq[String]] = Option(self.publicAccessCidrs).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

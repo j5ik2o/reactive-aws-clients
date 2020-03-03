@@ -166,6 +166,11 @@ trait CloudWatchSyncClient extends CloudWatchClient[Either[Throwable, ?]] {
   ): Either[Throwable, PutAnomalyDetectorResponse] =
     underlying.putAnomalyDetector(putAnomalyDetectorRequest).toEither
 
+  override def putCompositeAlarm(
+      putCompositeAlarmRequest: PutCompositeAlarmRequest
+  ): Either[Throwable, PutCompositeAlarmResponse] =
+    underlying.putCompositeAlarm(putCompositeAlarmRequest).toEither
+
   override def putDashboard(putDashboardRequest: PutDashboardRequest): Either[Throwable, PutDashboardResponse] =
     underlying.putDashboard(putDashboardRequest).toEither
 

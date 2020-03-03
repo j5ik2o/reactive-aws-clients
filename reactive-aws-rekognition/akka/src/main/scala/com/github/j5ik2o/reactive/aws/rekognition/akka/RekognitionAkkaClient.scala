@@ -370,6 +370,24 @@ trait RekognitionAkkaClient {
       Source.fromPublisher(underlying.getPersonTrackingPaginator(request))
     }
 
+  def getTextDetectionSource(
+      getTextDetectionRequest: GetTextDetectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetTextDetectionResponse, NotUsed] =
+    Source.single(getTextDetectionRequest).via(getTextDetectionFlow(parallelism))
+
+  def getTextDetectionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetTextDetectionRequest, GetTextDetectionResponse, NotUsed] =
+    Flow[GetTextDetectionRequest].mapAsync(parallelism) { getTextDetectionRequest =>
+      underlying.getTextDetection(getTextDetectionRequest)
+    }
+
+  def getTextDetectionPaginatorFlow: Flow[GetTextDetectionRequest, GetTextDetectionResponse, NotUsed] =
+    Flow[GetTextDetectionRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getTextDetectionPaginator(request))
+    }
+
   def indexFacesSource(
       indexFacesRequest: IndexFacesRequest,
       parallelism: Int = DefaultParallelism
@@ -584,6 +602,19 @@ trait RekognitionAkkaClient {
   ): Flow[StartStreamProcessorRequest, StartStreamProcessorResponse, NotUsed] =
     Flow[StartStreamProcessorRequest].mapAsync(parallelism) { startStreamProcessorRequest =>
       underlying.startStreamProcessor(startStreamProcessorRequest)
+    }
+
+  def startTextDetectionSource(
+      startTextDetectionRequest: StartTextDetectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartTextDetectionResponse, NotUsed] =
+    Source.single(startTextDetectionRequest).via(startTextDetectionFlow(parallelism))
+
+  def startTextDetectionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[StartTextDetectionRequest, StartTextDetectionResponse, NotUsed] =
+    Flow[StartTextDetectionRequest].mapAsync(parallelism) { startTextDetectionRequest =>
+      underlying.startTextDetection(startTextDetectionRequest)
     }
 
   def stopProjectVersionSource(

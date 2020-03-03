@@ -107,6 +107,15 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def advancedSecurityOptionsAsScala(
+      value: Option[AdvancedSecurityOptionsInput]
+  ): CreateElasticsearchDomainRequest.Builder = {
+    value.fold(self) { v =>
+      self.advancedSecurityOptions(v)
+    }
+  }
+
 }
 
 final class CreateElasticsearchDomainRequestOps(val self: CreateElasticsearchDomainRequest) extends AnyVal {
@@ -156,6 +165,9 @@ final class CreateElasticsearchDomainRequestOps(val self: CreateElasticsearchDom
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainEndpointOptionsAsScala: Option[DomainEndpointOptions] = Option(self.domainEndpointOptions)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def advancedSecurityOptionsAsScala: Option[AdvancedSecurityOptionsInput] = Option(self.advancedSecurityOptions)
 
 }
 

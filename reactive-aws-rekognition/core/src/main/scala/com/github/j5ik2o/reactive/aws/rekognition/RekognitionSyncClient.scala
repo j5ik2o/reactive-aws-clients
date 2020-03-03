@@ -158,6 +158,14 @@ trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
   def getPersonTrackingPaginator(getPersonTrackingRequest: GetPersonTrackingRequest): GetPersonTrackingIterable =
     underlying.getPersonTrackingPaginator(getPersonTrackingRequest)
 
+  override def getTextDetection(
+      getTextDetectionRequest: GetTextDetectionRequest
+  ): Either[Throwable, GetTextDetectionResponse] =
+    underlying.getTextDetection(getTextDetectionRequest).toEither
+
+  def getTextDetectionPaginator(getTextDetectionRequest: GetTextDetectionRequest): GetTextDetectionIterable =
+    underlying.getTextDetectionPaginator(getTextDetectionRequest)
+
   override def indexFaces(indexFacesRequest: IndexFacesRequest): Either[Throwable, IndexFacesResponse] =
     underlying.indexFaces(indexFacesRequest).toEither
 
@@ -249,6 +257,11 @@ trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
       startStreamProcessorRequest: StartStreamProcessorRequest
   ): Either[Throwable, StartStreamProcessorResponse] =
     underlying.startStreamProcessor(startStreamProcessorRequest).toEither
+
+  override def startTextDetection(
+      startTextDetectionRequest: StartTextDetectionRequest
+  ): Either[Throwable, StartTextDetectionResponse] =
+    underlying.startTextDetection(startTextDetectionRequest).toEither
 
   override def stopProjectVersion(
       stopProjectVersionRequest: StopProjectVersionRequest

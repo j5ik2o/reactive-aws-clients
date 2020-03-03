@@ -15,6 +15,22 @@ final class ModifyVpcEndpointServiceConfigurationRequestBuilderOps(
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def privateDnsNameAsScala(value: Option[String]): ModifyVpcEndpointServiceConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.privateDnsName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def removePrivateDnsNameAsScala(
+      value: Option[Boolean]
+  ): ModifyVpcEndpointServiceConfigurationRequest.Builder = {
+    value.fold(self) { v =>
+      self.removePrivateDnsName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acceptanceRequiredAsScala(value: Option[Boolean]): ModifyVpcEndpointServiceConfigurationRequest.Builder = {
     value.fold(self) { v =>
       self.acceptanceRequired(v)
@@ -46,6 +62,12 @@ final class ModifyVpcEndpointServiceConfigurationRequestOps(val self: ModifyVpcE
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceIdAsScala: Option[String] = Option(self.serviceId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def privateDnsNameAsScala: Option[String] = Option(self.privateDnsName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def removePrivateDnsNameAsScala: Option[Boolean] = Option(self.removePrivateDnsName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acceptanceRequiredAsScala: Option[Boolean] = Option(self.acceptanceRequired)

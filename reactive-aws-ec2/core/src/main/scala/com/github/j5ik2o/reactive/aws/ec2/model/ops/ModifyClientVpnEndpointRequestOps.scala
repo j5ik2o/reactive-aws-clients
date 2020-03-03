@@ -36,6 +36,13 @@ final class ModifyClientVpnEndpointRequestBuilderOps(val self: ModifyClientVpnEn
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpnPortAsScala(value: Option[Int]): ModifyClientVpnEndpointRequest.Builder = {
+    value.fold(self) { v =>
+      self.vpnPort(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ModifyClientVpnEndpointRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
@@ -64,6 +71,9 @@ final class ModifyClientVpnEndpointRequestOps(val self: ModifyClientVpnEndpointR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dnsServersAsScala: Option[DnsServersOptionsModifyStructure] = Option(self.dnsServers)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpnPortAsScala: Option[Int] = Option(self.vpnPort)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)

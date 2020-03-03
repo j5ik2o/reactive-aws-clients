@@ -40,6 +40,13 @@ final class StackSetOperationResultSummaryBuilderOps(val self: StackSetOperation
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def organizationalUnitIdAsScala(value: Option[String]): StackSetOperationResultSummary.Builder = {
+    value.fold(self) { v =>
+      self.organizationalUnitId(v)
+    }
+  }
+
 }
 
 final class StackSetOperationResultSummaryOps(val self: StackSetOperationResultSummary) extends AnyVal {
@@ -58,6 +65,9 @@ final class StackSetOperationResultSummaryOps(val self: StackSetOperationResultS
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountGateResultAsScala: Option[AccountGateResult] = Option(self.accountGateResult)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def organizationalUnitIdAsScala: Option[String] = Option(self.organizationalUnitId)
 
 }
 

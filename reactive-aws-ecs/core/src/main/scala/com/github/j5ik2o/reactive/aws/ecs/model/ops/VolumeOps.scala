@@ -26,6 +26,13 @@ final class VolumeBuilderOps(val self: Volume.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def efsVolumeConfigurationAsScala(value: Option[EFSVolumeConfiguration]): Volume.Builder = {
+    value.fold(self) { v =>
+      self.efsVolumeConfiguration(v)
+    }
+  }
+
 }
 
 final class VolumeOps(val self: Volume) extends AnyVal {
@@ -38,6 +45,9 @@ final class VolumeOps(val self: Volume) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dockerVolumeConfigurationAsScala: Option[DockerVolumeConfiguration] = Option(self.dockerVolumeConfiguration)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def efsVolumeConfigurationAsScala: Option[EFSVolumeConfiguration] = Option(self.efsVolumeConfiguration)
 
 }
 

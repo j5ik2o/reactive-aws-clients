@@ -1586,6 +1586,14 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): DescribeInternetGatewaysPublisher =
     underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest)
 
+  override def describeIpv6Pools(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): IO[DescribeIpv6PoolsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeIpv6Pools(describeIpv6PoolsRequest))
+    }
+
+  def describeIpv6PoolsPaginator(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): DescribeIpv6PoolsPublisher =
+    underlying.describeIpv6PoolsPaginator(describeIpv6PoolsRequest)
+
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): IO[DescribeKeyPairsResponse] =
     IO.fromFuture {
       IO(underlying.describeKeyPairs(describeKeyPairsRequest))
@@ -2759,6 +2767,18 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest))
     }
 
+  override def getAssociatedIpv6PoolCidrs(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): IO[GetAssociatedIpv6PoolCidrsResponse] =
+    IO.fromFuture {
+      IO(underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest))
+    }
+
+  def getAssociatedIpv6PoolCidrsPaginator(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): GetAssociatedIpv6PoolCidrsPublisher =
+    underlying.getAssociatedIpv6PoolCidrsPaginator(getAssociatedIpv6PoolCidrsRequest)
+
   override def getCapacityReservationUsage(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): IO[GetCapacityReservationUsageResponse] =
@@ -3433,6 +3453,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def startInstances(startInstancesRequest: StartInstancesRequest): IO[StartInstancesResponse] =
     IO.fromFuture {
       IO(underlying.startInstances(startInstancesRequest))
+    }
+
+  override def startVpcEndpointServicePrivateDnsVerification(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest
+  ): IO[StartVpcEndpointServicePrivateDnsVerificationResponse] =
+    IO.fromFuture {
+      IO(underlying.startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest))
     }
 
   override def stopInstances(stopInstancesRequest: StopInstancesRequest): IO[StopInstancesResponse] =

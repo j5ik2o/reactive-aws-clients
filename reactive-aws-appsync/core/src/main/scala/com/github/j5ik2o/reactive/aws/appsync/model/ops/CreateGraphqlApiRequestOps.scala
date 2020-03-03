@@ -57,6 +57,13 @@ final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def xrayEnabledAsScala(value: Option[Boolean]): CreateGraphqlApiRequest.Builder = {
+    value.fold(self) { v =>
+      self.xrayEnabled(v)
+    }
+  }
+
 }
 
 final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extends AnyVal {
@@ -86,6 +93,9 @@ final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extend
     Option(self.additionalAuthenticationProviders).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def xrayEnabledAsScala: Option[Boolean] = Option(self.xrayEnabled)
 
 }
 

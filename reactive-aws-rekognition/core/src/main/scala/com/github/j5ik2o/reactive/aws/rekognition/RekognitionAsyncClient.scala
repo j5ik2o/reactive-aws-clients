@@ -149,6 +149,12 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
   def getPersonTrackingPaginator(getPersonTrackingRequest: GetPersonTrackingRequest): GetPersonTrackingPublisher =
     underlying.getPersonTrackingPaginator(getPersonTrackingRequest)
 
+  override def getTextDetection(getTextDetectionRequest: GetTextDetectionRequest): Future[GetTextDetectionResponse] =
+    underlying.getTextDetection(getTextDetectionRequest).toScala
+
+  def getTextDetectionPaginator(getTextDetectionRequest: GetTextDetectionRequest): GetTextDetectionPublisher =
+    underlying.getTextDetectionPaginator(getTextDetectionRequest)
+
   override def indexFaces(indexFacesRequest: IndexFacesRequest): Future[IndexFacesResponse] =
     underlying.indexFaces(indexFacesRequest).toScala
 
@@ -236,6 +242,11 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
       startStreamProcessorRequest: StartStreamProcessorRequest
   ): Future[StartStreamProcessorResponse] =
     underlying.startStreamProcessor(startStreamProcessorRequest).toScala
+
+  override def startTextDetection(
+      startTextDetectionRequest: StartTextDetectionRequest
+  ): Future[StartTextDetectionResponse] =
+    underlying.startTextDetection(startTextDetectionRequest).toScala
 
   override def stopProjectVersion(
       stopProjectVersionRequest: StopProjectVersionRequest

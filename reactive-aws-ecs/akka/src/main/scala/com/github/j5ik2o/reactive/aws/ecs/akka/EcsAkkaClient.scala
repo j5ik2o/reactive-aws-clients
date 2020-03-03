@@ -291,6 +291,14 @@ trait EcsAkkaClient {
   def listAccountSettingsSource(): Source[ListAccountSettingsResponse, NotUsed] =
     Source.fromFuture(underlying.listAccountSettings())
 
+  def listAccountSettingsPaginatorSource: Source[ListAccountSettingsResponse, NotUsed] =
+    Source.fromPublisher(underlying.listAccountSettingsPaginator())
+
+  def listAccountSettingsPaginatorFlow: Flow[ListAccountSettingsRequest, ListAccountSettingsResponse, NotUsed] =
+    Flow[ListAccountSettingsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listAccountSettingsPaginator(request))
+    }
+
   def listAttributesSource(
       listAttributesRequest: ListAttributesRequest,
       parallelism: Int = DefaultParallelism

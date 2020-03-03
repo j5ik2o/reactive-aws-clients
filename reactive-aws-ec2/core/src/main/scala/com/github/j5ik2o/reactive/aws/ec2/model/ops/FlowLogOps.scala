@@ -89,6 +89,13 @@ final class FlowLogBuilderOps(val self: FlowLog.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxAggregationIntervalAsScala(value: Option[Int]): FlowLog.Builder = {
+    value.fold(self) { v =>
+      self.maxAggregationInterval(v)
+    }
+  }
+
 }
 
 final class FlowLogOps(val self: FlowLog) extends AnyVal {
@@ -128,6 +135,9 @@ final class FlowLogOps(val self: FlowLog) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logFormatAsScala: Option[String] = Option(self.logFormat)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxAggregationIntervalAsScala: Option[Int] = Option(self.maxAggregationInterval)
 
 }
 

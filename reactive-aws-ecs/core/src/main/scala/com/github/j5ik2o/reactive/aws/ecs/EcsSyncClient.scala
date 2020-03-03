@@ -117,6 +117,14 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
   ): Either[Throwable, ListAccountSettingsResponse] =
     underlying.listAccountSettings(listAccountSettingsRequest).toEither
 
+  def listAccountSettingsPaginator(): ListAccountSettingsIterable =
+    underlying.listAccountSettingsPaginator()
+
+  def listAccountSettingsPaginator(
+      listAccountSettingsRequest: ListAccountSettingsRequest
+  ): ListAccountSettingsIterable =
+    underlying.listAccountSettingsPaginator(listAccountSettingsRequest)
+
   override def listAttributes(listAttributesRequest: ListAttributesRequest): Either[Throwable, ListAttributesResponse] =
     underlying.listAttributes(listAttributesRequest).toEither
 

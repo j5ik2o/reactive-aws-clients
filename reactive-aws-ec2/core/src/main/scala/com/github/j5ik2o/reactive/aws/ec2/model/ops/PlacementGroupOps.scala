@@ -33,6 +33,20 @@ final class PlacementGroupBuilderOps(val self: PlacementGroup.Builder) extends A
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupIdAsScala(value: Option[String]): PlacementGroup.Builder = {
+    value.fold(self) { v =>
+      self.groupId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): PlacementGroup.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class PlacementGroupOps(val self: PlacementGroup) extends AnyVal {
@@ -48,6 +62,14 @@ final class PlacementGroupOps(val self: PlacementGroup) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partitionCountAsScala: Option[Int] = Option(self.partitionCount)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupIdAsScala: Option[String] = Option(self.groupId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

@@ -1191,6 +1191,14 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): DescribeInternetGatewaysIterable =
     underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest)
 
+  override def describeIpv6Pools(
+      describeIpv6PoolsRequest: DescribeIpv6PoolsRequest
+  ): Either[Throwable, DescribeIpv6PoolsResponse] =
+    underlying.describeIpv6Pools(describeIpv6PoolsRequest).toEither
+
+  def describeIpv6PoolsPaginator(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): DescribeIpv6PoolsIterable =
+    underlying.describeIpv6PoolsPaginator(describeIpv6PoolsRequest)
+
   override def describeKeyPairs(): Either[Throwable, DescribeKeyPairsResponse] =
     underlying.describeKeyPairs().toEither
 
@@ -2098,6 +2106,16 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, ExportTransitGatewayRoutesResponse] =
     underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest).toEither
 
+  override def getAssociatedIpv6PoolCidrs(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): Either[Throwable, GetAssociatedIpv6PoolCidrsResponse] =
+    underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest).toEither
+
+  def getAssociatedIpv6PoolCidrsPaginator(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): GetAssociatedIpv6PoolCidrsIterable =
+    underlying.getAssociatedIpv6PoolCidrsPaginator(getAssociatedIpv6PoolCidrsRequest)
+
   override def getCapacityReservationUsage(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): Either[Throwable, GetCapacityReservationUsageResponse] =
@@ -2589,6 +2607,12 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
 
   override def startInstances(startInstancesRequest: StartInstancesRequest): Either[Throwable, StartInstancesResponse] =
     underlying.startInstances(startInstancesRequest).toEither
+
+  override def startVpcEndpointServicePrivateDnsVerification(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest
+  ): Either[Throwable, StartVpcEndpointServicePrivateDnsVerificationResponse] =
+    underlying
+      .startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest).toEither
 
   override def stopInstances(stopInstancesRequest: StopInstancesRequest): Either[Throwable, StopInstancesResponse] =
     underlying.stopInstances(stopInstancesRequest).toEither

@@ -69,6 +69,20 @@ final class CreateStackSetRequestBuilderOps(val self: CreateStackSetRequest.Buil
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala(value: Option[PermissionModels]): CreateStackSetRequest.Builder = {
+    value.fold(self) { v =>
+      self.permissionModel(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala(value: Option[AutoDeployment]): CreateStackSetRequest.Builder = {
+    value.fold(self) { v =>
+      self.autoDeployment(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
     value.fold(self) { v =>
       self.clientRequestToken(v)
@@ -111,6 +125,12 @@ final class CreateStackSetRequestOps(val self: CreateStackSetRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleNameAsScala: Option[String] = Option(self.executionRoleName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala: Option[PermissionModels] = Option(self.permissionModel)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala: Option[AutoDeployment] = Option(self.autoDeployment)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)
