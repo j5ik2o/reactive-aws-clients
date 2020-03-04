@@ -67,7 +67,7 @@ trait DynamoDBContainerSpecSupport extends DockerTestKit with RandomPortSupport 
   protected lazy val dynamoDBPort: Int = temporaryServerPort()
 
   protected lazy val dynamoDBContainer: DockerContainer =
-    DockerContainer("amazon/dynamodb-local:1.11.475")
+    DockerContainer("amazon/dynamodb-local:1.12.0")
       .withPorts(8000 -> Some(dynamoDBPort))
       .withReadyChecker(new DynamoDBDockerReadyChecker(dynamoDbClient))
 
