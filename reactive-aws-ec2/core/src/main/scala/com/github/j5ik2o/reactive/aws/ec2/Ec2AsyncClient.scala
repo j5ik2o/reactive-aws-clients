@@ -821,6 +821,9 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeCoipPoolsResponse] =
     underlying.describeCoipPools(describeCoipPoolsRequest).toScala
 
+  def describeCoipPoolsPaginator(describeCoipPoolsRequest: DescribeCoipPoolsRequest): DescribeCoipPoolsPublisher =
+    underlying.describeCoipPoolsPaginator(describeCoipPoolsRequest)
+
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
   ): Future[DescribeConversionTasksResponse] =
@@ -1114,10 +1117,20 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeInstanceTypeOfferingsResponse] =
     underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest).toScala
 
+  def describeInstanceTypeOfferingsPaginator(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): DescribeInstanceTypeOfferingsPublisher =
+    underlying.describeInstanceTypeOfferingsPaginator(describeInstanceTypeOfferingsRequest)
+
   override def describeInstanceTypes(
       describeInstanceTypesRequest: DescribeInstanceTypesRequest
   ): Future[DescribeInstanceTypesResponse] =
     underlying.describeInstanceTypes(describeInstanceTypesRequest).toScala
+
+  def describeInstanceTypesPaginator(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): DescribeInstanceTypesPublisher =
+    underlying.describeInstanceTypesPaginator(describeInstanceTypesRequest)
 
   override def describeInstances(
       describeInstancesRequest: DescribeInstancesRequest
@@ -1197,31 +1210,65 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
         describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
       ).toScala
 
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPublisher =
+    underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+    )
+
   override def describeLocalGatewayRouteTableVpcAssociations(
       describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
   ): Future[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
     underlying
       .describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest).toScala
 
+  def describeLocalGatewayRouteTableVpcAssociationsPaginator(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): DescribeLocalGatewayRouteTableVpcAssociationsPublisher =
+    underlying.describeLocalGatewayRouteTableVpcAssociationsPaginator(
+      describeLocalGatewayRouteTableVpcAssociationsRequest
+    )
+
   override def describeLocalGatewayRouteTables(
       describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
   ): Future[DescribeLocalGatewayRouteTablesResponse] =
     underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest).toScala
+
+  def describeLocalGatewayRouteTablesPaginator(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): DescribeLocalGatewayRouteTablesPublisher =
+    underlying.describeLocalGatewayRouteTablesPaginator(describeLocalGatewayRouteTablesRequest)
 
   override def describeLocalGatewayVirtualInterfaceGroups(
       describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
   ): Future[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
     underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest).toScala
 
+  def describeLocalGatewayVirtualInterfaceGroupsPaginator(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): DescribeLocalGatewayVirtualInterfaceGroupsPublisher =
+    underlying.describeLocalGatewayVirtualInterfaceGroupsPaginator(describeLocalGatewayVirtualInterfaceGroupsRequest)
+
   override def describeLocalGatewayVirtualInterfaces(
       describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
   ): Future[DescribeLocalGatewayVirtualInterfacesResponse] =
     underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest).toScala
 
+  def describeLocalGatewayVirtualInterfacesPaginator(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): DescribeLocalGatewayVirtualInterfacesPublisher =
+    underlying.describeLocalGatewayVirtualInterfacesPaginator(describeLocalGatewayVirtualInterfacesRequest)
+
   override def describeLocalGateways(
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): Future[DescribeLocalGatewaysResponse] =
     underlying.describeLocalGateways(describeLocalGatewaysRequest).toScala
+
+  def describeLocalGatewaysPaginator(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): DescribeLocalGatewaysPublisher =
+    underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest)
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -1651,10 +1698,20 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[DescribeTransitGatewayMulticastDomainsResponse] =
     underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest).toScala
 
+  def describeTransitGatewayMulticastDomainsPaginator(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): DescribeTransitGatewayMulticastDomainsPublisher =
+    underlying.describeTransitGatewayMulticastDomainsPaginator(describeTransitGatewayMulticastDomainsRequest)
+
   override def describeTransitGatewayPeeringAttachments(
       describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
   ): Future[DescribeTransitGatewayPeeringAttachmentsResponse] =
     underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest).toScala
+
+  def describeTransitGatewayPeeringAttachmentsPaginator(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): DescribeTransitGatewayPeeringAttachmentsPublisher =
+    underlying.describeTransitGatewayPeeringAttachmentsPaginator(describeTransitGatewayPeeringAttachmentsRequest)
 
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
@@ -2126,6 +2183,13 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[GetTransitGatewayMulticastDomainAssociationsResponse] =
     underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest).toScala
 
+  def getTransitGatewayMulticastDomainAssociationsPaginator(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): GetTransitGatewayMulticastDomainAssociationsPublisher =
+    underlying.getTransitGatewayMulticastDomainAssociationsPaginator(
+      getTransitGatewayMulticastDomainAssociationsRequest
+    )
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): Future[GetTransitGatewayRouteTableAssociationsResponse] =
@@ -2166,6 +2230,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def importVolume(importVolumeRequest: ImportVolumeRequest): Future[ImportVolumeResponse] =
     underlying.importVolume(importVolumeRequest).toScala
+
+  override def modifyAvailabilityZoneGroup(
+      modifyAvailabilityZoneGroupRequest: ModifyAvailabilityZoneGroupRequest
+  ): Future[ModifyAvailabilityZoneGroupResponse] =
+    underlying.modifyAvailabilityZoneGroup(modifyAvailabilityZoneGroupRequest).toScala
 
   override def modifyCapacityReservation(
       modifyCapacityReservationRequest: ModifyCapacityReservationRequest
@@ -2519,10 +2588,20 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[SearchLocalGatewayRoutesResponse] =
     underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest).toScala
 
+  def searchLocalGatewayRoutesPaginator(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): SearchLocalGatewayRoutesPublisher =
+    underlying.searchLocalGatewayRoutesPaginator(searchLocalGatewayRoutesRequest)
+
   override def searchTransitGatewayMulticastGroups(
       searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
   ): Future[SearchTransitGatewayMulticastGroupsResponse] =
     underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest).toScala
+
+  def searchTransitGatewayMulticastGroupsPaginator(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): SearchTransitGatewayMulticastGroupsPublisher =
+    underlying.searchTransitGatewayMulticastGroupsPaginator(searchTransitGatewayMulticastGroupsRequest)
 
   override def searchTransitGatewayRoutes(
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest

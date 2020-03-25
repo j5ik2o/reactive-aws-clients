@@ -4,6 +4,7 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 
 trait ToAllOps
     extends ToOptionSupport
+    with ToArchivalSummaryOps
     with ToAttributeDefinitionOps
     with ToAttributeValueOps
     with ToAttributeValueUpdateOps
@@ -27,12 +28,14 @@ trait ToAllOps
     with ToConditionOps
     with ToConsumedCapacityOps
     with ToContinuousBackupsDescriptionOps
+    with ToContributorInsightsSummaryOps
     with ToCreateBackupRequestOps
     with ToCreateBackupResponseOps
     with ToCreateGlobalSecondaryIndexActionOps
     with ToCreateGlobalTableRequestOps
     with ToCreateGlobalTableResponseOps
     with ToCreateReplicaActionOps
+    with ToCreateReplicationGroupMemberActionOps
     with ToCreateTableRequestOps
     with ToCreateTableResponseOps
     with ToDeleteBackupRequestOps
@@ -42,6 +45,7 @@ trait ToAllOps
     with ToDeleteItemResponseOps
     with ToDeleteOps
     with ToDeleteReplicaActionOps
+    with ToDeleteReplicationGroupMemberActionOps
     with ToDeleteRequestOps
     with ToDeleteTableRequestOps
     with ToDeleteTableResponseOps
@@ -49,6 +53,8 @@ trait ToAllOps
     with ToDescribeBackupResponseOps
     with ToDescribeContinuousBackupsRequestOps
     with ToDescribeContinuousBackupsResponseOps
+    with ToDescribeContributorInsightsRequestOps
+    with ToDescribeContributorInsightsResponseOps
     with ToDescribeEndpointsRequestOps
     with ToDescribeEndpointsResponseOps
     with ToDescribeGlobalTableRequestOps
@@ -59,6 +65,8 @@ trait ToAllOps
     with ToDescribeLimitsResponseOps
     with ToDescribeStreamRequestOps
     with ToDescribeStreamResponseOps
+    with ToDescribeTableReplicaAutoScalingRequestOps
+    with ToDescribeTableReplicaAutoScalingResponseOps
     with ToDescribeTableRequestOps
     with ToDescribeTableResponseOps
     with ToDescribeTimeToLiveRequestOps
@@ -72,6 +80,7 @@ trait ToAllOps
     with ToGetRecordsResponseOps
     with ToGetShardIteratorRequestOps
     with ToGetShardIteratorResponseOps
+    with ToGlobalSecondaryIndexAutoScalingUpdateOps
     with ToGlobalSecondaryIndexDescriptionOps
     with ToGlobalSecondaryIndexInfoOps
     with ToGlobalSecondaryIndexOps
@@ -86,6 +95,8 @@ trait ToAllOps
     with ToKeysAndAttributesOps
     with ToListBackupsRequestOps
     with ToListBackupsResponseOps
+    with ToListContributorInsightsRequestOps
+    with ToListContributorInsightsResponseOps
     with ToListGlobalTablesRequestOps
     with ToListGlobalTablesResponseOps
     with ToListStreamsRequestOps
@@ -102,6 +113,7 @@ trait ToAllOps
     with ToProjectionOps
     with ToProvisionedThroughputDescriptionOps
     with ToProvisionedThroughputOps
+    with ToProvisionedThroughputOverrideOps
     with ToPutItemRequestOps
     with ToPutItemResponseOps
     with ToPutOps
@@ -109,13 +121,20 @@ trait ToAllOps
     with ToQueryRequestOps
     with ToQueryResponseOps
     with ToRecordOps
+    with ToReplicaAutoScalingDescriptionOps
+    with ToReplicaAutoScalingUpdateOps
     with ToReplicaDescriptionOps
+    with ToReplicaGlobalSecondaryIndexAutoScalingDescriptionOps
+    with ToReplicaGlobalSecondaryIndexAutoScalingUpdateOps
+    with ToReplicaGlobalSecondaryIndexDescriptionOps
+    with ToReplicaGlobalSecondaryIndexOps
     with ToReplicaGlobalSecondaryIndexSettingsDescriptionOps
     with ToReplicaGlobalSecondaryIndexSettingsUpdateOps
     with ToReplicaOps
     with ToReplicaSettingsDescriptionOps
     with ToReplicaSettingsUpdateOps
     with ToReplicaUpdateOps
+    with ToReplicationGroupUpdateOps
     with ToRestoreSummaryOps
     with ToRestoreTableFromBackupRequestOps
     with ToRestoreTableFromBackupResponseOps
@@ -133,6 +152,7 @@ trait ToAllOps
     with ToStreamOps
     with ToStreamRecordOps
     with ToStreamSpecificationOps
+    with ToTableAutoScalingDescriptionOps
     with ToTableDescriptionOps
     with ToTagOps
     with ToTagResourceRequestOps
@@ -149,6 +169,8 @@ trait ToAllOps
     with ToUntagResourceResponseOps
     with ToUpdateContinuousBackupsRequestOps
     with ToUpdateContinuousBackupsResponseOps
+    with ToUpdateContributorInsightsRequestOps
+    with ToUpdateContributorInsightsResponseOps
     with ToUpdateGlobalSecondaryIndexActionOps
     with ToUpdateGlobalTableRequestOps
     with ToUpdateGlobalTableResponseOps
@@ -157,6 +179,9 @@ trait ToAllOps
     with ToUpdateItemRequestOps
     with ToUpdateItemResponseOps
     with ToUpdateOps
+    with ToUpdateReplicationGroupMemberActionOps
+    with ToUpdateTableReplicaAutoScalingRequestOps
+    with ToUpdateTableReplicaAutoScalingResponseOps
     with ToUpdateTableRequestOps
     with ToUpdateTableResponseOps
     with ToUpdateTimeToLiveRequestOps

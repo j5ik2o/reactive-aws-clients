@@ -6,6 +6,8 @@ trait ToAllOps
     extends ToOptionSupport
     with ToAcceptReservedInstancesExchangeQuoteRequestOps
     with ToAcceptReservedInstancesExchangeQuoteResponseOps
+    with ToAcceptTransitGatewayPeeringAttachmentRequestOps
+    with ToAcceptTransitGatewayPeeringAttachmentResponseOps
     with ToAcceptTransitGatewayVpcAttachmentRequestOps
     with ToAcceptTransitGatewayVpcAttachmentResponseOps
     with ToAcceptVpcEndpointConnectionsRequestOps
@@ -41,6 +43,8 @@ trait ToAllOps
     with ToAssociateRouteTableResponseOps
     with ToAssociateSubnetCidrBlockRequestOps
     with ToAssociateSubnetCidrBlockResponseOps
+    with ToAssociateTransitGatewayMulticastDomainRequestOps
+    with ToAssociateTransitGatewayMulticastDomainResponseOps
     with ToAssociateTransitGatewayRouteTableRequestOps
     with ToAssociateTransitGatewayRouteTableResponseOps
     with ToAssociateVpcCidrBlockRequestOps
@@ -92,6 +96,8 @@ trait ToAllOps
     with ToCancelSpotInstanceRequestsResponseOps
     with ToCancelledSpotInstanceRequestOps
     with ToCapacityReservationOps
+    with ToCapacityReservationOptionsOps
+    with ToCapacityReservationOptionsRequestOps
     with ToCapacityReservationSpecificationOps
     with ToCapacityReservationSpecificationResponseOps
     with ToCapacityReservationTargetOps
@@ -115,6 +121,8 @@ trait ToAllOps
     with ToClientVpnEndpointStatusOps
     with ToClientVpnRouteOps
     with ToClientVpnRouteStatusOps
+    with ToCoipAddressUsageOps
+    with ToCoipPoolOps
     with ToConfirmProductInstanceRequestOps
     with ToConfirmProductInstanceResponseOps
     with ToConnectionLogOptionsOps
@@ -163,6 +171,10 @@ trait ToAllOps
     with ToCreateLaunchTemplateResponseOps
     with ToCreateLaunchTemplateVersionRequestOps
     with ToCreateLaunchTemplateVersionResponseOps
+    with ToCreateLocalGatewayRouteRequestOps
+    with ToCreateLocalGatewayRouteResponseOps
+    with ToCreateLocalGatewayRouteTableVpcAssociationRequestOps
+    with ToCreateLocalGatewayRouteTableVpcAssociationResponseOps
     with ToCreateNatGatewayRequestOps
     with ToCreateNatGatewayResponseOps
     with ToCreateNetworkAclEntryRequestOps
@@ -198,6 +210,10 @@ trait ToAllOps
     with ToCreateTrafficMirrorSessionResponseOps
     with ToCreateTrafficMirrorTargetRequestOps
     with ToCreateTrafficMirrorTargetResponseOps
+    with ToCreateTransitGatewayMulticastDomainRequestOps
+    with ToCreateTransitGatewayMulticastDomainResponseOps
+    with ToCreateTransitGatewayPeeringAttachmentRequestOps
+    with ToCreateTransitGatewayPeeringAttachmentResponseOps
     with ToCreateTransitGatewayRequestOps
     with ToCreateTransitGatewayResponseOps
     with ToCreateTransitGatewayRouteRequestOps
@@ -254,6 +270,10 @@ trait ToAllOps
     with ToDeleteLaunchTemplateVersionsResponseErrorItemOps
     with ToDeleteLaunchTemplateVersionsResponseOps
     with ToDeleteLaunchTemplateVersionsResponseSuccessItemOps
+    with ToDeleteLocalGatewayRouteRequestOps
+    with ToDeleteLocalGatewayRouteResponseOps
+    with ToDeleteLocalGatewayRouteTableVpcAssociationRequestOps
+    with ToDeleteLocalGatewayRouteTableVpcAssociationResponseOps
     with ToDeleteNatGatewayRequestOps
     with ToDeleteNatGatewayResponseOps
     with ToDeleteNetworkAclEntryRequestOps
@@ -279,6 +299,10 @@ trait ToAllOps
     with ToDeleteTrafficMirrorSessionResponseOps
     with ToDeleteTrafficMirrorTargetRequestOps
     with ToDeleteTrafficMirrorTargetResponseOps
+    with ToDeleteTransitGatewayMulticastDomainRequestOps
+    with ToDeleteTransitGatewayMulticastDomainResponseOps
+    with ToDeleteTransitGatewayPeeringAttachmentRequestOps
+    with ToDeleteTransitGatewayPeeringAttachmentResponseOps
     with ToDeleteTransitGatewayRequestOps
     with ToDeleteTransitGatewayResponseOps
     with ToDeleteTransitGatewayRouteRequestOps
@@ -303,6 +327,10 @@ trait ToAllOps
     with ToDeprovisionByoipCidrRequestOps
     with ToDeprovisionByoipCidrResponseOps
     with ToDeregisterImageRequestOps
+    with ToDeregisterTransitGatewayMulticastGroupMembersRequestOps
+    with ToDeregisterTransitGatewayMulticastGroupMembersResponseOps
+    with ToDeregisterTransitGatewayMulticastGroupSourcesRequestOps
+    with ToDeregisterTransitGatewayMulticastGroupSourcesResponseOps
     with ToDescribeAccountAttributesRequestOps
     with ToDescribeAccountAttributesResponseOps
     with ToDescribeAddressesRequestOps
@@ -328,6 +356,8 @@ trait ToAllOps
     with ToDescribeClientVpnRoutesResponseOps
     with ToDescribeClientVpnTargetNetworksRequestOps
     with ToDescribeClientVpnTargetNetworksResponseOps
+    with ToDescribeCoipPoolsRequestOps
+    with ToDescribeCoipPoolsResponseOps
     with ToDescribeConversionTasksRequestOps
     with ToDescribeConversionTasksResponseOps
     with ToDescribeCustomerGatewaysRequestOps
@@ -342,6 +372,9 @@ trait ToAllOps
     with ToDescribeExportImageTasksResponseOps
     with ToDescribeExportTasksRequestOps
     with ToDescribeExportTasksResponseOps
+    with ToDescribeFastSnapshotRestoreSuccessItemOps
+    with ToDescribeFastSnapshotRestoresRequestOps
+    with ToDescribeFastSnapshotRestoresResponseOps
     with ToDescribeFleetErrorOps
     with ToDescribeFleetHistoryRequestOps
     with ToDescribeFleetHistoryResponseOps
@@ -382,16 +415,34 @@ trait ToAllOps
     with ToDescribeInstanceCreditSpecificationsResponseOps
     with ToDescribeInstanceStatusRequestOps
     with ToDescribeInstanceStatusResponseOps
+    with ToDescribeInstanceTypeOfferingsRequestOps
+    with ToDescribeInstanceTypeOfferingsResponseOps
+    with ToDescribeInstanceTypesRequestOps
+    with ToDescribeInstanceTypesResponseOps
     with ToDescribeInstancesRequestOps
     with ToDescribeInstancesResponseOps
     with ToDescribeInternetGatewaysRequestOps
     with ToDescribeInternetGatewaysResponseOps
+    with ToDescribeIpv6PoolsRequestOps
+    with ToDescribeIpv6PoolsResponseOps
     with ToDescribeKeyPairsRequestOps
     with ToDescribeKeyPairsResponseOps
     with ToDescribeLaunchTemplateVersionsRequestOps
     with ToDescribeLaunchTemplateVersionsResponseOps
     with ToDescribeLaunchTemplatesRequestOps
     with ToDescribeLaunchTemplatesResponseOps
+    with ToDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestOps
+    with ToDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponseOps
+    with ToDescribeLocalGatewayRouteTableVpcAssociationsRequestOps
+    with ToDescribeLocalGatewayRouteTableVpcAssociationsResponseOps
+    with ToDescribeLocalGatewayRouteTablesRequestOps
+    with ToDescribeLocalGatewayRouteTablesResponseOps
+    with ToDescribeLocalGatewayVirtualInterfaceGroupsRequestOps
+    with ToDescribeLocalGatewayVirtualInterfaceGroupsResponseOps
+    with ToDescribeLocalGatewayVirtualInterfacesRequestOps
+    with ToDescribeLocalGatewayVirtualInterfacesResponseOps
+    with ToDescribeLocalGatewaysRequestOps
+    with ToDescribeLocalGatewaysResponseOps
     with ToDescribeMovingAddressesRequestOps
     with ToDescribeMovingAddressesResponseOps
     with ToDescribeNatGatewaysRequestOps
@@ -461,6 +512,10 @@ trait ToAllOps
     with ToDescribeTrafficMirrorTargetsResponseOps
     with ToDescribeTransitGatewayAttachmentsRequestOps
     with ToDescribeTransitGatewayAttachmentsResponseOps
+    with ToDescribeTransitGatewayMulticastDomainsRequestOps
+    with ToDescribeTransitGatewayMulticastDomainsResponseOps
+    with ToDescribeTransitGatewayPeeringAttachmentsRequestOps
+    with ToDescribeTransitGatewayPeeringAttachmentsResponseOps
     with ToDescribeTransitGatewayRouteTablesRequestOps
     with ToDescribeTransitGatewayRouteTablesResponseOps
     with ToDescribeTransitGatewayVpcAttachmentsRequestOps
@@ -513,6 +568,12 @@ trait ToAllOps
     with ToDirectoryServiceAuthenticationOps
     with ToDirectoryServiceAuthenticationRequestOps
     with ToDisableEbsEncryptionByDefaultResponseOps
+    with ToDisableFastSnapshotRestoreErrorItemOps
+    with ToDisableFastSnapshotRestoreStateErrorItemOps
+    with ToDisableFastSnapshotRestoreStateErrorOps
+    with ToDisableFastSnapshotRestoreSuccessItemOps
+    with ToDisableFastSnapshotRestoresRequestOps
+    with ToDisableFastSnapshotRestoresResponseOps
     with ToDisableTransitGatewayRouteTablePropagationRequestOps
     with ToDisableTransitGatewayRouteTablePropagationResponseOps
     with ToDisableVgwRoutePropagationRequestOps
@@ -528,6 +589,8 @@ trait ToAllOps
     with ToDisassociateRouteTableRequestOps
     with ToDisassociateSubnetCidrBlockRequestOps
     with ToDisassociateSubnetCidrBlockResponseOps
+    with ToDisassociateTransitGatewayMulticastDomainRequestOps
+    with ToDisassociateTransitGatewayMulticastDomainResponseOps
     with ToDisassociateTransitGatewayRouteTableRequestOps
     with ToDisassociateTransitGatewayRouteTableResponseOps
     with ToDisassociateVpcCidrBlockRequestOps
@@ -536,9 +599,11 @@ trait ToAllOps
     with ToDiskImageDetailOps
     with ToDiskImageOps
     with ToDiskImageVolumeDescriptionOps
+    with ToDiskInfoOps
     with ToDnsEntryOps
     with ToDnsServersOptionsModifyStructureOps
     with ToEbsBlockDeviceOps
+    with ToEbsInfoOps
     with ToEbsInstanceBlockDeviceOps
     with ToEbsInstanceBlockDeviceSpecificationOps
     with ToEgressOnlyInternetGatewayOps
@@ -550,6 +615,12 @@ trait ToAllOps
     with ToElasticInferenceAcceleratorAssociationOps
     with ToElasticInferenceAcceleratorOps
     with ToEnableEbsEncryptionByDefaultResponseOps
+    with ToEnableFastSnapshotRestoreErrorItemOps
+    with ToEnableFastSnapshotRestoreStateErrorItemOps
+    with ToEnableFastSnapshotRestoreStateErrorOps
+    with ToEnableFastSnapshotRestoreSuccessItemOps
+    with ToEnableFastSnapshotRestoresRequestOps
+    with ToEnableFastSnapshotRestoresResponseOps
     with ToEnableTransitGatewayRouteTablePropagationRequestOps
     with ToEnableTransitGatewayRouteTablePropagationResponseOps
     with ToEnableVgwRoutePropagationRequestOps
@@ -583,15 +654,24 @@ trait ToAllOps
     with ToFleetLaunchTemplateSpecificationOps
     with ToFleetLaunchTemplateSpecificationRequestOps
     with ToFlowLogOps
+    with ToFpgaDeviceInfoOps
+    with ToFpgaDeviceMemoryInfoOps
     with ToFpgaImageAttributeOps
     with ToFpgaImageOps
     with ToFpgaImageStateOps
+    with ToFpgaInfoOps
+    with ToGetAssociatedIpv6PoolCidrsRequestOps
+    with ToGetAssociatedIpv6PoolCidrsResponseOps
     with ToGetCapacityReservationUsageRequestOps
     with ToGetCapacityReservationUsageResponseOps
+    with ToGetCoipPoolUsageRequestOps
+    with ToGetCoipPoolUsageResponseOps
     with ToGetConsoleOutputRequestOps
     with ToGetConsoleOutputResponseOps
     with ToGetConsoleScreenshotRequestOps
     with ToGetConsoleScreenshotResponseOps
+    with ToGetDefaultCreditSpecificationRequestOps
+    with ToGetDefaultCreditSpecificationResponseOps
     with ToGetEbsDefaultKmsKeyIdResponseOps
     with ToGetEbsEncryptionByDefaultResponseOps
     with ToGetHostReservationPurchasePreviewRequestOps
@@ -604,10 +684,15 @@ trait ToAllOps
     with ToGetReservedInstancesExchangeQuoteResponseOps
     with ToGetTransitGatewayAttachmentPropagationsRequestOps
     with ToGetTransitGatewayAttachmentPropagationsResponseOps
+    with ToGetTransitGatewayMulticastDomainAssociationsRequestOps
+    with ToGetTransitGatewayMulticastDomainAssociationsResponseOps
     with ToGetTransitGatewayRouteTableAssociationsRequestOps
     with ToGetTransitGatewayRouteTableAssociationsResponseOps
     with ToGetTransitGatewayRouteTablePropagationsRequestOps
     with ToGetTransitGatewayRouteTablePropagationsResponseOps
+    with ToGpuDeviceInfoOps
+    with ToGpuDeviceMemoryInfoOps
+    with ToGpuInfoOps
     with ToGroupIdentifierOps
     with ToHibernationOptionsOps
     with ToHibernationOptionsRequestOps
@@ -629,6 +714,8 @@ trait ToAllOps
     with ToImageOps
     with ToImportClientVpnClientCertificateRevocationListRequestOps
     with ToImportClientVpnClientCertificateRevocationListResponseOps
+    with ToImportImageLicenseConfigurationRequestOps
+    with ToImportImageLicenseConfigurationResponseOps
     with ToImportImageRequestOps
     with ToImportImageResponseOps
     with ToImportImageTaskOps
@@ -645,6 +732,8 @@ trait ToAllOps
     with ToImportVolumeRequestOps
     with ToImportVolumeResponseOps
     with ToImportVolumeTaskDetailsOps
+    with ToInferenceAcceleratorInfoOps
+    with ToInferenceDeviceInfoOps
     with ToInstanceBlockDeviceMappingOps
     with ToInstanceBlockDeviceMappingSpecificationOps
     with ToInstanceCapacityOps
@@ -652,9 +741,12 @@ trait ToAllOps
     with ToInstanceCreditSpecificationOps
     with ToInstanceCreditSpecificationRequestOps
     with ToInstanceExportDetailsOps
+    with ToInstanceFamilyCreditSpecificationOps
     with ToInstanceIpv6AddressOps
     with ToInstanceIpv6AddressRequestOps
     with ToInstanceMarketOptionsRequestOps
+    with ToInstanceMetadataOptionsRequestOps
+    with ToInstanceMetadataOptionsResponseOps
     with ToInstanceMonitoringOps
     with ToInstanceNetworkInterfaceAssociationOps
     with ToInstanceNetworkInterfaceAttachmentOps
@@ -669,14 +761,20 @@ trait ToAllOps
     with ToInstanceStatusEventOps
     with ToInstanceStatusOps
     with ToInstanceStatusSummaryOps
+    with ToInstanceStorageInfoOps
+    with ToInstanceTypeInfoOps
+    with ToInstanceTypeOfferingOps
     with ToInstanceUsageOps
     with ToInternetGatewayAttachmentOps
     with ToInternetGatewayOps
     with ToIpPermissionOps
     with ToIpRangeOps
+    with ToIpv6CidrAssociationOps
     with ToIpv6CidrBlockOps
+    with ToIpv6PoolOps
     with ToIpv6RangeOps
     with ToKeyPairInfoOps
+    with ToLastErrorOps
     with ToLaunchPermissionModificationsOps
     with ToLaunchPermissionOps
     with ToLaunchSpecificationOps
@@ -698,6 +796,8 @@ trait ToAllOps
     with ToLaunchTemplateIamInstanceProfileSpecificationRequestOps
     with ToLaunchTemplateInstanceMarketOptionsOps
     with ToLaunchTemplateInstanceMarketOptionsRequestOps
+    with ToLaunchTemplateInstanceMetadataOptionsOps
+    with ToLaunchTemplateInstanceMetadataOptionsRequestOps
     with ToLaunchTemplateInstanceNetworkInterfaceSpecificationOps
     with ToLaunchTemplateInstanceNetworkInterfaceSpecificationRequestOps
     with ToLaunchTemplateLicenseConfigurationOps
@@ -720,10 +820,22 @@ trait ToAllOps
     with ToLoadPermissionModificationsOps
     with ToLoadPermissionOps
     with ToLoadPermissionRequestOps
+    with ToLocalGatewayOps
+    with ToLocalGatewayRouteOps
+    with ToLocalGatewayRouteTableOps
+    with ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationOps
+    with ToLocalGatewayRouteTableVpcAssociationOps
+    with ToLocalGatewayVirtualInterfaceGroupOps
+    with ToLocalGatewayVirtualInterfaceOps
+    with ToMemoryInfoOps
+    with ToModifyAvailabilityZoneGroupRequestOps
+    with ToModifyAvailabilityZoneGroupResponseOps
     with ToModifyCapacityReservationRequestOps
     with ToModifyCapacityReservationResponseOps
     with ToModifyClientVpnEndpointRequestOps
     with ToModifyClientVpnEndpointResponseOps
+    with ToModifyDefaultCreditSpecificationRequestOps
+    with ToModifyDefaultCreditSpecificationResponseOps
     with ToModifyEbsDefaultKmsKeyIdRequestOps
     with ToModifyEbsDefaultKmsKeyIdResponseOps
     with ToModifyFleetRequestOps
@@ -742,6 +854,8 @@ trait ToAllOps
     with ToModifyInstanceCreditSpecificationResponseOps
     with ToModifyInstanceEventStartTimeRequestOps
     with ToModifyInstanceEventStartTimeResponseOps
+    with ToModifyInstanceMetadataOptionsRequestOps
+    with ToModifyInstanceMetadataOptionsResponseOps
     with ToModifyInstancePlacementRequestOps
     with ToModifyInstancePlacementResponseOps
     with ToModifyLaunchTemplateRequestOps
@@ -796,6 +910,7 @@ trait ToAllOps
     with ToNetworkAclAssociationOps
     with ToNetworkAclEntryOps
     with ToNetworkAclOps
+    with ToNetworkInfoOps
     with ToNetworkInterfaceAssociationOps
     with ToNetworkInterfaceAttachmentChangesOps
     with ToNetworkInterfaceAttachmentOps
@@ -808,8 +923,10 @@ trait ToAllOps
     with ToOnDemandOptionsOps
     with ToOnDemandOptionsRequestOps
     with ToPciIdOps
+    with ToPeeringAttachmentStatusOps
     with ToPeeringConnectionOptionsOps
     with ToPeeringConnectionOptionsRequestOps
+    with ToPeeringTgwInfoOps
     with ToPhase1DHGroupNumbersListValueOps
     with ToPhase1DHGroupNumbersRequestListValueOps
     with ToPhase1EncryptionAlgorithmsListValueOps
@@ -822,9 +939,11 @@ trait ToAllOps
     with ToPhase2EncryptionAlgorithmsRequestListValueOps
     with ToPhase2IntegrityAlgorithmsListValueOps
     with ToPhase2IntegrityAlgorithmsRequestListValueOps
+    with ToPlacementGroupInfoOps
     with ToPlacementGroupOps
     with ToPlacementOps
     with ToPlacementResponseOps
+    with ToPoolCidrBlockOps
     with ToPortRangeOps
     with ToPrefixListIdOps
     with ToPrefixListOps
@@ -832,7 +951,9 @@ trait ToAllOps
     with ToPriceScheduleSpecificationOps
     with ToPricingDetailOps
     with ToPrincipalIdFormatOps
+    with ToPrivateDnsNameConfigurationOps
     with ToPrivateIpAddressSpecificationOps
+    with ToProcessorInfoOps
     with ToProductCodeOps
     with ToPropagatingVgwOps
     with ToProvisionByoipCidrRequestOps
@@ -853,6 +974,12 @@ trait ToAllOps
     with ToRegionOps
     with ToRegisterImageRequestOps
     with ToRegisterImageResponseOps
+    with ToRegisterTransitGatewayMulticastGroupMembersRequestOps
+    with ToRegisterTransitGatewayMulticastGroupMembersResponseOps
+    with ToRegisterTransitGatewayMulticastGroupSourcesRequestOps
+    with ToRegisterTransitGatewayMulticastGroupSourcesResponseOps
+    with ToRejectTransitGatewayPeeringAttachmentRequestOps
+    with ToRejectTransitGatewayPeeringAttachmentResponseOps
     with ToRejectTransitGatewayVpcAttachmentRequestOps
     with ToRejectTransitGatewayVpcAttachmentResponseOps
     with ToRejectVpcEndpointConnectionsRequestOps
@@ -907,6 +1034,7 @@ trait ToAllOps
     with ToRevokeSecurityGroupIngressRequestOps
     with ToRouteOps
     with ToRouteTableAssociationOps
+    with ToRouteTableAssociationStateOps
     with ToRouteTableOps
     with ToRunInstancesMonitoringEnabledOps
     with ToRunInstancesRequestOps
@@ -927,6 +1055,10 @@ trait ToAllOps
     with ToScheduledInstancesNetworkInterfaceOps
     with ToScheduledInstancesPlacementOps
     with ToScheduledInstancesPrivateIpAddressConfigOps
+    with ToSearchLocalGatewayRoutesRequestOps
+    with ToSearchLocalGatewayRoutesResponseOps
+    with ToSearchTransitGatewayMulticastGroupsRequestOps
+    with ToSearchTransitGatewayMulticastGroupsResponseOps
     with ToSearchTransitGatewayRoutesRequestOps
     with ToSearchTransitGatewayRoutesResponseOps
     with ToSecurityGroupIdentifierOps
@@ -961,11 +1093,14 @@ trait ToAllOps
     with ToStaleSecurityGroupOps
     with ToStartInstancesRequestOps
     with ToStartInstancesResponseOps
+    with ToStartVpcEndpointServicePrivateDnsVerificationRequestOps
+    with ToStartVpcEndpointServicePrivateDnsVerificationResponseOps
     with ToStateReasonOps
     with ToStopInstancesRequestOps
     with ToStopInstancesResponseOps
     with ToStorageLocationOps
     with ToStorageOps
+    with ToSubnetAssociationOps
     with ToSubnetCidrBlockStateOps
     with ToSubnetIpv6CidrBlockAssociationOps
     with ToSubnetOps
@@ -997,8 +1132,17 @@ trait ToAllOps
     with ToTransitGatewayAttachmentAssociationOps
     with ToTransitGatewayAttachmentOps
     with ToTransitGatewayAttachmentPropagationOps
+    with ToTransitGatewayMulticastDeregisteredGroupMembersOps
+    with ToTransitGatewayMulticastDeregisteredGroupSourcesOps
+    with ToTransitGatewayMulticastDomainAssociationOps
+    with ToTransitGatewayMulticastDomainAssociationsOps
+    with ToTransitGatewayMulticastDomainOps
+    with ToTransitGatewayMulticastGroupOps
+    with ToTransitGatewayMulticastRegisteredGroupMembersOps
+    with ToTransitGatewayMulticastRegisteredGroupSourcesOps
     with ToTransitGatewayOps
     with ToTransitGatewayOptionsOps
+    with ToTransitGatewayPeeringAttachmentOps
     with ToTransitGatewayPropagationOps
     with ToTransitGatewayRequestOptionsOps
     with ToTransitGatewayRouteAttachmentOps
@@ -1026,12 +1170,14 @@ trait ToAllOps
     with ToUserBucketOps
     with ToUserDataOps
     with ToUserIdGroupPairOps
+    with ToVCpuInfoOps
     with ToVgwTelemetryOps
     with ToVolumeAttachmentOps
     with ToVolumeDetailOps
     with ToVolumeModificationOps
     with ToVolumeOps
     with ToVolumeStatusActionOps
+    with ToVolumeStatusAttachmentStatusOps
     with ToVolumeStatusDetailsOps
     with ToVolumeStatusEventOps
     with ToVolumeStatusInfoOps

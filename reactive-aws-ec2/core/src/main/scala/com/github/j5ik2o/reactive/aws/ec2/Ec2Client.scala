@@ -1169,6 +1169,10 @@ trait Ec2Client[M[_]] {
 
   def importVolume(importVolumeRequest: ImportVolumeRequest): M[ImportVolumeResponse]
 
+  def modifyAvailabilityZoneGroup(
+      modifyAvailabilityZoneGroupRequest: ModifyAvailabilityZoneGroupRequest
+  ): M[ModifyAvailabilityZoneGroupResponse]
+
   def modifyCapacityReservation(
       modifyCapacityReservationRequest: ModifyCapacityReservationRequest
   ): M[ModifyCapacityReservationResponse]

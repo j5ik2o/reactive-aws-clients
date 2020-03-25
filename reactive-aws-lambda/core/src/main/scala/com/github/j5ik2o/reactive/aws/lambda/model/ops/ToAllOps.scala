@@ -24,8 +24,11 @@ trait ToAllOps
     with ToDeleteEventSourceMappingRequestOps
     with ToDeleteEventSourceMappingResponseOps
     with ToDeleteFunctionConcurrencyRequestOps
+    with ToDeleteFunctionEventInvokeConfigRequestOps
     with ToDeleteFunctionRequestOps
     with ToDeleteLayerVersionRequestOps
+    with ToDeleteProvisionedConcurrencyConfigRequestOps
+    with ToDestinationConfigOps
     with ToEnvironmentErrorOps
     with ToEnvironmentOps
     with ToEnvironmentResponseOps
@@ -33,13 +36,18 @@ trait ToAllOps
     with ToFunctionCodeLocationOps
     with ToFunctionCodeOps
     with ToFunctionConfigurationOps
+    with ToFunctionEventInvokeConfigOps
     with ToGetAccountSettingsResponseOps
     with ToGetAliasRequestOps
     with ToGetAliasResponseOps
     with ToGetEventSourceMappingRequestOps
     with ToGetEventSourceMappingResponseOps
+    with ToGetFunctionConcurrencyRequestOps
+    with ToGetFunctionConcurrencyResponseOps
     with ToGetFunctionConfigurationRequestOps
     with ToGetFunctionConfigurationResponseOps
+    with ToGetFunctionEventInvokeConfigRequestOps
+    with ToGetFunctionEventInvokeConfigResponseOps
     with ToGetFunctionRequestOps
     with ToGetFunctionResponseOps
     with ToGetLayerVersionByArnRequestOps
@@ -50,6 +58,8 @@ trait ToAllOps
     with ToGetLayerVersionResponseOps
     with ToGetPolicyRequestOps
     with ToGetPolicyResponseOps
+    with ToGetProvisionedConcurrencyConfigRequestOps
+    with ToGetProvisionedConcurrencyConfigResponseOps
     with ToInvokeRequestOps
     with ToInvokeResponseOps
     with ToLayerOps
@@ -61,22 +71,33 @@ trait ToAllOps
     with ToListAliasesResponseOps
     with ToListEventSourceMappingsRequestOps
     with ToListEventSourceMappingsResponseOps
+    with ToListFunctionEventInvokeConfigsRequestOps
+    with ToListFunctionEventInvokeConfigsResponseOps
     with ToListFunctionsRequestOps
     with ToListFunctionsResponseOps
     with ToListLayerVersionsRequestOps
     with ToListLayerVersionsResponseOps
     with ToListLayersRequestOps
     with ToListLayersResponseOps
+    with ToListProvisionedConcurrencyConfigsRequestOps
+    with ToListProvisionedConcurrencyConfigsResponseOps
     with ToListTagsRequestOps
     with ToListTagsResponseOps
     with ToListVersionsByFunctionRequestOps
     with ToListVersionsByFunctionResponseOps
+    with ToOnFailureOps
+    with ToOnSuccessOps
+    with ToProvisionedConcurrencyConfigListItemOps
     with ToPublishLayerVersionRequestOps
     with ToPublishLayerVersionResponseOps
     with ToPublishVersionRequestOps
     with ToPublishVersionResponseOps
     with ToPutFunctionConcurrencyRequestOps
     with ToPutFunctionConcurrencyResponseOps
+    with ToPutFunctionEventInvokeConfigRequestOps
+    with ToPutFunctionEventInvokeConfigResponseOps
+    with ToPutProvisionedConcurrencyConfigRequestOps
+    with ToPutProvisionedConcurrencyConfigResponseOps
     with ToRemoveLayerVersionPermissionRequestOps
     with ToRemovePermissionRequestOps
     with ToTagResourceRequestOps
@@ -91,5 +112,7 @@ trait ToAllOps
     with ToUpdateFunctionCodeResponseOps
     with ToUpdateFunctionConfigurationRequestOps
     with ToUpdateFunctionConfigurationResponseOps
+    with ToUpdateFunctionEventInvokeConfigRequestOps
+    with ToUpdateFunctionEventInvokeConfigResponseOps
     with ToVpcConfigOps
     with ToVpcConfigResponseOps

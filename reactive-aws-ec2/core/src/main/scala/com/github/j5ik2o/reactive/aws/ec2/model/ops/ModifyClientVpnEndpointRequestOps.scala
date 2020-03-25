@@ -56,6 +56,20 @@ final class ModifyClientVpnEndpointRequestBuilderOps(val self: ModifyClientVpnEn
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def securityGroupIdsAsScala(value: Option[Seq[String]]): ModifyClientVpnEndpointRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.securityGroupIds(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpcIdAsScala(value: Option[String]): ModifyClientVpnEndpointRequest.Builder = {
+    value.fold(self) { v =>
+      self.vpcId(v)
+    }
+  }
+
 }
 
 final class ModifyClientVpnEndpointRequestOps(val self: ModifyClientVpnEndpointRequest) extends AnyVal {
@@ -80,6 +94,14 @@ final class ModifyClientVpnEndpointRequestOps(val self: ModifyClientVpnEndpointR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def splitTunnelAsScala: Option[Boolean] = Option(self.splitTunnel)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }
 

@@ -32,6 +32,10 @@ trait ToAllOps
     with ToEnableKeyRotationRequestOps
     with ToEncryptRequestOps
     with ToEncryptResponseOps
+    with ToGenerateDataKeyPairRequestOps
+    with ToGenerateDataKeyPairResponseOps
+    with ToGenerateDataKeyPairWithoutPlaintextRequestOps
+    with ToGenerateDataKeyPairWithoutPlaintextResponseOps
     with ToGenerateDataKeyRequestOps
     with ToGenerateDataKeyResponseOps
     with ToGenerateDataKeyWithoutPlaintextRequestOps
@@ -44,6 +48,8 @@ trait ToAllOps
     with ToGetKeyRotationStatusResponseOps
     with ToGetParametersForImportRequestOps
     with ToGetParametersForImportResponseOps
+    with ToGetPublicKeyRequestOps
+    with ToGetPublicKeyResponseOps
     with ToGrantConstraintsOps
     with ToGrantListEntryOps
     with ToImportKeyMaterialRequestOps
@@ -68,9 +74,13 @@ trait ToAllOps
     with ToRevokeGrantRequestOps
     with ToScheduleKeyDeletionRequestOps
     with ToScheduleKeyDeletionResponseOps
+    with ToSignRequestOps
+    with ToSignResponseOps
     with ToTagOps
     with ToTagResourceRequestOps
     with ToUntagResourceRequestOps
     with ToUpdateAliasRequestOps
     with ToUpdateCustomKeyStoreRequestOps
     with ToUpdateKeyDescriptionRequestOps
+    with ToVerifyRequestOps
+    with ToVerifyResponseOps
