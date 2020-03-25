@@ -7,7 +7,10 @@ trait ToAllOps
     with ToAttachmentOps
     with ToAttachmentStateChangeOps
     with ToAttributeOps
+    with ToAutoScalingGroupProviderOps
     with ToAwsVpcConfigurationOps
+    with ToCapacityProviderOps
+    with ToCapacityProviderStrategyItemOps
     with ToClusterOps
     with ToClusterSettingOps
     with ToContainerDefinitionOps
@@ -16,6 +19,8 @@ trait ToAllOps
     with ToContainerOps
     with ToContainerOverrideOps
     with ToContainerStateChangeOps
+    with ToCreateCapacityProviderRequestOps
+    with ToCreateCapacityProviderResponseOps
     with ToCreateClusterRequestOps
     with ToCreateClusterResponseOps
     with ToCreateServiceRequestOps
@@ -39,6 +44,8 @@ trait ToAllOps
     with ToDeregisterContainerInstanceResponseOps
     with ToDeregisterTaskDefinitionRequestOps
     with ToDeregisterTaskDefinitionResponseOps
+    with ToDescribeCapacityProvidersRequestOps
+    with ToDescribeCapacityProvidersResponseOps
     with ToDescribeClustersRequestOps
     with ToDescribeClustersResponseOps
     with ToDescribeContainerInstancesRequestOps
@@ -55,6 +62,7 @@ trait ToAllOps
     with ToDiscoverPollEndpointRequestOps
     with ToDiscoverPollEndpointResponseOps
     with ToDockerVolumeConfigurationOps
+    with ToEFSVolumeConfigurationOps
     with ToFailureOps
     with ToFirelensConfigurationOps
     with ToHealthCheckOps
@@ -85,6 +93,7 @@ trait ToAllOps
     with ToListTasksResponseOps
     with ToLoadBalancerOps
     with ToLogConfigurationOps
+    with ToManagedScalingOps
     with ToMountPointOps
     with ToNetworkBindingOps
     with ToNetworkConfigurationOps
@@ -100,6 +109,8 @@ trait ToAllOps
     with ToPutAccountSettingResponseOps
     with ToPutAttributesRequestOps
     with ToPutAttributesResponseOps
+    with ToPutClusterCapacityProvidersRequestOps
+    with ToPutClusterCapacityProvidersResponseOps
     with ToRegisterContainerInstanceRequestOps
     with ToRegisterContainerInstanceResponseOps
     with ToRegisterTaskDefinitionRequestOps

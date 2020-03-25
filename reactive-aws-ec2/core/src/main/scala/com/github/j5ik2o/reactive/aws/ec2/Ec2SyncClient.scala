@@ -858,6 +858,9 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeCoipPoolsResponse] =
     underlying.describeCoipPools(describeCoipPoolsRequest).toEither
 
+  def describeCoipPoolsPaginator(describeCoipPoolsRequest: DescribeCoipPoolsRequest): DescribeCoipPoolsIterable =
+    underlying.describeCoipPoolsPaginator(describeCoipPoolsRequest)
+
   override def describeConversionTasks(): Either[Throwable, DescribeConversionTasksResponse] =
     underlying.describeConversionTasks().toEither
 
@@ -1156,10 +1159,20 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeInstanceTypeOfferingsResponse] =
     underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest).toEither
 
+  def describeInstanceTypeOfferingsPaginator(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): DescribeInstanceTypeOfferingsIterable =
+    underlying.describeInstanceTypeOfferingsPaginator(describeInstanceTypeOfferingsRequest)
+
   override def describeInstanceTypes(
       describeInstanceTypesRequest: DescribeInstanceTypesRequest
   ): Either[Throwable, DescribeInstanceTypesResponse] =
     underlying.describeInstanceTypes(describeInstanceTypesRequest).toEither
+
+  def describeInstanceTypesPaginator(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): DescribeInstanceTypesIterable =
+    underlying.describeInstanceTypesPaginator(describeInstanceTypesRequest)
 
   override def describeInstances(): Either[Throwable, DescribeInstancesResponse] =
     underlying.describeInstances().toEither
@@ -1241,31 +1254,65 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
         describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
       ).toEither
 
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsIterable =
+    underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+    )
+
   override def describeLocalGatewayRouteTableVpcAssociations(
       describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
   ): Either[Throwable, DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
     underlying
       .describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest).toEither
 
+  def describeLocalGatewayRouteTableVpcAssociationsPaginator(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): DescribeLocalGatewayRouteTableVpcAssociationsIterable =
+    underlying.describeLocalGatewayRouteTableVpcAssociationsPaginator(
+      describeLocalGatewayRouteTableVpcAssociationsRequest
+    )
+
   override def describeLocalGatewayRouteTables(
       describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
   ): Either[Throwable, DescribeLocalGatewayRouteTablesResponse] =
     underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest).toEither
+
+  def describeLocalGatewayRouteTablesPaginator(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): DescribeLocalGatewayRouteTablesIterable =
+    underlying.describeLocalGatewayRouteTablesPaginator(describeLocalGatewayRouteTablesRequest)
 
   override def describeLocalGatewayVirtualInterfaceGroups(
       describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
   ): Either[Throwable, DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
     underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest).toEither
 
+  def describeLocalGatewayVirtualInterfaceGroupsPaginator(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): DescribeLocalGatewayVirtualInterfaceGroupsIterable =
+    underlying.describeLocalGatewayVirtualInterfaceGroupsPaginator(describeLocalGatewayVirtualInterfaceGroupsRequest)
+
   override def describeLocalGatewayVirtualInterfaces(
       describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
   ): Either[Throwable, DescribeLocalGatewayVirtualInterfacesResponse] =
     underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest).toEither
 
+  def describeLocalGatewayVirtualInterfacesPaginator(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): DescribeLocalGatewayVirtualInterfacesIterable =
+    underlying.describeLocalGatewayVirtualInterfacesPaginator(describeLocalGatewayVirtualInterfacesRequest)
+
   override def describeLocalGateways(
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): Either[Throwable, DescribeLocalGatewaysResponse] =
     underlying.describeLocalGateways(describeLocalGatewaysRequest).toEither
+
+  def describeLocalGatewaysPaginator(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): DescribeLocalGatewaysIterable =
+    underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest)
 
   override def describeMovingAddresses(): Either[Throwable, DescribeMovingAddressesResponse] =
     underlying.describeMovingAddresses().toEither
@@ -1700,10 +1747,20 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DescribeTransitGatewayMulticastDomainsResponse] =
     underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest).toEither
 
+  def describeTransitGatewayMulticastDomainsPaginator(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): DescribeTransitGatewayMulticastDomainsIterable =
+    underlying.describeTransitGatewayMulticastDomainsPaginator(describeTransitGatewayMulticastDomainsRequest)
+
   override def describeTransitGatewayPeeringAttachments(
       describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
   ): Either[Throwable, DescribeTransitGatewayPeeringAttachmentsResponse] =
     underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest).toEither
+
+  def describeTransitGatewayPeeringAttachmentsPaginator(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): DescribeTransitGatewayPeeringAttachmentsIterable =
+    underlying.describeTransitGatewayPeeringAttachmentsPaginator(describeTransitGatewayPeeringAttachmentsRequest)
 
   override def describeTransitGatewayRouteTables(): Either[Throwable, DescribeTransitGatewayRouteTablesResponse] =
     underlying.describeTransitGatewayRouteTables().toEither
@@ -2187,6 +2244,13 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
     underlying
       .getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest).toEither
 
+  def getTransitGatewayMulticastDomainAssociationsPaginator(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): GetTransitGatewayMulticastDomainAssociationsIterable =
+    underlying.getTransitGatewayMulticastDomainAssociationsPaginator(
+      getTransitGatewayMulticastDomainAssociationsRequest
+    )
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): Either[Throwable, GetTransitGatewayRouteTableAssociationsResponse] =
@@ -2227,6 +2291,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
 
   override def importVolume(importVolumeRequest: ImportVolumeRequest): Either[Throwable, ImportVolumeResponse] =
     underlying.importVolume(importVolumeRequest).toEither
+
+  override def modifyAvailabilityZoneGroup(
+      modifyAvailabilityZoneGroupRequest: ModifyAvailabilityZoneGroupRequest
+  ): Either[Throwable, ModifyAvailabilityZoneGroupResponse] =
+    underlying.modifyAvailabilityZoneGroup(modifyAvailabilityZoneGroupRequest).toEither
 
   override def modifyCapacityReservation(
       modifyCapacityReservationRequest: ModifyCapacityReservationRequest
@@ -2590,10 +2659,20 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, SearchLocalGatewayRoutesResponse] =
     underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest).toEither
 
+  def searchLocalGatewayRoutesPaginator(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): SearchLocalGatewayRoutesIterable =
+    underlying.searchLocalGatewayRoutesPaginator(searchLocalGatewayRoutesRequest)
+
   override def searchTransitGatewayMulticastGroups(
       searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
   ): Either[Throwable, SearchTransitGatewayMulticastGroupsResponse] =
     underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest).toEither
+
+  def searchTransitGatewayMulticastGroupsPaginator(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): SearchTransitGatewayMulticastGroupsIterable =
+    underlying.searchTransitGatewayMulticastGroupsPaginator(searchTransitGatewayMulticastGroupsRequest)
 
   override def searchTransitGatewayRoutes(
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest

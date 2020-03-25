@@ -5,10 +5,14 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 trait ToAllOps
     extends ToOptionSupport
     with ToAdditionalAuthenticationProviderOps
+    with ToApiCacheOps
     with ToApiKeyOps
     with ToAuthorizationConfigOps
     with ToAwsIamConfigOps
+    with ToCachingConfigOps
     with ToCognitoUserPoolConfigOps
+    with ToCreateApiCacheRequestOps
+    with ToCreateApiCacheResponseOps
     with ToCreateApiKeyRequestOps
     with ToCreateApiKeyResponseOps
     with ToCreateDataSourceRequestOps
@@ -22,15 +26,20 @@ trait ToAllOps
     with ToCreateTypeRequestOps
     with ToCreateTypeResponseOps
     with ToDataSourceOps
+    with ToDeleteApiCacheRequestOps
     with ToDeleteApiKeyRequestOps
     with ToDeleteDataSourceRequestOps
     with ToDeleteFunctionRequestOps
     with ToDeleteGraphqlApiRequestOps
     with ToDeleteResolverRequestOps
     with ToDeleteTypeRequestOps
+    with ToDeltaSyncConfigOps
     with ToDynamodbDataSourceConfigOps
     with ToElasticsearchDataSourceConfigOps
+    with ToFlushApiCacheRequestOps
     with ToFunctionConfigurationOps
+    with ToGetApiCacheRequestOps
+    with ToGetApiCacheResponseOps
     with ToGetDataSourceRequestOps
     with ToGetDataSourceResponseOps
     with ToGetFunctionRequestOps
@@ -47,6 +56,7 @@ trait ToAllOps
     with ToGetTypeResponseOps
     with ToGraphqlApiOps
     with ToHttpDataSourceConfigOps
+    with ToLambdaConflictHandlerConfigOps
     with ToLambdaDataSourceConfigOps
     with ToListApiKeysRequestOps
     with ToListApiKeysResponseOps
@@ -72,9 +82,12 @@ trait ToAllOps
     with ToResolverOps
     with ToStartSchemaCreationRequestOps
     with ToStartSchemaCreationResponseOps
+    with ToSyncConfigOps
     with ToTagResourceRequestOps
     with ToTypeOps
     with ToUntagResourceRequestOps
+    with ToUpdateApiCacheRequestOps
+    with ToUpdateApiCacheResponseOps
     with ToUpdateApiKeyRequestOps
     with ToUpdateApiKeyResponseOps
     with ToUpdateDataSourceRequestOps

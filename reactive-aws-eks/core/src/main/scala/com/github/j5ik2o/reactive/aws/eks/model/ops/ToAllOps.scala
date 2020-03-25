@@ -4,33 +4,65 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 
 trait ToAllOps
     extends ToOptionSupport
+    with ToAutoScalingGroupOps
     with ToCertificateOps
     with ToClusterOps
     with ToCreateClusterRequestOps
     with ToCreateClusterResponseOps
+    with ToCreateFargateProfileRequestOps
+    with ToCreateFargateProfileResponseOps
+    with ToCreateNodegroupRequestOps
+    with ToCreateNodegroupResponseOps
     with ToDeleteClusterRequestOps
     with ToDeleteClusterResponseOps
+    with ToDeleteFargateProfileRequestOps
+    with ToDeleteFargateProfileResponseOps
+    with ToDeleteNodegroupRequestOps
+    with ToDeleteNodegroupResponseOps
     with ToDescribeClusterRequestOps
     with ToDescribeClusterResponseOps
+    with ToDescribeFargateProfileRequestOps
+    with ToDescribeFargateProfileResponseOps
+    with ToDescribeNodegroupRequestOps
+    with ToDescribeNodegroupResponseOps
     with ToDescribeUpdateRequestOps
     with ToDescribeUpdateResponseOps
+    with ToEncryptionConfigOps
     with ToErrorDetailOps
+    with ToFargateProfileOps
+    with ToFargateProfileSelectorOps
     with ToIdentityOps
+    with ToIssueOps
     with ToListClustersRequestOps
     with ToListClustersResponseOps
+    with ToListFargateProfilesRequestOps
+    with ToListFargateProfilesResponseOps
+    with ToListNodegroupsRequestOps
+    with ToListNodegroupsResponseOps
     with ToListTagsForResourceRequestOps
     with ToListTagsForResourceResponseOps
     with ToListUpdatesRequestOps
     with ToListUpdatesResponseOps
     with ToLogSetupOps
     with ToLoggingOps
+    with ToNodegroupHealthOps
+    with ToNodegroupOps
+    with ToNodegroupResourcesOps
+    with ToNodegroupScalingConfigOps
     with ToOIDCOps
+    with ToProviderOps
+    with ToRemoteAccessConfigOps
     with ToTagResourceRequestOps
     with ToUntagResourceRequestOps
     with ToUpdateClusterConfigRequestOps
     with ToUpdateClusterConfigResponseOps
     with ToUpdateClusterVersionRequestOps
     with ToUpdateClusterVersionResponseOps
+    with ToUpdateLabelsPayloadOps
+    with ToUpdateNodegroupConfigRequestOps
+    with ToUpdateNodegroupConfigResponseOps
+    with ToUpdateNodegroupVersionRequestOps
+    with ToUpdateNodegroupVersionResponseOps
     with ToUpdateOps
     with ToUpdateParamOps
     with ToVpcConfigRequestOps

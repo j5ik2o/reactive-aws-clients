@@ -7,12 +7,15 @@ trait ToAllOps
     with ToAlarmHistoryItemOps
     with ToAnomalyDetectorConfigurationOps
     with ToAnomalyDetectorOps
+    with ToCompositeAlarmOps
     with ToDashboardEntryOps
     with ToDashboardValidationMessageOps
     with ToDatapointOps
     with ToDeleteAlarmsRequestOps
     with ToDeleteAnomalyDetectorRequestOps
     with ToDeleteDashboardsRequestOps
+    with ToDeleteInsightRulesRequestOps
+    with ToDeleteInsightRulesResponseOps
     with ToDescribeAlarmHistoryRequestOps
     with ToDescribeAlarmHistoryResponseOps
     with ToDescribeAlarmsForMetricRequestOps
@@ -21,18 +24,30 @@ trait ToAllOps
     with ToDescribeAlarmsResponseOps
     with ToDescribeAnomalyDetectorsRequestOps
     with ToDescribeAnomalyDetectorsResponseOps
+    with ToDescribeInsightRulesRequestOps
+    with ToDescribeInsightRulesResponseOps
     with ToDimensionFilterOps
     with ToDimensionOps
     with ToDisableAlarmActionsRequestOps
+    with ToDisableInsightRulesRequestOps
+    with ToDisableInsightRulesResponseOps
     with ToEnableAlarmActionsRequestOps
+    with ToEnableInsightRulesRequestOps
+    with ToEnableInsightRulesResponseOps
     with ToGetDashboardRequestOps
     with ToGetDashboardResponseOps
+    with ToGetInsightRuleReportRequestOps
+    with ToGetInsightRuleReportResponseOps
     with ToGetMetricDataRequestOps
     with ToGetMetricDataResponseOps
     with ToGetMetricStatisticsRequestOps
     with ToGetMetricStatisticsResponseOps
     with ToGetMetricWidgetImageRequestOps
     with ToGetMetricWidgetImageResponseOps
+    with ToInsightRuleContributorDatapointOps
+    with ToInsightRuleContributorOps
+    with ToInsightRuleMetricDatapointOps
+    with ToInsightRuleOps
     with ToListDashboardsRequestOps
     with ToListDashboardsResponseOps
     with ToListMetricsRequestOps
@@ -46,9 +61,12 @@ trait ToAllOps
     with ToMetricDatumOps
     with ToMetricOps
     with ToMetricStatOps
+    with ToPartialFailureOps
     with ToPutAnomalyDetectorRequestOps
+    with ToPutCompositeAlarmRequestOps
     with ToPutDashboardRequestOps
     with ToPutDashboardResponseOps
+    with ToPutInsightRuleRequestOps
     with ToPutMetricAlarmRequestOps
     with ToPutMetricDataRequestOps
     with ToRangeOps
