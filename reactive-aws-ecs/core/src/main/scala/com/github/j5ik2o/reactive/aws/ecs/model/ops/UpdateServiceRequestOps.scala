@@ -57,6 +57,20 @@ final class UpdateServiceRequestBuilderOps(val self: UpdateServiceRequest.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def placementConstraintsAsScala(value: Option[Seq[PlacementConstraint]]): UpdateServiceRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.placementConstraints(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def placementStrategyAsScala(value: Option[Seq[PlacementStrategy]]): UpdateServiceRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.placementStrategy(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): UpdateServiceRequest.Builder = {
     value.fold(self) { v =>
       self.platformVersion(v)
@@ -104,6 +118,16 @@ final class UpdateServiceRequestOps(val self: UpdateServiceRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkConfigurationAsScala: Option[NetworkConfiguration] = Option(self.networkConfiguration)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def placementConstraintsAsScala: Option[Seq[PlacementConstraint]] = Option(self.placementConstraints).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def placementStrategyAsScala: Option[Seq[PlacementStrategy]] = Option(self.placementStrategy).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala: Option[String] = Option(self.platformVersion)

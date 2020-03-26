@@ -36,13 +36,18 @@ AWS Client libraries for Scala
     - 2.12.x
     - 2.13.x
 
+|reactive-aws-clients version|aws-sdk version|scala version|
+|:-----:|:-------------:|:--------:|
+|1.1.x|2.10.x|2.11, 2.12, 2.13|
+|1.2.x|2.11.x|2.11, 2.12, 2.13|
+
 ## Installation
 
 Add dependencies to `build.sbt`.
 
 ```scala
 val libraryName = "dynamodb"
-val version = "1.1.6"
+val version = "1.2.0"
 
 libraryDependencies += Seq(
   "com.github.j5ik2o" %% s"reactive-aws-$libraryName-core" % version,

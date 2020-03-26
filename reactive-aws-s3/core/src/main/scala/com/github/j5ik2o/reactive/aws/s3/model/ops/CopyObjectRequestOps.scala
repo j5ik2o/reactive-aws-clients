@@ -13,13 +13,6 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def bucketAsScala(value: Option[String]): CopyObjectRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
-  }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cacheControlAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.cacheControl(v)
@@ -121,13 +114,6 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
   final def grantWriteACPAsScala(value: Option[String]): CopyObjectRequest.Builder = {
     value.fold(self) { v =>
       self.grantWriteACP(v)
-    }
-  }
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
-    value.fold(self) { v =>
-      self.key(v)
     }
   }
 
@@ -264,15 +250,40 @@ final class CopyObjectRequestBuilderOps(val self: CopyObjectRequest.Builder) ext
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def bucketAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+    value.fold(self) { v =>
+      self.bucket(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationBucketAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+    value.fold(self) { v =>
+      self.destinationBucket(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+    value.fold(self) { v =>
+      self.key(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationKeyAsScala(value: Option[String]): CopyObjectRequest.Builder = {
+    value.fold(self) { v =>
+      self.destinationKey(v)
+    }
+  }
+
 }
 
 final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aclAsScala: Option[ObjectCannedACL] = Option(self.acl)
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def bucketAsScala: Option[String] = Option(self.bucket)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cacheControlAsScala: Option[String] = Option(self.cacheControl)
@@ -318,9 +329,6 @@ final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantWriteACPAsScala: Option[String] = Option(self.grantWriteACP)
-
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keyAsScala: Option[String] = Option(self.key)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metadataAsScala: Option[Map[String, String]] = Option(self.metadata).map { v =>
@@ -380,6 +388,18 @@ final class CopyObjectRequestOps(val self: CopyObjectRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockLegalHoldStatusAsScala: Option[ObjectLockLegalHoldStatus] = Option(self.objectLockLegalHoldStatus)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def bucketAsScala: Option[String] = Option(self.bucket)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationBucketAsScala: Option[String] = Option(self.destinationBucket)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyAsScala: Option[String] = Option(self.key)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationKeyAsScala: Option[String] = Option(self.destinationKey)
 
 }
 

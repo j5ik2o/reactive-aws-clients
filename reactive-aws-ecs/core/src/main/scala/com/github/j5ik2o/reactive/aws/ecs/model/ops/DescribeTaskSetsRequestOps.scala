@@ -26,6 +26,13 @@ final class DescribeTaskSetsRequestBuilderOps(val self: DescribeTaskSetsRequest.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def includeAsScala(value: Option[Seq[TaskSetField]]): DescribeTaskSetsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.include(v.asJava)
+    }
+  }
+
 }
 
 final class DescribeTaskSetsRequestOps(val self: DescribeTaskSetsRequest) extends AnyVal {
@@ -38,6 +45,11 @@ final class DescribeTaskSetsRequestOps(val self: DescribeTaskSetsRequest) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskSetsAsScala: Option[Seq[String]] = Option(self.taskSets).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def includeAsScala: Option[Seq[TaskSetField]] = Option(self.include).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 

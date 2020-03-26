@@ -26,6 +26,13 @@ final class CreateNatGatewayRequestBuilderOps(val self: CreateNatGatewayRequest.
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreateNatGatewayRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class CreateNatGatewayRequestOps(val self: CreateNatGatewayRequest) extends AnyVal {
@@ -38,6 +45,11 @@ final class CreateNatGatewayRequestOps(val self: CreateNatGatewayRequest) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

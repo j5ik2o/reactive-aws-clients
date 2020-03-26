@@ -117,6 +117,13 @@ final class VpcEndpointBuilderOps(val self: VpcEndpoint.Builder) extends AnyVal 
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastErrorAsScala(value: Option[LastError]): VpcEndpoint.Builder = {
+    value.fold(self) { v =>
+      self.lastError(v)
+    }
+  }
+
 }
 
 final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
@@ -180,6 +187,9 @@ final class VpcEndpointOps(val self: VpcEndpoint) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerIdAsScala: Option[String] = Option(self.ownerId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def lastErrorAsScala: Option[LastError] = Option(self.lastError)
 
 }
 

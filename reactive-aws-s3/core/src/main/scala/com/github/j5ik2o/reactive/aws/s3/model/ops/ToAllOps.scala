@@ -63,6 +63,7 @@ trait ToAllOps
     with ToEncryptionConfigurationOps
     with ToEncryptionOps
     with ToErrorDocumentOps
+    with ToExistingObjectReplicationOps
     with ToFilterRuleOps
     with ToGetBucketAccelerateConfigurationRequestOps
     with ToGetBucketAccelerateConfigurationResponseOps
@@ -160,6 +161,7 @@ trait ToAllOps
     with ToMetricsAndOperatorOps
     with ToMetricsConfigurationOps
     with ToMetricsFilterOps
+    with ToMetricsOps
     with ToMultipartUploadOps
     with ToNoncurrentVersionExpirationOps
     with ToNoncurrentVersionTransitionOps
@@ -213,6 +215,8 @@ trait ToAllOps
     with ToReplicationRuleAndOperatorOps
     with ToReplicationRuleFilterOps
     with ToReplicationRuleOps
+    with ToReplicationTimeOps
+    with ToReplicationTimeValueOps
     with ToRequestPaymentConfigurationOps
     with ToRestoreObjectRequestOps
     with ToRestoreObjectResponseOps

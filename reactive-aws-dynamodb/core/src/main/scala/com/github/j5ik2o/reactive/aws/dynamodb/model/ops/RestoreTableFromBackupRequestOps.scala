@@ -53,6 +53,13 @@ final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBa
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sseSpecificationOverrideAsScala(value: Option[SSESpecification]): RestoreTableFromBackupRequest.Builder = {
+    value.fold(self) { v =>
+      self.sseSpecificationOverride(v)
+    }
+  }
+
 }
 
 final class RestoreTableFromBackupRequestOps(val self: RestoreTableFromBackupRequest) extends AnyVal {
@@ -81,6 +88,9 @@ final class RestoreTableFromBackupRequestOps(val self: RestoreTableFromBackupReq
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputOverrideAsScala: Option[ProvisionedThroughput] =
     Option(self.provisionedThroughputOverride)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sseSpecificationOverrideAsScala: Option[SSESpecification] = Option(self.sseSpecificationOverride)
 
 }
 

@@ -68,6 +68,13 @@ final class CreateVpcEndpointRequestBuilderOps(val self: CreateVpcEndpointReques
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreateVpcEndpointRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class CreateVpcEndpointRequestOps(val self: CreateVpcEndpointRequest) extends AnyVal {
@@ -104,6 +111,11 @@ final class CreateVpcEndpointRequestOps(val self: CreateVpcEndpointRequest) exte
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateDnsEnabledAsScala: Option[Boolean] = Option(self.privateDnsEnabled)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

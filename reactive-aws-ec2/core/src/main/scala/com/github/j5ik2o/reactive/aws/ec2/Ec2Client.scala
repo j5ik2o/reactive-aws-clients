@@ -669,6 +669,8 @@ trait Ec2Client[M[_]] {
 
   def describeInternetGateways(): M[DescribeInternetGatewaysResponse]
 
+  def describeIpv6Pools(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): M[DescribeIpv6PoolsResponse]
+
   def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): M[DescribeKeyPairsResponse]
 
   def describeKeyPairs(): M[DescribeKeyPairsResponse]
@@ -1097,6 +1099,10 @@ trait Ec2Client[M[_]] {
       exportTransitGatewayRoutesRequest: ExportTransitGatewayRoutesRequest
   ): M[ExportTransitGatewayRoutesResponse]
 
+  def getAssociatedIpv6PoolCidrs(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): M[GetAssociatedIpv6PoolCidrsResponse]
+
   def getCapacityReservationUsage(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): M[GetCapacityReservationUsageResponse]
@@ -1162,6 +1168,10 @@ trait Ec2Client[M[_]] {
   def importSnapshot(importSnapshotRequest: ImportSnapshotRequest): M[ImportSnapshotResponse]
 
   def importVolume(importVolumeRequest: ImportVolumeRequest): M[ImportVolumeResponse]
+
+  def modifyAvailabilityZoneGroup(
+      modifyAvailabilityZoneGroupRequest: ModifyAvailabilityZoneGroupRequest
+  ): M[ModifyAvailabilityZoneGroupResponse]
 
   def modifyCapacityReservation(
       modifyCapacityReservationRequest: ModifyCapacityReservationRequest
@@ -1434,6 +1444,10 @@ trait Ec2Client[M[_]] {
   ): M[SendDiagnosticInterruptResponse]
 
   def startInstances(startInstancesRequest: StartInstancesRequest): M[StartInstancesResponse]
+
+  def startVpcEndpointServicePrivateDnsVerification(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest
+  ): M[StartVpcEndpointServicePrivateDnsVerificationResponse]
 
   def stopInstances(stopInstancesRequest: StopInstancesRequest): M[StopInstancesResponse]
 

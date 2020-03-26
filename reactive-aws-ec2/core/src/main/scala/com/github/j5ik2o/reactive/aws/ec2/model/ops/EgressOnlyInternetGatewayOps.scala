@@ -19,6 +19,13 @@ final class EgressOnlyInternetGatewayBuilderOps(val self: EgressOnlyInternetGate
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): EgressOnlyInternetGateway.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class EgressOnlyInternetGatewayOps(val self: EgressOnlyInternetGateway) extends AnyVal {
@@ -30,6 +37,11 @@ final class EgressOnlyInternetGatewayOps(val self: EgressOnlyInternetGateway) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala: Option[String] = Option(self.egressOnlyInternetGatewayId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

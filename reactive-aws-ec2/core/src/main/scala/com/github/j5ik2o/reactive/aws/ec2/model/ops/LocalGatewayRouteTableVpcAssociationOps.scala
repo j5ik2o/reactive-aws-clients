@@ -43,6 +43,13 @@ final class LocalGatewayRouteTableVpcAssociationBuilderOps(val self: LocalGatewa
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): LocalGatewayRouteTableVpcAssociation.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class LocalGatewayRouteTableVpcAssociationOps(val self: LocalGatewayRouteTableVpcAssociation) extends AnyVal {
@@ -62,6 +69,11 @@ final class LocalGatewayRouteTableVpcAssociationOps(val self: LocalGatewayRouteT
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[String] = Option(self.state)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

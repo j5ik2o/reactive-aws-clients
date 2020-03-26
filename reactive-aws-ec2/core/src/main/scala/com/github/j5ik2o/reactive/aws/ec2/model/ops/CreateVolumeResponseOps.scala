@@ -103,6 +103,13 @@ final class CreateVolumeResponseBuilderOps(val self: CreateVolumeResponse.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multiAttachEnabledAsScala(value: Option[Boolean]): CreateVolumeResponse.Builder = {
+    value.fold(self) { v =>
+      self.multiAttachEnabled(v)
+    }
+  }
+
 }
 
 final class CreateVolumeResponseOps(val self: CreateVolumeResponse) extends AnyVal {
@@ -152,6 +159,9 @@ final class CreateVolumeResponseOps(val self: CreateVolumeResponse) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fastRestoredAsScala: Option[Boolean] = Option(self.fastRestored)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multiAttachEnabledAsScala: Option[Boolean] = Option(self.multiAttachEnabled)
 
 }
 

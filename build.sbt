@@ -6,19 +6,18 @@ lazy val mvnClean = taskKey[Unit]("Execute maven clean scripts")
 mvnClean := {
   val s: TaskStreams = streams.value
   s.log.info("maven clean ...")
-  if(((Seq("bash", "-c") :+ "cd aws-sdk-src/aws-sdk-java-v2 && mvn clean") !) == 0) {
+  if (((Seq("bash", "-c") :+ "cd aws-sdk-src/aws-sdk-java-v2 && mvn clean") !) == 0) {
     s.log.success("maven clean successful!")
   } else {
     throw new IllegalStateException("frontend maven clean failed!")
   }
 }
 
-
 lazy val mvnInstall = taskKey[Unit]("Execute maven install scripts")
 mvnInstall := {
   val s: TaskStreams = streams.value
   s.log.info("maven install ...")
-  if(((Seq("bash", "-c") :+ "cd aws-sdk-src/aws-sdk-java-v2 && mvn install -P quick") !) == 0) {
+  if (((Seq("bash", "-c") :+ "cd aws-sdk-src/aws-sdk-java-v2 && mvn install -P quick") !) == 0) {
     s.log.success("maven install successful!")
   } else {
     throw new IllegalStateException("frontend maven install failed!")
@@ -29,15 +28,27 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
   .settings(coreSettings)
   .settings(
     name := "reactive-aws-common-test",
-    libraryDependencies ++= Seq(
-      "com.google.guava" % "guava"                        % "28.1-jre",
-      "commons-io"       % "commons-io"                   % "2.6",
-      "com.whisk"        %% "docker-testkit-scalatest"    % "0.9.9",
-      "com.whisk"        %% "docker-testkit-impl-spotify" % "0.9.9",
-      "org.seasar.util"  % "s2util"                       % "0.0.1",
-      "org.scalatest"    %% "scalatest"                   % "3.1.0",
-      "org.scalacheck"   %% "scalacheck"                  % "1.14.3"
-    )
+    libraryDependencies ++= {
+      Seq(
+        "com.google.guava" % "guava"                        % "28.1-jre",
+        "commons-io"       % "commons-io"                   % "2.6",
+        "com.whisk"        %% "docker-testkit-scalatest"    % "0.9.9",
+        "com.whisk"        %% "docker-testkit-impl-spotify" % "0.9.9",
+        "org.seasar.util"  % "s2util"                       % "0.0.1",
+        "org.scalacheck"   %% "scalacheck"                  % "1.14.3"
+      ) ++ {
+        CrossVersion.partialVersion(scalaVersion.value) match {
+          case Some((2L, scalaMajor)) if scalaMajor >= 12 =>
+            Seq(
+              "org.scalatest" %% "scalatest" % "3.1.1"
+            )
+          case Some((2L, scalaMajor)) if scalaMajor <= 11 =>
+            Seq(
+              "org.scalatest" %% "scalatest" % "3.0.8"
+            )
+        }
+      }
+    }
   )
 
 lazy val `reactive-aws-common-core` = (project in file("reactive-aws-common/core"))
@@ -292,8 +303,10 @@ lazy val `reactive-aws-elasticsearch-test` = (project in file("reactive-aws-elas
 lazy val `reactive-aws-elasticsearch-core` =
   (project in file("reactive-aws-elasticsearch/core"))
     .settings(coreWithTestSettings)
-    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
-                                                     `reactive-aws-elasticsearch-test` % "test")
+    .dependsOn(`reactive-aws-common-core`).dependsOn(
+      `reactive-aws-common-core`,
+      `reactive-aws-elasticsearch-test` % "test"
+    )
 
 lazy val `reactive-aws-elasticsearch-cats` = (project in file("reactive-aws-elasticsearch/cats"))
   .settings(coreWithTestSettings)
@@ -329,26 +342,34 @@ lazy val `reactive-aws-elasticbeanstalk-test` = (project in file("reactive-aws-e
 lazy val `reactive-aws-elasticbeanstalk-core` =
   (project in file("reactive-aws-elasticbeanstalk/core"))
     .settings(coreWithTestSettings)
-    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
-                                                     `reactive-aws-elasticbeanstalk-test` % "test")
+    .dependsOn(`reactive-aws-common-core`).dependsOn(
+      `reactive-aws-common-core`,
+      `reactive-aws-elasticbeanstalk-test` % "test"
+    )
 
 lazy val `reactive-aws-elasticbeanstalk-cats` = (project in file("reactive-aws-elasticbeanstalk/cats"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-cats`,
-             `reactive-aws-elasticbeanstalk-core`,
-             `reactive-aws-elasticbeanstalk-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-cats`,
+    `reactive-aws-elasticbeanstalk-core`,
+    `reactive-aws-elasticbeanstalk-test` % "test"
+  )
 
 lazy val `reactive-aws-elasticbeanstalk-monix` = (project in file("reactive-aws-elasticbeanstalk/monix"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-monix`,
-             `reactive-aws-elasticbeanstalk-core`,
-             `reactive-aws-elasticbeanstalk-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-monix`,
+    `reactive-aws-elasticbeanstalk-core`,
+    `reactive-aws-elasticbeanstalk-test` % "test"
+  )
 
 lazy val `reactive-aws-elasticbeanstalk-akka` = (project in file("reactive-aws-elasticbeanstalk/akka"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-akka`,
-             `reactive-aws-elasticbeanstalk-core`,
-             `reactive-aws-elasticbeanstalk-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-akka`,
+    `reactive-aws-elasticbeanstalk-core`,
+    `reactive-aws-elasticbeanstalk-test` % "test"
+  )
 
 lazy val `reactive-aws-elasticbeanstalk-root`: Project = (project in file("reactive-aws-elasticbeanstalk"))
   .settings(coreSettings)
@@ -408,8 +429,10 @@ lazy val `reactive-aws-cloudwatch-test` = (project in file("reactive-aws-cloudwa
 lazy val `reactive-aws-cloudwatch-core` =
   (project in file("reactive-aws-cloudwatch/core"))
     .settings(coreWithTestSettings)
-    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
-                                                     `reactive-aws-cloudwatch-test` % "test")
+    .dependsOn(`reactive-aws-common-core`).dependsOn(
+      `reactive-aws-common-core`,
+      `reactive-aws-cloudwatch-test` % "test"
+    )
 
 lazy val `reactive-aws-cloudwatch-cats` = (project in file("reactive-aws-cloudwatch/cats"))
   .settings(coreWithTestSettings)
@@ -445,26 +468,34 @@ lazy val `reactive-aws-cloudwatchlogs-test` = (project in file("reactive-aws-clo
 lazy val `reactive-aws-cloudwatchlogs-core` =
   (project in file("reactive-aws-cloudwatchlogs/core"))
     .settings(coreWithTestSettings)
-    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
-                                                     `reactive-aws-cloudwatchlogs-test` % "test")
+    .dependsOn(`reactive-aws-common-core`).dependsOn(
+      `reactive-aws-common-core`,
+      `reactive-aws-cloudwatchlogs-test` % "test"
+    )
 
 lazy val `reactive-aws-cloudwatchlogs-cats` = (project in file("reactive-aws-cloudwatchlogs/cats"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-cats`,
-             `reactive-aws-cloudwatchlogs-core`,
-             `reactive-aws-cloudwatchlogs-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-cats`,
+    `reactive-aws-cloudwatchlogs-core`,
+    `reactive-aws-cloudwatchlogs-test` % "test"
+  )
 
 lazy val `reactive-aws-cloudwatchlogs-monix` = (project in file("reactive-aws-cloudwatchlogs/monix"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-monix`,
-             `reactive-aws-cloudwatchlogs-core`,
-             `reactive-aws-cloudwatchlogs-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-monix`,
+    `reactive-aws-cloudwatchlogs-core`,
+    `reactive-aws-cloudwatchlogs-test` % "test"
+  )
 
 lazy val `reactive-aws-cloudwatchlogs-akka` = (project in file("reactive-aws-cloudwatchlogs/akka"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-akka`,
-             `reactive-aws-cloudwatchlogs-core`,
-             `reactive-aws-cloudwatchlogs-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-akka`,
+    `reactive-aws-cloudwatchlogs-core`,
+    `reactive-aws-cloudwatchlogs-test` % "test"
+  )
 
 lazy val `reactive-aws-cloudwatchlogs-root`: Project = (project in file("reactive-aws-cloudwatchlogs"))
   .settings(coreSettings)
@@ -488,26 +519,34 @@ lazy val `reactive-aws-cloudformation-test` = (project in file("reactive-aws-clo
 lazy val `reactive-aws-cloudformation-core` =
   (project in file("reactive-aws-cloudformation/core"))
     .settings(coreWithTestSettings)
-    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`,
-                                                     `reactive-aws-cloudformation-test` % "test")
+    .dependsOn(`reactive-aws-common-core`).dependsOn(
+      `reactive-aws-common-core`,
+      `reactive-aws-cloudformation-test` % "test"
+    )
 
 lazy val `reactive-aws-cloudformation-cats` = (project in file("reactive-aws-cloudformation/cats"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-cats`,
-             `reactive-aws-cloudformation-core`,
-             `reactive-aws-cloudformation-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-cats`,
+    `reactive-aws-cloudformation-core`,
+    `reactive-aws-cloudformation-test` % "test"
+  )
 
 lazy val `reactive-aws-cloudformation-monix` = (project in file("reactive-aws-cloudformation/monix"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-monix`,
-             `reactive-aws-cloudformation-core`,
-             `reactive-aws-cloudformation-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-monix`,
+    `reactive-aws-cloudformation-core`,
+    `reactive-aws-cloudformation-test` % "test"
+  )
 
 lazy val `reactive-aws-cloudformation-akka` = (project in file("reactive-aws-cloudformation/akka"))
   .settings(coreWithTestSettings)
-  .dependsOn(`reactive-aws-common-akka`,
-             `reactive-aws-cloudformation-core`,
-             `reactive-aws-cloudformation-test` % "test")
+  .dependsOn(
+    `reactive-aws-common-akka`,
+    `reactive-aws-cloudformation-core`,
+    `reactive-aws-cloudformation-test` % "test"
+  )
 
 lazy val `reactive-aws-cloudformation-root`: Project = (project in file("reactive-aws-cloudformation"))
   .settings(coreSettings)
@@ -747,7 +786,10 @@ lazy val `reactive-aws-rekognition-test` = (project in file("reactive-aws-rekogn
 lazy val `reactive-aws-rekognition-core` =
   (project in file("reactive-aws-rekognition/core"))
     .settings(coreWithTestSettings)
-    .dependsOn(`reactive-aws-common-core`).dependsOn(`reactive-aws-common-core`, `reactive-aws-rekognition-test` % "test")
+    .dependsOn(`reactive-aws-common-core`).dependsOn(
+      `reactive-aws-common-core`,
+      `reactive-aws-rekognition-test` % "test"
+    )
 
 lazy val `reactive-aws-rekognition-cats` = (project in file("reactive-aws-rekognition/cats"))
   .settings(coreWithTestSettings)
@@ -777,7 +819,7 @@ lazy val `reactive-aws-rekognition-root`: Project = (project in file("reactive-a
 lazy val `root`: Project = (project in file("."))
   .settings(coreSettings)
   .settings(
-    name := "reactive-aws-client-project"
+    name := "reactive-aws-clients-project"
   )
   .aggregate(
     `reactive-aws-common-root`,

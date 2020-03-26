@@ -34,9 +34,9 @@ final class InstanceTypeInfoBuilderOps(val self: InstanceTypeInfo.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def supportedRootDevicesAsScala(value: Option[Seq[RootDeviceType]]): InstanceTypeInfo.Builder = {
+  final def supportedRootDeviceTypesAsScala(value: Option[Seq[RootDeviceType]]): InstanceTypeInfo.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
-      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.supportedRootDevices(v.asJava)
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.supportedRootDeviceTypes(v.asJava)
     }
   }
 
@@ -178,8 +178,9 @@ final class InstanceTypeInfoOps(val self: InstanceTypeInfo) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def supportedRootDevicesAsScala: Option[Seq[RootDeviceType]] = Option(self.supportedRootDevices).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  final def supportedRootDeviceTypesAsScala: Option[Seq[RootDeviceType]] = Option(self.supportedRootDeviceTypes).map {
+    v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))

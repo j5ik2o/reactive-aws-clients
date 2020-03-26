@@ -41,16 +41,16 @@ final class EbsBlockDeviceBuilderOps(val self: EbsBlockDevice.Builder) extends A
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptedAsScala(value: Option[Boolean]): EbsBlockDevice.Builder = {
+  final def kmsKeyIdAsScala(value: Option[String]): EbsBlockDevice.Builder = {
     value.fold(self) { v =>
-      self.encrypted(v)
+      self.kmsKeyId(v)
     }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def kmsKeyIdAsScala(value: Option[String]): EbsBlockDevice.Builder = {
+  final def encryptedAsScala(value: Option[Boolean]): EbsBlockDevice.Builder = {
     value.fold(self) { v =>
-      self.kmsKeyId(v)
+      self.encrypted(v)
     }
   }
 
@@ -74,10 +74,10 @@ final class EbsBlockDeviceOps(val self: EbsBlockDevice) extends AnyVal {
   final def volumeTypeAsScala: Option[VolumeType] = Option(self.volumeType)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptedAsScala: Option[Boolean] = Option(self.encrypted)
+  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
+  final def encryptedAsScala: Option[Boolean] = Option(self.encrypted)
 
 }
 

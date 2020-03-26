@@ -12,12 +12,22 @@ final class DetectTextRequestBuilderOps(val self: DetectTextRequest.Builder) ext
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala(value: Option[DetectTextFilters]): DetectTextRequest.Builder = {
+    value.fold(self) { v =>
+      self.filters(v)
+    }
+  }
+
 }
 
 final class DetectTextRequestOps(val self: DetectTextRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala: Option[Image] = Option(self.image)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala: Option[DetectTextFilters] = Option(self.filters)
 
 }
 

@@ -68,6 +68,13 @@ final class CreateVolumeRequestBuilderOps(val self: CreateVolumeRequest.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multiAttachEnabledAsScala(value: Option[Boolean]): CreateVolumeRequest.Builder = {
+    value.fold(self) { v =>
+      self.multiAttachEnabled(v)
+    }
+  }
+
 }
 
 final class CreateVolumeRequestOps(val self: CreateVolumeRequest) extends AnyVal {
@@ -100,6 +107,9 @@ final class CreateVolumeRequestOps(val self: CreateVolumeRequest) extends AnyVal
   final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multiAttachEnabledAsScala: Option[Boolean] = Option(self.multiAttachEnabled)
 
 }
 

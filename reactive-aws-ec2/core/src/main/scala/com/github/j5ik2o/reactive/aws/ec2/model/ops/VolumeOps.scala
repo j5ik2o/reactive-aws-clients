@@ -103,6 +103,13 @@ final class VolumeBuilderOps(val self: Volume.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multiAttachEnabledAsScala(value: Option[Boolean]): Volume.Builder = {
+    value.fold(self) { v =>
+      self.multiAttachEnabled(v)
+    }
+  }
+
 }
 
 final class VolumeOps(val self: Volume) extends AnyVal {
@@ -152,6 +159,9 @@ final class VolumeOps(val self: Volume) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fastRestoredAsScala: Option[Boolean] = Option(self.fastRestored)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def multiAttachEnabledAsScala: Option[Boolean] = Option(self.multiAttachEnabled)
 
 }
 

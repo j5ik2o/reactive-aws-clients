@@ -103,6 +103,13 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionConfigAsScala(value: Option[Seq[EncryptionConfig]]): Cluster.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.encryptionConfig(v.asJava)
+    }
+  }
+
 }
 
 final class ClusterOps(val self: Cluster) extends AnyVal {
@@ -149,6 +156,11 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def encryptionConfigAsScala: Option[Seq[EncryptionConfig]] = Option(self.encryptionConfig).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
 
 }

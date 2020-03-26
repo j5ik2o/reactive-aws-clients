@@ -13,6 +13,13 @@ final class DescribeAlarmHistoryRequestBuilderOps(val self: DescribeAlarmHistory
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def alarmTypesAsScala(value: Option[Seq[AlarmType]]): DescribeAlarmHistoryRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.alarmTypes(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historyItemTypeAsScala(value: Option[HistoryItemType]): DescribeAlarmHistoryRequest.Builder = {
     value.fold(self) { v =>
       self.historyItemType(v)
@@ -47,12 +54,24 @@ final class DescribeAlarmHistoryRequestBuilderOps(val self: DescribeAlarmHistory
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def scanByAsScala(value: Option[ScanBy]): DescribeAlarmHistoryRequest.Builder = {
+    value.fold(self) { v =>
+      self.scanBy(v)
+    }
+  }
+
 }
 
 final class DescribeAlarmHistoryRequestOps(val self: DescribeAlarmHistoryRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala: Option[String] = Option(self.alarmName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def alarmTypesAsScala: Option[Seq[AlarmType]] = Option(self.alarmTypes).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType)
@@ -68,6 +87,9 @@ final class DescribeAlarmHistoryRequestOps(val self: DescribeAlarmHistoryRequest
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def scanByAsScala: Option[ScanBy] = Option(self.scanBy)
 
 }
 

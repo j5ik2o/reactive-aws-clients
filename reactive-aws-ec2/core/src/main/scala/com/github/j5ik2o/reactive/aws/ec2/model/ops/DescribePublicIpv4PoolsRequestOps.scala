@@ -26,6 +26,13 @@ final class DescribePublicIpv4PoolsRequestBuilderOps(val self: DescribePublicIpv
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala(value: Option[Seq[Filter]]): DescribePublicIpv4PoolsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
+    }
+  }
+
 }
 
 final class DescribePublicIpv4PoolsRequestOps(val self: DescribePublicIpv4PoolsRequest) extends AnyVal {
@@ -40,6 +47,11 @@ final class DescribePublicIpv4PoolsRequestOps(val self: DescribePublicIpv4PoolsR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

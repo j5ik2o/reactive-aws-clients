@@ -20,6 +20,13 @@ final class UpdateStackInstancesRequestBuilderOps(val self: UpdateStackInstances
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deploymentTargetsAsScala(value: Option[DeploymentTargets]): UpdateStackInstancesRequest.Builder = {
+    value.fold(self) { v =>
+      self.deploymentTargets(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionsAsScala(value: Option[Seq[String]]): UpdateStackInstancesRequest.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.regions(v.asJava)
@@ -60,6 +67,9 @@ final class UpdateStackInstancesRequestOps(val self: UpdateStackInstancesRequest
   final def accountsAsScala: Option[Seq[String]] = Option(self.accounts).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deploymentTargetsAsScala: Option[DeploymentTargets] = Option(self.deploymentTargets)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionsAsScala: Option[Seq[String]] = Option(self.regions).map { v =>

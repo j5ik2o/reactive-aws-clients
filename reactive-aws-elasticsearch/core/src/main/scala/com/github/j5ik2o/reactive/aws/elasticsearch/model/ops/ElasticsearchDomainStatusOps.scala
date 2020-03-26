@@ -167,6 +167,15 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def advancedSecurityOptionsAsScala(
+      value: Option[AdvancedSecurityOptions]
+  ): ElasticsearchDomainStatus.Builder = {
+    value.fold(self) { v =>
+      self.advancedSecurityOptions(v)
+    }
+  }
+
 }
 
 final class ElasticsearchDomainStatusOps(val self: ElasticsearchDomainStatus) extends AnyVal {
@@ -245,6 +254,9 @@ final class ElasticsearchDomainStatusOps(val self: ElasticsearchDomainStatus) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainEndpointOptionsAsScala: Option[DomainEndpointOptions] = Option(self.domainEndpointOptions)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def advancedSecurityOptionsAsScala: Option[AdvancedSecurityOptions] = Option(self.advancedSecurityOptions)
 
 }
 
