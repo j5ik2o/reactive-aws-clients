@@ -23,8 +23,9 @@ import scala.concurrent.{ ExecutionContext, Future }
 trait DynamoDBContainerSpecSupport extends DockerTestKit with RandomPortSupport {
   this: Suite =>
 
-  protected val connectTimeout: FiniteDuration = 3 seconds
-  protected val readTimeout: FiniteDuration    = 3 seconds
+  protected val connectTimeout: FiniteDuration     = 3 seconds
+  protected val readTimeout: FiniteDuration        = 3 seconds
+  protected val readyCheckInterval: FiniteDuration = 1 seconds
 
   protected val dockerClient: DockerClient =
     DefaultDockerClient
@@ -56,9 +57,11 @@ trait DynamoDBContainerSpecSupport extends DockerTestKit with RandomPortSupport 
     ): Future[Boolean] = Future.successful {
       try {
         dynamoDbClient.listTables(1)
+        Thread.sleep(readyCheckInterval.toMillis)
         true
       } catch {
         case _: Exception =>
+          Thread.sleep(readyCheckInterval.toMillis)
           false
       }
     }

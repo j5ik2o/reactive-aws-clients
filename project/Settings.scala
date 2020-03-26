@@ -1,7 +1,7 @@
 import com.github.j5ik2o.sbt.wrapper.gen.SbtWrapperGenPlugin.autoImport._
 import com.github.j5ik2o.sbt.wrapper.gen.model.ClassDesc
 import sbt.Keys._
-import sbt.{ Classpaths, Credentials, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
+import sbt.{ Classpaths, Credentials, CrossVersion, Def, Resolver, Test, addCompilerPlugin, taskKey, _ }
 import wartremover.WartRemover.autoImport.{ wartremoverErrors, wartremoverExcluded, Wart, Warts }
 import xerial.sbt.Sonatype.autoImport.{ sonatypeProfileName, sonatypePublishToBundle }
 import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
@@ -17,7 +17,8 @@ object Settings {
   val catsVersion       = "2.0.0"
   val catsEffectVersion = "2.0.0"
   val monixVersion      = "3.1.0"
-  val akkaVersion       = "2.5.29"
+  val akka25Version     = "2.5.29"
+  val akka26Version     = "2.6.4"
 
   val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
 
@@ -32,17 +33,24 @@ object Settings {
   val testSettings = Seq(
     testOptions in Test += Tests
         .Argument(TestFrameworks.ScalaTest, "-F", sys.env.getOrElse("SBT_TEST_TIME_FACTOR", "1")),
-    libraryDependencies ++= Seq(
-        "org.scalatest"  %% "scalatest"      % "3.0.8"  % Test,
-        "org.scalacheck" %% "scalacheck"     % "1.14.3" % Test,
-        "ch.qos.logback" % "logback-classic" % "1.2.3"  % Test
-      )
+    libraryDependencies ++= {
+      CrossVersion.partialVersion(scalaVersion.value) match {
+        case Some((2L, scalaMajor)) if scalaMajor >= 12 =>
+          Seq(
+            "org.scalatest" %% "scalatest" % "3.1.1" % Test
+          )
+        case Some((2L, scalaMajor)) if scalaMajor == 11 =>
+          Seq(
+            "org.scalatest" %% "scalatest" % "3.0.8" % Test
+          )
+      }
+    }
   )
 
   val coreSettings = Seq(
     sonatypeProfileName := "com.github.j5ik2o",
     organization := "com.github.j5ik2o",
-    scalaVersion := scalaVersion213,
+    scalaVersion := scalaVersion211,
     crossScalaVersions ++= Seq(scalaVersion211, scalaVersion212, scalaVersion213),
     scalacOptions ++= {
       Seq(
@@ -52,10 +60,17 @@ object Settings {
         "-encoding",
         "UTF-8",
         "-language:_",
-//        "-Ypartial-unification",
-        "-Ydelambdafy:method",
         "-target:jvm-1.8"
-      )
+      ) ++ {
+        CrossVersion.partialVersion(scalaVersion.value) match {
+          case Some((2L, scalaMajor)) if scalaMajor >= 12 =>
+            Seq.empty
+          case Some((2L, scalaMajor)) if scalaMajor <= 11 =>
+            Seq(
+              "-Yinline-warnings"
+            )
+        }
+      }
     },
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -97,14 +112,12 @@ object Settings {
       ),
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     libraryDependencies ++= Seq(
-        "com.beachape"           %% "enumeratum"              % "1.5.15",
-        "org.slf4j"              % "slf4j-api"                % "1.7.30",
-        "org.scala-lang.modules" %% "scala-java8-compat"      % "0.9.0",
-        "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.3"
+        "com.beachape"           %% "enumeratum"         % "1.5.15",
+        "org.slf4j"              % "slf4j-api"           % "1.7.30",
+        "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0"
       ),
     dependencyOverrides ++= {
       Seq(
-        "org.scalatest"               %% "scalatest"                  % "3.0.8",
         "org.slf4j"                   % "slf4j-api"                   % "1.7.25",
         "org.scala-lang.modules"      %% "scala-java8-compat"         % "0.9.0",
         "org.apache.httpcomponents"   % "httpcore"                    % "4.4.11",
