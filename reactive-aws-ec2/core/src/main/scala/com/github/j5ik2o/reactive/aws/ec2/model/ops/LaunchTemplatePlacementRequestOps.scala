@@ -54,6 +54,13 @@ final class LaunchTemplatePlacementRequestBuilderOps(val self: LaunchTemplatePla
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def partitionNumberAsScala(value: Option[Int]): LaunchTemplatePlacementRequest.Builder = {
+    value.fold(self) { v =>
+      self.partitionNumber(v)
+    }
+  }
+
 }
 
 final class LaunchTemplatePlacementRequestOps(val self: LaunchTemplatePlacementRequest) extends AnyVal {
@@ -78,6 +85,9 @@ final class LaunchTemplatePlacementRequestOps(val self: LaunchTemplatePlacementR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostResourceGroupArnAsScala: Option[String] = Option(self.hostResourceGroupArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def partitionNumberAsScala: Option[Int] = Option(self.partitionNumber)
 
 }
 

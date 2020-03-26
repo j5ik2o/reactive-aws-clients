@@ -22,6 +22,13 @@ final class ProvisionByoipCidrRequestBuilderOps(val self: ProvisionByoipCidrRequ
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def publiclyAdvertisableAsScala(value: Option[Boolean]): ProvisionByoipCidrRequest.Builder = {
+    value.fold(self) { v =>
+      self.publiclyAdvertisable(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ProvisionByoipCidrRequest.Builder = {
     value.fold(self) { v =>
       self.description(v)
@@ -37,6 +44,9 @@ final class ProvisionByoipCidrRequestOps(val self: ProvisionByoipCidrRequest) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cidrAuthorizationContextAsScala: Option[CidrAuthorizationContext] = Option(self.cidrAuthorizationContext)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def publiclyAdvertisableAsScala: Option[Boolean] = Option(self.publiclyAdvertisable)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)

@@ -20,6 +20,27 @@ final class DescribeAlarmsRequestBuilderOps(val self: DescribeAlarmsRequest.Buil
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def alarmTypesAsScala(value: Option[Seq[AlarmType]]): DescribeAlarmsRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.alarmTypes(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def childrenOfAlarmNameAsScala(value: Option[String]): DescribeAlarmsRequest.Builder = {
+    value.fold(self) { v =>
+      self.childrenOfAlarmName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def parentsOfAlarmNameAsScala(value: Option[String]): DescribeAlarmsRequest.Builder = {
+    value.fold(self) { v =>
+      self.parentsOfAlarmName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateValueAsScala(value: Option[StateValue]): DescribeAlarmsRequest.Builder = {
     value.fold(self) { v =>
       self.stateValue(v)
@@ -58,6 +79,17 @@ final class DescribeAlarmsRequestOps(val self: DescribeAlarmsRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNamePrefixAsScala: Option[String] = Option(self.alarmNamePrefix)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def alarmTypesAsScala: Option[Seq[AlarmType]] = Option(self.alarmTypes).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def childrenOfAlarmNameAsScala: Option[String] = Option(self.childrenOfAlarmName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def parentsOfAlarmNameAsScala: Option[String] = Option(self.parentsOfAlarmName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateValueAsScala: Option[StateValue] = Option(self.stateValue)

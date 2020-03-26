@@ -63,6 +63,8 @@ trait CloudWatchClient[M[_]] {
 
   def putAnomalyDetector(putAnomalyDetectorRequest: PutAnomalyDetectorRequest): M[PutAnomalyDetectorResponse]
 
+  def putCompositeAlarm(putCompositeAlarmRequest: PutCompositeAlarmRequest): M[PutCompositeAlarmResponse]
+
   def putDashboard(putDashboardRequest: PutDashboardRequest): M[PutDashboardResponse]
 
   def putInsightRule(putInsightRuleRequest: PutInsightRuleRequest): M[PutInsightRuleResponse]

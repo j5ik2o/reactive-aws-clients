@@ -26,4 +26,5 @@ dump.rdb
 
 .DS_Store
 .credentials
+.gpgCredentials
 .sbtopts

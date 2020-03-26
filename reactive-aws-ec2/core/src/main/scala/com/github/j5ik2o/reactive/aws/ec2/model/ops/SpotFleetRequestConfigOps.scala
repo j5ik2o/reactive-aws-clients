@@ -40,6 +40,13 @@ final class SpotFleetRequestConfigBuilderOps(val self: SpotFleetRequestConfig.Bu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): SpotFleetRequestConfig.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class SpotFleetRequestConfigOps(val self: SpotFleetRequestConfig) extends AnyVal {
@@ -58,6 +65,11 @@ final class SpotFleetRequestConfigOps(val self: SpotFleetRequestConfig) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotFleetRequestStateAsScala: Option[BatchState] = Option(self.spotFleetRequestState)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

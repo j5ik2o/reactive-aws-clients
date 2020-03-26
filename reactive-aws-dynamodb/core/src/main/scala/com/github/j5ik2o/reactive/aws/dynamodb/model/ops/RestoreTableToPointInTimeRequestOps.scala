@@ -7,6 +7,13 @@ final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToP
     extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceTableArnAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.sourceTableArn(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTableNameAsScala(value: Option[String]): RestoreTableToPointInTimeRequest.Builder = {
     value.fold(self) { v =>
       self.sourceTableName(v)
@@ -68,9 +75,21 @@ final class RestoreTableToPointInTimeRequestBuilderOps(val self: RestoreTableToP
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sseSpecificationOverrideAsScala(
+      value: Option[SSESpecification]
+  ): RestoreTableToPointInTimeRequest.Builder = {
+    value.fold(self) { v =>
+      self.sseSpecificationOverride(v)
+    }
+  }
+
 }
 
 final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInTimeRequest) extends AnyVal {
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sourceTableArnAsScala: Option[String] = Option(self.sourceTableArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTableNameAsScala: Option[String] = Option(self.sourceTableName)
@@ -102,6 +121,9 @@ final class RestoreTableToPointInTimeRequestOps(val self: RestoreTableToPointInT
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputOverrideAsScala: Option[ProvisionedThroughput] =
     Option(self.provisionedThroughputOverride)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def sseSpecificationOverrideAsScala: Option[SSESpecification] = Option(self.sseSpecificationOverride)
 
 }
 

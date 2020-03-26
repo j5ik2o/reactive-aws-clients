@@ -40,6 +40,13 @@ final class AnomalyDetectorBuilderOps(val self: AnomalyDetector.Builder) extends
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateValueAsScala(value: Option[AnomalyDetectorStateValue]): AnomalyDetector.Builder = {
+    value.fold(self) { v =>
+      self.stateValue(v)
+    }
+  }
+
 }
 
 final class AnomalyDetectorOps(val self: AnomalyDetector) extends AnyVal {
@@ -60,6 +67,9 @@ final class AnomalyDetectorOps(val self: AnomalyDetector) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configurationAsScala: Option[AnomalyDetectorConfiguration] = Option(self.configuration)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stateValueAsScala: Option[AnomalyDetectorStateValue] = Option(self.stateValue)
 
 }
 

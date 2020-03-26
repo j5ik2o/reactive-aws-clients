@@ -62,6 +62,20 @@ final class ImageBuilderOps(val self: Image.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformDetailsAsScala(value: Option[String]): Image.Builder = {
+    value.fold(self) { v =>
+      self.platformDetails(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def usageOperationAsScala(value: Option[String]): Image.Builder = {
+    value.fold(self) { v =>
+      self.usageOperation(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodesAsScala(value: Option[Seq[ProductCode]]): Image.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.productCodes(v.asJava)
@@ -200,6 +214,12 @@ final class ImageOps(val self: Image) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformAsScala: Option[PlatformValues] = Option(self.platform)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformDetailsAsScala: Option[String] = Option(self.platformDetails)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def usageOperationAsScala: Option[String] = Option(self.usageOperation)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def productCodesAsScala: Option[Seq[ProductCode]] = Option(self.productCodes).map { v =>

@@ -48,6 +48,13 @@ final class StackInstanceSummaryBuilderOps(val self: StackInstanceSummary.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def organizationalUnitIdAsScala(value: Option[String]): StackInstanceSummary.Builder = {
+    value.fold(self) { v =>
+      self.organizationalUnitId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftStatusAsScala(value: Option[StackDriftStatus]): StackInstanceSummary.Builder = {
     value.fold(self) { v =>
       self.driftStatus(v)
@@ -82,6 +89,9 @@ final class StackInstanceSummaryOps(val self: StackInstanceSummary) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala: Option[String] = Option(self.statusReason)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def organizationalUnitIdAsScala: Option[String] = Option(self.organizationalUnitId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftStatusAsScala: Option[StackDriftStatus] = Option(self.driftStatus)

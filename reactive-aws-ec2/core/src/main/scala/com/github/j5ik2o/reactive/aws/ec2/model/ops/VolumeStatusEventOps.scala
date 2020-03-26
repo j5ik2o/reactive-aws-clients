@@ -40,6 +40,13 @@ final class VolumeStatusEventBuilderOps(val self: VolumeStatusEvent.Builder) ext
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceIdAsScala(value: Option[String]): VolumeStatusEvent.Builder = {
+    value.fold(self) { v =>
+      self.instanceId(v)
+    }
+  }
+
 }
 
 final class VolumeStatusEventOps(val self: VolumeStatusEvent) extends AnyVal {
@@ -58,6 +65,9 @@ final class VolumeStatusEventOps(val self: VolumeStatusEvent) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notBeforeAsScala: Option[java.time.Instant] = Option(self.notBefore)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def instanceIdAsScala: Option[String] = Option(self.instanceId)
 
 }
 

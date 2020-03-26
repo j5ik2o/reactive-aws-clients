@@ -1162,6 +1162,11 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeCoipPools(describeCoipPoolsRequest)
     }
 
+  def describeCoipPoolsPaginator(
+      describeCoipPoolsRequest: DescribeCoipPoolsRequest
+  ): Observable[DescribeCoipPoolsResponse] =
+    Observable.fromReactivePublisher(underlying.describeCoipPoolsPaginator(describeCoipPoolsRequest))
+
   override def describeConversionTasks(
       describeConversionTasksRequest: DescribeConversionTasksRequest
   ): Task[DescribeConversionTasksResponse] =
@@ -1565,12 +1570,24 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest)
     }
 
+  def describeInstanceTypeOfferingsPaginator(
+      describeInstanceTypeOfferingsRequest: DescribeInstanceTypeOfferingsRequest
+  ): Observable[DescribeInstanceTypeOfferingsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeInstanceTypeOfferingsPaginator(describeInstanceTypeOfferingsRequest)
+    )
+
   override def describeInstanceTypes(
       describeInstanceTypesRequest: DescribeInstanceTypesRequest
   ): Task[DescribeInstanceTypesResponse] =
     Task.deferFuture {
       underlying.describeInstanceTypes(describeInstanceTypesRequest)
     }
+
+  def describeInstanceTypesPaginator(
+      describeInstanceTypesRequest: DescribeInstanceTypesRequest
+  ): Observable[DescribeInstanceTypesResponse] =
+    Observable.fromReactivePublisher(underlying.describeInstanceTypesPaginator(describeInstanceTypesRequest))
 
   override def describeInstances(describeInstancesRequest: DescribeInstancesRequest): Task[DescribeInstancesResponse] =
     Task.deferFuture {
@@ -1609,6 +1626,16 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       describeInternetGatewaysRequest: DescribeInternetGatewaysRequest
   ): Observable[DescribeInternetGatewaysResponse] =
     Observable.fromReactivePublisher(underlying.describeInternetGatewaysPaginator(describeInternetGatewaysRequest))
+
+  override def describeIpv6Pools(describeIpv6PoolsRequest: DescribeIpv6PoolsRequest): Task[DescribeIpv6PoolsResponse] =
+    Task.deferFuture {
+      underlying.describeIpv6Pools(describeIpv6PoolsRequest)
+    }
+
+  def describeIpv6PoolsPaginator(
+      describeIpv6PoolsRequest: DescribeIpv6PoolsRequest
+  ): Observable[DescribeIpv6PoolsResponse] =
+    Observable.fromReactivePublisher(underlying.describeIpv6PoolsPaginator(describeIpv6PoolsRequest))
 
   override def describeKeyPairs(describeKeyPairsRequest: DescribeKeyPairsRequest): Task[DescribeKeyPairsResponse] =
     Task.deferFuture {
@@ -1663,12 +1690,29 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       )
     }
 
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(
+      describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): Observable[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(
+        describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+      )
+    )
+
   override def describeLocalGatewayRouteTableVpcAssociations(
       describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
   ): Task[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
     Task.deferFuture {
       underlying.describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest)
     }
+
+  def describeLocalGatewayRouteTableVpcAssociationsPaginator(
+      describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest
+  ): Observable[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying
+        .describeLocalGatewayRouteTableVpcAssociationsPaginator(describeLocalGatewayRouteTableVpcAssociationsRequest)
+    )
 
   override def describeLocalGatewayRouteTables(
       describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
@@ -1677,12 +1721,26 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest)
     }
 
+  def describeLocalGatewayRouteTablesPaginator(
+      describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest
+  ): Observable[DescribeLocalGatewayRouteTablesResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeLocalGatewayRouteTablesPaginator(describeLocalGatewayRouteTablesRequest)
+    )
+
   override def describeLocalGatewayVirtualInterfaceGroups(
       describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
   ): Task[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
     Task.deferFuture {
       underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest)
     }
+
+  def describeLocalGatewayVirtualInterfaceGroupsPaginator(
+      describeLocalGatewayVirtualInterfaceGroupsRequest: DescribeLocalGatewayVirtualInterfaceGroupsRequest
+  ): Observable[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeLocalGatewayVirtualInterfaceGroupsPaginator(describeLocalGatewayVirtualInterfaceGroupsRequest)
+    )
 
   override def describeLocalGatewayVirtualInterfaces(
       describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
@@ -1691,12 +1749,24 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest)
     }
 
+  def describeLocalGatewayVirtualInterfacesPaginator(
+      describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest
+  ): Observable[DescribeLocalGatewayVirtualInterfacesResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeLocalGatewayVirtualInterfacesPaginator(describeLocalGatewayVirtualInterfacesRequest)
+    )
+
   override def describeLocalGateways(
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): Task[DescribeLocalGatewaysResponse] =
     Task.deferFuture {
       underlying.describeLocalGateways(describeLocalGatewaysRequest)
     }
+
+  def describeLocalGatewaysPaginator(
+      describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
+  ): Observable[DescribeLocalGatewaysResponse] =
+    Observable.fromReactivePublisher(underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest))
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -2268,12 +2338,26 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest)
     }
 
+  def describeTransitGatewayMulticastDomainsPaginator(
+      describeTransitGatewayMulticastDomainsRequest: DescribeTransitGatewayMulticastDomainsRequest
+  ): Observable[DescribeTransitGatewayMulticastDomainsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTransitGatewayMulticastDomainsPaginator(describeTransitGatewayMulticastDomainsRequest)
+    )
+
   override def describeTransitGatewayPeeringAttachments(
       describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
   ): Task[DescribeTransitGatewayPeeringAttachmentsResponse] =
     Task.deferFuture {
       underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest)
     }
+
+  def describeTransitGatewayPeeringAttachmentsPaginator(
+      describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest
+  ): Observable[DescribeTransitGatewayPeeringAttachmentsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeTransitGatewayPeeringAttachmentsPaginator(describeTransitGatewayPeeringAttachmentsRequest)
+    )
 
   override def describeTransitGatewayRouteTables(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest
@@ -2823,6 +2907,18 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
     }
 
+  override def getAssociatedIpv6PoolCidrs(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): Task[GetAssociatedIpv6PoolCidrsResponse] =
+    Task.deferFuture {
+      underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest)
+    }
+
+  def getAssociatedIpv6PoolCidrsPaginator(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest
+  ): Observable[GetAssociatedIpv6PoolCidrsResponse] =
+    Observable.fromReactivePublisher(underlying.getAssociatedIpv6PoolCidrsPaginator(getAssociatedIpv6PoolCidrsRequest))
+
   override def getCapacityReservationUsage(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest
   ): Task[GetCapacityReservationUsageResponse] =
@@ -2915,6 +3011,14 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest)
     }
 
+  def getTransitGatewayMulticastDomainAssociationsPaginator(
+      getTransitGatewayMulticastDomainAssociationsRequest: GetTransitGatewayMulticastDomainAssociationsRequest
+  ): Observable[GetTransitGatewayMulticastDomainAssociationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying
+        .getTransitGatewayMulticastDomainAssociationsPaginator(getTransitGatewayMulticastDomainAssociationsRequest)
+    )
+
   override def getTransitGatewayRouteTableAssociations(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest
   ): Task[GetTransitGatewayRouteTableAssociationsResponse] =
@@ -2973,6 +3077,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def importVolume(importVolumeRequest: ImportVolumeRequest): Task[ImportVolumeResponse] =
     Task.deferFuture {
       underlying.importVolume(importVolumeRequest)
+    }
+
+  override def modifyAvailabilityZoneGroup(
+      modifyAvailabilityZoneGroupRequest: ModifyAvailabilityZoneGroupRequest
+  ): Task[ModifyAvailabilityZoneGroupResponse] =
+    Task.deferFuture {
+      underlying.modifyAvailabilityZoneGroup(modifyAvailabilityZoneGroupRequest)
     }
 
   override def modifyCapacityReservation(
@@ -3477,12 +3588,24 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest)
     }
 
+  def searchLocalGatewayRoutesPaginator(
+      searchLocalGatewayRoutesRequest: SearchLocalGatewayRoutesRequest
+  ): Observable[SearchLocalGatewayRoutesResponse] =
+    Observable.fromReactivePublisher(underlying.searchLocalGatewayRoutesPaginator(searchLocalGatewayRoutesRequest))
+
   override def searchTransitGatewayMulticastGroups(
       searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
   ): Task[SearchTransitGatewayMulticastGroupsResponse] =
     Task.deferFuture {
       underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest)
     }
+
+  def searchTransitGatewayMulticastGroupsPaginator(
+      searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest
+  ): Observable[SearchTransitGatewayMulticastGroupsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.searchTransitGatewayMulticastGroupsPaginator(searchTransitGatewayMulticastGroupsRequest)
+    )
 
   override def searchTransitGatewayRoutes(
       searchTransitGatewayRoutesRequest: SearchTransitGatewayRoutesRequest
@@ -3501,6 +3624,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def startInstances(startInstancesRequest: StartInstancesRequest): Task[StartInstancesResponse] =
     Task.deferFuture {
       underlying.startInstances(startInstancesRequest)
+    }
+
+  override def startVpcEndpointServicePrivateDnsVerification(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest
+  ): Task[StartVpcEndpointServicePrivateDnsVerificationResponse] =
+    Task.deferFuture {
+      underlying.startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest)
     }
 
   override def stopInstances(stopInstancesRequest: StopInstancesRequest): Task[StopInstancesResponse] =

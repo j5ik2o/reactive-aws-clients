@@ -5,6 +5,7 @@ import com.github.j5ik2o.reactive.aws.utils.ToOptionSupport
 trait ToAllOps
     extends ToOptionSupport
     with ToAgeRangeOps
+    with ToAssetOps
     with ToBeardOps
     with ToBoundingBoxOps
     with ToCelebrityDetailOps
@@ -18,8 +19,13 @@ trait ToAllOps
     with ToContentModerationDetectionOps
     with ToCreateCollectionRequestOps
     with ToCreateCollectionResponseOps
+    with ToCreateProjectRequestOps
+    with ToCreateProjectResponseOps
+    with ToCreateProjectVersionRequestOps
+    with ToCreateProjectVersionResponseOps
     with ToCreateStreamProcessorRequestOps
     with ToCreateStreamProcessorResponseOps
+    with ToCustomLabelOps
     with ToDeleteCollectionRequestOps
     with ToDeleteCollectionResponseOps
     with ToDeleteFacesRequestOps
@@ -27,17 +33,26 @@ trait ToAllOps
     with ToDeleteStreamProcessorRequestOps
     with ToDescribeCollectionRequestOps
     with ToDescribeCollectionResponseOps
+    with ToDescribeProjectVersionsRequestOps
+    with ToDescribeProjectVersionsResponseOps
+    with ToDescribeProjectsRequestOps
+    with ToDescribeProjectsResponseOps
     with ToDescribeStreamProcessorRequestOps
     with ToDescribeStreamProcessorResponseOps
+    with ToDetectCustomLabelsRequestOps
+    with ToDetectCustomLabelsResponseOps
     with ToDetectFacesRequestOps
     with ToDetectFacesResponseOps
     with ToDetectLabelsRequestOps
     with ToDetectLabelsResponseOps
     with ToDetectModerationLabelsRequestOps
     with ToDetectModerationLabelsResponseOps
+    with ToDetectTextFiltersOps
     with ToDetectTextRequestOps
     with ToDetectTextResponseOps
+    with ToDetectionFilterOps
     with ToEmotionOps
+    with ToEvaluationResultOps
     with ToEyeOpenOps
     with ToEyeglassesOps
     with ToFaceDetailOps
@@ -62,6 +77,12 @@ trait ToAllOps
     with ToGetLabelDetectionResponseOps
     with ToGetPersonTrackingRequestOps
     with ToGetPersonTrackingResponseOps
+    with ToGetTextDetectionRequestOps
+    with ToGetTextDetectionResponseOps
+    with ToGroundTruthManifestOps
+    with ToHumanLoopActivationOutputOps
+    with ToHumanLoopConfigOps
+    with ToHumanLoopDataAttributesOps
     with ToImageOps
     with ToImageQualityOps
     with ToIndexFacesRequestOps
@@ -82,14 +103,18 @@ trait ToAllOps
     with ToMouthOpenOps
     with ToMustacheOps
     with ToNotificationChannelOps
+    with ToOutputConfigOps
     with ToParentOps
     with ToPersonDetailOps
     with ToPersonDetectionOps
     with ToPersonMatchOps
     with ToPointOps
     with ToPoseOps
+    with ToProjectDescriptionOps
+    with ToProjectVersionDescriptionOps
     with ToRecognizeCelebritiesRequestOps
     with ToRecognizeCelebritiesResponseOps
+    with ToRegionOfInterestOps
     with ToS3ObjectOps
     with ToSearchFacesByImageRequestOps
     with ToSearchFacesByImageResponseOps
@@ -108,14 +133,27 @@ trait ToAllOps
     with ToStartLabelDetectionResponseOps
     with ToStartPersonTrackingRequestOps
     with ToStartPersonTrackingResponseOps
+    with ToStartProjectVersionRequestOps
+    with ToStartProjectVersionResponseOps
     with ToStartStreamProcessorRequestOps
+    with ToStartTextDetectionFiltersOps
+    with ToStartTextDetectionRequestOps
+    with ToStartTextDetectionResponseOps
+    with ToStopProjectVersionRequestOps
+    with ToStopProjectVersionResponseOps
     with ToStopStreamProcessorRequestOps
     with ToStreamProcessorInputOps
     with ToStreamProcessorOps
     with ToStreamProcessorOutputOps
     with ToStreamProcessorSettingsOps
+    with ToSummaryOps
     with ToSunglassesOps
+    with ToTestingDataOps
+    with ToTestingDataResultOps
     with ToTextDetectionOps
+    with ToTextDetectionResultOps
+    with ToTrainingDataOps
+    with ToTrainingDataResultOps
     with ToUnindexedFaceOps
     with ToVideoMetadataOps
     with ToVideoOps

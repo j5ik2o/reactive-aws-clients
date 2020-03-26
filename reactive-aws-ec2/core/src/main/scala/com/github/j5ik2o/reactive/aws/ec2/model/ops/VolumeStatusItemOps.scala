@@ -47,6 +47,13 @@ final class VolumeStatusItemBuilderOps(val self: VolumeStatusItem.Builder) exten
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def attachmentStatusesAsScala(value: Option[Seq[VolumeStatusAttachmentStatus]]): VolumeStatusItem.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.attachmentStatuses(v.asJava)
+    }
+  }
+
 }
 
 final class VolumeStatusItemOps(val self: VolumeStatusItem) extends AnyVal {
@@ -72,6 +79,12 @@ final class VolumeStatusItemOps(val self: VolumeStatusItem) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeStatusAsScala: Option[VolumeStatusInfo] = Option(self.volumeStatus)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def attachmentStatusesAsScala: Option[Seq[VolumeStatusAttachmentStatus]] = Option(self.attachmentStatuses).map {
+    v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

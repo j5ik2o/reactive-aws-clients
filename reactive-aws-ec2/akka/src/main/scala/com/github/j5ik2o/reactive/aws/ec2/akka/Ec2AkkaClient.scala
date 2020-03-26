@@ -2228,6 +2228,11 @@ trait Ec2AkkaClient {
       underlying.describeCoipPools(describeCoipPoolsRequest)
     }
 
+  def describeCoipPoolsPaginatorFlow: Flow[DescribeCoipPoolsRequest, DescribeCoipPoolsResponse, NotUsed] =
+    Flow[DescribeCoipPoolsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeCoipPoolsPaginator(request))
+    }
+
   def describeConversionTasksSource(
       describeConversionTasksRequest: DescribeConversionTasksRequest,
       parallelism: Int = DefaultParallelism
@@ -2781,6 +2786,12 @@ trait Ec2AkkaClient {
       underlying.describeInstanceTypeOfferings(describeInstanceTypeOfferingsRequest)
     }
 
+  def describeInstanceTypeOfferingsPaginatorFlow
+      : Flow[DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResponse, NotUsed] =
+    Flow[DescribeInstanceTypeOfferingsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeInstanceTypeOfferingsPaginator(request))
+    }
+
   def describeInstanceTypesSource(
       describeInstanceTypesRequest: DescribeInstanceTypesRequest,
       parallelism: Int = DefaultParallelism
@@ -2792,6 +2803,11 @@ trait Ec2AkkaClient {
   ): Flow[DescribeInstanceTypesRequest, DescribeInstanceTypesResponse, NotUsed] =
     Flow[DescribeInstanceTypesRequest].mapAsync(parallelism) { describeInstanceTypesRequest =>
       underlying.describeInstanceTypes(describeInstanceTypesRequest)
+    }
+
+  def describeInstanceTypesPaginatorFlow: Flow[DescribeInstanceTypesRequest, DescribeInstanceTypesResponse, NotUsed] =
+    Flow[DescribeInstanceTypesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeInstanceTypesPaginator(request))
     }
 
   def describeInstancesSource(
@@ -2841,6 +2857,24 @@ trait Ec2AkkaClient {
       : Flow[DescribeInternetGatewaysRequest, DescribeInternetGatewaysResponse, NotUsed] =
     Flow[DescribeInternetGatewaysRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeInternetGatewaysPaginator(request))
+    }
+
+  def describeIpv6PoolsSource(
+      describeIpv6PoolsRequest: DescribeIpv6PoolsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeIpv6PoolsResponse, NotUsed] =
+    Source.single(describeIpv6PoolsRequest).via(describeIpv6PoolsFlow(parallelism))
+
+  def describeIpv6PoolsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeIpv6PoolsRequest, DescribeIpv6PoolsResponse, NotUsed] =
+    Flow[DescribeIpv6PoolsRequest].mapAsync(parallelism) { describeIpv6PoolsRequest =>
+      underlying.describeIpv6Pools(describeIpv6PoolsRequest)
+    }
+
+  def describeIpv6PoolsPaginatorFlow: Flow[DescribeIpv6PoolsRequest, DescribeIpv6PoolsResponse, NotUsed] =
+    Flow[DescribeIpv6PoolsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeIpv6PoolsPaginator(request))
     }
 
   def describeKeyPairsSource(
@@ -2924,6 +2958,14 @@ trait Ec2AkkaClient {
         )
     }
 
+  def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginatorFlow: Flow[
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse,
+    NotUsed
+  ] = Flow[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(request))
+  }
+
   def describeLocalGatewayRouteTableVpcAssociationsSource(
       describeLocalGatewayRouteTableVpcAssociationsRequest: DescribeLocalGatewayRouteTableVpcAssociationsRequest,
       parallelism: Int = DefaultParallelism
@@ -2943,6 +2985,14 @@ trait Ec2AkkaClient {
         underlying.describeLocalGatewayRouteTableVpcAssociations(describeLocalGatewayRouteTableVpcAssociationsRequest)
     }
 
+  def describeLocalGatewayRouteTableVpcAssociationsPaginatorFlow: Flow[
+    DescribeLocalGatewayRouteTableVpcAssociationsRequest,
+    DescribeLocalGatewayRouteTableVpcAssociationsResponse,
+    NotUsed
+  ] = Flow[DescribeLocalGatewayRouteTableVpcAssociationsRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.describeLocalGatewayRouteTableVpcAssociationsPaginator(request))
+  }
+
   def describeLocalGatewayRouteTablesSource(
       describeLocalGatewayRouteTablesRequest: DescribeLocalGatewayRouteTablesRequest,
       parallelism: Int = DefaultParallelism
@@ -2954,6 +3004,12 @@ trait Ec2AkkaClient {
   ): Flow[DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResponse, NotUsed] =
     Flow[DescribeLocalGatewayRouteTablesRequest].mapAsync(parallelism) { describeLocalGatewayRouteTablesRequest =>
       underlying.describeLocalGatewayRouteTables(describeLocalGatewayRouteTablesRequest)
+    }
+
+  def describeLocalGatewayRouteTablesPaginatorFlow
+      : Flow[DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResponse, NotUsed] =
+    Flow[DescribeLocalGatewayRouteTablesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeLocalGatewayRouteTablesPaginator(request))
     }
 
   def describeLocalGatewayVirtualInterfaceGroupsSource(
@@ -2975,6 +3031,14 @@ trait Ec2AkkaClient {
         underlying.describeLocalGatewayVirtualInterfaceGroups(describeLocalGatewayVirtualInterfaceGroupsRequest)
     }
 
+  def describeLocalGatewayVirtualInterfaceGroupsPaginatorFlow: Flow[
+    DescribeLocalGatewayVirtualInterfaceGroupsRequest,
+    DescribeLocalGatewayVirtualInterfaceGroupsResponse,
+    NotUsed
+  ] = Flow[DescribeLocalGatewayVirtualInterfaceGroupsRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.describeLocalGatewayVirtualInterfaceGroupsPaginator(request))
+  }
+
   def describeLocalGatewayVirtualInterfacesSource(
       describeLocalGatewayVirtualInterfacesRequest: DescribeLocalGatewayVirtualInterfacesRequest,
       parallelism: Int = DefaultParallelism
@@ -2990,6 +3054,12 @@ trait Ec2AkkaClient {
         underlying.describeLocalGatewayVirtualInterfaces(describeLocalGatewayVirtualInterfacesRequest)
     }
 
+  def describeLocalGatewayVirtualInterfacesPaginatorFlow
+      : Flow[DescribeLocalGatewayVirtualInterfacesRequest, DescribeLocalGatewayVirtualInterfacesResponse, NotUsed] =
+    Flow[DescribeLocalGatewayVirtualInterfacesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeLocalGatewayVirtualInterfacesPaginator(request))
+    }
+
   def describeLocalGatewaysSource(
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest,
       parallelism: Int = DefaultParallelism
@@ -3001,6 +3071,11 @@ trait Ec2AkkaClient {
   ): Flow[DescribeLocalGatewaysRequest, DescribeLocalGatewaysResponse, NotUsed] =
     Flow[DescribeLocalGatewaysRequest].mapAsync(parallelism) { describeLocalGatewaysRequest =>
       underlying.describeLocalGateways(describeLocalGatewaysRequest)
+    }
+
+  def describeLocalGatewaysPaginatorFlow: Flow[DescribeLocalGatewaysRequest, DescribeLocalGatewaysResponse, NotUsed] =
+    Flow[DescribeLocalGatewaysRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeLocalGatewaysPaginator(request))
     }
 
   def describeMovingAddressesSource(
@@ -3761,6 +3836,12 @@ trait Ec2AkkaClient {
         underlying.describeTransitGatewayMulticastDomains(describeTransitGatewayMulticastDomainsRequest)
     }
 
+  def describeTransitGatewayMulticastDomainsPaginatorFlow
+      : Flow[DescribeTransitGatewayMulticastDomainsRequest, DescribeTransitGatewayMulticastDomainsResponse, NotUsed] =
+    Flow[DescribeTransitGatewayMulticastDomainsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeTransitGatewayMulticastDomainsPaginator(request))
+    }
+
   def describeTransitGatewayPeeringAttachmentsSource(
       describeTransitGatewayPeeringAttachmentsRequest: DescribeTransitGatewayPeeringAttachmentsRequest,
       parallelism: Int = DefaultParallelism
@@ -3777,6 +3858,14 @@ trait Ec2AkkaClient {
       describeTransitGatewayPeeringAttachmentsRequest =>
         underlying.describeTransitGatewayPeeringAttachments(describeTransitGatewayPeeringAttachmentsRequest)
     }
+
+  def describeTransitGatewayPeeringAttachmentsPaginatorFlow: Flow[
+    DescribeTransitGatewayPeeringAttachmentsRequest,
+    DescribeTransitGatewayPeeringAttachmentsResponse,
+    NotUsed
+  ] = Flow[DescribeTransitGatewayPeeringAttachmentsRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.describeTransitGatewayPeeringAttachmentsPaginator(request))
+  }
 
   def describeTransitGatewayRouteTablesSource(
       describeTransitGatewayRouteTablesRequest: DescribeTransitGatewayRouteTablesRequest,
@@ -4645,6 +4734,25 @@ trait Ec2AkkaClient {
       underlying.exportTransitGatewayRoutes(exportTransitGatewayRoutesRequest)
     }
 
+  def getAssociatedIpv6PoolCidrsSource(
+      getAssociatedIpv6PoolCidrsRequest: GetAssociatedIpv6PoolCidrsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetAssociatedIpv6PoolCidrsResponse, NotUsed] =
+    Source.single(getAssociatedIpv6PoolCidrsRequest).via(getAssociatedIpv6PoolCidrsFlow(parallelism))
+
+  def getAssociatedIpv6PoolCidrsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResponse, NotUsed] =
+    Flow[GetAssociatedIpv6PoolCidrsRequest].mapAsync(parallelism) { getAssociatedIpv6PoolCidrsRequest =>
+      underlying.getAssociatedIpv6PoolCidrs(getAssociatedIpv6PoolCidrsRequest)
+    }
+
+  def getAssociatedIpv6PoolCidrsPaginatorFlow
+      : Flow[GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResponse, NotUsed] =
+    Flow[GetAssociatedIpv6PoolCidrsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getAssociatedIpv6PoolCidrsPaginator(request))
+    }
+
   def getCapacityReservationUsageSource(
       getCapacityReservationUsageRequest: GetCapacityReservationUsageRequest,
       parallelism: Int = DefaultParallelism
@@ -4830,6 +4938,14 @@ trait Ec2AkkaClient {
         underlying.getTransitGatewayMulticastDomainAssociations(getTransitGatewayMulticastDomainAssociationsRequest)
     }
 
+  def getTransitGatewayMulticastDomainAssociationsPaginatorFlow: Flow[
+    GetTransitGatewayMulticastDomainAssociationsRequest,
+    GetTransitGatewayMulticastDomainAssociationsResponse,
+    NotUsed
+  ] = Flow[GetTransitGatewayMulticastDomainAssociationsRequest].flatMapConcat { request =>
+    Source.fromPublisher(underlying.getTransitGatewayMulticastDomainAssociationsPaginator(request))
+  }
+
   def getTransitGatewayRouteTableAssociationsSource(
       getTransitGatewayRouteTableAssociationsRequest: GetTransitGatewayRouteTableAssociationsRequest,
       parallelism: Int = DefaultParallelism
@@ -4956,6 +5072,19 @@ trait Ec2AkkaClient {
   ): Flow[ImportVolumeRequest, ImportVolumeResponse, NotUsed] =
     Flow[ImportVolumeRequest].mapAsync(parallelism) { importVolumeRequest =>
       underlying.importVolume(importVolumeRequest)
+    }
+
+  def modifyAvailabilityZoneGroupSource(
+      modifyAvailabilityZoneGroupRequest: ModifyAvailabilityZoneGroupRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyAvailabilityZoneGroupResponse, NotUsed] =
+    Source.single(modifyAvailabilityZoneGroupRequest).via(modifyAvailabilityZoneGroupFlow(parallelism))
+
+  def modifyAvailabilityZoneGroupFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyAvailabilityZoneGroupRequest, ModifyAvailabilityZoneGroupResponse, NotUsed] =
+    Flow[ModifyAvailabilityZoneGroupRequest].mapAsync(parallelism) { modifyAvailabilityZoneGroupRequest =>
+      underlying.modifyAvailabilityZoneGroup(modifyAvailabilityZoneGroupRequest)
     }
 
   def modifyCapacityReservationSource(
@@ -5975,6 +6104,12 @@ trait Ec2AkkaClient {
       underlying.searchLocalGatewayRoutes(searchLocalGatewayRoutesRequest)
     }
 
+  def searchLocalGatewayRoutesPaginatorFlow
+      : Flow[SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResponse, NotUsed] =
+    Flow[SearchLocalGatewayRoutesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.searchLocalGatewayRoutesPaginator(request))
+    }
+
   def searchTransitGatewayMulticastGroupsSource(
       searchTransitGatewayMulticastGroupsRequest: SearchTransitGatewayMulticastGroupsRequest,
       parallelism: Int = DefaultParallelism
@@ -5987,6 +6122,12 @@ trait Ec2AkkaClient {
     Flow[SearchTransitGatewayMulticastGroupsRequest].mapAsync(parallelism) {
       searchTransitGatewayMulticastGroupsRequest =>
         underlying.searchTransitGatewayMulticastGroups(searchTransitGatewayMulticastGroupsRequest)
+    }
+
+  def searchTransitGatewayMulticastGroupsPaginatorFlow
+      : Flow[SearchTransitGatewayMulticastGroupsRequest, SearchTransitGatewayMulticastGroupsResponse, NotUsed] =
+    Flow[SearchTransitGatewayMulticastGroupsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.searchTransitGatewayMulticastGroupsPaginator(request))
     }
 
   def searchTransitGatewayRoutesSource(
@@ -6026,6 +6167,25 @@ trait Ec2AkkaClient {
   ): Flow[StartInstancesRequest, StartInstancesResponse, NotUsed] =
     Flow[StartInstancesRequest].mapAsync(parallelism) { startInstancesRequest =>
       underlying.startInstances(startInstancesRequest)
+    }
+
+  def startVpcEndpointServicePrivateDnsVerificationSource(
+      startVpcEndpointServicePrivateDnsVerificationRequest: StartVpcEndpointServicePrivateDnsVerificationRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartVpcEndpointServicePrivateDnsVerificationResponse, NotUsed] =
+    Source
+      .single(startVpcEndpointServicePrivateDnsVerificationRequest).via(
+        startVpcEndpointServicePrivateDnsVerificationFlow(parallelism)
+      )
+
+  def startVpcEndpointServicePrivateDnsVerificationFlow(parallelism: Int = DefaultParallelism): Flow[
+    StartVpcEndpointServicePrivateDnsVerificationRequest,
+    StartVpcEndpointServicePrivateDnsVerificationResponse,
+    NotUsed
+  ] =
+    Flow[StartVpcEndpointServicePrivateDnsVerificationRequest].mapAsync(parallelism) {
+      startVpcEndpointServicePrivateDnsVerificationRequest =>
+        underlying.startVpcEndpointServicePrivateDnsVerification(startVpcEndpointServicePrivateDnsVerificationRequest)
     }
 
   def stopInstancesSource(

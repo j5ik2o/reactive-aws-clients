@@ -54,6 +54,13 @@ final class LocalGatewayVirtualInterfaceBuilderOps(val self: LocalGatewayVirtual
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): LocalGatewayVirtualInterface.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class LocalGatewayVirtualInterfaceOps(val self: LocalGatewayVirtualInterface) extends AnyVal {
@@ -78,6 +85,11 @@ final class LocalGatewayVirtualInterfaceOps(val self: LocalGatewayVirtualInterfa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def peerBgpAsnAsScala: Option[Int] = Option(self.peerBgpAsn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

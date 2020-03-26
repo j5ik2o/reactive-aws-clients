@@ -33,6 +33,20 @@ final class AssociateVpcCidrBlockRequestBuilderOps(val self: AssociateVpcCidrBlo
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6PoolAsScala(value: Option[String]): AssociateVpcCidrBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.ipv6Pool(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockAsScala(value: Option[String]): AssociateVpcCidrBlockRequest.Builder = {
+    value.fold(self) { v =>
+      self.ipv6CidrBlock(v)
+    }
+  }
+
 }
 
 final class AssociateVpcCidrBlockRequestOps(val self: AssociateVpcCidrBlockRequest) extends AnyVal {
@@ -48,6 +62,12 @@ final class AssociateVpcCidrBlockRequestOps(val self: AssociateVpcCidrBlockReque
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockNetworkBorderGroupAsScala: Option[String] = Option(self.ipv6CidrBlockNetworkBorderGroup)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6PoolAsScala: Option[String] = Option(self.ipv6Pool)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ipv6CidrBlockAsScala: Option[String] = Option(self.ipv6CidrBlock)
 
 }
 

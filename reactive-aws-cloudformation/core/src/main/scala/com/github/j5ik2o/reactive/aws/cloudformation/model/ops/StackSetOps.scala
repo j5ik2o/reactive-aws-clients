@@ -89,6 +89,27 @@ final class StackSetBuilderOps(val self: StackSet.Builder) extends AnyVal {
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala(value: Option[AutoDeployment]): StackSet.Builder = {
+    value.fold(self) { v =>
+      self.autoDeployment(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala(value: Option[PermissionModels]): StackSet.Builder = {
+    value.fold(self) { v =>
+      self.permissionModel(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def organizationalUnitIdsAsScala(value: Option[Seq[String]]): StackSet.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.organizationalUnitIds(v.asJava)
+    }
+  }
+
 }
 
 final class StackSetOps(val self: StackSet) extends AnyVal {
@@ -135,6 +156,17 @@ final class StackSetOps(val self: StackSet) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetDriftDetectionDetailsAsScala: Option[StackSetDriftDetectionDetails] =
     Option(self.stackSetDriftDetectionDetails)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala: Option[AutoDeployment] = Option(self.autoDeployment)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala: Option[PermissionModels] = Option(self.permissionModel)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def organizationalUnitIdsAsScala: Option[Seq[String]] = Option(self.organizationalUnitIds).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

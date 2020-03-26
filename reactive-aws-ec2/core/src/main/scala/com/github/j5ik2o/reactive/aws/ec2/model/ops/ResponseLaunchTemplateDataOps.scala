@@ -202,6 +202,15 @@ final class ResponseLaunchTemplateDataBuilderOps(val self: ResponseLaunchTemplat
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metadataOptionsAsScala(
+      value: Option[LaunchTemplateInstanceMetadataOptions]
+  ): ResponseLaunchTemplateData.Builder = {
+    value.fold(self) { v =>
+      self.metadataOptions(v)
+    }
+  }
+
 }
 
 final class ResponseLaunchTemplateDataOps(val self: ResponseLaunchTemplateData) extends AnyVal {
@@ -306,6 +315,9 @@ final class ResponseLaunchTemplateDataOps(val self: ResponseLaunchTemplateData) 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hibernationOptionsAsScala: Option[LaunchTemplateHibernationOptions] = Option(self.hibernationOptions)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def metadataOptionsAsScala: Option[LaunchTemplateInstanceMetadataOptions] = Option(self.metadataOptions)
 
 }
 

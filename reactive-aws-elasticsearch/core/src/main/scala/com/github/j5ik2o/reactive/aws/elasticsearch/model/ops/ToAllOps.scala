@@ -8,6 +8,9 @@ trait ToAllOps
     with ToAddTagsRequestOps
     with ToAdditionalLimitOps
     with ToAdvancedOptionsStatusOps
+    with ToAdvancedSecurityOptionsInputOps
+    with ToAdvancedSecurityOptionsOps
+    with ToAdvancedSecurityOptionsStatusOps
     with ToCancelElasticsearchServiceSoftwareUpdateRequestOps
     with ToCancelElasticsearchServiceSoftwareUpdateResponseOps
     with ToCognitoOptionsOps
@@ -59,6 +62,7 @@ trait ToAllOps
     with ToListTagsResponseOps
     with ToLogPublishingOptionOps
     with ToLogPublishingOptionsStatusOps
+    with ToMasterUserOptionsOps
     with ToNodeToNodeEncryptionOptionsOps
     with ToNodeToNodeEncryptionOptionsStatusOps
     with ToOptionStatusOps

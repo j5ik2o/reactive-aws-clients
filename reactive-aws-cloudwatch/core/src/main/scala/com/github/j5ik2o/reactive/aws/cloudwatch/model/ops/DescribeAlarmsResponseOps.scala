@@ -6,6 +6,13 @@ import software.amazon.awssdk.services.cloudwatch.model._
 final class DescribeAlarmsResponseBuilderOps(val self: DescribeAlarmsResponse.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def compositeAlarmsAsScala(value: Option[Seq[CompositeAlarm]]): DescribeAlarmsResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.compositeAlarms(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricAlarmsAsScala(value: Option[Seq[MetricAlarm]]): DescribeAlarmsResponse.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.metricAlarms(v.asJava)
@@ -22,6 +29,11 @@ final class DescribeAlarmsResponseBuilderOps(val self: DescribeAlarmsResponse.Bu
 }
 
 final class DescribeAlarmsResponseOps(val self: DescribeAlarmsResponse) extends AnyVal {
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def compositeAlarmsAsScala: Option[Seq[CompositeAlarm]] = Option(self.compositeAlarms).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] = Option(self.metricAlarms).map { v =>

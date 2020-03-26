@@ -12,6 +12,13 @@ final class DetectTextResponseBuilderOps(val self: DetectTextResponse.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def textModelVersionAsScala(value: Option[String]): DetectTextResponse.Builder = {
+    value.fold(self) { v =>
+      self.textModelVersion(v)
+    }
+  }
+
 }
 
 final class DetectTextResponseOps(val self: DetectTextResponse) extends AnyVal {
@@ -20,6 +27,9 @@ final class DetectTextResponseOps(val self: DetectTextResponse) extends AnyVal {
   final def textDetectionsAsScala: Option[Seq[TextDetection]] = Option(self.textDetections).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def textModelVersionAsScala: Option[String] = Option(self.textModelVersion)
 
 }
 

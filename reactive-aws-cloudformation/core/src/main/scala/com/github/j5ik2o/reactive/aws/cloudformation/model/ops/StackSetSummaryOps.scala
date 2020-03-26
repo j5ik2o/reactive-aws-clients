@@ -34,6 +34,20 @@ final class StackSetSummaryBuilderOps(val self: StackSetSummary.Builder) extends
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala(value: Option[AutoDeployment]): StackSetSummary.Builder = {
+    value.fold(self) { v =>
+      self.autoDeployment(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala(value: Option[PermissionModels]): StackSetSummary.Builder = {
+    value.fold(self) { v =>
+      self.permissionModel(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftStatusAsScala(value: Option[StackDriftStatus]): StackSetSummary.Builder = {
     value.fold(self) { v =>
       self.driftStatus(v)
@@ -62,6 +76,12 @@ final class StackSetSummaryOps(val self: StackSetSummary) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[StackSetStatus] = Option(self.status)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala: Option[AutoDeployment] = Option(self.autoDeployment)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala: Option[PermissionModels] = Option(self.permissionModel)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftStatusAsScala: Option[StackDriftStatus] = Option(self.driftStatus)

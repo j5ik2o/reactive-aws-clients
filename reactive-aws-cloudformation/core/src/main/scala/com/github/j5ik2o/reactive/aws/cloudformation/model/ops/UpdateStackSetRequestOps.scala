@@ -83,6 +83,27 @@ final class UpdateStackSetRequestBuilderOps(val self: UpdateStackSetRequest.Buil
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deploymentTargetsAsScala(value: Option[DeploymentTargets]): UpdateStackSetRequest.Builder = {
+    value.fold(self) { v =>
+      self.deploymentTargets(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala(value: Option[PermissionModels]): UpdateStackSetRequest.Builder = {
+    value.fold(self) { v =>
+      self.permissionModel(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala(value: Option[AutoDeployment]): UpdateStackSetRequest.Builder = {
+    value.fold(self) { v =>
+      self.autoDeployment(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): UpdateStackSetRequest.Builder = {
     value.fold(self) { v =>
       self.operationId(v)
@@ -145,6 +166,15 @@ final class UpdateStackSetRequestOps(val self: UpdateStackSetRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleNameAsScala: Option[String] = Option(self.executionRoleName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def deploymentTargetsAsScala: Option[DeploymentTargets] = Option(self.deploymentTargets)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def permissionModelAsScala: Option[PermissionModels] = Option(self.permissionModel)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def autoDeploymentAsScala: Option[AutoDeployment] = Option(self.autoDeployment)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala: Option[String] = Option(self.operationId)

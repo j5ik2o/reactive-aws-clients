@@ -15,6 +15,15 @@ final class OnDemandOptionsRequestBuilderOps(val self: OnDemandOptionsRequest.Bu
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityReservationOptionsAsScala(
+      value: Option[CapacityReservationOptionsRequest]
+  ): OnDemandOptionsRequest.Builder = {
+    value.fold(self) { v =>
+      self.capacityReservationOptions(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def singleInstanceTypeAsScala(value: Option[Boolean]): OnDemandOptionsRequest.Builder = {
     value.fold(self) { v =>
       self.singleInstanceType(v)
@@ -48,6 +57,10 @@ final class OnDemandOptionsRequestOps(val self: OnDemandOptionsRequest) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationStrategyAsScala: Option[FleetOnDemandAllocationStrategy] = Option(self.allocationStrategy)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def capacityReservationOptionsAsScala: Option[CapacityReservationOptionsRequest] =
+    Option(self.capacityReservationOptions)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def singleInstanceTypeAsScala: Option[Boolean] = Option(self.singleInstanceType)
