@@ -36,10 +36,12 @@ AWS Client libraries for Scala
     - 2.12.x
     - 2.13.x
 
-|reactive-aws-clients version|aws-sdk version|scala version|
-|:-----:|:-------------:|:--------:|
-|1.1.x|2.10.x|2.11, 2.12, 2.13|
-|1.2.x|2.11.x|2.11, 2.12, 2.13|
+|reactive-aws-clients version|aws-sdk version|scala version|akka-version|
+|:-----:|:-----:|:--------------:|:----:|
+|1.1.x  |2.10.x |2.11, 2.12, 2.13|2.5.x|
+|1.2.x  |2.11.x |2.11, 2.12, 2.13|2.5.x|
+|1.2.1+ |2.11.x |2.11            |2.5.x|
+|1.2.1+ |2.11.x |2.12, 2.13      |2.6.x|
 
 ## Installation
 
