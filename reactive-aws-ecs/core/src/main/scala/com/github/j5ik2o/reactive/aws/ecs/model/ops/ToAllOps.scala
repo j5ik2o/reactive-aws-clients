@@ -139,7 +139,6 @@ trait ToAllOps
     with ToSystemControlOps
     with ToTagOps
     with ToTagResourceRequestOps
-    with ToTagResourceResponseOps
     with ToTaskDefinitionOps
     with ToTaskDefinitionPlacementConstraintOps
     with ToTaskOps
@@ -148,7 +147,6 @@ trait ToAllOps
     with ToTmpfsOps
     with ToUlimitOps
     with ToUntagResourceRequestOps
-    with ToUntagResourceResponseOps
     with ToUpdateClusterSettingsRequestOps
     with ToUpdateClusterSettingsResponseOps
     with ToUpdateContainerAgentRequestOps
