@@ -7,6 +7,8 @@ trait ElasticsearchClient[M[_]] {
 
   def addTags(addTagsRequest: AddTagsRequest): M[AddTagsResponse]
 
+  def associatePackage(associatePackageRequest: AssociatePackageRequest): M[AssociatePackageResponse]
+
   def cancelElasticsearchServiceSoftwareUpdate(
       cancelElasticsearchServiceSoftwareUpdateRequest: CancelElasticsearchServiceSoftwareUpdateRequest
   ): M[CancelElasticsearchServiceSoftwareUpdateResponse]
@@ -14,6 +16,8 @@ trait ElasticsearchClient[M[_]] {
   def createElasticsearchDomain(
       createElasticsearchDomainRequest: CreateElasticsearchDomainRequest
   ): M[CreateElasticsearchDomainResponse]
+
+  def createPackage(createPackageRequest: CreatePackageRequest): M[CreatePackageResponse]
 
   def deleteElasticsearchDomain(
       deleteElasticsearchDomainRequest: DeleteElasticsearchDomainRequest
@@ -24,6 +28,8 @@ trait ElasticsearchClient[M[_]] {
   ): M[DeleteElasticsearchServiceRoleResponse]
 
   def deleteElasticsearchServiceRole(): M[DeleteElasticsearchServiceRoleResponse]
+
+  def deletePackage(deletePackageRequest: DeletePackageRequest): M[DeletePackageResponse]
 
   def describeElasticsearchDomain(
       describeElasticsearchDomainRequest: DescribeElasticsearchDomainRequest
@@ -41,6 +47,8 @@ trait ElasticsearchClient[M[_]] {
       describeElasticsearchInstanceTypeLimitsRequest: DescribeElasticsearchInstanceTypeLimitsRequest
   ): M[DescribeElasticsearchInstanceTypeLimitsResponse]
 
+  def describePackages(describePackagesRequest: DescribePackagesRequest): M[DescribePackagesResponse]
+
   def describeReservedElasticsearchInstanceOfferings(
       describeReservedElasticsearchInstanceOfferingsRequest: DescribeReservedElasticsearchInstanceOfferingsRequest
   ): M[DescribeReservedElasticsearchInstanceOfferingsResponse]
@@ -52,6 +60,8 @@ trait ElasticsearchClient[M[_]] {
   ): M[DescribeReservedElasticsearchInstancesResponse]
 
   def describeReservedElasticsearchInstances(): M[DescribeReservedElasticsearchInstancesResponse]
+
+  def dissociatePackage(dissociatePackageRequest: DissociatePackageRequest): M[DissociatePackageResponse]
 
   def getCompatibleElasticsearchVersions(
       getCompatibleElasticsearchVersionsRequest: GetCompatibleElasticsearchVersionsRequest
@@ -67,6 +77,10 @@ trait ElasticsearchClient[M[_]] {
 
   def listDomainNames(): M[ListDomainNamesResponse]
 
+  def listDomainsForPackage(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): M[ListDomainsForPackageResponse]
+
   def listElasticsearchInstanceTypes(
       listElasticsearchInstanceTypesRequest: ListElasticsearchInstanceTypesRequest
   ): M[ListElasticsearchInstanceTypesResponse]
@@ -76,6 +90,10 @@ trait ElasticsearchClient[M[_]] {
   ): M[ListElasticsearchVersionsResponse]
 
   def listElasticsearchVersions(): M[ListElasticsearchVersionsResponse]
+
+  def listPackagesForDomain(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): M[ListPackagesForDomainResponse]
 
   def listTags(listTagsRequest: ListTagsRequest): M[ListTagsResponse]
 

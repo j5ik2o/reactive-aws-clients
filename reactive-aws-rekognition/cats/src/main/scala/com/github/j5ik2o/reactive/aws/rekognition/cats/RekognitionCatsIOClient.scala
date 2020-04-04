@@ -64,6 +64,18 @@ trait RekognitionCatsIOClient extends RekognitionClient[IO] {
       IO(underlying.deleteFaces(deleteFacesRequest))
     }
 
+  override def deleteProject(deleteProjectRequest: DeleteProjectRequest): IO[DeleteProjectResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteProject(deleteProjectRequest))
+    }
+
+  override def deleteProjectVersion(
+      deleteProjectVersionRequest: DeleteProjectVersionRequest
+  ): IO[DeleteProjectVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteProjectVersion(deleteProjectVersionRequest))
+    }
+
   override def deleteStreamProcessor(
       deleteStreamProcessorRequest: DeleteStreamProcessorRequest
   ): IO[DeleteStreamProcessorResponse] =

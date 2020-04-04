@@ -21,6 +21,10 @@ trait RekognitionClient[M[_]] {
 
   def deleteFaces(deleteFacesRequest: DeleteFacesRequest): M[DeleteFacesResponse]
 
+  def deleteProject(deleteProjectRequest: DeleteProjectRequest): M[DeleteProjectResponse]
+
+  def deleteProjectVersion(deleteProjectVersionRequest: DeleteProjectVersionRequest): M[DeleteProjectVersionResponse]
+
   def deleteStreamProcessor(
       deleteStreamProcessorRequest: DeleteStreamProcessorRequest
   ): M[DeleteStreamProcessorResponse]

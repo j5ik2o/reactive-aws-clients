@@ -57,6 +57,18 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
       underlying.deleteFaces(deleteFacesRequest)
     }
 
+  override def deleteProject(deleteProjectRequest: DeleteProjectRequest): Task[DeleteProjectResponse] =
+    Task.deferFuture {
+      underlying.deleteProject(deleteProjectRequest)
+    }
+
+  override def deleteProjectVersion(
+      deleteProjectVersionRequest: DeleteProjectVersionRequest
+  ): Task[DeleteProjectVersionResponse] =
+    Task.deferFuture {
+      underlying.deleteProjectVersion(deleteProjectVersionRequest)
+    }
+
   override def deleteStreamProcessor(
       deleteStreamProcessorRequest: DeleteStreamProcessorRequest
   ): Task[DeleteStreamProcessorResponse] =

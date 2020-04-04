@@ -30,6 +30,10 @@ trait ToAllOps
     with ToDeleteCollectionResponseOps
     with ToDeleteFacesRequestOps
     with ToDeleteFacesResponseOps
+    with ToDeleteProjectRequestOps
+    with ToDeleteProjectResponseOps
+    with ToDeleteProjectVersionRequestOps
+    with ToDeleteProjectVersionResponseOps
     with ToDeleteStreamProcessorRequestOps
     with ToDescribeCollectionRequestOps
     with ToDescribeCollectionResponseOps

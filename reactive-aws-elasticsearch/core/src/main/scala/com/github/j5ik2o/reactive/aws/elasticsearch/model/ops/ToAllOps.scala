@@ -11,6 +11,8 @@ trait ToAllOps
     with ToAdvancedSecurityOptionsInputOps
     with ToAdvancedSecurityOptionsOps
     with ToAdvancedSecurityOptionsStatusOps
+    with ToAssociatePackageRequestOps
+    with ToAssociatePackageResponseOps
     with ToCancelElasticsearchServiceSoftwareUpdateRequestOps
     with ToCancelElasticsearchServiceSoftwareUpdateResponseOps
     with ToCognitoOptionsOps
@@ -18,8 +20,12 @@ trait ToAllOps
     with ToCompatibleVersionsMapOps
     with ToCreateElasticsearchDomainRequestOps
     with ToCreateElasticsearchDomainResponseOps
+    with ToCreatePackageRequestOps
+    with ToCreatePackageResponseOps
     with ToDeleteElasticsearchDomainRequestOps
     with ToDeleteElasticsearchDomainResponseOps
+    with ToDeletePackageRequestOps
+    with ToDeletePackageResponseOps
     with ToDescribeElasticsearchDomainConfigRequestOps
     with ToDescribeElasticsearchDomainConfigResponseOps
     with ToDescribeElasticsearchDomainRequestOps
@@ -28,13 +34,19 @@ trait ToAllOps
     with ToDescribeElasticsearchDomainsResponseOps
     with ToDescribeElasticsearchInstanceTypeLimitsRequestOps
     with ToDescribeElasticsearchInstanceTypeLimitsResponseOps
+    with ToDescribePackagesFilterOps
+    with ToDescribePackagesRequestOps
+    with ToDescribePackagesResponseOps
     with ToDescribeReservedElasticsearchInstanceOfferingsRequestOps
     with ToDescribeReservedElasticsearchInstanceOfferingsResponseOps
     with ToDescribeReservedElasticsearchInstancesRequestOps
     with ToDescribeReservedElasticsearchInstancesResponseOps
+    with ToDissociatePackageRequestOps
+    with ToDissociatePackageResponseOps
     with ToDomainEndpointOptionsOps
     with ToDomainEndpointOptionsStatusOps
     with ToDomainInfoOps
+    with ToDomainPackageDetailsOps
     with ToEBSOptionsOps
     with ToEBSOptionsStatusOps
     with ToElasticsearchClusterConfigOps
@@ -44,6 +56,7 @@ trait ToAllOps
     with ToElasticsearchVersionStatusOps
     with ToEncryptionAtRestOptionsOps
     with ToEncryptionAtRestOptionsStatusOps
+    with ToErrorDetailsOps
     with ToGetCompatibleElasticsearchVersionsRequestOps
     with ToGetCompatibleElasticsearchVersionsResponseOps
     with ToGetUpgradeHistoryRequestOps
@@ -54,10 +67,14 @@ trait ToAllOps
     with ToInstanceLimitsOps
     with ToLimitsOps
     with ToListDomainNamesResponseOps
+    with ToListDomainsForPackageRequestOps
+    with ToListDomainsForPackageResponseOps
     with ToListElasticsearchInstanceTypesRequestOps
     with ToListElasticsearchInstanceTypesResponseOps
     with ToListElasticsearchVersionsRequestOps
     with ToListElasticsearchVersionsResponseOps
+    with ToListPackagesForDomainRequestOps
+    with ToListPackagesForDomainResponseOps
     with ToListTagsRequestOps
     with ToListTagsResponseOps
     with ToLogPublishingOptionOps
@@ -66,6 +83,8 @@ trait ToAllOps
     with ToNodeToNodeEncryptionOptionsOps
     with ToNodeToNodeEncryptionOptionsStatusOps
     with ToOptionStatusOps
+    with ToPackageDetailsOps
+    with ToPackageSourceOps
     with ToPurchaseReservedElasticsearchInstanceOfferingRequestOps
     with ToPurchaseReservedElasticsearchInstanceOfferingResponseOps
     with ToRecurringChargeOps

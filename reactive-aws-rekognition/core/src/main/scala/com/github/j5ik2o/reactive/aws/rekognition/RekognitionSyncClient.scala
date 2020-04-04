@@ -51,6 +51,14 @@ trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
   override def deleteFaces(deleteFacesRequest: DeleteFacesRequest): Either[Throwable, DeleteFacesResponse] =
     underlying.deleteFaces(deleteFacesRequest).toEither
 
+  override def deleteProject(deleteProjectRequest: DeleteProjectRequest): Either[Throwable, DeleteProjectResponse] =
+    underlying.deleteProject(deleteProjectRequest).toEither
+
+  override def deleteProjectVersion(
+      deleteProjectVersionRequest: DeleteProjectVersionRequest
+  ): Either[Throwable, DeleteProjectVersionResponse] =
+    underlying.deleteProjectVersion(deleteProjectVersionRequest).toEither
+
   override def deleteStreamProcessor(
       deleteStreamProcessorRequest: DeleteStreamProcessorRequest
   ): Either[Throwable, DeleteStreamProcessorResponse] =
