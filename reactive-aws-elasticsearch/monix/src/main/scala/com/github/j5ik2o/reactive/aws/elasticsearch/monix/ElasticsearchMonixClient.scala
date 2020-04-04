@@ -23,6 +23,11 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
       underlying.addTags(addTagsRequest)
     }
 
+  override def associatePackage(associatePackageRequest: AssociatePackageRequest): Task[AssociatePackageResponse] =
+    Task.deferFuture {
+      underlying.associatePackage(associatePackageRequest)
+    }
+
   override def cancelElasticsearchServiceSoftwareUpdate(
       cancelElasticsearchServiceSoftwareUpdateRequest: CancelElasticsearchServiceSoftwareUpdateRequest
   ): Task[CancelElasticsearchServiceSoftwareUpdateResponse] =
@@ -35,6 +40,11 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
   ): Task[CreateElasticsearchDomainResponse] =
     Task.deferFuture {
       underlying.createElasticsearchDomain(createElasticsearchDomainRequest)
+    }
+
+  override def createPackage(createPackageRequest: CreatePackageRequest): Task[CreatePackageResponse] =
+    Task.deferFuture {
+      underlying.createPackage(createPackageRequest)
     }
 
   override def deleteElasticsearchDomain(
@@ -54,6 +64,11 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
   override def deleteElasticsearchServiceRole(): Task[DeleteElasticsearchServiceRoleResponse] =
     Task.deferFuture {
       underlying.deleteElasticsearchServiceRole()
+    }
+
+  override def deletePackage(deletePackageRequest: DeletePackageRequest): Task[DeletePackageResponse] =
+    Task.deferFuture {
+      underlying.deletePackage(deletePackageRequest)
     }
 
   override def describeElasticsearchDomain(
@@ -83,6 +98,16 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
     Task.deferFuture {
       underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest)
     }
+
+  override def describePackages(describePackagesRequest: DescribePackagesRequest): Task[DescribePackagesResponse] =
+    Task.deferFuture {
+      underlying.describePackages(describePackagesRequest)
+    }
+
+  def describePackagesPaginator(
+      describePackagesRequest: DescribePackagesRequest
+  ): Observable[DescribePackagesResponse] =
+    Observable.fromReactivePublisher(underlying.describePackagesPaginator(describePackagesRequest))
 
   override def describeReservedElasticsearchInstanceOfferings(
       describeReservedElasticsearchInstanceOfferingsRequest: DescribeReservedElasticsearchInstanceOfferingsRequest
@@ -131,6 +156,11 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
       underlying.describeReservedElasticsearchInstancesPaginator(describeReservedElasticsearchInstancesRequest)
     )
 
+  override def dissociatePackage(dissociatePackageRequest: DissociatePackageRequest): Task[DissociatePackageResponse] =
+    Task.deferFuture {
+      underlying.dissociatePackage(dissociatePackageRequest)
+    }
+
   override def getCompatibleElasticsearchVersions(
       getCompatibleElasticsearchVersionsRequest: GetCompatibleElasticsearchVersionsRequest
   ): Task[GetCompatibleElasticsearchVersionsResponse] =
@@ -168,6 +198,18 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
       underlying.listDomainNames()
     }
 
+  override def listDomainsForPackage(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): Task[ListDomainsForPackageResponse] =
+    Task.deferFuture {
+      underlying.listDomainsForPackage(listDomainsForPackageRequest)
+    }
+
+  def listDomainsForPackagePaginator(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): Observable[ListDomainsForPackageResponse] =
+    Observable.fromReactivePublisher(underlying.listDomainsForPackagePaginator(listDomainsForPackageRequest))
+
   override def listElasticsearchInstanceTypes(
       listElasticsearchInstanceTypesRequest: ListElasticsearchInstanceTypesRequest
   ): Task[ListElasticsearchInstanceTypesResponse] =
@@ -201,6 +243,18 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
       listElasticsearchVersionsRequest: ListElasticsearchVersionsRequest
   ): Observable[ListElasticsearchVersionsResponse] =
     Observable.fromReactivePublisher(underlying.listElasticsearchVersionsPaginator(listElasticsearchVersionsRequest))
+
+  override def listPackagesForDomain(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): Task[ListPackagesForDomainResponse] =
+    Task.deferFuture {
+      underlying.listPackagesForDomain(listPackagesForDomainRequest)
+    }
+
+  def listPackagesForDomainPaginator(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): Observable[ListPackagesForDomainResponse] =
+    Observable.fromReactivePublisher(underlying.listPackagesForDomainPaginator(listPackagesForDomainRequest))
 
   override def listTags(listTagsRequest: ListTagsRequest): Task[ListTagsResponse] =
     Task.deferFuture {

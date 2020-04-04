@@ -33,6 +33,19 @@ trait ElasticsearchAkkaClient {
       underlying.addTags(addTagsRequest)
     }
 
+  def associatePackageSource(
+      associatePackageRequest: AssociatePackageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociatePackageResponse, NotUsed] =
+    Source.single(associatePackageRequest).via(associatePackageFlow(parallelism))
+
+  def associatePackageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[AssociatePackageRequest, AssociatePackageResponse, NotUsed] =
+    Flow[AssociatePackageRequest].mapAsync(parallelism) { associatePackageRequest =>
+      underlying.associatePackage(associatePackageRequest)
+    }
+
   def cancelElasticsearchServiceSoftwareUpdateSource(
       cancelElasticsearchServiceSoftwareUpdateRequest: CancelElasticsearchServiceSoftwareUpdateRequest,
       parallelism: Int = DefaultParallelism
@@ -63,6 +76,19 @@ trait ElasticsearchAkkaClient {
       underlying.createElasticsearchDomain(createElasticsearchDomainRequest)
     }
 
+  def createPackageSource(
+      createPackageRequest: CreatePackageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreatePackageResponse, NotUsed] =
+    Source.single(createPackageRequest).via(createPackageFlow(parallelism))
+
+  def createPackageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreatePackageRequest, CreatePackageResponse, NotUsed] =
+    Flow[CreatePackageRequest].mapAsync(parallelism) { createPackageRequest =>
+      underlying.createPackage(createPackageRequest)
+    }
+
   def deleteElasticsearchDomainSource(
       deleteElasticsearchDomainRequest: DeleteElasticsearchDomainRequest,
       parallelism: Int = DefaultParallelism
@@ -91,6 +117,19 @@ trait ElasticsearchAkkaClient {
 
   def deleteElasticsearchServiceRoleSource(): Source[DeleteElasticsearchServiceRoleResponse, NotUsed] =
     Source.fromFuture(underlying.deleteElasticsearchServiceRole())
+
+  def deletePackageSource(
+      deletePackageRequest: DeletePackageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeletePackageResponse, NotUsed] =
+    Source.single(deletePackageRequest).via(deletePackageFlow(parallelism))
+
+  def deletePackageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeletePackageRequest, DeletePackageResponse, NotUsed] =
+    Flow[DeletePackageRequest].mapAsync(parallelism) { deletePackageRequest =>
+      underlying.deletePackage(deletePackageRequest)
+    }
 
   def describeElasticsearchDomainSource(
       describeElasticsearchDomainRequest: DescribeElasticsearchDomainRequest,
@@ -146,6 +185,24 @@ trait ElasticsearchAkkaClient {
     Flow[DescribeElasticsearchInstanceTypeLimitsRequest].mapAsync(parallelism) {
       describeElasticsearchInstanceTypeLimitsRequest =>
         underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest)
+    }
+
+  def describePackagesSource(
+      describePackagesRequest: DescribePackagesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribePackagesResponse, NotUsed] =
+    Source.single(describePackagesRequest).via(describePackagesFlow(parallelism))
+
+  def describePackagesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribePackagesRequest, DescribePackagesResponse, NotUsed] =
+    Flow[DescribePackagesRequest].mapAsync(parallelism) { describePackagesRequest =>
+      underlying.describePackages(describePackagesRequest)
+    }
+
+  def describePackagesPaginatorFlow: Flow[DescribePackagesRequest, DescribePackagesResponse, NotUsed] =
+    Flow[DescribePackagesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describePackagesPaginator(request))
     }
 
   def describeReservedElasticsearchInstanceOfferingsSource(
@@ -213,6 +270,19 @@ trait ElasticsearchAkkaClient {
       Source.fromPublisher(underlying.describeReservedElasticsearchInstancesPaginator(request))
     }
 
+  def dissociatePackageSource(
+      dissociatePackageRequest: DissociatePackageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DissociatePackageResponse, NotUsed] =
+    Source.single(dissociatePackageRequest).via(dissociatePackageFlow(parallelism))
+
+  def dissociatePackageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DissociatePackageRequest, DissociatePackageResponse, NotUsed] =
+    Flow[DissociatePackageRequest].mapAsync(parallelism) { dissociatePackageRequest =>
+      underlying.dissociatePackage(dissociatePackageRequest)
+    }
+
   def getCompatibleElasticsearchVersionsSource(
       getCompatibleElasticsearchVersionsRequest: GetCompatibleElasticsearchVersionsRequest,
       parallelism: Int = DefaultParallelism
@@ -276,6 +346,24 @@ trait ElasticsearchAkkaClient {
   def listDomainNamesSource(): Source[ListDomainNamesResponse, NotUsed] =
     Source.fromFuture(underlying.listDomainNames())
 
+  def listDomainsForPackageSource(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListDomainsForPackageResponse, NotUsed] =
+    Source.single(listDomainsForPackageRequest).via(listDomainsForPackageFlow(parallelism))
+
+  def listDomainsForPackageFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListDomainsForPackageRequest, ListDomainsForPackageResponse, NotUsed] =
+    Flow[ListDomainsForPackageRequest].mapAsync(parallelism) { listDomainsForPackageRequest =>
+      underlying.listDomainsForPackage(listDomainsForPackageRequest)
+    }
+
+  def listDomainsForPackagePaginatorFlow: Flow[ListDomainsForPackageRequest, ListDomainsForPackageResponse, NotUsed] =
+    Flow[ListDomainsForPackageRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listDomainsForPackagePaginator(request))
+    }
+
   def listElasticsearchInstanceTypesSource(
       listElasticsearchInstanceTypesRequest: ListElasticsearchInstanceTypesRequest,
       parallelism: Int = DefaultParallelism
@@ -318,6 +406,24 @@ trait ElasticsearchAkkaClient {
       : Flow[ListElasticsearchVersionsRequest, ListElasticsearchVersionsResponse, NotUsed] =
     Flow[ListElasticsearchVersionsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listElasticsearchVersionsPaginator(request))
+    }
+
+  def listPackagesForDomainSource(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListPackagesForDomainResponse, NotUsed] =
+    Source.single(listPackagesForDomainRequest).via(listPackagesForDomainFlow(parallelism))
+
+  def listPackagesForDomainFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListPackagesForDomainRequest, ListPackagesForDomainResponse, NotUsed] =
+    Flow[ListPackagesForDomainRequest].mapAsync(parallelism) { listPackagesForDomainRequest =>
+      underlying.listPackagesForDomain(listPackagesForDomainRequest)
+    }
+
+  def listPackagesForDomainPaginatorFlow: Flow[ListPackagesForDomainRequest, ListPackagesForDomainResponse, NotUsed] =
+    Flow[ListPackagesForDomainRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listPackagesForDomainPaginator(request))
     }
 
   def listTagsSource(

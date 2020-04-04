@@ -48,6 +48,14 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
   override def deleteFaces(deleteFacesRequest: DeleteFacesRequest): Future[DeleteFacesResponse] =
     underlying.deleteFaces(deleteFacesRequest).toScala
 
+  override def deleteProject(deleteProjectRequest: DeleteProjectRequest): Future[DeleteProjectResponse] =
+    underlying.deleteProject(deleteProjectRequest).toScala
+
+  override def deleteProjectVersion(
+      deleteProjectVersionRequest: DeleteProjectVersionRequest
+  ): Future[DeleteProjectVersionResponse] =
+    underlying.deleteProjectVersion(deleteProjectVersionRequest).toScala
+
   override def deleteStreamProcessor(
       deleteStreamProcessorRequest: DeleteStreamProcessorRequest
   ): Future[DeleteStreamProcessorResponse] =

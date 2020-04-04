@@ -25,6 +25,11 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
   override def addTags(addTagsRequest: AddTagsRequest): Either[Throwable, AddTagsResponse] =
     underlying.addTags(addTagsRequest).toEither
 
+  override def associatePackage(
+      associatePackageRequest: AssociatePackageRequest
+  ): Either[Throwable, AssociatePackageResponse] =
+    underlying.associatePackage(associatePackageRequest).toEither
+
   override def cancelElasticsearchServiceSoftwareUpdate(
       cancelElasticsearchServiceSoftwareUpdateRequest: CancelElasticsearchServiceSoftwareUpdateRequest
   ): Either[Throwable, CancelElasticsearchServiceSoftwareUpdateResponse] =
@@ -34,6 +39,9 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       createElasticsearchDomainRequest: CreateElasticsearchDomainRequest
   ): Either[Throwable, CreateElasticsearchDomainResponse] =
     underlying.createElasticsearchDomain(createElasticsearchDomainRequest).toEither
+
+  override def createPackage(createPackageRequest: CreatePackageRequest): Either[Throwable, CreatePackageResponse] =
+    underlying.createPackage(createPackageRequest).toEither
 
   override def deleteElasticsearchDomain(
       deleteElasticsearchDomainRequest: DeleteElasticsearchDomainRequest
@@ -47,6 +55,9 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       deleteElasticsearchServiceRoleRequest: DeleteElasticsearchServiceRoleRequest
   ): Either[Throwable, DeleteElasticsearchServiceRoleResponse] =
     underlying.deleteElasticsearchServiceRole(deleteElasticsearchServiceRoleRequest).toEither
+
+  override def deletePackage(deletePackageRequest: DeletePackageRequest): Either[Throwable, DeletePackageResponse] =
+    underlying.deletePackage(deletePackageRequest).toEither
 
   override def describeElasticsearchDomain(
       describeElasticsearchDomainRequest: DescribeElasticsearchDomainRequest
@@ -67,6 +78,14 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       describeElasticsearchInstanceTypeLimitsRequest: DescribeElasticsearchInstanceTypeLimitsRequest
   ): Either[Throwable, DescribeElasticsearchInstanceTypeLimitsResponse] =
     underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest).toEither
+
+  override def describePackages(
+      describePackagesRequest: DescribePackagesRequest
+  ): Either[Throwable, DescribePackagesResponse] =
+    underlying.describePackages(describePackagesRequest).toEither
+
+  def describePackagesPaginator(describePackagesRequest: DescribePackagesRequest): DescribePackagesIterable =
+    underlying.describePackagesPaginator(describePackagesRequest)
 
   override def describeReservedElasticsearchInstanceOfferings()
       : Either[Throwable, DescribeReservedElasticsearchInstanceOfferingsResponse] =
@@ -106,6 +125,11 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
   ): DescribeReservedElasticsearchInstancesIterable =
     underlying.describeReservedElasticsearchInstancesPaginator(describeReservedElasticsearchInstancesRequest)
 
+  override def dissociatePackage(
+      dissociatePackageRequest: DissociatePackageRequest
+  ): Either[Throwable, DissociatePackageResponse] =
+    underlying.dissociatePackage(dissociatePackageRequest).toEither
+
   override def getCompatibleElasticsearchVersions(): Either[Throwable, GetCompatibleElasticsearchVersionsResponse] =
     underlying.getCompatibleElasticsearchVersions().toEither
 
@@ -135,6 +159,16 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
   ): Either[Throwable, ListDomainNamesResponse] =
     underlying.listDomainNames(listDomainNamesRequest).toEither
 
+  override def listDomainsForPackage(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): Either[Throwable, ListDomainsForPackageResponse] =
+    underlying.listDomainsForPackage(listDomainsForPackageRequest).toEither
+
+  def listDomainsForPackagePaginator(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): ListDomainsForPackageIterable =
+    underlying.listDomainsForPackagePaginator(listDomainsForPackageRequest)
+
   override def listElasticsearchInstanceTypes(
       listElasticsearchInstanceTypesRequest: ListElasticsearchInstanceTypesRequest
   ): Either[Throwable, ListElasticsearchInstanceTypesResponse] =
@@ -160,6 +194,16 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       listElasticsearchVersionsRequest: ListElasticsearchVersionsRequest
   ): ListElasticsearchVersionsIterable =
     underlying.listElasticsearchVersionsPaginator(listElasticsearchVersionsRequest)
+
+  override def listPackagesForDomain(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): Either[Throwable, ListPackagesForDomainResponse] =
+    underlying.listPackagesForDomain(listPackagesForDomainRequest).toEither
+
+  def listPackagesForDomainPaginator(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): ListPackagesForDomainIterable =
+    underlying.listPackagesForDomainPaginator(listPackagesForDomainRequest)
 
   override def listTags(listTagsRequest: ListTagsRequest): Either[Throwable, ListTagsResponse] =
     underlying.listTags(listTagsRequest).toEither

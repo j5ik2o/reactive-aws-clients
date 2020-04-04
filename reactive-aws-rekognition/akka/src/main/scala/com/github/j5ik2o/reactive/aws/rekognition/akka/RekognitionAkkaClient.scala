@@ -111,6 +111,32 @@ trait RekognitionAkkaClient {
       underlying.deleteFaces(deleteFacesRequest)
     }
 
+  def deleteProjectSource(
+      deleteProjectRequest: DeleteProjectRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteProjectResponse, NotUsed] =
+    Source.single(deleteProjectRequest).via(deleteProjectFlow(parallelism))
+
+  def deleteProjectFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteProjectRequest, DeleteProjectResponse, NotUsed] =
+    Flow[DeleteProjectRequest].mapAsync(parallelism) { deleteProjectRequest =>
+      underlying.deleteProject(deleteProjectRequest)
+    }
+
+  def deleteProjectVersionSource(
+      deleteProjectVersionRequest: DeleteProjectVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteProjectVersionResponse, NotUsed] =
+    Source.single(deleteProjectVersionRequest).via(deleteProjectVersionFlow(parallelism))
+
+  def deleteProjectVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteProjectVersionRequest, DeleteProjectVersionResponse, NotUsed] =
+    Flow[DeleteProjectVersionRequest].mapAsync(parallelism) { deleteProjectVersionRequest =>
+      underlying.deleteProjectVersion(deleteProjectVersionRequest)
+    }
+
   def deleteStreamProcessorSource(
       deleteStreamProcessorRequest: DeleteStreamProcessorRequest,
       parallelism: Int = DefaultParallelism

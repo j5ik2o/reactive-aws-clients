@@ -26,6 +26,9 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
   override def addTags(addTagsRequest: AddTagsRequest): Future[AddTagsResponse] =
     underlying.addTags(addTagsRequest).toScala
 
+  override def associatePackage(associatePackageRequest: AssociatePackageRequest): Future[AssociatePackageResponse] =
+    underlying.associatePackage(associatePackageRequest).toScala
+
   override def cancelElasticsearchServiceSoftwareUpdate(
       cancelElasticsearchServiceSoftwareUpdateRequest: CancelElasticsearchServiceSoftwareUpdateRequest
   ): Future[CancelElasticsearchServiceSoftwareUpdateResponse] =
@@ -35,6 +38,9 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
       createElasticsearchDomainRequest: CreateElasticsearchDomainRequest
   ): Future[CreateElasticsearchDomainResponse] =
     underlying.createElasticsearchDomain(createElasticsearchDomainRequest).toScala
+
+  override def createPackage(createPackageRequest: CreatePackageRequest): Future[CreatePackageResponse] =
+    underlying.createPackage(createPackageRequest).toScala
 
   override def deleteElasticsearchDomain(
       deleteElasticsearchDomainRequest: DeleteElasticsearchDomainRequest
@@ -48,6 +54,9 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
 
   override def deleteElasticsearchServiceRole(): Future[DeleteElasticsearchServiceRoleResponse] =
     underlying.deleteElasticsearchServiceRole().toScala
+
+  override def deletePackage(deletePackageRequest: DeletePackageRequest): Future[DeletePackageResponse] =
+    underlying.deletePackage(deletePackageRequest).toScala
 
   override def describeElasticsearchDomain(
       describeElasticsearchDomainRequest: DescribeElasticsearchDomainRequest
@@ -68,6 +77,12 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
       describeElasticsearchInstanceTypeLimitsRequest: DescribeElasticsearchInstanceTypeLimitsRequest
   ): Future[DescribeElasticsearchInstanceTypeLimitsResponse] =
     underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest).toScala
+
+  override def describePackages(describePackagesRequest: DescribePackagesRequest): Future[DescribePackagesResponse] =
+    underlying.describePackages(describePackagesRequest).toScala
+
+  def describePackagesPaginator(describePackagesRequest: DescribePackagesRequest): DescribePackagesPublisher =
+    underlying.describePackagesPaginator(describePackagesRequest)
 
   override def describeReservedElasticsearchInstanceOfferings(
       describeReservedElasticsearchInstanceOfferingsRequest: DescribeReservedElasticsearchInstanceOfferingsRequest
@@ -106,6 +121,11 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
   ): DescribeReservedElasticsearchInstancesPublisher =
     underlying.describeReservedElasticsearchInstancesPaginator(describeReservedElasticsearchInstancesRequest)
 
+  override def dissociatePackage(
+      dissociatePackageRequest: DissociatePackageRequest
+  ): Future[DissociatePackageResponse] =
+    underlying.dissociatePackage(dissociatePackageRequest).toScala
+
   override def getCompatibleElasticsearchVersions(
       getCompatibleElasticsearchVersionsRequest: GetCompatibleElasticsearchVersionsRequest
   ): Future[GetCompatibleElasticsearchVersionsResponse] =
@@ -130,6 +150,16 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
 
   override def listDomainNames(): Future[ListDomainNamesResponse] =
     underlying.listDomainNames().toScala
+
+  override def listDomainsForPackage(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): Future[ListDomainsForPackageResponse] =
+    underlying.listDomainsForPackage(listDomainsForPackageRequest).toScala
+
+  def listDomainsForPackagePaginator(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): ListDomainsForPackagePublisher =
+    underlying.listDomainsForPackagePaginator(listDomainsForPackageRequest)
 
   override def listElasticsearchInstanceTypes(
       listElasticsearchInstanceTypesRequest: ListElasticsearchInstanceTypesRequest
@@ -156,6 +186,16 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
       listElasticsearchVersionsRequest: ListElasticsearchVersionsRequest
   ): ListElasticsearchVersionsPublisher =
     underlying.listElasticsearchVersionsPaginator(listElasticsearchVersionsRequest)
+
+  override def listPackagesForDomain(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): Future[ListPackagesForDomainResponse] =
+    underlying.listPackagesForDomain(listPackagesForDomainRequest).toScala
+
+  def listPackagesForDomainPaginator(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): ListPackagesForDomainPublisher =
+    underlying.listPackagesForDomainPaginator(listPackagesForDomainRequest)
 
   override def listTags(listTagsRequest: ListTagsRequest): Future[ListTagsResponse] =
     underlying.listTags(listTagsRequest).toScala

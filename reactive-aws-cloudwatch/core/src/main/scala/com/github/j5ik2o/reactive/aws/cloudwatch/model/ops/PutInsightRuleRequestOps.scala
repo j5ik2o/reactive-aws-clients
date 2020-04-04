@@ -26,6 +26,13 @@ final class PutInsightRuleRequestBuilderOps(val self: PutInsightRuleRequest.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): PutInsightRuleRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class PutInsightRuleRequestOps(val self: PutInsightRuleRequest) extends AnyVal {
@@ -38,6 +45,11 @@ final class PutInsightRuleRequestOps(val self: PutInsightRuleRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleDefinitionAsScala: Option[String] = Option(self.ruleDefinition)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

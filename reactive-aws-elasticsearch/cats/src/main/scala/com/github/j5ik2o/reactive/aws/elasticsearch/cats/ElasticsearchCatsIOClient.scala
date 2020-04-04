@@ -30,6 +30,11 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
       IO(underlying.addTags(addTagsRequest))
     }
 
+  override def associatePackage(associatePackageRequest: AssociatePackageRequest): IO[AssociatePackageResponse] =
+    IO.fromFuture {
+      IO(underlying.associatePackage(associatePackageRequest))
+    }
+
   override def cancelElasticsearchServiceSoftwareUpdate(
       cancelElasticsearchServiceSoftwareUpdateRequest: CancelElasticsearchServiceSoftwareUpdateRequest
   ): IO[CancelElasticsearchServiceSoftwareUpdateResponse] =
@@ -42,6 +47,11 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
   ): IO[CreateElasticsearchDomainResponse] =
     IO.fromFuture {
       IO(underlying.createElasticsearchDomain(createElasticsearchDomainRequest))
+    }
+
+  override def createPackage(createPackageRequest: CreatePackageRequest): IO[CreatePackageResponse] =
+    IO.fromFuture {
+      IO(underlying.createPackage(createPackageRequest))
     }
 
   override def deleteElasticsearchDomain(
@@ -61,6 +71,11 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
   override def deleteElasticsearchServiceRole(): IO[DeleteElasticsearchServiceRoleResponse] =
     IO.fromFuture {
       IO(underlying.deleteElasticsearchServiceRole())
+    }
+
+  override def deletePackage(deletePackageRequest: DeletePackageRequest): IO[DeletePackageResponse] =
+    IO.fromFuture {
+      IO(underlying.deletePackage(deletePackageRequest))
     }
 
   override def describeElasticsearchDomain(
@@ -90,6 +105,14 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
     IO.fromFuture {
       IO(underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest))
     }
+
+  override def describePackages(describePackagesRequest: DescribePackagesRequest): IO[DescribePackagesResponse] =
+    IO.fromFuture {
+      IO(underlying.describePackages(describePackagesRequest))
+    }
+
+  def describePackagesPaginator(describePackagesRequest: DescribePackagesRequest): DescribePackagesPublisher =
+    underlying.describePackagesPaginator(describePackagesRequest)
 
   override def describeReservedElasticsearchInstanceOfferings(
       describeReservedElasticsearchInstanceOfferingsRequest: DescribeReservedElasticsearchInstanceOfferingsRequest
@@ -137,6 +160,11 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
   ): DescribeReservedElasticsearchInstancesPublisher =
     underlying.describeReservedElasticsearchInstancesPaginator(describeReservedElasticsearchInstancesRequest)
 
+  override def dissociatePackage(dissociatePackageRequest: DissociatePackageRequest): IO[DissociatePackageResponse] =
+    IO.fromFuture {
+      IO(underlying.dissociatePackage(dissociatePackageRequest))
+    }
+
   override def getCompatibleElasticsearchVersions(
       getCompatibleElasticsearchVersionsRequest: GetCompatibleElasticsearchVersionsRequest
   ): IO[GetCompatibleElasticsearchVersionsResponse] =
@@ -172,6 +200,18 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
       IO(underlying.listDomainNames())
     }
 
+  override def listDomainsForPackage(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): IO[ListDomainsForPackageResponse] =
+    IO.fromFuture {
+      IO(underlying.listDomainsForPackage(listDomainsForPackageRequest))
+    }
+
+  def listDomainsForPackagePaginator(
+      listDomainsForPackageRequest: ListDomainsForPackageRequest
+  ): ListDomainsForPackagePublisher =
+    underlying.listDomainsForPackagePaginator(listDomainsForPackageRequest)
+
   override def listElasticsearchInstanceTypes(
       listElasticsearchInstanceTypesRequest: ListElasticsearchInstanceTypesRequest
   ): IO[ListElasticsearchInstanceTypesResponse] =
@@ -203,6 +243,18 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
       listElasticsearchVersionsRequest: ListElasticsearchVersionsRequest
   ): ListElasticsearchVersionsPublisher =
     underlying.listElasticsearchVersionsPaginator(listElasticsearchVersionsRequest)
+
+  override def listPackagesForDomain(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): IO[ListPackagesForDomainResponse] =
+    IO.fromFuture {
+      IO(underlying.listPackagesForDomain(listPackagesForDomainRequest))
+    }
+
+  def listPackagesForDomainPaginator(
+      listPackagesForDomainRequest: ListPackagesForDomainRequest
+  ): ListPackagesForDomainPublisher =
+    underlying.listPackagesForDomainPaginator(listPackagesForDomainRequest)
 
   override def listTags(listTagsRequest: ListTagsRequest): IO[ListTagsResponse] =
     IO.fromFuture {
