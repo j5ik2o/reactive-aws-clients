@@ -50,6 +50,7 @@ object Settings {
   val coreSettings = Seq(
     sonatypeProfileName := "com.github.j5ik2o",
     organization := "com.github.j5ik2o",
+    organizationHomepage := Some(url("https://github.com/j5ik2o")),
     scalaVersion := scalaVersion211,
     crossScalaVersions ++= Seq(scalaVersion211, scalaVersion212, scalaVersion213),
     scalacOptions ++= {
@@ -77,26 +78,17 @@ object Settings {
     pomIncludeRepository := { _ =>
       false
     },
-    pomExtra := {
-      <url>https://github.com/j5ik2o/reactive-aws-clients</url>
-        <licenses>
-          <license>
-            <name>The MIT License</name>
-            <url>http://opensource.org/licenses/MIT</url>
-          </license>
-        </licenses>
-        <scm>
-          <url>git@github.com:j5ik2o/reactive-aws-clients.git</url>
-          <connection>scm:git:github.com/j5ik2o/reactive-aws-clients</connection>
-          <developerConnection>scm:git:git@github.com:j5ik2o/reactive-aws-clients.git</developerConnection>
-        </scm>
-        <developers>
-          <developer>
-            <id>j5ik2o</id>
-            <name>Junichi Kato</name>
-          </developer>
-        </developers>
-    },
+    licenses := Seq("MIT" -> url("https://raw.githubusercontent.com/j5ik2o/reactive-aws-clients/master/LICENSE")),
+    homepage := Some(url("https://github.com/j5ik2o/reactive-aws-clients")),
+    scmInfo := Some(
+        ScmInfo(
+          browseUrl = url("https://github.com/j5ik2o/reactive-aws-clients"),
+          connection = "scm:git:git@github.com:j5ik2o/reactive-aws-clients.git"
+        )
+      ),
+    developers := List(
+        Developer(id = "j5ik2o", name = "Junichi Kato", email = "j5ik2o@gmail.com", url = url("https://blog.j5ik2o.me"))
+      ),
     publishTo := sonatypePublishToBundle.value,
     credentials := {
       val ivyCredentials = (baseDirectory in LocalRootProject).value / ".credentials"
