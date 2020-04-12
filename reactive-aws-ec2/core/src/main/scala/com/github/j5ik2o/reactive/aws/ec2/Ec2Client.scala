@@ -453,6 +453,10 @@ trait Ec2Client[M[_]] {
 
   def deregisterImage(deregisterImageRequest: DeregisterImageRequest): M[DeregisterImageResponse]
 
+  def deregisterInstanceEventNotificationAttributes(
+      deregisterInstanceEventNotificationAttributesRequest: DeregisterInstanceEventNotificationAttributesRequest
+  ): M[DeregisterInstanceEventNotificationAttributesResponse]
+
   def deregisterTransitGatewayMulticastGroupMembers(
       deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
   ): M[DeregisterTransitGatewayMulticastGroupMembersResponse]
@@ -644,6 +648,10 @@ trait Ec2Client[M[_]] {
   ): M[DescribeInstanceCreditSpecificationsResponse]
 
   def describeInstanceCreditSpecifications(): M[DescribeInstanceCreditSpecificationsResponse]
+
+  def describeInstanceEventNotificationAttributes(
+      describeInstanceEventNotificationAttributesRequest: DescribeInstanceEventNotificationAttributesRequest
+  ): M[DescribeInstanceEventNotificationAttributesResponse]
 
   def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -1326,6 +1334,10 @@ trait Ec2Client[M[_]] {
   def rebootInstances(rebootInstancesRequest: RebootInstancesRequest): M[RebootInstancesResponse]
 
   def registerImage(registerImageRequest: RegisterImageRequest): M[RegisterImageResponse]
+
+  def registerInstanceEventNotificationAttributes(
+      registerInstanceEventNotificationAttributesRequest: RegisterInstanceEventNotificationAttributesRequest
+  ): M[RegisterInstanceEventNotificationAttributesResponse]
 
   def registerTransitGatewayMulticastGroupMembers(
       registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest

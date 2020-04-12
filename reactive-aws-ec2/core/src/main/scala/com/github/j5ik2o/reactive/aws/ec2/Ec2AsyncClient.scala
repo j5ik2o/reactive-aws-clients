@@ -668,6 +668,12 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   override def deregisterImage(deregisterImageRequest: DeregisterImageRequest): Future[DeregisterImageResponse] =
     underlying.deregisterImage(deregisterImageRequest).toScala
 
+  override def deregisterInstanceEventNotificationAttributes(
+      deregisterInstanceEventNotificationAttributesRequest: DeregisterInstanceEventNotificationAttributesRequest
+  ): Future[DeregisterInstanceEventNotificationAttributesResponse] =
+    underlying
+      .deregisterInstanceEventNotificationAttributes(deregisterInstanceEventNotificationAttributesRequest).toScala
+
   override def deregisterTransitGatewayMulticastGroupMembers(
       deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
   ): Future[DeregisterTransitGatewayMulticastGroupMembersResponse] =
@@ -1095,6 +1101,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
   ): DescribeInstanceCreditSpecificationsPublisher =
     underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
+
+  override def describeInstanceEventNotificationAttributes(
+      describeInstanceEventNotificationAttributesRequest: DescribeInstanceEventNotificationAttributesRequest
+  ): Future[DescribeInstanceEventNotificationAttributesResponse] =
+    underlying.describeInstanceEventNotificationAttributes(describeInstanceEventNotificationAttributesRequest).toScala
 
   override def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -2447,6 +2458,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
 
   override def registerImage(registerImageRequest: RegisterImageRequest): Future[RegisterImageResponse] =
     underlying.registerImage(registerImageRequest).toScala
+
+  override def registerInstanceEventNotificationAttributes(
+      registerInstanceEventNotificationAttributesRequest: RegisterInstanceEventNotificationAttributesRequest
+  ): Future[RegisterInstanceEventNotificationAttributesResponse] =
+    underlying.registerInstanceEventNotificationAttributes(registerInstanceEventNotificationAttributesRequest).toScala
 
   override def registerTransitGatewayMulticastGroupMembers(
       registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest

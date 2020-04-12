@@ -432,6 +432,24 @@ trait ElasticBeanstalkAkkaClient {
   def listAvailableSolutionStacksSource(): Source[ListAvailableSolutionStacksResponse, NotUsed] =
     Source.fromFuture(underlying.listAvailableSolutionStacks())
 
+  def listPlatformBranchesSource(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ListPlatformBranchesResponse, NotUsed] =
+    Source.single(listPlatformBranchesRequest).via(listPlatformBranchesFlow(parallelism))
+
+  def listPlatformBranchesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ListPlatformBranchesRequest, ListPlatformBranchesResponse, NotUsed] =
+    Flow[ListPlatformBranchesRequest].mapAsync(parallelism) { listPlatformBranchesRequest =>
+      underlying.listPlatformBranches(listPlatformBranchesRequest)
+    }
+
+  def listPlatformBranchesPaginatorFlow: Flow[ListPlatformBranchesRequest, ListPlatformBranchesResponse, NotUsed] =
+    Flow[ListPlatformBranchesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listPlatformBranchesPaginator(request))
+    }
+
   def listPlatformVersionsSource(
       listPlatformVersionsRequest: ListPlatformVersionsRequest,
       parallelism: Int = DefaultParallelism

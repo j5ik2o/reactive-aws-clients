@@ -195,6 +195,16 @@ trait ElasticBeanstalkAsyncClient extends ElasticBeanstalkClient[Future] {
   override def listAvailableSolutionStacks(): Future[ListAvailableSolutionStacksResponse] =
     underlying.listAvailableSolutionStacks().toScala
 
+  override def listPlatformBranches(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): Future[ListPlatformBranchesResponse] =
+    underlying.listPlatformBranches(listPlatformBranchesRequest).toScala
+
+  def listPlatformBranchesPaginator(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): ListPlatformBranchesPublisher =
+    underlying.listPlatformBranchesPaginator(listPlatformBranchesRequest)
+
   override def listPlatformVersions(
       listPlatformVersionsRequest: ListPlatformVersionsRequest
   ): Future[ListPlatformVersionsResponse] =

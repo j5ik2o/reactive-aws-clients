@@ -254,6 +254,18 @@ trait ElasticBeanstalkMonixClient extends ElasticBeanstalkClient[Task] {
       underlying.listAvailableSolutionStacks()
     }
 
+  override def listPlatformBranches(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): Task[ListPlatformBranchesResponse] =
+    Task.deferFuture {
+      underlying.listPlatformBranches(listPlatformBranchesRequest)
+    }
+
+  def listPlatformBranchesPaginator(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): Observable[ListPlatformBranchesResponse] =
+    Observable.fromReactivePublisher(underlying.listPlatformBranchesPaginator(listPlatformBranchesRequest))
+
   override def listPlatformVersions(
       listPlatformVersionsRequest: ListPlatformVersionsRequest
   ): Task[ListPlatformVersionsResponse] =

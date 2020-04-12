@@ -119,6 +119,8 @@ trait ElasticBeanstalkClient[M[_]] {
 
   def listAvailableSolutionStacks(): M[ListAvailableSolutionStacksResponse]
 
+  def listPlatformBranches(listPlatformBranchesRequest: ListPlatformBranchesRequest): M[ListPlatformBranchesResponse]
+
   def listPlatformVersions(listPlatformVersionsRequest: ListPlatformVersionsRequest): M[ListPlatformVersionsResponse]
 
   def listPlatformVersions(): M[ListPlatformVersionsResponse]
