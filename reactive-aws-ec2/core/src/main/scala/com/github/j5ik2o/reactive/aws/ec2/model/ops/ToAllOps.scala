@@ -327,6 +327,9 @@ trait ToAllOps
     with ToDeprovisionByoipCidrRequestOps
     with ToDeprovisionByoipCidrResponseOps
     with ToDeregisterImageRequestOps
+    with ToDeregisterInstanceEventNotificationAttributesRequestOps
+    with ToDeregisterInstanceEventNotificationAttributesResponseOps
+    with ToDeregisterInstanceTagAttributeRequestOps
     with ToDeregisterTransitGatewayMulticastGroupMembersRequestOps
     with ToDeregisterTransitGatewayMulticastGroupMembersResponseOps
     with ToDeregisterTransitGatewayMulticastGroupSourcesRequestOps
@@ -413,6 +416,7 @@ trait ToAllOps
     with ToDescribeInstanceAttributeResponseOps
     with ToDescribeInstanceCreditSpecificationsRequestOps
     with ToDescribeInstanceCreditSpecificationsResponseOps
+    with ToDescribeInstanceEventNotificationAttributesResponseOps
     with ToDescribeInstanceStatusRequestOps
     with ToDescribeInstanceStatusResponseOps
     with ToDescribeInstanceTypeOfferingsRequestOps
@@ -762,6 +766,7 @@ trait ToAllOps
     with ToInstanceStatusOps
     with ToInstanceStatusSummaryOps
     with ToInstanceStorageInfoOps
+    with ToInstanceTagNotificationAttributeOps
     with ToInstanceTypeInfoOps
     with ToInstanceTypeOfferingOps
     with ToInstanceUsageOps
@@ -974,6 +979,9 @@ trait ToAllOps
     with ToRegionOps
     with ToRegisterImageRequestOps
     with ToRegisterImageResponseOps
+    with ToRegisterInstanceEventNotificationAttributesRequestOps
+    with ToRegisterInstanceEventNotificationAttributesResponseOps
+    with ToRegisterInstanceTagAttributeRequestOps
     with ToRegisterTransitGatewayMulticastGroupMembersRequestOps
     with ToRegisterTransitGatewayMulticastGroupMembersResponseOps
     with ToRegisterTransitGatewayMulticastGroupSourcesRequestOps

@@ -955,6 +955,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.deregisterImage(deregisterImageRequest)
     }
 
+  override def deregisterInstanceEventNotificationAttributes(
+      deregisterInstanceEventNotificationAttributesRequest: DeregisterInstanceEventNotificationAttributesRequest
+  ): Task[DeregisterInstanceEventNotificationAttributesResponse] =
+    Task.deferFuture {
+      underlying.deregisterInstanceEventNotificationAttributes(deregisterInstanceEventNotificationAttributesRequest)
+    }
+
   override def deregisterTransitGatewayMulticastGroupMembers(
       deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
   ): Task[DeregisterTransitGatewayMulticastGroupMembersResponse] =
@@ -1542,6 +1549,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Observable.fromReactivePublisher(
       underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
     )
+
+  override def describeInstanceEventNotificationAttributes(
+      describeInstanceEventNotificationAttributesRequest: DescribeInstanceEventNotificationAttributesRequest
+  ): Task[DescribeInstanceEventNotificationAttributesResponse] =
+    Task.deferFuture {
+      underlying.describeInstanceEventNotificationAttributes(describeInstanceEventNotificationAttributesRequest)
+    }
 
   override def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -3386,6 +3400,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   override def registerImage(registerImageRequest: RegisterImageRequest): Task[RegisterImageResponse] =
     Task.deferFuture {
       underlying.registerImage(registerImageRequest)
+    }
+
+  override def registerInstanceEventNotificationAttributes(
+      registerInstanceEventNotificationAttributesRequest: RegisterInstanceEventNotificationAttributesRequest
+  ): Task[RegisterInstanceEventNotificationAttributesResponse] =
+    Task.deferFuture {
+      underlying.registerInstanceEventNotificationAttributes(registerInstanceEventNotificationAttributesRequest)
     }
 
   override def registerTransitGatewayMulticastGroupMembers(

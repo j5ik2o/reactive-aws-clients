@@ -961,6 +961,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.deregisterImage(deregisterImageRequest))
     }
 
+  override def deregisterInstanceEventNotificationAttributes(
+      deregisterInstanceEventNotificationAttributesRequest: DeregisterInstanceEventNotificationAttributesRequest
+  ): IO[DeregisterInstanceEventNotificationAttributesResponse] =
+    IO.fromFuture {
+      IO(underlying.deregisterInstanceEventNotificationAttributes(deregisterInstanceEventNotificationAttributesRequest))
+    }
+
   override def deregisterTransitGatewayMulticastGroupMembers(
       deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
   ): IO[DeregisterTransitGatewayMulticastGroupMembersResponse] =
@@ -1518,6 +1525,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
   ): DescribeInstanceCreditSpecificationsPublisher =
     underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
+
+  override def describeInstanceEventNotificationAttributes(
+      describeInstanceEventNotificationAttributesRequest: DescribeInstanceEventNotificationAttributesRequest
+  ): IO[DescribeInstanceEventNotificationAttributesResponse] =
+    IO.fromFuture {
+      IO(underlying.describeInstanceEventNotificationAttributes(describeInstanceEventNotificationAttributesRequest))
+    }
 
   override def describeInstanceStatus(
       describeInstanceStatusRequest: DescribeInstanceStatusRequest
@@ -3298,6 +3312,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   override def registerImage(registerImageRequest: RegisterImageRequest): IO[RegisterImageResponse] =
     IO.fromFuture {
       IO(underlying.registerImage(registerImageRequest))
+    }
+
+  override def registerInstanceEventNotificationAttributes(
+      registerInstanceEventNotificationAttributesRequest: RegisterInstanceEventNotificationAttributesRequest
+  ): IO[RegisterInstanceEventNotificationAttributesResponse] =
+    IO.fromFuture {
+      IO(underlying.registerInstanceEventNotificationAttributes(registerInstanceEventNotificationAttributesRequest))
     }
 
   override def registerTransitGatewayMulticastGroupMembers(

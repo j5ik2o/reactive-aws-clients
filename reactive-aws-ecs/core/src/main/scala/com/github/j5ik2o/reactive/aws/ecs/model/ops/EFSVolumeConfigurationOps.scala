@@ -19,6 +19,27 @@ final class EFSVolumeConfigurationBuilderOps(val self: EFSVolumeConfiguration.Bu
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def transitEncryptionAsScala(value: Option[EFSTransitEncryption]): EFSVolumeConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.transitEncryption(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def transitEncryptionPortAsScala(value: Option[Int]): EFSVolumeConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.transitEncryptionPort(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def authorizationConfigAsScala(value: Option[EFSAuthorizationConfig]): EFSVolumeConfiguration.Builder = {
+    value.fold(self) { v =>
+      self.authorizationConfig(v)
+    }
+  }
+
 }
 
 final class EFSVolumeConfigurationOps(val self: EFSVolumeConfiguration) extends AnyVal {
@@ -28,6 +49,15 @@ final class EFSVolumeConfigurationOps(val self: EFSVolumeConfiguration) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rootDirectoryAsScala: Option[String] = Option(self.rootDirectory)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def transitEncryptionAsScala: Option[EFSTransitEncryption] = Option(self.transitEncryption)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def transitEncryptionPortAsScala: Option[Int] = Option(self.transitEncryptionPort)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def authorizationConfigAsScala: Option[EFSAuthorizationConfig] = Option(self.authorizationConfig)
 
 }
 

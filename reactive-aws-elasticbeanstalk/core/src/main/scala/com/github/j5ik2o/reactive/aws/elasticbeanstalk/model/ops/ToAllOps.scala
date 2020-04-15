@@ -79,6 +79,8 @@ trait ToAllOps
     with ToLaunchConfigurationOps
     with ToLaunchTemplateOps
     with ToListAvailableSolutionStacksResponseOps
+    with ToListPlatformBranchesRequestOps
+    with ToListPlatformBranchesResponseOps
     with ToListPlatformVersionsRequestOps
     with ToListPlatformVersionsResponseOps
     with ToListTagsForResourceRequestOps
@@ -92,6 +94,7 @@ trait ToAllOps
     with ToMaxCountRuleOps
     with ToOptionRestrictionRegexOps
     with ToOptionSpecificationOps
+    with ToPlatformBranchSummaryOps
     with ToPlatformDescriptionOps
     with ToPlatformFilterOps
     with ToPlatformFrameworkOps
@@ -106,6 +109,7 @@ trait ToAllOps
     with ToRetrieveEnvironmentInfoRequestOps
     with ToRetrieveEnvironmentInfoResponseOps
     with ToS3LocationOps
+    with ToSearchFilterOps
     with ToSingleInstanceHealthOps
     with ToSolutionStackDescriptionOps
     with ToSourceBuildInformationOps

@@ -62,6 +62,7 @@ trait ToAllOps
     with ToDiscoverPollEndpointRequestOps
     with ToDiscoverPollEndpointResponseOps
     with ToDockerVolumeConfigurationOps
+    with ToEFSAuthorizationConfigOps
     with ToEFSVolumeConfigurationOps
     with ToFailureOps
     with ToFirelensConfigurationOps

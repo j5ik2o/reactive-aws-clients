@@ -261,6 +261,18 @@ trait ElasticBeanstalkCatsIOClient extends ElasticBeanstalkClient[IO] {
       IO(underlying.listAvailableSolutionStacks())
     }
 
+  override def listPlatformBranches(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): IO[ListPlatformBranchesResponse] =
+    IO.fromFuture {
+      IO(underlying.listPlatformBranches(listPlatformBranchesRequest))
+    }
+
+  def listPlatformBranchesPaginator(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): ListPlatformBranchesPublisher =
+    underlying.listPlatformBranchesPaginator(listPlatformBranchesRequest)
+
   override def listPlatformVersions(
       listPlatformVersionsRequest: ListPlatformVersionsRequest
   ): IO[ListPlatformVersionsResponse] =

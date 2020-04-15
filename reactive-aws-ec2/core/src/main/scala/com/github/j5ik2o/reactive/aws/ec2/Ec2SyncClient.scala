@@ -705,6 +705,12 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, DeregisterImageResponse] =
     underlying.deregisterImage(deregisterImageRequest).toEither
 
+  override def deregisterInstanceEventNotificationAttributes(
+      deregisterInstanceEventNotificationAttributesRequest: DeregisterInstanceEventNotificationAttributesRequest
+  ): Either[Throwable, DeregisterInstanceEventNotificationAttributesResponse] =
+    underlying
+      .deregisterInstanceEventNotificationAttributes(deregisterInstanceEventNotificationAttributesRequest).toEither
+
   override def deregisterTransitGatewayMulticastGroupMembers(
       deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest
   ): Either[Throwable, DeregisterTransitGatewayMulticastGroupMembersResponse] =
@@ -1137,6 +1143,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeInstanceCreditSpecificationsRequest: DescribeInstanceCreditSpecificationsRequest
   ): DescribeInstanceCreditSpecificationsIterable =
     underlying.describeInstanceCreditSpecificationsPaginator(describeInstanceCreditSpecificationsRequest)
+
+  override def describeInstanceEventNotificationAttributes(
+      describeInstanceEventNotificationAttributesRequest: DescribeInstanceEventNotificationAttributesRequest
+  ): Either[Throwable, DescribeInstanceEventNotificationAttributesResponse] =
+    underlying.describeInstanceEventNotificationAttributes(describeInstanceEventNotificationAttributesRequest).toEither
 
   override def describeInstanceStatus(): Either[Throwable, DescribeInstanceStatusResponse] =
     underlying.describeInstanceStatus().toEither
@@ -2516,6 +2527,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
 
   override def registerImage(registerImageRequest: RegisterImageRequest): Either[Throwable, RegisterImageResponse] =
     underlying.registerImage(registerImageRequest).toEither
+
+  override def registerInstanceEventNotificationAttributes(
+      registerInstanceEventNotificationAttributesRequest: RegisterInstanceEventNotificationAttributesRequest
+  ): Either[Throwable, RegisterInstanceEventNotificationAttributesResponse] =
+    underlying.registerInstanceEventNotificationAttributes(registerInstanceEventNotificationAttributesRequest).toEither
 
   override def registerTransitGatewayMulticastGroupMembers(
       registerTransitGatewayMulticastGroupMembersRequest: RegisterTransitGatewayMulticastGroupMembersRequest

@@ -133,6 +133,27 @@ final class PlatformDescriptionBuilderOps(val self: PlatformDescription.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformLifecycleStateAsScala(value: Option[String]): PlatformDescription.Builder = {
+    value.fold(self) { v =>
+      self.platformLifecycleState(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformBranchNameAsScala(value: Option[String]): PlatformDescription.Builder = {
+    value.fold(self) { v =>
+      self.platformBranchName(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformBranchLifecycleStateAsScala(value: Option[String]): PlatformDescription.Builder = {
+    value.fold(self) { v =>
+      self.platformBranchLifecycleState(v)
+    }
+  }
+
 }
 
 final class PlatformDescriptionOps(val self: PlatformDescription) extends AnyVal {
@@ -201,6 +222,15 @@ final class PlatformDescriptionOps(val self: PlatformDescription) extends AnyVal
   final def supportedAddonListAsScala: Option[Seq[String]] = Option(self.supportedAddonList).map { v =>
     import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
   }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformLifecycleStateAsScala: Option[String] = Option(self.platformLifecycleState)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformBranchNameAsScala: Option[String] = Option(self.platformBranchName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def platformBranchLifecycleStateAsScala: Option[String] = Option(self.platformBranchLifecycleState)
 
 }
 

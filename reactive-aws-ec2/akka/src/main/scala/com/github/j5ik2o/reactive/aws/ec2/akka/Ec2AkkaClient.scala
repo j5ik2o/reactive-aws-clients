@@ -1927,6 +1927,25 @@ trait Ec2AkkaClient {
       underlying.deregisterImage(deregisterImageRequest)
     }
 
+  def deregisterInstanceEventNotificationAttributesSource(
+      deregisterInstanceEventNotificationAttributesRequest: DeregisterInstanceEventNotificationAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeregisterInstanceEventNotificationAttributesResponse, NotUsed] =
+    Source
+      .single(deregisterInstanceEventNotificationAttributesRequest).via(
+        deregisterInstanceEventNotificationAttributesFlow(parallelism)
+      )
+
+  def deregisterInstanceEventNotificationAttributesFlow(parallelism: Int = DefaultParallelism): Flow[
+    DeregisterInstanceEventNotificationAttributesRequest,
+    DeregisterInstanceEventNotificationAttributesResponse,
+    NotUsed
+  ] =
+    Flow[DeregisterInstanceEventNotificationAttributesRequest].mapAsync(parallelism) {
+      deregisterInstanceEventNotificationAttributesRequest =>
+        underlying.deregisterInstanceEventNotificationAttributes(deregisterInstanceEventNotificationAttributesRequest)
+    }
+
   def deregisterTransitGatewayMulticastGroupMembersSource(
       deregisterTransitGatewayMulticastGroupMembersRequest: DeregisterTransitGatewayMulticastGroupMembersRequest,
       parallelism: Int = DefaultParallelism
@@ -2746,6 +2765,25 @@ trait Ec2AkkaClient {
       : Flow[DescribeInstanceCreditSpecificationsRequest, DescribeInstanceCreditSpecificationsResponse, NotUsed] =
     Flow[DescribeInstanceCreditSpecificationsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.describeInstanceCreditSpecificationsPaginator(request))
+    }
+
+  def describeInstanceEventNotificationAttributesSource(
+      describeInstanceEventNotificationAttributesRequest: DescribeInstanceEventNotificationAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeInstanceEventNotificationAttributesResponse, NotUsed] =
+    Source
+      .single(describeInstanceEventNotificationAttributesRequest).via(
+        describeInstanceEventNotificationAttributesFlow(parallelism)
+      )
+
+  def describeInstanceEventNotificationAttributesFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeInstanceEventNotificationAttributesRequest,
+    DescribeInstanceEventNotificationAttributesResponse,
+    NotUsed
+  ] =
+    Flow[DescribeInstanceEventNotificationAttributesRequest].mapAsync(parallelism) {
+      describeInstanceEventNotificationAttributesRequest =>
+        underlying.describeInstanceEventNotificationAttributes(describeInstanceEventNotificationAttributesRequest)
     }
 
   def describeInstanceStatusSource(
@@ -5696,6 +5734,25 @@ trait Ec2AkkaClient {
   ): Flow[RegisterImageRequest, RegisterImageResponse, NotUsed] =
     Flow[RegisterImageRequest].mapAsync(parallelism) { registerImageRequest =>
       underlying.registerImage(registerImageRequest)
+    }
+
+  def registerInstanceEventNotificationAttributesSource(
+      registerInstanceEventNotificationAttributesRequest: RegisterInstanceEventNotificationAttributesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RegisterInstanceEventNotificationAttributesResponse, NotUsed] =
+    Source
+      .single(registerInstanceEventNotificationAttributesRequest).via(
+        registerInstanceEventNotificationAttributesFlow(parallelism)
+      )
+
+  def registerInstanceEventNotificationAttributesFlow(parallelism: Int = DefaultParallelism): Flow[
+    RegisterInstanceEventNotificationAttributesRequest,
+    RegisterInstanceEventNotificationAttributesResponse,
+    NotUsed
+  ] =
+    Flow[RegisterInstanceEventNotificationAttributesRequest].mapAsync(parallelism) {
+      registerInstanceEventNotificationAttributesRequest =>
+        underlying.registerInstanceEventNotificationAttributes(registerInstanceEventNotificationAttributesRequest)
     }
 
   def registerTransitGatewayMulticastGroupMembersSource(

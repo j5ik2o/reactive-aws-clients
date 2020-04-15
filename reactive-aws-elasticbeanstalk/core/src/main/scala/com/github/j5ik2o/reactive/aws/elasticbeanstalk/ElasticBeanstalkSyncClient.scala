@@ -192,6 +192,16 @@ trait ElasticBeanstalkSyncClient extends ElasticBeanstalkClient[Either[Throwable
   ): Either[Throwable, ListAvailableSolutionStacksResponse] =
     underlying.listAvailableSolutionStacks(listAvailableSolutionStacksRequest).toEither
 
+  override def listPlatformBranches(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): Either[Throwable, ListPlatformBranchesResponse] =
+    underlying.listPlatformBranches(listPlatformBranchesRequest).toEither
+
+  def listPlatformBranchesPaginator(
+      listPlatformBranchesRequest: ListPlatformBranchesRequest
+  ): ListPlatformBranchesIterable =
+    underlying.listPlatformBranchesPaginator(listPlatformBranchesRequest)
+
   override def listPlatformVersions(): Either[Throwable, ListPlatformVersionsResponse] =
     underlying.listPlatformVersions().toEither
 
