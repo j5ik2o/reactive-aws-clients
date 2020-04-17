@@ -15,7 +15,7 @@ object Settings {
   val awsSdk2Version = "2.11.12"
 
   val catsVersion       = "2.0.0"
-  val catsEffectVersion = "2.0.0"
+  val catsEffectVersion = "2.1.3"
   val monixVersion      = "3.1.0"
   val akka25Version     = "2.5.30"
   val akka26Version     = "2.6.4"
