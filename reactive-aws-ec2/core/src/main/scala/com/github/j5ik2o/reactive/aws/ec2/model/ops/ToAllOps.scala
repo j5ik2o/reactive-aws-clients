@@ -185,6 +185,7 @@ trait ToAllOps
     with ToCreateNetworkInterfaceRequestOps
     with ToCreateNetworkInterfaceResponseOps
     with ToCreatePlacementGroupRequestOps
+    with ToCreatePlacementGroupResponseOps
     with ToCreateReservedInstancesListingRequestOps
     with ToCreateReservedInstancesListingResponseOps
     with ToCreateRouteRequestOps

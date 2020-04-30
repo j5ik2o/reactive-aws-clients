@@ -15,5 +15,6 @@ ls reactive-aws-${NAME}/core/src/main/scala/com/github/j5ik2o/reactive/aws/${NAM
 
 for NAME in $(find . -type d -maxdepth 1 | grep "reactive" | sed -e 's/\.\/reactive-aws-//g' | grep -v "common")
 do
+    echo "reactive-aws-${NAME}/core/src/main/scala/com/github/j5ik2o/reactive/aws/${NAME}/model/ops/ToAllOps.scala"
     generate $NAME > reactive-aws-${NAME}/core/src/main/scala/com/github/j5ik2o/reactive/aws/${NAME}/model/ops/ToAllOps.scala
 done

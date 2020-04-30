@@ -12,12 +12,22 @@ final class DeleteKeyPairRequestBuilderOps(val self: DeleteKeyPairRequest.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdAsScala(value: Option[String]): DeleteKeyPairRequest.Builder = {
+    value.fold(self) { v =>
+      self.keyPairId(v)
+    }
+  }
+
 }
 
 final class DeleteKeyPairRequestOps(val self: DeleteKeyPairRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala: Option[String] = Option(self.keyName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdAsScala: Option[String] = Option(self.keyPairId)
 
 }
 
