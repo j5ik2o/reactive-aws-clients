@@ -21,6 +21,13 @@ final class ImportKeyPairRequestBuilderOps(val self: ImportKeyPairRequest.Builde
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): ImportKeyPairRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ImportKeyPairRequestOps(val self: ImportKeyPairRequest) extends AnyVal {
@@ -30,6 +37,11 @@ final class ImportKeyPairRequestOps(val self: ImportKeyPairRequest) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicKeyMaterialAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.publicKeyMaterial)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 
