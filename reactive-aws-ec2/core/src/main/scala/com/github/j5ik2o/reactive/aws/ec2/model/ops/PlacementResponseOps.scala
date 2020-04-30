@@ -5,28 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class PlacementResponseBuilderOps(val self: PlacementResponse.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def groupNameAsScala(value: Option[String]): PlacementResponse.Builder = {
-    value.fold(self) { v =>
-      self.groupName(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def groupNameAsScala(value: Option[String]): PlacementResponse.Builder = {
+            value.fold(self){ v => self.groupName(v) }
+            } 
+
 
 }
 
 final class PlacementResponseOps(val self: PlacementResponse) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def groupNameAsScala: Option[String] = Option(self.groupName)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def groupNameAsScala: Option[String] = Option(self.groupName) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToPlacementResponseOps {
 
-  implicit def toPlacementResponseBuilderOps(v: PlacementResponse.Builder): PlacementResponseBuilderOps =
-    new PlacementResponseBuilderOps(v)
+implicit def toPlacementResponseBuilderOps(v: PlacementResponse.Builder): PlacementResponseBuilderOps = new PlacementResponseBuilderOps(v)
 
-  implicit def toPlacementResponseOps(v: PlacementResponse): PlacementResponseOps = new PlacementResponseOps(v)
+implicit def toPlacementResponseOps(v: PlacementResponse): PlacementResponseOps = new PlacementResponseOps(v)
 
 }
+

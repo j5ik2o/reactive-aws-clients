@@ -5,38 +5,36 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class RecurringChargeBuilderOps(val self: RecurringCharge.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def amountAsScala(value: Option[Double]): RecurringCharge.Builder = {
-    value.fold(self) { v =>
-      self.amount(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def amountAsScala(value: Option[Double]): RecurringCharge.Builder = {
+            value.fold(self){ v => self.amount(v) }
+            } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def frequencyAsScala(value: Option[RecurringChargeFrequency]): RecurringCharge.Builder = {
-    value.fold(self) { v =>
-      self.frequency(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def frequencyAsScala(value: Option[RecurringChargeFrequency]): RecurringCharge.Builder = {
+            value.fold(self){ v => self.frequency(v) }
+            } 
+
 
 }
 
 final class RecurringChargeOps(val self: RecurringCharge) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def amountAsScala: Option[Double] = Option(self.amount)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def amountAsScala: Option[Double] = Option(self.amount) 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def frequencyAsScala: Option[RecurringChargeFrequency] = Option(self.frequency)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def frequencyAsScala: Option[RecurringChargeFrequency] = Option(self.frequency) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToRecurringChargeOps {
 
-  implicit def toRecurringChargeBuilderOps(v: RecurringCharge.Builder): RecurringChargeBuilderOps =
-    new RecurringChargeBuilderOps(v)
+implicit def toRecurringChargeBuilderOps(v: RecurringCharge.Builder): RecurringChargeBuilderOps = new RecurringChargeBuilderOps(v)
 
-  implicit def toRecurringChargeOps(v: RecurringCharge): RecurringChargeOps = new RecurringChargeOps(v)
+implicit def toRecurringChargeOps(v: RecurringCharge): RecurringChargeOps = new RecurringChargeOps(v)
 
 }
+

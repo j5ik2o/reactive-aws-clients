@@ -5,40 +5,36 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ClientVpnConnectionStatusBuilderOps(val self: ClientVpnConnectionStatus.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def codeAsScala(value: Option[ClientVpnConnectionStatusCode]): ClientVpnConnectionStatus.Builder = {
-    value.fold(self) { v =>
-      self.code(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def codeAsScala(value: Option[ClientVpnConnectionStatusCode]): ClientVpnConnectionStatus.Builder = {
+            value.fold(self){ v => self.code(v) }
+            } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messageAsScala(value: Option[String]): ClientVpnConnectionStatus.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def messageAsScala(value: Option[String]): ClientVpnConnectionStatus.Builder = {
+            value.fold(self){ v => self.message(v) }
+            } 
+
 
 }
 
 final class ClientVpnConnectionStatusOps(val self: ClientVpnConnectionStatus) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def codeAsScala: Option[ClientVpnConnectionStatusCode] = Option(self.code)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def codeAsScala: Option[ClientVpnConnectionStatusCode] = Option(self.code) 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messageAsScala: Option[String] = Option(self.message)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def messageAsScala: Option[String] = Option(self.message) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToClientVpnConnectionStatusOps {
 
-  implicit def toClientVpnConnectionStatusBuilderOps(
-      v: ClientVpnConnectionStatus.Builder
-  ): ClientVpnConnectionStatusBuilderOps = new ClientVpnConnectionStatusBuilderOps(v)
+implicit def toClientVpnConnectionStatusBuilderOps(v: ClientVpnConnectionStatus.Builder): ClientVpnConnectionStatusBuilderOps = new ClientVpnConnectionStatusBuilderOps(v)
 
-  implicit def toClientVpnConnectionStatusOps(v: ClientVpnConnectionStatus): ClientVpnConnectionStatusOps =
-    new ClientVpnConnectionStatusOps(v)
+implicit def toClientVpnConnectionStatusOps(v: ClientVpnConnectionStatus): ClientVpnConnectionStatusOps = new ClientVpnConnectionStatusOps(v)
 
 }
+

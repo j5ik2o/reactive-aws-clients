@@ -5,38 +5,36 @@ import software.amazon.awssdk.services.kinesis.model._
 
 final class ListStreamsRequestBuilderOps(val self: ListStreamsRequest.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def limitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def limitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
+            value.fold(self){ v => self.limit(v) }
+            } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def exclusiveStartStreamNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.exclusiveStartStreamName(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def exclusiveStartStreamNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
+            value.fold(self){ v => self.exclusiveStartStreamName(v) }
+            } 
+
 
 }
 
 final class ListStreamsRequestOps(val self: ListStreamsRequest) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def limitAsScala: Option[Int] = Option(self.limit)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def limitAsScala: Option[Int] = Option(self.limit) 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def exclusiveStartStreamNameAsScala: Option[String] = Option(self.exclusiveStartStreamName)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def exclusiveStartStreamNameAsScala: Option[String] = Option(self.exclusiveStartStreamName) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToListStreamsRequestOps {
 
-  implicit def toListStreamsRequestBuilderOps(v: ListStreamsRequest.Builder): ListStreamsRequestBuilderOps =
-    new ListStreamsRequestBuilderOps(v)
+implicit def toListStreamsRequestBuilderOps(v: ListStreamsRequest.Builder): ListStreamsRequestBuilderOps = new ListStreamsRequestBuilderOps(v)
 
-  implicit def toListStreamsRequestOps(v: ListStreamsRequest): ListStreamsRequestOps = new ListStreamsRequestOps(v)
+implicit def toListStreamsRequestOps(v: ListStreamsRequest): ListStreamsRequestOps = new ListStreamsRequestOps(v)
 
 }
+

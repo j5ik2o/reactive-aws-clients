@@ -5,31 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeleteClientVpnEndpointRequestBuilderOps(val self: DeleteClientVpnEndpointRequest.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def clientVpnEndpointIdAsScala(value: Option[String]): DeleteClientVpnEndpointRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientVpnEndpointId(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def clientVpnEndpointIdAsScala(value: Option[String]): DeleteClientVpnEndpointRequest.Builder = {
+            value.fold(self){ v => self.clientVpnEndpointId(v) }
+            } 
+
 
 }
 
 final class DeleteClientVpnEndpointRequestOps(val self: DeleteClientVpnEndpointRequest) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def clientVpnEndpointIdAsScala: Option[String] = Option(self.clientVpnEndpointId) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToDeleteClientVpnEndpointRequestOps {
 
-  implicit def toDeleteClientVpnEndpointRequestBuilderOps(
-      v: DeleteClientVpnEndpointRequest.Builder
-  ): DeleteClientVpnEndpointRequestBuilderOps = new DeleteClientVpnEndpointRequestBuilderOps(v)
+implicit def toDeleteClientVpnEndpointRequestBuilderOps(v: DeleteClientVpnEndpointRequest.Builder): DeleteClientVpnEndpointRequestBuilderOps = new DeleteClientVpnEndpointRequestBuilderOps(v)
 
-  implicit def toDeleteClientVpnEndpointRequestOps(
-      v: DeleteClientVpnEndpointRequest
-  ): DeleteClientVpnEndpointRequestOps = new DeleteClientVpnEndpointRequestOps(v)
+implicit def toDeleteClientVpnEndpointRequestOps(v: DeleteClientVpnEndpointRequest): DeleteClientVpnEndpointRequestOps = new DeleteClientVpnEndpointRequestOps(v)
 
 }
+

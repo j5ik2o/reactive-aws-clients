@@ -5,30 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DescribeIdFormatRequestBuilderOps(val self: DescribeIdFormatRequest.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceAsScala(value: Option[String]): DescribeIdFormatRequest.Builder = {
-    value.fold(self) { v =>
-      self.resource(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def resourceAsScala(value: Option[String]): DescribeIdFormatRequest.Builder = {
+            value.fold(self){ v => self.resource(v) }
+            } 
+
 
 }
 
 final class DescribeIdFormatRequestOps(val self: DescribeIdFormatRequest) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceAsScala: Option[String] = Option(self.resource)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def resourceAsScala: Option[String] = Option(self.resource) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToDescribeIdFormatRequestOps {
 
-  implicit def toDescribeIdFormatRequestBuilderOps(
-      v: DescribeIdFormatRequest.Builder
-  ): DescribeIdFormatRequestBuilderOps = new DescribeIdFormatRequestBuilderOps(v)
+implicit def toDescribeIdFormatRequestBuilderOps(v: DescribeIdFormatRequest.Builder): DescribeIdFormatRequestBuilderOps = new DescribeIdFormatRequestBuilderOps(v)
 
-  implicit def toDescribeIdFormatRequestOps(v: DescribeIdFormatRequest): DescribeIdFormatRequestOps =
-    new DescribeIdFormatRequestOps(v)
+implicit def toDescribeIdFormatRequestOps(v: DescribeIdFormatRequest): DescribeIdFormatRequestOps = new DescribeIdFormatRequestOps(v)
 
 }
+

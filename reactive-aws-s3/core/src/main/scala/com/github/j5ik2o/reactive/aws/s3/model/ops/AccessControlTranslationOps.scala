@@ -5,30 +5,28 @@ import software.amazon.awssdk.services.s3.model._
 
 final class AccessControlTranslationBuilderOps(val self: AccessControlTranslation.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def ownerAsScala(value: Option[OwnerOverride]): AccessControlTranslation.Builder = {
-    value.fold(self) { v =>
-      self.owner(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def ownerAsScala(value: Option[OwnerOverride]): AccessControlTranslation.Builder = {
+            value.fold(self){ v => self.owner(v) }
+            } 
+
 
 }
 
 final class AccessControlTranslationOps(val self: AccessControlTranslation) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def ownerAsScala: Option[OwnerOverride] = Option(self.owner)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def ownerAsScala: Option[OwnerOverride] = Option(self.owner) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToAccessControlTranslationOps {
 
-  implicit def toAccessControlTranslationBuilderOps(
-      v: AccessControlTranslation.Builder
-  ): AccessControlTranslationBuilderOps = new AccessControlTranslationBuilderOps(v)
+implicit def toAccessControlTranslationBuilderOps(v: AccessControlTranslation.Builder): AccessControlTranslationBuilderOps = new AccessControlTranslationBuilderOps(v)
 
-  implicit def toAccessControlTranslationOps(v: AccessControlTranslation): AccessControlTranslationOps =
-    new AccessControlTranslationOps(v)
+implicit def toAccessControlTranslationOps(v: AccessControlTranslation): AccessControlTranslationOps = new AccessControlTranslationOps(v)
 
 }
+

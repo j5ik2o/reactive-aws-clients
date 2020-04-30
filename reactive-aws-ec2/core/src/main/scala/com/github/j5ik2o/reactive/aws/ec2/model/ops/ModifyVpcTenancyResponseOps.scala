@@ -5,30 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ModifyVpcTenancyResponseBuilderOps(val self: ModifyVpcTenancyResponse.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def returnValueAsScala(value: Option[Boolean]): ModifyVpcTenancyResponse.Builder = {
-    value.fold(self) { v =>
-      self.returnValue(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def returnValueAsScala(value: Option[Boolean]): ModifyVpcTenancyResponse.Builder = {
+            value.fold(self){ v => self.returnValue(v) }
+            } 
+
 
 }
 
 final class ModifyVpcTenancyResponseOps(val self: ModifyVpcTenancyResponse) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def returnValueAsScala: Option[Boolean] = Option(self.returnValue) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToModifyVpcTenancyResponseOps {
 
-  implicit def toModifyVpcTenancyResponseBuilderOps(
-      v: ModifyVpcTenancyResponse.Builder
-  ): ModifyVpcTenancyResponseBuilderOps = new ModifyVpcTenancyResponseBuilderOps(v)
+implicit def toModifyVpcTenancyResponseBuilderOps(v: ModifyVpcTenancyResponse.Builder): ModifyVpcTenancyResponseBuilderOps = new ModifyVpcTenancyResponseBuilderOps(v)
 
-  implicit def toModifyVpcTenancyResponseOps(v: ModifyVpcTenancyResponse): ModifyVpcTenancyResponseOps =
-    new ModifyVpcTenancyResponseOps(v)
+implicit def toModifyVpcTenancyResponseOps(v: ModifyVpcTenancyResponse): ModifyVpcTenancyResponseOps = new ModifyVpcTenancyResponseOps(v)
 
 }
+

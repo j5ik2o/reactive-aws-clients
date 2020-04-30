@@ -5,40 +5,36 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class ResetSnapshotAttributeRequestBuilderOps(val self: ResetSnapshotAttributeRequest.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributeAsScala(value: Option[SnapshotAttributeName]): ResetSnapshotAttributeRequest.Builder = {
-    value.fold(self) { v =>
-      self.attribute(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def attributeAsScala(value: Option[SnapshotAttributeName]): ResetSnapshotAttributeRequest.Builder = {
+            value.fold(self){ v => self.attribute(v) }
+            } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def snapshotIdAsScala(value: Option[String]): ResetSnapshotAttributeRequest.Builder = {
-    value.fold(self) { v =>
-      self.snapshotId(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def snapshotIdAsScala(value: Option[String]): ResetSnapshotAttributeRequest.Builder = {
+            value.fold(self){ v => self.snapshotId(v) }
+            } 
+
 
 }
 
 final class ResetSnapshotAttributeRequestOps(val self: ResetSnapshotAttributeRequest) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributeAsScala: Option[SnapshotAttributeName] = Option(self.attribute)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def attributeAsScala: Option[SnapshotAttributeName] = Option(self.attribute) 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def snapshotIdAsScala: Option[String] = Option(self.snapshotId)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def snapshotIdAsScala: Option[String] = Option(self.snapshotId) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToResetSnapshotAttributeRequestOps {
 
-  implicit def toResetSnapshotAttributeRequestBuilderOps(
-      v: ResetSnapshotAttributeRequest.Builder
-  ): ResetSnapshotAttributeRequestBuilderOps = new ResetSnapshotAttributeRequestBuilderOps(v)
+implicit def toResetSnapshotAttributeRequestBuilderOps(v: ResetSnapshotAttributeRequest.Builder): ResetSnapshotAttributeRequestBuilderOps = new ResetSnapshotAttributeRequestBuilderOps(v)
 
-  implicit def toResetSnapshotAttributeRequestOps(v: ResetSnapshotAttributeRequest): ResetSnapshotAttributeRequestOps =
-    new ResetSnapshotAttributeRequestOps(v)
+implicit def toResetSnapshotAttributeRequestOps(v: ResetSnapshotAttributeRequest): ResetSnapshotAttributeRequestOps = new ResetSnapshotAttributeRequestOps(v)
 
 }
+

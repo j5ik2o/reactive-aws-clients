@@ -5,14 +5,15 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 trait DynamoDbStreamsClient[M[_]] {
 
-  def describeStream(describeStreamRequest: DescribeStreamRequest): M[DescribeStreamResponse]
+    def describeStream(describeStreamRequest: DescribeStreamRequest): M[DescribeStreamResponse]
 
-  def getRecords(getRecordsRequest: GetRecordsRequest): M[GetRecordsResponse]
+    def getRecords(getRecordsRequest: GetRecordsRequest): M[GetRecordsResponse]
 
-  def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): M[GetShardIteratorResponse]
+    def getShardIterator(getShardIteratorRequest: GetShardIteratorRequest): M[GetShardIteratorResponse]
 
-  def listStreams(listStreamsRequest: ListStreamsRequest): M[ListStreamsResponse]
+    def listStreams(listStreamsRequest: ListStreamsRequest): M[ListStreamsResponse]
 
-  def listStreams(): M[ListStreamsResponse]
+    def listStreams(): M[ListStreamsResponse]
 
 }
+

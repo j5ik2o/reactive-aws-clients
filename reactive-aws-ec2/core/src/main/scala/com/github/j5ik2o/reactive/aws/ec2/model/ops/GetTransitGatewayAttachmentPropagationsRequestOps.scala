@@ -3,71 +3,54 @@ package com.github.j5ik2o.reactive.aws.ec2.model.ops
 
 import software.amazon.awssdk.services.ec2.model._
 
-final class GetTransitGatewayAttachmentPropagationsRequestBuilderOps(
-    val self: GetTransitGatewayAttachmentPropagationsRequest.Builder
-) extends AnyVal {
+final class GetTransitGatewayAttachmentPropagationsRequestBuilderOps(val self: GetTransitGatewayAttachmentPropagationsRequest.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def transitGatewayAttachmentIdAsScala(
-      value: Option[String]
-  ): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.transitGatewayAttachmentId(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def transitGatewayAttachmentIdAsScala(value: Option[String]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
+            value.fold(self){ v => self.transitGatewayAttachmentId(v) }
+            } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def filtersAsScala(value: Option[Seq[Filter]]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
-    value.filter(_.nonEmpty).fold(self) { v =>
-      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def filtersAsScala(value: Option[Seq[Filter]]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
+                value.filter(_.nonEmpty).fold(self){ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava) } 
+            }
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def maxResultsAsScala(value: Option[Int]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def maxResultsAsScala(value: Option[Int]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
+            value.fold(self){ v => self.maxResults(v) }
+            } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nextTokenAsScala(value: Option[String]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def nextTokenAsScala(value: Option[String]): GetTransitGatewayAttachmentPropagationsRequest.Builder = {
+            value.fold(self){ v => self.nextToken(v) }
+            } 
+
 
 }
 
-final class GetTransitGatewayAttachmentPropagationsRequestOps(val self: GetTransitGatewayAttachmentPropagationsRequest)
-    extends AnyVal {
+final class GetTransitGatewayAttachmentPropagationsRequestOps(val self: GetTransitGatewayAttachmentPropagationsRequest) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def transitGatewayAttachmentIdAsScala: Option[String] = Option(self.transitGatewayAttachmentId) 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+                final def filtersAsScala: Option[Seq[Filter]] = Option(self.filters).map{ v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala } 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def maxResultsAsScala: Option[Int] = Option(self.maxResults) 
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def nextTokenAsScala: Option[String] = Option(self.nextToken) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToGetTransitGatewayAttachmentPropagationsRequestOps {
 
-  implicit def toGetTransitGatewayAttachmentPropagationsRequestBuilderOps(
-      v: GetTransitGatewayAttachmentPropagationsRequest.Builder
-  ): GetTransitGatewayAttachmentPropagationsRequestBuilderOps =
-    new GetTransitGatewayAttachmentPropagationsRequestBuilderOps(v)
+implicit def toGetTransitGatewayAttachmentPropagationsRequestBuilderOps(v: GetTransitGatewayAttachmentPropagationsRequest.Builder): GetTransitGatewayAttachmentPropagationsRequestBuilderOps = new GetTransitGatewayAttachmentPropagationsRequestBuilderOps(v)
 
-  implicit def toGetTransitGatewayAttachmentPropagationsRequestOps(
-      v: GetTransitGatewayAttachmentPropagationsRequest
-  ): GetTransitGatewayAttachmentPropagationsRequestOps = new GetTransitGatewayAttachmentPropagationsRequestOps(v)
+implicit def toGetTransitGatewayAttachmentPropagationsRequestOps(v: GetTransitGatewayAttachmentPropagationsRequest): GetTransitGatewayAttachmentPropagationsRequestOps = new GetTransitGatewayAttachmentPropagationsRequestOps(v)
 
 }
+

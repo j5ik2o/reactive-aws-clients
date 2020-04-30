@@ -5,30 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CancelExportTaskRequestBuilderOps(val self: CancelExportTaskRequest.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def exportTaskIdAsScala(value: Option[String]): CancelExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.exportTaskId(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def exportTaskIdAsScala(value: Option[String]): CancelExportTaskRequest.Builder = {
+            value.fold(self){ v => self.exportTaskId(v) }
+            } 
+
 
 }
 
 final class CancelExportTaskRequestOps(val self: CancelExportTaskRequest) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def exportTaskIdAsScala: Option[String] = Option(self.exportTaskId)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def exportTaskIdAsScala: Option[String] = Option(self.exportTaskId) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToCancelExportTaskRequestOps {
 
-  implicit def toCancelExportTaskRequestBuilderOps(
-      v: CancelExportTaskRequest.Builder
-  ): CancelExportTaskRequestBuilderOps = new CancelExportTaskRequestBuilderOps(v)
+implicit def toCancelExportTaskRequestBuilderOps(v: CancelExportTaskRequest.Builder): CancelExportTaskRequestBuilderOps = new CancelExportTaskRequestBuilderOps(v)
 
-  implicit def toCancelExportTaskRequestOps(v: CancelExportTaskRequest): CancelExportTaskRequestOps =
-    new CancelExportTaskRequestOps(v)
+implicit def toCancelExportTaskRequestOps(v: CancelExportTaskRequest): CancelExportTaskRequestOps = new CancelExportTaskRequestOps(v)
 
 }
+

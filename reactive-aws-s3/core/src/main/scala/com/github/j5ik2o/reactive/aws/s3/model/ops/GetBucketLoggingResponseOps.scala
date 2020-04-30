@@ -5,30 +5,28 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketLoggingResponseBuilderOps(val self: GetBucketLoggingResponse.Builder) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def loggingEnabledAsScala(value: Option[LoggingEnabled]): GetBucketLoggingResponse.Builder = {
-    value.fold(self) { v =>
-      self.loggingEnabled(v)
-    }
-  }
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def loggingEnabledAsScala(value: Option[LoggingEnabled]): GetBucketLoggingResponse.Builder = {
+            value.fold(self){ v => self.loggingEnabled(v) }
+            } 
+
 
 }
 
 final class GetBucketLoggingResponseOps(val self: GetBucketLoggingResponse) extends AnyVal {
 
-  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def loggingEnabledAsScala: Option[LoggingEnabled] = Option(self.loggingEnabled)
+    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+            final def loggingEnabledAsScala: Option[LoggingEnabled] = Option(self.loggingEnabled) 
+
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToGetBucketLoggingResponseOps {
 
-  implicit def toGetBucketLoggingResponseBuilderOps(
-      v: GetBucketLoggingResponse.Builder
-  ): GetBucketLoggingResponseBuilderOps = new GetBucketLoggingResponseBuilderOps(v)
+implicit def toGetBucketLoggingResponseBuilderOps(v: GetBucketLoggingResponse.Builder): GetBucketLoggingResponseBuilderOps = new GetBucketLoggingResponseBuilderOps(v)
 
-  implicit def toGetBucketLoggingResponseOps(v: GetBucketLoggingResponse): GetBucketLoggingResponseOps =
-    new GetBucketLoggingResponseOps(v)
+implicit def toGetBucketLoggingResponseOps(v: GetBucketLoggingResponse): GetBucketLoggingResponseOps = new GetBucketLoggingResponseOps(v)
 
 }
+
