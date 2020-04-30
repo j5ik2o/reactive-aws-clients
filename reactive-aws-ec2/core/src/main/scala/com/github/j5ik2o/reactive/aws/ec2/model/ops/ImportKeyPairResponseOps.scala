@@ -19,6 +19,20 @@ final class ImportKeyPairResponseBuilderOps(val self: ImportKeyPairResponse.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdAsScala(value: Option[String]): ImportKeyPairResponse.Builder = {
+    value.fold(self) { v =>
+      self.keyPairId(v)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): ImportKeyPairResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class ImportKeyPairResponseOps(val self: ImportKeyPairResponse) extends AnyVal {
@@ -28,6 +42,14 @@ final class ImportKeyPairResponseOps(val self: ImportKeyPairResponse) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyNameAsScala: Option[String] = Option(self.keyName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def keyPairIdAsScala: Option[String] = Option(self.keyPairId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

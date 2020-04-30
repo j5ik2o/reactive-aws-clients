@@ -33,6 +33,13 @@ final class CreateKeyPairResponseBuilderOps(val self: CreateKeyPairResponse.Buil
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): CreateKeyPairResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class CreateKeyPairResponseOps(val self: CreateKeyPairResponse) extends AnyVal {
@@ -48,6 +55,11 @@ final class CreateKeyPairResponseOps(val self: CreateKeyPairResponse) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPairIdAsScala: Option[String] = Option(self.keyPairId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 

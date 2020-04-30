@@ -26,6 +26,13 @@ final class CreatePlacementGroupRequestBuilderOps(val self: CreatePlacementGroup
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreatePlacementGroupRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class CreatePlacementGroupRequestOps(val self: CreatePlacementGroupRequest) extends AnyVal {
@@ -38,6 +45,11 @@ final class CreatePlacementGroupRequestOps(val self: CreatePlacementGroupRequest
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partitionCountAsScala: Option[Int] = Option(self.partitionCount)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] = Option(self.tagSpecifications).map { v =>
+    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+  }
 
 }
 
