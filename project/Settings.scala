@@ -120,7 +120,7 @@ object Settings {
         "com.fasterxml.jackson.jaxrs" % "jackson-jaxrs-json-provider" % "2.9.8",
         "com.fasterxml.jackson.jaxrs" % "jackson-jaxrs-base"          % "2.9.8",
         "commons-codec"               % "commons-codec"               % "1.10",
-        "commons-io"                  % "commons-io"                  % "2.6",
+        "commons-io"                  % "commons-io"                  % "2.7",
         "org.reactivestreams"         % "reactive-streams"            % "1.0.2",
         "io.netty"                    % "netty-codec-http"            % "4.1.33.Final",
         "io.netty"                    % "netty-handler"               % "4.1.33.Final",

@@ -31,7 +31,7 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
     libraryDependencies ++= {
       Seq(
         "com.google.guava" % "guava"                        % "28.2-jre",
-        "commons-io"       % "commons-io"                   % "2.6",
+        "commons-io"       % "commons-io"                   % "2.7",
         "com.whisk"        %% "docker-testkit-scalatest"    % "0.9.9",
         "com.whisk"        %% "docker-testkit-impl-spotify" % "0.9.9",
         "org.seasar.util"  % "s2util"                       % "0.0.1",
