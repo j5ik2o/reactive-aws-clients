@@ -7,65 +7,47 @@ final class EventDescriptionBuilderOps(val self: EventDescription.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventDateAsScala(value: Option[java.time.Instant]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.eventDate(v)
-    }
+    value.fold(self) { v => self.eventDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestIdAsScala(value: Option[String]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.requestId(v)
-    }
+    value.fold(self) { v => self.requestId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def severityAsScala(value: Option[EventSeverity]): EventDescription.Builder = {
-    value.fold(self) { v =>
-      self.severity(v)
-    }
+    value.fold(self) { v => self.severity(v) }
   }
 
 }

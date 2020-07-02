@@ -7,9 +7,7 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionArnAsScala(value: Option[String]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.taskDefinitionArn(v)
-    }
+    value.fold(self) { v => self.taskDefinitionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,37 +19,27 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def familyAsScala(value: Option[String]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.family(v)
-    }
+    value.fold(self) { v => self.family(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskRoleArnAsScala(value: Option[String]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.taskRoleArn(v)
-    }
+    value.fold(self) { v => self.taskRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleArnAsScala(value: Option[String]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.executionRoleArn(v)
-    }
+    value.fold(self) { v => self.executionRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkModeAsScala(value: Option[NetworkMode]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.networkMode(v)
-    }
+    value.fold(self) { v => self.networkMode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionAsScala(value: Option[Int]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.revision(v)
-    }
+    value.fold(self) { v => self.revision(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -63,9 +51,7 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[TaskDefinitionStatus]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -100,16 +86,12 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuAsScala(value: Option[String]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.cpu(v)
-    }
+    value.fold(self) { v => self.cpu(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def memoryAsScala(value: Option[String]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.memory(v)
-    }
+    value.fold(self) { v => self.memory(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -121,23 +103,17 @@ final class TaskDefinitionBuilderOps(val self: TaskDefinition.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pidModeAsScala(value: Option[PidMode]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.pidMode(v)
-    }
+    value.fold(self) { v => self.pidMode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipcModeAsScala(value: Option[IpcMode]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.ipcMode(v)
-    }
+    value.fold(self) { v => self.ipcMode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def proxyConfigurationAsScala(value: Option[ProxyConfiguration]): TaskDefinition.Builder = {
-    value.fold(self) { v =>
-      self.proxyConfiguration(v)
-    }
+    value.fold(self) { v => self.proxyConfiguration(v) }
   }
 
 }
@@ -148,9 +124,10 @@ final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
   final def taskDefinitionArnAsScala: Option[String] = Option(self.taskDefinitionArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def containerDefinitionsAsScala: Option[Seq[ContainerDefinition]] = Option(self.containerDefinitions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def containerDefinitionsAsScala: Option[Seq[ContainerDefinition]] =
+    Option(self.containerDefinitions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def familyAsScala: Option[String] = Option(self.family)
@@ -168,17 +145,17 @@ final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
   final def revisionAsScala: Option[Int] = Option(self.revision)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def volumesAsScala: Option[Seq[Volume]] = Option(self.volumes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def volumesAsScala: Option[Seq[Volume]] =
+    Option(self.volumes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[TaskDefinitionStatus] = Option(self.status)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def requiresAttributesAsScala: Option[Seq[Attribute]] = Option(self.requiresAttributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def requiresAttributesAsScala: Option[Seq[Attribute]] =
+    Option(self.requiresAttributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def placementConstraintsAsScala: Option[Seq[TaskDefinitionPlacementConstraint]] =
@@ -187,14 +164,16 @@ final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
     }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def compatibilitiesAsScala: Option[Seq[Compatibility]] = Option(self.compatibilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def compatibilitiesAsScala: Option[Seq[Compatibility]] =
+    Option(self.compatibilities).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def requiresCompatibilitiesAsScala: Option[Seq[Compatibility]] = Option(self.requiresCompatibilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def requiresCompatibilitiesAsScala: Option[Seq[Compatibility]] =
+    Option(self.requiresCompatibilities).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuAsScala: Option[String] = Option(self.cpu)
@@ -203,10 +182,10 @@ final class TaskDefinitionOps(val self: TaskDefinition) extends AnyVal {
   final def memoryAsScala: Option[String] = Option(self.memory)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def inferenceAcceleratorsAsScala: Option[Seq[InferenceAccelerator]] = Option(self.inferenceAccelerators).map {
-    v =>
+  final def inferenceAcceleratorsAsScala: Option[Seq[InferenceAccelerator]] =
+    Option(self.inferenceAccelerators).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pidModeAsScala: Option[PidMode] = Option(self.pidMode)

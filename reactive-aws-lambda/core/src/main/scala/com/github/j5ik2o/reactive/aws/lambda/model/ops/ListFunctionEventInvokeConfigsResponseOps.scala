@@ -17,9 +17,7 @@ final class ListFunctionEventInvokeConfigsResponseBuilderOps(val self: ListFunct
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListFunctionEventInvokeConfigsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
 }

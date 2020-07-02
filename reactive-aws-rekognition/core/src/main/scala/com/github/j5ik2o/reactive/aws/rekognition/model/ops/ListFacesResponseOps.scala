@@ -14,16 +14,12 @@ final class ListFacesResponseBuilderOps(val self: ListFacesResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala(value: Option[String]): ListFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.faceModelVersion(v)
-    }
+    value.fold(self) { v => self.faceModelVersion(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class ListFacesResponseBuilderOps(val self: ListFacesResponse.Builder) ext
 final class ListFacesResponseOps(val self: ListFacesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def facesAsScala: Option[Seq[Face]] = Option(self.faces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def facesAsScala: Option[Seq[Face]] =
+    Option(self.faces).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

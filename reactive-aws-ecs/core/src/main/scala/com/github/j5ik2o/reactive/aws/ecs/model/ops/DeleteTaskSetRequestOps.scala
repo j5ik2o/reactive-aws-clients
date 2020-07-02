@@ -7,30 +7,22 @@ final class DeleteTaskSetRequestBuilderOps(val self: DeleteTaskSetRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): DeleteTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala(value: Option[String]): DeleteTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.service(v)
-    }
+    value.fold(self) { v => self.service(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskSetAsScala(value: Option[String]): DeleteTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.taskSet(v)
-    }
+    value.fold(self) { v => self.taskSet(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala(value: Option[Boolean]): DeleteTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.force(v)
-    }
+    value.fold(self) { v => self.force(v) }
   }
 
 }

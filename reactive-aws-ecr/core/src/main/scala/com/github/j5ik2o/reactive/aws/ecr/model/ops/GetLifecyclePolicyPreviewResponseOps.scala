@@ -8,37 +8,27 @@ final class GetLifecyclePolicyPreviewResponseBuilderOps(val self: GetLifecyclePo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): GetLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): GetLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecyclePolicyTextAsScala(value: Option[String]): GetLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.lifecyclePolicyText(v)
-    }
+    value.fold(self) { v => self.lifecyclePolicyText(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[LifecyclePolicyPreviewStatus]): GetLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -52,9 +42,7 @@ final class GetLifecyclePolicyPreviewResponseBuilderOps(val self: GetLifecyclePo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def summaryAsScala(value: Option[LifecyclePolicyPreviewSummary]): GetLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.summary(v)
-    }
+    value.fold(self) { v => self.summary(v) }
   }
 
 }
@@ -77,9 +65,10 @@ final class GetLifecyclePolicyPreviewResponseOps(val self: GetLifecyclePolicyPre
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def previewResultsAsScala: Option[Seq[LifecyclePolicyPreviewResult]] = Option(self.previewResults).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def previewResultsAsScala: Option[Seq[LifecyclePolicyPreviewResult]] =
+    Option(self.previewResults).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def summaryAsScala: Option[LifecyclePolicyPreviewSummary] = Option(self.summary)

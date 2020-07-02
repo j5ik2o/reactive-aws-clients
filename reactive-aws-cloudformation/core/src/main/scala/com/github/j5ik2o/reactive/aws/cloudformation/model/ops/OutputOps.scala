@@ -7,30 +7,22 @@ final class OutputBuilderOps(val self: Output.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputKeyAsScala(value: Option[String]): Output.Builder = {
-    value.fold(self) { v =>
-      self.outputKey(v)
-    }
+    value.fold(self) { v => self.outputKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputValueAsScala(value: Option[String]): Output.Builder = {
-    value.fold(self) { v =>
-      self.outputValue(v)
-    }
+    value.fold(self) { v => self.outputValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): Output.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exportNameAsScala(value: Option[String]): Output.Builder = {
-    value.fold(self) { v =>
-      self.exportName(v)
-    }
+    value.fold(self) { v => self.exportName(v) }
   }
 
 }

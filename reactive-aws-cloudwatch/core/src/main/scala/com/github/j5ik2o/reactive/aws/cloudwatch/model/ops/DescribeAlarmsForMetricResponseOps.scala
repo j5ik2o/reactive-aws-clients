@@ -18,9 +18,8 @@ final class DescribeAlarmsForMetricResponseBuilderOps(val self: DescribeAlarmsFo
 final class DescribeAlarmsForMetricResponseOps(val self: DescribeAlarmsForMetricResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] = Option(self.metricAlarms).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] =
+    Option(self.metricAlarms).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,30 +7,22 @@ final class GetPersonTrackingResponseBuilderOps(val self: GetPersonTrackingRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[VideoJobStatus]): GetPersonTrackingResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): GetPersonTrackingResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoMetadataAsScala(value: Option[VideoMetadata]): GetPersonTrackingResponse.Builder = {
-    value.fold(self) { v =>
-      self.videoMetadata(v)
-    }
+    value.fold(self) { v => self.videoMetadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetPersonTrackingResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -57,9 +49,8 @@ final class GetPersonTrackingResponseOps(val self: GetPersonTrackingResponse) ex
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def personsAsScala: Option[Seq[PersonDetection]] = Option(self.persons).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def personsAsScala: Option[Seq[PersonDetection]] =
+    Option(self.persons).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -8,9 +8,7 @@ final class RestoreTableToPointInTimeResponseBuilderOps(val self: RestoreTableTo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala(value: Option[TableDescription]): RestoreTableToPointInTimeResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableDescription(v)
-    }
+    value.fold(self) { v => self.tableDescription(v) }
   }
 
 }

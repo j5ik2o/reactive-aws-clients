@@ -7,16 +7,12 @@ final class IdentityBuilderOps(val self: Identity.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalIdAsScala(value: Option[String]): Identity.Builder = {
-    value.fold(self) { v =>
-      self.principalId(v)
-    }
+    value.fold(self) { v => self.principalId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): Identity.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
 }

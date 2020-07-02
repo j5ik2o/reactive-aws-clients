@@ -7,18 +7,14 @@ final class MessageSystemAttributeValueBuilderOps(val self: MessageSystemAttribu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stringValueAsScala(value: Option[String]): MessageSystemAttributeValue.Builder = {
-    value.fold(self) { v =>
-      self.stringValue(v)
-    }
+    value.fold(self) { v => self.stringValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def binaryValueAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): MessageSystemAttributeValue.Builder = {
-    value.fold(self) { v =>
-      self.binaryValue(v)
-    }
+    value.fold(self) { v => self.binaryValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -39,9 +35,7 @@ final class MessageSystemAttributeValueBuilderOps(val self: MessageSystemAttribu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataTypeAsScala(value: Option[String]): MessageSystemAttributeValue.Builder = {
-    value.fold(self) { v =>
-      self.dataType(v)
-    }
+    value.fold(self) { v => self.dataType(v) }
   }
 
 }
@@ -55,9 +49,10 @@ final class MessageSystemAttributeValueOps(val self: MessageSystemAttributeValue
   final def binaryValueAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.binaryValue)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def stringListValuesAsScala: Option[Seq[String]] = Option(self.stringListValues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def stringListValuesAsScala: Option[Seq[String]] =
+    Option(self.stringListValues).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def binaryListValuesAsScala: Option[Seq[software.amazon.awssdk.core.SdkBytes]] =

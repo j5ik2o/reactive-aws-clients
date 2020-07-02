@@ -7,23 +7,17 @@ final class MountPointBuilderOps(val self: MountPoint.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerPathAsScala(value: Option[String]): MountPoint.Builder = {
-    value.fold(self) { v =>
-      self.containerPath(v)
-    }
+    value.fold(self) { v => self.containerPath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def readOnlyAsScala(value: Option[Boolean]): MountPoint.Builder = {
-    value.fold(self) { v =>
-      self.readOnly(v)
-    }
+    value.fold(self) { v => self.readOnly(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceVolumeAsScala(value: Option[String]): MountPoint.Builder = {
-    value.fold(self) { v =>
-      self.sourceVolume(v)
-    }
+    value.fold(self) { v => self.sourceVolume(v) }
   }
 
 }

@@ -8,23 +8,17 @@ final class UpdateApplicationVersionRequestBuilderOps(val self: UpdateApplicatio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): UpdateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): UpdateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): UpdateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
 }

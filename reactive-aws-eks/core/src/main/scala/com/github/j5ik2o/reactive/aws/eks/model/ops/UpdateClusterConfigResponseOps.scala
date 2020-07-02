@@ -7,9 +7,7 @@ final class UpdateClusterConfigResponseBuilderOps(val self: UpdateClusterConfigR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[Update]): UpdateClusterConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.update(v)
-    }
+    value.fold(self) { v => self.update(v) }
   }
 
 }

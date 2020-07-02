@@ -7,58 +7,42 @@ final class CPUUtilizationBuilderOps(val self: CPUUtilization.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.user(v)
-    }
+    value.fold(self) { v => self.user(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def niceAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.nice(v)
-    }
+    value.fold(self) { v => self.nice(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def systemAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.system(v)
-    }
+    value.fold(self) { v => self.system(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idleAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.idle(v)
-    }
+    value.fold(self) { v => self.idle(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ioWaitAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.ioWait(v)
-    }
+    value.fold(self) { v => self.ioWait(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def irqAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.irq(v)
-    }
+    value.fold(self) { v => self.irq(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def softIRQAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.softIRQ(v)
-    }
+    value.fold(self) { v => self.softIRQ(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privilegedAsScala(value: Option[Double]): CPUUtilization.Builder = {
-    value.fold(self) { v =>
-      self.privileged(v)
-    }
+    value.fold(self) { v => self.privileged(v) }
   }
 
 }

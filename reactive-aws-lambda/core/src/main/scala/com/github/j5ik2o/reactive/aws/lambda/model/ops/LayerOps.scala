@@ -7,16 +7,12 @@ final class LayerBuilderOps(val self: Layer.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): Layer.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeSizeAsScala(value: Option[Long]): Layer.Builder = {
-    value.fold(self) { v =>
-      self.codeSize(v)
-    }
+    value.fold(self) { v => self.codeSize(v) }
   }
 
 }

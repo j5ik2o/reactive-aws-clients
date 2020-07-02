@@ -7,16 +7,12 @@ final class StorageTypeBuilderOps(val self: StorageType.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageTypeNameAsScala(value: Option[String]): StorageType.Builder = {
-    value.fold(self) { v =>
-      self.storageTypeName(v)
-    }
+    value.fold(self) { v => self.storageTypeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageSubTypeNameAsScala(value: Option[String]): StorageType.Builder = {
-    value.fold(self) { v =>
-      self.storageSubTypeName(v)
-    }
+    value.fold(self) { v => self.storageSubTypeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,10 @@ final class StorageTypeOps(val self: StorageType) extends AnyVal {
   final def storageSubTypeNameAsScala: Option[String] = Option(self.storageSubTypeName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def storageTypeLimitsAsScala: Option[Seq[StorageTypeLimit]] = Option(self.storageTypeLimits).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def storageTypeLimitsAsScala: Option[Seq[StorageTypeLimit]] =
+    Option(self.storageTypeLimits).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

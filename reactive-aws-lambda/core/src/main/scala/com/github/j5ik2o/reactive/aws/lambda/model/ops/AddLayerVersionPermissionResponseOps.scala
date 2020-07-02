@@ -8,16 +8,12 @@ final class AddLayerVersionPermissionResponseBuilderOps(val self: AddLayerVersio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementAsScala(value: Option[String]): AddLayerVersionPermissionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statement(v)
-    }
+    value.fold(self) { v => self.statement(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): AddLayerVersionPermissionResponse.Builder = {
-    value.fold(self) { v =>
-      self.revisionId(v)
-    }
+    value.fold(self) { v => self.revisionId(v) }
   }
 
 }

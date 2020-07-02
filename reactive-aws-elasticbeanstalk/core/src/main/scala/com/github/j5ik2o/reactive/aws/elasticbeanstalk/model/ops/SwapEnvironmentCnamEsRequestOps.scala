@@ -7,30 +7,22 @@ final class SwapEnvironmentCnamEsRequestBuilderOps(val self: SwapEnvironmentCnam
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceEnvironmentIdAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceEnvironmentId(v)
-    }
+    value.fold(self) { v => self.sourceEnvironmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceEnvironmentNameAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceEnvironmentName(v)
-    }
+    value.fold(self) { v => self.sourceEnvironmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationEnvironmentIdAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationEnvironmentId(v)
-    }
+    value.fold(self) { v => self.destinationEnvironmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationEnvironmentNameAsScala(value: Option[String]): SwapEnvironmentCnamEsRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationEnvironmentName(v)
-    }
+    value.fold(self) { v => self.destinationEnvironmentName(v) }
   }
 
 }

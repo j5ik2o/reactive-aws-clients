@@ -17,9 +17,8 @@ final class TrainingDataBuilderOps(val self: TrainingData.Builder) extends AnyVa
 final class TrainingDataOps(val self: TrainingData) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def assetsAsScala: Option[Seq[Asset]] = Option(self.assets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def assetsAsScala: Option[Seq[Asset]] =
+    Option(self.assets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

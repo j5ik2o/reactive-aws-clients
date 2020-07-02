@@ -7,23 +7,17 @@ final class ListGrantsRequestBuilderOps(val self: ListGrantsRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListGrantsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListGrantsRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ListGrantsRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
 }

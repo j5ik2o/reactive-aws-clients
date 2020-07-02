@@ -7,16 +7,12 @@ final class MustacheBuilderOps(val self: Mustache.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[Boolean]): Mustache.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Mustache.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
 }

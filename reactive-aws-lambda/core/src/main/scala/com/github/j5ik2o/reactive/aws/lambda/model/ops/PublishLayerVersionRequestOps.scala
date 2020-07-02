@@ -7,23 +7,17 @@ final class PublishLayerVersionRequestBuilderOps(val self: PublishLayerVersionRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): PublishLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerName(v)
-    }
+    value.fold(self) { v => self.layerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): PublishLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentAsScala(value: Option[LayerVersionContentInput]): PublishLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.content(v)
-    }
+    value.fold(self) { v => self.content(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,9 +29,7 @@ final class PublishLayerVersionRequestBuilderOps(val self: PublishLayerVersionRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseInfoAsScala(value: Option[String]): PublishLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.licenseInfo(v)
-    }
+    value.fold(self) { v => self.licenseInfo(v) }
   }
 
 }
@@ -54,9 +46,10 @@ final class PublishLayerVersionRequestOps(val self: PublishLayerVersionRequest) 
   final def contentAsScala: Option[LayerVersionContentInput] = Option(self.content)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def compatibleRuntimesAsScala: Option[Seq[Runtime]] =
+    Option(self.compatibleRuntimes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo)

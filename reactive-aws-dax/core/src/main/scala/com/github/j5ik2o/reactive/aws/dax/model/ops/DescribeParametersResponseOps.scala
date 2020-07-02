@@ -7,9 +7,7 @@ final class DescribeParametersResponseBuilderOps(val self: DescribeParametersRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeParametersResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DescribeParametersResponseOps(val self: DescribeParametersResponse) 
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Seq[Parameter]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parametersAsScala: Option[Seq[Parameter]] =
+    Option(self.parameters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

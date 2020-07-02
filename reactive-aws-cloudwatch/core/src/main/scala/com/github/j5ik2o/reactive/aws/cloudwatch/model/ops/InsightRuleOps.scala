@@ -7,30 +7,22 @@ final class InsightRuleBuilderOps(val self: InsightRule.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): InsightRule.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[String]): InsightRule.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def schemaAsScala(value: Option[String]): InsightRule.Builder = {
-    value.fold(self) { v =>
-      self.schema(v)
-    }
+    value.fold(self) { v => self.schema(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def definitionAsScala(value: Option[String]): InsightRule.Builder = {
-    value.fold(self) { v =>
-      self.definition(v)
-    }
+    value.fold(self) { v => self.definition(v) }
   }
 
 }

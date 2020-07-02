@@ -7,16 +7,12 @@ final class DescribeProjectsRequestBuilderOps(val self: DescribeProjectsRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeProjectsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeProjectsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
 }

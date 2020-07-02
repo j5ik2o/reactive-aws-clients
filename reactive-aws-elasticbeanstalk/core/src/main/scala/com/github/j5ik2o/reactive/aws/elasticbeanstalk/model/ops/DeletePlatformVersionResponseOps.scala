@@ -7,9 +7,7 @@ final class DeletePlatformVersionResponseBuilderOps(val self: DeletePlatformVers
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformSummaryAsScala(value: Option[PlatformSummary]): DeletePlatformVersionResponse.Builder = {
-    value.fold(self) { v =>
-      self.platformSummary(v)
-    }
+    value.fold(self) { v => self.platformSummary(v) }
   }
 
 }

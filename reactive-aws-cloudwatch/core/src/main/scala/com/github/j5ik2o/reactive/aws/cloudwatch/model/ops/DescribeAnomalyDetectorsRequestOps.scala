@@ -8,30 +8,22 @@ final class DescribeAnomalyDetectorsRequestBuilderOps(val self: DescribeAnomalyD
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeAnomalyDetectorsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeAnomalyDetectorsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): DescribeAnomalyDetectorsRequest.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): DescribeAnomalyDetectorsRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -58,9 +50,8 @@ final class DescribeAnomalyDetectorsRequestOps(val self: DescribeAnomalyDetector
   final def metricNameAsScala: Option[String] = Option(self.metricName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dimensionsAsScala: Option[Seq[Dimension]] = Option(self.dimensions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dimensionsAsScala: Option[Seq[Dimension]] =
+    Option(self.dimensions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

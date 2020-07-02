@@ -7,23 +7,17 @@ final class GetRepositoryPolicyResponseBuilderOps(val self: GetRepositoryPolicyR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): GetRepositoryPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): GetRepositoryPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyTextAsScala(value: Option[String]): GetRepositoryPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.policyText(v)
-    }
+    value.fold(self) { v => self.policyText(v) }
   }
 
 }

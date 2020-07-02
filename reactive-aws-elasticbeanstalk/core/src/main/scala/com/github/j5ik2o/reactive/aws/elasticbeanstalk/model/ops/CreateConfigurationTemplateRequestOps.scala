@@ -8,53 +8,39 @@ final class CreateConfigurationTemplateRequestBuilderOps(val self: CreateConfigu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def solutionStackNameAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.solutionStackName(v)
-    }
+    value.fold(self) { v => self.solutionStackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceConfigurationAsScala(
       value: Option[SourceConfiguration]
   ): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceConfiguration(v)
-    }
+    value.fold(self) { v => self.sourceConfiguration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -99,14 +85,14 @@ final class CreateConfigurationTemplateRequestOps(val self: CreateConfigurationT
   final def descriptionAsScala: Option[String] = Option(self.description)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] =
+    Option(self.optionSettings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

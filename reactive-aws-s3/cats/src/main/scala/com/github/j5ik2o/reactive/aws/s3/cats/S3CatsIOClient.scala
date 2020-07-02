@@ -10,10 +10,11 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object S3CatsIOClient {
 
-  def apply(asyncClient: S3AsyncClient)(implicit ec: ExecutionContext): S3CatsIOClient = new S3CatsIOClient {
-    override val executionContext: ExecutionContext = ec
-    override val underlying: S3AsyncClient          = asyncClient
-  }
+  def apply(asyncClient: S3AsyncClient)(implicit ec: ExecutionContext): S3CatsIOClient =
+    new S3CatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: S3AsyncClient          = asyncClient
+    }
 
 }
 

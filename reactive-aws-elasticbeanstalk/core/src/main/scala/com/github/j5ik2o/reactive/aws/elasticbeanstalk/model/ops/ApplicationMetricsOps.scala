@@ -7,30 +7,22 @@ final class ApplicationMetricsBuilderOps(val self: ApplicationMetrics.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def durationAsScala(value: Option[Int]): ApplicationMetrics.Builder = {
-    value.fold(self) { v =>
-      self.duration(v)
-    }
+    value.fold(self) { v => self.duration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestCountAsScala(value: Option[Int]): ApplicationMetrics.Builder = {
-    value.fold(self) { v =>
-      self.requestCount(v)
-    }
+    value.fold(self) { v => self.requestCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodesAsScala(value: Option[StatusCodes]): ApplicationMetrics.Builder = {
-    value.fold(self) { v =>
-      self.statusCodes(v)
-    }
+    value.fold(self) { v => self.statusCodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latencyAsScala(value: Option[Latency]): ApplicationMetrics.Builder = {
-    value.fold(self) { v =>
-      self.latency(v)
-    }
+    value.fold(self) { v => self.latency(v) }
   }
 
 }

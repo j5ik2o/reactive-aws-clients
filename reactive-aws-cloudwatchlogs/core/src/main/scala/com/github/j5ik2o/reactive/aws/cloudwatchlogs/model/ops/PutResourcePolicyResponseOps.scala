@@ -7,9 +7,7 @@ final class PutResourcePolicyResponseBuilderOps(val self: PutResourcePolicyRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcePolicyAsScala(value: Option[ResourcePolicy]): PutResourcePolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.resourcePolicy(v)
-    }
+    value.fold(self) { v => self.resourcePolicy(v) }
   }
 
 }

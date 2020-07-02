@@ -7,9 +7,7 @@ final class DescribeTimeToLiveRequestBuilderOps(val self: DescribeTimeToLiveRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DescribeTimeToLiveRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
 }

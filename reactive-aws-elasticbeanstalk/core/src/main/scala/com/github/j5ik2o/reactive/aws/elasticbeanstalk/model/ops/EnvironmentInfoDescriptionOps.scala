@@ -7,30 +7,22 @@ final class EnvironmentInfoDescriptionBuilderOps(val self: EnvironmentInfoDescri
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoTypeAsScala(value: Option[EnvironmentInfoType]): EnvironmentInfoDescription.Builder = {
-    value.fold(self) { v =>
-      self.infoType(v)
-    }
+    value.fold(self) { v => self.infoType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2InstanceIdAsScala(value: Option[String]): EnvironmentInfoDescription.Builder = {
-    value.fold(self) { v =>
-      self.ec2InstanceId(v)
-    }
+    value.fold(self) { v => self.ec2InstanceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sampleTimestampAsScala(value: Option[java.time.Instant]): EnvironmentInfoDescription.Builder = {
-    value.fold(self) { v =>
-      self.sampleTimestamp(v)
-    }
+    value.fold(self) { v => self.sampleTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): EnvironmentInfoDescription.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
 }

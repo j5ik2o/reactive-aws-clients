@@ -7,9 +7,7 @@ final class DeleteProjectRequestBuilderOps(val self: DeleteProjectRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectArnAsScala(value: Option[String]): DeleteProjectRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectArn(v)
-    }
+    value.fold(self) { v => self.projectArn(v) }
   }
 
 }

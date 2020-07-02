@@ -7,9 +7,7 @@ final class GetFunctionResponseBuilderOps(val self: GetFunctionResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionConfigurationAsScala(value: Option[FunctionConfiguration]): GetFunctionResponse.Builder = {
-    value.fold(self) { v =>
-      self.functionConfiguration(v)
-    }
+    value.fold(self) { v => self.functionConfiguration(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class AttributeBuilderOps(val self: Attribute.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): Attribute.Builder = {
-    value.fold(self) { v =>
-      self.key(v)
-    }
+    value.fold(self) { v => self.key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): Attribute.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
 }

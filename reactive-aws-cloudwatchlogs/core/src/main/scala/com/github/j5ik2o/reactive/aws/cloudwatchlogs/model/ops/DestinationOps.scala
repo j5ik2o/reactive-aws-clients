@@ -7,44 +7,32 @@ final class DestinationBuilderOps(val self: Destination.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala(value: Option[String]): Destination.Builder = {
-    value.fold(self) { v =>
-      self.destinationName(v)
-    }
+    value.fold(self) { v => self.destinationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetArnAsScala(value: Option[String]): Destination.Builder = {
-    value.fold(self) { v =>
-      self.targetArn(v)
-    }
+    value.fold(self) { v => self.targetArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): Destination.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPolicyAsScala(value: Option[String]): Destination.Builder = {
-    value.fold(self) { v =>
-      self.accessPolicy(v)
-    }
+    value.fold(self) { v => self.accessPolicy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): Destination.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala(value: Option[Long]): Destination.Builder = {
-    value.fold(self) { v =>
-      self.creationTime(v)
-    }
+    value.fold(self) { v => self.creationTime(v) }
   }
 
 }

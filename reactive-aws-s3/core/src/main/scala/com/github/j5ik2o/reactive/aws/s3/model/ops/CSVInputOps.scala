@@ -7,51 +7,37 @@ final class CSVInputBuilderOps(val self: CSVInput.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fileHeaderInfoAsScala(value: Option[FileHeaderInfo]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.fileHeaderInfo(v)
-    }
+    value.fold(self) { v => self.fileHeaderInfo(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def commentsAsScala(value: Option[String]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.comments(v)
-    }
+    value.fold(self) { v => self.comments(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def quoteEscapeCharacterAsScala(value: Option[String]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.quoteEscapeCharacter(v)
-    }
+    value.fold(self) { v => self.quoteEscapeCharacter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recordDelimiterAsScala(value: Option[String]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.recordDelimiter(v)
-    }
+    value.fold(self) { v => self.recordDelimiter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldDelimiterAsScala(value: Option[String]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.fieldDelimiter(v)
-    }
+    value.fold(self) { v => self.fieldDelimiter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def quoteCharacterAsScala(value: Option[String]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.quoteCharacter(v)
-    }
+    value.fold(self) { v => self.quoteCharacter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowQuotedRecordDelimiterAsScala(value: Option[Boolean]): CSVInput.Builder = {
-    value.fold(self) { v =>
-      self.allowQuotedRecordDelimiter(v)
-    }
+    value.fold(self) { v => self.allowQuotedRecordDelimiter(v) }
   }
 
 }

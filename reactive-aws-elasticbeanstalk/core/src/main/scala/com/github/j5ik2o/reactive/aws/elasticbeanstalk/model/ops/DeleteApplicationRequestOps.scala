@@ -7,16 +7,12 @@ final class DeleteApplicationRequestBuilderOps(val self: DeleteApplicationReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): DeleteApplicationRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def terminateEnvByForceAsScala(value: Option[Boolean]): DeleteApplicationRequest.Builder = {
-    value.fold(self) { v =>
-      self.terminateEnvByForce(v)
-    }
+    value.fold(self) { v => self.terminateEnvByForce(v) }
   }
 
 }

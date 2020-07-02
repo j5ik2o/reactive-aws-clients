@@ -7,16 +7,12 @@ final class GetMetricStatisticsRequestBuilderOps(val self: GetMetricStatisticsRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): GetMetricStatisticsRequest.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): GetMetricStatisticsRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,23 +24,17 @@ final class GetMetricStatisticsRequestBuilderOps(val self: GetMetricStatisticsRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala(value: Option[java.time.Instant]): GetMetricStatisticsRequest.Builder = {
-    value.fold(self) { v =>
-      self.startTime(v)
-    }
+    value.fold(self) { v => self.startTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimeAsScala(value: Option[java.time.Instant]): GetMetricStatisticsRequest.Builder = {
-    value.fold(self) { v =>
-      self.endTime(v)
-    }
+    value.fold(self) { v => self.endTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala(value: Option[Int]): GetMetricStatisticsRequest.Builder = {
-    value.fold(self) { v =>
-      self.period(v)
-    }
+    value.fold(self) { v => self.period(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -63,9 +53,7 @@ final class GetMetricStatisticsRequestBuilderOps(val self: GetMetricStatisticsRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala(value: Option[StandardUnit]): GetMetricStatisticsRequest.Builder = {
-    value.fold(self) { v =>
-      self.unit(v)
-    }
+    value.fold(self) { v => self.unit(v) }
   }
 
 }
@@ -79,9 +67,8 @@ final class GetMetricStatisticsRequestOps(val self: GetMetricStatisticsRequest) 
   final def metricNameAsScala: Option[String] = Option(self.metricName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dimensionsAsScala: Option[Seq[Dimension]] = Option(self.dimensions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dimensionsAsScala: Option[Seq[Dimension]] =
+    Option(self.dimensions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime)
@@ -93,14 +80,14 @@ final class GetMetricStatisticsRequestOps(val self: GetMetricStatisticsRequest) 
   final def periodAsScala: Option[Int] = Option(self.period)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def statisticsAsScala: Option[Seq[Statistic]] = Option(self.statistics).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def statisticsAsScala: Option[Seq[Statistic]] =
+    Option(self.statistics).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def extendedStatisticsAsScala: Option[Seq[String]] = Option(self.extendedStatistics).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def extendedStatisticsAsScala: Option[Seq[String]] =
+    Option(self.extendedStatistics).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala: Option[StandardUnit] = Option(self.unit)

@@ -7,30 +7,22 @@ final class TerminateEnvironmentRequestBuilderOps(val self: TerminateEnvironment
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): TerminateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): TerminateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def terminateResourcesAsScala(value: Option[Boolean]): TerminateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.terminateResources(v)
-    }
+    value.fold(self) { v => self.terminateResources(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceTerminateAsScala(value: Option[Boolean]): TerminateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.forceTerminate(v)
-    }
+    value.fold(self) { v => self.forceTerminate(v) }
   }
 
 }

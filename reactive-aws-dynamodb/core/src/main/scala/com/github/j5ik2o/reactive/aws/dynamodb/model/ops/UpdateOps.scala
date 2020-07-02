@@ -14,23 +14,17 @@ final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateExpressionAsScala(value: Option[String]): Update.Builder = {
-    value.fold(self) { v =>
-      self.updateExpression(v)
-    }
+    value.fold(self) { v => self.updateExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): Update.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionExpressionAsScala(value: Option[String]): Update.Builder = {
-    value.fold(self) { v =>
-      self.conditionExpression(v)
-    }
+    value.fold(self) { v => self.conditionExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -51,9 +45,7 @@ final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
   final def returnValuesOnConditionCheckFailureAsScala(
       value: Option[ReturnValuesOnConditionCheckFailure]
   ): Update.Builder = {
-    value.fold(self) { v =>
-      self.returnValuesOnConditionCheckFailure(v)
-    }
+    value.fold(self) { v => self.returnValuesOnConditionCheckFailure(v) }
   }
 
 }
@@ -61,9 +53,8 @@ final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
 final class UpdateOps(val self: Update) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def keyAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.key).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateExpressionAsScala: Option[String] = Option(self.updateExpression)
@@ -75,10 +66,10 @@ final class UpdateOps(val self: Update) extends AnyVal {
   final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
-    v =>
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] =
+    Option(self.expressionAttributeNames).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =

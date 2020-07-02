@@ -7,23 +7,17 @@ final class ArchivalSummaryBuilderOps(val self: ArchivalSummary.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def archivalDateTimeAsScala(value: Option[java.time.Instant]): ArchivalSummary.Builder = {
-    value.fold(self) { v =>
-      self.archivalDateTime(v)
-    }
+    value.fold(self) { v => self.archivalDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def archivalReasonAsScala(value: Option[String]): ArchivalSummary.Builder = {
-    value.fold(self) { v =>
-      self.archivalReason(v)
-    }
+    value.fold(self) { v => self.archivalReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def archivalBackupArnAsScala(value: Option[String]): ArchivalSummary.Builder = {
-    value.fold(self) { v =>
-      self.archivalBackupArn(v)
-    }
+    value.fold(self) { v => self.archivalBackupArn(v) }
   }
 
 }

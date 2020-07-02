@@ -7,23 +7,17 @@ final class PutInsightRuleRequestBuilderOps(val self: PutInsightRuleRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleNameAsScala(value: Option[String]): PutInsightRuleRequest.Builder = {
-    value.fold(self) { v =>
-      self.ruleName(v)
-    }
+    value.fold(self) { v => self.ruleName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleStateAsScala(value: Option[String]): PutInsightRuleRequest.Builder = {
-    value.fold(self) { v =>
-      self.ruleState(v)
-    }
+    value.fold(self) { v => self.ruleState(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleDefinitionAsScala(value: Option[String]): PutInsightRuleRequest.Builder = {
-    value.fold(self) { v =>
-      self.ruleDefinition(v)
-    }
+    value.fold(self) { v => self.ruleDefinition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,9 +41,8 @@ final class PutInsightRuleRequestOps(val self: PutInsightRuleRequest) extends An
   final def ruleDefinitionAsScala: Option[String] = Option(self.ruleDefinition)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

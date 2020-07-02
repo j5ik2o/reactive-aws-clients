@@ -8,30 +8,22 @@ final class StartLifecyclePolicyPreviewResponseBuilderOps(val self: StartLifecyc
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): StartLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): StartLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecyclePolicyTextAsScala(value: Option[String]): StartLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.lifecyclePolicyText(v)
-    }
+    value.fold(self) { v => self.lifecyclePolicyText(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[LifecyclePolicyPreviewStatus]): StartLifecyclePolicyPreviewResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

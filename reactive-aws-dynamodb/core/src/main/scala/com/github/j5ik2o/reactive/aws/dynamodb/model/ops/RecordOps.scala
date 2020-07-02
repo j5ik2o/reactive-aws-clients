@@ -7,51 +7,37 @@ final class RecordBuilderOps(val self: Record.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventIDAsScala(value: Option[String]): Record.Builder = {
-    value.fold(self) { v =>
-      self.eventID(v)
-    }
+    value.fold(self) { v => self.eventID(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventNameAsScala(value: Option[OperationType]): Record.Builder = {
-    value.fold(self) { v =>
-      self.eventName(v)
-    }
+    value.fold(self) { v => self.eventName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventVersionAsScala(value: Option[String]): Record.Builder = {
-    value.fold(self) { v =>
-      self.eventVersion(v)
-    }
+    value.fold(self) { v => self.eventVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceAsScala(value: Option[String]): Record.Builder = {
-    value.fold(self) { v =>
-      self.eventSource(v)
-    }
+    value.fold(self) { v => self.eventSource(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): Record.Builder = {
-    value.fold(self) { v =>
-      self.awsRegion(v)
-    }
+    value.fold(self) { v => self.awsRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dynamodbAsScala(value: Option[StreamRecord]): Record.Builder = {
-    value.fold(self) { v =>
-      self.dynamodb(v)
-    }
+    value.fold(self) { v => self.dynamodb(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userIdentityAsScala(value: Option[Identity]): Record.Builder = {
-    value.fold(self) { v =>
-      self.userIdentity(v)
-    }
+    value.fold(self) { v => self.userIdentity(v) }
   }
 
 }

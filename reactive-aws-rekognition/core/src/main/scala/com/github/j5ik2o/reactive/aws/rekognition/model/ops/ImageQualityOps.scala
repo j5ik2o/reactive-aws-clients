@@ -7,16 +7,12 @@ final class ImageQualityBuilderOps(val self: ImageQuality.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def brightnessAsScala(value: Option[Float]): ImageQuality.Builder = {
-    value.fold(self) { v =>
-      self.brightness(v)
-    }
+    value.fold(self) { v => self.brightness(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sharpnessAsScala(value: Option[Float]): ImageQuality.Builder = {
-    value.fold(self) { v =>
-      self.sharpness(v)
-    }
+    value.fold(self) { v => self.sharpness(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class UpdateJobQueueRequestBuilderOps(val self: UpdateJobQueueRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala(value: Option[String]): UpdateJobQueueRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobQueue(v)
-    }
+    value.fold(self) { v => self.jobQueue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[JQState]): UpdateJobQueueRequest.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def priorityAsScala(value: Option[Int]): UpdateJobQueueRequest.Builder = {
-    value.fold(self) { v =>
-      self.priority(v)
-    }
+    value.fold(self) { v => self.priority(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))

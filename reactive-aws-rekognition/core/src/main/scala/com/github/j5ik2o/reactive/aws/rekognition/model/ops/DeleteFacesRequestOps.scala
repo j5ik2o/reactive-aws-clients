@@ -7,9 +7,7 @@ final class DeleteFacesRequestBuilderOps(val self: DeleteFacesRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): DeleteFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.collectionId(v)
-    }
+    value.fold(self) { v => self.collectionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DeleteFacesRequestOps(val self: DeleteFacesRequest) extends AnyVal {
   final def collectionIdAsScala: Option[String] = Option(self.collectionId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def faceIdsAsScala: Option[Seq[String]] = Option(self.faceIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def faceIdsAsScala: Option[Seq[String]] =
+    Option(self.faceIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

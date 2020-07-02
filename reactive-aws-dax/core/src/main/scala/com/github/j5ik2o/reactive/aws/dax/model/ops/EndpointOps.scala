@@ -7,16 +7,12 @@ final class EndpointBuilderOps(val self: Endpoint.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def addressAsScala(value: Option[String]): Endpoint.Builder = {
-    value.fold(self) { v =>
-      self.address(v)
-    }
+    value.fold(self) { v => self.address(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def portAsScala(value: Option[Int]): Endpoint.Builder = {
-    value.fold(self) { v =>
-      self.port(v)
-    }
+    value.fold(self) { v => self.port(v) }
   }
 
 }

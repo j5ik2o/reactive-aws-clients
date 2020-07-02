@@ -8,16 +8,12 @@ final class DescribeStackSetOperationRequestBuilderOps(val self: DescribeStackSe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): DescribeStackSetOperationRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): DescribeStackSetOperationRequest.Builder = {
-    value.fold(self) { v =>
-      self.operationId(v)
-    }
+    value.fold(self) { v => self.operationId(v) }
   }
 
 }

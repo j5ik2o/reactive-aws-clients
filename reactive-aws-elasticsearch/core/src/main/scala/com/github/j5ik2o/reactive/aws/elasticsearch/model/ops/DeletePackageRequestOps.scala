@@ -7,9 +7,7 @@ final class DeletePackageRequestBuilderOps(val self: DeletePackageRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageIDAsScala(value: Option[String]): DeletePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageID(v)
-    }
+    value.fold(self) { v => self.packageID(v) }
   }
 
 }

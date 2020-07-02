@@ -7,53 +7,39 @@ final class StackResourceSummaryBuilderOps(val self: StackResourceSummary.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.logicalResourceId(v)
-    }
+    value.fold(self) { v => self.logicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def physicalResourceIdAsScala(value: Option[String]): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.physicalResourceId(v)
-    }
+    value.fold(self) { v => self.physicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(value: Option[String]): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.resourceType(v)
-    }
+    value.fold(self) { v => self.resourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdatedTimestampAsScala(value: Option[java.time.Instant]): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdatedTimestamp(v)
-    }
+    value.fold(self) { v => self.lastUpdatedTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceStatusAsScala(value: Option[ResourceStatus]): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.resourceStatus(v)
-    }
+    value.fold(self) { v => self.resourceStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceStatusReasonAsScala(value: Option[String]): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.resourceStatusReason(v)
-    }
+    value.fold(self) { v => self.resourceStatusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftInformationAsScala(
       value: Option[StackResourceDriftInformationSummary]
   ): StackResourceSummary.Builder = {
-    value.fold(self) { v =>
-      self.driftInformation(v)
-    }
+    value.fold(self) { v => self.driftInformation(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class InitiateLayerUploadResponseBuilderOps(val self: InitiateLayerUploadR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): InitiateLayerUploadResponse.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partSizeAsScala(value: Option[Long]): InitiateLayerUploadResponse.Builder = {
-    value.fold(self) { v =>
-      self.partSize(v)
-    }
+    value.fold(self) { v => self.partSize(v) }
   }
 
 }

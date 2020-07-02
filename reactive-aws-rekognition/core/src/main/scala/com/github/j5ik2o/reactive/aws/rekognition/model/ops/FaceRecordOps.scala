@@ -7,16 +7,12 @@ final class FaceRecordBuilderOps(val self: FaceRecord.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[Face]): FaceRecord.Builder = {
-    value.fold(self) { v =>
-      self.face(v)
-    }
+    value.fold(self) { v => self.face(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceDetailAsScala(value: Option[FaceDetail]): FaceRecord.Builder = {
-    value.fold(self) { v =>
-      self.faceDetail(v)
-    }
+    value.fold(self) { v => self.faceDetail(v) }
   }
 
 }

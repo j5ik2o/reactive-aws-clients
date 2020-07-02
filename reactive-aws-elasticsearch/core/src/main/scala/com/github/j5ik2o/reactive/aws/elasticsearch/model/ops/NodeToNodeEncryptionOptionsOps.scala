@@ -7,9 +7,7 @@ final class NodeToNodeEncryptionOptionsBuilderOps(val self: NodeToNodeEncryption
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): NodeToNodeEncryptionOptions.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
 }

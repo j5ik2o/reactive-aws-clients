@@ -9,27 +9,21 @@ final class GlobalTableGlobalSecondaryIndexSettingsUpdateBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityUnits(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): GlobalTableGlobalSecondaryIndexSettingsUpdate.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityAutoScalingSettingsUpdate(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityAutoScalingSettingsUpdate(v) }
   }
 
 }

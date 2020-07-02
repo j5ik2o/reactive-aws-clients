@@ -7,23 +7,17 @@ final class CreateApiKeyRequestBuilderOps(val self: CreateApiKeyRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): CreateApiKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateApiKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiresAsScala(value: Option[Long]): CreateApiKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.expires(v)
-    }
+    value.fold(self) { v => self.expires(v) }
   }
 
 }

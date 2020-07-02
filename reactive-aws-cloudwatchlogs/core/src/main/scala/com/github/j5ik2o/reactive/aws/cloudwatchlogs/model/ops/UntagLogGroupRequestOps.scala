@@ -7,9 +7,7 @@ final class UntagLogGroupRequestBuilderOps(val self: UntagLogGroupRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): UntagLogGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class UntagLogGroupRequestOps(val self: UntagLogGroupRequest) extends AnyV
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

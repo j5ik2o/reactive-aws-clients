@@ -15,8 +15,7 @@ object KmsSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kms/KmsClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kms/KmsClient.html */
 trait KmsSyncClient extends KmsClient[Either[Throwable, ?]] {
   val underlying: JavaKmsSyncClient
 

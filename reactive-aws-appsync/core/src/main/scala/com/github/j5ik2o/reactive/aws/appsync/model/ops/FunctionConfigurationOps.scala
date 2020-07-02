@@ -7,58 +7,42 @@ final class FunctionConfigurationBuilderOps(val self: FunctionConfiguration.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionIdAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.functionId(v)
-    }
+    value.fold(self) { v => self.functionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionArnAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.functionArn(v)
-    }
+    value.fold(self) { v => self.functionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataSourceNameAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.dataSourceName(v)
-    }
+    value.fold(self) { v => self.dataSourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestMappingTemplateAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.requestMappingTemplate(v)
-    }
+    value.fold(self) { v => self.requestMappingTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def responseMappingTemplateAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.responseMappingTemplate(v)
-    }
+    value.fold(self) { v => self.responseMappingTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionVersionAsScala(value: Option[String]): FunctionConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.functionVersion(v)
-    }
+    value.fold(self) { v => self.functionVersion(v) }
   }
 
 }

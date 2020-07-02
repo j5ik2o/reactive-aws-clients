@@ -7,9 +7,7 @@ final class GetObjectRetentionResponseBuilderOps(val self: GetObjectRetentionRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionAsScala(value: Option[ObjectLockRetention]): GetObjectRetentionResponse.Builder = {
-    value.fold(self) { v =>
-      self.retention(v)
-    }
+    value.fold(self) { v => self.retention(v) }
   }
 
 }

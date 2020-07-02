@@ -7,23 +7,17 @@ final class ListGlobalTablesRequestBuilderOps(val self: ListGlobalTablesRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartGlobalTableNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
-    value.fold(self) { v =>
-      self.exclusiveStartGlobalTableName(v)
-    }
+    value.fold(self) { v => self.exclusiveStartGlobalTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListGlobalTablesRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): ListGlobalTablesRequest.Builder = {
-    value.fold(self) { v =>
-      self.regionName(v)
-    }
+    value.fold(self) { v => self.regionName(v) }
   }
 
 }

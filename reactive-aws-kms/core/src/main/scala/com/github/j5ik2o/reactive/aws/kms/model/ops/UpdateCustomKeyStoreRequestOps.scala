@@ -7,30 +7,22 @@ final class UpdateCustomKeyStoreRequestBuilderOps(val self: UpdateCustomKeyStore
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): UpdateCustomKeyStoreRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def newCustomKeyStoreNameAsScala(value: Option[String]): UpdateCustomKeyStoreRequest.Builder = {
-    value.fold(self) { v =>
-      self.newCustomKeyStoreName(v)
-    }
+    value.fold(self) { v => self.newCustomKeyStoreName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyStorePasswordAsScala(value: Option[String]): UpdateCustomKeyStoreRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyStorePassword(v)
-    }
+    value.fold(self) { v => self.keyStorePassword(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudHsmClusterIdAsScala(value: Option[String]): UpdateCustomKeyStoreRequest.Builder = {
-    value.fold(self) { v =>
-      self.cloudHsmClusterId(v)
-    }
+    value.fold(self) { v => self.cloudHsmClusterId(v) }
   }
 
 }

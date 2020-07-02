@@ -5,36 +5,36 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DetachInternetGatewayRequestBuilderOps(val self: DetachInternetGatewayRequest.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def internetGatewayIdAsScala(value: Option[String]): DetachInternetGatewayRequest.Builder = {
-            value.fold(self){ v => self.internetGatewayId(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def internetGatewayIdAsScala(value: Option[String]): DetachInternetGatewayRequest.Builder = {
+    value.fold(self) { v => self.internetGatewayId(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def vpcIdAsScala(value: Option[String]): DetachInternetGatewayRequest.Builder = {
-            value.fold(self){ v => self.vpcId(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpcIdAsScala(value: Option[String]): DetachInternetGatewayRequest.Builder = {
+    value.fold(self) { v => self.vpcId(v) }
+  }
 
 }
 
 final class DetachInternetGatewayRequestOps(val self: DetachInternetGatewayRequest) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def internetGatewayIdAsScala: Option[String] = Option(self.internetGatewayId) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def internetGatewayIdAsScala: Option[String] = Option(self.internetGatewayId)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def vpcIdAsScala: Option[String] = Option(self.vpcId) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToDetachInternetGatewayRequestOps {
 
-implicit def toDetachInternetGatewayRequestBuilderOps(v: DetachInternetGatewayRequest.Builder): DetachInternetGatewayRequestBuilderOps = new DetachInternetGatewayRequestBuilderOps(v)
+  implicit def toDetachInternetGatewayRequestBuilderOps(
+      v: DetachInternetGatewayRequest.Builder
+  ): DetachInternetGatewayRequestBuilderOps = new DetachInternetGatewayRequestBuilderOps(v)
 
-implicit def toDetachInternetGatewayRequestOps(v: DetachInternetGatewayRequest): DetachInternetGatewayRequestOps = new DetachInternetGatewayRequestOps(v)
+  implicit def toDetachInternetGatewayRequestOps(v: DetachInternetGatewayRequest): DetachInternetGatewayRequestOps =
+    new DetachInternetGatewayRequestOps(v)
 
 }
-

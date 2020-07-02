@@ -7,18 +7,14 @@ final class StartSchemaCreationRequestBuilderOps(val self: StartSchemaCreationRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): StartSchemaCreationRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def definitionAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): StartSchemaCreationRequest.Builder = {
-    value.fold(self) { v =>
-      self.definition(v)
-    }
+    value.fold(self) { v => self.definition(v) }
   }
 
 }

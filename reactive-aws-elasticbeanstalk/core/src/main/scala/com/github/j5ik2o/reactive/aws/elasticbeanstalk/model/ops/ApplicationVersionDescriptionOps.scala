@@ -7,74 +7,54 @@ final class ApplicationVersionDescriptionBuilderOps(val self: ApplicationVersion
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationVersionArnAsScala(value: Option[String]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.applicationVersionArn(v)
-    }
+    value.fold(self) { v => self.applicationVersionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceBuildInformationAsScala(
       value: Option[SourceBuildInformation]
   ): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.sourceBuildInformation(v)
-    }
+    value.fold(self) { v => self.sourceBuildInformation(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def buildArnAsScala(value: Option[String]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.buildArn(v)
-    }
+    value.fold(self) { v => self.buildArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceBundleAsScala(value: Option[S3Location]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.sourceBundle(v)
-    }
+    value.fold(self) { v => self.sourceBundle(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateCreatedAsScala(value: Option[java.time.Instant]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.dateCreated(v)
-    }
+    value.fold(self) { v => self.dateCreated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.dateUpdated(v)
-    }
+    value.fold(self) { v => self.dateUpdated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ApplicationVersionStatus]): ApplicationVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

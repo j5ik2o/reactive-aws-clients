@@ -8,9 +8,7 @@ final class PutObjectLockConfigurationResponseBuilderOps(val self: PutObjectLock
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): PutObjectLockConfigurationResponse.Builder = {
-    value.fold(self) { v =>
-      self.requestCharged(v)
-    }
+    value.fold(self) { v => self.requestCharged(v) }
   }
 
 }

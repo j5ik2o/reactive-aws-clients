@@ -9,41 +9,31 @@ final class GenerateDataKeyPairResponseBuilderOps(val self: GenerateDataKeyPairR
   final def privateKeyCiphertextBlobAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GenerateDataKeyPairResponse.Builder = {
-    value.fold(self) { v =>
-      self.privateKeyCiphertextBlob(v)
-    }
+    value.fold(self) { v => self.privateKeyCiphertextBlob(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateKeyPlaintextAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GenerateDataKeyPairResponse.Builder = {
-    value.fold(self) { v =>
-      self.privateKeyPlaintext(v)
-    }
+    value.fold(self) { v => self.privateKeyPlaintext(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicKeyAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GenerateDataKeyPairResponse.Builder = {
-    value.fold(self) { v =>
-      self.publicKey(v)
-    }
+    value.fold(self) { v => self.publicKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GenerateDataKeyPairResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPairSpecAsScala(value: Option[DataKeyPairSpec]): GenerateDataKeyPairResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyPairSpec(v)
-    }
+    value.fold(self) { v => self.keyPairSpec(v) }
   }
 
 }

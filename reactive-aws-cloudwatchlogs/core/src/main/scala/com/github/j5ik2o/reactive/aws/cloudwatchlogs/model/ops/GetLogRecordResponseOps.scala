@@ -17,9 +17,10 @@ final class GetLogRecordResponseBuilderOps(val self: GetLogRecordResponse.Builde
 final class GetLogRecordResponseOps(val self: GetLogRecordResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def logRecordAsScala: Option[Map[String, String]] = Option(self.logRecord).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def logRecordAsScala: Option[Map[String, String]] =
+    Option(self.logRecord).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

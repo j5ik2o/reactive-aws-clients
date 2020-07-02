@@ -7,16 +7,12 @@ final class GetKeyPolicyRequestBuilderOps(val self: GetKeyPolicyRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetKeyPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): GetKeyPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policyName(v)
-    }
+    value.fold(self) { v => self.policyName(v) }
   }
 
 }

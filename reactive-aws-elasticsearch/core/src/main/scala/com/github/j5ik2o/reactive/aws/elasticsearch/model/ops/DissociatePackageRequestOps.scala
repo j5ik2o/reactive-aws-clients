@@ -7,16 +7,12 @@ final class DissociatePackageRequestBuilderOps(val self: DissociatePackageReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageIDAsScala(value: Option[String]): DissociatePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageID(v)
-    }
+    value.fold(self) { v => self.packageID(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DissociatePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
 }

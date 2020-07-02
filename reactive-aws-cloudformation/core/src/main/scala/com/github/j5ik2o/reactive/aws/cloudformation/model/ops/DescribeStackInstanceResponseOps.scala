@@ -7,9 +7,7 @@ final class DescribeStackInstanceResponseBuilderOps(val self: DescribeStackInsta
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackInstanceAsScala(value: Option[StackInstance]): DescribeStackInstanceResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackInstance(v)
-    }
+    value.fold(self) { v => self.stackInstance(v) }
   }
 
 }

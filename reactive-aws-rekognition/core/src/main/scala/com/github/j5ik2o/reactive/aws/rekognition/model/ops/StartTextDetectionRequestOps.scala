@@ -7,37 +7,27 @@ final class StartTextDetectionRequestBuilderOps(val self: StartTextDetectionRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoAsScala(value: Option[Video]): StartTextDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.video(v)
-    }
+    value.fold(self) { v => self.video(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): StartTextDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationChannelAsScala(value: Option[NotificationChannel]): StartTextDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationChannel(v)
-    }
+    value.fold(self) { v => self.notificationChannel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobTagAsScala(value: Option[String]): StartTextDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobTag(v)
-    }
+    value.fold(self) { v => self.jobTag(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[StartTextDetectionFilters]): StartTextDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.filters(v)
-    }
+    value.fold(self) { v => self.filters(v) }
   }
 
 }

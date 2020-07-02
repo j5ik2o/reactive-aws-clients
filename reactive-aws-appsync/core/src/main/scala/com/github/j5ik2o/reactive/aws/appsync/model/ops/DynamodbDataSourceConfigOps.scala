@@ -7,37 +7,27 @@ final class DynamodbDataSourceConfigBuilderOps(val self: DynamodbDataSourceConfi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DynamodbDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): DynamodbDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsRegion(v)
-    }
+    value.fold(self) { v => self.awsRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def useCallerCredentialsAsScala(value: Option[Boolean]): DynamodbDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.useCallerCredentials(v)
-    }
+    value.fold(self) { v => self.useCallerCredentials(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deltaSyncConfigAsScala(value: Option[DeltaSyncConfig]): DynamodbDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.deltaSyncConfig(v)
-    }
+    value.fold(self) { v => self.deltaSyncConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionedAsScala(value: Option[Boolean]): DynamodbDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.versioned(v)
-    }
+    value.fold(self) { v => self.versioned(v) }
   }
 
 }

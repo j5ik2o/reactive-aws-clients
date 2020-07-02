@@ -7,9 +7,7 @@ final class CreateTypeResponseBuilderOps(val self: CreateTypeResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[Type]): CreateTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
 }

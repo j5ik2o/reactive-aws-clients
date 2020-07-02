@@ -9,9 +9,7 @@ final class GetIntrospectionSchemaResponseBuilderOps(val self: GetIntrospectionS
   final def schemaAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetIntrospectionSchemaResponse.Builder = {
-    value.fold(self) { v =>
-      self.schema(v)
-    }
+    value.fold(self) { v => self.schema(v) }
   }
 
 }

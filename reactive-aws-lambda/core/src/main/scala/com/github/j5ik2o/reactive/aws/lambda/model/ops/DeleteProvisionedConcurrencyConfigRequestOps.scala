@@ -9,16 +9,12 @@ final class DeleteProvisionedConcurrencyConfigRequestBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): DeleteProvisionedConcurrencyConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): DeleteProvisionedConcurrencyConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualifier(v)
-    }
+    value.fold(self) { v => self.qualifier(v) }
   }
 
 }

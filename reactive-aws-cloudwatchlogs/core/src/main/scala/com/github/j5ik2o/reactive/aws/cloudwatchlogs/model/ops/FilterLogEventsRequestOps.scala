@@ -7,9 +7,7 @@ final class FilterLogEventsRequestBuilderOps(val self: FilterLogEventsRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,51 +19,37 @@ final class FilterLogEventsRequestBuilderOps(val self: FilterLogEventsRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNamePrefixAsScala(value: Option[String]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logStreamNamePrefix(v)
-    }
+    value.fold(self) { v => self.logStreamNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala(value: Option[Long]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.startTime(v)
-    }
+    value.fold(self) { v => self.startTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimeAsScala(value: Option[Long]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.endTime(v)
-    }
+    value.fold(self) { v => self.endTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterPatternAsScala(value: Option[String]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterPattern(v)
-    }
+    value.fold(self) { v => self.filterPattern(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def interleavedAsScala(value: Option[Boolean]): FilterLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.interleaved(v)
-    }
+    value.fold(self) { v => self.interleaved(v) }
   }
 
 }
@@ -76,9 +60,10 @@ final class FilterLogEventsRequestOps(val self: FilterLogEventsRequest) extends 
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def logStreamNamesAsScala: Option[Seq[String]] = Option(self.logStreamNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def logStreamNamesAsScala: Option[Seq[String]] =
+    Option(self.logStreamNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNamePrefixAsScala: Option[String] = Option(self.logStreamNamePrefix)

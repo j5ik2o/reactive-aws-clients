@@ -7,9 +7,7 @@ final class DescribeGlobalTableRequestBuilderOps(val self: DescribeGlobalTableRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): DescribeGlobalTableRequest.Builder = {
-    value.fold(self) { v =>
-      self.globalTableName(v)
-    }
+    value.fold(self) { v => self.globalTableName(v) }
   }
 
 }

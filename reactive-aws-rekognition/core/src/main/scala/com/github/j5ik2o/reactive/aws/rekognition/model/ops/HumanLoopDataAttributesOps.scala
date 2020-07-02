@@ -17,9 +17,10 @@ final class HumanLoopDataAttributesBuilderOps(val self: HumanLoopDataAttributes.
 final class HumanLoopDataAttributesOps(val self: HumanLoopDataAttributes) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def contentClassifiersAsScala: Option[Seq[ContentClassifier]] = Option(self.contentClassifiers).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def contentClassifiersAsScala: Option[Seq[ContentClassifier]] =
+    Option(self.contentClassifiers).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

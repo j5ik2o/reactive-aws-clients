@@ -7,23 +7,17 @@ final class ShardBuilderOps(val self: Shard.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIdAsScala(value: Option[String]): Shard.Builder = {
-    value.fold(self) { v =>
-      self.shardId(v)
-    }
+    value.fold(self) { v => self.shardId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberRangeAsScala(value: Option[SequenceNumberRange]): Shard.Builder = {
-    value.fold(self) { v =>
-      self.sequenceNumberRange(v)
-    }
+    value.fold(self) { v => self.sequenceNumberRange(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parentShardIdAsScala(value: Option[String]): Shard.Builder = {
-    value.fold(self) { v =>
-      self.parentShardId(v)
-    }
+    value.fold(self) { v => self.parentShardId(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class ParameterGroupBuilderOps(val self: ParameterGroup.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): ParameterGroup.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ParameterGroup.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
 }

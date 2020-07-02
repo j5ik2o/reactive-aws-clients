@@ -7,16 +7,12 @@ final class ListenerBuilderOps(val self: Listener.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def protocolAsScala(value: Option[String]): Listener.Builder = {
-    value.fold(self) { v =>
-      self.protocol(v)
-    }
+    value.fold(self) { v => self.protocol(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def portAsScala(value: Option[Int]): Listener.Builder = {
-    value.fold(self) { v =>
-      self.port(v)
-    }
+    value.fold(self) { v => self.port(v) }
   }
 
 }

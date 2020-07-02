@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object KinesisMonixClient {
 
-  def apply(asyncClient: KinesisAsyncClient): KinesisMonixClient = new KinesisMonixClient {
-    override val underlying: KinesisAsyncClient = asyncClient
-  }
+  def apply(asyncClient: KinesisAsyncClient): KinesisMonixClient =
+    new KinesisMonixClient {
+      override val underlying: KinesisAsyncClient = asyncClient
+    }
 
 }
 

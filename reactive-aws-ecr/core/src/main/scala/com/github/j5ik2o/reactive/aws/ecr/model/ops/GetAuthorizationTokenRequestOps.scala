@@ -17,9 +17,8 @@ final class GetAuthorizationTokenRequestBuilderOps(val self: GetAuthorizationTok
 final class GetAuthorizationTokenRequestOps(val self: GetAuthorizationTokenRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def registryIdsAsScala: Option[Seq[String]] = Option(self.registryIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def registryIdsAsScala: Option[Seq[String]] =
+    Option(self.registryIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

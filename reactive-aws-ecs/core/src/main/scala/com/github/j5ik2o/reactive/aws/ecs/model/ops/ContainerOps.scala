@@ -7,65 +7,47 @@ final class ContainerBuilderOps(val self: Container.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerArnAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.containerArn(v)
-    }
+    value.fold(self) { v => self.containerArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskArnAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.taskArn(v)
-    }
+    value.fold(self) { v => self.taskArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageDigestAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.imageDigest(v)
-    }
+    value.fold(self) { v => self.imageDigest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def runtimeIdAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.runtimeId(v)
-    }
+    value.fold(self) { v => self.runtimeId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastStatusAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.lastStatus(v)
-    }
+    value.fold(self) { v => self.lastStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): Container.Builder = {
-    value.fold(self) { v =>
-      self.exitCode(v)
-    }
+    value.fold(self) { v => self.exitCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -84,30 +66,22 @@ final class ContainerBuilderOps(val self: Container.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def healthStatusAsScala(value: Option[HealthStatus]): Container.Builder = {
-    value.fold(self) { v =>
-      self.healthStatus(v)
-    }
+    value.fold(self) { v => self.healthStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.cpu(v)
-    }
+    value.fold(self) { v => self.cpu(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def memoryAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.memory(v)
-    }
+    value.fold(self) { v => self.memory(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def memoryReservationAsScala(value: Option[String]): Container.Builder = {
-    value.fold(self) { v =>
-      self.memoryReservation(v)
-    }
+    value.fold(self) { v => self.memoryReservation(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -149,14 +123,16 @@ final class ContainerOps(val self: Container) extends AnyVal {
   final def reasonAsScala: Option[String] = Option(self.reason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def networkBindingsAsScala: Option[Seq[NetworkBinding]] = Option(self.networkBindings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def networkBindingsAsScala: Option[Seq[NetworkBinding]] =
+    Option(self.networkBindings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def networkInterfacesAsScala: Option[Seq[NetworkInterface]] = Option(self.networkInterfaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def networkInterfacesAsScala: Option[Seq[NetworkInterface]] =
+    Option(self.networkInterfaces).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def healthStatusAsScala: Option[HealthStatus] = Option(self.healthStatus)
@@ -171,9 +147,8 @@ final class ContainerOps(val self: Container) extends AnyVal {
   final def memoryReservationAsScala: Option[String] = Option(self.memoryReservation)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def gpuIdsAsScala: Option[Seq[String]] = Option(self.gpuIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def gpuIdsAsScala: Option[Seq[String]] =
+    Option(self.gpuIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

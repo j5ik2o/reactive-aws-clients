@@ -7,16 +7,12 @@ final class SubnetBuilderOps(val self: Subnet.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdentifierAsScala(value: Option[String]): Subnet.Builder = {
-    value.fold(self) { v =>
-      self.subnetIdentifier(v)
-    }
+    value.fold(self) { v => self.subnetIdentifier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetAvailabilityZoneAsScala(value: Option[String]): Subnet.Builder = {
-    value.fold(self) { v =>
-      self.subnetAvailabilityZone(v)
-    }
+    value.fold(self) { v => self.subnetAvailabilityZone(v) }
   }
 
 }

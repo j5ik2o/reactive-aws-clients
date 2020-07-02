@@ -7,23 +7,17 @@ final class CognitoUserPoolConfigBuilderOps(val self: CognitoUserPoolConfig.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userPoolIdAsScala(value: Option[String]): CognitoUserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.userPoolId(v)
-    }
+    value.fold(self) { v => self.userPoolId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): CognitoUserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsRegion(v)
-    }
+    value.fold(self) { v => self.awsRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def appIdClientRegexAsScala(value: Option[String]): CognitoUserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.appIdClientRegex(v)
-    }
+    value.fold(self) { v => self.appIdClientRegex(v) }
   }
 
 }

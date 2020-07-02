@@ -7,23 +7,17 @@ final class LayerVersionContentOutputBuilderOps(val self: LayerVersionContentOut
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def locationAsScala(value: Option[String]): LayerVersionContentOutput.Builder = {
-    value.fold(self) { v =>
-      self.location(v)
-    }
+    value.fold(self) { v => self.location(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeSha256AsScala(value: Option[String]): LayerVersionContentOutput.Builder = {
-    value.fold(self) { v =>
-      self.codeSha256(v)
-    }
+    value.fold(self) { v => self.codeSha256(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeSizeAsScala(value: Option[Long]): LayerVersionContentOutput.Builder = {
-    value.fold(self) { v =>
-      self.codeSize(v)
-    }
+    value.fold(self) { v => self.codeSize(v) }
   }
 
 }

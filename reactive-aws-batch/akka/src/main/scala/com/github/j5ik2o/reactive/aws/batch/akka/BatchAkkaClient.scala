@@ -9,9 +9,10 @@ import software.amazon.awssdk.services.batch.paginators._
 
 object BatchAkkaClient {
 
-  def apply(asyncClient: BatchAsyncClient): BatchAkkaClient = new BatchAkkaClient {
-    override val underlying: BatchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: BatchAsyncClient): BatchAkkaClient =
+    new BatchAkkaClient {
+      override val underlying: BatchAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 
@@ -197,10 +198,10 @@ trait BatchAkkaClient {
       underlying.listJobs(listJobsRequest)
     }
 
-  def listJobsPaginatorFlow: Flow[ListJobsRequest, ListJobsResponse, NotUsed] = Flow[ListJobsRequest].flatMapConcat {
-    request =>
+  def listJobsPaginatorFlow: Flow[ListJobsRequest, ListJobsResponse, NotUsed] =
+    Flow[ListJobsRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listJobsPaginator(request))
-  }
+    }
 
   def registerJobDefinitionSource(
       registerJobDefinitionRequest: RegisterJobDefinitionRequest,

@@ -9,30 +9,22 @@ final class DescribeEnvironmentManagedActionHistoryRequestBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): DescribeEnvironmentManagedActionHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxItems(v)
-    }
+    value.fold(self) { v => self.maxItems(v) }
   }
 
 }

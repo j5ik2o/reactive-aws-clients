@@ -17,9 +17,8 @@ final class ListTagsForResourceResponseBuilderOps(val self: ListTagsForResourceR
 final class ListTagsForResourceResponseOps(val self: ListTagsForResourceResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

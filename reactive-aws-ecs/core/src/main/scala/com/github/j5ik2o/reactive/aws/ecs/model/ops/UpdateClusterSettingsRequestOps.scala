@@ -7,9 +7,7 @@ final class UpdateClusterSettingsRequestBuilderOps(val self: UpdateClusterSettin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): UpdateClusterSettingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class UpdateClusterSettingsRequestOps(val self: UpdateClusterSettingsReque
   final def clusterAsScala: Option[String] = Option(self.cluster)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def settingsAsScala: Option[Seq[ClusterSetting]] = Option(self.settings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def settingsAsScala: Option[Seq[ClusterSetting]] =
+    Option(self.settings).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

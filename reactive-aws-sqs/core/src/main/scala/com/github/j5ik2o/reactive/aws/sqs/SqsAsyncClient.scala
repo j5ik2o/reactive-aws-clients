@@ -9,15 +9,15 @@ import scala.concurrent.Future
 
 object SqsAsyncClient {
 
-  def apply(javaClient: JavaSqsAsyncClient): SqsAsyncClient = new SqsAsyncClient {
-    override val underlying: JavaSqsAsyncClient = javaClient
-  }
+  def apply(javaClient: JavaSqsAsyncClient): SqsAsyncClient =
+    new SqsAsyncClient {
+      override val underlying: JavaSqsAsyncClient = javaClient
+    }
 
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/sqs/SqsAsyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/sqs/SqsAsyncClient.html */
 trait SqsAsyncClient extends SqsClient[Future] {
   val underlying: JavaSqsAsyncClient
 

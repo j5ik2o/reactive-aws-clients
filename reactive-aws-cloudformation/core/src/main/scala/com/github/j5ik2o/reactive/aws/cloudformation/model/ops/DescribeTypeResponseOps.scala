@@ -7,107 +7,77 @@ final class DescribeTypeResponseBuilderOps(val self: DescribeTypeResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[RegistryType]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultVersionIdAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.defaultVersionId(v)
-    }
+    value.fold(self) { v => self.defaultVersionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def schemaAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.schema(v)
-    }
+    value.fold(self) { v => self.schema(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisioningTypeAsScala(value: Option[ProvisioningType]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.provisioningType(v)
-    }
+    value.fold(self) { v => self.provisioningType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deprecatedStatusAsScala(value: Option[DeprecatedStatus]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.deprecatedStatus(v)
-    }
+    value.fold(self) { v => self.deprecatedStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loggingConfigAsScala(value: Option[LoggingConfig]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.loggingConfig(v)
-    }
+    value.fold(self) { v => self.loggingConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleArnAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.executionRoleArn(v)
-    }
+    value.fold(self) { v => self.executionRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def visibilityAsScala(value: Option[Visibility]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.visibility(v)
-    }
+    value.fold(self) { v => self.visibility(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceUrlAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.sourceUrl(v)
-    }
+    value.fold(self) { v => self.sourceUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def documentationUrlAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.documentationUrl(v)
-    }
+    value.fold(self) { v => self.documentationUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdatedAsScala(value: Option[java.time.Instant]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdated(v)
-    }
+    value.fold(self) { v => self.lastUpdated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeCreatedAsScala(value: Option[java.time.Instant]): DescribeTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.timeCreated(v)
-    }
+    value.fold(self) { v => self.timeCreated(v) }
   }
 
 }

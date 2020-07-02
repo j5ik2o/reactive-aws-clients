@@ -23,9 +23,10 @@ final class DescribeElasticsearchInstanceTypeLimitsResponseOps(
 ) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def limitsByRoleAsScala: Option[Map[String, Limits]] = Option(self.limitsByRole).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def limitsByRoleAsScala: Option[Map[String, Limits]] =
+    Option(self.limitsByRole).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

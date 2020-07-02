@@ -8,9 +8,7 @@ final class DetectStackResourceDriftResponseBuilderOps(val self: DetectStackReso
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDriftAsScala(value: Option[StackResourceDrift]): DetectStackResourceDriftResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackResourceDrift(v)
-    }
+    value.fold(self) { v => self.stackResourceDrift(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class ExecuteChangeSetRequestBuilderOps(val self: ExecuteChangeSetRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetNameAsScala(value: Option[String]): ExecuteChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.changeSetName(v)
-    }
+    value.fold(self) { v => self.changeSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): ExecuteChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): ExecuteChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

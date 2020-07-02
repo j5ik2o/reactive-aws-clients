@@ -7,9 +7,7 @@ final class GlobalTableBuilderOps(val self: GlobalTable.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): GlobalTable.Builder = {
-    value.fold(self) { v =>
-      self.globalTableName(v)
-    }
+    value.fold(self) { v => self.globalTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class GlobalTableOps(val self: GlobalTable) extends AnyVal {
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def replicationGroupAsScala: Option[Seq[Replica]] = Option(self.replicationGroup).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def replicationGroupAsScala: Option[Seq[Replica]] =
+    Option(self.replicationGroup).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

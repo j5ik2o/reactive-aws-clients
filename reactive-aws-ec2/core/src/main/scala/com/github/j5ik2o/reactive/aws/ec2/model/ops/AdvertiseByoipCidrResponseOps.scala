@@ -5,28 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AdvertiseByoipCidrResponseBuilderOps(val self: AdvertiseByoipCidrResponse.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def byoipCidrAsScala(value: Option[ByoipCidr]): AdvertiseByoipCidrResponse.Builder = {
-            value.fold(self){ v => self.byoipCidr(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def byoipCidrAsScala(value: Option[ByoipCidr]): AdvertiseByoipCidrResponse.Builder = {
+    value.fold(self) { v => self.byoipCidr(v) }
+  }
 
 }
 
 final class AdvertiseByoipCidrResponseOps(val self: AdvertiseByoipCidrResponse) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def byoipCidrAsScala: Option[ByoipCidr] = Option(self.byoipCidr) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def byoipCidrAsScala: Option[ByoipCidr] = Option(self.byoipCidr)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToAdvertiseByoipCidrResponseOps {
 
-implicit def toAdvertiseByoipCidrResponseBuilderOps(v: AdvertiseByoipCidrResponse.Builder): AdvertiseByoipCidrResponseBuilderOps = new AdvertiseByoipCidrResponseBuilderOps(v)
+  implicit def toAdvertiseByoipCidrResponseBuilderOps(
+      v: AdvertiseByoipCidrResponse.Builder
+  ): AdvertiseByoipCidrResponseBuilderOps = new AdvertiseByoipCidrResponseBuilderOps(v)
 
-implicit def toAdvertiseByoipCidrResponseOps(v: AdvertiseByoipCidrResponse): AdvertiseByoipCidrResponseOps = new AdvertiseByoipCidrResponseOps(v)
+  implicit def toAdvertiseByoipCidrResponseOps(v: AdvertiseByoipCidrResponse): AdvertiseByoipCidrResponseOps =
+    new AdvertiseByoipCidrResponseOps(v)
 
 }
-

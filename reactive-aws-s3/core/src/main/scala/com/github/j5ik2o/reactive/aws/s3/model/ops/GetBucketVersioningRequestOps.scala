@@ -7,9 +7,7 @@ final class GetBucketVersioningRequestBuilderOps(val self: GetBucketVersioningRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketVersioningRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
 }

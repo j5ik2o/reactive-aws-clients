@@ -7,30 +7,22 @@ final class DashboardEntryBuilderOps(val self: DashboardEntry.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNameAsScala(value: Option[String]): DashboardEntry.Builder = {
-    value.fold(self) { v =>
-      self.dashboardName(v)
-    }
+    value.fold(self) { v => self.dashboardName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardArnAsScala(value: Option[String]): DashboardEntry.Builder = {
-    value.fold(self) { v =>
-      self.dashboardArn(v)
-    }
+    value.fold(self) { v => self.dashboardArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[java.time.Instant]): DashboardEntry.Builder = {
-    value.fold(self) { v =>
-      self.lastModified(v)
-    }
+    value.fold(self) { v => self.lastModified(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Long]): DashboardEntry.Builder = {
-    value.fold(self) { v =>
-      self.size(v)
-    }
+    value.fold(self) { v => self.size(v) }
   }
 
 }

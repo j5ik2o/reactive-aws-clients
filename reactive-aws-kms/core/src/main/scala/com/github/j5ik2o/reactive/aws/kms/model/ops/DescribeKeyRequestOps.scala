@@ -7,9 +7,7 @@ final class DescribeKeyRequestBuilderOps(val self: DescribeKeyRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): DescribeKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DescribeKeyRequestOps(val self: DescribeKeyRequest) extends AnyVal {
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,72 +7,52 @@ final class FaceDetailBuilderOps(val self: FaceDetail.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ageRangeAsScala(value: Option[AgeRange]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.ageRange(v)
-    }
+    value.fold(self) { v => self.ageRange(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def smileAsScala(value: Option[Smile]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.smile(v)
-    }
+    value.fold(self) { v => self.smile(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eyeglassesAsScala(value: Option[Eyeglasses]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.eyeglasses(v)
-    }
+    value.fold(self) { v => self.eyeglasses(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sunglassesAsScala(value: Option[Sunglasses]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.sunglasses(v)
-    }
+    value.fold(self) { v => self.sunglasses(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def genderAsScala(value: Option[Gender]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.gender(v)
-    }
+    value.fold(self) { v => self.gender(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def beardAsScala(value: Option[Beard]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.beard(v)
-    }
+    value.fold(self) { v => self.beard(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mustacheAsScala(value: Option[Mustache]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.mustache(v)
-    }
+    value.fold(self) { v => self.mustache(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eyesOpenAsScala(value: Option[EyeOpen]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.eyesOpen(v)
-    }
+    value.fold(self) { v => self.eyesOpen(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mouthOpenAsScala(value: Option[MouthOpen]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.mouthOpen(v)
-    }
+    value.fold(self) { v => self.mouthOpen(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -91,23 +71,17 @@ final class FaceDetailBuilderOps(val self: FaceDetail.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poseAsScala(value: Option[Pose]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.pose(v)
-    }
+    value.fold(self) { v => self.pose(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualityAsScala(value: Option[ImageQuality]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.quality(v)
-    }
+    value.fold(self) { v => self.quality(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): FaceDetail.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
 }
@@ -145,14 +119,12 @@ final class FaceDetailOps(val self: FaceDetail) extends AnyVal {
   final def mouthOpenAsScala: Option[MouthOpen] = Option(self.mouthOpen)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def emotionsAsScala: Option[Seq[Emotion]] = Option(self.emotions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def emotionsAsScala: Option[Seq[Emotion]] =
+    Option(self.emotions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def landmarksAsScala: Option[Seq[Landmark]] = Option(self.landmarks).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def landmarksAsScala: Option[Seq[Landmark]] =
+    Option(self.landmarks).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poseAsScala: Option[Pose] = Option(self.pose)

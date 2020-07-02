@@ -7,16 +7,12 @@ final class MetricBuilderOps(val self: Metric.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): Metric.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): Metric.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class MetricOps(val self: Metric) extends AnyVal {
   final def metricNameAsScala: Option[String] = Option(self.metricName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dimensionsAsScala: Option[Seq[Dimension]] = Option(self.dimensions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dimensionsAsScala: Option[Seq[Dimension]] =
+    Option(self.dimensions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

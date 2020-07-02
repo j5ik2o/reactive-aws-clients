@@ -7,9 +7,7 @@ final class DeleteObjectTaggingResponseBuilderOps(val self: DeleteObjectTaggingR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): DeleteObjectTaggingResponse.Builder = {
-    value.fold(self) { v =>
-      self.versionId(v)
-    }
+    value.fold(self) { v => self.versionId(v) }
   }
 
 }

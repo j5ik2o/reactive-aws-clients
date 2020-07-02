@@ -14,9 +14,7 @@ final class AnomalyDetectorConfigurationBuilderOps(val self: AnomalyDetectorConf
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricTimezoneAsScala(value: Option[String]): AnomalyDetectorConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.metricTimezone(v)
-    }
+    value.fold(self) { v => self.metricTimezone(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class AnomalyDetectorConfigurationBuilderOps(val self: AnomalyDetectorConf
 final class AnomalyDetectorConfigurationOps(val self: AnomalyDetectorConfiguration) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def excludedTimeRangesAsScala: Option[Seq[Range]] = Option(self.excludedTimeRanges).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def excludedTimeRangesAsScala: Option[Seq[Range]] =
+    Option(self.excludedTimeRanges).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricTimezoneAsScala: Option[String] = Option(self.metricTimezone)

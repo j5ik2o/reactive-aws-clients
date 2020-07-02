@@ -7,30 +7,22 @@ final class DescribeCollectionResponseBuilderOps(val self: DescribeCollectionRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceCountAsScala(value: Option[Long]): DescribeCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.faceCount(v)
-    }
+    value.fold(self) { v => self.faceCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala(value: Option[String]): DescribeCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.faceModelVersion(v)
-    }
+    value.fold(self) { v => self.faceModelVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionARNAsScala(value: Option[String]): DescribeCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.collectionARN(v)
-    }
+    value.fold(self) { v => self.collectionARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala(value: Option[java.time.Instant]): DescribeCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.creationTimestamp(v)
-    }
+    value.fold(self) { v => self.creationTimestamp(v) }
   }
 
 }

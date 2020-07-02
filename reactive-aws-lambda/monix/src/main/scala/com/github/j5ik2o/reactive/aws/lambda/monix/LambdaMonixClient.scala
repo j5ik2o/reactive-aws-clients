@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object LambdaMonixClient {
 
-  def apply(asyncClient: LambdaAsyncClient): LambdaMonixClient = new LambdaMonixClient {
-    override val underlying: LambdaAsyncClient = asyncClient
-  }
+  def apply(asyncClient: LambdaAsyncClient): LambdaMonixClient =
+    new LambdaMonixClient {
+      override val underlying: LambdaAsyncClient = asyncClient
+    }
 
 }
 

@@ -7,46 +7,34 @@ final class UploadLayerPartRequestBuilderOps(val self: UploadLayerPartRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): UploadLayerPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): UploadLayerPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): UploadLayerPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partFirstByteAsScala(value: Option[Long]): UploadLayerPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.partFirstByte(v)
-    }
+    value.fold(self) { v => self.partFirstByte(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partLastByteAsScala(value: Option[Long]): UploadLayerPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.partLastByte(v)
-    }
+    value.fold(self) { v => self.partLastByte(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerPartBlobAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): UploadLayerPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerPartBlob(v)
-    }
+    value.fold(self) { v => self.layerPartBlob(v) }
   }
 
 }

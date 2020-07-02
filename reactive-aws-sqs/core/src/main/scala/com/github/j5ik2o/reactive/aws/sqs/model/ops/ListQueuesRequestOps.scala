@@ -7,9 +7,7 @@ final class ListQueuesRequestBuilderOps(val self: ListQueuesRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNamePrefixAsScala(value: Option[String]): ListQueuesRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueNamePrefix(v)
-    }
+    value.fold(self) { v => self.queueNamePrefix(v) }
   }
 
 }

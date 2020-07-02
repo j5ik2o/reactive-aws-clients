@@ -7,16 +7,12 @@ final class ListChangeSetsRequestBuilderOps(val self: ListChangeSetsRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): ListChangeSetsRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListChangeSetsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

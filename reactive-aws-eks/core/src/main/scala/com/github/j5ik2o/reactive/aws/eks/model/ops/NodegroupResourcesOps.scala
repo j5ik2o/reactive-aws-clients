@@ -14,9 +14,7 @@ final class NodegroupResourcesBuilderOps(val self: NodegroupResources.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remoteAccessSecurityGroupAsScala(value: Option[String]): NodegroupResources.Builder = {
-    value.fold(self) { v =>
-      self.remoteAccessSecurityGroup(v)
-    }
+    value.fold(self) { v => self.remoteAccessSecurityGroup(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class NodegroupResourcesBuilderOps(val self: NodegroupResources.Builder) e
 final class NodegroupResourcesOps(val self: NodegroupResources) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def autoScalingGroupsAsScala: Option[Seq[AutoScalingGroup]] = Option(self.autoScalingGroups).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def autoScalingGroupsAsScala: Option[Seq[AutoScalingGroup]] =
+    Option(self.autoScalingGroups).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remoteAccessSecurityGroupAsScala: Option[String] = Option(self.remoteAccessSecurityGroup)

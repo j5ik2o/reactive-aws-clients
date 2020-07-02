@@ -7,16 +7,12 @@ final class LoadBalancerDescriptionBuilderOps(val self: LoadBalancerDescription.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loadBalancerNameAsScala(value: Option[String]): LoadBalancerDescription.Builder = {
-    value.fold(self) { v =>
-      self.loadBalancerName(v)
-    }
+    value.fold(self) { v => self.loadBalancerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainAsScala(value: Option[String]): LoadBalancerDescription.Builder = {
-    value.fold(self) { v =>
-      self.domain(v)
-    }
+    value.fold(self) { v => self.domain(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class LoadBalancerDescriptionOps(val self: LoadBalancerDescription) extend
   final def domainAsScala: Option[String] = Option(self.domain)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def listenersAsScala: Option[Seq[Listener]] = Option(self.listeners).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def listenersAsScala: Option[Seq[Listener]] =
+    Option(self.listeners).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -8,9 +8,7 @@ final class CreateElasticsearchDomainResponseBuilderOps(val self: CreateElastics
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainStatusAsScala(value: Option[ElasticsearchDomainStatus]): CreateElasticsearchDomainResponse.Builder = {
-    value.fold(self) { v =>
-      self.domainStatus(v)
-    }
+    value.fold(self) { v => self.domainStatus(v) }
   }
 
 }

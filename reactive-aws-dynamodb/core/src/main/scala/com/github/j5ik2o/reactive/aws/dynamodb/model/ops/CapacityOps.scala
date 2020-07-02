@@ -7,23 +7,17 @@ final class CapacityBuilderOps(val self: Capacity.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def readCapacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
-    value.fold(self) { v =>
-      self.readCapacityUnits(v)
-    }
+    value.fold(self) { v => self.readCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def writeCapacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
-    value.fold(self) { v =>
-      self.writeCapacityUnits(v)
-    }
+    value.fold(self) { v => self.writeCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityUnitsAsScala(value: Option[Double]): Capacity.Builder = {
-    value.fold(self) { v =>
-      self.capacityUnits(v)
-    }
+    value.fold(self) { v => self.capacityUnits(v) }
   }
 
 }

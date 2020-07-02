@@ -7,16 +7,12 @@ final class LoggingConfigBuilderOps(val self: LoggingConfig.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logRoleArnAsScala(value: Option[String]): LoggingConfig.Builder = {
-    value.fold(self) { v =>
-      self.logRoleArn(v)
-    }
+    value.fold(self) { v => self.logRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): LoggingConfig.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
 }

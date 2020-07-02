@@ -17,9 +17,10 @@ final class ParameterConstraintsBuilderOps(val self: ParameterConstraints.Builde
 final class ParameterConstraintsOps(val self: ParameterConstraints) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def allowedValuesAsScala: Option[Seq[String]] = Option(self.allowedValues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def allowedValuesAsScala: Option[Seq[String]] =
+    Option(self.allowedValues).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

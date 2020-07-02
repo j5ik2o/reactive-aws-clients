@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object CloudFormationMonixClient {
 
-  def apply(asyncClient: CloudFormationAsyncClient): CloudFormationMonixClient = new CloudFormationMonixClient {
-    override val underlying: CloudFormationAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudFormationAsyncClient): CloudFormationMonixClient =
+    new CloudFormationMonixClient {
+      override val underlying: CloudFormationAsyncClient = asyncClient
+    }
 
 }
 

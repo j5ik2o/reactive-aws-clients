@@ -7,44 +7,32 @@ final class TypeSummaryBuilderOps(val self: TypeSummary.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[RegistryType]): TypeSummary.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): TypeSummary.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultVersionIdAsScala(value: Option[String]): TypeSummary.Builder = {
-    value.fold(self) { v =>
-      self.defaultVersionId(v)
-    }
+    value.fold(self) { v => self.defaultVersionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeArnAsScala(value: Option[String]): TypeSummary.Builder = {
-    value.fold(self) { v =>
-      self.typeArn(v)
-    }
+    value.fold(self) { v => self.typeArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdatedAsScala(value: Option[java.time.Instant]): TypeSummary.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdated(v)
-    }
+    value.fold(self) { v => self.lastUpdated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): TypeSummary.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
 }

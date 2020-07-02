@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object EcrMonixClient {
 
-  def apply(asyncClient: EcrAsyncClient): EcrMonixClient = new EcrMonixClient {
-    override val underlying: EcrAsyncClient = asyncClient
-  }
+  def apply(asyncClient: EcrAsyncClient): EcrMonixClient =
+    new EcrMonixClient {
+      override val underlying: EcrAsyncClient = asyncClient
+    }
 
 }
 

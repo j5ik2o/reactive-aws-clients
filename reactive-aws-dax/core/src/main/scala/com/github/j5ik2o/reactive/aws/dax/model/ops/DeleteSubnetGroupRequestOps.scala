@@ -7,9 +7,7 @@ final class DeleteSubnetGroupRequestBuilderOps(val self: DeleteSubnetGroupReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupNameAsScala(value: Option[String]): DeleteSubnetGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.subnetGroupName(v)
-    }
+    value.fold(self) { v => self.subnetGroupName(v) }
   }
 
 }

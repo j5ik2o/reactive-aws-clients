@@ -10,9 +10,7 @@ final class CreateApplicationVersionResponseBuilderOps(val self: CreateApplicati
   final def applicationVersionAsScala(
       value: Option[ApplicationVersionDescription]
   ): CreateApplicationVersionResponse.Builder = {
-    value.fold(self) { v =>
-      self.applicationVersion(v)
-    }
+    value.fold(self) { v => self.applicationVersion(v) }
   }
 
 }

@@ -10,10 +10,11 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object EksCatsIOClient {
 
-  def apply(asyncClient: EksAsyncClient)(implicit ec: ExecutionContext): EksCatsIOClient = new EksCatsIOClient {
-    override def executionContext: ExecutionContext = ec
-    override val underlying: EksAsyncClient         = asyncClient
-  }
+  def apply(asyncClient: EksAsyncClient)(implicit ec: ExecutionContext): EksCatsIOClient =
+    new EksCatsIOClient {
+      override def executionContext: ExecutionContext = ec
+      override val underlying: EksAsyncClient         = asyncClient
+    }
 
 }
 

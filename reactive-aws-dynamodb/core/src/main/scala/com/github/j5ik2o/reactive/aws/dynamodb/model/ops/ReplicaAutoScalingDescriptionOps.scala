@@ -7,9 +7,7 @@ final class ReplicaAutoScalingDescriptionBuilderOps(val self: ReplicaAutoScaling
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): ReplicaAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.regionName(v)
-    }
+    value.fold(self) { v => self.regionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -25,25 +23,19 @@ final class ReplicaAutoScalingDescriptionBuilderOps(val self: ReplicaAutoScaling
   final def replicaProvisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.replicaProvisionedReadCapacityAutoScalingSettings(v)
-    }
+    value.fold(self) { v => self.replicaProvisionedReadCapacityAutoScalingSettings(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaProvisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.replicaProvisionedWriteCapacityAutoScalingSettings(v)
-    }
+    value.fold(self) { v => self.replicaProvisionedWriteCapacityAutoScalingSettings(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicaStatusAsScala(value: Option[ReplicaStatus]): ReplicaAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.replicaStatus(v)
-    }
+    value.fold(self) { v => self.replicaStatus(v) }
   }
 
 }

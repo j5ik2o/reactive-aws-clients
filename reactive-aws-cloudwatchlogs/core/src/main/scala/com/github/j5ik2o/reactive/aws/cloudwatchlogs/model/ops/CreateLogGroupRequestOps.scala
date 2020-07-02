@@ -7,16 +7,12 @@ final class CreateLogGroupRequestBuilderOps(val self: CreateLogGroupRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): CreateLogGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): CreateLogGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.kmsKeyId(v)
-    }
+    value.fold(self) { v => self.kmsKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class CreateLogGroupRequestOps(val self: CreateLogGroupRequest) extends An
   final def kmsKeyIdAsScala: Option[String] = Option(self.kmsKeyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

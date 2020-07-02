@@ -5,28 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class EnableVpcClassicLinkResponseBuilderOps(val self: EnableVpcClassicLinkResponse.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def returnValueAsScala(value: Option[Boolean]): EnableVpcClassicLinkResponse.Builder = {
-            value.fold(self){ v => self.returnValue(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def returnValueAsScala(value: Option[Boolean]): EnableVpcClassicLinkResponse.Builder = {
+    value.fold(self) { v => self.returnValue(v) }
+  }
 
 }
 
 final class EnableVpcClassicLinkResponseOps(val self: EnableVpcClassicLinkResponse) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def returnValueAsScala: Option[Boolean] = Option(self.returnValue) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def returnValueAsScala: Option[Boolean] = Option(self.returnValue)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToEnableVpcClassicLinkResponseOps {
 
-implicit def toEnableVpcClassicLinkResponseBuilderOps(v: EnableVpcClassicLinkResponse.Builder): EnableVpcClassicLinkResponseBuilderOps = new EnableVpcClassicLinkResponseBuilderOps(v)
+  implicit def toEnableVpcClassicLinkResponseBuilderOps(
+      v: EnableVpcClassicLinkResponse.Builder
+  ): EnableVpcClassicLinkResponseBuilderOps = new EnableVpcClassicLinkResponseBuilderOps(v)
 
-implicit def toEnableVpcClassicLinkResponseOps(v: EnableVpcClassicLinkResponse): EnableVpcClassicLinkResponseOps = new EnableVpcClassicLinkResponseOps(v)
+  implicit def toEnableVpcClassicLinkResponseOps(v: EnableVpcClassicLinkResponse): EnableVpcClassicLinkResponseOps =
+    new EnableVpcClassicLinkResponseOps(v)
 
 }
-

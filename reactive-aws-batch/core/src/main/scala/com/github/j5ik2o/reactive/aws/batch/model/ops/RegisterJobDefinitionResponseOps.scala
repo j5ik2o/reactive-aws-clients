@@ -7,23 +7,17 @@ final class RegisterJobDefinitionResponseBuilderOps(val self: RegisterJobDefinit
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionNameAsScala(value: Option[String]): RegisterJobDefinitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobDefinitionName(v)
-    }
+    value.fold(self) { v => self.jobDefinitionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionArnAsScala(value: Option[String]): RegisterJobDefinitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobDefinitionArn(v)
-    }
+    value.fold(self) { v => self.jobDefinitionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionAsScala(value: Option[Int]): RegisterJobDefinitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.revision(v)
-    }
+    value.fold(self) { v => self.revision(v) }
   }
 
 }

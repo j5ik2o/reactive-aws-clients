@@ -14,9 +14,7 @@ final class GetCelebrityInfoResponseBuilderOps(val self: GetCelebrityInfoRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): GetCelebrityInfoResponse.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class GetCelebrityInfoResponseBuilderOps(val self: GetCelebrityInfoRespons
 final class GetCelebrityInfoResponseOps(val self: GetCelebrityInfoResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def urlsAsScala: Option[Seq[String]] = Option(self.urls).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def urlsAsScala: Option[Seq[String]] =
+    Option(self.urls).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)

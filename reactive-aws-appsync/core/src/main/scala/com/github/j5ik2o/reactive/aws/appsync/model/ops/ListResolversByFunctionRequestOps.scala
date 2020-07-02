@@ -7,30 +7,22 @@ final class ListResolversByFunctionRequestBuilderOps(val self: ListResolversByFu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionIdAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionId(v)
-    }
+    value.fold(self) { v => self.functionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListResolversByFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListResolversByFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
 }

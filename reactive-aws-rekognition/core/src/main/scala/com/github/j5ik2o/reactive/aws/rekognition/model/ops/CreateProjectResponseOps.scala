@@ -7,9 +7,7 @@ final class CreateProjectResponseBuilderOps(val self: CreateProjectResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectArnAsScala(value: Option[String]): CreateProjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.projectArn(v)
-    }
+    value.fold(self) { v => self.projectArn(v) }
   }
 
 }

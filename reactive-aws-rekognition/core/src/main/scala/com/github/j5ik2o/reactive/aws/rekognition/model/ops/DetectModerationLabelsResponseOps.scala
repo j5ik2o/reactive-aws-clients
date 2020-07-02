@@ -14,18 +14,14 @@ final class DetectModerationLabelsResponseBuilderOps(val self: DetectModerationL
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationModelVersionAsScala(value: Option[String]): DetectModerationLabelsResponse.Builder = {
-    value.fold(self) { v =>
-      self.moderationModelVersion(v)
-    }
+    value.fold(self) { v => self.moderationModelVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def humanLoopActivationOutputAsScala(
       value: Option[HumanLoopActivationOutput]
   ): DetectModerationLabelsResponse.Builder = {
-    value.fold(self) { v =>
-      self.humanLoopActivationOutput(v)
-    }
+    value.fold(self) { v => self.humanLoopActivationOutput(v) }
   }
 
 }
@@ -33,9 +29,10 @@ final class DetectModerationLabelsResponseBuilderOps(val self: DetectModerationL
 final class DetectModerationLabelsResponseOps(val self: DetectModerationLabelsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def moderationLabelsAsScala: Option[Seq[ModerationLabel]] = Option(self.moderationLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def moderationLabelsAsScala: Option[Seq[ModerationLabel]] =
+    Option(self.moderationLabels).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationModelVersionAsScala: Option[String] = Option(self.moderationModelVersion)

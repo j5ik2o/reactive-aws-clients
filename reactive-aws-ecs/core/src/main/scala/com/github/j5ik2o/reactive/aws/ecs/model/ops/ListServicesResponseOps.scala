@@ -14,9 +14,7 @@ final class ListServicesResponseBuilderOps(val self: ListServicesResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListServicesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class ListServicesResponseBuilderOps(val self: ListServicesResponse.Builde
 final class ListServicesResponseOps(val self: ListServicesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def serviceArnsAsScala: Option[Seq[String]] = Option(self.serviceArns).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def serviceArnsAsScala: Option[Seq[String]] =
+    Option(self.serviceArns).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

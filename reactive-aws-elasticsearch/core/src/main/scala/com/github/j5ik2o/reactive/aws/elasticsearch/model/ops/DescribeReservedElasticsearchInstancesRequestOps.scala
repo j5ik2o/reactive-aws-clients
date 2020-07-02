@@ -11,23 +11,17 @@ final class DescribeReservedElasticsearchInstancesRequestBuilderOps(
   final def reservedElasticsearchInstanceIdAsScala(
       value: Option[String]
   ): DescribeReservedElasticsearchInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.reservedElasticsearchInstanceId(v)
-    }
+    value.fold(self) { v => self.reservedElasticsearchInstanceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeReservedElasticsearchInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeReservedElasticsearchInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

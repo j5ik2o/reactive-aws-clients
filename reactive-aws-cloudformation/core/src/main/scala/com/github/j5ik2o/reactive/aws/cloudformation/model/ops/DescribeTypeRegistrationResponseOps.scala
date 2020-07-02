@@ -8,30 +8,22 @@ final class DescribeTypeRegistrationResponseBuilderOps(val self: DescribeTypeReg
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def progressStatusAsScala(value: Option[RegistrationStatus]): DescribeTypeRegistrationResponse.Builder = {
-    value.fold(self) { v =>
-      self.progressStatus(v)
-    }
+    value.fold(self) { v => self.progressStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): DescribeTypeRegistrationResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeArnAsScala(value: Option[String]): DescribeTypeRegistrationResponse.Builder = {
-    value.fold(self) { v =>
-      self.typeArn(v)
-    }
+    value.fold(self) { v => self.typeArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeVersionArnAsScala(value: Option[String]): DescribeTypeRegistrationResponse.Builder = {
-    value.fold(self) { v =>
-      self.typeVersionArn(v)
-    }
+    value.fold(self) { v => self.typeVersionArn(v) }
   }
 
 }

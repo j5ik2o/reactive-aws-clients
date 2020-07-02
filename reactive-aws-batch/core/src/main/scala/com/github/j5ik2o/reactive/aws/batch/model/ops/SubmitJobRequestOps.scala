@@ -7,23 +7,17 @@ final class SubmitJobRequestBuilderOps(val self: SubmitJobRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobNameAsScala(value: Option[String]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobName(v)
-    }
+    value.fold(self) { v => self.jobName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala(value: Option[String]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobQueue(v)
-    }
+    value.fold(self) { v => self.jobQueue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arrayPropertiesAsScala(value: Option[ArrayProperties]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.arrayProperties(v)
-    }
+    value.fold(self) { v => self.arrayProperties(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,9 +29,7 @@ final class SubmitJobRequestBuilderOps(val self: SubmitJobRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala(value: Option[String]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobDefinition(v)
-    }
+    value.fold(self) { v => self.jobDefinition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -49,30 +41,22 @@ final class SubmitJobRequestBuilderOps(val self: SubmitJobRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala(value: Option[ContainerOverrides]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.containerOverrides(v)
-    }
+    value.fold(self) { v => self.containerOverrides(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeOverridesAsScala(value: Option[NodeOverrides]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodeOverrides(v)
-    }
+    value.fold(self) { v => self.nodeOverrides(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retryStrategyAsScala(value: Option[RetryStrategy]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.retryStrategy(v)
-    }
+    value.fold(self) { v => self.retryStrategy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeoutAsScala(value: Option[JobTimeout]): SubmitJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.timeout(v)
-    }
+    value.fold(self) { v => self.timeout(v) }
   }
 
 }
@@ -89,17 +73,17 @@ final class SubmitJobRequestOps(val self: SubmitJobRequest) extends AnyVal {
   final def arrayPropertiesAsScala: Option[ArrayProperties] = Option(self.arrayProperties)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dependsOnAsScala: Option[Seq[JobDependency]] = Option(self.dependsOn).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dependsOnAsScala: Option[Seq[JobDependency]] =
+    Option(self.dependsOn).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala: Option[String] = Option(self.jobDefinition)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Map[String, String]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def parametersAsScala: Option[Map[String, String]] =
+    Option(self.parameters).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala: Option[ContainerOverrides] = Option(self.containerOverrides)

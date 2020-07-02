@@ -7,16 +7,12 @@ final class ContainerSummaryBuilderOps(val self: ContainerSummary.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): ContainerSummary.Builder = {
-    value.fold(self) { v =>
-      self.exitCode(v)
-    }
+    value.fold(self) { v => self.exitCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): ContainerSummary.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
 }

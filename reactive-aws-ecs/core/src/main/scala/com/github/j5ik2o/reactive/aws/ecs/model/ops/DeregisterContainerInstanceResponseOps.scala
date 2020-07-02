@@ -8,9 +8,7 @@ final class DeregisterContainerInstanceResponseBuilderOps(val self: DeregisterCo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[ContainerInstance]): DeregisterContainerInstanceResponse.Builder = {
-    value.fold(self) { v =>
-      self.containerInstance(v)
-    }
+    value.fold(self) { v => self.containerInstance(v) }
   }
 
 }

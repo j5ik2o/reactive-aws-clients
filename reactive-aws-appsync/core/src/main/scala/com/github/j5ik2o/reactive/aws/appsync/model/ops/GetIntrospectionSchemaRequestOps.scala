@@ -7,23 +7,17 @@ final class GetIntrospectionSchemaRequestBuilderOps(val self: GetIntrospectionSc
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): GetIntrospectionSchemaRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala(value: Option[OutputType]): GetIntrospectionSchemaRequest.Builder = {
-    value.fold(self) { v =>
-      self.format(v)
-    }
+    value.fold(self) { v => self.format(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def includeDirectivesAsScala(value: Option[Boolean]): GetIntrospectionSchemaRequest.Builder = {
-    value.fold(self) { v =>
-      self.includeDirectives(v)
-    }
+    value.fold(self) { v => self.includeDirectives(v) }
   }
 
 }

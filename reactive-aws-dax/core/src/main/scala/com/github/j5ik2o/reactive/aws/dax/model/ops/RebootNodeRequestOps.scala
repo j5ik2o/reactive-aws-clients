@@ -7,16 +7,12 @@ final class RebootNodeRequestBuilderOps(val self: RebootNodeRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): RebootNodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIdAsScala(value: Option[String]): RebootNodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodeId(v)
-    }
+    value.fold(self) { v => self.nodeId(v) }
   }
 
 }

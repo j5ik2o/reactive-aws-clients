@@ -7,23 +7,17 @@ final class ComputeResourceUpdateBuilderOps(val self: ComputeResourceUpdate.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
-    value.fold(self) { v =>
-      self.minvCpus(v)
-    }
+    value.fold(self) { v => self.minvCpus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
-    value.fold(self) { v =>
-      self.maxvCpus(v)
-    }
+    value.fold(self) { v => self.maxvCpus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def desiredvCpusAsScala(value: Option[Int]): ComputeResourceUpdate.Builder = {
-    value.fold(self) { v =>
-      self.desiredvCpus(v)
-    }
+    value.fold(self) { v => self.desiredvCpus(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class DeleteLogGroupRequestBuilderOps(val self: DeleteLogGroupRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteLogGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
 }

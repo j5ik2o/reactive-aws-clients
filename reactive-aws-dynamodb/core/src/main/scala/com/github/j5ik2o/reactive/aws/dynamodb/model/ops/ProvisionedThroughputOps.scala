@@ -7,16 +7,12 @@ final class ProvisionedThroughputBuilderOps(val self: ProvisionedThroughput.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def readCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
-    value.fold(self) { v =>
-      self.readCapacityUnits(v)
-    }
+    value.fold(self) { v => self.readCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def writeCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughput.Builder = {
-    value.fold(self) { v =>
-      self.writeCapacityUnits(v)
-    }
+    value.fold(self) { v => self.writeCapacityUnits(v) }
   }
 
 }

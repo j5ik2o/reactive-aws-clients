@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.s3.model._
 
 object S3AkkaClient {
 
-  def apply(asyncClient: S3AsyncClient): S3AkkaClient = new S3AkkaClient {
-    override val underlying: S3AsyncClient = asyncClient
-  }
+  def apply(asyncClient: S3AsyncClient): S3AkkaClient =
+    new S3AkkaClient {
+      override val underlying: S3AsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

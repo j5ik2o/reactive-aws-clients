@@ -8,23 +8,17 @@ final class UpgradeElasticsearchDomainRequestBuilderOps(val self: UpgradeElastic
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): UpgradeElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetVersionAsScala(value: Option[String]): UpgradeElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.targetVersion(v)
-    }
+    value.fold(self) { v => self.targetVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def performCheckOnlyAsScala(value: Option[Boolean]): UpgradeElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.performCheckOnly(v)
-    }
+    value.fold(self) { v => self.performCheckOnly(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class EnvironmentResourceDescriptionBuilderOps(val self: EnvironmentResour
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): EnvironmentResourceDescription.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -71,39 +69,40 @@ final class EnvironmentResourceDescriptionOps(val self: EnvironmentResourceDescr
   final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def autoScalingGroupsAsScala: Option[Seq[AutoScalingGroup]] = Option(self.autoScalingGroups).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def autoScalingGroupsAsScala: Option[Seq[AutoScalingGroup]] =
+    Option(self.autoScalingGroups).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def instancesAsScala: Option[Seq[Instance]] = Option(self.instances).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def instancesAsScala: Option[Seq[Instance]] =
+    Option(self.instances).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def launchConfigurationsAsScala: Option[Seq[LaunchConfiguration]] = Option(self.launchConfigurations).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def launchConfigurationsAsScala: Option[Seq[LaunchConfiguration]] =
+    Option(self.launchConfigurations).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def launchTemplatesAsScala: Option[Seq[LaunchTemplate]] = Option(self.launchTemplates).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def launchTemplatesAsScala: Option[Seq[LaunchTemplate]] =
+    Option(self.launchTemplates).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def loadBalancersAsScala: Option[Seq[LoadBalancer]] = Option(self.loadBalancers).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def loadBalancersAsScala: Option[Seq[LoadBalancer]] =
+    Option(self.loadBalancers).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def triggersAsScala: Option[Seq[Trigger]] = Option(self.triggers).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def triggersAsScala: Option[Seq[Trigger]] =
+    Option(self.triggers).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def queuesAsScala: Option[Seq[Queue]] = Option(self.queues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def queuesAsScala: Option[Seq[Queue]] =
+    Option(self.queues).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

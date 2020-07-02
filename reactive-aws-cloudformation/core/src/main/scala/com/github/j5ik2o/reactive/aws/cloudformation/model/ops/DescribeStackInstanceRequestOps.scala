@@ -7,23 +7,17 @@ final class DescribeStackInstanceRequestBuilderOps(val self: DescribeStackInstan
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): DescribeStackInstanceRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackInstanceAccountAsScala(value: Option[String]): DescribeStackInstanceRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackInstanceAccount(v)
-    }
+    value.fold(self) { v => self.stackInstanceAccount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackInstanceRegionAsScala(value: Option[String]): DescribeStackInstanceRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackInstanceRegion(v)
-    }
+    value.fold(self) { v => self.stackInstanceRegion(v) }
   }
 
 }

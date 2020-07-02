@@ -17,9 +17,7 @@ final class ListContributorInsightsResponseBuilderOps(val self: ListContributorI
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListContributorInsightsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

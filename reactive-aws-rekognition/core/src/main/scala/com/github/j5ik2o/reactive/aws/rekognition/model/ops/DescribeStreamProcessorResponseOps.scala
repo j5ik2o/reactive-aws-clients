@@ -8,72 +8,52 @@ final class DescribeStreamProcessorResponseBuilderOps(val self: DescribeStreamPr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamProcessorArnAsScala(value: Option[String]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.streamProcessorArn(v)
-    }
+    value.fold(self) { v => self.streamProcessorArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[StreamProcessorStatus]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala(value: Option[java.time.Instant]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.creationTimestamp(v)
-    }
+    value.fold(self) { v => self.creationTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdateTimestampAsScala(value: Option[java.time.Instant]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdateTimestamp(v)
-    }
+    value.fold(self) { v => self.lastUpdateTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inputAsScala(value: Option[StreamProcessorInput]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.input(v)
-    }
+    value.fold(self) { v => self.input(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputAsScala(value: Option[StreamProcessorOutput]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.output(v)
-    }
+    value.fold(self) { v => self.output(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingsAsScala(value: Option[StreamProcessorSettings]): DescribeStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.settings(v)
-    }
+    value.fold(self) { v => self.settings(v) }
   }
 
 }

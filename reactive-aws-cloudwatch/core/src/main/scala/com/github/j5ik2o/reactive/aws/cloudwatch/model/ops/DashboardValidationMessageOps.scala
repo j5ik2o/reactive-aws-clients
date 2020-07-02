@@ -7,16 +7,12 @@ final class DashboardValidationMessageBuilderOps(val self: DashboardValidationMe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataPathAsScala(value: Option[String]): DashboardValidationMessage.Builder = {
-    value.fold(self) { v =>
-      self.dataPath(v)
-    }
+    value.fold(self) { v => self.dataPath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): DashboardValidationMessage.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
 }

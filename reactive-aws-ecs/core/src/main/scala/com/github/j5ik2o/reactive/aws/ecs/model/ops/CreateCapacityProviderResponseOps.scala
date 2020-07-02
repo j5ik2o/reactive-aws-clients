@@ -7,9 +7,7 @@ final class CreateCapacityProviderResponseBuilderOps(val self: CreateCapacityPro
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capacityProviderAsScala(value: Option[CapacityProvider]): CreateCapacityProviderResponse.Builder = {
-    value.fold(self) { v =>
-      self.capacityProvider(v)
-    }
+    value.fold(self) { v => self.capacityProvider(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class DescribeClusterResponseBuilderOps(val self: DescribeClusterResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): DescribeClusterResponse.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
 }

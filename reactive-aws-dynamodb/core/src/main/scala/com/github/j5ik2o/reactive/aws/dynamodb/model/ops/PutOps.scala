@@ -14,16 +14,12 @@ final class PutBuilderOps(val self: Put.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): Put.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionExpressionAsScala(value: Option[String]): Put.Builder = {
-    value.fold(self) { v =>
-      self.conditionExpression(v)
-    }
+    value.fold(self) { v => self.conditionExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -44,9 +40,7 @@ final class PutBuilderOps(val self: Put.Builder) extends AnyVal {
   final def returnValuesOnConditionCheckFailureAsScala(
       value: Option[ReturnValuesOnConditionCheckFailure]
   ): Put.Builder = {
-    value.fold(self) { v =>
-      self.returnValuesOnConditionCheckFailure(v)
-    }
+    value.fold(self) { v => self.returnValuesOnConditionCheckFailure(v) }
   }
 
 }
@@ -54,9 +48,8 @@ final class PutBuilderOps(val self: Put.Builder) extends AnyVal {
 final class PutOps(val self: Put) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def itemAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.item).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala: Option[String] = Option(self.tableName)
@@ -65,10 +58,10 @@ final class PutOps(val self: Put) extends AnyVal {
   final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
-    v =>
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] =
+    Option(self.expressionAttributeNames).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =

@@ -18,8 +18,7 @@ object RekognitionAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/rekognition/RekognitionAsyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/rekognition/RekognitionAsyncClient.html */
 trait RekognitionAsyncClient extends RekognitionClient[Future] {
   val underlying: JavaRekognitionAsyncClient
 

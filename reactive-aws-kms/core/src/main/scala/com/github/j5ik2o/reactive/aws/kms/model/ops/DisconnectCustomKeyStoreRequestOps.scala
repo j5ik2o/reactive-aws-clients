@@ -8,9 +8,7 @@ final class DisconnectCustomKeyStoreRequestBuilderOps(val self: DisconnectCustom
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): DisconnectCustomKeyStoreRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
 }

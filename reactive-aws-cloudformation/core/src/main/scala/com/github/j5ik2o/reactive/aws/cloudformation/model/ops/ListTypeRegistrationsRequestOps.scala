@@ -7,44 +7,32 @@ final class ListTypeRegistrationsRequestBuilderOps(val self: ListTypeRegistratio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[RegistryType]): ListTypeRegistrationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): ListTypeRegistrationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeArnAsScala(value: Option[String]): ListTypeRegistrationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeArn(v)
-    }
+    value.fold(self) { v => self.typeArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registrationStatusFilterAsScala(value: Option[RegistrationStatus]): ListTypeRegistrationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.registrationStatusFilter(v)
-    }
+    value.fold(self) { v => self.registrationStatusFilter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListTypeRegistrationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListTypeRegistrationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

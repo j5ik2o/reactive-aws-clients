@@ -14,16 +14,12 @@ final class DetectLabelsResponseBuilderOps(val self: DetectLabelsResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orientationCorrectionAsScala(value: Option[OrientationCorrection]): DetectLabelsResponse.Builder = {
-    value.fold(self) { v =>
-      self.orientationCorrection(v)
-    }
+    value.fold(self) { v => self.orientationCorrection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelModelVersionAsScala(value: Option[String]): DetectLabelsResponse.Builder = {
-    value.fold(self) { v =>
-      self.labelModelVersion(v)
-    }
+    value.fold(self) { v => self.labelModelVersion(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class DetectLabelsResponseBuilderOps(val self: DetectLabelsResponse.Builde
 final class DetectLabelsResponseOps(val self: DetectLabelsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def labelsAsScala: Option[Seq[Label]] = Option(self.labels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def labelsAsScala: Option[Seq[Label]] =
+    Option(self.labels).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orientationCorrectionAsScala: Option[OrientationCorrection] = Option(self.orientationCorrection)

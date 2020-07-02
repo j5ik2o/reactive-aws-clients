@@ -7,23 +7,17 @@ final class BackupDescriptionBuilderOps(val self: BackupDescription.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupDetailsAsScala(value: Option[BackupDetails]): BackupDescription.Builder = {
-    value.fold(self) { v =>
-      self.backupDetails(v)
-    }
+    value.fold(self) { v => self.backupDetails(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTableDetailsAsScala(value: Option[SourceTableDetails]): BackupDescription.Builder = {
-    value.fold(self) { v =>
-      self.sourceTableDetails(v)
-    }
+    value.fold(self) { v => self.sourceTableDetails(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTableFeatureDetailsAsScala(value: Option[SourceTableFeatureDetails]): BackupDescription.Builder = {
-    value.fold(self) { v =>
-      self.sourceTableFeatureDetails(v)
-    }
+    value.fold(self) { v => self.sourceTableFeatureDetails(v) }
   }
 
 }

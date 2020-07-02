@@ -7,9 +7,7 @@ final class UpdateSubnetGroupResponseBuilderOps(val self: UpdateSubnetGroupRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupAsScala(value: Option[SubnetGroup]): UpdateSubnetGroupResponse.Builder = {
-    value.fold(self) { v =>
-      self.subnetGroup(v)
-    }
+    value.fold(self) { v => self.subnetGroup(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class ProjectionBuilderOps(val self: Projection.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionTypeAsScala(value: Option[ProjectionType]): Projection.Builder = {
-    value.fold(self) { v =>
-      self.projectionType(v)
-    }
+    value.fold(self) { v => self.projectionType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class ProjectionOps(val self: Projection) extends AnyVal {
   final def projectionTypeAsScala: Option[ProjectionType] = Option(self.projectionType)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nonKeyAttributesAsScala: Option[Seq[String]] = Option(self.nonKeyAttributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def nonKeyAttributesAsScala: Option[Seq[String]] =
+    Option(self.nonKeyAttributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

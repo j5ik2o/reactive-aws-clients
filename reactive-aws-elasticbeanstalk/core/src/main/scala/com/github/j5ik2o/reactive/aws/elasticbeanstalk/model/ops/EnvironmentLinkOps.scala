@@ -7,16 +7,12 @@ final class EnvironmentLinkBuilderOps(val self: EnvironmentLink.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def linkNameAsScala(value: Option[String]): EnvironmentLink.Builder = {
-    value.fold(self) { v =>
-      self.linkName(v)
-    }
+    value.fold(self) { v => self.linkName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): EnvironmentLink.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
 }

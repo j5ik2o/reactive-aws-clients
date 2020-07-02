@@ -7,16 +7,12 @@ final class StreamSpecificationBuilderOps(val self: StreamSpecification.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamEnabledAsScala(value: Option[Boolean]): StreamSpecification.Builder = {
-    value.fold(self) { v =>
-      self.streamEnabled(v)
-    }
+    value.fold(self) { v => self.streamEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamSpecification.Builder = {
-    value.fold(self) { v =>
-      self.streamViewType(v)
-    }
+    value.fold(self) { v => self.streamViewType(v) }
   }
 
 }

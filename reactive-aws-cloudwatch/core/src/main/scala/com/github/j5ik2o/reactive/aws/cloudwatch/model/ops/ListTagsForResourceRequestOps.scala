@@ -7,9 +7,7 @@ final class ListTagsForResourceRequestBuilderOps(val self: ListTagsForResourceRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceARNAsScala(value: Option[String]): ListTagsForResourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourceARN(v)
-    }
+    value.fold(self) { v => self.resourceARN(v) }
   }
 
 }

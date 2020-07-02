@@ -7,30 +7,22 @@ final class LayerVersionContentInputBuilderOps(val self: LayerVersionContentInpu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): LayerVersionContentInput.Builder = {
-    value.fold(self) { v =>
-      self.s3Bucket(v)
-    }
+    value.fold(self) { v => self.s3Bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala(value: Option[String]): LayerVersionContentInput.Builder = {
-    value.fold(self) { v =>
-      self.s3Key(v)
-    }
+    value.fold(self) { v => self.s3Key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3ObjectVersionAsScala(value: Option[String]): LayerVersionContentInput.Builder = {
-    value.fold(self) { v =>
-      self.s3ObjectVersion(v)
-    }
+    value.fold(self) { v => self.s3ObjectVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zipFileAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): LayerVersionContentInput.Builder = {
-    value.fold(self) { v =>
-      self.zipFile(v)
-    }
+    value.fold(self) { v => self.zipFile(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class GetLifecyclePolicyResponseBuilderOps(val self: GetLifecyclePolicyRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): GetLifecyclePolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): GetLifecyclePolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecyclePolicyTextAsScala(value: Option[String]): GetLifecyclePolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.lifecyclePolicyText(v)
-    }
+    value.fold(self) { v => self.lifecyclePolicyText(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedAtAsScala(value: Option[java.time.Instant]): GetLifecyclePolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastEvaluatedAt(v)
-    }
+    value.fold(self) { v => self.lastEvaluatedAt(v) }
   }
 
 }

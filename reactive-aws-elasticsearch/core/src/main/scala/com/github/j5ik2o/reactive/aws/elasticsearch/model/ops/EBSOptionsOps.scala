@@ -7,30 +7,22 @@ final class EBSOptionsBuilderOps(val self: EBSOptions.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ebsEnabledAsScala(value: Option[Boolean]): EBSOptions.Builder = {
-    value.fold(self) { v =>
-      self.ebsEnabled(v)
-    }
+    value.fold(self) { v => self.ebsEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeTypeAsScala(value: Option[VolumeType]): EBSOptions.Builder = {
-    value.fold(self) { v =>
-      self.volumeType(v)
-    }
+    value.fold(self) { v => self.volumeType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def volumeSizeAsScala(value: Option[Int]): EBSOptions.Builder = {
-    value.fold(self) { v =>
-      self.volumeSize(v)
-    }
+    value.fold(self) { v => self.volumeSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iopsAsScala(value: Option[Int]): EBSOptions.Builder = {
-    value.fold(self) { v =>
-      self.iops(v)
-    }
+    value.fold(self) { v => self.iops(v) }
   }
 
 }

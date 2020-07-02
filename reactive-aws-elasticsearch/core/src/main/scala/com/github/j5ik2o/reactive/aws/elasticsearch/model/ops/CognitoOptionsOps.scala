@@ -7,30 +7,22 @@ final class CognitoOptionsBuilderOps(val self: CognitoOptions.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): CognitoOptions.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userPoolIdAsScala(value: Option[String]): CognitoOptions.Builder = {
-    value.fold(self) { v =>
-      self.userPoolId(v)
-    }
+    value.fold(self) { v => self.userPoolId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def identityPoolIdAsScala(value: Option[String]): CognitoOptions.Builder = {
-    value.fold(self) { v =>
-      self.identityPoolId(v)
-    }
+    value.fold(self) { v => self.identityPoolId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): CognitoOptions.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
 }

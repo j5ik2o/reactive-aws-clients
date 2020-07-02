@@ -7,16 +7,12 @@ final class TagBuilderOps(val self: Tag.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagKeyAsScala(value: Option[String]): Tag.Builder = {
-    value.fold(self) { v =>
-      self.tagKey(v)
-    }
+    value.fold(self) { v => self.tagKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagValueAsScala(value: Option[String]): Tag.Builder = {
-    value.fold(self) { v =>
-      self.tagValue(v)
-    }
+    value.fold(self) { v => self.tagValue(v) }
   }
 
 }

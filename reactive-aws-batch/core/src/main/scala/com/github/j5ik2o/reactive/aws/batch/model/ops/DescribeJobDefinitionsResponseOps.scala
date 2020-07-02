@@ -14,9 +14,7 @@ final class DescribeJobDefinitionsResponseBuilderOps(val self: DescribeJobDefini
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeJobDefinitionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class DescribeJobDefinitionsResponseBuilderOps(val self: DescribeJobDefini
 final class DescribeJobDefinitionsResponseOps(val self: DescribeJobDefinitionsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def jobDefinitionsAsScala: Option[Seq[JobDefinition]] = Option(self.jobDefinitions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def jobDefinitionsAsScala: Option[Seq[JobDefinition]] =
+    Option(self.jobDefinitions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

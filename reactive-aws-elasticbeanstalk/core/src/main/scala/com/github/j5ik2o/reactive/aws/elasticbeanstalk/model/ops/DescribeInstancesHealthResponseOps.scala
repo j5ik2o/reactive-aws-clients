@@ -17,16 +17,12 @@ final class DescribeInstancesHealthResponseBuilderOps(val self: DescribeInstance
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def refreshedAtAsScala(value: Option[java.time.Instant]): DescribeInstancesHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.refreshedAt(v)
-    }
+    value.fold(self) { v => self.refreshedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeInstancesHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -34,9 +30,10 @@ final class DescribeInstancesHealthResponseBuilderOps(val self: DescribeInstance
 final class DescribeInstancesHealthResponseOps(val self: DescribeInstancesHealthResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def instanceHealthListAsScala: Option[Seq[SingleInstanceHealth]] = Option(self.instanceHealthList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def instanceHealthListAsScala: Option[Seq[SingleInstanceHealth]] =
+    Option(self.instanceHealthList).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def refreshedAtAsScala: Option[java.time.Instant] = Option(self.refreshedAt)

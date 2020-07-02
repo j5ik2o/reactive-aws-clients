@@ -7,9 +7,7 @@ final class PutImageResponseBuilderOps(val self: PutImageResponse.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): PutImageResponse.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
 }

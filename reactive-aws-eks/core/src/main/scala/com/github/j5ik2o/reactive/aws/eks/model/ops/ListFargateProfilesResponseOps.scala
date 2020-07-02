@@ -14,9 +14,7 @@ final class ListFargateProfilesResponseBuilderOps(val self: ListFargateProfilesR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListFargateProfilesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class ListFargateProfilesResponseBuilderOps(val self: ListFargateProfilesR
 final class ListFargateProfilesResponseOps(val self: ListFargateProfilesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def fargateProfileNamesAsScala: Option[Seq[String]] = Option(self.fargateProfileNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def fargateProfileNamesAsScala: Option[Seq[String]] =
+    Option(self.fargateProfileNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

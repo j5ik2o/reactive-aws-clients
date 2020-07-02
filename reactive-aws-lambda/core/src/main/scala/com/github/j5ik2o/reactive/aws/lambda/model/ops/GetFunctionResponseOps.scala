@@ -7,16 +7,12 @@ final class GetFunctionResponseBuilderOps(val self: GetFunctionResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def configurationAsScala(value: Option[FunctionConfiguration]): GetFunctionResponse.Builder = {
-    value.fold(self) { v =>
-      self.configuration(v)
-    }
+    value.fold(self) { v => self.configuration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[FunctionCodeLocation]): GetFunctionResponse.Builder = {
-    value.fold(self) { v =>
-      self.code(v)
-    }
+    value.fold(self) { v => self.code(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,9 +24,7 @@ final class GetFunctionResponseBuilderOps(val self: GetFunctionResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def concurrencyAsScala(value: Option[Concurrency]): GetFunctionResponse.Builder = {
-    value.fold(self) { v =>
-      self.concurrency(v)
-    }
+    value.fold(self) { v => self.concurrency(v) }
   }
 
 }
@@ -44,9 +38,8 @@ final class GetFunctionResponseOps(val self: GetFunctionResponse) extends AnyVal
   final def codeAsScala: Option[FunctionCodeLocation] = Option(self.code)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def concurrencyAsScala: Option[Concurrency] = Option(self.concurrency)

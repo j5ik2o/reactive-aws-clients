@@ -14,16 +14,12 @@ final class ListPlatformVersionsRequestBuilderOps(val self: ListPlatformVersions
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxRecordsAsScala(value: Option[Int]): ListPlatformVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxRecords(v)
-    }
+    value.fold(self) { v => self.maxRecords(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListPlatformVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class ListPlatformVersionsRequestBuilderOps(val self: ListPlatformVersions
 final class ListPlatformVersionsRequestOps(val self: ListPlatformVersionsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def filtersAsScala: Option[Seq[PlatformFilter]] = Option(self.filters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def filtersAsScala: Option[Seq[PlatformFilter]] =
+    Option(self.filters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords)

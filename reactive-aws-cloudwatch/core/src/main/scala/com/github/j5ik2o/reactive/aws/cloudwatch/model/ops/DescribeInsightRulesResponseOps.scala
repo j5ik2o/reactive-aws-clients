@@ -7,9 +7,7 @@ final class DescribeInsightRulesResponseBuilderOps(val self: DescribeInsightRule
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeInsightRulesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DescribeInsightRulesResponseOps(val self: DescribeInsightRulesRespon
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def insightRulesAsScala: Option[Seq[InsightRule]] = Option(self.insightRules).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def insightRulesAsScala: Option[Seq[InsightRule]] =
+    Option(self.insightRules).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

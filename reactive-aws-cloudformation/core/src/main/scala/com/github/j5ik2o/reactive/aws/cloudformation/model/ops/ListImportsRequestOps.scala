@@ -7,16 +7,12 @@ final class ListImportsRequestBuilderOps(val self: ListImportsRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exportNameAsScala(value: Option[String]): ListImportsRequest.Builder = {
-    value.fold(self) { v =>
-      self.exportName(v)
-    }
+    value.fold(self) { v => self.exportName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListImportsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

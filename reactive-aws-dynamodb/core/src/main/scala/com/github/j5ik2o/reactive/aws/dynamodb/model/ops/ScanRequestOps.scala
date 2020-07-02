@@ -7,16 +7,12 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,16 +24,12 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def selectAsScala(value: Option[Select]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.select(v)
-    }
+    value.fold(self) { v => self.select(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -49,9 +41,7 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.conditionalOperator(v)
-    }
+    value.fold(self) { v => self.conditionalOperator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -63,37 +53,27 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.returnConsumedCapacity(v)
-    }
+    value.fold(self) { v => self.returnConsumedCapacity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalSegmentsAsScala(value: Option[Int]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.totalSegments(v)
-    }
+    value.fold(self) { v => self.totalSegments(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def segmentAsScala(value: Option[Int]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.segment(v)
-    }
+    value.fold(self) { v => self.segment(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionExpressionAsScala(value: Option[String]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectionExpression(v)
-    }
+    value.fold(self) { v => self.projectionExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterExpressionAsScala(value: Option[String]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterExpression(v)
-    }
+    value.fold(self) { v => self.filterExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -112,9 +92,7 @@ final class ScanRequestBuilderOps(val self: ScanRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consistentReadAsScala(value: Option[Boolean]): ScanRequest.Builder = {
-    value.fold(self) { v =>
-      self.consistentRead(v)
-    }
+    value.fold(self) { v => self.consistentRead(v) }
   }
 
 }
@@ -128,9 +106,10 @@ final class ScanRequestOps(val self: ScanRequest) extends AnyVal {
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesToGetAsScala: Option[Seq[String]] = Option(self.attributesToGet).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributesToGetAsScala: Option[Seq[String]] =
+    Option(self.attributesToGet).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala: Option[Int] = Option(self.limit)
@@ -139,17 +118,19 @@ final class ScanRequestOps(val self: ScanRequest) extends AnyVal {
   final def selectAsScala: Option[Select] = Option(self.select)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def scanFilterAsScala: Option[Map[String, Condition]] = Option(self.scanFilter).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def scanFilterAsScala: Option[Map[String, Condition]] =
+    Option(self.scanFilter).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionalOperatorAsScala: Option[ConditionalOperator] = Option(self.conditionalOperator)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def exclusiveStartKeyAsScala: Option[Map[String, AttributeValue]] = Option(self.exclusiveStartKey).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def exclusiveStartKeyAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.exclusiveStartKey).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] = Option(self.returnConsumedCapacity)
@@ -167,10 +148,10 @@ final class ScanRequestOps(val self: ScanRequest) extends AnyVal {
   final def filterExpressionAsScala: Option[String] = Option(self.filterExpression)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
-    v =>
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] =
+    Option(self.expressionAttributeNames).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =

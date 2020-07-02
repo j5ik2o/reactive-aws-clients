@@ -7,23 +7,17 @@ final class NodePropertiesSummaryBuilderOps(val self: NodePropertiesSummary.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isMainNodeAsScala(value: Option[Boolean]): NodePropertiesSummary.Builder = {
-    value.fold(self) { v =>
-      self.isMainNode(v)
-    }
+    value.fold(self) { v => self.isMainNode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numNodesAsScala(value: Option[Int]): NodePropertiesSummary.Builder = {
-    value.fold(self) { v =>
-      self.numNodes(v)
-    }
+    value.fold(self) { v => self.numNodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIndexAsScala(value: Option[Int]): NodePropertiesSummary.Builder = {
-    value.fold(self) { v =>
-      self.nodeIndex(v)
-    }
+    value.fold(self) { v => self.nodeIndex(v) }
   }
 
 }

@@ -14,9 +14,7 @@ final class AccessControlPolicyBuilderOps(val self: AccessControlPolicy.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala(value: Option[Owner]): AccessControlPolicy.Builder = {
-    value.fold(self) { v =>
-      self.owner(v)
-    }
+    value.fold(self) { v => self.owner(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class AccessControlPolicyBuilderOps(val self: AccessControlPolicy.Builder)
 final class AccessControlPolicyOps(val self: AccessControlPolicy) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantsAsScala: Option[Seq[Grant]] = Option(self.grants).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantsAsScala: Option[Seq[Grant]] =
+    Option(self.grants).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala: Option[Owner] = Option(self.owner)

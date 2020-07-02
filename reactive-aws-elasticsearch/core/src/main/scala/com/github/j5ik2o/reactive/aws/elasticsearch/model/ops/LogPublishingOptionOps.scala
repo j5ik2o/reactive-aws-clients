@@ -7,16 +7,12 @@ final class LogPublishingOptionBuilderOps(val self: LogPublishingOption.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudWatchLogsLogGroupArnAsScala(value: Option[String]): LogPublishingOption.Builder = {
-    value.fold(self) { v =>
-      self.cloudWatchLogsLogGroupArn(v)
-    }
+    value.fold(self) { v => self.cloudWatchLogsLogGroupArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): LogPublishingOption.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
 }

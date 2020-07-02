@@ -14,37 +14,27 @@ final class GetMetricDataRequestBuilderOps(val self: GetMetricDataRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala(value: Option[java.time.Instant]): GetMetricDataRequest.Builder = {
-    value.fold(self) { v =>
-      self.startTime(v)
-    }
+    value.fold(self) { v => self.startTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimeAsScala(value: Option[java.time.Instant]): GetMetricDataRequest.Builder = {
-    value.fold(self) { v =>
-      self.endTime(v)
-    }
+    value.fold(self) { v => self.endTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetMetricDataRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scanByAsScala(value: Option[ScanBy]): GetMetricDataRequest.Builder = {
-    value.fold(self) { v =>
-      self.scanBy(v)
-    }
+    value.fold(self) { v => self.scanBy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxDatapointsAsScala(value: Option[Int]): GetMetricDataRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxDatapoints(v)
-    }
+    value.fold(self) { v => self.maxDatapoints(v) }
   }
 
 }
@@ -52,9 +42,10 @@ final class GetMetricDataRequestBuilderOps(val self: GetMetricDataRequest.Builde
 final class GetMetricDataRequestOps(val self: GetMetricDataRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricDataQueriesAsScala: Option[Seq[MetricDataQuery]] = Option(self.metricDataQueries).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricDataQueriesAsScala: Option[Seq[MetricDataQuery]] =
+    Option(self.metricDataQueries).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala: Option[java.time.Instant] = Option(self.startTime)

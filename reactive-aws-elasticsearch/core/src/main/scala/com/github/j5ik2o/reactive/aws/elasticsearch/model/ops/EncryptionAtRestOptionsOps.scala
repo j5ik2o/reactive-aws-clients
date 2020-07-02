@@ -7,16 +7,12 @@ final class EncryptionAtRestOptionsBuilderOps(val self: EncryptionAtRestOptions.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): EncryptionAtRestOptions.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): EncryptionAtRestOptions.Builder = {
-    value.fold(self) { v =>
-      self.kmsKeyId(v)
-    }
+    value.fold(self) { v => self.kmsKeyId(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class StartFaceSearchResponseBuilderOps(val self: StartFaceSearchResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartFaceSearchResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
 }

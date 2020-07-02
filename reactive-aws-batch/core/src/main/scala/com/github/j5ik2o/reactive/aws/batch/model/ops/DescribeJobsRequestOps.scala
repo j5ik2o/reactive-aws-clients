@@ -17,9 +17,8 @@ final class DescribeJobsRequestBuilderOps(val self: DescribeJobsRequest.Builder)
 final class DescribeJobsRequestOps(val self: DescribeJobsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def jobsAsScala: Option[Seq[String]] = Option(self.jobs).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def jobsAsScala: Option[Seq[String]] =
+    Option(self.jobs).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

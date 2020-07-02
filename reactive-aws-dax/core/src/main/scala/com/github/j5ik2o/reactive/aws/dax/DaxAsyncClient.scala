@@ -9,9 +9,10 @@ import scala.concurrent.Future
 
 object DaxAsyncClient {
 
-  def apply(asyncClient: JavaDaxAsyncClient): DaxAsyncClient = new DaxAsyncClient {
-    override val underlying: JavaDaxAsyncClient = asyncClient
-  }
+  def apply(asyncClient: JavaDaxAsyncClient): DaxAsyncClient =
+    new DaxAsyncClient {
+      override val underlying: JavaDaxAsyncClient = asyncClient
+    }
 
 }
 

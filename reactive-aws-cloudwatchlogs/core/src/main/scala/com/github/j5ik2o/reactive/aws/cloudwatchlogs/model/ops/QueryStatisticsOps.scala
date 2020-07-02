@@ -7,23 +7,17 @@ final class QueryStatisticsBuilderOps(val self: QueryStatistics.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recordsMatchedAsScala(value: Option[Double]): QueryStatistics.Builder = {
-    value.fold(self) { v =>
-      self.recordsMatched(v)
-    }
+    value.fold(self) { v => self.recordsMatched(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recordsScannedAsScala(value: Option[Double]): QueryStatistics.Builder = {
-    value.fold(self) { v =>
-      self.recordsScanned(v)
-    }
+    value.fold(self) { v => self.recordsScanned(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bytesScannedAsScala(value: Option[Double]): QueryStatistics.Builder = {
-    value.fold(self) { v =>
-      self.bytesScanned(v)
-    }
+    value.fold(self) { v => self.bytesScanned(v) }
   }
 
 }

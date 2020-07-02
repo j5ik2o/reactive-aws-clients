@@ -14,16 +14,12 @@ final class ListAliasesResponseBuilderOps(val self: ListAliasesResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListAliasesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def truncatedAsScala(value: Option[Boolean]): ListAliasesResponse.Builder = {
-    value.fold(self) { v =>
-      self.truncated(v)
-    }
+    value.fold(self) { v => self.truncated(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class ListAliasesResponseBuilderOps(val self: ListAliasesResponse.Builder)
 final class ListAliasesResponseOps(val self: ListAliasesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def aliasesAsScala: Option[Seq[AliasListEntry]] = Option(self.aliases).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def aliasesAsScala: Option[Seq[AliasListEntry]] =
+    Option(self.aliases).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)

@@ -7,9 +7,7 @@ final class CreatePackageResponseBuilderOps(val self: CreatePackageResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageDetailsAsScala(value: Option[PackageDetails]): CreatePackageResponse.Builder = {
-    value.fold(self) { v =>
-      self.packageDetails(v)
-    }
+    value.fold(self) { v => self.packageDetails(v) }
   }
 
 }

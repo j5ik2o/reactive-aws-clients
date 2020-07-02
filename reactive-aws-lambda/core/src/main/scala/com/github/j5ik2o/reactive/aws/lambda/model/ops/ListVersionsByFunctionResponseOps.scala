@@ -7,9 +7,7 @@ final class ListVersionsByFunctionResponseBuilderOps(val self: ListVersionsByFun
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListVersionsByFunctionResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class ListVersionsByFunctionResponseOps(val self: ListVersionsByFunctionRe
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def versionsAsScala: Option[Seq[FunctionConfiguration]] = Option(self.versions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def versionsAsScala: Option[Seq[FunctionConfiguration]] =
+    Option(self.versions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

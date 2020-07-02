@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.cloudformation.model._
 
 object CloudFormationAkkaClient {
 
-  def apply(asyncClient: CloudFormationAsyncClient): CloudFormationAkkaClient = new CloudFormationAkkaClient {
-    override val underlying: CloudFormationAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudFormationAsyncClient): CloudFormationAkkaClient =
+    new CloudFormationAkkaClient {
+      override val underlying: CloudFormationAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

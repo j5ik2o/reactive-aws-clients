@@ -7,23 +7,17 @@ final class SourceBuildInformationBuilderOps(val self: SourceBuildInformation.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTypeAsScala(value: Option[SourceType]): SourceBuildInformation.Builder = {
-    value.fold(self) { v =>
-      self.sourceType(v)
-    }
+    value.fold(self) { v => self.sourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceRepositoryAsScala(value: Option[SourceRepository]): SourceBuildInformation.Builder = {
-    value.fold(self) { v =>
-      self.sourceRepository(v)
-    }
+    value.fold(self) { v => self.sourceRepository(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceLocationAsScala(value: Option[String]): SourceBuildInformation.Builder = {
-    value.fold(self) { v =>
-      self.sourceLocation(v)
-    }
+    value.fold(self) { v => self.sourceLocation(v) }
   }
 
 }

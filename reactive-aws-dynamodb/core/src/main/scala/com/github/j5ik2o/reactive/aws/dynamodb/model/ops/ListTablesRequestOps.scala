@@ -7,16 +7,12 @@ final class ListTablesRequestBuilderOps(val self: ListTablesRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartTableNameAsScala(value: Option[String]): ListTablesRequest.Builder = {
-    value.fold(self) { v =>
-      self.exclusiveStartTableName(v)
-    }
+    value.fold(self) { v => self.exclusiveStartTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListTablesRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
 }

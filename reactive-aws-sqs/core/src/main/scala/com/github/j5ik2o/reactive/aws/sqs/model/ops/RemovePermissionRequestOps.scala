@@ -7,16 +7,12 @@ final class RemovePermissionRequestBuilderOps(val self: RemovePermissionRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): RemovePermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.label(v)
-    }
+    value.fold(self) { v => self.label(v) }
   }
 
 }

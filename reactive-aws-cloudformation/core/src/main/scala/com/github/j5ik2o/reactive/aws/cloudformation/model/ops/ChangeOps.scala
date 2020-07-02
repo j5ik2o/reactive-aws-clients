@@ -7,16 +7,12 @@ final class ChangeBuilderOps(val self: Change.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ChangeType]): Change.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceChangeAsScala(value: Option[ResourceChange]): Change.Builder = {
-    value.fold(self) { v =>
-      self.resourceChange(v)
-    }
+    value.fold(self) { v => self.resourceChange(v) }
   }
 
 }

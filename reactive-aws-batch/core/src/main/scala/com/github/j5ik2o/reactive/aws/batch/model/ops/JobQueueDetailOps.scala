@@ -7,44 +7,32 @@ final class JobQueueDetailBuilderOps(val self: JobQueueDetail.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueNameAsScala(value: Option[String]): JobQueueDetail.Builder = {
-    value.fold(self) { v =>
-      self.jobQueueName(v)
-    }
+    value.fold(self) { v => self.jobQueueName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueArnAsScala(value: Option[String]): JobQueueDetail.Builder = {
-    value.fold(self) { v =>
-      self.jobQueueArn(v)
-    }
+    value.fold(self) { v => self.jobQueueArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[JQState]): JobQueueDetail.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[JQStatus]): JobQueueDetail.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): JobQueueDetail.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def priorityAsScala(value: Option[Int]): JobQueueDetail.Builder = {
-    value.fold(self) { v =>
-      self.priority(v)
-    }
+    value.fold(self) { v => self.priority(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))

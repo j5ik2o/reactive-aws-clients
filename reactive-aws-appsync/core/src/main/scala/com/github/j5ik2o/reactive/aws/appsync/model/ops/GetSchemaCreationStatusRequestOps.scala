@@ -7,9 +7,7 @@ final class GetSchemaCreationStatusRequestBuilderOps(val self: GetSchemaCreation
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): GetSchemaCreationStatusRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
 }

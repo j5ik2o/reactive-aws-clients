@@ -7,9 +7,7 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -50,19 +48,18 @@ final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyV
   final def clusterNameAsScala: Option[String] = Option(self.clusterName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def settingsAsScala: Option[Seq[ClusterSetting]] = Option(self.settings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def settingsAsScala: Option[Seq[ClusterSetting]] =
+    Option(self.settings).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capacityProvidersAsScala: Option[Seq[String]] = Option(self.capacityProviders).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capacityProvidersAsScala: Option[Seq[String]] =
+    Option(self.capacityProviders).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultCapacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =

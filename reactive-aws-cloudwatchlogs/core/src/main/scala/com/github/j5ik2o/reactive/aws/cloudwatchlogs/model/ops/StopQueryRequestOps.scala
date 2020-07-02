@@ -7,9 +7,7 @@ final class StopQueryRequestBuilderOps(val self: StopQueryRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queryIdAsScala(value: Option[String]): StopQueryRequest.Builder = {
-    value.fold(self) { v =>
-      self.queryId(v)
-    }
+    value.fold(self) { v => self.queryId(v) }
   }
 
 }

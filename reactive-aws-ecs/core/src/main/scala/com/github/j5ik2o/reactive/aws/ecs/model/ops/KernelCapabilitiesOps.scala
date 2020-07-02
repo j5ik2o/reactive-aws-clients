@@ -24,14 +24,12 @@ final class KernelCapabilitiesBuilderOps(val self: KernelCapabilities.Builder) e
 final class KernelCapabilitiesOps(val self: KernelCapabilities) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def addAsScala: Option[Seq[String]] = Option(self.add).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def addAsScala: Option[Seq[String]] =
+    Option(self.add).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dropAsScala: Option[Seq[String]] = Option(self.drop).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dropAsScala: Option[Seq[String]] =
+    Option(self.drop).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

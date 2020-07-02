@@ -7,30 +7,22 @@ final class ListFunctionsRequestBuilderOps(val self: ListFunctionsRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def masterRegionAsScala(value: Option[String]): ListFunctionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.masterRegion(v)
-    }
+    value.fold(self) { v => self.masterRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionVersionAsScala(value: Option[FunctionVersion]): ListFunctionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionVersion(v)
-    }
+    value.fold(self) { v => self.functionVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListFunctionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): ListFunctionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxItems(v)
-    }
+    value.fold(self) { v => self.maxItems(v) }
   }
 
 }

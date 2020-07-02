@@ -7,16 +7,12 @@ final class DescribeInstancesHealthRequestBuilderOps(val self: DescribeInstances
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): DescribeInstancesHealthRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): DescribeInstancesHealthRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -30,9 +26,7 @@ final class DescribeInstancesHealthRequestBuilderOps(val self: DescribeInstances
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeInstancesHealthRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -46,9 +40,10 @@ final class DescribeInstancesHealthRequestOps(val self: DescribeInstancesHealthR
   final def environmentIdAsScala: Option[String] = Option(self.environmentId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributeNamesAsScala: Option[Seq[InstancesHealthAttribute]] = Option(self.attributeNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributeNamesAsScala: Option[Seq[InstancesHealthAttribute]] =
+    Option(self.attributeNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

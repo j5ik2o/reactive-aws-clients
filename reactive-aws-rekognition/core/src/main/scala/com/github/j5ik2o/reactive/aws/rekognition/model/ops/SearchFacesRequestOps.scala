@@ -7,30 +7,22 @@ final class SearchFacesRequestBuilderOps(val self: SearchFacesRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): SearchFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.collectionId(v)
-    }
+    value.fold(self) { v => self.collectionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceIdAsScala(value: Option[String]): SearchFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.faceId(v)
-    }
+    value.fold(self) { v => self.faceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxFacesAsScala(value: Option[Int]): SearchFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxFaces(v)
-    }
+    value.fold(self) { v => self.maxFaces(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceMatchThresholdAsScala(value: Option[Float]): SearchFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.faceMatchThreshold(v)
-    }
+    value.fold(self) { v => self.faceMatchThreshold(v) }
   }
 
 }

@@ -7,37 +7,27 @@ final class SearchFacesByImageRequestBuilderOps(val self: SearchFacesByImageRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): SearchFacesByImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.collectionId(v)
-    }
+    value.fold(self) { v => self.collectionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): SearchFacesByImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxFacesAsScala(value: Option[Int]): SearchFacesByImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxFaces(v)
-    }
+    value.fold(self) { v => self.maxFaces(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceMatchThresholdAsScala(value: Option[Float]): SearchFacesByImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.faceMatchThreshold(v)
-    }
+    value.fold(self) { v => self.faceMatchThreshold(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualityFilterAsScala(value: Option[QualityFilter]): SearchFacesByImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualityFilter(v)
-    }
+    value.fold(self) { v => self.qualityFilter(v) }
   }
 
 }

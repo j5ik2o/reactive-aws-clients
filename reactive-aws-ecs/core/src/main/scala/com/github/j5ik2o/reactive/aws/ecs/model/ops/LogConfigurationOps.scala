@@ -7,9 +7,7 @@ final class LogConfigurationBuilderOps(val self: LogConfiguration.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logDriverAsScala(value: Option[LogDriver]): LogConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.logDriver(v)
-    }
+    value.fold(self) { v => self.logDriver(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -34,14 +32,16 @@ final class LogConfigurationOps(val self: LogConfiguration) extends AnyVal {
   final def logDriverAsScala: Option[LogDriver] = Option(self.logDriver)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionsAsScala: Option[Map[String, String]] = Option(self.options).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def optionsAsScala: Option[Map[String, String]] =
+    Option(self.options).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def secretOptionsAsScala: Option[Seq[Secret]] = Option(self.secretOptions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def secretOptionsAsScala: Option[Seq[Secret]] =
+    Option(self.secretOptions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

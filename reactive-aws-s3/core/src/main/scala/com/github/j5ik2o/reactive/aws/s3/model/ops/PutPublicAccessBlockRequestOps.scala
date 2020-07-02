@@ -7,25 +7,19 @@ final class PutPublicAccessBlockRequestBuilderOps(val self: PutPublicAccessBlock
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala(value: Option[String]): PutPublicAccessBlockRequest.Builder = {
-    value.fold(self) { v =>
-      self.contentMD5(v)
-    }
+    value.fold(self) { v => self.contentMD5(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicAccessBlockConfigurationAsScala(
       value: Option[PublicAccessBlockConfiguration]
   ): PutPublicAccessBlockRequest.Builder = {
-    value.fold(self) { v =>
-      self.publicAccessBlockConfiguration(v)
-    }
+    value.fold(self) { v => self.publicAccessBlockConfiguration(v) }
   }
 
 }

@@ -5,28 +5,30 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class GetLaunchTemplateDataResponseBuilderOps(val self: GetLaunchTemplateDataResponse.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def launchTemplateDataAsScala(value: Option[ResponseLaunchTemplateData]): GetLaunchTemplateDataResponse.Builder = {
-            value.fold(self){ v => self.launchTemplateData(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def launchTemplateDataAsScala(
+      value: Option[ResponseLaunchTemplateData]
+  ): GetLaunchTemplateDataResponse.Builder = {
+    value.fold(self) { v => self.launchTemplateData(v) }
+  }
 
 }
 
 final class GetLaunchTemplateDataResponseOps(val self: GetLaunchTemplateDataResponse) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def launchTemplateDataAsScala: Option[ResponseLaunchTemplateData] = Option(self.launchTemplateData) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def launchTemplateDataAsScala: Option[ResponseLaunchTemplateData] = Option(self.launchTemplateData)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToGetLaunchTemplateDataResponseOps {
 
-implicit def toGetLaunchTemplateDataResponseBuilderOps(v: GetLaunchTemplateDataResponse.Builder): GetLaunchTemplateDataResponseBuilderOps = new GetLaunchTemplateDataResponseBuilderOps(v)
+  implicit def toGetLaunchTemplateDataResponseBuilderOps(
+      v: GetLaunchTemplateDataResponse.Builder
+  ): GetLaunchTemplateDataResponseBuilderOps = new GetLaunchTemplateDataResponseBuilderOps(v)
 
-implicit def toGetLaunchTemplateDataResponseOps(v: GetLaunchTemplateDataResponse): GetLaunchTemplateDataResponseOps = new GetLaunchTemplateDataResponseOps(v)
+  implicit def toGetLaunchTemplateDataResponseOps(v: GetLaunchTemplateDataResponse): GetLaunchTemplateDataResponseOps =
+    new GetLaunchTemplateDataResponseOps(v)
 
 }
-

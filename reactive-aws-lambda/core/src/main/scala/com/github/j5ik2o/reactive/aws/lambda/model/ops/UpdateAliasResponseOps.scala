@@ -7,44 +7,32 @@ final class UpdateAliasResponseBuilderOps(val self: UpdateAliasResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasArnAsScala(value: Option[String]): UpdateAliasResponse.Builder = {
-    value.fold(self) { v =>
-      self.aliasArn(v)
-    }
+    value.fold(self) { v => self.aliasArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): UpdateAliasResponse.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionVersionAsScala(value: Option[String]): UpdateAliasResponse.Builder = {
-    value.fold(self) { v =>
-      self.functionVersion(v)
-    }
+    value.fold(self) { v => self.functionVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): UpdateAliasResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routingConfigAsScala(value: Option[AliasRoutingConfiguration]): UpdateAliasResponse.Builder = {
-    value.fold(self) { v =>
-      self.routingConfig(v)
-    }
+    value.fold(self) { v => self.routingConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): UpdateAliasResponse.Builder = {
-    value.fold(self) { v =>
-      self.revisionId(v)
-    }
+    value.fold(self) { v => self.revisionId(v) }
   }
 
 }

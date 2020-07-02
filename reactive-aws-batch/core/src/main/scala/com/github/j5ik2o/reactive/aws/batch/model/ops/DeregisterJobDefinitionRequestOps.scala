@@ -7,9 +7,7 @@ final class DeregisterJobDefinitionRequestBuilderOps(val self: DeregisterJobDefi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala(value: Option[String]): DeregisterJobDefinitionRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobDefinition(v)
-    }
+    value.fold(self) { v => self.jobDefinition(v) }
   }
 
 }

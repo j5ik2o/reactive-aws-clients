@@ -7,23 +7,17 @@ final class DescribeLogGroupsRequestBuilderOps(val self: DescribeLogGroupsReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNamePrefixAsScala(value: Option[String]): DescribeLogGroupsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupNamePrefix(v)
-    }
+    value.fold(self) { v => self.logGroupNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeLogGroupsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeLogGroupsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
 }

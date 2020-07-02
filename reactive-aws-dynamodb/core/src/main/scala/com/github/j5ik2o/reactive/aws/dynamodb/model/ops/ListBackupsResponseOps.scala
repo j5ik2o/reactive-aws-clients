@@ -14,9 +14,7 @@ final class ListBackupsResponseBuilderOps(val self: ListBackupsResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedBackupArnAsScala(value: Option[String]): ListBackupsResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastEvaluatedBackupArn(v)
-    }
+    value.fold(self) { v => self.lastEvaluatedBackupArn(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class ListBackupsResponseBuilderOps(val self: ListBackupsResponse.Builder)
 final class ListBackupsResponseOps(val self: ListBackupsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def backupSummariesAsScala: Option[Seq[BackupSummary]] = Option(self.backupSummaries).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def backupSummariesAsScala: Option[Seq[BackupSummary]] =
+    Option(self.backupSummaries).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedBackupArnAsScala: Option[String] = Option(self.lastEvaluatedBackupArn)

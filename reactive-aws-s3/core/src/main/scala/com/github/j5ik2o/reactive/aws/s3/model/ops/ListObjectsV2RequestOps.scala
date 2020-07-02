@@ -7,65 +7,47 @@ final class ListObjectsV2RequestBuilderOps(val self: ListObjectsV2Request.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def delimiterAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.delimiter(v)
-    }
+    value.fold(self) { v => self.delimiter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encodingTypeAsScala(value: Option[EncodingType]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.encodingType(v)
-    }
+    value.fold(self) { v => self.encodingType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxKeysAsScala(value: Option[Int]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.maxKeys(v)
-    }
+    value.fold(self) { v => self.maxKeys(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.prefix(v)
-    }
+    value.fold(self) { v => self.prefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuationTokenAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.continuationToken(v)
-    }
+    value.fold(self) { v => self.continuationToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fetchOwnerAsScala(value: Option[Boolean]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.fetchOwner(v)
-    }
+    value.fold(self) { v => self.fetchOwner(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startAfterAsScala(value: Option[String]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.startAfter(v)
-    }
+    value.fold(self) { v => self.startAfter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala(value: Option[RequestPayer]): ListObjectsV2Request.Builder = {
-    value.fold(self) { v =>
-      self.requestPayer(v)
-    }
+    value.fold(self) { v => self.requestPayer(v) }
   }
 
 }

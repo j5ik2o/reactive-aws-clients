@@ -7,51 +7,37 @@ final class RepositoryBuilderOps(val self: Repository.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryArnAsScala(value: Option[String]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.repositoryArn(v)
-    }
+    value.fold(self) { v => self.repositoryArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryUriAsScala(value: Option[String]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.repositoryUri(v)
-    }
+    value.fold(self) { v => self.repositoryUri(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[java.time.Instant]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagMutabilityAsScala(value: Option[ImageTagMutability]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.imageTagMutability(v)
-    }
+    value.fold(self) { v => self.imageTagMutability(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanningConfigurationAsScala(value: Option[ImageScanningConfiguration]): Repository.Builder = {
-    value.fold(self) { v =>
-      self.imageScanningConfiguration(v)
-    }
+    value.fold(self) { v => self.imageScanningConfiguration(v) }
   }
 
 }

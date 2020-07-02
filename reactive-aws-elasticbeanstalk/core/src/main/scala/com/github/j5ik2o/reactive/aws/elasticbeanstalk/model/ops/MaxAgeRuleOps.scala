@@ -7,23 +7,17 @@ final class MaxAgeRuleBuilderOps(val self: MaxAgeRule.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): MaxAgeRule.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxAgeInDaysAsScala(value: Option[Int]): MaxAgeRule.Builder = {
-    value.fold(self) { v =>
-      self.maxAgeInDays(v)
-    }
+    value.fold(self) { v => self.maxAgeInDays(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteSourceFromS3AsScala(value: Option[Boolean]): MaxAgeRule.Builder = {
-    value.fold(self) { v =>
-      self.deleteSourceFromS3(v)
-    }
+    value.fold(self) { v => self.deleteSourceFromS3(v) }
   }
 
 }

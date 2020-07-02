@@ -7,9 +7,7 @@ final class CreateRepositoryRequestBuilderOps(val self: CreateRepositoryRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): CreateRepositoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,18 +19,14 @@ final class CreateRepositoryRequestBuilderOps(val self: CreateRepositoryRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagMutabilityAsScala(value: Option[ImageTagMutability]): CreateRepositoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.imageTagMutability(v)
-    }
+    value.fold(self) { v => self.imageTagMutability(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanningConfigurationAsScala(
       value: Option[ImageScanningConfiguration]
   ): CreateRepositoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.imageScanningConfiguration(v)
-    }
+    value.fold(self) { v => self.imageScanningConfiguration(v) }
   }
 
 }
@@ -43,9 +37,8 @@ final class CreateRepositoryRequestOps(val self: CreateRepositoryRequest) extend
   final def repositoryNameAsScala: Option[String] = Option(self.repositoryName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagMutabilityAsScala: Option[ImageTagMutability] = Option(self.imageTagMutability)

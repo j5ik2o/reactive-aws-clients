@@ -7,9 +7,7 @@ final class UpdateContainerAgentResponseBuilderOps(val self: UpdateContainerAgen
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[ContainerInstance]): UpdateContainerAgentResponse.Builder = {
-    value.fold(self) { v =>
-      self.containerInstance(v)
-    }
+    value.fold(self) { v => self.containerInstance(v) }
   }
 
 }

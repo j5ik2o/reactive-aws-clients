@@ -7,9 +7,7 @@ final class DescribeFargateProfileResponseBuilderOps(val self: DescribeFargatePr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fargateProfileAsScala(value: Option[FargateProfile]): DescribeFargateProfileResponse.Builder = {
-    value.fold(self) { v =>
-      self.fargateProfile(v)
-    }
+    value.fold(self) { v => self.fargateProfile(v) }
   }
 
 }

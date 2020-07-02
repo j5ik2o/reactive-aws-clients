@@ -7,65 +7,47 @@ final class ExportTaskBuilderOps(val self: ExportTask.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskIdAsScala(value: Option[String]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.taskId(v)
-    }
+    value.fold(self) { v => self.taskId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskNameAsScala(value: Option[String]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.taskName(v)
-    }
+    value.fold(self) { v => self.taskName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fromAsScala(value: Option[Long]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.from(v)
-    }
+    value.fold(self) { v => self.from(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def toAsScala(value: Option[Long]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.to(v)
-    }
+    value.fold(self) { v => self.to(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala(value: Option[String]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.destination(v)
-    }
+    value.fold(self) { v => self.destination(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationPrefixAsScala(value: Option[String]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.destinationPrefix(v)
-    }
+    value.fold(self) { v => self.destinationPrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ExportTaskStatus]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionInfoAsScala(value: Option[ExportTaskExecutionInfo]): ExportTask.Builder = {
-    value.fold(self) { v =>
-      self.executionInfo(v)
-    }
+    value.fold(self) { v => self.executionInfo(v) }
   }
 
 }

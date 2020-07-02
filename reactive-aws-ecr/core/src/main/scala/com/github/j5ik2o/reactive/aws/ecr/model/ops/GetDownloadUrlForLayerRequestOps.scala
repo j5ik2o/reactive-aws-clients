@@ -7,23 +7,17 @@ final class GetDownloadUrlForLayerRequestBuilderOps(val self: GetDownloadUrlForL
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): GetDownloadUrlForLayerRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): GetDownloadUrlForLayerRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestAsScala(value: Option[String]): GetDownloadUrlForLayerRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerDigest(v)
-    }
+    value.fold(self) { v => self.layerDigest(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class NodeRangePropertyBuilderOps(val self: NodeRangeProperty.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetNodesAsScala(value: Option[String]): NodeRangeProperty.Builder = {
-    value.fold(self) { v =>
-      self.targetNodes(v)
-    }
+    value.fold(self) { v => self.targetNodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala(value: Option[ContainerProperties]): NodeRangeProperty.Builder = {
-    value.fold(self) { v =>
-      self.container(v)
-    }
+    value.fold(self) { v => self.container(v) }
   }
 
 }

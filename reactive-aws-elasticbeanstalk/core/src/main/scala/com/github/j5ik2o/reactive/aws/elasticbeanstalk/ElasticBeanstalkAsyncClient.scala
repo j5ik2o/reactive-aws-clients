@@ -20,8 +20,7 @@ object ElasticBeanstalkAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticbeanstalk/ElasticBeanstalkAsyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticbeanstalk/ElasticBeanstalkAsyncClient.html */
 trait ElasticBeanstalkAsyncClient extends ElasticBeanstalkClient[Future] {
   val underlying: JavaElasticBeanstalkAsyncClient
 

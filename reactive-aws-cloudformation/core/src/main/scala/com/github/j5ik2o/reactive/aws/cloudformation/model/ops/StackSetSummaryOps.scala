@@ -7,58 +7,42 @@ final class StackSetSummaryBuilderOps(val self: StackSetSummary.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetIdAsScala(value: Option[String]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackSetId(v)
-    }
+    value.fold(self) { v => self.stackSetId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[StackSetStatus]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoDeploymentAsScala(value: Option[AutoDeployment]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.autoDeployment(v)
-    }
+    value.fold(self) { v => self.autoDeployment(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionModelAsScala(value: Option[PermissionModels]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.permissionModel(v)
-    }
+    value.fold(self) { v => self.permissionModel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftStatusAsScala(value: Option[StackDriftStatus]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.driftStatus(v)
-    }
+    value.fold(self) { v => self.driftStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastDriftCheckTimestampAsScala(value: Option[java.time.Instant]): StackSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.lastDriftCheckTimestamp(v)
-    }
+    value.fold(self) { v => self.lastDriftCheckTimestamp(v) }
   }
 
 }

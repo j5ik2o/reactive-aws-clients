@@ -7,30 +7,22 @@ final class DetectCustomLabelsRequestBuilderOps(val self: DetectCustomLabelsRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectVersionArnAsScala(value: Option[String]): DetectCustomLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectVersionArn(v)
-    }
+    value.fold(self) { v => self.projectVersionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): DetectCustomLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DetectCustomLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala(value: Option[Float]): DetectCustomLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.minConfidence(v)
-    }
+    value.fold(self) { v => self.minConfidence(v) }
   }
 
 }

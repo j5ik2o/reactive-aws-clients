@@ -14,16 +14,12 @@ final class UpdateItemResponseBuilderOps(val self: UpdateItemResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): UpdateItemResponse.Builder = {
-    value.fold(self) { v =>
-      self.consumedCapacity(v)
-    }
+    value.fold(self) { v => self.consumedCapacity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def itemCollectionMetricsAsScala(value: Option[ItemCollectionMetrics]): UpdateItemResponse.Builder = {
-    value.fold(self) { v =>
-      self.itemCollectionMetrics(v)
-    }
+    value.fold(self) { v => self.itemCollectionMetrics(v) }
   }
 
 }
@@ -31,9 +27,10 @@ final class UpdateItemResponseBuilderOps(val self: UpdateItemResponse.Builder) e
 final class UpdateItemResponseOps(val self: UpdateItemResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesAsScala: Option[Map[String, AttributeValue]] = Option(self.attributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def attributesAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.attributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity)

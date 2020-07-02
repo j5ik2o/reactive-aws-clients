@@ -17,9 +17,7 @@ final class DescribeStackResourceDriftsResponseBuilderOps(val self: DescribeStac
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeStackResourceDriftsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -27,9 +25,10 @@ final class DescribeStackResourceDriftsResponseBuilderOps(val self: DescribeStac
 final class DescribeStackResourceDriftsResponseOps(val self: DescribeStackResourceDriftsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def stackResourceDriftsAsScala: Option[Seq[StackResourceDrift]] = Option(self.stackResourceDrifts).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def stackResourceDriftsAsScala: Option[Seq[StackResourceDrift]] =
+    Option(self.stackResourceDrifts).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

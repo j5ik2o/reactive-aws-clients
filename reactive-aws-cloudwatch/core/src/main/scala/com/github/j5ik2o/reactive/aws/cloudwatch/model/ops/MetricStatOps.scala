@@ -7,30 +7,22 @@ final class MetricStatBuilderOps(val self: MetricStat.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricAsScala(value: Option[Metric]): MetricStat.Builder = {
-    value.fold(self) { v =>
-      self.metric(v)
-    }
+    value.fold(self) { v => self.metric(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala(value: Option[Int]): MetricStat.Builder = {
-    value.fold(self) { v =>
-      self.period(v)
-    }
+    value.fold(self) { v => self.period(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statAsScala(value: Option[String]): MetricStat.Builder = {
-    value.fold(self) { v =>
-      self.stat(v)
-    }
+    value.fold(self) { v => self.stat(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala(value: Option[StandardUnit]): MetricStat.Builder = {
-    value.fold(self) { v =>
-      self.unit(v)
-    }
+    value.fold(self) { v => self.unit(v) }
   }
 
 }

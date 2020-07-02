@@ -8,16 +8,12 @@ final class DeleteSubscriptionFilterRequestBuilderOps(val self: DeleteSubscripti
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): DeleteSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterName(v)
-    }
+    value.fold(self) { v => self.filterName(v) }
   }
 
 }

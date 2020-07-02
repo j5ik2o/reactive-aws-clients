@@ -7,44 +7,32 @@ final class PutSubscriptionFilterRequestBuilderOps(val self: PutSubscriptionFilt
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): PutSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): PutSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterName(v)
-    }
+    value.fold(self) { v => self.filterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterPatternAsScala(value: Option[String]): PutSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterPattern(v)
-    }
+    value.fold(self) { v => self.filterPattern(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationArnAsScala(value: Option[String]): PutSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationArn(v)
-    }
+    value.fold(self) { v => self.destinationArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): PutSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def distributionAsScala(value: Option[Distribution]): PutSubscriptionFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.distribution(v)
-    }
+    value.fold(self) { v => self.distribution(v) }
   }
 
 }

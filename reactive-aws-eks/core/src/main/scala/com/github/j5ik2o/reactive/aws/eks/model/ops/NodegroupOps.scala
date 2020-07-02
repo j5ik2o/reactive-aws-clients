@@ -7,65 +7,47 @@ final class NodegroupBuilderOps(val self: Nodegroup.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupNameAsScala(value: Option[String]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.nodegroupName(v)
-    }
+    value.fold(self) { v => self.nodegroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupArnAsScala(value: Option[String]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.nodegroupArn(v)
-    }
+    value.fold(self) { v => self.nodegroupArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def releaseVersionAsScala(value: Option[String]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.releaseVersion(v)
-    }
+    value.fold(self) { v => self.releaseVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[java.time.Instant]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def modifiedAtAsScala(value: Option[java.time.Instant]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.modifiedAt(v)
-    }
+    value.fold(self) { v => self.modifiedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[NodegroupStatus]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scalingConfigAsScala(value: Option[NodegroupScalingConfig]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.scalingConfig(v)
-    }
+    value.fold(self) { v => self.scalingConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -84,23 +66,17 @@ final class NodegroupBuilderOps(val self: Nodegroup.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remoteAccessAsScala(value: Option[RemoteAccessConfig]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.remoteAccess(v)
-    }
+    value.fold(self) { v => self.remoteAccess(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def amiTypeAsScala(value: Option[AMITypes]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.amiType(v)
-    }
+    value.fold(self) { v => self.amiType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeRoleAsScala(value: Option[String]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.nodeRole(v)
-    }
+    value.fold(self) { v => self.nodeRole(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -112,23 +88,17 @@ final class NodegroupBuilderOps(val self: Nodegroup.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcesAsScala(value: Option[NodegroupResources]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.resources(v)
-    }
+    value.fold(self) { v => self.resources(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def diskSizeAsScala(value: Option[Int]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.diskSize(v)
-    }
+    value.fold(self) { v => self.diskSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def healthAsScala(value: Option[NodegroupHealth]): Nodegroup.Builder = {
-    value.fold(self) { v =>
-      self.health(v)
-    }
+    value.fold(self) { v => self.health(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -170,14 +140,14 @@ final class NodegroupOps(val self: Nodegroup) extends AnyVal {
   final def scalingConfigAsScala: Option[NodegroupScalingConfig] = Option(self.scalingConfig)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def instanceTypesAsScala: Option[Seq[String]] = Option(self.instanceTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def instanceTypesAsScala: Option[Seq[String]] =
+    Option(self.instanceTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetsAsScala: Option[Seq[String]] = Option(self.subnets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetsAsScala: Option[Seq[String]] =
+    Option(self.subnets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def remoteAccessAsScala: Option[RemoteAccessConfig] = Option(self.remoteAccess)
@@ -189,9 +159,8 @@ final class NodegroupOps(val self: Nodegroup) extends AnyVal {
   final def nodeRoleAsScala: Option[String] = Option(self.nodeRole)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def labelsAsScala: Option[Map[String, String]] = Option(self.labels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def labelsAsScala: Option[Map[String, String]] =
+    Option(self.labels).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcesAsScala: Option[NodegroupResources] = Option(self.resources)
@@ -203,9 +172,8 @@ final class NodegroupOps(val self: Nodegroup) extends AnyVal {
   final def healthAsScala: Option[NodegroupHealth] = Option(self.health)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

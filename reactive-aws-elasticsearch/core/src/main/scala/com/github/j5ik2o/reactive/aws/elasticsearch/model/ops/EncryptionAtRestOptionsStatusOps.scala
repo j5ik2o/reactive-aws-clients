@@ -7,16 +7,12 @@ final class EncryptionAtRestOptionsStatusBuilderOps(val self: EncryptionAtRestOp
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(value: Option[EncryptionAtRestOptions]): EncryptionAtRestOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.options(v)
-    }
+    value.fold(self) { v => self.options(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[OptionStatus]): EncryptionAtRestOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class CheckDnsAvailabilityRequestBuilderOps(val self: CheckDnsAvailability
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cnamePrefixAsScala(value: Option[String]): CheckDnsAvailabilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.cnamePrefix(v)
-    }
+    value.fold(self) { v => self.cnamePrefix(v) }
   }
 
 }

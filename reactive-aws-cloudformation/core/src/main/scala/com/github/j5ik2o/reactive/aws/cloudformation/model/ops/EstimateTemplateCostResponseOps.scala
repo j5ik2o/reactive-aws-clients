@@ -7,9 +7,7 @@ final class EstimateTemplateCostResponseBuilderOps(val self: EstimateTemplateCos
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def urlAsScala(value: Option[String]): EstimateTemplateCostResponse.Builder = {
-    value.fold(self) { v =>
-      self.url(v)
-    }
+    value.fold(self) { v => self.url(v) }
   }
 
 }

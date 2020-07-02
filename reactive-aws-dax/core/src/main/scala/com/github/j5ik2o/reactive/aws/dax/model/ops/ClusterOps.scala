@@ -7,58 +7,42 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterArnAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.clusterArn(v)
-    }
+    value.fold(self) { v => self.clusterArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalNodesAsScala(value: Option[Int]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.totalNodes(v)
-    }
+    value.fold(self) { v => self.totalNodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def activeNodesAsScala(value: Option[Int]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.activeNodes(v)
-    }
+    value.fold(self) { v => self.activeNodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeTypeAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.nodeType(v)
-    }
+    value.fold(self) { v => self.nodeType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterDiscoveryEndpointAsScala(value: Option[Endpoint]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.clusterDiscoveryEndpoint(v)
-    }
+    value.fold(self) { v => self.clusterDiscoveryEndpoint(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -77,23 +61,17 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def preferredMaintenanceWindowAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.preferredMaintenanceWindow(v)
-    }
+    value.fold(self) { v => self.preferredMaintenanceWindow(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationConfigurationAsScala(value: Option[NotificationConfiguration]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.notificationConfiguration(v)
-    }
+    value.fold(self) { v => self.notificationConfiguration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.subnetGroup(v)
-    }
+    value.fold(self) { v => self.subnetGroup(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -105,23 +83,17 @@ final class ClusterBuilderOps(val self: Cluster.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamRoleArnAsScala(value: Option[String]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.iamRoleArn(v)
-    }
+    value.fold(self) { v => self.iamRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupAsScala(value: Option[ParameterGroupStatus]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroup(v)
-    }
+    value.fold(self) { v => self.parameterGroup(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseDescriptionAsScala(value: Option[SSEDescription]): Cluster.Builder = {
-    value.fold(self) { v =>
-      self.sseDescription(v)
-    }
+    value.fold(self) { v => self.sseDescription(v) }
   }
 
 }
@@ -153,14 +125,14 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
   final def clusterDiscoveryEndpointAsScala: Option[Endpoint] = Option(self.clusterDiscoveryEndpoint)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nodeIdsToRemoveAsScala: Option[Seq[String]] = Option(self.nodeIdsToRemove).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def nodeIdsToRemoveAsScala: Option[Seq[String]] =
+    Option(self.nodeIdsToRemove).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nodesAsScala: Option[Seq[Node]] = Option(self.nodes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def nodesAsScala: Option[Seq[Node]] =
+    Option(self.nodes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def preferredMaintenanceWindowAsScala: Option[String] = Option(self.preferredMaintenanceWindow)
@@ -172,9 +144,10 @@ final class ClusterOps(val self: Cluster) extends AnyVal {
   final def subnetGroupAsScala: Option[String] = Option(self.subnetGroup)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupsAsScala: Option[Seq[SecurityGroupMembership]] = Option(self.securityGroups).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupsAsScala: Option[Seq[SecurityGroupMembership]] =
+    Option(self.securityGroups).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamRoleArnAsScala: Option[String] = Option(self.iamRoleArn)

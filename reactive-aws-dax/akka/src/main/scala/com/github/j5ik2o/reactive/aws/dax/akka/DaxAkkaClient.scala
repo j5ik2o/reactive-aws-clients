@@ -10,9 +10,10 @@ import scala.concurrent.Future
 
 object DaxAkkaClient {
 
-  def apply(asyncClient: DaxAsyncClient): DaxAkkaClient = new DaxAkkaClient {
-    override val underlying: DaxAsyncClient = asyncClient
-  }
+  def apply(asyncClient: DaxAsyncClient): DaxAkkaClient =
+    new DaxAkkaClient {
+      override val underlying: DaxAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

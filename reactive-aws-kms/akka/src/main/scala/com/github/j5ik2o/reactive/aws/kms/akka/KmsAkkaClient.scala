@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.kms.model._
 
 object KmsAkkaClient {
 
-  def apply(asyncClient: KmsAsyncClient): KmsAkkaClient = new KmsAkkaClient {
-    override val underlying: KmsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: KmsAsyncClient): KmsAkkaClient =
+    new KmsAkkaClient {
+      override val underlying: KmsAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 
@@ -451,10 +452,10 @@ trait KmsAkkaClient {
   def listKeysPaginatorSource: Source[ListKeysResponse, NotUsed] =
     Source.fromPublisher(underlying.listKeysPaginator())
 
-  def listKeysPaginatorFlow: Flow[ListKeysRequest, ListKeysResponse, NotUsed] = Flow[ListKeysRequest].flatMapConcat {
-    request =>
+  def listKeysPaginatorFlow: Flow[ListKeysRequest, ListKeysResponse, NotUsed] =
+    Flow[ListKeysRequest].flatMapConcat { request =>
       Source.fromPublisher(underlying.listKeysPaginator(request))
-  }
+    }
 
   def listResourceTagsSource(
       listResourceTagsRequest: ListResourceTagsRequest,

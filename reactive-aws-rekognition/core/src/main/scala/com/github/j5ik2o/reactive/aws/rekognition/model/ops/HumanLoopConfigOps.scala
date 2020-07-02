@@ -7,23 +7,17 @@ final class HumanLoopConfigBuilderOps(val self: HumanLoopConfig.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def humanLoopNameAsScala(value: Option[String]): HumanLoopConfig.Builder = {
-    value.fold(self) { v =>
-      self.humanLoopName(v)
-    }
+    value.fold(self) { v => self.humanLoopName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def flowDefinitionArnAsScala(value: Option[String]): HumanLoopConfig.Builder = {
-    value.fold(self) { v =>
-      self.flowDefinitionArn(v)
-    }
+    value.fold(self) { v => self.flowDefinitionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataAttributesAsScala(value: Option[HumanLoopDataAttributes]): HumanLoopConfig.Builder = {
-    value.fold(self) { v =>
-      self.dataAttributes(v)
-    }
+    value.fold(self) { v => self.dataAttributes(v) }
   }
 
 }

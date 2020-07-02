@@ -7,24 +7,19 @@ final class ImageScanFindingsSummaryBuilderOps(val self: ImageScanFindingsSummar
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanCompletedAtAsScala(value: Option[java.time.Instant]): ImageScanFindingsSummary.Builder = {
-    value.fold(self) { v =>
-      self.imageScanCompletedAt(v)
-    }
+    value.fold(self) { v => self.imageScanCompletedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vulnerabilitySourceUpdatedAtAsScala(value: Option[java.time.Instant]): ImageScanFindingsSummary.Builder = {
-    value.fold(self) { v =>
-      self.vulnerabilitySourceUpdatedAt(v)
-    }
+    value.fold(self) { v => self.vulnerabilitySourceUpdatedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def findingSeverityCountsAsScala(value: Option[Map[FindingSeverity, Int]]): ImageScanFindingsSummary.Builder = {
     value
       .filter(_.nonEmpty).map(_.view.map { case (k, v) => (k, v.asInstanceOf[java.lang.Integer]) }.toMap).fold(self) {
-        v =>
-          import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.findingSeverityCounts(v.asJava)
+        v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.findingSeverityCounts(v.asJava)
       }
   }
 
@@ -39,11 +34,11 @@ final class ImageScanFindingsSummaryOps(val self: ImageScanFindingsSummary) exte
   final def vulnerabilitySourceUpdatedAtAsScala: Option[java.time.Instant] = Option(self.vulnerabilitySourceUpdatedAt)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def findingSeverityCountsAsScala: Option[Map[FindingSeverity, Int]] = Option(self.findingSeverityCounts).map {
-    v =>
+  final def findingSeverityCountsAsScala: Option[Map[FindingSeverity, Int]] =
+    Option(self.findingSeverityCounts).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
       v.asScala.toMap.view.map { case (k, v) => (k, v.intValue()) }.toMap
-  }
+    }
 
 }
 

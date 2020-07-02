@@ -8,9 +8,7 @@ final class PointInTimeRecoverySpecificationBuilderOps(val self: PointInTimeReco
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryEnabledAsScala(value: Option[Boolean]): PointInTimeRecoverySpecification.Builder = {
-    value.fold(self) { v =>
-      self.pointInTimeRecoveryEnabled(v)
-    }
+    value.fold(self) { v => self.pointInTimeRecoveryEnabled(v) }
   }
 
 }

@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.lambda.model._
 
 object LambdaAkkaClient {
 
-  def apply(asyncClient: LambdaAsyncClient): LambdaAkkaClient = new LambdaAkkaClient {
-    override val underlying: LambdaAsyncClient = asyncClient
-  }
+  def apply(asyncClient: LambdaAsyncClient): LambdaAkkaClient =
+    new LambdaAkkaClient {
+      override val underlying: LambdaAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

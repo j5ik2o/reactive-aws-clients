@@ -7,9 +7,7 @@ final class UpdateResolverResponseBuilderOps(val self: UpdateResolverResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resolverAsScala(value: Option[Resolver]): UpdateResolverResponse.Builder = {
-    value.fold(self) { v =>
-      self.resolver(v)
-    }
+    value.fold(self) { v => self.resolver(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class GetAccountSettingsResponseBuilderOps(val self: GetAccountSettingsRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountLimitAsScala(value: Option[AccountLimit]): GetAccountSettingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.accountLimit(v)
-    }
+    value.fold(self) { v => self.accountLimit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountUsageAsScala(value: Option[AccountUsage]): GetAccountSettingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.accountUsage(v)
-    }
+    value.fold(self) { v => self.accountUsage(v) }
   }
 
 }

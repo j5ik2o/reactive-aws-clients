@@ -7,16 +7,12 @@ final class MessageDataBuilderOps(val self: MessageData.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[String]): MessageData.Builder = {
-    value.fold(self) { v =>
-      self.code(v)
-    }
+    value.fold(self) { v => self.code(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): MessageData.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
 }

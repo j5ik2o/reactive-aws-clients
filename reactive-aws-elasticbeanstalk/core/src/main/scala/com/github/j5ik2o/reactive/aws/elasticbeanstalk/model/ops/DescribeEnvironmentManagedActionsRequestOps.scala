@@ -9,23 +9,17 @@ final class DescribeEnvironmentManagedActionsRequestBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): DescribeEnvironmentManagedActionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): DescribeEnvironmentManagedActionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ActionStatus]): DescribeEnvironmentManagedActionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

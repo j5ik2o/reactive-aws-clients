@@ -5,36 +5,36 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class AttachVpnGatewayRequestBuilderOps(val self: AttachVpnGatewayRequest.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def vpcIdAsScala(value: Option[String]): AttachVpnGatewayRequest.Builder = {
-            value.fold(self){ v => self.vpcId(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpcIdAsScala(value: Option[String]): AttachVpnGatewayRequest.Builder = {
+    value.fold(self) { v => self.vpcId(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def vpnGatewayIdAsScala(value: Option[String]): AttachVpnGatewayRequest.Builder = {
-            value.fold(self){ v => self.vpnGatewayId(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpnGatewayIdAsScala(value: Option[String]): AttachVpnGatewayRequest.Builder = {
+    value.fold(self) { v => self.vpnGatewayId(v) }
+  }
 
 }
 
 final class AttachVpnGatewayRequestOps(val self: AttachVpnGatewayRequest) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def vpcIdAsScala: Option[String] = Option(self.vpcId) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def vpnGatewayIdAsScala: Option[String] = Option(self.vpnGatewayId) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def vpnGatewayIdAsScala: Option[String] = Option(self.vpnGatewayId)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToAttachVpnGatewayRequestOps {
 
-implicit def toAttachVpnGatewayRequestBuilderOps(v: AttachVpnGatewayRequest.Builder): AttachVpnGatewayRequestBuilderOps = new AttachVpnGatewayRequestBuilderOps(v)
+  implicit def toAttachVpnGatewayRequestBuilderOps(
+      v: AttachVpnGatewayRequest.Builder
+  ): AttachVpnGatewayRequestBuilderOps = new AttachVpnGatewayRequestBuilderOps(v)
 
-implicit def toAttachVpnGatewayRequestOps(v: AttachVpnGatewayRequest): AttachVpnGatewayRequestOps = new AttachVpnGatewayRequestOps(v)
+  implicit def toAttachVpnGatewayRequestOps(v: AttachVpnGatewayRequest): AttachVpnGatewayRequestOps =
+    new AttachVpnGatewayRequestOps(v)
 
 }
-

@@ -7,9 +7,7 @@ final class HostVolumePropertiesBuilderOps(val self: HostVolumeProperties.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourcePathAsScala(value: Option[String]): HostVolumeProperties.Builder = {
-    value.fold(self) { v =>
-      self.sourcePath(v)
-    }
+    value.fold(self) { v => self.sourcePath(v) }
   }
 
 }

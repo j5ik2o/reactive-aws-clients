@@ -8,9 +8,7 @@ final class DeleteEventSourceMappingRequestBuilderOps(val self: DeleteEventSourc
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uuidAsScala(value: Option[String]): DeleteEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.uuid(v)
-    }
+    value.fold(self) { v => self.uuid(v) }
   }
 
 }

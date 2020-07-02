@@ -7,16 +7,12 @@ final class PlatformFilterBuilderOps(val self: PlatformFilter.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): PlatformFilter.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operatorAsScala(value: Option[String]): PlatformFilter.Builder = {
-    value.fold(self) { v =>
-      self.operator(v)
-    }
+    value.fold(self) { v => self.operator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class PlatformFilterOps(val self: PlatformFilter) extends AnyVal {
   final def operatorAsScala: Option[String] = Option(self.operator)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def valuesAsScala: Option[Seq[String]] = Option(self.values).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def valuesAsScala: Option[Seq[String]] =
+    Option(self.values).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,37 +7,27 @@ final class StackSetOperationSummaryBuilderOps(val self: StackSetOperationSummar
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): StackSetOperationSummary.Builder = {
-    value.fold(self) { v =>
-      self.operationId(v)
-    }
+    value.fold(self) { v => self.operationId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionAsScala(value: Option[StackSetOperationAction]): StackSetOperationSummary.Builder = {
-    value.fold(self) { v =>
-      self.action(v)
-    }
+    value.fold(self) { v => self.action(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[StackSetOperationStatus]): StackSetOperationSummary.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala(value: Option[java.time.Instant]): StackSetOperationSummary.Builder = {
-    value.fold(self) { v =>
-      self.creationTimestamp(v)
-    }
+    value.fold(self) { v => self.creationTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimestampAsScala(value: Option[java.time.Instant]): StackSetOperationSummary.Builder = {
-    value.fold(self) { v =>
-      self.endTimestamp(v)
-    }
+    value.fold(self) { v => self.endTimestamp(v) }
   }
 
 }

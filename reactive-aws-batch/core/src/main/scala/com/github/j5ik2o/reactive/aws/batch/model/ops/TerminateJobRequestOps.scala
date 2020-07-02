@@ -7,16 +7,12 @@ final class TerminateJobRequestBuilderOps(val self: TerminateJobRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): TerminateJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): TerminateJobRequest.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
 }

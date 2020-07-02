@@ -7,9 +7,7 @@ final class GetBucketEncryptionRequestBuilderOps(val self: GetBucketEncryptionRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketEncryptionRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
 }

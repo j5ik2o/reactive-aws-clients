@@ -8,30 +8,22 @@ final class GetCelebrityRecognitionResponseBuilderOps(val self: GetCelebrityReco
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[VideoJobStatus]): GetCelebrityRecognitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): GetCelebrityRecognitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoMetadataAsScala(value: Option[VideoMetadata]): GetCelebrityRecognitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.videoMetadata(v)
-    }
+    value.fold(self) { v => self.videoMetadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetCelebrityRecognitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -58,9 +50,8 @@ final class GetCelebrityRecognitionResponseOps(val self: GetCelebrityRecognition
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def celebritiesAsScala: Option[Seq[CelebrityRecognition]] = Option(self.celebrities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def celebritiesAsScala: Option[Seq[CelebrityRecognition]] =
+    Option(self.celebrities).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

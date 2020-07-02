@@ -7,23 +7,17 @@ final class PoseBuilderOps(val self: Pose.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rollAsScala(value: Option[Float]): Pose.Builder = {
-    value.fold(self) { v =>
-      self.roll(v)
-    }
+    value.fold(self) { v => self.roll(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def yawAsScala(value: Option[Float]): Pose.Builder = {
-    value.fold(self) { v =>
-      self.yaw(v)
-    }
+    value.fold(self) { v => self.yaw(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pitchAsScala(value: Option[Float]): Pose.Builder = {
-    value.fold(self) { v =>
-      self.pitch(v)
-    }
+    value.fold(self) { v => self.pitch(v) }
   }
 
 }

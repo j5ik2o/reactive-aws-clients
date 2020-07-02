@@ -7,9 +7,7 @@ final class CompareFacesResponseBuilderOps(val self: CompareFacesResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceImageFaceAsScala(value: Option[ComparedSourceImageFace]): CompareFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.sourceImageFace(v)
-    }
+    value.fold(self) { v => self.sourceImageFace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -30,18 +28,14 @@ final class CompareFacesResponseBuilderOps(val self: CompareFacesResponse.Builde
   final def sourceImageOrientationCorrectionAsScala(
       value: Option[OrientationCorrection]
   ): CompareFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.sourceImageOrientationCorrection(v)
-    }
+    value.fold(self) { v => self.sourceImageOrientationCorrection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetImageOrientationCorrectionAsScala(
       value: Option[OrientationCorrection]
   ): CompareFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.targetImageOrientationCorrection(v)
-    }
+    value.fold(self) { v => self.targetImageOrientationCorrection(v) }
   }
 
 }
@@ -52,14 +46,14 @@ final class CompareFacesResponseOps(val self: CompareFacesResponse) extends AnyV
   final def sourceImageFaceAsScala: Option[ComparedSourceImageFace] = Option(self.sourceImageFace)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def faceMatchesAsScala: Option[Seq[CompareFacesMatch]] = Option(self.faceMatches).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def faceMatchesAsScala: Option[Seq[CompareFacesMatch]] =
+    Option(self.faceMatches).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def unmatchedFacesAsScala: Option[Seq[ComparedFace]] = Option(self.unmatchedFaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def unmatchedFacesAsScala: Option[Seq[ComparedFace]] =
+    Option(self.unmatchedFaces).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceImageOrientationCorrectionAsScala: Option[OrientationCorrection] =

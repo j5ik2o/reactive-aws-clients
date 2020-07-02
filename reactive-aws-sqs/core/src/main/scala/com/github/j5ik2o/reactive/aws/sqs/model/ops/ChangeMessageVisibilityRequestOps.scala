@@ -7,23 +7,17 @@ final class ChangeMessageVisibilityRequestBuilderOps(val self: ChangeMessageVisi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def receiptHandleAsScala(value: Option[String]): ChangeMessageVisibilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.receiptHandle(v)
-    }
+    value.fold(self) { v => self.receiptHandle(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def visibilityTimeoutAsScala(value: Option[Int]): ChangeMessageVisibilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.visibilityTimeout(v)
-    }
+    value.fold(self) { v => self.visibilityTimeout(v) }
   }
 
 }

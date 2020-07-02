@@ -7,16 +7,12 @@ final class KeyValuePairBuilderOps(val self: KeyValuePair.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): KeyValuePair.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): KeyValuePair.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
 }

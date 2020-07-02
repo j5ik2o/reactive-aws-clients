@@ -17,9 +17,8 @@ final class DeleteRequestBuilderOps(val self: DeleteRequest.Builder) extends Any
 final class DeleteRequestOps(val self: DeleteRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keyAsScala: Option[Map[String, AttributeValue]] = Option(self.key).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def keyAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.key).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

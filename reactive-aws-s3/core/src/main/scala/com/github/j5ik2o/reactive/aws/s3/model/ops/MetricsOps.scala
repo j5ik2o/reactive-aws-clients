@@ -7,16 +7,12 @@ final class MetricsBuilderOps(val self: Metrics.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[MetricsStatus]): Metrics.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventThresholdAsScala(value: Option[ReplicationTimeValue]): Metrics.Builder = {
-    value.fold(self) { v =>
-      self.eventThreshold(v)
-    }
+    value.fold(self) { v => self.eventThreshold(v) }
   }
 
 }

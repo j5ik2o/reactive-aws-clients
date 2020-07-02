@@ -9,9 +9,7 @@ final class StartElasticsearchServiceSoftwareUpdateRequestBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): StartElasticsearchServiceSoftwareUpdateRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
 }

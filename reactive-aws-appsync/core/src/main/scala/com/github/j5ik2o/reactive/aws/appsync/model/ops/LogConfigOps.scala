@@ -7,23 +7,17 @@ final class LogConfigBuilderOps(val self: LogConfig.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldLogLevelAsScala(value: Option[FieldLogLevel]): LogConfig.Builder = {
-    value.fold(self) { v =>
-      self.fieldLogLevel(v)
-    }
+    value.fold(self) { v => self.fieldLogLevel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudWatchLogsRoleArnAsScala(value: Option[String]): LogConfig.Builder = {
-    value.fold(self) { v =>
-      self.cloudWatchLogsRoleArn(v)
-    }
+    value.fold(self) { v => self.cloudWatchLogsRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def excludeVerboseContentAsScala(value: Option[Boolean]): LogConfig.Builder = {
-    value.fold(self) { v =>
-      self.excludeVerboseContent(v)
-    }
+    value.fold(self) { v => self.excludeVerboseContent(v) }
   }
 
 }

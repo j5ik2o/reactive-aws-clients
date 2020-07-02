@@ -7,9 +7,7 @@ final class PutMetricDataRequestBuilderOps(val self: PutMetricDataRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): PutMetricDataRequest.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class PutMetricDataRequestOps(val self: PutMetricDataRequest) extends AnyV
   final def namespaceAsScala: Option[String] = Option(self.namespace)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricDataAsScala: Option[Seq[MetricDatum]] = Option(self.metricData).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricDataAsScala: Option[Seq[MetricDatum]] =
+    Option(self.metricData).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

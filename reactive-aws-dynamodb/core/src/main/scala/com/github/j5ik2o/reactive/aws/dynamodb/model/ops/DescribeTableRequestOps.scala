@@ -7,9 +7,7 @@ final class DescribeTableRequestBuilderOps(val self: DescribeTableRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DescribeTableRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
 }

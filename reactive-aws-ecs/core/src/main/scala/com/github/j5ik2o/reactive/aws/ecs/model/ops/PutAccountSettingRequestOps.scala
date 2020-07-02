@@ -7,23 +7,17 @@ final class PutAccountSettingRequestBuilderOps(val self: PutAccountSettingReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[SettingName]): PutAccountSettingRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): PutAccountSettingRequest.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala(value: Option[String]): PutAccountSettingRequest.Builder = {
-    value.fold(self) { v =>
-      self.principalArn(v)
-    }
+    value.fold(self) { v => self.principalArn(v) }
   }
 
 }

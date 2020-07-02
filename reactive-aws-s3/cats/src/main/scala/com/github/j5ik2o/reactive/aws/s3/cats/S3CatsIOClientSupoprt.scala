@@ -19,13 +19,15 @@ trait S3CatsIOClientSupoprt { this: S3CatsIOClient =>
 
   override def getObjectAsBytes(
       getObjectRequest: GetObjectRequest
-  ): IO[ResponseBytes[GetObjectResponse]] = IO.fromFuture {
-    IO(underlying.getObjectAsBytes(getObjectRequest))
-  }
+  ): IO[ResponseBytes[GetObjectResponse]] =
+    IO.fromFuture {
+      IO(underlying.getObjectAsBytes(getObjectRequest))
+    }
 
-  override def getObjectToFile(getObjectRequest: GetObjectRequest, file: File): IO[GetObjectResponse] = IO.fromFuture {
-    IO(underlying.getObjectToFile(getObjectRequest, file))
-  }
+  override def getObjectToFile(getObjectRequest: GetObjectRequest, file: File): IO[GetObjectResponse] =
+    IO.fromFuture {
+      IO(underlying.getObjectToFile(getObjectRequest, file))
+    }
 
   override def getObjectToPath(getObjectRequest: GetObjectRequest, destinationPath: Path): IO[GetObjectResponse] =
     IO.fromFuture {
@@ -42,23 +44,26 @@ trait S3CatsIOClientSupoprt { this: S3CatsIOClient =>
 
   override def getObjectTorrentAsBytes(
       getObjectRequest: GetObjectTorrentRequest
-  ): IO[ResponseBytes[GetObjectTorrentResponse]] = IO.fromFuture {
-    IO(underlying.getObjectTorrentAsBytes(getObjectRequest))
-  }
+  ): IO[ResponseBytes[GetObjectTorrentResponse]] =
+    IO.fromFuture {
+      IO(underlying.getObjectTorrentAsBytes(getObjectRequest))
+    }
 
   override def getObjectTorrentToFile(
       getObjectRequest: GetObjectTorrentRequest,
       file: File
-  ): IO[GetObjectTorrentResponse] = IO.fromFuture {
-    IO(underlying.getObjectTorrentToFile(getObjectRequest, file))
-  }
+  ): IO[GetObjectTorrentResponse] =
+    IO.fromFuture {
+      IO(underlying.getObjectTorrentToFile(getObjectRequest, file))
+    }
 
   override def getObjectTorrentToPath(
       getObjectTorrentRequest: GetObjectTorrentRequest,
       destinationPath: Path
-  ): IO[GetObjectTorrentResponse] = IO.fromFuture {
-    IO(underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath))
-  }
+  ): IO[GetObjectTorrentResponse] =
+    IO.fromFuture {
+      IO(underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath))
+    }
 
   override def getObjectTorrent[A](
       getObjectTorrentRequest: GetObjectTorrentRequest,

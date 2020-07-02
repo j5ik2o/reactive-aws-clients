@@ -7,9 +7,7 @@ final class PutCompositeAlarmRequestBuilderOps(val self: PutCompositeAlarmReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionsEnabledAsScala(value: Option[Boolean]): PutCompositeAlarmRequest.Builder = {
-    value.fold(self) { v =>
-      self.actionsEnabled(v)
-    }
+    value.fold(self) { v => self.actionsEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,23 +19,17 @@ final class PutCompositeAlarmRequestBuilderOps(val self: PutCompositeAlarmReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmDescriptionAsScala(value: Option[String]): PutCompositeAlarmRequest.Builder = {
-    value.fold(self) { v =>
-      self.alarmDescription(v)
-    }
+    value.fold(self) { v => self.alarmDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala(value: Option[String]): PutCompositeAlarmRequest.Builder = {
-    value.fold(self) { v =>
-      self.alarmName(v)
-    }
+    value.fold(self) { v => self.alarmName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmRuleAsScala(value: Option[String]): PutCompositeAlarmRequest.Builder = {
-    value.fold(self) { v =>
-      self.alarmRule(v)
-    }
+    value.fold(self) { v => self.alarmRule(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -69,9 +61,8 @@ final class PutCompositeAlarmRequestOps(val self: PutCompositeAlarmRequest) exte
   final def actionsEnabledAsScala: Option[Boolean] = Option(self.actionsEnabled)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def alarmActionsAsScala: Option[Seq[String]] = Option(self.alarmActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def alarmActionsAsScala: Option[Seq[String]] =
+    Option(self.alarmActions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmDescriptionAsScala: Option[String] = Option(self.alarmDescription)
@@ -83,19 +74,18 @@ final class PutCompositeAlarmRequestOps(val self: PutCompositeAlarmRequest) exte
   final def alarmRuleAsScala: Option[String] = Option(self.alarmRule)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def insufficientDataActionsAsScala: Option[Seq[String]] = Option(self.insufficientDataActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def insufficientDataActionsAsScala: Option[Seq[String]] =
+    Option(self.insufficientDataActions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def okActionsAsScala: Option[Seq[String]] = Option(self.okActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def okActionsAsScala: Option[Seq[String]] =
+    Option(self.okActions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

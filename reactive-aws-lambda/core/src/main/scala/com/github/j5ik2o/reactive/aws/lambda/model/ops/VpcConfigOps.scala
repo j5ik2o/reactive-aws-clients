@@ -24,14 +24,14 @@ final class VpcConfigBuilderOps(val self: VpcConfig.Builder) extends AnyVal {
 final class VpcConfigOps(val self: VpcConfig) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetIdsAsScala: Option[Seq[String]] =
+    Option(self.subnetIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupIdsAsScala: Option[Seq[String]] =
+    Option(self.securityGroupIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

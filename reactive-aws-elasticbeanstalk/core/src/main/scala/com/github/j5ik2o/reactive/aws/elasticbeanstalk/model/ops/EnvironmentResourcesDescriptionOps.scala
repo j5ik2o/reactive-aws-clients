@@ -8,9 +8,7 @@ final class EnvironmentResourcesDescriptionBuilderOps(val self: EnvironmentResou
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loadBalancerAsScala(value: Option[LoadBalancerDescription]): EnvironmentResourcesDescription.Builder = {
-    value.fold(self) { v =>
-      self.loadBalancer(v)
-    }
+    value.fold(self) { v => self.loadBalancer(v) }
   }
 
 }

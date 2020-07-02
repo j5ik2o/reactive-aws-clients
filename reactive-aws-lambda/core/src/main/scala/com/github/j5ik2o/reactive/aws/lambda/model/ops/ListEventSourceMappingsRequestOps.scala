@@ -7,30 +7,22 @@ final class ListEventSourceMappingsRequestBuilderOps(val self: ListEventSourceMa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala(value: Option[String]): ListEventSourceMappingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.eventSourceArn(v)
-    }
+    value.fold(self) { v => self.eventSourceArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): ListEventSourceMappingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListEventSourceMappingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): ListEventSourceMappingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxItems(v)
-    }
+    value.fold(self) { v => self.maxItems(v) }
   }
 
 }

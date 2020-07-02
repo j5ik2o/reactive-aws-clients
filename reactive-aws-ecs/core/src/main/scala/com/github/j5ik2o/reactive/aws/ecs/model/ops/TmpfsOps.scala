@@ -7,16 +7,12 @@ final class TmpfsBuilderOps(val self: Tmpfs.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerPathAsScala(value: Option[String]): Tmpfs.Builder = {
-    value.fold(self) { v =>
-      self.containerPath(v)
-    }
+    value.fold(self) { v => self.containerPath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): Tmpfs.Builder = {
-    value.fold(self) { v =>
-      self.size(v)
-    }
+    value.fold(self) { v => self.size(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class TmpfsOps(val self: Tmpfs) extends AnyVal {
   final def sizeAsScala: Option[Int] = Option(self.size)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def mountOptionsAsScala: Option[Seq[String]] = Option(self.mountOptions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def mountOptionsAsScala: Option[Seq[String]] =
+    Option(self.mountOptions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

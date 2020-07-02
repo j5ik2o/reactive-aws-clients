@@ -7,30 +7,22 @@ final class CompleteLayerUploadResponseBuilderOps(val self: CompleteLayerUploadR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): CompleteLayerUploadResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): CompleteLayerUploadResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): CompleteLayerUploadResponse.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestAsScala(value: Option[String]): CompleteLayerUploadResponse.Builder = {
-    value.fold(self) { v =>
-      self.layerDigest(v)
-    }
+    value.fold(self) { v => self.layerDigest(v) }
   }
 
 }

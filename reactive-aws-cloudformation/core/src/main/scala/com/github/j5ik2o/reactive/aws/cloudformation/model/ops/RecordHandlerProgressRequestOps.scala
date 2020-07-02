@@ -7,51 +7,37 @@ final class RecordHandlerProgressRequestBuilderOps(val self: RecordHandlerProgre
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bearerTokenAsScala(value: Option[String]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.bearerToken(v)
-    }
+    value.fold(self) { v => self.bearerToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationStatusAsScala(value: Option[OperationStatus]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.operationStatus(v)
-    }
+    value.fold(self) { v => self.operationStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currentOperationStatusAsScala(value: Option[OperationStatus]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.currentOperationStatus(v)
-    }
+    value.fold(self) { v => self.currentOperationStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorCodeAsScala(value: Option[HandlerErrorCode]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.errorCode(v)
-    }
+    value.fold(self) { v => self.errorCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceModelAsScala(value: Option[String]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourceModel(v)
-    }
+    value.fold(self) { v => self.resourceModel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): RecordHandlerProgressRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

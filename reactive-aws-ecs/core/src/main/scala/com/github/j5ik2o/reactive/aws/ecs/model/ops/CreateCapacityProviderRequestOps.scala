@@ -7,18 +7,14 @@ final class CreateCapacityProviderRequestBuilderOps(val self: CreateCapacityProv
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CreateCapacityProviderRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoScalingGroupProviderAsScala(
       value: Option[AutoScalingGroupProvider]
   ): CreateCapacityProviderRequest.Builder = {
-    value.fold(self) { v =>
-      self.autoScalingGroupProvider(v)
-    }
+    value.fold(self) { v => self.autoScalingGroupProvider(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -39,9 +35,8 @@ final class CreateCapacityProviderRequestOps(val self: CreateCapacityProviderReq
   final def autoScalingGroupProviderAsScala: Option[AutoScalingGroupProvider] = Option(self.autoScalingGroupProvider)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

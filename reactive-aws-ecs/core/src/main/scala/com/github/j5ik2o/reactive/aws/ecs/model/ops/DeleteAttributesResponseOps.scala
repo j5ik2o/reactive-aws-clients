@@ -17,9 +17,8 @@ final class DeleteAttributesResponseBuilderOps(val self: DeleteAttributesRespons
 final class DeleteAttributesResponseOps(val self: DeleteAttributesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesAsScala: Option[Seq[Attribute]] = Option(self.attributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributesAsScala: Option[Seq[Attribute]] =
+    Option(self.attributes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

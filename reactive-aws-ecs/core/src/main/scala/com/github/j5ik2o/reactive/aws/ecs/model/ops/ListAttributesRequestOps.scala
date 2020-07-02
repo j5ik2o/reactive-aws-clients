@@ -7,44 +7,32 @@ final class ListAttributesRequestBuilderOps(val self: ListAttributesRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): ListAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetTypeAsScala(value: Option[TargetType]): ListAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.targetType(v)
-    }
+    value.fold(self) { v => self.targetType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala(value: Option[String]): ListAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.attributeName(v)
-    }
+    value.fold(self) { v => self.attributeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeValueAsScala(value: Option[String]): ListAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.attributeValue(v)
-    }
+    value.fold(self) { v => self.attributeValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
 }

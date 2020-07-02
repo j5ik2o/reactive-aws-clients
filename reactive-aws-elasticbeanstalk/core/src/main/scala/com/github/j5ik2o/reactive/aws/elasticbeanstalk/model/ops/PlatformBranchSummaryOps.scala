@@ -7,30 +7,22 @@ final class PlatformBranchSummaryBuilderOps(val self: PlatformBranchSummary.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformNameAsScala(value: Option[String]): PlatformBranchSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformName(v)
-    }
+    value.fold(self) { v => self.platformName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def branchNameAsScala(value: Option[String]): PlatformBranchSummary.Builder = {
-    value.fold(self) { v =>
-      self.branchName(v)
-    }
+    value.fold(self) { v => self.branchName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecycleStateAsScala(value: Option[String]): PlatformBranchSummary.Builder = {
-    value.fold(self) { v =>
-      self.lifecycleState(v)
-    }
+    value.fold(self) { v => self.lifecycleState(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def branchOrderAsScala(value: Option[Int]): PlatformBranchSummary.Builder = {
-    value.fold(self) { v =>
-      self.branchOrder(v)
-    }
+    value.fold(self) { v => self.branchOrder(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -57,9 +49,10 @@ final class PlatformBranchSummaryOps(val self: PlatformBranchSummary) extends An
   final def branchOrderAsScala: Option[Int] = Option(self.branchOrder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def supportedTierListAsScala: Option[Seq[String]] = Option(self.supportedTierList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def supportedTierListAsScala: Option[Seq[String]] =
+    Option(self.supportedTierList).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

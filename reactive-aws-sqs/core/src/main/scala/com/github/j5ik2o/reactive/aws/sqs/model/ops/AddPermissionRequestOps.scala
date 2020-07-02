@@ -7,16 +7,12 @@ final class AddPermissionRequestBuilderOps(val self: AddPermissionRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): AddPermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): AddPermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.label(v)
-    }
+    value.fold(self) { v => self.label(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -44,14 +40,14 @@ final class AddPermissionRequestOps(val self: AddPermissionRequest) extends AnyV
   final def labelAsScala: Option[String] = Option(self.label)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def awsAccountIdsAsScala: Option[Seq[String]] = Option(self.awsAccountIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def awsAccountIdsAsScala: Option[Seq[String]] =
+    Option(self.awsAccountIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def actionsAsScala: Option[Seq[String]] = Option(self.actions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def actionsAsScala: Option[Seq[String]] =
+    Option(self.actions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,16 +7,12 @@ final class ListDashboardsRequestBuilderOps(val self: ListDashboardsRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNamePrefixAsScala(value: Option[String]): ListDashboardsRequest.Builder = {
-    value.fold(self) { v =>
-      self.dashboardNamePrefix(v)
-    }
+    value.fold(self) { v => self.dashboardNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListDashboardsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

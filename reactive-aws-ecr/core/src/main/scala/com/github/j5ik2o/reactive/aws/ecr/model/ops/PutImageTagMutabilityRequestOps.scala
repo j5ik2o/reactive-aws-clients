@@ -7,23 +7,17 @@ final class PutImageTagMutabilityRequestBuilderOps(val self: PutImageTagMutabili
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): PutImageTagMutabilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): PutImageTagMutabilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagMutabilityAsScala(value: Option[ImageTagMutability]): PutImageTagMutabilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.imageTagMutability(v)
-    }
+    value.fold(self) { v => self.imageTagMutability(v) }
   }
 
 }

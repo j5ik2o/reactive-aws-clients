@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.ecr.model._
 
 object EcrAkkaClient {
 
-  def apply(asyncClient: EcrAsyncClient): EcrAkkaClient = new EcrAkkaClient {
-    override val underlying: EcrAsyncClient = asyncClient
-  }
+  def apply(asyncClient: EcrAsyncClient): EcrAkkaClient =
+    new EcrAkkaClient {
+      override val underlying: EcrAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

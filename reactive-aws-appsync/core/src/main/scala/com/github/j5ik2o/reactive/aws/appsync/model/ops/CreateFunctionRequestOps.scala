@@ -7,51 +7,37 @@ final class CreateFunctionRequestBuilderOps(val self: CreateFunctionRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataSourceNameAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.dataSourceName(v)
-    }
+    value.fold(self) { v => self.dataSourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestMappingTemplateAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.requestMappingTemplate(v)
-    }
+    value.fold(self) { v => self.requestMappingTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def responseMappingTemplateAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.responseMappingTemplate(v)
-    }
+    value.fold(self) { v => self.responseMappingTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionVersionAsScala(value: Option[String]): CreateFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionVersion(v)
-    }
+    value.fold(self) { v => self.functionVersion(v) }
   }
 
 }

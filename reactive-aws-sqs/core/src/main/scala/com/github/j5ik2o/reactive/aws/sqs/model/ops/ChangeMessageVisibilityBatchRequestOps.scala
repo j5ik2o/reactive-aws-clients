@@ -8,9 +8,7 @@ final class ChangeMessageVisibilityBatchRequestBuilderOps(val self: ChangeMessag
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): ChangeMessageVisibilityBatchRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -30,9 +28,8 @@ final class ChangeMessageVisibilityBatchRequestOps(val self: ChangeMessageVisibi
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def entriesAsScala: Option[Seq[ChangeMessageVisibilityBatchRequestEntry]] = Option(self.entries).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def entriesAsScala: Option[Seq[ChangeMessageVisibilityBatchRequestEntry]] =
+    Option(self.entries).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,30 +7,22 @@ final class GetFaceSearchResponseBuilderOps(val self: GetFaceSearchResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[VideoJobStatus]): GetFaceSearchResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): GetFaceSearchResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetFaceSearchResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoMetadataAsScala(value: Option[VideoMetadata]): GetFaceSearchResponse.Builder = {
-    value.fold(self) { v =>
-      self.videoMetadata(v)
-    }
+    value.fold(self) { v => self.videoMetadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -57,9 +49,8 @@ final class GetFaceSearchResponseOps(val self: GetFaceSearchResponse) extends An
   final def videoMetadataAsScala: Option[VideoMetadata] = Option(self.videoMetadata)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def personsAsScala: Option[Seq[PersonMatch]] = Option(self.persons).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def personsAsScala: Option[Seq[PersonMatch]] =
+    Option(self.persons).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

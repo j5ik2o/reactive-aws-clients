@@ -7,30 +7,22 @@ final class PropertyDifferenceBuilderOps(val self: PropertyDifference.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def propertyPathAsScala(value: Option[String]): PropertyDifference.Builder = {
-    value.fold(self) { v =>
-      self.propertyPath(v)
-    }
+    value.fold(self) { v => self.propertyPath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expectedValueAsScala(value: Option[String]): PropertyDifference.Builder = {
-    value.fold(self) { v =>
-      self.expectedValue(v)
-    }
+    value.fold(self) { v => self.expectedValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actualValueAsScala(value: Option[String]): PropertyDifference.Builder = {
-    value.fold(self) { v =>
-      self.actualValue(v)
-    }
+    value.fold(self) { v => self.actualValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def differenceTypeAsScala(value: Option[DifferenceType]): PropertyDifference.Builder = {
-    value.fold(self) { v =>
-      self.differenceType(v)
-    }
+    value.fold(self) { v => self.differenceType(v) }
   }
 
 }

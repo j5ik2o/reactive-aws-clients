@@ -7,16 +7,12 @@ final class ContinueUpdateRollbackRequestBuilderOps(val self: ContinueUpdateRoll
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): ContinueUpdateRollbackRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala(value: Option[String]): ContinueUpdateRollbackRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleARN(v)
-    }
+    value.fold(self) { v => self.roleARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,9 +24,7 @@ final class ContinueUpdateRollbackRequestBuilderOps(val self: ContinueUpdateRoll
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): ContinueUpdateRollbackRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }
@@ -44,9 +38,10 @@ final class ContinueUpdateRollbackRequestOps(val self: ContinueUpdateRollbackReq
   final def roleARNAsScala: Option[String] = Option(self.roleARN)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourcesToSkipAsScala: Option[Seq[String]] = Option(self.resourcesToSkip).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourcesToSkipAsScala: Option[Seq[String]] =
+    Option(self.resourcesToSkip).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)

@@ -7,37 +7,27 @@ final class CreateStreamProcessorRequestBuilderOps(val self: CreateStreamProcess
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inputAsScala(value: Option[StreamProcessorInput]): CreateStreamProcessorRequest.Builder = {
-    value.fold(self) { v =>
-      self.input(v)
-    }
+    value.fold(self) { v => self.input(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputAsScala(value: Option[StreamProcessorOutput]): CreateStreamProcessorRequest.Builder = {
-    value.fold(self) { v =>
-      self.output(v)
-    }
+    value.fold(self) { v => self.output(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CreateStreamProcessorRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingsAsScala(value: Option[StreamProcessorSettings]): CreateStreamProcessorRequest.Builder = {
-    value.fold(self) { v =>
-      self.settings(v)
-    }
+    value.fold(self) { v => self.settings(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): CreateStreamProcessorRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
 }

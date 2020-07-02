@@ -7,9 +7,7 @@ final class GetFunctionConcurrencyRequestBuilderOps(val self: GetFunctionConcurr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): GetFunctionConcurrencyRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
 }

@@ -5,36 +5,36 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class CancelConversionTaskRequestBuilderOps(val self: CancelConversionTaskRequest.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def conversionTaskIdAsScala(value: Option[String]): CancelConversionTaskRequest.Builder = {
-            value.fold(self){ v => self.conversionTaskId(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def conversionTaskIdAsScala(value: Option[String]): CancelConversionTaskRequest.Builder = {
+    value.fold(self) { v => self.conversionTaskId(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def reasonMessageAsScala(value: Option[String]): CancelConversionTaskRequest.Builder = {
-            value.fold(self){ v => self.reasonMessage(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def reasonMessageAsScala(value: Option[String]): CancelConversionTaskRequest.Builder = {
+    value.fold(self) { v => self.reasonMessage(v) }
+  }
 
 }
 
 final class CancelConversionTaskRequestOps(val self: CancelConversionTaskRequest) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def conversionTaskIdAsScala: Option[String] = Option(self.conversionTaskId) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def conversionTaskIdAsScala: Option[String] = Option(self.conversionTaskId)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def reasonMessageAsScala: Option[String] = Option(self.reasonMessage) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def reasonMessageAsScala: Option[String] = Option(self.reasonMessage)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToCancelConversionTaskRequestOps {
 
-implicit def toCancelConversionTaskRequestBuilderOps(v: CancelConversionTaskRequest.Builder): CancelConversionTaskRequestBuilderOps = new CancelConversionTaskRequestBuilderOps(v)
+  implicit def toCancelConversionTaskRequestBuilderOps(
+      v: CancelConversionTaskRequest.Builder
+  ): CancelConversionTaskRequestBuilderOps = new CancelConversionTaskRequestBuilderOps(v)
 
-implicit def toCancelConversionTaskRequestOps(v: CancelConversionTaskRequest): CancelConversionTaskRequestOps = new CancelConversionTaskRequestOps(v)
+  implicit def toCancelConversionTaskRequestOps(v: CancelConversionTaskRequest): CancelConversionTaskRequestOps =
+    new CancelConversionTaskRequestOps(v)
 
 }
-

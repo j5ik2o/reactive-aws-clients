@@ -7,23 +7,17 @@ final class DeleteResolverRequestBuilderOps(val self: DeleteResolverRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldNameAsScala(value: Option[String]): DeleteResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.fieldName(v)
-    }
+    value.fold(self) { v => self.fieldName(v) }
   }
 
 }

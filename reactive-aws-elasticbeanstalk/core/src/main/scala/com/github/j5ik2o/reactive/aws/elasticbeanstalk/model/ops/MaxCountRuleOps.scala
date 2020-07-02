@@ -7,23 +7,17 @@ final class MaxCountRuleBuilderOps(val self: MaxCountRule.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): MaxCountRule.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxCountAsScala(value: Option[Int]): MaxCountRule.Builder = {
-    value.fold(self) { v =>
-      self.maxCount(v)
-    }
+    value.fold(self) { v => self.maxCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteSourceFromS3AsScala(value: Option[Boolean]): MaxCountRule.Builder = {
-    value.fold(self) { v =>
-      self.deleteSourceFromS3(v)
-    }
+    value.fold(self) { v => self.deleteSourceFromS3(v) }
   }
 
 }

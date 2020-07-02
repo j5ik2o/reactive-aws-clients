@@ -7,16 +7,12 @@ final class DeleteMessageBatchRequestEntryBuilderOps(val self: DeleteMessageBatc
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def receiptHandleAsScala(value: Option[String]): DeleteMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.receiptHandle(v)
-    }
+    value.fold(self) { v => self.receiptHandle(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class ReplicationRuleFilterBuilderOps(val self: ReplicationRuleFilter.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala(value: Option[String]): ReplicationRuleFilter.Builder = {
-    value.fold(self) { v =>
-      self.prefix(v)
-    }
+    value.fold(self) { v => self.prefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagAsScala(value: Option[Tag]): ReplicationRuleFilter.Builder = {
-    value.fold(self) { v =>
-      self.tag(v)
-    }
+    value.fold(self) { v => self.tag(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def andAsScala(value: Option[ReplicationRuleAndOperator]): ReplicationRuleFilter.Builder = {
-    value.fold(self) { v =>
-      self.and(v)
-    }
+    value.fold(self) { v => self.and(v) }
   }
 
 }

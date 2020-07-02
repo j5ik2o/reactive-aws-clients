@@ -7,9 +7,7 @@ final class GetQueryResultsRequestBuilderOps(val self: GetQueryResultsRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queryIdAsScala(value: Option[String]): GetQueryResultsRequest.Builder = {
-    value.fold(self) { v =>
-      self.queryId(v)
-    }
+    value.fold(self) { v => self.queryId(v) }
   }
 
 }

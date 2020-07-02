@@ -7,16 +7,12 @@ final class ParameterGroupStatusBuilderOps(val self: ParameterGroupStatus.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterApplyStatusAsScala(value: Option[String]): ParameterGroupStatus.Builder = {
-    value.fold(self) { v =>
-      self.parameterApplyStatus(v)
-    }
+    value.fold(self) { v => self.parameterApplyStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,10 @@ final class ParameterGroupStatusOps(val self: ParameterGroupStatus) extends AnyV
   final def parameterApplyStatusAsScala: Option[String] = Option(self.parameterApplyStatus)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nodeIdsToRebootAsScala: Option[Seq[String]] = Option(self.nodeIdsToReboot).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def nodeIdsToRebootAsScala: Option[Seq[String]] =
+    Option(self.nodeIdsToReboot).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

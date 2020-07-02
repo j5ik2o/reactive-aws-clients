@@ -7,9 +7,7 @@ final class CreateStackResponseBuilderOps(val self: CreateStackResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): CreateStackResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
 }

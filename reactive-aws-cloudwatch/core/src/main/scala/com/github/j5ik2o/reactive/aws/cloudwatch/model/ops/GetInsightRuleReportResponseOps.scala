@@ -14,23 +14,17 @@ final class GetInsightRuleReportResponseBuilderOps(val self: GetInsightRuleRepor
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aggregationStatisticAsScala(value: Option[String]): GetInsightRuleReportResponse.Builder = {
-    value.fold(self) { v =>
-      self.aggregationStatistic(v)
-    }
+    value.fold(self) { v => self.aggregationStatistic(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aggregateValueAsScala(value: Option[Double]): GetInsightRuleReportResponse.Builder = {
-    value.fold(self) { v =>
-      self.aggregateValue(v)
-    }
+    value.fold(self) { v => self.aggregateValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def approximateUniqueCountAsScala(value: Option[Long]): GetInsightRuleReportResponse.Builder = {
-    value.fold(self) { v =>
-      self.approximateUniqueCount(v)
-    }
+    value.fold(self) { v => self.approximateUniqueCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -54,9 +48,8 @@ final class GetInsightRuleReportResponseBuilderOps(val self: GetInsightRuleRepor
 final class GetInsightRuleReportResponseOps(val self: GetInsightRuleReportResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keyLabelsAsScala: Option[Seq[String]] = Option(self.keyLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def keyLabelsAsScala: Option[Seq[String]] =
+    Option(self.keyLabels).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aggregationStatisticAsScala: Option[String] = Option(self.aggregationStatistic)
@@ -68,14 +61,14 @@ final class GetInsightRuleReportResponseOps(val self: GetInsightRuleReportRespon
   final def approximateUniqueCountAsScala: Option[Long] = Option(self.approximateUniqueCount)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def contributorsAsScala: Option[Seq[InsightRuleContributor]] = Option(self.contributors).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def contributorsAsScala: Option[Seq[InsightRuleContributor]] =
+    Option(self.contributors).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricDatapointsAsScala: Option[Seq[InsightRuleMetricDatapoint]] = Option(self.metricDatapoints).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricDatapointsAsScala: Option[Seq[InsightRuleMetricDatapoint]] =
+    Option(self.metricDatapoints).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

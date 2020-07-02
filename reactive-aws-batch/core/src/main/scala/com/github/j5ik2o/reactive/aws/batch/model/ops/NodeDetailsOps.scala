@@ -7,16 +7,12 @@ final class NodeDetailsBuilderOps(val self: NodeDetails.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIndexAsScala(value: Option[Int]): NodeDetails.Builder = {
-    value.fold(self) { v =>
-      self.nodeIndex(v)
-    }
+    value.fold(self) { v => self.nodeIndex(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isMainNodeAsScala(value: Option[Boolean]): NodeDetails.Builder = {
-    value.fold(self) { v =>
-      self.isMainNode(v)
-    }
+    value.fold(self) { v => self.isMainNode(v) }
   }
 
 }

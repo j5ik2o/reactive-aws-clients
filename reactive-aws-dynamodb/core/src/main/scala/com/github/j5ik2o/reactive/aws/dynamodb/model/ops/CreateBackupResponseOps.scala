@@ -7,9 +7,7 @@ final class CreateBackupResponseBuilderOps(val self: CreateBackupResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupDetailsAsScala(value: Option[BackupDetails]): CreateBackupResponse.Builder = {
-    value.fold(self) { v =>
-      self.backupDetails(v)
-    }
+    value.fold(self) { v => self.backupDetails(v) }
   }
 
 }

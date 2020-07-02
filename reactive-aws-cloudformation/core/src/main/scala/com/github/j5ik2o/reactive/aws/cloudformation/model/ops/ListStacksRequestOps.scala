@@ -7,9 +7,7 @@ final class ListStacksRequestBuilderOps(val self: ListStacksRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListStacksRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class ListStacksRequestOps(val self: ListStacksRequest) extends AnyVal {
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def stackStatusFiltersAsScala: Option[Seq[StackStatus]] = Option(self.stackStatusFilters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def stackStatusFiltersAsScala: Option[Seq[StackStatus]] =
+    Option(self.stackStatusFilters).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

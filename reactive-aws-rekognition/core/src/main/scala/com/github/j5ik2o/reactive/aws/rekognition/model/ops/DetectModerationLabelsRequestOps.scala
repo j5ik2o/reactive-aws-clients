@@ -7,23 +7,17 @@ final class DetectModerationLabelsRequestBuilderOps(val self: DetectModerationLa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): DetectModerationLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala(value: Option[Float]): DetectModerationLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.minConfidence(v)
-    }
+    value.fold(self) { v => self.minConfidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def humanLoopConfigAsScala(value: Option[HumanLoopConfig]): DetectModerationLabelsRequest.Builder = {
-    value.fold(self) { v =>
-      self.humanLoopConfig(v)
-    }
+    value.fold(self) { v => self.humanLoopConfig(v) }
   }
 
 }

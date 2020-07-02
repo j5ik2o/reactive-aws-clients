@@ -18,8 +18,7 @@ object BatchAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/batch/BatchAsyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/batch/BatchAsyncClient.html */
 trait BatchAsyncClient extends BatchClient[Future] {
   val underlying: JavaBatchAsyncClient
 

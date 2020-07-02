@@ -7,9 +7,7 @@ final class RestoreTableFromBackupResponseBuilderOps(val self: RestoreTableFromB
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala(value: Option[TableDescription]): RestoreTableFromBackupResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableDescription(v)
-    }
+    value.fold(self) { v => self.tableDescription(v) }
   }
 
 }

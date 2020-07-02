@@ -14,9 +14,7 @@ final class RollbackConfigurationBuilderOps(val self: RollbackConfiguration.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def monitoringTimeInMinutesAsScala(value: Option[Int]): RollbackConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.monitoringTimeInMinutes(v)
-    }
+    value.fold(self) { v => self.monitoringTimeInMinutes(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class RollbackConfigurationBuilderOps(val self: RollbackConfiguration.Buil
 final class RollbackConfigurationOps(val self: RollbackConfiguration) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def rollbackTriggersAsScala: Option[Seq[RollbackTrigger]] = Option(self.rollbackTriggers).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def rollbackTriggersAsScala: Option[Seq[RollbackTrigger]] =
+    Option(self.rollbackTriggers).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def monitoringTimeInMinutesAsScala: Option[Int] = Option(self.monitoringTimeInMinutes)

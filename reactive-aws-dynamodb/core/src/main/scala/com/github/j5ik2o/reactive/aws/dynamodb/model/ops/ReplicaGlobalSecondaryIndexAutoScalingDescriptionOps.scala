@@ -9,36 +9,28 @@ final class ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexStatusAsScala(
       value: Option[IndexStatus]
   ): ReplicaGlobalSecondaryIndexAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexStatus(v)
-    }
+    value.fold(self) { v => self.indexStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaGlobalSecondaryIndexAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.provisionedReadCapacityAutoScalingSettings(v)
-    }
+    value.fold(self) { v => self.provisionedReadCapacityAutoScalingSettings(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaGlobalSecondaryIndexAutoScalingDescription.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityAutoScalingSettings(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityAutoScalingSettings(v) }
   }
 
 }

@@ -10,10 +10,11 @@ import scala.concurrent.{ ExecutionContext, Future }
 
 object BatchCatsIOClient {
 
-  def apply(asyncClient: BatchAsyncClient)(implicit ec: ExecutionContext): BatchCatsIOClient = new BatchCatsIOClient {
-    override val executionContext: ExecutionContext = ec
-    override val underlying: BatchAsyncClient       = asyncClient
-  }
+  def apply(asyncClient: BatchAsyncClient)(implicit ec: ExecutionContext): BatchCatsIOClient =
+    new BatchCatsIOClient {
+      override val executionContext: ExecutionContext = ec
+      override val underlying: BatchAsyncClient       = asyncClient
+    }
 
 }
 

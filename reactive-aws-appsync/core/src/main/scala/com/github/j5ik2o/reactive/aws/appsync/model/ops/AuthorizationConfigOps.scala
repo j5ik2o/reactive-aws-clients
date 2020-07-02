@@ -7,16 +7,12 @@ final class AuthorizationConfigBuilderOps(val self: AuthorizationConfig.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationTypeAsScala(value: Option[AuthorizationType]): AuthorizationConfig.Builder = {
-    value.fold(self) { v =>
-      self.authorizationType(v)
-    }
+    value.fold(self) { v => self.authorizationType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsIamConfigAsScala(value: Option[AwsIamConfig]): AuthorizationConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsIamConfig(v)
-    }
+    value.fold(self) { v => self.awsIamConfig(v) }
   }
 
 }

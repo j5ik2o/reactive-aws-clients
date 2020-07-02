@@ -7,9 +7,7 @@ final class RecognizeCelebritiesRequestBuilderOps(val self: RecognizeCelebrities
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): RecognizeCelebritiesRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class AttributeDefinitionBuilderOps(val self: AttributeDefinition.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala(value: Option[String]): AttributeDefinition.Builder = {
-    value.fold(self) { v =>
-      self.attributeName(v)
-    }
+    value.fold(self) { v => self.attributeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeTypeAsScala(value: Option[ScalarAttributeType]): AttributeDefinition.Builder = {
-    value.fold(self) { v =>
-      self.attributeType(v)
-    }
+    value.fold(self) { v => self.attributeType(v) }
   }
 
 }

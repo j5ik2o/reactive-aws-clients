@@ -14,16 +14,12 @@ final class GetQueryResultsResponseBuilderOps(val self: GetQueryResultsResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statisticsAsScala(value: Option[QueryStatistics]): GetQueryResultsResponse.Builder = {
-    value.fold(self) { v =>
-      self.statistics(v)
-    }
+    value.fold(self) { v => self.statistics(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[QueryStatus]): GetQueryResultsResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }
@@ -31,9 +27,10 @@ final class GetQueryResultsResponseBuilderOps(val self: GetQueryResultsResponse.
 final class GetQueryResultsResponseOps(val self: GetQueryResultsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resultsAsScala: Option[Seq[Seq[ResultField]]] = Option(self.results).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.asScala)
-  }
+  final def resultsAsScala: Option[Seq[Seq[ResultField]]] =
+    Option(self.results).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.asScala)
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statisticsAsScala: Option[QueryStatistics] = Option(self.statistics)

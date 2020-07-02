@@ -12,9 +12,10 @@ trait S3MonixClientSupport { this: S3MonixClient =>
   override type RT[A, B] = AsyncResponseTransformer[A, B]
   override type RB       = AsyncRequestBody
 
-  override def listBuckets(): Task[ListBucketsResponse] = Task.deferFuture {
-    underlying.listBuckets()
-  }
+  override def listBuckets(): Task[ListBucketsResponse] =
+    Task.deferFuture {
+      underlying.listBuckets()
+    }
 
   override def getObjectAsBytes(getObjectRequest: GetObjectRequest): Task[ResponseBytes[GetObjectResponse]] =
     Task.deferFuture {
@@ -41,30 +42,34 @@ trait S3MonixClientSupport { this: S3MonixClient =>
 
   override def getObjectTorrentAsBytes(
       getObjectRequest: GetObjectTorrentRequest
-  ): Task[ResponseBytes[GetObjectTorrentResponse]] = Task.deferFuture {
-    underlying.getObjectTorrentAsBytes(getObjectRequest)
-  }
+  ): Task[ResponseBytes[GetObjectTorrentResponse]] =
+    Task.deferFuture {
+      underlying.getObjectTorrentAsBytes(getObjectRequest)
+    }
 
   override def getObjectTorrentToFile(
       getObjectRequest: GetObjectTorrentRequest,
       file: File
-  ): Task[GetObjectTorrentResponse] = Task.deferFuture {
-    underlying.getObjectTorrentToFile(getObjectRequest, file)
-  }
+  ): Task[GetObjectTorrentResponse] =
+    Task.deferFuture {
+      underlying.getObjectTorrentToFile(getObjectRequest, file)
+    }
 
   override def getObjectTorrentToPath(
       getObjectTorrentRequest: GetObjectTorrentRequest,
       destinationPath: Path
-  ): Task[GetObjectTorrentResponse] = Task.deferFuture {
-    underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath)
-  }
+  ): Task[GetObjectTorrentResponse] =
+    Task.deferFuture {
+      underlying.getObjectTorrentToPath(getObjectTorrentRequest, destinationPath)
+    }
 
   override def getObjectTorrent[A](
       getObjectTorrentRequest: GetObjectTorrentRequest,
       responseTransformer: AsyncResponseTransformer[GetObjectTorrentResponse, A]
-  ): Task[A] = Task.deferFuture {
-    underlying.getObjectTorrent(getObjectTorrentRequest, responseTransformer)
-  }
+  ): Task[A] =
+    Task.deferFuture {
+      underlying.getObjectTorrent(getObjectTorrentRequest, responseTransformer)
+    }
 
   override def putObject(putObjectRequest: PutObjectRequest, requestBody: AsyncRequestBody): Task[PutObjectResponse] =
     Task.deferFuture {
@@ -84,9 +89,10 @@ trait S3MonixClientSupport { this: S3MonixClient =>
   override def uploadPart(
       uploadPartRequest: UploadPartRequest,
       requestBody: AsyncRequestBody
-  ): Task[UploadPartResponse] = Task.deferFuture {
-    underlying.uploadPart(uploadPartRequest, requestBody)
-  }
+  ): Task[UploadPartResponse] =
+    Task.deferFuture {
+      underlying.uploadPart(uploadPartRequest, requestBody)
+    }
 
   override def uploadPartFromPath(uploadPartRequest: UploadPartRequest, sourcePath: Path): Task[UploadPartResponse] =
     Task.deferFuture {

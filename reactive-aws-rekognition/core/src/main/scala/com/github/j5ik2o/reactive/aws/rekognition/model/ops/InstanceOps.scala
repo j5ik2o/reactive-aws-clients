@@ -7,16 +7,12 @@ final class InstanceBuilderOps(val self: Instance.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): Instance.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Instance.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class CreateExportTaskResponseBuilderOps(val self: CreateExportTaskRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskIdAsScala(value: Option[String]): CreateExportTaskResponse.Builder = {
-    value.fold(self) { v =>
-      self.taskId(v)
-    }
+    value.fold(self) { v => self.taskId(v) }
   }
 
 }

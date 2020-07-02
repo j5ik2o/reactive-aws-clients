@@ -7,9 +7,7 @@ final class OnSuccessBuilderOps(val self: OnSuccess.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala(value: Option[String]): OnSuccess.Builder = {
-    value.fold(self) { v =>
-      self.destination(v)
-    }
+    value.fold(self) { v => self.destination(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class DeleteClusterRequestBuilderOps(val self: DeleteClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): DeleteClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class DeleteResourcePolicyRequestBuilderOps(val self: DeleteResourcePolicy
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): DeleteResourcePolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policyName(v)
-    }
+    value.fold(self) { v => self.policyName(v) }
   }
 
 }

@@ -8,25 +8,19 @@ final class PutBucketMetricsConfigurationRequestBuilderOps(val self: PutBucketMe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): PutBucketMetricsConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricsConfigurationAsScala(
       value: Option[MetricsConfiguration]
   ): PutBucketMetricsConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricsConfiguration(v)
-    }
+    value.fold(self) { v => self.metricsConfiguration(v) }
   }
 
 }

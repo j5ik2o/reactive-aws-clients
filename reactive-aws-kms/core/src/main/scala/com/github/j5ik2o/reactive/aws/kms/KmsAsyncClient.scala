@@ -18,8 +18,7 @@ object KmsAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kms/KmsAsyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kms/KmsAsyncClient.html */
 trait KmsAsyncClient extends KmsClient[Future] {
   val underlying: JavaKmsAsyncClient
 

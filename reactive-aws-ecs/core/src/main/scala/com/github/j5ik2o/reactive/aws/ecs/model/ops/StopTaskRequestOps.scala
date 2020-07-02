@@ -7,23 +7,17 @@ final class StopTaskRequestBuilderOps(val self: StopTaskRequest.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): StopTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskAsScala(value: Option[String]): StopTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.task(v)
-    }
+    value.fold(self) { v => self.task(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): StopTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
 }

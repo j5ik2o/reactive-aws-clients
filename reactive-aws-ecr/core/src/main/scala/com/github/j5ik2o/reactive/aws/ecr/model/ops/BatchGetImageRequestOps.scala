@@ -7,16 +7,12 @@ final class BatchGetImageRequestBuilderOps(val self: BatchGetImageRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): BatchGetImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): BatchGetImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -44,14 +40,14 @@ final class BatchGetImageRequestOps(val self: BatchGetImageRequest) extends AnyV
   final def repositoryNameAsScala: Option[String] = Option(self.repositoryName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def imageIdsAsScala: Option[Seq[ImageIdentifier]] = Option(self.imageIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def imageIdsAsScala: Option[Seq[ImageIdentifier]] =
+    Option(self.imageIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def acceptedMediaTypesAsScala: Option[Seq[String]] = Option(self.acceptedMediaTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def acceptedMediaTypesAsScala: Option[Seq[String]] =
+    Option(self.acceptedMediaTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

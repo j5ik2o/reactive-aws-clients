@@ -10,18 +10,14 @@ final class RelationalDatabaseDataSourceConfigBuilderOps(val self: RelationalDat
   final def relationalDatabaseSourceTypeAsScala(
       value: Option[RelationalDatabaseSourceType]
   ): RelationalDatabaseDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.relationalDatabaseSourceType(v)
-    }
+    value.fold(self) { v => self.relationalDatabaseSourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rdsHttpEndpointConfigAsScala(
       value: Option[RdsHttpEndpointConfig]
   ): RelationalDatabaseDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.rdsHttpEndpointConfig(v)
-    }
+    value.fold(self) { v => self.rdsHttpEndpointConfig(v) }
   }
 
 }

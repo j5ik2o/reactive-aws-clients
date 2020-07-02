@@ -7,9 +7,7 @@ final class OIDCBuilderOps(val self: OIDC.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def issuerAsScala(value: Option[String]): OIDC.Builder = {
-    value.fold(self) { v =>
-      self.issuer(v)
-    }
+    value.fold(self) { v => self.issuer(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class UpdateParameterGroupResponseBuilderOps(val self: UpdateParameterGrou
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupAsScala(value: Option[ParameterGroup]): UpdateParameterGroupResponse.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroup(v)
-    }
+    value.fold(self) { v => self.parameterGroup(v) }
   }
 
 }

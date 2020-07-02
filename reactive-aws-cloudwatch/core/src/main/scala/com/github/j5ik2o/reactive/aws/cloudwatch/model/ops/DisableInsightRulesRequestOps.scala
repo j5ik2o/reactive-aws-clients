@@ -17,9 +17,8 @@ final class DisableInsightRulesRequestBuilderOps(val self: DisableInsightRulesRe
 final class DisableInsightRulesRequestOps(val self: DisableInsightRulesRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def ruleNamesAsScala: Option[Seq[String]] = Option(self.ruleNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def ruleNamesAsScala: Option[Seq[String]] =
+    Option(self.ruleNames).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

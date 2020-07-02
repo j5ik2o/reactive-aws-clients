@@ -7,9 +7,7 @@ final class FargateProfileSelectorBuilderOps(val self: FargateProfileSelector.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): FargateProfileSelector.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class FargateProfileSelectorOps(val self: FargateProfileSelector) extends 
   final def namespaceAsScala: Option[String] = Option(self.namespace)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def labelsAsScala: Option[Map[String, String]] = Option(self.labels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def labelsAsScala: Option[Map[String, String]] =
+    Option(self.labels).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

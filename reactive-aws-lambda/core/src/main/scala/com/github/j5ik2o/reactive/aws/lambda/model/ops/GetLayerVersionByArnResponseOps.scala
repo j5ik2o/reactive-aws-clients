@@ -7,44 +7,32 @@ final class GetLayerVersionByArnResponseBuilderOps(val self: GetLayerVersionByAr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentAsScala(value: Option[LayerVersionContentOutput]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.content(v)
-    }
+    value.fold(self) { v => self.content(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerArnAsScala(value: Option[String]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.layerArn(v)
-    }
+    value.fold(self) { v => self.layerArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerVersionArnAsScala(value: Option[String]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.layerVersionArn(v)
-    }
+    value.fold(self) { v => self.layerVersionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdDateAsScala(value: Option[String]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.createdDate(v)
-    }
+    value.fold(self) { v => self.createdDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[Long]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -56,9 +44,7 @@ final class GetLayerVersionByArnResponseBuilderOps(val self: GetLayerVersionByAr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseInfoAsScala(value: Option[String]): GetLayerVersionByArnResponse.Builder = {
-    value.fold(self) { v =>
-      self.licenseInfo(v)
-    }
+    value.fold(self) { v => self.licenseInfo(v) }
   }
 
 }
@@ -84,9 +70,10 @@ final class GetLayerVersionByArnResponseOps(val self: GetLayerVersionByArnRespon
   final def versionAsScala: Option[Long] = Option(self.version)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def compatibleRuntimesAsScala: Option[Seq[Runtime]] = Option(self.compatibleRuntimes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def compatibleRuntimesAsScala: Option[Seq[Runtime]] =
+    Option(self.compatibleRuntimes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseInfoAsScala: Option[String] = Option(self.licenseInfo)

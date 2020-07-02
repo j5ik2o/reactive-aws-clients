@@ -7,23 +7,17 @@ final class DescribeDestinationsRequestBuilderOps(val self: DescribeDestinations
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNamePrefixAsScala(value: Option[String]): DescribeDestinationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationNamePrefix(v)
-    }
+    value.fold(self) { v => self.destinationNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeDestinationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeDestinationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
 }

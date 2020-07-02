@@ -7,16 +7,12 @@ final class LogGroupFieldBuilderOps(val self: LogGroupField.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): LogGroupField.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def percentAsScala(value: Option[Int]): LogGroupField.Builder = {
-    value.fold(self) { v =>
-      self.percent(v)
-    }
+    value.fold(self) { v => self.percent(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class AttachmentStateChangeBuilderOps(val self: AttachmentStateChange.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentArnAsScala(value: Option[String]): AttachmentStateChange.Builder = {
-    value.fold(self) { v =>
-      self.attachmentArn(v)
-    }
+    value.fold(self) { v => self.attachmentArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): AttachmentStateChange.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

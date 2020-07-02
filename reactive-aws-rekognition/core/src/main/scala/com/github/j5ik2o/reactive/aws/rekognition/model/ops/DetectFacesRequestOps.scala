@@ -7,9 +7,7 @@ final class DetectFacesRequestBuilderOps(val self: DetectFacesRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): DetectFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DetectFacesRequestOps(val self: DetectFacesRequest) extends AnyVal {
   final def imageAsScala: Option[Image] = Option(self.image)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesAsScala: Option[Seq[Attribute]] = Option(self.attributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributesAsScala: Option[Seq[Attribute]] =
+    Option(self.attributes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

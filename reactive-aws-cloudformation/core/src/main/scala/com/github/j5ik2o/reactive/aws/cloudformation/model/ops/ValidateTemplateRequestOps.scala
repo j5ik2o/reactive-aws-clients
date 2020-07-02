@@ -7,16 +7,12 @@ final class ValidateTemplateRequestBuilderOps(val self: ValidateTemplateRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala(value: Option[String]): ValidateTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateBody(v)
-    }
+    value.fold(self) { v => self.templateBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateURLAsScala(value: Option[String]): ValidateTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateURL(v)
-    }
+    value.fold(self) { v => self.templateURL(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class LocalSecondaryIndexDescriptionBuilderOps(val self: LocalSecondaryInd
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,30 +19,22 @@ final class LocalSecondaryIndexDescriptionBuilderOps(val self: LocalSecondaryInd
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala(value: Option[Projection]): LocalSecondaryIndexDescription.Builder = {
-    value.fold(self) { v =>
-      self.projection(v)
-    }
+    value.fold(self) { v => self.projection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexSizeBytesAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexSizeBytes(v)
-    }
+    value.fold(self) { v => self.indexSizeBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def itemCountAsScala(value: Option[Long]): LocalSecondaryIndexDescription.Builder = {
-    value.fold(self) { v =>
-      self.itemCount(v)
-    }
+    value.fold(self) { v => self.itemCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexArnAsScala(value: Option[String]): LocalSecondaryIndexDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexArn(v)
-    }
+    value.fold(self) { v => self.indexArn(v) }
   }
 
 }
@@ -55,9 +45,8 @@ final class LocalSecondaryIndexDescriptionOps(val self: LocalSecondaryIndexDescr
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] =
+    Option(self.keySchema).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala: Option[Projection] = Option(self.projection)

@@ -7,37 +7,27 @@ final class ReEncryptResponseBuilderOps(val self: ReEncryptResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): ReEncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.ciphertextBlob(v)
-    }
+    value.fold(self) { v => self.ciphertextBlob(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceKeyIdAsScala(value: Option[String]): ReEncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.sourceKeyId(v)
-    }
+    value.fold(self) { v => self.sourceKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ReEncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.sourceEncryptionAlgorithm(v)
-    }
+    value.fold(self) { v => self.sourceEncryptionAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.destinationEncryptionAlgorithm(v)
-    }
+    value.fold(self) { v => self.destinationEncryptionAlgorithm(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class PutLifecyclePolicyRequestBuilderOps(val self: PutLifecyclePolicyRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): PutLifecyclePolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): PutLifecyclePolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lifecyclePolicyTextAsScala(value: Option[String]): PutLifecyclePolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.lifecyclePolicyText(v)
-    }
+    value.fold(self) { v => self.lifecyclePolicyText(v) }
   }
 
 }

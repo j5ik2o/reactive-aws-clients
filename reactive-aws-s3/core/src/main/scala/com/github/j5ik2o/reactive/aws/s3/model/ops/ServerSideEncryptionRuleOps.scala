@@ -9,9 +9,7 @@ final class ServerSideEncryptionRuleBuilderOps(val self: ServerSideEncryptionRul
   final def applyServerSideEncryptionByDefaultAsScala(
       value: Option[ServerSideEncryptionByDefault]
   ): ServerSideEncryptionRule.Builder = {
-    value.fold(self) { v =>
-      self.applyServerSideEncryptionByDefault(v)
-    }
+    value.fold(self) { v => self.applyServerSideEncryptionByDefault(v) }
   }
 
 }

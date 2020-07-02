@@ -7,30 +7,22 @@ final class ServiceRegistryBuilderOps(val self: ServiceRegistry.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryArnAsScala(value: Option[String]): ServiceRegistry.Builder = {
-    value.fold(self) { v =>
-      self.registryArn(v)
-    }
+    value.fold(self) { v => self.registryArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def portAsScala(value: Option[Int]): ServiceRegistry.Builder = {
-    value.fold(self) { v =>
-      self.port(v)
-    }
+    value.fold(self) { v => self.port(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala(value: Option[String]): ServiceRegistry.Builder = {
-    value.fold(self) { v =>
-      self.containerName(v)
-    }
+    value.fold(self) { v => self.containerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerPortAsScala(value: Option[Int]): ServiceRegistry.Builder = {
-    value.fold(self) { v =>
-      self.containerPort(v)
-    }
+    value.fold(self) { v => self.containerPort(v) }
   }
 
 }

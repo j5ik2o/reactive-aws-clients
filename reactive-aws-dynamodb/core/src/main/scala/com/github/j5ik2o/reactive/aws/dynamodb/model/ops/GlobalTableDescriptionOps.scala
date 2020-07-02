@@ -14,30 +14,22 @@ final class GlobalTableDescriptionBuilderOps(val self: GlobalTableDescription.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableArnAsScala(value: Option[String]): GlobalTableDescription.Builder = {
-    value.fold(self) { v =>
-      self.globalTableArn(v)
-    }
+    value.fold(self) { v => self.globalTableArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationDateTimeAsScala(value: Option[java.time.Instant]): GlobalTableDescription.Builder = {
-    value.fold(self) { v =>
-      self.creationDateTime(v)
-    }
+    value.fold(self) { v => self.creationDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableStatusAsScala(value: Option[GlobalTableStatus]): GlobalTableDescription.Builder = {
-    value.fold(self) { v =>
-      self.globalTableStatus(v)
-    }
+    value.fold(self) { v => self.globalTableStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): GlobalTableDescription.Builder = {
-    value.fold(self) { v =>
-      self.globalTableName(v)
-    }
+    value.fold(self) { v => self.globalTableName(v) }
   }
 
 }
@@ -45,9 +37,10 @@ final class GlobalTableDescriptionBuilderOps(val self: GlobalTableDescription.Bu
 final class GlobalTableDescriptionOps(val self: GlobalTableDescription) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def replicationGroupAsScala: Option[Seq[ReplicaDescription]] = Option(self.replicationGroup).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def replicationGroupAsScala: Option[Seq[ReplicaDescription]] =
+    Option(self.replicationGroup).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableArnAsScala: Option[String] = Option(self.globalTableArn)

@@ -8,9 +8,7 @@ final class UpdateTerminationProtectionResponseBuilderOps(val self: UpdateTermin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): UpdateTerminationProtectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
 }

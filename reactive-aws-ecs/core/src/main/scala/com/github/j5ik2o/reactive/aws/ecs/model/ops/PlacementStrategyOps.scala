@@ -7,16 +7,12 @@ final class PlacementStrategyBuilderOps(val self: PlacementStrategy.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[PlacementStrategyType]): PlacementStrategy.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldAsScala(value: Option[String]): PlacementStrategy.Builder = {
-    value.fold(self) { v =>
-      self.field(v)
-    }
+    value.fold(self) { v => self.field(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class IndexFacesRequestBuilderOps(val self: IndexFacesRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): IndexFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.collectionId(v)
-    }
+    value.fold(self) { v => self.collectionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): IndexFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def externalImageIdAsScala(value: Option[String]): IndexFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.externalImageId(v)
-    }
+    value.fold(self) { v => self.externalImageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,16 +29,12 @@ final class IndexFacesRequestBuilderOps(val self: IndexFacesRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxFacesAsScala(value: Option[Int]): IndexFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxFaces(v)
-    }
+    value.fold(self) { v => self.maxFaces(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualityFilterAsScala(value: Option[QualityFilter]): IndexFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualityFilter(v)
-    }
+    value.fold(self) { v => self.qualityFilter(v) }
   }
 
 }
@@ -61,9 +51,10 @@ final class IndexFacesRequestOps(val self: IndexFacesRequest) extends AnyVal {
   final def externalImageIdAsScala: Option[String] = Option(self.externalImageId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def detectionAttributesAsScala: Option[Seq[Attribute]] = Option(self.detectionAttributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def detectionAttributesAsScala: Option[Seq[Attribute]] =
+    Option(self.detectionAttributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxFacesAsScala: Option[Int] = Option(self.maxFaces)

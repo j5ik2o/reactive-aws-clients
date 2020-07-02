@@ -7,9 +7,7 @@ final class GetLogRecordRequestBuilderOps(val self: GetLogRecordRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logRecordPointerAsScala(value: Option[String]): GetLogRecordRequest.Builder = {
-    value.fold(self) { v =>
-      self.logRecordPointer(v)
-    }
+    value.fold(self) { v => self.logRecordPointer(v) }
   }
 
 }

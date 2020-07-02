@@ -9,9 +9,10 @@ import software.amazon.awssdk.services.eks.paginators._
 
 object EksAkkaClient {
 
-  def apply(asyncClient: EksAsyncClient): EksAkkaClient = new EksAkkaClient {
-    override val underlying: EksAsyncClient = asyncClient
-  }
+  def apply(asyncClient: EksAsyncClient): EksAkkaClient =
+    new EksAkkaClient {
+      override val underlying: EksAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

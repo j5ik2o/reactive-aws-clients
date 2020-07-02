@@ -9,9 +9,7 @@ final class GetMetricWidgetImageResponseBuilderOps(val self: GetMetricWidgetImag
   final def metricWidgetImageAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetMetricWidgetImageResponse.Builder = {
-    value.fold(self) { v =>
-      self.metricWidgetImage(v)
-    }
+    value.fold(self) { v => self.metricWidgetImage(v) }
   }
 
 }

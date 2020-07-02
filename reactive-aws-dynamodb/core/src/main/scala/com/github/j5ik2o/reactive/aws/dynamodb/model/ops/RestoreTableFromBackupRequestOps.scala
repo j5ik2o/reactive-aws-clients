@@ -7,23 +7,17 @@ final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetTableNameAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.targetTableName(v)
-    }
+    value.fold(self) { v => self.targetTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupArnAsScala(value: Option[String]): RestoreTableFromBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.backupArn(v)
-    }
+    value.fold(self) { v => self.backupArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def billingModeOverrideAsScala(value: Option[BillingMode]): RestoreTableFromBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.billingModeOverride(v)
-    }
+    value.fold(self) { v => self.billingModeOverride(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -48,16 +42,12 @@ final class RestoreTableFromBackupRequestBuilderOps(val self: RestoreTableFromBa
   final def provisionedThroughputOverrideAsScala(
       value: Option[ProvisionedThroughput]
   ): RestoreTableFromBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.provisionedThroughputOverride(v)
-    }
+    value.fold(self) { v => self.provisionedThroughputOverride(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseSpecificationOverrideAsScala(value: Option[SSESpecification]): RestoreTableFromBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.sseSpecificationOverride(v)
-    }
+    value.fold(self) { v => self.sseSpecificationOverride(v) }
   }
 
 }

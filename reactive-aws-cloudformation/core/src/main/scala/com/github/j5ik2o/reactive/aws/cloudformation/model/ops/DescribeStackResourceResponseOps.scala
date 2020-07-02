@@ -7,9 +7,7 @@ final class DescribeStackResourceResponseBuilderOps(val self: DescribeStackResou
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDetailAsScala(value: Option[StackResourceDetail]): DescribeStackResourceResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackResourceDetail(v)
-    }
+    value.fold(self) { v => self.stackResourceDetail(v) }
   }
 
 }

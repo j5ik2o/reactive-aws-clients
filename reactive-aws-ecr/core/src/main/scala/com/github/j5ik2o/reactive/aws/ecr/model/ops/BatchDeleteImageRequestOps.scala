@@ -7,16 +7,12 @@ final class BatchDeleteImageRequestBuilderOps(val self: BatchDeleteImageRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): BatchDeleteImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): BatchDeleteImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class BatchDeleteImageRequestOps(val self: BatchDeleteImageRequest) extend
   final def repositoryNameAsScala: Option[String] = Option(self.repositoryName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def imageIdsAsScala: Option[Seq[ImageIdentifier]] = Option(self.imageIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def imageIdsAsScala: Option[Seq[ImageIdentifier]] =
+    Option(self.imageIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

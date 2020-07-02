@@ -7,16 +7,12 @@ final class AwsIamConfigBuilderOps(val self: AwsIamConfig.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingRegionAsScala(value: Option[String]): AwsIamConfig.Builder = {
-    value.fold(self) { v =>
-      self.signingRegion(v)
-    }
+    value.fold(self) { v => self.signingRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingServiceNameAsScala(value: Option[String]): AwsIamConfig.Builder = {
-    value.fold(self) { v =>
-      self.signingServiceName(v)
-    }
+    value.fold(self) { v => self.signingServiceName(v) }
   }
 
 }

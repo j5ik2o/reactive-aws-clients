@@ -7,16 +7,12 @@ final class InputLogEventBuilderOps(val self: InputLogEvent.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): InputLogEvent.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): InputLogEvent.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
 }

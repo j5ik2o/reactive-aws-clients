@@ -7,30 +7,22 @@ final class SetRepositoryPolicyRequestBuilderOps(val self: SetRepositoryPolicyRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): SetRepositoryPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): SetRepositoryPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyTextAsScala(value: Option[String]): SetRepositoryPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policyText(v)
-    }
+    value.fold(self) { v => self.policyText(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala(value: Option[Boolean]): SetRepositoryPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.force(v)
-    }
+    value.fold(self) { v => self.force(v) }
   }
 
 }

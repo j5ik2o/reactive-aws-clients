@@ -7,9 +7,7 @@ final class TagQueueRequestBuilderOps(val self: TagQueueRequest.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): TagQueueRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class TagQueueRequestOps(val self: TagQueueRequest) extends AnyVal {
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

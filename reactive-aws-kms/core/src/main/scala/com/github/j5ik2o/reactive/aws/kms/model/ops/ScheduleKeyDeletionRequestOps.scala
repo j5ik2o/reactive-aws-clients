@@ -7,16 +7,12 @@ final class ScheduleKeyDeletionRequestBuilderOps(val self: ScheduleKeyDeletionRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ScheduleKeyDeletionRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pendingWindowInDaysAsScala(value: Option[Int]): ScheduleKeyDeletionRequest.Builder = {
-    value.fold(self) { v =>
-      self.pendingWindowInDays(v)
-    }
+    value.fold(self) { v => self.pendingWindowInDays(v) }
   }
 
 }

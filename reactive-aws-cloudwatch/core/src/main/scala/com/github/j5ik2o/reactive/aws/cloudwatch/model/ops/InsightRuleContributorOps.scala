@@ -14,9 +14,7 @@ final class InsightRuleContributorBuilderOps(val self: InsightRuleContributor.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def approximateAggregateValueAsScala(value: Option[Double]): InsightRuleContributor.Builder = {
-    value.fold(self) { v =>
-      self.approximateAggregateValue(v)
-    }
+    value.fold(self) { v => self.approximateAggregateValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -31,17 +29,15 @@ final class InsightRuleContributorBuilderOps(val self: InsightRuleContributor.Bu
 final class InsightRuleContributorOps(val self: InsightRuleContributor) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keysAsScala: Option[Seq[String]] = Option(self.keys).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def keysAsScala: Option[Seq[String]] =
+    Option(self.keys).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def approximateAggregateValueAsScala: Option[Double] = Option(self.approximateAggregateValue)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def datapointsAsScala: Option[Seq[InsightRuleContributorDatapoint]] = Option(self.datapoints).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def datapointsAsScala: Option[Seq[InsightRuleContributorDatapoint]] =
+    Option(self.datapoints).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

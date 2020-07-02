@@ -7,9 +7,7 @@ final class DeleteAccountSettingResponseBuilderOps(val self: DeleteAccountSettin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingAsScala(value: Option[Setting]): DeleteAccountSettingResponse.Builder = {
-    value.fold(self) { v =>
-      self.setting(v)
-    }
+    value.fold(self) { v => self.setting(v) }
   }
 
 }

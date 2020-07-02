@@ -7,30 +7,22 @@ final class AttemptDetailBuilderOps(val self: AttemptDetail.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala(value: Option[AttemptContainerDetail]): AttemptDetail.Builder = {
-    value.fold(self) { v =>
-      self.container(v)
-    }
+    value.fold(self) { v => self.container(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startedAtAsScala(value: Option[Long]): AttemptDetail.Builder = {
-    value.fold(self) { v =>
-      self.startedAt(v)
-    }
+    value.fold(self) { v => self.startedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stoppedAtAsScala(value: Option[Long]): AttemptDetail.Builder = {
-    value.fold(self) { v =>
-      self.stoppedAt(v)
-    }
+    value.fold(self) { v => self.stoppedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): AttemptDetail.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
 }

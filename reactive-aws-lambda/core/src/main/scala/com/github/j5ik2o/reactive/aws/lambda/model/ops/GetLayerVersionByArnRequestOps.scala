@@ -7,9 +7,7 @@ final class GetLayerVersionByArnRequestBuilderOps(val self: GetLayerVersionByArn
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): GetLayerVersionByArnRequest.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class DeleteApiKeyRequestBuilderOps(val self: DeleteApiKeyRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): DeleteApiKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
 }

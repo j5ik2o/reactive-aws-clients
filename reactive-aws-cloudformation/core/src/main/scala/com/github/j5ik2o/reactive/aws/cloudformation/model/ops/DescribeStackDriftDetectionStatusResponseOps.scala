@@ -9,55 +9,41 @@ final class DescribeStackDriftDetectionStatusResponseBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftDetectionIdAsScala(value: Option[String]): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackDriftDetectionId(v)
-    }
+    value.fold(self) { v => self.stackDriftDetectionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftStatusAsScala(
       value: Option[StackDriftStatus]
   ): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackDriftStatus(v)
-    }
+    value.fold(self) { v => self.stackDriftStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def detectionStatusAsScala(
       value: Option[StackDriftDetectionStatus]
   ): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.detectionStatus(v)
-    }
+    value.fold(self) { v => self.detectionStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def detectionStatusReasonAsScala(value: Option[String]): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.detectionStatusReason(v)
-    }
+    value.fold(self) { v => self.detectionStatusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftedStackResourceCountAsScala(value: Option[Int]): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.driftedStackResourceCount(v)
-    }
+    value.fold(self) { v => self.driftedStackResourceCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): DescribeStackDriftDetectionStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
 }

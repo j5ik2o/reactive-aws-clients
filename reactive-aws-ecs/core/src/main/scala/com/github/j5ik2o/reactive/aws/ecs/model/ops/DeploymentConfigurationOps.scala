@@ -7,16 +7,12 @@ final class DeploymentConfigurationBuilderOps(val self: DeploymentConfiguration.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumPercentAsScala(value: Option[Int]): DeploymentConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.maximumPercent(v)
-    }
+    value.fold(self) { v => self.maximumPercent(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minimumHealthyPercentAsScala(value: Option[Int]): DeploymentConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.minimumHealthyPercent(v)
-    }
+    value.fold(self) { v => self.minimumHealthyPercent(v) }
   }
 
 }

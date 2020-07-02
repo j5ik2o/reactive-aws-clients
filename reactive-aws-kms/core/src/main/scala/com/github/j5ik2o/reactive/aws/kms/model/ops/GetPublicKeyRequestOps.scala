@@ -7,9 +7,7 @@ final class GetPublicKeyRequestBuilderOps(val self: GetPublicKeyRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetPublicKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class GetPublicKeyRequestOps(val self: GetPublicKeyRequest) extends AnyVal
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

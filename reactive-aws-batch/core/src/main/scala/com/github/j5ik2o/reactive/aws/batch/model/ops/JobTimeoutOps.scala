@@ -7,9 +7,7 @@ final class JobTimeoutBuilderOps(val self: JobTimeout.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attemptDurationSecondsAsScala(value: Option[Int]): JobTimeout.Builder = {
-    value.fold(self) { v =>
-      self.attemptDurationSeconds(v)
-    }
+    value.fold(self) { v => self.attemptDurationSeconds(v) }
   }
 
 }

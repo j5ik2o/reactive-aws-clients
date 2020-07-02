@@ -7,16 +7,12 @@ final class ErrorDetailsBuilderOps(val self: ErrorDetails.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorTypeAsScala(value: Option[String]): ErrorDetails.Builder = {
-    value.fold(self) { v =>
-      self.errorType(v)
-    }
+    value.fold(self) { v => self.errorType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorMessageAsScala(value: Option[String]): ErrorDetails.Builder = {
-    value.fold(self) { v =>
-      self.errorMessage(v)
-    }
+    value.fold(self) { v => self.errorMessage(v) }
   }
 
 }

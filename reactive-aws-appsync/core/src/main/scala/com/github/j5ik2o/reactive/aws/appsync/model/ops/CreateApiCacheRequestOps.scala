@@ -7,44 +7,32 @@ final class CreateApiCacheRequestBuilderOps(val self: CreateApiCacheRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): CreateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ttlAsScala(value: Option[Long]): CreateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.ttl(v)
-    }
+    value.fold(self) { v => self.ttl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def transitEncryptionEnabledAsScala(value: Option[Boolean]): CreateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.transitEncryptionEnabled(v)
-    }
+    value.fold(self) { v => self.transitEncryptionEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def atRestEncryptionEnabledAsScala(value: Option[Boolean]): CreateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.atRestEncryptionEnabled(v)
-    }
+    value.fold(self) { v => self.atRestEncryptionEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiCachingBehaviorAsScala(value: Option[ApiCachingBehavior]): CreateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiCachingBehavior(v)
-    }
+    value.fold(self) { v => self.apiCachingBehavior(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ApiCacheType]): CreateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
 }

@@ -7,18 +7,14 @@ final class ReplicaGlobalSecondaryIndexBuilderOps(val self: ReplicaGlobalSeconda
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputOverrideAsScala(
       value: Option[ProvisionedThroughputOverride]
   ): ReplicaGlobalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.provisionedThroughputOverride(v)
-    }
+    value.fold(self) { v => self.provisionedThroughputOverride(v) }
   }
 
 }

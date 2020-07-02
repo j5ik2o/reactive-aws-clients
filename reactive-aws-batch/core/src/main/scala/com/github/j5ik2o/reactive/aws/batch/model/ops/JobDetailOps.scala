@@ -7,30 +7,22 @@ final class JobDetailBuilderOps(val self: JobDetail.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobNameAsScala(value: Option[String]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.jobName(v)
-    }
+    value.fold(self) { v => self.jobName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala(value: Option[String]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.jobQueue(v)
-    }
+    value.fold(self) { v => self.jobQueue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[JobStatus]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,37 +34,27 @@ final class JobDetailBuilderOps(val self: JobDetail.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[Long]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retryStrategyAsScala(value: Option[RetryStrategy]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.retryStrategy(v)
-    }
+    value.fold(self) { v => self.retryStrategy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startedAtAsScala(value: Option[Long]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.startedAt(v)
-    }
+    value.fold(self) { v => self.startedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stoppedAtAsScala(value: Option[Long]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.stoppedAt(v)
-    }
+    value.fold(self) { v => self.stoppedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -84,9 +66,7 @@ final class JobDetailBuilderOps(val self: JobDetail.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala(value: Option[String]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.jobDefinition(v)
-    }
+    value.fold(self) { v => self.jobDefinition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -98,37 +78,27 @@ final class JobDetailBuilderOps(val self: JobDetail.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala(value: Option[ContainerDetail]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.container(v)
-    }
+    value.fold(self) { v => self.container(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeDetailsAsScala(value: Option[NodeDetails]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.nodeDetails(v)
-    }
+    value.fold(self) { v => self.nodeDetails(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodePropertiesAsScala(value: Option[NodeProperties]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.nodeProperties(v)
-    }
+    value.fold(self) { v => self.nodeProperties(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arrayPropertiesAsScala(value: Option[ArrayPropertiesDetail]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.arrayProperties(v)
-    }
+    value.fold(self) { v => self.arrayProperties(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeoutAsScala(value: Option[JobTimeout]): JobDetail.Builder = {
-    value.fold(self) { v =>
-      self.timeout(v)
-    }
+    value.fold(self) { v => self.timeout(v) }
   }
 
 }
@@ -148,9 +118,8 @@ final class JobDetailOps(val self: JobDetail) extends AnyVal {
   final def statusAsScala: Option[JobStatus] = Option(self.status)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attemptsAsScala: Option[Seq[AttemptDetail]] = Option(self.attempts).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attemptsAsScala: Option[Seq[AttemptDetail]] =
+    Option(self.attempts).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala: Option[String] = Option(self.statusReason)
@@ -168,17 +137,17 @@ final class JobDetailOps(val self: JobDetail) extends AnyVal {
   final def stoppedAtAsScala: Option[Long] = Option(self.stoppedAt)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dependsOnAsScala: Option[Seq[JobDependency]] = Option(self.dependsOn).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dependsOnAsScala: Option[Seq[JobDependency]] =
+    Option(self.dependsOn).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionAsScala: Option[String] = Option(self.jobDefinition)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Map[String, String]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def parametersAsScala: Option[Map[String, String]] =
+    Option(self.parameters).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala: Option[ContainerDetail] = Option(self.container)

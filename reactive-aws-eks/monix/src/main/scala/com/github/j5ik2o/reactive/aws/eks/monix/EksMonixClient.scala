@@ -9,9 +9,10 @@ import monix.reactive.Observable
 
 object EksMonixClient {
 
-  def apply(asyncClient: EksAsyncClient): EksMonixClient = new EksMonixClient {
-    override val underlying: EksAsyncClient = asyncClient
-  }
+  def apply(asyncClient: EksAsyncClient): EksMonixClient =
+    new EksMonixClient {
+      override val underlying: EksAsyncClient = asyncClient
+    }
 
 }
 

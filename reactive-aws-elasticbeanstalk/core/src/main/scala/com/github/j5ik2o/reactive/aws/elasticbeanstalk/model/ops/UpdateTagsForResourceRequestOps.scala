@@ -7,9 +7,7 @@ final class UpdateTagsForResourceRequestBuilderOps(val self: UpdateTagsForResour
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceArnAsScala(value: Option[String]): UpdateTagsForResourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourceArn(v)
-    }
+    value.fold(self) { v => self.resourceArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -34,14 +32,12 @@ final class UpdateTagsForResourceRequestOps(val self: UpdateTagsForResourceReque
   final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsToAddAsScala: Option[Seq[Tag]] = Option(self.tagsToAdd).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsToAddAsScala: Option[Seq[Tag]] =
+    Option(self.tagsToAdd).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsToRemoveAsScala: Option[Seq[String]] = Option(self.tagsToRemove).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsToRemoveAsScala: Option[Seq[String]] =
+    Option(self.tagsToRemove).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

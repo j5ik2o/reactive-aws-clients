@@ -7,30 +7,22 @@ final class PutImageRequestBuilderOps(val self: PutImageRequest.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): PutImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): PutImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageManifestAsScala(value: Option[String]): PutImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.imageManifest(v)
-    }
+    value.fold(self) { v => self.imageManifest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagAsScala(value: Option[String]): PutImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.imageTag(v)
-    }
+    value.fold(self) { v => self.imageTag(v) }
   }
 
 }

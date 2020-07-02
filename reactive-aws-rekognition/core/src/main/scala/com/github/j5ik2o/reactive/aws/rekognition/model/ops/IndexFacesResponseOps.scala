@@ -14,16 +14,12 @@ final class IndexFacesResponseBuilderOps(val self: IndexFacesResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orientationCorrectionAsScala(value: Option[OrientationCorrection]): IndexFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.orientationCorrection(v)
-    }
+    value.fold(self) { v => self.orientationCorrection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala(value: Option[String]): IndexFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.faceModelVersion(v)
-    }
+    value.fold(self) { v => self.faceModelVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -38,9 +34,8 @@ final class IndexFacesResponseBuilderOps(val self: IndexFacesResponse.Builder) e
 final class IndexFacesResponseOps(val self: IndexFacesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def faceRecordsAsScala: Option[Seq[FaceRecord]] = Option(self.faceRecords).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def faceRecordsAsScala: Option[Seq[FaceRecord]] =
+    Option(self.faceRecords).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orientationCorrectionAsScala: Option[OrientationCorrection] = Option(self.orientationCorrection)
@@ -49,9 +44,10 @@ final class IndexFacesResponseOps(val self: IndexFacesResponse) extends AnyVal {
   final def faceModelVersionAsScala: Option[String] = Option(self.faceModelVersion)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def unindexedFacesAsScala: Option[Seq[UnindexedFace]] = Option(self.unindexedFaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def unindexedFacesAsScala: Option[Seq[UnindexedFace]] =
+    Option(self.unindexedFaces).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

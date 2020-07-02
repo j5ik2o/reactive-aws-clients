@@ -7,9 +7,7 @@ final class TestMetricFilterRequestBuilderOps(val self: TestMetricFilterRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterPatternAsScala(value: Option[String]): TestMetricFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterPattern(v)
-    }
+    value.fold(self) { v => self.filterPattern(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class TestMetricFilterRequestOps(val self: TestMetricFilterRequest) extend
   final def filterPatternAsScala: Option[String] = Option(self.filterPattern)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def logEventMessagesAsScala: Option[Seq[String]] = Option(self.logEventMessages).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def logEventMessagesAsScala: Option[Seq[String]] =
+    Option(self.logEventMessages).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

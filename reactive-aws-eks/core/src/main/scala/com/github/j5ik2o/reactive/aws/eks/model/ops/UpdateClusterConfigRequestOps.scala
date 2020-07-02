@@ -7,30 +7,22 @@ final class UpdateClusterConfigRequestBuilderOps(val self: UpdateClusterConfigRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): UpdateClusterConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcesVpcConfigAsScala(value: Option[VpcConfigRequest]): UpdateClusterConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourcesVpcConfig(v)
-    }
+    value.fold(self) { v => self.resourcesVpcConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loggingAsScala(value: Option[Logging]): UpdateClusterConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.logging(v)
-    }
+    value.fold(self) { v => self.logging(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): UpdateClusterConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

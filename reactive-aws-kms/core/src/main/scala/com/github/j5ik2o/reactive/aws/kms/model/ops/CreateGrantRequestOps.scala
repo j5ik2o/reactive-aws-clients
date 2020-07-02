@@ -7,23 +7,17 @@ final class CreateGrantRequestBuilderOps(val self: CreateGrantRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): CreateGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def granteePrincipalAsScala(value: Option[String]): CreateGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.granteePrincipal(v)
-    }
+    value.fold(self) { v => self.granteePrincipal(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retiringPrincipalAsScala(value: Option[String]): CreateGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.retiringPrincipal(v)
-    }
+    value.fold(self) { v => self.retiringPrincipal(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,9 +29,7 @@ final class CreateGrantRequestBuilderOps(val self: CreateGrantRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def constraintsAsScala(value: Option[GrantConstraints]): CreateGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.constraints(v)
-    }
+    value.fold(self) { v => self.constraints(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -49,9 +41,7 @@ final class CreateGrantRequestBuilderOps(val self: CreateGrantRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CreateGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
 }
@@ -68,17 +58,15 @@ final class CreateGrantRequestOps(val self: CreateGrantRequest) extends AnyVal {
   final def retiringPrincipalAsScala: Option[String] = Option(self.retiringPrincipal)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def operationsAsScala: Option[Seq[GrantOperation]] = Option(self.operations).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def operationsAsScala: Option[Seq[GrantOperation]] =
+    Option(self.operations).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def constraintsAsScala: Option[GrantConstraints] = Option(self.constraints)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)

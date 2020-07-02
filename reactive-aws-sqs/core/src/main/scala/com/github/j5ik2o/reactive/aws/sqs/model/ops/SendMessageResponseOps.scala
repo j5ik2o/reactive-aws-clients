@@ -7,37 +7,27 @@ final class SendMessageResponseBuilderOps(val self: SendMessageResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageBodyAsScala(value: Option[String]): SendMessageResponse.Builder = {
-    value.fold(self) { v =>
-      self.md5OfMessageBody(v)
-    }
+    value.fold(self) { v => self.md5OfMessageBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageAttributesAsScala(value: Option[String]): SendMessageResponse.Builder = {
-    value.fold(self) { v =>
-      self.md5OfMessageAttributes(v)
-    }
+    value.fold(self) { v => self.md5OfMessageAttributes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageSystemAttributesAsScala(value: Option[String]): SendMessageResponse.Builder = {
-    value.fold(self) { v =>
-      self.md5OfMessageSystemAttributes(v)
-    }
+    value.fold(self) { v => self.md5OfMessageSystemAttributes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageIdAsScala(value: Option[String]): SendMessageResponse.Builder = {
-    value.fold(self) { v =>
-      self.messageId(v)
-    }
+    value.fold(self) { v => self.messageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberAsScala(value: Option[String]): SendMessageResponse.Builder = {
-    value.fold(self) { v =>
-      self.sequenceNumber(v)
-    }
+    value.fold(self) { v => self.sequenceNumber(v) }
   }
 
 }

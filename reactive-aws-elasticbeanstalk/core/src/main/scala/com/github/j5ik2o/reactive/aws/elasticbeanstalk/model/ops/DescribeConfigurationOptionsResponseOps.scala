@@ -8,16 +8,12 @@ final class DescribeConfigurationOptionsResponseBuilderOps(val self: DescribeCon
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def solutionStackNameAsScala(value: Option[String]): DescribeConfigurationOptionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.solutionStackName(v)
-    }
+    value.fold(self) { v => self.solutionStackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): DescribeConfigurationOptionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -40,9 +36,8 @@ final class DescribeConfigurationOptionsResponseOps(val self: DescribeConfigurat
   final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionsAsScala: Option[Seq[ConfigurationOptionDescription]] = Option(self.options).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionsAsScala: Option[Seq[ConfigurationOptionDescription]] =
+    Option(self.options).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,9 +7,7 @@ final class ListQueueTagsRequestBuilderOps(val self: ListQueueTagsRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): ListQueueTagsRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
 }

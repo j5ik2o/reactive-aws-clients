@@ -8,30 +8,22 @@ final class UpdateComputeEnvironmentRequestBuilderOps(val self: UpdateComputeEnv
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala(value: Option[String]): UpdateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.computeEnvironment(v)
-    }
+    value.fold(self) { v => self.computeEnvironment(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[CEState]): UpdateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeResourcesAsScala(value: Option[ComputeResourceUpdate]): UpdateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.computeResources(v)
-    }
+    value.fold(self) { v => self.computeResources(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceRoleAsScala(value: Option[String]): UpdateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.serviceRole(v)
-    }
+    value.fold(self) { v => self.serviceRole(v) }
   }
 
 }

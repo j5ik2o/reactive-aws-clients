@@ -7,23 +7,17 @@ final class DetectionFilterBuilderOps(val self: DetectionFilter.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala(value: Option[Float]): DetectionFilter.Builder = {
-    value.fold(self) { v =>
-      self.minConfidence(v)
-    }
+    value.fold(self) { v => self.minConfidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minBoundingBoxHeightAsScala(value: Option[Float]): DetectionFilter.Builder = {
-    value.fold(self) { v =>
-      self.minBoundingBoxHeight(v)
-    }
+    value.fold(self) { v => self.minBoundingBoxHeight(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minBoundingBoxWidthAsScala(value: Option[Float]): DetectionFilter.Builder = {
-    value.fold(self) { v =>
-      self.minBoundingBoxWidth(v)
-    }
+    value.fold(self) { v => self.minBoundingBoxWidth(v) }
   }
 
 }

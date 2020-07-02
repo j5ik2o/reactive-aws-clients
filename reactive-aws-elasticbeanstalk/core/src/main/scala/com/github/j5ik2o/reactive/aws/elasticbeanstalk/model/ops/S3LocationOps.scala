@@ -7,16 +7,12 @@ final class S3LocationBuilderOps(val self: S3Location.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): S3Location.Builder = {
-    value.fold(self) { v =>
-      self.s3Bucket(v)
-    }
+    value.fold(self) { v => self.s3Bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala(value: Option[String]): S3Location.Builder = {
-    value.fold(self) { v =>
-      self.s3Key(v)
-    }
+    value.fold(self) { v => self.s3Key(v) }
   }
 
 }

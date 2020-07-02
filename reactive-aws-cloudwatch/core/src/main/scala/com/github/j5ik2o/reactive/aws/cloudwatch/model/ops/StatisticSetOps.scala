@@ -7,30 +7,22 @@ final class StatisticSetBuilderOps(val self: StatisticSet.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sampleCountAsScala(value: Option[Double]): StatisticSet.Builder = {
-    value.fold(self) { v =>
-      self.sampleCount(v)
-    }
+    value.fold(self) { v => self.sampleCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sumAsScala(value: Option[Double]): StatisticSet.Builder = {
-    value.fold(self) { v =>
-      self.sum(v)
-    }
+    value.fold(self) { v => self.sum(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minimumAsScala(value: Option[Double]): StatisticSet.Builder = {
-    value.fold(self) { v =>
-      self.minimum(v)
-    }
+    value.fold(self) { v => self.minimum(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumAsScala(value: Option[Double]): StatisticSet.Builder = {
-    value.fold(self) { v =>
-      self.maximum(v)
-    }
+    value.fold(self) { v => self.maximum(v) }
   }
 
 }

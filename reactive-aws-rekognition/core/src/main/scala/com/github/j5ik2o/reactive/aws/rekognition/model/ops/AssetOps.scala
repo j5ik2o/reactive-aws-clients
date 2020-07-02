@@ -7,9 +7,7 @@ final class AssetBuilderOps(val self: Asset.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groundTruthManifestAsScala(value: Option[GroundTruthManifest]): Asset.Builder = {
-    value.fold(self) { v =>
-      self.groundTruthManifest(v)
-    }
+    value.fold(self) { v => self.groundTruthManifest(v) }
   }
 
 }

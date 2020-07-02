@@ -7,9 +7,7 @@ final class DescribeCollectionRequestBuilderOps(val self: DescribeCollectionRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): DescribeCollectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.collectionId(v)
-    }
+    value.fold(self) { v => self.collectionId(v) }
   }
 
 }

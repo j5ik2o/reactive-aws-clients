@@ -7,16 +7,12 @@ final class IssueBuilderOps(val self: Issue.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[NodegroupIssueCode]): Issue.Builder = {
-    value.fold(self) { v =>
-      self.code(v)
-    }
+    value.fold(self) { v => self.code(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): Issue.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class IssueOps(val self: Issue) extends AnyVal {
   final def messageAsScala: Option[String] = Option(self.message)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceIdsAsScala: Option[Seq[String]] = Option(self.resourceIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourceIdsAsScala: Option[Seq[String]] =
+    Option(self.resourceIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

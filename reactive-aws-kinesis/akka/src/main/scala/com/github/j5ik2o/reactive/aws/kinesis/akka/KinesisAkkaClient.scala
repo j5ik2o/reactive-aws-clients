@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.kinesis.model._
 
 object KinesisAkkaClient {
 
-  def apply(asyncClient: KinesisAsyncClient): KinesisAkkaClient = new KinesisAkkaClient {
-    override val underlying: KinesisAsyncClient = asyncClient
-  }
+  def apply(asyncClient: KinesisAsyncClient): KinesisAkkaClient =
+    new KinesisAkkaClient {
+      override val underlying: KinesisAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

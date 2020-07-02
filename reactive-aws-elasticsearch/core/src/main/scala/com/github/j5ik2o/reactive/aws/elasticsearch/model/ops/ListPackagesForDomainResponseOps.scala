@@ -16,9 +16,7 @@ final class ListPackagesForDomainResponseBuilderOps(val self: ListPackagesForDom
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListPackagesForDomainResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

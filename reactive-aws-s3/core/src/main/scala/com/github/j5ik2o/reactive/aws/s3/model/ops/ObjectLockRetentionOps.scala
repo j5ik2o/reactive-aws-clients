@@ -7,16 +7,12 @@ final class ObjectLockRetentionBuilderOps(val self: ObjectLockRetention.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def modeAsScala(value: Option[ObjectLockRetentionMode]): ObjectLockRetention.Builder = {
-    value.fold(self) { v =>
-      self.mode(v)
-    }
+    value.fold(self) { v => self.mode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retainUntilDateAsScala(value: Option[java.time.Instant]): ObjectLockRetention.Builder = {
-    value.fold(self) { v =>
-      self.retainUntilDate(v)
-    }
+    value.fold(self) { v => self.retainUntilDate(v) }
   }
 
 }

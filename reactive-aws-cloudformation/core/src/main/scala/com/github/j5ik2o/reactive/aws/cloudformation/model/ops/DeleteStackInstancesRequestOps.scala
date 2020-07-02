@@ -7,9 +7,7 @@ final class DeleteStackInstancesRequestBuilderOps(val self: DeleteStackInstances
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): DeleteStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,9 +19,7 @@ final class DeleteStackInstancesRequestBuilderOps(val self: DeleteStackInstances
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentTargetsAsScala(value: Option[DeploymentTargets]): DeleteStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.deploymentTargets(v)
-    }
+    value.fold(self) { v => self.deploymentTargets(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,23 +33,17 @@ final class DeleteStackInstancesRequestBuilderOps(val self: DeleteStackInstances
   final def operationPreferencesAsScala(
       value: Option[StackSetOperationPreferences]
   ): DeleteStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.operationPreferences(v)
-    }
+    value.fold(self) { v => self.operationPreferences(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retainStacksAsScala(value: Option[Boolean]): DeleteStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.retainStacks(v)
-    }
+    value.fold(self) { v => self.retainStacks(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): DeleteStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.operationId(v)
-    }
+    value.fold(self) { v => self.operationId(v) }
   }
 
 }
@@ -64,17 +54,15 @@ final class DeleteStackInstancesRequestOps(val self: DeleteStackInstancesRequest
   final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def accountsAsScala: Option[Seq[String]] = Option(self.accounts).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def accountsAsScala: Option[Seq[String]] =
+    Option(self.accounts).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentTargetsAsScala: Option[DeploymentTargets] = Option(self.deploymentTargets)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def regionsAsScala: Option[Seq[String]] = Option(self.regions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def regionsAsScala: Option[Seq[String]] =
+    Option(self.regions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationPreferencesAsScala: Option[StackSetOperationPreferences] = Option(self.operationPreferences)

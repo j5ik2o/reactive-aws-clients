@@ -7,16 +7,12 @@ final class PointBuilderOps(val self: Point.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def xAsScala(value: Option[Float]): Point.Builder = {
-    value.fold(self) { v =>
-      self.x(v)
-    }
+    value.fold(self) { v => self.x(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def yAsScala(value: Option[Float]): Point.Builder = {
-    value.fold(self) { v =>
-      self.y(v)
-    }
+    value.fold(self) { v => self.y(v) }
   }
 
 }

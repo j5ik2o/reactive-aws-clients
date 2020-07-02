@@ -14,9 +14,7 @@ final class ListStreamsResponseBuilderOps(val self: ListStreamsResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedStreamArnAsScala(value: Option[String]): ListStreamsResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastEvaluatedStreamArn(v)
-    }
+    value.fold(self) { v => self.lastEvaluatedStreamArn(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class ListStreamsResponseBuilderOps(val self: ListStreamsResponse.Builder)
 final class ListStreamsResponseOps(val self: ListStreamsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def streamsAsScala: Option[Seq[Stream]] = Option(self.streams).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def streamsAsScala: Option[Seq[Stream]] =
+    Option(self.streams).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedStreamArnAsScala: Option[String] = Option(self.lastEvaluatedStreamArn)

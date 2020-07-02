@@ -7,9 +7,7 @@ final class ListStreamProcessorsResponseBuilderOps(val self: ListStreamProcessor
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListStreamProcessorsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class ListStreamProcessorsResponseOps(val self: ListStreamProcessorsRespon
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def streamProcessorsAsScala: Option[Seq[StreamProcessor]] = Option(self.streamProcessors).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def streamProcessorsAsScala: Option[Seq[StreamProcessor]] =
+    Option(self.streamProcessors).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

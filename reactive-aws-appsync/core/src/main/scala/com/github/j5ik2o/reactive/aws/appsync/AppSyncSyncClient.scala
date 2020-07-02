@@ -7,15 +7,15 @@ import software.amazon.awssdk.services.appsync.{ AppSyncClient => JavaAppSyncCli
 
 object AppSyncSyncClient extends ToEitherSupport {
 
-  def apply(javaClient: JavaAppSyncClient): AppSyncSyncClient = new AppSyncSyncClient {
-    override val underlying: JavaAppSyncClient = javaClient
-  }
+  def apply(javaClient: JavaAppSyncClient): AppSyncSyncClient =
+    new AppSyncSyncClient {
+      override val underlying: JavaAppSyncClient = javaClient
+    }
 
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appsync/AppSyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appsync/AppSyncClient.html */
 trait AppSyncSyncClient extends AppSyncClient[Either[Throwable, ?]] {
   val underlying: JavaAppSyncClient
   import AppSyncSyncClient._

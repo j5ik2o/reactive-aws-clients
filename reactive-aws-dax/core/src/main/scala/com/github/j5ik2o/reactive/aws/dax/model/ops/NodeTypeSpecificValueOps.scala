@@ -7,16 +7,12 @@ final class NodeTypeSpecificValueBuilderOps(val self: NodeTypeSpecificValue.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeTypeAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
-    value.fold(self) { v =>
-      self.nodeType(v)
-    }
+    value.fold(self) { v => self.nodeType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): NodeTypeSpecificValue.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
 }

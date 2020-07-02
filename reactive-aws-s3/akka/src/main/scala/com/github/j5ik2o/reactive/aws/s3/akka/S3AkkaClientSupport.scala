@@ -14,9 +14,10 @@ trait S3AkkaClientSupport {
 
   import S3AkkaClient._
 
-  def listBucketsSource: Source[ListBucketsResponse, NotUsed] = Source.fromFuture(
-    underlying.listBuckets()
-  )
+  def listBucketsSource: Source[ListBucketsResponse, NotUsed] =
+    Source.fromFuture(
+      underlying.listBuckets()
+    )
 
   def getObjectAsBytesSource(
       getObjectRequest: GetObjectRequest,

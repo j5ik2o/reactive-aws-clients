@@ -5,28 +5,28 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class DeletePlacementGroupRequestBuilderOps(val self: DeletePlacementGroupRequest.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def groupNameAsScala(value: Option[String]): DeletePlacementGroupRequest.Builder = {
-            value.fold(self){ v => self.groupName(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupNameAsScala(value: Option[String]): DeletePlacementGroupRequest.Builder = {
+    value.fold(self) { v => self.groupName(v) }
+  }
 
 }
 
 final class DeletePlacementGroupRequestOps(val self: DeletePlacementGroupRequest) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def groupNameAsScala: Option[String] = Option(self.groupName) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def groupNameAsScala: Option[String] = Option(self.groupName)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToDeletePlacementGroupRequestOps {
 
-implicit def toDeletePlacementGroupRequestBuilderOps(v: DeletePlacementGroupRequest.Builder): DeletePlacementGroupRequestBuilderOps = new DeletePlacementGroupRequestBuilderOps(v)
+  implicit def toDeletePlacementGroupRequestBuilderOps(
+      v: DeletePlacementGroupRequest.Builder
+  ): DeletePlacementGroupRequestBuilderOps = new DeletePlacementGroupRequestBuilderOps(v)
 
-implicit def toDeletePlacementGroupRequestOps(v: DeletePlacementGroupRequest): DeletePlacementGroupRequestOps = new DeletePlacementGroupRequestOps(v)
+  implicit def toDeletePlacementGroupRequestOps(v: DeletePlacementGroupRequest): DeletePlacementGroupRequestOps =
+    new DeletePlacementGroupRequestOps(v)
 
 }
-

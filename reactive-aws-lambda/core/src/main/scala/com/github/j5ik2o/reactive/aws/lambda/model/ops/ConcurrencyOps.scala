@@ -7,9 +7,7 @@ final class ConcurrencyBuilderOps(val self: Concurrency.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala(value: Option[Int]): Concurrency.Builder = {
-    value.fold(self) { v =>
-      self.reservedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.reservedConcurrentExecutions(v) }
   }
 
 }

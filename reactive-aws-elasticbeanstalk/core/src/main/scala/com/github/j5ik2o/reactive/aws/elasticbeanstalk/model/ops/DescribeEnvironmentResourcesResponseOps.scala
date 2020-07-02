@@ -10,9 +10,7 @@ final class DescribeEnvironmentResourcesResponseBuilderOps(val self: DescribeEnv
   final def environmentResourcesAsScala(
       value: Option[EnvironmentResourceDescription]
   ): DescribeEnvironmentResourcesResponse.Builder = {
-    value.fold(self) { v =>
-      self.environmentResources(v)
-    }
+    value.fold(self) { v => self.environmentResources(v) }
   }
 
 }

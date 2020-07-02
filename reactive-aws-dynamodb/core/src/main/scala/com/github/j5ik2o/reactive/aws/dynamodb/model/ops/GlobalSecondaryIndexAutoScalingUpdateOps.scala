@@ -8,18 +8,14 @@ final class GlobalSecondaryIndexAutoScalingUpdateBuilderOps(val self: GlobalSeco
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): GlobalSecondaryIndexAutoScalingUpdate.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityAutoScalingUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): GlobalSecondaryIndexAutoScalingUpdate.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityAutoScalingUpdate(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityAutoScalingUpdate(v) }
   }
 
 }

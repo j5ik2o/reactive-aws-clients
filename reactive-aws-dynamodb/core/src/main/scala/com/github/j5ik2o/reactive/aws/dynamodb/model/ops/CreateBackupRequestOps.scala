@@ -7,16 +7,12 @@ final class CreateBackupRequestBuilderOps(val self: CreateBackupRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): CreateBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupNameAsScala(value: Option[String]): CreateBackupRequest.Builder = {
-    value.fold(self) { v =>
-      self.backupName(v)
-    }
+    value.fold(self) { v => self.backupName(v) }
   }
 
 }

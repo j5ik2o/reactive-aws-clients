@@ -8,9 +8,7 @@ final class IncreaseReplicationFactorResponseBuilderOps(val self: IncreaseReplic
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): IncreaseReplicationFactorResponse.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class StreamRecordBuilderOps(val self: StreamRecord.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def approximateCreationDateTimeAsScala(value: Option[java.time.Instant]): StreamRecord.Builder = {
-    value.fold(self) { v =>
-      self.approximateCreationDateTime(v)
-    }
+    value.fold(self) { v => self.approximateCreationDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,23 +33,17 @@ final class StreamRecordBuilderOps(val self: StreamRecord.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberAsScala(value: Option[String]): StreamRecord.Builder = {
-    value.fold(self) { v =>
-      self.sequenceNumber(v)
-    }
+    value.fold(self) { v => self.sequenceNumber(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeBytesAsScala(value: Option[Long]): StreamRecord.Builder = {
-    value.fold(self) { v =>
-      self.sizeBytes(v)
-    }
+    value.fold(self) { v => self.sizeBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamRecord.Builder = {
-    value.fold(self) { v =>
-      self.streamViewType(v)
-    }
+    value.fold(self) { v => self.streamViewType(v) }
   }
 
 }
@@ -62,19 +54,20 @@ final class StreamRecordOps(val self: StreamRecord) extends AnyVal {
   final def approximateCreationDateTimeAsScala: Option[java.time.Instant] = Option(self.approximateCreationDateTime)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keysAsScala: Option[Map[String, AttributeValue]] = Option(self.keys).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def keysAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.keys).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def newImageAsScala: Option[Map[String, AttributeValue]] = Option(self.newImage).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def newImageAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.newImage).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def oldImageAsScala: Option[Map[String, AttributeValue]] = Option(self.oldImage).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def oldImageAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.oldImage).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberAsScala: Option[String] = Option(self.sequenceNumber)

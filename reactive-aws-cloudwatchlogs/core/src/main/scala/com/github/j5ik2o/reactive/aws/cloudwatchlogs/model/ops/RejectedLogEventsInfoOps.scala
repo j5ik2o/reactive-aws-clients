@@ -7,23 +7,17 @@ final class RejectedLogEventsInfoBuilderOps(val self: RejectedLogEventsInfo.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tooNewLogEventStartIndexAsScala(value: Option[Int]): RejectedLogEventsInfo.Builder = {
-    value.fold(self) { v =>
-      self.tooNewLogEventStartIndex(v)
-    }
+    value.fold(self) { v => self.tooNewLogEventStartIndex(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tooOldLogEventEndIndexAsScala(value: Option[Int]): RejectedLogEventsInfo.Builder = {
-    value.fold(self) { v =>
-      self.tooOldLogEventEndIndex(v)
-    }
+    value.fold(self) { v => self.tooOldLogEventEndIndex(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiredLogEventEndIndexAsScala(value: Option[Int]): RejectedLogEventsInfo.Builder = {
-    value.fold(self) { v =>
-      self.expiredLogEventEndIndex(v)
-    }
+    value.fold(self) { v => self.expiredLogEventEndIndex(v) }
   }
 
 }

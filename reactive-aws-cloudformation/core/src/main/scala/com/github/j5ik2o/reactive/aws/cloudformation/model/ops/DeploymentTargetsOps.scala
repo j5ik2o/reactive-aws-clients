@@ -24,14 +24,14 @@ final class DeploymentTargetsBuilderOps(val self: DeploymentTargets.Builder) ext
 final class DeploymentTargetsOps(val self: DeploymentTargets) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def accountsAsScala: Option[Seq[String]] = Option(self.accounts).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def accountsAsScala: Option[Seq[String]] =
+    Option(self.accounts).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def organizationalUnitIdsAsScala: Option[Seq[String]] = Option(self.organizationalUnitIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def organizationalUnitIdsAsScala: Option[Seq[String]] =
+    Option(self.organizationalUnitIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

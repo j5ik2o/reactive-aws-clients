@@ -7,16 +7,12 @@ final class ComputeEnvironmentOrderBuilderOps(val self: ComputeEnvironmentOrder.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orderAsScala(value: Option[Int]): ComputeEnvironmentOrder.Builder = {
-    value.fold(self) { v =>
-      self.order(v)
-    }
+    value.fold(self) { v => self.order(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala(value: Option[String]): ComputeEnvironmentOrder.Builder = {
-    value.fold(self) { v =>
-      self.computeEnvironment(v)
-    }
+    value.fold(self) { v => self.computeEnvironment(v) }
   }
 
 }

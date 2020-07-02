@@ -7,9 +7,7 @@ final class GenerateDataKeyRequestBuilderOps(val self: GenerateDataKeyRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GenerateDataKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,16 +19,12 @@ final class GenerateDataKeyRequestBuilderOps(val self: GenerateDataKeyRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numberOfBytesAsScala(value: Option[Int]): GenerateDataKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.numberOfBytes(v)
-    }
+    value.fold(self) { v => self.numberOfBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keySpecAsScala(value: Option[DataKeySpec]): GenerateDataKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keySpec(v)
-    }
+    value.fold(self) { v => self.keySpec(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -48,9 +42,10 @@ final class GenerateDataKeyRequestOps(val self: GenerateDataKeyRequest) extends 
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptionContextAsScala: Option[Map[String, String]] = Option(self.encryptionContext).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def encryptionContextAsScala: Option[Map[String, String]] =
+    Option(self.encryptionContext).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numberOfBytesAsScala: Option[Int] = Option(self.numberOfBytes)
@@ -59,9 +54,8 @@ final class GenerateDataKeyRequestOps(val self: GenerateDataKeyRequest) extends 
   final def keySpecAsScala: Option[DataKeySpec] = Option(self.keySpec)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

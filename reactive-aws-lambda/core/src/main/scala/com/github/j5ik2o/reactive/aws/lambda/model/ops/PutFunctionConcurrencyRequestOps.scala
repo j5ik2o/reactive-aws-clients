@@ -7,16 +7,12 @@ final class PutFunctionConcurrencyRequestBuilderOps(val self: PutFunctionConcurr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): PutFunctionConcurrencyRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala(value: Option[Int]): PutFunctionConcurrencyRequest.Builder = {
-    value.fold(self) { v =>
-      self.reservedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.reservedConcurrentExecutions(v) }
   }
 
 }

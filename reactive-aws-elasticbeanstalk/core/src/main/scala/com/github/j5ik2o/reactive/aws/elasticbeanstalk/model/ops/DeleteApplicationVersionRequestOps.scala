@@ -8,23 +8,17 @@ final class DeleteApplicationVersionRequestBuilderOps(val self: DeleteApplicatio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): DeleteApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): DeleteApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteSourceBundleAsScala(value: Option[Boolean]): DeleteApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.deleteSourceBundle(v)
-    }
+    value.fold(self) { v => self.deleteSourceBundle(v) }
   }
 
 }

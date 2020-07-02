@@ -7,9 +7,7 @@ final class DeleteStackRequestBuilderOps(val self: DeleteStackRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): DeleteStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,16 +19,12 @@ final class DeleteStackRequestBuilderOps(val self: DeleteStackRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala(value: Option[String]): DeleteStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleARN(v)
-    }
+    value.fold(self) { v => self.roleARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): DeleteStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }
@@ -41,9 +35,10 @@ final class DeleteStackRequestOps(val self: DeleteStackRequest) extends AnyVal {
   final def stackNameAsScala: Option[String] = Option(self.stackName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def retainResourcesAsScala: Option[Seq[String]] = Option(self.retainResources).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def retainResourcesAsScala: Option[Seq[String]] =
+    Option(self.retainResources).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala: Option[String] = Option(self.roleARN)

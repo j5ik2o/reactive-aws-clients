@@ -7,16 +7,12 @@ final class FaceDetectionBuilderOps(val self: FaceDetection.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): FaceDetection.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[FaceDetail]): FaceDetection.Builder = {
-    value.fold(self) { v =>
-      self.face(v)
-    }
+    value.fold(self) { v => self.face(v) }
   }
 
 }

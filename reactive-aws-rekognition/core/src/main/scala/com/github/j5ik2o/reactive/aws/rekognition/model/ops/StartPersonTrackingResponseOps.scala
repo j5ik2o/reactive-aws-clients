@@ -7,9 +7,7 @@ final class StartPersonTrackingResponseBuilderOps(val self: StartPersonTrackingR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): StartPersonTrackingResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class DeleteDestinationRequestBuilderOps(val self: DeleteDestinationReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala(value: Option[String]): DeleteDestinationRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationName(v)
-    }
+    value.fold(self) { v => self.destinationName(v) }
   }
 
 }

@@ -7,37 +7,27 @@ final class StartFaceDetectionRequestBuilderOps(val self: StartFaceDetectionRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoAsScala(value: Option[Video]): StartFaceDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.video(v)
-    }
+    value.fold(self) { v => self.video(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): StartFaceDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationChannelAsScala(value: Option[NotificationChannel]): StartFaceDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationChannel(v)
-    }
+    value.fold(self) { v => self.notificationChannel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAttributesAsScala(value: Option[FaceAttributes]): StartFaceDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.faceAttributes(v)
-    }
+    value.fold(self) { v => self.faceAttributes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobTagAsScala(value: Option[String]): StartFaceDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobTag(v)
-    }
+    value.fold(self) { v => self.jobTag(v) }
   }
 
 }

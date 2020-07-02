@@ -7,9 +7,7 @@ final class ReceiveMessageRequestBuilderOps(val self: ReceiveMessageRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,30 +26,22 @@ final class ReceiveMessageRequestBuilderOps(val self: ReceiveMessageRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxNumberOfMessagesAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxNumberOfMessages(v)
-    }
+    value.fold(self) { v => self.maxNumberOfMessages(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def visibilityTimeoutAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
-    value.fold(self) { v =>
-      self.visibilityTimeout(v)
-    }
+    value.fold(self) { v => self.visibilityTimeout(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def waitTimeSecondsAsScala(value: Option[Int]): ReceiveMessageRequest.Builder = {
-    value.fold(self) { v =>
-      self.waitTimeSeconds(v)
-    }
+    value.fold(self) { v => self.waitTimeSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def receiveRequestAttemptIdAsScala(value: Option[String]): ReceiveMessageRequest.Builder = {
-    value.fold(self) { v =>
-      self.receiveRequestAttemptId(v)
-    }
+    value.fold(self) { v => self.receiveRequestAttemptId(v) }
   }
 
 }
@@ -62,14 +52,16 @@ final class ReceiveMessageRequestOps(val self: ReceiveMessageRequest) extends An
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributeNamesAsScala: Option[Seq[QueueAttributeName]] = Option(self.attributeNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributeNamesAsScala: Option[Seq[QueueAttributeName]] =
+    Option(self.attributeNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messageAttributeNamesAsScala: Option[Seq[String]] = Option(self.messageAttributeNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def messageAttributeNamesAsScala: Option[Seq[String]] =
+    Option(self.messageAttributeNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxNumberOfMessagesAsScala: Option[Int] = Option(self.maxNumberOfMessages)

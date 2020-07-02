@@ -16,51 +16,37 @@ final class RunTaskRequestBuilderOps(val self: RunTaskRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def countAsScala(value: Option[Int]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.count(v)
-    }
+    value.fold(self) { v => self.count(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enableECSManagedTagsAsScala(value: Option[Boolean]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.enableECSManagedTags(v)
-    }
+    value.fold(self) { v => self.enableECSManagedTags(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupAsScala(value: Option[String]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.group(v)
-    }
+    value.fold(self) { v => self.group(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTypeAsScala(value: Option[LaunchType]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.launchType(v)
-    }
+    value.fold(self) { v => self.launchType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkConfigurationAsScala(value: Option[NetworkConfiguration]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.networkConfiguration(v)
-    }
+    value.fold(self) { v => self.networkConfiguration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def overridesAsScala(value: Option[TaskOverride]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.overrides(v)
-    }
+    value.fold(self) { v => self.overrides(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -79,30 +65,22 @@ final class RunTaskRequestBuilderOps(val self: RunTaskRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformVersion(v)
-    }
+    value.fold(self) { v => self.platformVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def propagateTagsAsScala(value: Option[PropagateTags]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.propagateTags(v)
-    }
+    value.fold(self) { v => self.propagateTags(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def referenceIdAsScala(value: Option[String]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.referenceId(v)
-    }
+    value.fold(self) { v => self.referenceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startedByAsScala(value: Option[String]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.startedBy(v)
-    }
+    value.fold(self) { v => self.startedBy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -114,9 +92,7 @@ final class RunTaskRequestBuilderOps(val self: RunTaskRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala(value: Option[String]): RunTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.taskDefinition(v)
-    }
+    value.fold(self) { v => self.taskDefinition(v) }
   }
 
 }
@@ -151,14 +127,16 @@ final class RunTaskRequestOps(val self: RunTaskRequest) extends AnyVal {
   final def overridesAsScala: Option[TaskOverride] = Option(self.overrides)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def placementConstraintsAsScala: Option[Seq[PlacementConstraint]] = Option(self.placementConstraints).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def placementConstraintsAsScala: Option[Seq[PlacementConstraint]] =
+    Option(self.placementConstraints).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def placementStrategyAsScala: Option[Seq[PlacementStrategy]] = Option(self.placementStrategy).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def placementStrategyAsScala: Option[Seq[PlacementStrategy]] =
+    Option(self.placementStrategy).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala: Option[String] = Option(self.platformVersion)
@@ -173,9 +151,8 @@ final class RunTaskRequestOps(val self: RunTaskRequest) extends AnyVal {
   final def startedByAsScala: Option[String] = Option(self.startedBy)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala: Option[String] = Option(self.taskDefinition)

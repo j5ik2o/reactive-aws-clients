@@ -7,51 +7,37 @@ final class DescribeEventsRequestBuilderOps(val self: DescribeEventsRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceNameAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceName(v)
-    }
+    value.fold(self) { v => self.sourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTypeAsScala(value: Option[SourceType]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceType(v)
-    }
+    value.fold(self) { v => self.sourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.startTime(v)
-    }
+    value.fold(self) { v => self.startTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimeAsScala(value: Option[java.time.Instant]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.endTime(v)
-    }
+    value.fold(self) { v => self.endTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def durationAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.duration(v)
-    }
+    value.fold(self) { v => self.duration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

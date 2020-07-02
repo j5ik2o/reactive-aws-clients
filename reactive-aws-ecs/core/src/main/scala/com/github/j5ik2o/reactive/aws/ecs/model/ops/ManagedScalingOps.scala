@@ -7,30 +7,22 @@ final class ManagedScalingBuilderOps(val self: ManagedScaling.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ManagedScalingStatus]): ManagedScaling.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetCapacityAsScala(value: Option[Int]): ManagedScaling.Builder = {
-    value.fold(self) { v =>
-      self.targetCapacity(v)
-    }
+    value.fold(self) { v => self.targetCapacity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minimumScalingStepSizeAsScala(value: Option[Int]): ManagedScaling.Builder = {
-    value.fold(self) { v =>
-      self.minimumScalingStepSize(v)
-    }
+    value.fold(self) { v => self.minimumScalingStepSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumScalingStepSizeAsScala(value: Option[Int]): ManagedScaling.Builder = {
-    value.fold(self) { v =>
-      self.maximumScalingStepSize(v)
-    }
+    value.fold(self) { v => self.maximumScalingStepSize(v) }
   }
 
 }

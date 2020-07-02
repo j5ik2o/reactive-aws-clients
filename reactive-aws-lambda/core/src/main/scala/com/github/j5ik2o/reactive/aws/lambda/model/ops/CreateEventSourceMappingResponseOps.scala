@@ -8,100 +8,72 @@ final class CreateEventSourceMappingResponseBuilderOps(val self: CreateEventSour
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uuidAsScala(value: Option[String]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.uuid(v)
-    }
+    value.fold(self) { v => self.uuid(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def batchSizeAsScala(value: Option[Int]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.batchSize(v)
-    }
+    value.fold(self) { v => self.batchSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumBatchingWindowInSecondsAsScala(value: Option[Int]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.maximumBatchingWindowInSeconds(v)
-    }
+    value.fold(self) { v => self.maximumBatchingWindowInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parallelizationFactorAsScala(value: Option[Int]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.parallelizationFactor(v)
-    }
+    value.fold(self) { v => self.parallelizationFactor(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala(value: Option[String]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.eventSourceArn(v)
-    }
+    value.fold(self) { v => self.eventSourceArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionArnAsScala(value: Option[String]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.functionArn(v)
-    }
+    value.fold(self) { v => self.functionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[java.time.Instant]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastModified(v)
-    }
+    value.fold(self) { v => self.lastModified(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastProcessingResultAsScala(value: Option[String]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastProcessingResult(v)
-    }
+    value.fold(self) { v => self.lastProcessingResult(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[String]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateTransitionReasonAsScala(value: Option[String]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.stateTransitionReason(v)
-    }
+    value.fold(self) { v => self.stateTransitionReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationConfigAsScala(value: Option[DestinationConfig]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.destinationConfig(v)
-    }
+    value.fold(self) { v => self.destinationConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumRecordAgeInSecondsAsScala(value: Option[Int]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.maximumRecordAgeInSeconds(v)
-    }
+    value.fold(self) { v => self.maximumRecordAgeInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bisectBatchOnFunctionErrorAsScala(value: Option[Boolean]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.bisectBatchOnFunctionError(v)
-    }
+    value.fold(self) { v => self.bisectBatchOnFunctionError(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumRetryAttemptsAsScala(value: Option[Int]): CreateEventSourceMappingResponse.Builder = {
-    value.fold(self) { v =>
-      self.maximumRetryAttempts(v)
-    }
+    value.fold(self) { v => self.maximumRetryAttempts(v) }
   }
 
 }

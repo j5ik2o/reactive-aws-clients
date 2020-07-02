@@ -7,9 +7,7 @@ final class LambdaDataSourceConfigBuilderOps(val self: LambdaDataSourceConfig.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lambdaFunctionArnAsScala(value: Option[String]): LambdaDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.lambdaFunctionArn(v)
-    }
+    value.fold(self) { v => self.lambdaFunctionArn(v) }
   }
 
 }

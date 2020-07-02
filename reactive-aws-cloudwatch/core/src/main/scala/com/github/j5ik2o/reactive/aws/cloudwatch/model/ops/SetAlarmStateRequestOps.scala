@@ -7,30 +7,22 @@ final class SetAlarmStateRequestBuilderOps(val self: SetAlarmStateRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala(value: Option[String]): SetAlarmStateRequest.Builder = {
-    value.fold(self) { v =>
-      self.alarmName(v)
-    }
+    value.fold(self) { v => self.alarmName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateValueAsScala(value: Option[StateValue]): SetAlarmStateRequest.Builder = {
-    value.fold(self) { v =>
-      self.stateValue(v)
-    }
+    value.fold(self) { v => self.stateValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonAsScala(value: Option[String]): SetAlarmStateRequest.Builder = {
-    value.fold(self) { v =>
-      self.stateReason(v)
-    }
+    value.fold(self) { v => self.stateReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonDataAsScala(value: Option[String]): SetAlarmStateRequest.Builder = {
-    value.fold(self) { v =>
-      self.stateReasonData(v)
-    }
+    value.fold(self) { v => self.stateReasonData(v) }
   }
 
 }

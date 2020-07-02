@@ -7,16 +7,12 @@ final class PutDashboardRequestBuilderOps(val self: PutDashboardRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNameAsScala(value: Option[String]): PutDashboardRequest.Builder = {
-    value.fold(self) { v =>
-      self.dashboardName(v)
-    }
+    value.fold(self) { v => self.dashboardName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardBodyAsScala(value: Option[String]): PutDashboardRequest.Builder = {
-    value.fold(self) { v =>
-      self.dashboardBody(v)
-    }
+    value.fold(self) { v => self.dashboardBody(v) }
   }
 
 }

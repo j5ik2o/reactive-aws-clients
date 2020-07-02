@@ -7,16 +7,12 @@ final class GetLogGroupFieldsRequestBuilderOps(val self: GetLogGroupFieldsReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): GetLogGroupFieldsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeAsScala(value: Option[Long]): GetLogGroupFieldsRequest.Builder = {
-    value.fold(self) { v =>
-      self.time(v)
-    }
+    value.fold(self) { v => self.time(v) }
   }
 
 }

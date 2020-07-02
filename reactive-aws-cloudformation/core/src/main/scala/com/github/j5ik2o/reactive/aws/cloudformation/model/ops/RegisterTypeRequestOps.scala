@@ -7,44 +7,32 @@ final class RegisterTypeRequestBuilderOps(val self: RegisterTypeRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[RegistryType]): RegisterTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): RegisterTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def schemaHandlerPackageAsScala(value: Option[String]): RegisterTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.schemaHandlerPackage(v)
-    }
+    value.fold(self) { v => self.schemaHandlerPackage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loggingConfigAsScala(value: Option[LoggingConfig]): RegisterTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.loggingConfig(v)
-    }
+    value.fold(self) { v => self.loggingConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleArnAsScala(value: Option[String]): RegisterTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.executionRoleArn(v)
-    }
+    value.fold(self) { v => self.executionRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): RegisterTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.rekognition.model._
 
 object RekognitionAkkaClient {
 
-  def apply(asyncClient: RekognitionAsyncClient): RekognitionAkkaClient = new RekognitionAkkaClient {
-    override val underlying: RekognitionAsyncClient = asyncClient
-  }
+  def apply(asyncClient: RekognitionAsyncClient): RekognitionAkkaClient =
+    new RekognitionAkkaClient {
+      override val underlying: RekognitionAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

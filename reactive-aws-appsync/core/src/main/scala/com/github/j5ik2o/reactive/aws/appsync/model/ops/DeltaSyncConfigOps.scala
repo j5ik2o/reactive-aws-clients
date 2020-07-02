@@ -7,23 +7,17 @@ final class DeltaSyncConfigBuilderOps(val self: DeltaSyncConfig.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def baseTableTTLAsScala(value: Option[Long]): DeltaSyncConfig.Builder = {
-    value.fold(self) { v =>
-      self.baseTableTTL(v)
-    }
+    value.fold(self) { v => self.baseTableTTL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deltaSyncTableNameAsScala(value: Option[String]): DeltaSyncConfig.Builder = {
-    value.fold(self) { v =>
-      self.deltaSyncTableName(v)
-    }
+    value.fold(self) { v => self.deltaSyncTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deltaSyncTableTTLAsScala(value: Option[Long]): DeltaSyncConfig.Builder = {
-    value.fold(self) { v =>
-      self.deltaSyncTableTTL(v)
-    }
+    value.fold(self) { v => self.deltaSyncTableTTL(v) }
   }
 
 }

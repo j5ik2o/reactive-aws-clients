@@ -7,23 +7,17 @@ final class LaunchTemplateSpecificationBuilderOps(val self: LaunchTemplateSpecif
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateIdAsScala(value: Option[String]): LaunchTemplateSpecification.Builder = {
-    value.fold(self) { v =>
-      self.launchTemplateId(v)
-    }
+    value.fold(self) { v => self.launchTemplateId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateNameAsScala(value: Option[String]): LaunchTemplateSpecification.Builder = {
-    value.fold(self) { v =>
-      self.launchTemplateName(v)
-    }
+    value.fold(self) { v => self.launchTemplateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): LaunchTemplateSpecification.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class GetPublicAccessBlockRequestBuilderOps(val self: GetPublicAccessBlock
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetPublicAccessBlockRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
 }

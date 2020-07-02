@@ -24,14 +24,16 @@ final class ItemCollectionMetricsBuilderOps(val self: ItemCollectionMetrics.Buil
 final class ItemCollectionMetricsOps(val self: ItemCollectionMetrics) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def itemCollectionKeyAsScala: Option[Map[String, AttributeValue]] = Option(self.itemCollectionKey).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def itemCollectionKeyAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.itemCollectionKey).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sizeEstimateRangeGBAsScala: Option[Seq[Double]] = Option(self.sizeEstimateRangeGB).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.doubleValue())
-  }
+  final def sizeEstimateRangeGBAsScala: Option[Seq[Double]] =
+    Option(self.sizeEstimateRangeGB).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.doubleValue())
+    }
 
 }
 

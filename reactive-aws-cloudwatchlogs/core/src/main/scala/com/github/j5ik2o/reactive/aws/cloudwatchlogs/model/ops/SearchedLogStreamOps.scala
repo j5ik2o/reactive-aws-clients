@@ -7,16 +7,12 @@ final class SearchedLogStreamBuilderOps(val self: SearchedLogStream.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNameAsScala(value: Option[String]): SearchedLogStream.Builder = {
-    value.fold(self) { v =>
-      self.logStreamName(v)
-    }
+    value.fold(self) { v => self.logStreamName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def searchedCompletelyAsScala(value: Option[Boolean]): SearchedLogStream.Builder = {
-    value.fold(self) { v =>
-      self.searchedCompletely(v)
-    }
+    value.fold(self) { v => self.searchedCompletely(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class DeleteNodegroupRequestBuilderOps(val self: DeleteNodegroupRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): DeleteNodegroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupNameAsScala(value: Option[String]): DeleteNodegroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodegroupName(v)
-    }
+    value.fold(self) { v => self.nodegroupName(v) }
   }
 
 }

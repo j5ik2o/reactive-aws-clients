@@ -14,9 +14,7 @@ final class DescribeDestinationsResponseBuilderOps(val self: DescribeDestination
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeDestinationsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class DescribeDestinationsResponseBuilderOps(val self: DescribeDestination
 final class DescribeDestinationsResponseOps(val self: DescribeDestinationsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def destinationsAsScala: Option[Seq[Destination]] = Option(self.destinations).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def destinationsAsScala: Option[Seq[Destination]] =
+    Option(self.destinations).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

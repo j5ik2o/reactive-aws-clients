@@ -7,16 +7,12 @@ final class DomainEndpointOptionsBuilderOps(val self: DomainEndpointOptions.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enforceHTTPSAsScala(value: Option[Boolean]): DomainEndpointOptions.Builder = {
-    value.fold(self) { v =>
-      self.enforceHTTPS(v)
-    }
+    value.fold(self) { v => self.enforceHTTPS(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tlsSecurityPolicyAsScala(value: Option[TLSSecurityPolicy]): DomainEndpointOptions.Builder = {
-    value.fold(self) { v =>
-      self.tlsSecurityPolicy(v)
-    }
+    value.fold(self) { v => self.tlsSecurityPolicy(v) }
   }
 
 }

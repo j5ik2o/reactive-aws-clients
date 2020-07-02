@@ -7,16 +7,12 @@ final class StartProjectVersionRequestBuilderOps(val self: StartProjectVersionRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectVersionArnAsScala(value: Option[String]): StartProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectVersionArn(v)
-    }
+    value.fold(self) { v => self.projectVersionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minInferenceUnitsAsScala(value: Option[Int]): StartProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.minInferenceUnits(v)
-    }
+    value.fold(self) { v => self.minInferenceUnits(v) }
   }
 
 }

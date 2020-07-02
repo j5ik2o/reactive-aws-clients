@@ -7,16 +7,12 @@ final class SubmitJobResponseBuilderOps(val self: SubmitJobResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobNameAsScala(value: Option[String]): SubmitJobResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobName(v)
-    }
+    value.fold(self) { v => self.jobName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): SubmitJobResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class GetParametersForImportRequestBuilderOps(val self: GetParametersForIm
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetParametersForImportRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def wrappingAlgorithmAsScala(value: Option[AlgorithmSpec]): GetParametersForImportRequest.Builder = {
-    value.fold(self) { v =>
-      self.wrappingAlgorithm(v)
-    }
+    value.fold(self) { v => self.wrappingAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def wrappingKeySpecAsScala(value: Option[WrappingKeySpec]): GetParametersForImportRequest.Builder = {
-    value.fold(self) { v =>
-      self.wrappingKeySpec(v)
-    }
+    value.fold(self) { v => self.wrappingKeySpec(v) }
   }
 
 }

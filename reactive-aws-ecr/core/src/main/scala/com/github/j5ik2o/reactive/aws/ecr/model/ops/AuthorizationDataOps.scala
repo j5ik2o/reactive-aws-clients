@@ -7,23 +7,17 @@ final class AuthorizationDataBuilderOps(val self: AuthorizationData.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationTokenAsScala(value: Option[String]): AuthorizationData.Builder = {
-    value.fold(self) { v =>
-      self.authorizationToken(v)
-    }
+    value.fold(self) { v => self.authorizationToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiresAtAsScala(value: Option[java.time.Instant]): AuthorizationData.Builder = {
-    value.fold(self) { v =>
-      self.expiresAt(v)
-    }
+    value.fold(self) { v => self.expiresAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def proxyEndpointAsScala(value: Option[String]): AuthorizationData.Builder = {
-    value.fold(self) { v =>
-      self.proxyEndpoint(v)
-    }
+    value.fold(self) { v => self.proxyEndpoint(v) }
   }
 
 }

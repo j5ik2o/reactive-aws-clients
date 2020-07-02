@@ -7,9 +7,7 @@ final class LocalSecondaryIndexBuilderOps(val self: LocalSecondaryIndex.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): LocalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,9 +19,7 @@ final class LocalSecondaryIndexBuilderOps(val self: LocalSecondaryIndex.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala(value: Option[Projection]): LocalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.projection(v)
-    }
+    value.fold(self) { v => self.projection(v) }
   }
 
 }
@@ -34,9 +30,8 @@ final class LocalSecondaryIndexOps(val self: LocalSecondaryIndex) extends AnyVal
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] =
+    Option(self.keySchema).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala: Option[Projection] = Option(self.projection)

@@ -7,23 +7,17 @@ final class UpdateClusterVersionRequestBuilderOps(val self: UpdateClusterVersion
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): UpdateClusterVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): UpdateClusterVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): UpdateClusterVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

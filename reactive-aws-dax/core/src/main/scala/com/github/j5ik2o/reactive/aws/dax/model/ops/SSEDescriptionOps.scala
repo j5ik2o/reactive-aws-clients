@@ -7,9 +7,7 @@ final class SSEDescriptionBuilderOps(val self: SSEDescription.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[SSEStatus]): SSEDescription.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

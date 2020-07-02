@@ -8,9 +8,7 @@ final class DeregisterTaskDefinitionResponseBuilderOps(val self: DeregisterTaskD
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala(value: Option[TaskDefinition]): DeregisterTaskDefinitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.taskDefinition(v)
-    }
+    value.fold(self) { v => self.taskDefinition(v) }
   }
 
 }

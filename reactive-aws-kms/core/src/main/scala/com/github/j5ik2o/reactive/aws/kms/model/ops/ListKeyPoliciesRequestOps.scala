@@ -7,23 +7,17 @@ final class ListKeyPoliciesRequestBuilderOps(val self: ListKeyPoliciesRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ListKeyPoliciesRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListKeyPoliciesRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListKeyPoliciesRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
 }

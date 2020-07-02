@@ -7,16 +7,12 @@ final class PutResourcePolicyRequestBuilderOps(val self: PutResourcePolicyReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): PutResourcePolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policyName(v)
-    }
+    value.fold(self) { v => self.policyName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyDocumentAsScala(value: Option[String]): PutResourcePolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policyDocument(v)
-    }
+    value.fold(self) { v => self.policyDocument(v) }
   }
 
 }

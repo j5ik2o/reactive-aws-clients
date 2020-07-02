@@ -17,9 +17,8 @@ final class DescribeApplicationsResponseBuilderOps(val self: DescribeApplication
 final class DescribeApplicationsResponseOps(val self: DescribeApplicationsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def applicationsAsScala: Option[Seq[ApplicationDescription]] = Option(self.applications).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def applicationsAsScala: Option[Seq[ApplicationDescription]] =
+    Option(self.applications).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

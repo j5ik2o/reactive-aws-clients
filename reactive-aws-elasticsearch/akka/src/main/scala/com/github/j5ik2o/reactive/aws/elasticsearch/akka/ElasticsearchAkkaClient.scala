@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 object ElasticsearchAkkaClient {
 
-  def apply(asyncClient: ElasticsearchAsyncClient): ElasticsearchAkkaClient = new ElasticsearchAkkaClient {
-    override val underlying: ElasticsearchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: ElasticsearchAsyncClient): ElasticsearchAkkaClient =
+    new ElasticsearchAkkaClient {
+      override val underlying: ElasticsearchAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 
@@ -236,9 +237,10 @@ trait ElasticsearchAkkaClient {
     DescribeReservedElasticsearchInstanceOfferingsRequest,
     DescribeReservedElasticsearchInstanceOfferingsResponse,
     NotUsed
-  ] = Flow[DescribeReservedElasticsearchInstanceOfferingsRequest].flatMapConcat { request =>
-    Source.fromPublisher(underlying.describeReservedElasticsearchInstanceOfferingsPaginator(request))
-  }
+  ] =
+    Flow[DescribeReservedElasticsearchInstanceOfferingsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeReservedElasticsearchInstanceOfferingsPaginator(request))
+    }
 
   def describeReservedElasticsearchInstancesSource(
       describeReservedElasticsearchInstancesRequest: DescribeReservedElasticsearchInstancesRequest,

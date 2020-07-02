@@ -7,121 +7,87 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteMarkerAsScala(value: Option[Boolean]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.deleteMarker(v)
-    }
+    value.fold(self) { v => self.deleteMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acceptRangesAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.acceptRanges(v)
-    }
+    value.fold(self) { v => self.acceptRanges(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expirationAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.expiration(v)
-    }
+    value.fold(self) { v => self.expiration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def restoreAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.restore(v)
-    }
+    value.fold(self) { v => self.restore(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[java.time.Instant]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastModified(v)
-    }
+    value.fold(self) { v => self.lastModified(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentLengthAsScala(value: Option[Long]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.contentLength(v)
-    }
+    value.fold(self) { v => self.contentLength(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eTagAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.eTag(v)
-    }
+    value.fold(self) { v => self.eTag(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def missingMetaAsScala(value: Option[Int]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.missingMeta(v)
-    }
+    value.fold(self) { v => self.missingMeta(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.versionId(v)
-    }
+    value.fold(self) { v => self.versionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cacheControlAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.cacheControl(v)
-    }
+    value.fold(self) { v => self.cacheControl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentDispositionAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.contentDisposition(v)
-    }
+    value.fold(self) { v => self.contentDisposition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentEncodingAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.contentEncoding(v)
-    }
+    value.fold(self) { v => self.contentEncoding(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentLanguageAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.contentLanguage(v)
-    }
+    value.fold(self) { v => self.contentLanguage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentTypeAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.contentType(v)
-    }
+    value.fold(self) { v => self.contentType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiresAsScala(value: Option[java.time.Instant]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.expires(v)
-    }
+    value.fold(self) { v => self.expires(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def websiteRedirectLocationAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.websiteRedirectLocation(v)
-    }
+    value.fold(self) { v => self.websiteRedirectLocation(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.serverSideEncryption(v)
-    }
+    value.fold(self) { v => self.serverSideEncryption(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -133,72 +99,52 @@ final class HeadObjectResponseBuilderOps(val self: HeadObjectResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerAlgorithmAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerAlgorithm(v)
-    }
+    value.fold(self) { v => self.sseCustomerAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerKeyMD5AsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerKeyMD5(v)
-    }
+    value.fold(self) { v => self.sseCustomerKeyMD5(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsKeyIdAsScala(value: Option[String]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.ssekmsKeyId(v)
-    }
+    value.fold(self) { v => self.ssekmsKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala(value: Option[StorageClass]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.storageClass(v)
-    }
+    value.fold(self) { v => self.storageClass(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.requestCharged(v)
-    }
+    value.fold(self) { v => self.requestCharged(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicationStatusAsScala(value: Option[ReplicationStatus]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.replicationStatus(v)
-    }
+    value.fold(self) { v => self.replicationStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partsCountAsScala(value: Option[Int]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.partsCount(v)
-    }
+    value.fold(self) { v => self.partsCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockModeAsScala(value: Option[ObjectLockMode]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.objectLockMode(v)
-    }
+    value.fold(self) { v => self.objectLockMode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockRetainUntilDateAsScala(value: Option[java.time.Instant]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.objectLockRetainUntilDate(v)
-    }
+    value.fold(self) { v => self.objectLockRetainUntilDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def objectLockLegalHoldStatusAsScala(value: Option[ObjectLockLegalHoldStatus]): HeadObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.objectLockLegalHoldStatus(v)
-    }
+    value.fold(self) { v => self.objectLockLegalHoldStatus(v) }
   }
 
 }
@@ -257,9 +203,10 @@ final class HeadObjectResponseOps(val self: HeadObjectResponse) extends AnyVal {
   final def serverSideEncryptionAsScala: Option[ServerSideEncryption] = Option(self.serverSideEncryption)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metadataAsScala: Option[Map[String, String]] = Option(self.metadata).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def metadataAsScala: Option[Map[String, String]] =
+    Option(self.metadata).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerAlgorithmAsScala: Option[String] = Option(self.sseCustomerAlgorithm)

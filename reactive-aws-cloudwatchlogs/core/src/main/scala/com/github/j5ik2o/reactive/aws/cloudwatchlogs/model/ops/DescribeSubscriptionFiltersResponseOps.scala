@@ -17,9 +17,7 @@ final class DescribeSubscriptionFiltersResponseBuilderOps(val self: DescribeSubs
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeSubscriptionFiltersResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -27,9 +25,10 @@ final class DescribeSubscriptionFiltersResponseBuilderOps(val self: DescribeSubs
 final class DescribeSubscriptionFiltersResponseOps(val self: DescribeSubscriptionFiltersResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subscriptionFiltersAsScala: Option[Seq[SubscriptionFilter]] = Option(self.subscriptionFilters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subscriptionFiltersAsScala: Option[Seq[SubscriptionFilter]] =
+    Option(self.subscriptionFilters).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

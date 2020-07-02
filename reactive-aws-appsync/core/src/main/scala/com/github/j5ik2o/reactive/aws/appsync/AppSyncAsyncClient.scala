@@ -17,8 +17,7 @@ object AppSyncAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appsync/AppSyncAsyncClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appsync/AppSyncAsyncClient.html */
 trait AppSyncAsyncClient extends AppSyncClient[Future] {
   val underlying: JavaAppSyncAsyncClient
 

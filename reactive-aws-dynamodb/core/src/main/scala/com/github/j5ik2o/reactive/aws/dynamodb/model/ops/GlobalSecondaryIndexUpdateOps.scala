@@ -7,23 +7,17 @@ final class GlobalSecondaryIndexUpdateBuilderOps(val self: GlobalSecondaryIndexU
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
-    value.fold(self) { v =>
-      self.update(v)
-    }
+    value.fold(self) { v => self.update(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createAsScala(value: Option[CreateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
-    value.fold(self) { v =>
-      self.create(v)
-    }
+    value.fold(self) { v => self.create(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteAsScala(value: Option[DeleteGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate.Builder = {
-    value.fold(self) { v =>
-      self.delete(v)
-    }
+    value.fold(self) { v => self.delete(v) }
   }
 
 }

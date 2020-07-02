@@ -7,16 +7,12 @@ final class PlatformDeviceBuilderOps(val self: PlatformDevice.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): PlatformDevice.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[PlatformDeviceType]): PlatformDevice.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
 }

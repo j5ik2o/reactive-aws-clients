@@ -7,9 +7,7 @@ final class DescribeNodegroupResponseBuilderOps(val self: DescribeNodegroupRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupAsScala(value: Option[Nodegroup]): DescribeNodegroupResponse.Builder = {
-    value.fold(self) { v =>
-      self.nodegroup(v)
-    }
+    value.fold(self) { v => self.nodegroup(v) }
   }
 
 }

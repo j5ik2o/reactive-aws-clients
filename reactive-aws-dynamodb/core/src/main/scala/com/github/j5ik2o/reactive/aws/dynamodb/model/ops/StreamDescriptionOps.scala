@@ -7,44 +7,32 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamArnAsScala(value: Option[String]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.streamArn(v)
-    }
+    value.fold(self) { v => self.streamArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamLabelAsScala(value: Option[String]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.streamLabel(v)
-    }
+    value.fold(self) { v => self.streamLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamStatusAsScala(value: Option[StreamStatus]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.streamStatus(v)
-    }
+    value.fold(self) { v => self.streamStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamViewTypeAsScala(value: Option[StreamViewType]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.streamViewType(v)
-    }
+    value.fold(self) { v => self.streamViewType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationRequestDateTimeAsScala(value: Option[java.time.Instant]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.creationRequestDateTime(v)
-    }
+    value.fold(self) { v => self.creationRequestDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -63,9 +51,7 @@ final class StreamDescriptionBuilderOps(val self: StreamDescription.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedShardIdAsScala(value: Option[String]): StreamDescription.Builder = {
-    value.fold(self) { v =>
-      self.lastEvaluatedShardId(v)
-    }
+    value.fold(self) { v => self.lastEvaluatedShardId(v) }
   }
 
 }
@@ -91,14 +77,12 @@ final class StreamDescriptionOps(val self: StreamDescription) extends AnyVal {
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] =
+    Option(self.keySchema).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def shardsAsScala: Option[Seq[Shard]] = Option(self.shards).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def shardsAsScala: Option[Seq[Shard]] =
+    Option(self.shards).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastEvaluatedShardIdAsScala: Option[String] = Option(self.lastEvaluatedShardId)

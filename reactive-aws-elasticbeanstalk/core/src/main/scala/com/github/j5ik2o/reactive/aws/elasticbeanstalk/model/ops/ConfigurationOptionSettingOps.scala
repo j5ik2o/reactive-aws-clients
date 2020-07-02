@@ -7,30 +7,22 @@ final class ConfigurationOptionSettingBuilderOps(val self: ConfigurationOptionSe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceNameAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
-    value.fold(self) { v =>
-      self.resourceName(v)
-    }
+    value.fold(self) { v => self.resourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionNameAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
-    value.fold(self) { v =>
-      self.optionName(v)
-    }
+    value.fold(self) { v => self.optionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): ConfigurationOptionSetting.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
 }

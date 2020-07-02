@@ -7,9 +7,7 @@ final class DescribeTaskDefinitionResponseBuilderOps(val self: DescribeTaskDefin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala(value: Option[TaskDefinition]): DescribeTaskDefinitionResponse.Builder = {
-    value.fold(self) { v =>
-      self.taskDefinition(v)
-    }
+    value.fold(self) { v => self.taskDefinition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DescribeTaskDefinitionResponseOps(val self: DescribeTaskDefinitionRe
   final def taskDefinitionAsScala: Option[TaskDefinition] = Option(self.taskDefinition)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

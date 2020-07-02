@@ -7,9 +7,7 @@ final class PutAccountSettingResponseBuilderOps(val self: PutAccountSettingRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def settingAsScala(value: Option[Setting]): PutAccountSettingResponse.Builder = {
-    value.fold(self) { v =>
-      self.setting(v)
-    }
+    value.fold(self) { v => self.setting(v) }
   }
 
 }

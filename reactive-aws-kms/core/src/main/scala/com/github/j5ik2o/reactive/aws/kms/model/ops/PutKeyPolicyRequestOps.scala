@@ -7,30 +7,22 @@ final class PutKeyPolicyRequestBuilderOps(val self: PutKeyPolicyRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): PutKeyPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): PutKeyPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policyName(v)
-    }
+    value.fold(self) { v => self.policyName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala(value: Option[String]): PutKeyPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policy(v)
-    }
+    value.fold(self) { v => self.policy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bypassPolicyLockoutSafetyCheckAsScala(value: Option[Boolean]): PutKeyPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.bypassPolicyLockoutSafetyCheck(v)
-    }
+    value.fold(self) { v => self.bypassPolicyLockoutSafetyCheck(v) }
   }
 
 }

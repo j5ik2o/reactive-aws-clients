@@ -21,9 +21,7 @@ final class FilterLogEventsResponseBuilderOps(val self: FilterLogEventsResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): FilterLogEventsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -31,14 +29,14 @@ final class FilterLogEventsResponseBuilderOps(val self: FilterLogEventsResponse.
 final class FilterLogEventsResponseOps(val self: FilterLogEventsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def eventsAsScala: Option[Seq[FilteredLogEvent]] = Option(self.events).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def eventsAsScala: Option[Seq[FilteredLogEvent]] =
+    Option(self.events).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def searchedLogStreamsAsScala: Option[Seq[SearchedLogStream]] = Option(self.searchedLogStreams).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def searchedLogStreamsAsScala: Option[Seq[SearchedLogStream]] =
+    Option(self.searchedLogStreams).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

@@ -7,16 +7,12 @@ final class GetLayerVersionPolicyResponseBuilderOps(val self: GetLayerVersionPol
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala(value: Option[String]): GetLayerVersionPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.policy(v)
-    }
+    value.fold(self) { v => self.policy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): GetLayerVersionPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.revisionId(v)
-    }
+    value.fold(self) { v => self.revisionId(v) }
   }
 
 }

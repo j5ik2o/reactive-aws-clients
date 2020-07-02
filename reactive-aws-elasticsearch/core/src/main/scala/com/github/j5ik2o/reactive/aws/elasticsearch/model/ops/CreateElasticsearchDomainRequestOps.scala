@@ -8,78 +8,58 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchVersionAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchVersion(v)
-    }
+    value.fold(self) { v => self.elasticsearchVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfig]
   ): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchClusterConfig(v)
-    }
+    value.fold(self) { v => self.elasticsearchClusterConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ebsOptionsAsScala(value: Option[EBSOptions]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.ebsOptions(v)
-    }
+    value.fold(self) { v => self.ebsOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPoliciesAsScala(value: Option[String]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.accessPolicies(v)
-    }
+    value.fold(self) { v => self.accessPolicies(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotOptionsAsScala(value: Option[SnapshotOptions]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.snapshotOptions(v)
-    }
+    value.fold(self) { v => self.snapshotOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcOptionsAsScala(value: Option[VPCOptions]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.vpcOptions(v)
-    }
+    value.fold(self) { v => self.vpcOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cognitoOptionsAsScala(value: Option[CognitoOptions]): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.cognitoOptions(v)
-    }
+    value.fold(self) { v => self.cognitoOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptions]
   ): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.encryptionAtRestOptions(v)
-    }
+    value.fold(self) { v => self.encryptionAtRestOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptions]
   ): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodeToNodeEncryptionOptions(v)
-    }
+    value.fold(self) { v => self.nodeToNodeEncryptionOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -102,18 +82,14 @@ final class CreateElasticsearchDomainRequestBuilderOps(val self: CreateElasticse
   final def domainEndpointOptionsAsScala(
       value: Option[DomainEndpointOptions]
   ): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainEndpointOptions(v)
-    }
+    value.fold(self) { v => self.domainEndpointOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def advancedSecurityOptionsAsScala(
       value: Option[AdvancedSecurityOptionsInput]
   ): CreateElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.advancedSecurityOptions(v)
-    }
+    value.fold(self) { v => self.advancedSecurityOptions(v) }
   }
 
 }
@@ -153,9 +129,10 @@ final class CreateElasticsearchDomainRequestOps(val self: CreateElasticsearchDom
     Option(self.nodeToNodeEncryptionOptions)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def advancedOptionsAsScala: Option[Map[String, String]] = Option(self.advancedOptions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def advancedOptionsAsScala: Option[Map[String, String]] =
+    Option(self.advancedOptions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logPublishingOptionsAsScala: Option[Map[LogType, LogPublishingOption]] =

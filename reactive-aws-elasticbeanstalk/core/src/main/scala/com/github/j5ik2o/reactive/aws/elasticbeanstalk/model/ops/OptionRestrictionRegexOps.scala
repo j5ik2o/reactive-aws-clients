@@ -7,16 +7,12 @@ final class OptionRestrictionRegexBuilderOps(val self: OptionRestrictionRegex.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def patternAsScala(value: Option[String]): OptionRestrictionRegex.Builder = {
-    value.fold(self) { v =>
-      self.pattern(v)
-    }
+    value.fold(self) { v => self.pattern(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): OptionRestrictionRegex.Builder = {
-    value.fold(self) { v =>
-      self.label(v)
-    }
+    value.fold(self) { v => self.label(v) }
   }
 
 }

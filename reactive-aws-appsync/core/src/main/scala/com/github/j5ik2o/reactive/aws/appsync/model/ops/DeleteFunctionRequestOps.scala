@@ -7,16 +7,12 @@ final class DeleteFunctionRequestBuilderOps(val self: DeleteFunctionRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): DeleteFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionIdAsScala(value: Option[String]): DeleteFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionId(v)
-    }
+    value.fold(self) { v => self.functionId(v) }
   }
 
 }

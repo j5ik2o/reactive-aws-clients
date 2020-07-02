@@ -7,9 +7,7 @@ final class GetTemplateResponseBuilderOps(val self: GetTemplateResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala(value: Option[String]): GetTemplateResponse.Builder = {
-    value.fold(self) { v =>
-      self.templateBody(v)
-    }
+    value.fold(self) { v => self.templateBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class GetTemplateResponseOps(val self: GetTemplateResponse) extends AnyVal
   final def templateBodyAsScala: Option[String] = Option(self.templateBody)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def stagesAvailableAsScala: Option[Seq[TemplateStage]] = Option(self.stagesAvailable).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def stagesAvailableAsScala: Option[Seq[TemplateStage]] =
+    Option(self.stagesAvailable).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

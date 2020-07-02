@@ -7,16 +7,12 @@ final class ComparedSourceImageFaceBuilderOps(val self: ComparedSourceImageFace.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): ComparedSourceImageFace.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): ComparedSourceImageFace.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
 }

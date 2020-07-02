@@ -7,9 +7,7 @@ final class CreateReplicaActionBuilderOps(val self: CreateReplicaAction.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): CreateReplicaAction.Builder = {
-    value.fold(self) { v =>
-      self.regionName(v)
-    }
+    value.fold(self) { v => self.regionName(v) }
   }
 
 }

@@ -17,9 +17,10 @@ final class GetQueueAttributesResponseBuilderOps(val self: GetQueueAttributesRes
 final class GetQueueAttributesResponseOps(val self: GetQueueAttributesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesAsScala: Option[Map[QueueAttributeName, String]] = Option(self.attributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def attributesAsScala: Option[Map[QueueAttributeName, String]] =
+    Option(self.attributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

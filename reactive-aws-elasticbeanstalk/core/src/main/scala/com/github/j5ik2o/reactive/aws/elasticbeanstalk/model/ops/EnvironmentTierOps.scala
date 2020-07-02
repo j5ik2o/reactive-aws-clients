@@ -7,23 +7,17 @@ final class EnvironmentTierBuilderOps(val self: EnvironmentTier.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): EnvironmentTier.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): EnvironmentTier.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): EnvironmentTier.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
 }

@@ -17,9 +17,8 @@ final class LinuxParametersBuilderOps(val self: LinuxParameters.Builder) extends
 final class LinuxParametersOps(val self: LinuxParameters) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def devicesAsScala: Option[Seq[Device]] = Option(self.devices).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def devicesAsScala: Option[Seq[Device]] =
+    Option(self.devices).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

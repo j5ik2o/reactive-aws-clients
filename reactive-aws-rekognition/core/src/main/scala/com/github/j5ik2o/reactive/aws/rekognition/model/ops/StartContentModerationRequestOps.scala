@@ -7,37 +7,27 @@ final class StartContentModerationRequestBuilderOps(val self: StartContentModera
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoAsScala(value: Option[Video]): StartContentModerationRequest.Builder = {
-    value.fold(self) { v =>
-      self.video(v)
-    }
+    value.fold(self) { v => self.video(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minConfidenceAsScala(value: Option[Float]): StartContentModerationRequest.Builder = {
-    value.fold(self) { v =>
-      self.minConfidence(v)
-    }
+    value.fold(self) { v => self.minConfidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): StartContentModerationRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationChannelAsScala(value: Option[NotificationChannel]): StartContentModerationRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationChannel(v)
-    }
+    value.fold(self) { v => self.notificationChannel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobTagAsScala(value: Option[String]): StartContentModerationRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobTag(v)
-    }
+    value.fold(self) { v => self.jobTag(v) }
   }
 
 }

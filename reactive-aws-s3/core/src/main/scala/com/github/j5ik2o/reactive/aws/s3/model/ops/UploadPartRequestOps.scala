@@ -7,72 +7,52 @@ final class UploadPartRequestBuilderOps(val self: UploadPartRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentLengthAsScala(value: Option[Long]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.contentLength(v)
-    }
+    value.fold(self) { v => self.contentLength(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.contentMD5(v)
-    }
+    value.fold(self) { v => self.contentMD5(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.key(v)
-    }
+    value.fold(self) { v => self.key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partNumberAsScala(value: Option[Int]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.partNumber(v)
-    }
+    value.fold(self) { v => self.partNumber(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerAlgorithmAsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerAlgorithm(v)
-    }
+    value.fold(self) { v => self.sseCustomerAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerKeyAsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerKey(v)
-    }
+    value.fold(self) { v => self.sseCustomerKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerKeyMD5AsScala(value: Option[String]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerKeyMD5(v)
-    }
+    value.fold(self) { v => self.sseCustomerKeyMD5(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala(value: Option[RequestPayer]): UploadPartRequest.Builder = {
-    value.fold(self) { v =>
-      self.requestPayer(v)
-    }
+    value.fold(self) { v => self.requestPayer(v) }
   }
 
 }

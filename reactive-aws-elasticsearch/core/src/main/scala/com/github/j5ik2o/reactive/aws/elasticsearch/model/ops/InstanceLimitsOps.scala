@@ -7,9 +7,7 @@ final class InstanceLimitsBuilderOps(val self: InstanceLimits.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountLimitsAsScala(value: Option[InstanceCountLimits]): InstanceLimits.Builder = {
-    value.fold(self) { v =>
-      self.instanceCountLimits(v)
-    }
+    value.fold(self) { v => self.instanceCountLimits(v) }
   }
 
 }

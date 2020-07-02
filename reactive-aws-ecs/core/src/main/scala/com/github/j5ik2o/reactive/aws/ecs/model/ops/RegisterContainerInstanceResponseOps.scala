@@ -8,9 +8,7 @@ final class RegisterContainerInstanceResponseBuilderOps(val self: RegisterContai
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[ContainerInstance]): RegisterContainerInstanceResponse.Builder = {
-    value.fold(self) { v =>
-      self.containerInstance(v)
-    }
+    value.fold(self) { v => self.containerInstance(v) }
   }
 
 }

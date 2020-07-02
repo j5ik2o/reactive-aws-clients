@@ -5,28 +5,26 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class SpotFleetMonitoringBuilderOps(val self: SpotFleetMonitoring.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def enabledAsScala(value: Option[Boolean]): SpotFleetMonitoring.Builder = {
-            value.fold(self){ v => self.enabled(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def enabledAsScala(value: Option[Boolean]): SpotFleetMonitoring.Builder = {
+    value.fold(self) { v => self.enabled(v) }
+  }
 
 }
 
 final class SpotFleetMonitoringOps(val self: SpotFleetMonitoring) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def enabledAsScala: Option[Boolean] = Option(self.enabled) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def enabledAsScala: Option[Boolean] = Option(self.enabled)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToSpotFleetMonitoringOps {
 
-implicit def toSpotFleetMonitoringBuilderOps(v: SpotFleetMonitoring.Builder): SpotFleetMonitoringBuilderOps = new SpotFleetMonitoringBuilderOps(v)
+  implicit def toSpotFleetMonitoringBuilderOps(v: SpotFleetMonitoring.Builder): SpotFleetMonitoringBuilderOps =
+    new SpotFleetMonitoringBuilderOps(v)
 
-implicit def toSpotFleetMonitoringOps(v: SpotFleetMonitoring): SpotFleetMonitoringOps = new SpotFleetMonitoringOps(v)
+  implicit def toSpotFleetMonitoringOps(v: SpotFleetMonitoring): SpotFleetMonitoringOps = new SpotFleetMonitoringOps(v)
 
 }
-

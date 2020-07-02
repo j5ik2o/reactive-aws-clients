@@ -7,16 +7,12 @@ final class DeviceBuilderOps(val self: Device.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostPathAsScala(value: Option[String]): Device.Builder = {
-    value.fold(self) { v =>
-      self.hostPath(v)
-    }
+    value.fold(self) { v => self.hostPath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerPathAsScala(value: Option[String]): Device.Builder = {
-    value.fold(self) { v =>
-      self.containerPath(v)
-    }
+    value.fold(self) { v => self.containerPath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class DeviceOps(val self: Device) extends AnyVal {
   final def containerPathAsScala: Option[String] = Option(self.containerPath)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def permissionsAsScala: Option[Seq[DeviceCgroupPermission]] = Option(self.permissions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def permissionsAsScala: Option[Seq[DeviceCgroupPermission]] =
+    Option(self.permissions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

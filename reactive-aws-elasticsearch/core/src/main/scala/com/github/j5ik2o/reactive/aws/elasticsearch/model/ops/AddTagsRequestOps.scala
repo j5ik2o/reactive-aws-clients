@@ -7,9 +7,7 @@ final class AddTagsRequestBuilderOps(val self: AddTagsRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): AddTagsRequest.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class AddTagsRequestOps(val self: AddTagsRequest) extends AnyVal {
   final def arnAsScala: Option[String] = Option(self.arn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagListAsScala: Option[Seq[Tag]] = Option(self.tagList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagListAsScala: Option[Seq[Tag]] =
+    Option(self.tagList).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,44 +7,32 @@ final class UpdateClusterRequestBuilderOps(val self: UpdateClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def preferredMaintenanceWindowAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.preferredMaintenanceWindow(v)
-    }
+    value.fold(self) { v => self.preferredMaintenanceWindow(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationTopicArnAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationTopicArn(v)
-    }
+    value.fold(self) { v => self.notificationTopicArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationTopicStatusAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationTopicStatus(v)
-    }
+    value.fold(self) { v => self.notificationTopicStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): UpdateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -77,9 +65,10 @@ final class UpdateClusterRequestOps(val self: UpdateClusterRequest) extends AnyV
   final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupIdsAsScala: Option[Seq[String]] =
+    Option(self.securityGroupIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

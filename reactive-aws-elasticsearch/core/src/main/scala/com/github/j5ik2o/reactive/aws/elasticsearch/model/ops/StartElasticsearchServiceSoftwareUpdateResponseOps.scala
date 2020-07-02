@@ -11,9 +11,7 @@ final class StartElasticsearchServiceSoftwareUpdateResponseBuilderOps(
   final def serviceSoftwareOptionsAsScala(
       value: Option[ServiceSoftwareOptions]
   ): StartElasticsearchServiceSoftwareUpdateResponse.Builder = {
-    value.fold(self) { v =>
-      self.serviceSoftwareOptions(v)
-    }
+    value.fold(self) { v => self.serviceSoftwareOptions(v) }
   }
 
 }

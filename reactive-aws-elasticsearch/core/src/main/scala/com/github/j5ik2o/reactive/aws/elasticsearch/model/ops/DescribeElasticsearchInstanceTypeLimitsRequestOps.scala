@@ -9,27 +9,21 @@ final class DescribeElasticsearchInstanceTypeLimitsRequestBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(
       value: Option[ESPartitionInstanceType]
   ): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
-    value.fold(self) { v =>
-      self.instanceType(v)
-    }
+    value.fold(self) { v => self.instanceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchVersionAsScala(
       value: Option[String]
   ): DescribeElasticsearchInstanceTypeLimitsRequest.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchVersion(v)
-    }
+    value.fold(self) { v => self.elasticsearchVersion(v) }
   }
 
 }

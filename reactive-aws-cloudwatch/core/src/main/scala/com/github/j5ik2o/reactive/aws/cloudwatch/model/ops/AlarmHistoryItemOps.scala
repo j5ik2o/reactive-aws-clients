@@ -7,44 +7,32 @@ final class AlarmHistoryItemBuilderOps(val self: AlarmHistoryItem.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala(value: Option[String]): AlarmHistoryItem.Builder = {
-    value.fold(self) { v =>
-      self.alarmName(v)
-    }
+    value.fold(self) { v => self.alarmName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmTypeAsScala(value: Option[AlarmType]): AlarmHistoryItem.Builder = {
-    value.fold(self) { v =>
-      self.alarmType(v)
-    }
+    value.fold(self) { v => self.alarmType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): AlarmHistoryItem.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historyItemTypeAsScala(value: Option[HistoryItemType]): AlarmHistoryItem.Builder = {
-    value.fold(self) { v =>
-      self.historyItemType(v)
-    }
+    value.fold(self) { v => self.historyItemType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historySummaryAsScala(value: Option[String]): AlarmHistoryItem.Builder = {
-    value.fold(self) { v =>
-      self.historySummary(v)
-    }
+    value.fold(self) { v => self.historySummary(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historyDataAsScala(value: Option[String]): AlarmHistoryItem.Builder = {
-    value.fold(self) { v =>
-      self.historyData(v)
-    }
+    value.fold(self) { v => self.historyData(v) }
   }
 
 }

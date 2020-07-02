@@ -17,9 +17,8 @@ final class PutRequestBuilderOps(val self: PutRequest.Builder) extends AnyVal {
 final class PutRequestOps(val self: PutRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def itemAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.item).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

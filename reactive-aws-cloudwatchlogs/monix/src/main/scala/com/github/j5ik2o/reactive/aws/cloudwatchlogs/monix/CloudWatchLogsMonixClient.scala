@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object CloudWatchLogsMonixClient {
 
-  def apply(asyncClient: CloudWatchLogsAsyncClient): CloudWatchLogsMonixClient = new CloudWatchLogsMonixClient {
-    override val underlying: CloudWatchLogsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudWatchLogsAsyncClient): CloudWatchLogsMonixClient =
+    new CloudWatchLogsMonixClient {
+      override val underlying: CloudWatchLogsAsyncClient = asyncClient
+    }
 
 }
 

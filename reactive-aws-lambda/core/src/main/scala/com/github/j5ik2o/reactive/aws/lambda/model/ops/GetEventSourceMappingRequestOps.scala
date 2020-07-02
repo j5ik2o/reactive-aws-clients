@@ -7,9 +7,7 @@ final class GetEventSourceMappingRequestBuilderOps(val self: GetEventSourceMappi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uuidAsScala(value: Option[String]): GetEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.uuid(v)
-    }
+    value.fold(self) { v => self.uuid(v) }
   }
 
 }

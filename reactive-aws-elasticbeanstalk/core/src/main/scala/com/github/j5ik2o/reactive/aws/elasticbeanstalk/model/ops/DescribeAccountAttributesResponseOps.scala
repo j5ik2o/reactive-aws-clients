@@ -8,9 +8,7 @@ final class DescribeAccountAttributesResponseBuilderOps(val self: DescribeAccoun
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceQuotasAsScala(value: Option[ResourceQuotas]): DescribeAccountAttributesResponse.Builder = {
-    value.fold(self) { v =>
-      self.resourceQuotas(v)
-    }
+    value.fold(self) { v => self.resourceQuotas(v) }
   }
 
 }

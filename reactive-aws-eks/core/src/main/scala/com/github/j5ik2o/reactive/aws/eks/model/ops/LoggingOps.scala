@@ -17,9 +17,10 @@ final class LoggingBuilderOps(val self: Logging.Builder) extends AnyVal {
 final class LoggingOps(val self: Logging) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def clusterLoggingAsScala: Option[Seq[LogSetup]] = Option(self.clusterLogging).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def clusterLoggingAsScala: Option[Seq[LogSetup]] =
+    Option(self.clusterLogging).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

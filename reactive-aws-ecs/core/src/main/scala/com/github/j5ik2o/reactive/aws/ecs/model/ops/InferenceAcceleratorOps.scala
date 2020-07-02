@@ -7,16 +7,12 @@ final class InferenceAcceleratorBuilderOps(val self: InferenceAccelerator.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deviceNameAsScala(value: Option[String]): InferenceAccelerator.Builder = {
-    value.fold(self) { v =>
-      self.deviceName(v)
-    }
+    value.fold(self) { v => self.deviceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deviceTypeAsScala(value: Option[String]): InferenceAccelerator.Builder = {
-    value.fold(self) { v =>
-      self.deviceType(v)
-    }
+    value.fold(self) { v => self.deviceType(v) }
   }
 
 }

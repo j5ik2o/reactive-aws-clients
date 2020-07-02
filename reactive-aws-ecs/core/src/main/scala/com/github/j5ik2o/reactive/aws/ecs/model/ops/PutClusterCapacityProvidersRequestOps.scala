@@ -8,9 +8,7 @@ final class PutClusterCapacityProvidersRequestBuilderOps(val self: PutClusterCap
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): PutClusterCapacityProvidersRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +35,10 @@ final class PutClusterCapacityProvidersRequestOps(val self: PutClusterCapacityPr
   final def clusterAsScala: Option[String] = Option(self.cluster)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capacityProvidersAsScala: Option[Seq[String]] = Option(self.capacityProviders).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capacityProvidersAsScala: Option[Seq[String]] =
+    Option(self.capacityProviders).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultCapacityProviderStrategyAsScala: Option[Seq[CapacityProviderStrategyItem]] =

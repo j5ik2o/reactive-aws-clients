@@ -7,18 +7,14 @@ final class AutoScalingPolicyDescriptionBuilderOps(val self: AutoScalingPolicyDe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): AutoScalingPolicyDescription.Builder = {
-    value.fold(self) { v =>
-      self.policyName(v)
-    }
+    value.fold(self) { v => self.policyName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetTrackingScalingPolicyConfigurationAsScala(
       value: Option[AutoScalingTargetTrackingScalingPolicyConfigurationDescription]
   ): AutoScalingPolicyDescription.Builder = {
-    value.fold(self) { v =>
-      self.targetTrackingScalingPolicyConfiguration(v)
-    }
+    value.fold(self) { v => self.targetTrackingScalingPolicyConfiguration(v) }
   }
 
 }

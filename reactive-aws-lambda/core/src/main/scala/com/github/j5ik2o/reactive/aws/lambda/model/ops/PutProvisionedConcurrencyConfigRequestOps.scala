@@ -8,25 +8,19 @@ final class PutProvisionedConcurrencyConfigRequestBuilderOps(val self: PutProvis
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): PutProvisionedConcurrencyConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): PutProvisionedConcurrencyConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualifier(v)
-    }
+    value.fold(self) { v => self.qualifier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): PutProvisionedConcurrencyConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.provisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.provisionedConcurrentExecutions(v) }
   }
 
 }

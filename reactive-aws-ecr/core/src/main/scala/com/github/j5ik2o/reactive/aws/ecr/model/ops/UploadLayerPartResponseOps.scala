@@ -7,30 +7,22 @@ final class UploadLayerPartResponseBuilderOps(val self: UploadLayerPartResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): UploadLayerPartResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): UploadLayerPartResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): UploadLayerPartResponse.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastByteReceivedAsScala(value: Option[Long]): UploadLayerPartResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastByteReceived(v)
-    }
+    value.fold(self) { v => self.lastByteReceived(v) }
   }
 
 }

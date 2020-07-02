@@ -7,18 +7,14 @@ final class UpdateContinuousBackupsRequestBuilderOps(val self: UpdateContinuousB
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): UpdateContinuousBackupsRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoverySpecificationAsScala(
       value: Option[PointInTimeRecoverySpecification]
   ): UpdateContinuousBackupsRequest.Builder = {
-    value.fold(self) { v =>
-      self.pointInTimeRecoverySpecification(v)
-    }
+    value.fold(self) { v => self.pointInTimeRecoverySpecification(v) }
   }
 
 }

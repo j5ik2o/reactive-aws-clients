@@ -7,37 +7,27 @@ final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CreateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logConfigAsScala(value: Option[LogConfig]): CreateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.logConfig(v)
-    }
+    value.fold(self) { v => self.logConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authenticationTypeAsScala(value: Option[AuthenticationType]): CreateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.authenticationType(v)
-    }
+    value.fold(self) { v => self.authenticationType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userPoolConfigAsScala(value: Option[UserPoolConfig]): CreateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.userPoolConfig(v)
-    }
+    value.fold(self) { v => self.userPoolConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): CreateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.openIDConnectConfig(v)
-    }
+    value.fold(self) { v => self.openIDConnectConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -59,9 +49,7 @@ final class CreateGraphqlApiRequestBuilderOps(val self: CreateGraphqlApiRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def xrayEnabledAsScala(value: Option[Boolean]): CreateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.xrayEnabled(v)
-    }
+    value.fold(self) { v => self.xrayEnabled(v) }
   }
 
 }
@@ -84,9 +72,8 @@ final class CreateGraphqlApiRequestOps(val self: CreateGraphqlApiRequest) extend
   final def openIDConnectConfigAsScala: Option[OpenIDConnectConfig] = Option(self.openIDConnectConfig)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def additionalAuthenticationProvidersAsScala: Option[Seq[AdditionalAuthenticationProvider]] =

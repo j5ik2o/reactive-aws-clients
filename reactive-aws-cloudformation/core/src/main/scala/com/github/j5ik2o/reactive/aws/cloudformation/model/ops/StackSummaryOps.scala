@@ -7,79 +7,57 @@ final class StackSummaryBuilderOps(val self: StackSummary.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateDescriptionAsScala(value: Option[String]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.templateDescription(v)
-    }
+    value.fold(self) { v => self.templateDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.creationTime(v)
-    }
+    value.fold(self) { v => self.creationTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdatedTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdatedTime(v)
-    }
+    value.fold(self) { v => self.lastUpdatedTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletionTimeAsScala(value: Option[java.time.Instant]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.deletionTime(v)
-    }
+    value.fold(self) { v => self.deletionTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackStatusAsScala(value: Option[StackStatus]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackStatus(v)
-    }
+    value.fold(self) { v => self.stackStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackStatusReasonAsScala(value: Option[String]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackStatusReason(v)
-    }
+    value.fold(self) { v => self.stackStatusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parentIdAsScala(value: Option[String]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.parentId(v)
-    }
+    value.fold(self) { v => self.parentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rootIdAsScala(value: Option[String]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.rootId(v)
-    }
+    value.fold(self) { v => self.rootId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftInformationAsScala(value: Option[StackDriftInformationSummary]): StackSummary.Builder = {
-    value.fold(self) { v =>
-      self.driftInformation(v)
-    }
+    value.fold(self) { v => self.driftInformation(v) }
   }
 
 }

@@ -24,9 +24,7 @@ final class DescribeCapacityProvidersResponseBuilderOps(val self: DescribeCapaci
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeCapacityProvidersResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -34,14 +32,14 @@ final class DescribeCapacityProvidersResponseBuilderOps(val self: DescribeCapaci
 final class DescribeCapacityProvidersResponseOps(val self: DescribeCapacityProvidersResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capacityProvidersAsScala: Option[Seq[CapacityProvider]] = Option(self.capacityProviders).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capacityProvidersAsScala: Option[Seq[CapacityProvider]] =
+    Option(self.capacityProviders).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def failuresAsScala: Option[Seq[Failure]] = Option(self.failures).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def failuresAsScala: Option[Seq[Failure]] =
+    Option(self.failures).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

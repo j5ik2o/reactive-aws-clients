@@ -7,23 +7,17 @@ final class StreamBuilderOps(val self: Stream.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamArnAsScala(value: Option[String]): Stream.Builder = {
-    value.fold(self) { v =>
-      self.streamArn(v)
-    }
+    value.fold(self) { v => self.streamArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): Stream.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamLabelAsScala(value: Option[String]): Stream.Builder = {
-    value.fold(self) { v =>
-      self.streamLabel(v)
-    }
+    value.fold(self) { v => self.streamLabel(v) }
   }
 
 }

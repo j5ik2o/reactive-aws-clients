@@ -10,16 +10,12 @@ final class GenerateDataKeyWithoutPlaintextResponseBuilderOps(val self: Generate
   final def ciphertextBlobAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GenerateDataKeyWithoutPlaintextResponse.Builder = {
-    value.fold(self) { v =>
-      self.ciphertextBlob(v)
-    }
+    value.fold(self) { v => self.ciphertextBlob(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GenerateDataKeyWithoutPlaintextResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
 }

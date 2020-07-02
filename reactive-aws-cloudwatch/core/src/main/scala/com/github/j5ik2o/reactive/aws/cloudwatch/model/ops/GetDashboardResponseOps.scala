@@ -7,23 +7,17 @@ final class GetDashboardResponseBuilderOps(val self: GetDashboardResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardArnAsScala(value: Option[String]): GetDashboardResponse.Builder = {
-    value.fold(self) { v =>
-      self.dashboardArn(v)
-    }
+    value.fold(self) { v => self.dashboardArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardBodyAsScala(value: Option[String]): GetDashboardResponse.Builder = {
-    value.fold(self) { v =>
-      self.dashboardBody(v)
-    }
+    value.fold(self) { v => self.dashboardBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNameAsScala(value: Option[String]): GetDashboardResponse.Builder = {
-    value.fold(self) { v =>
-      self.dashboardName(v)
-    }
+    value.fold(self) { v => self.dashboardName(v) }
   }
 
 }

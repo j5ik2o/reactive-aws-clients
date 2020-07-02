@@ -7,16 +7,12 @@ final class GetFunctionRequestBuilderOps(val self: GetFunctionRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionIdAsScala(value: Option[String]): GetFunctionRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionId(v)
-    }
+    value.fold(self) { v => self.functionId(v) }
   }
 
 }

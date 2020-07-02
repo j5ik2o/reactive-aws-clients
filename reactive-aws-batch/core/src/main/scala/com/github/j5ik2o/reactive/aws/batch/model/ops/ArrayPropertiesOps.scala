@@ -7,9 +7,7 @@ final class ArrayPropertiesBuilderOps(val self: ArrayProperties.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): ArrayProperties.Builder = {
-    value.fold(self) { v =>
-      self.size(v)
-    }
+    value.fold(self) { v => self.size(v) }
   }
 
 }

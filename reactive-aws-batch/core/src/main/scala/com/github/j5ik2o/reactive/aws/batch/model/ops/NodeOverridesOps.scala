@@ -7,9 +7,7 @@ final class NodeOverridesBuilderOps(val self: NodeOverrides.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numNodesAsScala(value: Option[Int]): NodeOverrides.Builder = {
-    value.fold(self) { v =>
-      self.numNodes(v)
-    }
+    value.fold(self) { v => self.numNodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,10 +25,10 @@ final class NodeOverridesOps(val self: NodeOverrides) extends AnyVal {
   final def numNodesAsScala: Option[Int] = Option(self.numNodes)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nodePropertyOverridesAsScala: Option[Seq[NodePropertyOverride]] = Option(self.nodePropertyOverrides).map {
-    v =>
+  final def nodePropertyOverridesAsScala: Option[Seq[NodePropertyOverride]] =
+    Option(self.nodePropertyOverrides).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
 }
 

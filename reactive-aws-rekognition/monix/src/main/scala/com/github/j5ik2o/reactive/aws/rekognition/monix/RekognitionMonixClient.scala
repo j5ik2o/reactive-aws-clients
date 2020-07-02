@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object RekognitionMonixClient {
 
-  def apply(asyncClient: RekognitionAsyncClient): RekognitionMonixClient = new RekognitionMonixClient {
-    override val underlying: RekognitionAsyncClient = asyncClient
-  }
+  def apply(asyncClient: RekognitionAsyncClient): RekognitionMonixClient =
+    new RekognitionMonixClient {
+      override val underlying: RekognitionAsyncClient = asyncClient
+    }
 
 }
 

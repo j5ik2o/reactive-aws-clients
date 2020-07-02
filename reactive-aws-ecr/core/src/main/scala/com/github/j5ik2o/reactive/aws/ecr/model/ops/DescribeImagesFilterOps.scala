@@ -7,9 +7,7 @@ final class DescribeImagesFilterBuilderOps(val self: DescribeImagesFilter.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagStatusAsScala(value: Option[TagStatus]): DescribeImagesFilter.Builder = {
-    value.fold(self) { v =>
-      self.tagStatus(v)
-    }
+    value.fold(self) { v => self.tagStatus(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class GetMetricWidgetImageRequestBuilderOps(val self: GetMetricWidgetImage
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricWidgetAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricWidget(v)
-    }
+    value.fold(self) { v => self.metricWidget(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputFormatAsScala(value: Option[String]): GetMetricWidgetImageRequest.Builder = {
-    value.fold(self) { v =>
-      self.outputFormat(v)
-    }
+    value.fold(self) { v => self.outputFormat(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class UpdateApiCacheRequestBuilderOps(val self: UpdateApiCacheRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): UpdateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ttlAsScala(value: Option[Long]): UpdateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.ttl(v)
-    }
+    value.fold(self) { v => self.ttl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiCachingBehaviorAsScala(value: Option[ApiCachingBehavior]): UpdateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiCachingBehavior(v)
-    }
+    value.fold(self) { v => self.apiCachingBehavior(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ApiCacheType]): UpdateApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
 }

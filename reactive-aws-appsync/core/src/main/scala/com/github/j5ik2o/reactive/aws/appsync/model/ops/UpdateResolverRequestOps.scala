@@ -7,72 +7,52 @@ final class UpdateResolverRequestBuilderOps(val self: UpdateResolverRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fieldNameAsScala(value: Option[String]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.fieldName(v)
-    }
+    value.fold(self) { v => self.fieldName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataSourceNameAsScala(value: Option[String]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.dataSourceName(v)
-    }
+    value.fold(self) { v => self.dataSourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestMappingTemplateAsScala(value: Option[String]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.requestMappingTemplate(v)
-    }
+    value.fold(self) { v => self.requestMappingTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def responseMappingTemplateAsScala(value: Option[String]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.responseMappingTemplate(v)
-    }
+    value.fold(self) { v => self.responseMappingTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kindAsScala(value: Option[ResolverKind]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.kind(v)
-    }
+    value.fold(self) { v => self.kind(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pipelineConfigAsScala(value: Option[PipelineConfig]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.pipelineConfig(v)
-    }
+    value.fold(self) { v => self.pipelineConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def syncConfigAsScala(value: Option[SyncConfig]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.syncConfig(v)
-    }
+    value.fold(self) { v => self.syncConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cachingConfigAsScala(value: Option[CachingConfig]): UpdateResolverRequest.Builder = {
-    value.fold(self) { v =>
-      self.cachingConfig(v)
-    }
+    value.fold(self) { v => self.cachingConfig(v) }
   }
 
 }

@@ -8,59 +8,45 @@ final class ProvisionedConcurrencyConfigListItemBuilderOps(val self: Provisioned
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionArnAsScala(value: Option[String]): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.functionArn(v)
-    }
+    value.fold(self) { v => self.functionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestedProvisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.requestedProvisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.requestedProvisionedConcurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availableProvisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.availableProvisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.availableProvisionedConcurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocatedProvisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.allocatedProvisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.allocatedProvisionedConcurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(
       value: Option[ProvisionedConcurrencyStatusEnum]
   ): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[String]): ProvisionedConcurrencyConfigListItem.Builder = {
-    value.fold(self) { v =>
-      self.lastModified(v)
-    }
+    value.fold(self) { v => self.lastModified(v) }
   }
 
 }

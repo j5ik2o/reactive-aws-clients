@@ -7,58 +7,42 @@ final class InstanceHealthSummaryBuilderOps(val self: InstanceHealthSummary.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def noDataAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.noData(v)
-    }
+    value.fold(self) { v => self.noData(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unknownAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.unknown(v)
-    }
+    value.fold(self) { v => self.unknown(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pendingAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.pending(v)
-    }
+    value.fold(self) { v => self.pending(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def okAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.ok(v)
-    }
+    value.fold(self) { v => self.ok(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.info(v)
-    }
+    value.fold(self) { v => self.info(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def warningAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.warning(v)
-    }
+    value.fold(self) { v => self.warning(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def degradedAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.degraded(v)
-    }
+    value.fold(self) { v => self.degraded(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def severeAsScala(value: Option[Int]): InstanceHealthSummary.Builder = {
-    value.fold(self) { v =>
-      self.severe(v)
-    }
+    value.fold(self) { v => self.severe(v) }
   }
 
 }

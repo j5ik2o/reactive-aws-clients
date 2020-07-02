@@ -7,16 +7,12 @@ final class HttpDataSourceConfigBuilderOps(val self: HttpDataSourceConfig.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[String]): HttpDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.endpoint(v)
-    }
+    value.fold(self) { v => self.endpoint(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authorizationConfigAsScala(value: Option[AuthorizationConfig]): HttpDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.authorizationConfig(v)
-    }
+    value.fold(self) { v => self.authorizationConfig(v) }
   }
 
 }

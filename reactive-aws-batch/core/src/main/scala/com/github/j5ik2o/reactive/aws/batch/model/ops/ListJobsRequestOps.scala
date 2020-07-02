@@ -7,44 +7,32 @@ final class ListJobsRequestBuilderOps(val self: ListJobsRequest.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala(value: Option[String]): ListJobsRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobQueue(v)
-    }
+    value.fold(self) { v => self.jobQueue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arrayJobIdAsScala(value: Option[String]): ListJobsRequest.Builder = {
-    value.fold(self) { v =>
-      self.arrayJobId(v)
-    }
+    value.fold(self) { v => self.arrayJobId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def multiNodeJobIdAsScala(value: Option[String]): ListJobsRequest.Builder = {
-    value.fold(self) { v =>
-      self.multiNodeJobId(v)
-    }
+    value.fold(self) { v => self.multiNodeJobId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[JobStatus]): ListJobsRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListJobsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListJobsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

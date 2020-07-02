@@ -7,23 +7,17 @@ final class LayersListItemBuilderOps(val self: LayersListItem.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): LayersListItem.Builder = {
-    value.fold(self) { v =>
-      self.layerName(v)
-    }
+    value.fold(self) { v => self.layerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerArnAsScala(value: Option[String]): LayersListItem.Builder = {
-    value.fold(self) { v =>
-      self.layerArn(v)
-    }
+    value.fold(self) { v => self.layerArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latestMatchingVersionAsScala(value: Option[LayerVersionsListItem]): LayersListItem.Builder = {
-    value.fold(self) { v =>
-      self.latestMatchingVersion(v)
-    }
+    value.fold(self) { v => self.latestMatchingVersion(v) }
   }
 
 }

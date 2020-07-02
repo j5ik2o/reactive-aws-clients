@@ -15,18 +15,14 @@ final class BatchWriteItemRequestBuilderOps(val self: BatchWriteItemRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): BatchWriteItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.returnConsumedCapacity(v)
-    }
+    value.fold(self) { v => self.returnConsumedCapacity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnItemCollectionMetricsAsScala(
       value: Option[ReturnItemCollectionMetrics]
   ): BatchWriteItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.returnItemCollectionMetrics(v)
-    }
+    value.fold(self) { v => self.returnItemCollectionMetrics(v) }
   }
 
 }
@@ -34,10 +30,11 @@ final class BatchWriteItemRequestBuilderOps(val self: BatchWriteItemRequest.Buil
 final class BatchWriteItemRequestOps(val self: BatchWriteItemRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def requestItemsAsScala: Option[Map[String, Seq[WriteRequest]]] = Option(self.requestItems).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
-    v.asScala.toMap.view.map { case (k, v) => (k, v.asScala) }.toMap
-  }
+  final def requestItemsAsScala: Option[Map[String, Seq[WriteRequest]]] =
+    Option(self.requestItems).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._;
+      v.asScala.toMap.view.map { case (k, v) => (k, v.asScala) }.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala: Option[ReturnConsumedCapacity] = Option(self.returnConsumedCapacity)

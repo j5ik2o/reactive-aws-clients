@@ -7,9 +7,7 @@ final class CreateQueueRequestBuilderOps(val self: CreateQueueRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNameAsScala(value: Option[String]): CreateQueueRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueName(v)
-    }
+    value.fold(self) { v => self.queueName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -34,14 +32,14 @@ final class CreateQueueRequestOps(val self: CreateQueueRequest) extends AnyVal {
   final def queueNameAsScala: Option[String] = Option(self.queueName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesAsScala: Option[Map[QueueAttributeName, String]] = Option(self.attributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def attributesAsScala: Option[Map[QueueAttributeName, String]] =
+    Option(self.attributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

@@ -7,16 +7,12 @@ final class CheckDnsAvailabilityResponseBuilderOps(val self: CheckDnsAvailabilit
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availableAsScala(value: Option[Boolean]): CheckDnsAvailabilityResponse.Builder = {
-    value.fold(self) { v =>
-      self.available(v)
-    }
+    value.fold(self) { v => self.available(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fullyQualifiedCNAMEAsScala(value: Option[String]): CheckDnsAvailabilityResponse.Builder = {
-    value.fold(self) { v =>
-      self.fullyQualifiedCNAME(v)
-    }
+    value.fold(self) { v => self.fullyQualifiedCNAME(v) }
   }
 
 }

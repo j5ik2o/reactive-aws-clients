@@ -12,7 +12,7 @@ object Settings {
   val scalaVersion212 = "2.12.10"
   val scalaVersion213 = "2.13.1"
 
-  val awsSdk2Version = "2.11.13"
+  val awsSdk2Version = "2.13.9"
 
   val catsVersion       = "2.0.0"
   val catsEffectVersion = "2.0.0"
@@ -105,13 +105,13 @@ object Settings {
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
     libraryDependencies ++= Seq(
         "com.beachape"           %% "enumeratum"         % "1.6.1",
-        "org.slf4j"              % "slf4j-api"           % "1.7.30",
+        "org.slf4j"               % "slf4j-api"          % "1.7.30",
         "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.1"
       ),
     dependencyOverrides ++= {
       Seq(
         "org.slf4j"                   % "slf4j-api"                   % "1.7.25",
-        "org.scala-lang.modules"      %% "scala-java8-compat"         % "0.9.1",
+        "org.scala-lang.modules"     %% "scala-java8-compat"          % "0.9.1",
         "org.apache.httpcomponents"   % "httpcore"                    % "4.4.11",
         "org.apache.httpcomponents"   % "httpclient"                  % "4.5.6",
         "com.fasterxml.jackson.core"  % "jackson-core"                % "2.9.8",

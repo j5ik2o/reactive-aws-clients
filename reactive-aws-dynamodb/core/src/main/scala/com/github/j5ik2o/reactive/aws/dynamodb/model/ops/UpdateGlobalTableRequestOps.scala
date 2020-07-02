@@ -7,9 +7,7 @@ final class UpdateGlobalTableRequestBuilderOps(val self: UpdateGlobalTableReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): UpdateGlobalTableRequest.Builder = {
-    value.fold(self) { v =>
-      self.globalTableName(v)
-    }
+    value.fold(self) { v => self.globalTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class UpdateGlobalTableRequestOps(val self: UpdateGlobalTableRequest) exte
   final def globalTableNameAsScala: Option[String] = Option(self.globalTableName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def replicaUpdatesAsScala: Option[Seq[ReplicaUpdate]] = Option(self.replicaUpdates).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def replicaUpdatesAsScala: Option[Seq[ReplicaUpdate]] =
+    Option(self.replicaUpdates).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

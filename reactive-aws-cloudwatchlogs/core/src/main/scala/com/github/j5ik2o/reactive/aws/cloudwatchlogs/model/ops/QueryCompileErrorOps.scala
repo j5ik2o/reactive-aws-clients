@@ -7,16 +7,12 @@ final class QueryCompileErrorBuilderOps(val self: QueryCompileError.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def locationAsScala(value: Option[QueryCompileErrorLocation]): QueryCompileError.Builder = {
-    value.fold(self) { v =>
-      self.location(v)
-    }
+    value.fold(self) { v => self.location(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): QueryCompileError.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
 }

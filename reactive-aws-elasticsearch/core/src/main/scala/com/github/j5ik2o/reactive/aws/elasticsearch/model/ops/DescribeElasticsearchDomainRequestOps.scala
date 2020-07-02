@@ -8,9 +8,7 @@ final class DescribeElasticsearchDomainRequestBuilderOps(val self: DescribeElast
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DescribeElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
 }

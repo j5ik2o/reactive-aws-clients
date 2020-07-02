@@ -7,16 +7,12 @@ final class ElasticsearchVersionStatusBuilderOps(val self: ElasticsearchVersionS
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(value: Option[String]): ElasticsearchVersionStatus.Builder = {
-    value.fold(self) { v =>
-      self.options(v)
-    }
+    value.fold(self) { v => self.options(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[OptionStatus]): ElasticsearchVersionStatus.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

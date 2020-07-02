@@ -7,9 +7,7 @@ final class CreateCustomKeyStoreResponseBuilderOps(val self: CreateCustomKeyStor
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): CreateCustomKeyStoreResponse.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
 }

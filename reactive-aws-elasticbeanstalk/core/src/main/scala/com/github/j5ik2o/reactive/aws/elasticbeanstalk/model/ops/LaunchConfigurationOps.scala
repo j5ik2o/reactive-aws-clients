@@ -7,9 +7,7 @@ final class LaunchConfigurationBuilderOps(val self: LaunchConfiguration.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): LaunchConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
 }

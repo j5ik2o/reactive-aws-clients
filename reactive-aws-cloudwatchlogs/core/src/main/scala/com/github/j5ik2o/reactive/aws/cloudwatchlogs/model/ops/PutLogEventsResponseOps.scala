@@ -7,16 +7,12 @@ final class PutLogEventsResponseBuilderOps(val self: PutLogEventsResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextSequenceTokenAsScala(value: Option[String]): PutLogEventsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextSequenceToken(v)
-    }
+    value.fold(self) { v => self.nextSequenceToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rejectedLogEventsInfoAsScala(value: Option[RejectedLogEventsInfo]): PutLogEventsResponse.Builder = {
-    value.fold(self) { v =>
-      self.rejectedLogEventsInfo(v)
-    }
+    value.fold(self) { v => self.rejectedLogEventsInfo(v) }
   }
 
 }

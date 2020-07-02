@@ -7,30 +7,22 @@ final class CompareFacesRequestBuilderOps(val self: CompareFacesRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceImageAsScala(value: Option[Image]): CompareFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceImage(v)
-    }
+    value.fold(self) { v => self.sourceImage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetImageAsScala(value: Option[Image]): CompareFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.targetImage(v)
-    }
+    value.fold(self) { v => self.targetImage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityThresholdAsScala(value: Option[Float]): CompareFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.similarityThreshold(v)
-    }
+    value.fold(self) { v => self.similarityThreshold(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualityFilterAsScala(value: Option[QualityFilter]): CompareFacesRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualityFilter(v)
-    }
+    value.fold(self) { v => self.qualityFilter(v) }
   }
 
 }

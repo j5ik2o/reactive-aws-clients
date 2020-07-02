@@ -51,20 +51,21 @@ trait DynamoDBContainerSpecSupport extends DockerTestKit with RandomPortSupport 
     new SpotifyDockerFactory(dockerClient)
 
   protected class DynamoDBDockerReadyChecker(dynamoDbClient: AmazonDynamoDB) extends DockerReadyChecker {
-    override def apply(container: DockerContainerState)(
-        implicit docker: DockerCommandExecutor,
+    override def apply(container: DockerContainerState)(implicit
+        docker: DockerCommandExecutor,
         ec: ExecutionContext
-    ): Future[Boolean] = Future.successful {
-      try {
-        dynamoDbClient.listTables(1)
-        Thread.sleep(readyCheckInterval.toMillis)
-        true
-      } catch {
-        case _: Exception =>
+    ): Future[Boolean] =
+      Future.successful {
+        try {
+          dynamoDbClient.listTables(1)
           Thread.sleep(readyCheckInterval.toMillis)
-          false
+          true
+        } catch {
+          case _: Exception =>
+            Thread.sleep(readyCheckInterval.toMillis)
+            false
+        }
       }
-    }
   }
 
   protected lazy val dynamoDBPort: Int = temporaryServerPort()

@@ -7,16 +7,12 @@ final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceNameAsScala(value: Option[String]): ListTagsRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourceName(v)
-    }
+    value.fold(self) { v => self.resourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListTagsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

@@ -14,9 +14,7 @@ final class GetMetricDataResponseBuilderOps(val self: GetMetricDataResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetMetricDataResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -31,17 +29,17 @@ final class GetMetricDataResponseBuilderOps(val self: GetMetricDataResponse.Buil
 final class GetMetricDataResponseOps(val self: GetMetricDataResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricDataResultsAsScala: Option[Seq[MetricDataResult]] = Option(self.metricDataResults).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricDataResultsAsScala: Option[Seq[MetricDataResult]] =
+    Option(self.metricDataResults).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messagesAsScala: Option[Seq[MessageData]] = Option(self.messages).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def messagesAsScala: Option[Seq[MessageData]] =
+    Option(self.messages).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

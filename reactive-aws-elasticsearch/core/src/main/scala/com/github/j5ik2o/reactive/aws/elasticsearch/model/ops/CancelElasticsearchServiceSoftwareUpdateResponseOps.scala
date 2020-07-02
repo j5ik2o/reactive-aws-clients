@@ -11,9 +11,7 @@ final class CancelElasticsearchServiceSoftwareUpdateResponseBuilderOps(
   final def serviceSoftwareOptionsAsScala(
       value: Option[ServiceSoftwareOptions]
   ): CancelElasticsearchServiceSoftwareUpdateResponse.Builder = {
-    value.fold(self) { v =>
-      self.serviceSoftwareOptions(v)
-    }
+    value.fold(self) { v => self.serviceSoftwareOptions(v) }
   }
 
 }

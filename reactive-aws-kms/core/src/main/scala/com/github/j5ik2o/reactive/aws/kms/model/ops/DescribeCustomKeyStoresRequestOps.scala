@@ -7,30 +7,22 @@ final class DescribeCustomKeyStoresRequestBuilderOps(val self: DescribeCustomKey
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): DescribeCustomKeyStoresRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreNameAsScala(value: Option[String]): DescribeCustomKeyStoresRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreName(v)
-    }
+    value.fold(self) { v => self.customKeyStoreName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeCustomKeyStoresRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): DescribeCustomKeyStoresRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
 }

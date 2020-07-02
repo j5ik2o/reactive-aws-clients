@@ -7,9 +7,7 @@ final class DeleteTaskSetResponseBuilderOps(val self: DeleteTaskSetResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskSetAsScala(value: Option[TaskSet]): DeleteTaskSetResponse.Builder = {
-    value.fold(self) { v =>
-      self.taskSet(v)
-    }
+    value.fold(self) { v => self.taskSet(v) }
   }
 
 }

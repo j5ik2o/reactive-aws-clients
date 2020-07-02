@@ -7,30 +7,22 @@ final class SubmitTaskStateChangeRequestBuilderOps(val self: SubmitTaskStateChan
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskAsScala(value: Option[String]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.task(v)
-    }
+    value.fold(self) { v => self.task(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -49,23 +41,17 @@ final class SubmitTaskStateChangeRequestBuilderOps(val self: SubmitTaskStateChan
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pullStartedAtAsScala(value: Option[java.time.Instant]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.pullStartedAt(v)
-    }
+    value.fold(self) { v => self.pullStartedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pullStoppedAtAsScala(value: Option[java.time.Instant]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.pullStoppedAt(v)
-    }
+    value.fold(self) { v => self.pullStoppedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionStoppedAtAsScala(value: Option[java.time.Instant]): SubmitTaskStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.executionStoppedAt(v)
-    }
+    value.fold(self) { v => self.executionStoppedAt(v) }
   }
 
 }
@@ -85,14 +71,12 @@ final class SubmitTaskStateChangeRequestOps(val self: SubmitTaskStateChangeReque
   final def reasonAsScala: Option[String] = Option(self.reason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def containersAsScala: Option[Seq[ContainerStateChange]] = Option(self.containers).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def containersAsScala: Option[Seq[ContainerStateChange]] =
+    Option(self.containers).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attachmentsAsScala: Option[Seq[AttachmentStateChange]] = Option(self.attachments).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attachmentsAsScala: Option[Seq[AttachmentStateChange]] =
+    Option(self.attachments).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pullStartedAtAsScala: Option[java.time.Instant] = Option(self.pullStartedAt)

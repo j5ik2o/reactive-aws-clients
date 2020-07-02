@@ -7,9 +7,7 @@ final class StartQueryRequestBuilderOps(val self: StartQueryRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): StartQueryRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,30 +19,22 @@ final class StartQueryRequestBuilderOps(val self: StartQueryRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala(value: Option[Long]): StartQueryRequest.Builder = {
-    value.fold(self) { v =>
-      self.startTime(v)
-    }
+    value.fold(self) { v => self.startTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimeAsScala(value: Option[Long]): StartQueryRequest.Builder = {
-    value.fold(self) { v =>
-      self.endTime(v)
-    }
+    value.fold(self) { v => self.endTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queryStringAsScala(value: Option[String]): StartQueryRequest.Builder = {
-    value.fold(self) { v =>
-      self.queryString(v)
-    }
+    value.fold(self) { v => self.queryString(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): StartQueryRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
 }
@@ -55,9 +45,10 @@ final class StartQueryRequestOps(val self: StartQueryRequest) extends AnyVal {
   final def logGroupNameAsScala: Option[String] = Option(self.logGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def logGroupNamesAsScala: Option[Seq[String]] = Option(self.logGroupNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def logGroupNamesAsScala: Option[Seq[String]] =
+    Option(self.logGroupNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala: Option[Long] = Option(self.startTime)

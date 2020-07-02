@@ -8,9 +8,7 @@ final class DescribeApplicationVersionsRequestBuilderOps(val self: DescribeAppli
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): DescribeApplicationVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -22,16 +20,12 @@ final class DescribeApplicationVersionsRequestBuilderOps(val self: DescribeAppli
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxRecordsAsScala(value: Option[Int]): DescribeApplicationVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxRecords(v)
-    }
+    value.fold(self) { v => self.maxRecords(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeApplicationVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -42,9 +36,10 @@ final class DescribeApplicationVersionsRequestOps(val self: DescribeApplicationV
   final def applicationNameAsScala: Option[String] = Option(self.applicationName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def versionLabelsAsScala: Option[Seq[String]] = Option(self.versionLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def versionLabelsAsScala: Option[Seq[String]] =
+    Option(self.versionLabels).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxRecordsAsScala: Option[Int] = Option(self.maxRecords)

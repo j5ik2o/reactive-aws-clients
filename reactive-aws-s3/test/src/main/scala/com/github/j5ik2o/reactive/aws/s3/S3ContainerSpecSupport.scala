@@ -47,8 +47,8 @@ trait S3ContainerSpecSupport extends DockerTestKit with RandomPortSupport {
       .build()
 
   class S3DockerReadyChecker(s3client: S3AsyncClient) extends DockerReadyChecker {
-    override def apply(container: DockerContainerState)(
-        implicit docker: DockerCommandExecutor,
+    override def apply(container: DockerContainerState)(implicit
+        docker: DockerCommandExecutor,
         ec: ExecutionContext
     ): Future[Boolean] =
       s3client
@@ -70,9 +70,14 @@ trait S3ContainerSpecSupport extends DockerTestKit with RandomPortSupport {
       .withPorts(9000 -> Some(s3Port))
       .withEnv(s"MINIO_ACCESS_KEY=$accessKeyId", s"MINIO_SECRET_KEY=$secretAccessKey")
       .withCommand("server", "/data")
-      .withLogLineReceiver(LogLineReceiver(true, { message =>
-        println(message)
-      }))
+      .withLogLineReceiver(
+        LogLineReceiver(
+          true,
+          { message =>
+            println(message)
+          }
+        )
+      )
       .withReadyChecker(new S3DockerReadyChecker(javaS3Client))
 
   abstract override def dockerContainers: List[DockerContainer] =

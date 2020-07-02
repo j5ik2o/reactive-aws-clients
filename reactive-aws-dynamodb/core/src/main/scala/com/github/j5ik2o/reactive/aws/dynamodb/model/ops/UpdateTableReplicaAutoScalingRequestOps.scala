@@ -17,18 +17,14 @@ final class UpdateTableReplicaAutoScalingRequestBuilderOps(val self: UpdateTable
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): UpdateTableReplicaAutoScalingRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityAutoScalingUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): UpdateTableReplicaAutoScalingRequest.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityAutoScalingUpdate(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityAutoScalingUpdate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -58,9 +54,10 @@ final class UpdateTableReplicaAutoScalingRequestOps(val self: UpdateTableReplica
     Option(self.provisionedWriteCapacityAutoScalingUpdate)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def replicaUpdatesAsScala: Option[Seq[ReplicaAutoScalingUpdate]] = Option(self.replicaUpdates).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def replicaUpdatesAsScala: Option[Seq[ReplicaAutoScalingUpdate]] =
+    Option(self.replicaUpdates).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

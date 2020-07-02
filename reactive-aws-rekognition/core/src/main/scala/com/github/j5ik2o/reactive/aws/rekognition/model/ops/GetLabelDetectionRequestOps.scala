@@ -7,30 +7,22 @@ final class GetLabelDetectionRequestBuilderOps(val self: GetLabelDetectionReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): GetLabelDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): GetLabelDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetLabelDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sortByAsScala(value: Option[LabelDetectionSortBy]): GetLabelDetectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.sortBy(v)
-    }
+    value.fold(self) { v => self.sortBy(v) }
   }
 
 }

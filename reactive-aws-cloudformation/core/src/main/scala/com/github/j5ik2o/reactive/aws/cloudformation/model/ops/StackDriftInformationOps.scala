@@ -7,16 +7,12 @@ final class StackDriftInformationBuilderOps(val self: StackDriftInformation.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftStatusAsScala(value: Option[StackDriftStatus]): StackDriftInformation.Builder = {
-    value.fold(self) { v =>
-      self.stackDriftStatus(v)
-    }
+    value.fold(self) { v => self.stackDriftStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastCheckTimestampAsScala(value: Option[java.time.Instant]): StackDriftInformation.Builder = {
-    value.fold(self) { v =>
-      self.lastCheckTimestamp(v)
-    }
+    value.fold(self) { v => self.lastCheckTimestamp(v) }
   }
 
 }

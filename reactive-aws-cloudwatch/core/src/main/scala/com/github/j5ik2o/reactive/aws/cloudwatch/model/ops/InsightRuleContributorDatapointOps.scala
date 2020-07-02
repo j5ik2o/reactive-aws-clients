@@ -8,16 +8,12 @@ final class InsightRuleContributorDatapointBuilderOps(val self: InsightRuleContr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): InsightRuleContributorDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def approximateValueAsScala(value: Option[Double]): InsightRuleContributorDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.approximateValue(v)
-    }
+    value.fold(self) { v => self.approximateValue(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class ContainerStateChangeBuilderOps(val self: ContainerStateChange.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala(value: Option[String]): ContainerStateChange.Builder = {
-    value.fold(self) { v =>
-      self.containerName(v)
-    }
+    value.fold(self) { v => self.containerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageDigestAsScala(value: Option[String]): ContainerStateChange.Builder = {
-    value.fold(self) { v =>
-      self.imageDigest(v)
-    }
+    value.fold(self) { v => self.imageDigest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def runtimeIdAsScala(value: Option[String]): ContainerStateChange.Builder = {
-    value.fold(self) { v =>
-      self.runtimeId(v)
-    }
+    value.fold(self) { v => self.runtimeId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): ContainerStateChange.Builder = {
-    value.fold(self) { v =>
-      self.exitCode(v)
-    }
+    value.fold(self) { v => self.exitCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,16 +34,12 @@ final class ContainerStateChangeBuilderOps(val self: ContainerStateChange.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): ContainerStateChange.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): ContainerStateChange.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }
@@ -71,9 +59,10 @@ final class ContainerStateChangeOps(val self: ContainerStateChange) extends AnyV
   final def exitCodeAsScala: Option[Int] = Option(self.exitCode)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def networkBindingsAsScala: Option[Seq[NetworkBinding]] = Option(self.networkBindings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def networkBindingsAsScala: Option[Seq[NetworkBinding]] =
+    Option(self.networkBindings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala: Option[String] = Option(self.reason)

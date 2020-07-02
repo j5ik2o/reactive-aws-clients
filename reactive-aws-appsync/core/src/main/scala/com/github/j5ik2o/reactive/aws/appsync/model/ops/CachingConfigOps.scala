@@ -7,9 +7,7 @@ final class CachingConfigBuilderOps(val self: CachingConfig.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ttlAsScala(value: Option[Long]): CachingConfig.Builder = {
-    value.fold(self) { v =>
-      self.ttl(v)
-    }
+    value.fold(self) { v => self.ttl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class CachingConfigOps(val self: CachingConfig) extends AnyVal {
   final def ttlAsScala: Option[Long] = Option(self.ttl)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def cachingKeysAsScala: Option[Seq[String]] = Option(self.cachingKeys).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def cachingKeysAsScala: Option[Seq[String]] =
+    Option(self.cachingKeys).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

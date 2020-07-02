@@ -9,52 +9,40 @@ final class ReplicaGlobalSecondaryIndexSettingsDescriptionBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexStatusAsScala(value: Option[IndexStatus]): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.indexStatus(v)
-    }
+    value.fold(self) { v => self.indexStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityUnitsAsScala(
       value: Option[Long]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.provisionedReadCapacityUnits(v)
-    }
+    value.fold(self) { v => self.provisionedReadCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedReadCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.provisionedReadCapacityAutoScalingSettings(v)
-    }
+    value.fold(self) { v => self.provisionedReadCapacityAutoScalingSettings(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityUnits(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedWriteCapacityAutoScalingSettingsAsScala(
       value: Option[AutoScalingSettingsDescription]
   ): ReplicaGlobalSecondaryIndexSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.provisionedWriteCapacityAutoScalingSettings(v)
-    }
+    value.fold(self) { v => self.provisionedWriteCapacityAutoScalingSettings(v) }
   }
 
 }

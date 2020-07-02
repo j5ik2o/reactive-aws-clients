@@ -7,9 +7,7 @@ final class LifecyclePolicyPreviewFilterBuilderOps(val self: LifecyclePolicyPrev
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagStatusAsScala(value: Option[TagStatus]): LifecyclePolicyPreviewFilter.Builder = {
-    value.fold(self) { v =>
-      self.tagStatus(v)
-    }
+    value.fold(self) { v => self.tagStatus(v) }
   }
 
 }

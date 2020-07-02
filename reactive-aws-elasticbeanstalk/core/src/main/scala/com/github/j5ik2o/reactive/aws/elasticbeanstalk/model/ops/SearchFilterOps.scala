@@ -7,16 +7,12 @@ final class SearchFilterBuilderOps(val self: SearchFilter.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeAsScala(value: Option[String]): SearchFilter.Builder = {
-    value.fold(self) { v =>
-      self.attribute(v)
-    }
+    value.fold(self) { v => self.attribute(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operatorAsScala(value: Option[String]): SearchFilter.Builder = {
-    value.fold(self) { v =>
-      self.operator(v)
-    }
+    value.fold(self) { v => self.operator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class SearchFilterOps(val self: SearchFilter) extends AnyVal {
   final def operatorAsScala: Option[String] = Option(self.operator)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def valuesAsScala: Option[Seq[String]] = Option(self.values).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def valuesAsScala: Option[Seq[String]] =
+    Option(self.values).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,9 +7,7 @@ final class RebootNodeResponseBuilderOps(val self: RebootNodeResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[Cluster]): RebootNodeResponse.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class CreateStreamProcessorResponseBuilderOps(val self: CreateStreamProces
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamProcessorArnAsScala(value: Option[String]): CreateStreamProcessorResponse.Builder = {
-    value.fold(self) { v =>
-      self.streamProcessorArn(v)
-    }
+    value.fold(self) { v => self.streamProcessorArn(v) }
   }
 
 }

@@ -9,105 +9,79 @@ final class ElasticsearchDomainConfigBuilderOps(val self: ElasticsearchDomainCon
   final def elasticsearchVersionAsScala(
       value: Option[ElasticsearchVersionStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchVersion(v)
-    }
+    value.fold(self) { v => self.elasticsearchVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfigStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchClusterConfig(v)
-    }
+    value.fold(self) { v => self.elasticsearchClusterConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ebsOptionsAsScala(value: Option[EBSOptionsStatus]): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.ebsOptions(v)
-    }
+    value.fold(self) { v => self.ebsOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPoliciesAsScala(value: Option[AccessPoliciesStatus]): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.accessPolicies(v)
-    }
+    value.fold(self) { v => self.accessPolicies(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotOptionsAsScala(value: Option[SnapshotOptionsStatus]): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.snapshotOptions(v)
-    }
+    value.fold(self) { v => self.snapshotOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcOptionsAsScala(value: Option[VPCDerivedInfoStatus]): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.vpcOptions(v)
-    }
+    value.fold(self) { v => self.vpcOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cognitoOptionsAsScala(value: Option[CognitoOptionsStatus]): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.cognitoOptions(v)
-    }
+    value.fold(self) { v => self.cognitoOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.encryptionAtRestOptions(v)
-    }
+    value.fold(self) { v => self.encryptionAtRestOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.nodeToNodeEncryptionOptions(v)
-    }
+    value.fold(self) { v => self.nodeToNodeEncryptionOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def advancedOptionsAsScala(value: Option[AdvancedOptionsStatus]): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.advancedOptions(v)
-    }
+    value.fold(self) { v => self.advancedOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logPublishingOptionsAsScala(
       value: Option[LogPublishingOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.logPublishingOptions(v)
-    }
+    value.fold(self) { v => self.logPublishingOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainEndpointOptionsAsScala(
       value: Option[DomainEndpointOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.domainEndpointOptions(v)
-    }
+    value.fold(self) { v => self.domainEndpointOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def advancedSecurityOptionsAsScala(
       value: Option[AdvancedSecurityOptionsStatus]
   ): ElasticsearchDomainConfig.Builder = {
-    value.fold(self) { v =>
-      self.advancedSecurityOptions(v)
-    }
+    value.fold(self) { v => self.advancedSecurityOptions(v) }
   }
 
 }

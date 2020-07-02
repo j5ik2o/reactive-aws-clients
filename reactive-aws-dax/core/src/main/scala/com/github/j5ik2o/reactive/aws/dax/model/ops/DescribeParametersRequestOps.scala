@@ -7,30 +7,22 @@ final class DescribeParametersRequestBuilderOps(val self: DescribeParametersRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
-    value.fold(self) { v =>
-      self.source(v)
-    }
+    value.fold(self) { v => self.source(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeParametersRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeParametersRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

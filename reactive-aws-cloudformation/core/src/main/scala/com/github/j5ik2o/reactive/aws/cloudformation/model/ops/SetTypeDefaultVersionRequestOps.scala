@@ -7,30 +7,22 @@ final class SetTypeDefaultVersionRequestBuilderOps(val self: SetTypeDefaultVersi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): SetTypeDefaultVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[RegistryType]): SetTypeDefaultVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): SetTypeDefaultVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): SetTypeDefaultVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionId(v)
-    }
+    value.fold(self) { v => self.versionId(v) }
   }
 
 }
