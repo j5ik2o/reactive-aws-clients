@@ -24,14 +24,12 @@ final class BatchGetImageResponseBuilderOps(val self: BatchGetImageResponse.Buil
 final class BatchGetImageResponseOps(val self: BatchGetImageResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def imagesAsScala: Option[Seq[Image]] = Option(self.images).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def imagesAsScala: Option[Seq[Image]] =
+    Option(self.images).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def failuresAsScala: Option[Seq[ImageFailure]] = Option(self.failures).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def failuresAsScala: Option[Seq[ImageFailure]] =
+    Option(self.failures).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

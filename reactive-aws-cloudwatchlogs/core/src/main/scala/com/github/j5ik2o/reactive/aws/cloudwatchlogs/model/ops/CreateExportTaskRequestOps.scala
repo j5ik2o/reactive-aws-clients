@@ -7,51 +7,37 @@ final class CreateExportTaskRequestBuilderOps(val self: CreateExportTaskRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskNameAsScala(value: Option[String]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.taskName(v)
-    }
+    value.fold(self) { v => self.taskName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNamePrefixAsScala(value: Option[String]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.logStreamNamePrefix(v)
-    }
+    value.fold(self) { v => self.logStreamNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fromAsScala(value: Option[Long]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.from(v)
-    }
+    value.fold(self) { v => self.from(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def toAsScala(value: Option[Long]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.to(v)
-    }
+    value.fold(self) { v => self.to(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala(value: Option[String]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.destination(v)
-    }
+    value.fold(self) { v => self.destination(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationPrefixAsScala(value: Option[String]): CreateExportTaskRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationPrefix(v)
-    }
+    value.fold(self) { v => self.destinationPrefix(v) }
   }
 
 }

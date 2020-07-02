@@ -7,23 +7,17 @@ final class AliasListEntryBuilderOps(val self: AliasListEntry.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala(value: Option[String]): AliasListEntry.Builder = {
-    value.fold(self) { v =>
-      self.aliasName(v)
-    }
+    value.fold(self) { v => self.aliasName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasArnAsScala(value: Option[String]): AliasListEntry.Builder = {
-    value.fold(self) { v =>
-      self.aliasArn(v)
-    }
+    value.fold(self) { v => self.aliasArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetKeyIdAsScala(value: Option[String]): AliasListEntry.Builder = {
-    value.fold(self) { v =>
-      self.targetKeyId(v)
-    }
+    value.fold(self) { v => self.targetKeyId(v) }
   }
 
 }

@@ -8,9 +8,7 @@ final class DeleteImportedKeyMaterialRequestBuilderOps(val self: DeleteImportedK
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): DeleteImportedKeyMaterialRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
 }

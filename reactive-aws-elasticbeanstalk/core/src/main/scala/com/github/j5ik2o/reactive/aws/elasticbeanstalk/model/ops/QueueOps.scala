@@ -7,16 +7,12 @@ final class QueueBuilderOps(val self: Queue.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Queue.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def urlAsScala(value: Option[String]): Queue.Builder = {
-    value.fold(self) { v =>
-      self.url(v)
-    }
+    value.fold(self) { v => self.url(v) }
   }
 
 }

@@ -8,39 +8,29 @@ final class UpdateFunctionEventInvokeConfigResponseBuilderOps(val self: UpdateFu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[java.time.Instant]): UpdateFunctionEventInvokeConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastModified(v)
-    }
+    value.fold(self) { v => self.lastModified(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionArnAsScala(value: Option[String]): UpdateFunctionEventInvokeConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.functionArn(v)
-    }
+    value.fold(self) { v => self.functionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumRetryAttemptsAsScala(value: Option[Int]): UpdateFunctionEventInvokeConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.maximumRetryAttempts(v)
-    }
+    value.fold(self) { v => self.maximumRetryAttempts(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumEventAgeInSecondsAsScala(value: Option[Int]): UpdateFunctionEventInvokeConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.maximumEventAgeInSeconds(v)
-    }
+    value.fold(self) { v => self.maximumEventAgeInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationConfigAsScala(
       value: Option[DestinationConfig]
   ): UpdateFunctionEventInvokeConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.destinationConfig(v)
-    }
+    value.fold(self) { v => self.destinationConfig(v) }
   }
 
 }

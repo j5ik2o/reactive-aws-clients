@@ -7,16 +7,12 @@ final class ParameterNameValueBuilderOps(val self: ParameterNameValue.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterNameAsScala(value: Option[String]): ParameterNameValue.Builder = {
-    value.fold(self) { v =>
-      self.parameterName(v)
-    }
+    value.fold(self) { v => self.parameterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterValueAsScala(value: Option[String]): ParameterNameValue.Builder = {
-    value.fold(self) { v =>
-      self.parameterValue(v)
-    }
+    value.fold(self) { v => self.parameterValue(v) }
   }
 
 }

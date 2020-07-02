@@ -7,30 +7,22 @@ final class CreatePlatformVersionRequestBuilderOps(val self: CreatePlatformVersi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformNameAsScala(value: Option[String]): CreatePlatformVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformName(v)
-    }
+    value.fold(self) { v => self.platformName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): CreatePlatformVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformVersion(v)
-    }
+    value.fold(self) { v => self.platformVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformDefinitionBundleAsScala(value: Option[S3Location]): CreatePlatformVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformDefinitionBundle(v)
-    }
+    value.fold(self) { v => self.platformDefinitionBundle(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): CreatePlatformVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -66,14 +58,14 @@ final class CreatePlatformVersionRequestOps(val self: CreatePlatformVersionReque
   final def environmentNameAsScala: Option[String] = Option(self.environmentName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] =
+    Option(self.optionSettings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

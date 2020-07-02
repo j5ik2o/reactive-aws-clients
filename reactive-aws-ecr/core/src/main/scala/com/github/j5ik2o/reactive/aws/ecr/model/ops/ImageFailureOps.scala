@@ -7,23 +7,17 @@ final class ImageFailureBuilderOps(val self: ImageFailure.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[ImageIdentifier]): ImageFailure.Builder = {
-    value.fold(self) { v =>
-      self.imageId(v)
-    }
+    value.fold(self) { v => self.imageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureCodeAsScala(value: Option[ImageFailureCode]): ImageFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureCode(v)
-    }
+    value.fold(self) { v => self.failureCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureReasonAsScala(value: Option[String]): ImageFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureReason(v)
-    }
+    value.fold(self) { v => self.failureReason(v) }
   }
 
 }

@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object SqsMonixClient {
 
-  def apply(asyncClient: SqsAsyncClient): SqsMonixClient = new SqsMonixClient {
-    override val underlying: SqsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: SqsAsyncClient): SqsMonixClient =
+    new SqsMonixClient {
+      override val underlying: SqsAsyncClient = asyncClient
+    }
 
 }
 

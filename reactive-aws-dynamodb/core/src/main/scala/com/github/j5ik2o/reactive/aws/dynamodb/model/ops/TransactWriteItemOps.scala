@@ -7,30 +7,22 @@ final class TransactWriteItemBuilderOps(val self: TransactWriteItem.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionCheckAsScala(value: Option[ConditionCheck]): TransactWriteItem.Builder = {
-    value.fold(self) { v =>
-      self.conditionCheck(v)
-    }
+    value.fold(self) { v => self.conditionCheck(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def putAsScala(value: Option[Put]): TransactWriteItem.Builder = {
-    value.fold(self) { v =>
-      self.put(v)
-    }
+    value.fold(self) { v => self.put(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteAsScala(value: Option[Delete]): TransactWriteItem.Builder = {
-    value.fold(self) { v =>
-      self.delete(v)
-    }
+    value.fold(self) { v => self.delete(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[Update]): TransactWriteItem.Builder = {
-    value.fold(self) { v =>
-      self.update(v)
-    }
+    value.fold(self) { v => self.update(v) }
   }
 
 }

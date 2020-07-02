@@ -8,16 +8,12 @@ final class NodeToNodeEncryptionOptionsStatusBuilderOps(val self: NodeToNodeEncr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(value: Option[NodeToNodeEncryptionOptions]): NodeToNodeEncryptionOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.options(v)
-    }
+    value.fold(self) { v => self.options(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[OptionStatus]): NodeToNodeEncryptionOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

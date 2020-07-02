@@ -7,51 +7,37 @@ final class PutObjectRetentionRequestBuilderOps(val self: PutObjectRetentionRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.key(v)
-    }
+    value.fold(self) { v => self.key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionAsScala(value: Option[ObjectLockRetention]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.retention(v)
-    }
+    value.fold(self) { v => self.retention(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala(value: Option[RequestPayer]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.requestPayer(v)
-    }
+    value.fold(self) { v => self.requestPayer(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionId(v)
-    }
+    value.fold(self) { v => self.versionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bypassGovernanceRetentionAsScala(value: Option[Boolean]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.bypassGovernanceRetention(v)
-    }
+    value.fold(self) { v => self.bypassGovernanceRetention(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala(value: Option[String]): PutObjectRetentionRequest.Builder = {
-    value.fold(self) { v =>
-      self.contentMD5(v)
-    }
+    value.fold(self) { v => self.contentMD5(v) }
   }
 
 }

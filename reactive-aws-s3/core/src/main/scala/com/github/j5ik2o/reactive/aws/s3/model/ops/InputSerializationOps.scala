@@ -7,30 +7,22 @@ final class InputSerializationBuilderOps(val self: InputSerialization.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def csvAsScala(value: Option[CSVInput]): InputSerialization.Builder = {
-    value.fold(self) { v =>
-      self.csv(v)
-    }
+    value.fold(self) { v => self.csv(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def compressionTypeAsScala(value: Option[CompressionType]): InputSerialization.Builder = {
-    value.fold(self) { v =>
-      self.compressionType(v)
-    }
+    value.fold(self) { v => self.compressionType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jsonAsScala(value: Option[JSONInput]): InputSerialization.Builder = {
-    value.fold(self) { v =>
-      self.json(v)
-    }
+    value.fold(self) { v => self.json(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parquetAsScala(value: Option[ParquetInput]): InputSerialization.Builder = {
-    value.fold(self) { v =>
-      self.parquet(v)
-    }
+    value.fold(self) { v => self.parquet(v) }
   }
 
 }

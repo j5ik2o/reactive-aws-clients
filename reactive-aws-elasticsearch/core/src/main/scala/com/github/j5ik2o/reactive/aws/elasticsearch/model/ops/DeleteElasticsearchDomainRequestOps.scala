@@ -8,9 +8,7 @@ final class DeleteElasticsearchDomainRequestBuilderOps(val self: DeleteElasticse
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DeleteElasticsearchDomainRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
 }

@@ -7,37 +7,27 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmName(v)
-    }
+    value.fold(self) { v => self.alarmName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmArnAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmArn(v)
-    }
+    value.fold(self) { v => self.alarmArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmDescriptionAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmDescription(v)
-    }
+    value.fold(self) { v => self.alarmDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmConfigurationUpdatedTimestampAsScala(value: Option[java.time.Instant]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmConfigurationUpdatedTimestamp(v)
-    }
+    value.fold(self) { v => self.alarmConfigurationUpdatedTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionsEnabledAsScala(value: Option[Boolean]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.actionsEnabled(v)
-    }
+    value.fold(self) { v => self.actionsEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -63,58 +53,42 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateValueAsScala(value: Option[StateValue]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateValue(v)
-    }
+    value.fold(self) { v => self.stateValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateReason(v)
-    }
+    value.fold(self) { v => self.stateReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonDataAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateReasonData(v)
-    }
+    value.fold(self) { v => self.stateReasonData(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateUpdatedTimestampAsScala(value: Option[java.time.Instant]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateUpdatedTimestamp(v)
-    }
+    value.fold(self) { v => self.stateUpdatedTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statisticAsScala(value: Option[Statistic]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.statistic(v)
-    }
+    value.fold(self) { v => self.statistic(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def extendedStatisticAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.extendedStatistic(v)
-    }
+    value.fold(self) { v => self.extendedStatistic(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -126,58 +100,42 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala(value: Option[Int]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.period(v)
-    }
+    value.fold(self) { v => self.period(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala(value: Option[StandardUnit]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.unit(v)
-    }
+    value.fold(self) { v => self.unit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def evaluationPeriodsAsScala(value: Option[Int]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.evaluationPeriods(v)
-    }
+    value.fold(self) { v => self.evaluationPeriods(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def datapointsToAlarmAsScala(value: Option[Int]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.datapointsToAlarm(v)
-    }
+    value.fold(self) { v => self.datapointsToAlarm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def thresholdAsScala(value: Option[Double]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.threshold(v)
-    }
+    value.fold(self) { v => self.threshold(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def comparisonOperatorAsScala(value: Option[ComparisonOperator]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.comparisonOperator(v)
-    }
+    value.fold(self) { v => self.comparisonOperator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def treatMissingDataAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.treatMissingData(v)
-    }
+    value.fold(self) { v => self.treatMissingData(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def evaluateLowSampleCountPercentileAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.evaluateLowSampleCountPercentile(v)
-    }
+    value.fold(self) { v => self.evaluateLowSampleCountPercentile(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -189,9 +147,7 @@ final class MetricAlarmBuilderOps(val self: MetricAlarm.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def thresholdMetricIdAsScala(value: Option[String]): MetricAlarm.Builder = {
-    value.fold(self) { v =>
-      self.thresholdMetricId(v)
-    }
+    value.fold(self) { v => self.thresholdMetricId(v) }
   }
 
 }
@@ -215,19 +171,18 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
   final def actionsEnabledAsScala: Option[Boolean] = Option(self.actionsEnabled)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def okActionsAsScala: Option[Seq[String]] = Option(self.okActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def okActionsAsScala: Option[Seq[String]] =
+    Option(self.okActions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def alarmActionsAsScala: Option[Seq[String]] = Option(self.alarmActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def alarmActionsAsScala: Option[Seq[String]] =
+    Option(self.alarmActions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def insufficientDataActionsAsScala: Option[Seq[String]] = Option(self.insufficientDataActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def insufficientDataActionsAsScala: Option[Seq[String]] =
+    Option(self.insufficientDataActions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateValueAsScala: Option[StateValue] = Option(self.stateValue)
@@ -254,9 +209,8 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
   final def extendedStatisticAsScala: Option[String] = Option(self.extendedStatistic)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dimensionsAsScala: Option[Seq[Dimension]] = Option(self.dimensions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dimensionsAsScala: Option[Seq[Dimension]] =
+    Option(self.dimensions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala: Option[Int] = Option(self.period)
@@ -283,9 +237,8 @@ final class MetricAlarmOps(val self: MetricAlarm) extends AnyVal {
   final def evaluateLowSampleCountPercentileAsScala: Option[String] = Option(self.evaluateLowSampleCountPercentile)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricsAsScala: Option[Seq[MetricDataQuery]] = Option(self.metrics).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricsAsScala: Option[Seq[MetricDataQuery]] =
+    Option(self.metrics).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def thresholdMetricIdAsScala: Option[String] = Option(self.thresholdMetricId)

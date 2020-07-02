@@ -8,16 +8,12 @@ final class GetSchemaCreationStatusResponseBuilderOps(val self: GetSchemaCreatio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[SchemaStatus]): GetSchemaCreationStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def detailsAsScala(value: Option[String]): GetSchemaCreationStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.details(v)
-    }
+    value.fold(self) { v => self.details(v) }
   }
 
 }

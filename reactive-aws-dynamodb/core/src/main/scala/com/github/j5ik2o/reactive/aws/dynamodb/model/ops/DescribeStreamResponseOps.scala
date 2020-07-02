@@ -7,9 +7,7 @@ final class DescribeStreamResponseBuilderOps(val self: DescribeStreamResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamDescriptionAsScala(value: Option[StreamDescription]): DescribeStreamResponse.Builder = {
-    value.fold(self) { v =>
-      self.streamDescription(v)
-    }
+    value.fold(self) { v => self.streamDescription(v) }
   }
 
 }

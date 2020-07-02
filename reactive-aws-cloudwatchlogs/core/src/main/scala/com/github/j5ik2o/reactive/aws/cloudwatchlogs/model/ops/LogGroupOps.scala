@@ -7,51 +7,37 @@ final class LogGroupBuilderOps(val self: LogGroup.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala(value: Option[Long]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.creationTime(v)
-    }
+    value.fold(self) { v => self.creationTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionInDaysAsScala(value: Option[Int]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.retentionInDays(v)
-    }
+    value.fold(self) { v => self.retentionInDays(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricFilterCountAsScala(value: Option[Int]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.metricFilterCount(v)
-    }
+    value.fold(self) { v => self.metricFilterCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storedBytesAsScala(value: Option[Long]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.storedBytes(v)
-    }
+    value.fold(self) { v => self.storedBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): LogGroup.Builder = {
-    value.fold(self) { v =>
-      self.kmsKeyId(v)
-    }
+    value.fold(self) { v => self.kmsKeyId(v) }
   }
 
 }

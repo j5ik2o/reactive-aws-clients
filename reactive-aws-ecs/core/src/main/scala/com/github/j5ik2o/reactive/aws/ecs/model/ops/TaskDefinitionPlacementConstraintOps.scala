@@ -10,16 +10,12 @@ final class TaskDefinitionPlacementConstraintBuilderOps(val self: TaskDefinition
   final def typeAsScala(
       value: Option[TaskDefinitionPlacementConstraintType]
   ): TaskDefinitionPlacementConstraint.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAsScala(value: Option[String]): TaskDefinitionPlacementConstraint.Builder = {
-    value.fold(self) { v =>
-      self.expression(v)
-    }
+    value.fold(self) { v => self.expression(v) }
   }
 
 }

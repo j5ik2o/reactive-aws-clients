@@ -7,37 +7,27 @@ final class TypeBuilderOps(val self: Type.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Type.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): Type.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): Type.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def definitionAsScala(value: Option[String]): Type.Builder = {
-    value.fold(self) { v =>
-      self.definition(v)
-    }
+    value.fold(self) { v => self.definition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala(value: Option[TypeDefinitionFormat]): Type.Builder = {
-    value.fold(self) { v =>
-      self.format(v)
-    }
+    value.fold(self) { v => self.format(v) }
   }
 
 }

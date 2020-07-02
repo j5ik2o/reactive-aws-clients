@@ -10,9 +10,7 @@ final class DescribeTableReplicaAutoScalingResponseBuilderOps(val self: Describe
   final def tableAutoScalingDescriptionAsScala(
       value: Option[TableAutoScalingDescription]
   ): DescribeTableReplicaAutoScalingResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableAutoScalingDescription(v)
-    }
+    value.fold(self) { v => self.tableAutoScalingDescription(v) }
   }
 
 }

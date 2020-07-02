@@ -24,14 +24,12 @@ final class DescribeClustersRequestBuilderOps(val self: DescribeClustersRequest.
 final class DescribeClustersRequestOps(val self: DescribeClustersRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def clustersAsScala: Option[Seq[String]] = Option(self.clusters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def clustersAsScala: Option[Seq[String]] =
+    Option(self.clusters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def includeAsScala: Option[Seq[ClusterField]] = Option(self.include).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def includeAsScala: Option[Seq[ClusterField]] =
+    Option(self.include).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

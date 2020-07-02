@@ -7,23 +7,17 @@ final class NetworkInterfaceBuilderOps(val self: NetworkInterface.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attachmentIdAsScala(value: Option[String]): NetworkInterface.Builder = {
-    value.fold(self) { v =>
-      self.attachmentId(v)
-    }
+    value.fold(self) { v => self.attachmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6AddressAsScala(value: Option[String]): NetworkInterface.Builder = {
-    value.fold(self) { v =>
-      self.ipv6Address(v)
-    }
+    value.fold(self) { v => self.ipv6Address(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def privateIpv4AddressAsScala(value: Option[String]): NetworkInterface.Builder = {
-    value.fold(self) { v =>
-      self.privateIpv4Address(v)
-    }
+    value.fold(self) { v => self.privateIpv4Address(v) }
   }
 
 }

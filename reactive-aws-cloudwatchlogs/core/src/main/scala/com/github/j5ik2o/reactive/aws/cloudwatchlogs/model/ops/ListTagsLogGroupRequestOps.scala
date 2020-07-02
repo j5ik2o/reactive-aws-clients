@@ -7,9 +7,7 @@ final class ListTagsLogGroupRequestBuilderOps(val self: ListTagsLogGroupRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): ListTagsLogGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class StopProjectVersionResponseBuilderOps(val self: StopProjectVersionRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ProjectVersionStatus]): StopProjectVersionResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

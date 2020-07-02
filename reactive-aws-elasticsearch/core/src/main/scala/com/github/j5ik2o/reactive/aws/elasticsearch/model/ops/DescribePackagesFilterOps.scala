@@ -7,9 +7,7 @@ final class DescribePackagesFilterBuilderOps(val self: DescribePackagesFilter.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[DescribePackagesFilterName]): DescribePackagesFilter.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DescribePackagesFilterOps(val self: DescribePackagesFilter) extends 
   final def nameAsScala: Option[DescribePackagesFilterName] = Option(self.name)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def valueAsScala: Option[Seq[String]] = Option(self.value).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def valueAsScala: Option[Seq[String]] =
+    Option(self.value).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

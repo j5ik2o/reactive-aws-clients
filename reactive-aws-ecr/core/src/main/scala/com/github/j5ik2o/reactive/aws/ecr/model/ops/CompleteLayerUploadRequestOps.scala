@@ -7,23 +7,17 @@ final class CompleteLayerUploadRequestBuilderOps(val self: CompleteLayerUploadRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): CompleteLayerUploadRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): CompleteLayerUploadRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): CompleteLayerUploadRequest.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,9 +41,8 @@ final class CompleteLayerUploadRequestOps(val self: CompleteLayerUploadRequest) 
   final def uploadIdAsScala: Option[String] = Option(self.uploadId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def layerDigestsAsScala: Option[Seq[String]] = Option(self.layerDigests).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def layerDigestsAsScala: Option[Seq[String]] =
+    Option(self.layerDigests).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

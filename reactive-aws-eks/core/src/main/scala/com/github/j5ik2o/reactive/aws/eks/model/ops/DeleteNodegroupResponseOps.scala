@@ -7,9 +7,7 @@ final class DeleteNodegroupResponseBuilderOps(val self: DeleteNodegroupResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupAsScala(value: Option[Nodegroup]): DeleteNodegroupResponse.Builder = {
-    value.fold(self) { v =>
-      self.nodegroup(v)
-    }
+    value.fold(self) { v => self.nodegroup(v) }
   }
 
 }

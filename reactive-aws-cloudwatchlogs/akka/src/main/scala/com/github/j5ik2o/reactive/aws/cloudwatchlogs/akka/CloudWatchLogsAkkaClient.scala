@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.cloudwatchlogs.model._
 
 object CloudWatchLogsAkkaClient {
 
-  def apply(asyncClient: CloudWatchLogsAsyncClient): CloudWatchLogsAkkaClient = new CloudWatchLogsAkkaClient {
-    override val underlying: CloudWatchLogsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: CloudWatchLogsAsyncClient): CloudWatchLogsAkkaClient =
+    new CloudWatchLogsAkkaClient {
+      override val underlying: CloudWatchLogsAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

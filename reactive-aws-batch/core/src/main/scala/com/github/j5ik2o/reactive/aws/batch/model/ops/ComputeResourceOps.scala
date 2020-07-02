@@ -7,37 +7,27 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[CRType]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocationStrategyAsScala(value: Option[CRAllocationStrategy]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.allocationStrategy(v)
-    }
+    value.fold(self) { v => self.allocationStrategy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minvCpusAsScala(value: Option[Int]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.minvCpus(v)
-    }
+    value.fold(self) { v => self.minvCpus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxvCpusAsScala(value: Option[Int]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.maxvCpus(v)
-    }
+    value.fold(self) { v => self.maxvCpus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def desiredvCpusAsScala(value: Option[Int]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.desiredvCpus(v)
-    }
+    value.fold(self) { v => self.desiredvCpus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -49,9 +39,7 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[String]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.imageId(v)
-    }
+    value.fold(self) { v => self.imageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -70,16 +58,12 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2KeyPairAsScala(value: Option[String]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.ec2KeyPair(v)
-    }
+    value.fold(self) { v => self.ec2KeyPair(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceRoleAsScala(value: Option[String]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.instanceRole(v)
-    }
+    value.fold(self) { v => self.instanceRole(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -91,30 +75,22 @@ final class ComputeResourceBuilderOps(val self: ComputeResource.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def placementGroupAsScala(value: Option[String]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.placementGroup(v)
-    }
+    value.fold(self) { v => self.placementGroup(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bidPercentageAsScala(value: Option[Int]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.bidPercentage(v)
-    }
+    value.fold(self) { v => self.bidPercentage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def spotIamFleetRoleAsScala(value: Option[String]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.spotIamFleetRole(v)
-    }
+    value.fold(self) { v => self.spotIamFleetRole(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateAsScala(value: Option[LaunchTemplateSpecification]): ComputeResource.Builder = {
-    value.fold(self) { v =>
-      self.launchTemplate(v)
-    }
+    value.fold(self) { v => self.launchTemplate(v) }
   }
 
 }
@@ -137,22 +113,23 @@ final class ComputeResourceOps(val self: ComputeResource) extends AnyVal {
   final def desiredvCpusAsScala: Option[Int] = Option(self.desiredvCpus)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def instanceTypesAsScala: Option[Seq[String]] = Option(self.instanceTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def instanceTypesAsScala: Option[Seq[String]] =
+    Option(self.instanceTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala: Option[String] = Option(self.imageId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetsAsScala: Option[Seq[String]] = Option(self.subnets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetsAsScala: Option[Seq[String]] =
+    Option(self.subnets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupIdsAsScala: Option[Seq[String]] =
+    Option(self.securityGroupIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2KeyPairAsScala: Option[String] = Option(self.ec2KeyPair)
@@ -161,9 +138,8 @@ final class ComputeResourceOps(val self: ComputeResource) extends AnyVal {
   final def instanceRoleAsScala: Option[String] = Option(self.instanceRole)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def placementGroupAsScala: Option[String] = Option(self.placementGroup)

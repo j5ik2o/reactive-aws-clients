@@ -7,9 +7,7 @@ final class DescribeUpdateResponseBuilderOps(val self: DescribeUpdateResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[Update]): DescribeUpdateResponse.Builder = {
-    value.fold(self) { v =>
-      self.update(v)
-    }
+    value.fold(self) { v => self.update(v) }
   }
 
 }

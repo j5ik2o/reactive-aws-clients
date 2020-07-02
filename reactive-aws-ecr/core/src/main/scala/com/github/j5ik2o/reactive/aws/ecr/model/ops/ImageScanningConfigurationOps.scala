@@ -7,9 +7,7 @@ final class ImageScanningConfigurationBuilderOps(val self: ImageScanningConfigur
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scanOnPushAsScala(value: Option[Boolean]): ImageScanningConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.scanOnPush(v)
-    }
+    value.fold(self) { v => self.scanOnPush(v) }
   }
 
 }

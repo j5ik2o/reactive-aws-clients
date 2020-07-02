@@ -11,25 +11,19 @@ final class PurchaseReservedElasticsearchInstanceOfferingRequestBuilderOps(
   final def reservedElasticsearchInstanceOfferingIdAsScala(
       value: Option[String]
   ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
-    value.fold(self) { v =>
-      self.reservedElasticsearchInstanceOfferingId(v)
-    }
+    value.fold(self) { v => self.reservedElasticsearchInstanceOfferingId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservationNameAsScala(
       value: Option[String]
   ): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
-    value.fold(self) { v =>
-      self.reservationName(v)
-    }
+    value.fold(self) { v => self.reservationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): PurchaseReservedElasticsearchInstanceOfferingRequest.Builder = {
-    value.fold(self) { v =>
-      self.instanceCount(v)
-    }
+    value.fold(self) { v => self.instanceCount(v) }
   }
 
 }

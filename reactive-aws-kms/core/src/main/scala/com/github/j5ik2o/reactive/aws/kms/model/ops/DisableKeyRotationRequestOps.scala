@@ -7,9 +7,7 @@ final class DisableKeyRotationRequestBuilderOps(val self: DisableKeyRotationRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): DisableKeyRotationRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
 }

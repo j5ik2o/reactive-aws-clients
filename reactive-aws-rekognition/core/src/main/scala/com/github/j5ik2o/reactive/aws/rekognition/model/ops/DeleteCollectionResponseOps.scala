@@ -7,9 +7,7 @@ final class DeleteCollectionResponseBuilderOps(val self: DeleteCollectionRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodeAsScala(value: Option[Int]): DeleteCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusCode(v)
-    }
+    value.fold(self) { v => self.statusCode(v) }
   }
 
 }

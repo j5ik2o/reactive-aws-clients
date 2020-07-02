@@ -7,9 +7,7 @@ final class DisassociateKmsKeyRequestBuilderOps(val self: DisassociateKmsKeyRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DisassociateKmsKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
 }

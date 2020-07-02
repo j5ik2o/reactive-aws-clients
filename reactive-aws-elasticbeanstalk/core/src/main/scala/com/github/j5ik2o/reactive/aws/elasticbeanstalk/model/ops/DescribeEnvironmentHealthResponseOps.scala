@@ -8,30 +8,22 @@ final class DescribeEnvironmentHealthResponseBuilderOps(val self: DescribeEnviro
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def healthStatusAsScala(value: Option[String]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.healthStatus(v)
-    }
+    value.fold(self) { v => self.healthStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[EnvironmentHealth]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def colorAsScala(value: Option[String]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.color(v)
-    }
+    value.fold(self) { v => self.color(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -43,23 +35,17 @@ final class DescribeEnvironmentHealthResponseBuilderOps(val self: DescribeEnviro
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationMetricsAsScala(value: Option[ApplicationMetrics]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.applicationMetrics(v)
-    }
+    value.fold(self) { v => self.applicationMetrics(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instancesHealthAsScala(value: Option[InstanceHealthSummary]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.instancesHealth(v)
-    }
+    value.fold(self) { v => self.instancesHealth(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def refreshedAtAsScala(value: Option[java.time.Instant]): DescribeEnvironmentHealthResponse.Builder = {
-    value.fold(self) { v =>
-      self.refreshedAt(v)
-    }
+    value.fold(self) { v => self.refreshedAt(v) }
   }
 
 }
@@ -79,9 +65,8 @@ final class DescribeEnvironmentHealthResponseOps(val self: DescribeEnvironmentHe
   final def colorAsScala: Option[String] = Option(self.color)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def causesAsScala: Option[Seq[String]] = Option(self.causes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def causesAsScala: Option[Seq[String]] =
+    Option(self.causes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationMetricsAsScala: Option[ApplicationMetrics] = Option(self.applicationMetrics)

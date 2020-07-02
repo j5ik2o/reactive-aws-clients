@@ -7,9 +7,7 @@ final class FlushApiCacheRequestBuilderOps(val self: FlushApiCacheRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): FlushApiCacheRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
 }

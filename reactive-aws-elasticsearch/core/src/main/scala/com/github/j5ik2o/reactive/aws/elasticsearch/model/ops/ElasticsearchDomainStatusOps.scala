@@ -7,44 +7,32 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainIdAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.domainId(v)
-    }
+    value.fold(self) { v => self.domainId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.created(v)
-    }
+    value.fold(self) { v => self.created(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletedAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.deleted(v)
-    }
+    value.fold(self) { v => self.deleted(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.endpoint(v)
-    }
+    value.fold(self) { v => self.endpoint(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -56,85 +44,63 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def processingAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.processing(v)
-    }
+    value.fold(self) { v => self.processing(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeProcessingAsScala(value: Option[Boolean]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.upgradeProcessing(v)
-    }
+    value.fold(self) { v => self.upgradeProcessing(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchVersionAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchVersion(v)
-    }
+    value.fold(self) { v => self.elasticsearchVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchClusterConfigAsScala(
       value: Option[ElasticsearchClusterConfig]
   ): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchClusterConfig(v)
-    }
+    value.fold(self) { v => self.elasticsearchClusterConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ebsOptionsAsScala(value: Option[EBSOptions]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.ebsOptions(v)
-    }
+    value.fold(self) { v => self.ebsOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPoliciesAsScala(value: Option[String]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.accessPolicies(v)
-    }
+    value.fold(self) { v => self.accessPolicies(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snapshotOptionsAsScala(value: Option[SnapshotOptions]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.snapshotOptions(v)
-    }
+    value.fold(self) { v => self.snapshotOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcOptionsAsScala(value: Option[VPCDerivedInfo]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.vpcOptions(v)
-    }
+    value.fold(self) { v => self.vpcOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cognitoOptionsAsScala(value: Option[CognitoOptions]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.cognitoOptions(v)
-    }
+    value.fold(self) { v => self.cognitoOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionAtRestOptionsAsScala(
       value: Option[EncryptionAtRestOptions]
   ): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.encryptionAtRestOptions(v)
-    }
+    value.fold(self) { v => self.encryptionAtRestOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeToNodeEncryptionOptionsAsScala(
       value: Option[NodeToNodeEncryptionOptions]
   ): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.nodeToNodeEncryptionOptions(v)
-    }
+    value.fold(self) { v => self.nodeToNodeEncryptionOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -155,25 +121,19 @@ final class ElasticsearchDomainStatusBuilderOps(val self: ElasticsearchDomainSta
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceSoftwareOptionsAsScala(value: Option[ServiceSoftwareOptions]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.serviceSoftwareOptions(v)
-    }
+    value.fold(self) { v => self.serviceSoftwareOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainEndpointOptionsAsScala(value: Option[DomainEndpointOptions]): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.domainEndpointOptions(v)
-    }
+    value.fold(self) { v => self.domainEndpointOptions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def advancedSecurityOptionsAsScala(
       value: Option[AdvancedSecurityOptions]
   ): ElasticsearchDomainStatus.Builder = {
-    value.fold(self) { v =>
-      self.advancedSecurityOptions(v)
-    }
+    value.fold(self) { v => self.advancedSecurityOptions(v) }
   }
 
 }
@@ -199,9 +159,10 @@ final class ElasticsearchDomainStatusOps(val self: ElasticsearchDomainStatus) ex
   final def endpointAsScala: Option[String] = Option(self.endpoint)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def endpointsAsScala: Option[Map[String, String]] = Option(self.endpoints).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def endpointsAsScala: Option[Map[String, String]] =
+    Option(self.endpoints).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def processingAsScala: Option[Boolean] = Option(self.processing)
@@ -239,9 +200,10 @@ final class ElasticsearchDomainStatusOps(val self: ElasticsearchDomainStatus) ex
     Option(self.nodeToNodeEncryptionOptions)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def advancedOptionsAsScala: Option[Map[String, String]] = Option(self.advancedOptions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def advancedOptionsAsScala: Option[Map[String, String]] =
+    Option(self.advancedOptions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logPublishingOptionsAsScala: Option[Map[LogType, LogPublishingOption]] =

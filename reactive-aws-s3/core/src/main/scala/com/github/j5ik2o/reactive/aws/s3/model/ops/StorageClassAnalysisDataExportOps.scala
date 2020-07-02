@@ -9,16 +9,12 @@ final class StorageClassAnalysisDataExportBuilderOps(val self: StorageClassAnaly
   final def outputSchemaVersionAsScala(
       value: Option[StorageClassAnalysisSchemaVersion]
   ): StorageClassAnalysisDataExport.Builder = {
-    value.fold(self) { v =>
-      self.outputSchemaVersion(v)
-    }
+    value.fold(self) { v => self.outputSchemaVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala(value: Option[AnalyticsExportDestination]): StorageClassAnalysisDataExport.Builder = {
-    value.fold(self) { v =>
-      self.destination(v)
-    }
+    value.fold(self) { v => self.destination(v) }
   }
 
 }

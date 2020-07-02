@@ -9,18 +9,14 @@ final class UpdateApplicationResourceLifecycleResponseBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): UpdateApplicationResourceLifecycleResponse.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceLifecycleConfigAsScala(
       value: Option[ApplicationResourceLifecycleConfig]
   ): UpdateApplicationResourceLifecycleResponse.Builder = {
-    value.fold(self) { v =>
-      self.resourceLifecycleConfig(v)
-    }
+    value.fold(self) { v => self.resourceLifecycleConfig(v) }
   }
 
 }

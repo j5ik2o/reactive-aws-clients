@@ -7,9 +7,7 @@ final class RequestPaymentConfigurationBuilderOps(val self: RequestPaymentConfig
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payerAsScala(value: Option[Payer]): RequestPaymentConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.payer(v)
-    }
+    value.fold(self) { v => self.payer(v) }
   }
 
 }

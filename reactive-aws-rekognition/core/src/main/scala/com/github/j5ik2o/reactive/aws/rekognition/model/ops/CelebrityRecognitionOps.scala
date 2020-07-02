@@ -7,16 +7,12 @@ final class CelebrityRecognitionBuilderOps(val self: CelebrityRecognition.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): CelebrityRecognition.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def celebrityAsScala(value: Option[CelebrityDetail]): CelebrityRecognition.Builder = {
-    value.fold(self) { v =>
-      self.celebrity(v)
-    }
+    value.fold(self) { v => self.celebrity(v) }
   }
 
 }

@@ -21,9 +21,7 @@ final class VpcConfigResponseBuilderOps(val self: VpcConfigResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): VpcConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.vpcId(v)
-    }
+    value.fold(self) { v => self.vpcId(v) }
   }
 
 }
@@ -31,14 +29,14 @@ final class VpcConfigResponseBuilderOps(val self: VpcConfigResponse.Builder) ext
 final class VpcConfigResponseOps(val self: VpcConfigResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetIdsAsScala: Option[Seq[String]] =
+    Option(self.subnetIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupIdsAsScala: Option[Seq[String]] =
+    Option(self.securityGroupIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)

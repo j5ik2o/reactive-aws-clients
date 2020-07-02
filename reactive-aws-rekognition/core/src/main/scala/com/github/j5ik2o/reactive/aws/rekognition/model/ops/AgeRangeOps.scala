@@ -7,16 +7,12 @@ final class AgeRangeBuilderOps(val self: AgeRange.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lowAsScala(value: Option[Int]): AgeRange.Builder = {
-    value.fold(self) { v =>
-      self.low(v)
-    }
+    value.fold(self) { v => self.low(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def highAsScala(value: Option[Int]): AgeRange.Builder = {
-    value.fold(self) { v =>
-      self.high(v)
-    }
+    value.fold(self) { v => self.high(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class DescribeEnvironmentsRequestBuilderOps(val self: DescribeEnvironments
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): DescribeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): DescribeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,30 +31,22 @@ final class DescribeEnvironmentsRequestBuilderOps(val self: DescribeEnvironments
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def includeDeletedAsScala(value: Option[Boolean]): DescribeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.includeDeleted(v)
-    }
+    value.fold(self) { v => self.includeDeleted(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def includedDeletedBackToAsScala(value: Option[java.time.Instant]): DescribeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.includedDeletedBackTo(v)
-    }
+    value.fold(self) { v => self.includedDeletedBackTo(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxRecordsAsScala(value: Option[Int]): DescribeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxRecords(v)
-    }
+    value.fold(self) { v => self.maxRecords(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -72,14 +60,16 @@ final class DescribeEnvironmentsRequestOps(val self: DescribeEnvironmentsRequest
   final def versionLabelAsScala: Option[String] = Option(self.versionLabel)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def environmentIdsAsScala: Option[Seq[String]] = Option(self.environmentIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def environmentIdsAsScala: Option[Seq[String]] =
+    Option(self.environmentIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def environmentNamesAsScala: Option[Seq[String]] = Option(self.environmentNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def environmentNamesAsScala: Option[Seq[String]] =
+    Option(self.environmentNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def includeDeletedAsScala: Option[Boolean] = Option(self.includeDeleted)

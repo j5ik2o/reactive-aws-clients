@@ -7,16 +7,12 @@ final class ComposeEnvironmentsRequestBuilderOps(val self: ComposeEnvironmentsRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): ComposeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala(value: Option[String]): ComposeEnvironmentsRequest.Builder = {
-    value.fold(self) { v =>
-      self.groupName(v)
-    }
+    value.fold(self) { v => self.groupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,10 @@ final class ComposeEnvironmentsRequestOps(val self: ComposeEnvironmentsRequest) 
   final def groupNameAsScala: Option[String] = Option(self.groupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def versionLabelsAsScala: Option[Seq[String]] = Option(self.versionLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def versionLabelsAsScala: Option[Seq[String]] =
+    Option(self.versionLabels).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

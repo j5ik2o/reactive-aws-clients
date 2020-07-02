@@ -7,44 +7,32 @@ final class ParameterDeclarationBuilderOps(val self: ParameterDeclaration.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterKeyAsScala(value: Option[String]): ParameterDeclaration.Builder = {
-    value.fold(self) { v =>
-      self.parameterKey(v)
-    }
+    value.fold(self) { v => self.parameterKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultValueAsScala(value: Option[String]): ParameterDeclaration.Builder = {
-    value.fold(self) { v =>
-      self.defaultValue(v)
-    }
+    value.fold(self) { v => self.defaultValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterTypeAsScala(value: Option[String]): ParameterDeclaration.Builder = {
-    value.fold(self) { v =>
-      self.parameterType(v)
-    }
+    value.fold(self) { v => self.parameterType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def noEchoAsScala(value: Option[Boolean]): ParameterDeclaration.Builder = {
-    value.fold(self) { v =>
-      self.noEcho(v)
-    }
+    value.fold(self) { v => self.noEcho(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ParameterDeclaration.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterConstraintsAsScala(value: Option[ParameterConstraints]): ParameterDeclaration.Builder = {
-    value.fold(self) { v =>
-      self.parameterConstraints(v)
-    }
+    value.fold(self) { v => self.parameterConstraints(v) }
   }
 
 }

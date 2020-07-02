@@ -7,16 +7,12 @@ final class ArrayPropertiesSummaryBuilderOps(val self: ArrayPropertiesSummary.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sizeAsScala(value: Option[Int]): ArrayPropertiesSummary.Builder = {
-    value.fold(self) { v =>
-      self.size(v)
-    }
+    value.fold(self) { v => self.size(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexAsScala(value: Option[Int]): ArrayPropertiesSummary.Builder = {
-    value.fold(self) { v =>
-      self.index(v)
-    }
+    value.fold(self) { v => self.index(v) }
   }
 
 }

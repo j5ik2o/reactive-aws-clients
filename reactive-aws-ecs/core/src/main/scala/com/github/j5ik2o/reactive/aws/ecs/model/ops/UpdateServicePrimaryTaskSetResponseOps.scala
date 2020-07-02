@@ -8,9 +8,7 @@ final class UpdateServicePrimaryTaskSetResponseBuilderOps(val self: UpdateServic
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskSetAsScala(value: Option[TaskSet]): UpdateServicePrimaryTaskSetResponse.Builder = {
-    value.fold(self) { v =>
-      self.taskSet(v)
-    }
+    value.fold(self) { v => self.taskSet(v) }
   }
 
 }

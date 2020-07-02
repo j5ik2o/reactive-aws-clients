@@ -7,23 +7,17 @@ final class ListDomainsForPackageRequestBuilderOps(val self: ListDomainsForPacka
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageIDAsScala(value: Option[String]): ListDomainsForPackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageID(v)
-    }
+    value.fold(self) { v => self.packageID(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListDomainsForPackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListDomainsForPackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

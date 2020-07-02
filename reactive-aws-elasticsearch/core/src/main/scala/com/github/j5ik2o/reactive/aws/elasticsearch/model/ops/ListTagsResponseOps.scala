@@ -17,9 +17,8 @@ final class ListTagsResponseBuilderOps(val self: ListTagsResponse.Builder) exten
 final class ListTagsResponseOps(val self: ListTagsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagListAsScala: Option[Seq[Tag]] = Option(self.tagList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagListAsScala: Option[Seq[Tag]] =
+    Option(self.tagList).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -14,9 +14,7 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,9 +26,7 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capabilitiesReasonAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
-    value.fold(self) { v =>
-      self.capabilitiesReason(v)
-    }
+    value.fold(self) { v => self.capabilitiesReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,16 +38,12 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metadataAsScala(value: Option[String]): GetTemplateSummaryResponse.Builder = {
-    value.fold(self) { v =>
-      self.metadata(v)
-    }
+    value.fold(self) { v => self.metadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -75,25 +67,24 @@ final class GetTemplateSummaryResponseBuilderOps(val self: GetTemplateSummaryRes
 final class GetTemplateSummaryResponseOps(val self: GetTemplateSummaryResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Seq[ParameterDeclaration]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parametersAsScala: Option[Seq[ParameterDeclaration]] =
+    Option(self.parameters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capabilitiesAsScala: Option[Seq[Capability]] =
+    Option(self.capabilities).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourceTypesAsScala: Option[Seq[String]] =
+    Option(self.resourceTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala: Option[String] = Option(self.version)
@@ -102,9 +93,10 @@ final class GetTemplateSummaryResponseOps(val self: GetTemplateSummaryResponse) 
   final def metadataAsScala: Option[String] = Option(self.metadata)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def declaredTransformsAsScala: Option[Seq[String]] = Option(self.declaredTransforms).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def declaredTransformsAsScala: Option[Seq[String]] =
+    Option(self.declaredTransforms).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceIdentifierSummariesAsScala: Option[Seq[ResourceIdentifierSummary]] =

@@ -17,9 +17,10 @@ final class DeleteDashboardsRequestBuilderOps(val self: DeleteDashboardsRequest.
 final class DeleteDashboardsRequestOps(val self: DeleteDashboardsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dashboardNamesAsScala: Option[Seq[String]] = Option(self.dashboardNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dashboardNamesAsScala: Option[Seq[String]] =
+    Option(self.dashboardNames).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

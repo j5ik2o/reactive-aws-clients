@@ -14,9 +14,7 @@ final class DescribeImagesResponseBuilderOps(val self: DescribeImagesResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeImagesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class DescribeImagesResponseBuilderOps(val self: DescribeImagesResponse.Bu
 final class DescribeImagesResponseOps(val self: DescribeImagesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def imageDetailsAsScala: Option[Seq[ImageDetail]] = Option(self.imageDetails).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def imageDetailsAsScala: Option[Seq[ImageDetail]] =
+    Option(self.imageDetails).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

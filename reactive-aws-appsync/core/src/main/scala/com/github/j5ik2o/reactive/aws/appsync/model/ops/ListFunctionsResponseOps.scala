@@ -14,9 +14,7 @@ final class ListFunctionsResponseBuilderOps(val self: ListFunctionsResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListFunctionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class ListFunctionsResponseBuilderOps(val self: ListFunctionsResponse.Buil
 final class ListFunctionsResponseOps(val self: ListFunctionsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def functionsAsScala: Option[Seq[FunctionConfiguration]] = Option(self.functions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def functionsAsScala: Option[Seq[FunctionConfiguration]] =
+    Option(self.functions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

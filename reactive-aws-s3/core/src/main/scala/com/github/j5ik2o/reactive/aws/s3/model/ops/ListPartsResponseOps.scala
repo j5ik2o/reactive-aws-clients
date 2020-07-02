@@ -7,65 +7,47 @@ final class ListPartsResponseBuilderOps(val self: ListPartsResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def abortDateAsScala(value: Option[java.time.Instant]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.abortDate(v)
-    }
+    value.fold(self) { v => self.abortDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def abortRuleIdAsScala(value: Option[String]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.abortRuleId(v)
-    }
+    value.fold(self) { v => self.abortRuleId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.key(v)
-    }
+    value.fold(self) { v => self.key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partNumberMarkerAsScala(value: Option[Int]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.partNumberMarker(v)
-    }
+    value.fold(self) { v => self.partNumberMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextPartNumberMarkerAsScala(value: Option[Int]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextPartNumberMarker(v)
-    }
+    value.fold(self) { v => self.nextPartNumberMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxPartsAsScala(value: Option[Int]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.maxParts(v)
-    }
+    value.fold(self) { v => self.maxParts(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isTruncatedAsScala(value: Option[Boolean]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.isTruncated(v)
-    }
+    value.fold(self) { v => self.isTruncated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -77,30 +59,22 @@ final class ListPartsResponseBuilderOps(val self: ListPartsResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def initiatorAsScala(value: Option[Initiator]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.initiator(v)
-    }
+    value.fold(self) { v => self.initiator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala(value: Option[Owner]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.owner(v)
-    }
+    value.fold(self) { v => self.owner(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def storageClassAsScala(value: Option[StorageClass]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.storageClass(v)
-    }
+    value.fold(self) { v => self.storageClass(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): ListPartsResponse.Builder = {
-    value.fold(self) { v =>
-      self.requestCharged(v)
-    }
+    value.fold(self) { v => self.requestCharged(v) }
   }
 
 }
@@ -135,9 +109,8 @@ final class ListPartsResponseOps(val self: ListPartsResponse) extends AnyVal {
   final def isTruncatedAsScala: Option[Boolean] = Option(self.isTruncated)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def partsAsScala: Option[Seq[Part]] = Option(self.parts).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def partsAsScala: Option[Seq[Part]] =
+    Option(self.parts).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def initiatorAsScala: Option[Initiator] = Option(self.initiator)

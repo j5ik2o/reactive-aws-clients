@@ -7,37 +7,27 @@ final class ResourceBuilderOps(val self: Resource.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Resource.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): Resource.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def doubleValueAsScala(value: Option[Double]): Resource.Builder = {
-    value.fold(self) { v =>
-      self.doubleValue(v)
-    }
+    value.fold(self) { v => self.doubleValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def longValueAsScala(value: Option[Long]): Resource.Builder = {
-    value.fold(self) { v =>
-      self.longValue(v)
-    }
+    value.fold(self) { v => self.longValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def integerValueAsScala(value: Option[Int]): Resource.Builder = {
-    value.fold(self) { v =>
-      self.integerValue(v)
-    }
+    value.fold(self) { v => self.integerValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -67,9 +57,10 @@ final class ResourceOps(val self: Resource) extends AnyVal {
   final def integerValueAsScala: Option[Int] = Option(self.integerValue)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def stringSetValueAsScala: Option[Seq[String]] = Option(self.stringSetValue).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def stringSetValueAsScala: Option[Seq[String]] =
+    Option(self.stringSetValue).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

@@ -7,23 +7,17 @@ final class RequestEnvironmentInfoRequestBuilderOps(val self: RequestEnvironment
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): RequestEnvironmentInfoRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): RequestEnvironmentInfoRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def infoTypeAsScala(value: Option[EnvironmentInfoType]): RequestEnvironmentInfoRequest.Builder = {
-    value.fold(self) { v =>
-      self.infoType(v)
-    }
+    value.fold(self) { v => self.infoType(v) }
   }
 
 }

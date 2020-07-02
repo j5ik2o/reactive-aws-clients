@@ -7,16 +7,12 @@ final class AccountGateResultBuilderOps(val self: AccountGateResult.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[AccountGateStatus]): AccountGateResult.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): AccountGateResult.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
 }

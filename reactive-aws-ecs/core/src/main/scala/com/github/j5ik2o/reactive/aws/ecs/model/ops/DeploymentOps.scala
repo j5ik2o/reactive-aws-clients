@@ -7,58 +7,42 @@ final class DeploymentBuilderOps(val self: Deployment.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskDefinitionAsScala(value: Option[String]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.taskDefinition(v)
-    }
+    value.fold(self) { v => self.taskDefinition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def desiredCountAsScala(value: Option[Int]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.desiredCount(v)
-    }
+    value.fold(self) { v => self.desiredCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pendingCountAsScala(value: Option[Int]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.pendingCount(v)
-    }
+    value.fold(self) { v => self.pendingCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def runningCountAsScala(value: Option[Int]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.runningCount(v)
-    }
+    value.fold(self) { v => self.runningCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[java.time.Instant]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updatedAtAsScala(value: Option[java.time.Instant]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.updatedAt(v)
-    }
+    value.fold(self) { v => self.updatedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -70,23 +54,17 @@ final class DeploymentBuilderOps(val self: Deployment.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTypeAsScala(value: Option[LaunchType]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.launchType(v)
-    }
+    value.fold(self) { v => self.launchType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.platformVersion(v)
-    }
+    value.fold(self) { v => self.platformVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def networkConfigurationAsScala(value: Option[NetworkConfiguration]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.networkConfiguration(v)
-    }
+    value.fold(self) { v => self.networkConfiguration(v) }
   }
 
 }

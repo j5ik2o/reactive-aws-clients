@@ -7,30 +7,22 @@ final class GetFaceDetectionResponseBuilderOps(val self: GetFaceDetectionRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[VideoJobStatus]): GetFaceDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): GetFaceDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoMetadataAsScala(value: Option[VideoMetadata]): GetFaceDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.videoMetadata(v)
-    }
+    value.fold(self) { v => self.videoMetadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetFaceDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -57,9 +49,8 @@ final class GetFaceDetectionResponseOps(val self: GetFaceDetectionResponse) exte
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def facesAsScala: Option[Seq[FaceDetection]] = Option(self.faces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def facesAsScala: Option[Seq[FaceDetection]] =
+    Option(self.faces).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

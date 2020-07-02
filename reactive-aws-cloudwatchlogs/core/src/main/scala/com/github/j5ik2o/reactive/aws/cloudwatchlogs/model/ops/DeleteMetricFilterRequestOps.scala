@@ -7,16 +7,12 @@ final class DeleteMetricFilterRequestBuilderOps(val self: DeleteMetricFilterRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteMetricFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): DeleteMetricFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterName(v)
-    }
+    value.fold(self) { v => self.filterName(v) }
   }
 
 }

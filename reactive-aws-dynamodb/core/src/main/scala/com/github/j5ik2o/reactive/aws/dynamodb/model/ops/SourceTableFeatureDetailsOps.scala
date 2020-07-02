@@ -25,23 +25,17 @@ final class SourceTableFeatureDetailsBuilderOps(val self: SourceTableFeatureDeta
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamDescriptionAsScala(value: Option[StreamSpecification]): SourceTableFeatureDetails.Builder = {
-    value.fold(self) { v =>
-      self.streamDescription(v)
-    }
+    value.fold(self) { v => self.streamDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeToLiveDescriptionAsScala(value: Option[TimeToLiveDescription]): SourceTableFeatureDetails.Builder = {
-    value.fold(self) { v =>
-      self.timeToLiveDescription(v)
-    }
+    value.fold(self) { v => self.timeToLiveDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseDescriptionAsScala(value: Option[SSEDescription]): SourceTableFeatureDetails.Builder = {
-    value.fold(self) { v =>
-      self.sseDescription(v)
-    }
+    value.fold(self) { v => self.sseDescription(v) }
   }
 
 }

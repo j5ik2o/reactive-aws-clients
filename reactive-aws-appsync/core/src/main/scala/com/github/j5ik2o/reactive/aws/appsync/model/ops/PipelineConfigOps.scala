@@ -17,9 +17,8 @@ final class PipelineConfigBuilderOps(val self: PipelineConfig.Builder) extends A
 final class PipelineConfigOps(val self: PipelineConfig) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def functionsAsScala: Option[Seq[String]] = Option(self.functions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def functionsAsScala: Option[Seq[String]] =
+    Option(self.functions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

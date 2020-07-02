@@ -20,9 +20,10 @@ final class RetrieveEnvironmentInfoResponseBuilderOps(val self: RetrieveEnvironm
 final class RetrieveEnvironmentInfoResponseOps(val self: RetrieveEnvironmentInfoResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def environmentInfoAsScala: Option[Seq[EnvironmentInfoDescription]] = Option(self.environmentInfo).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def environmentInfoAsScala: Option[Seq[EnvironmentInfoDescription]] =
+    Option(self.environmentInfo).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

@@ -7,58 +7,42 @@ final class UpdateFunctionCodeRequestBuilderOps(val self: UpdateFunctionCodeRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zipFileAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.zipFile(v)
-    }
+    value.fold(self) { v => self.zipFile(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.s3Bucket(v)
-    }
+    value.fold(self) { v => self.s3Bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala(value: Option[String]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.s3Key(v)
-    }
+    value.fold(self) { v => self.s3Key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3ObjectVersionAsScala(value: Option[String]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.s3ObjectVersion(v)
-    }
+    value.fold(self) { v => self.s3ObjectVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publishAsScala(value: Option[Boolean]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.publish(v)
-    }
+    value.fold(self) { v => self.publish(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dryRunAsScala(value: Option[Boolean]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.dryRun(v)
-    }
+    value.fold(self) { v => self.dryRun(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): UpdateFunctionCodeRequest.Builder = {
-    value.fold(self) { v =>
-      self.revisionId(v)
-    }
+    value.fold(self) { v => self.revisionId(v) }
   }
 
 }

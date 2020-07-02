@@ -8,9 +8,7 @@ final class DeleteFunctionConcurrencyRequestBuilderOps(val self: DeleteFunctionC
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): DeleteFunctionConcurrencyRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
 }

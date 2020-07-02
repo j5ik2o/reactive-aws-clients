@@ -7,65 +7,47 @@ final class ChangeSetSummaryBuilderOps(val self: ChangeSetSummary.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetIdAsScala(value: Option[String]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.changeSetId(v)
-    }
+    value.fold(self) { v => self.changeSetId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetNameAsScala(value: Option[String]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.changeSetName(v)
-    }
+    value.fold(self) { v => self.changeSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionStatusAsScala(value: Option[ExecutionStatus]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.executionStatus(v)
-    }
+    value.fold(self) { v => self.executionStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ChangeSetStatus]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala(value: Option[java.time.Instant]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.creationTime(v)
-    }
+    value.fold(self) { v => self.creationTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ChangeSetSummary.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
 }

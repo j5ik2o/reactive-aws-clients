@@ -14,9 +14,7 @@ final class ListGraphqlApisResponseBuilderOps(val self: ListGraphqlApisResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListGraphqlApisResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class ListGraphqlApisResponseBuilderOps(val self: ListGraphqlApisResponse.
 final class ListGraphqlApisResponseOps(val self: ListGraphqlApisResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def graphqlApisAsScala: Option[Seq[GraphqlApi]] = Option(self.graphqlApis).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def graphqlApisAsScala: Option[Seq[GraphqlApi]] =
+    Option(self.graphqlApis).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

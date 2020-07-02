@@ -7,16 +7,12 @@ final class CreateJobQueueResponseBuilderOps(val self: CreateJobQueueResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueNameAsScala(value: Option[String]): CreateJobQueueResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobQueueName(v)
-    }
+    value.fold(self) { v => self.jobQueueName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueArnAsScala(value: Option[String]): CreateJobQueueResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobQueueArn(v)
-    }
+    value.fold(self) { v => self.jobQueueArn(v) }
   }
 
 }

@@ -7,37 +7,27 @@ final class AttemptContainerDetailBuilderOps(val self: AttemptContainerDetail.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceArnAsScala(value: Option[String]): AttemptContainerDetail.Builder = {
-    value.fold(self) { v =>
-      self.containerInstanceArn(v)
-    }
+    value.fold(self) { v => self.containerInstanceArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskArnAsScala(value: Option[String]): AttemptContainerDetail.Builder = {
-    value.fold(self) { v =>
-      self.taskArn(v)
-    }
+    value.fold(self) { v => self.taskArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): AttemptContainerDetail.Builder = {
-    value.fold(self) { v =>
-      self.exitCode(v)
-    }
+    value.fold(self) { v => self.exitCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): AttemptContainerDetail.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNameAsScala(value: Option[String]): AttemptContainerDetail.Builder = {
-    value.fold(self) { v =>
-      self.logStreamName(v)
-    }
+    value.fold(self) { v => self.logStreamName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -67,9 +57,10 @@ final class AttemptContainerDetailOps(val self: AttemptContainerDetail) extends 
   final def logStreamNameAsScala: Option[String] = Option(self.logStreamName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def networkInterfacesAsScala: Option[Seq[NetworkInterface]] = Option(self.networkInterfaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def networkInterfacesAsScala: Option[Seq[NetworkInterface]] =
+    Option(self.networkInterfaces).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

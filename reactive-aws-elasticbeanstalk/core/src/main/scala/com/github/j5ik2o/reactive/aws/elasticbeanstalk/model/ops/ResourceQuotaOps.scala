@@ -7,9 +7,7 @@ final class ResourceQuotaBuilderOps(val self: ResourceQuota.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumAsScala(value: Option[Int]): ResourceQuota.Builder = {
-    value.fold(self) { v =>
-      self.maximum(v)
-    }
+    value.fold(self) { v => self.maximum(v) }
   }
 
 }

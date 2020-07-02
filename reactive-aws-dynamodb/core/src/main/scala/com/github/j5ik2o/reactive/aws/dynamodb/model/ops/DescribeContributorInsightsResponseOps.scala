@@ -8,16 +8,12 @@ final class DescribeContributorInsightsResponseBuilderOps(val self: DescribeCont
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DescribeContributorInsightsResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): DescribeContributorInsightsResponse.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -33,23 +29,17 @@ final class DescribeContributorInsightsResponseBuilderOps(val self: DescribeCont
   final def contributorInsightsStatusAsScala(
       value: Option[ContributorInsightsStatus]
   ): DescribeContributorInsightsResponse.Builder = {
-    value.fold(self) { v =>
-      self.contributorInsightsStatus(v)
-    }
+    value.fold(self) { v => self.contributorInsightsStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdateDateTimeAsScala(value: Option[java.time.Instant]): DescribeContributorInsightsResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdateDateTime(v)
-    }
+    value.fold(self) { v => self.lastUpdateDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureExceptionAsScala(value: Option[FailureException]): DescribeContributorInsightsResponse.Builder = {
-    value.fold(self) { v =>
-      self.failureException(v)
-    }
+    value.fold(self) { v => self.failureException(v) }
   }
 
 }
@@ -63,10 +53,10 @@ final class DescribeContributorInsightsResponseOps(val self: DescribeContributor
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def contributorInsightsRuleListAsScala: Option[Seq[String]] = Option(self.contributorInsightsRuleList).map {
-    v =>
+  final def contributorInsightsRuleListAsScala: Option[Seq[String]] =
+    Option(self.contributorInsightsRuleList).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contributorInsightsStatusAsScala: Option[ContributorInsightsStatus] = Option(self.contributorInsightsStatus)

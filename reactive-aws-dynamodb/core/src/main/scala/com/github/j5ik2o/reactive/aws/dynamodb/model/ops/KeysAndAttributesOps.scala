@@ -21,16 +21,12 @@ final class KeysAndAttributesBuilderOps(val self: KeysAndAttributes.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consistentReadAsScala(value: Option[Boolean]): KeysAndAttributes.Builder = {
-    value.fold(self) { v =>
-      self.consistentRead(v)
-    }
+    value.fold(self) { v => self.consistentRead(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionExpressionAsScala(value: Option[String]): KeysAndAttributes.Builder = {
-    value.fold(self) { v =>
-      self.projectionExpression(v)
-    }
+    value.fold(self) { v => self.projectionExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -45,14 +41,16 @@ final class KeysAndAttributesBuilderOps(val self: KeysAndAttributes.Builder) ext
 final class KeysAndAttributesOps(val self: KeysAndAttributes) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keysAsScala: Option[Seq[Map[String, AttributeValue]]] = Option(self.keys).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.asScala.toMap)
-  }
+  final def keysAsScala: Option[Seq[Map[String, AttributeValue]]] =
+    Option(self.keys).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.asScala.toMap)
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesToGetAsScala: Option[Seq[String]] = Option(self.attributesToGet).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributesToGetAsScala: Option[Seq[String]] =
+    Option(self.attributesToGet).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consistentReadAsScala: Option[Boolean] = Option(self.consistentRead)
@@ -61,10 +59,10 @@ final class KeysAndAttributesOps(val self: KeysAndAttributes) extends AnyVal {
   final def projectionExpressionAsScala: Option[String] = Option(self.projectionExpression)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
-    v =>
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] =
+    Option(self.expressionAttributeNames).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
 }
 

@@ -14,9 +14,7 @@ final class UnindexedFaceBuilderOps(val self: UnindexedFace.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceDetailAsScala(value: Option[FaceDetail]): UnindexedFace.Builder = {
-    value.fold(self) { v =>
-      self.faceDetail(v)
-    }
+    value.fold(self) { v => self.faceDetail(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class UnindexedFaceBuilderOps(val self: UnindexedFace.Builder) extends Any
 final class UnindexedFaceOps(val self: UnindexedFace) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def reasonsAsScala: Option[Seq[Reason]] = Option(self.reasons).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def reasonsAsScala: Option[Seq[Reason]] =
+    Option(self.reasons).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceDetailAsScala: Option[FaceDetail] = Option(self.faceDetail)

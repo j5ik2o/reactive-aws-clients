@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object DaxMonixClient {
 
-  def apply(asyncClient: DaxAsyncClient): DaxMonixClient = new DaxMonixClient {
-    override val underlying: DaxAsyncClient = asyncClient
-  }
+  def apply(asyncClient: DaxAsyncClient): DaxMonixClient =
+    new DaxMonixClient {
+      override val underlying: DaxAsyncClient = asyncClient
+    }
 
 }
 

@@ -7,9 +7,7 @@ final class UpdateGlobalTableResponseBuilderOps(val self: UpdateGlobalTableRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableDescriptionAsScala(value: Option[GlobalTableDescription]): UpdateGlobalTableResponse.Builder = {
-    value.fold(self) { v =>
-      self.globalTableDescription(v)
-    }
+    value.fold(self) { v => self.globalTableDescription(v) }
   }
 
 }

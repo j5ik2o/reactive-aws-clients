@@ -17,9 +17,8 @@ final class ListQueuesResponseBuilderOps(val self: ListQueuesResponse.Builder) e
 final class ListQueuesResponseOps(val self: ListQueuesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def queueUrlsAsScala: Option[Seq[String]] = Option(self.queueUrls).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def queueUrlsAsScala: Option[Seq[String]] =
+    Option(self.queueUrls).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

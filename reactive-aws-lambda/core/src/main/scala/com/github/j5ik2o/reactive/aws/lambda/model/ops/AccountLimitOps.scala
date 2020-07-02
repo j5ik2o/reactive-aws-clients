@@ -7,37 +7,27 @@ final class AccountLimitBuilderOps(val self: AccountLimit.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalCodeSizeAsScala(value: Option[Long]): AccountLimit.Builder = {
-    value.fold(self) { v =>
-      self.totalCodeSize(v)
-    }
+    value.fold(self) { v => self.totalCodeSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeSizeUnzippedAsScala(value: Option[Long]): AccountLimit.Builder = {
-    value.fold(self) { v =>
-      self.codeSizeUnzipped(v)
-    }
+    value.fold(self) { v => self.codeSizeUnzipped(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeSizeZippedAsScala(value: Option[Long]): AccountLimit.Builder = {
-    value.fold(self) { v =>
-      self.codeSizeZipped(v)
-    }
+    value.fold(self) { v => self.codeSizeZipped(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def concurrentExecutionsAsScala(value: Option[Int]): AccountLimit.Builder = {
-    value.fold(self) { v =>
-      self.concurrentExecutions(v)
-    }
+    value.fold(self) { v => self.concurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unreservedConcurrentExecutionsAsScala(value: Option[Int]): AccountLimit.Builder = {
-    value.fold(self) { v =>
-      self.unreservedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.unreservedConcurrentExecutions(v) }
   }
 
 }

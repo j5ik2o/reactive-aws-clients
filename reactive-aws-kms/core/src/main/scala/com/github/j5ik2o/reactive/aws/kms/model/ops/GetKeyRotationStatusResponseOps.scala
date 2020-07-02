@@ -7,9 +7,7 @@ final class GetKeyRotationStatusResponseBuilderOps(val self: GetKeyRotationStatu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyRotationEnabledAsScala(value: Option[Boolean]): GetKeyRotationStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyRotationEnabled(v)
-    }
+    value.fold(self) { v => self.keyRotationEnabled(v) }
   }
 
 }

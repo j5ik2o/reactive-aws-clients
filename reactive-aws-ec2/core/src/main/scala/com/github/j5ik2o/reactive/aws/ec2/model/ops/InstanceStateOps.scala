@@ -5,36 +5,34 @@ import software.amazon.awssdk.services.ec2.model._
 
 final class InstanceStateBuilderOps(val self: InstanceState.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def codeAsScala(value: Option[Int]): InstanceState.Builder = {
-            value.fold(self){ v => self.code(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def codeAsScala(value: Option[Int]): InstanceState.Builder = {
+    value.fold(self) { v => self.code(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def nameAsScala(value: Option[InstanceStateName]): InstanceState.Builder = {
-            value.fold(self){ v => self.name(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nameAsScala(value: Option[InstanceStateName]): InstanceState.Builder = {
+    value.fold(self) { v => self.name(v) }
+  }
 
 }
 
 final class InstanceStateOps(val self: InstanceState) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def codeAsScala: Option[Int] = Option(self.code) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def codeAsScala: Option[Int] = Option(self.code)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def nameAsScala: Option[InstanceStateName] = Option(self.name) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nameAsScala: Option[InstanceStateName] = Option(self.name)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToInstanceStateOps {
 
-implicit def toInstanceStateBuilderOps(v: InstanceState.Builder): InstanceStateBuilderOps = new InstanceStateBuilderOps(v)
+  implicit def toInstanceStateBuilderOps(v: InstanceState.Builder): InstanceStateBuilderOps =
+    new InstanceStateBuilderOps(v)
 
-implicit def toInstanceStateOps(v: InstanceState): InstanceStateOps = new InstanceStateOps(v)
+  implicit def toInstanceStateOps(v: InstanceState): InstanceStateOps = new InstanceStateOps(v)
 
 }
-

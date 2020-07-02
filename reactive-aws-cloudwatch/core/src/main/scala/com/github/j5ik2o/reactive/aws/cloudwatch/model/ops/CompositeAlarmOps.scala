@@ -7,9 +7,7 @@ final class CompositeAlarmBuilderOps(val self: CompositeAlarm.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionsEnabledAsScala(value: Option[Boolean]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.actionsEnabled(v)
-    }
+    value.fold(self) { v => self.actionsEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,37 +19,27 @@ final class CompositeAlarmBuilderOps(val self: CompositeAlarm.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmArnAsScala(value: Option[String]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmArn(v)
-    }
+    value.fold(self) { v => self.alarmArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmConfigurationUpdatedTimestampAsScala(value: Option[java.time.Instant]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmConfigurationUpdatedTimestamp(v)
-    }
+    value.fold(self) { v => self.alarmConfigurationUpdatedTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmDescriptionAsScala(value: Option[String]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmDescription(v)
-    }
+    value.fold(self) { v => self.alarmDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala(value: Option[String]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmName(v)
-    }
+    value.fold(self) { v => self.alarmName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmRuleAsScala(value: Option[String]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.alarmRule(v)
-    }
+    value.fold(self) { v => self.alarmRule(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -70,30 +58,22 @@ final class CompositeAlarmBuilderOps(val self: CompositeAlarm.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonAsScala(value: Option[String]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateReason(v)
-    }
+    value.fold(self) { v => self.stateReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonDataAsScala(value: Option[String]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateReasonData(v)
-    }
+    value.fold(self) { v => self.stateReasonData(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateUpdatedTimestampAsScala(value: Option[java.time.Instant]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateUpdatedTimestamp(v)
-    }
+    value.fold(self) { v => self.stateUpdatedTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateValueAsScala(value: Option[StateValue]): CompositeAlarm.Builder = {
-    value.fold(self) { v =>
-      self.stateValue(v)
-    }
+    value.fold(self) { v => self.stateValue(v) }
   }
 
 }
@@ -104,9 +84,8 @@ final class CompositeAlarmOps(val self: CompositeAlarm) extends AnyVal {
   final def actionsEnabledAsScala: Option[Boolean] = Option(self.actionsEnabled)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def alarmActionsAsScala: Option[Seq[String]] = Option(self.alarmActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def alarmActionsAsScala: Option[Seq[String]] =
+    Option(self.alarmActions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmArnAsScala: Option[String] = Option(self.alarmArn)
@@ -125,14 +104,14 @@ final class CompositeAlarmOps(val self: CompositeAlarm) extends AnyVal {
   final def alarmRuleAsScala: Option[String] = Option(self.alarmRule)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def insufficientDataActionsAsScala: Option[Seq[String]] = Option(self.insufficientDataActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def insufficientDataActionsAsScala: Option[Seq[String]] =
+    Option(self.insufficientDataActions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def okActionsAsScala: Option[Seq[String]] = Option(self.okActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def okActionsAsScala: Option[Seq[String]] =
+    Option(self.okActions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateReasonAsScala: Option[String] = Option(self.stateReason)

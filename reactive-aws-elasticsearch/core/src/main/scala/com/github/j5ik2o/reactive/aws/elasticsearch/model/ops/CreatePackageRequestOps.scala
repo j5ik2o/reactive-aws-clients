@@ -7,30 +7,22 @@ final class CreatePackageRequestBuilderOps(val self: CreatePackageRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageNameAsScala(value: Option[String]): CreatePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageName(v)
-    }
+    value.fold(self) { v => self.packageName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageTypeAsScala(value: Option[PackageType]): CreatePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageType(v)
-    }
+    value.fold(self) { v => self.packageType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageDescriptionAsScala(value: Option[String]): CreatePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageDescription(v)
-    }
+    value.fold(self) { v => self.packageDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageSourceAsScala(value: Option[PackageSource]): CreatePackageRequest.Builder = {
-    value.fold(self) { v =>
-      self.packageSource(v)
-    }
+    value.fold(self) { v => self.packageSource(v) }
   }
 
 }

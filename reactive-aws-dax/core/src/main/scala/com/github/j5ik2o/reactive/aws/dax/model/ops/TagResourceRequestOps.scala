@@ -7,9 +7,7 @@ final class TagResourceRequestBuilderOps(val self: TagResourceRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceNameAsScala(value: Option[String]): TagResourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourceName(v)
-    }
+    value.fold(self) { v => self.resourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class TagResourceRequestOps(val self: TagResourceRequest) extends AnyVal {
   final def resourceNameAsScala: Option[String] = Option(self.resourceName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

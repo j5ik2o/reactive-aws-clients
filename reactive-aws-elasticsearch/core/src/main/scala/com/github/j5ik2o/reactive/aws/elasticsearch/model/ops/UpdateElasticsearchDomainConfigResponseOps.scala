@@ -10,9 +10,7 @@ final class UpdateElasticsearchDomainConfigResponseBuilderOps(val self: UpdateEl
   final def domainConfigAsScala(
       value: Option[ElasticsearchDomainConfig]
   ): UpdateElasticsearchDomainConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.domainConfig(v)
-    }
+    value.fold(self) { v => self.domainConfig(v) }
   }
 
 }

@@ -15,9 +15,7 @@ final class DescribeAnomalyDetectorsResponseBuilderOps(val self: DescribeAnomaly
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeAnomalyDetectorsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -25,9 +23,10 @@ final class DescribeAnomalyDetectorsResponseBuilderOps(val self: DescribeAnomaly
 final class DescribeAnomalyDetectorsResponseOps(val self: DescribeAnomalyDetectorsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def anomalyDetectorsAsScala: Option[Seq[AnomalyDetector]] = Option(self.anomalyDetectors).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def anomalyDetectorsAsScala: Option[Seq[AnomalyDetector]] =
+    Option(self.anomalyDetectors).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

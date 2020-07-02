@@ -7,9 +7,7 @@ final class DeleteServiceResponseBuilderOps(val self: DeleteServiceResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala(value: Option[Service]): DeleteServiceResponse.Builder = {
-    value.fold(self) { v =>
-      self.service(v)
-    }
+    value.fold(self) { v => self.service(v) }
   }
 
 }

@@ -17,9 +17,7 @@ final class DescribeApplicationVersionsResponseBuilderOps(val self: DescribeAppl
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeApplicationVersionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

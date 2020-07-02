@@ -7,9 +7,7 @@ final class UpdateParameterGroupRequestBuilderOps(val self: UpdateParameterGroup
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): UpdateParameterGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class UpdateParameterGroupRequestOps(val self: UpdateParameterGroupRequest
   final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parameterNameValuesAsScala: Option[Seq[ParameterNameValue]] = Option(self.parameterNameValues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parameterNameValuesAsScala: Option[Seq[ParameterNameValue]] =
+    Option(self.parameterNameValues).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

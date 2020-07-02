@@ -7,9 +7,7 @@ final class DeleteRepositoryResponseBuilderOps(val self: DeleteRepositoryRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryAsScala(value: Option[Repository]): DeleteRepositoryResponse.Builder = {
-    value.fold(self) { v =>
-      self.repository(v)
-    }
+    value.fold(self) { v => self.repository(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepAsScala(value: Option[UpgradeStep]): UpgradeStepItem.Builder = {
-    value.fold(self) { v =>
-      self.upgradeStep(v)
-    }
+    value.fold(self) { v => self.upgradeStep(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepStatusAsScala(value: Option[UpgradeStatus]): UpgradeStepItem.Builder = {
-    value.fold(self) { v =>
-      self.upgradeStepStatus(v)
-    }
+    value.fold(self) { v => self.upgradeStepStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,9 +24,7 @@ final class UpgradeStepItemBuilderOps(val self: UpgradeStepItem.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def progressPercentAsScala(value: Option[Double]): UpgradeStepItem.Builder = {
-    value.fold(self) { v =>
-      self.progressPercent(v)
-    }
+    value.fold(self) { v => self.progressPercent(v) }
   }
 
 }
@@ -44,9 +38,8 @@ final class UpgradeStepItemOps(val self: UpgradeStepItem) extends AnyVal {
   final def upgradeStepStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStepStatus)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def issuesAsScala: Option[Seq[String]] = Option(self.issues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def issuesAsScala: Option[Seq[String]] =
+    Option(self.issues).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def progressPercentAsScala: Option[Double] = Option(self.progressPercent)

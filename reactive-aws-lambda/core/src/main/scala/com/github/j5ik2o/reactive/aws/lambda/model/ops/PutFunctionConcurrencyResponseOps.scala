@@ -7,9 +7,7 @@ final class PutFunctionConcurrencyResponseBuilderOps(val self: PutFunctionConcur
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reservedConcurrentExecutionsAsScala(value: Option[Int]): PutFunctionConcurrencyResponse.Builder = {
-    value.fold(self) { v =>
-      self.reservedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.reservedConcurrentExecutions(v) }
   }
 
 }

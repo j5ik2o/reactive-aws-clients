@@ -7,79 +7,57 @@ final class ProjectVersionDescriptionBuilderOps(val self: ProjectVersionDescript
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectVersionArnAsScala(value: Option[String]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.projectVersionArn(v)
-    }
+    value.fold(self) { v => self.projectVersionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala(value: Option[java.time.Instant]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.creationTimestamp(v)
-    }
+    value.fold(self) { v => self.creationTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minInferenceUnitsAsScala(value: Option[Int]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.minInferenceUnits(v)
-    }
+    value.fold(self) { v => self.minInferenceUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ProjectVersionStatus]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def billableTrainingTimeInSecondsAsScala(value: Option[Long]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.billableTrainingTimeInSeconds(v)
-    }
+    value.fold(self) { v => self.billableTrainingTimeInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def trainingEndTimestampAsScala(value: Option[java.time.Instant]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.trainingEndTimestamp(v)
-    }
+    value.fold(self) { v => self.trainingEndTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputConfigAsScala(value: Option[OutputConfig]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.outputConfig(v)
-    }
+    value.fold(self) { v => self.outputConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def trainingDataResultAsScala(value: Option[TrainingDataResult]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.trainingDataResult(v)
-    }
+    value.fold(self) { v => self.trainingDataResult(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def testingDataResultAsScala(value: Option[TestingDataResult]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.testingDataResult(v)
-    }
+    value.fold(self) { v => self.testingDataResult(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def evaluationResultAsScala(value: Option[EvaluationResult]): ProjectVersionDescription.Builder = {
-    value.fold(self) { v =>
-      self.evaluationResult(v)
-    }
+    value.fold(self) { v => self.evaluationResult(v) }
   }
 
 }

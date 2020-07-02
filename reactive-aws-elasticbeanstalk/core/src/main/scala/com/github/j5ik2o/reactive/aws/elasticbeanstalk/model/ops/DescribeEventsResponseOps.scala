@@ -14,9 +14,7 @@ final class DescribeEventsResponseBuilderOps(val self: DescribeEventsResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeEventsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class DescribeEventsResponseBuilderOps(val self: DescribeEventsResponse.Bu
 final class DescribeEventsResponseOps(val self: DescribeEventsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def eventsAsScala: Option[Seq[EventDescription]] = Option(self.events).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def eventsAsScala: Option[Seq[EventDescription]] =
+    Option(self.events).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

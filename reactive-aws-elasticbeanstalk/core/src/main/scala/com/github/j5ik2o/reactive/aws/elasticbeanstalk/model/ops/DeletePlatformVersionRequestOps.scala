@@ -7,9 +7,7 @@ final class DeletePlatformVersionRequestBuilderOps(val self: DeletePlatformVersi
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): DeletePlatformVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
 }

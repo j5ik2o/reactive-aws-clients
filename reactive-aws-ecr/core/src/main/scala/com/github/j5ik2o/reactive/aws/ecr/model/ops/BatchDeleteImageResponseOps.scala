@@ -24,14 +24,12 @@ final class BatchDeleteImageResponseBuilderOps(val self: BatchDeleteImageRespons
 final class BatchDeleteImageResponseOps(val self: BatchDeleteImageResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def imageIdsAsScala: Option[Seq[ImageIdentifier]] = Option(self.imageIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def imageIdsAsScala: Option[Seq[ImageIdentifier]] =
+    Option(self.imageIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def failuresAsScala: Option[Seq[ImageFailure]] = Option(self.failures).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def failuresAsScala: Option[Seq[ImageFailure]] =
+    Option(self.failures).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

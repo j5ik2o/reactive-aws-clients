@@ -7,23 +7,17 @@ final class AttachmentBuilderOps(val self: Attachment.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Attachment.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[String]): Attachment.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): Attachment.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,9 +41,8 @@ final class AttachmentOps(val self: Attachment) extends AnyVal {
   final def statusAsScala: Option[String] = Option(self.status)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def detailsAsScala: Option[Seq[KeyValuePair]] = Option(self.details).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def detailsAsScala: Option[Seq[KeyValuePair]] =
+    Option(self.details).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

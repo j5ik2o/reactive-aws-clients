@@ -7,44 +7,32 @@ final class MetricDataQueryBuilderOps(val self: MetricDataQuery.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): MetricDataQuery.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricStatAsScala(value: Option[MetricStat]): MetricDataQuery.Builder = {
-    value.fold(self) { v =>
-      self.metricStat(v)
-    }
+    value.fold(self) { v => self.metricStat(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAsScala(value: Option[String]): MetricDataQuery.Builder = {
-    value.fold(self) { v =>
-      self.expression(v)
-    }
+    value.fold(self) { v => self.expression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): MetricDataQuery.Builder = {
-    value.fold(self) { v =>
-      self.label(v)
-    }
+    value.fold(self) { v => self.label(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnDataAsScala(value: Option[Boolean]): MetricDataQuery.Builder = {
-    value.fold(self) { v =>
-      self.returnData(v)
-    }
+    value.fold(self) { v => self.returnData(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala(value: Option[Int]): MetricDataQuery.Builder = {
-    value.fold(self) { v =>
-      self.period(v)
-    }
+    value.fold(self) { v => self.period(v) }
   }
 
 }

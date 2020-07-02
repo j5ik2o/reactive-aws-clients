@@ -7,9 +7,7 @@ final class CreateProjectRequestBuilderOps(val self: CreateProjectRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectNameAsScala(value: Option[String]): CreateProjectRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectName(v)
-    }
+    value.fold(self) { v => self.projectName(v) }
   }
 
 }

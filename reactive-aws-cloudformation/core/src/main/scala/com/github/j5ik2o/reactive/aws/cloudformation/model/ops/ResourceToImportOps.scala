@@ -7,16 +7,12 @@ final class ResourceToImportBuilderOps(val self: ResourceToImport.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(value: Option[String]): ResourceToImport.Builder = {
-    value.fold(self) { v =>
-      self.resourceType(v)
-    }
+    value.fold(self) { v => self.resourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): ResourceToImport.Builder = {
-    value.fold(self) { v =>
-      self.logicalResourceId(v)
-    }
+    value.fold(self) { v => self.logicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,10 @@ final class ResourceToImportOps(val self: ResourceToImport) extends AnyVal {
   final def logicalResourceIdAsScala: Option[String] = Option(self.logicalResourceId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceIdentifierAsScala: Option[Map[String, String]] = Option(self.resourceIdentifier).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def resourceIdentifierAsScala: Option[Map[String, String]] =
+    Option(self.resourceIdentifier).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

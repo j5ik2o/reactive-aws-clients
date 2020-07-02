@@ -15,8 +15,7 @@ object RekognitionSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/rekognition/RekognitionClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/rekognition/RekognitionClient.html */
 trait RekognitionSyncClient extends RekognitionClient[Either[Throwable, ?]] {
   val underlying: JavaRekognitionSyncClient
 

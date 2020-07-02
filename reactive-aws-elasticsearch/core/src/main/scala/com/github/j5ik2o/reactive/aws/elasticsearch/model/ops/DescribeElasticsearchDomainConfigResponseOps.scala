@@ -11,9 +11,7 @@ final class DescribeElasticsearchDomainConfigResponseBuilderOps(
   final def domainConfigAsScala(
       value: Option[ElasticsearchDomainConfig]
   ): DescribeElasticsearchDomainConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.domainConfig(v)
-    }
+    value.fold(self) { v => self.domainConfig(v) }
   }
 
 }

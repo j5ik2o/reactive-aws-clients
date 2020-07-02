@@ -7,16 +7,12 @@ final class MetricFilterBuilderOps(val self: MetricFilter.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): MetricFilter.Builder = {
-    value.fold(self) { v =>
-      self.filterName(v)
-    }
+    value.fold(self) { v => self.filterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterPatternAsScala(value: Option[String]): MetricFilter.Builder = {
-    value.fold(self) { v =>
-      self.filterPattern(v)
-    }
+    value.fold(self) { v => self.filterPattern(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,16 +24,12 @@ final class MetricFilterBuilderOps(val self: MetricFilter.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala(value: Option[Long]): MetricFilter.Builder = {
-    value.fold(self) { v =>
-      self.creationTime(v)
-    }
+    value.fold(self) { v => self.creationTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): MetricFilter.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
 }
@@ -51,10 +43,10 @@ final class MetricFilterOps(val self: MetricFilter) extends AnyVal {
   final def filterPatternAsScala: Option[String] = Option(self.filterPattern)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricTransformationsAsScala: Option[Seq[MetricTransformation]] = Option(self.metricTransformations).map {
-    v =>
+  final def metricTransformationsAsScala: Option[Seq[MetricTransformation]] =
+    Option(self.metricTransformations).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala: Option[Long] = Option(self.creationTime)

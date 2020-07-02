@@ -8,23 +8,17 @@ final class AdditionalAuthenticationProviderBuilderOps(val self: AdditionalAuthe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authenticationTypeAsScala(value: Option[AuthenticationType]): AdditionalAuthenticationProvider.Builder = {
-    value.fold(self) { v =>
-      self.authenticationType(v)
-    }
+    value.fold(self) { v => self.authenticationType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): AdditionalAuthenticationProvider.Builder = {
-    value.fold(self) { v =>
-      self.openIDConnectConfig(v)
-    }
+    value.fold(self) { v => self.openIDConnectConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userPoolConfigAsScala(value: Option[CognitoUserPoolConfig]): AdditionalAuthenticationProvider.Builder = {
-    value.fold(self) { v =>
-      self.userPoolConfig(v)
-    }
+    value.fold(self) { v => self.userPoolConfig(v) }
   }
 
 }

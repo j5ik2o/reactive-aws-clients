@@ -8,16 +8,12 @@ final class DecreaseReplicationFactorRequestBuilderOps(val self: DecreaseReplica
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): DecreaseReplicationFactorRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def newReplicationFactorAsScala(value: Option[Int]): DecreaseReplicationFactorRequest.Builder = {
-    value.fold(self) { v =>
-      self.newReplicationFactor(v)
-    }
+    value.fold(self) { v => self.newReplicationFactor(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -45,14 +41,16 @@ final class DecreaseReplicationFactorRequestOps(val self: DecreaseReplicationFac
   final def newReplicationFactorAsScala: Option[Int] = Option(self.newReplicationFactor)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def availabilityZonesAsScala: Option[Seq[String]] = Option(self.availabilityZones).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def availabilityZonesAsScala: Option[Seq[String]] =
+    Option(self.availabilityZones).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def nodeIdsToRemoveAsScala: Option[Seq[String]] = Option(self.nodeIdsToRemove).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def nodeIdsToRemoveAsScala: Option[Seq[String]] =
+    Option(self.nodeIdsToRemove).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

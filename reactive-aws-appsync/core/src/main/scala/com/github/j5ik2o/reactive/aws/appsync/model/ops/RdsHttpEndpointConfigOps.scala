@@ -7,37 +7,27 @@ final class RdsHttpEndpointConfigBuilderOps(val self: RdsHttpEndpointConfig.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsRegion(v)
-    }
+    value.fold(self) { v => self.awsRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dbClusterIdentifierAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
-    value.fold(self) { v =>
-      self.dbClusterIdentifier(v)
-    }
+    value.fold(self) { v => self.dbClusterIdentifier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def databaseNameAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
-    value.fold(self) { v =>
-      self.databaseName(v)
-    }
+    value.fold(self) { v => self.databaseName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def schemaAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
-    value.fold(self) { v =>
-      self.schema(v)
-    }
+    value.fold(self) { v => self.schema(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsSecretStoreArnAsScala(value: Option[String]): RdsHttpEndpointConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsSecretStoreArn(v)
-    }
+    value.fold(self) { v => self.awsSecretStoreArn(v) }
   }
 
 }

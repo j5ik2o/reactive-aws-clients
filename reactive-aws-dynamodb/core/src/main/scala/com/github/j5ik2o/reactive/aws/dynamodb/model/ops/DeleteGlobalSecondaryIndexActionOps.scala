@@ -8,9 +8,7 @@ final class DeleteGlobalSecondaryIndexActionBuilderOps(val self: DeleteGlobalSec
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): DeleteGlobalSecondaryIndexAction.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
 }

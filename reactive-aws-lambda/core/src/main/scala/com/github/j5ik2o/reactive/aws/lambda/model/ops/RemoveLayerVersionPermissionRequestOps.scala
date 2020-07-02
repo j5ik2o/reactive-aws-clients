@@ -8,30 +8,22 @@ final class RemoveLayerVersionPermissionRequestBuilderOps(val self: RemoveLayerV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): RemoveLayerVersionPermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerName(v)
-    }
+    value.fold(self) { v => self.layerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala(value: Option[Long]): RemoveLayerVersionPermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionNumber(v)
-    }
+    value.fold(self) { v => self.versionNumber(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementIdAsScala(value: Option[String]): RemoveLayerVersionPermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.statementId(v)
-    }
+    value.fold(self) { v => self.statementId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): RemoveLayerVersionPermissionRequest.Builder = {
-    value.fold(self) { v =>
-      self.revisionId(v)
-    }
+    value.fold(self) { v => self.revisionId(v) }
   }
 
 }

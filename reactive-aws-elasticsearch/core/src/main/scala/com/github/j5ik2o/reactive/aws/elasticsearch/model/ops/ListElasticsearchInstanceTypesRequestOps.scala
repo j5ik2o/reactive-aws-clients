@@ -8,30 +8,22 @@ final class ListElasticsearchInstanceTypesRequestBuilderOps(val self: ListElasti
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchVersionAsScala(value: Option[String]): ListElasticsearchInstanceTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchVersion(v)
-    }
+    value.fold(self) { v => self.elasticsearchVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): ListElasticsearchInstanceTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListElasticsearchInstanceTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListElasticsearchInstanceTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

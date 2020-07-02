@@ -7,16 +7,12 @@ final class GetQueueUrlRequestBuilderOps(val self: GetQueueUrlRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNameAsScala(value: Option[String]): GetQueueUrlRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueName(v)
-    }
+    value.fold(self) { v => self.queueName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueOwnerAWSAccountIdAsScala(value: Option[String]): GetQueueUrlRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueOwnerAWSAccountId(v)
-    }
+    value.fold(self) { v => self.queueOwnerAWSAccountId(v) }
   }
 
 }

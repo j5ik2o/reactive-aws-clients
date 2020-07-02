@@ -7,25 +7,19 @@ final class PutBucketRequestPaymentRequestBuilderOps(val self: PutBucketRequestP
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def contentMD5AsScala(value: Option[String]): PutBucketRequestPaymentRequest.Builder = {
-    value.fold(self) { v =>
-      self.contentMD5(v)
-    }
+    value.fold(self) { v => self.contentMD5(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPaymentConfigurationAsScala(
       value: Option[RequestPaymentConfiguration]
   ): PutBucketRequestPaymentRequest.Builder = {
-    value.fold(self) { v =>
-      self.requestPaymentConfiguration(v)
-    }
+    value.fold(self) { v => self.requestPaymentConfiguration(v) }
   }
 
 }

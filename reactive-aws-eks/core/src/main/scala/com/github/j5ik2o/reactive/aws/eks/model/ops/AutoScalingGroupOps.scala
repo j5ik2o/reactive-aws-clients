@@ -7,9 +7,7 @@ final class AutoScalingGroupBuilderOps(val self: AutoScalingGroup.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): AutoScalingGroup.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
 }

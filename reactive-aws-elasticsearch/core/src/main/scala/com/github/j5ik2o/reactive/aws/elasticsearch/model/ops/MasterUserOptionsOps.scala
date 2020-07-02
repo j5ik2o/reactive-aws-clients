@@ -7,23 +7,17 @@ final class MasterUserOptionsBuilderOps(val self: MasterUserOptions.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def masterUserARNAsScala(value: Option[String]): MasterUserOptions.Builder = {
-    value.fold(self) { v =>
-      self.masterUserARN(v)
-    }
+    value.fold(self) { v => self.masterUserARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def masterUserNameAsScala(value: Option[String]): MasterUserOptions.Builder = {
-    value.fold(self) { v =>
-      self.masterUserName(v)
-    }
+    value.fold(self) { v => self.masterUserName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def masterUserPasswordAsScala(value: Option[String]): MasterUserOptions.Builder = {
-    value.fold(self) { v =>
-      self.masterUserPassword(v)
-    }
+    value.fold(self) { v => self.masterUserPassword(v) }
   }
 
 }

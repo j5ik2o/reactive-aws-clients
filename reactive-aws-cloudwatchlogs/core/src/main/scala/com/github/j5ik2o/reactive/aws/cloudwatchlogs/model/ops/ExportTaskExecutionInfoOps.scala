@@ -7,16 +7,12 @@ final class ExportTaskExecutionInfoBuilderOps(val self: ExportTaskExecutionInfo.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimeAsScala(value: Option[Long]): ExportTaskExecutionInfo.Builder = {
-    value.fold(self) { v =>
-      self.creationTime(v)
-    }
+    value.fold(self) { v => self.creationTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def completionTimeAsScala(value: Option[Long]): ExportTaskExecutionInfo.Builder = {
-    value.fold(self) { v =>
-      self.completionTime(v)
-    }
+    value.fold(self) { v => self.completionTime(v) }
   }
 
 }

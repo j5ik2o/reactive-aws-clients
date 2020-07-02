@@ -7,25 +7,19 @@ final class CreateApplicationRequestBuilderOps(val self: CreateApplicationReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): CreateApplicationRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateApplicationRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceLifecycleConfigAsScala(
       value: Option[ApplicationResourceLifecycleConfig]
   ): CreateApplicationRequest.Builder = {
-    value.fold(self) { v =>
-      self.resourceLifecycleConfig(v)
-    }
+    value.fold(self) { v => self.resourceLifecycleConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -50,9 +44,8 @@ final class CreateApplicationRequestOps(val self: CreateApplicationRequest) exte
     Option(self.resourceLifecycleConfig)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

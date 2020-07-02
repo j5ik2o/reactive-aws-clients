@@ -7,44 +7,32 @@ final class PlatformSummaryBuilderOps(val self: PlatformSummary.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformOwnerAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformOwner(v)
-    }
+    value.fold(self) { v => self.platformOwner(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformStatusAsScala(value: Option[PlatformStatus]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformStatus(v)
-    }
+    value.fold(self) { v => self.platformStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformCategoryAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformCategory(v)
-    }
+    value.fold(self) { v => self.platformCategory(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operatingSystemNameAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.operatingSystemName(v)
-    }
+    value.fold(self) { v => self.operatingSystemName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operatingSystemVersionAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.operatingSystemVersion(v)
-    }
+    value.fold(self) { v => self.operatingSystemVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -63,30 +51,22 @@ final class PlatformSummaryBuilderOps(val self: PlatformSummary.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformLifecycleStateAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformLifecycleState(v)
-    }
+    value.fold(self) { v => self.platformLifecycleState(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformVersionAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformVersion(v)
-    }
+    value.fold(self) { v => self.platformVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformBranchNameAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformBranchName(v)
-    }
+    value.fold(self) { v => self.platformBranchName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformBranchLifecycleStateAsScala(value: Option[String]): PlatformSummary.Builder = {
-    value.fold(self) { v =>
-      self.platformBranchLifecycleState(v)
-    }
+    value.fold(self) { v => self.platformBranchLifecycleState(v) }
   }
 
 }
@@ -112,14 +92,16 @@ final class PlatformSummaryOps(val self: PlatformSummary) extends AnyVal {
   final def operatingSystemVersionAsScala: Option[String] = Option(self.operatingSystemVersion)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def supportedTierListAsScala: Option[Seq[String]] = Option(self.supportedTierList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def supportedTierListAsScala: Option[Seq[String]] =
+    Option(self.supportedTierList).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def supportedAddonListAsScala: Option[Seq[String]] = Option(self.supportedAddonList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def supportedAddonListAsScala: Option[Seq[String]] =
+    Option(self.supportedAddonList).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformLifecycleStateAsScala: Option[String] = Option(self.platformLifecycleState)

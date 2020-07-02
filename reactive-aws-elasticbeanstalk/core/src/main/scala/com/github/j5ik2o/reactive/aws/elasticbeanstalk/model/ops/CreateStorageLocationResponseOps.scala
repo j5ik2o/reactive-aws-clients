@@ -7,9 +7,7 @@ final class CreateStorageLocationResponseBuilderOps(val self: CreateStorageLocat
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): CreateStorageLocationResponse.Builder = {
-    value.fold(self) { v =>
-      self.s3Bucket(v)
-    }
+    value.fold(self) { v => self.s3Bucket(v) }
   }
 
 }

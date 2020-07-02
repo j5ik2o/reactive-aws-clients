@@ -7,9 +7,7 @@ final class GetGraphqlApiRequestBuilderOps(val self: GetGraphqlApiRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): GetGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
 }

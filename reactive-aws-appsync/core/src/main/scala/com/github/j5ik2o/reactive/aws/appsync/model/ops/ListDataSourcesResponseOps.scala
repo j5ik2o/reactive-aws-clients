@@ -14,9 +14,7 @@ final class ListDataSourcesResponseBuilderOps(val self: ListDataSourcesResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListDataSourcesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class ListDataSourcesResponseBuilderOps(val self: ListDataSourcesResponse.
 final class ListDataSourcesResponseOps(val self: ListDataSourcesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dataSourcesAsScala: Option[Seq[DataSource]] = Option(self.dataSources).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dataSourcesAsScala: Option[Seq[DataSource]] =
+    Option(self.dataSources).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

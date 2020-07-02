@@ -7,23 +7,17 @@ final class ProjectDescriptionBuilderOps(val self: ProjectDescription.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectArnAsScala(value: Option[String]): ProjectDescription.Builder = {
-    value.fold(self) { v =>
-      self.projectArn(v)
-    }
+    value.fold(self) { v => self.projectArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationTimestampAsScala(value: Option[java.time.Instant]): ProjectDescription.Builder = {
-    value.fold(self) { v =>
-      self.creationTimestamp(v)
-    }
+    value.fold(self) { v => self.creationTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ProjectStatus]): ProjectDescription.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

@@ -8,30 +8,22 @@ final class ApplyEnvironmentManagedActionResponseBuilderOps(val self: ApplyEnvir
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionIdAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
-    value.fold(self) { v =>
-      self.actionId(v)
-    }
+    value.fold(self) { v => self.actionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionDescriptionAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
-    value.fold(self) { v =>
-      self.actionDescription(v)
-    }
+    value.fold(self) { v => self.actionDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionTypeAsScala(value: Option[ActionType]): ApplyEnvironmentManagedActionResponse.Builder = {
-    value.fold(self) { v =>
-      self.actionType(v)
-    }
+    value.fold(self) { v => self.actionType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): ApplyEnvironmentManagedActionResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

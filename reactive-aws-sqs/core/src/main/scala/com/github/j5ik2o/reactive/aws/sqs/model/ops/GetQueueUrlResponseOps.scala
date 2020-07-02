@@ -7,9 +7,7 @@ final class GetQueueUrlResponseBuilderOps(val self: GetQueueUrlResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): GetQueueUrlResponse.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
 }

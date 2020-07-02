@@ -7,9 +7,7 @@ final class TracingConfigResponseBuilderOps(val self: TracingConfigResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def modeAsScala(value: Option[TracingMode]): TracingConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.mode(v)
-    }
+    value.fold(self) { v => self.mode(v) }
   }
 
 }

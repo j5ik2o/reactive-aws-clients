@@ -7,9 +7,7 @@ final class DeleteCustomKeyStoreRequestBuilderOps(val self: DeleteCustomKeyStore
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): DeleteCustomKeyStoreRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
 }

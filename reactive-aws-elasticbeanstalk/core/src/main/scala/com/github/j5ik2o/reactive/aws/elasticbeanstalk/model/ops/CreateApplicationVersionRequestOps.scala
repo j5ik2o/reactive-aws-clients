@@ -8,60 +8,44 @@ final class CreateApplicationVersionRequestBuilderOps(val self: CreateApplicatio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceBuildInformationAsScala(
       value: Option[SourceBuildInformation]
   ): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceBuildInformation(v)
-    }
+    value.fold(self) { v => self.sourceBuildInformation(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceBundleAsScala(value: Option[S3Location]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceBundle(v)
-    }
+    value.fold(self) { v => self.sourceBundle(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def buildConfigurationAsScala(value: Option[BuildConfiguration]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.buildConfiguration(v)
-    }
+    value.fold(self) { v => self.buildConfiguration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoCreateApplicationAsScala(value: Option[Boolean]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.autoCreateApplication(v)
-    }
+    value.fold(self) { v => self.autoCreateApplication(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def processAsScala(value: Option[Boolean]): CreateApplicationVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.process(v)
-    }
+    value.fold(self) { v => self.process(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -100,9 +84,8 @@ final class CreateApplicationVersionRequestOps(val self: CreateApplicationVersio
   final def processAsScala: Option[Boolean] = Option(self.process)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

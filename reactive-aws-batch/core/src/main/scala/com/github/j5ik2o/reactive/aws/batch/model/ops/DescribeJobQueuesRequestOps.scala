@@ -14,16 +14,12 @@ final class DescribeJobQueuesRequestBuilderOps(val self: DescribeJobQueuesReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeJobQueuesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeJobQueuesRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class DescribeJobQueuesRequestBuilderOps(val self: DescribeJobQueuesReques
 final class DescribeJobQueuesRequestOps(val self: DescribeJobQueuesRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def jobQueuesAsScala: Option[Seq[String]] = Option(self.jobQueues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def jobQueuesAsScala: Option[Seq[String]] =
+    Option(self.jobQueues).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)

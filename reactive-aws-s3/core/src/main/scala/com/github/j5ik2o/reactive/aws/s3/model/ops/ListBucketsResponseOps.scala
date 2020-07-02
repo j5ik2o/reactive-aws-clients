@@ -14,9 +14,7 @@ final class ListBucketsResponseBuilderOps(val self: ListBucketsResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala(value: Option[Owner]): ListBucketsResponse.Builder = {
-    value.fold(self) { v =>
-      self.owner(v)
-    }
+    value.fold(self) { v => self.owner(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class ListBucketsResponseBuilderOps(val self: ListBucketsResponse.Builder)
 final class ListBucketsResponseOps(val self: ListBucketsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def bucketsAsScala: Option[Seq[Bucket]] = Option(self.buckets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def bucketsAsScala: Option[Seq[Bucket]] =
+    Option(self.buckets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ownerAsScala: Option[Owner] = Option(self.owner)

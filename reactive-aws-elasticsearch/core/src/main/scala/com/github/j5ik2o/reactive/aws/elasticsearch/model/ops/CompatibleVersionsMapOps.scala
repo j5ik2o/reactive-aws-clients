@@ -7,9 +7,7 @@ final class CompatibleVersionsMapBuilderOps(val self: CompatibleVersionsMap.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceVersionAsScala(value: Option[String]): CompatibleVersionsMap.Builder = {
-    value.fold(self) { v =>
-      self.sourceVersion(v)
-    }
+    value.fold(self) { v => self.sourceVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class CompatibleVersionsMapOps(val self: CompatibleVersionsMap) extends An
   final def sourceVersionAsScala: Option[String] = Option(self.sourceVersion)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def targetVersionsAsScala: Option[Seq[String]] = Option(self.targetVersions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def targetVersionsAsScala: Option[Seq[String]] =
+    Option(self.targetVersions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

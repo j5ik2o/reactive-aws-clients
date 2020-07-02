@@ -7,9 +7,7 @@ final class PutItemRequestBuilderOps(val self: PutItemRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): PutItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,37 +26,27 @@ final class PutItemRequestBuilderOps(val self: PutItemRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValuesAsScala(value: Option[ReturnValue]): PutItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.returnValues(v)
-    }
+    value.fold(self) { v => self.returnValues(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnConsumedCapacityAsScala(value: Option[ReturnConsumedCapacity]): PutItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.returnConsumedCapacity(v)
-    }
+    value.fold(self) { v => self.returnConsumedCapacity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnItemCollectionMetricsAsScala(value: Option[ReturnItemCollectionMetrics]): PutItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.returnItemCollectionMetrics(v)
-    }
+    value.fold(self) { v => self.returnItemCollectionMetrics(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionalOperatorAsScala(value: Option[ConditionalOperator]): PutItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.conditionalOperator(v)
-    }
+    value.fold(self) { v => self.conditionalOperator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conditionExpressionAsScala(value: Option[String]): PutItemRequest.Builder = {
-    value.fold(self) { v =>
-      self.conditionExpression(v)
-    }
+    value.fold(self) { v => self.conditionExpression(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -83,14 +71,14 @@ final class PutItemRequestOps(val self: PutItemRequest) extends AnyVal {
   final def tableNameAsScala: Option[String] = Option(self.tableName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def itemAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.item).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def expectedAsScala: Option[Map[String, ExpectedAttributeValue]] = Option(self.expected).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def expectedAsScala: Option[Map[String, ExpectedAttributeValue]] =
+    Option(self.expected).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def returnValuesAsScala: Option[ReturnValue] = Option(self.returnValues)
@@ -109,10 +97,10 @@ final class PutItemRequestOps(val self: PutItemRequest) extends AnyVal {
   final def conditionExpressionAsScala: Option[String] = Option(self.conditionExpression)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def expressionAttributeNamesAsScala: Option[Map[String, String]] = Option(self.expressionAttributeNames).map {
-    v =>
+  final def expressionAttributeNamesAsScala: Option[Map[String, String]] =
+    Option(self.expressionAttributeNames).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAttributeValuesAsScala: Option[Map[String, AttributeValue]] =

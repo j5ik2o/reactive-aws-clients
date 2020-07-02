@@ -7,16 +7,12 @@ final class NotificationChannelBuilderOps(val self: NotificationChannel.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def snsTopicArnAsScala(value: Option[String]): NotificationChannel.Builder = {
-    value.fold(self) { v =>
-      self.snsTopicArn(v)
-    }
+    value.fold(self) { v => self.snsTopicArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): NotificationChannel.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class OwnerBuilderOps(val self: Owner.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def displayNameAsScala(value: Option[String]): Owner.Builder = {
-    value.fold(self) { v =>
-      self.displayName(v)
-    }
+    value.fold(self) { v => self.displayName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Owner.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
 }

@@ -7,72 +7,52 @@ final class BackupSummaryBuilderOps(val self: BackupSummary.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableIdAsScala(value: Option[String]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.tableId(v)
-    }
+    value.fold(self) { v => self.tableId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableArnAsScala(value: Option[String]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.tableArn(v)
-    }
+    value.fold(self) { v => self.tableArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupArnAsScala(value: Option[String]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupArn(v)
-    }
+    value.fold(self) { v => self.backupArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupNameAsScala(value: Option[String]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupName(v)
-    }
+    value.fold(self) { v => self.backupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupCreationDateTime(v)
-    }
+    value.fold(self) { v => self.backupCreationDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupExpiryDateTime(v)
-    }
+    value.fold(self) { v => self.backupExpiryDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupStatusAsScala(value: Option[BackupStatus]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupStatus(v)
-    }
+    value.fold(self) { v => self.backupStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupTypeAsScala(value: Option[BackupType]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupType(v)
-    }
+    value.fold(self) { v => self.backupType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupSizeBytesAsScala(value: Option[Long]): BackupSummary.Builder = {
-    value.fold(self) { v =>
-      self.backupSizeBytes(v)
-    }
+    value.fold(self) { v => self.backupSizeBytes(v) }
   }
 
 }

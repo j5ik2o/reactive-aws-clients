@@ -7,30 +7,22 @@ final class MetricTransformationBuilderOps(val self: MetricTransformation.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): MetricTransformation.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNamespaceAsScala(value: Option[String]): MetricTransformation.Builder = {
-    value.fold(self) { v =>
-      self.metricNamespace(v)
-    }
+    value.fold(self) { v => self.metricNamespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricValueAsScala(value: Option[String]): MetricTransformation.Builder = {
-    value.fold(self) { v =>
-      self.metricValue(v)
-    }
+    value.fold(self) { v => self.metricValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultValueAsScala(value: Option[Double]): MetricTransformation.Builder = {
-    value.fold(self) { v =>
-      self.defaultValue(v)
-    }
+    value.fold(self) { v => self.defaultValue(v) }
   }
 
 }

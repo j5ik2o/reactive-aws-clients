@@ -7,76 +7,56 @@ final class CreateDataSourceRequestBuilderOps(val self: CreateDataSourceRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[DataSourceType]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceRoleArnAsScala(value: Option[String]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.serviceRoleArn(v)
-    }
+    value.fold(self) { v => self.serviceRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dynamodbConfigAsScala(value: Option[DynamodbDataSourceConfig]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.dynamodbConfig(v)
-    }
+    value.fold(self) { v => self.dynamodbConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lambdaConfigAsScala(value: Option[LambdaDataSourceConfig]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.lambdaConfig(v)
-    }
+    value.fold(self) { v => self.lambdaConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def elasticsearchConfigAsScala(
       value: Option[ElasticsearchDataSourceConfig]
   ): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.elasticsearchConfig(v)
-    }
+    value.fold(self) { v => self.elasticsearchConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def httpConfigAsScala(value: Option[HttpDataSourceConfig]): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.httpConfig(v)
-    }
+    value.fold(self) { v => self.httpConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def relationalDatabaseConfigAsScala(
       value: Option[RelationalDatabaseDataSourceConfig]
   ): CreateDataSourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.relationalDatabaseConfig(v)
-    }
+    value.fold(self) { v => self.relationalDatabaseConfig(v) }
   }
 
 }

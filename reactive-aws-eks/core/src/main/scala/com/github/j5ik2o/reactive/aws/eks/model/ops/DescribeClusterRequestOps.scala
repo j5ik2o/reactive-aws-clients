@@ -7,9 +7,7 @@ final class DescribeClusterRequestBuilderOps(val self: DescribeClusterRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): DescribeClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
 }

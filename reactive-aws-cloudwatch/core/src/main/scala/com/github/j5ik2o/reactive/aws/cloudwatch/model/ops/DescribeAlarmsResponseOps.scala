@@ -21,9 +21,7 @@ final class DescribeAlarmsResponseBuilderOps(val self: DescribeAlarmsResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeAlarmsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -31,14 +29,14 @@ final class DescribeAlarmsResponseBuilderOps(val self: DescribeAlarmsResponse.Bu
 final class DescribeAlarmsResponseOps(val self: DescribeAlarmsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def compositeAlarmsAsScala: Option[Seq[CompositeAlarm]] = Option(self.compositeAlarms).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def compositeAlarmsAsScala: Option[Seq[CompositeAlarm]] =
+    Option(self.compositeAlarms).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] = Option(self.metricAlarms).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricAlarmsAsScala: Option[Seq[MetricAlarm]] =
+    Option(self.metricAlarms).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

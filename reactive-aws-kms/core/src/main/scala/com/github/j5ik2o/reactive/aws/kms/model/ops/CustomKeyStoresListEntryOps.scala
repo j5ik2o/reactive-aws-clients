@@ -7,51 +7,37 @@ final class CustomKeyStoresListEntryBuilderOps(val self: CustomKeyStoresListEntr
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreNameAsScala(value: Option[String]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreName(v)
-    }
+    value.fold(self) { v => self.customKeyStoreName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cloudHsmClusterIdAsScala(value: Option[String]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.cloudHsmClusterId(v)
-    }
+    value.fold(self) { v => self.cloudHsmClusterId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def trustAnchorCertificateAsScala(value: Option[String]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.trustAnchorCertificate(v)
-    }
+    value.fold(self) { v => self.trustAnchorCertificate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionStateAsScala(value: Option[ConnectionStateType]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.connectionState(v)
-    }
+    value.fold(self) { v => self.connectionState(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def connectionErrorCodeAsScala(value: Option[ConnectionErrorCodeType]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.connectionErrorCode(v)
-    }
+    value.fold(self) { v => self.connectionErrorCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationDateAsScala(value: Option[java.time.Instant]): CustomKeyStoresListEntry.Builder = {
-    value.fold(self) { v =>
-      self.creationDate(v)
-    }
+    value.fold(self) { v => self.creationDate(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class ListStreamsRequestBuilderOps(val self: ListStreamsRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): ListStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exclusiveStartStreamArnAsScala(value: Option[String]): ListStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.exclusiveStartStreamArn(v)
-    }
+    value.fold(self) { v => self.exclusiveStartStreamArn(v) }
   }
 
 }

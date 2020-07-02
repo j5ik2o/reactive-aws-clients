@@ -7,16 +7,12 @@ final class DeleteLayerVersionRequestBuilderOps(val self: DeleteLayerVersionRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): DeleteLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerName(v)
-    }
+    value.fold(self) { v => self.layerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala(value: Option[Long]): DeleteLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionNumber(v)
-    }
+    value.fold(self) { v => self.versionNumber(v) }
   }
 
 }

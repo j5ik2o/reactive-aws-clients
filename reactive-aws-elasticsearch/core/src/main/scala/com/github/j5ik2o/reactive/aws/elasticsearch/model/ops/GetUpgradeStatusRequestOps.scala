@@ -7,9 +7,7 @@ final class GetUpgradeStatusRequestBuilderOps(val self: GetUpgradeStatusRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): GetUpgradeStatusRequest.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
 }

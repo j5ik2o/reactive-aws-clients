@@ -8,9 +8,7 @@ final class GetBucketAccelerateConfigurationRequestBuilderOps(val self: GetBucke
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): GetBucketAccelerateConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
 }

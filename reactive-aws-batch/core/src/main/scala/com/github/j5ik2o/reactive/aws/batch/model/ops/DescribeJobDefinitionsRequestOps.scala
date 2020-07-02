@@ -14,30 +14,22 @@ final class DescribeJobDefinitionsRequestBuilderOps(val self: DescribeJobDefinit
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): DescribeJobDefinitionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobDefinitionNameAsScala(value: Option[String]): DescribeJobDefinitionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobDefinitionName(v)
-    }
+    value.fold(self) { v => self.jobDefinitionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): DescribeJobDefinitionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeJobDefinitionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -45,9 +37,10 @@ final class DescribeJobDefinitionsRequestBuilderOps(val self: DescribeJobDefinit
 final class DescribeJobDefinitionsRequestOps(val self: DescribeJobDefinitionsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def jobDefinitionsAsScala: Option[Seq[String]] = Option(self.jobDefinitions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def jobDefinitionsAsScala: Option[Seq[String]] =
+    Option(self.jobDefinitions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)

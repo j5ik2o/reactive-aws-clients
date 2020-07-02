@@ -7,72 +7,52 @@ final class JobSummaryBuilderOps(val self: JobSummary.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobIdAsScala(value: Option[String]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.jobId(v)
-    }
+    value.fold(self) { v => self.jobId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobNameAsScala(value: Option[String]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.jobName(v)
-    }
+    value.fold(self) { v => self.jobName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[Long]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[JobStatus]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startedAtAsScala(value: Option[Long]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.startedAt(v)
-    }
+    value.fold(self) { v => self.startedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stoppedAtAsScala(value: Option[Long]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.stoppedAt(v)
-    }
+    value.fold(self) { v => self.stoppedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerAsScala(value: Option[ContainerSummary]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.container(v)
-    }
+    value.fold(self) { v => self.container(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arrayPropertiesAsScala(value: Option[ArrayPropertiesSummary]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.arrayProperties(v)
-    }
+    value.fold(self) { v => self.arrayProperties(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodePropertiesAsScala(value: Option[NodePropertiesSummary]): JobSummary.Builder = {
-    value.fold(self) { v =>
-      self.nodeProperties(v)
-    }
+    value.fold(self) { v => self.nodeProperties(v) }
   }
 
 }

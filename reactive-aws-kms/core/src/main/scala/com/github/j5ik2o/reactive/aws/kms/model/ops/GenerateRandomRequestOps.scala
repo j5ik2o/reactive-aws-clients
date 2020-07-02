@@ -7,16 +7,12 @@ final class GenerateRandomRequestBuilderOps(val self: GenerateRandomRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numberOfBytesAsScala(value: Option[Int]): GenerateRandomRequest.Builder = {
-    value.fold(self) { v =>
-      self.numberOfBytes(v)
-    }
+    value.fold(self) { v => self.numberOfBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): GenerateRandomRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
 }

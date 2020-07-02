@@ -7,30 +7,22 @@ final class LayerBuilderOps(val self: Layer.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestAsScala(value: Option[String]): Layer.Builder = {
-    value.fold(self) { v =>
-      self.layerDigest(v)
-    }
+    value.fold(self) { v => self.layerDigest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerAvailabilityAsScala(value: Option[LayerAvailability]): Layer.Builder = {
-    value.fold(self) { v =>
-      self.layerAvailability(v)
-    }
+    value.fold(self) { v => self.layerAvailability(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerSizeAsScala(value: Option[Long]): Layer.Builder = {
-    value.fold(self) { v =>
-      self.layerSize(v)
-    }
+    value.fold(self) { v => self.layerSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mediaTypeAsScala(value: Option[String]): Layer.Builder = {
-    value.fold(self) { v =>
-      self.mediaType(v)
-    }
+    value.fold(self) { v => self.mediaType(v) }
   }
 
 }

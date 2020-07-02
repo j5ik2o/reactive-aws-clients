@@ -7,23 +7,17 @@ final class GetTypeRequestBuilderOps(val self: GetTypeRequest.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): GetTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeNameAsScala(value: Option[String]): GetTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.typeName(v)
-    }
+    value.fold(self) { v => self.typeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala(value: Option[TypeDefinitionFormat]): GetTypeRequest.Builder = {
-    value.fold(self) { v =>
-      self.format(v)
-    }
+    value.fold(self) { v => self.format(v) }
   }
 
 }

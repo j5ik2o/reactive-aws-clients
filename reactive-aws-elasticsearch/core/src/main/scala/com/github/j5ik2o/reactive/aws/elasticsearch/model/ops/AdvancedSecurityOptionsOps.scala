@@ -7,16 +7,12 @@ final class AdvancedSecurityOptionsBuilderOps(val self: AdvancedSecurityOptions.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): AdvancedSecurityOptions.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def internalUserDatabaseEnabledAsScala(value: Option[Boolean]): AdvancedSecurityOptions.Builder = {
-    value.fold(self) { v =>
-      self.internalUserDatabaseEnabled(v)
-    }
+    value.fold(self) { v => self.internalUserDatabaseEnabled(v) }
   }
 
 }

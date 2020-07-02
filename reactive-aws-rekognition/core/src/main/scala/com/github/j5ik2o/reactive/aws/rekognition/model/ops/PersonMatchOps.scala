@@ -7,16 +7,12 @@ final class PersonMatchBuilderOps(val self: PersonMatch.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): PersonMatch.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def personAsScala(value: Option[PersonDetail]): PersonMatch.Builder = {
-    value.fold(self) { v =>
-      self.person(v)
-    }
+    value.fold(self) { v => self.person(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class PersonMatchOps(val self: PersonMatch) extends AnyVal {
   final def personAsScala: Option[PersonDetail] = Option(self.person)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def faceMatchesAsScala: Option[Seq[FaceMatch]] = Option(self.faceMatches).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def faceMatchesAsScala: Option[Seq[FaceMatch]] =
+    Option(self.faceMatches).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

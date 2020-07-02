@@ -7,9 +7,7 @@ final class HumanLoopActivationOutputBuilderOps(val self: HumanLoopActivationOut
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def humanLoopArnAsScala(value: Option[String]): HumanLoopActivationOutput.Builder = {
-    value.fold(self) { v =>
-      self.humanLoopArn(v)
-    }
+    value.fold(self) { v => self.humanLoopArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -23,9 +21,7 @@ final class HumanLoopActivationOutputBuilderOps(val self: HumanLoopActivationOut
   final def humanLoopActivationConditionsEvaluationResultsAsScala(
       value: Option[String]
   ): HumanLoopActivationOutput.Builder = {
-    value.fold(self) { v =>
-      self.humanLoopActivationConditionsEvaluationResults(v)
-    }
+    value.fold(self) { v => self.humanLoopActivationConditionsEvaluationResults(v) }
   }
 
 }
@@ -36,9 +32,10 @@ final class HumanLoopActivationOutputOps(val self: HumanLoopActivationOutput) ex
   final def humanLoopArnAsScala: Option[String] = Option(self.humanLoopArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def humanLoopActivationReasonsAsScala: Option[Seq[String]] = Option(self.humanLoopActivationReasons).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def humanLoopActivationReasonsAsScala: Option[Seq[String]] =
+    Option(self.humanLoopActivationReasons).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def humanLoopActivationConditionsEvaluationResultsAsScala: Option[String] =

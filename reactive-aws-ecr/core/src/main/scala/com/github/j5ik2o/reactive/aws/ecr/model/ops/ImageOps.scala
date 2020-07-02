@@ -7,30 +7,22 @@ final class ImageBuilderOps(val self: Image.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): Image.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): Image.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[ImageIdentifier]): Image.Builder = {
-    value.fold(self) { v =>
-      self.imageId(v)
-    }
+    value.fold(self) { v => self.imageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageManifestAsScala(value: Option[String]): Image.Builder = {
-    value.fold(self) { v =>
-      self.imageManifest(v)
-    }
+    value.fold(self) { v => self.imageManifest(v) }
   }
 
 }

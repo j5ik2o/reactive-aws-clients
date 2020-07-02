@@ -7,58 +7,42 @@ final class InsightRuleMetricDatapointBuilderOps(val self: InsightRuleMetricData
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uniqueContributorsAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.uniqueContributors(v)
-    }
+    value.fold(self) { v => self.uniqueContributors(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxContributorValueAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.maxContributorValue(v)
-    }
+    value.fold(self) { v => self.maxContributorValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sampleCountAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.sampleCount(v)
-    }
+    value.fold(self) { v => self.sampleCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def averageAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.average(v)
-    }
+    value.fold(self) { v => self.average(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sumAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.sum(v)
-    }
+    value.fold(self) { v => self.sum(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minimumAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.minimum(v)
-    }
+    value.fold(self) { v => self.minimum(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumAsScala(value: Option[Double]): InsightRuleMetricDatapoint.Builder = {
-    value.fold(self) { v =>
-      self.maximum(v)
-    }
+    value.fold(self) { v => self.maximum(v) }
   }
 
 }

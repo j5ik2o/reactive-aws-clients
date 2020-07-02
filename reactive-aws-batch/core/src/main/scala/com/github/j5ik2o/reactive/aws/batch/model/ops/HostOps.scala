@@ -7,9 +7,7 @@ final class HostBuilderOps(val self: Host.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourcePathAsScala(value: Option[String]): Host.Builder = {
-    value.fold(self) { v =>
-      self.sourcePath(v)
-    }
+    value.fold(self) { v => self.sourcePath(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class PartialFailureBuilderOps(val self: PartialFailure.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureResourceAsScala(value: Option[String]): PartialFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureResource(v)
-    }
+    value.fold(self) { v => self.failureResource(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exceptionTypeAsScala(value: Option[String]): PartialFailure.Builder = {
-    value.fold(self) { v =>
-      self.exceptionType(v)
-    }
+    value.fold(self) { v => self.exceptionType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureCodeAsScala(value: Option[String]): PartialFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureCode(v)
-    }
+    value.fold(self) { v => self.failureCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureDescriptionAsScala(value: Option[String]): PartialFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureDescription(v)
-    }
+    value.fold(self) { v => self.failureDescription(v) }
   }
 
 }

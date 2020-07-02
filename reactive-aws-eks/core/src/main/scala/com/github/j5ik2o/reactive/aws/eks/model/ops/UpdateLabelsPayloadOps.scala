@@ -24,14 +24,14 @@ final class UpdateLabelsPayloadBuilderOps(val self: UpdateLabelsPayload.Builder)
 final class UpdateLabelsPayloadOps(val self: UpdateLabelsPayload) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def addOrUpdateLabelsAsScala: Option[Map[String, String]] = Option(self.addOrUpdateLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def addOrUpdateLabelsAsScala: Option[Map[String, String]] =
+    Option(self.addOrUpdateLabels).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def removeLabelsAsScala: Option[Seq[String]] = Option(self.removeLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def removeLabelsAsScala: Option[Seq[String]] =
+    Option(self.removeLabels).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

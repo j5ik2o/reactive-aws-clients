@@ -7,30 +7,22 @@ final class UpdateTaskSetRequestBuilderOps(val self: UpdateTaskSetRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): UpdateTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala(value: Option[String]): UpdateTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.service(v)
-    }
+    value.fold(self) { v => self.service(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskSetAsScala(value: Option[String]): UpdateTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.taskSet(v)
-    }
+    value.fold(self) { v => self.taskSet(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scaleAsScala(value: Option[Scale]): UpdateTaskSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.scale(v)
-    }
+    value.fold(self) { v => self.scale(v) }
   }
 
 }

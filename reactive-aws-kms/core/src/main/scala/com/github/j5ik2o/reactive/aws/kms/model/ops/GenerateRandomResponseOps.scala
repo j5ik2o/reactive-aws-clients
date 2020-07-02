@@ -7,9 +7,7 @@ final class GenerateRandomResponseBuilderOps(val self: GenerateRandomResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def plaintextAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): GenerateRandomResponse.Builder = {
-    value.fold(self) { v =>
-      self.plaintext(v)
-    }
+    value.fold(self) { v => self.plaintext(v) }
   }
 
 }

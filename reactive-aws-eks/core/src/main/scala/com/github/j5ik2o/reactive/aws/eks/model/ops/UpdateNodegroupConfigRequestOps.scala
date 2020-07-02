@@ -7,37 +7,27 @@ final class UpdateNodegroupConfigRequestBuilderOps(val self: UpdateNodegroupConf
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): UpdateNodegroupConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupNameAsScala(value: Option[String]): UpdateNodegroupConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodegroupName(v)
-    }
+    value.fold(self) { v => self.nodegroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelsAsScala(value: Option[UpdateLabelsPayload]): UpdateNodegroupConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.labels(v)
-    }
+    value.fold(self) { v => self.labels(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scalingConfigAsScala(value: Option[NodegroupScalingConfig]): UpdateNodegroupConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.scalingConfig(v)
-    }
+    value.fold(self) { v => self.scalingConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): UpdateNodegroupConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

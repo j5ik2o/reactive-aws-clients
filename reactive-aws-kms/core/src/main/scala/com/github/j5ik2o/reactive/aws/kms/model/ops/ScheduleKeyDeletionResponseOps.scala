@@ -7,16 +7,12 @@ final class ScheduleKeyDeletionResponseBuilderOps(val self: ScheduleKeyDeletionR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ScheduleKeyDeletionResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deletionDateAsScala(value: Option[java.time.Instant]): ScheduleKeyDeletionResponse.Builder = {
-    value.fold(self) { v =>
-      self.deletionDate(v)
-    }
+    value.fold(self) { v => self.deletionDate(v) }
   }
 
 }

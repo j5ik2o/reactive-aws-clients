@@ -7,30 +7,22 @@ final class ResourceChangeDetailBuilderOps(val self: ResourceChangeDetail.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetAsScala(value: Option[ResourceTargetDefinition]): ResourceChangeDetail.Builder = {
-    value.fold(self) { v =>
-      self.target(v)
-    }
+    value.fold(self) { v => self.target(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def evaluationAsScala(value: Option[EvaluationType]): ResourceChangeDetail.Builder = {
-    value.fold(self) { v =>
-      self.evaluation(v)
-    }
+    value.fold(self) { v => self.evaluation(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSourceAsScala(value: Option[ChangeSource]): ResourceChangeDetail.Builder = {
-    value.fold(self) { v =>
-      self.changeSource(v)
-    }
+    value.fold(self) { v => self.changeSource(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def causingEntityAsScala(value: Option[String]): ResourceChangeDetail.Builder = {
-    value.fold(self) { v =>
-      self.causingEntity(v)
-    }
+    value.fold(self) { v => self.causingEntity(v) }
   }
 
 }

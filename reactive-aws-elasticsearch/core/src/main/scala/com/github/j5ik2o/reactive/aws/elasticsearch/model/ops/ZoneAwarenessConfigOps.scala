@@ -7,9 +7,7 @@ final class ZoneAwarenessConfigBuilderOps(val self: ZoneAwarenessConfig.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneCountAsScala(value: Option[Int]): ZoneAwarenessConfig.Builder = {
-    value.fold(self) { v =>
-      self.availabilityZoneCount(v)
-    }
+    value.fold(self) { v => self.availabilityZoneCount(v) }
   }
 
 }

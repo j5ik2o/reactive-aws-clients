@@ -8,9 +8,7 @@ final class ChangeMessageVisibilityBatchResultEntryBuilderOps(val self: ChangeMe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): ChangeMessageVisibilityBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
 }

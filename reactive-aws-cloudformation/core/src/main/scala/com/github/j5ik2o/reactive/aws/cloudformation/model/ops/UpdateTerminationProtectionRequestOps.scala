@@ -8,16 +8,12 @@ final class UpdateTerminationProtectionRequestBuilderOps(val self: UpdateTermina
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enableTerminationProtectionAsScala(value: Option[Boolean]): UpdateTerminationProtectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.enableTerminationProtection(v)
-    }
+    value.fold(self) { v => self.enableTerminationProtection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): UpdateTerminationProtectionRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
 }

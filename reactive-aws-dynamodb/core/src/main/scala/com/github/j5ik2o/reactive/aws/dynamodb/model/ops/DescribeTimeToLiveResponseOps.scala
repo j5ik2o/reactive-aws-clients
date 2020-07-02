@@ -7,9 +7,7 @@ final class DescribeTimeToLiveResponseBuilderOps(val self: DescribeTimeToLiveRes
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeToLiveDescriptionAsScala(value: Option[TimeToLiveDescription]): DescribeTimeToLiveResponse.Builder = {
-    value.fold(self) { v =>
-      self.timeToLiveDescription(v)
-    }
+    value.fold(self) { v => self.timeToLiveDescription(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class SystemStatusBuilderOps(val self: SystemStatus.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuUtilizationAsScala(value: Option[CPUUtilization]): SystemStatus.Builder = {
-    value.fold(self) { v =>
-      self.cpuUtilization(v)
-    }
+    value.fold(self) { v => self.cpuUtilization(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class SystemStatusOps(val self: SystemStatus) extends AnyVal {
   final def cpuUtilizationAsScala: Option[CPUUtilization] = Option(self.cpuUtilization)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def loadAverageAsScala: Option[Seq[Double]] = Option(self.loadAverage).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.doubleValue())
-  }
+  final def loadAverageAsScala: Option[Seq[Double]] =
+    Option(self.loadAverage).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.map(_.doubleValue())
+    }
 
 }
 

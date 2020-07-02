@@ -7,44 +7,32 @@ final class UpdateNodegroupVersionRequestBuilderOps(val self: UpdateNodegroupVer
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): UpdateNodegroupVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodegroupNameAsScala(value: Option[String]): UpdateNodegroupVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodegroupName(v)
-    }
+    value.fold(self) { v => self.nodegroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionAsScala(value: Option[String]): UpdateNodegroupVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.version(v)
-    }
+    value.fold(self) { v => self.version(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def releaseVersionAsScala(value: Option[String]): UpdateNodegroupVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.releaseVersion(v)
-    }
+    value.fold(self) { v => self.releaseVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def forceAsScala(value: Option[Boolean]): UpdateNodegroupVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.force(v)
-    }
+    value.fold(self) { v => self.force(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): UpdateNodegroupVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }

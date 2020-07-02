@@ -7,9 +7,7 @@ final class GetMetricStatisticsResponseBuilderOps(val self: GetMetricStatisticsR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def labelAsScala(value: Option[String]): GetMetricStatisticsResponse.Builder = {
-    value.fold(self) { v =>
-      self.label(v)
-    }
+    value.fold(self) { v => self.label(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class GetMetricStatisticsResponseOps(val self: GetMetricStatisticsResponse
   final def labelAsScala: Option[String] = Option(self.label)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def datapointsAsScala: Option[Seq[Datapoint]] = Option(self.datapoints).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def datapointsAsScala: Option[Seq[Datapoint]] =
+    Option(self.datapoints).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

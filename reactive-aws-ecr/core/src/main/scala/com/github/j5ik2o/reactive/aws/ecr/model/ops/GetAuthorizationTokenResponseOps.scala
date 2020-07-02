@@ -17,9 +17,10 @@ final class GetAuthorizationTokenResponseBuilderOps(val self: GetAuthorizationTo
 final class GetAuthorizationTokenResponseOps(val self: GetAuthorizationTokenResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def authorizationDataAsScala: Option[Seq[AuthorizationData]] = Option(self.authorizationData).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def authorizationDataAsScala: Option[Seq[AuthorizationData]] =
+    Option(self.authorizationData).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

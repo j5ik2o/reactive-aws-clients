@@ -7,9 +7,7 @@ final class DeleteStackInstancesResponseBuilderOps(val self: DeleteStackInstance
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): DeleteStackInstancesResponse.Builder = {
-    value.fold(self) { v =>
-      self.operationId(v)
-    }
+    value.fold(self) { v => self.operationId(v) }
   }
 
 }

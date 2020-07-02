@@ -7,9 +7,7 @@ final class UpdateNodegroupConfigResponseBuilderOps(val self: UpdateNodegroupCon
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAsScala(value: Option[Update]): UpdateNodegroupConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.update(v)
-    }
+    value.fold(self) { v => self.update(v) }
   }
 
 }

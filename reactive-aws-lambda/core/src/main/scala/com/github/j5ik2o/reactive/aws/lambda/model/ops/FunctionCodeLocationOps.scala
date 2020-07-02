@@ -7,16 +7,12 @@ final class FunctionCodeLocationBuilderOps(val self: FunctionCodeLocation.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryTypeAsScala(value: Option[String]): FunctionCodeLocation.Builder = {
-    value.fold(self) { v =>
-      self.repositoryType(v)
-    }
+    value.fold(self) { v => self.repositoryType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def locationAsScala(value: Option[String]): FunctionCodeLocation.Builder = {
-    value.fold(self) { v =>
-      self.location(v)
-    }
+    value.fold(self) { v => self.location(v) }
   }
 
 }

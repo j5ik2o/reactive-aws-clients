@@ -14,9 +14,7 @@ final class ListTypeVersionsResponseBuilderOps(val self: ListTypeVersionsRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListTypeVersionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class ListTypeVersionsResponseBuilderOps(val self: ListTypeVersionsRespons
 final class ListTypeVersionsResponseOps(val self: ListTypeVersionsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def typeVersionSummariesAsScala: Option[Seq[TypeVersionSummary]] = Option(self.typeVersionSummaries).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def typeVersionSummariesAsScala: Option[Seq[TypeVersionSummary]] =
+    Option(self.typeVersionSummaries).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

@@ -7,44 +7,32 @@ final class UpdateGraphqlApiRequestBuilderOps(val self: UpdateGraphqlApiRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logConfigAsScala(value: Option[LogConfig]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.logConfig(v)
-    }
+    value.fold(self) { v => self.logConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authenticationTypeAsScala(value: Option[AuthenticationType]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.authenticationType(v)
-    }
+    value.fold(self) { v => self.authenticationType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userPoolConfigAsScala(value: Option[UserPoolConfig]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.userPoolConfig(v)
-    }
+    value.fold(self) { v => self.userPoolConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def openIDConnectConfigAsScala(value: Option[OpenIDConnectConfig]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.openIDConnectConfig(v)
-    }
+    value.fold(self) { v => self.openIDConnectConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -59,9 +47,7 @@ final class UpdateGraphqlApiRequestBuilderOps(val self: UpdateGraphqlApiRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def xrayEnabledAsScala(value: Option[Boolean]): UpdateGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.xrayEnabled(v)
-    }
+    value.fold(self) { v => self.xrayEnabled(v) }
   }
 
 }

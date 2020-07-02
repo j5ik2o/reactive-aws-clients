@@ -7,30 +7,22 @@ final class BoundingBoxBuilderOps(val self: BoundingBox.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def widthAsScala(value: Option[Float]): BoundingBox.Builder = {
-    value.fold(self) { v =>
-      self.width(v)
-    }
+    value.fold(self) { v => self.width(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def heightAsScala(value: Option[Float]): BoundingBox.Builder = {
-    value.fold(self) { v =>
-      self.height(v)
-    }
+    value.fold(self) { v => self.height(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def leftAsScala(value: Option[Float]): BoundingBox.Builder = {
-    value.fold(self) { v =>
-      self.left(v)
-    }
+    value.fold(self) { v => self.left(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def topAsScala(value: Option[Float]): BoundingBox.Builder = {
-    value.fold(self) { v =>
-      self.top(v)
-    }
+    value.fold(self) { v => self.top(v) }
   }
 
 }

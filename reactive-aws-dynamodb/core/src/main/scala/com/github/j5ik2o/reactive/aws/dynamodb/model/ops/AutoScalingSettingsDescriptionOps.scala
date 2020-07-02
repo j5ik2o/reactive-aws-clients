@@ -7,30 +7,22 @@ final class AutoScalingSettingsDescriptionBuilderOps(val self: AutoScalingSettin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minimumUnitsAsScala(value: Option[Long]): AutoScalingSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.minimumUnits(v)
-    }
+    value.fold(self) { v => self.minimumUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumUnitsAsScala(value: Option[Long]): AutoScalingSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.maximumUnits(v)
-    }
+    value.fold(self) { v => self.maximumUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoScalingDisabledAsScala(value: Option[Boolean]): AutoScalingSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.autoScalingDisabled(v)
-    }
+    value.fold(self) { v => self.autoScalingDisabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoScalingRoleArnAsScala(value: Option[String]): AutoScalingSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.autoScalingRoleArn(v)
-    }
+    value.fold(self) { v => self.autoScalingRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -59,9 +51,10 @@ final class AutoScalingSettingsDescriptionOps(val self: AutoScalingSettingsDescr
   final def autoScalingRoleArnAsScala: Option[String] = Option(self.autoScalingRoleArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def scalingPoliciesAsScala: Option[Seq[AutoScalingPolicyDescription]] = Option(self.scalingPolicies).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def scalingPoliciesAsScala: Option[Seq[AutoScalingPolicyDescription]] =
+    Option(self.scalingPolicies).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

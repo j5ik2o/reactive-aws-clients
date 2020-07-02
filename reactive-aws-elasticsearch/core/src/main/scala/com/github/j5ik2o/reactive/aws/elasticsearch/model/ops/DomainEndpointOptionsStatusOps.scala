@@ -7,16 +7,12 @@ final class DomainEndpointOptionsStatusBuilderOps(val self: DomainEndpointOption
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(value: Option[DomainEndpointOptions]): DomainEndpointOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.options(v)
-    }
+    value.fold(self) { v => self.options(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[OptionStatus]): DomainEndpointOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

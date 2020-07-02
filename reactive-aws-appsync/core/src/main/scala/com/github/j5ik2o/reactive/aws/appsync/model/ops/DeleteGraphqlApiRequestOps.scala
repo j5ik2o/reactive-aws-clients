@@ -7,9 +7,7 @@ final class DeleteGraphqlApiRequestBuilderOps(val self: DeleteGraphqlApiRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiIdAsScala(value: Option[String]): DeleteGraphqlApiRequest.Builder = {
-    value.fold(self) { v =>
-      self.apiId(v)
-    }
+    value.fold(self) { v => self.apiId(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class UserPoolConfigBuilderOps(val self: UserPoolConfig.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def userPoolIdAsScala(value: Option[String]): UserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.userPoolId(v)
-    }
+    value.fold(self) { v => self.userPoolId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): UserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsRegion(v)
-    }
+    value.fold(self) { v => self.awsRegion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultActionAsScala(value: Option[DefaultAction]): UserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.defaultAction(v)
-    }
+    value.fold(self) { v => self.defaultAction(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def appIdClientRegexAsScala(value: Option[String]): UserPoolConfig.Builder = {
-    value.fold(self) { v =>
-      self.appIdClientRegex(v)
-    }
+    value.fold(self) { v => self.appIdClientRegex(v) }
   }
 
 }

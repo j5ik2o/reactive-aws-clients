@@ -7,30 +7,22 @@ final class ListLayerVersionsRequestBuilderOps(val self: ListLayerVersionsReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def compatibleRuntimeAsScala(value: Option[Runtime]): ListLayerVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.compatibleRuntime(v)
-    }
+    value.fold(self) { v => self.compatibleRuntime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): ListLayerVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerName(v)
-    }
+    value.fold(self) { v => self.layerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListLayerVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): ListLayerVersionsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxItems(v)
-    }
+    value.fold(self) { v => self.maxItems(v) }
   }
 
 }

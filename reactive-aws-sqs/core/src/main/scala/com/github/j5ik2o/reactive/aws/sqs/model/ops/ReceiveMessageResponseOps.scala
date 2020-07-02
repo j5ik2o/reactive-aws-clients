@@ -17,9 +17,8 @@ final class ReceiveMessageResponseBuilderOps(val self: ReceiveMessageResponse.Bu
 final class ReceiveMessageResponseOps(val self: ReceiveMessageResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messagesAsScala: Option[Seq[Message]] = Option(self.messages).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def messagesAsScala: Option[Seq[Message]] =
+    Option(self.messages).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

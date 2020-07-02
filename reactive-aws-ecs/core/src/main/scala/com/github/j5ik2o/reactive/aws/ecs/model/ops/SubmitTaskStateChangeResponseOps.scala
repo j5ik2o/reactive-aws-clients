@@ -7,9 +7,7 @@ final class SubmitTaskStateChangeResponseBuilderOps(val self: SubmitTaskStateCha
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def acknowledgmentAsScala(value: Option[String]): SubmitTaskStateChangeResponse.Builder = {
-    value.fold(self) { v =>
-      self.acknowledgment(v)
-    }
+    value.fold(self) { v => self.acknowledgment(v) }
   }
 
 }

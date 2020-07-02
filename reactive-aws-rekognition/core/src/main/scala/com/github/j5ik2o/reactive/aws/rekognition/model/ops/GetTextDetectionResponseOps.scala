@@ -7,23 +7,17 @@ final class GetTextDetectionResponseBuilderOps(val self: GetTextDetectionRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[VideoJobStatus]): GetTextDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): GetTextDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoMetadataAsScala(value: Option[VideoMetadata]): GetTextDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.videoMetadata(v)
-    }
+    value.fold(self) { v => self.videoMetadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,16 +29,12 @@ final class GetTextDetectionResponseBuilderOps(val self: GetTextDetectionRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetTextDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def textModelVersionAsScala(value: Option[String]): GetTextDetectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.textModelVersion(v)
-    }
+    value.fold(self) { v => self.textModelVersion(v) }
   }
 
 }
@@ -61,9 +51,10 @@ final class GetTextDetectionResponseOps(val self: GetTextDetectionResponse) exte
   final def videoMetadataAsScala: Option[VideoMetadata] = Option(self.videoMetadata)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def textDetectionsAsScala: Option[Seq[TextDetectionResult]] = Option(self.textDetections).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def textDetectionsAsScala: Option[Seq[TextDetectionResult]] =
+    Option(self.textDetections).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

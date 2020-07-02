@@ -7,9 +7,7 @@ final class DeleteStackSetRequestBuilderOps(val self: DeleteStackSetRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): DeleteStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class UntagResourceRequestBuilderOps(val self: UntagResourceRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): UntagResourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class UntagResourceRequestOps(val self: UntagResourceRequest) extends AnyV
   final def keyIdAsScala: Option[String] = Option(self.keyId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagKeysAsScala: Option[Seq[String]] = Option(self.tagKeys).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagKeysAsScala: Option[Seq[String]] =
+    Option(self.tagKeys).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

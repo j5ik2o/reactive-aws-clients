@@ -7,16 +7,12 @@ final class CustomAmiBuilderOps(val self: CustomAmi.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def virtualizationTypeAsScala(value: Option[String]): CustomAmi.Builder = {
-    value.fold(self) { v =>
-      self.virtualizationType(v)
-    }
+    value.fold(self) { v => self.virtualizationType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[String]): CustomAmi.Builder = {
-    value.fold(self) { v =>
-      self.imageId(v)
-    }
+    value.fold(self) { v => self.imageId(v) }
   }
 
 }

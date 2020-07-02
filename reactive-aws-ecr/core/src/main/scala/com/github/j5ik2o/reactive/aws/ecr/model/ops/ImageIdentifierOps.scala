@@ -7,16 +7,12 @@ final class ImageIdentifierBuilderOps(val self: ImageIdentifier.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageDigestAsScala(value: Option[String]): ImageIdentifier.Builder = {
-    value.fold(self) { v =>
-      self.imageDigest(v)
-    }
+    value.fold(self) { v => self.imageDigest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagAsScala(value: Option[String]): ImageIdentifier.Builder = {
-    value.fold(self) { v =>
-      self.imageTag(v)
-    }
+    value.fold(self) { v => self.imageTag(v) }
   }
 
 }

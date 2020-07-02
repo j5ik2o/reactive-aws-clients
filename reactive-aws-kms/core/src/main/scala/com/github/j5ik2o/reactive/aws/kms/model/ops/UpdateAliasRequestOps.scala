@@ -7,16 +7,12 @@ final class UpdateAliasRequestBuilderOps(val self: UpdateAliasRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala(value: Option[String]): UpdateAliasRequest.Builder = {
-    value.fold(self) { v =>
-      self.aliasName(v)
-    }
+    value.fold(self) { v => self.aliasName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetKeyIdAsScala(value: Option[String]): UpdateAliasRequest.Builder = {
-    value.fold(self) { v =>
-      self.targetKeyId(v)
-    }
+    value.fold(self) { v => self.targetKeyId(v) }
   }
 
 }

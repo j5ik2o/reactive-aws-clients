@@ -7,37 +7,27 @@ final class BuildConfigurationBuilderOps(val self: BuildConfiguration.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def artifactNameAsScala(value: Option[String]): BuildConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.artifactName(v)
-    }
+    value.fold(self) { v => self.artifactName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeBuildServiceRoleAsScala(value: Option[String]): BuildConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.codeBuildServiceRole(v)
-    }
+    value.fold(self) { v => self.codeBuildServiceRole(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeTypeAsScala(value: Option[ComputeType]): BuildConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.computeType(v)
-    }
+    value.fold(self) { v => self.computeType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[String]): BuildConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeoutInMinutesAsScala(value: Option[Int]): BuildConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.timeoutInMinutes(v)
-    }
+    value.fold(self) { v => self.timeoutInMinutes(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class EmotionBuilderOps(val self: Emotion.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[EmotionName]): Emotion.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Emotion.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
 }

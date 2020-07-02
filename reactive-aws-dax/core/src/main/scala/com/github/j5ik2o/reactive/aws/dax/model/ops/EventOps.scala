@@ -7,30 +7,22 @@ final class EventBuilderOps(val self: Event.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceNameAsScala(value: Option[String]): Event.Builder = {
-    value.fold(self) { v =>
-      self.sourceName(v)
-    }
+    value.fold(self) { v => self.sourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceTypeAsScala(value: Option[SourceType]): Event.Builder = {
-    value.fold(self) { v =>
-      self.sourceType(v)
-    }
+    value.fold(self) { v => self.sourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): Event.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateAsScala(value: Option[java.time.Instant]): Event.Builder = {
-    value.fold(self) { v =>
-      self.date(v)
-    }
+    value.fold(self) { v => self.date(v) }
   }
 
 }

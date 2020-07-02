@@ -8,18 +8,14 @@ final class ApplicationResourceLifecycleConfigBuilderOps(val self: ApplicationRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceRoleAsScala(value: Option[String]): ApplicationResourceLifecycleConfig.Builder = {
-    value.fold(self) { v =>
-      self.serviceRole(v)
-    }
+    value.fold(self) { v => self.serviceRole(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLifecycleConfigAsScala(
       value: Option[ApplicationVersionLifecycleConfig]
   ): ApplicationResourceLifecycleConfig.Builder = {
-    value.fold(self) { v =>
-      self.versionLifecycleConfig(v)
-    }
+    value.fold(self) { v => self.versionLifecycleConfig(v) }
   }
 
 }

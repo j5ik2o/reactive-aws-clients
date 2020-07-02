@@ -7,9 +7,7 @@ final class ProviderBuilderOps(val self: Provider.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyArnAsScala(value: Option[String]): Provider.Builder = {
-    value.fold(self) { v =>
-      self.keyArn(v)
-    }
+    value.fold(self) { v => self.keyArn(v) }
   }
 
 }

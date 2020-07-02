@@ -7,9 +7,7 @@ final class CreateRepositoryResponseBuilderOps(val self: CreateRepositoryRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryAsScala(value: Option[Repository]): CreateRepositoryResponse.Builder = {
-    value.fold(self) { v =>
-      self.repository(v)
-    }
+    value.fold(self) { v => self.repository(v) }
   }
 
 }

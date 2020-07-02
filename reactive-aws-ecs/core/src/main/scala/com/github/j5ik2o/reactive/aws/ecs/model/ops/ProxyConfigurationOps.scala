@@ -7,16 +7,12 @@ final class ProxyConfigurationBuilderOps(val self: ProxyConfiguration.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[ProxyConfigurationType]): ProxyConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala(value: Option[String]): ProxyConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.containerName(v)
-    }
+    value.fold(self) { v => self.containerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,8 @@ final class ProxyConfigurationOps(val self: ProxyConfiguration) extends AnyVal {
   final def containerNameAsScala: Option[String] = Option(self.containerName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def propertiesAsScala: Option[Seq[KeyValuePair]] = Option(self.properties).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def propertiesAsScala: Option[Seq[KeyValuePair]] =
+    Option(self.properties).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

@@ -7,16 +7,12 @@ final class DeleteAccountSettingRequestBuilderOps(val self: DeleteAccountSetting
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[SettingName]): DeleteAccountSettingRequest.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala(value: Option[String]): DeleteAccountSettingRequest.Builder = {
-    value.fold(self) { v =>
-      self.principalArn(v)
-    }
+    value.fold(self) { v => self.principalArn(v) }
   }
 
 }

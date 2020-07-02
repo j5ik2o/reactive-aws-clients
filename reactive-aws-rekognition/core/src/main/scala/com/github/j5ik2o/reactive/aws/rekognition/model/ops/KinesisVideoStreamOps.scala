@@ -7,9 +7,7 @@ final class KinesisVideoStreamBuilderOps(val self: KinesisVideoStream.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): KinesisVideoStream.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
 }

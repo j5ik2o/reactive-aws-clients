@@ -14,9 +14,7 @@ final class TestingDataBuilderOps(val self: TestingData.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoCreateAsScala(value: Option[Boolean]): TestingData.Builder = {
-    value.fold(self) { v =>
-      self.autoCreate(v)
-    }
+    value.fold(self) { v => self.autoCreate(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class TestingDataBuilderOps(val self: TestingData.Builder) extends AnyVal 
 final class TestingDataOps(val self: TestingData) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def assetsAsScala: Option[Seq[Asset]] = Option(self.assets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def assetsAsScala: Option[Seq[Asset]] =
+    Option(self.assets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoCreateAsScala: Option[Boolean] = Option(self.autoCreate)

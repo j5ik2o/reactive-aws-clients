@@ -7,30 +7,22 @@ final class GetPublicKeyResponseBuilderOps(val self: GetPublicKeyResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetPublicKeyResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicKeyAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): GetPublicKeyResponse.Builder = {
-    value.fold(self) { v =>
-      self.publicKey(v)
-    }
+    value.fold(self) { v => self.publicKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customerMasterKeySpecAsScala(value: Option[CustomerMasterKeySpec]): GetPublicKeyResponse.Builder = {
-    value.fold(self) { v =>
-      self.customerMasterKeySpec(v)
-    }
+    value.fold(self) { v => self.customerMasterKeySpec(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyUsageAsScala(value: Option[KeyUsageType]): GetPublicKeyResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyUsage(v)
-    }
+    value.fold(self) { v => self.keyUsage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -64,15 +56,16 @@ final class GetPublicKeyResponseOps(val self: GetPublicKeyResponse) extends AnyV
   final def keyUsageAsScala: Option[KeyUsageType] = Option(self.keyUsage)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptionAlgorithmsAsScala: Option[Seq[EncryptionAlgorithmSpec]] = Option(self.encryptionAlgorithms).map {
-    v =>
+  final def encryptionAlgorithmsAsScala: Option[Seq[EncryptionAlgorithmSpec]] =
+    Option(self.encryptionAlgorithms).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def signingAlgorithmsAsScala: Option[Seq[SigningAlgorithmSpec]] = Option(self.signingAlgorithms).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def signingAlgorithmsAsScala: Option[Seq[SigningAlgorithmSpec]] =
+    Option(self.signingAlgorithms).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

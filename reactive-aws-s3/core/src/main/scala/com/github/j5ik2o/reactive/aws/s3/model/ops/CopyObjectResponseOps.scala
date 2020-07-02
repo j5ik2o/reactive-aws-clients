@@ -7,72 +7,52 @@ final class CopyObjectResponseBuilderOps(val self: CopyObjectResponse.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def copyObjectResultAsScala(value: Option[CopyObjectResult]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.copyObjectResult(v)
-    }
+    value.fold(self) { v => self.copyObjectResult(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expirationAsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.expiration(v)
-    }
+    value.fold(self) { v => self.expiration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def copySourceVersionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.copySourceVersionId(v)
-    }
+    value.fold(self) { v => self.copySourceVersionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.versionId(v)
-    }
+    value.fold(self) { v => self.versionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serverSideEncryptionAsScala(value: Option[ServerSideEncryption]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.serverSideEncryption(v)
-    }
+    value.fold(self) { v => self.serverSideEncryption(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerAlgorithmAsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerAlgorithm(v)
-    }
+    value.fold(self) { v => self.sseCustomerAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseCustomerKeyMD5AsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.sseCustomerKeyMD5(v)
-    }
+    value.fold(self) { v => self.sseCustomerKeyMD5(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsKeyIdAsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.ssekmsKeyId(v)
-    }
+    value.fold(self) { v => self.ssekmsKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsEncryptionContextAsScala(value: Option[String]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.ssekmsEncryptionContext(v)
-    }
+    value.fold(self) { v => self.ssekmsEncryptionContext(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestChargedAsScala(value: Option[RequestCharged]): CopyObjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.requestCharged(v)
-    }
+    value.fold(self) { v => self.requestCharged(v) }
   }
 
 }

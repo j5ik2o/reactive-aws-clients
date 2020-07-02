@@ -7,23 +7,17 @@ final class PersonDetailBuilderOps(val self: PersonDetail.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexAsScala(value: Option[Long]): PersonDetail.Builder = {
-    value.fold(self) { v =>
-      self.index(v)
-    }
+    value.fold(self) { v => self.index(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): PersonDetail.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[FaceDetail]): PersonDetail.Builder = {
-    value.fold(self) { v =>
-      self.face(v)
-    }
+    value.fold(self) { v => self.face(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class DissociatePackageResponseBuilderOps(val self: DissociatePackageRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainPackageDetailsAsScala(value: Option[DomainPackageDetails]): DissociatePackageResponse.Builder = {
-    value.fold(self) { v =>
-      self.domainPackageDetails(v)
-    }
+    value.fold(self) { v => self.domainPackageDetails(v) }
   }
 
 }

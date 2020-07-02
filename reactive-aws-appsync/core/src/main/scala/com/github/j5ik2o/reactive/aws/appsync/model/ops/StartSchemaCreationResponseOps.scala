@@ -7,9 +7,7 @@ final class StartSchemaCreationResponseBuilderOps(val self: StartSchemaCreationR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[SchemaStatus]): StartSchemaCreationResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class CreateChangeSetRequestBuilderOps(val self: CreateChangeSetRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateBody(v)
-    }
+    value.fold(self) { v => self.templateBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateURLAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateURL(v)
-    }
+    value.fold(self) { v => self.templateURL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def usePreviousTemplateAsScala(value: Option[Boolean]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.usePreviousTemplate(v)
-    }
+    value.fold(self) { v => self.usePreviousTemplate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -56,16 +48,12 @@ final class CreateChangeSetRequestBuilderOps(val self: CreateChangeSetRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleARN(v)
-    }
+    value.fold(self) { v => self.roleARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rollbackConfigurationAsScala(value: Option[RollbackConfiguration]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.rollbackConfiguration(v)
-    }
+    value.fold(self) { v => self.rollbackConfiguration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -84,30 +72,22 @@ final class CreateChangeSetRequestBuilderOps(val self: CreateChangeSetRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetNameAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.changeSetName(v)
-    }
+    value.fold(self) { v => self.changeSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientTokenAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientToken(v)
-    }
+    value.fold(self) { v => self.clientToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetTypeAsScala(value: Option[ChangeSetType]): CreateChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.changeSetType(v)
-    }
+    value.fold(self) { v => self.changeSetType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -134,19 +114,18 @@ final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends 
   final def usePreviousTemplateAsScala: Option[Boolean] = Option(self.usePreviousTemplate)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Seq[Parameter]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parametersAsScala: Option[Seq[Parameter]] =
+    Option(self.parameters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capabilitiesAsScala: Option[Seq[Capability]] =
+    Option(self.capabilities).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourceTypesAsScala: Option[Seq[String]] =
+    Option(self.resourceTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala: Option[String] = Option(self.roleARN)
@@ -155,14 +134,14 @@ final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends 
   final def rollbackConfigurationAsScala: Option[RollbackConfiguration] = Option(self.rollbackConfiguration)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def notificationARNsAsScala: Option[Seq[String]] = Option(self.notificationARNs).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def notificationARNsAsScala: Option[Seq[String]] =
+    Option(self.notificationARNs).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetNameAsScala: Option[String] = Option(self.changeSetName)
@@ -177,9 +156,10 @@ final class CreateChangeSetRequestOps(val self: CreateChangeSetRequest) extends 
   final def changeSetTypeAsScala: Option[ChangeSetType] = Option(self.changeSetType)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourcesToImportAsScala: Option[Seq[ResourceToImport]] = Option(self.resourcesToImport).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourcesToImportAsScala: Option[Seq[ResourceToImport]] =
+    Option(self.resourcesToImport).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

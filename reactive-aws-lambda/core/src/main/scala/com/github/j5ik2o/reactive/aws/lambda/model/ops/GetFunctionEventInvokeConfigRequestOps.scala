@@ -8,16 +8,12 @@ final class GetFunctionEventInvokeConfigRequestBuilderOps(val self: GetFunctionE
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): GetFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): GetFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualifier(v)
-    }
+    value.fold(self) { v => self.qualifier(v) }
   }
 
 }

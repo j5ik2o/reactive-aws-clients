@@ -9,9 +9,7 @@ final class DescribeGlobalTableResponseBuilderOps(val self: DescribeGlobalTableR
   final def globalTableDescriptionAsScala(
       value: Option[GlobalTableDescription]
   ): DescribeGlobalTableResponse.Builder = {
-    value.fold(self) { v =>
-      self.globalTableDescription(v)
-    }
+    value.fold(self) { v => self.globalTableDescription(v) }
   }
 
 }

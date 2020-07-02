@@ -7,16 +7,12 @@ final class HostEntryBuilderOps(val self: HostEntry.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostnameAsScala(value: Option[String]): HostEntry.Builder = {
-    value.fold(self) { v =>
-      self.hostname(v)
-    }
+    value.fold(self) { v => self.hostname(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipAddressAsScala(value: Option[String]): HostEntry.Builder = {
-    value.fold(self) { v =>
-      self.ipAddress(v)
-    }
+    value.fold(self) { v => self.ipAddress(v) }
   }
 
 }

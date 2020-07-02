@@ -14,9 +14,7 @@ final class ValidateTemplateResponseBuilderOps(val self: ValidateTemplateRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ValidateTemplateResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,9 +26,7 @@ final class ValidateTemplateResponseBuilderOps(val self: ValidateTemplateRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capabilitiesReasonAsScala(value: Option[String]): ValidateTemplateResponse.Builder = {
-    value.fold(self) { v =>
-      self.capabilitiesReason(v)
-    }
+    value.fold(self) { v => self.capabilitiesReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -45,25 +41,24 @@ final class ValidateTemplateResponseBuilderOps(val self: ValidateTemplateRespons
 final class ValidateTemplateResponseOps(val self: ValidateTemplateResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Seq[TemplateParameter]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parametersAsScala: Option[Seq[TemplateParameter]] =
+    Option(self.parameters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capabilitiesAsScala: Option[Seq[Capability]] =
+    Option(self.capabilities).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def capabilitiesReasonAsScala: Option[String] = Option(self.capabilitiesReason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def declaredTransformsAsScala: Option[Seq[String]] = Option(self.declaredTransforms).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def declaredTransformsAsScala: Option[Seq[String]] =
+    Option(self.declaredTransforms).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

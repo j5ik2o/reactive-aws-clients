@@ -17,9 +17,8 @@ final class DetectCustomLabelsResponseBuilderOps(val self: DetectCustomLabelsRes
 final class DetectCustomLabelsResponseOps(val self: DetectCustomLabelsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def customLabelsAsScala: Option[Seq[CustomLabel]] = Option(self.customLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def customLabelsAsScala: Option[Seq[CustomLabel]] =
+    Option(self.customLabels).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

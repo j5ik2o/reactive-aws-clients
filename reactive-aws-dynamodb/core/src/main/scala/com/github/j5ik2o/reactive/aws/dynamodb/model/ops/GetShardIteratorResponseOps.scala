@@ -7,9 +7,7 @@ final class GetShardIteratorResponseBuilderOps(val self: GetShardIteratorRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIteratorAsScala(value: Option[String]): GetShardIteratorResponse.Builder = {
-    value.fold(self) { v =>
-      self.shardIterator(v)
-    }
+    value.fold(self) { v => self.shardIterator(v) }
   }
 
 }

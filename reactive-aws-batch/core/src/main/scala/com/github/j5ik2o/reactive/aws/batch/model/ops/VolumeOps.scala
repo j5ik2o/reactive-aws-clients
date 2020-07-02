@@ -7,16 +7,12 @@ final class VolumeBuilderOps(val self: Volume.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hostAsScala(value: Option[Host]): Volume.Builder = {
-    value.fold(self) { v =>
-      self.host(v)
-    }
+    value.fold(self) { v => self.host(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Volume.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
 }

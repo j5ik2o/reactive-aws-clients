@@ -14,9 +14,7 @@ final class GetItemResponseBuilderOps(val self: GetItemResponse.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumedCapacityAsScala(value: Option[ConsumedCapacity]): GetItemResponse.Builder = {
-    value.fold(self) { v =>
-      self.consumedCapacity(v)
-    }
+    value.fold(self) { v => self.consumedCapacity(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class GetItemResponseBuilderOps(val self: GetItemResponse.Builder) extends
 final class GetItemResponseOps(val self: GetItemResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def itemAsScala: Option[Map[String, AttributeValue]] = Option(self.item).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def itemAsScala: Option[Map[String, AttributeValue]] =
+    Option(self.item).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def consumedCapacityAsScala: Option[ConsumedCapacity] = Option(self.consumedCapacity)

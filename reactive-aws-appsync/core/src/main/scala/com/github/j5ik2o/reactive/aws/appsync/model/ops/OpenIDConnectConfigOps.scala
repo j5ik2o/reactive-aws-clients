@@ -7,30 +7,22 @@ final class OpenIDConnectConfigBuilderOps(val self: OpenIDConnectConfig.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def issuerAsScala(value: Option[String]): OpenIDConnectConfig.Builder = {
-    value.fold(self) { v =>
-      self.issuer(v)
-    }
+    value.fold(self) { v => self.issuer(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientIdAsScala(value: Option[String]): OpenIDConnectConfig.Builder = {
-    value.fold(self) { v =>
-      self.clientId(v)
-    }
+    value.fold(self) { v => self.clientId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iatTTLAsScala(value: Option[Long]): OpenIDConnectConfig.Builder = {
-    value.fold(self) { v =>
-      self.iatTTL(v)
-    }
+    value.fold(self) { v => self.iatTTL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def authTTLAsScala(value: Option[Long]): OpenIDConnectConfig.Builder = {
-    value.fold(self) { v =>
-      self.authTTL(v)
-    }
+    value.fold(self) { v => self.authTTL(v) }
   }
 
 }

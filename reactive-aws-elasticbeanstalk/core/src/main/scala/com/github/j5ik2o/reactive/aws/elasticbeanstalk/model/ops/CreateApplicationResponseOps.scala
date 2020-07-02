@@ -7,9 +7,7 @@ final class CreateApplicationResponseBuilderOps(val self: CreateApplicationRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationAsScala(value: Option[ApplicationDescription]): CreateApplicationResponse.Builder = {
-    value.fold(self) { v =>
-      self.application(v)
-    }
+    value.fold(self) { v => self.application(v) }
   }
 
 }

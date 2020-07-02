@@ -5,36 +5,33 @@ import software.amazon.awssdk.services.s3.model._
 
 final class InitiatorBuilderOps(val self: Initiator.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def idAsScala(value: Option[String]): Initiator.Builder = {
-            value.fold(self){ v => self.id(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def idAsScala(value: Option[String]): Initiator.Builder = {
+    value.fold(self) { v => self.id(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def displayNameAsScala(value: Option[String]): Initiator.Builder = {
-            value.fold(self){ v => self.displayName(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def displayNameAsScala(value: Option[String]): Initiator.Builder = {
+    value.fold(self) { v => self.displayName(v) }
+  }
 
 }
 
 final class InitiatorOps(val self: Initiator) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def idAsScala: Option[String] = Option(self.id) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def idAsScala: Option[String] = Option(self.id)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def displayNameAsScala: Option[String] = Option(self.displayName) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def displayNameAsScala: Option[String] = Option(self.displayName)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToInitiatorOps {
 
-implicit def toInitiatorBuilderOps(v: Initiator.Builder): InitiatorBuilderOps = new InitiatorBuilderOps(v)
+  implicit def toInitiatorBuilderOps(v: Initiator.Builder): InitiatorBuilderOps = new InitiatorBuilderOps(v)
 
-implicit def toInitiatorOps(v: Initiator): InitiatorOps = new InitiatorOps(v)
+  implicit def toInitiatorOps(v: Initiator): InitiatorOps = new InitiatorOps(v)
 
 }
-

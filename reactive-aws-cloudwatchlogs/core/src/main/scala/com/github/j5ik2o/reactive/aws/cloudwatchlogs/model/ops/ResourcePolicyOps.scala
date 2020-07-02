@@ -7,23 +7,17 @@ final class ResourcePolicyBuilderOps(val self: ResourcePolicy.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyNameAsScala(value: Option[String]): ResourcePolicy.Builder = {
-    value.fold(self) { v =>
-      self.policyName(v)
-    }
+    value.fold(self) { v => self.policyName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyDocumentAsScala(value: Option[String]): ResourcePolicy.Builder = {
-    value.fold(self) { v =>
-      self.policyDocument(v)
-    }
+    value.fold(self) { v => self.policyDocument(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdatedTimeAsScala(value: Option[Long]): ResourcePolicy.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdatedTime(v)
-    }
+    value.fold(self) { v => self.lastUpdatedTime(v) }
   }
 
 }

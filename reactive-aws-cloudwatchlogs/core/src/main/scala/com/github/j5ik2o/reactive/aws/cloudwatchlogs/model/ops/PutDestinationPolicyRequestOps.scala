@@ -7,16 +7,12 @@ final class PutDestinationPolicyRequestBuilderOps(val self: PutDestinationPolicy
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala(value: Option[String]): PutDestinationPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationName(v)
-    }
+    value.fold(self) { v => self.destinationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPolicyAsScala(value: Option[String]): PutDestinationPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.accessPolicy(v)
-    }
+    value.fold(self) { v => self.accessPolicy(v) }
   }
 
 }

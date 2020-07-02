@@ -8,9 +8,7 @@ final class DeleteReplicationGroupMemberActionBuilderOps(val self: DeleteReplica
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): DeleteReplicationGroupMemberAction.Builder = {
-    value.fold(self) { v =>
-      self.regionName(v)
-    }
+    value.fold(self) { v => self.regionName(v) }
   }
 
 }

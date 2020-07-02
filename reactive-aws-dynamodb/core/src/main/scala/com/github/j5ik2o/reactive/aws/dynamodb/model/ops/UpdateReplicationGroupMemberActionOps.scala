@@ -8,25 +8,19 @@ final class UpdateReplicationGroupMemberActionBuilderOps(val self: UpdateReplica
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def regionNameAsScala(value: Option[String]): UpdateReplicationGroupMemberAction.Builder = {
-    value.fold(self) { v =>
-      self.regionName(v)
-    }
+    value.fold(self) { v => self.regionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsMasterKeyIdAsScala(value: Option[String]): UpdateReplicationGroupMemberAction.Builder = {
-    value.fold(self) { v =>
-      self.kmsMasterKeyId(v)
-    }
+    value.fold(self) { v => self.kmsMasterKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputOverrideAsScala(
       value: Option[ProvisionedThroughputOverride]
   ): UpdateReplicationGroupMemberAction.Builder = {
-    value.fold(self) { v =>
-      self.provisionedThroughputOverride(v)
-    }
+    value.fold(self) { v => self.provisionedThroughputOverride(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))

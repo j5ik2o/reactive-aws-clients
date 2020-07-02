@@ -7,9 +7,7 @@ final class GetStackPolicyRequestBuilderOps(val self: GetStackPolicyRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): GetStackPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
 }

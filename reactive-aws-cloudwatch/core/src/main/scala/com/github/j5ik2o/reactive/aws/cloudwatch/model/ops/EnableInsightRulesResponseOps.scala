@@ -17,9 +17,8 @@ final class EnableInsightRulesResponseBuilderOps(val self: EnableInsightRulesRes
 final class EnableInsightRulesResponseOps(val self: EnableInsightRulesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def failuresAsScala: Option[Seq[PartialFailure]] = Option(self.failures).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def failuresAsScala: Option[Seq[PartialFailure]] =
+    Option(self.failures).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

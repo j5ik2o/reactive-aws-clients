@@ -7,30 +7,22 @@ final class LoadBalancerBuilderOps(val self: LoadBalancer.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetGroupArnAsScala(value: Option[String]): LoadBalancer.Builder = {
-    value.fold(self) { v =>
-      self.targetGroupArn(v)
-    }
+    value.fold(self) { v => self.targetGroupArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def loadBalancerNameAsScala(value: Option[String]): LoadBalancer.Builder = {
-    value.fold(self) { v =>
-      self.loadBalancerName(v)
-    }
+    value.fold(self) { v => self.loadBalancerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala(value: Option[String]): LoadBalancer.Builder = {
-    value.fold(self) { v =>
-      self.containerName(v)
-    }
+    value.fold(self) { v => self.containerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerPortAsScala(value: Option[Int]): LoadBalancer.Builder = {
-    value.fold(self) { v =>
-      self.containerPort(v)
-    }
+    value.fold(self) { v => self.containerPort(v) }
   }
 
 }

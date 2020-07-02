@@ -17,9 +17,8 @@ final class DeleteAlarmsRequestBuilderOps(val self: DeleteAlarmsRequest.Builder)
 final class DeleteAlarmsRequestOps(val self: DeleteAlarmsRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def alarmNamesAsScala: Option[Seq[String]] = Option(self.alarmNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def alarmNamesAsScala: Option[Seq[String]] =
+    Option(self.alarmNames).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

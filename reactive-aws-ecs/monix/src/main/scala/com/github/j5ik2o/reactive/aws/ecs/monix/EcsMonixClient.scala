@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object EcsMonixClient {
 
-  def apply(asyncClient: EcsAsyncClient): EcsMonixClient = new EcsMonixClient {
-    override val underlying: EcsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: EcsAsyncClient): EcsMonixClient =
+    new EcsMonixClient {
+      override val underlying: EcsAsyncClient = asyncClient
+    }
 
 }
 

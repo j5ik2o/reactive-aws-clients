@@ -7,9 +7,7 @@ final class CreateApiCacheResponseBuilderOps(val self: CreateApiCacheResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiCacheAsScala(value: Option[ApiCache]): CreateApiCacheResponse.Builder = {
-    value.fold(self) { v =>
-      self.apiCache(v)
-    }
+    value.fold(self) { v => self.apiCache(v) }
   }
 
 }

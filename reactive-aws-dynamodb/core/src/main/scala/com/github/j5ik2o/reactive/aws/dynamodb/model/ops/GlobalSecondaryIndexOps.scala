@@ -7,9 +7,7 @@ final class GlobalSecondaryIndexBuilderOps(val self: GlobalSecondaryIndex.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def indexNameAsScala(value: Option[String]): GlobalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.indexName(v)
-    }
+    value.fold(self) { v => self.indexName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,16 +19,12 @@ final class GlobalSecondaryIndexBuilderOps(val self: GlobalSecondaryIndex.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala(value: Option[Projection]): GlobalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.projection(v)
-    }
+    value.fold(self) { v => self.projection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisionedThroughputAsScala(value: Option[ProvisionedThroughput]): GlobalSecondaryIndex.Builder = {
-    value.fold(self) { v =>
-      self.provisionedThroughput(v)
-    }
+    value.fold(self) { v => self.provisionedThroughput(v) }
   }
 
 }
@@ -41,9 +35,8 @@ final class GlobalSecondaryIndexOps(val self: GlobalSecondaryIndex) extends AnyV
   final def indexNameAsScala: Option[String] = Option(self.indexName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] = Option(self.keySchema).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def keySchemaAsScala: Option[Seq[KeySchemaElement]] =
+    Option(self.keySchema).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectionAsScala: Option[Projection] = Option(self.projection)

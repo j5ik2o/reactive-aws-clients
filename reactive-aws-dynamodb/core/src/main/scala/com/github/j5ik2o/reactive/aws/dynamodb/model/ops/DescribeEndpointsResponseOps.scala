@@ -17,9 +17,8 @@ final class DescribeEndpointsResponseBuilderOps(val self: DescribeEndpointsRespo
 final class DescribeEndpointsResponseOps(val self: DescribeEndpointsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def endpointsAsScala: Option[Seq[Endpoint]] = Option(self.endpoints).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def endpointsAsScala: Option[Seq[Endpoint]] =
+    Option(self.endpoints).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

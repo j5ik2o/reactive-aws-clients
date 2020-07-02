@@ -7,9 +7,7 @@ final class StreamProcessorOutputBuilderOps(val self: StreamProcessorOutput.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kinesisDataStreamAsScala(value: Option[KinesisDataStream]): StreamProcessorOutput.Builder = {
-    value.fold(self) { v =>
-      self.kinesisDataStream(v)
-    }
+    value.fold(self) { v => self.kinesisDataStream(v) }
   }
 
 }

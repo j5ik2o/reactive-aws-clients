@@ -7,16 +7,12 @@ final class NodePropertyOverrideBuilderOps(val self: NodePropertyOverride.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetNodesAsScala(value: Option[String]): NodePropertyOverride.Builder = {
-    value.fold(self) { v =>
-      self.targetNodes(v)
-    }
+    value.fold(self) { v => self.targetNodes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerOverridesAsScala(value: Option[ContainerOverrides]): NodePropertyOverride.Builder = {
-    value.fold(self) { v =>
-      self.containerOverrides(v)
-    }
+    value.fold(self) { v => self.containerOverrides(v) }
   }
 
 }

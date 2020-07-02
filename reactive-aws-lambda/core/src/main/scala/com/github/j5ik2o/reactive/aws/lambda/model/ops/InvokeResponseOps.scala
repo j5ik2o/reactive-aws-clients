@@ -7,37 +7,27 @@ final class InvokeResponseBuilderOps(val self: InvokeResponse.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodeAsScala(value: Option[Int]): InvokeResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusCode(v)
-    }
+    value.fold(self) { v => self.statusCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionErrorAsScala(value: Option[String]): InvokeResponse.Builder = {
-    value.fold(self) { v =>
-      self.functionError(v)
-    }
+    value.fold(self) { v => self.functionError(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logResultAsScala(value: Option[String]): InvokeResponse.Builder = {
-    value.fold(self) { v =>
-      self.logResult(v)
-    }
+    value.fold(self) { v => self.logResult(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payloadAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): InvokeResponse.Builder = {
-    value.fold(self) { v =>
-      self.payload(v)
-    }
+    value.fold(self) { v => self.payload(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executedVersionAsScala(value: Option[String]): InvokeResponse.Builder = {
-    value.fold(self) { v =>
-      self.executedVersion(v)
-    }
+    value.fold(self) { v => self.executedVersion(v) }
   }
 
 }

@@ -5,36 +5,33 @@ import software.amazon.awssdk.services.ecs.model._
 
 final class ScaleBuilderOps(val self: Scale.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def valueAsScala(value: Option[Double]): Scale.Builder = {
-            value.fold(self){ v => self.value(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def valueAsScala(value: Option[Double]): Scale.Builder = {
+    value.fold(self) { v => self.value(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def unitAsScala(value: Option[ScaleUnit]): Scale.Builder = {
-            value.fold(self){ v => self.unit(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def unitAsScala(value: Option[ScaleUnit]): Scale.Builder = {
+    value.fold(self) { v => self.unit(v) }
+  }
 
 }
 
 final class ScaleOps(val self: Scale) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def valueAsScala: Option[Double] = Option(self.value) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def valueAsScala: Option[Double] = Option(self.value)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def unitAsScala: Option[ScaleUnit] = Option(self.unit) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def unitAsScala: Option[ScaleUnit] = Option(self.unit)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToScaleOps {
 
-implicit def toScaleBuilderOps(v: Scale.Builder): ScaleBuilderOps = new ScaleBuilderOps(v)
+  implicit def toScaleBuilderOps(v: Scale.Builder): ScaleBuilderOps = new ScaleBuilderOps(v)
 
-implicit def toScaleOps(v: Scale): ScaleOps = new ScaleOps(v)
+  implicit def toScaleOps(v: Scale): ScaleOps = new ScaleOps(v)
 
 }
-

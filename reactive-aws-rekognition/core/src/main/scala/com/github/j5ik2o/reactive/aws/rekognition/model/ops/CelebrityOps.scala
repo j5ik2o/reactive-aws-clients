@@ -14,30 +14,22 @@ final class CelebrityBuilderOps(val self: Celebrity.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Celebrity.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Celebrity.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[ComparedFace]): Celebrity.Builder = {
-    value.fold(self) { v =>
-      self.face(v)
-    }
+    value.fold(self) { v => self.face(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def matchConfidenceAsScala(value: Option[Float]): Celebrity.Builder = {
-    value.fold(self) { v =>
-      self.matchConfidence(v)
-    }
+    value.fold(self) { v => self.matchConfidence(v) }
   }
 
 }
@@ -45,9 +37,8 @@ final class CelebrityBuilderOps(val self: Celebrity.Builder) extends AnyVal {
 final class CelebrityOps(val self: Celebrity) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def urlsAsScala: Option[Seq[String]] = Option(self.urls).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def urlsAsScala: Option[Seq[String]] =
+    Option(self.urls).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala: Option[String] = Option(self.name)

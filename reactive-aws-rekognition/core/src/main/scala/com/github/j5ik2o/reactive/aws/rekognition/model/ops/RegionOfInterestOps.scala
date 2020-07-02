@@ -7,9 +7,7 @@ final class RegionOfInterestBuilderOps(val self: RegionOfInterest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): RegionOfInterest.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
 }

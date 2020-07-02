@@ -7,9 +7,7 @@ final class DeleteRetentionPolicyRequestBuilderOps(val self: DeleteRetentionPoli
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DeleteRetentionPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
 }

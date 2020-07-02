@@ -7,16 +7,12 @@ final class CreateLogStreamRequestBuilderOps(val self: CreateLogStreamRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): CreateLogStreamRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNameAsScala(value: Option[String]): CreateLogStreamRequest.Builder = {
-    value.fold(self) { v =>
-      self.logStreamName(v)
-    }
+    value.fold(self) { v => self.logStreamName(v) }
   }
 
 }

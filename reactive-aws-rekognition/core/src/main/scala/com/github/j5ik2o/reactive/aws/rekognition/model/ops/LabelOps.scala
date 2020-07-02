@@ -7,16 +7,12 @@ final class LabelBuilderOps(val self: Label.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Label.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): Label.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -44,14 +40,12 @@ final class LabelOps(val self: Label) extends AnyVal {
   final def confidenceAsScala: Option[Float] = Option(self.confidence)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def instancesAsScala: Option[Seq[Instance]] = Option(self.instances).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def instancesAsScala: Option[Seq[Instance]] =
+    Option(self.instances).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parentsAsScala: Option[Seq[Parent]] = Option(self.parents).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parentsAsScala: Option[Seq[Parent]] =
+    Option(self.parents).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

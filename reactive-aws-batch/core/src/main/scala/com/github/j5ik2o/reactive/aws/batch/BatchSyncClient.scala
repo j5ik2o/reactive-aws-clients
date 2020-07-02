@@ -15,8 +15,7 @@ object BatchSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/batch/BatchClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/batch/BatchClient.html */
 trait BatchSyncClient extends BatchClient[Either[Throwable, ?]] {
   val underlying: JavaBatchSyncClient
 

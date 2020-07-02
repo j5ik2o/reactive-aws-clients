@@ -14,16 +14,12 @@ final class ListResourceTagsResponseBuilderOps(val self: ListResourceTagsRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListResourceTagsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def truncatedAsScala(value: Option[Boolean]): ListResourceTagsResponse.Builder = {
-    value.fold(self) { v =>
-      self.truncated(v)
-    }
+    value.fold(self) { v => self.truncated(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class ListResourceTagsResponseBuilderOps(val self: ListResourceTagsRespons
 final class ListResourceTagsResponseOps(val self: ListResourceTagsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)

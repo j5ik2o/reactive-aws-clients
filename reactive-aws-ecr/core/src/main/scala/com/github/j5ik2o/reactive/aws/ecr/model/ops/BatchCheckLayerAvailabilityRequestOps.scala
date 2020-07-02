@@ -8,16 +8,12 @@ final class BatchCheckLayerAvailabilityRequestBuilderOps(val self: BatchCheckLay
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): BatchCheckLayerAvailabilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): BatchCheckLayerAvailabilityRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -38,9 +34,8 @@ final class BatchCheckLayerAvailabilityRequestOps(val self: BatchCheckLayerAvail
   final def repositoryNameAsScala: Option[String] = Option(self.repositoryName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def layerDigestsAsScala: Option[Seq[String]] = Option(self.layerDigests).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def layerDigestsAsScala: Option[Seq[String]] =
+    Option(self.layerDigests).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

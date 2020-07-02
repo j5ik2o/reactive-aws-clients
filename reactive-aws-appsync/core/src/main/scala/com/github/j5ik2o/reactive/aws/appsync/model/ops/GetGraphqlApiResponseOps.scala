@@ -7,9 +7,7 @@ final class GetGraphqlApiResponseBuilderOps(val self: GetGraphqlApiResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def graphqlApiAsScala(value: Option[GraphqlApi]): GetGraphqlApiResponse.Builder = {
-    value.fold(self) { v =>
-      self.graphqlApi(v)
-    }
+    value.fold(self) { v => self.graphqlApi(v) }
   }
 
 }

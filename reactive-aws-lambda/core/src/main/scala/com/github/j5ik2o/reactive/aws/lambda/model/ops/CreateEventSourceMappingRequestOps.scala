@@ -8,88 +8,64 @@ final class CreateEventSourceMappingRequestBuilderOps(val self: CreateEventSourc
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventSourceArnAsScala(value: Option[String]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.eventSourceArn(v)
-    }
+    value.fold(self) { v => self.eventSourceArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def batchSizeAsScala(value: Option[Int]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.batchSize(v)
-    }
+    value.fold(self) { v => self.batchSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumBatchingWindowInSecondsAsScala(value: Option[Int]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.maximumBatchingWindowInSeconds(v)
-    }
+    value.fold(self) { v => self.maximumBatchingWindowInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parallelizationFactorAsScala(value: Option[Int]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.parallelizationFactor(v)
-    }
+    value.fold(self) { v => self.parallelizationFactor(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingPositionAsScala(value: Option[EventSourcePosition]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.startingPosition(v)
-    }
+    value.fold(self) { v => self.startingPosition(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startingPositionTimestampAsScala(
       value: Option[java.time.Instant]
   ): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.startingPositionTimestamp(v)
-    }
+    value.fold(self) { v => self.startingPositionTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationConfigAsScala(value: Option[DestinationConfig]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationConfig(v)
-    }
+    value.fold(self) { v => self.destinationConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumRecordAgeInSecondsAsScala(value: Option[Int]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.maximumRecordAgeInSeconds(v)
-    }
+    value.fold(self) { v => self.maximumRecordAgeInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bisectBatchOnFunctionErrorAsScala(value: Option[Boolean]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.bisectBatchOnFunctionError(v)
-    }
+    value.fold(self) { v => self.bisectBatchOnFunctionError(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumRetryAttemptsAsScala(value: Option[Int]): CreateEventSourceMappingRequest.Builder = {
-    value.fold(self) { v =>
-      self.maximumRetryAttempts(v)
-    }
+    value.fold(self) { v => self.maximumRetryAttempts(v) }
   }
 
 }

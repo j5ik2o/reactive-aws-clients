@@ -7,23 +7,17 @@ final class PutMetricFilterRequestBuilderOps(val self: PutMetricFilterRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): PutMetricFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNameAsScala(value: Option[String]): PutMetricFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterName(v)
-    }
+    value.fold(self) { v => self.filterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterPatternAsScala(value: Option[String]): PutMetricFilterRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterPattern(v)
-    }
+    value.fold(self) { v => self.filterPattern(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,10 +41,10 @@ final class PutMetricFilterRequestOps(val self: PutMetricFilterRequest) extends 
   final def filterPatternAsScala: Option[String] = Option(self.filterPattern)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricTransformationsAsScala: Option[Seq[MetricTransformation]] = Option(self.metricTransformations).map {
-    v =>
+  final def metricTransformationsAsScala: Option[Seq[MetricTransformation]] =
+    Option(self.metricTransformations).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
 }
 

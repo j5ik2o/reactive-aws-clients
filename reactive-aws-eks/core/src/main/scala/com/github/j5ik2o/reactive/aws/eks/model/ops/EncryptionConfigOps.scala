@@ -14,9 +14,7 @@ final class EncryptionConfigBuilderOps(val self: EncryptionConfig.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def providerAsScala(value: Option[Provider]): EncryptionConfig.Builder = {
-    value.fold(self) { v =>
-      self.provider(v)
-    }
+    value.fold(self) { v => self.provider(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class EncryptionConfigBuilderOps(val self: EncryptionConfig.Builder) exten
 final class EncryptionConfigOps(val self: EncryptionConfig) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourcesAsScala: Option[Seq[String]] = Option(self.resources).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourcesAsScala: Option[Seq[String]] =
+    Option(self.resources).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def providerAsScala: Option[Provider] = Option(self.provider)

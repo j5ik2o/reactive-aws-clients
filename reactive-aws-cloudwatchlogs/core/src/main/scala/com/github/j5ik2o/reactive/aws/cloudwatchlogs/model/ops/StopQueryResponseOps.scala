@@ -7,9 +7,7 @@ final class StopQueryResponseBuilderOps(val self: StopQueryResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def successAsScala(value: Option[Boolean]): StopQueryResponse.Builder = {
-    value.fold(self) { v =>
-      self.success(v)
-    }
+    value.fold(self) { v => self.success(v) }
   }
 
 }

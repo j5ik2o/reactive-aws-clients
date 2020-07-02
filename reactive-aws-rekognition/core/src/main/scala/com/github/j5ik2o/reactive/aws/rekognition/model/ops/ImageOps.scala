@@ -7,16 +7,12 @@ final class ImageBuilderOps(val self: Image.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bytesAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): Image.Builder = {
-    value.fold(self) { v =>
-      self.bytes(v)
-    }
+    value.fold(self) { v => self.bytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3ObjectAsScala(value: Option[S3Object]): Image.Builder = {
-    value.fold(self) { v =>
-      self.s3Object(v)
-    }
+    value.fold(self) { v => self.s3Object(v) }
   }
 
 }

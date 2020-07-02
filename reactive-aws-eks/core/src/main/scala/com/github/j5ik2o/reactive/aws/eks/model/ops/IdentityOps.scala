@@ -7,9 +7,7 @@ final class IdentityBuilderOps(val self: Identity.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def oidcAsScala(value: Option[OIDC]): Identity.Builder = {
-    value.fold(self) { v =>
-      self.oidc(v)
-    }
+    value.fold(self) { v => self.oidc(v) }
   }
 
 }

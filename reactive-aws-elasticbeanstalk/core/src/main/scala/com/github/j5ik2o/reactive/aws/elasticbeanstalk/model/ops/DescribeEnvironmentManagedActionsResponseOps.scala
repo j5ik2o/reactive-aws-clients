@@ -22,9 +22,10 @@ final class DescribeEnvironmentManagedActionsResponseOps(val self: DescribeEnvir
     extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def managedActionsAsScala: Option[Seq[ManagedAction]] = Option(self.managedActions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def managedActionsAsScala: Option[Seq[ManagedAction]] =
+    Option(self.managedActions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

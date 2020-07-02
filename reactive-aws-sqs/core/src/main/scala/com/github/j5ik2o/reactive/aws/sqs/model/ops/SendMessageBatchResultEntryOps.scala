@@ -7,44 +7,32 @@ final class SendMessageBatchResultEntryBuilderOps(val self: SendMessageBatchResu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageIdAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.messageId(v)
-    }
+    value.fold(self) { v => self.messageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageBodyAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.md5OfMessageBody(v)
-    }
+    value.fold(self) { v => self.md5OfMessageBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageAttributesAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.md5OfMessageAttributes(v)
-    }
+    value.fold(self) { v => self.md5OfMessageAttributes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def md5OfMessageSystemAttributesAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.md5OfMessageSystemAttributes(v)
-    }
+    value.fold(self) { v => self.md5OfMessageSystemAttributes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberAsScala(value: Option[String]): SendMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.sequenceNumber(v)
-    }
+    value.fold(self) { v => self.sequenceNumber(v) }
   }
 
 }

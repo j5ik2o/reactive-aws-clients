@@ -7,9 +7,7 @@ final class DeleteJobQueueRequestBuilderOps(val self: DeleteJobQueueRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobQueueAsScala(value: Option[String]): DeleteJobQueueRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobQueue(v)
-    }
+    value.fold(self) { v => self.jobQueue(v) }
   }
 
 }

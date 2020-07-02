@@ -7,9 +7,7 @@ final class ListLayerVersionsResponseBuilderOps(val self: ListLayerVersionsRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListLayerVersionsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class ListLayerVersionsResponseOps(val self: ListLayerVersionsResponse) ex
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def layerVersionsAsScala: Option[Seq[LayerVersionsListItem]] = Option(self.layerVersions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def layerVersionsAsScala: Option[Seq[LayerVersionsListItem]] =
+    Option(self.layerVersions).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

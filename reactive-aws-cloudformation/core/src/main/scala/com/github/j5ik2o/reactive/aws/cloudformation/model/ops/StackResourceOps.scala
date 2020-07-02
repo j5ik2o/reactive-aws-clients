@@ -7,72 +7,52 @@ final class StackResourceBuilderOps(val self: StackResource.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.logicalResourceId(v)
-    }
+    value.fold(self) { v => self.logicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def physicalResourceIdAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.physicalResourceId(v)
-    }
+    value.fold(self) { v => self.physicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.resourceType(v)
-    }
+    value.fold(self) { v => self.resourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceStatusAsScala(value: Option[ResourceStatus]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.resourceStatus(v)
-    }
+    value.fold(self) { v => self.resourceStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceStatusReasonAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.resourceStatusReason(v)
-    }
+    value.fold(self) { v => self.resourceStatusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def driftInformationAsScala(value: Option[StackResourceDriftInformation]): StackResource.Builder = {
-    value.fold(self) { v =>
-      self.driftInformation(v)
-    }
+    value.fold(self) { v => self.driftInformation(v) }
   }
 
 }

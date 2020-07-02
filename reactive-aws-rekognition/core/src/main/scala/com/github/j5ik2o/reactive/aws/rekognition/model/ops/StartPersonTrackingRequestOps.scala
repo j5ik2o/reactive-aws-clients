@@ -7,30 +7,22 @@ final class StartPersonTrackingRequestBuilderOps(val self: StartPersonTrackingRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoAsScala(value: Option[Video]): StartPersonTrackingRequest.Builder = {
-    value.fold(self) { v =>
-      self.video(v)
-    }
+    value.fold(self) { v => self.video(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): StartPersonTrackingRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationChannelAsScala(value: Option[NotificationChannel]): StartPersonTrackingRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationChannel(v)
-    }
+    value.fold(self) { v => self.notificationChannel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobTagAsScala(value: Option[String]): StartPersonTrackingRequest.Builder = {
-    value.fold(self) { v =>
-      self.jobTag(v)
-    }
+    value.fold(self) { v => self.jobTag(v) }
   }
 
 }

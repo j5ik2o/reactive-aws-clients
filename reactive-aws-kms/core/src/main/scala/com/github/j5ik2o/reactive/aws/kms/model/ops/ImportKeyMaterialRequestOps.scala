@@ -7,41 +7,31 @@ final class ImportKeyMaterialRequestBuilderOps(val self: ImportKeyMaterialReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): ImportKeyMaterialRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def importTokenAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): ImportKeyMaterialRequest.Builder = {
-    value.fold(self) { v =>
-      self.importToken(v)
-    }
+    value.fold(self) { v => self.importToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptedKeyMaterialAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): ImportKeyMaterialRequest.Builder = {
-    value.fold(self) { v =>
-      self.encryptedKeyMaterial(v)
-    }
+    value.fold(self) { v => self.encryptedKeyMaterial(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def validToAsScala(value: Option[java.time.Instant]): ImportKeyMaterialRequest.Builder = {
-    value.fold(self) { v =>
-      self.validTo(v)
-    }
+    value.fold(self) { v => self.validTo(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expirationModelAsScala(value: Option[ExpirationModelType]): ImportKeyMaterialRequest.Builder = {
-    value.fold(self) { v =>
-      self.expirationModel(v)
-    }
+    value.fold(self) { v => self.expirationModel(v) }
   }
 
 }

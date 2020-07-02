@@ -7,23 +7,17 @@ final class SetStackPolicyRequestBuilderOps(val self: SetStackPolicyRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): SetStackPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackPolicyBodyAsScala(value: Option[String]): SetStackPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackPolicyBody(v)
-    }
+    value.fold(self) { v => self.stackPolicyBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackPolicyURLAsScala(value: Option[String]): SetStackPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackPolicyURL(v)
-    }
+    value.fold(self) { v => self.stackPolicyURL(v) }
   }
 
 }

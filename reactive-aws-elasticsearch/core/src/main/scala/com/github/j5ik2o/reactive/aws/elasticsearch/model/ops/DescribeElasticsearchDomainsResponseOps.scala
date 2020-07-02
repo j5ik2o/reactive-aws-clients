@@ -20,9 +20,10 @@ final class DescribeElasticsearchDomainsResponseBuilderOps(val self: DescribeEla
 final class DescribeElasticsearchDomainsResponseOps(val self: DescribeElasticsearchDomainsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def domainStatusListAsScala: Option[Seq[ElasticsearchDomainStatus]] = Option(self.domainStatusList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def domainStatusListAsScala: Option[Seq[ElasticsearchDomainStatus]] =
+    Option(self.domainStatusList).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

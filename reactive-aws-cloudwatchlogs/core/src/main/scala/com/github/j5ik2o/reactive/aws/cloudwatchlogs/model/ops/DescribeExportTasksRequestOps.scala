@@ -7,30 +7,22 @@ final class DescribeExportTasksRequestBuilderOps(val self: DescribeExportTasksRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskIdAsScala(value: Option[String]): DescribeExportTasksRequest.Builder = {
-    value.fold(self) { v =>
-      self.taskId(v)
-    }
+    value.fold(self) { v => self.taskId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodeAsScala(value: Option[ExportTaskStatusCode]): DescribeExportTasksRequest.Builder = {
-    value.fold(self) { v =>
-      self.statusCode(v)
-    }
+    value.fold(self) { v => self.statusCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeExportTasksRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeExportTasksRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
 }

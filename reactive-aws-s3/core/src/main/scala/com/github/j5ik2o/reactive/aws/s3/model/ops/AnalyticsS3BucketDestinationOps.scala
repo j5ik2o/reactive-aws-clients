@@ -7,30 +7,22 @@ final class AnalyticsS3BucketDestinationBuilderOps(val self: AnalyticsS3BucketDe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala(value: Option[AnalyticsS3ExportFileFormat]): AnalyticsS3BucketDestination.Builder = {
-    value.fold(self) { v =>
-      self.format(v)
-    }
+    value.fold(self) { v => self.format(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAccountIdAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
-    value.fold(self) { v =>
-      self.bucketAccountId(v)
-    }
+    value.fold(self) { v => self.bucketAccountId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def prefixAsScala(value: Option[String]): AnalyticsS3BucketDestination.Builder = {
-    value.fold(self) { v =>
-      self.prefix(v)
-    }
+    value.fold(self) { v => self.prefix(v) }
   }
 
 }

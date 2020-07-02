@@ -7,23 +7,17 @@ final class OptionSpecificationBuilderOps(val self: OptionSpecification.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceNameAsScala(value: Option[String]): OptionSpecification.Builder = {
-    value.fold(self) { v =>
-      self.resourceName(v)
-    }
+    value.fold(self) { v => self.resourceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): OptionSpecification.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionNameAsScala(value: Option[String]): OptionSpecification.Builder = {
-    value.fold(self) { v =>
-      self.optionName(v)
-    }
+    value.fold(self) { v => self.optionName(v) }
   }
 
 }

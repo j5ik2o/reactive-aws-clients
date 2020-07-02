@@ -7,9 +7,7 @@ final class LifecyclePolicyPreviewSummaryBuilderOps(val self: LifecyclePolicyPre
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expiringImageTotalCountAsScala(value: Option[Int]): LifecyclePolicyPreviewSummary.Builder = {
-    value.fold(self) { v =>
-      self.expiringImageTotalCount(v)
-    }
+    value.fold(self) { v => self.expiringImageTotalCount(v) }
   }
 
 }

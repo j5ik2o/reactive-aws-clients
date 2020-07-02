@@ -7,9 +7,7 @@ final class StopProjectVersionRequestBuilderOps(val self: StopProjectVersionRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectVersionArnAsScala(value: Option[String]): StopProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectVersionArn(v)
-    }
+    value.fold(self) { v => self.projectVersionArn(v) }
   }
 
 }

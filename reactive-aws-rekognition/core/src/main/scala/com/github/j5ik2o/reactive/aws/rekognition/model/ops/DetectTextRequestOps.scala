@@ -7,16 +7,12 @@ final class DetectTextRequestBuilderOps(val self: DetectTextRequest.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageAsScala(value: Option[Image]): DetectTextRequest.Builder = {
-    value.fold(self) { v =>
-      self.image(v)
-    }
+    value.fold(self) { v => self.image(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filtersAsScala(value: Option[DetectTextFilters]): DetectTextRequest.Builder = {
-    value.fold(self) { v =>
-      self.filters(v)
-    }
+    value.fold(self) { v => self.filters(v) }
   }
 
 }

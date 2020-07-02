@@ -7,9 +7,7 @@ final class LambdaConflictHandlerConfigBuilderOps(val self: LambdaConflictHandle
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lambdaConflictHandlerArnAsScala(value: Option[String]): LambdaConflictHandlerConfig.Builder = {
-    value.fold(self) { v =>
-      self.lambdaConflictHandlerArn(v)
-    }
+    value.fold(self) { v => self.lambdaConflictHandlerArn(v) }
   }
 
 }

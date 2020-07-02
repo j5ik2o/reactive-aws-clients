@@ -7,30 +7,22 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeTypeAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.nodeType(v)
-    }
+    value.fold(self) { v => self.nodeType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replicationFactorAsScala(value: Option[Int]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.replicationFactor(v)
-    }
+    value.fold(self) { v => self.replicationFactor(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,9 +34,7 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.subnetGroupName(v)
-    }
+    value.fold(self) { v => self.subnetGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -56,30 +46,22 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def preferredMaintenanceWindowAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.preferredMaintenanceWindow(v)
-    }
+    value.fold(self) { v => self.preferredMaintenanceWindow(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def notificationTopicArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.notificationTopicArn(v)
-    }
+    value.fold(self) { v => self.notificationTopicArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamRoleArnAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.iamRoleArn(v)
-    }
+    value.fold(self) { v => self.iamRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -91,9 +73,7 @@ final class CreateClusterRequestBuilderOps(val self: CreateClusterRequest.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseSpecificationAsScala(value: Option[SSESpecification]): CreateClusterRequest.Builder = {
-    value.fold(self) { v =>
-      self.sseSpecification(v)
-    }
+    value.fold(self) { v => self.sseSpecification(v) }
   }
 
 }
@@ -113,17 +93,19 @@ final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyV
   final def replicationFactorAsScala: Option[Int] = Option(self.replicationFactor)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def availabilityZonesAsScala: Option[Seq[String]] = Option(self.availabilityZones).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def availabilityZonesAsScala: Option[Seq[String]] =
+    Option(self.availabilityZones).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupNameAsScala: Option[String] = Option(self.subnetGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupIdsAsScala: Option[Seq[String]] =
+    Option(self.securityGroupIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def preferredMaintenanceWindowAsScala: Option[String] = Option(self.preferredMaintenanceWindow)
@@ -138,9 +120,8 @@ final class CreateClusterRequestOps(val self: CreateClusterRequest) extends AnyV
   final def parameterGroupNameAsScala: Option[String] = Option(self.parameterGroupName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sseSpecificationAsScala: Option[SSESpecification] = Option(self.sseSpecification)

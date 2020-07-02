@@ -7,9 +7,7 @@ final class GeometryBuilderOps(val self: Geometry.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): Geometry.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class GeometryOps(val self: Geometry) extends AnyVal {
   final def boundingBoxAsScala: Option[BoundingBox] = Option(self.boundingBox)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def polygonAsScala: Option[Seq[Point]] = Option(self.polygon).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def polygonAsScala: Option[Seq[Point]] =
+    Option(self.polygon).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

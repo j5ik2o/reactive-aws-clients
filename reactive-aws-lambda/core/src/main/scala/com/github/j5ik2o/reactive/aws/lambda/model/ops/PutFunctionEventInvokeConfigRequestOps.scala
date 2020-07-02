@@ -8,37 +8,27 @@ final class PutFunctionEventInvokeConfigRequestBuilderOps(val self: PutFunctionE
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): PutFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): PutFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualifier(v)
-    }
+    value.fold(self) { v => self.qualifier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumRetryAttemptsAsScala(value: Option[Int]): PutFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.maximumRetryAttempts(v)
-    }
+    value.fold(self) { v => self.maximumRetryAttempts(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumEventAgeInSecondsAsScala(value: Option[Int]): PutFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.maximumEventAgeInSeconds(v)
-    }
+    value.fold(self) { v => self.maximumEventAgeInSeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationConfigAsScala(value: Option[DestinationConfig]): PutFunctionEventInvokeConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationConfig(v)
-    }
+    value.fold(self) { v => self.destinationConfig(v) }
   }
 
 }

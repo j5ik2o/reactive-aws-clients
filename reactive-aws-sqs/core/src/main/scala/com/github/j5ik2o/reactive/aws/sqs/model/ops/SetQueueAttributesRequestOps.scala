@@ -7,9 +7,7 @@ final class SetQueueAttributesRequestBuilderOps(val self: SetQueueAttributesRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): SetQueueAttributesRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class SetQueueAttributesRequestOps(val self: SetQueueAttributesRequest) ex
   final def queueUrlAsScala: Option[String] = Option(self.queueUrl)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributesAsScala: Option[Map[QueueAttributeName, String]] = Option(self.attributes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def attributesAsScala: Option[Map[QueueAttributeName, String]] =
+    Option(self.attributes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

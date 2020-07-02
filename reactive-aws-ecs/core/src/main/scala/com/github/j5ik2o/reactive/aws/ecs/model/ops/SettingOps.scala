@@ -7,23 +7,17 @@ final class SettingBuilderOps(val self: Setting.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[SettingName]): Setting.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): Setting.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def principalArnAsScala(value: Option[String]): Setting.Builder = {
-    value.fold(self) { v =>
-      self.principalArn(v)
-    }
+    value.fold(self) { v => self.principalArn(v) }
   }
 
 }

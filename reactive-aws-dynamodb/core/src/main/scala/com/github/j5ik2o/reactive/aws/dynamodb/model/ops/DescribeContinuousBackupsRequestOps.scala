@@ -8,9 +8,7 @@ final class DescribeContinuousBackupsRequestBuilderOps(val self: DescribeContinu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableNameAsScala(value: Option[String]): DescribeContinuousBackupsRequest.Builder = {
-    value.fold(self) { v =>
-      self.tableName(v)
-    }
+    value.fold(self) { v => self.tableName(v) }
   }
 
 }

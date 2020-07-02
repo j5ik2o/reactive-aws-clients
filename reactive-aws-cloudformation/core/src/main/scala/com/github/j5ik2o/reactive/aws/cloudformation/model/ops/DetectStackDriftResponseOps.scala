@@ -7,9 +7,7 @@ final class DetectStackDriftResponseBuilderOps(val self: DetectStackDriftRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackDriftDetectionIdAsScala(value: Option[String]): DetectStackDriftResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackDriftDetectionId(v)
-    }
+    value.fold(self) { v => self.stackDriftDetectionId(v) }
   }
 
 }

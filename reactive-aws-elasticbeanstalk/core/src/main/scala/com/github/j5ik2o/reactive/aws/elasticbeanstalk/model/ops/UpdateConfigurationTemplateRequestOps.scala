@@ -8,23 +8,17 @@ final class UpdateConfigurationTemplateRequestBuilderOps(val self: UpdateConfigu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): UpdateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): UpdateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): UpdateConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -59,14 +53,16 @@ final class UpdateConfigurationTemplateRequestOps(val self: UpdateConfigurationT
   final def descriptionAsScala: Option[String] = Option(self.description)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] =
+    Option(self.optionSettings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionsToRemoveAsScala: Option[Seq[OptionSpecification]] = Option(self.optionsToRemove).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionsToRemoveAsScala: Option[Seq[OptionSpecification]] =
+    Option(self.optionsToRemove).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

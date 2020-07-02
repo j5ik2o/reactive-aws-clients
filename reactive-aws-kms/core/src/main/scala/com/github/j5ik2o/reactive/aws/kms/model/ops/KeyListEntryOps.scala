@@ -7,16 +7,12 @@ final class KeyListEntryBuilderOps(val self: KeyListEntry.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): KeyListEntry.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyArnAsScala(value: Option[String]): KeyListEntry.Builder = {
-    value.fold(self) { v =>
-      self.keyArn(v)
-    }
+    value.fold(self) { v => self.keyArn(v) }
   }
 
 }

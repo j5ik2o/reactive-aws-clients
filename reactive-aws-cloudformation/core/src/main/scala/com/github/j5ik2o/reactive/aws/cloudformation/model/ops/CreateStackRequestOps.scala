@@ -7,23 +7,17 @@ final class CreateStackRequestBuilderOps(val self: CreateStackRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateBody(v)
-    }
+    value.fold(self) { v => self.templateBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateURLAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateURL(v)
-    }
+    value.fold(self) { v => self.templateURL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,23 +29,17 @@ final class CreateStackRequestBuilderOps(val self: CreateStackRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def disableRollbackAsScala(value: Option[Boolean]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.disableRollback(v)
-    }
+    value.fold(self) { v => self.disableRollback(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def rollbackConfigurationAsScala(value: Option[RollbackConfiguration]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.rollbackConfiguration(v)
-    }
+    value.fold(self) { v => self.rollbackConfiguration(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timeoutInMinutesAsScala(value: Option[Int]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.timeoutInMinutes(v)
-    }
+    value.fold(self) { v => self.timeoutInMinutes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -77,30 +65,22 @@ final class CreateStackRequestBuilderOps(val self: CreateStackRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleARN(v)
-    }
+    value.fold(self) { v => self.roleARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def onFailureAsScala(value: Option[OnFailure]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.onFailure(v)
-    }
+    value.fold(self) { v => self.onFailure(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackPolicyBodyAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackPolicyBody(v)
-    }
+    value.fold(self) { v => self.stackPolicyBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackPolicyURLAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackPolicyURL(v)
-    }
+    value.fold(self) { v => self.stackPolicyURL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -112,16 +92,12 @@ final class CreateStackRequestBuilderOps(val self: CreateStackRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enableTerminationProtectionAsScala(value: Option[Boolean]): CreateStackRequest.Builder = {
-    value.fold(self) { v =>
-      self.enableTerminationProtection(v)
-    }
+    value.fold(self) { v => self.enableTerminationProtection(v) }
   }
 
 }
@@ -138,9 +114,8 @@ final class CreateStackRequestOps(val self: CreateStackRequest) extends AnyVal {
   final def templateURLAsScala: Option[String] = Option(self.templateURL)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Seq[Parameter]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parametersAsScala: Option[Seq[Parameter]] =
+    Option(self.parameters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def disableRollbackAsScala: Option[Boolean] = Option(self.disableRollback)
@@ -152,19 +127,20 @@ final class CreateStackRequestOps(val self: CreateStackRequest) extends AnyVal {
   final def timeoutInMinutesAsScala: Option[Int] = Option(self.timeoutInMinutes)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def notificationARNsAsScala: Option[Seq[String]] = Option(self.notificationARNs).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def notificationARNsAsScala: Option[Seq[String]] =
+    Option(self.notificationARNs).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capabilitiesAsScala: Option[Seq[Capability]] =
+    Option(self.capabilities).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceTypesAsScala: Option[Seq[String]] = Option(self.resourceTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourceTypesAsScala: Option[Seq[String]] =
+    Option(self.resourceTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleARNAsScala: Option[String] = Option(self.roleARN)
@@ -179,9 +155,8 @@ final class CreateStackRequestOps(val self: CreateStackRequest) extends AnyVal {
   final def stackPolicyURLAsScala: Option[String] = Option(self.stackPolicyURL)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)

@@ -7,44 +7,32 @@ final class ListPartsRequestBuilderOps(val self: ListPartsRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): ListPartsRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyAsScala(value: Option[String]): ListPartsRequest.Builder = {
-    value.fold(self) { v =>
-      self.key(v)
-    }
+    value.fold(self) { v => self.key(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxPartsAsScala(value: Option[Int]): ListPartsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxParts(v)
-    }
+    value.fold(self) { v => self.maxParts(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def partNumberMarkerAsScala(value: Option[Int]): ListPartsRequest.Builder = {
-    value.fold(self) { v =>
-      self.partNumberMarker(v)
-    }
+    value.fold(self) { v => self.partNumberMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def uploadIdAsScala(value: Option[String]): ListPartsRequest.Builder = {
-    value.fold(self) { v =>
-      self.uploadId(v)
-    }
+    value.fold(self) { v => self.uploadId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def requestPayerAsScala(value: Option[RequestPayer]): ListPartsRequest.Builder = {
-    value.fold(self) { v =>
-      self.requestPayer(v)
-    }
+    value.fold(self) { v => self.requestPayer(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class ListTagsForResourceResponseBuilderOps(val self: ListTagsForResourceR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceArnAsScala(value: Option[String]): ListTagsForResourceResponse.Builder = {
-    value.fold(self) { v =>
-      self.resourceArn(v)
-    }
+    value.fold(self) { v => self.resourceArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class ListTagsForResourceResponseOps(val self: ListTagsForResourceResponse
   final def resourceArnAsScala: Option[String] = Option(self.resourceArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def resourceTagsAsScala: Option[Seq[Tag]] = Option(self.resourceTags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def resourceTagsAsScala: Option[Seq[Tag]] =
+    Option(self.resourceTags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

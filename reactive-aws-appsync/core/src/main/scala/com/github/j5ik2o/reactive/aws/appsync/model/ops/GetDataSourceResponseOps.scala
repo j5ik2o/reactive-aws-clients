@@ -7,9 +7,7 @@ final class GetDataSourceResponseBuilderOps(val self: GetDataSourceResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataSourceAsScala(value: Option[DataSource]): GetDataSourceResponse.Builder = {
-    value.fold(self) { v =>
-      self.dataSource(v)
-    }
+    value.fold(self) { v => self.dataSource(v) }
   }
 
 }

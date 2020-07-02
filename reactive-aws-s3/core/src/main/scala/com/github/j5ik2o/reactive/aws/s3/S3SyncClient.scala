@@ -8,15 +8,15 @@ import software.amazon.awssdk.services.s3.{ S3Client => JavaS3SyncClient }
 
 object S3SyncClient extends ToEitherSupport {
 
-  def apply(javaClient: JavaS3SyncClient): S3SyncClient = new S3SyncClient {
-    override val underlying: JavaS3SyncClient = javaClient
-  }
+  def apply(javaClient: JavaS3SyncClient): S3SyncClient =
+    new S3SyncClient {
+      override val underlying: JavaS3SyncClient = javaClient
+    }
 
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html */
 trait S3SyncClient extends S3Client[Either[Throwable, ?]] with S3SyncClientSupport {
   val underlying: JavaS3SyncClient
 

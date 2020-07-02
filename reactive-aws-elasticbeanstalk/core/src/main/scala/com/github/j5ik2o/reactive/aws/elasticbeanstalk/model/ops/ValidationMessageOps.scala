@@ -7,30 +7,22 @@ final class ValidationMessageBuilderOps(val self: ValidationMessage.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): ValidationMessage.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def severityAsScala(value: Option[ValidationSeverity]): ValidationMessage.Builder = {
-    value.fold(self) { v =>
-      self.severity(v)
-    }
+    value.fold(self) { v => self.severity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): ValidationMessage.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionNameAsScala(value: Option[String]): ValidationMessage.Builder = {
-    value.fold(self) { v =>
-      self.optionName(v)
-    }
+    value.fold(self) { v => self.optionName(v) }
   }
 
 }

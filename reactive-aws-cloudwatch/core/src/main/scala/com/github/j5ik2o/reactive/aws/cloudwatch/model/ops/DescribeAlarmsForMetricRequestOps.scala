@@ -7,30 +7,22 @@ final class DescribeAlarmsForMetricRequestBuilderOps(val self: DescribeAlarmsFor
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): DescribeAlarmsForMetricRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def namespaceAsScala(value: Option[String]): DescribeAlarmsForMetricRequest.Builder = {
-    value.fold(self) { v =>
-      self.namespace(v)
-    }
+    value.fold(self) { v => self.namespace(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statisticAsScala(value: Option[Statistic]): DescribeAlarmsForMetricRequest.Builder = {
-    value.fold(self) { v =>
-      self.statistic(v)
-    }
+    value.fold(self) { v => self.statistic(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def extendedStatisticAsScala(value: Option[String]): DescribeAlarmsForMetricRequest.Builder = {
-    value.fold(self) { v =>
-      self.extendedStatistic(v)
-    }
+    value.fold(self) { v => self.extendedStatistic(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,16 +34,12 @@ final class DescribeAlarmsForMetricRequestBuilderOps(val self: DescribeAlarmsFor
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala(value: Option[Int]): DescribeAlarmsForMetricRequest.Builder = {
-    value.fold(self) { v =>
-      self.period(v)
-    }
+    value.fold(self) { v => self.period(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def unitAsScala(value: Option[StandardUnit]): DescribeAlarmsForMetricRequest.Builder = {
-    value.fold(self) { v =>
-      self.unit(v)
-    }
+    value.fold(self) { v => self.unit(v) }
   }
 
 }
@@ -71,9 +59,8 @@ final class DescribeAlarmsForMetricRequestOps(val self: DescribeAlarmsForMetricR
   final def extendedStatisticAsScala: Option[String] = Option(self.extendedStatistic)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dimensionsAsScala: Option[Seq[Dimension]] = Option(self.dimensions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dimensionsAsScala: Option[Seq[Dimension]] =
+    Option(self.dimensions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala: Option[Int] = Option(self.period)

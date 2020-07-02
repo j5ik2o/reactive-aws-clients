@@ -5,36 +5,36 @@ import software.amazon.awssdk.services.s3.model._
 
 final class GetBucketVersioningResponseBuilderOps(val self: GetBucketVersioningResponse.Builder) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def statusAsScala(value: Option[BucketVersioningStatus]): GetBucketVersioningResponse.Builder = {
-            value.fold(self){ v => self.status(v) }
-            } 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def statusAsScala(value: Option[BucketVersioningStatus]): GetBucketVersioningResponse.Builder = {
+    value.fold(self) { v => self.status(v) }
+  }
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def mfaDeleteAsScala(value: Option[MFADeleteStatus]): GetBucketVersioningResponse.Builder = {
-            value.fold(self){ v => self.mfaDelete(v) }
-            } 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def mfaDeleteAsScala(value: Option[MFADeleteStatus]): GetBucketVersioningResponse.Builder = {
+    value.fold(self) { v => self.mfaDelete(v) }
+  }
 
 }
 
 final class GetBucketVersioningResponseOps(val self: GetBucketVersioningResponse) extends AnyVal {
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def statusAsScala: Option[BucketVersioningStatus] = Option(self.status) 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def statusAsScala: Option[BucketVersioningStatus] = Option(self.status)
 
-    @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-            final def mfaDeleteAsScala: Option[MFADeleteStatus] = Option(self.mfaDelete) 
-
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def mfaDeleteAsScala: Option[MFADeleteStatus] = Option(self.mfaDelete)
 
 }
 
 @SuppressWarnings(Array("org.wartremover.warts.ImplicitConversion"))
 trait ToGetBucketVersioningResponseOps {
 
-implicit def toGetBucketVersioningResponseBuilderOps(v: GetBucketVersioningResponse.Builder): GetBucketVersioningResponseBuilderOps = new GetBucketVersioningResponseBuilderOps(v)
+  implicit def toGetBucketVersioningResponseBuilderOps(
+      v: GetBucketVersioningResponse.Builder
+  ): GetBucketVersioningResponseBuilderOps = new GetBucketVersioningResponseBuilderOps(v)
 
-implicit def toGetBucketVersioningResponseOps(v: GetBucketVersioningResponse): GetBucketVersioningResponseOps = new GetBucketVersioningResponseOps(v)
+  implicit def toGetBucketVersioningResponseOps(v: GetBucketVersioningResponse): GetBucketVersioningResponseOps =
+    new GetBucketVersioningResponseOps(v)
 
 }
-

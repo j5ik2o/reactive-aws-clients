@@ -7,9 +7,7 @@ final class VideoBuilderOps(val self: Video.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3ObjectAsScala(value: Option[S3Object]): Video.Builder = {
-    value.fold(self) { v =>
-      self.s3Object(v)
-    }
+    value.fold(self) { v => self.s3Object(v) }
   }
 
 }

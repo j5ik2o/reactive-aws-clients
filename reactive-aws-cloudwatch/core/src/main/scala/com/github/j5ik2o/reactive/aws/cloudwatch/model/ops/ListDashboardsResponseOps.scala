@@ -14,9 +14,7 @@ final class ListDashboardsResponseBuilderOps(val self: ListDashboardsResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListDashboardsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class ListDashboardsResponseBuilderOps(val self: ListDashboardsResponse.Bu
 final class ListDashboardsResponseOps(val self: ListDashboardsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def dashboardEntriesAsScala: Option[Seq[DashboardEntry]] = Option(self.dashboardEntries).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def dashboardEntriesAsScala: Option[Seq[DashboardEntry]] =
+    Option(self.dashboardEntries).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

@@ -8,15 +8,15 @@ import software.amazon.awssdk.services.elasticbeanstalk.{ ElasticBeanstalkClient
 
 object ElasticBeanstalkSyncClient extends ToEitherSupport {
 
-  def apply(javaClient: JavaElasticBeanstalkSyncClient): ElasticBeanstalkSyncClient = new ElasticBeanstalkSyncClient {
-    override val underlying: JavaElasticBeanstalkSyncClient = javaClient
-  }
+  def apply(javaClient: JavaElasticBeanstalkSyncClient): ElasticBeanstalkSyncClient =
+    new ElasticBeanstalkSyncClient {
+      override val underlying: JavaElasticBeanstalkSyncClient = javaClient
+    }
 
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticbeanstalk/ElasticBeanstalkClient.html
-  */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticbeanstalk/ElasticBeanstalkClient.html */
 trait ElasticBeanstalkSyncClient extends ElasticBeanstalkClient[Either[Throwable, ?]] {
   val underlying: JavaElasticBeanstalkSyncClient
 

@@ -7,16 +7,12 @@ final class TextDetectionResultBuilderOps(val self: TextDetectionResult.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): TextDetectionResult.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def textDetectionAsScala(value: Option[TextDetection]): TextDetectionResult.Builder = {
-    value.fold(self) { v =>
-      self.textDetection(v)
-    }
+    value.fold(self) { v => self.textDetection(v) }
   }
 
 }

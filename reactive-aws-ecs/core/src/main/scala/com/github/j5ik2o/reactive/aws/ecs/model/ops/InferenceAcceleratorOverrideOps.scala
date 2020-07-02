@@ -7,16 +7,12 @@ final class InferenceAcceleratorOverrideBuilderOps(val self: InferenceAccelerato
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deviceNameAsScala(value: Option[String]): InferenceAcceleratorOverride.Builder = {
-    value.fold(self) { v =>
-      self.deviceName(v)
-    }
+    value.fold(self) { v => self.deviceName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deviceTypeAsScala(value: Option[String]): InferenceAcceleratorOverride.Builder = {
-    value.fold(self) { v =>
-      self.deviceType(v)
-    }
+    value.fold(self) { v => self.deviceType(v) }
   }
 
 }

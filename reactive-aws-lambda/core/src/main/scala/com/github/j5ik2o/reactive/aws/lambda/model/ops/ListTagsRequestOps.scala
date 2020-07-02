@@ -7,9 +7,7 @@ final class ListTagsRequestBuilderOps(val self: ListTagsRequest.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceAsScala(value: Option[String]): ListTagsRequest.Builder = {
-    value.fold(self) { v =>
-      self.resource(v)
-    }
+    value.fold(self) { v => self.resource(v) }
   }
 
 }

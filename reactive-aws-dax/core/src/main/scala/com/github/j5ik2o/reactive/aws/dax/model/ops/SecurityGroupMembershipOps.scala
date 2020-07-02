@@ -7,16 +7,12 @@ final class SecurityGroupMembershipBuilderOps(val self: SecurityGroupMembership.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def securityGroupIdentifierAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
-    value.fold(self) { v =>
-      self.securityGroupIdentifier(v)
-    }
+    value.fold(self) { v => self.securityGroupIdentifier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): SecurityGroupMembership.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

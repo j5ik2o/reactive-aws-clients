@@ -7,23 +7,17 @@ final class CustomLabelBuilderOps(val self: CustomLabel.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): CustomLabel.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): CustomLabel.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def geometryAsScala(value: Option[Geometry]): CustomLabel.Builder = {
-    value.fold(self) { v =>
-      self.geometry(v)
-    }
+    value.fold(self) { v => self.geometry(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class EvaluationResultBuilderOps(val self: EvaluationResult.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def f1ScoreAsScala(value: Option[Float]): EvaluationResult.Builder = {
-    value.fold(self) { v =>
-      self.f1Score(v)
-    }
+    value.fold(self) { v => self.f1Score(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def summaryAsScala(value: Option[Summary]): EvaluationResult.Builder = {
-    value.fold(self) { v =>
-      self.summary(v)
-    }
+    value.fold(self) { v => self.summary(v) }
   }
 
 }

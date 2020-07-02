@@ -7,23 +7,17 @@ final class SendMessageBatchRequestEntryBuilderOps(val self: SendMessageBatchReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageBodyAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.messageBody(v)
-    }
+    value.fold(self) { v => self.messageBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def delaySecondsAsScala(value: Option[Int]): SendMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.delaySeconds(v)
-    }
+    value.fold(self) { v => self.delaySeconds(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -46,16 +40,12 @@ final class SendMessageBatchRequestEntryBuilderOps(val self: SendMessageBatchReq
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageDeduplicationIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.messageDeduplicationId(v)
-    }
+    value.fold(self) { v => self.messageDeduplicationId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageGroupIdAsScala(value: Option[String]): SendMessageBatchRequestEntry.Builder = {
-    value.fold(self) { v =>
-      self.messageGroupId(v)
-    }
+    value.fold(self) { v => self.messageGroupId(v) }
   }
 
 }
@@ -72,10 +62,10 @@ final class SendMessageBatchRequestEntryOps(val self: SendMessageBatchRequestEnt
   final def delaySecondsAsScala: Option[Int] = Option(self.delaySeconds)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messageAttributesAsScala: Option[Map[String, MessageAttributeValue]] = Option(self.messageAttributes).map {
-    v =>
+  final def messageAttributesAsScala: Option[Map[String, MessageAttributeValue]] =
+    Option(self.messageAttributes).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageSystemAttributesAsScala

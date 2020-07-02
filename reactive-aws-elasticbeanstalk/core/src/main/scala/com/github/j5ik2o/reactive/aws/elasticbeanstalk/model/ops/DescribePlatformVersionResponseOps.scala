@@ -8,9 +8,7 @@ final class DescribePlatformVersionResponseBuilderOps(val self: DescribePlatform
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformDescriptionAsScala(value: Option[PlatformDescription]): DescribePlatformVersionResponse.Builder = {
-    value.fold(self) { v =>
-      self.platformDescription(v)
-    }
+    value.fold(self) { v => self.platformDescription(v) }
   }
 
 }

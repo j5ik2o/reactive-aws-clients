@@ -17,7 +17,10 @@ class S3AsyncClientImplSpec extends FreeSpec with Matchers with ScalaFutures wit
       val value = "abc"
       s3Client.createBucket(CreateBucketRequest.builder().bucket("test").build()).futureValue
       s3Client
-        .putObject(PutObjectRequest.builder().bucket("test").key("test").build(), AsyncRequestBody.fromString(value)).futureValue
+        .putObject(
+          PutObjectRequest.builder().bucket("test").key("test").build(),
+          AsyncRequestBody.fromString(value)
+        ).futureValue
       val response =
         s3Client.getObjectAsBytes(GetObjectRequest.builder().bucket("test").key("test").build()).futureValue
       response.asUtf8String() shouldBe value

@@ -7,16 +7,12 @@ final class InstanceCountLimitsBuilderOps(val self: InstanceCountLimits.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minimumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
-    value.fold(self) { v =>
-      self.minimumInstanceCount(v)
-    }
+    value.fold(self) { v => self.minimumInstanceCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maximumInstanceCountAsScala(value: Option[Int]): InstanceCountLimits.Builder = {
-    value.fold(self) { v =>
-      self.maximumInstanceCount(v)
-    }
+    value.fold(self) { v => self.maximumInstanceCount(v) }
   }
 
 }

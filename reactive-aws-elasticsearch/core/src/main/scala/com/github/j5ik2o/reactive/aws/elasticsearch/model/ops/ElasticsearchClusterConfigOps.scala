@@ -7,72 +7,52 @@ final class ElasticsearchClusterConfigBuilderOps(val self: ElasticsearchClusterC
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceTypeAsScala(value: Option[ESPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.instanceType(v)
-    }
+    value.fold(self) { v => self.instanceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.instanceCount(v)
-    }
+    value.fold(self) { v => self.instanceCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dedicatedMasterEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.dedicatedMasterEnabled(v)
-    }
+    value.fold(self) { v => self.dedicatedMasterEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneAwarenessEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.zoneAwarenessEnabled(v)
-    }
+    value.fold(self) { v => self.zoneAwarenessEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def zoneAwarenessConfigAsScala(value: Option[ZoneAwarenessConfig]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.zoneAwarenessConfig(v)
-    }
+    value.fold(self) { v => self.zoneAwarenessConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dedicatedMasterTypeAsScala(value: Option[ESPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.dedicatedMasterType(v)
-    }
+    value.fold(self) { v => self.dedicatedMasterType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dedicatedMasterCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.dedicatedMasterCount(v)
-    }
+    value.fold(self) { v => self.dedicatedMasterCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def warmEnabledAsScala(value: Option[Boolean]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.warmEnabled(v)
-    }
+    value.fold(self) { v => self.warmEnabled(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def warmTypeAsScala(value: Option[ESWarmPartitionInstanceType]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.warmType(v)
-    }
+    value.fold(self) { v => self.warmType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def warmCountAsScala(value: Option[Int]): ElasticsearchClusterConfig.Builder = {
-    value.fold(self) { v =>
-      self.warmCount(v)
-    }
+    value.fold(self) { v => self.warmCount(v) }
   }
 
 }

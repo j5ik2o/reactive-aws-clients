@@ -9,27 +9,21 @@ final class PointInTimeRecoveryDescriptionBuilderOps(val self: PointInTimeRecove
   final def pointInTimeRecoveryStatusAsScala(
       value: Option[PointInTimeRecoveryStatus]
   ): PointInTimeRecoveryDescription.Builder = {
-    value.fold(self) { v =>
-      self.pointInTimeRecoveryStatus(v)
-    }
+    value.fold(self) { v => self.pointInTimeRecoveryStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def earliestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
   ): PointInTimeRecoveryDescription.Builder = {
-    value.fold(self) { v =>
-      self.earliestRestorableDateTime(v)
-    }
+    value.fold(self) { v => self.earliestRestorableDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def latestRestorableDateTimeAsScala(
       value: Option[java.time.Instant]
   ): PointInTimeRecoveryDescription.Builder = {
-    value.fold(self) { v =>
-      self.latestRestorableDateTime(v)
-    }
+    value.fold(self) { v => self.latestRestorableDateTime(v) }
   }
 
 }

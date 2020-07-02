@@ -14,9 +14,7 @@ final class LogSetupBuilderOps(val self: LogSetup.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala(value: Option[Boolean]): LogSetup.Builder = {
-    value.fold(self) { v =>
-      self.enabled(v)
-    }
+    value.fold(self) { v => self.enabled(v) }
   }
 
 }
@@ -24,9 +22,8 @@ final class LogSetupBuilderOps(val self: LogSetup.Builder) extends AnyVal {
 final class LogSetupOps(val self: LogSetup) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def typesAsScala: Option[Seq[LogType]] = Option(self.types).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def typesAsScala: Option[Seq[LogType]] =
+    Option(self.types).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enabledAsScala: Option[Boolean] = Option(self.enabled)

@@ -7,44 +7,32 @@ final class TextDetectionBuilderOps(val self: TextDetection.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def detectedTextAsScala(value: Option[String]): TextDetection.Builder = {
-    value.fold(self) { v =>
-      self.detectedText(v)
-    }
+    value.fold(self) { v => self.detectedText(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[TextTypes]): TextDetection.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[Int]): TextDetection.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parentIdAsScala(value: Option[Int]): TextDetection.Builder = {
-    value.fold(self) { v =>
-      self.parentId(v)
-    }
+    value.fold(self) { v => self.parentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): TextDetection.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def geometryAsScala(value: Option[Geometry]): TextDetection.Builder = {
-    value.fold(self) { v =>
-      self.geometry(v)
-    }
+    value.fold(self) { v => self.geometry(v) }
   }
 
 }

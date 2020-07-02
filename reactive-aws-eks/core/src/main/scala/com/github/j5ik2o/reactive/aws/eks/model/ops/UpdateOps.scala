@@ -7,23 +7,17 @@ final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): Update.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[UpdateStatus]): Update.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[UpdateType]): Update.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,9 +29,7 @@ final class UpdateBuilderOps(val self: Update.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[java.time.Instant]): Update.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -61,17 +53,15 @@ final class UpdateOps(val self: Update) extends AnyVal {
   final def typeAsScala: Option[UpdateType] = Option(self.`type`)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def paramsAsScala: Option[Seq[UpdateParam]] = Option(self.params).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def paramsAsScala: Option[Seq[UpdateParam]] =
+    Option(self.params).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala: Option[java.time.Instant] = Option(self.createdAt)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def errorsAsScala: Option[Seq[ErrorDetail]] = Option(self.errors).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def errorsAsScala: Option[Seq[ErrorDetail]] =
+    Option(self.errors).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

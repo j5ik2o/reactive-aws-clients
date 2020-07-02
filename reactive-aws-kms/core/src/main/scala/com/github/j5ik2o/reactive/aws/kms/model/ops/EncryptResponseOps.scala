@@ -7,23 +7,17 @@ final class EncryptResponseBuilderOps(val self: EncryptResponse.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): EncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.ciphertextBlob(v)
-    }
+    value.fold(self) { v => self.ciphertextBlob(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): EncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): EncryptResponse.Builder = {
-    value.fold(self) { v =>
-      self.encryptionAlgorithm(v)
-    }
+    value.fold(self) { v => self.encryptionAlgorithm(v) }
   }
 
 }

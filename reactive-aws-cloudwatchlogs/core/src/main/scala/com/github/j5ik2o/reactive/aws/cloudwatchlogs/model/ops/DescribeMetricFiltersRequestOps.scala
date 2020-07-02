@@ -7,44 +7,32 @@ final class DescribeMetricFiltersRequestBuilderOps(val self: DescribeMetricFilte
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def filterNamePrefixAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
-    value.fold(self) { v =>
-      self.filterNamePrefix(v)
-    }
+    value.fold(self) { v => self.filterNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeMetricFiltersRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNameAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricName(v)
-    }
+    value.fold(self) { v => self.metricName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def metricNamespaceAsScala(value: Option[String]): DescribeMetricFiltersRequest.Builder = {
-    value.fold(self) { v =>
-      self.metricNamespace(v)
-    }
+    value.fold(self) { v => self.metricNamespace(v) }
   }
 
 }

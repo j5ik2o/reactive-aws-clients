@@ -7,23 +7,17 @@ final class LayerFailureBuilderOps(val self: LayerFailure.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestAsScala(value: Option[String]): LayerFailure.Builder = {
-    value.fold(self) { v =>
-      self.layerDigest(v)
-    }
+    value.fold(self) { v => self.layerDigest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureCodeAsScala(value: Option[LayerFailureCode]): LayerFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureCode(v)
-    }
+    value.fold(self) { v => self.failureCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def failureReasonAsScala(value: Option[String]): LayerFailure.Builder = {
-    value.fold(self) { v =>
-      self.failureReason(v)
-    }
+    value.fold(self) { v => self.failureReason(v) }
   }
 
 }

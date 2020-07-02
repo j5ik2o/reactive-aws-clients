@@ -7,16 +7,12 @@ final class ContentModerationDetectionBuilderOps(val self: ContentModerationDete
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[Long]): ContentModerationDetection.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationLabelAsScala(value: Option[ModerationLabel]): ContentModerationDetection.Builder = {
-    value.fold(self) { v =>
-      self.moderationLabel(v)
-    }
+    value.fold(self) { v => self.moderationLabel(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class AddPermissionResponseBuilderOps(val self: AddPermissionResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statementAsScala(value: Option[String]): AddPermissionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statement(v)
-    }
+    value.fold(self) { v => self.statement(v) }
   }
 
 }

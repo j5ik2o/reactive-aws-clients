@@ -7,9 +7,7 @@ final class CreateServiceResponseBuilderOps(val self: CreateServiceResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceAsScala(value: Option[Service]): CreateServiceResponse.Builder = {
-    value.fold(self) { v =>
-      self.service(v)
-    }
+    value.fold(self) { v => self.service(v) }
   }
 
 }

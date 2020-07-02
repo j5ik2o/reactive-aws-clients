@@ -14,9 +14,7 @@ final class EnvironmentResponseBuilderOps(val self: EnvironmentResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorAsScala(value: Option[EnvironmentError]): EnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.error(v)
-    }
+    value.fold(self) { v => self.error(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class EnvironmentResponseBuilderOps(val self: EnvironmentResponse.Builder)
 final class EnvironmentResponseOps(val self: EnvironmentResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def variablesAsScala: Option[Map[String, String]] = Option(self.variables).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def variablesAsScala: Option[Map[String, String]] =
+    Option(self.variables).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorAsScala: Option[EnvironmentError] = Option(self.error)

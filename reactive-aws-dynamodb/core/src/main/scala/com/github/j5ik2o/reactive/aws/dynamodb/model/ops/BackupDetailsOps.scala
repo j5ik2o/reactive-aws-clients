@@ -7,51 +7,37 @@ final class BackupDetailsBuilderOps(val self: BackupDetails.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupArnAsScala(value: Option[String]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupArn(v)
-    }
+    value.fold(self) { v => self.backupArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupNameAsScala(value: Option[String]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupName(v)
-    }
+    value.fold(self) { v => self.backupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupSizeBytesAsScala(value: Option[Long]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupSizeBytes(v)
-    }
+    value.fold(self) { v => self.backupSizeBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupStatusAsScala(value: Option[BackupStatus]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupStatus(v)
-    }
+    value.fold(self) { v => self.backupStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupTypeAsScala(value: Option[BackupType]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupType(v)
-    }
+    value.fold(self) { v => self.backupType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupCreationDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupCreationDateTime(v)
-    }
+    value.fold(self) { v => self.backupCreationDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def backupExpiryDateTimeAsScala(value: Option[java.time.Instant]): BackupDetails.Builder = {
-    value.fold(self) { v =>
-      self.backupExpiryDateTime(v)
-    }
+    value.fold(self) { v => self.backupExpiryDateTime(v) }
   }
 
 }

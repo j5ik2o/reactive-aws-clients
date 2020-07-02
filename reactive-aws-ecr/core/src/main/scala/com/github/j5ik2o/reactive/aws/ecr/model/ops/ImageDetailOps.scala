@@ -7,23 +7,17 @@ final class ImageDetailBuilderOps(val self: ImageDetail.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageDigestAsScala(value: Option[String]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.imageDigest(v)
-    }
+    value.fold(self) { v => self.imageDigest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,30 +29,22 @@ final class ImageDetailBuilderOps(val self: ImageDetail.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageSizeInBytesAsScala(value: Option[Long]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.imageSizeInBytes(v)
-    }
+    value.fold(self) { v => self.imageSizeInBytes(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imagePushedAtAsScala(value: Option[java.time.Instant]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.imagePushedAt(v)
-    }
+    value.fold(self) { v => self.imagePushedAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanStatusAsScala(value: Option[ImageScanStatus]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.imageScanStatus(v)
-    }
+    value.fold(self) { v => self.imageScanStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanFindingsSummaryAsScala(value: Option[ImageScanFindingsSummary]): ImageDetail.Builder = {
-    value.fold(self) { v =>
-      self.imageScanFindingsSummary(v)
-    }
+    value.fold(self) { v => self.imageScanFindingsSummary(v) }
   }
 
 }
@@ -75,9 +61,8 @@ final class ImageDetailOps(val self: ImageDetail) extends AnyVal {
   final def imageDigestAsScala: Option[String] = Option(self.imageDigest)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def imageTagsAsScala: Option[Seq[String]] = Option(self.imageTags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def imageTagsAsScala: Option[Seq[String]] =
+    Option(self.imageTags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageSizeInBytesAsScala: Option[Long] = Option(self.imageSizeInBytes)

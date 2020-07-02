@@ -7,23 +7,17 @@ final class ExpectedAttributeValueBuilderOps(val self: ExpectedAttributeValue.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[AttributeValue]): ExpectedAttributeValue.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def existsAsScala(value: Option[Boolean]): ExpectedAttributeValue.Builder = {
-    value.fold(self) { v =>
-      self.exists(v)
-    }
+    value.fold(self) { v => self.exists(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def comparisonOperatorAsScala(value: Option[ComparisonOperator]): ExpectedAttributeValue.Builder = {
-    value.fold(self) { v =>
-      self.comparisonOperator(v)
-    }
+    value.fold(self) { v => self.comparisonOperator(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,9 +41,10 @@ final class ExpectedAttributeValueOps(val self: ExpectedAttributeValue) extends 
   final def comparisonOperatorAsScala: Option[ComparisonOperator] = Option(self.comparisonOperator)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def attributeValueListAsScala: Option[Seq[AttributeValue]] = Option(self.attributeValueList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def attributeValueListAsScala: Option[Seq[AttributeValue]] =
+    Option(self.attributeValueList).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

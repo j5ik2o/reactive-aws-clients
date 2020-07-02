@@ -8,9 +8,7 @@ final class DescribeStackSetOperationResponseBuilderOps(val self: DescribeStackS
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetOperationAsScala(value: Option[StackSetOperation]): DescribeStackSetOperationResponse.Builder = {
-    value.fold(self) { v =>
-      self.stackSetOperation(v)
-    }
+    value.fold(self) { v => self.stackSetOperation(v) }
   }
 
 }

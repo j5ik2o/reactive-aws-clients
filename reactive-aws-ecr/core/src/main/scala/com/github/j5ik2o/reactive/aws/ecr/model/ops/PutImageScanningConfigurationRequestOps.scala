@@ -8,25 +8,19 @@ final class PutImageScanningConfigurationRequestBuilderOps(val self: PutImageSca
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): PutImageScanningConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): PutImageScanningConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanningConfigurationAsScala(
       value: Option[ImageScanningConfiguration]
   ): PutImageScanningConfigurationRequest.Builder = {
-    value.fold(self) { v =>
-      self.imageScanningConfiguration(v)
-    }
+    value.fold(self) { v => self.imageScanningConfiguration(v) }
   }
 
 }

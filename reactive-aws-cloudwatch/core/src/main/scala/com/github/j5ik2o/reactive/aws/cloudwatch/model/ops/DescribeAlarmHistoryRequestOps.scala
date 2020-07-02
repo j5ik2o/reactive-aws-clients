@@ -7,9 +7,7 @@ final class DescribeAlarmHistoryRequestBuilderOps(val self: DescribeAlarmHistory
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def alarmNameAsScala(value: Option[String]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.alarmName(v)
-    }
+    value.fold(self) { v => self.alarmName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,44 +19,32 @@ final class DescribeAlarmHistoryRequestBuilderOps(val self: DescribeAlarmHistory
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historyItemTypeAsScala(value: Option[HistoryItemType]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.historyItemType(v)
-    }
+    value.fold(self) { v => self.historyItemType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startDateAsScala(value: Option[java.time.Instant]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.startDate(v)
-    }
+    value.fold(self) { v => self.startDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endDateAsScala(value: Option[java.time.Instant]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.endDate(v)
-    }
+    value.fold(self) { v => self.endDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxRecordsAsScala(value: Option[Int]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxRecords(v)
-    }
+    value.fold(self) { v => self.maxRecords(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def scanByAsScala(value: Option[ScanBy]): DescribeAlarmHistoryRequest.Builder = {
-    value.fold(self) { v =>
-      self.scanBy(v)
-    }
+    value.fold(self) { v => self.scanBy(v) }
   }
 
 }
@@ -69,9 +55,8 @@ final class DescribeAlarmHistoryRequestOps(val self: DescribeAlarmHistoryRequest
   final def alarmNameAsScala: Option[String] = Option(self.alarmName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def alarmTypesAsScala: Option[Seq[AlarmType]] = Option(self.alarmTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def alarmTypesAsScala: Option[Seq[AlarmType]] =
+    Option(self.alarmTypes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def historyItemTypeAsScala: Option[HistoryItemType] = Option(self.historyItemType)

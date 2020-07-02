@@ -7,37 +7,27 @@ final class CreateProjectVersionRequestBuilderOps(val self: CreateProjectVersion
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def projectArnAsScala(value: Option[String]): CreateProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.projectArn(v)
-    }
+    value.fold(self) { v => self.projectArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNameAsScala(value: Option[String]): CreateProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionName(v)
-    }
+    value.fold(self) { v => self.versionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputConfigAsScala(value: Option[OutputConfig]): CreateProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.outputConfig(v)
-    }
+    value.fold(self) { v => self.outputConfig(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def trainingDataAsScala(value: Option[TrainingData]): CreateProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.trainingData(v)
-    }
+    value.fold(self) { v => self.trainingData(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def testingDataAsScala(value: Option[TestingData]): CreateProjectVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.testingData(v)
-    }
+    value.fold(self) { v => self.testingData(v) }
   }
 
 }

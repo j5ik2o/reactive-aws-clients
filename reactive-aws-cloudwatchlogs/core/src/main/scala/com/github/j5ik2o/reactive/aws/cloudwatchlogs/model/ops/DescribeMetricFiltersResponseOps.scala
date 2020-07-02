@@ -14,9 +14,7 @@ final class DescribeMetricFiltersResponseBuilderOps(val self: DescribeMetricFilt
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeMetricFiltersResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }
@@ -24,9 +22,10 @@ final class DescribeMetricFiltersResponseBuilderOps(val self: DescribeMetricFilt
 final class DescribeMetricFiltersResponseOps(val self: DescribeMetricFiltersResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricFiltersAsScala: Option[Seq[MetricFilter]] = Option(self.metricFilters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricFiltersAsScala: Option[Seq[MetricFilter]] =
+    Option(self.metricFilters).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

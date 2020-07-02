@@ -7,23 +7,17 @@ final class CreateCollectionResponseBuilderOps(val self: CreateCollectionRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusCodeAsScala(value: Option[Int]): CreateCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusCode(v)
-    }
+    value.fold(self) { v => self.statusCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionArnAsScala(value: Option[String]): CreateCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.collectionArn(v)
-    }
+    value.fold(self) { v => self.collectionArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala(value: Option[String]): CreateCollectionResponse.Builder = {
-    value.fold(self) { v =>
-      self.faceModelVersion(v)
-    }
+    value.fold(self) { v => self.faceModelVersion(v) }
   }
 
 }

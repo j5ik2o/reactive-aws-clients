@@ -9,9 +9,10 @@ import monix.reactive.Observable
 
 object BatchMonixClient {
 
-  def apply(asyncClient: BatchAsyncClient): BatchMonixClient = new BatchMonixClient {
-    override val underlying: BatchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: BatchAsyncClient): BatchMonixClient =
+    new BatchMonixClient {
+      override val underlying: BatchAsyncClient = asyncClient
+    }
 
 }
 

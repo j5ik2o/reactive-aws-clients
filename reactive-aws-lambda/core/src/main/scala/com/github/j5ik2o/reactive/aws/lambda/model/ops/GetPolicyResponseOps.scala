@@ -7,16 +7,12 @@ final class GetPolicyResponseBuilderOps(val self: GetPolicyResponse.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala(value: Option[String]): GetPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.policy(v)
-    }
+    value.fold(self) { v => self.policy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def revisionIdAsScala(value: Option[String]): GetPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.revisionId(v)
-    }
+    value.fold(self) { v => self.revisionId(v) }
   }
 
 }

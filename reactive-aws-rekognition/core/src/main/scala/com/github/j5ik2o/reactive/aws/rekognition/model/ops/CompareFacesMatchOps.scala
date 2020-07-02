@@ -7,16 +7,12 @@ final class CompareFacesMatchBuilderOps(val self: CompareFacesMatch.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def similarityAsScala(value: Option[Float]): CompareFacesMatch.Builder = {
-    value.fold(self) { v =>
-      self.similarity(v)
-    }
+    value.fold(self) { v => self.similarity(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceAsScala(value: Option[ComparedFace]): CompareFacesMatch.Builder = {
-    value.fold(self) { v =>
-      self.face(v)
-    }
+    value.fold(self) { v => self.face(v) }
   }
 
 }

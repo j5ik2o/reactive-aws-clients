@@ -17,9 +17,10 @@ final class GetLogGroupFieldsResponseBuilderOps(val self: GetLogGroupFieldsRespo
 final class GetLogGroupFieldsResponseOps(val self: GetLogGroupFieldsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def logGroupFieldsAsScala: Option[Seq[LogGroupField]] = Option(self.logGroupFields).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def logGroupFieldsAsScala: Option[Seq[LogGroupField]] =
+    Option(self.logGroupFields).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

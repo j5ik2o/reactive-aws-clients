@@ -8,16 +8,12 @@ final class DeleteConfigurationTemplateRequestBuilderOps(val self: DeleteConfigu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): DeleteConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): DeleteConfigurationTemplateRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
 }

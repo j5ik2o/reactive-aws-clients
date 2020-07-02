@@ -7,16 +7,12 @@ final class WriteRequestBuilderOps(val self: WriteRequest.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def putRequestAsScala(value: Option[PutRequest]): WriteRequest.Builder = {
-    value.fold(self) { v =>
-      self.putRequest(v)
-    }
+    value.fold(self) { v => self.putRequest(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deleteRequestAsScala(value: Option[DeleteRequest]): WriteRequest.Builder = {
-    value.fold(self) { v =>
-      self.deleteRequest(v)
-    }
+    value.fold(self) { v => self.deleteRequest(v) }
   }
 
 }

@@ -7,30 +7,22 @@ final class CreateStackSetRequestBuilderOps(val self: CreateStackSetRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateBodyAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateBody(v)
-    }
+    value.fold(self) { v => self.templateBody(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateURLAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateURL(v)
-    }
+    value.fold(self) { v => self.templateURL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -56,37 +48,27 @@ final class CreateStackSetRequestBuilderOps(val self: CreateStackSetRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def administrationRoleARNAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.administrationRoleARN(v)
-    }
+    value.fold(self) { v => self.administrationRoleARN(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def executionRoleNameAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.executionRoleName(v)
-    }
+    value.fold(self) { v => self.executionRoleName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def permissionModelAsScala(value: Option[PermissionModels]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.permissionModel(v)
-    }
+    value.fold(self) { v => self.permissionModel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoDeploymentAsScala(value: Option[AutoDeployment]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.autoDeployment(v)
-    }
+    value.fold(self) { v => self.autoDeployment(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): CreateStackSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
 }
@@ -106,19 +88,16 @@ final class CreateStackSetRequestOps(val self: CreateStackSetRequest) extends An
   final def templateURLAsScala: Option[String] = Option(self.templateURL)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parametersAsScala: Option[Seq[Parameter]] = Option(self.parameters).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parametersAsScala: Option[Seq[Parameter]] =
+    Option(self.parameters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def capabilitiesAsScala: Option[Seq[Capability]] = Option(self.capabilities).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def capabilitiesAsScala: Option[Seq[Capability]] =
+    Option(self.capabilities).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def administrationRoleARNAsScala: Option[String] = Option(self.administrationRoleARN)

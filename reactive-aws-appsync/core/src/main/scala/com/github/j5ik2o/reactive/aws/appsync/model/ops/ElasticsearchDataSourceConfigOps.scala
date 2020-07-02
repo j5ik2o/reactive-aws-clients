@@ -7,16 +7,12 @@ final class ElasticsearchDataSourceConfigBuilderOps(val self: ElasticsearchDataS
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.endpoint(v)
-    }
+    value.fold(self) { v => self.endpoint(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def awsRegionAsScala(value: Option[String]): ElasticsearchDataSourceConfig.Builder = {
-    value.fold(self) { v =>
-      self.awsRegion(v)
-    }
+    value.fold(self) { v => self.awsRegion(v) }
   }
 
 }

@@ -7,128 +7,92 @@ final class CreateEnvironmentResponseBuilderOps(val self: CreateEnvironmentRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentIdAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.environmentId(v)
-    }
+    value.fold(self) { v => self.environmentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def solutionStackNameAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.solutionStackName(v)
-    }
+    value.fold(self) { v => self.solutionStackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointURLAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.endpointURL(v)
-    }
+    value.fold(self) { v => self.endpointURL(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cnameAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.cname(v)
-    }
+    value.fold(self) { v => self.cname(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateCreatedAsScala(value: Option[java.time.Instant]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.dateCreated(v)
-    }
+    value.fold(self) { v => self.dateCreated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.dateUpdated(v)
-    }
+    value.fold(self) { v => self.dateUpdated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[EnvironmentStatus]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def abortableOperationInProgressAsScala(value: Option[Boolean]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.abortableOperationInProgress(v)
-    }
+    value.fold(self) { v => self.abortableOperationInProgress(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def healthAsScala(value: Option[EnvironmentHealth]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.health(v)
-    }
+    value.fold(self) { v => self.health(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def healthStatusAsScala(value: Option[EnvironmentHealthStatus]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.healthStatus(v)
-    }
+    value.fold(self) { v => self.healthStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourcesAsScala(value: Option[EnvironmentResourcesDescription]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.resources(v)
-    }
+    value.fold(self) { v => self.resources(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tierAsScala(value: Option[EnvironmentTier]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.tier(v)
-    }
+    value.fold(self) { v => self.tier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -140,9 +104,7 @@ final class CreateEnvironmentResponseBuilderOps(val self: CreateEnvironmentRespo
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentArnAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.environmentArn(v)
-    }
+    value.fold(self) { v => self.environmentArn(v) }
   }
 
 }
@@ -204,9 +166,10 @@ final class CreateEnvironmentResponseOps(val self: CreateEnvironmentResponse) ex
   final def tierAsScala: Option[EnvironmentTier] = Option(self.tier)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def environmentLinksAsScala: Option[Seq[EnvironmentLink]] = Option(self.environmentLinks).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def environmentLinksAsScala: Option[Seq[EnvironmentLink]] =
+    Option(self.environmentLinks).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentArnAsScala: Option[String] = Option(self.environmentArn)

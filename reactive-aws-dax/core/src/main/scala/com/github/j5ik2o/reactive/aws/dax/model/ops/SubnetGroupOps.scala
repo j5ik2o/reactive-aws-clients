@@ -7,23 +7,17 @@ final class SubnetGroupBuilderOps(val self: SubnetGroup.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetGroupNameAsScala(value: Option[String]): SubnetGroup.Builder = {
-    value.fold(self) { v =>
-      self.subnetGroupName(v)
-    }
+    value.fold(self) { v => self.subnetGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): SubnetGroup.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def vpcIdAsScala(value: Option[String]): SubnetGroup.Builder = {
-    value.fold(self) { v =>
-      self.vpcId(v)
-    }
+    value.fold(self) { v => self.vpcId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,9 +41,8 @@ final class SubnetGroupOps(val self: SubnetGroup) extends AnyVal {
   final def vpcIdAsScala: Option[String] = Option(self.vpcId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetsAsScala: Option[Seq[Subnet]] = Option(self.subnets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetsAsScala: Option[Seq[Subnet]] =
+    Option(self.subnets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

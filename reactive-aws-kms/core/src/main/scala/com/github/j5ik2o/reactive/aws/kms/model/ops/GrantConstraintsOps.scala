@@ -24,16 +24,16 @@ final class GrantConstraintsBuilderOps(val self: GrantConstraints.Builder) exten
 final class GrantConstraintsOps(val self: GrantConstraints) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptionContextSubsetAsScala: Option[Map[String, String]] = Option(self.encryptionContextSubset).map {
-    v =>
+  final def encryptionContextSubsetAsScala: Option[Map[String, String]] =
+    Option(self.encryptionContextSubset).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptionContextEqualsAsScala: Option[Map[String, String]] = Option(self.encryptionContextEquals).map {
-    v =>
+  final def encryptionContextEqualsAsScala: Option[Map[String, String]] =
+    Option(self.encryptionContextEquals).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
 }
 

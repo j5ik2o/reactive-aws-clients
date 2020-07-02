@@ -7,16 +7,12 @@ final class InventoryEncryptionBuilderOps(val self: InventoryEncryption.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sses3AsScala(value: Option[SSES3]): InventoryEncryption.Builder = {
-    value.fold(self) { v =>
-      self.sses3(v)
-    }
+    value.fold(self) { v => self.sses3(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ssekmsAsScala(value: Option[SSEKMS]): InventoryEncryption.Builder = {
-    value.fold(self) { v =>
-      self.ssekms(v)
-    }
+    value.fold(self) { v => self.ssekms(v) }
   }
 
 }

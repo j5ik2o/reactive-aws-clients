@@ -7,9 +7,7 @@ final class DescribeSubnetGroupsResponseBuilderOps(val self: DescribeSubnetGroup
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeSubnetGroupsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class DescribeSubnetGroupsResponseOps(val self: DescribeSubnetGroupsRespon
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetGroupsAsScala: Option[Seq[SubnetGroup]] = Option(self.subnetGroups).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetGroupsAsScala: Option[Seq[SubnetGroup]] =
+    Option(self.subnetGroups).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

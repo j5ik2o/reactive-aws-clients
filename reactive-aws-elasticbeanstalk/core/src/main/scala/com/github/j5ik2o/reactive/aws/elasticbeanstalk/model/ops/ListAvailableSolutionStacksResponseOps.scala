@@ -27,15 +27,16 @@ final class ListAvailableSolutionStacksResponseBuilderOps(val self: ListAvailabl
 final class ListAvailableSolutionStacksResponseOps(val self: ListAvailableSolutionStacksResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def solutionStacksAsScala: Option[Seq[String]] = Option(self.solutionStacks).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def solutionStacksAsScala: Option[Seq[String]] =
+    Option(self.solutionStacks).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def solutionStackDetailsAsScala: Option[Seq[SolutionStackDescription]] = Option(self.solutionStackDetails).map {
-    v =>
+  final def solutionStackDetailsAsScala: Option[Seq[SolutionStackDescription]] =
+    Option(self.solutionStackDetails).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
 }
 

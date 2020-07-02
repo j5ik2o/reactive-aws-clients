@@ -7,9 +7,7 @@ final class DeleteMessageBatchResultEntryBuilderOps(val self: DeleteMessageBatch
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def idAsScala(value: Option[String]): DeleteMessageBatchResultEntry.Builder = {
-    value.fold(self) { v =>
-      self.id(v)
-    }
+    value.fold(self) { v => self.id(v) }
   }
 
 }

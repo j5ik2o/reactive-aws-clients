@@ -7,44 +7,32 @@ final class NodeBuilderOps(val self: Node.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeIdAsScala(value: Option[String]): Node.Builder = {
-    value.fold(self) { v =>
-      self.nodeId(v)
-    }
+    value.fold(self) { v => self.nodeId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[Endpoint]): Node.Builder = {
-    value.fold(self) { v =>
-      self.endpoint(v)
-    }
+    value.fold(self) { v => self.endpoint(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeCreateTimeAsScala(value: Option[java.time.Instant]): Node.Builder = {
-    value.fold(self) { v =>
-      self.nodeCreateTime(v)
-    }
+    value.fold(self) { v => self.nodeCreateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala(value: Option[String]): Node.Builder = {
-    value.fold(self) { v =>
-      self.availabilityZone(v)
-    }
+    value.fold(self) { v => self.availabilityZone(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nodeStatusAsScala(value: Option[String]): Node.Builder = {
-    value.fold(self) { v =>
-      self.nodeStatus(v)
-    }
+    value.fold(self) { v => self.nodeStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupStatusAsScala(value: Option[String]): Node.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupStatus(v)
-    }
+    value.fold(self) { v => self.parameterGroupStatus(v) }
   }
 
 }

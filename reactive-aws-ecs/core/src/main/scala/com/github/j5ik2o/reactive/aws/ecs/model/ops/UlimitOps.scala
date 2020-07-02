@@ -7,23 +7,17 @@ final class UlimitBuilderOps(val self: Ulimit.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[UlimitName]): Ulimit.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def softLimitAsScala(value: Option[Int]): Ulimit.Builder = {
-    value.fold(self) { v =>
-      self.softLimit(v)
-    }
+    value.fold(self) { v => self.softLimit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def hardLimitAsScala(value: Option[Int]): Ulimit.Builder = {
-    value.fold(self) { v =>
-      self.hardLimit(v)
-    }
+    value.fold(self) { v => self.hardLimit(v) }
   }
 
 }

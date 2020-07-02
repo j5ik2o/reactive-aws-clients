@@ -7,16 +7,12 @@ final class GetLayerVersionRequestBuilderOps(val self: GetLayerVersionRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerNameAsScala(value: Option[String]): GetLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.layerName(v)
-    }
+    value.fold(self) { v => self.layerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionNumberAsScala(value: Option[Long]): GetLayerVersionRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionNumber(v)
-    }
+    value.fold(self) { v => self.versionNumber(v) }
   }
 
 }

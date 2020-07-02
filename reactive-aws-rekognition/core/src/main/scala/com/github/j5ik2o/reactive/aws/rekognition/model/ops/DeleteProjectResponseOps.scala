@@ -7,9 +7,7 @@ final class DeleteProjectResponseBuilderOps(val self: DeleteProjectResponse.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ProjectStatus]): DeleteProjectResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

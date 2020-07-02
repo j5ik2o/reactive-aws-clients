@@ -7,37 +7,27 @@ final class ResourceChangeBuilderOps(val self: ResourceChange.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionAsScala(value: Option[ChangeAction]): ResourceChange.Builder = {
-    value.fold(self) { v =>
-      self.action(v)
-    }
+    value.fold(self) { v => self.action(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): ResourceChange.Builder = {
-    value.fold(self) { v =>
-      self.logicalResourceId(v)
-    }
+    value.fold(self) { v => self.logicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def physicalResourceIdAsScala(value: Option[String]): ResourceChange.Builder = {
-    value.fold(self) { v =>
-      self.physicalResourceId(v)
-    }
+    value.fold(self) { v => self.physicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(value: Option[String]): ResourceChange.Builder = {
-    value.fold(self) { v =>
-      self.resourceType(v)
-    }
+    value.fold(self) { v => self.resourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def replacementAsScala(value: Option[Replacement]): ResourceChange.Builder = {
-    value.fold(self) { v =>
-      self.replacement(v)
-    }
+    value.fold(self) { v => self.replacement(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -74,14 +64,12 @@ final class ResourceChangeOps(val self: ResourceChange) extends AnyVal {
   final def replacementAsScala: Option[Replacement] = Option(self.replacement)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def scopeAsScala: Option[Seq[ResourceAttribute]] = Option(self.scope).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def scopeAsScala: Option[Seq[ResourceAttribute]] =
+    Option(self.scope).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def detailsAsScala: Option[Seq[ResourceChangeDetail]] = Option(self.details).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def detailsAsScala: Option[Seq[ResourceChangeDetail]] =
+    Option(self.details).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

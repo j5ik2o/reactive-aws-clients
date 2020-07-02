@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 object DynamoDbStreamsAkkaClient {
 
-  def apply(asyncClient: DynamoDbStreamsAsyncClient): DynamoDbStreamsAkkaClient = new DynamoDbStreamsAkkaClient {
-    override val underlying: DynamoDbStreamsAsyncClient = asyncClient
-  }
+  def apply(asyncClient: DynamoDbStreamsAsyncClient): DynamoDbStreamsAkkaClient =
+    new DynamoDbStreamsAkkaClient {
+      override val underlying: DynamoDbStreamsAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

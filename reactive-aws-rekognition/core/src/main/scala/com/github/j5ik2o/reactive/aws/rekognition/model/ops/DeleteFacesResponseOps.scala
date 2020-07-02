@@ -17,9 +17,8 @@ final class DeleteFacesResponseBuilderOps(val self: DeleteFacesResponse.Builder)
 final class DeleteFacesResponseOps(val self: DeleteFacesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def deletedFacesAsScala: Option[Seq[String]] = Option(self.deletedFaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def deletedFacesAsScala: Option[Seq[String]] =
+    Option(self.deletedFaces).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

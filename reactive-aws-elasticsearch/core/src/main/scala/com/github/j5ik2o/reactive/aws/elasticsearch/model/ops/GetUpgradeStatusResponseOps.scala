@@ -7,23 +7,17 @@ final class GetUpgradeStatusResponseBuilderOps(val self: GetUpgradeStatusRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStepAsScala(value: Option[UpgradeStep]): GetUpgradeStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.upgradeStep(v)
-    }
+    value.fold(self) { v => self.upgradeStep(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stepStatusAsScala(value: Option[UpgradeStatus]): GetUpgradeStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.stepStatus(v)
-    }
+    value.fold(self) { v => self.stepStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeNameAsScala(value: Option[String]): GetUpgradeStatusResponse.Builder = {
-    value.fold(self) { v =>
-      self.upgradeName(v)
-    }
+    value.fold(self) { v => self.upgradeName(v) }
   }
 
 }

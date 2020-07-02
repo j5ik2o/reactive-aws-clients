@@ -14,16 +14,12 @@ final class GenerateDataKeyPairRequestBuilderOps(val self: GenerateDataKeyPairRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GenerateDataKeyPairRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyPairSpecAsScala(value: Option[DataKeyPairSpec]): GenerateDataKeyPairRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyPairSpec(v)
-    }
+    value.fold(self) { v => self.keyPairSpec(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -38,9 +34,10 @@ final class GenerateDataKeyPairRequestBuilderOps(val self: GenerateDataKeyPairRe
 final class GenerateDataKeyPairRequestOps(val self: GenerateDataKeyPairRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def encryptionContextAsScala: Option[Map[String, String]] = Option(self.encryptionContext).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def encryptionContextAsScala: Option[Map[String, String]] =
+    Option(self.encryptionContext).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala: Option[String] = Option(self.keyId)
@@ -49,9 +46,8 @@ final class GenerateDataKeyPairRequestOps(val self: GenerateDataKeyPairRequest) 
   final def keyPairSpecAsScala: Option[DataKeyPairSpec] = Option(self.keyPairSpec)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

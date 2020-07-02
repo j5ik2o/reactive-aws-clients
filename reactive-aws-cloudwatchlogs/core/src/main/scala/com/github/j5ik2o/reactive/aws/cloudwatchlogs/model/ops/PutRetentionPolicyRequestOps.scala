@@ -7,16 +7,12 @@ final class PutRetentionPolicyRequestBuilderOps(val self: PutRetentionPolicyRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): PutRetentionPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retentionInDaysAsScala(value: Option[Int]): PutRetentionPolicyRequest.Builder = {
-    value.fold(self) { v =>
-      self.retentionInDays(v)
-    }
+    value.fold(self) { v => self.retentionInDays(v) }
   }
 
 }

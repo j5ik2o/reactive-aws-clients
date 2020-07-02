@@ -7,9 +7,7 @@ final class DeadLetterConfigBuilderOps(val self: DeadLetterConfig.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetArnAsScala(value: Option[String]): DeadLetterConfig.Builder = {
-    value.fold(self) { v =>
-      self.targetArn(v)
-    }
+    value.fold(self) { v => self.targetArn(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class AccountUsageBuilderOps(val self: AccountUsage.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def totalCodeSizeAsScala(value: Option[Long]): AccountUsage.Builder = {
-    value.fold(self) { v =>
-      self.totalCodeSize(v)
-    }
+    value.fold(self) { v => self.totalCodeSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionCountAsScala(value: Option[Long]): AccountUsage.Builder = {
-    value.fold(self) { v =>
-      self.functionCount(v)
-    }
+    value.fold(self) { v => self.functionCount(v) }
   }
 
 }

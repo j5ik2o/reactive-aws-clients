@@ -8,37 +8,27 @@ final class CreateComputeEnvironmentRequestBuilderOps(val self: CreateComputeEnv
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentNameAsScala(value: Option[String]): CreateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.computeEnvironmentName(v)
-    }
+    value.fold(self) { v => self.computeEnvironmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[CEType]): CreateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[CEState]): CreateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeResourcesAsScala(value: Option[ComputeResource]): CreateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.computeResources(v)
-    }
+    value.fold(self) { v => self.computeResources(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def serviceRoleAsScala(value: Option[String]): CreateComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.serviceRole(v)
-    }
+    value.fold(self) { v => self.serviceRole(v) }
   }
 
 }

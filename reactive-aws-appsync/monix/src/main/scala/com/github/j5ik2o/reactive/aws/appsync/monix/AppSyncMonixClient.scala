@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object AppSyncMonixClient {
 
-  def apply(asyncClient: AppSyncAsyncClient): AppSyncMonixClient = new AppSyncMonixClient {
-    override val underlying: AppSyncAsyncClient = asyncClient
-  }
+  def apply(asyncClient: AppSyncAsyncClient): AppSyncMonixClient =
+    new AppSyncMonixClient {
+      override val underlying: AppSyncAsyncClient = asyncClient
+    }
 
 }
 

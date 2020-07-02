@@ -7,37 +7,27 @@ final class ListTypesRequestBuilderOps(val self: ListTypesRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def visibilityAsScala(value: Option[Visibility]): ListTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.visibility(v)
-    }
+    value.fold(self) { v => self.visibility(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def provisioningTypeAsScala(value: Option[ProvisioningType]): ListTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.provisioningType(v)
-    }
+    value.fold(self) { v => self.provisioningType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deprecatedStatusAsScala(value: Option[DeprecatedStatus]): ListTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.deprecatedStatus(v)
-    }
+    value.fold(self) { v => self.deprecatedStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala(value: Option[Int]): ListTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxResults(v)
-    }
+    value.fold(self) { v => self.maxResults(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): ListTypesRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

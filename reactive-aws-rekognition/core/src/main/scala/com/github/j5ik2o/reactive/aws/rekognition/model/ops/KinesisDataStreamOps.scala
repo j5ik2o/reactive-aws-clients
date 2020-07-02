@@ -7,9 +7,7 @@ final class KinesisDataStreamBuilderOps(val self: KinesisDataStream.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): KinesisDataStream.Builder = {
-    value.fold(self) { v =>
-      self.arn(v)
-    }
+    value.fold(self) { v => self.arn(v) }
   }
 
 }

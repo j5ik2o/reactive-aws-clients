@@ -10,9 +10,7 @@ final class DescribeElasticsearchDomainResponseBuilderOps(val self: DescribeElas
   final def domainStatusAsScala(
       value: Option[ElasticsearchDomainStatus]
   ): DescribeElasticsearchDomainResponse.Builder = {
-    value.fold(self) { v =>
-      self.domainStatus(v)
-    }
+    value.fold(self) { v => self.domainStatus(v) }
   }
 
 }

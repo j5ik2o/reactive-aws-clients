@@ -7,23 +7,17 @@ final class PutDestinationRequestBuilderOps(val self: PutDestinationRequest.Buil
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationNameAsScala(value: Option[String]): PutDestinationRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationName(v)
-    }
+    value.fold(self) { v => self.destinationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetArnAsScala(value: Option[String]): PutDestinationRequest.Builder = {
-    value.fold(self) { v =>
-      self.targetArn(v)
-    }
+    value.fold(self) { v => self.targetArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleArnAsScala(value: Option[String]): PutDestinationRequest.Builder = {
-    value.fold(self) { v =>
-      self.roleArn(v)
-    }
+    value.fold(self) { v => self.roleArn(v) }
   }
 
 }

@@ -14,16 +14,12 @@ final class ListKeyPoliciesResponseBuilderOps(val self: ListKeyPoliciesResponse.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListKeyPoliciesResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def truncatedAsScala(value: Option[Boolean]): ListKeyPoliciesResponse.Builder = {
-    value.fold(self) { v =>
-      self.truncated(v)
-    }
+    value.fold(self) { v => self.truncated(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class ListKeyPoliciesResponseBuilderOps(val self: ListKeyPoliciesResponse.
 final class ListKeyPoliciesResponseOps(val self: ListKeyPoliciesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def policyNamesAsScala: Option[Seq[String]] = Option(self.policyNames).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def policyNamesAsScala: Option[Seq[String]] =
+    Option(self.policyNames).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)

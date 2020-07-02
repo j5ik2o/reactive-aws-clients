@@ -14,9 +14,7 @@ final class LimitsBuilderOps(val self: Limits.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceLimitsAsScala(value: Option[InstanceLimits]): Limits.Builder = {
-    value.fold(self) { v =>
-      self.instanceLimits(v)
-    }
+    value.fold(self) { v => self.instanceLimits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -31,17 +29,17 @@ final class LimitsBuilderOps(val self: Limits.Builder) extends AnyVal {
 final class LimitsOps(val self: Limits) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def storageTypesAsScala: Option[Seq[StorageType]] = Option(self.storageTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def storageTypesAsScala: Option[Seq[StorageType]] =
+    Option(self.storageTypes).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def instanceLimitsAsScala: Option[InstanceLimits] = Option(self.instanceLimits)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def additionalLimitsAsScala: Option[Seq[AdditionalLimit]] = Option(self.additionalLimits).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def additionalLimitsAsScala: Option[Seq[AdditionalLimit]] =
+    Option(self.additionalLimits).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

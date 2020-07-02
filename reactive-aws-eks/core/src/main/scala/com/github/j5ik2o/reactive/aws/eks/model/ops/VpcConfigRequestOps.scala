@@ -21,16 +21,12 @@ final class VpcConfigRequestBuilderOps(val self: VpcConfigRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointPublicAccessAsScala(value: Option[Boolean]): VpcConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.endpointPublicAccess(v)
-    }
+    value.fold(self) { v => self.endpointPublicAccess(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointPrivateAccessAsScala(value: Option[Boolean]): VpcConfigRequest.Builder = {
-    value.fold(self) { v =>
-      self.endpointPrivateAccess(v)
-    }
+    value.fold(self) { v => self.endpointPrivateAccess(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -45,14 +41,14 @@ final class VpcConfigRequestBuilderOps(val self: VpcConfigRequest.Builder) exten
 final class VpcConfigRequestOps(val self: VpcConfigRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetIdsAsScala: Option[Seq[String]] = Option(self.subnetIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetIdsAsScala: Option[Seq[String]] =
+    Option(self.subnetIds).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupIdsAsScala: Option[Seq[String]] = Option(self.securityGroupIds).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupIdsAsScala: Option[Seq[String]] =
+    Option(self.securityGroupIds).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointPublicAccessAsScala: Option[Boolean] = Option(self.endpointPublicAccess)
@@ -61,9 +57,10 @@ final class VpcConfigRequestOps(val self: VpcConfigRequest) extends AnyVal {
   final def endpointPrivateAccessAsScala: Option[Boolean] = Option(self.endpointPrivateAccess)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def publicAccessCidrsAsScala: Option[Seq[String]] = Option(self.publicAccessCidrs).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def publicAccessCidrsAsScala: Option[Seq[String]] =
+    Option(self.publicAccessCidrs).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

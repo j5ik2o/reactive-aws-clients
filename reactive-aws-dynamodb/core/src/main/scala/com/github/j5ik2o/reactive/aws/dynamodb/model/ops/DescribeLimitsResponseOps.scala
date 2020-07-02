@@ -7,30 +7,22 @@ final class DescribeLimitsResponseBuilderOps(val self: DescribeLimitsResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
-    value.fold(self) { v =>
-      self.accountMaxReadCapacityUnits(v)
-    }
+    value.fold(self) { v => self.accountMaxReadCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accountMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
-    value.fold(self) { v =>
-      self.accountMaxWriteCapacityUnits(v)
-    }
+    value.fold(self) { v => self.accountMaxWriteCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableMaxReadCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableMaxReadCapacityUnits(v)
-    }
+    value.fold(self) { v => self.tableMaxReadCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableMaxWriteCapacityUnitsAsScala(value: Option[Long]): DescribeLimitsResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableMaxWriteCapacityUnits(v)
-    }
+    value.fold(self) { v => self.tableMaxWriteCapacityUnits(v) }
   }
 
 }

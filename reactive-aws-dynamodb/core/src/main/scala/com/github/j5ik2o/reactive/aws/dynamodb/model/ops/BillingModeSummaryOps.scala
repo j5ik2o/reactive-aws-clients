@@ -7,16 +7,12 @@ final class BillingModeSummaryBuilderOps(val self: BillingModeSummary.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def billingModeAsScala(value: Option[BillingMode]): BillingModeSummary.Builder = {
-    value.fold(self) { v =>
-      self.billingMode(v)
-    }
+    value.fold(self) { v => self.billingMode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdateToPayPerRequestDateTimeAsScala(value: Option[java.time.Instant]): BillingModeSummary.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdateToPayPerRequestDateTime(v)
-    }
+    value.fold(self) { v => self.lastUpdateToPayPerRequestDateTime(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class ParameterBuilderOps(val self: Parameter.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterNameAsScala(value: Option[String]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.parameterName(v)
-    }
+    value.fold(self) { v => self.parameterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterTypeAsScala(value: Option[ParameterType]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.parameterType(v)
-    }
+    value.fold(self) { v => self.parameterType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterValueAsScala(value: Option[String]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.parameterValue(v)
-    }
+    value.fold(self) { v => self.parameterValue(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,44 +29,32 @@ final class ParameterBuilderOps(val self: Parameter.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceAsScala(value: Option[String]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.source(v)
-    }
+    value.fold(self) { v => self.source(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dataTypeAsScala(value: Option[String]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.dataType(v)
-    }
+    value.fold(self) { v => self.dataType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allowedValuesAsScala(value: Option[String]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.allowedValues(v)
-    }
+    value.fold(self) { v => self.allowedValues(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def isModifiableAsScala(value: Option[IsModifiable]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.isModifiable(v)
-    }
+    value.fold(self) { v => self.isModifiable(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeTypeAsScala(value: Option[ChangeType]): Parameter.Builder = {
-    value.fold(self) { v =>
-      self.changeType(v)
-    }
+    value.fold(self) { v => self.changeType(v) }
   }
 
 }

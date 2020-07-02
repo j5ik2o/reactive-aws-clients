@@ -7,16 +7,12 @@ final class DiscoverPollEndpointResponseBuilderOps(val self: DiscoverPollEndpoin
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endpointAsScala(value: Option[String]): DiscoverPollEndpointResponse.Builder = {
-    value.fold(self) { v =>
-      self.endpoint(v)
-    }
+    value.fold(self) { v => self.endpoint(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def telemetryEndpointAsScala(value: Option[String]): DiscoverPollEndpointResponse.Builder = {
-    value.fold(self) { v =>
-      self.telemetryEndpoint(v)
-    }
+    value.fold(self) { v => self.telemetryEndpoint(v) }
   }
 
 }

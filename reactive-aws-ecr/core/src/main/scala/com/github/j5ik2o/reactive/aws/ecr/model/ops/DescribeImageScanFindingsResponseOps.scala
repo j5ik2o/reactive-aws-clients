@@ -8,44 +8,32 @@ final class DescribeImageScanFindingsResponseBuilderOps(val self: DescribeImageS
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registryIdAsScala(value: Option[String]): DescribeImageScanFindingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.registryId(v)
-    }
+    value.fold(self) { v => self.registryId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def repositoryNameAsScala(value: Option[String]): DescribeImageScanFindingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.repositoryName(v)
-    }
+    value.fold(self) { v => self.repositoryName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageIdAsScala(value: Option[ImageIdentifier]): DescribeImageScanFindingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.imageId(v)
-    }
+    value.fold(self) { v => self.imageId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanStatusAsScala(value: Option[ImageScanStatus]): DescribeImageScanFindingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.imageScanStatus(v)
-    }
+    value.fold(self) { v => self.imageScanStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageScanFindingsAsScala(value: Option[ImageScanFindings]): DescribeImageScanFindingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.imageScanFindings(v)
-    }
+    value.fold(self) { v => self.imageScanFindings(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeImageScanFindingsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

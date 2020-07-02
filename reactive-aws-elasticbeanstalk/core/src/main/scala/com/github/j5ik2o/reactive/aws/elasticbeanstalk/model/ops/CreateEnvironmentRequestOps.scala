@@ -7,44 +7,32 @@ final class CreateEnvironmentRequestBuilderOps(val self: CreateEnvironmentReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def groupNameAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.groupName(v)
-    }
+    value.fold(self) { v => self.groupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cnamePrefixAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.cnamePrefix(v)
-    }
+    value.fold(self) { v => self.cnamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tierAsScala(value: Option[EnvironmentTier]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.tier(v)
-    }
+    value.fold(self) { v => self.tier(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -56,30 +44,22 @@ final class CreateEnvironmentRequestBuilderOps(val self: CreateEnvironmentReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def solutionStackNameAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.solutionStackName(v)
-    }
+    value.fold(self) { v => self.solutionStackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -119,9 +99,8 @@ final class CreateEnvironmentRequestOps(val self: CreateEnvironmentRequest) exte
   final def tierAsScala: Option[EnvironmentTier] = Option(self.tier)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala: Option[String] = Option(self.versionLabel)
@@ -136,14 +115,16 @@ final class CreateEnvironmentRequestOps(val self: CreateEnvironmentRequest) exte
   final def platformArnAsScala: Option[String] = Option(self.platformArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] =
+    Option(self.optionSettings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionsToRemoveAsScala: Option[Seq[OptionSpecification]] = Option(self.optionsToRemove).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionsToRemoveAsScala: Option[Seq[OptionSpecification]] =
+    Option(self.optionsToRemove).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

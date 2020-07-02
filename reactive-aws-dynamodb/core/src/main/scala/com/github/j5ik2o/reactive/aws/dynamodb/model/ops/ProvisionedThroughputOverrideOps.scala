@@ -7,9 +7,7 @@ final class ProvisionedThroughputOverrideBuilderOps(val self: ProvisionedThrough
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def readCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputOverride.Builder = {
-    value.fold(self) { v =>
-      self.readCapacityUnits(v)
-    }
+    value.fold(self) { v => self.readCapacityUnits(v) }
   }
 
 }

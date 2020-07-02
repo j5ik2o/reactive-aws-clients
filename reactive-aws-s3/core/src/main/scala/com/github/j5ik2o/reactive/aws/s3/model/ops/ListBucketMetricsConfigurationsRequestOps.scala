@@ -8,16 +8,12 @@ final class ListBucketMetricsConfigurationsRequestBuilderOps(val self: ListBucke
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def continuationTokenAsScala(value: Option[String]): ListBucketMetricsConfigurationsRequest.Builder = {
-    value.fold(self) { v =>
-      self.continuationToken(v)
-    }
+    value.fold(self) { v => self.continuationToken(v) }
   }
 
 }

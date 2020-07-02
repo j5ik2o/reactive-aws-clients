@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.appsync.model._
 
 object AppSyncAkkaClient {
 
-  def apply(asyncClient: AppSyncAsyncClient): AppSyncAkkaClient = new AppSyncAkkaClient {
-    override val underlying: AppSyncAsyncClient = asyncClient
-  }
+  def apply(asyncClient: AppSyncAsyncClient): AppSyncAkkaClient =
+    new AppSyncAkkaClient {
+      override val underlying: AppSyncAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 

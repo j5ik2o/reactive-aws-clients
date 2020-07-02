@@ -7,16 +7,12 @@ final class OutputConfigBuilderOps(val self: OutputConfig.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketAsScala(value: Option[String]): OutputConfig.Builder = {
-    value.fold(self) { v =>
-      self.s3Bucket(v)
-    }
+    value.fold(self) { v => self.s3Bucket(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyPrefixAsScala(value: Option[String]): OutputConfig.Builder = {
-    value.fold(self) { v =>
-      self.s3KeyPrefix(v)
-    }
+    value.fold(self) { v => self.s3KeyPrefix(v) }
   }
 
 }

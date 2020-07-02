@@ -7,16 +7,12 @@ final class GetDownloadUrlForLayerResponseBuilderOps(val self: GetDownloadUrlFor
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def downloadUrlAsScala(value: Option[String]): GetDownloadUrlForLayerResponse.Builder = {
-    value.fold(self) { v =>
-      self.downloadUrl(v)
-    }
+    value.fold(self) { v => self.downloadUrl(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def layerDigestAsScala(value: Option[String]): GetDownloadUrlForLayerResponse.Builder = {
-    value.fold(self) { v =>
-      self.layerDigest(v)
-    }
+    value.fold(self) { v => self.layerDigest(v) }
   }
 
 }

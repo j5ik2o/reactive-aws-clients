@@ -17,9 +17,8 @@ final class TaggingBuilderOps(val self: Tagging.Builder) extends AnyVal {
 final class TaggingOps(val self: Tagging) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagSetAsScala: Option[Seq[Tag]] = Option(self.tagSet).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagSetAsScala: Option[Seq[Tag]] =
+    Option(self.tagSet).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

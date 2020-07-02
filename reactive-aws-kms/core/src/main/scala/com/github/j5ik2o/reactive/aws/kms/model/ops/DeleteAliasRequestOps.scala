@@ -7,9 +7,7 @@ final class DeleteAliasRequestBuilderOps(val self: DeleteAliasRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def aliasNameAsScala(value: Option[String]): DeleteAliasRequest.Builder = {
-    value.fold(self) { v =>
-      self.aliasName(v)
-    }
+    value.fold(self) { v => self.aliasName(v) }
   }
 
 }

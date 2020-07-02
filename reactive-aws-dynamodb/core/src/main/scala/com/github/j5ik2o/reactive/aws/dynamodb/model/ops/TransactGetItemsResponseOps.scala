@@ -24,14 +24,14 @@ final class TransactGetItemsResponseBuilderOps(val self: TransactGetItemsRespons
 final class TransactGetItemsResponseOps(val self: TransactGetItemsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] =
+    Option(self.consumedCapacity).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def responsesAsScala: Option[Seq[ItemResponse]] = Option(self.responses).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def responsesAsScala: Option[Seq[ItemResponse]] =
+    Option(self.responses).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

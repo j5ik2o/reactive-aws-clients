@@ -7,16 +7,12 @@ final class PackageSourceBuilderOps(val self: PackageSource.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3BucketNameAsScala(value: Option[String]): PackageSource.Builder = {
-    value.fold(self) { v =>
-      self.s3BucketName(v)
-    }
+    value.fold(self) { v => self.s3BucketName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def s3KeyAsScala(value: Option[String]): PackageSource.Builder = {
-    value.fold(self) { v =>
-      self.s3Key(v)
-    }
+    value.fold(self) { v => self.s3Key(v) }
   }
 
 }

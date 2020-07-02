@@ -7,16 +7,12 @@ final class RevokeGrantRequestBuilderOps(val self: RevokeGrantRequest.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): RevokeGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantIdAsScala(value: Option[String]): RevokeGrantRequest.Builder = {
-    value.fold(self) { v =>
-      self.grantId(v)
-    }
+    value.fold(self) { v => self.grantId(v) }
   }
 
 }

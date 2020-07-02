@@ -8,67 +8,49 @@ final class ConfigurationSettingsDescriptionBuilderOps(val self: ConfigurationSe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def solutionStackNameAsScala(value: Option[String]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.solutionStackName(v)
-    }
+    value.fold(self) { v => self.solutionStackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformArnAsScala(value: Option[String]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.platformArn(v)
-    }
+    value.fold(self) { v => self.platformArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def applicationNameAsScala(value: Option[String]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.applicationName(v)
-    }
+    value.fold(self) { v => self.applicationName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def templateNameAsScala(value: Option[String]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.templateName(v)
-    }
+    value.fold(self) { v => self.templateName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentNameAsScala(value: Option[String]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.environmentName(v)
-    }
+    value.fold(self) { v => self.environmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentStatusAsScala(
       value: Option[ConfigurationDeploymentStatus]
   ): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.deploymentStatus(v)
-    }
+    value.fold(self) { v => self.deploymentStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateCreatedAsScala(value: Option[java.time.Instant]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.dateCreated(v)
-    }
+    value.fold(self) { v => self.dateCreated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dateUpdatedAsScala(value: Option[java.time.Instant]): ConfigurationSettingsDescription.Builder = {
-    value.fold(self) { v =>
-      self.dateUpdated(v)
-    }
+    value.fold(self) { v => self.dateUpdated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -112,9 +94,10 @@ final class ConfigurationSettingsDescriptionOps(val self: ConfigurationSettingsD
   final def dateUpdatedAsScala: Option[java.time.Instant] = Option(self.dateUpdated)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] = Option(self.optionSettings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def optionSettingsAsScala: Option[Seq[ConfigurationOptionSetting]] =
+    Option(self.optionSettings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

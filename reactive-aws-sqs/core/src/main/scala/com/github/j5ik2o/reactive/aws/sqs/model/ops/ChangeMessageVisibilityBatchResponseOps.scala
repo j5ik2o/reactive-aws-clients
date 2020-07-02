@@ -27,14 +27,12 @@ final class ChangeMessageVisibilityBatchResponseBuilderOps(val self: ChangeMessa
 final class ChangeMessageVisibilityBatchResponseOps(val self: ChangeMessageVisibilityBatchResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def successfulAsScala: Option[Seq[ChangeMessageVisibilityBatchResultEntry]] = Option(self.successful).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def successfulAsScala: Option[Seq[ChangeMessageVisibilityBatchResultEntry]] =
+    Option(self.successful).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def failedAsScala: Option[Seq[BatchResultErrorEntry]] = Option(self.failed).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def failedAsScala: Option[Seq[BatchResultErrorEntry]] =
+    Option(self.failed).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

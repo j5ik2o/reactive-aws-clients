@@ -7,16 +7,12 @@ final class FaceSearchSettingsBuilderOps(val self: FaceSearchSettings.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def collectionIdAsScala(value: Option[String]): FaceSearchSettings.Builder = {
-    value.fold(self) { v =>
-      self.collectionId(v)
-    }
+    value.fold(self) { v => self.collectionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceMatchThresholdAsScala(value: Option[Float]): FaceSearchSettings.Builder = {
-    value.fold(self) { v =>
-      self.faceMatchThreshold(v)
-    }
+    value.fold(self) { v => self.faceMatchThreshold(v) }
   }
 
 }

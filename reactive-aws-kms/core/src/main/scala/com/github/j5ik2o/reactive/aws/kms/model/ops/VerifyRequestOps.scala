@@ -7,37 +7,27 @@ final class VerifyRequestBuilderOps(val self: VerifyRequest.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): VerifyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): VerifyRequest.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageTypeAsScala(value: Option[MessageType]): VerifyRequest.Builder = {
-    value.fold(self) { v =>
-      self.messageType(v)
-    }
+    value.fold(self) { v => self.messageType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signatureAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): VerifyRequest.Builder = {
-    value.fold(self) { v =>
-      self.signature(v)
-    }
+    value.fold(self) { v => self.signature(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingAlgorithmAsScala(value: Option[SigningAlgorithmSpec]): VerifyRequest.Builder = {
-    value.fold(self) { v =>
-      self.signingAlgorithm(v)
-    }
+    value.fold(self) { v => self.signingAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -67,9 +57,8 @@ final class VerifyRequestOps(val self: VerifyRequest) extends AnyVal {
   final def signingAlgorithmAsScala: Option[SigningAlgorithmSpec] = Option(self.signingAlgorithm)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

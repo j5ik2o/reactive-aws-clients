@@ -8,34 +8,26 @@ final class UpdateGlobalTableSettingsRequestBuilderOps(val self: UpdateGlobalTab
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableNameAsScala(value: Option[String]): UpdateGlobalTableSettingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.globalTableName(v)
-    }
+    value.fold(self) { v => self.globalTableName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableBillingModeAsScala(value: Option[BillingMode]): UpdateGlobalTableSettingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.globalTableBillingMode(v)
-    }
+    value.fold(self) { v => self.globalTableBillingMode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableProvisionedWriteCapacityUnitsAsScala(
       value: Option[Long]
   ): UpdateGlobalTableSettingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.globalTableProvisionedWriteCapacityUnits(v)
-    }
+    value.fold(self) { v => self.globalTableProvisionedWriteCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAsScala(
       value: Option[AutoScalingSettingsUpdate]
   ): UpdateGlobalTableSettingsRequest.Builder = {
-    value.fold(self) { v =>
-      self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(v)
-    }
+    value.fold(self) { v => self.globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -83,10 +75,10 @@ final class UpdateGlobalTableSettingsRequestOps(val self: UpdateGlobalTableSetti
     }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def replicaSettingsUpdateAsScala: Option[Seq[ReplicaSettingsUpdate]] = Option(self.replicaSettingsUpdate).map {
-    v =>
+  final def replicaSettingsUpdateAsScala: Option[Seq[ReplicaSettingsUpdate]] =
+    Option(self.replicaSettingsUpdate).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+    }
 
 }
 

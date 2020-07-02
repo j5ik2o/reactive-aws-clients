@@ -7,23 +7,17 @@ final class SignResponseBuilderOps(val self: SignResponse.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): SignResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signatureAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): SignResponse.Builder = {
-    value.fold(self) { v =>
-      self.signature(v)
-    }
+    value.fold(self) { v => self.signature(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingAlgorithmAsScala(value: Option[SigningAlgorithmSpec]): SignResponse.Builder = {
-    value.fold(self) { v =>
-      self.signingAlgorithm(v)
-    }
+    value.fold(self) { v => self.signingAlgorithm(v) }
   }
 
 }

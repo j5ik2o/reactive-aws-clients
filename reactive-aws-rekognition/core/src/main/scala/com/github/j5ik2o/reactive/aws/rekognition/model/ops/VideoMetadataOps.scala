@@ -7,44 +7,32 @@ final class VideoMetadataBuilderOps(val self: VideoMetadata.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codecAsScala(value: Option[String]): VideoMetadata.Builder = {
-    value.fold(self) { v =>
-      self.codec(v)
-    }
+    value.fold(self) { v => self.codec(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def durationMillisAsScala(value: Option[Long]): VideoMetadata.Builder = {
-    value.fold(self) { v =>
-      self.durationMillis(v)
-    }
+    value.fold(self) { v => self.durationMillis(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def formatAsScala(value: Option[String]): VideoMetadata.Builder = {
-    value.fold(self) { v =>
-      self.format(v)
-    }
+    value.fold(self) { v => self.format(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frameRateAsScala(value: Option[Float]): VideoMetadata.Builder = {
-    value.fold(self) { v =>
-      self.frameRate(v)
-    }
+    value.fold(self) { v => self.frameRate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frameHeightAsScala(value: Option[Long]): VideoMetadata.Builder = {
-    value.fold(self) { v =>
-      self.frameHeight(v)
-    }
+    value.fold(self) { v => self.frameHeight(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def frameWidthAsScala(value: Option[Long]): VideoMetadata.Builder = {
-    value.fold(self) { v =>
-      self.frameWidth(v)
-    }
+    value.fold(self) { v => self.frameWidth(v) }
   }
 
 }

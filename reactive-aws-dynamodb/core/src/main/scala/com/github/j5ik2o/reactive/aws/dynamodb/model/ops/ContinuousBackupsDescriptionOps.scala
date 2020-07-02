@@ -9,18 +9,14 @@ final class ContinuousBackupsDescriptionBuilderOps(val self: ContinuousBackupsDe
   final def continuousBackupsStatusAsScala(
       value: Option[ContinuousBackupsStatus]
   ): ContinuousBackupsDescription.Builder = {
-    value.fold(self) { v =>
-      self.continuousBackupsStatus(v)
-    }
+    value.fold(self) { v => self.continuousBackupsStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pointInTimeRecoveryDescriptionAsScala(
       value: Option[PointInTimeRecoveryDescription]
   ): ContinuousBackupsDescription.Builder = {
-    value.fold(self) { v =>
-      self.pointInTimeRecoveryDescription(v)
-    }
+    value.fold(self) { v => self.pointInTimeRecoveryDescription(v) }
   }
 
 }

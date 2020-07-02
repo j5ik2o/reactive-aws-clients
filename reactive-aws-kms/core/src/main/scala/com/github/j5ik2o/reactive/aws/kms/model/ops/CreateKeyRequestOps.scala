@@ -7,51 +7,37 @@ final class CreateKeyRequestBuilderOps(val self: CreateKeyRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala(value: Option[String]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.policy(v)
-    }
+    value.fold(self) { v => self.policy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyUsageAsScala(value: Option[KeyUsageType]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyUsage(v)
-    }
+    value.fold(self) { v => self.keyUsage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customerMasterKeySpecAsScala(value: Option[CustomerMasterKeySpec]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.customerMasterKeySpec(v)
-    }
+    value.fold(self) { v => self.customerMasterKeySpec(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def originAsScala(value: Option[OriginType]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.origin(v)
-    }
+    value.fold(self) { v => self.origin(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def customKeyStoreIdAsScala(value: Option[String]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.customKeyStoreId(v)
-    }
+    value.fold(self) { v => self.customKeyStoreId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bypassPolicyLockoutSafetyCheckAsScala(value: Option[Boolean]): CreateKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.bypassPolicyLockoutSafetyCheck(v)
-    }
+    value.fold(self) { v => self.bypassPolicyLockoutSafetyCheck(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -87,9 +73,8 @@ final class CreateKeyRequestOps(val self: CreateKeyRequest) extends AnyVal {
   final def bypassPolicyLockoutSafetyCheckAsScala: Option[Boolean] = Option(self.bypassPolicyLockoutSafetyCheck)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Seq[Tag]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

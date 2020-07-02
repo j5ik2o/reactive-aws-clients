@@ -7,23 +7,17 @@ final class GetContentModerationResponseBuilderOps(val self: GetContentModeratio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def jobStatusAsScala(value: Option[VideoJobStatus]): GetContentModerationResponse.Builder = {
-    value.fold(self) { v =>
-      self.jobStatus(v)
-    }
+    value.fold(self) { v => self.jobStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala(value: Option[String]): GetContentModerationResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusMessage(v)
-    }
+    value.fold(self) { v => self.statusMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def videoMetadataAsScala(value: Option[VideoMetadata]): GetContentModerationResponse.Builder = {
-    value.fold(self) { v =>
-      self.videoMetadata(v)
-    }
+    value.fold(self) { v => self.videoMetadata(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,16 +31,12 @@ final class GetContentModerationResponseBuilderOps(val self: GetContentModeratio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): GetContentModerationResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def moderationModelVersionAsScala(value: Option[String]): GetContentModerationResponse.Builder = {
-    value.fold(self) { v =>
-      self.moderationModelVersion(v)
-    }
+    value.fold(self) { v => self.moderationModelVersion(v) }
   }
 
 }
@@ -63,9 +53,10 @@ final class GetContentModerationResponseOps(val self: GetContentModerationRespon
   final def videoMetadataAsScala: Option[VideoMetadata] = Option(self.videoMetadata)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def moderationLabelsAsScala: Option[Seq[ContentModerationDetection]] = Option(self.moderationLabels).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def moderationLabelsAsScala: Option[Seq[ContentModerationDetection]] =
+    Option(self.moderationLabels).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala: Option[String] = Option(self.nextToken)

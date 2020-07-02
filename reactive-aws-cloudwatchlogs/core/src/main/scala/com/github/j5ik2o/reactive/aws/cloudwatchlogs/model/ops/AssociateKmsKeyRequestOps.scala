@@ -7,16 +7,12 @@ final class AssociateKmsKeyRequestBuilderOps(val self: AssociateKmsKeyRequest.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): AssociateKmsKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def kmsKeyIdAsScala(value: Option[String]): AssociateKmsKeyRequest.Builder = {
-    value.fold(self) { v =>
-      self.kmsKeyId(v)
-    }
+    value.fold(self) { v => self.kmsKeyId(v) }
   }
 
 }

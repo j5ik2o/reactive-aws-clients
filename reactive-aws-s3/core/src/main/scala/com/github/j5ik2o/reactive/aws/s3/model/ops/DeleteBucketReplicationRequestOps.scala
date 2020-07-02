@@ -7,9 +7,7 @@ final class DeleteBucketReplicationRequestBuilderOps(val self: DeleteBucketRepli
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bucketAsScala(value: Option[String]): DeleteBucketReplicationRequest.Builder = {
-    value.fold(self) { v =>
-      self.bucket(v)
-    }
+    value.fold(self) { v => self.bucket(v) }
   }
 
 }

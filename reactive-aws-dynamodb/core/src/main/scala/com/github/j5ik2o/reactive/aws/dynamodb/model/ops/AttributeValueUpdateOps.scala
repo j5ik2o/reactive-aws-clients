@@ -7,16 +7,12 @@ final class AttributeValueUpdateBuilderOps(val self: AttributeValueUpdate.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[AttributeValue]): AttributeValueUpdate.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionAsScala(value: Option[AttributeAction]): AttributeValueUpdate.Builder = {
-    value.fold(self) { v =>
-      self.action(v)
-    }
+    value.fold(self) { v => self.action(v) }
   }
 
 }

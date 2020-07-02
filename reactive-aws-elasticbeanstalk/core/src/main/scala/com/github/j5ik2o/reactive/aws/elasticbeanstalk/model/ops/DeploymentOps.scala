@@ -7,30 +7,22 @@ final class DeploymentBuilderOps(val self: Deployment.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionLabelAsScala(value: Option[String]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.versionLabel(v)
-    }
+    value.fold(self) { v => self.versionLabel(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentIdAsScala(value: Option[Long]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.deploymentId(v)
-    }
+    value.fold(self) { v => self.deploymentId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentTimeAsScala(value: Option[java.time.Instant]): Deployment.Builder = {
-    value.fold(self) { v =>
-      self.deploymentTime(v)
-    }
+    value.fold(self) { v => self.deploymentTime(v) }
   }
 
 }

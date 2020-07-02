@@ -7,16 +7,12 @@ final class ComparedFaceBuilderOps(val self: ComparedFace.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def boundingBoxAsScala(value: Option[BoundingBox]): ComparedFace.Builder = {
-    value.fold(self) { v =>
-      self.boundingBox(v)
-    }
+    value.fold(self) { v => self.boundingBox(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def confidenceAsScala(value: Option[Float]): ComparedFace.Builder = {
-    value.fold(self) { v =>
-      self.confidence(v)
-    }
+    value.fold(self) { v => self.confidence(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,16 +24,12 @@ final class ComparedFaceBuilderOps(val self: ComparedFace.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poseAsScala(value: Option[Pose]): ComparedFace.Builder = {
-    value.fold(self) { v =>
-      self.pose(v)
-    }
+    value.fold(self) { v => self.pose(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualityAsScala(value: Option[ImageQuality]): ComparedFace.Builder = {
-    value.fold(self) { v =>
-      self.quality(v)
-    }
+    value.fold(self) { v => self.quality(v) }
   }
 
 }
@@ -51,9 +43,8 @@ final class ComparedFaceOps(val self: ComparedFace) extends AnyVal {
   final def confidenceAsScala: Option[Float] = Option(self.confidence)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def landmarksAsScala: Option[Seq[Landmark]] = Option(self.landmarks).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def landmarksAsScala: Option[Seq[Landmark]] =
+    Option(self.landmarks).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def poseAsScala: Option[Pose] = Option(self.pose)

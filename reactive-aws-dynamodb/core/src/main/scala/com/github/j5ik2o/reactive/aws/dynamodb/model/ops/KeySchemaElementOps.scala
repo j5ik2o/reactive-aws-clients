@@ -7,16 +7,12 @@ final class KeySchemaElementBuilderOps(val self: KeySchemaElement.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attributeNameAsScala(value: Option[String]): KeySchemaElement.Builder = {
-    value.fold(self) { v =>
-      self.attributeName(v)
-    }
+    value.fold(self) { v => self.attributeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyTypeAsScala(value: Option[KeyType]): KeySchemaElement.Builder = {
-    value.fold(self) { v =>
-      self.keyType(v)
-    }
+    value.fold(self) { v => self.keyType(v) }
   }
 
 }

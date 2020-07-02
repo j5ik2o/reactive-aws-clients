@@ -7,9 +7,7 @@ final class DeleteParameterGroupRequestBuilderOps(val self: DeleteParameterGroup
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parameterGroupNameAsScala(value: Option[String]): DeleteParameterGroupRequest.Builder = {
-    value.fold(self) { v =>
-      self.parameterGroupName(v)
-    }
+    value.fold(self) { v => self.parameterGroupName(v) }
   }
 
 }

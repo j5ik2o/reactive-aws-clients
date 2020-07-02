@@ -7,9 +7,7 @@ final class SnapshotOptionsBuilderOps(val self: SnapshotOptions.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def automatedSnapshotStartHourAsScala(value: Option[Int]): SnapshotOptions.Builder = {
-    value.fold(self) { v =>
-      self.automatedSnapshotStartHour(v)
-    }
+    value.fold(self) { v => self.automatedSnapshotStartHour(v) }
   }
 
 }

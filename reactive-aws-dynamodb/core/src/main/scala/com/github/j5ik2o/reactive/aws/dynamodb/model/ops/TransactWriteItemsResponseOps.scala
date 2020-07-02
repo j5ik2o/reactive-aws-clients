@@ -27,9 +27,10 @@ final class TransactWriteItemsResponseBuilderOps(val self: TransactWriteItemsRes
 final class TransactWriteItemsResponseOps(val self: TransactWriteItemsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] = Option(self.consumedCapacity).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def consumedCapacityAsScala: Option[Seq[ConsumedCapacity]] =
+    Option(self.consumedCapacity).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def itemCollectionMetricsAsScala: Option[Map[String, Seq[ItemCollectionMetrics]]] =

@@ -7,16 +7,12 @@ final class DescribeStackResourceRequestBuilderOps(val self: DescribeStackResour
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): DescribeStackResourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): DescribeStackResourceRequest.Builder = {
-    value.fold(self) { v =>
-      self.logicalResourceId(v)
-    }
+    value.fold(self) { v => self.logicalResourceId(v) }
   }
 
 }

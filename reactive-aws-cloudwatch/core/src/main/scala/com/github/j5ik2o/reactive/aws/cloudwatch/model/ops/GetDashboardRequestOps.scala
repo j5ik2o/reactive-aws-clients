@@ -7,9 +7,7 @@ final class GetDashboardRequestBuilderOps(val self: GetDashboardRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def dashboardNameAsScala(value: Option[String]): GetDashboardRequest.Builder = {
-    value.fold(self) { v =>
-      self.dashboardName(v)
-    }
+    value.fold(self) { v => self.dashboardName(v) }
   }
 
 }

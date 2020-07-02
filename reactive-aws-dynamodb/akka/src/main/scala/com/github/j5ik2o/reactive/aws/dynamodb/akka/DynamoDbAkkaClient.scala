@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.dynamodb.model._
 
 object DynamoDbAkkaClient {
 
-  def apply(asyncClient: DynamoDbAsyncClient): DynamoDbAkkaClient = new DynamoDbAkkaClient {
-    override val underlying: DynamoDbAsyncClient = asyncClient
-  }
+  def apply(asyncClient: DynamoDbAsyncClient): DynamoDbAkkaClient =
+    new DynamoDbAkkaClient {
+      override val underlying: DynamoDbAsyncClient = asyncClient
+    }
 
   val DefaultParallelism: Int = 1
 
@@ -375,9 +376,10 @@ trait DynamoDbAkkaClient {
       underlying.query(queryRequest)
     }
 
-  def queryPaginatorFlow: Flow[QueryRequest, QueryResponse, NotUsed] = Flow[QueryRequest].flatMapConcat { request =>
-    Source.fromPublisher(underlying.queryPaginator(request))
-  }
+  def queryPaginatorFlow: Flow[QueryRequest, QueryResponse, NotUsed] =
+    Flow[QueryRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.queryPaginator(request))
+    }
 
   def restoreTableFromBackupSource(
       restoreTableFromBackupRequest: RestoreTableFromBackupRequest,
@@ -413,9 +415,10 @@ trait DynamoDbAkkaClient {
       underlying.scan(scanRequest)
     }
 
-  def scanPaginatorFlow: Flow[ScanRequest, ScanResponse, NotUsed] = Flow[ScanRequest].flatMapConcat { request =>
-    Source.fromPublisher(underlying.scanPaginator(request))
-  }
+  def scanPaginatorFlow: Flow[ScanRequest, ScanResponse, NotUsed] =
+    Flow[ScanRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.scanPaginator(request))
+    }
 
   def tagResourceSource(
       tagResourceRequest: TagResourceRequest,

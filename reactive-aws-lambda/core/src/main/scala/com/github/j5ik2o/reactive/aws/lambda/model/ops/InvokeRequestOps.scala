@@ -7,44 +7,32 @@ final class InvokeRequestBuilderOps(val self: InvokeRequest.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): InvokeRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def invocationTypeAsScala(value: Option[InvocationType]): InvokeRequest.Builder = {
-    value.fold(self) { v =>
-      self.invocationType(v)
-    }
+    value.fold(self) { v => self.invocationType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logTypeAsScala(value: Option[LogType]): InvokeRequest.Builder = {
-    value.fold(self) { v =>
-      self.logType(v)
-    }
+    value.fold(self) { v => self.logType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientContextAsScala(value: Option[String]): InvokeRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientContext(v)
-    }
+    value.fold(self) { v => self.clientContext(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def payloadAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): InvokeRequest.Builder = {
-    value.fold(self) { v =>
-      self.payload(v)
-    }
+    value.fold(self) { v => self.payload(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def qualifierAsScala(value: Option[String]): InvokeRequest.Builder = {
-    value.fold(self) { v =>
-      self.qualifier(v)
-    }
+    value.fold(self) { v => self.qualifier(v) }
   }
 
 }

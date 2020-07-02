@@ -7,30 +7,22 @@ final class AttributeBuilderOps(val self: Attribute.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nameAsScala(value: Option[String]): Attribute.Builder = {
-    value.fold(self) { v =>
-      self.name(v)
-    }
+    value.fold(self) { v => self.name(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def valueAsScala(value: Option[String]): Attribute.Builder = {
-    value.fold(self) { v =>
-      self.value(v)
-    }
+    value.fold(self) { v => self.value(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetTypeAsScala(value: Option[TargetType]): Attribute.Builder = {
-    value.fold(self) { v =>
-      self.targetType(v)
-    }
+    value.fold(self) { v => self.targetType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetIdAsScala(value: Option[String]): Attribute.Builder = {
-    value.fold(self) { v =>
-      self.targetId(v)
-    }
+    value.fold(self) { v => self.targetId(v) }
   }
 
 }

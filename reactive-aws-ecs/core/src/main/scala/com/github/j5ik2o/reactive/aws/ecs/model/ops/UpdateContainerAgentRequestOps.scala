@@ -7,16 +7,12 @@ final class UpdateContainerAgentRequestBuilderOps(val self: UpdateContainerAgent
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): UpdateContainerAgentRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerInstanceAsScala(value: Option[String]): UpdateContainerAgentRequest.Builder = {
-    value.fold(self) { v =>
-      self.containerInstance(v)
-    }
+    value.fold(self) { v => self.containerInstance(v) }
   }
 
 }

@@ -7,37 +7,27 @@ final class OptionStatusBuilderOps(val self: OptionStatus.Builder) extends AnyVa
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def creationDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
-    value.fold(self) { v =>
-      self.creationDate(v)
-    }
+    value.fold(self) { v => self.creationDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateDateAsScala(value: Option[java.time.Instant]): OptionStatus.Builder = {
-    value.fold(self) { v =>
-      self.updateDate(v)
-    }
+    value.fold(self) { v => self.updateDate(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateVersionAsScala(value: Option[Int]): OptionStatus.Builder = {
-    value.fold(self) { v =>
-      self.updateVersion(v)
-    }
+    value.fold(self) { v => self.updateVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[OptionState]): OptionStatus.Builder = {
-    value.fold(self) { v =>
-      self.state(v)
-    }
+    value.fold(self) { v => self.state(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def pendingDeletionAsScala(value: Option[Boolean]): OptionStatus.Builder = {
-    value.fold(self) { v =>
-      self.pendingDeletion(v)
-    }
+    value.fold(self) { v => self.pendingDeletion(v) }
   }
 
 }

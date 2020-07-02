@@ -7,16 +7,12 @@ final class EFSAuthorizationConfigBuilderOps(val self: EFSAuthorizationConfig.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def accessPointIdAsScala(value: Option[String]): EFSAuthorizationConfig.Builder = {
-    value.fold(self) { v =>
-      self.accessPointId(v)
-    }
+    value.fold(self) { v => self.accessPointId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def iamAsScala(value: Option[EFSAuthorizationConfigIAM]): EFSAuthorizationConfig.Builder = {
-    value.fold(self) { v =>
-      self.iam(v)
-    }
+    value.fold(self) { v => self.iam(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class RemoteAccessConfigBuilderOps(val self: RemoteAccessConfig.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ec2SshKeyAsScala(value: Option[String]): RemoteAccessConfig.Builder = {
-    value.fold(self) { v =>
-      self.ec2SshKey(v)
-    }
+    value.fold(self) { v => self.ec2SshKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class RemoteAccessConfigOps(val self: RemoteAccessConfig) extends AnyVal {
   final def ec2SshKeyAsScala: Option[String] = Option(self.ec2SshKey)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sourceSecurityGroupsAsScala: Option[Seq[String]] = Option(self.sourceSecurityGroups).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def sourceSecurityGroupsAsScala: Option[Seq[String]] =
+    Option(self.sourceSecurityGroups).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

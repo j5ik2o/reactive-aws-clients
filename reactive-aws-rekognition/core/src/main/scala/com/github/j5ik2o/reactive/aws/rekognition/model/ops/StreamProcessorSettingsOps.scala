@@ -7,9 +7,7 @@ final class StreamProcessorSettingsBuilderOps(val self: StreamProcessorSettings.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceSearchAsScala(value: Option[FaceSearchSettings]): StreamProcessorSettings.Builder = {
-    value.fold(self) { v =>
-      self.faceSearch(v)
-    }
+    value.fold(self) { v => self.faceSearch(v) }
   }
 
 }

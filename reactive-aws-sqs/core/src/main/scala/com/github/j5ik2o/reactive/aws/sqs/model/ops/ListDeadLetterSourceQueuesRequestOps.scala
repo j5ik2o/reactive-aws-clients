@@ -8,9 +8,7 @@ final class ListDeadLetterSourceQueuesRequestBuilderOps(val self: ListDeadLetter
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlAsScala(value: Option[String]): ListDeadLetterSourceQueuesRequest.Builder = {
-    value.fold(self) { v =>
-      self.queueUrl(v)
-    }
+    value.fold(self) { v => self.queueUrl(v) }
   }
 
 }

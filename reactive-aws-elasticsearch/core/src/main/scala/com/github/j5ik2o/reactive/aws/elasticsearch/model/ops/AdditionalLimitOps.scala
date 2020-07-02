@@ -7,9 +7,7 @@ final class AdditionalLimitBuilderOps(val self: AdditionalLimit.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitNameAsScala(value: Option[String]): AdditionalLimit.Builder = {
-    value.fold(self) { v =>
-      self.limitName(v)
-    }
+    value.fold(self) { v => self.limitName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,8 @@ final class AdditionalLimitOps(val self: AdditionalLimit) extends AnyVal {
   final def limitNameAsScala: Option[String] = Option(self.limitName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def limitValuesAsScala: Option[Seq[String]] = Option(self.limitValues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def limitValuesAsScala: Option[Seq[String]] =
+    Option(self.limitValues).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

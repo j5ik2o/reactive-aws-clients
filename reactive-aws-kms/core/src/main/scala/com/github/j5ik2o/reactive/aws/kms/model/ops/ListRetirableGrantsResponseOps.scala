@@ -14,16 +14,12 @@ final class ListRetirableGrantsResponseBuilderOps(val self: ListRetirableGrantsR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala(value: Option[String]): ListRetirableGrantsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextMarker(v)
-    }
+    value.fold(self) { v => self.nextMarker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def truncatedAsScala(value: Option[Boolean]): ListRetirableGrantsResponse.Builder = {
-    value.fold(self) { v =>
-      self.truncated(v)
-    }
+    value.fold(self) { v => self.truncated(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class ListRetirableGrantsResponseBuilderOps(val self: ListRetirableGrantsR
 final class ListRetirableGrantsResponseOps(val self: ListRetirableGrantsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantsAsScala: Option[Seq[GrantListEntry]] = Option(self.grants).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantsAsScala: Option[Seq[GrantListEntry]] =
+    Option(self.grants).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextMarkerAsScala: Option[String] = Option(self.nextMarker)

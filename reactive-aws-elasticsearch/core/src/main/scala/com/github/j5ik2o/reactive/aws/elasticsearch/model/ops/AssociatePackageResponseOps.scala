@@ -7,9 +7,7 @@ final class AssociatePackageResponseBuilderOps(val self: AssociatePackageRespons
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainPackageDetailsAsScala(value: Option[DomainPackageDetails]): AssociatePackageResponse.Builder = {
-    value.fold(self) { v =>
-      self.domainPackageDetails(v)
-    }
+    value.fold(self) { v => self.domainPackageDetails(v) }
   }
 
 }

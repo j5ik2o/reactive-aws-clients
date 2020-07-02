@@ -7,37 +7,27 @@ final class ManagedActionBuilderOps(val self: ManagedAction.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionIdAsScala(value: Option[String]): ManagedAction.Builder = {
-    value.fold(self) { v =>
-      self.actionId(v)
-    }
+    value.fold(self) { v => self.actionId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionDescriptionAsScala(value: Option[String]): ManagedAction.Builder = {
-    value.fold(self) { v =>
-      self.actionDescription(v)
-    }
+    value.fold(self) { v => self.actionDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actionTypeAsScala(value: Option[ActionType]): ManagedAction.Builder = {
-    value.fold(self) { v =>
-      self.actionType(v)
-    }
+    value.fold(self) { v => self.actionType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[ActionStatus]): ManagedAction.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def windowStartTimeAsScala(value: Option[java.time.Instant]): ManagedAction.Builder = {
-    value.fold(self) { v =>
-      self.windowStartTime(v)
-    }
+    value.fold(self) { v => self.windowStartTime(v) }
   }
 
 }

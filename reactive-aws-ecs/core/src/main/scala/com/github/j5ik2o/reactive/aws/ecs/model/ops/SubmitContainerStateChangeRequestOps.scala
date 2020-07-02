@@ -8,51 +8,37 @@ final class SubmitContainerStateChangeRequestBuilderOps(val self: SubmitContaine
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.cluster(v)
-    }
+    value.fold(self) { v => self.cluster(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def taskAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.task(v)
-    }
+    value.fold(self) { v => self.task(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def containerNameAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.containerName(v)
-    }
+    value.fold(self) { v => self.containerName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def runtimeIdAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.runtimeId(v)
-    }
+    value.fold(self) { v => self.runtimeId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def exitCodeAsScala(value: Option[Int]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.exitCode(v)
-    }
+    value.fold(self) { v => self.exitCode(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def reasonAsScala(value: Option[String]): SubmitContainerStateChangeRequest.Builder = {
-    value.fold(self) { v =>
-      self.reason(v)
-    }
+    value.fold(self) { v => self.reason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -88,9 +74,10 @@ final class SubmitContainerStateChangeRequestOps(val self: SubmitContainerStateC
   final def reasonAsScala: Option[String] = Option(self.reason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def networkBindingsAsScala: Option[Seq[NetworkBinding]] = Option(self.networkBindings).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def networkBindingsAsScala: Option[Seq[NetworkBinding]] =
+    Option(self.networkBindings).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

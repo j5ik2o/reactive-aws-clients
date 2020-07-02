@@ -7,23 +7,17 @@ final class CreateFargateProfileRequestBuilderOps(val self: CreateFargateProfile
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fargateProfileNameAsScala(value: Option[String]): CreateFargateProfileRequest.Builder = {
-    value.fold(self) { v =>
-      self.fargateProfileName(v)
-    }
+    value.fold(self) { v => self.fargateProfileName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): CreateFargateProfileRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def podExecutionRoleArnAsScala(value: Option[String]): CreateFargateProfileRequest.Builder = {
-    value.fold(self) { v =>
-      self.podExecutionRoleArn(v)
-    }
+    value.fold(self) { v => self.podExecutionRoleArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,9 +36,7 @@ final class CreateFargateProfileRequestBuilderOps(val self: CreateFargateProfile
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala(value: Option[String]): CreateFargateProfileRequest.Builder = {
-    value.fold(self) { v =>
-      self.clientRequestToken(v)
-    }
+    value.fold(self) { v => self.clientRequestToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -68,22 +60,19 @@ final class CreateFargateProfileRequestOps(val self: CreateFargateProfileRequest
   final def podExecutionRoleArnAsScala: Option[String] = Option(self.podExecutionRoleArn)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetsAsScala: Option[Seq[String]] = Option(self.subnets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetsAsScala: Option[Seq[String]] =
+    Option(self.subnets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def selectorsAsScala: Option[Seq[FargateProfileSelector]] = Option(self.selectors).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def selectorsAsScala: Option[Seq[FargateProfileSelector]] =
+    Option(self.selectors).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clientRequestTokenAsScala: Option[String] = Option(self.clientRequestToken)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def tagsAsScala: Option[Map[String, String]] = Option(self.tags).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def tagsAsScala: Option[Map[String, String]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap }
 
 }
 

@@ -7,9 +7,7 @@ final class CancelKeyDeletionRequestBuilderOps(val self: CancelKeyDeletionReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): CancelKeyDeletionRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
 }

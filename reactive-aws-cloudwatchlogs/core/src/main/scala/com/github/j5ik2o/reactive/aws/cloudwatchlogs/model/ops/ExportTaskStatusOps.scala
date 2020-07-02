@@ -7,16 +7,12 @@ final class ExportTaskStatusBuilderOps(val self: ExportTaskStatus.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def codeAsScala(value: Option[ExportTaskStatusCode]): ExportTaskStatus.Builder = {
-    value.fold(self) { v =>
-      self.code(v)
-    }
+    value.fold(self) { v => self.code(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[String]): ExportTaskStatus.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
 }

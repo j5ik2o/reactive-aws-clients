@@ -7,58 +7,42 @@ final class DomainPackageDetailsBuilderOps(val self: DomainPackageDetails.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageIDAsScala(value: Option[String]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageID(v)
-    }
+    value.fold(self) { v => self.packageID(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageNameAsScala(value: Option[String]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageName(v)
-    }
+    value.fold(self) { v => self.packageName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageTypeAsScala(value: Option[PackageType]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageType(v)
-    }
+    value.fold(self) { v => self.packageType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdatedAsScala(value: Option[java.time.Instant]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.lastUpdated(v)
-    }
+    value.fold(self) { v => self.lastUpdated(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainNameAsScala(value: Option[String]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.domainName(v)
-    }
+    value.fold(self) { v => self.domainName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def domainPackageStatusAsScala(value: Option[DomainPackageStatus]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.domainPackageStatus(v)
-    }
+    value.fold(self) { v => self.domainPackageStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def referencePathAsScala(value: Option[String]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.referencePath(v)
-    }
+    value.fold(self) { v => self.referencePath(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorDetailsAsScala(value: Option[ErrorDetails]): DomainPackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.errorDetails(v)
-    }
+    value.fold(self) { v => self.errorDetails(v) }
   }
 
 }

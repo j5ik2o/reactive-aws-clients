@@ -8,16 +8,12 @@ final class CreateComputeEnvironmentResponseBuilderOps(val self: CreateComputeEn
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentNameAsScala(value: Option[String]): CreateComputeEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.computeEnvironmentName(v)
-    }
+    value.fold(self) { v => self.computeEnvironmentName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentArnAsScala(value: Option[String]): CreateComputeEnvironmentResponse.Builder = {
-    value.fold(self) { v =>
-      self.computeEnvironmentArn(v)
-    }
+    value.fold(self) { v => self.computeEnvironmentArn(v) }
   }
 
 }

@@ -8,9 +8,10 @@ import monix.reactive.Observable
 
 object ElasticsearchMonixClient {
 
-  def apply(asyncClient: ElasticsearchAsyncClient): ElasticsearchMonixClient = new ElasticsearchMonixClient {
-    override val underlying: ElasticsearchAsyncClient = asyncClient
-  }
+  def apply(asyncClient: ElasticsearchAsyncClient): ElasticsearchMonixClient =
+    new ElasticsearchMonixClient {
+      override val underlying: ElasticsearchAsyncClient = asyncClient
+    }
 
 }
 
@@ -130,8 +131,9 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
       describeReservedElasticsearchInstanceOfferingsRequest: DescribeReservedElasticsearchInstanceOfferingsRequest
   ): Observable[DescribeReservedElasticsearchInstanceOfferingsResponse] =
     Observable.fromReactivePublisher(
-      underlying
-        .describeReservedElasticsearchInstanceOfferingsPaginator(describeReservedElasticsearchInstanceOfferingsRequest)
+      underlying.describeReservedElasticsearchInstanceOfferingsPaginator(
+        describeReservedElasticsearchInstanceOfferingsRequest
+      )
     )
 
   override def describeReservedElasticsearchInstances(

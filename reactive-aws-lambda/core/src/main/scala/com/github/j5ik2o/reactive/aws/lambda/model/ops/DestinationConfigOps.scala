@@ -7,16 +7,12 @@ final class DestinationConfigBuilderOps(val self: DestinationConfig.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def onSuccessAsScala(value: Option[OnSuccess]): DestinationConfig.Builder = {
-    value.fold(self) { v =>
-      self.onSuccess(v)
-    }
+    value.fold(self) { v => self.onSuccess(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def onFailureAsScala(value: Option[OnFailure]): DestinationConfig.Builder = {
-    value.fold(self) { v =>
-      self.onFailure(v)
-    }
+    value.fold(self) { v => self.onFailure(v) }
   }
 
 }

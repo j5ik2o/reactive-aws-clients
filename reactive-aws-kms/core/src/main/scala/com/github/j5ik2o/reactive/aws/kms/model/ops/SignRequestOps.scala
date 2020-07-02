@@ -7,23 +7,17 @@ final class SignRequestBuilderOps(val self: SignRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): SignRequest.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): SignRequest.Builder = {
-    value.fold(self) { v =>
-      self.message(v)
-    }
+    value.fold(self) { v => self.message(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def messageTypeAsScala(value: Option[MessageType]): SignRequest.Builder = {
-    value.fold(self) { v =>
-      self.messageType(v)
-    }
+    value.fold(self) { v => self.messageType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -35,9 +29,7 @@ final class SignRequestBuilderOps(val self: SignRequest.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingAlgorithmAsScala(value: Option[SigningAlgorithmSpec]): SignRequest.Builder = {
-    value.fold(self) { v =>
-      self.signingAlgorithm(v)
-    }
+    value.fold(self) { v => self.signingAlgorithm(v) }
   }
 
 }
@@ -54,9 +46,8 @@ final class SignRequestOps(val self: SignRequest) extends AnyVal {
   final def messageTypeAsScala: Option[MessageType] = Option(self.messageType)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingAlgorithmAsScala: Option[SigningAlgorithmSpec] = Option(self.signingAlgorithm)

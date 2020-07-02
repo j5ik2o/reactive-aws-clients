@@ -7,16 +7,12 @@ final class CreatePlatformVersionResponseBuilderOps(val self: CreatePlatformVers
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformSummaryAsScala(value: Option[PlatformSummary]): CreatePlatformVersionResponse.Builder = {
-    value.fold(self) { v =>
-      self.platformSummary(v)
-    }
+    value.fold(self) { v => self.platformSummary(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def platformBuilderAsScala(value: Option[PlatformBuilder]): CreatePlatformVersionResponse.Builder = {
-    value.fold(self) { v =>
-      self.platformBuilder(v)
-    }
+    value.fold(self) { v => self.platformBuilder(v) }
   }
 
 }

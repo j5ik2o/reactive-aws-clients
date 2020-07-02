@@ -7,51 +7,37 @@ final class PackageDetailsBuilderOps(val self: PackageDetails.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageIDAsScala(value: Option[String]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageID(v)
-    }
+    value.fold(self) { v => self.packageID(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageNameAsScala(value: Option[String]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageName(v)
-    }
+    value.fold(self) { v => self.packageName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageTypeAsScala(value: Option[PackageType]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageType(v)
-    }
+    value.fold(self) { v => self.packageType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageDescriptionAsScala(value: Option[String]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageDescription(v)
-    }
+    value.fold(self) { v => self.packageDescription(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def packageStatusAsScala(value: Option[PackageStatus]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.packageStatus(v)
-    }
+    value.fold(self) { v => self.packageStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def createdAtAsScala(value: Option[java.time.Instant]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.createdAt(v)
-    }
+    value.fold(self) { v => self.createdAt(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def errorDetailsAsScala(value: Option[ErrorDetails]): PackageDetails.Builder = {
-    value.fold(self) { v =>
-      self.errorDetails(v)
-    }
+    value.fold(self) { v => self.errorDetails(v) }
   }
 
 }

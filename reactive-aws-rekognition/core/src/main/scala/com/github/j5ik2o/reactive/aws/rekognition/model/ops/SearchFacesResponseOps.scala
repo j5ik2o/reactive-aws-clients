@@ -7,9 +7,7 @@ final class SearchFacesResponseBuilderOps(val self: SearchFacesResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def searchedFaceIdAsScala(value: Option[String]): SearchFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.searchedFaceId(v)
-    }
+    value.fold(self) { v => self.searchedFaceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,9 +19,7 @@ final class SearchFacesResponseBuilderOps(val self: SearchFacesResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala(value: Option[String]): SearchFacesResponse.Builder = {
-    value.fold(self) { v =>
-      self.faceModelVersion(v)
-    }
+    value.fold(self) { v => self.faceModelVersion(v) }
   }
 
 }
@@ -34,9 +30,8 @@ final class SearchFacesResponseOps(val self: SearchFacesResponse) extends AnyVal
   final def searchedFaceIdAsScala: Option[String] = Option(self.searchedFaceId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def faceMatchesAsScala: Option[Seq[FaceMatch]] = Option(self.faceMatches).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def faceMatchesAsScala: Option[Seq[FaceMatch]] =
+    Option(self.faceMatches).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def faceModelVersionAsScala: Option[String] = Option(self.faceModelVersion)

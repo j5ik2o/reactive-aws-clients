@@ -7,16 +7,12 @@ final class PutLogEventsRequestBuilderOps(val self: PutLogEventsRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): PutLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNameAsScala(value: Option[String]): PutLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logStreamName(v)
-    }
+    value.fold(self) { v => self.logStreamName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -28,9 +24,7 @@ final class PutLogEventsRequestBuilderOps(val self: PutLogEventsRequest.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceTokenAsScala(value: Option[String]): PutLogEventsRequest.Builder = {
-    value.fold(self) { v =>
-      self.sequenceToken(v)
-    }
+    value.fold(self) { v => self.sequenceToken(v) }
   }
 
 }
@@ -44,9 +38,8 @@ final class PutLogEventsRequestOps(val self: PutLogEventsRequest) extends AnyVal
   final def logStreamNameAsScala: Option[String] = Option(self.logStreamName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def logEventsAsScala: Option[Seq[InputLogEvent]] = Option(self.logEvents).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def logEventsAsScala: Option[Seq[InputLogEvent]] =
+    Option(self.logEvents).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceTokenAsScala: Option[String] = Option(self.sequenceToken)

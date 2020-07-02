@@ -7,51 +7,42 @@ final class ServiceSoftwareOptionsBuilderOps(val self: ServiceSoftwareOptions.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def currentVersionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.currentVersion(v)
-    }
+    value.fold(self) { v => self.currentVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def newVersionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.newVersion(v)
-    }
+    value.fold(self) { v => self.newVersion(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateAvailableAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.updateAvailable(v)
-    }
+    value.fold(self) { v => self.updateAvailable(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cancellableAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.cancellable(v)
-    }
+    value.fold(self) { v => self.cancellable(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def updateStatusAsScala(value: Option[DeploymentStatus]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.updateStatus(v)
-    }
+    value.fold(self) { v => self.updateStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.description(v)
-    }
+    value.fold(self) { v => self.description(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def automatedUpdateDateAsScala(value: Option[java.time.Instant]): ServiceSoftwareOptions.Builder = {
-    value.fold(self) { v =>
-      self.automatedUpdateDate(v)
-    }
+    value.fold(self) { v => self.automatedUpdateDate(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def optionalDeploymentAsScala(value: Option[Boolean]): ServiceSoftwareOptions.Builder = {
+    value.fold(self) { v => self.optionalDeployment(v) }
   }
 
 }
@@ -78,6 +69,9 @@ final class ServiceSoftwareOptionsOps(val self: ServiceSoftwareOptions) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def automatedUpdateDateAsScala: Option[java.time.Instant] = Option(self.automatedUpdateDate)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def optionalDeploymentAsScala: Option[Boolean] = Option(self.optionalDeployment)
 
 }
 

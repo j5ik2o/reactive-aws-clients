@@ -7,9 +7,7 @@ final class SolutionStackDescriptionBuilderOps(val self: SolutionStackDescriptio
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def solutionStackNameAsScala(value: Option[String]): SolutionStackDescription.Builder = {
-    value.fold(self) { v =>
-      self.solutionStackName(v)
-    }
+    value.fold(self) { v => self.solutionStackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class SolutionStackDescriptionOps(val self: SolutionStackDescription) exte
   final def solutionStackNameAsScala: Option[String] = Option(self.solutionStackName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def permittedFileTypesAsScala: Option[Seq[String]] = Option(self.permittedFileTypes).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def permittedFileTypesAsScala: Option[Seq[String]] =
+    Option(self.permittedFileTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

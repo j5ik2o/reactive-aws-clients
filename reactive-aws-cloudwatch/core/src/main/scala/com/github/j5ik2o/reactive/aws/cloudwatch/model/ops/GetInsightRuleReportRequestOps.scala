@@ -7,37 +7,27 @@ final class GetInsightRuleReportRequestBuilderOps(val self: GetInsightRuleReport
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ruleNameAsScala(value: Option[String]): GetInsightRuleReportRequest.Builder = {
-    value.fold(self) { v =>
-      self.ruleName(v)
-    }
+    value.fold(self) { v => self.ruleName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimeAsScala(value: Option[java.time.Instant]): GetInsightRuleReportRequest.Builder = {
-    value.fold(self) { v =>
-      self.startTime(v)
-    }
+    value.fold(self) { v => self.startTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endTimeAsScala(value: Option[java.time.Instant]): GetInsightRuleReportRequest.Builder = {
-    value.fold(self) { v =>
-      self.endTime(v)
-    }
+    value.fold(self) { v => self.endTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def periodAsScala(value: Option[Int]): GetInsightRuleReportRequest.Builder = {
-    value.fold(self) { v =>
-      self.period(v)
-    }
+    value.fold(self) { v => self.period(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxContributorCountAsScala(value: Option[Int]): GetInsightRuleReportRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxContributorCount(v)
-    }
+    value.fold(self) { v => self.maxContributorCount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -49,9 +39,7 @@ final class GetInsightRuleReportRequestBuilderOps(val self: GetInsightRuleReport
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orderByAsScala(value: Option[String]): GetInsightRuleReportRequest.Builder = {
-    value.fold(self) { v =>
-      self.orderBy(v)
-    }
+    value.fold(self) { v => self.orderBy(v) }
   }
 
 }
@@ -74,9 +62,8 @@ final class GetInsightRuleReportRequestOps(val self: GetInsightRuleReportRequest
   final def maxContributorCountAsScala: Option[Int] = Option(self.maxContributorCount)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def metricsAsScala: Option[Seq[String]] = Option(self.metrics).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def metricsAsScala: Option[Seq[String]] =
+    Option(self.metrics).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orderByAsScala: Option[String] = Option(self.orderBy)

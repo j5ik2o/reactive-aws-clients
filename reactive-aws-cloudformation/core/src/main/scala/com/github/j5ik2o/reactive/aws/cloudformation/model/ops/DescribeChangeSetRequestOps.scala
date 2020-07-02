@@ -7,23 +7,17 @@ final class DescribeChangeSetRequestBuilderOps(val self: DescribeChangeSetReques
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def changeSetNameAsScala(value: Option[String]): DescribeChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.changeSetName(v)
-    }
+    value.fold(self) { v => self.changeSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackNameAsScala(value: Option[String]): DescribeChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackName(v)
-    }
+    value.fold(self) { v => self.stackName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeChangeSetRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
 }

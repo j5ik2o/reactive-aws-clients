@@ -7,23 +7,17 @@ final class UpgradeHistoryBuilderOps(val self: UpgradeHistory.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeNameAsScala(value: Option[String]): UpgradeHistory.Builder = {
-    value.fold(self) { v =>
-      self.upgradeName(v)
-    }
+    value.fold(self) { v => self.upgradeName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startTimestampAsScala(value: Option[java.time.Instant]): UpgradeHistory.Builder = {
-    value.fold(self) { v =>
-      self.startTimestamp(v)
-    }
+    value.fold(self) { v => self.startTimestamp(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def upgradeStatusAsScala(value: Option[UpgradeStatus]): UpgradeHistory.Builder = {
-    value.fold(self) { v =>
-      self.upgradeStatus(v)
-    }
+    value.fold(self) { v => self.upgradeStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -47,9 +41,8 @@ final class UpgradeHistoryOps(val self: UpgradeHistory) extends AnyVal {
   final def upgradeStatusAsScala: Option[UpgradeStatus] = Option(self.upgradeStatus)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def stepsListAsScala: Option[Seq[UpgradeStepItem]] = Option(self.stepsList).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def stepsListAsScala: Option[Seq[UpgradeStepItem]] =
+    Option(self.stepsList).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

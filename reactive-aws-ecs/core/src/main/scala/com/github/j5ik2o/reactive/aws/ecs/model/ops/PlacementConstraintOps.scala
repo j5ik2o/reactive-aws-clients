@@ -7,16 +7,12 @@ final class PlacementConstraintBuilderOps(val self: PlacementConstraint.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def typeAsScala(value: Option[PlacementConstraintType]): PlacementConstraint.Builder = {
-    value.fold(self) { v =>
-      self.`type`(v)
-    }
+    value.fold(self) { v => self.`type`(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expressionAsScala(value: Option[String]): PlacementConstraint.Builder = {
-    value.fold(self) { v =>
-      self.expression(v)
-    }
+    value.fold(self) { v => self.expression(v) }
   }
 
 }

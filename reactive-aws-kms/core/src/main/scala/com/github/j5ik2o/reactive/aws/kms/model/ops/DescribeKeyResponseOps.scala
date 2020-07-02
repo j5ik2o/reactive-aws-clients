@@ -7,9 +7,7 @@ final class DescribeKeyResponseBuilderOps(val self: DescribeKeyResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyMetadataAsScala(value: Option[KeyMetadata]): DescribeKeyResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyMetadata(v)
-    }
+    value.fold(self) { v => self.keyMetadata(v) }
   }
 
 }

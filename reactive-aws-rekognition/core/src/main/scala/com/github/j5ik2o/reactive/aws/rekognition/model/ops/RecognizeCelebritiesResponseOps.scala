@@ -21,9 +21,7 @@ final class RecognizeCelebritiesResponseBuilderOps(val self: RecognizeCelebritie
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orientationCorrectionAsScala(value: Option[OrientationCorrection]): RecognizeCelebritiesResponse.Builder = {
-    value.fold(self) { v =>
-      self.orientationCorrection(v)
-    }
+    value.fold(self) { v => self.orientationCorrection(v) }
   }
 
 }
@@ -31,14 +29,16 @@ final class RecognizeCelebritiesResponseBuilderOps(val self: RecognizeCelebritie
 final class RecognizeCelebritiesResponseOps(val self: RecognizeCelebritiesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def celebrityFacesAsScala: Option[Seq[Celebrity]] = Option(self.celebrityFaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def celebrityFacesAsScala: Option[Seq[Celebrity]] =
+    Option(self.celebrityFaces).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def unrecognizedFacesAsScala: Option[Seq[ComparedFace]] = Option(self.unrecognizedFaces).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def unrecognizedFacesAsScala: Option[Seq[ComparedFace]] =
+    Option(self.unrecognizedFaces).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orientationCorrectionAsScala: Option[OrientationCorrection] = Option(self.orientationCorrection)

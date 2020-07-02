@@ -7,9 +7,7 @@ final class GetKeyPolicyResponseBuilderOps(val self: GetKeyPolicyResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def policyAsScala(value: Option[String]): GetKeyPolicyResponse.Builder = {
-    value.fold(self) { v =>
-      self.policy(v)
-    }
+    value.fold(self) { v => self.policy(v) }
   }
 
 }

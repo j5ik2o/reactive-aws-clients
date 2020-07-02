@@ -7,9 +7,7 @@ final class RetryStrategyBuilderOps(val self: RetryStrategy.Builder) extends Any
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def attemptsAsScala(value: Option[Int]): RetryStrategy.Builder = {
-    value.fold(self) { v =>
-      self.attempts(v)
-    }
+    value.fold(self) { v => self.attempts(v) }
   }
 
 }

@@ -7,9 +7,7 @@ final class ReEncryptRequestBuilderOps(val self: ReEncryptRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ciphertextBlobAsScala(value: Option[software.amazon.awssdk.core.SdkBytes]): ReEncryptRequest.Builder = {
-    value.fold(self) { v =>
-      self.ciphertextBlob(v)
-    }
+    value.fold(self) { v => self.ciphertextBlob(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,16 +19,12 @@ final class ReEncryptRequestBuilderOps(val self: ReEncryptRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceKeyIdAsScala(value: Option[String]): ReEncryptRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceKeyId(v)
-    }
+    value.fold(self) { v => self.sourceKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationKeyIdAsScala(value: Option[String]): ReEncryptRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationKeyId(v)
-    }
+    value.fold(self) { v => self.destinationKeyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -42,16 +36,12 @@ final class ReEncryptRequestBuilderOps(val self: ReEncryptRequest.Builder) exten
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptRequest.Builder = {
-    value.fold(self) { v =>
-      self.sourceEncryptionAlgorithm(v)
-    }
+    value.fold(self) { v => self.sourceEncryptionAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationEncryptionAlgorithmAsScala(value: Option[EncryptionAlgorithmSpec]): ReEncryptRequest.Builder = {
-    value.fold(self) { v =>
-      self.destinationEncryptionAlgorithm(v)
-    }
+    value.fold(self) { v => self.destinationEncryptionAlgorithm(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -69,10 +59,10 @@ final class ReEncryptRequestOps(val self: ReEncryptRequest) extends AnyVal {
   final def ciphertextBlobAsScala: Option[software.amazon.awssdk.core.SdkBytes] = Option(self.ciphertextBlob)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def sourceEncryptionContextAsScala: Option[Map[String, String]] = Option(self.sourceEncryptionContext).map {
-    v =>
+  final def sourceEncryptionContextAsScala: Option[Map[String, String]] =
+    Option(self.sourceEncryptionContext).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sourceKeyIdAsScala: Option[String] = Option(self.sourceKeyId)
@@ -94,9 +84,8 @@ final class ReEncryptRequestOps(val self: ReEncryptRequest) extends AnyVal {
     Option(self.destinationEncryptionAlgorithm)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def grantTokensAsScala: Option[Seq[String]] = Option(self.grantTokens).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def grantTokensAsScala: Option[Seq[String]] =
+    Option(self.grantTokens).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

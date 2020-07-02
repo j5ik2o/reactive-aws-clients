@@ -27,14 +27,14 @@ final class DescribeContainerInstancesResponseBuilderOps(val self: DescribeConta
 final class DescribeContainerInstancesResponseOps(val self: DescribeContainerInstancesResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def containerInstancesAsScala: Option[Seq[ContainerInstance]] = Option(self.containerInstances).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def containerInstancesAsScala: Option[Seq[ContainerInstance]] =
+    Option(self.containerInstances).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def failuresAsScala: Option[Seq[Failure]] = Option(self.failures).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def failuresAsScala: Option[Seq[Failure]] =
+    Option(self.failures).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

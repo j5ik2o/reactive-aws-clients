@@ -7,16 +7,12 @@ final class CognitoOptionsStatusBuilderOps(val self: CognitoOptionsStatus.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def optionsAsScala(value: Option[CognitoOptions]): CognitoOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.options(v)
-    }
+    value.fold(self) { v => self.options(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(value: Option[OptionStatus]): CognitoOptionsStatus.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
 }

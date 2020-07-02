@@ -7,16 +7,12 @@ final class RecurringChargeBuilderOps(val self: RecurringCharge.Builder) extends
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recurringChargeAmountAsScala(value: Option[Double]): RecurringCharge.Builder = {
-    value.fold(self) { v =>
-      self.recurringChargeAmount(v)
-    }
+    value.fold(self) { v => self.recurringChargeAmount(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def recurringChargeFrequencyAsScala(value: Option[String]): RecurringCharge.Builder = {
-    value.fold(self) { v =>
-      self.recurringChargeFrequency(v)
-    }
+    value.fold(self) { v => self.recurringChargeFrequency(v) }
   }
 
 }

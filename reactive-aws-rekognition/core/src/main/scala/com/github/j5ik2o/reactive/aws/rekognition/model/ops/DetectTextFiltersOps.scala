@@ -7,9 +7,7 @@ final class DetectTextFiltersBuilderOps(val self: DetectTextFilters.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def wordFilterAsScala(value: Option[DetectionFilter]): DetectTextFilters.Builder = {
-    value.fold(self) { v =>
-      self.wordFilter(v)
-    }
+    value.fold(self) { v => self.wordFilter(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -27,9 +25,10 @@ final class DetectTextFiltersOps(val self: DetectTextFilters) extends AnyVal {
   final def wordFilterAsScala: Option[DetectionFilter] = Option(self.wordFilter)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def regionsOfInterestAsScala: Option[Seq[RegionOfInterest]] = Option(self.regionsOfInterest).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def regionsOfInterestAsScala: Option[Seq[RegionOfInterest]] =
+    Option(self.regionsOfInterest).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

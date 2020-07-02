@@ -18,9 +18,8 @@ final class ValidateConfigurationSettingsResponseBuilderOps(val self: ValidateCo
 final class ValidateConfigurationSettingsResponseOps(val self: ValidateConfigurationSettingsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def messagesAsScala: Option[Seq[ValidationMessage]] = Option(self.messages).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def messagesAsScala: Option[Seq[ValidationMessage]] =
+    Option(self.messages).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

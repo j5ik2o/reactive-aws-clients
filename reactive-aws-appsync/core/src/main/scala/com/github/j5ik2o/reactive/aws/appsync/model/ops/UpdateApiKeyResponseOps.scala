@@ -7,9 +7,7 @@ final class UpdateApiKeyResponseBuilderOps(val self: UpdateApiKeyResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def apiKeyAsScala(value: Option[ApiKey]): UpdateApiKeyResponse.Builder = {
-    value.fold(self) { v =>
-      self.apiKey(v)
-    }
+    value.fold(self) { v => self.apiKey(v) }
   }
 
 }

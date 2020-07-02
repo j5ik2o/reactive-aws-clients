@@ -10,50 +10,38 @@ final class GetProvisionedConcurrencyConfigResponseBuilderOps(val self: GetProvi
   final def requestedProvisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): GetProvisionedConcurrencyConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.requestedProvisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.requestedProvisionedConcurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availableProvisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): GetProvisionedConcurrencyConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.availableProvisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.availableProvisionedConcurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def allocatedProvisionedConcurrentExecutionsAsScala(
       value: Option[Int]
   ): GetProvisionedConcurrencyConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.allocatedProvisionedConcurrentExecutions(v)
-    }
+    value.fold(self) { v => self.allocatedProvisionedConcurrentExecutions(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala(
       value: Option[ProvisionedConcurrencyStatusEnum]
   ): GetProvisionedConcurrencyConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.status(v)
-    }
+    value.fold(self) { v => self.status(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): GetProvisionedConcurrencyConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.statusReason(v)
-    }
+    value.fold(self) { v => self.statusReason(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastModifiedAsScala(value: Option[String]): GetProvisionedConcurrencyConfigResponse.Builder = {
-    value.fold(self) { v =>
-      self.lastModified(v)
-    }
+    value.fold(self) { v => self.lastModified(v) }
   }
 
 }

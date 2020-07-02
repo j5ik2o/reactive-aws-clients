@@ -7,16 +7,12 @@ final class CreateGrantResponseBuilderOps(val self: CreateGrantResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantTokenAsScala(value: Option[String]): CreateGrantResponse.Builder = {
-    value.fold(self) { v =>
-      self.grantToken(v)
-    }
+    value.fold(self) { v => self.grantToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def grantIdAsScala(value: Option[String]): CreateGrantResponse.Builder = {
-    value.fold(self) { v =>
-      self.grantId(v)
-    }
+    value.fold(self) { v => self.grantId(v) }
   }
 
 }

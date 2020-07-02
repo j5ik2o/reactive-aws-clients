@@ -10,18 +10,14 @@ final class StackResourceDriftInformationSummaryBuilderOps(val self: StackResour
   final def stackResourceDriftStatusAsScala(
       value: Option[StackResourceDriftStatus]
   ): StackResourceDriftInformationSummary.Builder = {
-    value.fold(self) { v =>
-      self.stackResourceDriftStatus(v)
-    }
+    value.fold(self) { v => self.stackResourceDriftStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastCheckTimestampAsScala(
       value: Option[java.time.Instant]
   ): StackResourceDriftInformationSummary.Builder = {
-    value.fold(self) { v =>
-      self.lastCheckTimestamp(v)
-    }
+    value.fold(self) { v => self.lastCheckTimestamp(v) }
   }
 
 }

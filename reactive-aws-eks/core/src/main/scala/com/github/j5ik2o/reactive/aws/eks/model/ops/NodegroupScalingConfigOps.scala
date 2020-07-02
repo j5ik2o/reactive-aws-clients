@@ -7,23 +7,17 @@ final class NodegroupScalingConfigBuilderOps(val self: NodegroupScalingConfig.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def minSizeAsScala(value: Option[Int]): NodegroupScalingConfig.Builder = {
-    value.fold(self) { v =>
-      self.minSize(v)
-    }
+    value.fold(self) { v => self.minSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxSizeAsScala(value: Option[Int]): NodegroupScalingConfig.Builder = {
-    value.fold(self) { v =>
-      self.maxSize(v)
-    }
+    value.fold(self) { v => self.maxSize(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def desiredSizeAsScala(value: Option[Int]): NodegroupScalingConfig.Builder = {
-    value.fold(self) { v =>
-      self.desiredSize(v)
-    }
+    value.fold(self) { v => self.desiredSize(v) }
   }
 
 }

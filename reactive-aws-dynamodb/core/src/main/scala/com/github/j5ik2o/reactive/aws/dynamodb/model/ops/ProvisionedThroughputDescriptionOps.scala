@@ -8,37 +8,27 @@ final class ProvisionedThroughputDescriptionBuilderOps(val self: ProvisionedThro
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastIncreaseDateTimeAsScala(value: Option[java.time.Instant]): ProvisionedThroughputDescription.Builder = {
-    value.fold(self) { v =>
-      self.lastIncreaseDateTime(v)
-    }
+    value.fold(self) { v => self.lastIncreaseDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastDecreaseDateTimeAsScala(value: Option[java.time.Instant]): ProvisionedThroughputDescription.Builder = {
-    value.fold(self) { v =>
-      self.lastDecreaseDateTime(v)
-    }
+    value.fold(self) { v => self.lastDecreaseDateTime(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def numberOfDecreasesTodayAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
-    value.fold(self) { v =>
-      self.numberOfDecreasesToday(v)
-    }
+    value.fold(self) { v => self.numberOfDecreasesToday(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def readCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
-    value.fold(self) { v =>
-      self.readCapacityUnits(v)
-    }
+    value.fold(self) { v => self.readCapacityUnits(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def writeCapacityUnitsAsScala(value: Option[Long]): ProvisionedThroughputDescription.Builder = {
-    value.fold(self) { v =>
-      self.writeCapacityUnits(v)
-    }
+    value.fold(self) { v => self.writeCapacityUnits(v) }
   }
 
 }

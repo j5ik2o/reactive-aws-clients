@@ -8,9 +8,10 @@ import software.amazon.awssdk.services.dynamodb.streams.paginators._
 
 object DynamoDbStreamsSyncClient extends ToEitherSupport {
 
-  def apply(javaClient: JavaDynamoDbStreamsClient): DynamoDbStreamsSyncClient = new DynamoDbStreamsSyncClient {
-    override val underlying: JavaDynamoDbStreamsClient = javaClient
-  }
+  def apply(javaClient: JavaDynamoDbStreamsClient): DynamoDbStreamsSyncClient =
+    new DynamoDbStreamsSyncClient {
+      override val underlying: JavaDynamoDbStreamsClient = javaClient
+    }
 
 }
 

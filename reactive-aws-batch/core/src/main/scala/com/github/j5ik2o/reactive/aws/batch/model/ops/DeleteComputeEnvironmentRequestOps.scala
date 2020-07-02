@@ -8,9 +8,7 @@ final class DeleteComputeEnvironmentRequestBuilderOps(val self: DeleteComputeEnv
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def computeEnvironmentAsScala(value: Option[String]): DeleteComputeEnvironmentRequest.Builder = {
-    value.fold(self) { v =>
-      self.computeEnvironment(v)
-    }
+    value.fold(self) { v => self.computeEnvironment(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class MetricFilterMatchRecordBuilderOps(val self: MetricFilterMatchRecord.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventNumberAsScala(value: Option[Long]): MetricFilterMatchRecord.Builder = {
-    value.fold(self) { v =>
-      self.eventNumber(v)
-    }
+    value.fold(self) { v => self.eventNumber(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def eventMessageAsScala(value: Option[String]): MetricFilterMatchRecord.Builder = {
-    value.fold(self) { v =>
-      self.eventMessage(v)
-    }
+    value.fold(self) { v => self.eventMessage(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,9 +33,10 @@ final class MetricFilterMatchRecordOps(val self: MetricFilterMatchRecord) extend
   final def eventMessageAsScala: Option[String] = Option(self.eventMessage)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def extractedValuesAsScala: Option[Map[String, String]] = Option(self.extractedValues).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def extractedValuesAsScala: Option[Map[String, String]] =
+    Option(self.extractedValues).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

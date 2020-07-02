@@ -7,9 +7,7 @@ final class PutDestinationResponseBuilderOps(val self: PutDestinationResponse.Bu
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationAsScala(value: Option[Destination]): PutDestinationResponse.Builder = {
-    value.fold(self) { v =>
-      self.destination(v)
-    }
+    value.fold(self) { v => self.destination(v) }
   }
 
 }

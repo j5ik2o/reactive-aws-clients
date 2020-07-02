@@ -7,44 +7,32 @@ final class DescribeLogStreamsRequestBuilderOps(val self: DescribeLogStreamsRequ
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logGroupNameAsScala(value: Option[String]): DescribeLogStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logGroupName(v)
-    }
+    value.fold(self) { v => self.logGroupName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logStreamNamePrefixAsScala(value: Option[String]): DescribeLogStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.logStreamNamePrefix(v)
-    }
+    value.fold(self) { v => self.logStreamNamePrefix(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def orderByAsScala(value: Option[OrderBy]): DescribeLogStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.orderBy(v)
-    }
+    value.fold(self) { v => self.orderBy(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descendingAsScala(value: Option[Boolean]): DescribeLogStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.descending(v)
-    }
+    value.fold(self) { v => self.descending(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextTokenAsScala(value: Option[String]): DescribeLogStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.nextToken(v)
-    }
+    value.fold(self) { v => self.nextToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): DescribeLogStreamsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
 }

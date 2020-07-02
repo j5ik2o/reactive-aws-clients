@@ -7,16 +7,12 @@ final class QueryCompileErrorLocationBuilderOps(val self: QueryCompileErrorLocat
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def startCharOffsetAsScala(value: Option[Int]): QueryCompileErrorLocation.Builder = {
-    value.fold(self) { v =>
-      self.startCharOffset(v)
-    }
+    value.fold(self) { v => self.startCharOffset(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def endCharOffsetAsScala(value: Option[Int]): QueryCompileErrorLocation.Builder = {
-    value.fold(self) { v =>
-      self.endCharOffset(v)
-    }
+    value.fold(self) { v => self.endCharOffset(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class ListRetirableGrantsRequestBuilderOps(val self: ListRetirableGrantsRe
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def limitAsScala(value: Option[Int]): ListRetirableGrantsRequest.Builder = {
-    value.fold(self) { v =>
-      self.limit(v)
-    }
+    value.fold(self) { v => self.limit(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListRetirableGrantsRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def retiringPrincipalAsScala(value: Option[String]): ListRetirableGrantsRequest.Builder = {
-    value.fold(self) { v =>
-      self.retiringPrincipal(v)
-    }
+    value.fold(self) { v => self.retiringPrincipal(v) }
   }
 
 }

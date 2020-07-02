@@ -7,34 +7,26 @@ final class GetParametersForImportResponseBuilderOps(val self: GetParametersForI
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): GetParametersForImportResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def importTokenAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetParametersForImportResponse.Builder = {
-    value.fold(self) { v =>
-      self.importToken(v)
-    }
+    value.fold(self) { v => self.importToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def publicKeyAsScala(
       value: Option[software.amazon.awssdk.core.SdkBytes]
   ): GetParametersForImportResponse.Builder = {
-    value.fold(self) { v =>
-      self.publicKey(v)
-    }
+    value.fold(self) { v => self.publicKey(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def parametersValidToAsScala(value: Option[java.time.Instant]): GetParametersForImportResponse.Builder = {
-    value.fold(self) { v =>
-      self.parametersValidTo(v)
-    }
+    value.fold(self) { v => self.parametersValidTo(v) }
   }
 
 }

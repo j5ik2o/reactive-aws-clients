@@ -7,9 +7,7 @@ final class UpdateStackInstancesRequestBuilderOps(val self: UpdateStackInstances
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackSetNameAsScala(value: Option[String]): UpdateStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.stackSetName(v)
-    }
+    value.fold(self) { v => self.stackSetName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -21,9 +19,7 @@ final class UpdateStackInstancesRequestBuilderOps(val self: UpdateStackInstances
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentTargetsAsScala(value: Option[DeploymentTargets]): UpdateStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.deploymentTargets(v)
-    }
+    value.fold(self) { v => self.deploymentTargets(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -44,16 +40,12 @@ final class UpdateStackInstancesRequestBuilderOps(val self: UpdateStackInstances
   final def operationPreferencesAsScala(
       value: Option[StackSetOperationPreferences]
   ): UpdateStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.operationPreferences(v)
-    }
+    value.fold(self) { v => self.operationPreferences(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationIdAsScala(value: Option[String]): UpdateStackInstancesRequest.Builder = {
-    value.fold(self) { v =>
-      self.operationId(v)
-    }
+    value.fold(self) { v => self.operationId(v) }
   }
 
 }
@@ -64,22 +56,21 @@ final class UpdateStackInstancesRequestOps(val self: UpdateStackInstancesRequest
   final def stackSetNameAsScala: Option[String] = Option(self.stackSetName)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def accountsAsScala: Option[Seq[String]] = Option(self.accounts).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def accountsAsScala: Option[Seq[String]] =
+    Option(self.accounts).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def deploymentTargetsAsScala: Option[DeploymentTargets] = Option(self.deploymentTargets)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def regionsAsScala: Option[Seq[String]] = Option(self.regions).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def regionsAsScala: Option[Seq[String]] =
+    Option(self.regions).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def parameterOverridesAsScala: Option[Seq[Parameter]] = Option(self.parameterOverrides).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def parameterOverridesAsScala: Option[Seq[Parameter]] =
+    Option(self.parameterOverrides).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def operationPreferencesAsScala: Option[StackSetOperationPreferences] = Option(self.operationPreferences)

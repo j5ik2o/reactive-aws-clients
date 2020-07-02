@@ -17,9 +17,10 @@ final class EnvironmentBuilderOps(val self: Environment.Builder) extends AnyVal 
 final class EnvironmentOps(val self: Environment) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def variablesAsScala: Option[Map[String, String]] = Option(self.variables).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
-  }
+  final def variablesAsScala: Option[Map[String, String]] =
+    Option(self.variables).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala.toMap
+    }
 
 }
 

@@ -7,30 +7,22 @@ final class StatusCodesBuilderOps(val self: StatusCodes.Builder) extends AnyVal 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def status2xxAsScala(value: Option[Int]): StatusCodes.Builder = {
-    value.fold(self) { v =>
-      self.status2xx(v)
-    }
+    value.fold(self) { v => self.status2xx(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def status3xxAsScala(value: Option[Int]): StatusCodes.Builder = {
-    value.fold(self) { v =>
-      self.status3xx(v)
-    }
+    value.fold(self) { v => self.status3xx(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def status4xxAsScala(value: Option[Int]): StatusCodes.Builder = {
-    value.fold(self) { v =>
-      self.status4xx(v)
-    }
+    value.fold(self) { v => self.status4xx(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def status5xxAsScala(value: Option[Int]): StatusCodes.Builder = {
-    value.fold(self) { v =>
-      self.status5xx(v)
-    }
+    value.fold(self) { v => self.status5xx(v) }
   }
 
 }

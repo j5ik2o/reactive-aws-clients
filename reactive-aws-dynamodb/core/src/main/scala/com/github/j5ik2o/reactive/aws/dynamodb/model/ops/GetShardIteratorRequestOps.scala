@@ -7,30 +7,22 @@ final class GetShardIteratorRequestBuilderOps(val self: GetShardIteratorRequest.
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def streamArnAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
-    value.fold(self) { v =>
-      self.streamArn(v)
-    }
+    value.fold(self) { v => self.streamArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIdAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
-    value.fold(self) { v =>
-      self.shardId(v)
-    }
+    value.fold(self) { v => self.shardId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def shardIteratorTypeAsScala(value: Option[ShardIteratorType]): GetShardIteratorRequest.Builder = {
-    value.fold(self) { v =>
-      self.shardIteratorType(v)
-    }
+    value.fold(self) { v => self.shardIteratorType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def sequenceNumberAsScala(value: Option[String]): GetShardIteratorRequest.Builder = {
-    value.fold(self) { v =>
-      self.sequenceNumber(v)
-    }
+    value.fold(self) { v => self.sequenceNumber(v) }
   }
 
 }

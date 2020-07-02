@@ -7,23 +7,17 @@ final class SyncConfigBuilderOps(val self: SyncConfig.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conflictHandlerAsScala(value: Option[ConflictHandlerType]): SyncConfig.Builder = {
-    value.fold(self) { v =>
-      self.conflictHandler(v)
-    }
+    value.fold(self) { v => self.conflictHandler(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def conflictDetectionAsScala(value: Option[ConflictDetectionType]): SyncConfig.Builder = {
-    value.fold(self) { v =>
-      self.conflictDetection(v)
-    }
+    value.fold(self) { v => self.conflictDetection(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lambdaConflictHandlerConfigAsScala(value: Option[LambdaConflictHandlerConfig]): SyncConfig.Builder = {
-    value.fold(self) { v =>
-      self.lambdaConflictHandlerConfig(v)
-    }
+    value.fold(self) { v => self.lambdaConflictHandlerConfig(v) }
   }
 
 }

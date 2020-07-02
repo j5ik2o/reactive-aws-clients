@@ -7,16 +7,12 @@ final class TestingDataResultBuilderOps(val self: TestingDataResult.Builder) ext
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def inputAsScala(value: Option[TestingData]): TestingDataResult.Builder = {
-    value.fold(self) { v =>
-      self.input(v)
-    }
+    value.fold(self) { v => self.input(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def outputAsScala(value: Option[TestingData]): TestingDataResult.Builder = {
-    value.fold(self) { v =>
-      self.output(v)
-    }
+    value.fold(self) { v => self.output(v) }
   }
 
 }

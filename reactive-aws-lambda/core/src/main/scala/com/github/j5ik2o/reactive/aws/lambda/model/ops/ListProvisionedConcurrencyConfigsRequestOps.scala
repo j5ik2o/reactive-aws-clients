@@ -9,23 +9,17 @@ final class ListProvisionedConcurrencyConfigsRequestBuilderOps(
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def functionNameAsScala(value: Option[String]): ListProvisionedConcurrencyConfigsRequest.Builder = {
-    value.fold(self) { v =>
-      self.functionName(v)
-    }
+    value.fold(self) { v => self.functionName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def markerAsScala(value: Option[String]): ListProvisionedConcurrencyConfigsRequest.Builder = {
-    value.fold(self) { v =>
-      self.marker(v)
-    }
+    value.fold(self) { v => self.marker(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxItemsAsScala(value: Option[Int]): ListProvisionedConcurrencyConfigsRequest.Builder = {
-    value.fold(self) { v =>
-      self.maxItems(v)
-    }
+    value.fold(self) { v => self.maxItems(v) }
   }
 
 }

@@ -7,16 +7,12 @@ final class NotificationConfigurationBuilderOps(val self: NotificationConfigurat
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def topicArnAsScala(value: Option[String]): NotificationConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.topicArn(v)
-    }
+    value.fold(self) { v => self.topicArn(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def topicStatusAsScala(value: Option[String]): NotificationConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.topicStatus(v)
-    }
+    value.fold(self) { v => self.topicStatus(v) }
   }
 
 }

@@ -8,16 +8,12 @@ final class ApplicationVersionLifecycleConfigBuilderOps(val self: ApplicationVer
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxCountRuleAsScala(value: Option[MaxCountRule]): ApplicationVersionLifecycleConfig.Builder = {
-    value.fold(self) { v =>
-      self.maxCountRule(v)
-    }
+    value.fold(self) { v => self.maxCountRule(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxAgeRuleAsScala(value: Option[MaxAgeRule]): ApplicationVersionLifecycleConfig.Builder = {
-    value.fold(self) { v =>
-      self.maxAgeRule(v)
-    }
+    value.fold(self) { v => self.maxAgeRule(v) }
   }
 
 }

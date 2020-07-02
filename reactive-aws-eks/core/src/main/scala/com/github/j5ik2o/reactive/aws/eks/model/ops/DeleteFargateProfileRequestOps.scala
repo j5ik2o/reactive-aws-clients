@@ -7,16 +7,12 @@ final class DeleteFargateProfileRequestBuilderOps(val self: DeleteFargateProfile
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def clusterNameAsScala(value: Option[String]): DeleteFargateProfileRequest.Builder = {
-    value.fold(self) { v =>
-      self.clusterName(v)
-    }
+    value.fold(self) { v => self.clusterName(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def fargateProfileNameAsScala(value: Option[String]): DeleteFargateProfileRequest.Builder = {
-    value.fold(self) { v =>
-      self.fargateProfileName(v)
-    }
+    value.fold(self) { v => self.fargateProfileName(v) }
   }
 
 }

@@ -7,23 +7,17 @@ final class StackResourceDriftBuilderOps(val self: StackResourceDrift.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackIdAsScala(value: Option[String]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.stackId(v)
-    }
+    value.fold(self) { v => self.stackId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def logicalResourceIdAsScala(value: Option[String]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.logicalResourceId(v)
-    }
+    value.fold(self) { v => self.logicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def physicalResourceIdAsScala(value: Option[String]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.physicalResourceId(v)
-    }
+    value.fold(self) { v => self.physicalResourceId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -37,23 +31,17 @@ final class StackResourceDriftBuilderOps(val self: StackResourceDrift.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def resourceTypeAsScala(value: Option[String]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.resourceType(v)
-    }
+    value.fold(self) { v => self.resourceType(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def expectedPropertiesAsScala(value: Option[String]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.expectedProperties(v)
-    }
+    value.fold(self) { v => self.expectedProperties(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def actualPropertiesAsScala(value: Option[String]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.actualProperties(v)
-    }
+    value.fold(self) { v => self.actualProperties(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
@@ -65,16 +53,12 @@ final class StackResourceDriftBuilderOps(val self: StackResourceDrift.Builder) e
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDriftStatusAsScala(value: Option[StackResourceDriftStatus]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.stackResourceDriftStatus(v)
-    }
+    value.fold(self) { v => self.stackResourceDriftStatus(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def timestampAsScala(value: Option[java.time.Instant]): StackResourceDrift.Builder = {
-    value.fold(self) { v =>
-      self.timestamp(v)
-    }
+    value.fold(self) { v => self.timestamp(v) }
   }
 
 }
@@ -106,9 +90,10 @@ final class StackResourceDriftOps(val self: StackResourceDrift) extends AnyVal {
   final def actualPropertiesAsScala: Option[String] = Option(self.actualProperties)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def propertyDifferencesAsScala: Option[Seq[PropertyDifference]] = Option(self.propertyDifferences).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def propertyDifferencesAsScala: Option[Seq[PropertyDifference]] =
+    Option(self.propertyDifferences).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackResourceDriftStatusAsScala: Option[StackResourceDriftStatus] = Option(self.stackResourceDriftStatus)

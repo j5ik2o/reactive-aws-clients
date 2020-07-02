@@ -7,9 +7,7 @@ final class CreateTableResponseBuilderOps(val self: CreateTableResponse.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tableDescriptionAsScala(value: Option[TableDescription]): CreateTableResponse.Builder = {
-    value.fold(self) { v =>
-      self.tableDescription(v)
-    }
+    value.fold(self) { v => self.tableDescription(v) }
   }
 
 }

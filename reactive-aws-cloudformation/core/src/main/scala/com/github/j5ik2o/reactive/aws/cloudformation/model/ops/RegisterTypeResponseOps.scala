@@ -7,9 +7,7 @@ final class RegisterTypeResponseBuilderOps(val self: RegisterTypeResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def registrationTokenAsScala(value: Option[String]): RegisterTypeResponse.Builder = {
-    value.fold(self) { v =>
-      self.registrationToken(v)
-    }
+    value.fold(self) { v => self.registrationToken(v) }
   }
 
 }

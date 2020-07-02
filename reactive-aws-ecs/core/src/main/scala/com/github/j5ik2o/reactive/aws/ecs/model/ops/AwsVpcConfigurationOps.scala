@@ -21,9 +21,7 @@ final class AwsVpcConfigurationBuilderOps(val self: AwsVpcConfiguration.Builder)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def assignPublicIpAsScala(value: Option[AssignPublicIp]): AwsVpcConfiguration.Builder = {
-    value.fold(self) { v =>
-      self.assignPublicIp(v)
-    }
+    value.fold(self) { v => self.assignPublicIp(v) }
   }
 
 }
@@ -31,14 +29,14 @@ final class AwsVpcConfigurationBuilderOps(val self: AwsVpcConfiguration.Builder)
 final class AwsVpcConfigurationOps(val self: AwsVpcConfiguration) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def subnetsAsScala: Option[Seq[String]] = Option(self.subnets).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def subnetsAsScala: Option[Seq[String]] =
+    Option(self.subnets).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def securityGroupsAsScala: Option[Seq[String]] = Option(self.securityGroups).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def securityGroupsAsScala: Option[Seq[String]] =
+    Option(self.securityGroups).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def assignPublicIpAsScala: Option[AssignPublicIp] = Option(self.assignPublicIp)

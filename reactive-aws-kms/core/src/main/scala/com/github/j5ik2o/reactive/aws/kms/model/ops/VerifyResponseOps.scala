@@ -7,23 +7,17 @@ final class VerifyResponseBuilderOps(val self: VerifyResponse.Builder) extends A
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def keyIdAsScala(value: Option[String]): VerifyResponse.Builder = {
-    value.fold(self) { v =>
-      self.keyId(v)
-    }
+    value.fold(self) { v => self.keyId(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signatureValidAsScala(value: Option[Boolean]): VerifyResponse.Builder = {
-    value.fold(self) { v =>
-      self.signatureValid(v)
-    }
+    value.fold(self) { v => self.signatureValid(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def signingAlgorithmAsScala(value: Option[SigningAlgorithmSpec]): VerifyResponse.Builder = {
-    value.fold(self) { v =>
-      self.signingAlgorithm(v)
-    }
+    value.fold(self) { v => self.signingAlgorithm(v) }
   }
 
 }

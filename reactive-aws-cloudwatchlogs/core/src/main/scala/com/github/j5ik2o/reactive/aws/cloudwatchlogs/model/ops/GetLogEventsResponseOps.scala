@@ -14,16 +14,12 @@ final class GetLogEventsResponseBuilderOps(val self: GetLogEventsResponse.Builde
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextForwardTokenAsScala(value: Option[String]): GetLogEventsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextForwardToken(v)
-    }
+    value.fold(self) { v => self.nextForwardToken(v) }
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextBackwardTokenAsScala(value: Option[String]): GetLogEventsResponse.Builder = {
-    value.fold(self) { v =>
-      self.nextBackwardToken(v)
-    }
+    value.fold(self) { v => self.nextBackwardToken(v) }
   }
 
 }
@@ -31,9 +27,8 @@ final class GetLogEventsResponseBuilderOps(val self: GetLogEventsResponse.Builde
 final class GetLogEventsResponseOps(val self: GetLogEventsResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
-  final def eventsAsScala: Option[Seq[OutputLogEvent]] = Option(self.events).map { v =>
-    import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
-  }
+  final def eventsAsScala: Option[Seq[OutputLogEvent]] =
+    Option(self.events).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def nextForwardTokenAsScala: Option[String] = Option(self.nextForwardToken)
