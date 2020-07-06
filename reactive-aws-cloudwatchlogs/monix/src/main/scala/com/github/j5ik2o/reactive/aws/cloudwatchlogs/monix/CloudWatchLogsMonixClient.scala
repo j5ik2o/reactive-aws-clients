@@ -66,6 +66,13 @@ trait CloudWatchLogsMonixClient extends CloudWatchLogsClient[Task] {
       underlying.deleteMetricFilter(deleteMetricFilterRequest)
     }
 
+  override def deleteQueryDefinition(
+      deleteQueryDefinitionRequest: DeleteQueryDefinitionRequest
+  ): Task[DeleteQueryDefinitionResponse] =
+    Task.deferFuture {
+      underlying.deleteQueryDefinition(deleteQueryDefinitionRequest)
+    }
+
   override def deleteResourcePolicy(
       deleteResourcePolicyRequest: DeleteResourcePolicyRequest
   ): Task[DeleteResourcePolicyResponse] =
@@ -179,6 +186,13 @@ trait CloudWatchLogsMonixClient extends CloudWatchLogsClient[Task] {
       underlying.describeQueries()
     }
 
+  override def describeQueryDefinitions(
+      describeQueryDefinitionsRequest: DescribeQueryDefinitionsRequest
+  ): Task[DescribeQueryDefinitionsResponse] =
+    Task.deferFuture {
+      underlying.describeQueryDefinitions(describeQueryDefinitionsRequest)
+    }
+
   override def describeResourcePolicies(
       describeResourcePoliciesRequest: DescribeResourcePoliciesRequest
   ): Task[DescribeResourcePoliciesResponse] =
@@ -268,6 +282,13 @@ trait CloudWatchLogsMonixClient extends CloudWatchLogsClient[Task] {
   override def putMetricFilter(putMetricFilterRequest: PutMetricFilterRequest): Task[PutMetricFilterResponse] =
     Task.deferFuture {
       underlying.putMetricFilter(putMetricFilterRequest)
+    }
+
+  override def putQueryDefinition(
+      putQueryDefinitionRequest: PutQueryDefinitionRequest
+  ): Task[PutQueryDefinitionResponse] =
+    Task.deferFuture {
+      underlying.putQueryDefinition(putQueryDefinitionRequest)
     }
 
   override def putResourcePolicy(putResourcePolicyRequest: PutResourcePolicyRequest): Task[PutResourcePolicyResponse] =

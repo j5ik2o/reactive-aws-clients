@@ -6,6 +6,13 @@ import software.amazon.awssdk.services.ec2.model._
 final class CreateSubnetRequestBuilderOps(val self: CreateSubnetRequest.Builder) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreateSubnetRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala(value: Option[String]): CreateSubnetRequest.Builder = {
     value.fold(self) { v => self.availabilityZone(v) }
   }
@@ -38,6 +45,12 @@ final class CreateSubnetRequestBuilderOps(val self: CreateSubnetRequest.Builder)
 }
 
 final class CreateSubnetRequestOps(val self: CreateSubnetRequest) extends AnyVal {
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def availabilityZoneAsScala: Option[String] = Option(self.availabilityZone)

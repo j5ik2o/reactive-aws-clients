@@ -48,6 +48,11 @@ trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
   ): Either[Throwable, DeleteAttributesResponse] =
     underlying.deleteAttributes(deleteAttributesRequest).toEither
 
+  override def deleteCapacityProvider(
+      deleteCapacityProviderRequest: DeleteCapacityProviderRequest
+  ): Either[Throwable, DeleteCapacityProviderResponse] =
+    underlying.deleteCapacityProvider(deleteCapacityProviderRequest).toEither
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): Either[Throwable, DeleteClusterResponse] =
     underlying.deleteCluster(deleteClusterRequest).toEither
 

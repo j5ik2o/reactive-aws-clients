@@ -25,6 +25,11 @@ final class ImageBuilderOps(val self: Image.Builder) extends AnyVal {
     value.fold(self) { v => self.imageManifest(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageManifestMediaTypeAsScala(value: Option[String]): Image.Builder = {
+    value.fold(self) { v => self.imageManifestMediaType(v) }
+  }
+
 }
 
 final class ImageOps(val self: Image) extends AnyVal {
@@ -40,6 +45,9 @@ final class ImageOps(val self: Image) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageManifestAsScala: Option[String] = Option(self.imageManifest)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageManifestMediaTypeAsScala: Option[String] = Option(self.imageManifestMediaType)
 
 }
 

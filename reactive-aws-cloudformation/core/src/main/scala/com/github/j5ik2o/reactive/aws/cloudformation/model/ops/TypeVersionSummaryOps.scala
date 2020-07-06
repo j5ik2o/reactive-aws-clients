@@ -21,6 +21,11 @@ final class TypeVersionSummaryBuilderOps(val self: TypeVersionSummary.Builder) e
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def isDefaultVersionAsScala(value: Option[Boolean]): TypeVersionSummary.Builder = {
+    value.fold(self) { v => self.isDefaultVersion(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala(value: Option[String]): TypeVersionSummary.Builder = {
     value.fold(self) { v => self.arn(v) }
   }
@@ -47,6 +52,9 @@ final class TypeVersionSummaryOps(val self: TypeVersionSummary) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def versionIdAsScala: Option[String] = Option(self.versionId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def isDefaultVersionAsScala: Option[Boolean] = Option(self.isDefaultVersion)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def arnAsScala: Option[String] = Option(self.arn)

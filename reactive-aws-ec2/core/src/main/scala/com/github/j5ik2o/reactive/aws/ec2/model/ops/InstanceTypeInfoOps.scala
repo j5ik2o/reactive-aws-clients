@@ -35,6 +35,13 @@ final class InstanceTypeInfoBuilderOps(val self: InstanceTypeInfo.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def supportedVirtualizationTypesAsScala(value: Option[Seq[VirtualizationType]]): InstanceTypeInfo.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.supportedVirtualizationTypes(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def bareMetalAsScala(value: Option[Boolean]): InstanceTypeInfo.Builder = {
     value.fold(self) { v => self.bareMetal(v) }
   }
@@ -141,6 +148,12 @@ final class InstanceTypeInfoOps(val self: InstanceTypeInfo) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def supportedRootDeviceTypesAsScala: Option[Seq[RootDeviceType]] =
     Option(self.supportedRootDeviceTypes).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def supportedVirtualizationTypesAsScala: Option[Seq[VirtualizationType]] =
+    Option(self.supportedVirtualizationTypes).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 

@@ -140,6 +140,15 @@ final class UpdateFunctionConfigurationResponseBuilderOps(val self: UpdateFuncti
     value.fold(self) { v => self.lastUpdateStatusReasonCode(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def fileSystemConfigsAsScala(
+      value: Option[Seq[FileSystemConfig]]
+  ): UpdateFunctionConfigurationResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.fileSystemConfigs(v.asJava)
+    }
+  }
+
 }
 
 final class UpdateFunctionConfigurationResponseOps(val self: UpdateFunctionConfigurationResponse) extends AnyVal {
@@ -223,6 +232,12 @@ final class UpdateFunctionConfigurationResponseOps(val self: UpdateFunctionConfi
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def lastUpdateStatusReasonCodeAsScala: Option[LastUpdateStatusReasonCode] =
     Option(self.lastUpdateStatusReasonCode)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def fileSystemConfigsAsScala: Option[Seq[FileSystemConfig]] =
+    Option(self.fileSystemConfigs).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

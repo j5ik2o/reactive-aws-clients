@@ -427,6 +427,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest))
     }
 
+  override def createManagedPrefixList(
+      createManagedPrefixListRequest: CreateManagedPrefixListRequest
+  ): IO[CreateManagedPrefixListResponse] =
+    IO.fromFuture {
+      IO(underlying.createManagedPrefixList(createManagedPrefixListRequest))
+    }
+
   override def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): IO[CreateNatGatewayResponse] =
     IO.fromFuture {
       IO(underlying.createNatGateway(createNatGatewayRequest))
@@ -732,6 +739,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
     IO.fromFuture {
       IO(underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest))
+    }
+
+  override def deleteManagedPrefixList(
+      deleteManagedPrefixListRequest: DeleteManagedPrefixListRequest
+  ): IO[DeleteManagedPrefixListResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteManagedPrefixList(deleteManagedPrefixListRequest))
     }
 
   override def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): IO[DeleteNatGatewayResponse] =
@@ -1743,6 +1757,18 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): DescribeLocalGatewaysPublisher =
     underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest)
+
+  override def describeManagedPrefixLists(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): IO[DescribeManagedPrefixListsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeManagedPrefixLists(describeManagedPrefixListsRequest))
+    }
+
+  def describeManagedPrefixListsPaginator(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): DescribeManagedPrefixListsPublisher =
+    underlying.describeManagedPrefixListsPaginator(describeManagedPrefixListsRequest)
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -2792,7 +2818,7 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
       IO(underlying.enableVgwRoutePropagation(enableVgwRoutePropagationRequest))
     }
 
-  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): IO[EnableVolumeIOResponse] =
+  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): IO[EnableVolumeIoResponse] =
     IO.fromFuture {
       IO(underlying.enableVolumeIO(enableVolumeIoRequest))
     }
@@ -2909,6 +2935,30 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
     IO.fromFuture {
       IO(underlying.getLaunchTemplateData(getLaunchTemplateDataRequest))
     }
+
+  override def getManagedPrefixListAssociations(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): IO[GetManagedPrefixListAssociationsResponse] =
+    IO.fromFuture {
+      IO(underlying.getManagedPrefixListAssociations(getManagedPrefixListAssociationsRequest))
+    }
+
+  def getManagedPrefixListAssociationsPaginator(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): GetManagedPrefixListAssociationsPublisher =
+    underlying.getManagedPrefixListAssociationsPaginator(getManagedPrefixListAssociationsRequest)
+
+  override def getManagedPrefixListEntries(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): IO[GetManagedPrefixListEntriesResponse] =
+    IO.fromFuture {
+      IO(underlying.getManagedPrefixListEntries(getManagedPrefixListEntriesRequest))
+    }
+
+  def getManagedPrefixListEntriesPaginator(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): GetManagedPrefixListEntriesPublisher =
+    underlying.getManagedPrefixListEntriesPaginator(getManagedPrefixListEntriesRequest)
 
   override def getPasswordData(getPasswordDataRequest: GetPasswordDataRequest): IO[GetPasswordDataResponse] =
     IO.fromFuture {
@@ -3124,6 +3174,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[ModifyLaunchTemplateResponse] =
     IO.fromFuture {
       IO(underlying.modifyLaunchTemplate(modifyLaunchTemplateRequest))
+    }
+
+  override def modifyManagedPrefixList(
+      modifyManagedPrefixListRequest: ModifyManagedPrefixListRequest
+  ): IO[ModifyManagedPrefixListResponse] =
+    IO.fromFuture {
+      IO(underlying.modifyManagedPrefixList(modifyManagedPrefixListRequest))
     }
 
   override def modifyNetworkInterfaceAttribute(
@@ -3480,6 +3537,13 @@ trait Ec2CatsIOClient extends Ec2Client[IO] {
   ): IO[RestoreAddressToClassicResponse] =
     IO.fromFuture {
       IO(underlying.restoreAddressToClassic(restoreAddressToClassicRequest))
+    }
+
+  override def restoreManagedPrefixListVersion(
+      restoreManagedPrefixListVersionRequest: RestoreManagedPrefixListVersionRequest
+  ): IO[RestoreManagedPrefixListVersionResponse] =
+    IO.fromFuture {
+      IO(underlying.restoreManagedPrefixListVersion(restoreManagedPrefixListVersionRequest))
     }
 
   override def revokeClientVpnIngress(

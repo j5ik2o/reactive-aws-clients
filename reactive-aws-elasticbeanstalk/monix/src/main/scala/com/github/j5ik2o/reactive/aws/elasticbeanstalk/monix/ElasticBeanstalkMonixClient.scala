@@ -33,6 +33,13 @@ trait ElasticBeanstalkMonixClient extends ElasticBeanstalkClient[Task] {
       underlying.applyEnvironmentManagedAction(applyEnvironmentManagedActionRequest)
     }
 
+  override def associateEnvironmentOperationsRole(
+      associateEnvironmentOperationsRoleRequest: AssociateEnvironmentOperationsRoleRequest
+  ): Task[AssociateEnvironmentOperationsRoleResponse] =
+    Task.deferFuture {
+      underlying.associateEnvironmentOperationsRole(associateEnvironmentOperationsRoleRequest)
+    }
+
   override def checkDNSAvailability(
       checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest
   ): Task[CheckDnsAvailabilityResponse] =
@@ -243,6 +250,13 @@ trait ElasticBeanstalkMonixClient extends ElasticBeanstalkClient[Task] {
       underlying.describePlatformVersion(describePlatformVersionRequest)
     }
 
+  override def disassociateEnvironmentOperationsRole(
+      disassociateEnvironmentOperationsRoleRequest: DisassociateEnvironmentOperationsRoleRequest
+  ): Task[DisassociateEnvironmentOperationsRoleResponse] =
+    Task.deferFuture {
+      underlying.disassociateEnvironmentOperationsRole(disassociateEnvironmentOperationsRoleRequest)
+    }
+
   override def listAvailableSolutionStacks(
       listAvailableSolutionStacksRequest: ListAvailableSolutionStacksRequest
   ): Task[ListAvailableSolutionStacksResponse] =
@@ -314,7 +328,7 @@ trait ElasticBeanstalkMonixClient extends ElasticBeanstalkClient[Task] {
 
   override def swapEnvironmentCNAMEs(
       swapEnvironmentCnamEsRequest: SwapEnvironmentCnamEsRequest
-  ): Task[SwapEnvironmentCNAMEsResponse] =
+  ): Task[SwapEnvironmentCnamEsResponse] =
     Task.deferFuture {
       underlying.swapEnvironmentCNAMEs(swapEnvironmentCnamEsRequest)
     }

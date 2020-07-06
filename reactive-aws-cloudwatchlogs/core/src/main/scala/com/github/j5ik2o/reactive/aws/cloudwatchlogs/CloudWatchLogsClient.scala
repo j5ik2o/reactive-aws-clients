@@ -23,6 +23,10 @@ trait CloudWatchLogsClient[M[_]] {
 
   def deleteMetricFilter(deleteMetricFilterRequest: DeleteMetricFilterRequest): M[DeleteMetricFilterResponse]
 
+  def deleteQueryDefinition(
+      deleteQueryDefinitionRequest: DeleteQueryDefinitionRequest
+  ): M[DeleteQueryDefinitionResponse]
+
   def deleteResourcePolicy(deleteResourcePolicyRequest: DeleteResourcePolicyRequest): M[DeleteResourcePolicyResponse]
 
   def deleteRetentionPolicy(
@@ -57,6 +61,10 @@ trait CloudWatchLogsClient[M[_]] {
 
   def describeQueries(): M[DescribeQueriesResponse]
 
+  def describeQueryDefinitions(
+      describeQueryDefinitionsRequest: DescribeQueryDefinitionsRequest
+  ): M[DescribeQueryDefinitionsResponse]
+
   def describeResourcePolicies(
       describeResourcePoliciesRequest: DescribeResourcePoliciesRequest
   ): M[DescribeResourcePoliciesResponse]
@@ -88,6 +96,8 @@ trait CloudWatchLogsClient[M[_]] {
   def putLogEvents(putLogEventsRequest: PutLogEventsRequest): M[PutLogEventsResponse]
 
   def putMetricFilter(putMetricFilterRequest: PutMetricFilterRequest): M[PutMetricFilterResponse]
+
+  def putQueryDefinition(putQueryDefinitionRequest: PutQueryDefinitionRequest): M[PutQueryDefinitionResponse]
 
   def putResourcePolicy(putResourcePolicyRequest: PutResourcePolicyRequest): M[PutResourcePolicyResponse]
 

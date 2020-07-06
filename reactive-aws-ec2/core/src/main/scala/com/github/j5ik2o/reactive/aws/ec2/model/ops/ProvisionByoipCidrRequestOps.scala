@@ -27,6 +27,13 @@ final class ProvisionByoipCidrRequestBuilderOps(val self: ProvisionByoipCidrRequ
     value.fold(self) { v => self.description(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def poolTagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): ProvisionByoipCidrRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.poolTagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ProvisionByoipCidrRequestOps(val self: ProvisionByoipCidrRequest) extends AnyVal {
@@ -42,6 +49,12 @@ final class ProvisionByoipCidrRequestOps(val self: ProvisionByoipCidrRequest) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def poolTagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.poolTagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

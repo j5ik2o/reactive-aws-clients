@@ -22,6 +22,18 @@ final class ModifySubnetAttributeRequestBuilderOps(val self: ModifySubnetAttribu
     value.fold(self) { v => self.subnetId(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def mapCustomerOwnedIpOnLaunchAsScala(
+      value: Option[AttributeBooleanValue]
+  ): ModifySubnetAttributeRequest.Builder = {
+    value.fold(self) { v => self.mapCustomerOwnedIpOnLaunch(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala(value: Option[String]): ModifySubnetAttributeRequest.Builder = {
+    value.fold(self) { v => self.customerOwnedIpv4Pool(v) }
+  }
+
 }
 
 final class ModifySubnetAttributeRequestOps(val self: ModifySubnetAttributeRequest) extends AnyVal {
@@ -34,6 +46,12 @@ final class ModifySubnetAttributeRequestOps(val self: ModifySubnetAttributeReque
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def subnetIdAsScala: Option[String] = Option(self.subnetId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def mapCustomerOwnedIpOnLaunchAsScala: Option[AttributeBooleanValue] = Option(self.mapCustomerOwnedIpOnLaunch)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala: Option[String] = Option(self.customerOwnedIpv4Pool)
 
 }
 

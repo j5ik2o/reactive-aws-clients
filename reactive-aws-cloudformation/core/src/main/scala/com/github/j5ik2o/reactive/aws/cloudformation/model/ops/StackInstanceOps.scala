@@ -38,6 +38,11 @@ final class StackInstanceBuilderOps(val self: StackInstance.Builder) extends Any
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stackInstanceStatusAsScala(value: Option[StackInstanceComprehensiveStatus]): StackInstance.Builder = {
+    value.fold(self) { v => self.stackInstanceStatus(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala(value: Option[String]): StackInstance.Builder = {
     value.fold(self) { v => self.statusReason(v) }
   }
@@ -81,6 +86,9 @@ final class StackInstanceOps(val self: StackInstance) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusAsScala: Option[StackInstanceStatus] = Option(self.status)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def stackInstanceStatusAsScala: Option[StackInstanceComprehensiveStatus] = Option(self.stackInstanceStatus)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusReasonAsScala: Option[String] = Option(self.statusReason)

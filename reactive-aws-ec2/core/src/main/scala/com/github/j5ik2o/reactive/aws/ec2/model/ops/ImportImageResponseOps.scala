@@ -81,6 +81,13 @@ final class ImportImageResponseBuilderOps(val self: ImportImageResponse.Builder)
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): ImportImageResponse.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class ImportImageResponseOps(val self: ImportImageResponse) extends AnyVal {
@@ -132,6 +139,10 @@ final class ImportImageResponseOps(val self: ImportImageResponse) extends AnyVal
     Option(self.licenseSpecifications).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

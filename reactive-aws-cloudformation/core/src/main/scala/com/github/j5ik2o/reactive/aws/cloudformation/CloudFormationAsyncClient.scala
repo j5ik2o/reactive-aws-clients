@@ -71,6 +71,14 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   override def describeAccountLimits(): Future[DescribeAccountLimitsResponse] =
     underlying.describeAccountLimits().toScala
 
+  def describeAccountLimitsPaginator(): DescribeAccountLimitsPublisher =
+    underlying.describeAccountLimitsPaginator()
+
+  def describeAccountLimitsPaginator(
+      describeAccountLimitsRequest: DescribeAccountLimitsRequest
+  ): DescribeAccountLimitsPublisher =
+    underlying.describeAccountLimitsPaginator(describeAccountLimitsRequest)
+
   override def describeChangeSet(
       describeChangeSetRequest: DescribeChangeSetRequest
   ): Future[DescribeChangeSetResponse] =
@@ -179,6 +187,9 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   override def listChangeSets(listChangeSetsRequest: ListChangeSetsRequest): Future[ListChangeSetsResponse] =
     underlying.listChangeSets(listChangeSetsRequest).toScala
 
+  def listChangeSetsPaginator(listChangeSetsRequest: ListChangeSetsRequest): ListChangeSetsPublisher =
+    underlying.listChangeSetsPaginator(listChangeSetsRequest)
+
   override def listExports(listExportsRequest: ListExportsRequest): Future[ListExportsResponse] =
     underlying.listExports(listExportsRequest).toScala
 
@@ -202,6 +213,9 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   ): Future[ListStackInstancesResponse] =
     underlying.listStackInstances(listStackInstancesRequest).toScala
 
+  def listStackInstancesPaginator(listStackInstancesRequest: ListStackInstancesRequest): ListStackInstancesPublisher =
+    underlying.listStackInstancesPaginator(listStackInstancesRequest)
+
   override def listStackResources(
       listStackResourcesRequest: ListStackResourcesRequest
   ): Future[ListStackResourcesResponse] =
@@ -215,16 +229,32 @@ trait CloudFormationAsyncClient extends CloudFormationClient[Future] {
   ): Future[ListStackSetOperationResultsResponse] =
     underlying.listStackSetOperationResults(listStackSetOperationResultsRequest).toScala
 
+  def listStackSetOperationResultsPaginator(
+      listStackSetOperationResultsRequest: ListStackSetOperationResultsRequest
+  ): ListStackSetOperationResultsPublisher =
+    underlying.listStackSetOperationResultsPaginator(listStackSetOperationResultsRequest)
+
   override def listStackSetOperations(
       listStackSetOperationsRequest: ListStackSetOperationsRequest
   ): Future[ListStackSetOperationsResponse] =
     underlying.listStackSetOperations(listStackSetOperationsRequest).toScala
+
+  def listStackSetOperationsPaginator(
+      listStackSetOperationsRequest: ListStackSetOperationsRequest
+  ): ListStackSetOperationsPublisher =
+    underlying.listStackSetOperationsPaginator(listStackSetOperationsRequest)
 
   override def listStackSets(listStackSetsRequest: ListStackSetsRequest): Future[ListStackSetsResponse] =
     underlying.listStackSets(listStackSetsRequest).toScala
 
   override def listStackSets(): Future[ListStackSetsResponse] =
     underlying.listStackSets().toScala
+
+  def listStackSetsPaginator(): ListStackSetsPublisher =
+    underlying.listStackSetsPaginator()
+
+  def listStackSetsPaginator(listStackSetsRequest: ListStackSetsRequest): ListStackSetsPublisher =
+    underlying.listStackSetsPaginator(listStackSetsRequest)
 
   override def listStacks(listStacksRequest: ListStacksRequest): Future[ListStacksResponse] =
     underlying.listStacks(listStacksRequest).toScala

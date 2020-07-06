@@ -21,8 +21,18 @@ final class PutImageRequestBuilderOps(val self: PutImageRequest.Builder) extends
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageManifestMediaTypeAsScala(value: Option[String]): PutImageRequest.Builder = {
+    value.fold(self) { v => self.imageManifestMediaType(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagAsScala(value: Option[String]): PutImageRequest.Builder = {
     value.fold(self) { v => self.imageTag(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageDigestAsScala(value: Option[String]): PutImageRequest.Builder = {
+    value.fold(self) { v => self.imageDigest(v) }
   }
 
 }
@@ -39,7 +49,13 @@ final class PutImageRequestOps(val self: PutImageRequest) extends AnyVal {
   final def imageManifestAsScala: Option[String] = Option(self.imageManifest)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageManifestMediaTypeAsScala: Option[String] = Option(self.imageManifestMediaType)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def imageTagAsScala: Option[String] = Option(self.imageTag)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def imageDigestAsScala: Option[String] = Option(self.imageDigest)
 
 }
 

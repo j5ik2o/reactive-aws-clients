@@ -397,6 +397,24 @@ trait RekognitionAkkaClient {
       Source.fromPublisher(underlying.getPersonTrackingPaginator(request))
     }
 
+  def getSegmentDetectionSource(
+      getSegmentDetectionRequest: GetSegmentDetectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetSegmentDetectionResponse, NotUsed] =
+    Source.single(getSegmentDetectionRequest).via(getSegmentDetectionFlow(parallelism))
+
+  def getSegmentDetectionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetSegmentDetectionRequest, GetSegmentDetectionResponse, NotUsed] =
+    Flow[GetSegmentDetectionRequest].mapAsync(parallelism) { getSegmentDetectionRequest =>
+      underlying.getSegmentDetection(getSegmentDetectionRequest)
+    }
+
+  def getSegmentDetectionPaginatorFlow: Flow[GetSegmentDetectionRequest, GetSegmentDetectionResponse, NotUsed] =
+    Flow[GetSegmentDetectionRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getSegmentDetectionPaginator(request))
+    }
+
   def getTextDetectionSource(
       getTextDetectionRequest: GetTextDetectionRequest,
       parallelism: Int = DefaultParallelism
@@ -616,6 +634,19 @@ trait RekognitionAkkaClient {
   ): Flow[StartProjectVersionRequest, StartProjectVersionResponse, NotUsed] =
     Flow[StartProjectVersionRequest].mapAsync(parallelism) { startProjectVersionRequest =>
       underlying.startProjectVersion(startProjectVersionRequest)
+    }
+
+  def startSegmentDetectionSource(
+      startSegmentDetectionRequest: StartSegmentDetectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[StartSegmentDetectionResponse, NotUsed] =
+    Source.single(startSegmentDetectionRequest).via(startSegmentDetectionFlow(parallelism))
+
+  def startSegmentDetectionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[StartSegmentDetectionRequest, StartSegmentDetectionResponse, NotUsed] =
+    Flow[StartSegmentDetectionRequest].mapAsync(parallelism) { startSegmentDetectionRequest =>
+      underlying.startSegmentDetection(startSegmentDetectionRequest)
     }
 
   def startStreamProcessorSource(

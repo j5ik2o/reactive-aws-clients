@@ -19,6 +19,13 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
 
   val underlying: ElasticsearchAsyncClient
 
+  override def acceptInboundCrossClusterSearchConnection(
+      acceptInboundCrossClusterSearchConnectionRequest: AcceptInboundCrossClusterSearchConnectionRequest
+  ): Task[AcceptInboundCrossClusterSearchConnectionResponse] =
+    Task.deferFuture {
+      underlying.acceptInboundCrossClusterSearchConnection(acceptInboundCrossClusterSearchConnectionRequest)
+    }
+
   override def addTags(addTagsRequest: AddTagsRequest): Task[AddTagsResponse] =
     Task.deferFuture {
       underlying.addTags(addTagsRequest)
@@ -43,6 +50,13 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
       underlying.createElasticsearchDomain(createElasticsearchDomainRequest)
     }
 
+  override def createOutboundCrossClusterSearchConnection(
+      createOutboundCrossClusterSearchConnectionRequest: CreateOutboundCrossClusterSearchConnectionRequest
+  ): Task[CreateOutboundCrossClusterSearchConnectionResponse] =
+    Task.deferFuture {
+      underlying.createOutboundCrossClusterSearchConnection(createOutboundCrossClusterSearchConnectionRequest)
+    }
+
   override def createPackage(createPackageRequest: CreatePackageRequest): Task[CreatePackageResponse] =
     Task.deferFuture {
       underlying.createPackage(createPackageRequest)
@@ -65,6 +79,20 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
   override def deleteElasticsearchServiceRole(): Task[DeleteElasticsearchServiceRoleResponse] =
     Task.deferFuture {
       underlying.deleteElasticsearchServiceRole()
+    }
+
+  override def deleteInboundCrossClusterSearchConnection(
+      deleteInboundCrossClusterSearchConnectionRequest: DeleteInboundCrossClusterSearchConnectionRequest
+  ): Task[DeleteInboundCrossClusterSearchConnectionResponse] =
+    Task.deferFuture {
+      underlying.deleteInboundCrossClusterSearchConnection(deleteInboundCrossClusterSearchConnectionRequest)
+    }
+
+  override def deleteOutboundCrossClusterSearchConnection(
+      deleteOutboundCrossClusterSearchConnectionRequest: DeleteOutboundCrossClusterSearchConnectionRequest
+  ): Task[DeleteOutboundCrossClusterSearchConnectionResponse] =
+    Task.deferFuture {
+      underlying.deleteOutboundCrossClusterSearchConnection(deleteOutboundCrossClusterSearchConnectionRequest)
     }
 
   override def deletePackage(deletePackageRequest: DeletePackageRequest): Task[DeletePackageResponse] =
@@ -99,6 +127,38 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
     Task.deferFuture {
       underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest)
     }
+
+  override def describeInboundCrossClusterSearchConnections(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): Task[DescribeInboundCrossClusterSearchConnectionsResponse] =
+    Task.deferFuture {
+      underlying.describeInboundCrossClusterSearchConnections(describeInboundCrossClusterSearchConnectionsRequest)
+    }
+
+  def describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): Observable[DescribeInboundCrossClusterSearchConnectionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeInboundCrossClusterSearchConnectionsPaginator(
+        describeInboundCrossClusterSearchConnectionsRequest
+      )
+    )
+
+  override def describeOutboundCrossClusterSearchConnections(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): Task[DescribeOutboundCrossClusterSearchConnectionsResponse] =
+    Task.deferFuture {
+      underlying.describeOutboundCrossClusterSearchConnections(describeOutboundCrossClusterSearchConnectionsRequest)
+    }
+
+  def describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): Observable[DescribeOutboundCrossClusterSearchConnectionsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.describeOutboundCrossClusterSearchConnectionsPaginator(
+        describeOutboundCrossClusterSearchConnectionsRequest
+      )
+    )
 
   override def describePackages(describePackagesRequest: DescribePackagesRequest): Task[DescribePackagesResponse] =
     Task.deferFuture {
@@ -268,6 +328,13 @@ trait ElasticsearchMonixClient extends ElasticsearchClient[Task] {
   ): Task[PurchaseReservedElasticsearchInstanceOfferingResponse] =
     Task.deferFuture {
       underlying.purchaseReservedElasticsearchInstanceOffering(purchaseReservedElasticsearchInstanceOfferingRequest)
+    }
+
+  override def rejectInboundCrossClusterSearchConnection(
+      rejectInboundCrossClusterSearchConnectionRequest: RejectInboundCrossClusterSearchConnectionRequest
+  ): Task[RejectInboundCrossClusterSearchConnectionResponse] =
+    Task.deferFuture {
+      underlying.rejectInboundCrossClusterSearchConnection(rejectInboundCrossClusterSearchConnectionRequest)
     }
 
   override def removeTags(removeTagsRequest: RemoveTagsRequest): Task[RemoveTagsResponse] =

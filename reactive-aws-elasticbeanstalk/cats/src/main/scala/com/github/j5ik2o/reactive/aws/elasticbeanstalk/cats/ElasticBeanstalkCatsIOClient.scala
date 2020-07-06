@@ -39,6 +39,13 @@ trait ElasticBeanstalkCatsIOClient extends ElasticBeanstalkClient[IO] {
       IO(underlying.applyEnvironmentManagedAction(applyEnvironmentManagedActionRequest))
     }
 
+  override def associateEnvironmentOperationsRole(
+      associateEnvironmentOperationsRoleRequest: AssociateEnvironmentOperationsRoleRequest
+  ): IO[AssociateEnvironmentOperationsRoleResponse] =
+    IO.fromFuture {
+      IO(underlying.associateEnvironmentOperationsRole(associateEnvironmentOperationsRoleRequest))
+    }
+
   override def checkDNSAvailability(
       checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest
   ): IO[CheckDnsAvailabilityResponse] =
@@ -249,6 +256,13 @@ trait ElasticBeanstalkCatsIOClient extends ElasticBeanstalkClient[IO] {
       IO(underlying.describePlatformVersion(describePlatformVersionRequest))
     }
 
+  override def disassociateEnvironmentOperationsRole(
+      disassociateEnvironmentOperationsRoleRequest: DisassociateEnvironmentOperationsRoleRequest
+  ): IO[DisassociateEnvironmentOperationsRoleResponse] =
+    IO.fromFuture {
+      IO(underlying.disassociateEnvironmentOperationsRole(disassociateEnvironmentOperationsRoleRequest))
+    }
+
   override def listAvailableSolutionStacks(
       listAvailableSolutionStacksRequest: ListAvailableSolutionStacksRequest
   ): IO[ListAvailableSolutionStacksResponse] =
@@ -320,7 +334,7 @@ trait ElasticBeanstalkCatsIOClient extends ElasticBeanstalkClient[IO] {
 
   override def swapEnvironmentCNAMEs(
       swapEnvironmentCnamEsRequest: SwapEnvironmentCnamEsRequest
-  ): IO[SwapEnvironmentCNAMEsResponse] =
+  ): IO[SwapEnvironmentCnamEsResponse] =
     IO.fromFuture {
       IO(underlying.swapEnvironmentCNAMEs(swapEnvironmentCnamEsRequest))
     }

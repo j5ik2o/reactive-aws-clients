@@ -40,6 +40,13 @@ final class ExportImageTaskBuilderOps(val self: ExportImageTask.Builder) extends
     value.fold(self) { v => self.statusMessage(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala(value: Option[Seq[Tag]]): ExportImageTask.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
+    }
+  }
+
 }
 
 final class ExportImageTaskOps(val self: ExportImageTask) extends AnyVal {
@@ -64,6 +71,10 @@ final class ExportImageTaskOps(val self: ExportImageTask) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def statusMessageAsScala: Option[String] = Option(self.statusMessage)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagsAsScala: Option[Seq[Tag]] =
+    Option(self.tags).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
 }
 

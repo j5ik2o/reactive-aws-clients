@@ -26,6 +26,11 @@ final class DescribeTypeResponseBuilderOps(val self: DescribeTypeResponse.Builde
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def isDefaultVersionAsScala(value: Option[Boolean]): DescribeTypeResponse.Builder = {
+    value.fold(self) { v => self.isDefaultVersion(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala(value: Option[String]): DescribeTypeResponse.Builder = {
     value.fold(self) { v => self.description(v) }
   }
@@ -95,6 +100,9 @@ final class DescribeTypeResponseOps(val self: DescribeTypeResponse) extends AnyV
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def defaultVersionIdAsScala: Option[String] = Option(self.defaultVersionId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def isDefaultVersionAsScala: Option[Boolean] = Option(self.isDefaultVersion)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def descriptionAsScala: Option[String] = Option(self.description)

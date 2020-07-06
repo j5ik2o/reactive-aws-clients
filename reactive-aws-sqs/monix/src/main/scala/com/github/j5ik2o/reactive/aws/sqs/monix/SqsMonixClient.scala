@@ -2,6 +2,7 @@
 package com.github.j5ik2o.reactive.aws.sqs.monix
 
 import software.amazon.awssdk.services.sqs.model._
+import software.amazon.awssdk.services.sqs.paginators._
 import com.github.j5ik2o.reactive.aws.sqs.{ SqsAsyncClient, SqsClient }
 import monix.eval.Task
 import monix.reactive.Observable
@@ -79,6 +80,11 @@ trait SqsMonixClient extends SqsClient[Task] {
       underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest)
     }
 
+  def listDeadLetterSourceQueuesPaginator(
+      listDeadLetterSourceQueuesRequest: ListDeadLetterSourceQueuesRequest
+  ): Observable[ListDeadLetterSourceQueuesResponse] =
+    Observable.fromReactivePublisher(underlying.listDeadLetterSourceQueuesPaginator(listDeadLetterSourceQueuesRequest))
+
   override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Task[ListQueueTagsResponse] =
     Task.deferFuture {
       underlying.listQueueTags(listQueueTagsRequest)
@@ -93,6 +99,12 @@ trait SqsMonixClient extends SqsClient[Task] {
     Task.deferFuture {
       underlying.listQueues()
     }
+
+  def listQueuesPaginator(): Observable[ListQueuesResponse] =
+    Observable.fromReactivePublisher(underlying.listQueuesPaginator())
+
+  def listQueuesPaginator(listQueuesRequest: ListQueuesRequest): Observable[ListQueuesResponse] =
+    Observable.fromReactivePublisher(underlying.listQueuesPaginator(listQueuesRequest))
 
   override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Task[PurgeQueueResponse] =
     Task.deferFuture {

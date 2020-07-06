@@ -74,6 +74,14 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   ): Either[Throwable, DescribeAccountLimitsResponse] =
     underlying.describeAccountLimits(describeAccountLimitsRequest).toEither
 
+  def describeAccountLimitsPaginator(): DescribeAccountLimitsIterable =
+    underlying.describeAccountLimitsPaginator()
+
+  def describeAccountLimitsPaginator(
+      describeAccountLimitsRequest: DescribeAccountLimitsRequest
+  ): DescribeAccountLimitsIterable =
+    underlying.describeAccountLimitsPaginator(describeAccountLimitsRequest)
+
   override def describeChangeSet(
       describeChangeSetRequest: DescribeChangeSetRequest
   ): Either[Throwable, DescribeChangeSetResponse] =
@@ -188,6 +196,9 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   override def listChangeSets(listChangeSetsRequest: ListChangeSetsRequest): Either[Throwable, ListChangeSetsResponse] =
     underlying.listChangeSets(listChangeSetsRequest).toEither
 
+  def listChangeSetsPaginator(listChangeSetsRequest: ListChangeSetsRequest): ListChangeSetsIterable =
+    underlying.listChangeSetsPaginator(listChangeSetsRequest)
+
   override def listExports(): Either[Throwable, ListExportsResponse] =
     underlying.listExports().toEither
 
@@ -211,6 +222,9 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   ): Either[Throwable, ListStackInstancesResponse] =
     underlying.listStackInstances(listStackInstancesRequest).toEither
 
+  def listStackInstancesPaginator(listStackInstancesRequest: ListStackInstancesRequest): ListStackInstancesIterable =
+    underlying.listStackInstancesPaginator(listStackInstancesRequest)
+
   override def listStackResources(
       listStackResourcesRequest: ListStackResourcesRequest
   ): Either[Throwable, ListStackResourcesResponse] =
@@ -224,16 +238,32 @@ trait CloudFormationSyncClient extends CloudFormationClient[Either[Throwable, ?]
   ): Either[Throwable, ListStackSetOperationResultsResponse] =
     underlying.listStackSetOperationResults(listStackSetOperationResultsRequest).toEither
 
+  def listStackSetOperationResultsPaginator(
+      listStackSetOperationResultsRequest: ListStackSetOperationResultsRequest
+  ): ListStackSetOperationResultsIterable =
+    underlying.listStackSetOperationResultsPaginator(listStackSetOperationResultsRequest)
+
   override def listStackSetOperations(
       listStackSetOperationsRequest: ListStackSetOperationsRequest
   ): Either[Throwable, ListStackSetOperationsResponse] =
     underlying.listStackSetOperations(listStackSetOperationsRequest).toEither
+
+  def listStackSetOperationsPaginator(
+      listStackSetOperationsRequest: ListStackSetOperationsRequest
+  ): ListStackSetOperationsIterable =
+    underlying.listStackSetOperationsPaginator(listStackSetOperationsRequest)
 
   override def listStackSets(): Either[Throwable, ListStackSetsResponse] =
     underlying.listStackSets().toEither
 
   override def listStackSets(listStackSetsRequest: ListStackSetsRequest): Either[Throwable, ListStackSetsResponse] =
     underlying.listStackSets(listStackSetsRequest).toEither
+
+  def listStackSetsPaginator(): ListStackSetsIterable =
+    underlying.listStackSetsPaginator()
+
+  def listStackSetsPaginator(listStackSetsRequest: ListStackSetsRequest): ListStackSetsIterable =
+    underlying.listStackSetsPaginator(listStackSetsRequest)
 
   override def listStacks(): Either[Throwable, ListStacksResponse] =
     underlying.listStacks().toEither

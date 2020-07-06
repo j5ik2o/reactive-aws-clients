@@ -26,6 +26,16 @@ final class CapacityProviderBuilderOps(val self: CapacityProvider.Builder) exten
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def updateStatusAsScala(value: Option[CapacityProviderUpdateStatus]): CapacityProvider.Builder = {
+    value.fold(self) { v => self.updateStatus(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def updateStatusReasonAsScala(value: Option[String]): CapacityProvider.Builder = {
+    value.fold(self) { v => self.updateStatusReason(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala(value: Option[Seq[Tag]]): CapacityProvider.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tags(v.asJava)
@@ -47,6 +57,12 @@ final class CapacityProviderOps(val self: CapacityProvider) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def autoScalingGroupProviderAsScala: Option[AutoScalingGroupProvider] = Option(self.autoScalingGroupProvider)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def updateStatusAsScala: Option[CapacityProviderUpdateStatus] = Option(self.updateStatus)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def updateStatusReasonAsScala: Option[String] = Option(self.updateStatusReason)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def tagsAsScala: Option[Seq[Tag]] =

@@ -62,6 +62,11 @@ trait CloudWatchLogsSyncClient extends CloudWatchLogsClient[Either[Throwable, ?]
   ): Either[Throwable, DeleteMetricFilterResponse] =
     underlying.deleteMetricFilter(deleteMetricFilterRequest).toEither
 
+  override def deleteQueryDefinition(
+      deleteQueryDefinitionRequest: DeleteQueryDefinitionRequest
+  ): Either[Throwable, DeleteQueryDefinitionResponse] =
+    underlying.deleteQueryDefinition(deleteQueryDefinitionRequest).toEither
+
   override def deleteResourcePolicy(
       deleteResourcePolicyRequest: DeleteResourcePolicyRequest
   ): Either[Throwable, DeleteResourcePolicyResponse] =
@@ -147,6 +152,11 @@ trait CloudWatchLogsSyncClient extends CloudWatchLogsClient[Either[Throwable, ?]
   ): Either[Throwable, DescribeQueriesResponse] =
     underlying.describeQueries(describeQueriesRequest).toEither
 
+  override def describeQueryDefinitions(
+      describeQueryDefinitionsRequest: DescribeQueryDefinitionsRequest
+  ): Either[Throwable, DescribeQueryDefinitionsResponse] =
+    underlying.describeQueryDefinitions(describeQueryDefinitionsRequest).toEither
+
   override def describeResourcePolicies(): Either[Throwable, DescribeResourcePoliciesResponse] =
     underlying.describeResourcePolicies().toEither
 
@@ -217,6 +227,11 @@ trait CloudWatchLogsSyncClient extends CloudWatchLogsClient[Either[Throwable, ?]
       putMetricFilterRequest: PutMetricFilterRequest
   ): Either[Throwable, PutMetricFilterResponse] =
     underlying.putMetricFilter(putMetricFilterRequest).toEither
+
+  override def putQueryDefinition(
+      putQueryDefinitionRequest: PutQueryDefinitionRequest
+  ): Either[Throwable, PutQueryDefinitionResponse] =
+    underlying.putQueryDefinition(putQueryDefinitionRequest).toEither
 
   override def putResourcePolicy(
       putResourcePolicyRequest: PutResourcePolicyRequest

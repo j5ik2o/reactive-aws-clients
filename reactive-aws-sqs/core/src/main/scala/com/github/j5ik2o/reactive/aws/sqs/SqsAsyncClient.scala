@@ -2,6 +2,7 @@
 package com.github.j5ik2o.reactive.aws.sqs
 
 import software.amazon.awssdk.services.sqs.model._
+import software.amazon.awssdk.services.sqs.paginators._
 import software.amazon.awssdk.services.sqs.{ SqsAsyncClient => JavaSqsAsyncClient }
 
 import scala.compat.java8.FutureConverters._
@@ -61,6 +62,11 @@ trait SqsAsyncClient extends SqsClient[Future] {
   ): Future[ListDeadLetterSourceQueuesResponse] =
     underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest).toScala
 
+  def listDeadLetterSourceQueuesPaginator(
+      listDeadLetterSourceQueuesRequest: ListDeadLetterSourceQueuesRequest
+  ): ListDeadLetterSourceQueuesPublisher =
+    underlying.listDeadLetterSourceQueuesPaginator(listDeadLetterSourceQueuesRequest)
+
   override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Future[ListQueueTagsResponse] =
     underlying.listQueueTags(listQueueTagsRequest).toScala
 
@@ -69,6 +75,12 @@ trait SqsAsyncClient extends SqsClient[Future] {
 
   override def listQueues(): Future[ListQueuesResponse] =
     underlying.listQueues().toScala
+
+  def listQueuesPaginator(): ListQueuesPublisher =
+    underlying.listQueuesPaginator()
+
+  def listQueuesPaginator(listQueuesRequest: ListQueuesRequest): ListQueuesPublisher =
+    underlying.listQueuesPaginator(listQueuesRequest)
 
   override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Future[PurgeQueueResponse] =
     underlying.purgeQueue(purgeQueueRequest).toScala

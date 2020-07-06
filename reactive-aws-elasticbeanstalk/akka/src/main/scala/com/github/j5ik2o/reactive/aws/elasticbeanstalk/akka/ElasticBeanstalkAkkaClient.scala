@@ -49,6 +49,19 @@ trait ElasticBeanstalkAkkaClient {
       underlying.applyEnvironmentManagedAction(applyEnvironmentManagedActionRequest)
     }
 
+  def associateEnvironmentOperationsRoleSource(
+      associateEnvironmentOperationsRoleRequest: AssociateEnvironmentOperationsRoleRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AssociateEnvironmentOperationsRoleResponse, NotUsed] =
+    Source.single(associateEnvironmentOperationsRoleRequest).via(associateEnvironmentOperationsRoleFlow(parallelism))
+
+  def associateEnvironmentOperationsRoleFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[AssociateEnvironmentOperationsRoleRequest, AssociateEnvironmentOperationsRoleResponse, NotUsed] =
+    Flow[AssociateEnvironmentOperationsRoleRequest].mapAsync(parallelism) { associateEnvironmentOperationsRoleRequest =>
+      underlying.associateEnvironmentOperationsRole(associateEnvironmentOperationsRoleRequest)
+    }
+
   def checkDNSAvailabilitySource(
       checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest,
       parallelism: Int = DefaultParallelism
@@ -417,6 +430,21 @@ trait ElasticBeanstalkAkkaClient {
       underlying.describePlatformVersion(describePlatformVersionRequest)
     }
 
+  def disassociateEnvironmentOperationsRoleSource(
+      disassociateEnvironmentOperationsRoleRequest: DisassociateEnvironmentOperationsRoleRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DisassociateEnvironmentOperationsRoleResponse, NotUsed] =
+    Source
+      .single(disassociateEnvironmentOperationsRoleRequest).via(disassociateEnvironmentOperationsRoleFlow(parallelism))
+
+  def disassociateEnvironmentOperationsRoleFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DisassociateEnvironmentOperationsRoleRequest, DisassociateEnvironmentOperationsRoleResponse, NotUsed] =
+    Flow[DisassociateEnvironmentOperationsRoleRequest].mapAsync(parallelism) {
+      disassociateEnvironmentOperationsRoleRequest =>
+        underlying.disassociateEnvironmentOperationsRole(disassociateEnvironmentOperationsRoleRequest)
+    }
+
   def listAvailableSolutionStacksSource(
       listAvailableSolutionStacksRequest: ListAvailableSolutionStacksRequest,
       parallelism: Int = DefaultParallelism
@@ -535,12 +563,12 @@ trait ElasticBeanstalkAkkaClient {
   def swapEnvironmentCNAMEsSource(
       swapEnvironmentCnamEsRequest: SwapEnvironmentCnamEsRequest,
       parallelism: Int = DefaultParallelism
-  ): Source[SwapEnvironmentCNAMEsResponse, NotUsed] =
+  ): Source[SwapEnvironmentCnamEsResponse, NotUsed] =
     Source.single(swapEnvironmentCnamEsRequest).via(swapEnvironmentCNAMEsFlow(parallelism))
 
   def swapEnvironmentCNAMEsFlow(
       parallelism: Int = DefaultParallelism
-  ): Flow[SwapEnvironmentCnamEsRequest, SwapEnvironmentCNAMEsResponse, NotUsed] =
+  ): Flow[SwapEnvironmentCnamEsRequest, SwapEnvironmentCnamEsResponse, NotUsed] =
     Flow[SwapEnvironmentCnamEsRequest].mapAsync(parallelism) { swapEnvironmentCnamEsRequest =>
       underlying.swapEnvironmentCNAMEs(swapEnvironmentCnamEsRequest)
     }

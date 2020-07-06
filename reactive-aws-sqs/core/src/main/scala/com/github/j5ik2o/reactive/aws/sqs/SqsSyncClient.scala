@@ -3,6 +3,7 @@ package com.github.j5ik2o.reactive.aws.sqs
 
 import com.github.j5ik2o.reactive.aws.utils.ToEitherSupport
 import software.amazon.awssdk.services.sqs.model._
+import software.amazon.awssdk.services.sqs.paginators._
 import software.amazon.awssdk.services.sqs.{ SqsClient => JavaSqsSyncClient }
 
 object SqsSyncClient extends ToEitherSupport {
@@ -61,6 +62,11 @@ trait SqsSyncClient extends SqsClient[Either[Throwable, ?]] {
   ): Either[Throwable, ListDeadLetterSourceQueuesResponse] =
     underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest).toEither
 
+  def listDeadLetterSourceQueuesPaginator(
+      listDeadLetterSourceQueuesRequest: ListDeadLetterSourceQueuesRequest
+  ): ListDeadLetterSourceQueuesIterable =
+    underlying.listDeadLetterSourceQueuesPaginator(listDeadLetterSourceQueuesRequest)
+
   override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): Either[Throwable, ListQueueTagsResponse] =
     underlying.listQueueTags(listQueueTagsRequest).toEither
 
@@ -69,6 +75,12 @@ trait SqsSyncClient extends SqsClient[Either[Throwable, ?]] {
 
   override def listQueues(listQueuesRequest: ListQueuesRequest): Either[Throwable, ListQueuesResponse] =
     underlying.listQueues(listQueuesRequest).toEither
+
+  def listQueuesPaginator(): ListQueuesIterable =
+    underlying.listQueuesPaginator()
+
+  def listQueuesPaginator(listQueuesRequest: ListQueuesRequest): ListQueuesIterable =
+    underlying.listQueuesPaginator(listQueuesRequest)
 
   override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): Either[Throwable, PurgeQueueResponse] =
     underlying.purgeQueue(purgeQueueRequest).toEither

@@ -34,6 +34,11 @@ trait ElasticBeanstalkAsyncClient extends ElasticBeanstalkClient[Future] {
   ): Future[ApplyEnvironmentManagedActionResponse] =
     underlying.applyEnvironmentManagedAction(applyEnvironmentManagedActionRequest).toScala
 
+  override def associateEnvironmentOperationsRole(
+      associateEnvironmentOperationsRoleRequest: AssociateEnvironmentOperationsRoleRequest
+  ): Future[AssociateEnvironmentOperationsRoleResponse] =
+    underlying.associateEnvironmentOperationsRole(associateEnvironmentOperationsRoleRequest).toScala
+
   override def checkDNSAvailability(
       checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest
   ): Future[CheckDnsAvailabilityResponse] =
@@ -186,6 +191,11 @@ trait ElasticBeanstalkAsyncClient extends ElasticBeanstalkClient[Future] {
   ): Future[DescribePlatformVersionResponse] =
     underlying.describePlatformVersion(describePlatformVersionRequest).toScala
 
+  override def disassociateEnvironmentOperationsRole(
+      disassociateEnvironmentOperationsRoleRequest: DisassociateEnvironmentOperationsRoleRequest
+  ): Future[DisassociateEnvironmentOperationsRoleResponse] =
+    underlying.disassociateEnvironmentOperationsRole(disassociateEnvironmentOperationsRoleRequest).toScala
+
   override def listAvailableSolutionStacks(
       listAvailableSolutionStacksRequest: ListAvailableSolutionStacksRequest
   ): Future[ListAvailableSolutionStacksResponse] =
@@ -237,7 +247,7 @@ trait ElasticBeanstalkAsyncClient extends ElasticBeanstalkClient[Future] {
 
   override def swapEnvironmentCNAMEs(
       swapEnvironmentCnamEsRequest: SwapEnvironmentCnamEsRequest
-  ): Future[SwapEnvironmentCNAMEsResponse] =
+  ): Future[SwapEnvironmentCnamEsResponse] =
     underlying.swapEnvironmentCNAMEs(swapEnvironmentCnamEsRequest).toScala
 
   override def terminateEnvironment(

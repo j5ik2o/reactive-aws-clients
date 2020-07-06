@@ -298,6 +298,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[CreateLocalGatewayRouteTableVpcAssociationResponse] =
     underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest).toScala
 
+  override def createManagedPrefixList(
+      createManagedPrefixListRequest: CreateManagedPrefixListRequest
+  ): Future[CreateManagedPrefixListResponse] =
+    underlying.createManagedPrefixList(createManagedPrefixListRequest).toScala
+
   override def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): Future[CreateNatGatewayResponse] =
     underlying.createNatGateway(createNatGatewayRequest).toScala
 
@@ -510,6 +515,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
   ): Future[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
     underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest).toScala
+
+  override def deleteManagedPrefixList(
+      deleteManagedPrefixListRequest: DeleteManagedPrefixListRequest
+  ): Future[DeleteManagedPrefixListResponse] =
+    underlying.deleteManagedPrefixList(deleteManagedPrefixListRequest).toScala
 
   override def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): Future[DeleteNatGatewayResponse] =
     underlying.deleteNatGateway(deleteNatGatewayRequest).toScala
@@ -1279,6 +1289,16 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): DescribeLocalGatewaysPublisher =
     underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest)
+
+  override def describeManagedPrefixLists(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): Future[DescribeManagedPrefixListsResponse] =
+    underlying.describeManagedPrefixLists(describeManagedPrefixListsRequest).toScala
+
+  def describeManagedPrefixListsPaginator(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): DescribeManagedPrefixListsPublisher =
+    underlying.describeManagedPrefixListsPaginator(describeManagedPrefixListsRequest)
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -2087,7 +2107,7 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
   ): Future[EnableVgwRoutePropagationResponse] =
     underlying.enableVgwRoutePropagation(enableVgwRoutePropagationRequest).toScala
 
-  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): Future[EnableVolumeIOResponse] =
+  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): Future[EnableVolumeIoResponse] =
     underlying.enableVolumeIO(enableVolumeIoRequest).toScala
 
   override def enableVpcClassicLink(
@@ -2169,6 +2189,26 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       getLaunchTemplateDataRequest: GetLaunchTemplateDataRequest
   ): Future[GetLaunchTemplateDataResponse] =
     underlying.getLaunchTemplateData(getLaunchTemplateDataRequest).toScala
+
+  override def getManagedPrefixListAssociations(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): Future[GetManagedPrefixListAssociationsResponse] =
+    underlying.getManagedPrefixListAssociations(getManagedPrefixListAssociationsRequest).toScala
+
+  def getManagedPrefixListAssociationsPaginator(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): GetManagedPrefixListAssociationsPublisher =
+    underlying.getManagedPrefixListAssociationsPaginator(getManagedPrefixListAssociationsRequest)
+
+  override def getManagedPrefixListEntries(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): Future[GetManagedPrefixListEntriesResponse] =
+    underlying.getManagedPrefixListEntries(getManagedPrefixListEntriesRequest).toScala
+
+  def getManagedPrefixListEntriesPaginator(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): GetManagedPrefixListEntriesPublisher =
+    underlying.getManagedPrefixListEntriesPaginator(getManagedPrefixListEntriesRequest)
 
   override def getPasswordData(getPasswordDataRequest: GetPasswordDataRequest): Future[GetPasswordDataResponse] =
     underlying.getPasswordData(getPasswordDataRequest).toScala
@@ -2324,6 +2364,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       modifyLaunchTemplateRequest: ModifyLaunchTemplateRequest
   ): Future[ModifyLaunchTemplateResponse] =
     underlying.modifyLaunchTemplate(modifyLaunchTemplateRequest).toScala
+
+  override def modifyManagedPrefixList(
+      modifyManagedPrefixListRequest: ModifyManagedPrefixListRequest
+  ): Future[ModifyManagedPrefixListResponse] =
+    underlying.modifyManagedPrefixList(modifyManagedPrefixListRequest).toScala
 
   override def modifyNetworkInterfaceAttribute(
       modifyNetworkInterfaceAttributeRequest: ModifyNetworkInterfaceAttributeRequest
@@ -2574,6 +2619,11 @@ trait Ec2AsyncClient extends Ec2Client[Future] {
       restoreAddressToClassicRequest: RestoreAddressToClassicRequest
   ): Future[RestoreAddressToClassicResponse] =
     underlying.restoreAddressToClassic(restoreAddressToClassicRequest).toScala
+
+  override def restoreManagedPrefixListVersion(
+      restoreManagedPrefixListVersionRequest: RestoreManagedPrefixListVersionRequest
+  ): Future[RestoreManagedPrefixListVersionResponse] =
+    underlying.restoreManagedPrefixListVersion(restoreManagedPrefixListVersionRequest).toScala
 
   override def revokeClientVpnIngress(
       revokeClientVpnIngressRequest: RevokeClientVpnIngressRequest

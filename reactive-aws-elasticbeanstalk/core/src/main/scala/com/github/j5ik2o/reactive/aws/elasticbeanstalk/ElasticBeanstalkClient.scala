@@ -13,6 +13,10 @@ trait ElasticBeanstalkClient[M[_]] {
       applyEnvironmentManagedActionRequest: ApplyEnvironmentManagedActionRequest
   ): M[ApplyEnvironmentManagedActionResponse]
 
+  def associateEnvironmentOperationsRole(
+      associateEnvironmentOperationsRoleRequest: AssociateEnvironmentOperationsRoleRequest
+  ): M[AssociateEnvironmentOperationsRoleResponse]
+
   def checkDNSAvailability(checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest): M[CheckDnsAvailabilityResponse]
 
   def composeEnvironments(composeEnvironmentsRequest: ComposeEnvironmentsRequest): M[ComposeEnvironmentsResponse]
@@ -113,6 +117,10 @@ trait ElasticBeanstalkClient[M[_]] {
       describePlatformVersionRequest: DescribePlatformVersionRequest
   ): M[DescribePlatformVersionResponse]
 
+  def disassociateEnvironmentOperationsRole(
+      disassociateEnvironmentOperationsRoleRequest: DisassociateEnvironmentOperationsRoleRequest
+  ): M[DisassociateEnvironmentOperationsRoleResponse]
+
   def listAvailableSolutionStacks(
       listAvailableSolutionStacksRequest: ListAvailableSolutionStacksRequest
   ): M[ListAvailableSolutionStacksResponse]
@@ -141,7 +149,7 @@ trait ElasticBeanstalkClient[M[_]] {
 
   def swapEnvironmentCNAMEs(
       swapEnvironmentCnamEsRequest: SwapEnvironmentCnamEsRequest
-  ): M[SwapEnvironmentCNAMEsResponse]
+  ): M[SwapEnvironmentCnamEsResponse]
 
   def terminateEnvironment(terminateEnvironmentRequest: TerminateEnvironmentRequest): M[TerminateEnvironmentResponse]
 

@@ -76,6 +76,11 @@ final class CreateEnvironmentRequestBuilderOps(val self: CreateEnvironmentReques
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def operationsRoleAsScala(value: Option[String]): CreateEnvironmentRequest.Builder = {
+    value.fold(self) { v => self.operationsRole(v) }
+  }
+
 }
 
 final class CreateEnvironmentRequestOps(val self: CreateEnvironmentRequest) extends AnyVal {
@@ -125,6 +130,9 @@ final class CreateEnvironmentRequestOps(val self: CreateEnvironmentRequest) exte
     Option(self.optionsToRemove).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def operationsRoleAsScala: Option[String] = Option(self.operationsRole)
 
 }
 

@@ -178,6 +178,14 @@ trait CloudFormationAkkaClient {
   def describeAccountLimitsSource(): Source[DescribeAccountLimitsResponse, NotUsed] =
     Source.fromFuture(underlying.describeAccountLimits())
 
+  def describeAccountLimitsPaginatorSource: Source[DescribeAccountLimitsResponse, NotUsed] =
+    Source.fromPublisher(underlying.describeAccountLimitsPaginator())
+
+  def describeAccountLimitsPaginatorFlow: Flow[DescribeAccountLimitsRequest, DescribeAccountLimitsResponse, NotUsed] =
+    Flow[DescribeAccountLimitsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeAccountLimitsPaginator(request))
+    }
+
   def describeChangeSetSource(
       describeChangeSetRequest: DescribeChangeSetRequest,
       parallelism: Int = DefaultParallelism
@@ -471,6 +479,11 @@ trait CloudFormationAkkaClient {
       underlying.listChangeSets(listChangeSetsRequest)
     }
 
+  def listChangeSetsPaginatorFlow: Flow[ListChangeSetsRequest, ListChangeSetsResponse, NotUsed] =
+    Flow[ListChangeSetsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listChangeSetsPaginator(request))
+    }
+
   def listExportsSource(
       listExportsRequest: ListExportsRequest,
       parallelism: Int = DefaultParallelism
@@ -522,6 +535,11 @@ trait CloudFormationAkkaClient {
       underlying.listStackInstances(listStackInstancesRequest)
     }
 
+  def listStackInstancesPaginatorFlow: Flow[ListStackInstancesRequest, ListStackInstancesResponse, NotUsed] =
+    Flow[ListStackInstancesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listStackInstancesPaginator(request))
+    }
+
   def listStackResourcesSource(
       listStackResourcesRequest: ListStackResourcesRequest,
       parallelism: Int = DefaultParallelism
@@ -553,6 +571,12 @@ trait CloudFormationAkkaClient {
       underlying.listStackSetOperationResults(listStackSetOperationResultsRequest)
     }
 
+  def listStackSetOperationResultsPaginatorFlow
+      : Flow[ListStackSetOperationResultsRequest, ListStackSetOperationResultsResponse, NotUsed] =
+    Flow[ListStackSetOperationResultsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listStackSetOperationResultsPaginator(request))
+    }
+
   def listStackSetOperationsSource(
       listStackSetOperationsRequest: ListStackSetOperationsRequest,
       parallelism: Int = DefaultParallelism
@@ -564,6 +588,12 @@ trait CloudFormationAkkaClient {
   ): Flow[ListStackSetOperationsRequest, ListStackSetOperationsResponse, NotUsed] =
     Flow[ListStackSetOperationsRequest].mapAsync(parallelism) { listStackSetOperationsRequest =>
       underlying.listStackSetOperations(listStackSetOperationsRequest)
+    }
+
+  def listStackSetOperationsPaginatorFlow
+      : Flow[ListStackSetOperationsRequest, ListStackSetOperationsResponse, NotUsed] =
+    Flow[ListStackSetOperationsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listStackSetOperationsPaginator(request))
     }
 
   def listStackSetsSource(
@@ -581,6 +611,14 @@ trait CloudFormationAkkaClient {
 
   def listStackSetsSource(): Source[ListStackSetsResponse, NotUsed] =
     Source.fromFuture(underlying.listStackSets())
+
+  def listStackSetsPaginatorSource: Source[ListStackSetsResponse, NotUsed] =
+    Source.fromPublisher(underlying.listStackSetsPaginator())
+
+  def listStackSetsPaginatorFlow: Flow[ListStackSetsRequest, ListStackSetsResponse, NotUsed] =
+    Flow[ListStackSetsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listStackSetsPaginator(request))
+    }
 
   def listStacksSource(
       listStacksRequest: ListStacksRequest,

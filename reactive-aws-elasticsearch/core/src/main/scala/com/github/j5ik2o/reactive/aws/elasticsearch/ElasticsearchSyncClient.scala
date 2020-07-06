@@ -21,6 +21,11 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
 
   import ElasticsearchSyncClient._
 
+  override def acceptInboundCrossClusterSearchConnection(
+      acceptInboundCrossClusterSearchConnectionRequest: AcceptInboundCrossClusterSearchConnectionRequest
+  ): Either[Throwable, AcceptInboundCrossClusterSearchConnectionResponse] =
+    underlying.acceptInboundCrossClusterSearchConnection(acceptInboundCrossClusterSearchConnectionRequest).toEither
+
   override def addTags(addTagsRequest: AddTagsRequest): Either[Throwable, AddTagsResponse] =
     underlying.addTags(addTagsRequest).toEither
 
@@ -39,6 +44,11 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
   ): Either[Throwable, CreateElasticsearchDomainResponse] =
     underlying.createElasticsearchDomain(createElasticsearchDomainRequest).toEither
 
+  override def createOutboundCrossClusterSearchConnection(
+      createOutboundCrossClusterSearchConnectionRequest: CreateOutboundCrossClusterSearchConnectionRequest
+  ): Either[Throwable, CreateOutboundCrossClusterSearchConnectionResponse] =
+    underlying.createOutboundCrossClusterSearchConnection(createOutboundCrossClusterSearchConnectionRequest).toEither
+
   override def createPackage(createPackageRequest: CreatePackageRequest): Either[Throwable, CreatePackageResponse] =
     underlying.createPackage(createPackageRequest).toEither
 
@@ -54,6 +64,16 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       deleteElasticsearchServiceRoleRequest: DeleteElasticsearchServiceRoleRequest
   ): Either[Throwable, DeleteElasticsearchServiceRoleResponse] =
     underlying.deleteElasticsearchServiceRole(deleteElasticsearchServiceRoleRequest).toEither
+
+  override def deleteInboundCrossClusterSearchConnection(
+      deleteInboundCrossClusterSearchConnectionRequest: DeleteInboundCrossClusterSearchConnectionRequest
+  ): Either[Throwable, DeleteInboundCrossClusterSearchConnectionResponse] =
+    underlying.deleteInboundCrossClusterSearchConnection(deleteInboundCrossClusterSearchConnectionRequest).toEither
+
+  override def deleteOutboundCrossClusterSearchConnection(
+      deleteOutboundCrossClusterSearchConnectionRequest: DeleteOutboundCrossClusterSearchConnectionRequest
+  ): Either[Throwable, DeleteOutboundCrossClusterSearchConnectionResponse] =
+    underlying.deleteOutboundCrossClusterSearchConnection(deleteOutboundCrossClusterSearchConnectionRequest).toEither
 
   override def deletePackage(deletePackageRequest: DeletePackageRequest): Either[Throwable, DeletePackageResponse] =
     underlying.deletePackage(deletePackageRequest).toEither
@@ -77,6 +97,32 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
       describeElasticsearchInstanceTypeLimitsRequest: DescribeElasticsearchInstanceTypeLimitsRequest
   ): Either[Throwable, DescribeElasticsearchInstanceTypeLimitsResponse] =
     underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest).toEither
+
+  override def describeInboundCrossClusterSearchConnections(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): Either[Throwable, DescribeInboundCrossClusterSearchConnectionsResponse] =
+    underlying
+      .describeInboundCrossClusterSearchConnections(describeInboundCrossClusterSearchConnectionsRequest).toEither
+
+  def describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): DescribeInboundCrossClusterSearchConnectionsIterable =
+    underlying.describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest
+    )
+
+  override def describeOutboundCrossClusterSearchConnections(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): Either[Throwable, DescribeOutboundCrossClusterSearchConnectionsResponse] =
+    underlying
+      .describeOutboundCrossClusterSearchConnections(describeOutboundCrossClusterSearchConnectionsRequest).toEither
+
+  def describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): DescribeOutboundCrossClusterSearchConnectionsIterable =
+    underlying.describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest
+    )
 
   override def describePackages(
       describePackagesRequest: DescribePackagesRequest
@@ -212,6 +258,11 @@ trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] 
   ): Either[Throwable, PurchaseReservedElasticsearchInstanceOfferingResponse] =
     underlying
       .purchaseReservedElasticsearchInstanceOffering(purchaseReservedElasticsearchInstanceOfferingRequest).toEither
+
+  override def rejectInboundCrossClusterSearchConnection(
+      rejectInboundCrossClusterSearchConnectionRequest: RejectInboundCrossClusterSearchConnectionRequest
+  ): Either[Throwable, RejectInboundCrossClusterSearchConnectionResponse] =
+    underlying.rejectInboundCrossClusterSearchConnection(rejectInboundCrossClusterSearchConnectionRequest).toEither
 
   override def removeTags(removeTagsRequest: RemoveTagsRequest): Either[Throwable, RemoveTagsResponse] =
     underlying.removeTags(removeTagsRequest).toEither

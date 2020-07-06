@@ -23,6 +23,25 @@ trait ElasticsearchAkkaClient {
 
   val underlying: ElasticsearchAsyncClient
 
+  def acceptInboundCrossClusterSearchConnectionSource(
+      acceptInboundCrossClusterSearchConnectionRequest: AcceptInboundCrossClusterSearchConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[AcceptInboundCrossClusterSearchConnectionResponse, NotUsed] =
+    Source
+      .single(acceptInboundCrossClusterSearchConnectionRequest).via(
+        acceptInboundCrossClusterSearchConnectionFlow(parallelism)
+      )
+
+  def acceptInboundCrossClusterSearchConnectionFlow(parallelism: Int = DefaultParallelism): Flow[
+    AcceptInboundCrossClusterSearchConnectionRequest,
+    AcceptInboundCrossClusterSearchConnectionResponse,
+    NotUsed
+  ] =
+    Flow[AcceptInboundCrossClusterSearchConnectionRequest].mapAsync(parallelism) {
+      acceptInboundCrossClusterSearchConnectionRequest =>
+        underlying.acceptInboundCrossClusterSearchConnection(acceptInboundCrossClusterSearchConnectionRequest)
+    }
+
   def addTagsSource(
       addTagsRequest: AddTagsRequest,
       parallelism: Int = DefaultParallelism
@@ -77,6 +96,25 @@ trait ElasticsearchAkkaClient {
       underlying.createElasticsearchDomain(createElasticsearchDomainRequest)
     }
 
+  def createOutboundCrossClusterSearchConnectionSource(
+      createOutboundCrossClusterSearchConnectionRequest: CreateOutboundCrossClusterSearchConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateOutboundCrossClusterSearchConnectionResponse, NotUsed] =
+    Source
+      .single(createOutboundCrossClusterSearchConnectionRequest).via(
+        createOutboundCrossClusterSearchConnectionFlow(parallelism)
+      )
+
+  def createOutboundCrossClusterSearchConnectionFlow(parallelism: Int = DefaultParallelism): Flow[
+    CreateOutboundCrossClusterSearchConnectionRequest,
+    CreateOutboundCrossClusterSearchConnectionResponse,
+    NotUsed
+  ] =
+    Flow[CreateOutboundCrossClusterSearchConnectionRequest].mapAsync(parallelism) {
+      createOutboundCrossClusterSearchConnectionRequest =>
+        underlying.createOutboundCrossClusterSearchConnection(createOutboundCrossClusterSearchConnectionRequest)
+    }
+
   def createPackageSource(
       createPackageRequest: CreatePackageRequest,
       parallelism: Int = DefaultParallelism
@@ -118,6 +156,44 @@ trait ElasticsearchAkkaClient {
 
   def deleteElasticsearchServiceRoleSource(): Source[DeleteElasticsearchServiceRoleResponse, NotUsed] =
     Source.fromFuture(underlying.deleteElasticsearchServiceRole())
+
+  def deleteInboundCrossClusterSearchConnectionSource(
+      deleteInboundCrossClusterSearchConnectionRequest: DeleteInboundCrossClusterSearchConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteInboundCrossClusterSearchConnectionResponse, NotUsed] =
+    Source
+      .single(deleteInboundCrossClusterSearchConnectionRequest).via(
+        deleteInboundCrossClusterSearchConnectionFlow(parallelism)
+      )
+
+  def deleteInboundCrossClusterSearchConnectionFlow(parallelism: Int = DefaultParallelism): Flow[
+    DeleteInboundCrossClusterSearchConnectionRequest,
+    DeleteInboundCrossClusterSearchConnectionResponse,
+    NotUsed
+  ] =
+    Flow[DeleteInboundCrossClusterSearchConnectionRequest].mapAsync(parallelism) {
+      deleteInboundCrossClusterSearchConnectionRequest =>
+        underlying.deleteInboundCrossClusterSearchConnection(deleteInboundCrossClusterSearchConnectionRequest)
+    }
+
+  def deleteOutboundCrossClusterSearchConnectionSource(
+      deleteOutboundCrossClusterSearchConnectionRequest: DeleteOutboundCrossClusterSearchConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteOutboundCrossClusterSearchConnectionResponse, NotUsed] =
+    Source
+      .single(deleteOutboundCrossClusterSearchConnectionRequest).via(
+        deleteOutboundCrossClusterSearchConnectionFlow(parallelism)
+      )
+
+  def deleteOutboundCrossClusterSearchConnectionFlow(parallelism: Int = DefaultParallelism): Flow[
+    DeleteOutboundCrossClusterSearchConnectionRequest,
+    DeleteOutboundCrossClusterSearchConnectionResponse,
+    NotUsed
+  ] =
+    Flow[DeleteOutboundCrossClusterSearchConnectionRequest].mapAsync(parallelism) {
+      deleteOutboundCrossClusterSearchConnectionRequest =>
+        underlying.deleteOutboundCrossClusterSearchConnection(deleteOutboundCrossClusterSearchConnectionRequest)
+    }
 
   def deletePackageSource(
       deletePackageRequest: DeletePackageRequest,
@@ -186,6 +262,62 @@ trait ElasticsearchAkkaClient {
     Flow[DescribeElasticsearchInstanceTypeLimitsRequest].mapAsync(parallelism) {
       describeElasticsearchInstanceTypeLimitsRequest =>
         underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest)
+    }
+
+  def describeInboundCrossClusterSearchConnectionsSource(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeInboundCrossClusterSearchConnectionsResponse, NotUsed] =
+    Source
+      .single(describeInboundCrossClusterSearchConnectionsRequest).via(
+        describeInboundCrossClusterSearchConnectionsFlow(parallelism)
+      )
+
+  def describeInboundCrossClusterSearchConnectionsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeInboundCrossClusterSearchConnectionsRequest,
+    DescribeInboundCrossClusterSearchConnectionsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeInboundCrossClusterSearchConnectionsRequest].mapAsync(parallelism) {
+      describeInboundCrossClusterSearchConnectionsRequest =>
+        underlying.describeInboundCrossClusterSearchConnections(describeInboundCrossClusterSearchConnectionsRequest)
+    }
+
+  def describeInboundCrossClusterSearchConnectionsPaginatorFlow: Flow[
+    DescribeInboundCrossClusterSearchConnectionsRequest,
+    DescribeInboundCrossClusterSearchConnectionsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeInboundCrossClusterSearchConnectionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeInboundCrossClusterSearchConnectionsPaginator(request))
+    }
+
+  def describeOutboundCrossClusterSearchConnectionsSource(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeOutboundCrossClusterSearchConnectionsResponse, NotUsed] =
+    Source
+      .single(describeOutboundCrossClusterSearchConnectionsRequest).via(
+        describeOutboundCrossClusterSearchConnectionsFlow(parallelism)
+      )
+
+  def describeOutboundCrossClusterSearchConnectionsFlow(parallelism: Int = DefaultParallelism): Flow[
+    DescribeOutboundCrossClusterSearchConnectionsRequest,
+    DescribeOutboundCrossClusterSearchConnectionsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeOutboundCrossClusterSearchConnectionsRequest].mapAsync(parallelism) {
+      describeOutboundCrossClusterSearchConnectionsRequest =>
+        underlying.describeOutboundCrossClusterSearchConnections(describeOutboundCrossClusterSearchConnectionsRequest)
+    }
+
+  def describeOutboundCrossClusterSearchConnectionsPaginatorFlow: Flow[
+    DescribeOutboundCrossClusterSearchConnectionsRequest,
+    DescribeOutboundCrossClusterSearchConnectionsResponse,
+    NotUsed
+  ] =
+    Flow[DescribeOutboundCrossClusterSearchConnectionsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeOutboundCrossClusterSearchConnectionsPaginator(request))
     }
 
   def describePackagesSource(
@@ -456,6 +588,25 @@ trait ElasticsearchAkkaClient {
     Flow[PurchaseReservedElasticsearchInstanceOfferingRequest].mapAsync(parallelism) {
       purchaseReservedElasticsearchInstanceOfferingRequest =>
         underlying.purchaseReservedElasticsearchInstanceOffering(purchaseReservedElasticsearchInstanceOfferingRequest)
+    }
+
+  def rejectInboundCrossClusterSearchConnectionSource(
+      rejectInboundCrossClusterSearchConnectionRequest: RejectInboundCrossClusterSearchConnectionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RejectInboundCrossClusterSearchConnectionResponse, NotUsed] =
+    Source
+      .single(rejectInboundCrossClusterSearchConnectionRequest).via(
+        rejectInboundCrossClusterSearchConnectionFlow(parallelism)
+      )
+
+  def rejectInboundCrossClusterSearchConnectionFlow(parallelism: Int = DefaultParallelism): Flow[
+    RejectInboundCrossClusterSearchConnectionRequest,
+    RejectInboundCrossClusterSearchConnectionResponse,
+    NotUsed
+  ] =
+    Flow[RejectInboundCrossClusterSearchConnectionRequest].mapAsync(parallelism) {
+      rejectInboundCrossClusterSearchConnectionRequest =>
+        underlying.rejectInboundCrossClusterSearchConnection(rejectInboundCrossClusterSearchConnectionRequest)
     }
 
   def removeTagsSource(

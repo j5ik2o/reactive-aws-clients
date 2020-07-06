@@ -36,6 +36,16 @@ final class SubnetBuilderOps(val self: Subnet.Builder) extends AnyVal {
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def mapCustomerOwnedIpOnLaunchAsScala(value: Option[Boolean]): Subnet.Builder = {
+    value.fold(self) { v => self.mapCustomerOwnedIpOnLaunch(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala(value: Option[String]): Subnet.Builder = {
+    value.fold(self) { v => self.customerOwnedIpv4Pool(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala(value: Option[SubnetState]): Subnet.Builder = {
     value.fold(self) { v => self.state(v) }
   }
@@ -105,6 +115,12 @@ final class SubnetOps(val self: Subnet) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mapPublicIpOnLaunchAsScala: Option[Boolean] = Option(self.mapPublicIpOnLaunch)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def mapCustomerOwnedIpOnLaunchAsScala: Option[Boolean] = Option(self.mapCustomerOwnedIpOnLaunch)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def customerOwnedIpv4PoolAsScala: Option[String] = Option(self.customerOwnedIpv4Pool)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stateAsScala: Option[SubnetState] = Option(self.state)

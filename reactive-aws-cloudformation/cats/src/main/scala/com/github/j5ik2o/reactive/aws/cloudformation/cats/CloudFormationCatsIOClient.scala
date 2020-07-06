@@ -98,6 +98,14 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
       IO(underlying.describeAccountLimits())
     }
 
+  def describeAccountLimitsPaginator(): DescribeAccountLimitsPublisher =
+    underlying.describeAccountLimitsPaginator()
+
+  def describeAccountLimitsPaginator(
+      describeAccountLimitsRequest: DescribeAccountLimitsRequest
+  ): DescribeAccountLimitsPublisher =
+    underlying.describeAccountLimitsPaginator(describeAccountLimitsRequest)
+
   override def describeChangeSet(describeChangeSetRequest: DescribeChangeSetRequest): IO[DescribeChangeSetResponse] =
     IO.fromFuture {
       IO(underlying.describeChangeSet(describeChangeSetRequest))
@@ -248,6 +256,9 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
       IO(underlying.listChangeSets(listChangeSetsRequest))
     }
 
+  def listChangeSetsPaginator(listChangeSetsRequest: ListChangeSetsRequest): ListChangeSetsPublisher =
+    underlying.listChangeSetsPaginator(listChangeSetsRequest)
+
   override def listExports(listExportsRequest: ListExportsRequest): IO[ListExportsResponse] =
     IO.fromFuture {
       IO(underlying.listExports(listExportsRequest))
@@ -279,6 +290,9 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
       IO(underlying.listStackInstances(listStackInstancesRequest))
     }
 
+  def listStackInstancesPaginator(listStackInstancesRequest: ListStackInstancesRequest): ListStackInstancesPublisher =
+    underlying.listStackInstancesPaginator(listStackInstancesRequest)
+
   override def listStackResources(
       listStackResourcesRequest: ListStackResourcesRequest
   ): IO[ListStackResourcesResponse] =
@@ -296,12 +310,22 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
       IO(underlying.listStackSetOperationResults(listStackSetOperationResultsRequest))
     }
 
+  def listStackSetOperationResultsPaginator(
+      listStackSetOperationResultsRequest: ListStackSetOperationResultsRequest
+  ): ListStackSetOperationResultsPublisher =
+    underlying.listStackSetOperationResultsPaginator(listStackSetOperationResultsRequest)
+
   override def listStackSetOperations(
       listStackSetOperationsRequest: ListStackSetOperationsRequest
   ): IO[ListStackSetOperationsResponse] =
     IO.fromFuture {
       IO(underlying.listStackSetOperations(listStackSetOperationsRequest))
     }
+
+  def listStackSetOperationsPaginator(
+      listStackSetOperationsRequest: ListStackSetOperationsRequest
+  ): ListStackSetOperationsPublisher =
+    underlying.listStackSetOperationsPaginator(listStackSetOperationsRequest)
 
   override def listStackSets(listStackSetsRequest: ListStackSetsRequest): IO[ListStackSetsResponse] =
     IO.fromFuture {
@@ -312,6 +336,12 @@ trait CloudFormationCatsIOClient extends CloudFormationClient[IO] {
     IO.fromFuture {
       IO(underlying.listStackSets())
     }
+
+  def listStackSetsPaginator(): ListStackSetsPublisher =
+    underlying.listStackSetsPaginator()
+
+  def listStackSetsPaginator(listStackSetsRequest: ListStackSetsRequest): ListStackSetsPublisher =
+    underlying.listStackSetsPaginator(listStackSetsRequest)
 
   override def listStacks(listStacksRequest: ListStacksRequest): IO[ListStacksResponse] =
     IO.fromFuture {

@@ -25,6 +25,13 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
   def executionContext: ExecutionContext
   implicit def cs: ContextShift[IO] = IO.contextShift(executionContext)
 
+  override def acceptInboundCrossClusterSearchConnection(
+      acceptInboundCrossClusterSearchConnectionRequest: AcceptInboundCrossClusterSearchConnectionRequest
+  ): IO[AcceptInboundCrossClusterSearchConnectionResponse] =
+    IO.fromFuture {
+      IO(underlying.acceptInboundCrossClusterSearchConnection(acceptInboundCrossClusterSearchConnectionRequest))
+    }
+
   override def addTags(addTagsRequest: AddTagsRequest): IO[AddTagsResponse] =
     IO.fromFuture {
       IO(underlying.addTags(addTagsRequest))
@@ -49,6 +56,13 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
       IO(underlying.createElasticsearchDomain(createElasticsearchDomainRequest))
     }
 
+  override def createOutboundCrossClusterSearchConnection(
+      createOutboundCrossClusterSearchConnectionRequest: CreateOutboundCrossClusterSearchConnectionRequest
+  ): IO[CreateOutboundCrossClusterSearchConnectionResponse] =
+    IO.fromFuture {
+      IO(underlying.createOutboundCrossClusterSearchConnection(createOutboundCrossClusterSearchConnectionRequest))
+    }
+
   override def createPackage(createPackageRequest: CreatePackageRequest): IO[CreatePackageResponse] =
     IO.fromFuture {
       IO(underlying.createPackage(createPackageRequest))
@@ -71,6 +85,20 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
   override def deleteElasticsearchServiceRole(): IO[DeleteElasticsearchServiceRoleResponse] =
     IO.fromFuture {
       IO(underlying.deleteElasticsearchServiceRole())
+    }
+
+  override def deleteInboundCrossClusterSearchConnection(
+      deleteInboundCrossClusterSearchConnectionRequest: DeleteInboundCrossClusterSearchConnectionRequest
+  ): IO[DeleteInboundCrossClusterSearchConnectionResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteInboundCrossClusterSearchConnection(deleteInboundCrossClusterSearchConnectionRequest))
+    }
+
+  override def deleteOutboundCrossClusterSearchConnection(
+      deleteOutboundCrossClusterSearchConnectionRequest: DeleteOutboundCrossClusterSearchConnectionRequest
+  ): IO[DeleteOutboundCrossClusterSearchConnectionResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteOutboundCrossClusterSearchConnection(deleteOutboundCrossClusterSearchConnectionRequest))
     }
 
   override def deletePackage(deletePackageRequest: DeletePackageRequest): IO[DeletePackageResponse] =
@@ -105,6 +133,34 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
     IO.fromFuture {
       IO(underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest))
     }
+
+  override def describeInboundCrossClusterSearchConnections(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): IO[DescribeInboundCrossClusterSearchConnectionsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeInboundCrossClusterSearchConnections(describeInboundCrossClusterSearchConnectionsRequest))
+    }
+
+  def describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): DescribeInboundCrossClusterSearchConnectionsPublisher =
+    underlying.describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest
+    )
+
+  override def describeOutboundCrossClusterSearchConnections(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): IO[DescribeOutboundCrossClusterSearchConnectionsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeOutboundCrossClusterSearchConnections(describeOutboundCrossClusterSearchConnectionsRequest))
+    }
+
+  def describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): DescribeOutboundCrossClusterSearchConnectionsPublisher =
+    underlying.describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest
+    )
 
   override def describePackages(describePackagesRequest: DescribePackagesRequest): IO[DescribePackagesResponse] =
     IO.fromFuture {
@@ -266,6 +322,13 @@ trait ElasticsearchCatsIOClient extends ElasticsearchClient[IO] {
   ): IO[PurchaseReservedElasticsearchInstanceOfferingResponse] =
     IO.fromFuture {
       IO(underlying.purchaseReservedElasticsearchInstanceOffering(purchaseReservedElasticsearchInstanceOfferingRequest))
+    }
+
+  override def rejectInboundCrossClusterSearchConnection(
+      rejectInboundCrossClusterSearchConnectionRequest: RejectInboundCrossClusterSearchConnectionRequest
+  ): IO[RejectInboundCrossClusterSearchConnectionResponse] =
+    IO.fromFuture {
+      IO(underlying.rejectInboundCrossClusterSearchConnection(rejectInboundCrossClusterSearchConnectionRequest))
     }
 
   override def removeTags(removeTagsRequest: RemoveTagsRequest): IO[RemoveTagsResponse] =

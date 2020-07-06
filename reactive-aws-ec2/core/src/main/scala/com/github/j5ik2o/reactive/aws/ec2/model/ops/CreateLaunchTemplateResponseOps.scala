@@ -10,12 +10,20 @@ final class CreateLaunchTemplateResponseBuilderOps(val self: CreateLaunchTemplat
     value.fold(self) { v => self.launchTemplate(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warningAsScala(value: Option[ValidationWarning]): CreateLaunchTemplateResponse.Builder = {
+    value.fold(self) { v => self.warning(v) }
+  }
+
 }
 
 final class CreateLaunchTemplateResponseOps(val self: CreateLaunchTemplateResponse) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def launchTemplateAsScala: Option[LaunchTemplate] = Option(self.launchTemplate)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def warningAsScala: Option[ValidationWarning] = Option(self.warning)
 
 }
 

@@ -71,6 +71,13 @@ final class ImportImageRequestBuilderOps(val self: ImportImageRequest.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): ImportImageRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ImportImageRequestOps(val self: ImportImageRequest) extends AnyVal {
@@ -114,6 +121,12 @@ final class ImportImageRequestOps(val self: ImportImageRequest) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def licenseSpecificationsAsScala: Option[Seq[ImportImageLicenseConfigurationRequest]] =
     Option(self.licenseSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
     }
 

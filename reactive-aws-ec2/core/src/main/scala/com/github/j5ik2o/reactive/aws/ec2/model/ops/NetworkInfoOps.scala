@@ -35,6 +35,11 @@ final class NetworkInfoBuilderOps(val self: NetworkInfo.Builder) extends AnyVal 
     value.fold(self) { v => self.enaSupport(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def efaSupportedAsScala(value: Option[Boolean]): NetworkInfo.Builder = {
+    value.fold(self) { v => self.efaSupported(v) }
+  }
+
 }
 
 final class NetworkInfoOps(val self: NetworkInfo) extends AnyVal {
@@ -56,6 +61,9 @@ final class NetworkInfoOps(val self: NetworkInfo) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def enaSupportAsScala: Option[EnaSupport] = Option(self.enaSupport)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def efaSupportedAsScala: Option[Boolean] = Option(self.efaSupported)
 
 }
 

@@ -28,6 +28,13 @@ final class CreateInstanceExportTaskRequestBuilderOps(val self: CreateInstanceEx
     value.fold(self) { v => self.targetEnvironment(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreateInstanceExportTaskRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class CreateInstanceExportTaskRequestOps(val self: CreateInstanceExportTaskRequest) extends AnyVal {
@@ -43,6 +50,12 @@ final class CreateInstanceExportTaskRequestOps(val self: CreateInstanceExportTas
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def targetEnvironmentAsScala: Option[ExportEnvironment] = Option(self.targetEnvironment)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

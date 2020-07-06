@@ -32,6 +32,11 @@ trait ElasticBeanstalkSyncClient extends ElasticBeanstalkClient[Either[Throwable
   ): Either[Throwable, ApplyEnvironmentManagedActionResponse] =
     underlying.applyEnvironmentManagedAction(applyEnvironmentManagedActionRequest).toEither
 
+  override def associateEnvironmentOperationsRole(
+      associateEnvironmentOperationsRoleRequest: AssociateEnvironmentOperationsRoleRequest
+  ): Either[Throwable, AssociateEnvironmentOperationsRoleResponse] =
+    underlying.associateEnvironmentOperationsRole(associateEnvironmentOperationsRoleRequest).toEither
+
   override def checkDNSAvailability(
       checkDnsAvailabilityRequest: CheckDnsAvailabilityRequest
   ): Either[Throwable, CheckDnsAvailabilityResponse] =
@@ -184,6 +189,11 @@ trait ElasticBeanstalkSyncClient extends ElasticBeanstalkClient[Either[Throwable
   ): Either[Throwable, DescribePlatformVersionResponse] =
     underlying.describePlatformVersion(describePlatformVersionRequest).toEither
 
+  override def disassociateEnvironmentOperationsRole(
+      disassociateEnvironmentOperationsRoleRequest: DisassociateEnvironmentOperationsRoleRequest
+  ): Either[Throwable, DisassociateEnvironmentOperationsRoleResponse] =
+    underlying.disassociateEnvironmentOperationsRole(disassociateEnvironmentOperationsRoleRequest).toEither
+
   override def listAvailableSolutionStacks(): Either[Throwable, ListAvailableSolutionStacksResponse] =
     underlying.listAvailableSolutionStacks().toEither
 
@@ -237,7 +247,7 @@ trait ElasticBeanstalkSyncClient extends ElasticBeanstalkClient[Either[Throwable
 
   override def swapEnvironmentCNAMEs(
       swapEnvironmentCnamEsRequest: SwapEnvironmentCnamEsRequest
-  ): Either[Throwable, SwapEnvironmentCNAMEsResponse] =
+  ): Either[Throwable, SwapEnvironmentCnamEsResponse] =
     underlying.swapEnvironmentCNAMEs(swapEnvironmentCnamEsRequest).toEither
 
   override def terminateEnvironment(

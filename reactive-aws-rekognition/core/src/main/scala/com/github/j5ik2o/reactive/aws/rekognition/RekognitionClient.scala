@@ -69,6 +69,8 @@ trait RekognitionClient[M[_]] {
 
   def getPersonTracking(getPersonTrackingRequest: GetPersonTrackingRequest): M[GetPersonTrackingResponse]
 
+  def getSegmentDetection(getSegmentDetectionRequest: GetSegmentDetectionRequest): M[GetSegmentDetectionResponse]
+
   def getTextDetection(getTextDetectionRequest: GetTextDetectionRequest): M[GetTextDetectionResponse]
 
   def indexFaces(indexFacesRequest: IndexFacesRequest): M[IndexFacesResponse]
@@ -106,6 +108,10 @@ trait RekognitionClient[M[_]] {
   def startPersonTracking(startPersonTrackingRequest: StartPersonTrackingRequest): M[StartPersonTrackingResponse]
 
   def startProjectVersion(startProjectVersionRequest: StartProjectVersionRequest): M[StartProjectVersionResponse]
+
+  def startSegmentDetection(
+      startSegmentDetectionRequest: StartSegmentDetectionRequest
+  ): M[StartSegmentDetectionResponse]
 
   def startStreamProcessor(startStreamProcessorRequest: StartStreamProcessorRequest): M[StartStreamProcessorResponse]
 

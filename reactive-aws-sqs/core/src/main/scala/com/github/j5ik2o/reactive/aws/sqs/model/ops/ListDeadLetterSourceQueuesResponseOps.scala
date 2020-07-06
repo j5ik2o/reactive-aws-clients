@@ -13,6 +13,11 @@ final class ListDeadLetterSourceQueuesResponseBuilderOps(val self: ListDeadLette
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): ListDeadLetterSourceQueuesResponse.Builder = {
+    value.fold(self) { v => self.nextToken(v) }
+  }
+
 }
 
 final class ListDeadLetterSourceQueuesResponseOps(val self: ListDeadLetterSourceQueuesResponse) extends AnyVal {
@@ -20,6 +25,9 @@ final class ListDeadLetterSourceQueuesResponseOps(val self: ListDeadLetterSource
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlsAsScala: Option[Seq[String]] =
     Option(self.queueUrls).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 

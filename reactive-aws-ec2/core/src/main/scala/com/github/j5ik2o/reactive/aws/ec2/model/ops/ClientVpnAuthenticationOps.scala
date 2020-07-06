@@ -20,6 +20,11 @@ final class ClientVpnAuthenticationBuilderOps(val self: ClientVpnAuthentication.
     value.fold(self) { v => self.mutualAuthentication(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def federatedAuthenticationAsScala(value: Option[FederatedAuthentication]): ClientVpnAuthentication.Builder = {
+    value.fold(self) { v => self.federatedAuthentication(v) }
+  }
+
 }
 
 final class ClientVpnAuthenticationOps(val self: ClientVpnAuthentication) extends AnyVal {
@@ -32,6 +37,9 @@ final class ClientVpnAuthenticationOps(val self: ClientVpnAuthentication) extend
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mutualAuthenticationAsScala: Option[CertificateAuthentication] = Option(self.mutualAuthentication)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def federatedAuthenticationAsScala: Option[FederatedAuthentication] = Option(self.federatedAuthentication)
 
 }
 

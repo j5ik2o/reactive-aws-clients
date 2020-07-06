@@ -107,6 +107,11 @@ final class CreateEnvironmentResponseBuilderOps(val self: CreateEnvironmentRespo
     value.fold(self) { v => self.environmentArn(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def operationsRoleAsScala(value: Option[String]): CreateEnvironmentResponse.Builder = {
+    value.fold(self) { v => self.operationsRole(v) }
+  }
+
 }
 
 final class CreateEnvironmentResponseOps(val self: CreateEnvironmentResponse) extends AnyVal {
@@ -173,6 +178,9 @@ final class CreateEnvironmentResponseOps(val self: CreateEnvironmentResponse) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentArnAsScala: Option[String] = Option(self.environmentArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def operationsRoleAsScala: Option[String] = Option(self.operationsRole)
 
 }
 

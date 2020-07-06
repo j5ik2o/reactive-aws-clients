@@ -12,6 +12,11 @@ final class ListQueuesResponseBuilderOps(val self: ListQueuesResponse.Builder) e
     }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): ListQueuesResponse.Builder = {
+    value.fold(self) { v => self.nextToken(v) }
+  }
+
 }
 
 final class ListQueuesResponseOps(val self: ListQueuesResponse) extends AnyVal {
@@ -19,6 +24,9 @@ final class ListQueuesResponseOps(val self: ListQueuesResponse) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueUrlsAsScala: Option[Seq[String]] =
     Option(self.queueUrls).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
 
 }
 
