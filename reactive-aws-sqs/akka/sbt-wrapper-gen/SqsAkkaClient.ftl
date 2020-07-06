@@ -7,6 +7,7 @@ import akka.NotUsed
 import akka.stream.scaladsl.{Flow, Source}
 import com.github.j5ik2o.reactive.aws.${baseName?lower_case}.${baseName}AsyncClient
 import software.amazon.awssdk.services.${baseName?lower_case}.model._
+import software.amazon.awssdk.services.${baseName?lower_case}.paginators._
 
 object ${baseName}AkkaClient {
 

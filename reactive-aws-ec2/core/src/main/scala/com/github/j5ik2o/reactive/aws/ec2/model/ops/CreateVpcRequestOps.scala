@@ -35,6 +35,13 @@ final class CreateVpcRequestBuilderOps(val self: CreateVpcRequest.Builder) exten
     value.fold(self) { v => self.ipv6CidrBlockNetworkBorderGroup(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): CreateVpcRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class CreateVpcRequestOps(val self: CreateVpcRequest) extends AnyVal {
@@ -56,6 +63,12 @@ final class CreateVpcRequestOps(val self: CreateVpcRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def ipv6CidrBlockNetworkBorderGroupAsScala: Option[String] = Option(self.ipv6CidrBlockNetworkBorderGroup)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

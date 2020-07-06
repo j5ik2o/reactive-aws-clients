@@ -47,6 +47,11 @@ trait EcsAsyncClient extends EcsClient[Future] {
   override def deleteAttributes(deleteAttributesRequest: DeleteAttributesRequest): Future[DeleteAttributesResponse] =
     underlying.deleteAttributes(deleteAttributesRequest).toScala
 
+  override def deleteCapacityProvider(
+      deleteCapacityProviderRequest: DeleteCapacityProviderRequest
+  ): Future[DeleteCapacityProviderResponse] =
+    underlying.deleteCapacityProvider(deleteCapacityProviderRequest).toScala
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): Future[DeleteClusterResponse] =
     underlying.deleteCluster(deleteClusterRequest).toScala
 

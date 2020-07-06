@@ -22,6 +22,11 @@ object ElasticsearchAsyncClient {
 trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
   val underlying: JavaElasticsearchAsyncClient
 
+  override def acceptInboundCrossClusterSearchConnection(
+      acceptInboundCrossClusterSearchConnectionRequest: AcceptInboundCrossClusterSearchConnectionRequest
+  ): Future[AcceptInboundCrossClusterSearchConnectionResponse] =
+    underlying.acceptInboundCrossClusterSearchConnection(acceptInboundCrossClusterSearchConnectionRequest).toScala
+
   override def addTags(addTagsRequest: AddTagsRequest): Future[AddTagsResponse] =
     underlying.addTags(addTagsRequest).toScala
 
@@ -38,6 +43,11 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
   ): Future[CreateElasticsearchDomainResponse] =
     underlying.createElasticsearchDomain(createElasticsearchDomainRequest).toScala
 
+  override def createOutboundCrossClusterSearchConnection(
+      createOutboundCrossClusterSearchConnectionRequest: CreateOutboundCrossClusterSearchConnectionRequest
+  ): Future[CreateOutboundCrossClusterSearchConnectionResponse] =
+    underlying.createOutboundCrossClusterSearchConnection(createOutboundCrossClusterSearchConnectionRequest).toScala
+
   override def createPackage(createPackageRequest: CreatePackageRequest): Future[CreatePackageResponse] =
     underlying.createPackage(createPackageRequest).toScala
 
@@ -53,6 +63,16 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
 
   override def deleteElasticsearchServiceRole(): Future[DeleteElasticsearchServiceRoleResponse] =
     underlying.deleteElasticsearchServiceRole().toScala
+
+  override def deleteInboundCrossClusterSearchConnection(
+      deleteInboundCrossClusterSearchConnectionRequest: DeleteInboundCrossClusterSearchConnectionRequest
+  ): Future[DeleteInboundCrossClusterSearchConnectionResponse] =
+    underlying.deleteInboundCrossClusterSearchConnection(deleteInboundCrossClusterSearchConnectionRequest).toScala
+
+  override def deleteOutboundCrossClusterSearchConnection(
+      deleteOutboundCrossClusterSearchConnectionRequest: DeleteOutboundCrossClusterSearchConnectionRequest
+  ): Future[DeleteOutboundCrossClusterSearchConnectionResponse] =
+    underlying.deleteOutboundCrossClusterSearchConnection(deleteOutboundCrossClusterSearchConnectionRequest).toScala
 
   override def deletePackage(deletePackageRequest: DeletePackageRequest): Future[DeletePackageResponse] =
     underlying.deletePackage(deletePackageRequest).toScala
@@ -76,6 +96,31 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
       describeElasticsearchInstanceTypeLimitsRequest: DescribeElasticsearchInstanceTypeLimitsRequest
   ): Future[DescribeElasticsearchInstanceTypeLimitsResponse] =
     underlying.describeElasticsearchInstanceTypeLimits(describeElasticsearchInstanceTypeLimitsRequest).toScala
+
+  override def describeInboundCrossClusterSearchConnections(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): Future[DescribeInboundCrossClusterSearchConnectionsResponse] =
+    underlying.describeInboundCrossClusterSearchConnections(describeInboundCrossClusterSearchConnectionsRequest).toScala
+
+  def describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): DescribeInboundCrossClusterSearchConnectionsPublisher =
+    underlying.describeInboundCrossClusterSearchConnectionsPaginator(
+      describeInboundCrossClusterSearchConnectionsRequest
+    )
+
+  override def describeOutboundCrossClusterSearchConnections(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): Future[DescribeOutboundCrossClusterSearchConnectionsResponse] =
+    underlying
+      .describeOutboundCrossClusterSearchConnections(describeOutboundCrossClusterSearchConnectionsRequest).toScala
+
+  def describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): DescribeOutboundCrossClusterSearchConnectionsPublisher =
+    underlying.describeOutboundCrossClusterSearchConnectionsPaginator(
+      describeOutboundCrossClusterSearchConnectionsRequest
+    )
 
   override def describePackages(describePackagesRequest: DescribePackagesRequest): Future[DescribePackagesResponse] =
     underlying.describePackages(describePackagesRequest).toScala
@@ -204,6 +249,11 @@ trait ElasticsearchAsyncClient extends ElasticsearchClient[Future] {
   ): Future[PurchaseReservedElasticsearchInstanceOfferingResponse] =
     underlying
       .purchaseReservedElasticsearchInstanceOffering(purchaseReservedElasticsearchInstanceOfferingRequest).toScala
+
+  override def rejectInboundCrossClusterSearchConnection(
+      rejectInboundCrossClusterSearchConnectionRequest: RejectInboundCrossClusterSearchConnectionRequest
+  ): Future[RejectInboundCrossClusterSearchConnectionResponse] =
+    underlying.rejectInboundCrossClusterSearchConnection(rejectInboundCrossClusterSearchConnectionRequest).toScala
 
   override def removeTags(removeTagsRequest: RemoveTagsRequest): Future[RemoveTagsResponse] =
     underlying.removeTags(removeTagsRequest).toScala

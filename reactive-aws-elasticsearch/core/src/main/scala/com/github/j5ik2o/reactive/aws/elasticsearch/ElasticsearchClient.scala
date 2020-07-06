@@ -5,6 +5,10 @@ import software.amazon.awssdk.services.elasticsearch.model._
 
 trait ElasticsearchClient[M[_]] {
 
+  def acceptInboundCrossClusterSearchConnection(
+      acceptInboundCrossClusterSearchConnectionRequest: AcceptInboundCrossClusterSearchConnectionRequest
+  ): M[AcceptInboundCrossClusterSearchConnectionResponse]
+
   def addTags(addTagsRequest: AddTagsRequest): M[AddTagsResponse]
 
   def associatePackage(associatePackageRequest: AssociatePackageRequest): M[AssociatePackageResponse]
@@ -17,6 +21,10 @@ trait ElasticsearchClient[M[_]] {
       createElasticsearchDomainRequest: CreateElasticsearchDomainRequest
   ): M[CreateElasticsearchDomainResponse]
 
+  def createOutboundCrossClusterSearchConnection(
+      createOutboundCrossClusterSearchConnectionRequest: CreateOutboundCrossClusterSearchConnectionRequest
+  ): M[CreateOutboundCrossClusterSearchConnectionResponse]
+
   def createPackage(createPackageRequest: CreatePackageRequest): M[CreatePackageResponse]
 
   def deleteElasticsearchDomain(
@@ -28,6 +36,14 @@ trait ElasticsearchClient[M[_]] {
   ): M[DeleteElasticsearchServiceRoleResponse]
 
   def deleteElasticsearchServiceRole(): M[DeleteElasticsearchServiceRoleResponse]
+
+  def deleteInboundCrossClusterSearchConnection(
+      deleteInboundCrossClusterSearchConnectionRequest: DeleteInboundCrossClusterSearchConnectionRequest
+  ): M[DeleteInboundCrossClusterSearchConnectionResponse]
+
+  def deleteOutboundCrossClusterSearchConnection(
+      deleteOutboundCrossClusterSearchConnectionRequest: DeleteOutboundCrossClusterSearchConnectionRequest
+  ): M[DeleteOutboundCrossClusterSearchConnectionResponse]
 
   def deletePackage(deletePackageRequest: DeletePackageRequest): M[DeletePackageResponse]
 
@@ -46,6 +62,14 @@ trait ElasticsearchClient[M[_]] {
   def describeElasticsearchInstanceTypeLimits(
       describeElasticsearchInstanceTypeLimitsRequest: DescribeElasticsearchInstanceTypeLimitsRequest
   ): M[DescribeElasticsearchInstanceTypeLimitsResponse]
+
+  def describeInboundCrossClusterSearchConnections(
+      describeInboundCrossClusterSearchConnectionsRequest: DescribeInboundCrossClusterSearchConnectionsRequest
+  ): M[DescribeInboundCrossClusterSearchConnectionsResponse]
+
+  def describeOutboundCrossClusterSearchConnections(
+      describeOutboundCrossClusterSearchConnectionsRequest: DescribeOutboundCrossClusterSearchConnectionsRequest
+  ): M[DescribeOutboundCrossClusterSearchConnectionsResponse]
 
   def describePackages(describePackagesRequest: DescribePackagesRequest): M[DescribePackagesResponse]
 
@@ -100,6 +124,10 @@ trait ElasticsearchClient[M[_]] {
   def purchaseReservedElasticsearchInstanceOffering(
       purchaseReservedElasticsearchInstanceOfferingRequest: PurchaseReservedElasticsearchInstanceOfferingRequest
   ): M[PurchaseReservedElasticsearchInstanceOfferingResponse]
+
+  def rejectInboundCrossClusterSearchConnection(
+      rejectInboundCrossClusterSearchConnectionRequest: RejectInboundCrossClusterSearchConnectionRequest
+  ): M[RejectInboundCrossClusterSearchConnectionResponse]
 
   def removeTags(removeTagsRequest: RemoveTagsRequest): M[RemoveTagsResponse]
 

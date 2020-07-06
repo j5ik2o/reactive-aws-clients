@@ -5,6 +5,7 @@ import akka.NotUsed
 import akka.stream.scaladsl.{ Flow, Source }
 import com.github.j5ik2o.reactive.aws.sqs.SqsAsyncClient
 import software.amazon.awssdk.services.sqs.model._
+import software.amazon.awssdk.services.sqs.paginators._
 
 object SqsAkkaClient {
 
@@ -147,6 +148,12 @@ trait SqsAkkaClient {
       underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest)
     }
 
+  def listDeadLetterSourceQueuesPaginatorFlow
+      : Flow[ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResponse, NotUsed] =
+    Flow[ListDeadLetterSourceQueuesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listDeadLetterSourceQueuesPaginator(request))
+    }
+
   def listQueueTagsSource(
       listQueueTagsRequest: ListQueueTagsRequest,
       parallelism: Int = DefaultParallelism
@@ -173,6 +180,14 @@ trait SqsAkkaClient {
 
   def listQueuesSource(): Source[ListQueuesResponse, NotUsed] =
     Source.fromFuture(underlying.listQueues())
+
+  def listQueuesPaginatorSource: Source[ListQueuesResponse, NotUsed] =
+    Source.fromPublisher(underlying.listQueuesPaginator())
+
+  def listQueuesPaginatorFlow: Flow[ListQueuesRequest, ListQueuesResponse, NotUsed] =
+    Flow[ListQueuesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.listQueuesPaginator(request))
+    }
 
   def purgeQueueSource(
       purgeQueueRequest: PurgeQueueRequest,

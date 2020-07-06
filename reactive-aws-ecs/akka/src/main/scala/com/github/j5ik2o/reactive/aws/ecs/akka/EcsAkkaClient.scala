@@ -104,6 +104,19 @@ trait EcsAkkaClient {
       underlying.deleteAttributes(deleteAttributesRequest)
     }
 
+  def deleteCapacityProviderSource(
+      deleteCapacityProviderRequest: DeleteCapacityProviderRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteCapacityProviderResponse, NotUsed] =
+    Source.single(deleteCapacityProviderRequest).via(deleteCapacityProviderFlow(parallelism))
+
+  def deleteCapacityProviderFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteCapacityProviderRequest, DeleteCapacityProviderResponse, NotUsed] =
+    Flow[DeleteCapacityProviderRequest].mapAsync(parallelism) { deleteCapacityProviderRequest =>
+      underlying.deleteCapacityProvider(deleteCapacityProviderRequest)
+    }
+
   def deleteClusterSource(
       deleteClusterRequest: DeleteClusterRequest,
       parallelism: Int = DefaultParallelism

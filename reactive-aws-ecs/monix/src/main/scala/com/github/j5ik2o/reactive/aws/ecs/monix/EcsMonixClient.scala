@@ -58,6 +58,13 @@ trait EcsMonixClient extends EcsClient[Task] {
       underlying.deleteAttributes(deleteAttributesRequest)
     }
 
+  override def deleteCapacityProvider(
+      deleteCapacityProviderRequest: DeleteCapacityProviderRequest
+  ): Task[DeleteCapacityProviderResponse] =
+    Task.deferFuture {
+      underlying.deleteCapacityProvider(deleteCapacityProviderRequest)
+    }
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): Task[DeleteClusterResponse] =
     Task.deferFuture {
       underlying.deleteCluster(deleteClusterRequest)

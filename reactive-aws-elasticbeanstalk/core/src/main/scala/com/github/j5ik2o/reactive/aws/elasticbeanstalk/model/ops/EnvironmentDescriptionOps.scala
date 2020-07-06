@@ -107,6 +107,11 @@ final class EnvironmentDescriptionBuilderOps(val self: EnvironmentDescription.Bu
     value.fold(self) { v => self.environmentArn(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def operationsRoleAsScala(value: Option[String]): EnvironmentDescription.Builder = {
+    value.fold(self) { v => self.operationsRole(v) }
+  }
+
 }
 
 final class EnvironmentDescriptionOps(val self: EnvironmentDescription) extends AnyVal {
@@ -173,6 +178,9 @@ final class EnvironmentDescriptionOps(val self: EnvironmentDescription) extends 
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentArnAsScala: Option[String] = Option(self.environmentArn)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def operationsRoleAsScala: Option[String] = Option(self.operationsRole)
 
 }
 

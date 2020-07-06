@@ -10,12 +10,28 @@ final class ListQueuesRequestBuilderOps(val self: ListQueuesRequest.Builder) ext
     value.fold(self) { v => self.queueNamePrefix(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala(value: Option[String]): ListQueuesRequest.Builder = {
+    value.fold(self) { v => self.nextToken(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala(value: Option[Int]): ListQueuesRequest.Builder = {
+    value.fold(self) { v => self.maxResults(v) }
+  }
+
 }
 
 final class ListQueuesRequestOps(val self: ListQueuesRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def queueNamePrefixAsScala: Option[String] = Option(self.queueNamePrefix)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nextTokenAsScala: Option[String] = Option(self.nextToken)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
 
 }
 

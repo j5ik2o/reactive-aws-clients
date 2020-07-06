@@ -829,6 +829,19 @@ trait Ec2AkkaClient {
         underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest)
     }
 
+  def createManagedPrefixListSource(
+      createManagedPrefixListRequest: CreateManagedPrefixListRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[CreateManagedPrefixListResponse, NotUsed] =
+    Source.single(createManagedPrefixListRequest).via(createManagedPrefixListFlow(parallelism))
+
+  def createManagedPrefixListFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[CreateManagedPrefixListRequest, CreateManagedPrefixListResponse, NotUsed] =
+    Flow[CreateManagedPrefixListRequest].mapAsync(parallelism) { createManagedPrefixListRequest =>
+      underlying.createManagedPrefixList(createManagedPrefixListRequest)
+    }
+
   def createNatGatewaySource(
       createNatGatewayRequest: CreateNatGatewayRequest,
       parallelism: Int = DefaultParallelism
@@ -1463,6 +1476,19 @@ trait Ec2AkkaClient {
     Flow[DeleteLocalGatewayRouteTableVpcAssociationRequest].mapAsync(parallelism) {
       deleteLocalGatewayRouteTableVpcAssociationRequest =>
         underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest)
+    }
+
+  def deleteManagedPrefixListSource(
+      deleteManagedPrefixListRequest: DeleteManagedPrefixListRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteManagedPrefixListResponse, NotUsed] =
+    Source.single(deleteManagedPrefixListRequest).via(deleteManagedPrefixListFlow(parallelism))
+
+  def deleteManagedPrefixListFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteManagedPrefixListRequest, DeleteManagedPrefixListResponse, NotUsed] =
+    Flow[DeleteManagedPrefixListRequest].mapAsync(parallelism) { deleteManagedPrefixListRequest =>
+      underlying.deleteManagedPrefixList(deleteManagedPrefixListRequest)
     }
 
   def deleteNatGatewaySource(
@@ -3120,6 +3146,25 @@ trait Ec2AkkaClient {
       Source.fromPublisher(underlying.describeLocalGatewaysPaginator(request))
     }
 
+  def describeManagedPrefixListsSource(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeManagedPrefixListsResponse, NotUsed] =
+    Source.single(describeManagedPrefixListsRequest).via(describeManagedPrefixListsFlow(parallelism))
+
+  def describeManagedPrefixListsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResponse, NotUsed] =
+    Flow[DescribeManagedPrefixListsRequest].mapAsync(parallelism) { describeManagedPrefixListsRequest =>
+      underlying.describeManagedPrefixLists(describeManagedPrefixListsRequest)
+    }
+
+  def describeManagedPrefixListsPaginatorFlow
+      : Flow[DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResponse, NotUsed] =
+    Flow[DescribeManagedPrefixListsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.describeManagedPrefixListsPaginator(request))
+    }
+
   def describeMovingAddressesSource(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest,
       parallelism: Int = DefaultParallelism
@@ -4687,12 +4732,12 @@ trait Ec2AkkaClient {
   def enableVolumeIOSource(
       enableVolumeIoRequest: EnableVolumeIoRequest,
       parallelism: Int = DefaultParallelism
-  ): Source[EnableVolumeIOResponse, NotUsed] =
+  ): Source[EnableVolumeIoResponse, NotUsed] =
     Source.single(enableVolumeIoRequest).via(enableVolumeIOFlow(parallelism))
 
   def enableVolumeIOFlow(
       parallelism: Int = DefaultParallelism
-  ): Flow[EnableVolumeIoRequest, EnableVolumeIOResponse, NotUsed] =
+  ): Flow[EnableVolumeIoRequest, EnableVolumeIoResponse, NotUsed] =
     Flow[EnableVolumeIoRequest].mapAsync(parallelism) { enableVolumeIoRequest =>
       underlying.enableVolumeIO(enableVolumeIoRequest)
     }
@@ -4913,6 +4958,44 @@ trait Ec2AkkaClient {
   ): Flow[GetLaunchTemplateDataRequest, GetLaunchTemplateDataResponse, NotUsed] =
     Flow[GetLaunchTemplateDataRequest].mapAsync(parallelism) { getLaunchTemplateDataRequest =>
       underlying.getLaunchTemplateData(getLaunchTemplateDataRequest)
+    }
+
+  def getManagedPrefixListAssociationsSource(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetManagedPrefixListAssociationsResponse, NotUsed] =
+    Source.single(getManagedPrefixListAssociationsRequest).via(getManagedPrefixListAssociationsFlow(parallelism))
+
+  def getManagedPrefixListAssociationsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetManagedPrefixListAssociationsRequest, GetManagedPrefixListAssociationsResponse, NotUsed] =
+    Flow[GetManagedPrefixListAssociationsRequest].mapAsync(parallelism) { getManagedPrefixListAssociationsRequest =>
+      underlying.getManagedPrefixListAssociations(getManagedPrefixListAssociationsRequest)
+    }
+
+  def getManagedPrefixListAssociationsPaginatorFlow
+      : Flow[GetManagedPrefixListAssociationsRequest, GetManagedPrefixListAssociationsResponse, NotUsed] =
+    Flow[GetManagedPrefixListAssociationsRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getManagedPrefixListAssociationsPaginator(request))
+    }
+
+  def getManagedPrefixListEntriesSource(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[GetManagedPrefixListEntriesResponse, NotUsed] =
+    Source.single(getManagedPrefixListEntriesRequest).via(getManagedPrefixListEntriesFlow(parallelism))
+
+  def getManagedPrefixListEntriesFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResponse, NotUsed] =
+    Flow[GetManagedPrefixListEntriesRequest].mapAsync(parallelism) { getManagedPrefixListEntriesRequest =>
+      underlying.getManagedPrefixListEntries(getManagedPrefixListEntriesRequest)
+    }
+
+  def getManagedPrefixListEntriesPaginatorFlow
+      : Flow[GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResponse, NotUsed] =
+    Flow[GetManagedPrefixListEntriesRequest].flatMapConcat { request =>
+      Source.fromPublisher(underlying.getManagedPrefixListEntriesPaginator(request))
     }
 
   def getPasswordDataSource(
@@ -5354,6 +5437,19 @@ trait Ec2AkkaClient {
   ): Flow[ModifyLaunchTemplateRequest, ModifyLaunchTemplateResponse, NotUsed] =
     Flow[ModifyLaunchTemplateRequest].mapAsync(parallelism) { modifyLaunchTemplateRequest =>
       underlying.modifyLaunchTemplate(modifyLaunchTemplateRequest)
+    }
+
+  def modifyManagedPrefixListSource(
+      modifyManagedPrefixListRequest: ModifyManagedPrefixListRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[ModifyManagedPrefixListResponse, NotUsed] =
+    Source.single(modifyManagedPrefixListRequest).via(modifyManagedPrefixListFlow(parallelism))
+
+  def modifyManagedPrefixListFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[ModifyManagedPrefixListRequest, ModifyManagedPrefixListResponse, NotUsed] =
+    Flow[ModifyManagedPrefixListRequest].mapAsync(parallelism) { modifyManagedPrefixListRequest =>
+      underlying.modifyManagedPrefixList(modifyManagedPrefixListRequest)
     }
 
   def modifyNetworkInterfaceAttributeSource(
@@ -6089,6 +6185,19 @@ trait Ec2AkkaClient {
   ): Flow[RestoreAddressToClassicRequest, RestoreAddressToClassicResponse, NotUsed] =
     Flow[RestoreAddressToClassicRequest].mapAsync(parallelism) { restoreAddressToClassicRequest =>
       underlying.restoreAddressToClassic(restoreAddressToClassicRequest)
+    }
+
+  def restoreManagedPrefixListVersionSource(
+      restoreManagedPrefixListVersionRequest: RestoreManagedPrefixListVersionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[RestoreManagedPrefixListVersionResponse, NotUsed] =
+    Source.single(restoreManagedPrefixListVersionRequest).via(restoreManagedPrefixListVersionFlow(parallelism))
+
+  def restoreManagedPrefixListVersionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[RestoreManagedPrefixListVersionRequest, RestoreManagedPrefixListVersionResponse, NotUsed] =
+    Flow[RestoreManagedPrefixListVersionRequest].mapAsync(parallelism) { restoreManagedPrefixListVersionRequest =>
+      underlying.restoreManagedPrefixListVersion(restoreManagedPrefixListVersionRequest)
     }
 
   def revokeClientVpnIngressSource(

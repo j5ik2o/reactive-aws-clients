@@ -32,6 +32,13 @@ final class PurchaseHostReservationRequestBuilderOps(val self: PurchaseHostReser
     value.fold(self) { v => self.offeringId(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): PurchaseHostReservationRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class PurchaseHostReservationRequestOps(val self: PurchaseHostReservationRequest) extends AnyVal {
@@ -51,6 +58,12 @@ final class PurchaseHostReservationRequestOps(val self: PurchaseHostReservationR
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def offeringIdAsScala: Option[String] = Option(self.offeringId)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

@@ -313,6 +313,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, CreateLocalGatewayRouteTableVpcAssociationResponse] =
     underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest).toEither
 
+  override def createManagedPrefixList(
+      createManagedPrefixListRequest: CreateManagedPrefixListRequest
+  ): Either[Throwable, CreateManagedPrefixListResponse] =
+    underlying.createManagedPrefixList(createManagedPrefixListRequest).toEither
+
   override def createNatGateway(
       createNatGatewayRequest: CreateNatGatewayRequest
   ): Either[Throwable, CreateNatGatewayResponse] =
@@ -537,6 +542,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
   ): Either[Throwable, DeleteLocalGatewayRouteTableVpcAssociationResponse] =
     underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest).toEither
+
+  override def deleteManagedPrefixList(
+      deleteManagedPrefixListRequest: DeleteManagedPrefixListRequest
+  ): Either[Throwable, DeleteManagedPrefixListResponse] =
+    underlying.deleteManagedPrefixList(deleteManagedPrefixListRequest).toEither
 
   override def deleteNatGateway(
       deleteNatGatewayRequest: DeleteNatGatewayRequest
@@ -1323,6 +1333,16 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): DescribeLocalGatewaysIterable =
     underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest)
+
+  override def describeManagedPrefixLists(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): Either[Throwable, DescribeManagedPrefixListsResponse] =
+    underlying.describeManagedPrefixLists(describeManagedPrefixListsRequest).toEither
+
+  def describeManagedPrefixListsPaginator(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): DescribeManagedPrefixListsIterable =
+    underlying.describeManagedPrefixListsPaginator(describeManagedPrefixListsRequest)
 
   override def describeMovingAddresses(): Either[Throwable, DescribeMovingAddressesResponse] =
     underlying.describeMovingAddresses().toEither
@@ -2141,7 +2161,7 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   ): Either[Throwable, EnableVgwRoutePropagationResponse] =
     underlying.enableVgwRoutePropagation(enableVgwRoutePropagationRequest).toEither
 
-  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): Either[Throwable, EnableVolumeIOResponse] =
+  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): Either[Throwable, EnableVolumeIoResponse] =
     underlying.enableVolumeIO(enableVolumeIoRequest).toEither
 
   override def enableVpcClassicLink(
@@ -2227,6 +2247,26 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       getLaunchTemplateDataRequest: GetLaunchTemplateDataRequest
   ): Either[Throwable, GetLaunchTemplateDataResponse] =
     underlying.getLaunchTemplateData(getLaunchTemplateDataRequest).toEither
+
+  override def getManagedPrefixListAssociations(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): Either[Throwable, GetManagedPrefixListAssociationsResponse] =
+    underlying.getManagedPrefixListAssociations(getManagedPrefixListAssociationsRequest).toEither
+
+  def getManagedPrefixListAssociationsPaginator(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): GetManagedPrefixListAssociationsIterable =
+    underlying.getManagedPrefixListAssociationsPaginator(getManagedPrefixListAssociationsRequest)
+
+  override def getManagedPrefixListEntries(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): Either[Throwable, GetManagedPrefixListEntriesResponse] =
+    underlying.getManagedPrefixListEntries(getManagedPrefixListEntriesRequest).toEither
+
+  def getManagedPrefixListEntriesPaginator(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): GetManagedPrefixListEntriesIterable =
+    underlying.getManagedPrefixListEntriesPaginator(getManagedPrefixListEntriesRequest)
 
   override def getPasswordData(
       getPasswordDataRequest: GetPasswordDataRequest
@@ -2385,6 +2425,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       modifyLaunchTemplateRequest: ModifyLaunchTemplateRequest
   ): Either[Throwable, ModifyLaunchTemplateResponse] =
     underlying.modifyLaunchTemplate(modifyLaunchTemplateRequest).toEither
+
+  override def modifyManagedPrefixList(
+      modifyManagedPrefixListRequest: ModifyManagedPrefixListRequest
+  ): Either[Throwable, ModifyManagedPrefixListResponse] =
+    underlying.modifyManagedPrefixList(modifyManagedPrefixListRequest).toEither
 
   override def modifyNetworkInterfaceAttribute(
       modifyNetworkInterfaceAttributeRequest: ModifyNetworkInterfaceAttributeRequest
@@ -2645,6 +2690,11 @@ trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
       restoreAddressToClassicRequest: RestoreAddressToClassicRequest
   ): Either[Throwable, RestoreAddressToClassicResponse] =
     underlying.restoreAddressToClassic(restoreAddressToClassicRequest).toEither
+
+  override def restoreManagedPrefixListVersion(
+      restoreManagedPrefixListVersionRequest: RestoreManagedPrefixListVersionRequest
+  ): Either[Throwable, RestoreManagedPrefixListVersionResponse] =
+    underlying.restoreManagedPrefixListVersion(restoreManagedPrefixListVersionRequest).toEither
 
   override def revokeClientVpnIngress(
       revokeClientVpnIngressRequest: RevokeClientVpnIngressRequest

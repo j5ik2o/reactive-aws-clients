@@ -35,6 +35,13 @@ final class ExportImageRequestBuilderOps(val self: ExportImageRequest.Builder) e
     value.fold(self) { v => self.roleName(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): ExportImageRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ExportImageRequestOps(val self: ExportImageRequest) extends AnyVal {
@@ -56,6 +63,12 @@ final class ExportImageRequestOps(val self: ExportImageRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleNameAsScala: Option[String] = Option(self.roleName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 

@@ -209,6 +209,18 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
   ): Observable[GetPersonTrackingResponse] =
     Observable.fromReactivePublisher(underlying.getPersonTrackingPaginator(getPersonTrackingRequest))
 
+  override def getSegmentDetection(
+      getSegmentDetectionRequest: GetSegmentDetectionRequest
+  ): Task[GetSegmentDetectionResponse] =
+    Task.deferFuture {
+      underlying.getSegmentDetection(getSegmentDetectionRequest)
+    }
+
+  def getSegmentDetectionPaginator(
+      getSegmentDetectionRequest: GetSegmentDetectionRequest
+  ): Observable[GetSegmentDetectionResponse] =
+    Observable.fromReactivePublisher(underlying.getSegmentDetectionPaginator(getSegmentDetectionRequest))
+
   override def getTextDetection(getTextDetectionRequest: GetTextDetectionRequest): Task[GetTextDetectionResponse] =
     Task.deferFuture {
       underlying.getTextDetection(getTextDetectionRequest)
@@ -332,6 +344,13 @@ trait RekognitionMonixClient extends RekognitionClient[Task] {
   ): Task[StartProjectVersionResponse] =
     Task.deferFuture {
       underlying.startProjectVersion(startProjectVersionRequest)
+    }
+
+  override def startSegmentDetection(
+      startSegmentDetectionRequest: StartSegmentDetectionRequest
+  ): Task[StartSegmentDetectionResponse] =
+    Task.deferFuture {
+      underlying.startSegmentDetection(startSegmentDetectionRequest)
     }
 
   override def startStreamProcessor(

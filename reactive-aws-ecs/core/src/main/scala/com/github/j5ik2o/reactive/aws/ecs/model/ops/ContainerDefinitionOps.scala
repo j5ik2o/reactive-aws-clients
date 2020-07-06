@@ -76,6 +76,13 @@ final class ContainerDefinitionBuilderOps(val self: ContainerDefinition.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def environmentFilesAsScala(value: Option[Seq[EnvironmentFile]]): ContainerDefinition.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.environmentFiles(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mountPointsAsScala(value: Option[Seq[MountPoint]]): ContainerDefinition.Builder = {
     value.filter(_.nonEmpty).fold(self) { v =>
       import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.mountPoints(v.asJava)
@@ -273,6 +280,12 @@ final class ContainerDefinitionOps(val self: ContainerDefinition) extends AnyVal
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentAsScala: Option[Seq[KeyValuePair]] =
     Option(self.environment).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def environmentFilesAsScala: Option[Seq[EnvironmentFile]] =
+    Option(self.environmentFiles).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def mountPointsAsScala: Option[Seq[MountPoint]] =

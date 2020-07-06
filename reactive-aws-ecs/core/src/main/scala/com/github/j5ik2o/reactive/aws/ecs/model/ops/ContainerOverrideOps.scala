@@ -25,6 +25,13 @@ final class ContainerOverrideBuilderOps(val self: ContainerOverride.Builder) ext
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def environmentFilesAsScala(value: Option[Seq[EnvironmentFile]]): ContainerOverride.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.environmentFiles(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuAsScala(value: Option[Int]): ContainerOverride.Builder = {
     value.fold(self) { v => self.cpu(v) }
   }
@@ -60,6 +67,12 @@ final class ContainerOverrideOps(val self: ContainerOverride) extends AnyVal {
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def environmentAsScala: Option[Seq[KeyValuePair]] =
     Option(self.environment).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def environmentFilesAsScala: Option[Seq[EnvironmentFile]] =
+    Option(self.environmentFiles).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def cpuAsScala: Option[Int] = Option(self.cpu)

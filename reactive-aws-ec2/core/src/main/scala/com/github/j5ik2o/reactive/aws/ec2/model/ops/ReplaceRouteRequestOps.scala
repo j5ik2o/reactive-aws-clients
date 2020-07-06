@@ -16,6 +16,11 @@ final class ReplaceRouteRequestBuilderOps(val self: ReplaceRouteRequest.Builder)
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationPrefixListIdAsScala(value: Option[String]): ReplaceRouteRequest.Builder = {
+    value.fold(self) { v => self.destinationPrefixListId(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala(value: Option[String]): ReplaceRouteRequest.Builder = {
     value.fold(self) { v => self.egressOnlyInternetGatewayId(v) }
   }
@@ -74,6 +79,9 @@ final class ReplaceRouteRequestOps(val self: ReplaceRouteRequest) extends AnyVal
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationIpv6CidrBlockAsScala: Option[String] = Option(self.destinationIpv6CidrBlock)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationPrefixListIdAsScala: Option[String] = Option(self.destinationPrefixListId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def egressOnlyInternetGatewayIdAsScala: Option[String] = Option(self.egressOnlyInternetGatewayId)

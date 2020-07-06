@@ -15,6 +15,16 @@ final class EbsInfoBuilderOps(val self: EbsInfo.Builder) extends AnyVal {
     value.fold(self) { v => self.encryptionSupport(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ebsOptimizedInfoAsScala(value: Option[EbsOptimizedInfo]): EbsInfo.Builder = {
+    value.fold(self) { v => self.ebsOptimizedInfo(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nvmeSupportAsScala(value: Option[EbsNvmeSupport]): EbsInfo.Builder = {
+    value.fold(self) { v => self.nvmeSupport(v) }
+  }
+
 }
 
 final class EbsInfoOps(val self: EbsInfo) extends AnyVal {
@@ -24,6 +34,12 @@ final class EbsInfoOps(val self: EbsInfo) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def encryptionSupportAsScala: Option[EbsEncryptionSupport] = Option(self.encryptionSupport)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def ebsOptimizedInfoAsScala: Option[EbsOptimizedInfo] = Option(self.ebsOptimizedInfo)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def nvmeSupportAsScala: Option[EbsNvmeSupport] = Option(self.nvmeSupport)
 
 }
 

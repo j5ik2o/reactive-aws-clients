@@ -421,6 +421,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.createLocalGatewayRouteTableVpcAssociation(createLocalGatewayRouteTableVpcAssociationRequest)
     }
 
+  override def createManagedPrefixList(
+      createManagedPrefixListRequest: CreateManagedPrefixListRequest
+  ): Task[CreateManagedPrefixListResponse] =
+    Task.deferFuture {
+      underlying.createManagedPrefixList(createManagedPrefixListRequest)
+    }
+
   override def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): Task[CreateNatGatewayResponse] =
     Task.deferFuture {
       underlying.createNatGateway(createNatGatewayRequest)
@@ -726,6 +733,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
     Task.deferFuture {
       underlying.deleteLocalGatewayRouteTableVpcAssociation(deleteLocalGatewayRouteTableVpcAssociationRequest)
+    }
+
+  override def deleteManagedPrefixList(
+      deleteManagedPrefixListRequest: DeleteManagedPrefixListRequest
+  ): Task[DeleteManagedPrefixListResponse] =
+    Task.deferFuture {
+      underlying.deleteManagedPrefixList(deleteManagedPrefixListRequest)
     }
 
   override def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): Task[DeleteNatGatewayResponse] =
@@ -1783,6 +1797,18 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): Observable[DescribeLocalGatewaysResponse] =
     Observable.fromReactivePublisher(underlying.describeLocalGatewaysPaginator(describeLocalGatewaysRequest))
+
+  override def describeManagedPrefixLists(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): Task[DescribeManagedPrefixListsResponse] =
+    Task.deferFuture {
+      underlying.describeManagedPrefixLists(describeManagedPrefixListsRequest)
+    }
+
+  def describeManagedPrefixListsPaginator(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): Observable[DescribeManagedPrefixListsResponse] =
+    Observable.fromReactivePublisher(underlying.describeManagedPrefixListsPaginator(describeManagedPrefixListsRequest))
 
   override def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
@@ -2878,7 +2904,7 @@ trait Ec2MonixClient extends Ec2Client[Task] {
       underlying.enableVgwRoutePropagation(enableVgwRoutePropagationRequest)
     }
 
-  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): Task[EnableVolumeIOResponse] =
+  override def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): Task[EnableVolumeIoResponse] =
     Task.deferFuture {
       underlying.enableVolumeIO(enableVolumeIoRequest)
     }
@@ -2993,6 +3019,34 @@ trait Ec2MonixClient extends Ec2Client[Task] {
     Task.deferFuture {
       underlying.getLaunchTemplateData(getLaunchTemplateDataRequest)
     }
+
+  override def getManagedPrefixListAssociations(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): Task[GetManagedPrefixListAssociationsResponse] =
+    Task.deferFuture {
+      underlying.getManagedPrefixListAssociations(getManagedPrefixListAssociationsRequest)
+    }
+
+  def getManagedPrefixListAssociationsPaginator(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): Observable[GetManagedPrefixListAssociationsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.getManagedPrefixListAssociationsPaginator(getManagedPrefixListAssociationsRequest)
+    )
+
+  override def getManagedPrefixListEntries(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): Task[GetManagedPrefixListEntriesResponse] =
+    Task.deferFuture {
+      underlying.getManagedPrefixListEntries(getManagedPrefixListEntriesRequest)
+    }
+
+  def getManagedPrefixListEntriesPaginator(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): Observable[GetManagedPrefixListEntriesResponse] =
+    Observable.fromReactivePublisher(
+      underlying.getManagedPrefixListEntriesPaginator(getManagedPrefixListEntriesRequest)
+    )
 
   override def getPasswordData(getPasswordDataRequest: GetPasswordDataRequest): Task[GetPasswordDataResponse] =
     Task.deferFuture {
@@ -3214,6 +3268,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[ModifyLaunchTemplateResponse] =
     Task.deferFuture {
       underlying.modifyLaunchTemplate(modifyLaunchTemplateRequest)
+    }
+
+  override def modifyManagedPrefixList(
+      modifyManagedPrefixListRequest: ModifyManagedPrefixListRequest
+  ): Task[ModifyManagedPrefixListResponse] =
+    Task.deferFuture {
+      underlying.modifyManagedPrefixList(modifyManagedPrefixListRequest)
     }
 
   override def modifyNetworkInterfaceAttribute(
@@ -3570,6 +3631,13 @@ trait Ec2MonixClient extends Ec2Client[Task] {
   ): Task[RestoreAddressToClassicResponse] =
     Task.deferFuture {
       underlying.restoreAddressToClassic(restoreAddressToClassicRequest)
+    }
+
+  override def restoreManagedPrefixListVersion(
+      restoreManagedPrefixListVersionRequest: RestoreManagedPrefixListVersionRequest
+  ): Task[RestoreManagedPrefixListVersionResponse] =
+    Task.deferFuture {
+      underlying.restoreManagedPrefixListVersion(restoreManagedPrefixListVersionRequest)
     }
 
   override def revokeClientVpnIngress(

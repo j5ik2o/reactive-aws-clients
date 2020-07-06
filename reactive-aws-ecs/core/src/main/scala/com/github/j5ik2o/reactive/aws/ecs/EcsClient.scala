@@ -21,6 +21,10 @@ trait EcsClient[M[_]] {
 
   def deleteAttributes(deleteAttributesRequest: DeleteAttributesRequest): M[DeleteAttributesResponse]
 
+  def deleteCapacityProvider(
+      deleteCapacityProviderRequest: DeleteCapacityProviderRequest
+  ): M[DeleteCapacityProviderResponse]
+
   def deleteCluster(deleteClusterRequest: DeleteClusterRequest): M[DeleteClusterResponse]
 
   def deleteService(deleteServiceRequest: DeleteServiceRequest): M[DeleteServiceResponse]

@@ -53,6 +53,11 @@ trait CloudWatchLogsAsyncClient extends CloudWatchLogsClient[Future] {
   ): Future[DeleteMetricFilterResponse] =
     underlying.deleteMetricFilter(deleteMetricFilterRequest).toScala
 
+  override def deleteQueryDefinition(
+      deleteQueryDefinitionRequest: DeleteQueryDefinitionRequest
+  ): Future[DeleteQueryDefinitionResponse] =
+    underlying.deleteQueryDefinition(deleteQueryDefinitionRequest).toScala
+
   override def deleteResourcePolicy(
       deleteResourcePolicyRequest: DeleteResourcePolicyRequest
   ): Future[DeleteResourcePolicyResponse] =
@@ -136,6 +141,11 @@ trait CloudWatchLogsAsyncClient extends CloudWatchLogsClient[Future] {
   override def describeQueries(): Future[DescribeQueriesResponse] =
     underlying.describeQueries().toScala
 
+  override def describeQueryDefinitions(
+      describeQueryDefinitionsRequest: DescribeQueryDefinitionsRequest
+  ): Future[DescribeQueryDefinitionsResponse] =
+    underlying.describeQueryDefinitions(describeQueryDefinitionsRequest).toScala
+
   override def describeResourcePolicies(
       describeResourcePoliciesRequest: DescribeResourcePoliciesRequest
   ): Future[DescribeResourcePoliciesResponse] =
@@ -198,6 +208,11 @@ trait CloudWatchLogsAsyncClient extends CloudWatchLogsClient[Future] {
 
   override def putMetricFilter(putMetricFilterRequest: PutMetricFilterRequest): Future[PutMetricFilterResponse] =
     underlying.putMetricFilter(putMetricFilterRequest).toScala
+
+  override def putQueryDefinition(
+      putQueryDefinitionRequest: PutQueryDefinitionRequest
+  ): Future[PutQueryDefinitionResponse] =
+    underlying.putQueryDefinition(putQueryDefinitionRequest).toScala
 
   override def putResourcePolicy(
       putResourcePolicyRequest: PutResourcePolicyRequest

@@ -197,6 +197,10 @@ trait Ec2Client[M[_]] {
       createLocalGatewayRouteTableVpcAssociationRequest: CreateLocalGatewayRouteTableVpcAssociationRequest
   ): M[CreateLocalGatewayRouteTableVpcAssociationResponse]
 
+  def createManagedPrefixList(
+      createManagedPrefixListRequest: CreateManagedPrefixListRequest
+  ): M[CreateManagedPrefixListResponse]
+
   def createNatGateway(createNatGatewayRequest: CreateNatGatewayRequest): M[CreateNatGatewayResponse]
 
   def createNetworkAcl(createNetworkAclRequest: CreateNetworkAclRequest): M[CreateNetworkAclResponse]
@@ -344,6 +348,10 @@ trait Ec2Client[M[_]] {
   def deleteLocalGatewayRouteTableVpcAssociation(
       deleteLocalGatewayRouteTableVpcAssociationRequest: DeleteLocalGatewayRouteTableVpcAssociationRequest
   ): M[DeleteLocalGatewayRouteTableVpcAssociationResponse]
+
+  def deleteManagedPrefixList(
+      deleteManagedPrefixListRequest: DeleteManagedPrefixListRequest
+  ): M[DeleteManagedPrefixListResponse]
 
   def deleteNatGateway(deleteNatGatewayRequest: DeleteNatGatewayRequest): M[DeleteNatGatewayResponse]
 
@@ -717,6 +725,10 @@ trait Ec2Client[M[_]] {
       describeLocalGatewaysRequest: DescribeLocalGatewaysRequest
   ): M[DescribeLocalGatewaysResponse]
 
+  def describeManagedPrefixLists(
+      describeManagedPrefixListsRequest: DescribeManagedPrefixListsRequest
+  ): M[DescribeManagedPrefixListsResponse]
+
   def describeMovingAddresses(
       describeMovingAddressesRequest: DescribeMovingAddressesRequest
   ): M[DescribeMovingAddressesResponse]
@@ -1085,7 +1097,7 @@ trait Ec2Client[M[_]] {
       enableVgwRoutePropagationRequest: EnableVgwRoutePropagationRequest
   ): M[EnableVgwRoutePropagationResponse]
 
-  def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): M[EnableVolumeIOResponse]
+  def enableVolumeIO(enableVolumeIoRequest: EnableVolumeIoRequest): M[EnableVolumeIoResponse]
 
   def enableVpcClassicLink(enableVpcClassicLinkRequest: EnableVpcClassicLinkRequest): M[EnableVpcClassicLinkResponse]
 
@@ -1140,6 +1152,14 @@ trait Ec2Client[M[_]] {
   def getLaunchTemplateData(
       getLaunchTemplateDataRequest: GetLaunchTemplateDataRequest
   ): M[GetLaunchTemplateDataResponse]
+
+  def getManagedPrefixListAssociations(
+      getManagedPrefixListAssociationsRequest: GetManagedPrefixListAssociationsRequest
+  ): M[GetManagedPrefixListAssociationsResponse]
+
+  def getManagedPrefixListEntries(
+      getManagedPrefixListEntriesRequest: GetManagedPrefixListEntriesRequest
+  ): M[GetManagedPrefixListEntriesResponse]
 
   def getPasswordData(getPasswordDataRequest: GetPasswordDataRequest): M[GetPasswordDataResponse]
 
@@ -1238,6 +1258,10 @@ trait Ec2Client[M[_]] {
   ): M[ModifyInstancePlacementResponse]
 
   def modifyLaunchTemplate(modifyLaunchTemplateRequest: ModifyLaunchTemplateRequest): M[ModifyLaunchTemplateResponse]
+
+  def modifyManagedPrefixList(
+      modifyManagedPrefixListRequest: ModifyManagedPrefixListRequest
+  ): M[ModifyManagedPrefixListResponse]
 
   def modifyNetworkInterfaceAttribute(
       modifyNetworkInterfaceAttributeRequest: ModifyNetworkInterfaceAttributeRequest
@@ -1420,6 +1444,10 @@ trait Ec2Client[M[_]] {
   def restoreAddressToClassic(
       restoreAddressToClassicRequest: RestoreAddressToClassicRequest
   ): M[RestoreAddressToClassicResponse]
+
+  def restoreManagedPrefixListVersion(
+      restoreManagedPrefixListVersionRequest: RestoreManagedPrefixListVersionRequest
+  ): M[RestoreManagedPrefixListVersionResponse]
 
   def revokeClientVpnIngress(
       revokeClientVpnIngressRequest: RevokeClientVpnIngressRequest

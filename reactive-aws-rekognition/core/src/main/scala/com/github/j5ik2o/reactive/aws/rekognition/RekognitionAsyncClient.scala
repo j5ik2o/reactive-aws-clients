@@ -156,6 +156,16 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
   def getPersonTrackingPaginator(getPersonTrackingRequest: GetPersonTrackingRequest): GetPersonTrackingPublisher =
     underlying.getPersonTrackingPaginator(getPersonTrackingRequest)
 
+  override def getSegmentDetection(
+      getSegmentDetectionRequest: GetSegmentDetectionRequest
+  ): Future[GetSegmentDetectionResponse] =
+    underlying.getSegmentDetection(getSegmentDetectionRequest).toScala
+
+  def getSegmentDetectionPaginator(
+      getSegmentDetectionRequest: GetSegmentDetectionRequest
+  ): GetSegmentDetectionPublisher =
+    underlying.getSegmentDetectionPaginator(getSegmentDetectionRequest)
+
   override def getTextDetection(getTextDetectionRequest: GetTextDetectionRequest): Future[GetTextDetectionResponse] =
     underlying.getTextDetection(getTextDetectionRequest).toScala
 
@@ -244,6 +254,11 @@ trait RekognitionAsyncClient extends RekognitionClient[Future] {
       startProjectVersionRequest: StartProjectVersionRequest
   ): Future[StartProjectVersionResponse] =
     underlying.startProjectVersion(startProjectVersionRequest).toScala
+
+  override def startSegmentDetection(
+      startSegmentDetectionRequest: StartSegmentDetectionRequest
+  ): Future[StartSegmentDetectionResponse] =
+    underlying.startSegmentDetection(startSegmentDetectionRequest).toScala
 
   override def startStreamProcessor(
       startStreamProcessorRequest: StartStreamProcessorRequest

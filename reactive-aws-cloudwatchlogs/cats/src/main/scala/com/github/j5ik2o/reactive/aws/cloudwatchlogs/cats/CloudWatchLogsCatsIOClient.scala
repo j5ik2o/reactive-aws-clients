@@ -72,6 +72,13 @@ trait CloudWatchLogsCatsIOClient extends CloudWatchLogsClient[IO] {
       IO(underlying.deleteMetricFilter(deleteMetricFilterRequest))
     }
 
+  override def deleteQueryDefinition(
+      deleteQueryDefinitionRequest: DeleteQueryDefinitionRequest
+  ): IO[DeleteQueryDefinitionResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteQueryDefinition(deleteQueryDefinitionRequest))
+    }
+
   override def deleteResourcePolicy(
       deleteResourcePolicyRequest: DeleteResourcePolicyRequest
   ): IO[DeleteResourcePolicyResponse] =
@@ -181,6 +188,13 @@ trait CloudWatchLogsCatsIOClient extends CloudWatchLogsClient[IO] {
       IO(underlying.describeQueries())
     }
 
+  override def describeQueryDefinitions(
+      describeQueryDefinitionsRequest: DescribeQueryDefinitionsRequest
+  ): IO[DescribeQueryDefinitionsResponse] =
+    IO.fromFuture {
+      IO(underlying.describeQueryDefinitions(describeQueryDefinitionsRequest))
+    }
+
   override def describeResourcePolicies(
       describeResourcePoliciesRequest: DescribeResourcePoliciesRequest
   ): IO[DescribeResourcePoliciesResponse] =
@@ -268,6 +282,13 @@ trait CloudWatchLogsCatsIOClient extends CloudWatchLogsClient[IO] {
   override def putMetricFilter(putMetricFilterRequest: PutMetricFilterRequest): IO[PutMetricFilterResponse] =
     IO.fromFuture {
       IO(underlying.putMetricFilter(putMetricFilterRequest))
+    }
+
+  override def putQueryDefinition(
+      putQueryDefinitionRequest: PutQueryDefinitionRequest
+  ): IO[PutQueryDefinitionResponse] =
+    IO.fromFuture {
+      IO(underlying.putQueryDefinition(putQueryDefinitionRequest))
     }
 
   override def putResourcePolicy(putResourcePolicyRequest: PutResourcePolicyRequest): IO[PutResourcePolicyResponse] =

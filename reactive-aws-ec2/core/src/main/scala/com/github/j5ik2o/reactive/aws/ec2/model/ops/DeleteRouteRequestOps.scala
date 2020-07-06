@@ -16,6 +16,11 @@ final class DeleteRouteRequestBuilderOps(val self: DeleteRouteRequest.Builder) e
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationPrefixListIdAsScala(value: Option[String]): DeleteRouteRequest.Builder = {
+    value.fold(self) { v => self.destinationPrefixListId(v) }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala(value: Option[String]): DeleteRouteRequest.Builder = {
     value.fold(self) { v => self.routeTableId(v) }
   }
@@ -29,6 +34,9 @@ final class DeleteRouteRequestOps(val self: DeleteRouteRequest) extends AnyVal {
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def destinationIpv6CidrBlockAsScala: Option[String] = Option(self.destinationIpv6CidrBlock)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def destinationPrefixListIdAsScala: Option[String] = Option(self.destinationPrefixListId)
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def routeTableIdAsScala: Option[String] = Option(self.routeTableId)

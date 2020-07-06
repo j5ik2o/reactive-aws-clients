@@ -21,6 +21,13 @@ final class ListStackInstancesRequestBuilderOps(val self: ListStackInstancesRequ
   }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala(value: Option[Seq[StackInstanceFilter]]): ListStackInstancesRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.filters(v.asJava)
+    }
+  }
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackInstanceAccountAsScala(value: Option[String]): ListStackInstancesRequest.Builder = {
     value.fold(self) { v => self.stackInstanceAccount(v) }
   }
@@ -42,6 +49,10 @@ final class ListStackInstancesRequestOps(val self: ListStackInstancesRequest) ex
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def maxResultsAsScala: Option[Int] = Option(self.maxResults)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def filtersAsScala: Option[Seq[StackInstanceFilter]] =
+    Option(self.filters).map { v => import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala }
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def stackInstanceAccountAsScala: Option[String] = Option(self.stackInstanceAccount)

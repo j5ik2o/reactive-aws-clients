@@ -4,6 +4,7 @@ package com.github.j5ik2o.reactive.aws.sqs.cats
 import cats.effect.{ ContextShift, IO }
 import com.github.j5ik2o.reactive.aws.sqs.{ SqsAsyncClient, SqsClient }
 import software.amazon.awssdk.services.sqs.model._
+import software.amazon.awssdk.services.sqs.paginators._
 
 import scala.concurrent.{ ExecutionContext, Future }
 
@@ -84,6 +85,11 @@ trait SqsCatsIOClient extends SqsClient[IO] {
       IO(underlying.listDeadLetterSourceQueues(listDeadLetterSourceQueuesRequest))
     }
 
+  def listDeadLetterSourceQueuesPaginator(
+      listDeadLetterSourceQueuesRequest: ListDeadLetterSourceQueuesRequest
+  ): ListDeadLetterSourceQueuesPublisher =
+    underlying.listDeadLetterSourceQueuesPaginator(listDeadLetterSourceQueuesRequest)
+
   override def listQueueTags(listQueueTagsRequest: ListQueueTagsRequest): IO[ListQueueTagsResponse] =
     IO.fromFuture {
       IO(underlying.listQueueTags(listQueueTagsRequest))
@@ -98,6 +104,12 @@ trait SqsCatsIOClient extends SqsClient[IO] {
     IO.fromFuture {
       IO(underlying.listQueues())
     }
+
+  def listQueuesPaginator(): ListQueuesPublisher =
+    underlying.listQueuesPaginator()
+
+  def listQueuesPaginator(listQueuesRequest: ListQueuesRequest): ListQueuesPublisher =
+    underlying.listQueuesPaginator(listQueuesRequest)
 
   override def purgeQueue(purgeQueueRequest: PurgeQueueRequest): IO[PurgeQueueResponse] =
     IO.fromFuture {

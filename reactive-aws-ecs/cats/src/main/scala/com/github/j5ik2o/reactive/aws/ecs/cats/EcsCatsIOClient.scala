@@ -64,6 +64,13 @@ trait EcsCatsIOClient extends EcsClient[IO] {
       IO(underlying.deleteAttributes(deleteAttributesRequest))
     }
 
+  override def deleteCapacityProvider(
+      deleteCapacityProviderRequest: DeleteCapacityProviderRequest
+  ): IO[DeleteCapacityProviderResponse] =
+    IO.fromFuture {
+      IO(underlying.deleteCapacityProvider(deleteCapacityProviderRequest))
+    }
+
   override def deleteCluster(deleteClusterRequest: DeleteClusterRequest): IO[DeleteClusterResponse] =
     IO.fromFuture {
       IO(underlying.deleteCluster(deleteClusterRequest))

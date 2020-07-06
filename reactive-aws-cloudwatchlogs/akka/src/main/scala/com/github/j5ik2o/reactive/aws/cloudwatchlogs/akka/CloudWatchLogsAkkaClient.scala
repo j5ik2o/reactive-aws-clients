@@ -140,6 +140,19 @@ trait CloudWatchLogsAkkaClient {
       underlying.deleteMetricFilter(deleteMetricFilterRequest)
     }
 
+  def deleteQueryDefinitionSource(
+      deleteQueryDefinitionRequest: DeleteQueryDefinitionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DeleteQueryDefinitionResponse, NotUsed] =
+    Source.single(deleteQueryDefinitionRequest).via(deleteQueryDefinitionFlow(parallelism))
+
+  def deleteQueryDefinitionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse, NotUsed] =
+    Flow[DeleteQueryDefinitionRequest].mapAsync(parallelism) { deleteQueryDefinitionRequest =>
+      underlying.deleteQueryDefinition(deleteQueryDefinitionRequest)
+    }
+
   def deleteResourcePolicySource(
       deleteResourcePolicyRequest: DeleteResourcePolicyRequest,
       parallelism: Int = DefaultParallelism
@@ -300,6 +313,19 @@ trait CloudWatchLogsAkkaClient {
 
   def describeQueriesSource(): Source[DescribeQueriesResponse, NotUsed] =
     Source.fromFuture(underlying.describeQueries())
+
+  def describeQueryDefinitionsSource(
+      describeQueryDefinitionsRequest: DescribeQueryDefinitionsRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[DescribeQueryDefinitionsResponse, NotUsed] =
+    Source.single(describeQueryDefinitionsRequest).via(describeQueryDefinitionsFlow(parallelism))
+
+  def describeQueryDefinitionsFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse, NotUsed] =
+    Flow[DescribeQueryDefinitionsRequest].mapAsync(parallelism) { describeQueryDefinitionsRequest =>
+      underlying.describeQueryDefinitions(describeQueryDefinitionsRequest)
+    }
 
   def describeResourcePoliciesSource(
       describeResourcePoliciesRequest: DescribeResourcePoliciesRequest,
@@ -487,6 +513,19 @@ trait CloudWatchLogsAkkaClient {
   ): Flow[PutMetricFilterRequest, PutMetricFilterResponse, NotUsed] =
     Flow[PutMetricFilterRequest].mapAsync(parallelism) { putMetricFilterRequest =>
       underlying.putMetricFilter(putMetricFilterRequest)
+    }
+
+  def putQueryDefinitionSource(
+      putQueryDefinitionRequest: PutQueryDefinitionRequest,
+      parallelism: Int = DefaultParallelism
+  ): Source[PutQueryDefinitionResponse, NotUsed] =
+    Source.single(putQueryDefinitionRequest).via(putQueryDefinitionFlow(parallelism))
+
+  def putQueryDefinitionFlow(
+      parallelism: Int = DefaultParallelism
+  ): Flow[PutQueryDefinitionRequest, PutQueryDefinitionResponse, NotUsed] =
+    Flow[PutQueryDefinitionRequest].mapAsync(parallelism) { putQueryDefinitionRequest =>
+      underlying.putQueryDefinition(putQueryDefinitionRequest)
     }
 
   def putResourcePolicySource(

@@ -92,6 +92,14 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
       underlying.describeAccountLimits()
     }
 
+  def describeAccountLimitsPaginator(): Observable[DescribeAccountLimitsResponse] =
+    Observable.fromReactivePublisher(underlying.describeAccountLimitsPaginator())
+
+  def describeAccountLimitsPaginator(
+      describeAccountLimitsRequest: DescribeAccountLimitsRequest
+  ): Observable[DescribeAccountLimitsResponse] =
+    Observable.fromReactivePublisher(underlying.describeAccountLimitsPaginator(describeAccountLimitsRequest))
+
   override def describeChangeSet(describeChangeSetRequest: DescribeChangeSetRequest): Task[DescribeChangeSetResponse] =
     Task.deferFuture {
       underlying.describeChangeSet(describeChangeSetRequest)
@@ -244,6 +252,9 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
       underlying.listChangeSets(listChangeSetsRequest)
     }
 
+  def listChangeSetsPaginator(listChangeSetsRequest: ListChangeSetsRequest): Observable[ListChangeSetsResponse] =
+    Observable.fromReactivePublisher(underlying.listChangeSetsPaginator(listChangeSetsRequest))
+
   override def listExports(listExportsRequest: ListExportsRequest): Task[ListExportsResponse] =
     Task.deferFuture {
       underlying.listExports(listExportsRequest)
@@ -275,6 +286,11 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
       underlying.listStackInstances(listStackInstancesRequest)
     }
 
+  def listStackInstancesPaginator(
+      listStackInstancesRequest: ListStackInstancesRequest
+  ): Observable[ListStackInstancesResponse] =
+    Observable.fromReactivePublisher(underlying.listStackInstancesPaginator(listStackInstancesRequest))
+
   override def listStackResources(
       listStackResourcesRequest: ListStackResourcesRequest
   ): Task[ListStackResourcesResponse] =
@@ -294,12 +310,24 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
       underlying.listStackSetOperationResults(listStackSetOperationResultsRequest)
     }
 
+  def listStackSetOperationResultsPaginator(
+      listStackSetOperationResultsRequest: ListStackSetOperationResultsRequest
+  ): Observable[ListStackSetOperationResultsResponse] =
+    Observable.fromReactivePublisher(
+      underlying.listStackSetOperationResultsPaginator(listStackSetOperationResultsRequest)
+    )
+
   override def listStackSetOperations(
       listStackSetOperationsRequest: ListStackSetOperationsRequest
   ): Task[ListStackSetOperationsResponse] =
     Task.deferFuture {
       underlying.listStackSetOperations(listStackSetOperationsRequest)
     }
+
+  def listStackSetOperationsPaginator(
+      listStackSetOperationsRequest: ListStackSetOperationsRequest
+  ): Observable[ListStackSetOperationsResponse] =
+    Observable.fromReactivePublisher(underlying.listStackSetOperationsPaginator(listStackSetOperationsRequest))
 
   override def listStackSets(listStackSetsRequest: ListStackSetsRequest): Task[ListStackSetsResponse] =
     Task.deferFuture {
@@ -310,6 +338,12 @@ trait CloudFormationMonixClient extends CloudFormationClient[Task] {
     Task.deferFuture {
       underlying.listStackSets()
     }
+
+  def listStackSetsPaginator(): Observable[ListStackSetsResponse] =
+    Observable.fromReactivePublisher(underlying.listStackSetsPaginator())
+
+  def listStackSetsPaginator(listStackSetsRequest: ListStackSetsRequest): Observable[ListStackSetsResponse] =
+    Observable.fromReactivePublisher(underlying.listStackSetsPaginator(listStackSetsRequest))
 
   override def listStacks(listStacksRequest: ListStacksRequest): Task[ListStacksResponse] =
     Task.deferFuture {

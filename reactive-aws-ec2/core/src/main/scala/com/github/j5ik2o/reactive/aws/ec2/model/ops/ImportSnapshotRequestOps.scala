@@ -40,6 +40,13 @@ final class ImportSnapshotRequestBuilderOps(val self: ImportSnapshotRequest.Buil
     value.fold(self) { v => self.roleName(v) }
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala(value: Option[Seq[TagSpecification]]): ImportSnapshotRequest.Builder = {
+    value.filter(_.nonEmpty).fold(self) { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; self.tagSpecifications(v.asJava)
+    }
+  }
+
 }
 
 final class ImportSnapshotRequestOps(val self: ImportSnapshotRequest) extends AnyVal {
@@ -64,6 +71,12 @@ final class ImportSnapshotRequestOps(val self: ImportSnapshotRequest) extends An
 
   @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
   final def roleNameAsScala: Option[String] = Option(self.roleName)
+
+  @SuppressWarnings(Array("org.wartremover.warts.AsInstanceOf"))
+  final def tagSpecificationsAsScala: Option[Seq[TagSpecification]] =
+    Option(self.tagSpecifications).map { v =>
+      import com.github.j5ik2o.reactive.aws.utils.JavaCollectionHelper._; v.asScala
+    }
 
 }
 
