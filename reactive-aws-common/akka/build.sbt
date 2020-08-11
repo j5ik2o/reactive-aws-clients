@@ -9,7 +9,7 @@ libraryDependencies ++= {
         "com.typesafe.akka" %% "akka-actor"  % akka25Version,
         "com.typesafe.akka" %% "akka-stream" % akka25Version,
         "com.typesafe.akka" %% "akka-slf4j"  % akka25Version,
-        "org.scalatest"     %% "scalatest"   % "3.1.2" % Test
+        "org.scalatest"     %% "scalatest"   % "3.1.3" % Test
       )
     case Some((2L, scalaMajor)) if scalaMajor == 12 =>
       Seq(
@@ -17,7 +17,7 @@ libraryDependencies ++= {
         "com.typesafe.akka"      %% "akka-actor"              % akka26Version,
         "com.typesafe.akka"      %% "akka-stream"             % akka26Version,
         "com.typesafe.akka"      %% "akka-slf4j"              % akka26Version,
-        "org.scalatest"          %% "scalatest"               % "3.1.2" % Test
+        "org.scalatest"          %% "scalatest"               % "3.1.3" % Test
       )
     case Some((2L, scalaMajor)) if scalaMajor == 11 =>
       Seq(
