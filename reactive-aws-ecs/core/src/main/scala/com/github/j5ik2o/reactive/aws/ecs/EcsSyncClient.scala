@@ -15,7 +15,8 @@ object EcsSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ecs/EcsClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ecs/EcsClient.html
+  */
 trait EcsSyncClient extends EcsClient[Either[Throwable, ?]] {
   val underlying: JavaEcsSyncClient
 

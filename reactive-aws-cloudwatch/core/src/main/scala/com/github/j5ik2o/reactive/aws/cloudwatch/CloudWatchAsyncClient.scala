@@ -18,7 +18,8 @@ object CloudWatchAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudwatch/CloudWatchAsyncClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudwatch/CloudWatchAsyncClient.html
+  */
 trait CloudWatchAsyncClient extends CloudWatchClient[Future] {
   val underlying: JavaCloudWatchAsyncClient
 
