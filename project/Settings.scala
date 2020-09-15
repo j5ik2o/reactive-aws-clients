@@ -150,7 +150,7 @@ object Settings {
 
   val coreWithTestSettings = coreSettings ++ testSettings
 
-  val dynamoDBLocalVersion = "1.13.3"
+  val dynamoDBLocalVersion = "1.13.4"
   val sqlite4javaVersion   = "1.0.392"
 
   lazy val copySqlite4javaJars = taskKey[Unit]("copyJars")
