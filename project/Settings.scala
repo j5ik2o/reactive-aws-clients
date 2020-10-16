@@ -17,7 +17,7 @@ object Settings {
   val catsVersion       = "2.0.0"
   val catsEffectVersion = "2.0.0"
   val monixVersion      = "3.1.0"
-  val akka25Version     = "2.5.30"
+  val akka25Version     = "2.5.32"
   val akka26Version     = "2.6.8"
 
   val compileScalaStyle = taskKey[Unit]("compileScalaStyle")
