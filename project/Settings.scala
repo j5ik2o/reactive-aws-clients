@@ -125,7 +125,7 @@ object Settings {
         "io.netty"                    % "netty-codec-http"            % "4.1.33.Final",
         "io.netty"                    % "netty-handler"               % "4.1.33.Final",
         "com.google.code.findbugs"    % "jsr305"                      % "3.0.2",
-        "com.google.guava"            % "guava"                       % "28.2-jre",
+        "com.google.guava"            % "guava"                       % "30.0-jre",
         "commons-logging"             % "commons-logging"             % "1.2",
         "org.scala-lang"              % "scala-reflect"               % scalaVersion.value,
         "org.scala-lang"              % "scala-library"               % scalaVersion.value
