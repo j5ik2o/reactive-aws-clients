@@ -14,7 +14,7 @@ addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.4")
 
 addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.0.1")
 
-addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.4.10")
+addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.4.13")
 
 addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.5.0")
 
