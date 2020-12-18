@@ -18,7 +18,8 @@ object Ec2AsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ec2/Ec2AsyncClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ec2/Ec2AsyncClient.html
+  */
 trait Ec2AsyncClient extends Ec2Client[Future] {
   val underlying: JavaEc2AsyncClient
 
