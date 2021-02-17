@@ -16,7 +16,8 @@ object SqsSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/sqs/SqsClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/sqs/SqsClient.html
+  */
 trait SqsSyncClient extends SqsClient[Either[Throwable, ?]] {
   val underlying: JavaSqsSyncClient
 

@@ -15,7 +15,8 @@ object LambdaSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/lambda/LambdaClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/lambda/LambdaClient.html
+  */
 trait LambdaSyncClient extends LambdaClient[Either[Throwable, ?]] {
   val underlying: JavaLambdaSyncClient
 

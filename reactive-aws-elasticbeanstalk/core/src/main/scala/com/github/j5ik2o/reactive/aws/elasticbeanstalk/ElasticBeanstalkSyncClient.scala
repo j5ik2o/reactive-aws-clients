@@ -16,7 +16,8 @@ object ElasticBeanstalkSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticbeanstalk/ElasticBeanstalkClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticbeanstalk/ElasticBeanstalkClient.html
+  */
 trait ElasticBeanstalkSyncClient extends ElasticBeanstalkClient[Either[Throwable, ?]] {
   val underlying: JavaElasticBeanstalkSyncClient
 

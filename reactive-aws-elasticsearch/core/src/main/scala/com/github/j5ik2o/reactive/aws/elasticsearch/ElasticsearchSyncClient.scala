@@ -15,7 +15,8 @@ object ElasticsearchSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticsearch/ElasticsearchClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/elasticsearch/ElasticsearchClient.html
+  */
 trait ElasticsearchSyncClient extends ElasticsearchClient[Either[Throwable, ?]] {
   val underlying: JavaElasticsearchSyncClient
 
