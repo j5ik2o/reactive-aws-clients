@@ -40,7 +40,7 @@ lazy val `reactive-aws-common-test` = (project in file("reactive-aws-common/test
         CrossVersion.partialVersion(scalaVersion.value) match {
           case Some((2L, scalaMajor)) if scalaMajor >= 12 =>
             Seq(
-              "org.scalatest" %% "scalatest" % "3.1.4"
+              "org.scalatest" %% "scalatest" % "3.2.4"
             )
           case Some((2L, scalaMajor)) if scalaMajor <= 11 =>
             Seq(
