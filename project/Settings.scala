@@ -10,7 +10,7 @@ object Settings {
   val sdkBaseName     = settingKey[String]("sdk base name")
   val scalaVersion211 = "2.11.12"
   val scalaVersion212 = "2.12.10"
-  val scalaVersion213 = "2.13.1"
+  val scalaVersion213 = "2.13.5"
 
   val awsSdk2Version = "2.13.67"
 
