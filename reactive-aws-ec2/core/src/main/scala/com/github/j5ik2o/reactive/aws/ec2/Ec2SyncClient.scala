@@ -15,7 +15,8 @@ object Ec2SyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ec2/Ec2Client.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/ec2/Ec2Client.html
+  */
 trait Ec2SyncClient extends Ec2Client[Either[Throwable, ?]] {
   val underlying: JavaEc2SyncClient
 
