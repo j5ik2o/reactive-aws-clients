@@ -37,7 +37,7 @@ object Settings {
       CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2L, scalaMajor)) if scalaMajor >= 12 =>
           Seq(
-            "org.scalatest" %% "scalatest" % "3.1.4" % Test
+            "org.scalatest" %% "scalatest" % "3.2.7" % Test
           )
         case Some((2L, scalaMajor)) if scalaMajor == 11 =>
           Seq(
