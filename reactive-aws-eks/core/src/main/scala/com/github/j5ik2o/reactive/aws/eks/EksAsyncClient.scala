@@ -18,7 +18,8 @@ object EksAsyncClient {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/eks/EksAsyncClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/eks/EksAsyncClient.html
+  */
 trait EksAsyncClient extends EksClient[Future] {
   val underlying: JavaEksAsyncClient
 
