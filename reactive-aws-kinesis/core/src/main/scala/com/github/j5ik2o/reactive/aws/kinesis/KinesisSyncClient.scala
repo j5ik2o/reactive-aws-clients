@@ -16,7 +16,8 @@ object KinesisSyncClient extends ToEitherSupport {
 }
 
 /**
-  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kinesis/KinesisClient.html */
+  * @see https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kinesis/KinesisClient.html
+  */
 trait KinesisSyncClient extends KinesisClient[Either[Throwable, ?]] {
   val underlying: JavaKinesisSyncClient
   import KinesisSyncClient._
